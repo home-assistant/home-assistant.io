@@ -85,26 +85,74 @@
       <span class="pi">-</span> <span class="s">weather</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>api_key</strong> (<em>Required</em>): Your API key for http://openweathermap.org/.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Default to platform name.</li>
-  <li><strong>forecast</strong> (<em>Optional</em>): Enables the forecast. The default is to display the current conditions.</li>
-  <li><strong>language</strong> (<em>Optional</em>): The language in which you want text results to be returned. It’s a two-characters string, eg. <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">ru</code>, <code class="highlighter-rouge">it</code>, etc. Defaults to English.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
-    <ul>
-      <li><strong>weather</strong>: A human-readable text summary.</li>
-      <li><strong>temperature</strong>: The current temperature.</li>
-      <li><strong>wind_speed</strong>: The wind speed.</li>
-      <li><strong>wind_bearing</strong>: The wind bearing.</li>
-      <li><strong>humidity</strong>: The relative humidity.</li>
-      <li><strong>pressure</strong>: The sea-level air pressure in millibars.</li>
-      <li><strong>clouds</strong>: Description about cloud coverage.</li>
-      <li><strong>rain</strong>: The rain volume.</li>
-      <li><strong>snow</strong>: The snow volume</li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="apk_key" href="#apk_key"></a> apk_key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">Your API key for http://openweathermap.org/.</span></p>
+    </dd>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Additional name for the sensors. Default to platform name.</span></p>
+      <p class="default">Default value: OWM</p>
+    </dd>
+    <dt><a class="title-link" name="forecast" href="#forecast"></a> forecast</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Enables the forecast. The default is to display the current conditions.</span></p>
+      <p class="default">Default value: false</p>
+    </dd>
+    <dt><a class="title-link" name="language" href="#language"></a> language</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The language in which you want text results to be returned. It’s a two-characters string, eg. <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">ru</code>, <code class="highlighter-rouge">it</code>, etc.</span></p>
+      <p class="default">Default value: en</p>
+    </dd>
+    <dt><a class="title-link" name="monitored_conditions" href="#monitored_conditions"></a> monitored_conditions</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Required)</span><span class="description">Conditions to display in the frontend.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="weather" href="#weather"></a> weather</dt>
+        <dd>
+          <p class="desc"><span class="description">A human-readable text summary.</span></p>
+        </dd>
+        <dt><a class="title-link" name="temperature" href="#temperature"></a> temperature</dt>
+        <dd>
+          <p class="desc"><span class="description">The current temperature.</span></p>
+        </dd>
+        <dt><a class="title-link" name="wind_speed" href="#wind_speed"></a> wind_speed</dt>
+        <dd>
+          <p class="desc"><span class="description">The wind speed.</span></p>
+        </dd>
+        <dt><a class="title-link" name="wind_bearing" href="#wind_bearing"></a> wind_bearing</dt>
+        <dd>
+          <p class="desc"><span class="description">The wind bearing.</span></p>
+        </dd>
+        <dt><a class="title-link" name="humidity" href="#humidity"></a> humidity</dt>
+        <dd>
+          <p class="desc"><span class="description">The relative humidity.</span></p>
+        </dd>
+        <dt><a class="title-link" name="pressure" href="#pressure"></a> pressure</dt>
+        <dd>
+          <p class="desc"><span class="description">The sea-level air pressure in millibars.</span></p>
+        </dd>
+        <dt><a class="title-link" name="clouds" href="#clouds"></a> clouds</dt>
+        <dd>
+          <p class="desc"><span class="description">Description about cloud coverage.</span></p>
+        </dd>
+        <dt><a class="title-link" name="rain" href="#rain"></a> rain</dt>
+        <dd>
+          <p class="desc"><span class="description">The rain volume.</span></p>
+        </dd>
+        <dt><a class="title-link" name="snow" href="#snow"></a> snow</dt>
+        <dd>
+          <p class="desc"><span class="description">The snow volume.</span></p>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
 <p>Details about the API are available in the <a href="http://openweathermap.org/api">OpenWeatherMap documentation</a>.</p>
 </article>
         </div>

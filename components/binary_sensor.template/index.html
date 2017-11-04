@@ -98,30 +98,38 @@ your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
     </dd>
     <dd>
       <dl class="nested">
-        <dt><a class="title-link" name="friendly_name" href="#friendly_name"></a> friendly_name</dt>
+        <dt><a class="title-link" name="sensor_name" href="#sensor_name"></a> sensor_name</dt>
         <dd>
-          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">The slug of the sensor.</span></p>
         </dd>
-        <dt><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</dt>
         <dd>
-          <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.</span></p>
-        </dd>
-        <dt><a class="title-link" name="device_class" href="#device_class"></a> device_class</dt>
-        <dd>
-          <p class="desc"><span class="type">(<span class="device_class"><a href="/components/binary_sensor/#device_class">device_class</a></span>)</span><span class="required">(Optional)</span><span class="description">The type/class of the sensor to set the icon in the frontend.</span></p>
-          <p class="default">Default value: None</p>
-        </dd>
-        <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
-        <dd>
-          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to set the state of the sensor.</span></p>
-        </dd>
-        <dt><a class="title-link" name="delay_on" href="#delay_on"></a> delay_on</dt>
-        <dd>
-          <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>met</em></strong> before this sensor will switch to <code class="highlighter-rouge">on</code>.</span></p>
-        </dd>
-        <dt><a class="title-link" name="delay_off" href="#delay_off"></a> delay_off</dt>
-        <dd>
-          <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>not met</em></strong> before this sensor will switch to <code class="highlighter-rouge">off</code>.</span></p>
+          <dl class="nested">
+            <dt><a class="title-link" name="friendly_name" href="#friendly_name"></a> friendly_name</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+            </dd>
+            <dt><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.</span></p>
+            </dd>
+            <dt><a class="title-link" name="device_class" href="#device_class"></a> device_class</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="device_class"><a href="/components/binary_sensor/#device_class">device_class</a></span>)</span><span class="required">(Optional)</span><span class="description">The type/class of the sensor to set the icon in the frontend.</span></p>
+              <p class="default">Default value: None</p>
+            </dd>
+            <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to set the state of the sensor.</span></p>
+            </dd>
+            <dt><a class="title-link" name="delay_on" href="#delay_on"></a> delay_on</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>met</em></strong> before this sensor will switch to <code class="highlighter-rouge">on</code>.</span></p>
+            </dd>
+            <dt><a class="title-link" name="delay_off" href="#delay_off"></a> delay_off</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>not met</em></strong> before this sensor will switch to <code class="highlighter-rouge">off</code>.</span></p>
+            </dd>
+          </dl>
         </dd>
       </dl>
     </dd>
