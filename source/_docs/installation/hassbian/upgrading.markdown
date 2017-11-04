@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Upgrading Hassbian"
-description: "Instructions how to upgrade Hasbian to the latest version."
+description: "Instructions how to upgrade Hassbian to the latest version."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
