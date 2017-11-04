@@ -39,4 +39,4 @@ binary_sensor:
 Configuration variables:
 
 - **subscription** (*Required*): The subscription you want to monitor, this can be found in the URL when viewing a server
-- **name** (*Optional*): The name you want to give this binary sensor, defaults to `vultr_{subscription label}`
+- **name** (*Optional*): The name you want to give this binary sensor, defaults to `Vultr {subscription label}`

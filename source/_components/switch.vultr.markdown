@@ -39,4 +39,4 @@ switch:
 Configuration variables:
 
 - **subscription** (*Required*): List of droplets you want to control.
-- **name** (*Optional*): The name you want to give this switch, defaults to `vultr_{subscription label}`
+- **name** (*Optional*): The name you want to give this switch, defaults to `Vultr {subscription label}`
