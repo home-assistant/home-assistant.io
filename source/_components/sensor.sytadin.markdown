@@ -27,9 +27,8 @@ Configuration variables:
 
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend. Defaults to `traffic_jam`.
-  - **traffic_jam**: A human-readable text summary.
-  - **mean_velocity**: The current temperature.
-  - **congestion**: The wind speed.
-
+  - **traffic_jam**: Amount of kilometers in traffic jam (km).  
+  - **mean_velocity**: Mean velocity (km/h).
+  - **congestion**: Index of congestion (n/a).
 
 The data is coming from the [Direction des routes Île-de-France (DiRIF)](http://www.sytadin.fr).

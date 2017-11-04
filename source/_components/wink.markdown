@@ -24,7 +24,7 @@ Home Assistant integrates with the Wink API and automatically sets up any switch
 
 Check the related components pages for actual devices that are supported.
 
-### Authenticate using [developer.wink.com](https://developer.wink.com)
+### {% linkable_title Authenticate using [developer.wink.com](https://developer.wink.com) %}
 
 You need to setup a developer account with Wink. This process can take a few days to get approved.
 
@@ -44,20 +44,7 @@ When using the configurator make sure the initial setup is performed on the same
 wink:
 ```
 
-~~### Authentication with your Wink email and password.~~
-
-
-~~This method pulls a new token on every startup of Home Assistant from this [URL](https://winkbearertoken.appspot.com)~~
-
-```yaml
-wink:
-  email: YOUR_WINK_EMAIL_ADDRESS
-  password: YOUR_WINK_PASSWORD
-```
-
-This is no longer working due to a recent change Wink made, and will be removed in the next release of Home Assistant. Please create a [developer.wink.com](https://developer.wink.com) account so you can keep using Wink!
-
-### Full oauth authentication (legacy).
+### {% linkable_title Full oauth authentication (legacy). %}
 
 This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
 

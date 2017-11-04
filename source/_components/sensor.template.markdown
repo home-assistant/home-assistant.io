@@ -61,6 +61,10 @@ sensor:
         description: Defines a template for the icon of the sensor.
         required: false
         type: template
+      icon_template:
+        description: Defines a template for the entity picture of the sensor.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
@@ -212,6 +216,32 @@ sensor:
             mdi:weather-sunny
           {% else %}
             mdi:weather-night
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the day/night cycle.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: "Day/Night"
+        value_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            Day
+          {% else %}
+            Night
+          {% endif %}
+        entity_picture_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            /local/daytime.png
+          {% else %}
+            /local/nighttime.png
           {% endif %}
 ```
 {% endraw %}

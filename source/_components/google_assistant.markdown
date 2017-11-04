@@ -65,11 +65,15 @@ homeassistant:
       aliases:
         - bedroom shades
         - bedroom covers
+    hallway_ceiling_switch:
+      google_assistant: true
+      google_assistant_type: light
 ```
 
 *Entity Customization Keys:*
 * *google_assistant*: True exposes entity, false will hide it
 * *google_assistant_name*: Can be used to override the primary name of an entity. By default the `friendly_name` of an entity is used.
+* *google_assistant_type*: Can be used to override the domain/type of an entity. For example a switch can be treated as a light
 * *aliases*: Provides "nicknames" to Google Assistant. These function as alternate names for an entity that Assistant will understand when spoken.
 
 ### {% linkable_title Setup %}

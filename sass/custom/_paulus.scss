@@ -286,7 +286,7 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p {
+    & > p:last-child {
       margin-bottom: 0;
     }
 

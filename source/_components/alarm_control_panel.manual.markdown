@@ -79,3 +79,33 @@ automation:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
 ```
+
+Sending a notification when the alarm is triggered.
+
+```yaml
+automation:
+  - alias: 'Send notification when alarm triggered'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.ha_alarm
+        to: 'triggered'
+    action:
+      - service: notify.notify
+        data:
+          message: "ALARM! The alarm has been triggered"
+```
+
+Disarming the alarm when the door is properly unlocked.
+
+```yaml
+automation:
+  - alias: 'Disarm alarm when door unlocked by keypad'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door_lock_alarm_type
+        to: '19'
+        # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.house_alarm
+```
