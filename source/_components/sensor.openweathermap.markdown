@@ -31,7 +31,7 @@ sensor:
 
 {% configuration %}
   apk_key:
-    description: Your API key for http://openweathermap.org/.
+    description: Your API key for OpenWeatherMap.
     required: true
     type: string
   name:
