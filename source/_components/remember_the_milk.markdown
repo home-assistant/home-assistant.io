@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: rememberthemilk.png
 ha_category: Calendar
 ha_release: 0.57
 ---
