@@ -113,7 +113,7 @@ action:
 | MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/?charset=utf8`      |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8`      |
 
 ## {% linkable_title Installation notes %}
 
