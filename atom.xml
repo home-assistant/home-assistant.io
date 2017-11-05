@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-05T20:55:48+00:00</updated>
+  <updated>2017-11-05T22:08:47+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -97,6 +97,13 @@ The Home Assistant sidebar in 12 different languages.
 
 <ul>
   <li>Fix login screen not showing when no password stored (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h2><a class="title-link" name="release-0572---november-5" href="#release-0572---november-5"></a> release 0.57.2 - november 5</h2>
+
+<ul>
+  <li>Update frontend with fixes for setting temperature on climate card (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix setting max brightness for TRADFRI (<a href="https://github.com/ggravlingen">@ggravlingen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10359">#10359</a>)</li>
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
