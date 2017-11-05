@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: System Monitor
 logo: vultr.png
-ha_release: "0.57"
+ha_release: "0.58"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -22,13 +22,29 @@ The following examples assume a subscription that has an ID of `123456` and a la
 </p>
 
 Minimal `configuration.yaml` (produces `binary_sensor.vultr_web_server`):
+
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   - platform: vultr
     subscription: 123456
 ```
 
+{% configuration %}
+subscription:
+  description: The subscription you want to monitor, this can be found in the URL when viewing a server.
+  required: true
+  type: string
+name:
+  description: The name you want to give this binary sensor.
+  required: false
+  default: "Vultr {subscription label}"
+  type: string
+{% endconfiguration %}
+
+
 Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
+
 ```yaml
 binary_sensor:
   - platform: vultr
@@ -36,7 +52,3 @@ binary_sensor:
     subscription: 12345
 ```
 
-Configuration variables:
-
-- **subscription** (*Required*): The subscription you want to monitor, this can be found in the URL when viewing a server
-- **name** (*Optional*): The name you want to give this binary sensor, defaults to `Vultr {subscription label}`

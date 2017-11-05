@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: vultr.png
 ha_category: Switch
-ha_release: "0.57"
+ha_release: "0.58"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -22,13 +22,29 @@ The following examples assume a subscription that has an ID of `123456` and a la
 </p>
 
 Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
+
 ```yaml
+# Example configuration.yaml entry
 switch:
   - platform: vultr
     subscription: 123456
 ```
 
+{% configuration %}
+subscription:
+  description: List of droplets you want to control.
+  required: true
+  type: string
+name:
+  description: The name you want to give this switch.
+  required: false
+  default: "Vultr {subscription label}"
+  type: string
+{% endconfiguration %}
+
+
 Full `configuration.yaml` (produces `switch.amazing_server`):
+
 ```yaml
 switch:
   - platform: vultr
@@ -36,7 +52,4 @@ switch:
     subscription: 123456
 ```
 
-Configuration variables:
 
-- **subscription** (*Required*): List of droplets you want to control.
-- **name** (*Optional*): The name you want to give this switch, defaults to `Vultr {subscription label}`
