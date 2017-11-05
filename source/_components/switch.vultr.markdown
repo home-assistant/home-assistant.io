@@ -38,7 +38,7 @@ subscription:
 name:
   description: The name you want to give this switch.
   required: false
-  default: `Vultr {subscription label}`
+  default: "Vultr {subscription label}"
   type: string
 {% endconfiguration %}
 

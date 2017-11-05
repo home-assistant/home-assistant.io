@@ -25,7 +25,6 @@ The following examples assume a subscription that has an ID of `123456` and a la
 Minimal `configuration.yaml` (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: vultr
     subscription: 123456
@@ -39,7 +38,7 @@ subscription:
 name:
   description: The name to give this sensor.
   required: false
-  default: `Vultr {Vultr subscription label} {monitored condition name}`
+  default: "Vultr {Vultr subscription label} {monitored condition name}"
   type: string
 monitored_conditions:
   description: List of items you want to monitor for each subscription.
@@ -48,11 +47,10 @@ monitored_conditions:
   type: list
   keys:
     current_bandwidth_used:
-      description: The current (invoice period) bandwidth usage in Gigabytes (GB)..
+      description: The current (invoice period) bandwidth usage in Gigabytes (GB).
     temperature:
-      pending_charges: The current temperature.
+      pending_charges: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
-
 
 Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_used` and `sensor.server_pending_charges`):
 
