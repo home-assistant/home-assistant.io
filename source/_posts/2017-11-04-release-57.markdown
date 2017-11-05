@@ -87,6 +87,11 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 
  - Fix login screen not showing when no password stored ([@balloob])
 
+## {% linkable_title release 0.57.2 - november 5 %}
+
+- Update frontend with fixes for setting temperature on climate card ([@balloob])
+- Fix setting max brightness for TRADFRI ([@ggravlingen] - [#10359])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -433,6 +438,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#9988]: https://github.com/home-assistant/home-assistant/pull/9988
 [#9990]: https://github.com/home-assistant/home-assistant/pull/9990
 [#9996]: https://github.com/home-assistant/home-assistant/pull/9996
+[#10359]: https://github.com/home-assistant/home-assistant/pull/10359
 [@C0DK]: https://github.com/C0DK
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
 [@DarkFox]: https://github.com/DarkFox
