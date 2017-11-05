@@ -16,7 +16,7 @@ ha_release: 0.32
 
 The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers.
 
-To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS webinterface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
+To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/cups-sensor.png' />
@@ -36,6 +36,8 @@ sensor:
 Configuration variables:
 
 - **printers** array (*Required*): List of printers to add.
+- **host** (*Optional*): IP address of the CUPS print server.
+- **port** (*Optional*): Port address of the CUPS print server. Defaults to 631.
 
 
 <p class='note'>

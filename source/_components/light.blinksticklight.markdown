@@ -10,6 +10,7 @@ footer: true
 logo: blinkstick.png
 ha_category: Light
 ha_release: 0.7.5
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -20,9 +21,9 @@ To add blinkstick to your installation, add the following to your `configuration
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: blinksticklight
-  serial: BS000795-1.1
-  name: Living Room
+  - platform: blinksticklight
+    serial: BS000795-1.1
+    name: Living Room
 ```
 
 Configuration variables:

@@ -95,7 +95,7 @@ From this we will end up with the binary sensors `calendar.test_unimportant` and
 
 But what if you only wanted it to toggle based on all events? Just leave out the *search* parameter.
 
-**Note**: If you use a `#` sign for search then wrap it up. It's better to be safe!
+**Note**: If you use a `#` sign for `search` then wrap the whole search term in quotes. Otherwise everything following the hash sign would be considered a YAML comment.
 
 
 ### {% linkable_title Sensor attributes %}

@@ -10,6 +10,7 @@ footer: true
 logo: enocean.png
 ha_category: Switch
 ha_release: 0.21
+ha_iot_class: "Local Push"
 ---
 
 An EnOcean switch can take many forms. Currently only one type has been tested: Permundo PSC234

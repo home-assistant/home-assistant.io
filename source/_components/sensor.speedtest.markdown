@@ -11,6 +11,7 @@ logo: speedtest.png
 ha_category: System Monitor
 featured: false
 ha_release: 0.13
+ha_iot_class: "Cloud Polling"
 ---
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -41,10 +42,12 @@ Configuration variables:
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
+- **manual** (*Optional*): True or False to turn manual mode on or off.  Manual mode will disable scheduled speedtests.
 
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net. Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
 
-When Home Assistant first starts up, the values of the speedtest will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.
+When Home Assistant first starts up, the values of the speedtest will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.  You can turn on manual mode to disable the scheduled speedtests.
+
 
 ## {% linkable_title Examples %}
 
@@ -74,15 +77,39 @@ Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 ```
+
+### {% linkable_title Using as a trigger in an automation %}
+
+```yaml
+# Example configuration.yaml entry
+automation:
+ - alias: 'Internet Speed Glow Connect Great' 
+    trigger: 
+      platform: template
+      value_template: '{% raw %}{{ states.sensor.speedtest_download.state|float > 10}}{% endraw %}'
+    action:      
+      service: shell_command.green
+  - alias: 'Internet Speed Glow Connect Poor' 
+    trigger: 
+      platform: template
+      value_template: '{% raw %}{{ states.sensor.speedtest_download.state| float < 10 }}{% endraw %}' 
+    action:      
+      service: shell_command.red
+```
+
+## {% linkable_title Notes %}
+
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- Entries under `monitored_conditions` only control what entities are available under home-assistant, it does not disable the condition from running.

@@ -14,9 +14,10 @@ featured: false
 ---
 
 
-The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.  
+If you are using Homegear with paired [Intertechno](http://intertechno.at/) devices, uni-directional communication is possible as well.
 
-Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.
+Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`.
 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
@@ -35,25 +36,26 @@ homematic:
 Configuration variables (global):
 
 - **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
-- **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
+- **local_ip** (*Optional*): IP of device running Home Assistant. Override auto-detected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
 Configuration variables (host):
 
-- **ip** (*Required*): IP of CCU/Homegear
-- **port** (*Optional*): Port of Homegear/CCU XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)
+- **ip** (*Required*): IP address of CCU/Homegear device.
+- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
+- **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+- **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 - **primary** (*Optional*): Set to `true` when using multiple hosts and this host should provide the services and variables.
-- **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host.
+- **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.
+- **path** (*Optional*): Set to `/groups` when using port 9292.
 
 #### Example configuration with multiple protocols and some other options set:
 
 ```yaml
 homematic:
-  delay: 1.0
   hosts:
     rf:
       ip: 127.0.0.1
@@ -71,9 +73,16 @@ homematic:
     ip:
       ip: 127.0.0.1
       port: 2010
+    groups:
+      ip: 127.0.0.1
+      port: 9292
+      resolvenames: json
+      username: Admin
+      password: secret
+      path: /groups
 ```
 
-### The `resolvenames` option
+### {% linkable_title The `resolvenames` option %}
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
@@ -83,26 +92,40 @@ We use three approaches to fetch the names of devices. Each assumes you have pro
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
 
-### Multiple hosts
+### {% linkable_title Multiple hosts %}
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.  
-Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.  
-This does *not* affect the entites in Home Assistant. They all use their own connection and work as expected.
+In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
+This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
-### Variables
+### {% linkable_title Reading attributes of entities %}
 
-It is possible to read and set values of system variables you have setup on the CCU/Homegear. An example of how that is done can be found below. The supported types for setting values are float- and bool-variables.  
-Each variable will be available as it's own entity in the form of `homematic.name`. The predefined `homematic.homematic` variable has the number of service messages as it's value. You can use these variable-entities like any other entity in Home Assistant to trigger automations.  
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](https://home-assistant.io/components/sensor.template/) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
+
+```yaml
+sensor:
+- platform: template
+  sensors:
+    bedroom_valve:
+      value_template: '{% raw %}{{ states.climate.leq123456.attributes.Valve }}{% endraw %}'
+      entity_id: climate.leq123456
+      friendly_name: 'Bedroom valve'
+```
+
+### {% linkable_title Variables %}
+
+It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
+The states of the variables are available through the attributes of your hub entity (e.g. `homematic.rf`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
-### Events
+### {% linkable_title Events %}
 
 When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:
 
 * **homematic.keypress**: For devices with buttons, see information below
 * **homematic.impulse**: For impulse sensors
 
-#### Devices with buttons
+#### {% linkable_title Devices with buttons %}
 
 Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don't serve any value here and all they do is trigger events.
 As an example:
@@ -127,14 +150,14 @@ automation:
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. "Kitchen Switch").
 
-### Services
+### {% linkable_title Services %}
 
 * *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 * *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
 * *homematic.set_var_value*: Set the value of a system variable.
 * *homematic.set_dev_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
-#### Examples
+#### {% linkable_title Examples %}
 Simulate a button being pressed
 ```yaml
 ...
@@ -157,20 +180,20 @@ action:
     param: OPEN
 ```
 
-Set variable
+Set boolean variable to true
 ```yaml
 ...
 action:
   service: homematic.set_var_value
   data:
-    entity_id: homematic.varname_bool
+    entity_id: homematic.rf
+    name: Variablename
     value: true
 ```
 
+#### {% linkable_title Advanced examples %}
 
-#### Advanced examples
-
-If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.  
+If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
 
 Manually turn on a switch actor

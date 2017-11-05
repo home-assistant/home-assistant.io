@@ -25,11 +25,9 @@ sensor:
   monitored_conditions:
     - Temperature
     - Humidity
-    - Rain
     - Pressure
     - UVIndex
     - Luminance
-    - Night
     - Voltage
 ```
 
@@ -38,9 +36,10 @@ Configuration variables:
 - **monitored_conditions** array (*Required*): The sensors that you wish to monitor on all of your devices. Select from these options:
   - Humidity
   - Luminance
-  - Night
   - Pressure
-  - Rain
   - Temperature
   - UVIndex
   - Voltage
+
+
+More conditions are available using the [BloomSky binary sensor](/components/binary_sensor.bloomsky) component.

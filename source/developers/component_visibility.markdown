@@ -18,4 +18,4 @@ self.hidden = True
 
 This will SUGGEST that the active frontend hides the entity. This requires that the active frontend support hidden cards (the default frontend does) and that the value of hidden be included in your attributes dictionary (see above). The Entity abstract class will take care of this for you.
 
-Remember: The suggestion set by your component's code will always be overwritten by user settings in the 'configuration.yaml' file. This is why you may set hidden to be False, but the property may remain True (or vice-versa).
+Remember: The suggestion set by your component's code will always be overwritten by user settings in the `configuration.yaml` file. This is why you may set hidden to be `False`, but the property may remain `True` (or vice-versa).

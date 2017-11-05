@@ -22,7 +22,7 @@ This example follows a topic on MQTT and updates the state of an entity to the l
 import homeassistant.loader as loader
 
 # The domain of your component. Should be equal to the name of your component.
-DOMAIN = "hello_mqtt"
+DOMAIN = 'hello_mqtt'
 
 # List of component names (string) your component depends upon.
 DEPENDENCIES = ['mqtt']
@@ -33,20 +33,20 @@ DEFAULT_TOPIC = 'home-assistant/hello_mqtt'
 
 
 def setup(hass, config):
-    """Setup the Hello MQTT component."""
+    """Set up the Hello MQTT component."""
     mqtt = loader.get_component('mqtt')
     topic = config[DOMAIN].get('topic', DEFAULT_TOPIC)
     entity_id = 'hello_mqtt.last_message'
 
     # Listener to be called when we receive a message.
     def message_received(topic, payload, qos):
-        """A new MQTT message has been received."""
+        """Handle new MQTT messages."""
         hass.states.set(entity_id, payload)
 
     # Subscribe our listener to a topic.
     mqtt.subscribe(hass, topic, message_received)
 
-    # Set the intial state
+    # Set the initial state.
     hass.states.set(entity_id, 'No messages')
 
     # Service to publish a message on MQTT.

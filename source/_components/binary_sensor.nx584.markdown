@@ -48,3 +48,4 @@ binary_sensor:
     2: opening
     4: motion
     6: moisture
+```

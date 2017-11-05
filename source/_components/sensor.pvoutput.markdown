@@ -10,6 +10,7 @@ footer: true
 logo: pvoutput.png
 ha_category: Energy
 ha_release: 0.33
+ha_iot_class: "Cloud Polling"
 ---
 
 

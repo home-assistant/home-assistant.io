@@ -24,10 +24,10 @@ To add iTunes to your installation, add the following to your `configuration.yam
 # Example configuration.yaml entry
 media_player:
   - platform: itunes
-    host: http://192.168.1.50
+    host: 192.168.1.50
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The URL of the itunes-api API, eg. http://192.168.1.50
+- **host** (*Required*): The IP of the itunes-api API, eg. 192.168.1.50
 - **port** (*Optional*): The port where itunes-api is accessible, eg. 8181.

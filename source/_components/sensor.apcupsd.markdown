@@ -1,6 +1,6 @@
 ---
 layout: page
-title: APCUPSd Sensor
+title: "APCUPSd Sensor"
 description: "Instructions on how to set up APCUPSd sensors within Home Assistant."
 date: 2016-02-10 18:28
 sidebar: true
@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: apcupsd.png
-ha_category: Sensor
+ha_release: 0.13
+ha_category: System Monitor
+ha_iot_class: "Local Polling"
 ---
 
 The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.

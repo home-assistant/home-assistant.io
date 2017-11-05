@@ -35,13 +35,17 @@ sensor:
 - **include_only_feed_id** (*Optional*): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if `exclude_feed_id` is specified.
 - **exclude_feed_id** (*Optional*): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
 - **sensor_names** (*Optional*): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to alter the feed value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to alter the feed value.
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of for all the sensors. default is "W".
 
 ## {% linkable_title Default naming scheme %}
 
-The names of the sensors created by this component, will be a combination of static text, `id` from the config and `feedid` from the Emoncms feed, unless `sensor_names` is used. An example name would be `emoncms1_feedid_10`.
+The names of the sensors created by this component will use the feed names defined in EmonCMS if available,
+or the feed ID otherwise, and will be prefixed with "EmonCMS", e.g. "EmonCMS Total Power" or "EmonCMS Feed 5".
+If the `id` property is anything but `1`, the ID will be shown as well, e.g. "EmonCMS 2 Feed 5".
+
+If `sensor_names` is used, any feeds with defined names will get those names exactly, with no prefix.
 
 ### {% linkable_title Examples %}
 
@@ -92,7 +96,7 @@ sensor:
       - 120
     sensor_names:
       5: "feed 1"
-      48: "kwh feed"
+      48: "kWh feed"
       61: "amp feed"
       110: "watt feed"
 ```

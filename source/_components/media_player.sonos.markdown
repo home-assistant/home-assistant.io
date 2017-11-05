@@ -24,6 +24,7 @@ media_player:
   - platform: sonos
 ```
 
+
 If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
 
 ```yaml
@@ -60,7 +61,8 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also snapshot the group state of the speaker.
 
 ### {% linkable_title Service `sonos_restore` %}
 
@@ -68,15 +70,17 @@ Restore a previously taken snapshot of one or more speakers. If no `entity_id` i
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also restore the group state of the speaker. Only if was snapshot with group.
 
-### {% linkable_title Service `sonos_group_players` %}
+### {% linkable_title Service `sonos_join` %}
 
-Group all players together under a single coordinator.
+Do group players together under a single coordinator. That will make a new group or join to exists group.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of a single `entity_id` that will become the coordinator speaker.
+| `master` | no | A single `entity_id` that will become/hold the coordinator speaker.
+| `entity_id` | no | String or list of a single `entity_id` that will group to master speaker.
 
 ### {% linkable_title Service `sonos_unjoin` %}
 
@@ -103,3 +107,15 @@ Clear the sleep timer on a speaker, if one is set.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
+### {% linkable_title Service `sonos_update_alarm` %}
+
+Update an existing sonos alarm.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
+| `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
+| `time` | yes | Time to set the alarm.
+| `volume` | yes | Float for volume level.
+| `enabled` | yes | Boolean for whether or not to enable this alarm.
+| `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players. 

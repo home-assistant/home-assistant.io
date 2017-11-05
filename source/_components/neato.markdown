@@ -10,7 +10,6 @@ footer: true
 logo: neato.png
 ha_category: Hub
 ha_release: 0.33
-featured: true
 ---
 
 The `neato` component allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).

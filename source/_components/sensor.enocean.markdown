@@ -10,6 +10,7 @@ footer: true
 logo: enocean.png
 ha_category: Sensor
 ha_release: 0.21
+ha_iot_class: "Local Push"
 ---
 
 

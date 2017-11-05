@@ -34,6 +34,16 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **user_key** (*Required*): Your user key for Pushover.
 
+Example Automation:
+```yaml
+- service: notify.entity_id
+      data: 
+        message: "This is the message"
+        title: "Title of message"
+        sound: pianobar
+        priority: 0
+```
+
 This is a quote from the Pushover website regarding free/open source apps:
 
 <blockquote>
@@ -43,3 +53,23 @@ This is a quote from the Pushover website regarding free/open source apps:
 When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api). 
+
+Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
+
+```yaml
+# Example configuration.yaml entries
+alexa:
+  intents:
+    LocateIntent:
+      action:
+        service: notify.notify
+        data_template:
+          message: "The location of {% raw %}{{ User }}{% endraw %} has been queried via Alexa."
+          data:
+            title: "Home Assistant"
+            sound: falling
+            device: pixel
+            url: "https://home-assistant.io/"
+```

@@ -10,6 +10,7 @@ footer: true
 logo: ffmpeg.png
 ha_category: Camera
 ha_release: 0.26
+ha_iot_class: "Local Polling"
 ---
 
 

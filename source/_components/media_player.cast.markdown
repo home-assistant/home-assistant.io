@@ -28,3 +28,4 @@ media_player:
 Configuration variables:
 
 - **host** (*Optional*): Use only if you don't want to scan for devices.
+- **ignore_cec** (*Optional*) A list of chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)

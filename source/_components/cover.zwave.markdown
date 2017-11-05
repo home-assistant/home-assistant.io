@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Cover
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 Z-Wave garage doors, blinds, and roller shutters are supported as cover in Home Assistant.

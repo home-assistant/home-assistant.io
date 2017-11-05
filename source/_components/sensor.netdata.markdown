@@ -10,7 +10,7 @@ footer: true
 logo: netdata.png
 ha_category: System Monitor
 ha_release: 0.35
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -41,4 +41,15 @@ Configuration variables:
   - 'system_load': System Load 15 min
   - 'system_io_in': System I/O In
   - 'system_io_out': System I/O Out
-
+  - 'ipv4_in': Amount of inbound IPv4 packets per second
+  - 'ipv4_out': Amount of outbound IPv4 packets per second
+  - 'disk_free': Free disk space
+  - 'cpu_iowait': CPU spent spent waiting for IO operations
+  - 'cpu_user': CPU time spent executing user tasks
+  - 'cpu_system': CPU time spent executing system tasks
+  - 'cpu_softirq': CPU time spent servicing soft interrupts
+  - 'cpu_guest': CPU time spent on guest tasks (such as VMs)
+  - 'uptime': Time (in seconds) since last boot
+  - 'packets_received': Amount of packets received
+  - 'packets_sent': Amount of packets sent
+  - 'connections': Total active connections

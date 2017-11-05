@@ -24,8 +24,8 @@ The easiest way to find your roller shutters is to add this to your `configurati
 
 ```yaml
 cover:
-  platform: rfxtrx
-  automatic_add: True
+  - platform: rfxtrx
+    automatic_add: True
 ```
 
 Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.
@@ -34,15 +34,15 @@ Once added it will show an ID (e.g `0b11000102ef9f210010f70`) and you can verify
 
 ```yaml
 cover:
-  platform: rfxtrx
-  devices:
-    0b11000102ef9f210010f70:
-      name: device_name
+  - platform: rfxtrx
+    devices:
+      0b11000102ef9f210010f70:
+        name: device_name
 ```
 
 ##### {% linkable_title RFY %}
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr eg, id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
 ##### {% linkable_title Common %}
 
@@ -51,14 +51,14 @@ Example configuration:
 ```yaml
 # Example configuration.yaml entry
 cover:
-  platform: rfxtrx
-  automatic_add: False
-  signal_repetitions: 2
-  devices:
-    0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
-      name: Bedroom Shutter
-    070a00000a000101: # RFY
-      name: Bathroom Shutter
+  - platform: rfxtrx
+    automatic_add: False
+    signal_repetitions: 2
+    devices:
+      0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
+        name: Bedroom Shutter
+      071a00000a000101: # RFY
+        name: Bathroom Shutter
 ```
 
 Configuration variables:

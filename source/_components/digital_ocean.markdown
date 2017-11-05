@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: true
 ha_category: Hub
 ha_release: "0.30"
 logo: digital_ocean.png

@@ -10,6 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Climate
 ha_release: 0.31
+ha_iot_class: "Cloud Polling"
 ---
 
 

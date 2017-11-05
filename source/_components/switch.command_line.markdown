@@ -48,7 +48,7 @@ In this section you find some real life examples of how to use this switch.
 
 ### {% linkable_title aREST device %}
 
-The example below is doing the same as the [aREST switch](/components/switch.arest/). The commandline tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
+The example below is doing the same as the [aREST switch](/components/switch.arest/). The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +59,7 @@ switch:
       command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-      value_template: '{% raw %}{{ return_value == "1" }}{% endraw %}'
+      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
       friendly_name: Kitchen Lightswitch
 ```
 

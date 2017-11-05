@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+og_image: /images/architecture/component_interaction.png
 ---
 
 Home Assistant can be extended with **components**. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services, and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of [built-in components]({{site_root}}/components/).
@@ -32,22 +33,22 @@ These components provide small pieces of home automation logic or involve servic
 
 For example, the [`device_sun_light_trigger` component](/components/device_sun_light_trigger/) tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and people are home. The component uses logic like this:
 
-```plain
-    In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
-      If the sun has set and the lights are not on:
-        Turn on the lights
+```text
+In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
+  If the sun has set and the lights are not on:
+    Turn on the lights
 ```
 
-```plain
-    In the event that the combined state of all tracked devices changes to 'Not Home':
-      If the lights are on:
-        Turn off the lights
+```text
+In the event that the combined state of all tracked devices changes to 'Not Home':
+  If the lights are on:
+    Turn off the lights
 ```
 
-```plain
-    In the event of the sun setting:
-      If the lights are off and the combined state of all tracked device equals 'Home':
-        Turn on the lights
+```text
+In the event of the sun setting:
+  If the lights are off and the combined state of all tracked device equals 'Home':
+    Turn on the lights
 ```
 
 Look [here](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py) for a comprehensive example of a home automation component.

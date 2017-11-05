@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Presence Detection
+ha_iot_class: depends
 ---
 
 
@@ -21,8 +22,8 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: /location/paulus
-      annetherese_n4: /location/annetherese
+      paulus_oneplus: 'location/paulus'
+      annetherese_n4: 'location/annetherese'
 ```
 
 Configuration variables:

@@ -26,7 +26,7 @@ Head over to the [setup instructions](/components/ifttt/) to get started with IF
 
 <!--more-->
 
-In each of the following examples, make sure to replace the XXX in the url with your correct host address and api password.
+In each of the following examples, make sure to replace the XXX in the URL with your correct host address and API password.
 
 ## {% linkable_title Turn off irregation system when not needed %}
 

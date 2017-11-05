@@ -22,6 +22,7 @@ feedreader:
   urls:
     - https://home-assistant.io/atom.xml
     - https://github.com/blog.atom
+    - https://hasspodcast.io/feed/podcast
 ```
 
 Configuration variables:
@@ -41,6 +42,22 @@ automation:
       entity_id: script.my_action
 ```
 
+```yaml
+automation:
+  - alias: Send notification of RSS feed title when updated
+    trigger:
+      platform: event
+      event_type: feedreader
+    action:
+      service: persistent_notification.create
+      data_template:
+        title: "New HA Podcast available"
+        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
+        notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}
+```
+
+Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
+
 For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
 
 ```python
@@ -49,3 +66,5 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
 To get started developing custom components, please refer to the [developers](/developers) documentation
+
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml).

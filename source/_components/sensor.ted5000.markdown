@@ -10,21 +10,18 @@ footer: true
 logo: ted.png
 ha_category: Sensor
 ha_release: 0.30
+ha_iot_class: "Local Polling"
+---
 
-The `ted 5000` monitors electricity consumption/production by connecting to the
-[TED](http://www.theenergydetective.com/home) gateway, itself connected to one
-or several Measuring Transmitting Units (MTU).
-The platform creates up to two sensors per MTU, one for Wattage the other for
-Voltage.  If you want to enable the ted5000 sensor, add the following lines to
-your `configuration.yaml`:
+The `ted 5000` monitors electricity consumption/production by connecting to the [TED](http://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.
+
+If you want to enable the ted5000 sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: ted5000
-  name: main
-  host: 192.168.1.100
-  port: 80
+  - platform: ted5000
+    host: 192.168.1.100
 ```
 
 Configuration variables:
@@ -34,6 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the ted gateway. Defaults to ted.
 
 For each plugged MTU, using an index starting at 1, the platform creates 2 sensors:
+
 ```yaml
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage

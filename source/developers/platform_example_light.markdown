@@ -63,11 +63,12 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     # Verify that passed in configuration works
     if not hub.is_valid_login():
-        _LOGGER.error('Could not connect to AwesomeLight hub')
+        _LOGGER.error("Could not connect to AwesomeLight hub")
         return False
 
     # Add devices
     add_devices(AwesomeLight(light) for light in hub.lights())
+
 
 
 class AwesomeLight(Light):
@@ -76,25 +77,28 @@ class AwesomeLight(Light):
     def __init__(self, light):
         """Initialize an AwesomeLight."""
         self._light = light
+        self._name = light.name
+        self._state = None
+        self._brightness = None
 
     @property
     def name(self):
         """Return the display name of this light."""
-        return self._light.name
+        return self._name
 
     @property
     def brightness(self):
-        """Brightness of the light (an integer in the range 1-255).
+        """Return the brightness of the light.
 
         This method is optional. Removing it indicates to Home Assistant
         that brightness is not supported for this light.
         """
-        return self._light.brightness
+        return self._brightness
 
     @property
     def is_on(self):
         """Return true if light is on."""
-        return self._light.is_on()
+        return self._state
 
     def turn_on(self, **kwargs):
         """Instruct the light to turn on.
@@ -115,4 +119,6 @@ class AwesomeLight(Light):
         This is the only method that should fetch new data for Home Assistant.
         """
         self._light.update()
+        self._state = self._light.is_on()
+        self._brightness = self._light.brightness
 ```

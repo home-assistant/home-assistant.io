@@ -30,7 +30,7 @@ automation:
   - alias: Enable First Morning Trigger
     trigger:
       - platform: time
-        after: '5:00'
+        at: '5:00'
     action: 
       service: homeassistant.turn_on
       entity_id: input_boolean.trigger_first_morning
@@ -75,15 +75,15 @@ automation:
             # if light is off, force a 0, otherwise use the brightness value
             value_template: {% raw %}'{% if states.light.livingroom_ec.state == "on"  %}{{ states.light.livingroom_ec.attributes.brightness }}{% else %}0{% endif %}'{% endraw %}
             # brightness below 50% (255 = 100%)
-            below: 127
+            below: 128
           - condition: numeric_state
             entity_id: light.kitchen_bar
             value_template: {% raw %}'{% if states.light.kitchen_bar.state == "on"  %}{{ states.light.kitchen_bar.attributes.brightness }}{% else %}0{% endif %}'{% endraw %}
-            below: 127
+            below: 128
           - condition: numeric_state
             entity_id: light.kitchen_ceiling
             value_template: {% raw %}'{% if states.light.kitchen_ceiling.state == "on"  %}{{ states.light.kitchen_ceiling.attributes.brightness }}{% else %}0{% endif %}'{% endraw %}
-            below: 127
+            below: 128
                 
       # Trigger a scene
       # You could add as many services or scenes as you'd like

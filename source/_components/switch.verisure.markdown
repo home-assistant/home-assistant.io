@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: verisure.png
 ha_category: Switch
+ha_iot_class: "Cloud Polling"
 ---
 
 

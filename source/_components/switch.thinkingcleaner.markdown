@@ -13,7 +13,7 @@ ha_iot_class: "Local Poll"
 ha_release: 0.18
 ---
 
-The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](http://www.thinkingcleaner.com) addon.
+The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 

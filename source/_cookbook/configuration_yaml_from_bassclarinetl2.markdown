@@ -148,7 +148,7 @@ automation:
 #      zone: zone.barracuda_sj
 #      event: enter
 #    - platform: time
-#      after: '07:15'
+#      at: '07:15'
 #      before: '09:00'
 #  action:
 #    service: ifttt.trigger
@@ -217,7 +217,7 @@ frontend:
 logbook:
 
 http:
-  api_password: Austin12#
+  api_password: [password goes here]
   server_port: 8123
   ssl_certificate: /etc/letsencrypt/live/example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/example.com/privkey.pem

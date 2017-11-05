@@ -33,6 +33,8 @@ Configuration variables:
 - **message_param_name** (*Optional*): Parameter name for the message. Defaults to `message`.
 - **title_param_name** (*Optional*): Parameter name for the title. Defaults to none.
 - **target_param_name** (*Optional*): Parameter name for the target. Defaults to none.
+- **data** (*Optional*): Dictionary of extra parameters to send to the resource.
+- **data_template** (*Optional*): Template dictionary of extra parameters to send to the resource.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

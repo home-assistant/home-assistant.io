@@ -2,8 +2,8 @@
 layout: post
 title: "Explaining the Updater"
 description: "An update to the recent updater component changes"
-date: 2016-10-24 21:30:00 -0700
-date_formatted: "October 24, 2016"
+date: 2016-10-25 21:30:00 UTC
+date_formatted: "October 25, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -12,6 +12,7 @@ categories: Organisation
 
 On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
+<!--more-->
 ## {% linkable_title Why we changed the updater %}
 This change was driven by two important factors.
 
