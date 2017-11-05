@@ -198,6 +198,17 @@ The device type is <code class="highlighter-rouge">c</code> (character special) 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/cu.usbmodem<span class="k">*</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="hassio" href="#hassio"></a> Hass.io</h3>
+<p>To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
+</code></pre>
+</div>
+<p>For some devices the <code class="highlighter-rouge">/dev/ttyAMA0</code> device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://hassio/homeassistant/options
+</code></pre>
+</div>
+<p>After that, you need to change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code>.</p>
 <h3><a class="title-link" name="network-key" href="#network-key"></a> Network Key</h3>
 <p>Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices.</p>
 <p>An easy script to generate a random key:</p>
@@ -207,6 +218,23 @@ The device type is <code class="highlighter-rouge">c</code> (character special) 
 <p>Ensure you keep a backup of this key. If you have to rebuild your system and don’t have a backup of this key, you won’t be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.</p>
 <h2><a class="title-link" name="first-run" href="#first-run"></a> First Run</h2>
 <p>Upon first run, the <code class="highlighter-rouge">zwave</code> component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may speed up this process.</p>
+<h2><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h2>
+<h3><a class="title-link" name="component-could-not-be-set-up" href="#component-could-not-be-set-up"></a> Component could not be set up</h3>
+<p>Sometimes the device may not be accessible and you’ll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ls -l /dev/ttyAMA0
+</code></pre>
+</div>
+<p>You should then see something like this:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
+</code></pre>
+</div>
+<p>The important pieces are the first piece <code class="highlighter-rouge">crw-rw----</code> and the group <code class="highlighter-rouge">dialout</code>. If those are different then, for your device path, run:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chgrp dialout /dev/ttyAMA0
+sudo chmod g+rw /dev/ttyAMA0
+</code></pre>
+</div>
+<h3><a class="title-link" name="device-path-changes" href="#device-path-changes"></a> Device path changes</h3>
+<p>If your device path changes when you restart, see <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">this guide</a> on fixing it.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
