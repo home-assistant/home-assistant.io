@@ -43,7 +43,7 @@ Take a snapshot from a camera.
 | `entity_id`            |      no  | Name(s) of entities to create a snopshot from, e.g., `camera.living_room_camera`. |
 | `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
-The `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 ### {% linkable_title Test if it works %}
 
