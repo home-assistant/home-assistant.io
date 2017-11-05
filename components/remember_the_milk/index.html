@@ -82,7 +82,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 
 <span class="s">remember_the_milk</span><span class="pi">:</span>
-  <span class="s">your_rtm_account</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">your_rtm_account</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">&lt;your secret api key goes here&gt;</span>
     <span class="s">shared_secret</span><span class="pi">:</span> <span class="s">&lt;your secret shared secret goes here&gt;</span>
 
@@ -92,7 +92,7 @@
 <div class="config-vars">
   <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
   <dl class="">
-    <dt><a class="title-link" name="account_name" href="#account_name"></a> account_name</dt>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
     <dd>
       <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">Name of the RTM account, as you can have serveral accounts in RTM. The name must be unique.</span></p>
     </dd>
