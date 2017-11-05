@@ -1,14 +1,15 @@
 ---
 layout: page
-title: "Dominos"
-description: "Instructions how to setup the Wink garage doors within Home Assistant."
+title: "Dominos Pizza"
+description: "Instructions how to setup Dominos Pizza ordering within Home Assistant."
 date: 2017-11-05 17:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: dominos.png
-ha_release: 0.58
+ha_category: Other
+ha_version: 0.57
 ---
 
 The `Dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
@@ -34,6 +35,14 @@ dominos:
   - name: Medium Pan
     codes:
       - code: P12IPAZA
+```
+
+Now you can use the Dominos service to order pizza within your automations:
+
+```yaml
+- service: dominos.order
+  data:
+    order_entity_id: dominos.medium_pan
 ```
 
 Configuration variables:
