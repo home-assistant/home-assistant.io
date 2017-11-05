@@ -9,7 +9,7 @@ sharing: true
 footer: true
 featured: false
 ha_category: Hub
-ha_release: "0.57"
+ha_release: "0.58"
 logo: vultr.png
 ha_iot_class: "Cloud Polling"
 ---
@@ -26,10 +26,15 @@ Ensure you allow the public IP of Home Assistant under the Access Control headin
 To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 vultr:
   api_key: ABCDEFG12345
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: Your Vultr API key.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **api_key** (*Required*): Your Vultr API key.
