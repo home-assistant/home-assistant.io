@@ -43,6 +43,8 @@ Take a snapshot from a camera.
 | `entity_id`            |      no  | Name(s) of entities to create a snopshot from, e.g., `camera.living_room_camera`. |
 | `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
+The `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
 ### {% linkable_title Test if it works %}
 
 A simple way to test if you have set up your `camera` platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
