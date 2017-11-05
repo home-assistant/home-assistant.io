@@ -81,18 +81,56 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_camera</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the camera</li>
-  <li><strong>image_width</strong> (<em>Optional</em>): Set the image width (default: 640)</li>
-  <li><strong>image_height</strong> (<em>Optional</em>): Set the image height (default: 480)</li>
-  <li><strong>image_quality</strong> (<em>Optional</em>): Set the image quality (from 0 to 100, default: 7)</li>
-  <li><strong>image_rotation</strong> (<em>Optional</em>): Set image rotation (0-359, default: 0)</li>
-  <li><strong>horizontal_flip</strong> (<em>Optional</em>): Set horizontal flip (0 to disable, 1 to enable, default: 0)</li>
-  <li><strong>vertical_flip</strong> (<em>Optional</em>): Set vertical flip (0 to disable, 1 to enable, default: 0)</li>
-  <li><strong>timelapse</strong> (<em>Optional</em>): Takes a picture every ms (default: 1000)</li>
-  <li><strong>file_path</strong> (<em>Optional</em>): Save the picture in a custom file path (default: camera components folder)</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="image_width" href="#image_width"></a> image_width</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set the image width.</span></p>
+      <p class="default">Default value: 640</p>
+    </dd>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name of the camera.</span></p>
+      <p class="default">Default value: Raspberry Pi Camera</p>
+    </dd>
+    <dt><a class="title-link" name="image_height" href="#image_height"></a> image_height</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set the image height.</span></p>
+      <p class="default">Default value: 480</p>
+    </dd>
+    <dt><a class="title-link" name="image_quality" href="#image_quality"></a> image_quality</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set the image quality (from 0 to 100).</span></p>
+      <p class="default">Default value: 7</p>
+    </dd>
+    <dt><a class="title-link" name="image_rotation" href="#image_rotation"></a> image_rotation</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set image rotation (0-359).</span></p>
+      <p class="default">Default value: 0</p>
+    </dd>
+    <dt><a class="title-link" name="horizontal_flip" href="#horizontal_flip"></a> horizontal_flip</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set horizontal flip (0 to disable, 1 to enable).</span></p>
+      <p class="default">Default value: 0</p>
+    </dd>
+    <dt><a class="title-link" name="vertical_flip" href="#vertical_flip"></a> vertical_flip</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Set vertical flip (0 to disable, 1 to enable).</span></p>
+      <p class="default">Default value: 0</p>
+    </dd>
+    <dt><a class="title-link" name="timelapse" href="#timelapse"></a> timelapse</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Takes a picture every millisecond.</span></p>
+      <p class="default">Default value: 1000</p>
+    </dd>
+    <dt><a class="title-link" name="file_path" href="#file_path"></a> file_path</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Save the picture in a custom file path.</span></p>
+      <p class="default">Default value: The camera components folder.</p>
+    </dd>
+  </dl>
+</div>
 <p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
 </article>
         </div>
