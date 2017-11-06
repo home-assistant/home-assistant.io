@@ -79,6 +79,9 @@
 <p class="note">
 If you see an “Unable to connect” message, restart the gateway and try again. Don’t forget to assign a permanent IP to your Trådfri gateway.
 </p>
+<p class="note">
+  The Python version 3.4.4 or greater is required for this component. The component will not initialize without this and will report a <code class="highlighter-rouge">Could not install all requirements</code> error in the logs.
+</p>
 <p>You can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file if you are not using the <a href="/components/discovery/"><code class="highlighter-rouge">discovery:</code></a> component:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">tradfri</span><span class="pi">:</span>
