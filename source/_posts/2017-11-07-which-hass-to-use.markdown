@@ -45,7 +45,7 @@ This is the simplest option, it hides all that nasty code from you so can only e
 
 This is the best option for beginners or people that want that appliance "just works feel".
 
-For those that like to get into the nitty gritty and tinker, it's the worst option.
+For those that like to get into the nitty gritty and tinker, it's the worst option as the Hass.io is fully self contained so you lose access to the underlying Linux system.
 
 ### Option 2: [Hassbian](https://home-assistant.io/docs/hassbian/installation/)
 
@@ -53,7 +53,9 @@ You have a raspberry Pi, you want to be able to see and edit the internals but y
 
 Simply download the image and install on the SD card, you can now edit the configs and also tweak code etc as needed.
 
-This option is basically Option3 for lazy people :)
+This option is basically Option3 for lazy people :), basically the image has the virtual environment already setup and configured on your behalf so you dont need to worry about the commands to execute it .
+
+It also provides you with some opportunity to customize your installation further, see [here](https://home-assistant.io/docs/installation/hassbian/customization/)
 
 ### Option 3: [Virtual Environments](https://home-assistant.io/docs/installation/python/)
 
@@ -64,12 +66,14 @@ Or perhaps you dont have a raspberry Pi or you want to install on other hardware
 
 All [Alternatives](https://home-assistant.io/docs/installation/) are listed here, except for the next two they are just vendor specific ways of doing the Option 3.
 
-### [Docker](https://home-assistant.io/docs/installation/docker/)
+### [Docker Image](https://home-assistant.io/docs/installation/docker/)
 
-Unless you've been hiding under a rock (or you're just not a techie) you will have heard of Docker, Linux containers made easy.
+Unless you've been hiding under a rock (or you're just not a techie) you will have heard of [Docker](https://www.docker.com/), Linux containers made easy.
 
 This is basically Hass.io but you have more control over the image and how it is mounted, you can also manage your container as you normally do. This is a great way to run Home-assistant if you have a docker swarm and want to have high availability.
 
-### [Vagrant](https://home-assistant.io/docs/installation/vagrant/)
+Additionally this doesn't have the same limitations on hardware recognition for certain devices as Hass.io has.
 
-Before docker came along this would be a great way to host Home-assistant in a dedicated VM, providing an easy way to update and manage the system. Now unless you have a real aversion to Docker I would recommend it over this method.
+### [Vagrant Script](https://home-assistant.io/docs/installation/vagrant/)
+
+Before docker came along [vagrant](https://www.vagrantup.com/) would have been a great way to host Home-assistant in a dedicated VM, providing an easy way to update and manage the system. Now unless you have a real aversion to Docker I would recommend it over this method.
