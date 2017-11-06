@@ -60,7 +60,7 @@ It also provides you with some opportunity to customize your installation furthe
 ### Option 3: [Virtual Environments](https://home-assistant.io/docs/installation/python/)
 
 This is the most "complex" / flexible install (and I use complex in the loosest possible sense of the word). This is for when you don't want to dedicate your system to only home-assistant, you want to tweak the code and contribute back, or perhaps you want to install multiple versions with different configs.
-Or perhaps you dont have a raspberry Pi or you want to install on other hardware / operating systems.
+Or perhaps you dont have a raspberry Pi or you want to install on other hardware / operating systems. Although there are examples of running this on windows it is generally advisable to avoid doing it as there are numerous issues that seem to pop up. With Docker and Vagrant and Virtual box (see below) there is generally no good reason to use run Home-assistant on Windows.
 
 ## Alternatives
 
