@@ -184,21 +184,6 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/discovery_info
 </code></pre>
 </div>
-<h4><a class="title-link" name="get-apibootstrap" href="#get-apibootstrap"></a> GET /api/bootstrap</h4>
-<p>Returns all data needed to bootstrap Home Assistant.</p>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
-       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/bootstrap
-</code></pre>
-</div>
 <h4><a class="title-link" name="get-apievents" href="#get-apievents"></a> GET /api/events</h4>
 <p>Returns an array of event objects. Each event object contains event name and listener count.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
