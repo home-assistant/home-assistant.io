@@ -23,7 +23,7 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 </p>
 
 <p class='note'>
-  The Python version 3.4.4 or greater is required for this component. The component will not initialize without this, amd will report a `Could not install all requirements` error in the logs.
+  The Python version 3.4.4 or greater is required for this component. The component will not initialize without this and will report a `Could not install all requirements` error in the logs.
 </p>
 
 You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/components/discovery/) component:
