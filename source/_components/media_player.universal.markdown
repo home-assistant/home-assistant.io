@@ -51,13 +51,13 @@ Configuration variables:
 
 - **name** (*Required*): The name to assign the player
 - **children** (*Required*): Ordered list of child media players this entity will control
-- **state_template** (*Optional*): A template can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans.
+- **state_template** (*Optional*): A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like Switches or Input Booleans.
 - **commands** (*Optional*): Commands to be overwritten. Possible entries are *turn_on*, *turn_off*, *select_source*, *volume_set*, *volume_up*, *volume_down*, and *volume_mute*.
 - **attributes** (*Optional*): Attributes that can be overwritten. Possible entries are *is_volume_muted*, *state*, *source*, *source_list, and *volume_level*. The values should be an entity id and state attribute separated by a bar (\|). If the entity id's state should be used, then only the entity id should be provided.
 
-The universal media player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled by the universal media player. The universal media player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the *children* list must be media players, but the state template can contain any entity.
+The Universal Media Player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled by the Universal Media Player. The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the *children* list must be media players, but the state template can contain any entity.
 
-It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and *state* is on, the universal media player's state will be on.
+It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and *state* is on, the Universal Media Player's state will be on.
 
 It is also recommended that the command *volume_up*, the command *volume_down*, the command *volume_mute*, and the attribute *is_volume_muted* all be provided together. The attribute *is_volume_muted* should return either True or the on state when the volume is muted. The *volume_mute* service should toggle the mute setting.
 
@@ -122,13 +122,13 @@ media_player:
 
 #### {% linkable_title Kodi CEC-TV control %}
 
-In this example, a Kodi media player runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
+In this example, a [Kodi Media Player](/components/media_player.kodi/) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
 
-We store the state of the attached TV in a hidden input_boolean, so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We can hide the Kodi media player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
+We store the state of the attached TV in a hidden [Input Boolean](/components/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the Universal Media Player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
 
-Because the `input_boolean` used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this input boolean when needed.
+Because the Input Boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 
-In an Apple HomeKit scene, we can now expose this universal media player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.
+In an Apple HomeKit scene, we can now expose this Universal Media Player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.
 
 The complete yaml config is:
 
@@ -153,11 +153,11 @@ media_player:
 - platform: universal
   name: Kodi TV
   state_template: >
-    {% if (states.media_player.kodi.state == 'idle') and (states.input_boolean.kodi_tv_state.state == 'off') %}
+    {% raw %}{% if (is_state('media_player.kodi', 'idle') and (is_state('input_boolean.kodi_tv_state', 'off') %}
     off
     {% else %}
-    {{ states.media_player.kodi.state }}
-    {% endif %}
+    {{ states('media_player.kodi') }}
+    {% endif %}{% endraw %}
   children:
     - media_player.kodi
   commands:
