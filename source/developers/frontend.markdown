@@ -90,7 +90,7 @@ The source code for the frontend can be found in different directories:
 
  - UI: `/home-assistant-polymer/src/`
  - Panels: `/home-assistant-polymer/panels/`
- - Javascript code: `/home-assistant/js/`
+ - Javascript code: `/home-assistant-polymer/js/`
 
 # {% linkable_title Building the Polymer frontend %}
 
