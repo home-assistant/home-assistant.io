@@ -51,10 +51,11 @@ Configuration variables:
 
 - **name** (*Required*): The name to assign the player
 - **children** (*Required*): Ordered list of child media players this entity will control
+- **state_template** (*Optional*): A template can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans.
 - **commands** (*Optional*): Commands to be overwritten. Possible entries are *turn_on*, *turn_off*, *select_source*, *volume_set*, *volume_up*, *volume_down*, and *volume_mute*.
 - **attributes** (*Optional*): Attributes that can be overwritten. Possible entries are *is_volume_muted*, *state*, *source*, *source_list, and *volume_level*. The values should be an entity id and state attribute separated by a bar (\|). If the entity id's state should be used, then only the entity id should be provided.
 
-The universal media player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled the universal media player. The universal media player will also inherit its state from the first active child. Entities in the *children* list must be media players.
+The universal media player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled by the universal media player. The universal media player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the *children* list must be media players, but the state template can contain any entity.
 
 It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and *state* is on, the universal media player's state will be on.
 
@@ -62,7 +63,14 @@ It is also recommended that the command *volume_up*, the command *volume_down*, 
 
 When providing *select_source* as a command, it is recommended to also provide the attributes *source*, and *source_list*. The *source* attribute is the currently select source, while the *source_list* attribute is a list of all available sources.
 
-Below is an example configuration.
+## {% linkable_title Usage examples %}
+
+#### {% linkable_title Chromecast & Kodi control with switches %}
+
+In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The *turn_on* and *turn_off* commands will be redirected to the television and the volume commands will be redirected to an audio receiver. The *select_source* command will be passed directly to an A/V receiver.
+
+The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.
+
 
 ```yaml
 media_player:
@@ -112,6 +120,107 @@ media_player:
 
 ```
 
-In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The *turn_on* and *turn_off* commands will be redirected to the television and the volume commands will be redirected to an audio receiver. The *select_source* command will be passed directly to an A/V receiver.
+#### {% linkable_title Kodi CEC-TV control %}
 
-The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.
+In this example, a Kodi media player runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
+
+We store the state of the attached TV in a hidden input_boolean, so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We can hide the Kodi media player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
+
+Because the `input_boolean` used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this input boolean when needed.
+
+In an Apple HomeKit scene, we can now expose this universal media player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.
+
+The complete yaml config is:
+
+```yaml
+homeassistant:
+  customize:
+    input_boolean.kodi_tv_state:
+      hidden: true
+      homebridge_hidden: true
+    media_player.kodi:
+      hidden: true
+      homebridge_hidden: true
+    media_player.kodi_tv:
+      friendly_name: Kodi
+      homebridge_name: Kodi
+      homebridge_media_player_switch: on_off
+
+input_boolean:
+  kodi_tv_state:
+
+media_player:
+- platform: universal
+  name: Kodi TV
+  state_template: >
+    {% if (states.media_player.kodi.state == 'idle') and (states.input_boolean.kodi_tv_state.state == 'off') %}
+    off
+    {% else %}
+    {{ states.media_player.kodi.state }}
+    {% endif %}
+  children:
+    - media_player.kodi
+  commands:
+    turn_on:
+      service: media_player.turn_on
+      data:
+        entity_id: media_player.kodi
+    turn_off:
+      service: media_player.turn_off
+      data:
+        entity_id: media_player.kodi
+  attributes:
+    is_volume_muted: media_player.kodi|is_volume_muted
+    volume_level: media_player.kodi|volume_level
+
+- platform: kodi
+  name: Kodi
+  host: 192.168.1.10
+  turn_on_action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.kodi_tv_state
+  - service: media_player.kodi_call_method
+    data:
+      entity_id: media_player.kodi
+      method: Addons.ExecuteAddon
+      addonid: script.json-cec
+      params:
+        command: activate
+  turn_off_action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.kodi_tv_state
+  - service: media_player.media_stop
+    data:
+      entity_id: media_player.kodi
+  - service: media_player.kodi_call_method
+    data:
+      entity_id: media_player.kodi
+      method: Addons.ExecuteAddon
+      addonid: script.json-cec
+      params:
+        command: standby
+
+automation:
+- alias: Turn on the TV when Kodi is activated
+  trigger:
+    platform: state
+    entity_id: media_player.kodi_tv
+    from: 'off'
+    to: 'playing'
+  action:
+  - service: media_player.turn_on
+    entity_id: media_player.kodi_tv
+
+- alias: Turn off the TV when Kodi is in idle > 15 min
+  trigger:
+    platform: state
+    entity_id: media_player.kodi_tv
+    to: 'idle'
+    for:
+      minutes: 15
+  action:
+  - service: media_player.turn_off
+    entity_id: media_player.kodi_tv
+```
