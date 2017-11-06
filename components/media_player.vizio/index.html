@@ -143,6 +143,8 @@
 Vizio SmartCast service is accessible through HTTPS with self-signed certificate. If you have low LOGLEVEL in your Home Assistant configuration, you’ll see a lot of warnings like this:
 <code class="highlighter-rouge">InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.</code>
 You can adjust the log level for <code class="highlighter-rouge">media_player</code> components with the <a href="https://home-assistant.io/components/logger/">logger</a> component, or if you need to keep a low log level for <code class="highlighter-rouge">media_player</code> you could proxy calls to your TV through an NGINX reverse proxy.
+If you want to only ignore only this specific <a href="https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings">python urllib3 SSL warning</a>, you will need to run Home Assistant with the python flag <code class="highlighter-rouge">-W</code> or the environment variable <code class="highlighter-rouge">PYTHONWARNINGS</code> set to:
+<code class="highlighter-rouge">ignore:Unverified HTTPS request is being made</code>
 </p>
 </article>
         </div>
