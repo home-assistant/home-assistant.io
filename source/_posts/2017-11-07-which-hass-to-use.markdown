@@ -32,7 +32,7 @@ Simply choose where you fall into:
 
 ## Considerations
 
-The primary consideration in my opinion is HOW do you want to use Home-assistant?
+The primary consideration in my opinion is *how* do you want to use Home-assistant?
 
 In my case I want a simple stable install for my "production" instance and I have a few spare Raspberry Pis, So I use Hass.io for that "production" instance.
 
