@@ -123,6 +123,8 @@
 <p>The chance is very high that this is not a bug but an issue with the service/daemon itself. Check your network (DNS, DHCP, uplink, etc.) first and make sure that Home Assistant and the service are poperly configured. Keep in mind that webservices can be down.</p>
 <h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
 <p>The dependencies which are used by Home Assistant are stored in the folder <code class="highlighter-rouge">deps</code> of the <a href="/docs/configuration/">configuration folder</a> directory. After an <a href="/docs/installation/updating/">upgrade</a> the dependences will be upgraded as well.</p>
+<h3><a class="title-link" name="frontend-is-acting-weird" href="#frontend-is-acting-weird"></a> Frontend is acting weird</h3>
+<p>Close the windows or tab and clear the cache. The frontend is aggressively caching and clearing the cache ensures that the frontend is reloaded when you access it the next time.</p>
 <h3><a class="title-link" name="problems-with-dependencies" href="#problems-with-dependencies"></a> Problems with dependencies</h3>
 <p>Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in <code class="highlighter-rouge">home-assistant.log</code>.</p>
 <p>The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can’t figure it out, please <a href="https://github.com/home-assistant/home-assistant/issues">report it</a> so we can investigate what is going on.</p>
@@ -169,6 +171,7 @@
 <li><a href='/faq#after-upgrading-your-browser-login-gets-stuck'>After upgrading, your browser login gets stuck</a></li>
 <li><a href='/faq#connection-error'>Connection error</a></li>
 <li><a href='/faq#dependencies'>Dependencies</a></li>
+<li><a href='/faq#frontend-is-acting-weird'>Frontend is acting weird</a></li>
 <li><a href='/faq#problems-with-dependencies'>Problems with dependencies</a></li>
         </ul>
       </li>
