@@ -121,17 +121,22 @@ All commands below need to be run from inside the home-assistant-polymer reposit
 </code></pre>
 </div>
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
-<p>While you are developing, you need to have gulp running to watch the source files for changes and build when necessary.</p>
+<p>If you are changing <code class="highlighter-rouge">html</code> files under <code class="highlighter-rouge">/src</code> or <code class="highlighter-rouge">/panels</code> - just reload the page in your browser to see changes.
+If you are changing javascript files under <code class="highlighter-rouge">/js</code> you need to have gulp running to watch the source files for changes and build when necessary.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yarn run dev-watch
 </code></pre>
 </div>
-<p>The source code for the frontend can be found in two different directories:</p>
+<p>The source code for the frontend can be found in different directories:</p>
 <ul>
   <li>UI: <code class="highlighter-rouge">/home-assistant-polymer/src/</code></li>
   <li>Panels: <code class="highlighter-rouge">/home-assistant-polymer/panels/</code></li>
+  <li>Javascript code: <code class="highlighter-rouge">/home-assistant-polymer/js/</code></li>
 </ul>
 <h1><a class="title-link" name="building-the-polymer-frontend" href="#building-the-polymer-frontend"></a> Building the Polymer frontend</h1>
-<p>Building a new version of the frontend is as simple as running <code class="highlighter-rouge">script/build_frontend</code>.</p>
+<p>Building a new version of the frontend is as simple as running <code class="highlighter-rouge">script/build_frontend</code>.
+To use a built version package it: <code class="highlighter-rouge">python setup.py sdist</code>
+Install it: <code class="highlighter-rouge">pip3 install dist/home-assistant-frontend-xxxxxxxx.0.tar.gz --upgrade</code>
+Run Home Assistant without trying to reinstall production package: <code class="highlighter-rouge">hass --skip-pip</code></p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -215,6 +220,7 @@ All commands below need to be run from inside the home-assistant-polymer reposit
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
           <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
           <li><a  href='/developers/frontend_creating_custom_ui/'>Add Custom UI </a></li>
+          <li><a  href='/developers/frontend_translation/'>Translation </a></li>
         </ul>
       </li>
       <li>
