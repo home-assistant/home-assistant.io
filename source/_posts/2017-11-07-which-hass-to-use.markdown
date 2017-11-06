@@ -64,12 +64,12 @@ Or perhaps you dont have a raspberry Pi or you want to install on other hardware
 
 All [Alternatives](https://home-assistant.io/docs/installation/) are listed here, except for the next two they are just vendor specific ways of doing the Option 3.
 
-### Docker
+### [Docker](https://home-assistant.io/docs/installation/docker/)
 
 Unless you've been hiding under a rock (or you're just not a techie) you will have heard of Docker, Linux containers made easy.
 
 This is basically Hass.io but you have more control over the image and how it is mounted, you can also manage your container as you normally do. This is a great way to run Home-assistant if you have a docker swarm and want to have high availability.
 
-### Vagrant
+### [Vagrant](https://home-assistant.io/docs/installation/vagrant/)
 
 Before docker came along this would be a great way to host Home-assistant in a dedicated VM, providing an easy way to update and manage the system. Now unless you have a real aversion to Docker I would recommend it over this method.
