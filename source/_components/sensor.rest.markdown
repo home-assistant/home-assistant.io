@@ -49,6 +49,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing the REST endpoint.
 - **password** (*Optional*): The password for accessing the REST endpoint.
 - **headers** (*Optional*): The headers for the requests.
+- **update_inverval** (*Optional*): Scan interval (seconds, munutes etc.)
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
