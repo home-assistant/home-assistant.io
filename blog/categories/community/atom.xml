@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-06T15:35:09+00:00</updated>
+  <updated>2017-11-06T16:02:30+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/05/frontend-translations/"/>
+    <updated>2017-11-06T01:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/05/frontend-translations</id>
+    <content type="html"><![CDATA[<p class='img'>
+<img src='/images/blog/2017-11-0.57/languages.png' alt='The Home Assistant sidebar in 12 different languages'>
+The Home Assistant sidebar in 12 different languages.
+</p>
+
+## <a class='title-link' name='translations' href='#translations'></a> Translations 
+
+As mentioned in the [0.57 release notes](https://home-assistant.io/blog/2017/11/04/release-57/), Home Assistant has launched a translated frontend. With the immediate influx of translations, we’ve made integration with a translation tool a top priority. [@c727] took the initiative to evaluate several tools, and we’re happy to announce that Home Assistant will be partnering with [Lokalise](https://lokalise.co/) to manage our translations!
+
+Lokalise allows us to open up translations for all of our multilingual users willing to contribute. Users can join the project using our [public signup link](https://lokalise.co/signup/3420425759f6d6d241f598.13594006/all/), and start translating right away. We’ve created a [translation startup guide](https://home-assistant.io/developers/frontend_translation/) with additional details about how to contribute. Instructions are provided there for how to request a new language.
+
+Now that we have a system in place, expect a lot more of the interface to be translatable soon. We still have some technical hurdles to overcome, but the hardest work is behind us now. The community has already done an outstanding job of providing translations. The future is looking bright!
+
+[@c727]: https://github.com/c727
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Templates, dates and times]]></title>
@@ -186,23 +208,6 @@ Just like last year, we'll be hosting a [Home Assistant Open Space](https://us.p
 We will also be taken part in the [development sprints](https://us.pycon.org/2017/community/sprints/) from Monday-Wednesday. You only need to bring a laptop. We'll help you get set up with a dev environment and you can be coding on top of Home Assistant in no time. ~~Exact location inside the conference center to be announced.~~ **We are sitting in room A108.**
 
 On a final note, the Home Assistant community is very very active so don't take it personal if we don't remember your name, issue or contribution.
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
-    <link href="https://home-assistant.io/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
-    <updated>2017-05-07T02:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
-    <content type="html"><![CDATA[I like Python. It's a clean easy to read, easy to learn language. Yet when you use it for some time you still find more features to improve your coding. What I probably like most about Python is the community and the great libraries that already exist. Often solving a problem means including a pre-existing library and writing some glue code. That makes it quick to get things up and running.
-
-I just gave a talk on how you can run Python to automate your home (yes with Home-Assistant) but also with [MicroPython]. Micropython allows you to run Python on your DIY sensors and switches around your home. Python everywhere - even on the chips that give Home-Assistant the data to be awesome.
-
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KNFZSSCPUyM" frameborder="0" allowfullscreen></iframe>
-</div>
-
-[MicroPython]: https://micropython.org
 ]]></content>
   </entry>
   
