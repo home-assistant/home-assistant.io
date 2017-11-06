@@ -45,7 +45,7 @@ This is the simplest option, it hides all that nasty code from you so can only e
 
 This is the best option for beginners or people that want that appliance "just works feel".
 
-For those that like to get into the nitty gritty and tinker, it's the worst option as the Hass.io is fully self contained so you lose access to the underlying Linux system.
+For those that like to get into the nitty gritty and tinker, it's the worst option as Hass.io is fully self contained so you lose access to the underlying Linux system. It may also have issues with certain USB devices.
 
 ### Option 2: [Hassbian](https://home-assistant.io/docs/hassbian/installation/)
 
