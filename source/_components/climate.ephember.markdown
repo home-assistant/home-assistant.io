@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ephcontrolsember.png
 ha_category: Climate
-ha_release: "0.55"
+ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
 
