@@ -21,7 +21,7 @@ The translation of the Home Assistant frontend is still a work in progress. More
 
 ## {% linkable_title Rules %}
 1. Only native speakers should submit translations.
-2. Stick to [Material Desing guidelines](https://material.io/guidelines/style/writing.html).
+2. Stick to [Material Design guidelines](https://material.io/guidelines/style/writing.html).
 3. Don't translate or change proper nouns like `Home Assistant`, `Hass.io` or `Hue`.
 
 ## {% linkable_title Adding a new language %}
