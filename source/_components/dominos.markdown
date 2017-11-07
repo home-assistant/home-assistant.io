@@ -34,7 +34,7 @@ dominos:
   orders:
   - name: Medium Pan
     codes:
-      - code: P12IPAZA
+      - P12IPAZA
 ```
 
 Now you can use the Dominos service to order pizza within your automations:
