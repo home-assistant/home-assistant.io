@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Which installation should I do"
-description: "Should you use hass.io or VirtualEnv or hassbian?"
+title: "Which installation should I use?"
+description: "Should you use Hass.io or VirtualEnv or Hassbian?"
 date: 2017-11-07 10:00:00 +0000
 date_formatted: "November 07, 2017"
 author: Ryan McLean
@@ -12,13 +12,13 @@ categories: How-To
 
 # Decisions, Decisions, Decisions...
 
-Ok you've made it this far you're interested in automating your home, but Home Assistant has you stuck there are 3 main ways to install it. Which should you choose?
+Ok you've made it this far you're interested in automating your home, but Home Assistant has you stuck there are 3 preferred ways to install it. Which should you choose?
 
-*   Hass.io
-*   Python Virtual Environment
-*   Hassbian
+*   [Hass.io](https://home-assistant.io/hassio/)
+*   [Hassbian](https://home-assistant.io/docs/hassbian/installation/)
+*   [Virtual Environments](https://home-assistant.io/docs/installation/python/)
 
-This brief article will hopefully give you a starting point to make your decision as all 3 are perfectly viable options. These are not prescriptive and hass.io for example can be installed on a generic linux server (subject to some [limitations](https://github.com/home-assistant/hassio-build/tree/master/install#supported-machine-types))but if you are looking to do that, you don't need this article to tell you the options.
+This brief article will hopefully give you a starting point to make your decision as all 3 are perfectly viable options. These are not prescriptive and Hass.io for example can be installed on a generic linux server (subject to some [limitations](https://github.com/home-assistant/hassio-build/tree/master/install#supported-machine-types))but if you are looking to do that, you don't need this article to tell you the options.
 
 <!--more-->
 
@@ -49,18 +49,19 @@ For those that like to get into the nitty gritty and tinker, it's the worst opti
 
 ### Option 2: [Hassbian](https://home-assistant.io/docs/hassbian/installation/)
 
-You have a raspberry Pi, you want to be able to see and edit the internals but you want a simple install and you want to use your RPi for multiple things.
+You have a Raspberry Pi, you want to be able to see and edit the internals but you want a simple install and you want to use your RPi for multiple things.
 
 Simply download the image and install on the SD card, you can now edit the configs and also tweak code etc as needed.
 
 This option is basically Option3 for lazy people :), basically the image has the virtual environment already setup and configured on your behalf so you don't need to worry about the commands to execute it.
+Notably since quite a a few components have some external dependencies these are pre-installed in quite a few cases and Home Assistant is run by a separate user that has limited privileges by default.
 
 It also provides you with some opportunity to customize your installation further, see [here](https://home-assistant.io/docs/installation/hassbian/customization/)
 
 ### Option 3: [Virtual Environments](https://home-assistant.io/docs/installation/python/)
 
 This is the most "complex" / flexible install (and I use complex in the loosest possible sense of the word). This is for when you don't want to dedicate your system to only Home Assistant, you want to tweak the code and contribute back, or perhaps you want to install multiple versions with different configs.
-Or perhaps you don't have a raspberry Pi or you want to install on other hardware / operating systems. Although there are examples of running this on windows it is generally advisable to avoid doing it as there are numerous issues that seem to pop up. With Docker and Vagrant and Virtual box (see below) there is generally no good reason to use run Home Assistant on Windows.
+Or perhaps you don't have a Raspberry Pi or you want to install on other hardware / operating systems. Although there are examples of running this on Windows it is generally advisable to avoid doing it as there are numerous issues that seem to pop up. With Docker and Vagrant and Virtual box (see below) there is generally no good reason to use run Home Assistant on Windows.
 
 ## Alternatives
 
