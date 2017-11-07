@@ -32,7 +32,7 @@ Native Name: Deutsch
 ```
 
 <p class='note'>
-Note: Languages that differ from the language of the country of origin need a translation for the latter first.  Example: `French as used in Canada` requires a generic `French` translation.
+Region specific translations (`en-US`, `fr-CA`) will only be included if translations for that region need to differ from the base language translation.
 </p>
 
 ### {% linkable_title Maintainer steps to add a new language %}
