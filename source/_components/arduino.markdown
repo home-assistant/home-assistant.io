@@ -30,9 +30,12 @@ arduino:
   port: /dev/ttyACM0
 ```
 
-Configuration variables:
-
-- **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino, the port will be named `ttyACM*` otherwise `ttyUSB*`.
+{% configuration %}
+port:
+  description: The port where your board is connected to your Home Assistant host. If you are using an original Arduino, the port will be named `ttyACM*` otherwise `ttyUSB*`.
+  required: true
+  type: string
+{% endconfiguration %}
 
 The exact number can be determined with the command shown below.
 
