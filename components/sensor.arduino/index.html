@@ -84,21 +84,34 @@
       <span class="s">name</span><span class="pi">:</span> <span class="s">Door switch</span>
     <span class="s">0</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
-
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>pins</strong> array (<em>Required</em>): Array of pins to use.
-    <ul>
-      <li><strong>[number]</strong> (<em>Required</em>): The pin number that corresponds with the pin numbering schema of your board.
-        <ul>
-          <li><strong>name</strong> (<em>Optional</em>): Name that will be used in the frontend for the pin.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="pins" href="#pins"></a> pins</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">List of pins to use.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="pin_number" href="#pin_number"></a> pin_number</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">The pin number that corresponds with the pin numbering schema of your board.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string">string</span>)</span></p>
+              <p class="default">Default value: Name that will be used in the frontend for the pin.</p>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
 <p>The 6 analog pins of an Arduino UNO are numbered from A0 to A5.</p>
 </article>
         </div>

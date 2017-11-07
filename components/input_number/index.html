@@ -197,13 +197,12 @@ Before version 0.55 this component was known as <code class="highlighter-rouge">
     <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:target</span>
 
 <span class="c1"># Automation.     </span>
- <span class="c1"># This automation script runs when a value is received via MQTT on retained topic: setTemperature</span>
- <span class="c1"># It sets the value slider on the GUI. This slides also had its own automation when the value is changed.</span>
+<span class="c1"># This automation script runs when a value is received via MQTT on retained topic: setTemperature</span>
+<span class="c1"># It sets the value slider on the GUI. This slides also had its own automation when the value is changed.</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set temp slider</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
     <span class="s">topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">setTemperature"</span>
-   <span class="c1"># entity_id: input_number.target_temp</span>
   <span class="s">action</span><span class="pi">:</span>
      <span class="s">service</span><span class="pi">:</span> <span class="s">input_number.set_value</span>
      <span class="s">data_template</span><span class="pi">:</span>
