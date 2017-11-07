@@ -136,9 +136,14 @@
       <td>yes</td>
       <td>If set to <code class="highlighter-rouge">digest</code> HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside <code class="highlighter-rouge">file</code>.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">attachments</code></td>
+      <td>yes</td>
+      <td>Array of <a href="https://api.slack.com/docs/message-attachments">Slack attachments</a>. See <a href="https://api.slack.com/docs/message-attachments">the attachment documentation</a> for how to format. <em>NOTE</em>: if using <code class="highlighter-rouge">attachments</code>, they are shown <strong>in addition</strong> to <code class="highlighter-rouge">message</code></td>
+    </tr>
   </tbody>
 </table>
-<p>Example for posting file from URL</p>
+<p>Example for posting file from URL:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Message that will be added as a comment to the file."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Title of the file."</span><span class="p">,</span><span class="w">
@@ -153,7 +158,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>Example for posting file from local path</p>
+<p>Example for posting file from local path:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Message that will be added as a comment to the file."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Title of the file."</span><span class="p">,</span><span class="w">
@@ -166,6 +171,21 @@
 </span></code></pre>
 </div>
 <p>Please note that <code class="highlighter-rouge">path</code> is validated against the <code class="highlighter-rouge">whitelist_external_dirs</code> in the <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<p>Example for posting formatted attachment:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHAT A HORRIBLE NIGHT TO HAVE A CURSE."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.imgur.com/JEExnsI.gif"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Please note that both <code class="highlighter-rouge">message</code> is a required key, but is always shown, so use an empty (<code class="highlighter-rouge">""</code>) string for <code class="highlighter-rouge">message</code> if you don’t want the extra text.</p>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 </article>
         </div>
