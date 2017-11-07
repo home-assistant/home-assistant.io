@@ -26,9 +26,9 @@ This brief article will hopefully give you a starting point to make your decisio
 
 Simply choose where you fall into:
 
-*   I don't care I just want an autonomous home using my RPi / NUC -> Hass.io
+*   I don't care, I just want an autonomous home using my RPi/NUC -> Hass.io
 *   I don't want to fully dedicate my Pi and I want a simple install -> Hassbian
-*   I'm a developer or Poweruser / Tinkerer -> Python Virtual Env
+*   I'm a developer or poweruser/tinkerer -> Python Virtual Env
 
 ## Considerations
 
