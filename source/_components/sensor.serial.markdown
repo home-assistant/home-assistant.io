@@ -28,7 +28,6 @@ To setup a serial sensor to your installation, add the following to your `config
 sensor:
   - platform: serial
     serial_port: /dev/ttyACM0
-    baudrate: 115200
 ```
 
 {% configuration %}
@@ -41,9 +40,10 @@ sensor:
     required: false
     type: string
   baudrate:
-    description: Baudrate of the serial port. Default to 9600 bps.
+    description: Baudrate of the serial port.
     required: false
-    type: number 
+    default: 9600 Bps
+    type: int 
 {% endconfiguration %}
 
 
