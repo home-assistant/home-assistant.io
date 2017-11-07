@@ -27,11 +27,11 @@ To setup a serial sensor to your installation, add the following to your `config
 # Example configuration.yaml entry
 sensor:
   - platform: serial
-    port: /dev/ttyACM0
+    serial_port: /dev/ttyACM0
 ```
 
 {% configuration %}
-  port:
+  serial_port:
     description: Local serial port where the sensor is connected and access is granted.
     required: true
     type: string
@@ -39,6 +39,11 @@ sensor:
     description: Friendly name to use for the frontend. Default to "Serial sensor".
     required: false
     type: string
+  baudrate:
+    description: Baudrate of the serial port.
+    required: false
+    default: 9600 Bps
+    type: int 
 {% endconfiguration %}
 
 
