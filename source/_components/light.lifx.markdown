@@ -21,11 +21,11 @@ _Please note, the `lifx` platform does not support Windows. The `lifx_legacy` pl
 # Example configuration.yaml entry
 light:
   - platform: lifx
-    server: 192.168.1.10
 ```
 Configuration variables:
 
-- **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
+- **broadcast** (*Optional*): The broadcast address for discovering lights. Only needed if using more than one network interface. Omit if you are unsure.
+- **server** (*Optional*): Your server address. Will listen on all interfaces if omitted. Omit if you are unsure.
 
 ## {% linkable_title Set state %}
 
@@ -41,6 +41,7 @@ Change the light to a new state.
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
+| `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.

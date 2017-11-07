@@ -17,4 +17,4 @@ To reload your configuration, go to **Configuration** in your side panel, and ch
 <img src='/images/screenshots/configuration-validation.png' />
 </p>
 
-Now that you saw a glimpse of what is possible, take a look at the [documentation](/docs/), ask your questions in our [forum](https://community.home-assistant.io/), join us for a [chat](https://gitter.im/home-assistant/home-assistant), or report your [issues](https://github.com/home-assistant/home-assistant/issues).
+Now that you saw a glimpse of what is possible, take a look at the [documentation](/docs/), ask your questions in our [forum](https://community.home-assistant.io/), join us for a [chat](https://discord.gg/c5DvZ4e), or report your [issues](https://github.com/home-assistant/home-assistant/issues).

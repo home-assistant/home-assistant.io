@@ -81,17 +81,23 @@ header .grid {
   font-weight: normal;
   font-size: 14px;
   line-height: 1;
+
+  &.show-search {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .menu > li > a:hover, .menu > li > a:focus{
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
-  padding: 40px 12px 24px;
+  padding-top: 40px;
+  padding-bottom: 24px;
 }
 
-.toggle{ 
-  z-index: 20; 
+.toggle{
+  z-index: 20;
 }
 
 @media only screen and (max-width: $menu-collapse){

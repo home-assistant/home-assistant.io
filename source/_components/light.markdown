@@ -24,11 +24,12 @@ Most lights do not support all attributes. You can check the platform documentat
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
-| `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
-| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.
+| `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
+| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma separated floats that represent the color in XY.
 | `rgb_color` | yes | A list containing three integers representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB.  You can find a great chart here: [Hue Color Chart](http://www.developers.meethue.com/documentation/hue-xy-values)
-| `color_temp` | yes | An INT in mireds representing the color temperature you want the light to be.
+| `white_value` | yes | Integer between 0 and 255 for how bright a dedicated white LED should be.
+| `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
 | `color_name` | yes | A human readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/2010/PR-css3-color-20101028/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the color should be.

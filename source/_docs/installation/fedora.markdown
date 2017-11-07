@@ -33,7 +33,7 @@ Now switch to the new directory, setup the venv, and activate it.
 
 ```bash
 $ cd /opt/homeassistant
-$ pyvenv-3.5 .
+$ python3.6 -m venv .
 $ source bin/activate
 ```
 

@@ -19,8 +19,8 @@ Virtualenvs are pretty easy to setup. This example will walk through one method 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install python-pip python3-dev
-$ sudo pip install --upgrade virtualenv
+$ sudo apt-get install python3-pip python3-dev
+$ sudo pip3 install --upgrade virtualenv
 ```
 
 ### {% linkable_title Step 1: Create a Home Assistant user & group %}
@@ -42,7 +42,7 @@ $ sudo usermod -G dialout -a homeassistant
 
 ### {% linkable_title Step 2: Create a directory for Home Assistant %}
 
-This can be anywhere you want. As example we put it in `/srv`. You also need to change the ownership of the directory to the user you created above (if you created one).
+This can be anywhere you want.  We chose to put it in `/srv`. You also need to change the ownership of the directory to the user you created above (if you created one).
 
 ```bash
 $ sudo mkdir /srv/homeassistant

@@ -41,7 +41,11 @@ sensor:
 
 ## {% linkable_title Default naming scheme %}
 
-The names of the sensors created by this component, will be a combination of static text, `id` from the config and `feedid` from the Emoncms feed, unless `sensor_names` is used. An example name would be `emoncms1_feedid_10`.
+The names of the sensors created by this component will use the feed names defined in EmonCMS if available,
+or the feed ID otherwise, and will be prefixed with "EmonCMS", e.g. "EmonCMS Total Power" or "EmonCMS Feed 5".
+If the `id` property is anything but `1`, the ID will be shown as well, e.g. "EmonCMS 2 Feed 5".
+
+If `sensor_names` is used, any feeds with defined names will get those names exactly, with no prefix.
 
 ### {% linkable_title Examples %}
 
@@ -92,7 +96,7 @@ sensor:
       - 120
     sensor_names:
       5: "feed 1"
-      48: "kwh feed"
+      48: "kWh feed"
       61: "amp feed"
       110: "watt feed"
 ```

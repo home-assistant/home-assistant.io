@@ -10,6 +10,8 @@
     {% include asides/getting_started_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'docs' %}
     {% include asides/docs_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'faq' %}
+    {% include asides/faq_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'hassio' or url_parts[1] == 'addons' %}
     {% include asides/hassio_navigation.html | compact_newlines %}
   {% else %}

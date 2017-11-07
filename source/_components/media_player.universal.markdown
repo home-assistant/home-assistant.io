@@ -60,7 +60,7 @@ It is recommended that the command *turn_on*, the command *turn_off*, and the at
 
 It is also recommended that the command *volume_up*, the command *volume_down*, the command *volume_mute*, and the attribute *is_volume_muted* all be provided together. The attribute *is_volume_muted* should return either True or the on state when the volume is muted. The *volume_mute* service should toggle the mute setting.
 
-When providing *select_source* as a command, it is recomended to also provide the attributes *source*, and *source_list*. The *source* attribute is the currently select source, while the *source_list* attribute is a list of all available sources.
+When providing *select_source* as a command, it is recommended to also provide the attributes *source*, and *source_list*. The *source* attribute is the currently select source, while the *source_list* attribute is a list of all available sources.
 
 Below is an example configuration.
 
@@ -96,12 +96,12 @@ media_player:
       service: media_player.select_source
       data_template:
         entity_id: media_player.receiver
-        source: '{{ source }}'
+        source: '{% raw %}{{ source }}{% endraw %}'
     volume_set:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.receiver
-        volume_level: '{{ volume_level }}'
+        volume_level: '{% raw %}{{ volume_level }}{% endraw %}'
 
   attributes:
     state: switch.living_room_tv

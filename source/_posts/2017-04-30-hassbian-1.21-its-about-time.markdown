@@ -39,12 +39,12 @@ With this image there also quite a bit of cleaning of the base system and the sc
   - Added libtool and autoconf package. Dependencies for some of the pip packages.
   - Pi ZeroW should now work with the image.
 
-To follow discussions about the development of the HASSbian image or to contribute join the [HASSbian gitter chat][hassbian-gitter].
+To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-devs].
 
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
 
 [cec]: /components/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[hassbian-gitter]: https://gitter.im/home-assistant/hassbian
 [gs-image]: /getting-started/installation-raspberry-pi-image/
+[discord-devs]: https://discord.gg/8X8DTH4

@@ -59,7 +59,7 @@ Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it pe
 
 ## State restoration
 
-Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
+Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
 
 ## Breaking changes to customize and Z-Wave "customize"
 
@@ -224,7 +224,7 @@ hdmi_cec:
 [@pvizeli], [@LinuxChristian], [@molobrakos], [@balloob], [@rytilahti], [@fabaff], [@andrey-git], [@aequitas], [@konikvranik], [@Danielhiversen], [@colinodell], [@pschmitt], [@bachp], [@bachp],[@w1ll1am23], [@valentinalexeev], [@robbiet480], [@MartinHjelmare], [@happyleavesaoc], [@tdickman], [@arraylabs], [@lwis], [@titilambert]
 
 ### If you need help...
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -312,6 +312,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [t-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[discord]: https://discord.gg/c5DvZ4e

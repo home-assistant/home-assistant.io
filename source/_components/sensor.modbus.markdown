@@ -56,3 +56,27 @@ Configuration variables:
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
   - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
+
+It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
+
+### {% linkable_title Full example %}
+
+Example a temperature sensor with a 10 seconds scan interval:
+
+```yaml
+sensor:
+- platform: modbus
+  scan_interval: 10
+  registers:
+    - name: Room_1
+      slave: 10
+      register: 0
+      register_type: holding
+      update_interval: 2.5
+      unit_of_measurement: °C
+      count: 1
+      scale: 0.1
+      offset: 0
+      precision: 1
+      data_type: int
+```

@@ -21,21 +21,32 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: avion
+    username: testuser@fakedomain.com
+    password: foobar
+```
+
+Configuration variables:
+
+- **username** (*Optional*): The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
+- **password** (*Optional*): The password used in the Avion app.
+- **devices** (*Optional*): An optional list of devices with their Bluetooth address, a custom name to use in the frontend and the API key. The API key can be obtained by executing the following command:
+```
+curl -X POST -H "Content-Type: application/json" -d '{"email": "fakename@example.com", "password": "password"}' https://admin.avi-on.com/api/sessions | jq
+```
+
+with the email and password fields replaced with those used when registering the device via the mobile app. The pass phrase field of the output should be used as the API key in the configuration.
+
+If username and password are not supplied, devices must be configured manually like so:
+
+```yaml
+# Manual device configuration.yaml entry
+light:
+  - platform: avion
     devices:
       00:21:4D:00:00:01:
         name: Light 1
         api_key: Gr35a/rt3RgaRenl9ag8Ba==
       00:21:3D:20:00:a1:
-        name: Bulb 2
+        name: Light 2
         api_key: Gr35a/rt3RgaRenl9ag8Ba==
 ```
-
-Configuration variables:
-
-- **devices**: A list of devices with their bluetooth address, a custom name to use in the frontend and the API key. The API key can be obtained by executing the following command:
-
-```
-curl -X POST -H "Content-Type: application/json" -d '{"email": "fakename@example.com", "password": "password"}' https://admin.avi-on.com/api/sessions | jq
-```
-
-with the email and password fields replaced with those used when registering the device via the mobile app. The passphrase field of the output should be used as the API key in the configuration.

@@ -12,11 +12,11 @@ ha_category: Automation
 ha_release: 0.38
 ---
 
-The `alert` component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the `alert` component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also useful for low battery sensors, water leak sensors, or any condition that may need your attention.
+The `alert` component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the `alert` component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also used for low battery sensors, water leak sensors, or any condition that may need your attention.
 
 Alerts will add an entity to the front end only when they are firing. This entity allows you to silence an alert until it is resolved.
 
-When using the `alert` component it is important that the timezone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` timezone but the operating system uses `UTC`).
+When using the `alert` component, it is important that the time zone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` time zone but the operating system uses `UTC`).
 
 ### {% linkable_title Basic Example %}
 
@@ -27,6 +27,7 @@ The `alert` component makes use of any of the `notifications` components. To set
 alert:
   garage_door:
     name: Garage is open
+    done_message: Garage is closed
     entity_id: input_boolean.garage_door
     state: 'on'
     repeat: 30
@@ -39,10 +40,11 @@ alert:
 Configuration variables:
 
 - **name** (*Required*): The friendly name of the alert.
+- **done_message** (*Optional*): A message sent after an alert transitions from `on` to `off`.  Is only sent if an alert notification was sent for transitioning from `off` to `on`.
 - **entity_id** (*Required*): The ID of the entity to watch.
 - **state** (*Optional*): The problem condition for the entity. Defaults to `on`.
 - **repeat** (*Required*): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.
-- **can_acknowledge** (*Optional*): Allows the alert to be unacknowledgable. Defaults to `true`.
+- **can_acknowledge** (*Optional*): Allows the alert to be unacknowledgeable. Defaults to `true`.
 - **skip_first** (*Optional*): Controls whether the notification should be sent immediately or after the first delay. Defaults to `false`.
 - **notifiers** (*Required*): List of `notification` components to use for alerts.
 
@@ -73,7 +75,7 @@ freshwater_temp_alert:
 
 ### {% linkable_title Complex Alert Criteria %}
 
-By design, the `alert` component only handles very simple criteria for firing. That is, is only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
+By design, the `alert` component only handles very simple criteria for firing. That is, it only checks if a single entity's state is equal to a value. At some point, it may be desirable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
 
 ```yaml
 binary_sensor:
@@ -97,7 +99,7 @@ This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 
 ### {% linkable_title Dynamic Notification Delay Times %}
 
-It may be desireable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
+It may be desirable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
 
 ```yaml
 # Example configuration.yaml entry

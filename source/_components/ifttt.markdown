@@ -13,15 +13,15 @@ featured: true
 ha_iot_class: "Cloud Push"
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "Applets". With the IFTTT component you can trigger applets through the **"Maker"** channel. See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples how to use it.
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "Applets". With the IFTTT component you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel). See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples how to use it.
 
 ```yaml
 # Example configuration.yaml entry
 ifttt:
-  key: xxxxx-x-xxxxxxxxxxxxx
+  key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-`key` is your API key which can be obtained by viewing the **Settings** of the [Maker Channel](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under **Settings** > **Account Info**.
+`key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
 
 
 <p class='img'>
@@ -37,7 +37,7 @@ After restarting the server, be sure to watch the console for any logging errors
 
 ### {% linkable_title Testing your trigger %}
 
-You can use the **Developer tools** to test your [Maker Channel](https://ifttt.com/maker) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
+You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
 
 Field | Value
 ----- | -----
@@ -52,11 +52,11 @@ When your screen looks like this, click the 'call service' button.
 
 ### {% linkable_title Setting up a recipe %}
 
-Press the *New applet* button and search for *Maker* .
+Press the *New applet* button and search for *Webhooks*.
 
 <p class='img'>
 <img src='/images/components/ifttt/setup_service.png' />
-Choose "Maker" as service.
+Choose "Webhooks" as service.
 </p>
 
 <p class='img'>

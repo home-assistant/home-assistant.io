@@ -138,7 +138,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use `this.hass.entities`, `this.hass.callService` and `this.hass.callApi`.
 
 ### {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -226,6 +226,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [event-stream-api]: https://home-assistant.io/developers/server_sent_events/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [websocket-api]: https://home-assistant.io/developers/websocket_api/
+[discord]: https://discord.gg/c5DvZ4e

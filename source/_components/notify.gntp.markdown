@@ -34,3 +34,5 @@ Configuration variables:
 - **hostname** (*Optional*): The hostname or IP address of the GNTP server to contact.
 - **password** (*Optional*): The password to authenticate to the GNTP server with.
 - **port** (*Optional*): The port that the GNTP server runs on. The specification states that servers should not allow users to use any port other than 23053 but `port` is provided here just in case.
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

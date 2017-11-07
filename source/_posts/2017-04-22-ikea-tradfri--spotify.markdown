@@ -84,7 +84,7 @@ sensor:
 ```
 
 ## If you need help...
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -116,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bugfix time and task coro ([@pvizeli] - [#6968])
 - Initial import for HassIO ([@pvizeli] - [#6935])
 - Preserve customize glob order. ([@andrey-git] - [#6963])
-- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any url error to camera ([@viswa-swami] - [#6964]) ([camera.foscam docs])
+- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any URL error to camera ([@viswa-swami] - [#6964]) ([camera.foscam docs])
 - light.yeelight: catch i/o related exceptions from the backend lib ([@rytilahti] - [#6952])
 - From Dusk till Dawn ([@BillyNate] - [#6857]) ([sun docs])
 - Tests for zwave services ([@armills] - [#6937]) ([zwave docs])
@@ -149,7 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade sendgrid to 4.0.0 ([@fabaff] - [#7038]) ([notify.sendgrid docs])
 - Missing line name restriction added (fixes #7039) ([@DavidMStraub] - [#7040]) ([sensor.mvglive docs])
 - Plug file leak on LIFX unregister ([@amelchio] - [#7031]) ([light.lifx docs])
-- Make core to look avilable state of device on servicecall ([@pvizeli] - [#7045])
+- Make core to look available state of device on servicecall ([@pvizeli] - [#7045])
 - Remove configuration sample ([@fabaff] - [#7048])
 - Bugfix wait on start event ([@pvizeli] - [#7013])
 - Bugfix slider ([@pvizeli] - [#7047]) ([input_slider docs])
@@ -212,7 +212,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Value of 0 should not be considered `unknown`. ([@aequitas] - [#7139])
 - Upgrade netdisco ([@balloob] - [#7171])
 - Added new services to platform kodi ([@alexmogavero] - [#6426]) ([media_player docs]) ([media_player.kodi docs])
-- Supress trackback and upgrade PyMata to 2.14 ([@fabaff] - [#7176]) ([arduino docs])
+- Suppress trackback and upgrade PyMata to 2.14 ([@fabaff] - [#7176]) ([arduino docs])
 - Disable invalid-sequence-index ([@fabaff] - [#7177])
 - Upgrade mypy to 0.501 (was renamed from mypy-lang) ([@fabaff] - [#7117])
 - Add condition for API failure ([@sytone] - [#7181])
@@ -487,7 +487,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zwave docs]: /components/zwave/
 [zwave.node_entity docs]: /components/zwave.node_entity/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7204]: https://github.com/home-assistant/home-assistant/pull/7204
 [#7214]: https://github.com/home-assistant/home-assistant/pull/7214
@@ -519,3 +518,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify.html5 docs]: https://home-assistant.io/components/notify.html5/
 [notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
 [telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
+[discord]: https://discord.gg/c5DvZ4e

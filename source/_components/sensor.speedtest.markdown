@@ -89,3 +89,27 @@ sensor:
       - download
       - upload
 ```
+
+### {% linkable_title Using as a trigger in an automation %}
+
+```yaml
+# Example configuration.yaml entry
+automation:
+ - alias: 'Internet Speed Glow Connect Great' 
+    trigger: 
+      platform: template
+      value_template: '{% raw %}{{ states.sensor.speedtest_download.state|float > 10}}{% endraw %}'
+    action:      
+      service: shell_command.green
+  - alias: 'Internet Speed Glow Connect Poor' 
+    trigger: 
+      platform: template
+      value_template: '{% raw %}{{ states.sensor.speedtest_download.state| float < 10 }}{% endraw %}' 
+    action:      
+      service: shell_command.red
+```
+
+## {% linkable_title Notes %}
+
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- Entries under `monitored_conditions` only control what entities are available under home-assistant, it does not disable the condition from running.

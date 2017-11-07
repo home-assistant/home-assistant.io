@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV"
-description: "This new release of Home Assistant contains support for Envisalink, Homematic, Sony Bravia TV and HDMI-CEC. Additionaly was the Wink support improved and CherryPy is the new WSGI server."
+description: "This new release of Home Assistant contains support for Envisalink, Homematic, Sony Bravia TV and HDMI-CEC. Additionally was the Wink support improved and CherryPy is the new WSGI server."
 date: 2016-07-01 00:31:00 +0000
 date_formatted: "July 1, 2016"
 author: Paulus Schoutsen
@@ -32,7 +32,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Sensor: [Fixer.io] now supported ([@fabaff])
 - Garage door: Control any garage door using [Raspberry Pi GPIO pins] ([@kellerza])
 - Sensor: [OpenExchangeRates] support added ([@arsaboo])
-- Notify: [Pushover] now supports target device, sound, url and priority ([@dale3h])
+- Notify: [Pushover] now supports target device, sound, URL and priority ([@dale3h])
 - Sensor: [Netatmo] now supports wind, battery and radio signals ([@Jypy])
 - Log successful and failed login attemps ([@fabaff])
 - Config: allow [extracting account info][secrets] into OS keyring or separate YAML file ([@kellerza])

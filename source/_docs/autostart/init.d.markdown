@@ -26,19 +26,23 @@ $ sudo chmod +x /etc/init.d/hass-daemon
 
 Create or pick a user that the Home Assistant daemon will run under. Update script to set `RUN_AS` to the username that should be used to execute hass.
 
-### {% linkable_title 3. Register the daemon with Linux %}
+### {% linkable_title 3. Change hass executable if required. %}
+
+Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path.
+
+### {% linkable_title 4. Register the daemon with Linux %}
 
 ```bash
 $ sudo update-rc.d hass-daemon defaults
 ```
 
-### {% linkable_title 4. Install this service %}
+### {% linkable_title 5. Install this service %}
 
 ```bash
 $ sudo service hass-daemon install
 ```
 
-### {% linkable_title 5. Restart Machine %}
+### {% linkable_title 6. Restart Machine %}
 
 That's it. Restart your machine and Home Assistant should start automatically.
 
@@ -46,7 +50,7 @@ If HA does not start, check the log file output for errors at `/var/opt/homeassi
 
 ### {% linkable_title Extra: Running commands before hass executes %}
 
-If any commands need to run before executing hass (like loading a virutal environment), put them in PRE_EXEC. This command must end with a semicolon.
+If any commands need to run before executing hass (like loading a virtual environment), put them in PRE_EXEC. This command must end with a semicolon.
 
 ### {% linkable_title Daemon script %}
 
@@ -64,6 +68,8 @@ If any commands need to run before executing hass (like loading a virutal enviro
 # /etc/init.d Service Script for Home Assistant
 # Created with: https://gist.github.com/naholyr/4275302#file-new-service-sh
 PRE_EXEC=""
+# Typically /usr/bin/hass
+HASS_BIN="hass"
 RUN_AS="USER"
 PID_FILE="/var/run/hass.pid"
 CONFIG_DIR="/var/opt/homeassistant"
@@ -76,7 +82,7 @@ start() {
     return 1
   fi
   echo 'Starting service…' >&2
-  local CMD="$PRE_EXEC hass $FLAGS $REDIRECT;"
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS $REDIRECT;"
   su -c "$CMD" $RUN_AS
   echo 'Service started' >&2
 }

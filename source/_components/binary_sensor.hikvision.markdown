@@ -24,7 +24,7 @@ binary_sensor.front_porch_motion
 binary_sensor.front_port_line_crossing
 ```
 
-When used with a NVR device the sensors will be appeneded with the channel number they represent.  For example, if you configure an NVR with the name "Home" that supports 2 cameras with motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:
+When used with a NVR device the sensors will be appended with the channel number they represent.  For example, if you configure an NVR with the name "Home" that supports 2 cameras with motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:
 
 ```
 binary_sensor.home_motion_1

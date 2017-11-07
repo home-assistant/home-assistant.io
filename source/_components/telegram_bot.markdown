@@ -17,6 +17,7 @@ Use Telegram on your mobile or desktop device to send and receive messages or co
 
 This component creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling/) method or with the [webhooks](/components/telegram_bot.webhooks/) one, and trigger events when receiving messages.
 
+If you don't need to receive messages, you can use the [broadcast](/components/telegram_bot.broadcast/) platform instead.
 
 ### {% linkable_title Notification services %}
 Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`.
@@ -80,11 +81,11 @@ Send a location.
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 #### {% linkable_title Service `telegram_bot/edit_message` %}
-Edit a previusly sent message in a conversation.
+Edit a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the message.  |
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
@@ -93,11 +94,11 @@ Edit a previusly sent message in a conversation.
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 #### {% linkable_title Service `telegram_bot/edit_caption` %}
-Edit the caption of a previusly sent message.
+Edit the caption of a previously sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the caption.  |
 | `caption`                 |       no | Message body of the notification. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
@@ -108,7 +109,7 @@ Edit the inline keyboard of a previusly sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the reply_markup.  |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
@@ -122,10 +123,18 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | `callback_query_id`       |       no | Unique id of the callback response. In the `telegram_callback` event data: `{{ trigger.event.data.id }}` |
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
+#### {% linkable_title Service `telegram_bot/delete_message` %}
+Delete a previously sent message in a conversation.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
+| `chat_id`                 |       no | The chat_id where to delete the message.  |
+
 ### {% linkable_title `Telegram` notification platform %}
 
 
-The [Telegram notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customised shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [Telegram notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
 The required yaml configuration now reduces to:
 ```yaml

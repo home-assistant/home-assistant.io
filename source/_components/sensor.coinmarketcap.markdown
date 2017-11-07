@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `coinmarketcap` sensor platform displays various details about a crypto currency provided by [CoinMarketCap](http://coinmarketcap.com/).
+The `coinmarketcap` sensor platform displays various details about a cryptocurrency provided by [CoinMarketCap](http://coinmarketcap.com/).
 
 To add the CoinMarketCap sensor to your installation, add the following lines to your `configuration.yaml`:
 
@@ -26,5 +26,5 @@ sensor:
 
 Configuration variables:
 
-- **currency** (*Optional*): The currency to display, eg. `bitcoin`, `litecoin`, `steem`, etc. Default is `bitcoin`.
-
+- **currency** (*Optional*): The cryptocurrency to use, eg. `bitcoin`, `litecoin`, `steem`, etc. Default is `bitcoin`.
+- **display_currency** (*Optional*): The currency to display, eg. `USD`, `EUR`, `GBP`, etc. Default is `USD`. All supported currencies can be found [here](https://coinmarketcap.com/api/).
