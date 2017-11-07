@@ -141,3 +141,4 @@ Notes:
 
 * `textInput` will only exist if `behavior` was set to `textInput`.
 * `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+* When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.
