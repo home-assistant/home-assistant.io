@@ -74,9 +74,9 @@ $ sudo usermod -G dialout -a homeassistant
 This can be anywhere you want.  We chose to put it in `/srv`. You also need to change the ownership of the directory to the user you created above.
 
 ```bash
-$ sudo mkdir /srv/home-assistant
-$ sudo chown homeassistant:homeassistant /srv/home-assistant
-$ virtualenv -p python3 /srv/home-assistant
+$ sudo mkdir /srv/homeassistant
+$ sudo chown homeassistant:homeassistant /srv/homeassistant
+$ virtualenv -p python3 /srv/homeassistant
 ```
 
 ## {% linkable_title Install or update Home Assistant %}
@@ -90,7 +90,7 @@ $ sudo su -s /bin/bash homeassistant
 The `su` command means 'switch' user. We use the '-s' flag because the `homeassistant` user is a system user and doesn't have a default shell by default (to prevent attackers from being able to log in as that user).
 
 ```bash
-$ source /srv/home-assistant/bin/activate
+$ source /srv/homeassistant/bin/activate
 (home-assistant)$ pip3 install --upgrade homeassistant
 ```
 
@@ -99,11 +99,11 @@ $ source /srv/home-assistant/bin/activate
 There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores its configuration in the user's home directory, we need to be the user `homeassistant` user or specify the configuration with `-c`.
 
 ```bash
-$ sudo -u homeassistant -H /srv/home-assistant/bin/hass
+$ sudo -u homeassistant -H /srv/homeassistant/bin/hass
 ```
 
 The `-H` flag is important. It sets the `$HOME` environment variable to `/home/homeassistant` so `hass` can find its configuration.
 
 ## {% linkable_title Starting Home Assistant on boot %}
 
-The [autostart instructions](/getting-started/autostart/) will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/home-assistant/bin/hass` and specify the `homeassistant` user where appropriate.
+The [autostart instructions](/getting-started/autostart/) will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/homeassistant/bin/hass` and specify the `homeassistant` user where appropriate.
