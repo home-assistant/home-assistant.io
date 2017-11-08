@@ -49,7 +49,7 @@ homeassistant:
       icon: mdi:description
     "scene.month_*_colors":
       hidden: true
-      emulated_hue: false
+      emulated_hue_hidden: false
       homebridge_hidden: true
 ```
 
