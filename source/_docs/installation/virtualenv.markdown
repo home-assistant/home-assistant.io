@@ -35,20 +35,20 @@ $ sudo pip3 install --upgrade virtualenv
 ```bash
 $ cd $HOME
 $ mkdir home-assistant
-$ virtualenv -p python3 home-assistant
+$ virtualenv -p python3 homeassistant
 ```
 
 ## {% linkable_title Step 3: Install or update Home Assistant %}
 
 ```bash
-$ source $HOME/home-assistant/bin/activate
-(home-assistant)$ pip3 install --upgrade homeassistant
+$ source $HOME/homeassistant/bin/activate
+(homeassistant)$ pip3 install --upgrade homeassistant
 ```
 
 ## {% linkable_title Step 4: Run Home Assistant %}
 
 ```bash
-$ $HOME/home-assistant/bin/hass
+$ $HOME/homeassistant/bin/hass
 ```
 
 ### {% linkable_title Advanced guide %}
