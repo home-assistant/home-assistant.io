@@ -110,9 +110,12 @@
       <li><strong>ed25519</strong></li>
       <li><strong>rsa</strong></li>
     </ul>
-    <p>The protocol is typically known by the suffix of the private key –e.g., a key file named <code class="highlighter-rouge">id_rsa</code> will be a private key using “rsa” protocol.</p>
   </li>
 </ul>
+<p>The protocol is typically known by the suffix of the private key –e.g., a key file named <code class="highlighter-rouge">id_rsa</code> will be a private key using “rsa” protocol.</p>
+<p class="note warning">
+You should only use this add-on if you do not have an existing configuration or if your existing configuration is already in a git repository. If the script does not find the necessary git files in your configuration folder, it will delete anything that might be there. Please ensure that there is a <code class="highlighter-rouge">.git</code> folder before using this. You can verify this by listing the items in the configuration folder including hidden files. The command is <code class="highlighter-rouge">ls -a /config</code>.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
