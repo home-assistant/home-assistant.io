@@ -84,6 +84,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
 - Filter `max` will obtain the larget item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
+- Filter `hsv_to_rgb` will convert a HSV list to a RGB one (0-255 values).
+- Filter `rgb_to_hsv` will convert a RGB list to a HSV one (0-255 values).
 
 [strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
 
