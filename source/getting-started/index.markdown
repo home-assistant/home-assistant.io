@@ -26,12 +26,12 @@ Also Home Assistant can be run on any other platforms that supports **Python 3**
     <div class='img-container'>
       <img src='/images/supported_brands/python.svg' />
     </div>
-    <div class='title'>Install Home Assistant on any platform</div>
+    <div class='title'>Install Home Assistant on you computer</div>
   </a>
 </div>
 <br>
 
-For alternative installation methods and platforms, please take a look at the [installation documentation](/docs/installation/).
+For alternative installation methods, please take a look at the [installation documentation](/docs/installation/).
 
 If you run into any issues, please see [the troubleshooting page](/docs/installation/troubleshooting/) or [communication channels](/help/). It contains solutions to many commonly encountered issues.
 
