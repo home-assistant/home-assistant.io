@@ -76,13 +76,25 @@
   </header>
   <hr class="divider">
   <h2><a class="title-link" name="adding-non-secure-devices" href="#adding-non-secure-devices"></a> Adding Non-Secure Devices</h2>
-<p>To add (include) a non-secure Z-Wave <a href="/docs/z-wave/devices/">device</a> to your system, go to the <a href="/docs/z-wave/control-panel/">Z-Wave control panel</a> in the Home Assistant frontend and click the <strong>Add Node</strong> button in the <em>Z-Wave Network Management</em> card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device. Don’t use this for secure devices, since this is likely to limit the features the device supports.</p>
+<p>To add (include) a non-secure Z-Wave <a href="/docs/z-wave/devices/">device</a> to your system:</p>
+<ol>
+  <li>Go to the <a href="/docs/z-wave/control-panel/">Z-Wave control panel</a> in the Home Assistant frontend</li>
+  <li>Click the <strong>Add Node</strong> button in the <em>Z-Wave Network Management</em> card - this will place the controller in inclusion mode</li>
+  <li>Activate your device to be included by following the instructions provided with the device</li>
+</ol>
+<p>Don’t use this for <a href="https://home-assistant.io/docs/z-wave/adding/#adding-secure-devices">secure devices</a>, since this is likely to limit the features the device supports.</p>
 <p class="note warning">
-Don’t use the OpenZWave control panel (OZWCP), or the physical button on a controller, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won’t have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.
+Don’t use the OpenZWave control panel (OZWCP), <strong>or the physical button on a controller</strong>, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won’t have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.
 </p>
 <p>When you add a device, it may initially appear without a specific entity ID (eg <code class="highlighter-rouge">zwave.__</code>) and without other identifying information. Running a <em>Heal</em> should help speed this process up, and you’ll need to run a <em>Heal</em> anyway so that all the devices in your Z-Wave network learn about the new device. You <em>might</em> need to restart Home Assistant (not reboot the system) to have the entity ID fully visible.</p>
 <h2><a class="title-link" name="adding-secure-devices" href="#adding-secure-devices"></a> Adding Secure Devices</h2>
-<p>Security Z-Wave devices require a network key before being added to the network using the <strong>Add Secure Node</strong> button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method.</p>
+<p>Security Z-Wave devices require a network key - you must set the <em>network_key</em> configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method. To add (include) a secure Z-Wave device:</p>
+<ol>
+  <li>Go to the <a href="/docs/z-wave/control-panel/">Z-Wave control panel</a> in the Home Assistant frontend</li>
+  <li>Click the <strong>Add Node Secure</strong> button in the <em>Z-Wave Network Management</em> card - this will place the controller in inclusion mode</li>
+  <li>Activate your device to be included by following the instructions provided with the device</li>
+</ol>
+<h3><a class="title-link" name="network-key" href="#network-key"></a> Network Key</h3>
 <p>An easy script to generate a random key:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span> -e <span class="s1">'s/, $//'</span>
 </code></pre>
@@ -95,7 +107,12 @@ Don’t use the OpenZWave control panel (OZWCP), or the physical button on a con
 Ensure you keep a backup of this key. If you have to rebuild your system and don’t have a backup of this key, you won’t be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 </p>
 <h2><a class="title-link" name="removing-devices" href="#removing-devices"></a> Removing Devices</h2>
-<p>To remove (exclude) a Z-Wave device from your system, go to the Z-Wave control panel in the Home Assistant frontend and click the <strong>Remove Node</strong> button in the <em>Z-Wave Network Management</em> card. This will place the controller in exclusion mode, after which you should activate your device to be excluded by following the instructions provided with the device.</p>
+<p>To remove (exclude) a Z-Wave device from your system:</p>
+<ol>
+  <li>Go to the Z-Wave control panel in the Home Assistant frontend</li>
+  <li>Click the <strong>Remove Node</strong> button in the <em>Z-Wave Network Management</em> card - this will place the controller in exclusion mode</li>
+  <li>Activate your device to be excluded by following the instructions provided with the device</li>
+</ol>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
