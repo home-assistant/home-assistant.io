@@ -75,17 +75,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This is an example about how you can configure Tor to provide secure remote access to your Home Assistant instance as an Onion site, through <a href="https://www.torproject.org/docs/hidden-services.html.en">Tor’s Hidden Service</a> feature. With this enabled, you do not need to open your firewall ports or setup HTTPS to enable secure remote access.</p>
+  <p>This article guides your through the configuration of Tor to provide a secure access to your Home Assistant instance as an Onion site, through <a href="https://www.torproject.org/docs/hidden-services.html.en">Tor’s Hidden Service</a> feature, from remote. With this enabled, you do not need to open your firewall ports or setup HTTPS to enable secure remote access.</p>
 <p>This is useful if you want to have:</p>
 <ul>
-  <li>Access your Home Assistant instance remotely without opening a firewall port or setting up a VPN</li>
-  <li>Don’t want to or know how to get an SSL/TLS certificate and HTTPS configuration setup</li>
-  <li>Want to block attackers from even being able to access/scan your port and server at all</li>
-  <li>Want to block anyone from knowing your home IP address and seeing your traffic to your Home Assistant</li>
+  <li>Access your Home Assistant instance remotely without opening a firewall port or setting up a VPN.</li>
+  <li>Don’t want to or know how to get an SSL/TLS certificate and HTTPS configuration setup.</li>
+  <li>Want to block attackers from even being able to access/scan your port and server at all.</li>
+  <li>Want to block anyone from knowing your home IP address and seeing your traffic to your Home Assistant.</li>
 </ul>
-<h2><a class="title-link" name="background-and-contact" href="#background-and-contact"></a> Background and Contact</h2>
-<p>This configuration is part of an effort to apply strong cryptography technologies (like Onion Routing and End-to-End Encryption) to technology we increasingly depend on in our day to day lives. Just like when WhatsApp enabled end-to-end encryption messaging for everyone, every home automation and IoT platform should do the same, because A) the technology is all there, freely licensed and open-source and B) up to this point, all the commercial manufacturers have been doing a horrific job with security.</p>
-<p>You can learn more about how Tor can be used to secure home automation and IoT platforms through this short set of slides on the <a href="https://github.com/n8fr8/talks/blob/master/onion_things/Internet%20of%20Onion%20Things.pdf">Internet of Onion Things</a></p>
 <h2><a class="title-link" name="hidden-services-and-onion-sites" href="#hidden-services-and-onion-sites"></a> Hidden Services and Onion Sites</h2>
 <p>Tor allows clients and relays to offer hidden services. That is, you can offer a web server, SSH server, etc., without revealing your IP address to its users. In fact, because you don’t use any public address, you can run a hidden service from behind your firewall. Learn more about Hidden Services on the <a href="https://www.torproject.org/docs/tor-hidden-service.html.en">Tor Project website</a>.</p>
 <p>Onion sites are websites that run on a Tor Hidden Service node. “dot onion” sites are an <a href="https://datatracker.ietf.org/doc/rfc7686/">IETF recognized special use domain name</a>.</p>
@@ -110,7 +107,7 @@ HiddenServiceAuthorizeClient stealth haremote1
 </div>
 <p>The “stealth” entry above ensures traffic to and from your Home Assistant instance over Tor, is hidden even from other nodes on the Tor network. The <code class="highlighter-rouge">haremote1</code> value is a generic client name entry that you can modify as you please.</p>
 <p>Then, restart Tor:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /etc/init.d/tor restart
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl restart tor
 </code></pre>
 </div>
 <p>Then read the new generated authentication cookie from the Tor-generated hostname file:</p>
@@ -137,7 +134,6 @@ HiddenServiceAuthorizeClient stealth haremote1
 <p>If you always access your Home Assistant instance via Tor, you can easily run this on an isolated “IoT” network segment at your install site, keeping your internal home network traffic separate from any potentially compromised devices (like cheap “smart” lightbulbs with backdoors!).</p>
 <p>You could also use Tor as a means to connect your Home Assistant instance to a remote device, sensor or other service that you do not want to or connect provide a direct, open IP connection to. Again, Tor provides authenticated and confidential routing (aka “privacy and encryption”) by default, without having to setup TLS/SSL or VPN. It is just important to secure IoT nodes within your network, as it is to secure remote access!</p>
 <p>As mentioned, with Orbot on Android, you can enable a “full device” VPN mode, that allows any app you have to tunnel through Tor, even if it is not Tor or proxy aware. This means you should be able to enter your “dot onion” Onion site address into any app you want to access to your Home Assistant instance, and it should work.</p>
-<p>This configuration was provided by @n8fr8 (<a href="https://github.com/n8fr8">github</a>, <a href="https://twitter.com/n8fr8">twitter</a>) of the <a href="https://guardianproject.info">Guardian Project</a> and <a href="https://torproject.org">Tor Project</a>. You can send questions, feedback and ideas to <a href="mailto:support@guardianproject.info">support@guardianproject.info</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
