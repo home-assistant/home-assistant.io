@@ -34,7 +34,7 @@ $ sudo pip3 install --upgrade virtualenv
 
 ```bash
 $ cd $HOME
-$ mkdir home-assistant
+$ mkdir homeassistant
 $ virtualenv -p python3 homeassistant
 ```
 
@@ -91,7 +91,7 @@ The `su` command means 'switch' user. We use the '-s' flag because the `homeassi
 
 ```bash
 $ source /srv/homeassistant/bin/activate
-(home-assistant)$ pip3 install --upgrade homeassistant
+(homeassistant)$ pip3 install --upgrade homeassistant
 ```
 
 ## {% linkable_title Run Home Assistant (Basic guide step 4) %}
