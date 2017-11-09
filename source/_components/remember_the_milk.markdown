@@ -26,7 +26,7 @@ To be able to use this component, you need a Remember The Milk account and you n
 # Example configuration.yaml entry
 
 remember_the_milk:
-  your_rtm_account:
+  - name: your_rtm_account
     api_key: <your secret api key goes here>
     shared_secret: <your secret shared secret goes here>
 
@@ -35,7 +35,7 @@ remember_the_milk:
 Configuration variables:
 
 {% configuration %}
-  account_name:
+  name:
     description: Name of the RTM account, as you can have serveral accounts in RTM. The name must be unique.
     required: true
     type: string

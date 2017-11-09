@@ -153,6 +153,23 @@ On macOS you can find the USB stick with:
 $ ls /dev/cu.usbmodem*
 ```
 
+### {% linkable_title Hass.io %}
+
+To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add the following to your `configuration.yaml`:
+
+```yaml
+zwave:
+  usb_path: /dev/ttyACM0
+```
+
+For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
+
+```bash
+$ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
+```
+
+After that, you need to change `usb_path` to `/dev/ttyAMA0`.
+
 ### {% linkable_title Network Key %}
 
 Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
@@ -167,3 +184,30 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 ## {% linkable_title First Run %}
 
 Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may speed up this process.
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Component could not be set up %}
+
+Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:
+
+```bash
+ls -l /dev/ttyAMA0
+```
+
+You should then see something like this:
+
+```
+crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
+```
+
+The important pieces are the first piece `crw-rw----` and the group `dialout`. If those are different then, for your device path, run:
+
+```bash
+sudo chgrp dialout /dev/ttyAMA0
+sudo chmod g+rw /dev/ttyAMA0
+```
+
+### {% linkable_title Device path changes %}
+
+If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
