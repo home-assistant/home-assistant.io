@@ -156,3 +156,54 @@ Triple tap on|1|4
 Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
+
+### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
+
+<!-- from https://hastebin.com/esodiweduq.cs -->
+
+For the Button, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+          <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="1" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Button (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Single tap on|1|0
+Double tap on|1|3
+Triple tap on|1|4
+
+Tap and hold wakes up the Button.
+
+### {% linkable_title Aeotec Wallmote %}
+
+<!-- from https://hastebin.com/esodiweduq.cs -->
+
+For the Aeotec Wallmote, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+        <Instance index="1" />
+          <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+          <Value type="int" genre="system" instance="1" index="5" label="Other" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Wallmote (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|TBC
+Button two single tap|2|TBC
+Button three single tap|3|TBC
+Button four single tap|4|TBC
