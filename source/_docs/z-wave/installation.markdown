@@ -25,7 +25,7 @@ $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 ```
 
 <p class='note'>
-The installation of python-openzwave can take half an hour or more on a Raspbery Pi.
+The installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -183,7 +183,9 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## {% linkable_title First Run %}
 
-Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may speed up this process.
+The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+
+The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## {% linkable_title Troubleshooting %}
 
