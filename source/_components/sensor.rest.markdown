@@ -60,10 +60,22 @@ Make sure that the URL exactly matches your endpoint or resource.
 $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
+Starting with Home Assistant version 0.58 the returned data is automatically parsed as JSON. If the data is in a valid JSON format it is saved and accessible as attributes (see examples below).
 
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Accessing internal attributes %}
+
+Consider the following JSON output that you can receive from an API:
+```
+{"temperature": 77, "id": "sensor02", "extra": {"min": 0, "max": 200, "history": [77, 78, 78, 79, 79]}}
+```
+Assuming it belongs to an entity id `fancy_temperature`, this is how you would get data from it inside other components or automations:
+- temperature: ```{{ states.sensor.fancy_temperature.attributes.temperature }}```
+- max: ```{{ states.sensor.fancy_temperature.attributes.extra.max }}```
+- first item of history: ```{{ states.sensor.fancy_temperature.attributes.extra.history[0] }}```
 
 ### {% linkable_title External IP address %}
 
