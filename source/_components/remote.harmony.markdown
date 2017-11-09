@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: logitech.png
 ha_category: Remote
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ha_release: "0.34"
 ---
 
@@ -54,7 +54,7 @@ Configuration variables:
 - **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
-- **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
+- **delay_secs** (*Optional*): Default duration in seconds between sending commands to a device.
 
 Configuration file:
 
@@ -67,7 +67,7 @@ Upon startup one file will be written to your Home Assistant configuration direc
 Supported services:
 
 - **Turn Off**: Turn off all devices that were switched on from the start of the current activity.s
-- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/). The service will respond faster if the activity ID is passed instead of the name.
+- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 - **Send Command**: Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 - **Sync**: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.
 
