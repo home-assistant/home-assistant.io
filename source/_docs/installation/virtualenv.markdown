@@ -59,7 +59,7 @@ $ sudo adduser --system homeassistant
 $ sudo addgroup homeassistant
 ```
 
-Home Assistant stores it's configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/homeassistant/.homeassistant`.
+Home Assistant stores its configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/homeassistant/.homeassistant`.
 
 If you plan to use a Z-Wave controller, you will need to add this user to the `dialout` group:
 
@@ -94,13 +94,13 @@ $ source /srv/homeassistant/bin/activate
 
 ## {% linkable_title Run Home Assistant (Basic guide step 4) %}
 
-There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores it's configuration in the user's home directory, we need to be the user `homeassistant` user or specify the configuration with `-c`.
+There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores its configuration in the user's home directory, we need to be the user `homeassistant` user or specify the configuration with `-c`.
 
 ```bash
 $ sudo -u homeassistant -H /srv/homeassistant/bin/hass
 ```
 
-The `-H` flag is important. It sets the `$HOME` environment variable to `/home/homeassistant` so `hass` can find it's configuration.
+The `-H` flag is important. It sets the `$HOME` environment variable to `/home/homeassistant` so `hass` can find its configuration.
 
 ## {% linkable_title Starting Home Assistant on boot %}
 
