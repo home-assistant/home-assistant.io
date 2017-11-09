@@ -27,11 +27,11 @@ To setup a serial sensor to your installation, add the following to your `config
 # Example configuration.yaml entry
 sensor:
   - platform: serial
-    port: /dev/ttyACM0
+    serial_port: /dev/ttyACM0
 ```
 
 {% configuration %}
-  port:
+  serial_port:
     description: Local serial port where the sensor is connected and access is granted.
     required: true
     type: string
