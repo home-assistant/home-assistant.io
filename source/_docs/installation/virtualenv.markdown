@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Installation: Python virtual envenvironment"
-description: "How to install Home Assistant in a virtual environment."
+title: "Installation in Python virtual environment"
+description: "How to install Home Assistant in a Python virtual environment."
 date: 2016-4-16 16:40
 sidebar: true
 comments: false
@@ -10,12 +10,12 @@ footer: true
 redirect_from: /getting-started/installation-virtualenv/
 ---
 <p class='note'>
-Note: Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require a flexible installation or want to run Home Assistant on any platform.
-<p class='note'>
+Beginners should check our [getting started guide](/getting-started/) first.
+</p>
 
 There are several reasons why it makes sense to run Home Assistant in a virtual environment. A [virtualenv](https://virtualenv.pypa.io/en/latest/) encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break Home Assistant, and it means you don't need to install Python packages as root.
 
-Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We'll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.
+Virtualenvs are pretty easy to setup. We'll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.
 
 ### {% linkable_title Basic guide %}
 
@@ -33,9 +33,7 @@ $ sudo pip3 install --upgrade virtualenv
 ## {% linkable_title Step 2: Setup virtualenv %}
 
 ```bash
-$ cd $HOME
-$ mkdir homeassistant
-$ virtualenv -p python3 homeassistant
+$ python3 -m venv $HOME/homeassistant
 ```
 
 ## {% linkable_title Step 3: Install or update Home Assistant %}
@@ -61,9 +59,9 @@ $ sudo adduser --system homeassistant
 $ sudo addgroup homeassistant
 ```
 
-Home Assistant stores its configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/homeassistant/.homeassistant`
+Home Assistant stores it's configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/homeassistant/.homeassistant`.
 
-If you plan to use a Z-Wave controller, you will need to add this user to the `dialout` group
+If you plan to use a Z-Wave controller, you will need to add this user to the `dialout` group:
 
 ```bash
 $ sudo usermod -G dialout -a homeassistant
@@ -76,7 +74,7 @@ This can be anywhere you want.  We chose to put it in `/srv`. You also need to c
 ```bash
 $ sudo mkdir /srv/homeassistant
 $ sudo chown homeassistant:homeassistant /srv/homeassistant
-$ virtualenv -p python3 /srv/homeassistant
+$ python3 -m venv /srv/homeassistant
 ```
 
 ## {% linkable_title Install or update Home Assistant %}
@@ -96,13 +94,13 @@ $ source /srv/homeassistant/bin/activate
 
 ## {% linkable_title Run Home Assistant (Basic guide step 4) %}
 
-There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores its configuration in the user's home directory, we need to be the user `homeassistant` user or specify the configuration with `-c`.
+There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores it's configuration in the user's home directory, we need to be the user `homeassistant` user or specify the configuration with `-c`.
 
 ```bash
 $ sudo -u homeassistant -H /srv/homeassistant/bin/hass
 ```
 
-The `-H` flag is important. It sets the `$HOME` environment variable to `/home/homeassistant` so `hass` can find its configuration.
+The `-H` flag is important. It sets the `$HOME` environment variable to `/home/homeassistant` so `hass` can find it's configuration.
 
 ## {% linkable_title Starting Home Assistant on boot %}
 
