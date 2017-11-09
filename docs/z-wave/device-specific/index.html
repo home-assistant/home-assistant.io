@@ -237,6 +237,90 @@ These devices will either show as a binary sensor or a sensor called <code class
     </tr>
   </tbody>
 </table>
+<h3><a class="title-link" name="fibaro-button-fgpb-101-6-v32" href="#fibaro-button-fgpb-101-6-v32"></a> Fibaro Button FGPB-101-6 v3.2</h3>
+<!-- from https://hastebin.com/esodiweduq.cs -->
+<p>For the Button, you may need to update the <code class="highlighter-rouge">COMMAND_CLASS_CENTRAL_SCENE</code> for each node in your <code class="highlighter-rouge">zwcfg</code> file with the following:</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>      <span class="nt">&lt;CommandClass</span> <span class="na">id=</span><span class="s">"91"</span> <span class="na">name=</span><span class="s">"COMMAND_CLASS_CENTRAL_SCENE"</span> <span class="na">version=</span><span class="s">"1"</span> <span class="na">request_flags=</span><span class="s">"4"</span> <span class="na">innif=</span><span class="s">"true"</span> <span class="na">scenecount=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Instance</span> <span class="na">index=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">label=</span><span class="s">"Scene Count"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">label=</span><span class="s">"Scene Count"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"3"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/CommandClass&gt;</span>
+</code></pre>
+</div>
+<p>Below is a table of the action/scenes for the Button (as a reference for other similar devices):</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Action</strong></th>
+      <th style="text-align: center"><strong>scene_id</strong></th>
+      <th style="text-align: center"><strong>scene_data</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Single tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Double tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Triple tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">4</td>
+    </tr>
+  </tbody>
+</table>
+<p>Tap and hold wakes up the Button.</p>
+<h3><a class="title-link" name="aeotec-wallmote" href="#aeotec-wallmote"></a> Aeotec Wallmote</h3>
+<!-- from https://hastebin.com/esodiweduq.cs -->
+<p>For the Aeotec Wallmote, you may need to update the <code class="highlighter-rouge">COMMAND_CLASS_CENTRAL_SCENE</code> for each node in your <code class="highlighter-rouge">zwcfg</code> file with the following:</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>      <span class="nt">&lt;CommandClass</span> <span class="na">id=</span><span class="s">"91"</span> <span class="na">name=</span><span class="s">"COMMAND_CLASS_CENTRAL_SCENE"</span> <span class="na">version=</span><span class="s">"1"</span> <span class="na">request_flags=</span><span class="s">"5"</span> <span class="na">innif=</span><span class="s">"true"</span> <span class="na">scenecount=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Instance</span> <span class="na">index=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">label=</span><span class="s">"Scene Count"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">label=</span><span class="s">"Button One"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"2"</span> <span class="na">label=</span><span class="s">"Button Two"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"3"</span> <span class="na">label=</span><span class="s">"Button Three"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"4"</span> <span class="na">label=</span><span class="s">"Button Four"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"5"</span> <span class="na">label=</span><span class="s">"Other"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/CommandClass&gt;</span>
+</code></pre>
+</div>
+<p>Below is a table of the action/scenes for the Wallmote (as a reference for other similar devices):</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Action</strong></th>
+      <th style="text-align: center"><strong>scene_id</strong></th>
+      <th style="text-align: center"><strong>scene_data</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Button one single tap</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">TBC</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Button two single tap</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">TBC</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Button three single tap</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">TBC</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Button four single tap</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">TBC</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
