@@ -80,7 +80,8 @@
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
 </code></pre>
 </div>
-<p>If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into <code class="highlighter-rouge">config.txt</code>:</p>
+<h3>RAZBERRY BOARD</h3>
+<p>If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into <code class="highlighter-rouge">config.txt</code> (you have to access that on the SD card directly; simply plug it into your PC and edit it there):</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>dtoverlay=pi3-miniuart-bt
 </code></pre>
 </div>
@@ -88,7 +89,11 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://hassio/homeassistant/options
 </code></pre>
 </div>
-<p>After that, you need to change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code>.</p>
+<p>After that, you need to change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code> in your <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyAMA0</span>
+</code></pre>
+</div>
 <h3>HUSBZB-1:</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
