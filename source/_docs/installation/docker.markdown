@@ -54,6 +54,7 @@ The steps would be:
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
+* To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
 * Your Home Assistant within Docker should now run
