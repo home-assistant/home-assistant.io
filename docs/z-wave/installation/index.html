@@ -85,7 +85,7 @@
 </code></pre>
 </div>
 <p class="note">
-The installation of python-openzwave can take half an hour or more on a Raspbery Pi.
+The installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi.
 </p>
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -217,7 +217,8 @@ The device type is <code class="highlighter-rouge">c</code> (character special) 
 </div>
 <p>Ensure you keep a backup of this key. If you have to rebuild your system and don’t have a backup of this key, you won’t be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.</p>
 <h2><a class="title-link" name="first-run" href="#first-run"></a> First Run</h2>
-<p>Upon first run, the <code class="highlighter-rouge">zwave</code> component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may speed up this process.</p>
+<p>The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.</p>
+<p>The first run after adding a device is when the <code class="highlighter-rouge">zwave</code> component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.</p>
 <h2><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h2>
 <h3><a class="title-link" name="component-could-not-be-set-up" href="#component-could-not-be-set-up"></a> Component could not be set up</h3>
 <p>Sometimes the device may not be accessible and you’ll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:</p>
