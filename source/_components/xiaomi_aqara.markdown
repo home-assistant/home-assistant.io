@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Hub
-ha_release: "0.50"
+ha_release: "0.57"
 ha_iot_class: "Local Push"
 redirect_from: /components/xiaomi/
 ---
@@ -49,7 +49,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 ## {% linkable_title Setup %}
 
-Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832).
+Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
 To enable {{ page.title }} in your installation, add the following to your `configuration.yaml` file:
 
@@ -236,7 +236,7 @@ If you run into trouble initializing the gateway with your app, try another smar
 ```
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
-- Make sure you have [enabled LAN access](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832).
+- Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
 - Ensure your router supports multicast as this is a requirement of the Xiaomi GW
 - Try to leave the MAC address `mac:` blank.
