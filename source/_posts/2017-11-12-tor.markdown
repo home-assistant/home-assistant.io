@@ -1,0 +1,101 @@
+---
+layout: post
+title: "Home Assistant and Tor"
+description: "Use Tor with Home Asssitant and Hass.io."
+date: 2017-11-12 10:00:00 +0200
+date_formatted: "November 12, 2017"
+author: Fabian Affolter
+author_twitter: fabaff
+comments: true
+categories: How-To
+og_image: /images/blog/2017-11-tor/social.png
+---
+
+Routers and gateways which broadband internet suppliers provide to their customers are often very limited in regard to features and configuration settings because the average user don't want to deal with port-forwarding, DMZ, PXE boot or DHCP reservations. This can make it a little difficult if you want to use your Home Assistant installation from remote in a secure way.
+
+There a couple of options available to achieve it but most require you to open a port and have a public IP address or [DNS entry](/components/duckdns/). Using a VPN requires often more hardware and software. Similar is the [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/) as it needs a SSH client. Simplest way is to setup the [remote Access with TLS](/docs/ecosystem/certificates/lets_encrypt/) but again needs a port.
+
+The work-around is to use [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en) for accessing your Home Assistant installation. No open port, no public IP address and your workflow stay pretty much the same.
+
+<!--more-->
+
+## {% linkable_title Tor setup %}
+
+Our [documentation](/docs/ecosystem/tor/) provides an detailled guide about to setup a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward
+
+1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo apt-get install tor`
+2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:
+
+    ```bash
+    ############### This section is just for location-hidden services ###
+
+    ## Once you have configured a hidden service, you can look at the
+    ## contents of the file ".../hidden_service/hostname" for the address
+    ## to tell people.
+    ...
+    HiddenServiceDir /var/lib/tor/homeassistant/
+    HiddenServicePort 80 127.0.0.1:8123
+    HiddenServiceAuthorizeClient stealth haremote1
+    ...
+    ```
+3. Restart Tor: `$ sudo systemctl restart tor`
+4. The Tor-generated hostname file contains the details you need to access your installation.
+
+    ```bash
+    $ sudo more /var/lib/tor/homeassistant/hostname
+    abcdef1234567890.onion ABCDEF1122334455667789 # client: haremote1
+    ```
+
+
+## {% linkable_title Hass.io Tor add-on %}
+
+[Franck Nijhof (@frenck)](https://github.com/frenck) created the [Tor add-on](https://github.com/hassio-addons/addon-tor) for [Hass.io](/hassio/). This add-on make the installation and the setup extremly simple. Go go the **Hass.io** panel, then to the **Store**, copy `https://github.com/hassio-addons/addon-tor` in to the text box of **Add-On Repositories** and save it.
+
+A new entry **Tor** will show-up in the Add-on list. Click on it to install ist. The configuration is done in **Options**. Please refer to the [Configuration documentation](https://github.com/hassio-addons/addon-tor#configuration) for further details. A possible configuration could look like the sample below.
+
+
+```json
+{
+  "log_level": "info",
+  "socks": false,
+  "hidden_services": true,
+  "stealth": true,
+  "client_names": [
+    "haremote1"
+  ],
+  "ports": [
+    "8123:80"
+  ]
+}
+```
+
+When you are done, press **Save** and then **Start**. In the **Logs** section you can see what the add-on is doing. Watch out for an entry like the one below because you will need those details to configure your client.
+
+```bash
+INFO: -----------------------------------------------------------
+INFO: Your Home Assistant instance is available on Tor!
+INFO: Addresses & Auth cookies:
+INFO: abcdef1234567890.onion ABCDEF1122334455667789 # client: haremote1
+INFO: -----------------------------------------------------------
+```
+
+Don't worry if you missed it. The details are stored in the directory `/ssl/tor/hidden_service/`.
+
+## {% linkable_title Client setup %}
+To use your Tor setup, install the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). This is by far the simplest option.
+
+<tor browser install directory>/Browser/TorBrowser/Data/Tor/torrc
+
+However, with the stealth option enabled, the client would need extra configuration to be able to connect.
+
+Add the authentication cookie to your torrc client configuration on your laptop or mobile device. It would look like this:
+
+To use your Tor setup, install the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). This is by far the simplest option. You must add the authentication cookie to your `torrc` file. This file is usually located in `<tor browser install directory>/Browser/TorBrowser/Data/Tor/` directory.
+
+```bash
+HidServAuth abcdef1234567890.onion ABCDEF1122334455667789 # client: haremote1
+```
+
+Once you have added the entry, restart the browser, and then browse to [abcdef1234567890.onion](abcdef1234567890.onion), the "dot onion" site address, to connect to your Home Assistant instance.
+
+Additional information can be found in the [Tor documentation](/docs/ecosystem/tor/) and the [Tor add-on repository](https://github.com/hassio-addons/addon-tor). The Tor Project itself provides details about a variaty of topics in their  [documentation](https://www.torproject.org/docs/documentation.html.en).
