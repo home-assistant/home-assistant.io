@@ -36,7 +36,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets a node's name
+* **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
 
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
