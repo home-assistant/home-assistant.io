@@ -84,7 +84,7 @@ If you are using <a href="/hassio/">Hass.io</a> then just move forward to the co
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
-    <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
+    <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.0/24</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -99,7 +99,7 @@ If you are using <a href="/hassio/">Hass.io</a> then just move forward to the co
 <span class="c1"># One whole subnet, and skipping two specific IPs.</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
-    <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
+    <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.0/24</span>
     <span class="s">home_interval</span><span class="pi">:</span> <span class="s">10</span>
     <span class="s">exclude</span><span class="pi">:</span>
      <span class="pi">-</span> <span class="s">192.168.1.12</span>
@@ -111,7 +111,7 @@ If you are using <a href="/hassio/">Hass.io</a> then just move forward to the co
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
     <span class="s">hosts</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">192.168.1.1/24</span>
+      <span class="pi">-</span> <span class="s">192.168.1.0/24</span>
       <span class="pi">-</span> <span class="s">10.0.0.2</span>
       <span class="pi">-</span> <span class="s">10.0.0.15</span>
 </code></pre>
