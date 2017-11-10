@@ -10,7 +10,7 @@ footer: true
 logo: ziggo.png
 ha_category: Media Player
 ha_iot_class: "Local Push"
-ha_release: "0.55"
+ha_release: "0.58"
 ---
 
 The `Ziggo Mediabox XL` component allows you to control a [Ziggo](https://www.ziggo.nl/) mediabox from Home Assistant.
