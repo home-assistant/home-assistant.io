@@ -45,4 +45,4 @@ Configuration variables:
 - **mouse** (*Optional*): Set to 1 to show mouse detectors, 0 to disable. Default 1.
 - **door_window** (*Optional*): Set to 1 to show door and window sensors, 0 to disable. Default 1.
 - **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
-
+- **giid** (*Optional*): The GIID of your installation (If you have more then one alarm system).
