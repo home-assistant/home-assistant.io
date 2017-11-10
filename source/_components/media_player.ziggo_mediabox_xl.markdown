@@ -1,0 +1,43 @@
+---
+layout: page
+title: "Ziggo Mediabox XL"
+description: "Instructions how to integrate the Ziggo mediabox into Home Assistant."
+date: 2017-11-10 20:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: ziggo.png
+ha_category: Media Player
+ha_iot_class: "Local Push"
+ha_release: "0.55"
+---
+
+The `Ziggo Mediabox XL` component allows you to control a [Ziggo](https://www.ziggo.nl/) mediabox from Home Assistant.
+
+To add a Ziggo Mediabox XL to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: ziggo_mediabox_xl
+    host: 192.168.0.123
+    name: Ziggo Mediabox
+```
+
+{% configuration %}
+  host:
+    description: The host name or address of the device.
+    required: true
+    type: string
+  name:
+    description: The name of the device used in the frontend.
+    required: false
+    type: string
+{% endconfiguration %}
+
+The channel information (numbers and names) are downloaded from ziggo.nl on startup.
+
+#### {% linkable_title Preparation of the Mediabox %}
+
+Makes sure to enable the Home Network ("mijn thuisnetwerk") service in the settings menu of the mediabox. Once you have set up the Media Library ("mediabiblotheek"), we can determine whether the device is turned on or off. Without this, the component will fail to start.
