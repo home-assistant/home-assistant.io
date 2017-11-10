@@ -29,7 +29,7 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: nmap_tracker
-    hosts: 192.168.1.1/24
+    hosts: 192.168.1.0/24
 ```
 
 Configuration variables:
@@ -47,7 +47,7 @@ A full example for the `nmap` tracker could look like the following sample:
 # One whole subnet, and skipping two specific IPs.
 device_tracker:
   - platform: nmap_tracker
-    hosts: 192.168.1.1/24
+    hosts: 192.168.1.0/24
     home_interval: 10
     exclude:
      - 192.168.1.12
@@ -60,7 +60,7 @@ device_tracker:
 device_tracker:
   - platform: nmap_tracker
     hosts:
-      - 192.168.1.1/24
+      - 192.168.1.0/24
       - 10.0.0.2
       - 10.0.0.15
 ```
