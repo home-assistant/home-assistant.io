@@ -25,7 +25,7 @@ volvooncall:
   password: password
 ```
 
-A region can be specified for e.g. users registered with Volvo in North America or China:
+Users registered with Volvo in North America or China will need to specify a region:
 
 ```yaml
 # North America 
