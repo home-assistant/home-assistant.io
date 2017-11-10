@@ -25,21 +25,21 @@ volvooncall:
   password: password
 ```
 
-Users registered with Volvo in North America or China will need to specify a service URL:
+A region can be specified for e.g. users registered with Volvo in North America or China:
 
 ```yaml
 # North America 
 volvooncall:
   username: username
   password: password
-  service_url: 'https://vocapi-na.wirelesscar.net/customerapi/rest/v3.0/'
+  region: na
 ```
 ```yaml
 # China
 volvooncall:
   username: username
   password: password
-  service_url: 'https://vocapi-cn.wirelesscar.net/customerapi/rest/v3.0/'
+  region: cn
 ```
 
 A more advanced example for setting the vehicle name and selecting what resources to display:
@@ -61,7 +61,8 @@ Configuration variables:
 
 - **username** (*Required*): The username associated with your Volvo On Call account.
 - **password** (*Required*): The password for your given Volvo On Call account.
-- **service_url** (*Optional*): The service URL to use for Volvo On Call (defaults to https://vocapi.wirelesscar.net/customerapi/rest/v3.0/).
+- **region** (*Optional*): The region where the Volvo is registered. The URL for finding the service will depend on this. (defaults to none).
+- **service_url** (*Optional*): The service URL to use for Volvo On Call (For advanced usage, or debugging. Defaults to https://vocapi.wirelesscar.net/customerapi/rest/v3.0/).
 - **name** (*Optional*): Make it possible to provide a name for the vehicles.
 - **resources** (*Optional*): A list of resources to display (defaults to all available).
 
