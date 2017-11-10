@@ -14,7 +14,7 @@ ha_release: 0.57
 
 The `timer` component aims to simplify automations based on (dynamic) durations.
 
-When a timer finishes or gets cancelled the corresponding events are fired. This allows you to diffferentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
+When a timer finishes or gets cancelled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
 
 <p class='note warning'>
 With the current implementation timers don't persist over restarts. After a restart they will be idle again, together with their initial configuration.
