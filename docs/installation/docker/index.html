@@ -111,7 +111,7 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <li>To ensure that Home Assistant displays the correct timezone go to the “Environment” tab and click the plus sign then add <code class="highlighter-rouge">variable</code> = <code class="highlighter-rouge">TZ</code> &amp; <code class="highlighter-rouge">value</code> = <code class="highlighter-rouge">Europe/London</code> choosing <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your correct timezone</a></li>
   <li>Confirm the “Advanced Settings”</li>
   <li>Click on “Next” and then “Apply”</li>
-  <li>Your Home Assistant within Docker should now run</li>
+  <li>Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example <code class="highlighter-rouge">http://192.168.1.10:8123</code>)</li>
 </ul>
 <p>Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:</p>
 <ul>
@@ -120,15 +120,20 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <li>wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)</li>
   <li>Move to “Container”-section</li>
   <li>Stop your container if it’s running</li>
-  <li>Right-click on it and select “Action”-&gt;”Clear”. You won’t loose any data, as all files are stored in your config-directory</li>
+  <li>Right-click on it and select “Action”-&gt;”Clear”. You won’t lose any data, as all files are stored in your config-directory</li>
   <li>Start the container again - it will then boot up with the new Home Assistant image</li>
+</ul>
+<p>Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:</p>
+<ul>
+  <li>Go to the Docker-app and move to “Container”-section</li>
+  <li>Right-click on it and select “Action”-&gt;”Restart”.</li>
 </ul>
 <h3><a class="title-link" name="restart" href="#restart"></a> Restart</h3>
 <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
 <p>If you change the configuration you have to restart the server. To do that you have 2 options.</p>
 <ol>
   <li>You can go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code class="highlighter-rouge">homeassistant/restart</code> and click “Call Service”.</li>
-  <li>Or you can restart it from an terminal by running <code class="highlighter-rouge">docker restart home-assistant</code></li>
+  <li>Or you can restart it from a terminal by running <code class="highlighter-rouge">docker restart homeassistant</code></li>
 </ol>
 </article>
         </div>
