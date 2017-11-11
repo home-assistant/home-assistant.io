@@ -82,19 +82,19 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
 </code></pre>
 </div>
-<p>Users registered with Volvo in North America or China will need to specify a service URL:</p>
+<p>Users registered with Volvo in North America or China will need to specify a region:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># North America </span>
 <span class="s">volvooncall</span><span class="pi">:</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
-  <span class="s">service_url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://vocapi-na.wirelesscar.net/customerapi/rest/v3.0/'</span>
+  <span class="s">region</span><span class="pi">:</span> <span class="s">na</span>
 </code></pre>
 </div>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># China</span>
 <span class="s">volvooncall</span><span class="pi">:</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
-  <span class="s">service_url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://vocapi-cn.wirelesscar.net/customerapi/rest/v3.0/'</span>
+  <span class="s">region</span><span class="pi">:</span> <span class="s">cn</span>
 </code></pre>
 </div>
 <p>A more advanced example for setting the vehicle name and selecting what resources to display:</p>
@@ -114,7 +114,8 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username associated with your Volvo On Call account.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given Volvo On Call account.</li>
-  <li><strong>service_url</strong> (<em>Optional</em>): The service URL to use for Volvo On Call (defaults to https://vocapi.wirelesscar.net/customerapi/rest/v3.0/).</li>
+  <li><strong>region</strong> (<em>Optional</em>): The region where the Volvo is registered. Needs to be set for users in North America or China.</li>
+  <li><strong>service_url</strong> (<em>Optional</em>): The service URL to use for Volvo On Call. Normally not neccessary to specify.</li>
   <li><strong>name</strong> (<em>Optional</em>): Make it possible to provide a name for the vehicles.</li>
   <li><strong>resources</strong> (<em>Optional</em>): A list of resources to display (defaults to all available).</li>
 </ul>
