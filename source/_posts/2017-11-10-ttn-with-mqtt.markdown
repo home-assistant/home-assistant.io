@@ -21,7 +21,7 @@ At the moment Home Assistant only supports one [MQTT broker](/docs/mqtt/). This 
 
 To check what your devices are sending, subscribe to the topic `+/devices/+/up` with a command-line tool like `mosquitto_sub`. The `<Region>` is the postfix of the **Handler** entry in your **Application overview**. `<AppID>` is the **Application ID** and `<AppKey>` is your access key. 
 
-``bash
+```bash
 $ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
 {
 	"app_id": "ha-demo",
