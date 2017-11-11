@@ -135,7 +135,7 @@ Returns the maximum supported temperature by the thermostat
 
 The following services are provided by the NuHeat Thermostat: `set_away_mode`, `set_temperature`, `resume_program`.
 
-The services `fan_min_on_time`, `set_aux_heat`, `set_hold_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode`, and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
+The services `fan_min_on_time`, `set_aux_heat`, `set_hold_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
 
 ### {% linkable_title Service `set_away_mode` %}
 

@@ -35,9 +35,17 @@ nuheat:
     - 67890
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your MyNuHeat account.
-- **password** (*Required*): The password for accessing your MyNuHeat account.
-- **devices** (*Required*): The serial number / ID of each thermostat you would like integrate with Home Assistant.
-
+{% configuration %}
+username:
+  description: The username for accessing your MyNuHeat account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your MyNuHeat account.
+  required: true
+  type: string
+devices:
+  description: The serial number / ID of each thermostat you would like integrate with Home Assistant.
+  required: true
+  type: [string, int]
+{% endconfiguration %}
