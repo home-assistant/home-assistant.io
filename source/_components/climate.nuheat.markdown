@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nuheat.png
 ha_category: Climate
-ha_release: 0.53
+ha_release: 0.58
 ha_iot_class: "Cloud Polling"
 ---
 
