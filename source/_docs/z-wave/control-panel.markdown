@@ -36,7 +36,8 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail.
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
-* **Rename Node** sets a node's name
+
+* **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
 
 * **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
 
