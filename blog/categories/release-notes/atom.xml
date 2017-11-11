@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-11T20:49:26+00:00</updated>
+  <updated>2017-11-11T21:37:02+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -98,6 +98,11 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 
 - Update frontend with fixes for setting temperature on climate card ([@balloob])
 - Fix setting max brightness for TRADFRI ([@ggravlingen] - [#10359])
+
+## <a class='title-link' name='release-0573---november-11' href='#release-0573---november-11'></a> release 0.57.3 - november 11 
+
+- Tellstick Duo acync callback fix ([@stefan-jonasson] - [#10384]) ([tellstick docs])
+- Fixed update() method and removed `ding` feature from stickupcams/floodlight ([@tchellomello] - [#10428]) ([binary_sensor.ring docs]) ([camera.ring docs]) ([sensor.ring docs])
 
 ## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 
@@ -650,7 +655,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
 [ikea email]: https://twitter.com/home_assistant/status/925373865802502144
-[wink-auth]: https://home-assistant.io/components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom]]></content>
+[wink-auth]: https://home-assistant.io/components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
+[#10384]: https://github.com/home-assistant/home-assistant/pull/10384
+[#10428]: https://github.com/home-assistant/home-assistant/pull/10428
+[@stefan-jonasson]: https://github.com/stefan-jonasson
+[@tchellomello]: https://github.com/tchellomello
+[binary_sensor.ring docs]: https://home-assistant.io/components/binary_sensor.ring/
+[camera.ring docs]: https://home-assistant.io/components/camera.ring/
+[sensor.ring docs]: https://home-assistant.io/components/sensor.ring/
+[tellstick docs]: https://home-assistant.io/components/tellstick/
+]]></content>
   </entry>
   
   <entry>
