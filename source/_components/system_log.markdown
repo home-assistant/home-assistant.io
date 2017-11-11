@@ -1,0 +1,32 @@
+---
+layout: page
+title: "System Log"
+description: "Summary of errors and warnings in Home Assistant during runtime."
+date: 2017-11-11 18:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: home-assistant.png
+ha_category: Other
+---
+
+The `system_log` component stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `System Log` panel. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the amount of stored log entries using the parameter `max_entries`.
+
+To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+
+```yaml
+system_log:
+  max_entries: MAX_ENTRIES
+```
+
+Configuration variables:
+
+- **max_entries** (*Optional*): Number of entries to store (older entries are discarded)
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `clear` %}
+
+To manually clear the system log, call this service.
+
