@@ -105,7 +105,6 @@ timer:
 
 ```yaml
 # Example automations.yaml entry
-
 - action:
   - service: timer.start
     entity_id: timer.test
@@ -130,6 +129,5 @@ timer:
     event_type: timer.finished
     event_data: 
       entity_id: timer.test
-
 ```
 
