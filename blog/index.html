@@ -70,6 +70,33 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/11/10/ttn-with-mqtt/">Home Assistant and The Things Network (TTN)</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-11-10T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 10, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/11/10/ttn-with-mqtt/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>The Home Assistant integration for <a href="https://www.thethingsnetwork.org/">The Things Network (TTN)</a> uses their <a href="https://www.thethingsnetwork.org/docs/applications/storage/">Storage</a> feature to get the sensor data. The easiest way to observe TTN sensors would be <a href="https://www.thethingsnetwork.org/docs/applications/mqtt/">MQTT</a> as it doesn’t requires any additional configuration.</p>
+<p>At the moment Home Assistant only supports one <a href="/docs/mqtt/">MQTT broker</a>. This means that you can’t subscribe to topics which are located on different brokers.</p>
+      <a class="btn pull-right" href="/blog/2017/11/10/ttn-with-mqtt/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/11/05/frontend-translations/">Translating Home Assistant</a>
   </h1>
   <div class="meta clearfix">
@@ -470,41 +497,6 @@ The Home Assistant sidebar in 12 different languages.
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
       <a class="btn pull-right" href="/blog/2017/10/07/release-55/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/10/06/deprecating-python-3.4-support/">Deprecating Python 3.4 support</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-10-06T00:36:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 6, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Technology</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/10/06/deprecating-python-3.4-support/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Starting with our next release, 0.55, we will deprecate Python 3.4 support. The current plan is to remove support for Python 3.4 at the beginning of 2018.</p>
-<p>Python 3.5 was released on September 13th, 2015. It has since then become the default Python installation on the stable releases of Debian, Ubuntu, Raspbian and Hassbian. Our other own operating system, Hass.io, is more advanced and is already running the greatly improved Python 3.6.</p>
-<p>The jump to Python 3.5 as a minimum version is driven by the Home Assistant core, which is based on asyncio. Starting with Python 3.5, asyncio got improved support in the language with dedicated keywords <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>. As this is the proper way of doing async in Python, we’re seeing a move by async libraries to either only support the new syntax from the beginning or dropping support for the Python 3.4 approach. Not moving along means an increased maintenance burden as we cannot use the latest releases of our libraries. Next to that it will prevent our users from being able to leverage the bug fixes and performance improvements that come with Python 3.5.</p>
-<h4>Hass.io</h4>
-<p>If you’re running Hass.io, you don’t have to do anything. Your system will always stay up to date.</p>
-<h4>Hassbian</h4>
-<p>If you’re running Hassbian it’s recommended that you make a backup of your configuration files and restore them on a fresh install. Upgrading an existing installation isn’t recommended.</p>
-<h4>Windows</h4>
-<p>If you’re on Windows, you’re fine as our minimum version for Windows has been 3.5 for a while now.</p>
-<h4>Other Debian based systems</h4>
-<p>If you’re running a Debian based system, follow <a href="https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9">these instructions</a> to upgrade.</p>
   </div>
   </article>
   <hr>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-10T20:03:45+00:00</updated>
+  <updated>2017-11-11T08:35:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,199 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and The Things Network (TTN)]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt/"/>
+    <updated>2017-11-10T12:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt</id>
+    <content type="html"><![CDATA[The Home Assistant integration for [The Things Network (TTN)](https://www.thethingsnetwork.org/) uses their [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) feature to get the sensor data. The easiest way to observe TTN sensors would be [MQTT](https://www.thethingsnetwork.org/docs/applications/mqtt/) as it doesn't requires any additional configuration.
+
+At the moment Home Assistant only supports one [MQTT broker](/docs/mqtt/). This means that you can't subscribe to topics which are located on different brokers.
+
+<!--more-->
+
+## <a class='title-link' name='subscribe-to-the-ttn-broker' href='#subscribe-to-the-ttn-broker'></a> Subscribe to the TTN Broker 
+
+To check what your devices are sending, subscribe to the topic `+/devices/+/up` with a command-line tool like `mosquitto_sub`. The `<Region>` is the postfix of the **Handler** entry in your **Application overview**. `<AppID>` is the **Application ID** and `<AppKey>` is your access key. 
+
+``bash
+$ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
+{
+	"app_id": "ha-demo",
+	"dev_id": "device01",
+	"hardware_serial": "AJDJENDNHRBFBBT",
+	"port": 1,
+    [...]
+```
+
+The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
+
+## <a class='title-link' name='the-relay' href='#the-relay'></a> The relay 
+
+To be able to work locally with the MQTT data that is received from the devices connected to TTN, we need to transfer it to the local broker. With this simple script below all messages from a given device are re-published on your local MQTT broker after they are received. Modify the script with your details as outlined in the previous section.
+
+```python
+"""Relay MQTT messages from The Things Network to a local MQTT broker."""
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
+
+DEVICE_NAME = '<DeviceID>'
+
+TTN_BROKER = '<Region>.thethings.network'
+TTN_USERNAME = '<AppID>'
+TTN_PASSWORD = '<AppKey>'
+TTN_TOPIC = '+/devices/{}/up'.format(DEVICE_NAME)
+
+LOCAL_BROKER = '192.168.0.2'
+LOCAL_TOPIC = 'home/ttn/garden_temp'
+
+
+def on_connect(client, userdata, flags, rc):
+    """Subscribe to topic after connection to broker is made."""
+    print("Connected with result code", str(rc))
+    client.subscribe(TTN_TOPIC)
+
+
+def on_message(client, userdata, msg):
+    """Relay message to a different broker."""
+    publish.single(
+        LOCAL_TOPIC, payload=msg.payload, qos=0, retain=False,
+        hostname=LOCAL_BROKER, port=1883, client_id='ttn-local',
+        keepalive=60, will=None, auth=None, tls=None, protocol=mqtt.MQTTv311)
+
+
+client = mqtt.Client()
+client.username_pw_set(TTN_USERNAME, password=TTN_PASSWORD)
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(TTN_BROKER, 1883, 60)
+
+client.loop_forever()
+```
+
+Save it and run it. As soon as a MQTT message is received from your device you should see it on your local broker (here 192.168.0.2) if you subscribe to `#` or the topic given in the script above `home/ttn/garden_temp`.
+
+```bash
+$ mosquitto_sub -h 192.168.0.2 -t "#" -d
+```
+
+## <a class='title-link' name='the-sensor' href='#the-sensor'></a> The sensor 
+
+All we would need now, is a [`mqtt` sensor](/components/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
+
+```python
+"""Support for The Things Network MQTT sensors."""
+import asyncio
+from datetime import timedelta
+import json
+import logging
+
+import voluptuous as vol
+
+import homeassistant.components.mqtt as mqtt
+from homeassistant.components.mqtt import CONF_STATE_TOPIC
+from homeassistant.const import CONF_NAME, CONF_UNIT_OF_MEASUREMENT
+from homeassistant.core import callback
+import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.entity import Entity
+
+_LOGGER = logging.getLogger(__name__)
+
+DEFAULT_NAME = 'MQTT TTN Sensor'
+DEFAULT_FORCE_UPDATE = False
+DEPENDENCIES = ['mqtt']
+
+PLATFORM_SCHEMA = mqtt.MQTT_RO_PLATFORM_SCHEMA.extend({
+    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+    vol.Optional(CONF_UNIT_OF_MEASUREMENT): cv.string,
+
+})
+
+
+@asyncio.coroutine
+def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
+    """Set up the TTN MQTT Sensor."""
+    async_add_devices([MqttTtnSensor(
+        config.get(CONF_NAME), config.get(CONF_STATE_TOPIC),
+        config.get(CONF_UNIT_OF_MEASUREMENT))
+    ])
+
+
+class MqttTtnSensor(Entity):
+    """Representation of a sensor."""
+
+    def __init__(self, name, state_topic, unit_of_measurement):
+        """Initialize the sensor."""
+        self._state = None
+        self._name = name
+        self._unit_of_measurement = unit_of_measurement
+        self._attributes = {}
+        self._state_topic = state_topic
+
+    def async_added_to_hass(self):
+        """Subscribe to MQTT events."""
+        @callback
+        def message_received(topic, payload, qos):
+            """Handle new MQTT messages."""
+
+            try:
+                data = json.loads(payload)
+            except json.JSONDecodeError:
+                _LOGGER.error("Invalid JSON data received: %s", data)
+
+            self._state = data['payload_fields'][next(
+                iter(data['payload_fields']))]
+            self._attributes = data
+            del self._attributes['payload_fields']
+            del self._attributes['metadata']
+            self.async_schedule_update_ha_state()
+
+        return mqtt.async_subscribe(
+            self.hass, self._state_topic, message_received, 0)
+
+    @property
+    def should_poll(self):
+        """No polling needed."""
+        return False
+
+    @property
+    def name(self):
+        """Return the name of the sensor."""
+        return self._name
+
+    @property
+    def unit_of_measurement(self):
+        """Return the unit this state is expressed in."""
+        return self._unit_of_measurement
+
+    @property
+    def state_attributes(self):
+        """Return the attributes of the entity."""
+        return self._attributes
+
+    @property
+    def state(self):
+        """Return the state of the entity."""
+        return self._state
+```
+
+Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will handle the messages.
+
+## <a class='title-link' name='the-configuration' href='#the-configuration'></a> The configuration 
+
+Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
+
+```
+sensor:
+  - platform: mqtt_ttn
+    name: TTN Sensor
+    state_topic: "home/ttn/garden_temp"
+```
+
+This solution is not production-ready, scalable or stable but it could fill the gape till Home Assistant is able to connect to multiple MQTT brokers. If you have multiple devices relay all messages to your local broker and add an configuration variable to `mqtt_ttn` sensor which allows you to select the device.
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant and SSH]]></title>
@@ -311,135 +504,6 @@ More information:
 [addon-duckdns]: /addons/duckdns/
 [duckdns]: http://www.duckdns.org/
 [le]: https://letsencrypt.org/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant on an Orange Pi Zero]]></title>
-    <link href="https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero/"/>
-    <updated>2017-05-13T09:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero</id>
-    <content type="html"><![CDATA[This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http://www.orangepi.org/orangepizero/). Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
-
-<p class="img">
-  <img src="/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
-</p>
-
-<!--more-->
-
-Download the [Armbian](https://www.armbian.com/orange-pi-zero/) and create the SD card with [Etcher](https://etcher.io/). There is no possibility to connect a display to the Orange Pi Zero. This means that you need a wired network setup with DHCP server. After your Orange Pi Zero is running, give it some time, and look for its IP address. The hostname is `orangepizero`.
-
-If you found the IP address then use your SSH client to connect to the Orange Pi Zero. The default password is `1234`.
-
-```bash
-$ ssh root@192.168.0.151
-[...]
-root@192.168.0.151's password: 
-You are required to change your password immediately (root enforced)
-  ___                               ____  _   _____
- / _ \ _ __ __ _ _ __   __ _  ___  |  _ \(_) |__  /___ _ __ ___
-| | | | '__/ _` | '_ \ / _` |/ _ \ | |_) | |   / // _ \ '__/ _ \ 
-| |_| | | | (_| | | | | (_| |  __/ |  __/| |  / /|  __/ | | (_) |
- \___/|_|  \__,_|_| |_|\__, |\___| |_|   |_| /____\___|_|  \___/ 
-                       |___/                                     
-
-Welcome to ARMBIAN 5.27.170514 nightly Ubuntu 16.04.2 LTS 4.11.0-sun8i
-System load:   0.86 0.35 0.13  	Up time:       9 min
-Memory usage:  5 % of 496MB  	IP:            192.168.0.151
-CPU temp:      39°C
-Usage of /:    16% of 7.1G
-
-[ General system configuration: armbian-config ]
-New to Armbian? Check the documentation first: https://docs.armbian.com
-
-Changing password for root.
-(current) UNIX password: 
-Enter new UNIX password: 
-Retype new UNIX password: 
-
-You are using Armbian nightly build.
-
-It is provided AS IS with NO WARRANTY and NO END USER SUPPORT.
-
-Creating a new user account. Press <Ctrl-C> to abort
-
-Please provide a username (eg. your forename): ha
-Trying to add user ha
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-	LANGUAGE = "en_US.UTF-8",
-	LC_ALL = (unset),
-	LC_PAPER = "de_CH.UTF-8",
-	LC_MONETARY = "de_CH.UTF-8",
-	LC_NUMERIC = "de_CH.UTF-8",
-	LC_MESSAGES = "en_US.UTF-8",
-	LC_MEASUREMENT = "de_CH.UTF-8",
-	LC_TIME = "de_CH.UTF-8",
-	LANG = "en_US.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
-Adding user `ha' ...
-Adding new group `ha' (1000) ...
-Adding new user `ha' (1000) with group `ha' ...
-Creating home directory `/home/ha' ...
-Copying files from `/etc/skel' ...
-Enter new UNIX password: 
-Retype new UNIX password: 
-passwd: password updated successfully
-Changing the user information for ha
-Enter the new value, or press ENTER for the default
-	Full Name []: homeassistant
-	Room Number []: 
-	Work Phone []: 
-	Home Phone []: 
-	Other []: 
-Is the information correct? [Y/n] y
-
-Dear homeassistant, your account ha has been created and is sudo enabled.
-Please use this account for your daily work from now on.
-
-root@orangepizero:~# 
-```
-Get the latest details about the packages.
-
-```bash
-root@orangepizero:~# apt-get update
-Hit:1 http://ports.ubuntu.com xenial InRelease
-Get:2 http://ports.ubuntu.com xenial-security InRelease [102 kB]
-Hit:3 http://beta.armbian.com xenial InRelease
-Get:4 http://ports.ubuntu.com xenial-updates InRelease [102 kB]
-Get:5 http://ports.ubuntu.com xenial-backports InRelease [102 kB]
-Get:6 http://ports.ubuntu.com xenial-updates/main armhf Packages [479 kB]
-Get:7 http://ports.ubuntu.com xenial-updates/universe armhf Packages [419 kB]
-Fetched 1205 kB in 7s (158 kB/s)
-Reading package lists... Done
-```
-Let's run an upgrade to make sure that all available packages are up-to-date.
-
-```bash
-root@orangepizero:~# apt-get upgrade
-```
-Now, we are installing the requirements for Home Assistant.
-
-```bash
-root@orangepizero:~# apt-get install python3-dev python3-pip python3-venv
-```
-
-Those steps to install Home Assistant are described in the [documentation](/docs/installation/armbian/) and the guide for [`venv`](/docs/installation/virtualenv/) as well. Switch to the create user `ha` and perform the remaining installation steps which are reduced to the minimum below:
-
-```bash
-ha@orangepizero:~$ pyvenv-3.5 homeassistant
-ha@orangepizero:~$ cd homeassistant && source bin/activate
-(homeassistant) ha@orangepizero:~/homeassistant$ pip3 install --upgrade pip
-(homeassistant) ha@orangepizero:~/homeassistant$ pip3 install homeassistant
-(homeassistant) ha@orangepizero:~/homeassistant$ hass
-```
-
-<p class="img">
-  <img src="/images/blog/2017-05-orangepi/orange-pi-running.png" />
-</p>
-
-To make it ready for daily usage, don't forget to enable [autostart](/docs/autostart/).
 ]]></content>
   </entry>
   

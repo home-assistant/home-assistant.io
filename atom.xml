@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-10T20:03:45+00:00</updated>
+  <updated>2017-11-11T08:35:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,199 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and The Things Network (TTN)]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt/"/>
+    <updated>2017-11-10T12:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt</id>
+    <content type="html"><![CDATA[<p>The Home Assistant integration for <a href="https://www.thethingsnetwork.org/">The Things Network (TTN)</a> uses their <a href="https://www.thethingsnetwork.org/docs/applications/storage/">Storage</a> feature to get the sensor data. The easiest way to observe TTN sensors would be <a href="https://www.thethingsnetwork.org/docs/applications/mqtt/">MQTT</a> as it doesn’t requires any additional configuration.</p>
+
+<p>At the moment Home Assistant only supports one <a href="/docs/mqtt/">MQTT broker</a>. This means that you can’t subscribe to topics which are located on different brokers.</p>
+
+<!--more-->
+
+<h2><a class="title-link" name="subscribe-to-the-ttn-broker" href="#subscribe-to-the-ttn-broker"></a> Subscribe to the TTN Broker</h2>
+
+<p>To check what your devices are sending, subscribe to the topic <code class="highlighter-rouge">+/devices/+/up</code> with a command-line tool like <code class="highlighter-rouge">mosquitto_sub</code>. The <code class="highlighter-rouge">&lt;Region&gt;</code> is the postfix of the <strong>Handler</strong> entry in your <strong>Application overview</strong>. <code class="highlighter-rouge">&lt;AppID&gt;</code> is the <strong>Application ID</strong> and <code class="highlighter-rouge">&lt;AppKey&gt;</code> is your access key.</p>
+
+<p>``bash
+$ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
+{
+	"app_id": "ha-demo",
+	"dev_id": "device01",
+	"hardware_serial": "AJDJENDNHRBFBBT",
+	"port": 1,
+    [...]</AppKey></AppID></Region></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
+
+## &lt;a class='title-link' name='the-relay' href='#the-relay'&gt;&lt;/a&gt; The relay 
+
+To be able to work locally with the MQTT data that is received from the devices connected to TTN, we need to transfer it to the local broker. With this simple script below all messages from a given device are re-published on your local MQTT broker after they are received. Modify the script with your details as outlined in the previous section.
+
+```python
+"""Relay MQTT messages from The Things Network to a local MQTT broker."""
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
+
+DEVICE_NAME = '&lt;DeviceID&gt;'
+
+TTN_BROKER = '&lt;Region&gt;.thethings.network'
+TTN_USERNAME = '&lt;AppID&gt;'
+TTN_PASSWORD = '&lt;AppKey&gt;'
+TTN_TOPIC = '+/devices/{}/up'.format(DEVICE_NAME)
+
+LOCAL_BROKER = '192.168.0.2'
+LOCAL_TOPIC = 'home/ttn/garden_temp'
+
+
+def on_connect(client, userdata, flags, rc):
+    """Subscribe to topic after connection to broker is made."""
+    print("Connected with result code", str(rc))
+    client.subscribe(TTN_TOPIC)
+
+
+def on_message(client, userdata, msg):
+    """Relay message to a different broker."""
+    publish.single(
+        LOCAL_TOPIC, payload=msg.payload, qos=0, retain=False,
+        hostname=LOCAL_BROKER, port=1883, client_id='ttn-local',
+        keepalive=60, will=None, auth=None, tls=None, protocol=mqtt.MQTTv311)
+
+
+client = mqtt.Client()
+client.username_pw_set(TTN_USERNAME, password=TTN_PASSWORD)
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(TTN_BROKER, 1883, 60)
+
+client.loop_forever()
+</code></pre>
+</div>
+
+<p>Save it and run it. As soon as a MQTT message is received from your device you should see it on your local broker (here 192.168.0.2) if you subscribe to <code class="highlighter-rouge">#</code> or the topic given in the script above <code class="highlighter-rouge">home/ttn/garden_temp</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -h 192.168.0.2 -t <span class="s2">"#"</span> -d
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="the-sensor" href="#the-sensor"></a> The sensor</h2>
+
+<p>All we would need now, is a <a href="/components/sensor.mqtt/"><code class="highlighter-rouge">mqtt</code> sensor</a> with a <code class="highlighter-rouge">value_template</code>. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.5</span><span class="p">}</span></code> but there are other details available which the sensor should show.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">"""Support for The Things Network MQTT sensors."""</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">voluptuous</span> <span class="kn">as</span> <span class="nn">vol</span>
+
+<span class="kn">import</span> <span class="nn">homeassistant.components.mqtt</span> <span class="kn">as</span> <span class="nn">mqtt</span>
+<span class="kn">from</span> <span class="nn">homeassistant.components.mqtt</span> <span class="kn">import</span> <span class="n">CONF_STATE_TOPIC</span>
+<span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">CONF_NAME</span><span class="p">,</span> <span class="n">CONF_UNIT_OF_MEASUREMENT</span>
+<span class="kn">from</span> <span class="nn">homeassistant.core</span> <span class="kn">import</span> <span class="n">callback</span>
+<span class="kn">import</span> <span class="nn">homeassistant.helpers.config_validation</span> <span class="kn">as</span> <span class="nn">cv</span>
+<span class="kn">from</span> <span class="nn">homeassistant.helpers.entity</span> <span class="kn">import</span> <span class="n">Entity</span>
+
+<span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">DEFAULT_NAME</span> <span class="o">=</span> <span class="s">'MQTT TTN Sensor'</span>
+<span class="n">DEFAULT_FORCE_UPDATE</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
+
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">MQTT_RO_PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_NAME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_NAME</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_UNIT_OF_MEASUREMENT</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+
+<span class="p">})</span>
+
+
+<span class="nd">@asyncio.coroutine</span>
+<span class="k">def</span> <span class="nf">async_setup_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">async_add_devices</span><span class="p">,</span> <span class="n">discovery_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""Set up the TTN MQTT Sensor."""</span>
+    <span class="n">async_add_devices</span><span class="p">([</span><span class="n">MqttTtnSensor</span><span class="p">(</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_NAME</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_STATE_TOPIC</span><span class="p">),</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_UNIT_OF_MEASUREMENT</span><span class="p">))</span>
+    <span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">MqttTtnSensor</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
+    <span class="s">"""Representation of a sensor."""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">state_topic</span><span class="p">,</span> <span class="n">unit_of_measurement</span><span class="p">):</span>
+        <span class="s">"""Initialize the sensor."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_unit_of_measurement</span> <span class="o">=</span> <span class="n">unit_of_measurement</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_topic</span> <span class="o">=</span> <span class="n">state_topic</span>
+
+    <span class="k">def</span> <span class="nf">async_added_to_hass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Subscribe to MQTT events."""</span>
+        <span class="nd">@callback</span>
+        <span class="k">def</span> <span class="nf">message_received</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
+            <span class="s">"""Handle new MQTT messages."""</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+                <span class="n">_LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">"Invalid JSON data received: </span><span class="si">%</span><span class="s">s"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'payload_fields'</span><span class="p">][</span><span class="nb">next</span><span class="p">(</span>
+                <span class="nb">iter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'payload_fields'</span><span class="p">]))]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="p">[</span><span class="s">'payload_fields'</span><span class="p">]</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="p">[</span><span class="s">'metadata'</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">async_schedule_update_ha_state</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">async_subscribe</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hass</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_topic</span><span class="p">,</span> <span class="n">message_received</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">should_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""No polling needed."""</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the name of the sensor."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">unit_of_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the unit this state is expressed in."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unit_of_measurement</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the attributes of the entity."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the state of the entity."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+</code></pre>
+</div>
+
+<p>Store it in <code class="highlighter-rouge">&lt;config_dir&gt;/custom_components/sensor/mqtt_ttn.py</code> and it will handle the messages.</p>
+
+<h2><a class="title-link" name="the-configuration" href="#the-configuration"></a> The configuration</h2>
+
+<p>Now create the <a href="/components/sensor.mqtt/"><code class="highlighter-rouge">mqtt_ttn</code> sensor</a> entry for your device.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sensor:
+  - platform: mqtt_ttn
+    name: TTN Sensor
+    state_topic: "home/ttn/garden_temp"
+</code></pre>
+</div>
+
+<p>This solution is not production-ready, scalable or stable but it could fill the gape till Home Assistant is able to connect to multiple MQTT brokers. If you have multiple devices relay all messages to your local broker and add an configuration variable to <code class="highlighter-rouge">mqtt_ttn</code> sensor which allows you to select the device.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Translating Home Assistant]]></title>
@@ -1987,20 +2180,6 @@ Screenshot of the new customize editor.
   <li>Update python-wink version to fix Dome water valve bug. (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8923">#8923</a>) (<a href="https://home-assistant.io/components/wink/">wink docs</a>) (<a href="https://home-assistant.io/components/switch.wink/">switch.wink docs</a>)</li>
   <li>Fix SET_TEMPERATURE_SCHEMA in climate component (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8879">#8879</a>) (<a href="https://home-assistant.io/components/climate/">climate docs</a>)</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant Podcast #5]]></title>
-    <link href="https://home-assistant.io/blog/2017/08/01/hasspodcast-ep-5/"/>
-    <updated>2017-08-01T00:01:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/08/01/hasspodcast-ep-5</id>
-    <content type="html"><![CDATA[<p>We cover off AppDaemon/HADashboard and all the fun stuff introduced in 0.49 and 0.50.</p>
-
-<p>Show notes available on the <a href="https://hasspodcast.io/ha005/">Home Assistant Podcast Website</a></p>
-
-<p><a href="https://hasspodcast.io/ha005/">Listen online</a></p>
 
 ]]></content>
   </entry>
