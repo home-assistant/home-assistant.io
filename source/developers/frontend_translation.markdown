@@ -24,6 +24,8 @@ The translation of the Home Assistant frontend is still a work in progress. More
 2. Stick to [Material Design guidelines](https://material.io/guidelines/style/writing.html).
 3. Don't translate or change proper nouns like `Home Assistant`, `Hass.io` or `Hue`.
 4. For a region specific translation, keys that will be the same as the base translation should be filled with `[VOID]`. These will be replaced during our translation build process.
+5. For state badges make sure your translation fits into the badge. To test this go to dev tools states (`<>`) and create a new entity with the id `device_tracker.test` and your translation as state.
+6. Use [placeholders](https://docs.lokalise.co/article/KO5SZWLLsy-key-referencing) if possible. Common placeholders are `[%key:state::default::on%]` for state `On` and `[%key:state::default::on%]` for state `Off`. Check the English translation for more placeholders (green text color) or use additional ones if it's useful.
 
 ## {% linkable_title Adding a new language %}
 If your language is not listed you can request it at [GitHub](https://github.com/home-assistant/home-assistant-polymer/issues/new). Please provide both the English name and the native name for your language. For example:
