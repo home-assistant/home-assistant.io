@@ -94,6 +94,10 @@
   <li><strong>detection_time</strong> (<em>Optional</em>): The Unifi component will not return a device that has not been seen by the controller in the last 180 seconds. You can adjust this threshold with this variable and accepts seconds or <code class="highlighter-rouge">00:00:00</code> time formats.</li>
 </ul>
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
+<p class="note">
+If you decide to install the Unifi Controller on the same system as your Home Assistant, be aware there may be overlap in ports if you have the MQTT component as well.
+<a href="https://github.com/home-assistant/home-assistant/issues/10507">Related Issue</a>
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

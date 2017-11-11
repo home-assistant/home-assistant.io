@@ -202,6 +202,42 @@ If no <code class="highlighter-rouge">entity_id</code> is given all active timer
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+<h3><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration example</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+
+<span class="c1"># Set a timer called test to a duration of 30 seconds: </span>
+<span class="s">timer</span><span class="pi">:</span>
+  <span class="s">test</span><span class="pi">:</span>
+    <span class="s">duration</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:00:30'</span>
+</code></pre>
+</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automations.yaml entry</span>
+<span class="pi">-</span> <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">timer.start</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">timer.test</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Timerswitch</span>
+  <span class="s">id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Timerstart'</span>
+
+<span class="c1"># Timer is started when the switch pumprun is set to on. </span>
+  <span class="s">trigger</span><span class="pi">:</span> 
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.pumprun</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+
+<span class="c1"># When timer is stopped, the time run out, another message is sent</span>
+<span class="pi">-</span> <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.nma</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Timer</span><span class="nv"> </span><span class="s">stop"</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Timerstop</span>
+  <span class="s">id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Timerstop'</span>
+  <span class="s">trigger</span><span class="pi">:</span> 
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">timer.finished</span>
+    <span class="s">event_data</span><span class="pi">:</span> 
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">timer.test</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
