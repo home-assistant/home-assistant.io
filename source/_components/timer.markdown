@@ -92,3 +92,42 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 
+### {% linkable_title Configuration example %}
+
+```yaml
+# Example configuration.yaml entry
+
+# Set a timer called test to a duration of 30 seconds: 
+timer:
+  test:
+    duration: '00:00:30'
+```
+
+```yaml
+# Example automations.yaml entry
+- action:
+  - service: timer.start
+    entity_id: timer.test
+  alias: Timerswitch
+  id: 'Timerstart'
+
+# Timer is started when the switch pumprun is set to on. 
+  trigger: 
+    platform: state
+    entity_id: switch.pumprun
+    to: 'on'
+
+# When timer is stopped, the time run out, another message is sent
+- action:
+  - service: notify.nma
+    data:
+      message: "Timer stop"
+  alias: Timerstop
+  id: 'Timerstop'
+  trigger: 
+    platform: event
+    event_type: timer.finished
+    event_data: 
+      entity_id: timer.test
+```
+
