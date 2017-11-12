@@ -112,4 +112,5 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title OZW Log %}
 
+If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Refresh** to display the log if you need it to check activities.
