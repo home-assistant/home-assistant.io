@@ -45,6 +45,21 @@ deconz:
   port: 80
 ```
 
+## {% linkable_title Remote control devices%}
+
+Remote controls (ZHASwitch category) will be exposed as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch.
+
+Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
+
+| Switch code | Description             |
+|-------------|-------------------------|
+| 1XXX        | Button #1 up to #8      |
+| XXX1        | Button hold             |
+| XXX2        | Button short release    |
+| XXX3        | Button long release     |
+
+Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
+
 ## {% linkable_title Device services %}
 Available services: `generate_api_key`.
 
