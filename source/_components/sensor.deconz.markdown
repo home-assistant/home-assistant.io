@@ -20,5 +20,6 @@ The following sensor types are supported:
  * Humidity sensor
  * Light level sensor
  * Pressure sensor
- * Switch
  * Temperature sensor
+
+Entity ids will be sensor.device_name, where device_name comes from deCONZ.
