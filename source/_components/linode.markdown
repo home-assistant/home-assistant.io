@@ -13,7 +13,7 @@ ha_release: 0.57
 ha_iot_class: "Cloud Polling"
 ---
 
-The `linode` component allows you to access the information about your [Linode](https://welcome.linode.com) systems from Home Assistant.
+The `linode` component allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
 Obtain your API key from Linode account.
 
