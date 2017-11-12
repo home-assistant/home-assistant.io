@@ -23,16 +23,24 @@ To integrate Tile into Home Assistant, add the following section to your
 ```yaml
 device_tracker:
   - platform: tile
-    email: email@address.com
+    username: email@address.com
     password: MY_PASSWORD_123
     monitored_variables:
       - TILE
       - PHONE
 ```
 
-Configuration variables:
-
-- **email** (*Required*): the email address for the Tile account
-- **password** (*Required*): the password for the Tile account
-- **monitored_variables** (*Optional*): a list of Tile types to monitor; valid
-values are `TILE` and `PHONE` (default is for all types to be included)
+{% configuration %}
+  username:
+    description: the email address for the Tile account
+    required: true
+    type: string
+  password:
+    description: the password for the Tile account
+    required: true
+    type: string
+  monitored_variables:
+    description: the Tile types to monitor; valid values are `TILE` and `PHONE` (default is for all types to be included)
+    required: false
+    type: list
+{% endconfiguration %}
