@@ -30,7 +30,7 @@ $ sudo apt-get install lirc liblircclient-dev
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
 The configuration is slightly different :
 
-- The `hardware.conf` file is not supported, obsoleted by a new `lirc_options.conf` file and systemd unit definitions.
+ - The `hardware.conf` file is not supported, obsoleted by a new `lirc_options.conf` file and systemd unit definitions.
  - The former single `lirc` service is replaced with the three systemd services `lircd.service`, `lircmd.service` and `irexec.service`. There is no counterpart to the 0.9.0 `lirc` service which covered all of these. Using a separate transmitter device requires yet another service.
  - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.  
     
