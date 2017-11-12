@@ -10,10 +10,10 @@ footer: true
 ---
 
 First you will need to install Home Assistant before we can get started:
-<br>
+
 We have developed **Hass.io** to turn your device into a dedicated Home Assistant hub controlled by a nice webinterface.
 For Raspberry Pi and Intel NUC we offer configured images. Flash the image, setup WiFi (if required) and everything else can be done inside the Hass.io webinterface. Great, isn't it?
-<br>
+
 Also Home Assistant runs on any other device that supports **Python 3**.
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/hassio/installation/'>
