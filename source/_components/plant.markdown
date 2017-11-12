@@ -27,7 +27,6 @@ plant:
       conductivity: sensor.my_sensor_conductivity
       brightness: sensor.my_sensor_brightness
     min_moisture: 20
-    group_name: my_plant_group
 ```
 
 Configuration variables:
@@ -48,7 +47,6 @@ Configuration variables:
   - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
   - **min_brightness** (*Optional*): Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
   - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
-  - **group_name** (*Optional*): If a group name is set, a new group in the UI will be created, that will contain the plant component and all of the sensors configured above.
   - **check_days** (*Optional*): time interval (in days) used when checking **min_brightness**, if not set, the default value is 3
 
 ## {% linkable_title Examples %}
@@ -84,23 +82,23 @@ sensor:
   - platform: mqtt
     name: my_plant_moisture
     state_topic: my_plant_topic
-    value_template: '{{ value_json.moisture }}'
+    value_template: '\{\{ value_json.moisture \}\}'
   - platform: mqtt
     name: my_plant_battery
     state_topic: my_plant_topic
-    value_template: '{{ value_json.battery }}'
+    value_template: '\{\{ value_json.battery \}\}'
   - platform: mqtt
     name: my_plant_temperature
     state_topic: my_plant_topic
-    value_template: '{{ value_json.temperature }}'
+    value_template: '\{\{ value_json.temperature \}\}'
   - platform: mqtt
     name: my_plant_conductivity
     state_topic: my_plant_topic
-    value_template: '{{ value_json.conductivity }}'
+    value_template: '\{\{ value_json.conductivity \}\}'
   - platform: mqtt
     name: my_plant_brightness
     state_topic: my_plant_topic
-    value_template: '{{ value_json.brightness }}'
+    value_template: '\{\{ value_json.brightness \}\}'
 ```
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.
