@@ -18,7 +18,7 @@ At present, this component only supports ordering within Canada and the US.
 
 To enable the component, you need to set up your customer information and define some orders.
 
-Orders are a group of product codes. You can get a list of codes of products offered by your closest dominos dumped into your log by adding the `dump_menu` variable.
+Orders are a group of product codes. You can get a panel with a list of codes of products offered by your closest Dominos by adding the `show_menu` variable.
 
 Currently, there is no support in this component for toppings, coupons or order tracking.
 
@@ -30,7 +30,7 @@ dominos:
   email: justin.trudeau@parl.gc.ca
   phone: 6139950253
   address: 24 Sussex Dr, Ottawa, ON, K1M1M4
-  dump_menu: 1
+  show_menu: 1
   orders:
   - name: Medium Pan
     codes:
@@ -53,7 +53,7 @@ Configuration variables:
 - **email** (*Required*): Your email address
 - **phone** (*Required*): Your phone number
 - **address** (*Required*): Your delivery address
-- **dump_menu** (*Optional*): Dumps product codes from your nearest stor into your log
+- **show_menu** (*Optional*): Dumps product codes from your nearest stor into your log
 - **orders** (*Optional*): Sets of product codes to use for ordering
 
 
