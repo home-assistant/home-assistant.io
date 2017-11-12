@@ -10,14 +10,14 @@ footer: true
 logo: zigbee.png
 ha_category: Hub
 ha_release: "0.58"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 deCONZ by Dresden Elektronik is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
 deCONZ REST API verified from v2.04.86.
 
-The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. You can then generate an API key through the deCONZ service generate_api_key.
+The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. You can then generate an API key through the deCONZ service generate_api_key[generate_api_key](#deconz/generate_api_key).
 
 You must configure deCONZ by adding the following lines to your `configuration.yaml` file:
 
@@ -49,7 +49,7 @@ deconz:
 Available services: `generate_api_key`.
 
 #### {% linkable_title Service `deconz/generate_api_key` %}
-Generate API key needed by component to communicate with deCONZ. Key will be stored in config file deconz.conf.
+Generate API key needed by component to communicate with deCONZ. The Key will be stored in a config file named deconz.conf.
 
 | Service data attribute    | Optional | Description                               |
 |---------------------------|----------|-------------------------------------------|
