@@ -82,23 +82,23 @@ sensor:
   - platform: mqtt
     name: my_plant_moisture
     state_topic: my_plant_topic
-    value_template: '\{\{ value_json.moisture \}\}'
+    value_template: '{{ value_json.moisture }}'
   - platform: mqtt
     name: my_plant_battery
     state_topic: my_plant_topic
-    value_template: '\{\{ value_json.battery \}\}'
+    value_template: '{{ value_json.battery }}'
   - platform: mqtt
     name: my_plant_temperature
     state_topic: my_plant_topic
-    value_template: '\{\{ value_json.temperature \}\}'
+    value_template: '{{ value_json.temperature }}'
   - platform: mqtt
     name: my_plant_conductivity
     state_topic: my_plant_topic
-    value_template: '\{\{ value_json.conductivity \}\}'
+    value_template: '{{ value_json.conductivity }}'
   - platform: mqtt
     name: my_plant_brightness
     state_topic: my_plant_topic
-    value_template: '\{\{ value_json.brightness \}\}'
+    value_template: '{{ value_json.brightness }}'
 ```
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.
