@@ -70,6 +70,40 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/11/12/tor/">Secure remote access to Home Assistant using Tor</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-11-12T08:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 12, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Franck Nijhof & Fabian Affolter</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/11/12/tor/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Routers and gateways provided by broadband internet providers are very often limited regarding features and configuration possibilities. Most of these limitations affect the opportunities that allow users to set up port-forwarding, DMZ, and DHCP reservations since the suppliers figured that average user does not want (or should not) deal with these. Making your Home Assistant instance available remotely (and securely), in this case, becomes more difficult. Are you one of those unlucky ones?</p>
+<p>There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:</p>
+<ul>
+  <li>Combination of <a href="/components/duckdns/">DuckDNS</a> (or similar), <a href="/docs/ecosystem/certificates/lets_encrypt/">Let’s Encrypt</a> (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.</li>
+  <li>Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely <a href="/components/duckdns/">DuckDNS</a> (or similar).</li>
+  <li><a href="/blog/2017/11/02/secure-shell-tunnel/">SSH tunnel-ing</a>. Which still requires port-forwarding, DHCP reservation and most likely (yeah, you’ve guessed it) <a href="/components/duckdns/">DuckDNS</a> (or similar).</li>
+</ul>
+<p>There is, however, another option available that most people do not realize: <a href="https://www.torproject.org">Tor</a>. <a href="https://www.torproject.org">Tor</a> offers a capability that they refer to as <a href="https://www.torproject.org/docs/hidden-services.html.en">Tor’s Hidden Services</a>, which allows you to securely access your Home Assistant installation <em>without</em> the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.</p>
+<p>The most amazing part? It is super easy to set up!</p>
+      <a class="btn pull-right" href="/blog/2017/11/12/tor/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/11/10/ttn-with-mqtt/">Home Assistant and The Things Network (TTN)</a>
   </h1>
   <div class="meta clearfix">
@@ -438,70 +472,6 @@ The Home Assistant sidebar in 12 different languages.
   <li>Write a script in language X and use it with the <a href="/components/sensor.command_line/"><code class="highlighter-rouge">command</code> sensor</a> or use <code class="highlighter-rouge">date +"%Y"</code> as a <code class="highlighter-rouge">command:</code>.</li>
 </ul>
       <a class="btn pull-right" href="/blog/2017/10/15/templating-date-time/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/10/07/release-55/">0.55: Tibber, DuckDNS, The Things Network, Owntrack</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-10-07T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 7, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> 12 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/10/07/release-55/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.55"><img src="/images/blog/2017-10-0.55/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>Beside the improved Wink support which was contributed by <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, ships this release a wide variety of new components and platforms. The <code class="highlighter-rouge">input_slider</code> components has received a makeover by <a href="https://github.com/BioSehnsucht">@BioSehnsucht</a> and is now <a href="https://home-assistant.io/components/input_number/"><code class="highlighter-rouge">input_number</code></a>. <a href="https://github.com/tinloaf">@tinloaf</a> added a feature that allows you to enter dates: <a href="https://home-assistant.io/components/input_datetime/"><code class="highlighter-rouge">input_datetime</code></a>. Both will help you to improve your automation rules.</p>
-<h2><a class="title-link" name="duckdns" href="#duckdns"></a> DuckDNS</h2>
-<p>Using Home Assistant with <a href="http://www.duckdns.org">DuckDNS</a> for Dynamic DNS (DDNS or DynDNS) is an <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">old story</a>. DuckDNS  is also integrated in <a href="https://home-assistant.io/addons/duckdns/">Hass.io</a>. 0.55 ships a component for non Hass.io users to get a similar feature.</p>
-<h2><a class="title-link" name="recorder" href="#recorder"></a> Recorder</h2>
-<p>The purging of data was <a href="https://home-assistant.io/components/recorder/">improved</a>. With <code class="highlighter-rouge">purge_interval</code> you can schedule regular purges of older events and states. In combination you can specify with <code class="highlighter-rouge">purge_keep_days</code> the amount of days you want to keep. The new service <code class="highlighter-rouge">recorder.purge</code> allows you to handle this task when needed.</p>
-<h2><a class="title-link" name="owntracks" href="#owntracks"></a> Owntracks</h2>
-<p><a href="http://owntracks.org/">Owntracks</a> is an easy way to track your devices. For some times we have the device tracker which depends on <a href="https://home-assistant.io/components/device_tracker.owntracks/">MQTT</a> but thanks to a new feature in Owntracks we can now offer support for HTTP. The <a href="https://home-assistant.io/components/device_tracker.owntracks_http/">new platform</a> doesn’t require a MQTT broker but sends messages directly as HTTP requests to Home Assistant.</p>
-<h2><a class="title-link" name="tibber" href="#tibber"></a> Tibber</h2>
-<p>This release introduces a new sensor: <a href="https://home-assistant.io/components/sensor.tibber/">Tibber</a>. The sensor provides the current electricity price if you are a <a href="https://tibber.com/">Tibber</a> customer. This will allow you to make automation for turning off the heater when the electricity price is high or only charge your electric car when the prices are low. We further plan to add support for showing future electricity prices and historic electricity consumption data. Tibber is currently only available in Norway and Sweden</p>
-<h2><a class="title-link" name="the-things-network" href="#the-things-network"></a> The Things Network</h2>
-<p><a href="https://www.thethingsnetwork.org/">The Things Network</a> (TTN) is a <a href="https://www.thethingsnetwork.org/wiki/LoRaWAN/Home">LoRaWAN</a> based network especially designed for IoT devices. With this <a href="https://home-assistant.io/components/thethingsnetwork/">integration</a> one can observe the state of devices which are out of range of the local WiFi network as long as they are connected to a TTN gateway.</p>
-<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
-<ul>
-  <li>GeoRSS sensor (<a href="https://github.com/exxamalte">@exxamalte</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9331">#9331</a>) (<a href="https://home-assistant.io/components/sensor.geo_rss_events/">sensor.geo_rss_events docs</a>) (new-platform)</li>
-  <li>Add DuckDNS component (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9556">#9556</a>) (<a href="https://home-assistant.io/components/duckdns/">duckdns docs</a>) (new-platform)</li>
-  <li>Add OwnTracks over HTTP (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9582">#9582</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks/">device_tracker.owntracks docs</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks_http/">device_tracker.owntracks_http docs</a>) (new-platform)</li>
-  <li>Add an input_datetime (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9313">#9313</a>) (<a href="https://home-assistant.io/components/input_datetime/">input_datetime docs</a>) (new-platform)</li>
-  <li>Cover component for RFlink (<a href="https://github.com/passie">@passie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9432">#9432</a>) (<a href="https://home-assistant.io/components/rflink/">rflink docs</a>) (<a href="https://home-assistant.io/components/cover.rflink/">cover.rflink docs</a>) (new-platform)</li>
-  <li>Introducing support to Melnor RainCloud sprinkler systems (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9287">#9287</a>) (<a href="https://home-assistant.io/components/raincloud/">raincloud docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.raincloud/">binary_sensor.raincloud docs</a>) (<a href="https://home-assistant.io/components/sensor.raincloud/">sensor.raincloud docs</a>) (<a href="https://home-assistant.io/components/switch.raincloud/">switch.raincloud docs</a>) (new-platform)</li>
-  <li>MQTT climate platform [continuation of #8750] (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9589">#9589</a>) (<a href="https://home-assistant.io/components/climate.mqtt/">climate.mqtt docs</a>) (new-platform)</li>
-  <li>Add Tibber sensor (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9661">#9661</a>) (<a href="https://home-assistant.io/components/sensor.tibber/">sensor.tibber docs</a>) (new-platform)</li>
-  <li>Updating clicksendaudio component based on feedback (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9692">#9692</a>) (<a href="https://home-assistant.io/components/notify.clicksendaudio/">notify.clicksendaudio docs</a>) (new-platform)</li>
-  <li>Support for The Things Network (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9627">#9627</a>) (<a href="https://home-assistant.io/components/thethingsnetwork/">thethingsnetwork docs</a>) (<a href="https://home-assistant.io/components/sensor.thethingsnetwork/">sensor.thethingsnetwork docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="0551---october-15" href="#0551---october-15"></a> 0.55.1 - October 15</h2>
-<ul>
-  <li>Fix for TypeError in synology camera (<a href="https://github.com/snjoetw">@snjoetw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9754">#9754</a>) (<a href="https://home-assistant.io/components/camera.synology/">camera.synology docs</a>)</li>
-  <li>missing is_closed ( rflink cover fix ) (<a href="https://github.com/passie">@passie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9776">#9776</a>) (<a href="https://home-assistant.io/components/cover.rflink/">cover.rflink docs</a>)</li>
-  <li>[light.tradfri] Fix transition time (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9785">#9785</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>)</li>
-  <li>OwnTracks: Fix handler is None checking (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9794">#9794</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks/">device_tracker.owntracks docs</a>)</li>
-  <li>Changed yaml.load into yaml.safe_load (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9841">#9841</a>) (<a href="https://home-assistant.io/components/google/">google docs</a>)</li>
-  <li>Bugfix/9811 jinja autoescape (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9842">#9842</a>)</li>
-  <li>Livebox Play TV bug: fix #9839 (<a href="https://github.com/pschmitt">@pschmitt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9880">#9880</a>) (<a href="https://home-assistant.io/components/media_player.liveboxplaytv/">media_player.liveboxplaytv docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/10/07/release-55/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

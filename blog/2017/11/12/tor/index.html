@@ -1,0 +1,280 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Secure remote access to Home Assistant using Tor - Home Assistant</title>
+    <meta name="author" content="Franck Nijhof & Fabian Affolter">
+    <meta name="description" content="Using Tor with Home Assistant and Hass.io.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/11/12/tor/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Secure remote access to Home Assistant using Tor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/11/12/tor/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Using Tor with Home Assistant and Hass.io.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-11-tor/social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@frenck">
+    <meta name="twitter:title" content="Secure remote access to Home Assistant using Tor">
+    <meta name="twitter:description" content="Using Tor with Home Assistant and Hass.io.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-11-tor/social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="post">
+  <header>
+  <h1 class="title indent">Secure remote access to Home Assistant using Tor</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-11-12T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 12, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Franck Nijhof & Fabian Affolter</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <p>Routers and gateways provided by broadband internet providers are very often limited regarding features and configuration possibilities. Most of these limitations affect the opportunities that allow users to set up port-forwarding, DMZ, and DHCP reservations since the suppliers figured that average user does not want (or should not) deal with these. Making your Home Assistant instance available remotely (and securely), in this case, becomes more difficult. Are you one of those unlucky ones?</p>
+<p>There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:</p>
+<ul>
+  <li>Combination of <a href="/components/duckdns/">DuckDNS</a> (or similar), <a href="/docs/ecosystem/certificates/lets_encrypt/">Let’s Encrypt</a> (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.</li>
+  <li>Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely <a href="/components/duckdns/">DuckDNS</a> (or similar).</li>
+  <li><a href="/blog/2017/11/02/secure-shell-tunnel/">SSH tunnel-ing</a>. Which still requires port-forwarding, DHCP reservation and most likely (yeah, you’ve guessed it) <a href="/components/duckdns/">DuckDNS</a> (or similar).</li>
+</ul>
+<p>There is, however, another option available that most people do not realize: <a href="https://www.torproject.org">Tor</a>. <a href="https://www.torproject.org">Tor</a> offers a capability that they refer to as <a href="https://www.torproject.org/docs/hidden-services.html.en">Tor’s Hidden Services</a>, which allows you to securely access your Home Assistant installation <em>without</em> the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.</p>
+<p>The most amazing part? It is super easy to set up!</p>
+<a name="read-more"></a>
+<h2><a class="title-link" name="setting-up-tor" href="#setting-up-tor"></a> Setting up Tor</h2>
+<p>Our <a href="/docs/ecosystem/tor/">documentation</a> provides an detailled guide about seting up a <a href="https://www.torproject.org/docs/hidden-services.html.en">Tor’s Hidden Service</a>. The setup is straight-forward:</p>
+<ol>
+  <li>Install Tor. On a Debian-based system: <code class="highlighter-rouge">$ sudo apt-get install tor</code>. On Fedora: <code class="highlighter-rouge">$ sudo dnf install tor</code></li>
+  <li>
+    <p>Modify Tor’s main configuration file <code class="highlighter-rouge">/etc/tor/torrc</code> to include the following lines:</p>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="c">############### This section is just for location-hidden services ###</span>
+
+ <span class="c">## Once you have configured a hidden service, you can look at the</span>
+ <span class="c">## contents of the file ".../hidden_service/hostname" for the address</span>
+ <span class="c">## to tell people.</span>
+ ...
+ HiddenServiceDir /var/lib/tor/homeassistant/
+ HiddenServicePort 80 127.0.0.1:8123
+ ...
+</code></pre>
+    </div>
+  </li>
+  <li>Restart Tor: <code class="highlighter-rouge">$ sudo systemctl restart tor</code></li>
+  <li>
+    <p>The Tor-generated hostname file contains the hostname you need to access your installation.</p>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code> <span class="nv">$ </span>sudo cat /var/lib/tor/homeassistant/hostname
+ abcdef1234567890.onion
+</code></pre>
+    </div>
+  </li>
+</ol>
+<h2><a class="title-link" name="tor-add-on-for-hassio" href="#tor-add-on-for-hassio"></a> Tor add-on for Hass.io</h2>
+<p><a href="https://github.com/frenck">Franck Nijhof (@frenck)</a> created the <a href="https://github.com/hassio-addons/addon-tor">Tor add-on</a> for <a href="/hassio/">Hass.io</a>. This add-on makes the installation and the setup extremely simple. Go to the <strong>Hass.io</strong> panel, then to the <strong>Store</strong>, copy <code class="highlighter-rouge">https://github.com/hassio-addons/repository</code> into the text box of <strong>Add-On Repositories</strong> and save it.</p>
+<p>A new entry <strong>Tor</strong> will show-up in the list of add-ons. Click on it to install it. The configuration is done in <strong>Options</strong>. Please refer to the <a href="https://github.com/hassio-addons/addon-tor#configuration">Configuration documentation</a> for further details. A possible configuration could look like the sample below (which is the default configuration).</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"log_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"socks"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hidden_services"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stealth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"ports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"8123:80"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>When you are done, press <strong>Save</strong> and then <strong>Start</strong>. In the <strong>Logs</strong> section, you can see what the add-on is doing. Watch out for an entry like the one below, which will tell you your hostname on the Tor network.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>INFO: -----------------------------------------------------------
+INFO: Your Home Assistant instance is available on Tor!
+INFO: Address: abcdef1234567890.onion
+INFO: -----------------------------------------------------------
+</code></pre>
+</div>
+<p>Don’t worry if you missed it, restarting the add-on will display it again. The details are also stored and available in the <code class="highlighter-rouge">/ssl/tor/hidden_service/hostname</code> file.</p>
+<h2><a class="title-link" name="tor-clients" href="#tor-clients"></a> Tor clients</h2>
+<p>To access you Home Assistant via the Tor Hidden Service, you will need a Tor client. There are multiple clients, for different devices and platforms, available. The <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> is by far the simplest option, which is available for Windows, MacOS &amp; Linux.</p>
+<p>Simply download and install the <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a>, start it, and enter the “dot onion” address you’ve gained from the earlier steps (<code class="highlighter-rouge">abcdef1234567890.onion</code> in this case). Voila!</p>
+<p>Some other clients:</p>
+<ul>
+  <li><a href="https://guardianproject.info/apps/orbot/">Orbot</a> for Android</li>
+  <li><a href="https://play.google.com/store/apps/details?id=info.guardianproject.orfox&amp;hl=nl">Orfox</a> for Android</li>
+  <li><a href="https://mike.tig.as/onionbrowser/">Onion Browser</a> for iOS</li>
+</ul>
+<h2><a class="title-link" name="cranking-up-security" href="#cranking-up-security"></a> Cranking up security</h2>
+<p>The setup described in this blog post is easy and relatively secure, but anyone who knows your <code class="highlighter-rouge">.onion</code> address can still connect to your Home Assistant instance (Remember to use passwords!). With all of the <a href="https://blog.torproject.org/quick-simple-guide-tor-and-internet-things-so-far">discussion</a> about putting your IoT on the Tor Network, maybe you want to add an extra layer of defense, especially if you’re going to be the only one that uses it. Tor offers an additional layer of security, called “Hidden Service Authentication”, usually referred to as “Stealth”-mode.</p>
+<p>This “Stealth”-mode adds an extra layer of security to your Hidden Service by only responding to a client that passes a unique secret cookie as it connects. Obviously, this requires additional configuration on the Tor client applications.</p>
+<p>Additional information can be found in the <a href="/docs/ecosystem/tor/">Tor documentation</a> and the <a href="https://github.com/hassio-addons/addon-tor">Tor add-on repository</a>, including how to setup the “Stealth”-mode. The Tor Project itself provides details about a variaty of topics in their  <a href="https://www.torproject.org/docs/documentation.html.en">documentation</a>.</p>
+</article>
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/11/12/tor/"
+     data-counturl="https://home-assistant.io/blog/2017/11/12/tor/" >Tweet</a>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/11/12/tor/"
+         data-layout="button_count">
+    </div>
+  <div class="g-plusone" data-size="standard"></div>
+</section>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+        <li class="post">
+          <a href="/blog/2017/11/10/ttn-with-mqtt/">Home Assistant and The Things Network (TTN)</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/11/05/frontend-translations/">Translating Home Assistant</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/11/04/release-57/">0.57: Translations, Hacktoberfest, Timers</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/11/02/secure-shell-tunnel/">Home Assistant and SSH</a>
+        </li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/11/12/tor/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/11/12/tor/';
+    var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

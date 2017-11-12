@@ -70,6 +70,70 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/10/07/release-55/">0.55: Tibber, DuckDNS, The Things Network, Owntrack</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-10-07T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 7, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> 12 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/10/07/release-55/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.55"><img src="/images/blog/2017-10-0.55/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>Beside the improved Wink support which was contributed by <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, ships this release a wide variety of new components and platforms. The <code class="highlighter-rouge">input_slider</code> components has received a makeover by <a href="https://github.com/BioSehnsucht">@BioSehnsucht</a> and is now <a href="https://home-assistant.io/components/input_number/"><code class="highlighter-rouge">input_number</code></a>. <a href="https://github.com/tinloaf">@tinloaf</a> added a feature that allows you to enter dates: <a href="https://home-assistant.io/components/input_datetime/"><code class="highlighter-rouge">input_datetime</code></a>. Both will help you to improve your automation rules.</p>
+<h2><a class="title-link" name="duckdns" href="#duckdns"></a> DuckDNS</h2>
+<p>Using Home Assistant with <a href="http://www.duckdns.org">DuckDNS</a> for Dynamic DNS (DDNS or DynDNS) is an <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">old story</a>. DuckDNS  is also integrated in <a href="https://home-assistant.io/addons/duckdns/">Hass.io</a>. 0.55 ships a component for non Hass.io users to get a similar feature.</p>
+<h2><a class="title-link" name="recorder" href="#recorder"></a> Recorder</h2>
+<p>The purging of data was <a href="https://home-assistant.io/components/recorder/">improved</a>. With <code class="highlighter-rouge">purge_interval</code> you can schedule regular purges of older events and states. In combination you can specify with <code class="highlighter-rouge">purge_keep_days</code> the amount of days you want to keep. The new service <code class="highlighter-rouge">recorder.purge</code> allows you to handle this task when needed.</p>
+<h2><a class="title-link" name="owntracks" href="#owntracks"></a> Owntracks</h2>
+<p><a href="http://owntracks.org/">Owntracks</a> is an easy way to track your devices. For some times we have the device tracker which depends on <a href="https://home-assistant.io/components/device_tracker.owntracks/">MQTT</a> but thanks to a new feature in Owntracks we can now offer support for HTTP. The <a href="https://home-assistant.io/components/device_tracker.owntracks_http/">new platform</a> doesn’t require a MQTT broker but sends messages directly as HTTP requests to Home Assistant.</p>
+<h2><a class="title-link" name="tibber" href="#tibber"></a> Tibber</h2>
+<p>This release introduces a new sensor: <a href="https://home-assistant.io/components/sensor.tibber/">Tibber</a>. The sensor provides the current electricity price if you are a <a href="https://tibber.com/">Tibber</a> customer. This will allow you to make automation for turning off the heater when the electricity price is high or only charge your electric car when the prices are low. We further plan to add support for showing future electricity prices and historic electricity consumption data. Tibber is currently only available in Norway and Sweden</p>
+<h2><a class="title-link" name="the-things-network" href="#the-things-network"></a> The Things Network</h2>
+<p><a href="https://www.thethingsnetwork.org/">The Things Network</a> (TTN) is a <a href="https://www.thethingsnetwork.org/wiki/LoRaWAN/Home">LoRaWAN</a> based network especially designed for IoT devices. With this <a href="https://home-assistant.io/components/thethingsnetwork/">integration</a> one can observe the state of devices which are out of range of the local WiFi network as long as they are connected to a TTN gateway.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>GeoRSS sensor (<a href="https://github.com/exxamalte">@exxamalte</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9331">#9331</a>) (<a href="https://home-assistant.io/components/sensor.geo_rss_events/">sensor.geo_rss_events docs</a>) (new-platform)</li>
+  <li>Add DuckDNS component (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9556">#9556</a>) (<a href="https://home-assistant.io/components/duckdns/">duckdns docs</a>) (new-platform)</li>
+  <li>Add OwnTracks over HTTP (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9582">#9582</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks/">device_tracker.owntracks docs</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks_http/">device_tracker.owntracks_http docs</a>) (new-platform)</li>
+  <li>Add an input_datetime (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9313">#9313</a>) (<a href="https://home-assistant.io/components/input_datetime/">input_datetime docs</a>) (new-platform)</li>
+  <li>Cover component for RFlink (<a href="https://github.com/passie">@passie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9432">#9432</a>) (<a href="https://home-assistant.io/components/rflink/">rflink docs</a>) (<a href="https://home-assistant.io/components/cover.rflink/">cover.rflink docs</a>) (new-platform)</li>
+  <li>Introducing support to Melnor RainCloud sprinkler systems (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9287">#9287</a>) (<a href="https://home-assistant.io/components/raincloud/">raincloud docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.raincloud/">binary_sensor.raincloud docs</a>) (<a href="https://home-assistant.io/components/sensor.raincloud/">sensor.raincloud docs</a>) (<a href="https://home-assistant.io/components/switch.raincloud/">switch.raincloud docs</a>) (new-platform)</li>
+  <li>MQTT climate platform [continuation of #8750] (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9589">#9589</a>) (<a href="https://home-assistant.io/components/climate.mqtt/">climate.mqtt docs</a>) (new-platform)</li>
+  <li>Add Tibber sensor (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9661">#9661</a>) (<a href="https://home-assistant.io/components/sensor.tibber/">sensor.tibber docs</a>) (new-platform)</li>
+  <li>Updating clicksendaudio component based on feedback (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9692">#9692</a>) (<a href="https://home-assistant.io/components/notify.clicksendaudio/">notify.clicksendaudio docs</a>) (new-platform)</li>
+  <li>Support for The Things Network (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9627">#9627</a>) (<a href="https://home-assistant.io/components/thethingsnetwork/">thethingsnetwork docs</a>) (<a href="https://home-assistant.io/components/sensor.thethingsnetwork/">sensor.thethingsnetwork docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="0551---october-15" href="#0551---october-15"></a> 0.55.1 - October 15</h2>
+<ul>
+  <li>Fix for TypeError in synology camera (<a href="https://github.com/snjoetw">@snjoetw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9754">#9754</a>) (<a href="https://home-assistant.io/components/camera.synology/">camera.synology docs</a>)</li>
+  <li>missing is_closed ( rflink cover fix ) (<a href="https://github.com/passie">@passie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9776">#9776</a>) (<a href="https://home-assistant.io/components/cover.rflink/">cover.rflink docs</a>)</li>
+  <li>[light.tradfri] Fix transition time (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9785">#9785</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>)</li>
+  <li>OwnTracks: Fix handler is None checking (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9794">#9794</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks/">device_tracker.owntracks docs</a>)</li>
+  <li>Changed yaml.load into yaml.safe_load (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9841">#9841</a>) (<a href="https://home-assistant.io/components/google/">google docs</a>)</li>
+  <li>Bugfix/9811 jinja autoescape (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9842">#9842</a>)</li>
+  <li>Livebox Play TV bug: fix #9839 (<a href="https://github.com/pschmitt">@pschmitt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9880">#9880</a>) (<a href="https://home-assistant.io/components/media_player.liveboxplaytv/">media_player.liveboxplaytv docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/10/07/release-55/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/10/06/deprecating-python-3.4-support/">Deprecating Python 3.4 support</a>
   </h1>
   <div class="meta clearfix">
@@ -500,82 +564,6 @@ Screenshot of the new customize editor.
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
       <a class="btn pull-right" href="/blog/2017/08/26/release-0-52/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/08/12/release-51/">0.51: Massive history speed up, finished automation editor and official vacuum cleaner support</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-08-12T00:11:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 12, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 13 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/08/12/release-51/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.51"><img src="/images/blog/2017-08-0.51/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p class="note warning">This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.</p>
-<p>Release 0.51 is around the corner and it contains some really great updates.</p>
-<h2><a class="title-link" name="database-speed-up" href="#database-speed-up"></a> Database speed up</h2>
-<p>The first one is more amazing database updates <a href="https://github.com/home-assistant/home-assistant/pull/8748">#8748</a> by <a href="https://github.com/OverloadUT">@OverloadUT</a>. Every query that has been tested executes in well under 1 second, even on a RPi using MySQL with 6 million rows and around 300 entities. This is true even when you’re getting an unrealistically huge date range!</p>
-<p>Updating the database will take some time when you start Home Assistant. During that time, the Home Assistant frontend is not accessible. Please let it complete and do not turn Home Assistant off.</p>
-<h2><a class="title-link" name="frontend-update" href="#frontend-update"></a> Frontend update</h2>
-<p>We have finished the migration of our frontend to be powered by Polymer 2. This has given us a big speed boost on Safari/iOS devices and has fixed a wide range of bugs.</p>
-<p>We have also finished the automation editor. All triggers and actions are now implemented and so are most conditions (missing are <code class="highlighter-rouge">and</code>, <code class="highlighter-rouge">or</code>). The automation editor is also no longer Chrome only, it can now also be used in Safari.</p>
-<p>Another change to the frontend is that we have reorganized the panels. The Z-Wave and automation configuration panels have been merged into the configuration panel.</p>
-<div class="videoWrapper">
-  <iframe src="https://www.youtube.com/embed/f3isVVpmiq4" frameborder="0" allowfullscreen=""></iframe>
-</div>
-<h2><a class="title-link" name="vacuum-cleaners" href="#vacuum-cleaners"></a> Vacuum cleaners</h2>
-<p>As we have seen more vacuum cleaners land in Home Assistant, it was time to create an official component for them. That’s why <a href="https://github.com/azogue">@azogue</a> introduced the new vacuum cleaner component in  <a href="https://github.com/home-assistant/home-assistant/pull/8623">#8623</a>. This allows first class integration of vacuum cleaners in Home Assistant. Out of the box we will have Dyson, Xiamo and Roomba as supported platforms.</p>
-<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
-<ul>
-  <li>Added Lutron Caseta Scene Support (<a href="https://github.com/809694+kfcook">@809694+kfcook</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8690">#8690</a>) (<a href="https://home-assistant.io/components/lutron_caseta/">lutron_caseta docs</a>) (<a href="https://home-assistant.io/components/scene.lutron_caseta/">scene.lutron_caseta docs</a>) (new-platform)</li>
-  <li>New media_player platform for Russound devices using the RIO protocol (<a href="https://github.com/wickerwaka">@wickerwaka</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8448">#8448</a>) (<a href="https://home-assistant.io/components/media_player.russound_rio/">media_player.russound_rio docs</a>) (new-platform)</li>
-  <li>New component: bluesound (<a href="https://github.com/thrawnarn">@thrawnarn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7192">#7192</a>) (<a href="https://home-assistant.io/components/media_player.bluesound/">media_player.bluesound docs</a>) (new-platform)</li>
-  <li>Add mochad light component (<a href="https://github.com/mtreinish">@mtreinish</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8476">#8476</a>) (<a href="https://home-assistant.io/components/light.mochad/">light.mochad docs</a>) (new-platform)</li>
-  <li>geizhals sensor component (<a href="https://github.com/JulianKahnert">@JulianKahnert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8458">#8458</a>) (<a href="https://home-assistant.io/components/sensor.geizhals/">sensor.geizhals docs</a>) (new-platform)</li>
-  <li>Xiaomi vacuum as platform of new <code class="highlighter-rouge">vacuum</code> component derived from ToggleEntity, and services (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8623">#8623</a>) (breaking change) (new-platform)</li>
-  <li>Wi-Fi enabled Roomba support (<a href="https://github.com/pschmitt">@pschmitt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8825">#8825</a>) (<a href="https://home-assistant.io/components/vacuum.roomba/">vacuum.roomba docs</a>) (new-platform)</li>
-  <li>Add support to Dyson 360 Eye robot vacuum using new vacuum platform (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8852">#8852</a>) (<a href="https://home-assistant.io/components/dyson/">dyson docs</a>) (<a href="https://home-assistant.io/components/vacuum/">vacuum docs</a>) (<a href="https://home-assistant.io/components/fan.dyson/">fan.dyson docs</a>) (<a href="https://home-assistant.io/components/sensor.dyson/">sensor.dyson docs</a>) (<a href="https://home-assistant.io/components/vacuum.dyson/">vacuum.dyson docs</a>) (new-platform)</li>
-  <li>Add Initial Mailbox panel and sensor (<a href="https://github.com/PhracturedBlue">@PhracturedBlue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8233">#8233</a>) (<a href="https://home-assistant.io/components/asterisk_mbox/">asterisk_mbox docs</a>) (new-platform)</li>
-  <li>Add Leviton Decora Smart WiFi Device Platform (<a href="https://github.com/tlyakhov">@tlyakhov</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8529">#8529</a>) (<a href="https://home-assistant.io/components/light.decora_wifi/">light.decora_wifi docs</a>) (new-platform)</li>
-  <li>Add RainMachine switch platform (<a href="https://github.com/bachya">@bachya</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8827">#8827</a>) (<a href="https://home-assistant.io/components/switch.rainmachine/">switch.rainmachine docs</a>) (new-platform)</li>
-  <li>Add new device tracker for Huawei Routers. (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8488">#8488</a>) (<a href="https://home-assistant.io/components/device_tracker.huawei_router/">device_tracker.huawei_router docs</a>) (new-platform)</li>
-  <li>Add Shodan sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8902">#8902</a>) (<a href="https://home-assistant.io/components/sensor.shodan/">sensor.shodan docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="release-0511---august-12" href="#release-0511---august-12"></a> Release 0.51.1 - August 12</h2>
-<ul>
-  <li>Fixed a bug in the automation editor that would break if no conditions available in the config file. (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-<h2><a class="title-link" name="release-0512---august-14" href="#release-0512---august-14"></a> Release 0.51.2 - August 14</h2>
-<ul>
-  <li>Fix zwave power_consumption attribute (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8968">#8968</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
-  <li>Turn foscam verbose mode off (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8967">#8967</a>) (<a href="https://home-assistant.io/components/camera.foscam/">camera.foscam docs</a>)</li>
-  <li>fix stack trace in pushbullet (<a href="https://github.com/Danielhiversen">@Danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8965">#8965</a>) (<a href="https://home-assistant.io/components/notify.pushbullet/">notify.pushbullet docs</a>)</li>
-  <li>Harmoney remote: Fix call to ha_send_commands (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8956">#8956</a>) (<a href="https://home-assistant.io/components/remote.harmony/">remote.harmony docs</a>)</li>
-  <li>fix DeviceException handling when updating xiaomi vacuum (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8954">#8954</a>) (<a href="https://home-assistant.io/components/vacuum.xiaomi/">vacuum.xiaomi docs</a>)</li>
-  <li>Sabnzbd: do not assume discovery info is a dict (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8951">#8951</a>) (<a href="https://home-assistant.io/components/sensor.sabnzbd/">sensor.sabnzbd docs</a>)</li>
-  <li>Fix login button (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add workaround for broken toggles in Safari  (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix weblink opening twice (<a href="https://github.com/azogue">@azogue</a>)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/08/12/release-51/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>
