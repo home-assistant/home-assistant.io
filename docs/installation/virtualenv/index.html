@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Installation in virtualenv - Home Assistant</title>
+    <title>Installation in Python virtual environment - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to install Home Assistant in a virtual environment.">
+    <meta name="description" content="How to install Home Assistant in a Python virtual environment.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/installation/virtualenv/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Installation in virtualenv">
+    <meta property="og:title" content="Installation in Python virtual environment">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/docs/installation/virtualenv/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to install Home Assistant in a virtual environment.">
+    <meta property="og:description" content="How to install Home Assistant in a Python virtual environment.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Installation in virtualenv">
-    <meta name="twitter:description" content="Instructions how to install Home Assistant in a virtual environment.">
+    <meta name="twitter:title" content="Installation in Python virtual environment">
+    <meta name="twitter:description" content="How to install Home Assistant in a Python virtual environment.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -71,68 +71,73 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/installation/virtualenv.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Installation in virtualenv
+      Installation in Python virtual environment
     </h1>
   </header>
   <hr class="divider">
-  <p>There are several reasons why it makes sense to run Home Assistant in a virtual environment. A <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won’t interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won’t break Home Assistant, and it means you don’t need to install Python packages as root.</p>
-<p>Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We’ll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.</p>
-<h3><a class="title-link" name="step-0-install-some-dependencies" href="#step-0-install-some-dependencies"></a> Step 0: Install some dependencies</h3>
+  <p class="note">
+Beginners should check our <a href="/getting-started/">getting started guide</a> first.
+</p>
+<p>There are several reasons why it makes sense to run Home Assistant in a virtual environment. A <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won’t interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won’t break Home Assistant, and it means you don’t need to install Python packages as root.</p>
+<p>Virtualenvs are pretty easy to setup. We’ll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.</p>
+<h3><a class="title-link" name="basic-guide" href="#basic-guide"></a> Basic guide</h3>
+<p>The basic guide is for testing Home Assistant. Also check the advanced guide for instances used in production.</p>
+<h2><a class="title-link" name="step-1-install-dependencies" href="#step-1-install-dependencies"></a> Step 1: Install dependencies</h2>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt-get upgrade
 <span class="gp">$ </span>sudo apt-get install python3-pip python3-dev
 <span class="gp">$ </span>sudo pip3 install --upgrade virtualenv
 </code></pre>
 </div>
-<h3><a class="title-link" name="step-1-create-a-home-assistant-user--group" href="#step-1-create-a-home-assistant-user--group"></a> Step 1: Create a Home Assistant user &amp; group</h3>
-<p>This step is optional, but it’s a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).</p>
+<h2><a class="title-link" name="step-2-setup-virtualenv" href="#step-2-setup-virtualenv"></a> Step 2: Setup virtualenv</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv <span class="nv">$HOME</span>/homeassistant
+</code></pre>
+</div>
+<h2><a class="title-link" name="step-3-install-or-update-home-assistant" href="#step-3-install-or-update-home-assistant"></a> Step 3: Install or update Home Assistant</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source</span> <span class="nv">$HOME</span>/homeassistant/bin/activate
+<span class="gp">(homeassistant)$ </span>pip3 install --upgrade homeassistant
+</code></pre>
+</div>
+<h2><a class="title-link" name="step-4-run-home-assistant" href="#step-4-run-home-assistant"></a> Step 4: Run Home Assistant</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">$HOME</span>/homeassistant/bin/hass
+</code></pre>
+</div>
+<h3><a class="title-link" name="advanced-guide" href="#advanced-guide"></a> Advanced guide</h3>
+<h2><a class="title-link" name="separate-user--group-for-home-assistant-basic-guide-step-2" href="#separate-user--group-for-home-assistant-basic-guide-step-2"></a> Separate user &amp; group for Home Assistant (Basic guide step 2)</h2>
+<p>It’s a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser --system homeassistant
 <span class="gp">$ </span>sudo addgroup homeassistant
 </code></pre>
 </div>
-<p>Home Assistant stores its configuration in <code class="highlighter-rouge">$HOME/.homeassistant</code> by default, so in this case, it would be in <code class="highlighter-rouge">/home/homeassistant/.homeassistant</code></p>
-<p>If you plan to use a Z-Wave controller, you will need to add this user to the <code class="highlighter-rouge">dialout</code> group</p>
+<p>Home Assistant stores its configuration in <code class="highlighter-rouge">$HOME/.homeassistant</code> by default, so in this case, it would be in <code class="highlighter-rouge">/home/homeassistant/.homeassistant</code>.</p>
+<p>If you plan to use a Z-Wave controller, you will need to add this user to the <code class="highlighter-rouge">dialout</code> group:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -G dialout -a homeassistant
 </code></pre>
 </div>
-<h3><a class="title-link" name="step-2-create-a-directory-for-home-assistant" href="#step-2-create-a-directory-for-home-assistant"></a> Step 2: Create a directory for Home Assistant</h3>
-<p>This can be anywhere you want.  We chose to put it in <code class="highlighter-rouge">/srv</code>. You also need to change the ownership of the directory to the user you created above (if you created one).</p>
+<h2><a class="title-link" name="custom-installation-directory-for-home-assistant-basic-guide-step-2" href="#custom-installation-directory-for-home-assistant-basic-guide-step-2"></a> Custom installation directory for Home Assistant (Basic guide step 2)</h2>
+<p>This can be anywhere you want.  We chose to put it in <code class="highlighter-rouge">/srv</code>. You also need to change the ownership of the directory to the user you created above.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo mkdir /srv/homeassistant
 <span class="gp">$ </span>sudo chown homeassistant:homeassistant /srv/homeassistant
+<span class="gp">$ </span>python3 -m venv /srv/homeassistant
 </code></pre>
 </div>
-<h3><a class="title-link" name="step-3-become-the-new-user" href="#step-3-become-the-new-user"></a> Step 3: Become the new user</h3>
+<h2><a class="title-link" name="install-or-update-home-assistant" href="#install-or-update-home-assistant"></a> Install or update Home Assistant</h2>
 <p>This is obviously only necessary if you created a <code class="highlighter-rouge">homeassistant</code> user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you’ll end up with mucked up permissions.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
 </code></pre>
 </div>
 <p>The <code class="highlighter-rouge">su</code> command means ‘switch’ user. We use the ‘-s’ flag because the <code class="highlighter-rouge">homeassistant</code> user is a system user and doesn’t have a default shell by default (to prevent attackers from being able to log in as that user).</p>
-<h3><a class="title-link" name="step-4-set-up-the-virtualenv" href="#step-4-set-up-the-virtualenv"></a> Step 4: Set up the virtualenv</h3>
-<p>All this step does is stick a Python environment in the directory we’re using. That’s it. It’s just a directory. There’s nothing special about it, and it is entirely self-contained.</p>
-<p>It will include a <code class="highlighter-rouge">bin</code> directory, which will contain all the executables used in the virtualenv (including Home Assistant itself). It also includes a script called <code class="highlighter-rouge">activate</code> which we will use to activate the virtualenv.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>virtualenv -p python3 /srv/homeassistant
-</code></pre>
-</div>
-<h3><a class="title-link" name="step-5-activate-the-virtualenv" href="#step-5-activate-the-virtualenv"></a> Step 5: Activate the virtualenv</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">(homeassistant)$ </span>pip3 install --upgrade homeassistant
 </code></pre>
 </div>
-<p>After that, your prompt should include <code class="highlighter-rouge">(homeassistant)</code>.</p>
-<h3><a class="title-link" name="step-6-install-home-assistant" href="#step-6-install-home-assistant"></a> Step 6: Install Home Assistant</h3>
-<p>Once your virtualenv has been activated, you don’t need to <code class="highlighter-rouge">sudo</code> any of your <code class="highlighter-rouge">pip</code> commands. <code class="highlighter-rouge">pip</code> will be installing things in the virtualenv, which the <code class="highlighter-rouge">homeassistant</code> user has permission to modify.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(homeassistant)$ </span>pip3 install --upgrade homeassistant
-</code></pre>
-</div>
-<p>And that’s it… you now have Home Assistant installed, and you can be sure that every bit of it is contained in <code class="highlighter-rouge">/srv/homeassistant</code>.</p>
-<h3><a class="title-link" name="finally-run-home-assistant" href="#finally-run-home-assistant"></a> Finally… Run Home Assistant</h3>
-<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code class="highlighter-rouge">hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code class="highlighter-rouge">hass</code> executable in the <code class="highlighter-rouge">bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores its configuration in the user’s home directory, we need to be the user <code class="highlighter-rouge">homeassistant</code> user or specify the configuration with <code class="highlighter-rouge">-c</code>.</p>
+<h2><a class="title-link" name="run-home-assistant-basic-guide-step-4" href="#run-home-assistant-basic-guide-step-4"></a> Run Home Assistant (Basic guide step 4)</h2>
+<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code class="highlighter-rouge">hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code class="highlighter-rouge">hass</code> executable in the <code class="highlighter-rouge">bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores its configuration in the user’s home directory, we need to be the user <code class="highlighter-rouge">homeassistant</code> or specify the configuration with <code class="highlighter-rouge">-c</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo -u homeassistant -H /srv/homeassistant/bin/hass
 </code></pre>
 </div>
 <p>The <code class="highlighter-rouge">-H</code> flag is important. It sets the <code class="highlighter-rouge">$HOME</code> environment variable to <code class="highlighter-rouge">/home/homeassistant</code> so <code class="highlighter-rouge">hass</code> can find its configuration.</p>
-<h3><a class="title-link" name="upgrading-home-assistant" href="#upgrading-home-assistant"></a> Upgrading Home Assistant</h3>
-<p>Upgrading Home Assistant is simple, just repeat steps 3, 5 and 6.</p>
-<h3><a class="title-link" name="starting-home-assistant-on-boot" href="#starting-home-assistant-on-boot"></a> Starting Home Assistant on boot</h3>
+<h2><a class="title-link" name="starting-home-assistant-on-boot" href="#starting-home-assistant-on-boot"></a> Starting Home Assistant on boot</h2>
 <p>The <a href="/getting-started/autostart/">autostart instructions</a> will work just fine, just be sure to replace <code class="highlighter-rouge">/usr/bin/hass</code> with <code class="highlighter-rouge">/srv/homeassistant/bin/hass</code> and specify the <code class="highlighter-rouge">homeassistant</code> user where appropriate.</p>
 </article>
         </div>

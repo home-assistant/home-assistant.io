@@ -75,89 +75,93 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Home Assistant provides multiple ways to be installed. A requirement is that you have <a href="https://www.python.org/downloads/">Python</a> installed. For Windows, we require at least <strong>Python 3.5</strong> and for other operating systems at least <strong>Python 3.4.2</strong>.</p>
-<div class="text-center hass-option-cards">
+  <p class="note">
+Beginners should check our <a href="/getting-started/">Getting started guide</a> first. This is for users that require advanced installations.
+&lt;p class='note'&gt;
+Home Assistant provides multiple ways to be installed. A requirement is that you have <a href="https://www.python.org/downloads/">Python</a> installed. For Windows, we require at least <strong>Python 3.5</strong> and for other operating systems at least <strong>Python 3.4.2</strong>.
+&lt;div class="text-center hass-option-cards" markdown="0"&gt;
   <a class="option-card" href="/docs/hassbian/installation/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/home-assistant.png" />
-    </div>
-    <div class="title">Hassbian</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Hassbian&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/raspberry-pi/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/raspberry-pi.png" />
-    </div>
-    <div class="title">Raspbian</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Raspbian&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/archlinux/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/archlinux.png" />
-    </div>
-    <div class="title">ArchLinux</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;ArchLinux&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/armbian/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/armbian.png" />
-    </div>
-    <div class="title">armbian</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;armbian&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/fedora/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/fedora.png" />
-    </div>
-    <div class="title">Fedora</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Fedora&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/centos/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/centos.png" />
-    </div>
-    <div class="title">CentOS/RHEL</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;CentOS/RHEL&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/windows/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/windows.png" />
-    </div>
-    <div class="title">Windows</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Windows&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/macos/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/apple.png" />
-    </div>
-    <div class="title">macOS</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;macOS&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/synology/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/synology.png" />
-    </div>
-    <div class="title">Synology</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Synology&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/docker/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/docker.png" />
-    </div>
-    <div class="title">Docker</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Docker&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/vagrant/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/vagrant.png" />
-    </div>
-    <div class="title">Vagrant</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;Vagrant&lt;/div&gt;
   </a>
   <a class="option-card" href="/docs/installation/freenas/">
-    <div class="img-container">
+    &lt;div class='img-container'&gt;
       <img src="/images/supported_brands/freenas.png" />
-    </div>
-    <div class="title">FreeNAS</div>
+    &lt;/div&gt;
+    &lt;div class='title'&gt;FreeNAS&lt;/div&gt;
   </a>
-</div>
-<p>Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass
-</code></pre>
-</div>
-<p>The first start may take a minute or two because the needed packages will be downloaded and installed. The web interface will be served on <a href="http://localhost:8123">http://localhost:8123</a>.</p>
-<p>For more details about <code class="highlighter-rouge">hass</code>, please refer to the <a href="/docs/tools/hass/">tools section</a>.</p>
-<p>If you’re running a Linux-based platform, we suggest you follow the <a href="/docs/installation/virtualenv/">VirtualEnv instructions</a> to avoid using <code class="highlighter-rouge">root</code>.</p>
-<p>You may need to install additional libraries depending on the platforms/components you want to use.</p>
+&lt;/div&gt;
+Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
+<code class="highlighter-rouge">bash
+$ hass
+</code>
+The first start may take a minute or two because the needed packages will be downloaded and installed. The web interface will be served on <a href="http://localhost:8123">http://localhost:8123</a>.
+For more details about <code class="highlighter-rouge">hass</code>, please refer to the <a href="/docs/tools/hass/">tools section</a>.
+If you’re running a Linux-based platform, we suggest you follow the <a href="/docs/installation/virtualenv/">VirtualEnv instructions</a> to avoid using <code class="highlighter-rouge">root</code>.
+You may need to install additional libraries depending on the platforms/components you want to use.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
