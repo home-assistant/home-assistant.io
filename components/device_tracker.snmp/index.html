@@ -78,7 +78,7 @@
 <p class="note warning">
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
-<p>OID examples:</p>
+<p>The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for <a href="/components/device_tracker/">device tracker component page</a> than desirable. It is recommended to use <a href="/components/device_tracker.ping/">Ping</a> or <a href="/components/device_tracker.nmap_tracker/">NMAP</a> instead.</p>
 <table>
   <thead>
     <tr>
