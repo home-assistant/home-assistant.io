@@ -19,7 +19,7 @@ A lot WiFi access points and WiFi routers support the Simple Network Management 
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
 
-OID examples:
+The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker component page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [NMAP](/components/device_tracker.nmap_tracker/) instead.
 
 | Brand | Device/Firmware | OID |
 |---|---|---|---|
