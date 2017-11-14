@@ -98,19 +98,19 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>databases</strong> (<em>Require</em>): Listen of databases.</li>
-  <li><strong>logins</strong> (<em>Require</em>): Listen of logindata they will create or update.
+  <li><strong>databases</strong> (<em>Require</em>): List of databases.</li>
+  <li><strong>logins</strong> (<em>Require</em>): List of SQL accounts to create or update.
     <ul>
-      <li><strong>username</strong> (<em>Require</em>): Username for login.</li>
-      <li><strong>host</strong> (<em>Require</em>): Host for login, if you need a login with multibe hosts, use ‘%’.</li>
-      <li><strong>password</strong> (<em>Require</em>): Password for login.</li>
+      <li><strong>username</strong> (<em>Require</em>): Username for account.</li>
+      <li><strong>host</strong> (<em>Require</em>): Host for account. If you need an account on multiple hosts, use ‘%’.</li>
+      <li><strong>password</strong> (<em>Require</em>): Password for account.</li>
     </ul>
   </li>
-  <li><strong>rights</strong> (<em>Require</em>): Listen of rights to be handle.
+  <li><strong>rights</strong> (<em>Require</em>): List of rights to be granted.
     <ul>
-      <li><strong>username</strong> (<em>Require</em>): Username for grant rights.</li>
+      <li><strong>username</strong> (<em>Require</em>): Username for granted rights.</li>
       <li><strong>host</strong> (<em>Require</em>): Host is a part of username like above.</li>
-      <li><strong>database</strong> (<em>Require</em>): Database name to grant this user rights to.</li>
+      <li><strong>database</strong> (<em>Require</em>): Database name on which to grant user rights.</li>
       <li><strong>grant</strong> (<em>Require</em>): SQL grant part for access too.</li>
     </ul>
   </li>
