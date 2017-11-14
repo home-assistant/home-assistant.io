@@ -72,7 +72,6 @@ sensor:
       slave: 10
       register: 0
       register_type: holding
-      update_interval: 2.5
       unit_of_measurement: °C
       count: 1
       scale: 0.1
