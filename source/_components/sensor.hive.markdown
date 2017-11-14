@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hive.png
 ha_category: Sensor
-ha_release: 0.55
+ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -21,7 +21,7 @@ The Hive sensor component supports the following Hive products:
 - **Hive Motion Sensor**
 
 The 'hive' sensor component can also expose as a sensor some of the current states of the different Hive devices.
-The following sensors can be added to Home Assistant:
+The following sensors will be added to Home Assistant depending on whether heating and / or hot water climate devices were discovered:
 - **Heating Mode**
 - **Heating Boost**
 - **Heating State**

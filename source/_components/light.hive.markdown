@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hive.png
 ha_category: Light
-ha_release: 0.55
+ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
