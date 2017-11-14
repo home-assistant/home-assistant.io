@@ -52,10 +52,12 @@ Configuration variables:
   - **register_type** (*Optional*): Modbus register type (holding, input), default holding
   - **unit_of_measurement** (*Optional*): Unit to attach to value.
   - **count** (*Optional*): Number of registers to read.
+  - **reverse_order** (*Optional*): Reverse the order of registers when count >1, default False.
   - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
-  - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
+  - **data_type** (*Optional*): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. default int
+  - **structure** (*Optional*): If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: ">i"
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
