@@ -46,7 +46,7 @@ sensor:
     default: Luftdaten Sensor
     type: string
   resource:
-    description:  The URL of the API endpoint. Usually this has not to be changed.
+    description: The URL of the API endpoint. Usually this has not to be changed.
     required: false
     default: https://api.luftdaten.info/v1/sensor/
     type: string
@@ -62,19 +62,11 @@ sensor:
     keys:
       P1:
         description: Show the particle sensors (particles 10 microns and below).
-        required: false
-        type: string
       P2:
         description: Show the particle sensors (particles 2.5 microns and below).
-        required: false
-        type: string
       temperature:
         description: Display the temperature from a weather sensor.
-        required: false
-        type: string
       humidity:
         description: Display the humidity from a weather sensor.
-        required: false
-        type: string
 {% endconfiguration %}
 

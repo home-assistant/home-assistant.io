@@ -145,13 +145,12 @@ input_number:
     icon: mdi:target
 
 # Automation.     
- # This automation script runs when a value is received via MQTT on retained topic: setTemperature
- # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
+# This automation script runs when a value is received via MQTT on retained topic: setTemperature
+# It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 - alias: Set temp slider
   trigger:
     platform: mqtt
     topic: "setTemperature"
-   # entity_id: input_number.target_temp
   action:
      service: input_number.set_value
      data_template:

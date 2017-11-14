@@ -139,25 +139,6 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/discovery_info
 ```
 
-#### {% linkable_title GET /api/bootstrap %}
-Returns all data needed to bootstrap Home Assistant.
-
-```json
-{
-    "config": {...},
-    "events": [...],
-    "services": [...],
-    "states": [...]
-}
-```
-
-Sample `curl` command:
-
-```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-       -H "Content-Type: application/json" http://localhost:8123/api/bootstrap
-```
-
 #### {% linkable_title GET /api/events %}
 Returns an array of event objects. Each event object contains event name and listener count.
 

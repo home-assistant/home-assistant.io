@@ -101,8 +101,12 @@ automation:
 
 ### {% linkable_title Manual Theme Selection %}
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under **General**  called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
+<p class='img'>
+  <img src='/images/frontend/choose-theme.png' />
+  Set a theme
+</p>
 
 ## {% linkable_title Loading extra HTML %}
 
@@ -118,4 +122,13 @@ frontend:
     - /file2.html
 ```
 
-Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels)
+Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels).
+
+### {% linkable_title Manual Language Selection %}
+
+The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select a one from "Choose a Language". It will be applied immediately.
+
+<p class='img'>
+  <img src='/images/frontend/choose-language.png' />
+  Choose a Language
+</p>
