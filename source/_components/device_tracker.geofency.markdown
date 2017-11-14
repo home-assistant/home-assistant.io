@@ -37,7 +37,7 @@ device_tracker:
       - keys
 ```
 
-To configure Geofency, you must configure (via the Webhook feature) to send a POST request to your Home Assistant server at `http://<ha_server>/api/geofency`. Use the default POST format, and make sure to include the API password if you have configured a password in Home Assistant (add `?api_password=<password>` to the end of the URL). Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
+To configure Geofency, you must configure (via the Webhook feature) to send a POST request to your Home Assistant server at `http://<ha_server>/api/geofency`. Use the default POST format, and make sure to include the API password under **Authentification** if you have configured a password in Home Assistant (you can leave the field *Username* empty). Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
 
 Geofency will automatically generate the device tracker name used for geofences, and you will find it in `known_devices.yaml` after the first request. For beacons, the device name will be `beacon_<name from Geofency>`, e.g., `device_tracker.beacon_car`. 
 
