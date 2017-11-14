@@ -40,16 +40,16 @@ switch:
 
 Configuration variables:
 
-- **coils** (*Optional*): A list of relevant coils to read from/write to
+- **coils** (*Optional*): A list of relevant coils to read from/write to.
   - **slave** (*Required*): The number of the slave (can be omitted for tcp and udp Modbus).
-  - **name** (*Required*): Name of the switch
-  - **coil** (*Required*): Coil number
-- **registers** (*Optional*): A list of relevant registers to read from/write to
+  - **name** (*Required*): Name of the switch.
+  - **coil** (*Required*): Coil number.
+- **registers** (*Optional*): A list of relevant registers to read from/write to.
   - **slave** (*Required*): The number of the slave (can be omitted for tcp and udp Modbus).
-  - **name** (*Required*): Name of the switch
-  - **register** (*Required*): Register number
-  - **command_on** (*Required*): Value to write to turn on the switch
-  - **command_off** (*Required*): Value to write to turn off the switch
+  - **name** (*Required*): Name of the switch.
+  - **register** (*Required*): Register number.
+  - **command_on** (*Required*): Value to write to turn on the switch.
+  - **command_off** (*Required*): Value to write to turn off the switch.
   - **verify_state** (*Optional*): Define if is possible to readback the status of the switch. (default: True)
   - **verify_register** (*Optional*): Register to readback. (default: same as register)
   - **register_type** (*Optional*): Modbus register type: holding or input. (default: holding)
