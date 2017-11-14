@@ -29,10 +29,10 @@ sensor:
 
 Configuration variables:
 
-- **currency** (*Required*): The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default.
+- **currency** (*Required*): The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default. Either an id or an url must be present.
 - **items** (*Required*): List of products that should be tracked
-  * **id** (*Option*): The id of the product.
-  * **url** (*Option*): The url of the product. Can be used instead of the id.
+  * **id** (*XOR*): The id of the product.
+  * **url** (*XOR*): The url of the product.
   * **name** (*Optional*): The name of the item. If not set, it is parsed from the website
   * **currency** (*Optional*): Overwrite the currency for the current item
 
