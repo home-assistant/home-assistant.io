@@ -13,11 +13,11 @@ ha_release: "0.58"
 ha_iot_class: "Local Push"
 ---
 
-deCONZ by Dresden Elektronik is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
+[deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-deCONZ REST API verified from v2.04.86.
+[deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/) verified from v2.04.86.
 
-The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. You can then generate an API key through the deCONZ service generate_api_key[generate_api_key](#deconz/generate_api_key).
+The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. You can then generate an API key through the deCONZ service generate_api_key[generate_api_key](#deconz/generate_api_key) inside of HASS.
 
 You must configure deCONZ by adding the following lines to your `configuration.yaml` file:
 
@@ -27,12 +27,21 @@ deconz:
   host: IP ADDRESS
 ```
 
-Configuration variables:
+#### {% linkable_title Supported Device types %}
+
+- Zigbee lights
+- Humidity sensors
+- Light Level sensors
+- OpenClose detectors
+- Presence detectors
+- Pressure sensors
+- Switches (remote controls)
+- Temperature sensors
 
 ## {% linkable_title Configuration variables %}
 
 - **host** (*Required*): The IP address to your deCONZ server.
-- **api-key** (*Optional*): The username to your Axis device. Default is 'root'.
+- **api-key** (*Optional*): The API key to your deCONZ server.
 - **port** (*Optional*): Configure port deCONZ web server is accessible from. Default is 80.
 
 A full configuration could look like this:
@@ -47,7 +56,7 @@ deconz:
 
 ## {% linkable_title Remote control devices%}
 
-Remote controls (ZHASwitch category) will be exposed as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch.
+Remote controls (ZHASwitch category) will be exposed as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. An extra entity battery sensor will be created to show battery levels of switch.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -70,3 +79,32 @@ Generate API key needed by component to communicate with deCONZ. The Key will be
 |---------------------------|----------|-------------------------------------------|
 | `username`                |      yes | Username to deCONZ. Default is `delight`. |
 | `password`                |      yes | Password to deCONZ. Default is `delight`. |
+
+## {% linkable_title Examples %}
+
+### {% linkable_title Step up and step down input number with wireless dimmer %}
+
+```yaml
+automation:
+  - alias: step_up
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: tradfri_wireless_dimmer_
+        event: 2002
+    action:
+      service: input_number.increment
+      entity_id: input_number.slider1
+
+  - alias: step_down
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: tradfri_wireless_dimmer_
+        event: 3002
+    action:
+      service: input_number.decrement
+      entity_id: input_number.slider1
+```

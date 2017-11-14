@@ -21,3 +21,9 @@ The following sensor types are supported:
  * Presence detection
 
 Entity ids will be binary_sensor.device_name, where device_name comes from deCONZ.
+
+#### {% linkable_title Verified to be supported binary sensors %}
+
+- Open/close detection
+- Presence detection
+  - IKEA Trådfri Motion Sensor

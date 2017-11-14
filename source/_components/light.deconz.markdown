@@ -16,3 +16,8 @@ ha_iot_class: "Local Push"
 See the [deCONZ main component](/components/deconz/) for configuration instructions.
 
 Lights entity names will be light.device_name, where device_name comes from deCONZ.
+
+#### {% linkable_title Verified to be supported sensors %}
+
+- IKEA Trådfri bulb GU10 W 400lm
+- OSRAM Flex RGBW
