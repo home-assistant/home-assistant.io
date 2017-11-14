@@ -78,3 +78,11 @@ If you change the configuration you have to restart the server. To do that you h
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
  2. Or you can restart it from a terminal by running `docker restart homeassistant`
+
+### {% linkable_title Exposing Devices %}
+
+In order to use z-wave, zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+
+```bash
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 --net=host homeassistant/home-assistant
+```
