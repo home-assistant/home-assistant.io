@@ -74,8 +74,6 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 
 ### {% linkable_title Restart %}
 
-This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.
-
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
