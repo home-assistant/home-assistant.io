@@ -47,11 +47,19 @@ $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-
 
 ### {% linkable_title Razberry Board %}
 
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`, then rebooting:
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
 ```
 dtoverlay=pi3-disable-bt
 ```
+
+Then disable the Bluetooth modem service:
+
+```bash
+$ sudo systemctl disable hciuart
+```
+
+Finally, reboot to make those changes active.
 
 ### {% linkable_title Aeon Minimote %}
 
