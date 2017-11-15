@@ -81,13 +81,30 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">random</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the sensor to use in the frontend. Defaults to <code class="highlighter-rouge">Random Sensor</code>.</li>
-  <li><strong>minimum</strong> (<em>Optional</em>): Lower limit for the values. Defaults to <code class="highlighter-rouge">0</code>.</li>
-  <li><strong>maximum</strong> (<em>Optional</em>): Upper limit for the values. Defaults to <code class="highlighter-rouge">20</code>.</li>
-  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+      <p class="default">Default value: Random Sensor</p>
+    </dd>
+    <dt><a class="title-link" name="minimum" href="#minimum"></a> minimum</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Lower limit for the values.</span></p>
+      <p class="default">Default value: 0</p>
+    </dd>
+    <dt><a class="title-link" name="maximum" href="#maximum"></a> maximum</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Upper limit for the values.</span></p>
+      <p class="default">Default value: 20</p>
+    </dd>
+    <dt><a class="title-link" name="unit_of_measurement" href="#unit_of_measurement"></a> unit_of_measurement</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Defines the units of measurement of the sensor, if any.</span></p>
+    </dd>
+  </dl>
+</div>
 <p>See the <a href="https://home-assistant.io/docs/configuration/platform_options/">entity component options</a> to control how often the main component polls the random sensor. The default is 30 seconds.</p>
 </article>
         </div>

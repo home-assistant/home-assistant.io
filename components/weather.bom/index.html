@@ -80,11 +80,20 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bom</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the weather station.</li>
-  <li><strong>station</strong> (<em>Optional</em>): The station ID string; defaults to the closest station.  See the <a href="/components/sensor.bom/"><code class="highlighter-rouge">sensor.bom</code> docs</a> for details on how to find the ID of a station.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The name you would like to give to the weather station.</span></p>
+    </dd>
+    <dt><a class="title-link" name="station" href="#station"></a> station</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The station ID string. See the <a href="/components/sensor.bom/"><code class="highlighter-rouge">sensor.bom</code> docs</a> for details on how to find the ID of a station.</span></p>
+      <p class="default">Default value: The closest station</p>
+    </dd>
+  </dl>
+</div>
 <p class="note">
 This platform is an alternative to the <a href="/components/sensor.bom/"><code class="highlighter-rouge">bom</code></a> sensor.
 The weather platform is easier to configure but less customizable.
