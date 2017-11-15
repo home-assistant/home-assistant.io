@@ -96,10 +96,15 @@ These devices will either show as a binary sensor or a sensor called <code class
 </code></pre>
 </div>
 <h3><a class="title-link" name="razberry-board" href="#razberry-board"></a> Razberry Board</h3>
-<p>You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there’s only one on the Pi3). You do this by adding the following to the end of <code class="highlighter-rouge">/boot/config.txt</code>, then rebooting:</p>
+<p>You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there’s only one on the Pi3). You do this by adding the following to the end of <code class="highlighter-rouge">/boot/config.txt</code>:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>dtoverlay=pi3-disable-bt
 </code></pre>
 </div>
+<p>Then disable the Bluetooth modem service:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl disable hciuart
+</code></pre>
+</div>
+<p>Finally, reboot to make those changes active.</p>
 <h3><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h3>
 <p>Here’s a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into <code class="highlighter-rouge">automation.yaml</code>.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_1_pressed</span>
