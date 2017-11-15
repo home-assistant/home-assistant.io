@@ -22,10 +22,17 @@ weather:
   - platform: bom
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name you would like to give to the weather station.
-- **station** (*Optional*): The station ID string; defaults to the closest station.  See the [`sensor.bom` docs](/components/sensor.bom/) for details on how to find the ID of a station.
+{% configuration %}
+name:
+  description:  The name you would like to give to the weather station.
+  required: optional
+  type: string
+station:
+  description: "The station ID string. See the [`sensor.bom` docs](/components/sensor.bom/) for details on how to find the ID of a station."
+  required: optional
+  default: The closest station
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 This platform is an alternative to the [`bom`](/components/sensor.bom/) sensor.
