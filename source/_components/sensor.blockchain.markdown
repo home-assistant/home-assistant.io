@@ -27,7 +27,10 @@ sensor:
       - '183J5pXWqYYsxZ7inTVw9tEpejDXyMFroe'
 ```
 
-Configuration variables:
-
-- **addresses** (*Required*): List of bitcoin wallet addresses to watch.
+{% configuration %}
+addresses:
+  description: List of bitcoin wallet addresses to watch.
+  required: true
+  type: string, list
+{% endconfiguration %}
 
