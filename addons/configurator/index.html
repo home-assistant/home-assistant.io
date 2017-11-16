@@ -103,8 +103,10 @@ Screenshot of the HASS Configurator.
   </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"allowed_networks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"192.168.0.0/16"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"banned_ips"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8.8.8.8"</span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ignore_pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"__pycache__"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"banlimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ignore_pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"__pycache__"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"dirsfirst"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 </div>
 <ul>
@@ -113,7 +115,9 @@ Screenshot of the HASS Configurator.
   <li><strong>ssl</strong> (<em>Optional</em>): Enable or Disable SSL for the editor.</li>
   <li><strong>allowed_networks</strong> (<em>Optional</em>): Limit access to the configurator by adding allowed IP addresses / networks to the list.</li>
   <li><strong>banned_ips</strong> (<em>Optional</em>): List of statically banned IP addresses.</li>
+  <li><strong>banlimit</strong> (<em>Optional</em>): Ban access from IPs after <code class="highlighter-rouge">banlimit</code> failed login attempts. The default value <code class="highlighter-rouge">0</code> disables this feature. Restart the add-on to clear the list of banned IP addresses.</li>
   <li><strong>ignore_pattern</strong> (<em>Optional</em>): Files and folders to ignore in the UI.</li>
+  <li><strong>dirsfirst</strong> (<em>Optional</em>): List directories before files in the filebrowser.</li>
 </ul>
 <h3><a class="title-link" name="embedding-into-home-assistant" href="#embedding-into-home-assistant"></a> Embedding into Home-Assistant</h3>
 <p>Using the Home Assistant component <a href="https://home-assistant.io/components/panel_iframe/">panel_iframe</a> it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration within the Home Assistant frontend.</p>

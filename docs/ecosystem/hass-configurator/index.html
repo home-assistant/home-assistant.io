@@ -78,6 +78,10 @@
   <h3><a class="title-link" name="configuration-ui-for-home-assistant" href="#configuration-ui-for-home-assistant"></a> Configuration UI for Home Assistant</h3>
 <p>Since there currently is no nice way to edit the yaml-files Home Assistant is using through the frontend, here is a small webapp that hopefully makes the configuration easier. It is a customized and embedded <a href="https://ace.c9.io/">Ace editor</a>, which has syntax highlighting for yaml, the format used for Home Assistants configuration files. There is an integrated file browser to select whatever file you want to edit. When you’re done with editing the file, click the save-button and it will replace the original.<br />
 Essentially this is a browser-based alternative to modifying your configuration through SSH, Windows + SMB, Github etc..</p>
+<p class="img">
+<img src="/images/hassio/screenshots/addon-hass-configurator.png" />
+Screenshot of the HASS Configurator.
+</p>
 <h3><a class="title-link" name="feature-list" href="#feature-list"></a> Feature list</h3>
 <ul>
   <li>Web-Based editor to modify your files</li>
@@ -126,6 +130,10 @@ To keep your settings across updates it is also possible to save settings in an 
 <p>List of statically banned IP addresses, e.g. <code class="highlighter-rouge">BANNED_IPS = ["1.1.1.1", "2.2.2.2"]</code></p>
 <h4>BANLIMIT (integer)</h4>
 <p>Ban IPs after <code class="highlighter-rouge">n</code> failed login attempts. Restart the service to reset banning. The default of <code class="highlighter-rouge">0</code> disables this feature. <code class="highlighter-rouge">CREDENTIALS</code> has to be set for this to work.</p>
+<h4>IGNORE_PATTERN (list)</h4>
+<p>Files and folders to ignore in the UI, e.g. <code class="highlighter-rouge">IGNORE_PATTERN = [".*", "*.log", "__pycache__"]</code>.</p>
+<h4>DIRSFIRST (bool)</h4>
+<p>If set to <code class="highlighter-rouge">True</code>, directories will be displayed at the top of the filebrowser.</p>
 <h4>GIT (bool)</h4>
 <p>Set this variable to <code class="highlighter-rouge">True</code> to enable Git integration. This feature requires <a href="https://gitpython.readthedocs.io">GitPython</a>
  to be installed on the system that is running the configurator. For technical reasons this feature can not be enabled with the static settings file.</p>
