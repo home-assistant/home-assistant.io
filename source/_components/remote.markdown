@@ -13,7 +13,7 @@ ha_release: "0.34"
 Keeps track which remotes are in your environment, their state and allows you to control them.
 
  * Maintains a state per remote and a combined state `all_remotes`.
- * Registers services `remote/turn_on`, `remote/turn_off`, `remote/toggle`, `remote/sync`, and `remote/send_command` to control remotes.
+ * Registers services `remote/turn_on`, `remote/turn_off`, `remote/toggle`, and `remote/send_command` to control remotes.
 
 ### {% linkable_title Use the services %}
 
@@ -27,3 +27,4 @@ Go to the **Developer Tools**, then to **Call Service** in the frontend, and cho
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on specific remote. Else targets all.
 
+See the platform documentation for each type of remote for more detailed examples.
