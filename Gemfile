@@ -9,6 +9,9 @@ group :development do
   gem 'sass-globbing', '~> 1.0'
   gem 'stringex', '~> 1.4'
   gem 'pry'
+
+  # See https://github.com/home-assistant/home-assistant.github.io/pull/3904
+  gem 'rb-inotify', '< 0.9.9'
 end
 
 group :jekyll_plugins do
