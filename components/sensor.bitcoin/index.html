@@ -84,35 +84,108 @@
       <span class="pi">-</span> <span class="s">trade_volume_btc</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>currency</strong> (<em>Optional</em>): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.</li>
-  <li><strong>display_options</strong> array (<em>Required</em>): Options to display in the frontend.
-    <ul>
-      <li><strong>exchangerate</strong>: Exchange rate of 1 BTC</li>
-      <li><strong>trade_volume_btc</strong>: Trade volume</li>
-      <li><strong>miners_revenue_usd</strong>: Miners revenue</li>
-      <li><strong>btc_mined</strong>: BTC mined</li>
-      <li><strong>trade_volume_usd</strong>: Trade volume in USD</li>
-      <li><strong>difficulty</strong>: Difficulty</li>
-      <li><strong>minutes_between_blocks</strong>: Time between blocks in minutes</li>
-      <li><strong>number_of_transactions</strong>: Number of transactions</li>
-      <li><strong>hash_rate</strong>: Hash rate in PH/s</li>
-      <li><strong>timestamp</strong>: Timestamp</li>
-      <li><strong>mined_blocks</strong>: Minded Blocks</li>
-      <li><strong>blocks_size</strong>: Block size</li>
-      <li><strong>total_fees_btc</strong>: Total fees in BTC</li>
-      <li><strong>total_btc_sent</strong>: Total sent in BTC</li>
-      <li><strong>estimated_btc_sent</strong>: Estimated sent in BTC</li>
-      <li><strong>total_btc</strong>: Total of BTC</li>
-      <li><strong>total_blocks</strong>: Total Blocks</li>
-      <li><strong>next_retarget</strong>: Next retarget</li>
-      <li><strong>estimated_transaction_volume_usd</strong>: Estimated transaction volume in BTC</li>
-      <li><strong>miners_revenue_btc</strong>: Miners revenue in BTC</li>
-      <li><strong>market_price_usd</strong>: Market price in USD</li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="currency" href="#currency"></a> currency</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The currency to exchange to, eg. CHF, USD, EUR, etc.</span></p>
+      <p class="default">Default value: USD</p>
+    </dd>
+    <dt><a class="title-link" name="display_options" href="#display_options"></a> display_options</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">Options to display in the frontend.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="exchangerate" href="#exchangerate"></a> exchangerate</dt>
+        <dd>
+          <p class="desc"><span class="description">Exchange rate of 1 BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="trade_volume_btc" href="#trade_volume_btc"></a> trade_volume_btc</dt>
+        <dd>
+          <p class="desc"><span class="description">Trade volume</span></p>
+        </dd>
+        <dt><a class="title-link" name="miners_revenue_usd" href="#miners_revenue_usd"></a> miners_revenue_usd</dt>
+        <dd>
+          <p class="desc"><span class="description">Miners revenue</span></p>
+        </dd>
+        <dt><a class="title-link" name="btc_mined" href="#btc_mined"></a> btc_mined</dt>
+        <dd>
+          <p class="desc"><span class="description">BTC mined</span></p>
+        </dd>
+        <dt><a class="title-link" name="trade_volume_usd" href="#trade_volume_usd"></a> trade_volume_usd</dt>
+        <dd>
+          <p class="desc"><span class="description">Trade volume in USD</span></p>
+        </dd>
+        <dt><a class="title-link" name="difficulty" href="#difficulty"></a> difficulty</dt>
+        <dd>
+          <p class="desc"><span class="description">Difficulty</span></p>
+        </dd>
+        <dt><a class="title-link" name="minutes_between_blocks" href="#minutes_between_blocks"></a> minutes_between_blocks</dt>
+        <dd>
+          <p class="desc"><span class="description">Time between blocks in minutes</span></p>
+        </dd>
+        <dt><a class="title-link" name="number_of_transactions" href="#number_of_transactions"></a> number_of_transactions</dt>
+        <dd>
+          <p class="desc"><span class="description">Number of transactions</span></p>
+        </dd>
+        <dt><a class="title-link" name="hash_rate" href="#hash_rate"></a> hash_rate</dt>
+        <dd>
+          <p class="desc"><span class="description">Hash rate in PH/s</span></p>
+        </dd>
+        <dt><a class="title-link" name="timestamp" href="#timestamp"></a> timestamp</dt>
+        <dd>
+          <p class="desc"><span class="description">Timestamp</span></p>
+        </dd>
+        <dt><a class="title-link" name="mined_blocks" href="#mined_blocks"></a> mined_blocks</dt>
+        <dd>
+          <p class="desc"><span class="description">Minded Blocks</span></p>
+        </dd>
+        <dt><a class="title-link" name="blocks_size" href="#blocks_size"></a> blocks_size</dt>
+        <dd>
+          <p class="desc"><span class="description">Block size</span></p>
+        </dd>
+        <dt><a class="title-link" name="total_fees_btc" href="#total_fees_btc"></a> total_fees_btc</dt>
+        <dd>
+          <p class="desc"><span class="description">Total fees in BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="total_btc_sent" href="#total_btc_sent"></a> total_btc_sent</dt>
+        <dd>
+          <p class="desc"><span class="description">Total sent in BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="estimated_btc_sent" href="#estimated_btc_sent"></a> estimated_btc_sent</dt>
+        <dd>
+          <p class="desc"><span class="description">Estimated sent in BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="total_btc" href="#total_btc"></a> total_btc</dt>
+        <dd>
+          <p class="desc"><span class="description">Total of BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="total_blocks" href="#total_blocks"></a> total_blocks</dt>
+        <dd>
+          <p class="desc"><span class="description">Total Blocks</span></p>
+        </dd>
+        <dt><a class="title-link" name="next_retarget" href="#next_retarget"></a> next_retarget</dt>
+        <dd>
+          <p class="desc"><span class="description">Next retarget</span></p>
+        </dd>
+        <dt><a class="title-link" name="estimated_transaction_volume_usd" href="#estimated_transaction_volume_usd"></a> estimated_transaction_volume_usd</dt>
+        <dd>
+          <p class="desc"><span class="description">Estimated transaction volume in BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="miners_revenue_btc" href="#miners_revenue_btc"></a> miners_revenue_btc</dt>
+        <dd>
+          <p class="desc"><span class="description">Miners revenue in BTC</span></p>
+        </dd>
+        <dt><a class="title-link" name="market_price_usd" href="#market_price_usd"></a> market_price_usd</dt>
+        <dd>
+          <p class="desc"><span class="description">Market price in USD</span></p>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

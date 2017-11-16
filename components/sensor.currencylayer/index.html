@@ -87,12 +87,25 @@
       <span class="pi">-</span> <span class="s">INR</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>api_key</strong> (<em>Required</em>): API Key from <a href="https://currencylayer.com/">Currencylayer</a>.</li>
-  <li><strong>base</strong> (<em>Optional</em>): The symbol of the base currency. Defaults to USD.</li>
-  <li><strong>quote</strong> (<em>Required</em>): The symbol(s) of the quote or target currencies.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="api_key" href="#api_key"></a> api_key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The API Key from <a href="https://currencylayer.com/">Currencylayer</a>.</span></p>
+    </dd>
+    <dt><a class="title-link" name="quote" href="#quote"></a> quote</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">The symbol(s) of the quote or target currencies.</span></p>
+      <p class="default">Default value: Exchange rate</p>
+    </dd>
+    <dt><a class="title-link" name="base" href="#base"></a> base</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The symbol of the base currency.</span></p>
+      <p class="default">Default value: USD</p>
+    </dd>
+  </dl>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
