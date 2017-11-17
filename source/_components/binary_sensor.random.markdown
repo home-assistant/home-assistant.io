@@ -25,10 +25,10 @@ binary_sensor:
 ```
 
 {% configuration %}
-  name:
-    description: Name to use in the frontend.
-    required: false
-    type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 See the [entity component options](/docs/configuration/platform_options/) to control how often the main component polls the random binary sensor. The default is 30 seconds.

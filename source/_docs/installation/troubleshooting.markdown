@@ -14,7 +14,7 @@ It can happen that you run into trouble while installing Home Assistant. This pa
 
 
 #### {% linkable_title pip3: command not found %}
-This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running `python3 --version`. If it is not installed, [download it here](https://www.python.org/getit/).
+This utility should have been installed as part of the Python installation. Check if Python is installed by running `python3 --version`. If it is not installed, [download it here](https://www.python.org/getit/).
 
 If you are able to successfully run `python3 --version` but not `pip3`, install Home Assistant by running the following command instead:
 

@@ -24,10 +24,18 @@ sensor:
   - platform: yahoo_finance
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor. If not specified, it defaults to *Yahoo Stock*.
-- **symbols** array (*Optional*): List of stock market symbols for given companies. If not specified, it defaults to *Yahoo (YHOO)*.
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Yahoo Stock
+symbols:
+  description: List of stock market symbols for given companies.
+  required: false
+  type: string, list
+  default: YHOO
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
