@@ -111,6 +111,13 @@
   <li>While the <a href="http://jinja.pocoo.org/docs/dev/templates/#float"><code class="highlighter-rouge">float</code></a> and <a href="http://jinja.pocoo.org/docs/dev/templates/#int"><code class="highlighter-rouge">int</code></a> filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.</li>
 </ol>
 <p>Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.</p>
+<h2><a class="title-link" name="trigger-state-object" href="#trigger-state-object"></a> Trigger State Object</h2>
+<p>Knowing how to access the <a href="/docs/configuration/state_object/">state object</a> of a trigger entity could be one of the more common questions. Here are a few ways for the <a href="#state"><code class="highlighter-rouge">state</code></a>, <a href="#numeric_state"><code class="highlighter-rouge">numeric_state</code></a> and <a href="#template"><code class="highlighter-rouge">template</code></a> triggers:</p>
+<ul>
+  <li><code class="highlighter-rouge">trigger.from_state</code> will return the <strong>previous</strong> <a href="/docs/configuration/state_object/">state object</a> of the entity.</li>
+  <li><code class="highlighter-rouge">trigger.to_state</code> will return the <strong>new</strong> <a href="/docs/configuration/state_object/">state object</a> that triggered trigger.</li>
+  <li><code class="highlighter-rouge">states[trigger.to_state.domain][trigger.to_state.object_id]</code> will return the <strong>current</strong> <a href="/docs/configuration/state_object/">state object</a> of the entity.</li>
+</ul>
 <h2><a class="title-link" name="available-trigger-data" href="#available-trigger-data"></a> Available Trigger Data</h2>
 <p>The following tables show the available trigger data per platform.</p>
 <h3><a class="title-link" name="event" href="#event"></a> event</h3>
