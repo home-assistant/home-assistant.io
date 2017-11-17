@@ -117,6 +117,8 @@
 <p>After upgrading to a new version, you may notice your browser gets stuck at the “loading data” login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work.</p>
 <p>Android Chrome 
 chrome -&gt; settings -&gt; site settings -&gt; storage -&gt; search for your URL for Home Assistant-&gt; “clear &amp; reset”</p>
+<h4><a class="title-link" name="not-initializing-discovery-because-could-not-install-dependency-netdisco" href="#not-initializing-discovery-because-could-not-install-dependency-netdisco"></a> Not initializing discovery because could not install dependency netdisco</h4>
+<p>If you see <code class="highlighter-rouge">Not initializing discovery because could not install dependency netdisco==x.y.z</code> in the logs, you will need to install the <code class="highlighter-rouge">python3-dev</code> or <code class="highlighter-rouge">python3-devel</code> package on your system manually (eg. <code class="highlighter-rouge">sudo apt-get install python3-dev</code> or <code class="highlighter-rouge">sudo dnf -y install python3-devel</code>). On the next restart of Home Assistant, discovery should work. If you still get an error, check if you have a compiler (<code class="highlighter-rouge">gcc</code>) available on your system.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
