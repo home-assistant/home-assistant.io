@@ -73,7 +73,7 @@ devicename:
 | `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`.                       |
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
-| `googleplus`     | None                          | An email address for a google accountof the device's owner. If provided, it will override `picture`.                        |
+| `googleplus`     | None                          | An email address for a google account of the device's owner. If provided, it will override `picture`.                        |
 
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
 | `hide_if_away` | False                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
