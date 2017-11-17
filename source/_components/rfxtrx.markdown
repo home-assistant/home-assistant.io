@@ -39,7 +39,7 @@ The RFXtrx transceiver has a predefined list of protocols enabled for receiving.
 
 The ``recv_modes`` configuration variable can be used for enabling the protocols you want to decode when they differ of your device default. The list is set during Home Assistant startup. It _is not stored_ in your device non-volatile memory.
 
-Choose the protocols to be enabled from the following values (_make sure to keep the values in lower case_):
+Choose the protocols, to be enabled, from the following values (_make sure to keep the values in lower case_):
 - `ac`
 - `adlightwave`
 - `aeblyss`
