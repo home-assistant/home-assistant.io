@@ -43,6 +43,8 @@ deconz:
 - **host** (*Required*): The IP address to your deCONZ server.
 - **api-key** (*Optional*): The API key to your deCONZ server.
 - **port** (*Optional*): Configure port deCONZ web server is accessible from. Default is 80.
+- **username** (*Optional*): If you need to generate an API key. Default is 'delight'.
+- **password** (*Optional*): If you need to generate an API key. Default is 'delight'.
 
 A full configuration could look like this:
 
