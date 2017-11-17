@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-[deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/) verified from v2.04.86.
+[deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/) verified from v2.04.89.
 
 The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. The component will automatically generate an API key for deCONZ. You can later find the API key in deconz.conf inside the home-assistant folder. If you've changed the username and password you can specify those when you configure deconz in configuration.yaml.
 

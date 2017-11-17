@@ -24,6 +24,7 @@ Entity ids will be binary_sensor.device_name, where device_name comes from deCON
 
 #### {% linkable_title Verified to be supported binary sensors %}
 
-- Open/close detection
-- Presence detection
+- Open/Close Detection
+- Presence Detection
   - IKEA Trådfri Motion Sensor
+  - Philips Hue Motion Sensor

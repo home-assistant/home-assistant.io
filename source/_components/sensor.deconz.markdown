@@ -27,9 +27,15 @@ Entity ids will be sensor.device_name, where device_name comes from deCONZ.
 
 #### {% linkable_title Verified to be supported sensors %}
 
-- Humidity sensor
-- Light level sensor
-- Pressure sensor
+- Humidity Sensor
+  - Xiaomi Humidity/Temperature Sensor
+- Light Level Sensor
+- Pressure Sensor
 - Switches
-  - IKEA Trådfri wireless dimmer
-- Temperature sensor
+  - IKEA Trådfri Wireless Dimmer
+  - Philips Hue Motion Sensor
+  - IKEA Trådfri Remote
+  - Philips Hue Dimmer Switch
+  - Xiaomi Cube
+- Temperature Sensor
+  - Xiaomi Temperature/Humidity Sensor
