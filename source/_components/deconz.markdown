@@ -71,17 +71,6 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
-## {% linkable_title Device services %}
-Available services: `generate_api_key`.
-
-#### {% linkable_title Service `deconz/generate_api_key` %}
-Generate API key needed by component to communicate with deCONZ. The Key will be stored in a config file named deconz.conf.
-
-| Service data attribute    | Optional | Description                               |
-|---------------------------|----------|-------------------------------------------|
-| `username`                |      yes | Username to deCONZ. Default is `delight`. |
-| `password`                |      yes | Password to deCONZ. Default is `delight`. |
-
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Step up and step down input number with wireless dimmer %}
