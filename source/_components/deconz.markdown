@@ -17,7 +17,7 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/) verified from v2.04.86.
 
-The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. You can then generate an API key through the deCONZ service generate_api_key[generate_api_key](#deconz/generate_api_key) inside of HASS.
+The minimum amount of configuration for deCONZ is the IP ADDRESS, if you don't have the API key. The component will automatically generate an API key for deCONZ. You can later find the API key in deconz.conf inside the home-assistant folder. If you've changed the username and password you can specify those when you configure deconz in configuration.yaml.
 
 You must configure deCONZ by adding the following lines to your `configuration.yaml` file:
 
