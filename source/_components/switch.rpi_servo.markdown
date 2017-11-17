@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Raspberry PI Servo Switch"
-description: "Instructions how to use a servo connected to a Raspberry PI into Home Assistant as a switch."
+description: "Instructions on how to use a servo connected to a Raspberry PI into Home Assistant as a switch."
 date: 2017-10-23 21:00
 sidebar: true
 comments: false
@@ -36,9 +36,10 @@ Configuration variables:
 - **default_position** (*Optional*): The degree to rest the servo at. Defaults to 90.
 - **position_on** (*Optional*): The degree to rotate to when the switch is toggled to on. Defaults to 180.
 - **postion_off** (*Optional*): The degree to rotate to when the switch is toggled off. Defaults to 0.
-- **enabled_duration** (*Optional*): How many seconds to activate the servo when turning. Defaults to 1 second. Set to 0 to dissable the resting position 'default_position', and instead rest in the on and off state.
+- **enabled_duration** (*Optional*): How many seconds to activate the servo when turning. Defaults to 1 second. Set to 0 to disable the resting position 'default_position', and instead, rest in the on and off state.
 
 For an example of how to set up the servo, see the [Raspberry Pi Cookbook](http://razzpisampler.oreilly.com/ch05.html).
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+
 The positions are given in degrees and transformed to pulses with the formula duty = degrees/18 + 2.5.
