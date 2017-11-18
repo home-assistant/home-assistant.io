@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dominos.png
 ha_category: Other
-ha_version: 0.59
+ha_version: 0.5
 ---
 
 The `Dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
@@ -22,7 +22,7 @@ Orders are a group of product codes. You can get these product codes by inspecti
 
 Currently, there is no support in this component for toppings, coupons or order tracking.
 
-{% configuration %}
+```yaml
 dominos:
   country_code: ca
   first_name: Justin
@@ -34,7 +34,7 @@ dominos:
   - name: Medium Pan
     codes:
       - P12IPAZA
-{% endconfiguration %}
+```
 
 Now you can use the Dominos service to order pizza within your automations:
 
@@ -45,14 +45,37 @@ Now you can use the Dominos service to order pizza within your automations:
 ```
 
 Configuration variables:
-
-- **country_code** (*Required*): 'ca' or 'us', depending on your location
-- **first_name** (*Required*): Your first name
-- **last_name** (*Required*): Your last name
-- **email** (*Required*): Your email address
-- **phone** (*Required*): Your phone number
-- **address** (*Required*): Your delivery address
-- **show_menu** (*Optional*): Dumps product codes from your nearest store into your log (for use in with the custom panel)
-- **orders** (*Optional*): Sets of product codes to use for ordering
-
-
+{% configuration %}
+country_code:
+  required: true
+  description: 'ca' or 'us', depending on your location
+  type: string
+first_name:
+  required: true
+  description: Your first name
+  type: string
+last_name:
+  required: true
+  description: Your last name
+  type: string
+email:
+  required: true
+  description: Your email address
+  type: string
+phone:
+  required: true
+  description: Your phone number
+  type: string
+address:
+  required: true
+  description: Your delivery address
+  type: string
+show_menu:
+  required: false
+  description: Dumps product codes from your nearest store into your log (for use in with the custom panel)
+  type: integer
+orders:
+  required: false
+  description: Sets of product codes to use for ordering
+  type: list
+{% endconfiguration %}
