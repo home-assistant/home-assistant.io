@@ -88,19 +88,26 @@
 </ul>
 <p><strong>Note:</strong> To be able to playback the last capture, it is required to install the <code class="highlighter-rouge">ffmpeg</code> component. Make sure to follow the steps mentioned at <a href="https://home-assistant.io/components/ffmpeg/">FFMPEG</a> documentation.</p>
 <p>Currently it supports doorbell and stickup cameras.</p>
-<h2><a class="title-link" name="saving-locally-the-videos-captured-by-your-ring-door-bell" href="#saving-locally-the-videos-captured-by-your-ring-door-bell"></a> Saving locally the videos captured by your Ring Door Bell</h2>
-<p>You can save locally the latest video captured by your Ring Door Bell by enabling the <a href="/components/downloader">downloader</a> and the <a href="/components/python_script">python_scripts</a> components.</p>
-<ul>
-  <li>Add to the <code class="highlighter-rouge">configuration.yaml</code> the <code class="highlighter-rouge">downloader</code> and <code class="highlighter-rouge">python_scripts</code>. Visit the component page for further details.</li>
-</ul>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">python_script:</span><span class="w">
-</span><span class="err">downloader:</span><span class="w">
-  </span><span class="err">download_dir:</span><span class="w"> </span><span class="err">downloads</span><span class="w">
-</span></code></pre>
+<h2><a class="title-link" name="saving-the-videos-captured-by-your-ring-door-bell" href="#saving-the-videos-captured-by-your-ring-door-bell"></a> Saving the videos captured by your Ring Door Bell</h2>
+<p>You can save locally the latest video captured by your Ring Door Bell using the <a href="/components/downloader">downloader</a> along with either an <a href="/components/automation">automation</a> or <a href="/components/python_script">python_script</a>. First, enable the <a href="/components/downloader">downloader</a> component in your configuration by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">downloader</span><span class="pi">:</span>
+  <span class="s">download_dir</span><span class="pi">:</span> <span class="s">downloads</span>
+</code></pre>
 </div>
-<ul>
-  <li>Create a file <code class="highlighter-rouge">ring_downloader.py</code> in the folder <code class="highlighter-rouge">&lt;config&gt;/python_scripts</code> and give it this content:</li>
-</ul>
+<p>Then you can use the following <code class="highlighter-rouge">action</code> in your automation (this will save the video file under <code class="highlighter-rouge">&lt;config&gt;/downloads/ring_&lt;camera_name&gt;/</code>):</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">downloader.download_file</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="s">subdir</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="s">filename</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+<p>If you want to use <code class="highlighter-rouge">python_script</code>, enable it your <code class="highlighter-rouge">configuration.yaml</code> file first:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">python_script</span><span class="pi">:</span>
+</code></pre>
+</div>
+<p>You can then use the following <code class="highlighter-rouge">python_script</code> to save the video file:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># obtain ring doorbell camera object</span>
 <span class="c"># replace the camera.front_door by your camera entity</span>
 <span class="n">ring_cam</span> <span class="o">=</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'camera.front_door'</span><span class="p">)</span>
@@ -111,18 +118,13 @@
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'url'</span><span class="p">:</span> <span class="n">ring_cam</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'video_url'</span><span class="p">),</span>
     <span class="s">'subdir'</span><span class="p">:</span> <span class="n">subdir_name</span><span class="p">,</span>
+    <span class="s">'filename'</span><span class="p">:</span> <span class="n">ring_cam</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'friendly_name'</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c"># call downloader component to save the video</span>
 <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s">'downloader'</span><span class="p">,</span> <span class="s">'download_file'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre>
 </div>
-<ul>
-  <li>Start Home Assistant</li>
-  <li>Call the server <code class="highlighter-rouge">python_script/ring_downloader</code></li>
-</ul>
-<p>You should be able to see a video file saved under <code class="highlighter-rouge">&lt;config&gt;/&lt;downloader_dir&gt;/ring_&lt;camera_name&gt;/</code>.</p>
-<p>You can also automate the process by integrating it with the (automation)[/components/automation) component.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
