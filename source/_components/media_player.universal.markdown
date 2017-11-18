@@ -55,9 +55,9 @@ Configuration variables:
 - **commands** (*Optional*): Commands to be overwritten. Possible entries are *turn_on*, *turn_off*, *select_source*, *volume_set*, *volume_up*, *volume_down*, and *volume_mute*.
 - **attributes** (*Optional*): Attributes that can be overwritten. Possible entries are *is_volume_muted*, *state*, *source*, *source_list, and *volume_level*. The values should be an entity id and state attribute separated by a bar (\|). If the entity id's state should be used, then only the entity id should be provided.
 
-The Universal Media Player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled by the Universal Media Player. The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the *children* list must be media players, but the state template can contain any entity.
+The Universal Media Player will primarily imitate one of its *children*. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the *children* list must be media players, but the state template can contain any entity.
 
-It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and *state* is on, the Universal Media Player's state will be on.
+It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and *state* is on, the Universal Media Player's state will be on.
 
 It is also recommended that the command *volume_up*, the command *volume_down*, the command *volume_mute*, and the attribute *is_volume_muted* all be provided together. The attribute *is_volume_muted* should return either True or the on state when the volume is muted. The *volume_mute* service should toggle the mute setting.
 
@@ -67,7 +67,7 @@ When providing *select_source* as a command, it is recommended to also provide t
 
 #### {% linkable_title Chromecast & Kodi control with switches %}
 
-In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The *turn_on* and *turn_off* commands will be redirected to the television and the volume commands will be redirected to an audio receiver. The *select_source* command will be passed directly to an A/V receiver.
+In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The *turn_on* and *turn_off* commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The *select_source* command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.
 
