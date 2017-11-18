@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: keenetic.png
+logo: hitron.png
 ha_category: Presence Detection
-ha_release: 0.55
+ha_release: 0.58
 ---
 
 This component offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
@@ -26,11 +26,19 @@ device_tracker:
     password: !secret router_password
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.0.1.
-- **username** (*Required*): The username to login into the router (user should have read access to the web interface of the router). Usually "cusadmin".
-- **password** (*Required*): The password for the specified username. Usually your WiFi password.
-
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., `192.168.0.1`.
+  required: true
+  type: string
+username:
+  description: The username to login into the router (user should have read access to the web interface of the router). Usually "cusadmin".
+  required: true
+  type: string
+password:
+  description: The password for the specified username. Usually your WiFi password.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
