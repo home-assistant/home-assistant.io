@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Presence Detection
-ha_release: 0.58
+ha_release: 0.59
 ---
 
 
@@ -26,11 +26,20 @@ device_tracker:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname or IP address of your controller.
-- **username** (*Required*: The username used to connect to the AP.
-- **password** (*Required*): The password you created for the AP.
+{% configuration %}
+host:
+  description: The hostname or IP address of your Unifi AP.
+  required: true
+  type: string
+username:
+  description: The username used to connect to your Unifi AP.
+  required: true
+  type: string
+password:
+  description: The password used to connect to your Unifi AP.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
