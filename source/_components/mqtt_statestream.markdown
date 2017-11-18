@@ -32,7 +32,7 @@ Configuration variables:
 Default is false.
 - **publish_timestamps** (*Optional*): Publish the last_changed and last_updated timestamps for the entity.
 Default is false.
-- **exclude** (*Optional*): Configure which components should be excluded from recordings.  See *Include/Exclude* section below for details.
+- **exclude** (*Optional*): Configure which components should be excluded from recordings. See *Include/Exclude* section below for details.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
 - **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
@@ -58,7 +58,7 @@ The last_updated and last_changed values for the entity will be published to `ho
 
 The **exclude** and **include** configuration variables can be used to filter the items that are published to MQTT.
 
-1\. If neither **exclude** or **include** are specified, all entiies are published.
+1\. If neither **exclude** or **include** are specified, all entities are published.
 
 2\. If only **exclude** is specified, then all entities except the ones listed are published.
 
