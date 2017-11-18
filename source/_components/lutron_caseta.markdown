@@ -27,17 +27,25 @@ The currently supported Caseta devices are:
 
 When configured, the `lutron_caseta` component will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g. a dimmer called 'Bedroom Lamp' becomes `light.bedroom_lamp` in Home Assistant.
 
-To use Lutron Caseta devices in your installation, add the following to your `configuration.yaml` file using the IP of your Smart Bridge:
+To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [this script](/assets/get_lutron_cert.zip), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
+
+Once you have the three necessary files, place them in your configuration directory and add the following to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 lutron_caseta:
     host: IP_ADDRESS
+    keyfile: caseta.key
+    certfile: caseta.crt
+    ca_certs: caseta-bridge.crt
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The IP address of the Lutron Smart Bridge.
+- **keyfile** (*Required*): The private key that Home Assistant will use to authenticate to the bridge.
+- **certfile** (*Required*): The certificate chain that Home Assistant will use to authenticate to the bridge.
+- **ca_certs** (*Required*): The list of certificate authorities (usually only one) that Home Assistant will expect when connecting to the bridge.
 
 <p class='note'>
 It is recommended to assign a static IP address to your Lutron Smart Bridge. This ensures that it won't change IP address, so you won't have to change the `host` if it reboots and comes up with a different IP address.
