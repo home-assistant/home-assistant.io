@@ -19,6 +19,11 @@ frontend:
 ```
 
 {% configuration %}
+  javascript_version:
+    description: "Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
+    required: false
+    type: string
+    default: es5
   themes:
     description: Allow to define different themes. See below for further details.
     required: false
