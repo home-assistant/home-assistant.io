@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dominos Pizza"
-description: "Instructions how to setup Dominos Pizza ordering within Home Assistant."
+description: "Instructions on how to setup Dominos Pizza ordering within Home Assistant."
 date: 2017-11-05 17:30
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dominos.png
 ha_category: Other
-ha_version: 0.57
+ha_version: 0.59
 ---
 
 The `Dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
@@ -22,7 +22,7 @@ Orders are a group of product codes. You can get these product codes by inspecti
 
 Currently, there is no support in this component for toppings, coupons or order tracking.
 
-```yaml
+{% configuration %}
 dominos:
   country_code: ca
   first_name: Justin
@@ -34,7 +34,7 @@ dominos:
   - name: Medium Pan
     codes:
       - P12IPAZA
-```
+{% endconfiguration %}
 
 Now you can use the Dominos service to order pizza within your automations:
 
@@ -52,7 +52,7 @@ Configuration variables:
 - **email** (*Required*): Your email address
 - **phone** (*Required*): Your phone number
 - **address** (*Required*): Your delivery address
-- **show_menu** (*Optional*): Dumps product codes from your nearest stor into your log (for use in with the custom panel)
+- **show_menu** (*Optional*): Dumps product codes from your nearest store into your log (for use in with the custom panel)
 - **orders** (*Optional*): Sets of product codes to use for ordering
 
 
