@@ -76,6 +76,21 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">spc</code> alarm control panel platform allows you to control your <a href="http://www.spc-intruder-detection.com/ssp-spc/">Vanderbilt SPC</a> alarms.</p>
 <p>The requirement is that you have setup your <a href="/components/spc/">SPC hub</a>.</p>
+<p>The <code class="highlighter-rouge">changed_by</code> attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in <a href="/getting-started/automation/">automation</a>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Alarm status changed</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.alarm_1</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">Alarm changed from {{ trigger.from_state.state }}</span>
+            <span class="no">to {{ trigger.to_state.state }}</span>
+            <span class="no">by {{ trigger.to_state.attributes.changed_by }}</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

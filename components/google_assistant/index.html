@@ -85,6 +85,8 @@ To use Google Assistant your Home Assistant configuration has to be externally a
   <span class="s">project_id</span><span class="pi">:</span> <span class="s">someproject-2d0b8</span>
   <span class="s">client_id</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">long URL safe random string</span><span class="pi">]</span>
   <span class="s">access_token</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">a different long URL safe random string</span><span class="pi">]</span>
+  <span class="s">agent_user_id</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">a string to identify user</span><span class="pi">]</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">an API Key generated for the Google Actions project</span><span class="pi">]</span>
   <span class="s">exposed_domains</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">switch</span>
     <span class="pi">-</span> <span class="s">light</span>
@@ -99,6 +101,8 @@ To use Google Assistant your Home Assistant configuration has to be externally a
   <li><em>project_id</em> (Required): Project ID from the Google Developer console (looks like <code class="highlighter-rouge">words-2ab12</code>)</li>
   <li><em>client_id</em> (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.</li>
   <li><em>access_token</em> (Required): Another different long random URL safe string.</li>
+  <li><em>agent_user_id</em> (Optional): A string to identify the user, e.g., email address. If not provided, the component will generate one.</li>
+  <li><em>api_key</em> (Optional): An API Key generated for the project from Google Console. See setup below. If not provided then the request_sync service is not exposed</li>
   <li><em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
     <ul>
       <li><code class="highlighter-rouge">switch</code></li>
@@ -190,7 +194,16 @@ Note: This must be an HTTPS URL to work.</li>
       <li>Have the new user go to <a href="https://console.actions.google.com/">developer console</a> and repeat steps starting from point 7.</li>
     </ol>
   </li>
+  <li>If you want to use the request_sync service in Home Assistant, then Enable Homegraph API for your project:
+    <ol>
+      <li>Go to https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview</li>
+      <li>Select your project and click Enable Homegraph API</li>
+      <li>Go to Credentials and select API Key from Create Credentials</li>
+      <li>Note down the generated API Key and use this in the configuration</li>
+    </ol>
+  </li>
 </ol>
+<p><em>Note:</em> The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like “Request contains an invalid argument”. If this happens, then unlink the account from Home Control and relink.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

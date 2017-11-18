@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> coils.</p>
+  <p>The <code class="highlighter-rouge">modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> coils or registers.</p>
 <p>To use your Modbus switches in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
@@ -87,15 +87,35 @@
     <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Switch2</span>
       <span class="s">slave</span><span class="pi">:</span> <span class="s">2</span>
       <span class="s">coil</span><span class="pi">:</span> <span class="s">14</span>
+  <span class="s">registers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Register1</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">register</span><span class="pi">:</span> <span class="s">11</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s">0</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>coils</strong> (<em>Optional</em>): A list of relevant coils to read from/write to
+  <li><strong>coils</strong> (<em>Optional</em>): A list of relevant coils to read from/write to.
     <ul>
       <li><strong>slave</strong> (<em>Required</em>): The number of the slave (can be omitted for tcp and udp Modbus).</li>
-      <li><strong>name</strong> (<em>Required</em>): Name of the sensor</li>
-      <li><strong>coil</strong> (<em>Required</em>): Coil number</li>
+      <li><strong>name</strong> (<em>Required</em>): Name of the switch.</li>
+      <li><strong>coil</strong> (<em>Required</em>): Coil number.</li>
+    </ul>
+  </li>
+  <li><strong>registers</strong> (<em>Optional</em>): A list of relevant registers to read from/write to.
+    <ul>
+      <li><strong>slave</strong> (<em>Required</em>): The number of the slave (can be omitted for tcp and udp Modbus).</li>
+      <li><strong>name</strong> (<em>Required</em>): Name of the switch.</li>
+      <li><strong>register</strong> (<em>Required</em>): Register number.</li>
+      <li><strong>command_on</strong> (<em>Required</em>): Value to write to turn on the switch.</li>
+      <li><strong>command_off</strong> (<em>Required</em>): Value to write to turn off the switch.</li>
+      <li><strong>verify_state</strong> (<em>Optional</em>): Define if is possible to readback the status of the switch. (default: True)</li>
+      <li><strong>verify_register</strong> (<em>Optional</em>): Register to readback. (default: same as register)</li>
+      <li><strong>register_type</strong> (<em>Optional</em>): Modbus register type: holding or input. (default: holding)</li>
+      <li><strong>state_on</strong> (<em>Optional</em>): Register value when switch is on. (default: same as command_on)</li>
+      <li><strong>state_off</strong> (<em>Optional</em>): Register value when switch is off. (default: same as command_off)</li>
     </ul>
   </li>
 </ul>
@@ -185,7 +205,7 @@
             <a href='/components/switch.enocean/'>EnOcean Switch</a>
         </li>
         <li>
-            <a href='/components/switch.hikvision/'>Hikvision Camera Switch</a>
+            <a href='/components/switch.hikvisioncam/'>Hikvision Camera Switch</a>
         </li>
         <li>
             <a href='/components/switch.homematic/'>Homematic Switch</a>
@@ -315,6 +335,9 @@
         </li>
         <li>
             <a href='/components/switch.verisure/'>Verisure SmartPlug</a>
+        </li>
+        <li>
+            <a href='/components/switch.vultr/'>Vultr Switch</a>
         </li>
         <li>
             <a href='/components/switch.wake_on_lan/'>Wake on LAN Switch</a>

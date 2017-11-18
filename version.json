@@ -1,15 +1,15 @@
 {
-  "current_version": "0.57.3",
-  "release_date": "2017-11-11T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/11/04/release-57/",
-  "release_notes_path": "/blog/2017/11/04/release-57/",
-  "release_title": "0.57: Translations, Hacktoberfest, Timers",
-  "release_description": "Due to Hacktoberfest we had to ship more fixes, improvements and components than usual.",
-  "patch_version_notes": "#release-0573---november-11",
+  "current_version": "0.58.0",
+  "release_date": "2017-11-18T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/11/18/release-58/",
+  "release_notes_path": "/blog/2017/11/18/release-58/",
+  "release_title": "0.58: More translations, faster frontend, system log",
+  "release_description": "We now have 445 translators helping out and the frontend is receiving some polishing.",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 57,
-    "patch": 3
+    "minor": 58,
+    "patch": 0
   }
 }

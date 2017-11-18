@@ -92,6 +92,7 @@
   <li><strong>Stop Network</strong> stops the Z-Wave network</li>
   <li><strong>Soft Reset</strong> tells the controller to do a “soft reset.” This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command, and may cause the Z-Wave network to hang.</li>
   <li><strong>Test Network</strong> tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</li>
+  <li><strong>Save Config</strong> Saves the current cache of the network to zwcfg_[home_id].xml</li>
 </ul>
 <h2><a class="title-link" name="z-wave-node-management" href="#z-wave-node-management"></a> Z-Wave Node Management</h2>
 <ul>
@@ -101,7 +102,13 @@
   <li>
     <p><strong>Print Node</strong> prints all state of Z-Wave node to the console log</p>
   </li>
-  <li><strong>Rename Node</strong> sets a node’s name - this won’t happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name</li>
+  <li>
+    <p><strong>Rename Node</strong> sets a node’s name - this won’t happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name</p>
+  </li>
+  <li>
+    <p><strong>Heal Node</strong> starts healing of the node.(Update neighbour list and update return routes)</p>
+  </li>
+  <li><strong>Test Node</strong> sends no_op test messages to the node. This could in theory bring back a dead node.</li>
 </ul>
 <p class="note">
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
@@ -157,7 +164,8 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 <p>You can set the <em>wakeup</em> interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.</p>
 <p>Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select <strong>Set Config Parameter</strong> to updated it. Battery powered devices will be updated the next time they wake.</p>
 <h2><a class="title-link" name="ozw-log" href="#ozw-log"></a> OZW Log</h2>
-<p>Select <strong>Refresh</strong> to display the log if you need it to check activities.</p>
+<p>If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
+Select <strong>Refresh</strong> to display the log if you need it to check activities.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

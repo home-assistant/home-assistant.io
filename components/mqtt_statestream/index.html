@@ -90,6 +90,18 @@
 Default is false.</li>
   <li><strong>publish_timestamps</strong> (<em>Optional</em>): Publish the last_changed and last_updated timestamps for the entity.
 Default is false.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recordings. See <em>Include/Exclude</em> section below for details.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recordings.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from recordings.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should be included in recordings. If set, all other entities will not be recorded.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from recordings.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from recordings.</li>
+    </ul>
+  </li>
 </ul>
 <h2>Operation</h2>
 <p>When any Home Assistant entity changes, this component will publish that change to MQTT.</p>
@@ -99,6 +111,47 @@ The topic will be in the form <code class="highlighter-rouge">base_topic/domain/
 <p>If that entity also has an attribute called <code class="highlighter-rouge">brightness</code>, the component will also publish the value of that attribute to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/brightness</code>.</p>
 <p>All states and attributes are passed through JSON serialization before publishing. <strong>Please note</strong> that this causes strings to be quoted (e.g., the string ‘on’ will be published as ‘“on”’). You can access the JSON deserialized values (as well as unquoted strings) at many places by using <code class="highlighter-rouge">value_json</code> instead of <code class="highlighter-rouge">value</code>.</p>
 <p>The last_updated and last_changed values for the entity will be published to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_updated</code> and <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_changed</code>, respectively.  The timestamps are in ISO 8601 format - for example, <code class="highlighter-rouge">2017-10-01T23:20:30.920969+00:00</code>.</p>
+<h2>Include/exclude</h2>
+<p>The <strong>exclude</strong> and <strong>include</strong> configuration variables can be used to filter the items that are published to MQTT.</p>
+<p>1. If neither <strong>exclude</strong> or <strong>include</strong> are specified, all entities are published.</p>
+<p>2. If only <strong>exclude</strong> is specified, then all entities except the ones listed are published.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of excluding entities</span>
+<span class="s">mqtt_statestream</span><span class="pi">:</span>
+  <span class="s">base_topic</span><span class="pi">:</span> <span class="s">homeassistant</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">switch</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.nopublish</span>
+</code></pre>
+</div>
+<p>In the above example, all entities except for <em>switch.x</em> and <em>sensor.nopublish</em> will be published to MQTT.</p>
+<p>3. If only <strong>include</strong> is specified, then only the specified entries are published.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of excluding entities</span>
+<span class="s">mqtt_statestream</span><span class="pi">:</span>
+  <span class="s">base_topic</span><span class="pi">:</span> <span class="s">homeassistant</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">lock.important</span>
+</code></pre>
+</div>
+<p>In this example, only <em>sensor.x</em> and <em>lock.important</em> will be published.</p>
+<p>4. If both <strong>include</strong> and <strong>exclude</strong> are specified then all entities specified by <strong>include</strong> are published except for the ones
+specified by <strong>exclude</strong>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of excluding entities</span>
+<span class="s">mqtt_statestream</span><span class="pi">:</span>
+  <span class="s">base_topic</span><span class="pi">:</span> <span class="s">homeassistant</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.noshow</span>
+</code></pre>
+</div>
+<p>In this example, all sensors except for <em>sensor.noshow</em> will be published.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -158,6 +211,9 @@ The topic will be in the form <code class="highlighter-rouge">base_topic/domain/
         </li>
         <li>
             <a href='/components/plant/'>Plant monitor</a>
+        </li>
+        <li>
+            <a href='/components/system_log/'>System Log</a>
         </li>
         <li>
             <a href='/components/sensor.upnp/'>UPNP Sensor</a>

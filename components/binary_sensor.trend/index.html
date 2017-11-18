@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">trend</code> platform allows you to create sensors which show the trend of numeric <code class="highlighter-rouge">state</code> or<code class="highlighter-rouge">state_attributes</code> from other entities. This sensor requires two updates of the underlying sensor to establish a trend. Thus it can take some time to show an accurate state. It can be useful as part of automations, where you want to base an action on a trend.</p>
+  <p>The <code class="highlighter-rouge">trend</code> platform allows you to create sensors which show the trend of numeric <code class="highlighter-rouge">state</code> or<code class="highlighter-rouge">state_attributes</code> from other entities. This sensor requires at least two updates of the underlying sensor to establish a trend. Thus it can take some time to show an accurate state. It can be useful as part of automations, where you want to base an action on a trend.</p>
 <p>To enable Trend binary sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
@@ -88,36 +88,47 @@
 <ul>
   <li><strong>sensors</strong> array (<em>Required</em>): List of your sensors.
     <ul>
-      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
-      <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
       <li><strong>entity_id</strong> (<em>Required</em>): The entity that this sensor tracks.</li>
       <li><strong>attribute</strong> (<em>Optional</em>): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.</li>
-      <li><strong>invert</strong> (<em>Optional</em>): Invert the result (so <code class="highlighter-rouge">true</code> means descending rather than ascending)</li>
+      <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
+      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
+      <li><strong>invert</strong> (<em>Optional</em>): Invert the result (so <code class="highlighter-rouge">true</code> means descending rather than ascending). Defaults to <code class="highlighter-rouge">False</code></li>
+      <li><strong>max_samples</strong> (<em>Optional</em>): Limit the maximum number of stored samples. Defaults to <code class="highlighter-rouge">2</code>.</li>
+      <li><strong>min_gradient</strong> (<em>Optional</em>): The minimum rate at which the observed value must be changing for this sensor to switch on. Defaults to <code class="highlighter-rouge">0.0</code></li>
+      <li><strong>sample_duration</strong> (<em>Optional</em>): The duration <strong>in seconds</strong> to store samples for. Samples older than this value will be discarded. Defaults to <code class="highlighter-rouge">0</code></li>
     </ul>
   </li>
 </ul>
+<h2><a class="title-link" name="using-multiple-samples" href="#using-multiple-samples"></a> Using Multiple Samples</h2>
+<p>If the optional <code class="highlighter-rouge">sample_duration</code> and <code class="highlighter-rouge">max_samples</code> parameters are specified then multiple samples can be stored and used to detect long-term trends.</p>
+<p>Each time the state changes, a new sample is stored along with the sample time. Samples older than <code class="highlighter-rouge">sample_duration</code> seconds will be discarded.</p>
+<p>A trend line is then fitted to the available samples, and the gradient of this line is compared to <code class="highlighter-rouge">min_gradient</code> to determine the state of the trend sensor. The gradient is measured in sensor units per second - so if you want to know when the temperature is falling by 2 degrees per hour, use a gradient of (-2) / (60 x 60) = -0.00055</p>
+<p>The current number of stored samples is displayed on the States page.</p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this sensor.</p>
-<h3><a class="title-link" name="temperature-trend" href="#temperature-trend"></a> Temperature trend</h3>
-<p>This example indicates <code class="highlighter-rouge">true</code> if the temperature is rising:</p>
+<p>This example indicates <code class="highlighter-rouge">true</code> if the sun is still rising:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">trend</span>
     <span class="s">sensors</span><span class="pi">:</span>
-      <span class="s">temperature_up</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temp</span><span class="nv"> </span><span class="s">increasing'</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.skylight_temperature</span>
-        <span class="s">device_class</span><span class="pi">:</span> <span class="s">heat</span>
+      <span class="s">sun_rising</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
 </code></pre>
 </div>
-<p>And this one indicates <code class="highlighter-rouge">true</code> if the temperature is falling:</p>
+<p>This example creates two sensors to indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">trend</span>
     <span class="s">sensors</span><span class="pi">:</span>
-      <span class="s">temperature_down</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temp</span><span class="nv"> </span><span class="s">decreasing'</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.skylight_temperature</span>
+      <span class="s">temp_falling</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.outside_temperature</span>
+        <span class="s">sample_duration</span><span class="pi">:</span> <span class="s">7200</span>
+        <span class="s">min_gradient</span><span class="pi">:</span> <span class="s">-0.0008</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">cold</span>
-        <span class="s">invert</span><span class="pi">:</span> <span class="s">Yes</span>
+
+      <span class="s">temp_rising</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.outside_temperature</span>
+        <span class="s">sample_duration</span><span class="pi">:</span> <span class="s">7200</span>
+        <span class="s">min_gradient</span><span class="pi">:</span> <span class="s">0.0008</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">heat</span>
 </code></pre>
 </div>
 </article>

@@ -109,14 +109,18 @@
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name to assign the player</li>
   <li><strong>children</strong> (<em>Required</em>): Ordered list of child media players this entity will control</li>
+  <li><strong>state_template</strong> (<em>Optional</em>): A <a href="/topics/templating/">template</a> can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like Switches or Input Booleans.</li>
   <li><strong>commands</strong> (<em>Optional</em>): Commands to be overwritten. Possible entries are <em>turn_on</em>, <em>turn_off</em>, <em>select_source</em>, <em>volume_set</em>, <em>volume_up</em>, <em>volume_down</em>, and <em>volume_mute</em>.</li>
   <li><strong>attributes</strong> (<em>Optional</em>): Attributes that can be overwritten. Possible entries are <em>is_volume_muted</em>, <em>state</em>, <em>source</em>, <em>source_list, and *volume_level</em>. The values should be an entity id and state attribute separated by a bar (|). If the entity id’s state should be used, then only the entity id should be provided.</li>
 </ul>
-<p>The universal media player will primarily imitate one of its <em>children</em>. The first child in the list that is active (not idle/off) will be controlled the universal media player. The universal media player will also inherit its state from the first active child. Entities in the <em>children</em> list must be media players.</p>
-<p>It is recommended that the command <em>turn_on</em>, the command <em>turn_off</em>, and the attribute <em>state</em> all be provided together. The <em>state</em> attribute indicates if the Media Player is on or off. If <em>state</em> indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and <em>state</em> is on, the universal media player’s state will be on.</p>
+<p>The Universal Media Player will primarily imitate one of its <em>children</em>. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a <code class="highlighter-rouge">state_template</code> is not provided. Entities in the <em>children</em> list must be media players, but the state template can contain any entity.</p>
+<p>It is recommended that the command <em>turn_on</em>, the command <em>turn_off</em>, and the attribute <em>state</em> all be provided together. The <em>state</em> attribute indicates if the Media Player is on or off. If <em>state</em> indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and <em>state</em> is on, the Universal Media Player’s state will be on.</p>
 <p>It is also recommended that the command <em>volume_up</em>, the command <em>volume_down</em>, the command <em>volume_mute</em>, and the attribute <em>is_volume_muted</em> all be provided together. The attribute <em>is_volume_muted</em> should return either True or the on state when the volume is muted. The <em>volume_mute</em> service should toggle the mute setting.</p>
 <p>When providing <em>select_source</em> as a command, it is recommended to also provide the attributes <em>source</em>, and <em>source_list</em>. The <em>source</em> attribute is the currently select source, while the <em>source_list</em> attribute is a list of all available sources.</p>
-<p>Below is an example configuration.</p>
+<h2><a class="title-link" name="usage-examples" href="#usage-examples"></a> Usage examples</h2>
+<h4><a class="title-link" name="chromecast--kodi-control-with-switches" href="#chromecast--kodi-control-with-switches"></a> Chromecast &amp; Kodi control with switches</h4>
+<p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <em>turn_on</em> and <em>turn_off</em> commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The <em>select_source</em> command will be passed directly to an A/V receiver.</p>
+<p>The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Test Universal</span>
@@ -164,8 +168,104 @@
 
 </code></pre>
 </div>
-<p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <em>turn_on</em> and <em>turn_off</em> commands will be redirected to the television and the volume commands will be redirected to an audio receiver. The <em>select_source</em> command will be passed directly to an A/V receiver.</p>
-<p>The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.</p>
+<h4><a class="title-link" name="kodi-cec-tv-control" href="#kodi-cec-tv-control"></a> Kodi CEC-TV control</h4>
+<p>In this example, a <a href="/components/media_player.kodi/">Kodi Media Player</a> runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.</p>
+<p>We store the state of the attached TV in a hidden <a href="/components/input_boolean/">Input Boolean</a>, so we can differentiate the TV being on or off, while Kodi is always ‘idle’, and use the Universal Media Player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the ‘idle’ and the ‘off’ state (being the second when it is idle and the TV is off).</p>
+<p>Because the Input Boolean used to store the TV state is only changing when using the Home Assistant <code class="highlighter-rouge">turn_on</code> and <code class="highlighter-rouge">turn_off</code> actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.</p>
+<p>In an Apple HomeKit scene, we can now expose this Universal Media Player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.</p>
+<p>The complete yaml config is:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">input_boolean.kodi_tv_state</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">media_player.kodi</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">media_player.kodi_tv</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kodi</span>
+      <span class="s">homebridge_name</span><span class="pi">:</span> <span class="s">Kodi</span>
+      <span class="s">homebridge_media_player_switch</span><span class="pi">:</span> <span class="s">on_off</span>
+
+<span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">kodi_tv_state</span><span class="pi">:</span>
+
+<span class="s">media_player</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi TV</span>
+  <span class="s">state_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+    <span class="no">{% if (is_state('media_player.kodi', 'idle') and (is_state('input_boolean.kodi_tv_state', 'off') %}</span>
+    <span class="no">off</span>
+    <span class="no">{% else %}</span>
+    <span class="no">{{ states('media_player.kodi') }}</span>
+    <span class="no">{% endif %}</span>
+  <span class="s">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">media_player.kodi</span>
+  <span class="s">commands</span><span class="pi">:</span>
+    <span class="s">turn_on</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_off</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+  <span class="s">attributes</span><span class="pi">:</span>
+    <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">media_player.kodi|is_volume_muted</span>
+    <span class="s">volume_level</span><span class="pi">:</span> <span class="s">media_player.kodi|volume_level</span>
+
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">turn_on_action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_on</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.kodi_tv_state</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+      <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+      <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+      <span class="s">params</span><span class="pi">:</span>
+        <span class="s">command</span><span class="pi">:</span> <span class="s">activate</span>
+  <span class="s">turn_off_action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_off</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.kodi_tv_state</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.media_stop</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+      <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+      <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+      <span class="s">params</span><span class="pi">:</span>
+        <span class="s">command</span><span class="pi">:</span> <span class="s">standby</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on the TV when Kodi is activated</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">playing'</span>
+  <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off the TV when Kodi is in idle &gt; 15 min</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">idle'</span>
+    <span class="s">for</span><span class="pi">:</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

@@ -105,6 +105,10 @@
       <td>Tells the controller to “heal” the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
     </tr>
     <tr>
+      <td>heal_node</td>
+      <td>Tells the controller to “heal” a specific node on the network. Requires <code class="highlighter-rouge">node_id</code> field. You can also force return route update with <code class="highlighter-rouge">return_routes</code> field.</td>
+    </tr>
+    <tr>
       <td>print_config_parameter</td>
       <td>Prints Z-Wave node’s config parameter value to the (console) log.</td>
     </tr>
@@ -163,6 +167,10 @@
     <tr>
       <td>test_network</td>
       <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead.”</td>
+    </tr>
+    <tr>
+      <td>test_node</td>
+      <td>Tells the controller to send no-op command(s) to a specific node. Requires <code class="highlighter-rouge">node_id</code> field. You can specify amount of test_messages to send by specifying it with <code class="highlighter-rouge">messages</code> field. In theory, this could bring back nodes marked as “presumed dead”</td>
     </tr>
   </tbody>
 </table>

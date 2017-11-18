@@ -70,6 +70,37 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/10/15/templating-date-time/">Templates, dates and times</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-10-15T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 15, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/10/15/templating-date-time/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>This <a href="https://github.com/home-assistant/home-assistant/pull/9868">Pull Request</a> shows in a clear way what happens if the documentation is not as good as it should be. In short, it’s about <a href="/docs/configuration/templating/">Templating</a> and how people start to think about creative ways to solve it if it’s not documented. Let’s assume that we want the current year. There are a couple of options available to do that:</p>
+<ul>
+  <li>Query <a href="http://date.jsontest.com/">JSON Test</a> with a <a href="/components/sensor.rest/"><code class="highlighter-rouge">rest</code> sensor</a> and a <code class="highlighter-rouge">value_template:</code>.</li>
+  <li>Use a <a href="/components/sensor.time_date/"><code class="highlighter-rouge">time_date</code> sensor </a> and a template <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">strptime(states('sensor.date'),</span><span class="w"> </span><span class="err">'%Y-%m-%d').year</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>.</li>
+  <li>Write a script in language X and use it with the <a href="/components/sensor.command_line/"><code class="highlighter-rouge">command</code> sensor</a> or use <code class="highlighter-rouge">date +"%Y"</code> as a <code class="highlighter-rouge">command:</code>.</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/10/15/templating-date-time/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/10/07/release-55/">0.55: Tibber, DuckDNS, The Things Network, Owntrack</a>
   </h1>
   <div class="meta clearfix">
@@ -494,76 +525,6 @@ Screenshot of the new customize editor.
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
       <a class="btn pull-right" href="/blog/2017/09/09/release-53/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/08/26/release-0-52/">0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-08-26T00:11:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 26, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 11 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/08/26/release-0-52/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.52"><img src="/images/blog/2017-08-0.52/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>Although the summer is in full progress, the development hasn’t stalled. This release brings bug fixes, clean ups and another 8 new integrations. On top of that we are also introducing a new <a href="/docs/scripts/editor/">script editor</a>!</p>
-<p>To use the scripts editor, create a new file in your config directory named <code class="highlighter-rouge">scripts.yaml</code> and copy your existing scripts over:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># scripts.yaml</span>
-<span class="s">turn_on_some_lights</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on the lights</span>
-  <span class="s">sequence</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">data</span><span class="pi">:</span> <span class="pi">{}</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-</code></pre>
-</div>
-<p>Than update your <code class="highlighter-rouge">configuration.yaml</code> to look like this:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml example</span>
-<span class="s">script</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">scripts.yaml</span>
-</code></pre>
-</div>
-<div class="videoWrapper">
-  <iframe src="https://www.youtube.com/embed/_Rntpcj1CGA" frameborder="0" allowfullscreen=""></iframe>
-</div>
-<h2>New Platforms</h2>
-<ul>
-  <li>Add version sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8912">#8912</a>) (<a href="https://home-assistant.io/components/sensor.version/">sensor.version docs</a>) (new-platform)</li>
-  <li>Nello.io lock support (<a href="https://github.com/pschmitt">@pschmitt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8957">#8957</a>) (<a href="https://home-assistant.io/components/lock.nello/">lock.nello docs</a>) (new-platform)</li>
-  <li>Add HipChat notify service. (<a href="https://github.com/BioSehnsucht">@BioSehnsucht</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8918">#8918</a>) (<a href="https://home-assistant.io/components/notify.hipchat/">notify.hipchat docs</a>) (new-platform)</li>
-  <li>Refactor USPS into component with Sensors+Camera (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8679">#8679</a>) (<a href="https://home-assistant.io/components/usps/">usps docs</a>) (<a href="https://home-assistant.io/components/camera.usps/">camera.usps docs</a>) (<a href="https://home-assistant.io/components/sensor.usps/">sensor.usps docs</a>) (breaking change) (new-platform)</li>
-  <li>Adds London_air component (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9020">#9020</a>) (<a href="https://home-assistant.io/components/sensor.london_air/">sensor.london_air docs</a>) (new-platform)</li>
-  <li>Add Abode home security component (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9030">#9030</a>) (<a href="https://home-assistant.io/components/abode/">abode docs</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.abode/">alarm_control_panel.abode docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.abode/">binary_sensor.abode docs</a>) (new-platform)</li>
-  <li>Add support for Prowl notifications. (<a href="https://github.com/mbrrg">@mbrrg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9028">#9028</a>) (<a href="https://home-assistant.io/components/notify.prowl/">notify.prowl docs</a>) (new-platform)</li>
-  <li>Add worldtidesinfo sensor component (<a href="https://github.com/aetolus">@aetolus</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8860">#8860</a>) (<a href="https://home-assistant.io/components/sensor.worldtidesinfo/">sensor.worldtidesinfo docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="release-0521---august-28" href="#release-0521---august-28"></a> Release 0.52.1 - August 28</h2>
-<ul>
-  <li>Close stream request once we end up with proxy (<a href="https://github.com/foxel">@foxel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9110">#9110</a>)</li>
-  <li>Fix issue #9116 in pushbullet (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9128">#9128</a>) (<a href="https://home-assistant.io/components/notify.pushbullet/">notify.pushbullet docs</a>)</li>
-  <li>bug fix pushbullet (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9139">#9139</a>) (<a href="https://home-assistant.io/components/notify.pushbullet/">notify.pushbullet docs</a>)</li>
-  <li>Fix import for foscam (<a href="https://github.com/sdague">@sdague</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9140">#9140</a>) (<a href="https://home-assistant.io/components/camera.foscam/">camera.foscam docs</a>)</li>
-  <li>Bump aioautomatic to prevent leaking exceptions (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9148">#9148</a>) (<a href="https://home-assistant.io/components/device_tracker.automatic/">device_tracker.automatic docs</a>)</li>
-  <li>Wrap state when iterating a domain in templates (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9157">#9157</a>)</li>
-  <li>Prevent iCloud exceptions in logfile (<a href="https://github.com/mjj4791">@mjj4791</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9179">#9179</a>) (<a href="https://home-assistant.io/components/device_tracker.icloud/">device_tracker.icloud docs</a>)</li>
-  <li>bump ecobee version to fix issue 9190 (<a href="https://github.com/nkgilley">@nkgilley</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9191">#9191</a>) (<a href="https://home-assistant.io/components/ecobee/">ecobee docs</a>) (<a href="https://home-assistant.io/components/climate.ecobee/">climate.ecobee docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/08/26/release-0-52/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

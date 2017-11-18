@@ -107,13 +107,15 @@
       <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
       <li><strong>slave</strong> (<em>Required</em>): The number of the slave (Optional for tcp and upd Modbus).</li>
       <li><strong>register</strong> (<em>Required</em>): Register number.</li>
-      <li><strong>register_type</strong> (<em>Optional</em>): Modbus register type (holding, input), default holding</li>
+      <li><strong>register_type</strong> (<em>Optional</em>): Modbus register type (holding, input), default holding.</li>
       <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Unit to attach to value.</li>
       <li><strong>count</strong> (<em>Optional</em>): Number of registers to read.</li>
-      <li><strong>scale</strong> (<em>Optional</em>): Scale factor (output = scale * value + offset), default 1</li>
-      <li><strong>offset</strong> (<em>Optional</em>): Final offset (output = scale * value + offset), default 0</li>
-      <li><strong>precision</strong> (<em>Optional</em>): Number of valid decimals, default 0</li>
-      <li><strong>data_type</strong> (<em>Optional</em>): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int</li>
+      <li><strong>reverse_order</strong> (<em>Optional</em>): Reverse the order of registers when count &gt;1, default False.</li>
+      <li><strong>scale</strong> (<em>Optional</em>): Scale factor (output = scale * value + offset), default 1.</li>
+      <li><strong>offset</strong> (<em>Optional</em>): Final offset (output = scale * value + offset), default 0.</li>
+      <li><strong>precision</strong> (<em>Optional</em>): Number of valid decimals, default 0.</li>
+      <li><strong>data_type</strong> (<em>Optional</em>): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. Default int.</li>
+      <li><strong>structure</strong> (<em>Optional</em>): If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: “&gt;i”.</li>
     </ul>
   </li>
 </ul>
@@ -128,7 +130,6 @@
       <span class="s">slave</span><span class="pi">:</span> <span class="s">10</span>
       <span class="s">register</span><span class="pi">:</span> <span class="s">0</span>
       <span class="s">register_type</span><span class="pi">:</span> <span class="s">holding</span>
-      <span class="s">update_interval</span><span class="pi">:</span> <span class="s">2.5</span>
       <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">°C</span>
       <span class="s">count</span><span class="pi">:</span> <span class="s">1</span>
       <span class="s">scale</span><span class="pi">:</span> <span class="s">0.1</span>
@@ -313,6 +314,9 @@
         </li>
         <li>
             <a href='/components/sensor.kira/'>Kira Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.lacrosse/'>LaCrosse Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>

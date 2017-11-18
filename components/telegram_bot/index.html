@@ -195,6 +195,69 @@
     </tr>
   </tbody>
 </table>
+<h4><a class="title-link" name="service-telegram_botsend_video" href="#service-telegram_botsend_video"></a> Service <code class="highlighter-rouge">telegram_bot/send_video</code></h4>
+<p>Send a video.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>no</td>
+      <td>Remote path to a video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">file</code></td>
+      <td>no</td>
+      <td>Local path to a video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">caption</code></td>
+      <td>yes</td>
+      <td>The title of the video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>yes</td>
+      <td>Username for a URL which requires HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">password</code></td>
+      <td>yes</td>
+      <td>Password for a URL which requires HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authentication</code></td>
+      <td>yes</td>
+      <td>Define which authentication method to use. Set to <code class="highlighter-rouge">digest</code> to use HTTP digest authentication. Defaults to <code class="highlighter-rouge">basic</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
 <h4><a class="title-link" name="service-telegram_botsend_document" href="#service-telegram_botsend_document"></a> Service <code class="highlighter-rouge">telegram_bot/send_document</code></h4>
 <p>Send a document.</p>
 <table>
@@ -975,6 +1038,9 @@
         </li>
         <li>
             <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>

@@ -107,7 +107,7 @@ set for your Hub so the platform knows what Hub you are trying to configure.</p>
   <li><strong>host</strong> (<em>Optional</em>): The Harmony device’s IP address. Leave empty for the IP to be discovered automatically.</li>
   <li><strong>port</strong> (<em>Optional</em>): The Harmony device’s port. Defaults to 5222.</li>
   <li><strong>activity</strong> (<em>Optional</em>): Activity to use when turnon service is called without any data.</li>
-  <li><strong>scan_interval</strong> (<em>Optional</em>): Amount in seconds in between polling for device’s current activity. Defaults to 30 seconds.</li>
+  <li><strong>delay_secs</strong> (<em>Optional</em>): Default duration in seconds between sending commands to a device.</li>
 </ul>
 <p>Configuration file:</p>
 <p>Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: <code class="highlighter-rouge">harmony_REMOTENAME.conf</code>. The file will contain:</p>
@@ -119,7 +119,7 @@ set for your Hub so the platform knows what Hub you are trying to configure.</p>
 <p>Supported services:</p>
 <ul>
   <li><strong>Turn Off</strong>: Turn off all devices that were switched on from the start of the current activity.s</li>
-  <li><strong>Turn On</strong>: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your <a href="/docs/configuration/">Home Assistant configuration directory</a>. The service will respond faster if the activity ID is passed instead of the name.</li>
+  <li><strong>Turn On</strong>: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your <a href="/docs/configuration/">Home Assistant configuration directory</a>.</li>
   <li><strong>Send Command</strong>: Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).</li>
   <li><strong>Sync</strong>: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.</li>
 </ul>
@@ -218,7 +218,7 @@ set for your Hub so the platform knows what Hub you are trying to configure.</p>
       <img src='/images/supported_brands/logitech.png' />
   </div>
     <div class='section'>
-      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
       Introduced in release: 0.34

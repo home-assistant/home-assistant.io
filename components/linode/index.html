@@ -75,11 +75,18 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">linode</code> component allows you to access the information about your <a href="https://linode.com">Linode</a> systems from Home Assistant.</p>
-<p>Obtain your API key from Linode account.</p>
+<p>Obtain your oAuth2 Access Token from Linode account.</p>
+<ul>
+  <li><a href="http://cloud.linode.com">http://cloud.linode.com</a></li>
+  <li>Log in</li>
+  <li>Select API Tokens</li>
+  <li>Create a Personal Access Token,</li>
+  <li>Assigned scope (Please choose the least possible access required.)</li>
+</ul>
 <p>To integrate Linode with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">linode</span><span class="pi">:</span>
-  <span class="s">access_token</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s">YOUR_ACCESS_TOKEN</span>
 </code></pre>
 </div>
 <div class="config-vars">
@@ -323,6 +330,9 @@
         </li>
         <li>
             <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>

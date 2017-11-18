@@ -201,6 +201,34 @@ homeassistant:
     - /home/kenji/data
 </code>
 </p>
+<h3><a class="title-link" name="video-support" href="#video-support"></a> Video support</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s">Send a video</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s">That's an example that sends a video.</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">video</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">url</span><span class="pi">:</span> <span class="s">http://192.168.1.28/camera.mp4</span>
+          <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
+          <span class="s">password</span><span class="pi">:</span> <span class="s">secrete</span>
+        <span class="pi">-</span> <span class="s">file</span><span class="pi">:</span> <span class="s">/tmp/video.mp4</span>
+          <span class="s">caption</span><span class="pi">:</span> <span class="s">Video Title xy</span>
+        <span class="pi">-</span> <span class="s">url</span><span class="pi">:</span> <span class="s">http://somebla.ie/video.mp4</span>
+          <span class="s">caption</span><span class="pi">:</span> <span class="s">I.e. for a Title</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to a video.</li>
+  <li><strong>caption</strong> (<em>Optional</em>): The title of the video.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Set to ‘digest’ to use HTTP digest authentication, defaults to ‘basic’.</li>
+  <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
+  <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.</li>
+</ul>
 <h3><a class="title-link" name="document-support" href="#document-support"></a> Document support</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>

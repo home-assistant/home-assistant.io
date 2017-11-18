@@ -97,6 +97,15 @@
     <dd>
       <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Friendly name to use for the frontend. Default to “Serial sensor”.</span></p>
     </dd>
+    <dt><a class="title-link" name="baudrate" href="#baudrate"></a> baudrate</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Baudrate of the serial port.</span></p>
+      <p class="default">Default value: 9600 Bps</p>
+    </dd>
+    <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the serial line.</span></p>
+    </dd>
   </dl>
 </div>
 <h2><a class="title-link" name="value_template-for-template-sensor" href="#value_template-for-template-sensor"></a> <code class="highlighter-rouge">value_template</code> for Template sensor</h2>
@@ -104,6 +113,33 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">(((states('sensor.serial_sensor')</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">5</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">1024</span><span class="nv"> </span><span class="s">)</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">0.5)</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="arduino" href="#arduino"></a> Arduino</h3>
+<p>For controllers of the Arduino family a possible sketch to read the temperature and the humidity could look like the sample below.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>#include &lt;ArduinoJson.h&gt;
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  StaticJsonBuffer&lt;100&gt; jsonBuffer;
+  JsonObject&amp; json = prepareResponse(jsonBuffer);
+  json.printTo(Serial);
+  Serial.println();
+  delay(2000);
+}
+
+JsonObject&amp; prepareResponse(JsonBuffer&amp; jsonBuffer) {
+  JsonObject&amp; root = jsonBuffer.createObject();
+  root["temperature"] = analogRead(A0);
+  root["humidity"] = analogRead(A1);
+  return root;
+}
+</code></pre>
+</div>
+<h3><a class="title-link" name="digispark-usb-development-board" href="#digispark-usb-development-board"></a> Digispark USB Development Board</h3>
+<p>This <a href="/blog/2017/10/23/simple-analog-sensor/">blog post</a> describes the setup with a Digispark USB Development Board.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -266,6 +302,9 @@
         </li>
         <li>
             <a href='/components/sensor.kira/'>Kira Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.lacrosse/'>LaCrosse Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>

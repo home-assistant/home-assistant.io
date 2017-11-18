@@ -76,6 +76,9 @@
   <hr class="divider">
   <p>The <a href="http://www.knx.org">KNX</a> integration for Home Assistant allows you to connect to a KNX/IP devices.</p>
 <p>The component requires a local KNX/IP interface like the <a href="http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en">Weinzierl 730</a>. Through this, it will send and receive commands to and from other devices to the KNX bus.</p>
+<p class="note warning">
+  Please note, the <code class="highlighter-rouge">knx</code> platform does not support Windows and needs at least python version 3.5.
+</p>
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
   <li><a href="/components/binary_sensor.knx">Binary Sensor</a></li>
@@ -395,6 +398,9 @@ Service Data: {"address": "1/0/15", "payload": 0}
         </li>
         <li>
             <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>

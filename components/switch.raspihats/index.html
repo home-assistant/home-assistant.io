@@ -111,6 +111,38 @@
     </ul>
   </li>
 </ul>
+<h2><a class="title-link" name="directions-for-installing-smbus-support-on-raspberry-pi" href="#directions-for-installing-smbus-support-on-raspberry-pi"></a> Directions for installing smbus support on Raspberry Pi</h2>
+<p>Enable I2c interface with the Raspberry Pi configuration utility:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># pi user environment: Enable i2c interface</span>
+<span class="gp">$ </span>sudo raspi-config
+</code></pre>
+</div>
+<p>Select <code class="highlighter-rouge">Interfacing options-&gt;I2C</code> choose <code class="highlighter-rouge">&lt;Yes&gt;</code> and hit <code class="highlighter-rouge">Enter</code>, then go to <code class="highlighter-rouge">Finish</code>.</p>
+<p>Install dependencies for use the <code class="highlighter-rouge">smbus-cffi</code> module and enable your <em>homeassistant</em> user to join the <em>i2c</em> group:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># pi user environment: Install i2c dependencies and utilities</span>
+<span class="gp">$ </span>sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+
+<span class="c"># pi user environment: Add homeassistant user to the i2c group</span>
+<span class="gp">$ </span>sudo usermod -a -G i2c homeassistant
+</code></pre>
+</div>
+<h3><a class="title-link" name="check-the-i2c-address-of-the-sensor" href="#check-the-i2c-address-of-the-sensor"></a> Check the i2c address of the sensor</h3>
+<p>After installing <code class="highlighter-rouge">i2c-tools</code>, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>/usr/sbin/i2cdetect -y 1
+</code></pre>
+</div>
+<p>It will output a table like this:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- 23 -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: 40 -- -- -- -- -- UU -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- 77
+</code></pre>
+</div>
 <p>For more details about the Raspihats add-on boards for Raspberry PI, visit <a href="http://www.raspihats.com/">raspihats.com</a>.</p>
 </article>
         </div>
@@ -195,7 +227,7 @@
             <a href='/components/switch.enocean/'>EnOcean Switch</a>
         </li>
         <li>
-            <a href='/components/switch.hikvision/'>Hikvision Camera Switch</a>
+            <a href='/components/switch.hikvisioncam/'>Hikvision Camera Switch</a>
         </li>
         <li>
             <a href='/components/switch.homematic/'>Homematic Switch</a>
@@ -325,6 +357,9 @@
         </li>
         <li>
             <a href='/components/switch.verisure/'>Verisure SmartPlug</a>
+        </li>
+        <li>
+            <a href='/components/switch.vultr/'>Vultr Switch</a>
         </li>
         <li>
             <a href='/components/switch.wake_on_lan/'>Wake on LAN Switch</a>
