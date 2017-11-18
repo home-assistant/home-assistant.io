@@ -49,13 +49,15 @@ Configuration variables:
   - **name** (*Required*): Name of the sensor.
   - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
   - **register** (*Required*): Register number.
-  - **register_type** (*Optional*): Modbus register type (holding, input), default holding
+  - **register_type** (*Optional*): Modbus register type (holding, input), default holding.
   - **unit_of_measurement** (*Optional*): Unit to attach to value.
   - **count** (*Optional*): Number of registers to read.
-  - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
-  - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
-  - **precision** (*Optional*): Number of valid decimals, default 0
-  - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
+  - **reverse_order** (*Optional*): Reverse the order of registers when count >1, default False.
+  - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1.
+  - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0.
+  - **precision** (*Optional*): Number of valid decimals, default 0.
+  - **data_type** (*Optional*): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. Default int.
+  - **structure** (*Optional*): If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: ">i".
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
@@ -72,7 +74,6 @@ sensor:
       slave: 10
       register: 0
       register_type: holding
-      update_interval: 2.5
       unit_of_measurement: °C
       count: 1
       scale: 0.1

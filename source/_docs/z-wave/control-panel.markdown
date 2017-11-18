@@ -28,6 +28,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
+* **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
 
 ## {% linkable_title Z-Wave Node Management %}
 
@@ -37,6 +38,10 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Print Node** prints all state of Z-Wave node to the console log
 
 * **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
+
+* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+
+* **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
@@ -107,4 +112,5 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title OZW Log %}
 
+If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Refresh** to display the log if you need it to check activities.
