@@ -26,6 +26,7 @@ sensor:
       - last_capture
       - total_cameras
       - battery_level
+      - signal_strength
 ```
 
 Configuration variables:
@@ -35,5 +36,6 @@ Configuration variables:
   - **last_capture**: Return the timestamp from the last video captured by your Arlo camera.
   - **total_cameras**: Return the number of recognized and active cameras linked on your Arlo account.
   - **battery_level**: Return the battery level of your Arlo camera.
+  - **signal_strength**: Return the wireless signal strength of your Arlo camera.
 
 If no **monitored_conditions** are specified, all of above will be enabled by default.
