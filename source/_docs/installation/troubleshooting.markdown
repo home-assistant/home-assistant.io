@@ -72,3 +72,6 @@ After upgrading to a new version, you may notice your browser gets stuck at the 
 Android Chrome 
 chrome -> settings -> site settings -> storage -> search for your URL for Home Assistant-> "clear & reset"
 
+#### {% linkable_title Not initializing discovery because could not install dependency netdisco %}
+
+If you see `Not initializing discovery because could not install dependency netdisco==x.y.z` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
