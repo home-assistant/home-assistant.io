@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ViaggiaTreno Italian Railroads"
-description: "Instructions how to integrate Italian Railroads data (from ViaggiaTreno API) into Home Assistant."
+description: "Instructions on how to integrate Italian Railroads data (from ViaggiaTreno API) into Home Assistant."
 date: 2017-11-07 14:35
 sidebar: true
 comments: false
@@ -10,14 +10,16 @@ footer: true
 logo: train.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.57
+ha_release: 0.58
 ---
 
 The `viaggiatreno` sensor will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
 
-In order to activate the sensor you need at least 2 information: the `train_id` and the `station_id`. 
+To activate the sensor you need at least two parameters: the `train_id` and the `station_id`. 
 
-The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it/) timetable, the latter can be obtained using the dedicated API endpoint: `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>` (eg. http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/ROMA will list all station names (with ids) that starts with *ROMA*).
+The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it/) timetable, the latter can be obtained using the dedicated API endpoint:
+`http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>` 
+(e.g., `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/ROMA` will list all station names (with ids) that starts with *ROMA*).
 
 <p class='note'>
 Note that the `station_id` is referred to the train's **departing station**. If a train number does not match with the station id, no data will be returned to the sensor.
@@ -33,18 +35,28 @@ sensor:
     station_id: S08409
 ```
 
-Configuration variables:
-
-- **train_id** (*Required*): The ID of the train.
-- **station_id** (*Required*): The ID of the station of the start station.
-- **train_name** (*Optional*): The name of the sensor. Defaults to 'Train <train id> from <station id>'. 
+{% configuration %}
+train_id:
+  description: The ID of the train.
+  required: true
+  type: int
+station_id:
+  description: The ID of the starting station.
+  required: true
+  type: int
+train_name:
+  description: The name of the sensor. Defaults to 'Train <train id> from <station id>'.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
-In a future implementation the station name could be used to automatically search best-matching station id, without the need to specify it.
+In a future implementation, the station name could be used to automatically search best-matching station id, without the need to specify it.
 </p>
 
 The public timetables are coming from [ViaggiaTreno](http://viaggiatreno.it).
 
 <p class='note'>
-Instructions (in Italian) for the API are available at https://github.com/bluviolin/TrainMonitor/wiki/API-del-sistema-Viaggiatreno
+Instructions (in Italian) for the API are available at:
+https://github.com/bluviolin/TrainMonitor/wiki/API-del-sistema-Viaggiatreno
 </p>
