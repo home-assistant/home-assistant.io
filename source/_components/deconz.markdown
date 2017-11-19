@@ -56,6 +56,19 @@ deconz:
   port: 80
 ```
 
+## {% linkable_title Device services %}
+Available services: `configure`.
+
+#### {% linkable_title Service `deconz/configure` %}
+Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+
+| Parameter | Description                                             |
+|-----------|---------------------------------------------------------|
+| `field`   | String representing a specific device in deCONZ.        |
+| `data`    | Data is a json object with what data you want to alter. |
+
+{ "field": "/lights/1", "data": {"name": "light2"} }
+
 ## {% linkable_title Remote control devices%}
 
 Remote controls (ZHASwitch category) will be exposed as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. An extra entity battery sensor will be created to show battery levels of switch.
