@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Switch
-ha_release: 0.56
+ha_release: 0.59
 ha_iot_class: "Local Push"
 ---
 
@@ -29,5 +29,7 @@ switch:
 
 Configuration variables:
 
+{% configuration %}
 - **adsvar** (*Required*): The name of the variable which you want to access on
 the ADS device.
+{% endconfiguration %}
