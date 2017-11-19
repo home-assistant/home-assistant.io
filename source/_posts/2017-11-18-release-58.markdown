@@ -168,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix ValueError exception ([@ziotibia81] - [#10596]) ([sensor.modbus docs])
 - Fix Hikvision (motion) switch bug ([@arsaboo] - [#10608]) ([switch.hikvisioncam docs])
 - Allow unicode when dumping yaml ([@andrey-git] - [#10607])
-- Support script execution for Alexa ([@micbase] - [#10517]) ([alexa.smart_home docs])
+- Support script execution for Alexa ([@micbase] - [#10517])
 - bump client version ([@wardcraigj] - [#10610]) ([alarm_control_panel.totalconnect docs])
 - New sensor viaggiatreno. ([@fabfurnari] - [#10522]) ([sensor.viaggiatreno docs]) (new-platform)
 - Modbus switch register support ([@ziotibia81] - [#10563]) ([switch.modbus docs])
@@ -189,7 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add loglinefetch for frontend API call ([@turbokongen] - [#10579])
 - Fixes AirVisual bug regarding incorrect location data ([@bachya] - [#10054]) ([sensor.airvisual docs])
 - Make MQTT reconnection logic more resilient and fix race condition ([@cezarsa] - [#10133]) ([mqtt docs])
-- Alexa improvements ([@robbiet480] - [#10632]) ([alexa.smart_home docs])
+- Alexa improvements ([@robbiet480] - [#10632])
 - Print entity type in "too slow" warnings ([@andrey-git] - [#10641])
 - Bump pyatv to 0.3.8 ([@postlund] - [#10643]) ([apple_tv docs])
 - Implement entity and domain exclude/include for Alexa ([@robbiet480] - [#10647])
@@ -376,9 +376,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [abode docs]: https://home-assistant.io/components/abode/
 [alarm_control_panel.spc docs]: https://home-assistant.io/components/alarm_control_panel.spc/
 [alarm_control_panel.totalconnect docs]: https://home-assistant.io/components/alarm_control_panel.totalconnect/
-[alexa.const docs]: https://home-assistant.io/components/alexa.const/
-[alexa.intent docs]: https://home-assistant.io/components/alexa.intent/
-[alexa.smart_home docs]: https://home-assistant.io/components/alexa.smart_home/
 [apple_tv docs]: https://home-assistant.io/components/apple_tv/
 [arlo docs]: https://home-assistant.io/components/arlo/
 [axis docs]: https://home-assistant.io/components/axis/
