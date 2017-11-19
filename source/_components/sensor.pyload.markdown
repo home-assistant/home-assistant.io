@@ -27,6 +27,7 @@ sensor:
 Configuration variables:
 
 - **host** (*Optional*): This is the IP address of your pyLoad download manager, eg. 192.168.0.100. Defaults to `localhost`.
+- **SSL** (*Optional*): True for https.
 - **port** (*Optional*): The port your pyLoad interface uses. Defaults to 8000.
 - **name** (*Optional*): The name to use when displaying this pyLoad instance.
 - **username** (*Optional*): Your pyLoad username.
