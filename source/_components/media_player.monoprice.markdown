@@ -50,7 +50,7 @@ Configuration variables:
 
 ### {% linkable_title Service `monoprice_snapshot` %}
 
-Take a snapshot of one or more speakers' states. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
+Take a snapshot of one or more speakers' states. This service, and the following one are useful if you want to play a doorbell or notification sound and resume playback afterward. If no `entity_id` is provided, all speakers are snapshotted.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
