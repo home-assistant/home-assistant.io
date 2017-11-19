@@ -298,16 +298,6 @@ method and requires a <code class="highlighter-rouge">key</code> (16 alphanumeri
 easily via a hidden menu item at the Mi-Home app.
 </p>
 <h4><a class="title-link" name="windows-and-android" href="#windows-and-android"></a> Windows and Android</h4>
-<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.</p>
-<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> and <code class="highlighter-rouge">libssl-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobo</code> to be installed correctly.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev libssl-dev
-</code></pre>
-</div>
-<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
-<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
-</code></pre>
-</div>
 <p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
 <ol>
   <li>Configure the robot with the Mi-Home app.</li>

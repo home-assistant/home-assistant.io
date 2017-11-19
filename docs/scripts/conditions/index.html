@@ -156,6 +156,104 @@ This allows you to mix several AND and OR conditions together.</p>
   <span class="s">after_offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1:00:00"</span>
 </code></pre>
 </div>
+<p>Here is a truth table to clarify the parameters with and without offset:</p>
+<table>
+  <thead>
+    <tr>
+      <th>command</th>
+      <th>night</th>
+      <th style="text-align: center">at sunrise</th>
+      <th>daytime</th>
+      <th style="text-align: center">at sunset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">after: sunset</code></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">after_offset: "01:00:00"</code></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+      <td>False</td>
+      <td style="text-align: center"><strong>+1h</strong></td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">after_offset: "-01:00:00"</code></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+      <td>False</td>
+      <td style="text-align: center"><strong>-1h</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">before: sunset</code></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">before_offset: "01:00:00"</code></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+      <td>True</td>
+      <td style="text-align: center"><strong>+1h</strong></td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">before_offset: "-01:00:00"</code></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+      <td>True</td>
+      <td style="text-align: center"><strong>-1h</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">after: sunrise</code></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">after_offset: "01:00:00"</code></td>
+      <td>False</td>
+      <td style="text-align: center"><strong>+1h</strong></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">after_offset: "-01:00:00"</code></td>
+      <td>False</td>
+      <td style="text-align: center"><strong>-1h</strong></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">before: sunrise</code></td>
+      <td>True</td>
+      <td style="text-align: center">⇒</td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">before_offset: "01:00:00"</code></td>
+      <td>True</td>
+      <td style="text-align: center"><strong>+1h</strong></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+    <tr>
+      <td>+ <code class="highlighter-rouge">before_offset: "-01:00:00"</code></td>
+      <td>True</td>
+      <td style="text-align: center"><strong>-1h</strong></td>
+      <td>False</td>
+      <td style="text-align: center">⇒</td>
+    </tr>
+  </tbody>
+</table>
 <h3><a class="title-link" name="template-condition" href="#template-condition"></a> Template condition</h3>
 <p>The template condition will test if the <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
