@@ -63,4 +63,17 @@ alexa:
           type: list
 {% endconfiguration %}
 
+### {% linkable_title Available domains %}
+Currently, the following domains are available to be used with Alexa:
+- alert
+- automation
+- cover
+- light
+- fan (supports on/off and set speed)
+- group
+- lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)
+- media_player (play, pause, stop, set volume, adjust volume, next track and previous track)
+- scene
+- switch
+
 [alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2
