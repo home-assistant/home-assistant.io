@@ -46,7 +46,7 @@ google_assistant:
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
 * *agent_user_id* (Optional): A string to identify the user, e.g., email address. If not provided, the component will generate one.
-* *api_key* (Optional): An API Key generated for the project from Google Console. See setup below. If not provided then the request_sync service is not exposed
+* *api_key* (Optional): An API Key generated for the project from Google Console which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
     - `switch`
     - `light`
