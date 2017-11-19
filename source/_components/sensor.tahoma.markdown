@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Cover
-ha_release: 0.41
+ha_release: 0.59
 ---
 
 To use your tahoma sensors in your installation, add the following to your `configuration.yaml` file:

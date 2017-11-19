@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: somfy.png
 ha_category: Hub
-ha_release: 0.41
+ha_release: 0.59
 ---
 
 
@@ -25,7 +25,6 @@ tahoma:
   exclude: [BridgeHUEComponent, HueLampHUEComponent, PodComponent]
 ```
 
-Configuration variables:
 {% configuration %}
 username:
   description: Username for tahomalink.com
