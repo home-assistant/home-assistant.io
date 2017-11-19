@@ -114,7 +114,7 @@ condition:
   after_offset: "-1:00:00"
 ```
 
-here is a truth table to clarify the parameters with and without offset:
+Here is a truth table to clarify the parameters with and without offset:
 
 | command                            |        night | at sunrise  | daytime | at sunset  |
 | ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
