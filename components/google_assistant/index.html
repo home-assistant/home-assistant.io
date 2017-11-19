@@ -102,7 +102,7 @@ To use Google Assistant your Home Assistant configuration has to be externally a
   <li><em>client_id</em> (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.</li>
   <li><em>access_token</em> (Required): Another different long random URL safe string.</li>
   <li><em>agent_user_id</em> (Optional): A string to identify the user, e.g., email address. If not provided, the component will generate one.</li>
-  <li><em>api_key</em> (Optional): An API Key generated for the project from Google Console. See setup below. If not provided then the request_sync service is not exposed</li>
+  <li><em>api_key</em> (Optional): An API Key generated for the project from Google Console which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.</li>
   <li><em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
     <ul>
       <li><code class="highlighter-rouge">switch</code></li>
