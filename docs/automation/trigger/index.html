@@ -181,11 +181,15 @@ In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
 </div>
 <p>The US Naval Observatory has a <a href="http://aa.usno.navy.mil/data/docs/AltAz.php">tool</a> that will help you estimate what the solar angle will be at any specific time.</p>
 <h3><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h3>
+<p class="note warning">
+  If your template trigger has no <code class="highlighter-rouge">entity_id</code> listed, then it is evaluted on <em>every</em> state change for <em>every</em> entity. Instead you should create a <a href="/components/sensor.template/">template sensor</a> or <a href="/components/binary_sensor.template/">template binary sensor</a> and use that in your automation.
+</p>
 <p>Template triggers work by evaluating a <a href="/docs/configuration/templating/">template</a> on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state_attr('climate.living_room',</span><span class="w"> </span><span class="err">'away_mode',</span><span class="w"> </span><span class="err">'off')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>)</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state('device_tracker.paulus',</span><span class="nv"> </span><span class="s">'home')</span><span class="nv"> </span><span class="s">%}true{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
 </code></pre>
 </div>
