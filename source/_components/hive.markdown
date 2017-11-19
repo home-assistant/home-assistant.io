@@ -34,8 +34,6 @@ Configuration variables:
 - **scan_interval** (*Optional*): The default update frequency is once every 2 minutes, use this to specify a custom minutes between updates.
 
 
-To add all your Hive devices into your Home Assistant installation, specifying the optional **devices** variable add the following to your 'configuration.yaml' file.  You can remove each of the options in the **devices** variable for the corresponding Hive device you would like not to be added to Home Assistant:
-
 ```yaml
 # Example configuration.yaml entry
 hive:
