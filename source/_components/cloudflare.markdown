@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.58
 ---
 
-With the Cloudflare component you can keep your Cloudflare record up to date.
+With the Cloudflare component, you can keep your Cloudflare record up to date.
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 
