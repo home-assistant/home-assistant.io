@@ -71,6 +71,7 @@ homeassistant:
 | `alexa_hidden` | Hide the entity from the Alexa smart home devices.
 | `alexa_name` | Defines name of the entity for a Alexa smart home device. Useful if you have an entity with a friendly name in a local language that you want to access using an English sounding name.
 | `alexa_description` | The description of the device in the Alexa smart home device list.
+| `alexa_display_categories` | Set displayCategories, useful for things like media_player (TV/SPEAKERS) or scene (ACTIVITY_TRIGGER/SCENE_TRIGGER). More info can be found [here](https://developer.amazon.com/docs/device-apis/alexa-discovery.html#display-categories).
 
 ### {% linkable_title Device Class %}
 
