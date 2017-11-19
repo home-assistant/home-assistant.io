@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' sensor component integrates your Hive sensors in to Home Assistant.
+The 'hive' sensor component integrates your Hive sensors into Home Assistant.
 
 The Hive sensor component supports the following Hive products:
 - **Hive Window or Door Sensor**

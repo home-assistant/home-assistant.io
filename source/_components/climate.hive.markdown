@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' climate component integrates your Hive thermostat and hot water in to Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
+The 'hive' climate component integrates your Hive thermostat and hot water into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
 The Hive climate component supports the following Hive products:
 - **Hive Active Heating**

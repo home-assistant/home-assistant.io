@@ -14,11 +14,11 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-This Hive component is the main component to setup and integrate all supported Hive devices.  Once configured with the minimum required details it will detect and add all your Hive devices in to Home Assistant, including support for multizone heating.
+This Hive component is the main component to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all your Hive devices into Home Assistant, including support for multizone heating.
 
-This component uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com) and you will need to use the same Username and Password you use on the Hive website to configure this Hive component in Home Assistant.
+This component uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive component in Home Assistant.
 
-To add all your Hive devices in to your Home Assistant installation add the following to your 'configuration.yaml' file:
+To add all your Hive devices into your Home Assistant installation add the following to your 'configuration.yaml' file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,7 +34,7 @@ Configuration variables:
 - **scan_interval** (*Optional*): The default update frequency is once every 2 minutes, use this to specify a custom minutes between updates.
 
 
-To add all your Hive devices in to your Home Assistant installation, specifying the optional **devices** variable add the following to your 'configuration.yaml' file.  You can remove each of the options in the **devices** variable for the corresponding Hive device you would like not to be added to Home Assistant:
+To add all your Hive devices into your Home Assistant installation, specifying the optional **devices** variable add the following to your 'configuration.yaml' file.  You can remove each of the options in the **devices** variable for the corresponding Hive device you would like not to be added to Home Assistant:
 
 ```yaml
 # Example configuration.yaml entry
