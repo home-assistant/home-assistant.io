@@ -15,7 +15,7 @@ ha_release: 0.11
 
 The `tellduslive` component let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
-Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network, if `discovery:` is present in your configuration.yaml file. To manually integrate your Telldus Live with Home Assistant - if your device is on another network/in another location - add the following section to your `configuration.yaml` file:
+Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network if the [discovery]({{site_root}}/components/discovery/) component is enabled. To manually integrate your Telldus Live with Home Assistant, e.g. if your device is on another network or in another location, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
