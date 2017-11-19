@@ -129,6 +129,47 @@
     </dd>
   </dl>
 </div>
+<h3><a class="title-link" name="possible-values-for-customize" href="#possible-values-for-customize"></a> Possible values for customize</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">alexa_hidden</code></td>
+      <td>Hide the entity from the Alexa smart home devices.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alexa_name</code></td>
+      <td>Defines name of the entity for a Alexa smart home device. Useful if you have an entity with a friendly name in a local language that you want to access using an English sounding name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alexa_description</code></td>
+      <td>The description of the device in the Alexa smart home device list.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alexa_display_categories</code></td>
+      <td>Set displayCategories, useful for things like media_player (TV/SPEAKERS) or scene (ACTIVITY_TRIGGER/SCENE_TRIGGER). More info can be found <a href="https://developer.amazon.com/docs/device-apis/alexa-discovery.html#display-categories">here</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="available-domains" href="#available-domains"></a> Available domains</h3>
+<p>Currently, the following domains are available to be used with Alexa:</p>
+<ul>
+  <li>alert</li>
+  <li>automation</li>
+  <li>cover</li>
+  <li>light</li>
+  <li>fan (supports on/off and set speed)</li>
+  <li>group</li>
+  <li>lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)</li>
+  <li>media_player (play, pause, stop, set volume, adjust volume, next track and previous track)</li>
+  <li>scene</li>
+  <li>switch</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
