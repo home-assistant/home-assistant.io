@@ -45,7 +45,7 @@ password:
   required: true
   type: string
 devices:
-  description: The serial number / ID of each thermostat you would like integrate with Home Assistant.
+  description: The serial number / ID of each thermostat you would like to integrate with Home Assistant.
   required: true
   type: [string, int]
 {% endconfiguration %}
