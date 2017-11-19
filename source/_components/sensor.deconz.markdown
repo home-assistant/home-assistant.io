@@ -37,5 +37,6 @@ Entity ids will be sensor.device_name, where device_name comes from deCONZ.
   - IKEA Trådfri Remote
   - Philips Hue Dimmer Switch
   - Xiaomi Cube
+  - Xiaomi Aqara Smart Wireless Switch
 - Temperature Sensor
   - Xiaomi Temperature/Humidity Sensor
