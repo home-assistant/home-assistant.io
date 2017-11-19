@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category: Binary Sensor
-ha_release: "0.58"
+ha_release: "0.59"
 ha_iot_class: "Local Push"
 ---
 
