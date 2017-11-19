@@ -39,14 +39,17 @@ binary_sensor:
 ```
 
 Configuration variables:
+
+{% configuration %}
 - **adsvar** (*Required*): The name of the variable which you want to access on
 the ADS device.
 - **name** (*Optional*): An identifier for the switch in the frontend.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **use_notify** (*Optional*): Enable device notifications. Default: yes.
 - **poll_interval** (*Optional*): If device notifications are disabled polling
-is used. This parameter defines the pollint interval in milliseconds. Defaults
+is used. This parameter defines the polling interval in milliseconds. Defaults
 to 1000.
+{% endconfiguration %}
 
-If *device notifications* are enabled the *ADS* device will push a change
-directly to Home Assistant. Otherwise the value will be polled regularly.
+If *device notifications* are enabled, the *ADS* device will push a change
+directly to Home Assistant. Otherwise, the value will be polled regularly.

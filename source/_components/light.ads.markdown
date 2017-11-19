@@ -27,8 +27,10 @@ light:
 
 Configuration variables:
 
+{% configuration %}
 - **adsvar** (*Required*): The name of the boolean variable that switches the
 light on.
 - **adsvar_brightness** (*Optional*): The name of the variable that controls the
 brightness. This variable needs to be of type *UINT*.
 - **name** (*Optional*): An identifier for the Light in the frontend.
+{% endconfiguration %}

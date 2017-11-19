@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.55
+ha_release: 0.59
 ha_iot_class: "Local Push"
 ---
 
@@ -19,6 +19,7 @@ devices running TwinCAT® and other devices implementing this interface.
 
 Configuration parameters:
 
+{% configuration %}
 - **device** (*Required*): The AMS NetId that identifies the device.
 - **port** (*Required*): The port that runs the AMS server on the device.
 - **ip_address** (*Optional*): The IP-Address to which the Ams NetId is routed.
@@ -29,6 +30,7 @@ be used. The poll interval can be changed by the **poll_interval** parameter.
 Default: *True*
 - **poll_interval** (*Optional*): Sets the polling interval in milliseconds.
 Only used if *use_notify* is *False*. Default: 1000
+{% endconfiguration %}
 
 
 ```yaml
