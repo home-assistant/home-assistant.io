@@ -141,21 +141,6 @@ easily via a hidden menu item at the Mi-Home app.
 
 #### {% linkable_title Windows and Android %}
 
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
-
-Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-mirobo` to be installed correctly.
-
-```bash
-$ sudo apt-get install libffi-dev libssl-dev
-```
-
-If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
-
-```bash
-$ sudo su -s /bin/bash homeassistant
-$ source /srv/homeassistant/bin/activate
-```
-
 To fetch the token follow these instructions depending on your mobile phone platform.
 
 1. Configure the robot with the Mi-Home app.
