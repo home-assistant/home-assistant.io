@@ -133,4 +133,4 @@ homeassistant:
 	3. Go to Credentials and select API Key from Create Credentials
 	4. Note down the generated API Key and use this in the configuration
 
-*Note:* The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then unlink the account from Home Control and relink. 
+*Note:* The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink. 
