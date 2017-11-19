@@ -37,7 +37,7 @@ Configuration variables:
 - **jails** (*Required*): List of configured jails you want to display (each jail is its own sensor).
 - **name** (*Optional*): Name of the sensor. Defaults to `fail2ban`.
 - **file_path** (*Optional*): Path to the fail2ban log.  Defaults to `/var/log/fail2ban.log`.
-- **scan_interval** (*Optional*): Used to limit how often log file is read and must be a positive integer (representing number of seconds to wait).  Defaults to 120.
+- **scan_interval** (*Required*): Used to limit how often log file is read and must be a positive integer (representing number of seconds to wait).  Recommended setting 120
 
 ### {% linkable_title Set up Fail2Ban %}
 
