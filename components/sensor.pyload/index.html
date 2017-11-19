@@ -81,14 +81,39 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pyload</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>host</strong> (<em>Optional</em>): This is the IP address of your pyLoad download manager, eg. 192.168.0.100. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port your pyLoad interface uses. Defaults to 8000.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this pyLoad instance.</li>
-  <li><strong>username</strong> (<em>Optional</em>): Your pyLoad username.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Your pyLoad password.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="host" href="#host"></a> host</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">This is the IP address of your pyLoad download manager.</span></p>
+      <p class="default">Default value: localhost</p>
+    </dd>
+    <dt><a class="title-link" name="port" href="#port"></a> port</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">The port your pyLoad interface uses.</span></p>
+      <p class="default">Default value: 8000</p>
+    </dd>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The name to use when displaying this pyLoad instance.</span></p>
+      <p class="default">Default value: 20</p>
+    </dd>
+    <dt><a class="title-link" name="username" href="#username"></a> username</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Your pyLoad username.</span></p>
+    </dd>
+    <dt><a class="title-link" name="password" href="#password"></a> password</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Your pyLoad password.</span></p>
+    </dd>
+    <dt><a class="title-link" name="ssl" href="#ssl"></a> ssl</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="boolean">boolean</span>)</span><span class="required">(Optional)</span><span class="description">Enable SSL/TLS for the host.</span></p>
+      <p class="default">Default value: false</p>
+    </dd>
+  </dl>
+</div>
 <p>If everything is setup correctly, the download speed will show up in the frontend.</p>
 <p class="img">
   <img src="/images/components/pyload/pyload_speed.png" />
