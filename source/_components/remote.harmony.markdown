@@ -70,7 +70,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific remote. Else targets all.
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
 
 ### {% linkable_title Service `remote.turn_on` %}
 
@@ -78,7 +78,7 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific remote. Else targets all.
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
 ### {% linkable_title Service `remote.send_command` %}
@@ -87,8 +87,8 @@ Send a single command or a set of commands to one device, device ID and availabl
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific remote. Else targets all.
-| `device`               |       no | Device ID to send command to.
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `device`               |       no | Device ID to send the command to.
 | `command`              |       no | A single command or a list of commands to send.
 | `num_repeats`          |      yes | The number of times to repeat the command(s).
 | `delay_secs`           |      yes | The number of seconds between sending each command.
@@ -112,7 +112,7 @@ Synchronize the Harmony device with the Harmony web service if any changes are m
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific remote. Else targets all.
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
 
 ### {% linkable_title Examples %}
 

@@ -25,6 +25,6 @@ Go to the **Developer Tools**, then to **Call Service** in the frontend, and cho
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific remote. Else targets all.
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
 
 See the platform documentation for each type of remote for more detailed examples.
