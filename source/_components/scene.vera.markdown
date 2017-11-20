@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Vera Scene"
-description: "Instructions how to integrate Vera Scenes into Home Assistant."
-date: 2015-10-20 21:00
+description: "Instructions on how to integrate Vera Scenes into Home Assistant."
+date: 2017-11-20 20:00
 sidebar: true
 comments: false
 sharing: true
@@ -10,7 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Scene
 ha_iot_class: "Local Push"
-ha_release: pre 0.7
+ha_release: 0.59.0
 ---
 
 The `vera` platform allows you to control your [Vera](http://getvera.com/) scenes from within Home Assistant.
