@@ -32,6 +32,7 @@ sensor:
 Configuration variables:
 
 {% configuration %}
+
 - **adsvar** (*Required*): The name of the variable which you want to access on
 - **adstype** (*Optional*): The datatype of the ADS variable. Default: *int*.
 Possible values are: *int, uint, byte*.
@@ -41,6 +42,7 @@ Possible values are: *int, uint, byte*.
 Only used if *use_notify* is *False*. Default: 1000
 - **factor** (*Optional*): Use a factor that divides the stored value before
 displaying in Home Assistant. Default: 1.
+
 {% endconfiguration %}
 
 If *device notifications* are enabled, the *ADS* device will push a change

@@ -41,6 +41,7 @@ binary_sensor:
 Configuration variables:
 
 {% configuration %}
+
 - **adsvar** (*Required*): The name of the variable which you want to access on
 the ADS device.
 - **name** (*Optional*): An identifier for the switch in the frontend.
@@ -48,6 +49,7 @@ the ADS device.
 - **use_notify** (*Optional*): Enable device notifications. Default: yes.
 - **poll_interval** (*Optional*): If device notifications are disabled polling
 to 1000.
+
 {% endconfiguration %}
 
 If *device notifications* are enabled, the *ADS* device will push a change
