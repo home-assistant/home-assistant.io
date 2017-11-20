@@ -83,4 +83,4 @@ This will launch Home Assistant and serve the web interface from port 8123 on yo
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
- 2. Or you can restart it from a terminal by running `docker restart homeassistant`
+ 2. Or you can restart it from a terminal by running `docker restart home-assistant`
