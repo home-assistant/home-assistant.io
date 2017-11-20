@@ -17,6 +17,7 @@ The `lametric` notification platform allows to send notification to a LaMetric d
 To enable LaMetric notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 notify:
   name: NOTIFIER_NAME
   platform: lametric
@@ -46,7 +47,21 @@ cycles:
 
 Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
 
-## {% linkable_title Example %}
+## {% linkable_title Examples %}
+
+### {% linkable_title Full configuration example %}
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  name: NOTIFIER_NAME
+  platform: lametric
+  lifetime: 20
+  icon: a7956
+  cycles: 3
+```
+
+### {% linkable_title Changing sounds and icons %}
 
 To add a notification sound or an icon override, it has to be done via service data.
 
