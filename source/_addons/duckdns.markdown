@@ -43,3 +43,7 @@ http:
 ```
 
 If you use a other port as `8123` or a SSL proxy, change the port number.
+
+## {% linkable_title Router configuration %}
+
+You'll need to forward the port you listed in your configuration (8123 in the example above) on your router to your Home Assistant system. You can find guides on how to do this on [Port Forward](https://portforward.com/) - noting that you'll only need to forward the TCP port.

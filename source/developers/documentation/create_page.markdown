@@ -49,21 +49,33 @@ Every platform page should contain a configuration sample. This sample must cont
 
 The **Configuration Variables** section must use the {% raw %}`{% configuration %} ... {% endconfiguration %}`{% endraw %} tag.
 
-
-```text
 {% raw %}
+```text
 {% configuration %}
-  api_key:
-    description: The API key to access the service.
-    required: true
-    type: string
-  name:
-    description: Name to use in the frontend.
-    required: false
-    type: string
+api_key:
+  description: The API key to access the service.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  default: The default name to use in the frontend.
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    weather:
+      description: A human-readable text summary.
+    temperature:
+      description: The current temperature.
 {% endconfiguration %}
-{% endraw %}
+
 ```
+{% endraw %}
+
+Available keys:
 
 - **`description:`**: That the variable is about.
 - **`required:`**: If the variable is required.
@@ -74,7 +86,8 @@ required: inclusive       #=> Inclusive
 required: exclusive       #=> Exclusive
 required: any string here #=> Any string here
 ```
-- **`type:`**: The type of the variable. Allowed entries: `string`, `int` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
+- **`type:`**: The type of the variable. Allowed entries: `string`, `int`, `time`, `template` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
+- **`default:`**: The default value for the variable.
 
 ### {% linkable_title Embedding Code %}
 

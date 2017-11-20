@@ -123,6 +123,7 @@ The config for an add-on is stored in `config.json`.
 | audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
 | gpio | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
 | stdin | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
+| legacy | no | Boolean. If the docker image have no hass.io labels, you can enable the legacy mode to use the config data.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use with Docker Hub.

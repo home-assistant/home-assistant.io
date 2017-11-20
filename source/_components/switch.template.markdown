@@ -186,3 +186,31 @@ switch:
           {% endif %}
 ```
 {% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the day/night cycle.
+
+{% raw %}
+```yaml
+switch:
+  - platform: template
+    switches:
+      garage:
+        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        turn_on:
+          service: cover.open_cover
+          data:
+            entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          data:
+            entity_id: cover.garage_door
+        entity_picture_template: >-
+          {% if is_state('cover.garage_door', 'open') %}
+            /local/garage-open.png
+          {% else %}
+            /local/garage-closed.png
+          {% endif %}
+```
+{% endraw %}

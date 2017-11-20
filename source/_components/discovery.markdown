@@ -14,25 +14,29 @@ ha_category: Other
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
 
- * Google Chromecast
- * Belkin WeMo switches
- * Philips Hue
- * Netgear routers
- * Plex media server
- * Panasonic Viera
- * Roku media player
- * Sonos Speakers
- * Yamaha media player
- * Logitech media server (Squeezebox)
- * DirecTV
- * Apple TV
- * Yeelight Sunflower Bulb
- * Linn / Openhome
- * Denon Network Receivers
- * Bose Soundtouch speakers
- * Axis Communications security devices
- * IKEA Trådfri (Tradfri)
- * Harmony Hub
+ * [Apple TV](https://home-assistant.io/components/apple_tv/)
+ * [Axis Communications security devices](https://home-assistant.io/components/axis/)
+ * [Belkin WeMo switches](https://home-assistant.io/components/wemo/)
+ * [Bluesound speakers](https://home-assistant.io/components/media_player.bluesound/)
+ * [Bose Soundtouch speakers](https://home-assistant.io/components/media_player.soundtouch/)
+ * [Denon network receivers](https://home-assistant.io/components/media_player.denonavr/)
+ * [DirecTV receivers](https://home-assistant.io/components/media_player.directv/)
+ * [Frontier Silicon internet radios](https://home-assistant.io/components/media_player.frontier_silicon/)
+ * [Google Cast](https://home-assistant.io/components/media_player.cast/)
+ * [IKEA Trådfri (Tradfri)](https://home-assistant.io/components/tradfri/)
+ * [Linn / Openhome](https://home-assistant.io/components/media_player.openhome/)
+ * [Logitech Harmony Hub](https://home-assistant.io/components/remote.harmony/)
+ * [Logitech media server (Squeezebox)](https://home-assistant.io/components/media_player.squeezebox/)
+ * [Netgear routers](https://home-assistant.io/components/device_tracker.netgear/)
+ * [Panasonic Viera](https://home-assistant.io/components/media_player.panasonic_viera/)
+ * [Philips Hue](https://home-assistant.io/components/light.hue/)
+ * [Plex media server](https://home-assistant.io/components/media_player.plex/)
+ * [Roku media player](https://home-assistant.io/components/media_player.roku/)
+ * [SABnzbd downloader](https://home-assistant.io/components/sensor.sabnzbd/)
+ * [Samsung TVs](https://home-assistant.io/components/media_player.samsungtv/)
+ * [Sonos speakers](https://home-assistant.io/components/media_player.sonos/)
+ * [Yamaha media player](https://home-assistant.io/components/media_player.yamaha/)
+ * [Yeelight Sunflower bulb](https://home-assistant.io/components/light.yeelightsunflower/)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -54,25 +58,27 @@ Valid values for ignore are:
 
  * `apple_tv`: Apple TV
  * `axis`: Axis Communications security devices
- * `bluesound`
+ * `belkin_wemo`: Belkin WeMo switches
+ * `bluesound`: Bluesound speakers
  * `bose_soundtouch`: Bose Soundtouch speakers
- * `denonavr`: Denon Network Receivers
- * `directv`: DirecTV
- * `frontier_silicon`
- * `google_cast`: Google Chromecast
- * `harmony`: Harmony Hub
- * `ikea_tradfri`: IKEA Trådfri
- * `logitech_mediaserver`: Logitech media server - Squeezebox player
- * `openhome`: Linn/Openhome
+ * `denonavr`: Denon network receivers
+ * `directv`: DirecTV receivers
+ * `frontier_silicon`: Frontier Silicon internet radios
+ * `google_cast`: Google Cast
+ * `harmony`: Logitech Harmony Hub
+ * `ikea_tradfri`: IKEA Trådfri (Tradfri)
+ * `logitech_mediaserver`: Logitech media server (Squeezebox)
+ * `netgear_router`: Netgear routers
+ * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
- * `sabnzbd`
- * `samsung_tv`: Samsung TV
- * `sonos`: Sonos Speakers
+ * `sabnzbd`: SABnzbd downloader
+ * `samsung_tv`: Samsung TVs
+ * `sonos`: Sonos speakers
  * `yamaha`: Yamaha media player
- * `yeelight`: Yeelight Sunflower Bulb
+ * `yeelight`: Yeelight Sunflower bulb
  
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.

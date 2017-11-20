@@ -39,31 +39,36 @@ binary_sensor:
     required: true
     type: map
     keys:
-      friendly_name:
-        description: Name to use in the frontend.
-        required: false
-        type: string
-      entity_id:
-        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
-        required: false
-        type: string, list
-      device_class:
-        description: The type/class of the sensor to set the icon in the frontend.
-        required: false
-        type: device_class
-        default: None
-      value_template:
-        description: Defines a template to set the state of the sensor.
+      sensor_name:
+        description: The slug of the sensor.
         required: true
-        type: template
-      delay_on:
-        description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
-        required: false
-        type: time
-      delay_off:
-        description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
-        required: false
-        type: time
+        type: map
+        keys:
+          friendly_name:
+            description: Name to use in the frontend.
+            required: false
+            type: string
+          entity_id:
+            description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
+            required: false
+            type: string, list
+          device_class:
+            description: The type/class of the sensor to set the icon in the frontend.
+            required: false
+            type: device_class
+            default: None
+          value_template:
+            description: Defines a template to set the state of the sensor.
+            required: true
+            type: template
+          delay_on:
+            description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
+            required: false
+            type: time
+          delay_off:
+            description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
+            required: false
+            type: time
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}

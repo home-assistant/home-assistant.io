@@ -40,7 +40,7 @@ frontend:
     - /local/custom_ui/state-card-my-custom-light.html
 ```
 
-`www\custom_ui\state-card-my-custom-light.html`:
+`www/custom_ui/state-card-my-custom-light.html`:
 
 ```javascript
 <dom-module id='state-card-my-custom-light'>

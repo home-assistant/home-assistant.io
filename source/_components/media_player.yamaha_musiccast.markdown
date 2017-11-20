@@ -26,9 +26,9 @@ media_player:
 ```
 Configuration variables:
 
-- **name** (*Optional*): Name of the device
 - **host** (*Required*): IP address or hostname of the device
 - **port** (*Optional*): UDP Port
+- **interval_seconds** (*Optional*): Polling interval (default: 480 seconds = 8 minutes)
 
 A few notes:
 
@@ -39,7 +39,6 @@ A full configuration example will look like the sample below:
 # Example configuration.yaml entry
 media_player:
   - platform: yamaha_musiccast
-    name: "Living Room"
     host: 192.168.178.97
     port: 5005
 ```

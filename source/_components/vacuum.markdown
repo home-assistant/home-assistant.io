@@ -11,7 +11,7 @@ footer: true
 
 The `vacuum` component enables the ability to control home cleaning robots within Home Assistant.
 
-To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi/).
+To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi_miio/).
 
 ```yaml
 # Example configuration.yaml entry

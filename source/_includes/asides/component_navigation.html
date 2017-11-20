@@ -1,4 +1,5 @@
 {% assign components = site.components | sort: 'title' %}
+{% assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/master/homeassistant' %}
 <section class="aside-module grid__item one-whole lap-one-half">
   {% include edit_github.html %}
 
@@ -23,13 +24,20 @@
 
   {% if page.ha_iot_class %}
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
     </div>
   {% endif %}
 
   {% if page.ha_release %}
     <div class='section'>
-    Introduced in release: {{ page.ha_release }}
+      Introduced in release: {{ page.ha_release }}
+    </div>
+  {% endif %}
+
+  {% if is_platform %}
+    <div class='section'>
+      Source:
+      <a href='{{github_main_repo}}{{parent_url}}{{imp_name}}.py'>{{parent_name}}/{{imp_name}}.py</a>
     </div>
   {% endif %}
 

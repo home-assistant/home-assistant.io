@@ -29,7 +29,6 @@ Configuration variables:
 - **server_host** (*Optional*): Only listen to incoming requests on specific IP/host (default: accept all)
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
 - **base_url** (*Optional*): The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to the local IP address. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app.
-- **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
