@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: somfy.png
+logo: tahoma.png
 ha_category: Hub
 ha_release: 0.59
 ---
