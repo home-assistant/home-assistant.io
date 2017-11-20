@@ -61,6 +61,10 @@ $ sudo systemctl disable hciuart
 
 Finally, reboot to make those changes active.
 
+<p class='note'>
+	If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`
+</p>
+
 ### {% linkable_title Aeon Minimote %}
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
