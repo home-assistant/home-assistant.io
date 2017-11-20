@@ -18,9 +18,6 @@ This component allows to send notification to a LaMetric device. It needs the La
 notify:
   name: lametric1
   platform: lametric
-  lifetime: 20
-  icon: a7956
-  cycles: 3
 ```
 
 - **name** (*Optional*): The name of the LaMetric device. Usually it is "My Lametric".
