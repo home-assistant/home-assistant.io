@@ -18,7 +18,7 @@ The `freebox` platform offers presence detection by looking at connected devices
 
 Steps to get a valid configuration :
 1) Choose an `app_id` (or use `fr.freebox.testapp`)
-2) [Request authorization](https://dev.freebox.fr/sdk/os/login/#request-authorization) with a POST request* to the freebox and get the `app_token`
+2) [Request authorization](https://dev.freebox.fr/sdk/os/login/#request-authorization) with a POST request* to the freebox and get the `app_token` and `track_id`
 3) [Track authorization progress](https://dev.freebox.fr/sdk/os/login/#track-authorization-progress) with a GET request* to the freebox
 4) Choose a domain name (used as `host`) from the freebox settings (a SSL certificate from let's encrypt will be generated)
 
