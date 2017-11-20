@@ -14,7 +14,7 @@ Interacts with media players on your network. Please check the sidebar for a ful
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `play_media`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -57,7 +57,8 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
 #### {% linkable_title Service `media_player/shuffle_set` %}
-Currently only supports Spotify.
+
+Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), and [Universal](/components/media_player.universal/).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

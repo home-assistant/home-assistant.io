@@ -32,13 +32,19 @@ To be able to access to your Home Assistant instance by using https://home.examp
 
 ```text
 <VirtualHost *:443>
-  ProxyPreserveHost On
-  ProxyRequests Off
   ServerName home.example.org
-  ProxyPass /api/websocket ws://localhost:8123/api/websocket
-  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
+  ProxyPreserveHost On
+  ProxyRequests off
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
+
+  RewriteEngine on
+  RewriteCond %{HTTP:Upgrade} =websocket [NC]
+  RewriteRule /(.*)  ws://localhost:8123/$1 [P,L]
+  RewriteCond %{HTTP:Upgrade} !=websocket [NC]
+  RewriteRule /(.*)  http://localhost:8123/$1 [P,L]
 </VirtualHost>
 ```
 

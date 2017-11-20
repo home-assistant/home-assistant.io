@@ -13,9 +13,9 @@ ha_release: 0.27
 ha_iot_class: depends
 ---
 
-The `mqtt` fan platform let you control your MQTT enabled fans.
+The `mqtt` fan platform lets you control your MQTT enabled fans.
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the fan will be `false`.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
 When a `state_topic` is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from `state_topic`).
 
@@ -56,7 +56,7 @@ Configuration variables:
 - **speeds** array (*Optional*): Valid entries for the list are `off`, `low`, `medium`, and `high`.
 
 <p class='note warning'>
-Make sure that your topic is an exact match. `some-topic/` and `some-topic` are different topics.
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
 ## {% linkable_title Examples %}

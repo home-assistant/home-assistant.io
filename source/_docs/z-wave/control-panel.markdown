@@ -10,13 +10,17 @@ footer: true
 redirect_from: /getting-started/z-wave-panel/
 ---
 
+<p class='note'>
+  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
+</p>
+
 ## {% linkable_title Z-Wave Network Management %}
 
 Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices from your network.
 
 * **Add Node** puts the controller into inclusion mode, so you can include (add) a device to your Z-Wave network
 * **Add Node Secure** puts the controller into secure inclusion mode (this requires that you've created a [security key](/docs/z-wave/adding#sdding-security-devices))
-* **Remove Node** puts the controller into exclusion mdoe, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
+* **Remove Node** puts the controller into exclusion mode, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
 * **Cancel Command** cancels any of the above
 
 * **Heal Network** tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.
@@ -24,6 +28,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
+* **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
 
 ## {% linkable_title Z-Wave Node Management %}
 
@@ -32,7 +37,11 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets a node's name
+* **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
+
+* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+
+* **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
@@ -103,4 +112,5 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title OZW Log %}
 
+If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Refresh** to display the log if you need it to check activities.

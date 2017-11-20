@@ -39,8 +39,6 @@ Screenshot of the HASS Configurator.
 
 ```json
 {
-  "homeassistant_api": "http://homeassistant:8123/api",
-  "homeassistant_password": "",
   "username": "admin",
   "password": "secret",
   "certfile": "fullchain.pem",
@@ -48,18 +46,20 @@ Screenshot of the HASS Configurator.
   "ssl": false,
   "allowed_networks": ["192.168.0.0/16"],
   "banned_ips": ["8.8.8.8"],
-  "ignore_pattern": ["__pycache__"]
+  "banlimit": 0,
+  "ignore_pattern": ["__pycache__"],
+  "dirsfirst": false,
 }
 ```
 
-- **homeassistant_api** (*Optional*): The configurator fetches some data from your running Home Assistant instance. If the API is not available through the default URL, modify this variable to fix this.
-- **homeassistant_password** (*Optional*): If you plan on using API functions, you have to set your API password. Calling services of Home Assistant is prohibited without authentication.
 - **username** (*Optional*): Set a username to access your configuration is protected.
 - **password** (*Required*): Set a password for access.
 - **ssl** (*Optional*): Enable or Disable SSL for the editor.
 - **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses / networks to the list.
 - **banned_ips** (*Optional*): List of statically banned IP addresses.
+- **banlimit** (*Optional*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
 - **ignore_pattern** (*Optional*): Files and folders to ignore in the UI.
+- **dirsfirst** (*Optional*): List directories before files in the filebrowser.
 
 ### {% linkable_title Embedding into Home-Assistant %}
 

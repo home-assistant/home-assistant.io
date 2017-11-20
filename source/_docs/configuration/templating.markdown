@@ -69,7 +69,9 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
+  - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
 - `utcnow()` will be rendered as UTC time.
+  - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` will convert datetime object or string to UNIX timestamp
 - `distance()` will measure the distance in meters between home, entity, coordinates.
 - `closest()` will find the closest entity.
@@ -87,6 +89,10 @@ Home Assistant adds extensions to allow templates to access all of the current s
 
 <p class='note'>
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
+</p>
+
+<p class='note warning'>
+Rendering templates with time is dangerous as updates only trigger templates in sensors based on entity state changes.
 </p>
 
 ## {% linkable_title Home Assistant template extensions %}

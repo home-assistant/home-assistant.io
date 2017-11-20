@@ -21,9 +21,9 @@ To use your KNX switch in your installation, add the following lines to your `co
 
 ```yaml
 notify:
-    - platform: knx
-      name: Alarm
-      address: '5/1/10'
+  - platform: knx
+    name: Alarm
+    address: '5/1/10'
 ```
 
 * **name** (*Optional*): A name for this device used within Home Assistant.

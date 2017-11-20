@@ -35,7 +35,8 @@ Configuration variables:
 - **target_temp** (*Optional*): Set initial target temperature. Failure to set this variable will result in target temperature being set to null on startup.
 - **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
 - **min_cycle_duration** (*Optional*): Set a minimum amount of time that the switch specified in the *heater* option must be in it's current state prior to being switched either off or on.
-- **tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched either off or on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor goes below 24.5 and it will stop when the sensor goes above 25.5.
+- **cold_tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor equals or goes below 24.5.
+- **hot_tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched off. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will stop when the sensor equals or goes above 25.5.
 - **keep_alive** (*Optional*): Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while.
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
@@ -50,7 +51,8 @@ climate:
     min_temp: 15
     max_temp: 21
     target_temp: 17
-    tolerance: 0.3
+    cold_tolerance: 0.3
+    hot_tolerance: 0
     min_cycle_duration:
       seconds: 5
     keep_alive:

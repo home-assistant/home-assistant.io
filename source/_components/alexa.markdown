@@ -101,7 +101,7 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
-To enable Alex add the following entry to your `configuration.yaml` file:
+To enable Alexa add the following entry to your `configuration.yaml` file:
 
 ```yaml
 alexa:
@@ -134,6 +134,13 @@ Custom slot type for scene support.
 </p>
 
 The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).
+
+In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
+
+<p class='img'>
+<img src='/images/components/alexa/scene_slot_synonyms.png' />
+Custom slot values with synonyms.
+</p>
 
 Add a sample utterance:
 

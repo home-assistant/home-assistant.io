@@ -123,6 +123,7 @@ The config for an add-on is stored in `config.json`.
 | audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
 | gpio | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
 | stdin | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
+| legacy | no | Boolean. If the docker image have no hass.io labels, you can enable the legacy mode to use the config data.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use with Docker Hub.
@@ -131,7 +132,7 @@ The config for an add-on is stored in `config.json`.
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictionaries are supported.
+The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make a option optional, put `?` to the end of data type, otherwise it will be a required value.
 
 ```json
 {
@@ -158,7 +159,8 @@ The `schema` looks like `options` but describes how we should validate the user 
   "random": ["match(^\w*$)"],
   "link": "url",
   "size": "int(5,20)",
-  "count": "float"
+  "count": "float",
+  "not_need": "str?"
 }
 ```
 

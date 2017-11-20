@@ -28,7 +28,7 @@ Configuration variables:
 - **pending_time** (*Optional*): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.
 - **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
 - **disarm_after_trigger** (*Optional*): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
-- **armed_home|armed_away|armed_night|triggered** (*Optional*): State specific settings
+- **armed_home/armed_away/armed_night/triggered** (*Optional*): State specific settings
   - **pending_time**: State specific pending time override.
 
 In the config example below, armed_home state will have no pending time and triggered state will have pending time of 20 second whereas armed_away state will have a default pending time of 30 seconds.
@@ -78,4 +78,34 @@ automation:
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
+```
+
+Sending a notification when the alarm is triggered.
+
+```yaml
+automation:
+  - alias: 'Send notification when alarm triggered'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.ha_alarm
+        to: 'triggered'
+    action:
+      - service: notify.notify
+        data:
+          message: "ALARM! The alarm has been triggered"
+```
+
+Disarming the alarm when the door is properly unlocked.
+
+```yaml
+automation:
+  - alias: 'Disarm alarm when door unlocked by keypad'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door_lock_alarm_type
+        to: '19'
+        # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.house_alarm
 ```

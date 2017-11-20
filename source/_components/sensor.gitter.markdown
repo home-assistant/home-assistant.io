@@ -15,6 +15,8 @@ ha_release: 0.47
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
 
+Visit [Gitter Developer Apps](https://developer.gitter.im/apps) to retrieve your "Personal Access Token".
+
 To use a Gitter sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

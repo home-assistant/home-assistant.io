@@ -251,3 +251,69 @@ automation:
           position: 25
 ```
 {% endraw %}
+
+### {% linkable_title Change The Icon %}
+
+This example shows how to change the icon based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            mdi:window-open
+          {% else %}
+            mdi:window-closed
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            /local/cover-open.png
+          {% else %}
+            /local/cover-closed.png
+          {% endif %}
+```
+{% endraw %}

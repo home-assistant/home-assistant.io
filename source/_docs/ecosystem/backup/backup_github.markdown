@@ -141,7 +141,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.4"
+  - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 install:

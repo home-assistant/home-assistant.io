@@ -26,6 +26,10 @@ You need to have a [supported Z-Wave USB stick or module](https://github.com/Ope
 | Vision USB Stick        |                |                  |              |
 | ZWave.me UZB1           |   &#10003;     |                  |              |
 
+<p class='note'>
+  If you're using Hass.io, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+</p>
+
 ## {% linkable_title Stick Alternatives %}
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
