@@ -90,25 +90,47 @@ Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up butt
 
 ```yaml
 automation:
-  - alias: step_up
+  - alias: 'Toggle lamp from dimmer'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: deconz_event
       event_data:
-        id: tradfri_wireless_dimmer_
+        id: remote_control_1
+        event: 1002
+    action:
+      service: light.toggle
+      entity_id: light.lamp
+
+  - alias: 'Increase brightness of lamp from dimmer'
+    initial_state: 'on'
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_control_1
         event: 2002
     action:
-      service: input_number.increment
-      entity_id: input_number.slider1
+      - service: light.turn_on
+        data_template:
+          entity_id: light.lamp
+          brightness: >
+            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {{ [bri+30, 249] | min }}
 
-  - alias: step_down
+  - alias: Decrease brightness of lamp from dimmer
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: deconz_event
       event_data:
-        id: tradfri_wireless_dimmer_
+        id: remote_control_1
         event: 3002
     action:
-      service: input_number.decrement
-      entity_id: input_number.slider1
+      - service: light.turn_on
+        data_template:
+          entity_id: light.lamp
+          brightness: >
+            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {{ [bri-30, 0] | max }}
 ```
