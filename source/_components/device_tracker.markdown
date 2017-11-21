@@ -65,6 +65,7 @@ devicename:
   track: yes
   hide_if_away: no
 ```
+_(Note:  **devicename** refers to the detected name of the device.  For instance, **my_iphone** )_
 
 | Parameter      | Default                       | Description                                                                                             |
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
