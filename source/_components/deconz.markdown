@@ -114,9 +114,9 @@ automation:
       - service: light.turn_on
         data_template:
           entity_id: light.lamp
-          brightness: >
+          brightness: {% raw %}>
             {% set bri = states.light.lamp.attributes.brightness | int %}
-            {{ [bri+30, 249] | min }}
+            {{ [bri+30, 249] | min }}{% endraw %}
 
   - alias: Decrease brightness of lamp from dimmer
     initial_state: 'on'
@@ -130,7 +130,7 @@ automation:
       - service: light.turn_on
         data_template:
           entity_id: light.lamp
-          brightness: >
+          brightness: {% raw %}>
             {% set bri = states.light.lamp.attributes.brightness | int %}
-            {{ [bri-30, 0] | max }}
+            {{ [bri-30, 0] | max }}{% endraw %}
 ```
