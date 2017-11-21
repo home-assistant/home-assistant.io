@@ -26,6 +26,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **opening**: `On` means open, `Off` means closed
 - **plug**: `On` means device is plugged in, `Off` means device is unplugged
 - **power**: Power, over-current, etc.
+- **presence**: `On` means Home, `Off` means Away
 - **safety**: `On` means unsafe, `Off` means safe
 - **smoke**: `On` means smoke detected
 - **sound**: `On` means sound detected, `Off` means no sound
