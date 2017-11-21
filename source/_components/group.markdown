@@ -124,3 +124,23 @@ group:
 ## {% linkable_title Group behaviour %}
 
 When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
+
+## {% linkable_title Customize group order %}
+You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
+```yaml
+# Example configuration.yaml to order groups with order:
+
+customize:
+  group.all_automations:
+    order: 1
+  group.all_scripts:
+    order: 2
+
+group:
+  automation_view:
+    name: Automation
+    view: yes
+    entities:
+      - group.all_automations
+      - group.all_scripts
+```
