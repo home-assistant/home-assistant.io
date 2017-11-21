@@ -62,6 +62,14 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 - Add basic backend support for a system log ([@postlund] - [#10492]) ([system_log docs]) (new-platform)
 - New sensor viaggiatreno. ([@fabfurnari] - [#10522]) ([sensor.viaggiatreno docs]) (new-platform)
 
+## {% linkable_title Release 0.58.1 - November 21 %}
+
+- Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
+- Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
+- Handle the new version of HydroQuebec website ([@titilambert] - [#10682]) ([sensor.hydroquebec docs])
+- Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
+- Frontend fixes ([@andrey-git] [@armills] [@balloob])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -481,3 +489,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [weather.demo docs]: https://home-assistant.io/components/weather.demo/
 [websocket_api docs]: https://home-assistant.io/components/websocket_api/
 [zwave docs]: https://home-assistant.io/components/zwave/
+[#10661]: https://github.com/home-assistant/home-assistant/pull/10661
+[#10665]: https://github.com/home-assistant/home-assistant/pull/10665
+[#10682]: https://github.com/home-assistant/home-assistant/pull/10682
+[#10694]: https://github.com/home-assistant/home-assistant/pull/10694
+[@amelchio]: https://github.com/amelchio
+[@etsinko]: https://github.com/etsinko
+[@tinloaf]: https://github.com/tinloaf
+[@titilambert]: https://github.com/titilambert
+[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
+[sensor.hydroquebec docs]: https://home-assistant.io/components/sensor.hydroquebec/
+[sensor.time_date docs]: https://home-assistant.io/components/sensor.time_date/
+[weather.yweather docs]: https://home-assistant.io/components/weather.yweather/
