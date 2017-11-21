@@ -40,6 +40,7 @@ sensor:
     - 'queue_remaining'
     - 'disk_size'
     - 'disk_free'
+    - 'queue_count'
 ```
 
 Configuration variables:
@@ -56,6 +57,7 @@ Configuration variables:
   - **queue_remaining**: Remaining elements in the queue
   - **disk_size**: Disk size of the storage location
   - **disk_free**: Free disk space at the storage location
+  - **queue_count**: Number of items in the queue
 
 Note that this will create the following sensors:
 
@@ -66,6 +68,7 @@ Note that this will create the following sensors:
  - sensor.sabnzbd_left
  - sensor.sabnzbd_disk
  - sensor.sabnzbd_disk_free
+ - sensor.sabnzdb_queue_count
 ```
 
 As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.
