@@ -13,7 +13,7 @@ ha_release: 0.57
 ha_iot_class: "Cloud Polling"
 ---
 
-To get your [Ring.com](https://ring.com/) cameras working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring). You will need a Ring Protect plan for Ring camera to work with Home Assistant.
+To get your [Ring.com](https://ring.com/) cameras working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring). Please note that downloading and playing Ring video will require a Ring Protect plan. 
 
 Once you have enabled the [Ring component](/components/ring), add the following to your `configuration.yaml` file:
 
