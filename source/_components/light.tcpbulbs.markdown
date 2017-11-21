@@ -28,8 +28,6 @@ light:
     host: XXX.XXX.XXX.XXX
 ```
 
-Configuration variables:
-
 {% configuration %}
 host:
   description: The IP Address of your Gateway
