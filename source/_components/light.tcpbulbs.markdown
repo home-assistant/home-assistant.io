@@ -30,4 +30,9 @@ light:
 
 Configuration variables:
 
-- **host** (*Required*): The IP Address for the TCP Connected Gateway.
+{% configuration %}
+host:
+  description: The IP Address of your Gateway
+  required: true
+  type: string
+{% endconfiguration %}
