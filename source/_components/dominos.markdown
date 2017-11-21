@@ -47,7 +47,7 @@ Now you can use the Dominos service to order pizza within your automations:
 {% configuration %}
   country_code:
     required: true
-    description: 'ca' or 'us', depending on your location
+    description: \'ca\' or \'us\', depending on your location
     type: string
   first_name:
     required: true
