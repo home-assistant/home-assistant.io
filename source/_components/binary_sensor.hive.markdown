@@ -8,13 +8,17 @@ comments: false
 sharing: true
 footer: true
 logo: hive.png
-ha_category: Sensor
+ha_category: Binary Sensor
 ha_release: 0.59
 ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' sensor component can expose as a sensor the current online status of your Hive Hub
+The 'hive' binary sensor component integrates your Hive sensors into Home Assistant.
+
+The Hive sensor component supports the following Hive products:
+- **Hive Window or Door Sensor**
+- **Hive Motion Sensor**
 
 
 <p class='note'>

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hive.png
 ha_category: Hub
-ha_release: 0.62
+ha_release: 0.59
 ha_iot_class: "Cloud Polling"
 ---
 
