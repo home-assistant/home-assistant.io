@@ -48,6 +48,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing the REST endpoint.
 - **password** (*Optional*): The password for accessing the REST endpoint.
 - **headers** (*Optional*): The headers for the requests.
+- **json_attributes** (*Optional*): Set the sensor's attributes to the key/value pairs of the returned object. Default to `False`.
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
@@ -151,5 +152,42 @@ sensor:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
+```
+
+### {% linkable_title Fetch multiple JSON values and present them as attibutes %}
+
+This sample fetches a weather report from OpenWeatherMap.org, maps the
+resulting data into attributes of the RESTful sensor and then creates
+a set of template sensors that monitor the attributes and present the
+values in a usable form.
+
+```
+- platform: rest
+  name: OWM_report
+  json_attributes: True
+  value_template: '{{value_json["weather"][0]["description"].title()}}'
+  resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+
+- platform: template
+  sensors:
+    owm_weather:
+      value_template: '{{states.sensor.owm_report.status}}'
+      icon_template: '{{"http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png"}}'
+      entity_id: sensor.owm_report
+    owm_temp:
+      friendly_name: 'Outside temp'
+      value_template: '{{states.sensor.owm_report.attributes.main["temp"]-273.15}}'
+      unit_of_measurement: "°C"
+      entity_id: sensor.owm_report
+    owm_pressure:
+      friendly_name: 'Outside pressure'
+      value_template: '{{states.sensor.owm_report.attributes.main["pressure"]}}'
+      unit_of_measurement: "hP"
+      entity_id: sensor.owm_test
+    owm_humidity:
+      friendly_name: 'Outside humidity'
+      value_template: '{{states.sensor.owm_report.attributes.main["humidity"]}}'
+      unit_of_measurement: "%"
+      entity_id: sensor.owm_test
 ```
 
