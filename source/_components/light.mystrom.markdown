@@ -28,11 +28,11 @@ light:
 
 {% configuration %}
 host:
-  description: "The IP address of your myStrom WiFi Bulb, eg. `192.168.1.32`."
+  description: "The IP address of your myStrom WiFi Bulb, e.g., `192.168.1.32`."
   required: true
   type: string
 mac:
-  description: "The MAC address of your myStrom WiFi Bulb, eg. `5AAC8CA542F3`."
+  description: "The MAC address of your myStrom WiFi Bulb, e.g., `5AAC8CA542F3`."
   required: true
   type: string
 name:
