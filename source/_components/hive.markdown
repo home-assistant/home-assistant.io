@@ -18,7 +18,7 @@ This Hive component is the main component to set up and integrate all supported 
 
 This component uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive component in Home Assistant.
 
-To add your Hive devices into your Home Assistant installation, with an update frequency of every five minutes (the default is every two minutes if the scan_interval variable is not specified) add the following to your 'configuration.yaml' file:
+To add your Hive devices into your Home Assistant installation, using the default scan_interval, add the following to your 'configuration.yaml' file:
 
 ```yaml
 # Example configuration.yaml entry

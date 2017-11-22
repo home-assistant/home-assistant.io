@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' sensor component can expose as a sensor the current online status of your Hive Hub
+The 'hive' sensor component can expose as a sensor the current online status of your Hive Hub.
 
 
 <p class='note'>
