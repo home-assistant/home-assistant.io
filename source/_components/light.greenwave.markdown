@@ -1,6 +1,6 @@
 ---
 layout: page
-title: TCP Connected Light
+title: TCP Connected (Greenwave Reality) Lights
 description: "Instructions on how to set up TCP Connected lights within Home Assistant."
 date: 2017-11-17 18:50
 sidebar: true
@@ -24,7 +24,7 @@ To configure the connection to the gateway, add the following to your `configura
 
 ```yaml
 light:
-  - platform: tcpbulbs
+  - platform: greenwave
     host: XXX.XXX.XXX.XXX
 ```
 
