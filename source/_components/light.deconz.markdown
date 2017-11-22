@@ -19,6 +19,9 @@ Lights entity names will be light.device_name, where device_name comes from deCO
 
 #### {% linkable_title Verified to be supported sensors %}
 
+- IKEA Trådfri bulb E14 WS opal 400lm
+- IKEA Trådfri Bulb E27 WS Opal 980lm
+- IKEA Trådfri Bulb E27 WS Opal 1000lm
 - IKEA Trådfri Bulb GU10 W 400lm
 - OSRAM Flex RGBW
-- IKEA Trådfri Bulb E27 WS Opal 980lm
+- OSRAM Gardenpole RGBW

@@ -118,7 +118,7 @@ automation:
             {% set bri = states.light.lamp.attributes.brightness | int %}
             {{ [bri+30, 249] | min }}{% endraw %}
 
-  - alias: Decrease brightness of lamp from dimmer
+  - alias: 'Decrease brightness of lamp from dimmer'
     initial_state: 'on'
     trigger:
       platform: event
