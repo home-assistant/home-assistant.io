@@ -10,6 +10,7 @@ footer: true
 logo: plum-lightpad.png
 ha_category: Light
 ha_iot_class: "Local Push"
+ha_release: 0.58.2
 ---
 
 The `plum_lightpad` platform allows you to control your [Plum Lightpad](https://plumlife.com/product/plum-lightpad/) light switches from within Home Assistant.
@@ -24,3 +25,13 @@ light:
     password: YOUR PLUM PASSWORD
 ```
 
+{% configuration %}
+username: 
+  description: The user name used to login to the Plum app
+  required: true
+  type: string
+password:
+  description: The password used to login to the Plum app
+  required: true
+  type: string
+{% endconfiguration %}
