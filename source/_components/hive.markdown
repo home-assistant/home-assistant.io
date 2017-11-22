@@ -25,7 +25,6 @@ To add your Hive devices into your Home Assistant installation, with an update f
 hive:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  scan_interval: 5
 ```
 
 {% configuration %}
@@ -37,6 +36,11 @@ password:
   description: Your password from [https://my.hivehome.com](https://my.hivehome.com).
   required: true
   type: string
+scan_interval:
+  description: The time in minutes between Hive API calls
+  required: false
+  type: int
+  default: 2
 {% endconfiguration %}
 
 
