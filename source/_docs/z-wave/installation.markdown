@@ -170,6 +170,15 @@ $ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
 
 After that, you need to change `usb_path` to `/dev/ttyAMA0`.
 
+### {% linkable_title RancherOS %}
+
+If you're using RancherOS for containers, you'll need to ensure you enable the kernel-extras service so that the `USB_ACM` module (also known as `cdc_acm`) is loaded:
+
+```bash
+$ sudo ros service enable kernel-extras
+$ sudo ros service up kernel-extras
+```
+
 ### {% linkable_title Network Key %}
 
 Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
