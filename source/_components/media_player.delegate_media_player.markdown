@@ -2,7 +2,7 @@
 layout: page
 title: "Universal"
 description: "Instructions how to create a delegated media player in Home Assistant."
-date: 2017-23-11 13:00
+date: 2017-11-23 13:00
 sidebar: true
 comments: false
 sharing: true
