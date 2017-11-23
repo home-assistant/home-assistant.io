@@ -110,7 +110,7 @@ Configuration variables:
     required: false
     type: string
   supported_features:
-    description: 'A list of features that the light supports. This is retrieved from the light itself where possible, but may be specified in cases where the light does not provide this information through its interface (acceptable entries are `brightness`, `color_temp`, `effect`, `rgb_color` and `transition`.'
+    description: 'A list of features that the light supports. This is retrieved from the light itself where possible, but may be specified in cases where the light does not provide this information through its interface (acceptable entries are `brightness`, `color_temp`, `effect`, `rgb_color` and `transition`. Note if the light is able to provide this information itself (and `supported_features_template` is correctly configured), then anything set manually here will be overridden'
     required: false
     type: list
 {% endconfiguration %}
