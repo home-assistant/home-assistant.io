@@ -2,7 +2,7 @@
 layout: page
 title: "Component Discovery"
 description: "How to make component discovery work."
-date: 2016-04-16 14:24 -07:00
+date: 2017-11-23 07:27 +02:00
 sidebar: true
 comments: false
 sharing: true
@@ -26,19 +26,34 @@ To have your device be discovered, you will have to extend the NetDisco library 
 From your component, you will have to set up the listening for specific services. Given below is an example how one would listen for discovered Chromecasts:
 
 ```python
-from homeassistant.loader import get_component
+from homeassistant.components.discovery import SERVICE_FROBULATOR
+from homeassistant.helpers import discovery
+
+DOMAIN = 'frobulator'
+
+DEPENDENCIES = ['http']
 
 def setup(hass, config):
-    discovery = get_component('discovery')
+    cfg = config.get(DOMAIN)
 
-    def chromecast_discovered(service, info):
-        """ Called when a Chromecast has been discovered. """
-        print("Discovered a new Chromecast: {}".format(info))
+    def device_discovered(service, info):
+        """ Called when a Frobulator device has been discovered. """
+        print("Discovered a new Frobulator device: {}".format(info))
 
     discovery.listen(
-        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
+        hass, SERVICE_FROBULATOR, device_discovered)
+
+    return True
 ```
 
 ### {% linkable_title Auto-loading your component upon discovery %}
 
-The Discovery component is capable of setting up your components before firing the `SERVICE_DISCOVERD` event. To do this you will have to update the [`SERVICE_HANDLERS`](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29) constant in [the `discovery` component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py).
+The Discovery component is capable of setting up your components before firing the `EVENT_PLATFORM_DISCOVERED` event. To do this you will have to update the [`SERVICE_HANDLERS`](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L40) constant in [the `discovery` component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py):
+
+```python
+SERVICE_FROBULATOR = 'frobulator'
+
+SERVICE_HANDLERS = {
+    ...
+    SERVICE_FROBULATOR: ('frobulator', None),
+}
