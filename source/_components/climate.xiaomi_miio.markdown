@@ -27,7 +27,7 @@ To add a Xiaomi AC Partner to your installation, add the following to your confi
 
 ```yaml
 # Example configuration.yaml entries
-light:
+climate:
   - platform: xiaomi_miio
     name: Xiaomi AC Partner
     host: 192.168.0.1
