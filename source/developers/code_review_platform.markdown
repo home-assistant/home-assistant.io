@@ -61,6 +61,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
  1. Extend entity from component, e.g. `class HueLight(Light)`
  2. Do not call `update()` in constructor, use `add_devices(devices, True)` instead.
  3. Do not do any I/O inside properties. Cache values inside `update()` instead.
+ 4. The state and/or attributes should not contain relative time since something happened. Instead it should store UTC timestamps.
 
 ### {% linkable_title 6. Communication with devices/services %}
 

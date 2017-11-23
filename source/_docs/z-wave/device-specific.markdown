@@ -59,7 +59,7 @@ Then disable the Bluetooth modem service:
 $ sudo systemctl disable hciuart
 ```
 
-Finally, reboot to make those changes active.
+Finally, reboot to make those changes active. It's been reported that this is also required on the Pi2.
 
 ### {% linkable_title Aeon Minimote %}
 

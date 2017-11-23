@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Ring Binary Camera"
+title: "Ring Camera"
 description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
 date: 2017-10-20 10:00
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: 0.57
 ha_iot_class: "Cloud Polling"
 ---
 
-To get your [Ring.com](https://ring.com/) cameras working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring).
+To get your [Ring.com](https://ring.com/) cameras working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring). Please note that downloading and playing Ring video will require a Ring Protect plan. 
 
 Once you have enabled the [Ring component](/components/ring), add the following to your `configuration.yaml` file:
 

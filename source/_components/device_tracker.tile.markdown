@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `tile` platform allows Home Assistant to utilize [Tile® Bluetooth trackers](https://www.thetileapp.com).
 The official Tile mobile app handles the actual tracking of Tile devices using
-the mobile device's Bluetooh and GPS.
+the mobile device's Bluetooth and GPS.
 
 To integrate Tile into Home Assistant, add the following section to your
 `configuration.yaml` file:
