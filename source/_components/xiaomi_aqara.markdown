@@ -37,13 +37,14 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Intelligent Curtain
 - Water Leak Sensor
 - Battery
+- Xiaomi Air Conditioning Companion*
+- Aqara Intelligent Air Conditioner Controller Hub*
 
+To use Gateway Function of Xiaomi and Aqara Air Conditioner Companion(Controller), please make sure the version of firmware is >= 1.4.1_141 and Mi-Home app is >= 4.2.0. For Air Conditioner Function please refer to [`xiaomi_miio`](components/cliamte.xiaomi_miio) platform.
 #### {% linkable_title Unsupported Devices %}
 
 - Gateway Radio
 - Gateway Button
-- Aqara Air Conditioning Companion
-- Aqara Intelligent Air Conditioner Controller Hub
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
@@ -245,3 +246,5 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
 - If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternativly an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+
+

@@ -12,7 +12,7 @@ ha_version: 0.59
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi_miio` platform allows you to control the state of your Xiaomi and Aqara Air Conditioner Partner.
+The `xiaomi_miio` platform allows you to control the  Air Conditioner Function of your Xiaomi and Aqara Air Conditioner Partner. For Gateway function please refer to [`xiaomi_aqara`](/components/xiaomi_aqara) platform.
 
 Supported model:
 
