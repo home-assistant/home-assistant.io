@@ -189,9 +189,9 @@ To fetch the token follow these instructions depending on your mobile phone plat
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
 3. Get ADB e.g. `apt-get install android-tools-adb` or `apt-get install adb`
 4. `adb devices` should list your device. Consult ADB manual if necessary.
-5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (enter a password if prompted on your phone)
+5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone)
 6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)
-7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter a password, if prompted)
+7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter the password, if prompted)
 8. Untar the packed data: `tar -xvf unpacked.tar`
 9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name = "Mi Robot Vacuum";'` returns the token for your Xiaomi vacuum bot.
 
