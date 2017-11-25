@@ -115,7 +115,7 @@ homeassistant:
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
-	2. Client ID: Should be the same as `client_id` from your hass config above
+	2. Client ID: The `client_id` from your Home Assistant configuration above
 	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
 	4. Configure your client. Add scopes for `email` and `name`
 	5. Testing instructions: doesn't matter since you won't submit this app
