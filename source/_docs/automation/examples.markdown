@@ -64,4 +64,21 @@ automation:
       service: notify.notify
       data:
         message: 'Paulus left the house'
+
+# Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  - alias: 'Xiaomi Cube Action'
+    hide_entity: false    # visible in the web ui
+    initial_state: false  # disabled at startup
+    trigger:
+      platform: event
+      event_type: cube_action
+      event_data:
+        entity_id: binary_sensor.cube_158d000103a3de
+    action:
+      # https://home-assistant.io/docs/automation/templating/
+      - service_template: notify.pushover
+        data_template: 
+          title: "Cube event detected"
+          message: "Cube has triggered this event: {{ trigger.event }}"
+          
 ```
