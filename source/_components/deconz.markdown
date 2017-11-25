@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: zigbee.png
+logo: deconz.jpeg
 ha_category: Hub
 ha_release: "0.59"
 ha_iot_class: "Local Push"
@@ -68,6 +68,8 @@ Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.git
 | `data`    | Data is a json object with what data you want to alter. |
 
 { "field": "/lights/1", "data": {"name": "light2"} }
+
+{ "field": "/config", "data": {"permitjoin": 60} }
 
 ## {% linkable_title Remote control devices%}
 

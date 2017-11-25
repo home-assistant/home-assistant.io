@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: zigbee.png
+logo: deconz.jpeg
 ha_category: Sensor
 ha_release: "0.59"
 ha_iot_class: "Local Push"
