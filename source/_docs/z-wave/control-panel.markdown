@@ -110,6 +110,25 @@ You can set the *wakeup* interval (in seconds) of the device, this is shown for 
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
+## {% linkable_title Node user codes %}
+
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+```yaml
+\x30 = 0
+\x31 = 1
+\x32 = 2
+\x33 = 3
+\x34 = 4
+\x35 = 5
+\x36 = 6
+\x37 = 7
+\x38 = 8
+\x39 = 9
+```
+Some non compliant device like tag readers, have implemented to use raw hex code.
+Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
+
+
 ## {% linkable_title OZW Log %}
 
 If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
