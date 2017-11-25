@@ -17,9 +17,11 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/) verified from v2.04.89.
 
-The minimum amount of configuration for deCONZ is the IP ADDRESS. If you don't have the API key, the component will automatically try to generate an API key for deCONZ. If you've changed the username and password you can specify those when you configure deCONZ in configuration.yaml. If you prefer to use the one-click functionality similar to Philips Hue, you can go to Menu->Settings->Unlock Gateway in deCONZ and then use the deCONZ configurator in HASS GUI to create an API key. In all cases where you've generated the API key from HASS the API key will be stored in deconz.conf inside the home-assistant folder.
+Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-You must configure deCONZ by adding the following lines to your `configuration.yaml` file:
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to Menu->Settings->Unlock Gateway in deCONZ and then use the deCONZ configurator in HASS GUI to create an API key. When you've generated the API key from HASS the API key will be stored in deconz.conf inside the home-assistant folder.
+
+You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,11 +42,9 @@ deconz:
 
 ## {% linkable_title Configuration variables %}
 
-- **host** (*Required*): The IP address to your deCONZ server.
+- **host** (*Optional*): The IP address to your deCONZ server.
 - **api-key** (*Optional*): The API key to your deCONZ server.
 - **port** (*Optional*): Configure port deCONZ web server is accessible from. Default is 80.
-- **username** (*Optional*): If you need to generate an API key. Default is 'delight'.
-- **password** (*Optional*): If you need to generate an API key. Default is 'delight'.
 
 A full configuration could look like this:
 
