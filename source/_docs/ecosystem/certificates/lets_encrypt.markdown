@@ -240,21 +240,7 @@ In cases where your ISP blocks port 80 you will need to change the port forward 
 
 Now SSH in to the device your Home Assistant is running on.
 
-<p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
-
-```
-$ sudo adduser hass sudo
-```
-</p>
-
-If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
-
-```bash
-$ sudo su -s /bin/bash hass 
-```
-
-Make sure you are in the home directory for the HA user:
+Make sure you are in the home directory for your user:
 
 ```bash
 $ cd
@@ -288,11 +274,11 @@ This should show a folder named exactly after your DuckDNS URL.
 Our Home Assistant user needs access to files within the letsencrypt folder, so issue the following commands to change the permissions.
 
 ```bash
-$ sudo chmod 755 /etc/letsencrypt/live/
-$ sudo chmod 755 /etc/letsencrypt/archive/
+$ sudo chmod a+x /etc/letsencrypt/live/
+$ sudo chmod a+x /etc/letsencrypt/archive/
 ```
 
-Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
+Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together.
 
 ### {% linkable_title 5 - Check the incoming connection %}
 
@@ -442,12 +428,6 @@ Your certificate can be renewed as a 'cron job' - cron jobs are background tasks
 To set a cron job to run the script at regular intervals:
  
  * SSH in to your device running Home Assistant.
- * Change to your Home Assistant user (command similar to):
- 
-```bash
-$ sudo su -s /bin/bash hass
-```
- 
  * Open the crontab:
  
 ```bash
@@ -474,37 +454,12 @@ $ crontab -e
  
  
 #### Option 2:
-You can set an automation in Home Assistant to run the certbot renewal script.
- 
-Add the following sections to your configuration.yaml if you are a TWO-RULE person
-
-```yaml 
-shell_command: 
-  renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
-  
-automation:
-  - alias: 'Auto Renew SSL Cert'
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.ssl_cert_expiry
-      below: 29
-    action:
-      service: shell_command.renew_ssl
-```
-If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
-
 #### Option 3:
 You can manually update the certificate when your certificate is less than 30 days to expiry.
  
 To manually update: 
  
  * SSH in to your device running Home Assistant.
- * Change to your Home Assistant user (command similar to):
- 
-```bash
-$ su - s /bin/bash hass
-```
- 
  * Change to your certbot folder
  
 ```bash
