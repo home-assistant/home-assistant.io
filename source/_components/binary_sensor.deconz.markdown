@@ -20,7 +20,7 @@ The following sensor types are supported:
  * Open/Close detection
  * Presence detection
 
-Entity ids will be binary_sensor.device_name, where device_name comes from deCONZ.
+Entity ids will be binary_sensor.device_name, where device_name is defined in deCONZ.
 
 #### {% linkable_title Verified to be supported binary sensors %}
 
