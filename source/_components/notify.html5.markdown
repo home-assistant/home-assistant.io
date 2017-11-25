@@ -33,19 +33,23 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-1. Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-2. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
-3. After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-4. Then, click the cogwheel on top left and select "Project settings".
-5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](https://home-assistant.io/docs/configuration/remote/)).
+2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [hass.io instructions](#verify-your-domain-with-hassio).
+4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project, and select the project you created.
+5. Then, click the cogwheel on top left and select "Project settings".
+6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
 #### {% linkable_title Verify your domain with Hass.io %}
 
-1. For verifying your domain you need to download a file in step 2.
-2. Create a dictionary named "www" in you Hass.io configuration dictionary.
-3. Place the file (something like this: google*.html) in the "www" directory.
-4. You can open it by going to **https://yourdomain/local/exact_file_name.html**
-5. Proceed with step 3.
+Follow these steps to verify domain ownership with Google Webmaster Central / Search Console:
+1. Enter your domain and add **'/local'** at the end, ie. https://whitehouse.duckdns.org:8123/local
+2. Select HTML file verification and download the google*.html file.
+2. Create a directory named "www" in your Hass.io configuration directory (/config share from Samba add-on).
+3. Place the downloaded google*.html file in the "www" directory.
+4. RESTART Home Assistant - this is important!
+5. Verify the file can be accessed in the browser, ie. **https://whitehouse.duckdns.org:8123/local/goole123456789.html** (change filename) - you should a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
+6. Go back to Google Webmaster Central / Search Console and proceed with the verification.
 
 ### {% linkable_title Requirements %}
 
