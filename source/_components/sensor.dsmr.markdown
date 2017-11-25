@@ -107,6 +107,11 @@ Optional configuration example for ser2net:
 # Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters
 2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
 ```
+or
+```sh
+# Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv2.2 smart meters
+2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
+```
 
 [HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
 
