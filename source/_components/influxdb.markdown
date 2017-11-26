@@ -34,6 +34,8 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **max_retries** (*Optional*): Allow the component to retry if there was a network error when transmitting data
+- **retry_queue_limit** (*Optional*): If retry enabled, specify how much calls are allowed to be queued for retry.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
 - **component_config**, **component_config_domain**, **component_config_glob** (*Optional*): These attributes contains component-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format.
@@ -175,6 +177,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  max_retries: 3
   default_measurement: state
   exclude:
     entities:
