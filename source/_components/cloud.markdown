@@ -11,6 +11,10 @@ logo: home-assistant.png
 ha_release: 0.57
 ---
 
+<p class='note warning'>
+Home Assistant Cloud is currently in private beta.
+</p>
+
 The Home Assistant Cloud allows you to quickly integrate your local instance with various cloud services. Any processing of services from other cloud services is handled by your local instance.
 
 To get started, create an account and log in via the configuration panel in your Home Assistant instance. There is no need to configure your router or expose your instance to the internet in any other way.

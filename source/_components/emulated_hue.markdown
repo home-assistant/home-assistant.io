@@ -22,7 +22,7 @@ entities. The driving use case behind this functionality is to allow Home Assist
 The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
-A physical Hue Bridge is required for the lights to function - this virtual bridge will not replace a physical bridge.
+A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
 </p>
 
 <p class='note'>

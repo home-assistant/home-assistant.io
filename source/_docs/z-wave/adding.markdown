@@ -28,7 +28,7 @@ When you add a device, it may initially appear without a specific entity ID (eg 
 
 ## {% linkable_title Adding Secure Devices %}
 
-Security Z-Wave devices require a network key - you must set the *network_key* configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method. To add (include) a secure Z-Wave device:
+Security Z-Wave devices require a network key. You must set the *network_key* configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method. Note, secure devices that had been connected to another hub/network in the past may have a "theft protection" feature which requires to first exclude the device successfully from the previous hub using the previous hub/Software setup before it can be enrolled in a new hub/network. To add (include) a secure Z-Wave device:
 
 1. Go to the [Z-Wave control panel](/docs/z-wave/control-panel/) in the Home Assistant frontend
 2. Click the **Add Node Secure** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode

@@ -153,7 +153,7 @@ media_player:
 - platform: universal
   name: Kodi TV
   state_template: >
-    {% raw %}{% if (is_state('media_player.kodi', 'idle') and (is_state('input_boolean.kodi_tv_state', 'off') %}
+    {% raw %}{% if is_state('media_player.kodi', 'idle') and is_state('input_boolean.kodi_tv_state', 'off') %}
     off
     {% else %}
     {{ states('media_player.kodi') }}
