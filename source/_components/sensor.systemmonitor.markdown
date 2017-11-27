@@ -67,6 +67,7 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | memory_free         | sensor.ram_available     |
 | memory_use_percent  | sensor.ram_used          |
 | processor_use       | sensor.cpu_used          |
+| disk_use            | sensor.disk_used         |
 
 ## {% linkable_title Linux specific %}
 
