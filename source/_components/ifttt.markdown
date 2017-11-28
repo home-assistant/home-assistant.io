@@ -98,7 +98,7 @@ automation:
 ifttt_notify:
   sequence:
     - service: ifttt.trigger
-      data_template: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+      data_template: {"event":"TestHA_Trigger", "value1":"{% raw %}{{ value1 }}{% endraw %}", "value2":"{% raw %}{{ value2 }}{% endraw %}", "value3":"{% raw %}{{ value3 }}{% endraw %}"}
 ```
 
 ### {% linkable_title Sending events from IFTTT to Home Assistant %}
