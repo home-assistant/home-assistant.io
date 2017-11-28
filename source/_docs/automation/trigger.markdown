@@ -180,6 +180,14 @@ automation 3:
     # You can also match on interval. This will match every 5 minutes
     minutes: '/5'
     seconds: 00
+
+automation 4:
+  trigger:
+    platform: time
+    # You can include an offset on an interval. This matches every 10 minutes
+    # with an offset of 3 minutes, so it triggers at 3, 13, 23, 33, 43 and 53
+    minutes: '/10+3'
+    seconds: 00
 ```
 <p class='note warning'>
   Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
