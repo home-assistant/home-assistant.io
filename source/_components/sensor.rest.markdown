@@ -48,7 +48,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing the REST endpoint.
 - **password** (*Optional*): The password for accessing the REST endpoint.
 - **headers** (*Optional*): The headers for the requests.
-- **json_attributes** (*Optional*): Set the sensor's attributes to the key/value pairs of the returned object. Default to `False`.
+- **json_attributes** (*Optional*): A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. Default is an empty list.
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
@@ -164,14 +164,14 @@ values in a usable form.
 ```
 - platform: rest
   name: OWM_report
-  json_attributes: True
+  json_attributes: main,weather
   value_template: '{{value_json["weather"][0]["description"].title()}}'
   resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
 
 - platform: template
   sensors:
     owm_weather:
-      value_template: '{{states.sensor.owm_report.status}}'
+      value_template: '{{states.sensor.owm_report.attributes.weather[0]["description"].title()}}'
       icon_template: '{{"http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png"}}'
       entity_id: sensor.owm_report
     owm_temp:
