@@ -10,6 +10,10 @@ footer: true
 featured: true
 ---
 
+<p class='note'>
+  If you are wanting to integrate your Google Home, or mobile phone running Google Assistant, with Home Assistant then you want the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
+</p>
+
 [Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over [api.ai] with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
 
 To enable access to the Google Assistant API, do the following:
