@@ -35,9 +35,13 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
-For advanced users, it is also possible to try Hass.io on your Linux server or inside a VM. To do so, [follow these instructions][linux].
+For advanced users, it is also possible to try Hass.io on your Linux server or inside a VM. To do so, run the following command as root:
+
+```curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s```
 
 <p class='note'>When you use this installation method, some add-ons will not be available and the documentation might not work for your installation.</p>
+
+More information about this kind of install [is located here][linux].
 
 [Etcher]: https://etcher.io/
 [resinos-network]: https://docs.resin.io/deployment/network/2.0.0/
