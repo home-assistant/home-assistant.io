@@ -54,7 +54,9 @@ This is a dropdown where you can select all the entities of this node. Once sele
 * **Refresh Entity** to refresh just that entity's values
 * **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
 
-Here you can mark a device as requiring polling (before 0.55 this was displayed at the top), so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/polling/), since excessive polling can break your Z-Wave network.
+Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
+
+The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
