@@ -2,7 +2,7 @@
 layout: post
 title: "Set up Hass.io on top of a virtual machine"
 description: "A how-to about using Hass.io on x86_64 hardware in a virtualized way."
-date: 2016-11-29 06:00:00 +0000
+date: 2017-11-29 06:00:00 +0000
 date_formatted: "November 29, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
@@ -44,8 +44,9 @@ $ sudo virt-builder debian-9 \
 Now, we are making our new virtual machine available for `libvirtd`. If you get an error that the OS is unknown, use `$ osinfo-query os` to get the name to use with `--os-variant`. To access the virtual machine is connected to the bridge `bridge0`.
 
 ```bash
-$ sudo virt-install --name hassio --import --ram 1024 --os-variant debian9 \
-    -w bridge=bridge0 --autostart --disk /var/lib/libvirt/images/hassio.img
+$ sudo virt-install --name hassio --import --ram 1024 \
+     --os-variant debian9 -w bridge=bridge0 \
+     --autostart --disk /var/lib/libvirt/images/hassio.img
 ```
 
 <p class='img'>
@@ -63,7 +64,7 @@ ha@192.168.0.109's password:
 Linux hassio 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u3 (2017-08-06) x86_64
 [...]
 $ 
-``
+```
 
 Install the requirements after you switch the user to `root`.
 
