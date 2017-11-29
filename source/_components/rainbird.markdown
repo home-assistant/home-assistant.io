@@ -28,6 +28,6 @@ Configuration variables:
 - **stickip** (*Required*): The IP address of your LNK WiFi Module.
 - **password** (*Required*): The password for accessing the module.
 
-Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-
 Finish its configuration by visiting the [Rain Bird sensor](/components/sensor.rainbird/) and [Rain Bird switch](/components/switch.rainbird/) documentation.
+
+Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
