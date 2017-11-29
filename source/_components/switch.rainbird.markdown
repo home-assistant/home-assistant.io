@@ -15,13 +15,10 @@ ha_iot_class: "Local Polling"
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-To enable stations as switches inside Home Assistant, add the following to your `configuration.yaml` file:
+Once you have enabled the [Rain Bird component](/components/rainbird), add the following to your `configuration.yaml` file:
 
 ```yaml
 switch:
-    platform: rainbird
-    host: '1.1.1.1'
-    password: 'secretpassword'
     sprinkler_1:
       zone: 1
       friendly_name: "Front sprinklers"
@@ -36,8 +33,6 @@ switch:
 
 Configuration variables:
 
-- **stickip** (*Required*): The IP address of your LNK WiFi Module.
-- **password** (*Required*): The password for accessing the module.
 - **zone** (*Required*): Station zone identifier.
 - **friendly_name** (*Optional*): Just a friendly name for the station.
 - **trigger_time** (*Required*): The default duration to sprinkle the zone.
