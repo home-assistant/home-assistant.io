@@ -148,4 +148,5 @@ Hass.io is now ready. The frontend is available at [http://192.168.0.109:8123](h
   Hass.io overview
 </p>
 
-Keep in mind that there are limitations with this approach. Not all [add-ons](/addons/), especially the [SSH add-on](/addons/ssh/), will work and some don't make sense to use as the hardware is not present.
+Keep in mind that there are limitations with this approach. Not all [add-ons](/addons/) will work and some don't make sense to use as the hardware is not present. E.g., use the [SSH community add-on](https://github.com/hassio-addons/addon-ssh) instead of the default [SSH add-on](/addons/ssh/).
+
