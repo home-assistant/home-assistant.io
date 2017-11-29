@@ -35,30 +35,39 @@ Configuration variables:
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
-| Type (`type:`)      | Argument (`arg:`)        |
+| Type (`type:`)      | Argument (`arg:`)         |
+| :------------------ |:--------------------------|
+| disk_use_percent    | Path, eg. `/`             |
+| disk_use            | Path, eg. `/`             |
+| disk_free           | Path, eg. `/`             |
+| memory_use_percent  |                           |
+| memory_use          |                           |
+| memory_free         |                           |
+| swap_use_percent    |                           |
+| swap_use            |                           |
+| swap_free           |                           |
+| load_1m             |                           |
+| load_5m             |                           |
+| load_15m            |                           |
+| network_in          | Interface, eg. `eth0`     |
+| network_out         | Interface, eg. `eth0`     |
+| packets_in          | Interface, eg. `eth0`     |
+| packets_out         | Interface, eg. `eth0`     |
+| ipv4_address        | Interface, eg. `eth0`     |
+| ipv6_address        | Interface, eg. `eth0`     |
+| processor_use       |                           |
+| process             | Binary, e.g. `octave-cli` |
+| last_boot           |                           |
+| since_last_boot     |                           |
+
+**Note**: Some `type:` names used in the `configuration.yaml` file differ from the entity names.
+
+| Sensor type         | Entity ID                |
 | :------------------ |:-------------------------|
-| disk_use_percent    | Path, eg. `/`            |
-| disk_use            | Path, eg. `/`            |
-| disk_free           | Path, eg. `/`            |
-| memory_use_percent  |                          |
-| memory_use          |                          |
-| memory_free         |                          |
-| swap_use_percent    |                          |
-| swap_use            |                          |
-| swap_free           |                          |
-| load_1m             |                          |
-| load_5m             |                          |
-| load_15m            |                          |
-| network_in          | Interface, eg. `eth0`    |
-| network_out         | Interface, eg. `eth0`    |
-| packets_in          | Interface, eg. `eth0`    |
-| packets_out         | Interface, eg. `eth0`    |
-| ipv4_address        | Interface, eg. `eth0`    |
-| ipv6_address        | Interface, eg. `eth0`    |
-| processor_use       |                          |
-| process             | Binary, eg. `octave-cli` |
-| last_boot           |                          |
-| since_last_boot     |                          |
+| memory_free         | sensor.ram_available     |
+| memory_use_percent  | sensor.ram_used          |
+| processor_use       | sensor.cpu_used          |
+| disk_use            | sensor.disk_used         |
 
 ## {% linkable_title Linux specific %}
 
@@ -80,7 +89,7 @@ sensor:
         arg: 'Local Area Connection'
 ```
 
-If you need to use some other interface, open a commandline prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ifconfig` might look like:
+If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ifconfig` might look like:
 
 ```bash
 Wireless LAN adapter Wireless Network Connection:

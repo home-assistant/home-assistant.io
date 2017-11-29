@@ -13,9 +13,9 @@ ha_release: 0.25
 ha_iot_class: "Local Polling"
 ---
 
-The [DirecTV](http://www.directv.com/) receivers will be automatically discovered if you enable the [discovery component](/components/discovery/).
+Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
 
-The `directv` media player platform can also be forced to load by adding the following lines to your `configuration.yaml`:
+To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,7 +29,6 @@ Configuration variables:
 - **name** (*Optional*): Use to give a specific name to the device.
 - **device** (*Optional*): Use to specify a particular receiver in a Genie setup.
 
-In a DirecTV setup with Genie slave boxes, only the master Genie server is currently found via the [discovery component](/components/discovery/). Slave boxes must be manually configured via the `device` configuration variable in order to be used with Home Assistant.
 
 To find valid device IDs, open `http://<IP Address of Genie Server>:8080/info/getLocations` in a web browser. For each Genie slave, you will find a variable `clientAddr` in the response, and this should be used for `device` in `configuration.yaml`
 
@@ -73,4 +72,4 @@ media_player:
     device: 5009591D6969
 ```
 
-It is important to notice that the host and port variables for slave receivers are the same as the master receiver.
+It is important to notice that the host and port variables for slave/Genie receivers are the same as the master receiver.

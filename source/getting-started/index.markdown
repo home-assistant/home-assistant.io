@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Installing Home Assistant"
-description: "Instructions to get started using Home Assistant."
+title: "Install Home Assistant"
+description: "Getting started: How to install Home Assistant."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
@@ -9,16 +9,20 @@ sharing: true
 footer: true
 ---
 
-You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer, or you can turn a Raspberry Pi into a dedicated Home Assistant hub.
+First you will need to install Home Assistant before we can get started:
 
+We have developed **Hass.io** to turn your device into a dedicated Home Assistant hub controlled by a nice webinterface.
+For Raspberry Pi and Intel NUC we offer configured images. Flash the image, setup WiFi (if required) and everything else can be done inside the Hass.io webinterface. Great, isn't it?
+
+Also Home Assistant runs on any other device that supports **Python 3**.
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/hassio/'>
+  <a class='option-card' href='/hassio/installation/'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
     </div>
-    <div class='title'>Install Hass.io on your Raspberry Pi 3</div>
+    <div class='title'>Install Home Assistant using Hass.io</div>
   </a>
-  <a class='option-card' href='/docs/installation/python/'>
+  <a class='option-card' href='/docs/installation/virtualenv/'>
     <div class='img-container'>
       <img src='/images/supported_brands/python.svg' />
     </div>

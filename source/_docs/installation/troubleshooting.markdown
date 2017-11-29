@@ -14,7 +14,7 @@ It can happen that you run into trouble while installing Home Assistant. This pa
 
 
 #### {% linkable_title pip3: command not found %}
-This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running `python3 --version`. If it is not installed, [download it here](https://www.python.org/getit/).
+This utility should have been installed as part of the Python installation. Check if Python is installed by running `python3 --version`. If it is not installed, [download it here](https://www.python.org/getit/).
 
 If you are able to successfully run `python3 --version` but not `pip3`, install Home Assistant by running the following command instead:
 
@@ -70,5 +70,8 @@ $ iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhe
 After upgrading to a new version, you may notice your browser gets stuck at the "loading data" login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work. 
 
 Android Chrome 
-chrome -> settings -> site settings -> storage -> search for your URL for home assistant-> "clear & reset"
+chrome -> settings -> site settings -> storage -> search for your URL for Home Assistant-> "clear & reset"
 
+#### {% linkable_title Not initializing discovery because could not install dependency netdisco %}
+
+If you see `Not initializing discovery because could not install dependency netdisco==x.y.z` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.

@@ -164,7 +164,7 @@ media_player:
         method: System.Shutdown
 ```
 
-#### Turn on and off the TV with the Kodi JSON-CEC Addon
+#### Turn on and off the TV with the Kodi JSON-CEC Add-on
 
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 
@@ -193,6 +193,9 @@ media_player:
           command: standby
 ```
 
+<p class='note'>
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
+</p>
 
 ### {% linkable_title Kodi services samples %}
 
@@ -243,4 +246,4 @@ script:
           method: VideoLibrary.Scan
 ```
 
-For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/kodi_dynamic_input_select/)
+For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/automation_kodi_dynamic_input_select/)

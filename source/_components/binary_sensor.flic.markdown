@@ -15,7 +15,7 @@ ha_release: 0.35
 
 The `flic` platform allows you to connect with multiple [flic](https://flic.io) smart buttons.
 
-The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as home assistant or any other reachable machine. For setup instructions visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
+The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine. For setup instructions visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
 To use your flic buttons in your installation, add the following to your `configuration.yaml` file:
 
@@ -62,7 +62,7 @@ automation:
 Event data:
 
 - **button_name**: The name of the button, that triggered the event.
-- **button_address**: The bluetooth address of the button, that triggered the event.
+- **button_address**: The Bluetooth address of the button, that triggered the event.
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 

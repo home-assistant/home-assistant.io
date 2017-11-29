@@ -23,13 +23,14 @@ $primary-color: #049cdb;
     float: right;
 
     .algolia-autocomplete {
-      width: calc(100% - 58px);
+      width: calc(100% - 64px);
       margin: 0 10px;
     }
 
     input {
       border: 0;
       width: 100%;
+      outline: none;
     }
   }
 }
@@ -100,7 +101,6 @@ $primary-color: #049cdb;
 }
 
 .frontpage {
-
   .material-card {
     margin-bottom: 24px;
   }
@@ -109,7 +109,6 @@ $primary-color: #049cdb;
     .release-date {
       white-space: nowrap;
     }
-
   }
 
   .recent-posts {
@@ -202,7 +201,8 @@ h2:hover a.title-link,
 h3:hover a.title-link,
 h4:hover a.title-link,
 h5:hover a.title-link,
-h6:hover a.title-link {
+h6:hover a.title-link,
+dt:hover a.title-link {
   position: relative;
 
   &::before {
@@ -237,7 +237,7 @@ h6:hover a.title-link {
   }
 
   .icon i {
-  border: none !important;
+    border: none !important;
   }
 }
 
@@ -286,7 +286,7 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p {
+    & > p:last-child {
       margin-bottom: 0;
     }
 
@@ -310,6 +310,13 @@ article.post, article.page, article.listing {
   h2 {
     font-size: 1.5em;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
+    //
+    // border: 0;
+    // border-top: 1px solid $primary-color;
+    // padding-top: 1.4rem;
   }
 
   h3 {
@@ -317,11 +324,17 @@ article.post, article.page, article.listing {
     letter-spacing: 0.125rem;
     font-size: 1.2rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 2em 0 1rem;
   }
 
   h4 {
     font-size: 1.1rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
   }
 }
 
@@ -381,15 +394,15 @@ p.note {
 
 .aside-module {
   .section {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .brand-logo-container {
     text-align: center;
-    height: 97px;
+    height: 87px;
 
     img {
-      max-height: 97px;
+      max-height: 67px;
     }
   }
 }
@@ -431,7 +444,7 @@ ul.sidebar-menu {
 }
 
 a code {
-  color: #049cdb;
+  color: $primary-color;
 }
 
 twitterwidget {
@@ -446,4 +459,49 @@ twitterwidget {
 .aside-module {
   max-width: 100%;
   overflow: hidden;
+}
+
+// Configuration variables
+div.config-vars {
+  // Future re-design
+  // h3 {
+  //   border: 0;
+  //   border-top: 1px solid $primary-color;
+  //   padding-top: 1.4rem;
+  // }
+
+  dl {
+    margin-bottom: 1.5em;
+
+    &.nested {
+      border-left: 1px dotted $primary-color;
+      padding-left: 6px;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    dd {
+      margin: 0 0 0.5em 1em;
+
+      p.desc {
+        margin: 0;
+
+        span.type,
+        span.required {
+          font-style: italic;
+
+          &::after {
+            content: " "
+          }
+        }
+      }
+
+      p.default {
+        font-style: italic;
+        margin: 0;
+      }
+    }
+  }
 }

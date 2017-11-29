@@ -30,7 +30,7 @@ sensor:
 Configuration variables:
 
 - **server_token** (*Required*): A server token obtained from [developer.uber.com](https://developer.uber.com) after [creating an app](https://developer.uber.com/dashboard/create).
-- **start_latitude** (*Optional*): The starting latitude for a trip. Defaults to the latitude in your your `configuration.yaml` file.
+- **start_latitude** (*Optional*): The starting latitude for a trip. Defaults to the latitude in your `configuration.yaml` file.
 - **start_longitude** (*Optional*): The starting longitude for a trip. Defaults to the longitude in your `configuration.yaml` file. 
 - **end_latitude** (*Optional*): The ending latitude for a trip. While `end_latitude` is optional, it is strongly recommended to provide an `end_latitude`/`end_longitude` when possible as you will get more accurate price and time estimates.
 - **end_longitude** (*Optional*): The ending longitude for a trip. While `end_longitude` is optional, it is strongly recommended to provide an `end_latitude`/`end_longitude` when possible as you will get more accurate price and time estimates.

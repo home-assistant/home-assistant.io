@@ -13,7 +13,7 @@ ha_release: "0.49"
 ha_iot_class: "Local Push"
 ---
 
-The `wake_on_lan` component enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, in order to turn them on.
+The `wake_on_lan` component enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to turn them on.
 
 To use this component in your installation, add the following to your `configuration.yaml` file:
 

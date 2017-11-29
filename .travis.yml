@@ -1,6 +1,6 @@
 language: ruby
 sudo: false
 cache: bundler
-script: bundle exec rake generate
+script: travis_wait bundle exec rake generate
 after_success:
 - '[ "${TRAVIS_BRANCH}" = "current" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake deploy || false'

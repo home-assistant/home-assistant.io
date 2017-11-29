@@ -14,7 +14,7 @@ ha_release: pre 0.7
 ---
 
 
-The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
 
@@ -34,7 +34,7 @@ sensor:
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
-- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **[variable]** (*Required*): Name of the variable to monitor.
     - **name** (*Optional*): The name to use for the frontend.

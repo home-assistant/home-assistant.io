@@ -33,5 +33,12 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 - **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard).
 - **verify_ssl** (*Optional*): Controls if the SSL certificate running on your Unifi webserver must be trusted by a known Certificate Authority on the server running Home Assistant. Defaults to 'True' but can also be a value that points to your custom cert "path/to/custom_cert.pem".
+- **detection_time** (*Optional*): The Unifi component will not return a device that has not been seen by the controller in the last 180 seconds. You can adjust this threshold with this variable and accepts seconds or `00:00:00` time formats.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+<p class='note'>
+If you decide to install the Unifi Controller on the same system as your Home Assistant, be aware there may be overlap in ports if you have the MQTT component as well.
+
+[Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
+</p>

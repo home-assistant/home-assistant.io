@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "KNX Thermostat"
-description: "Instructions on how to integrate KXN thermostats with Home Assistant."
+title: "KNX Climate"
+description: "Instructions on how to integrate KNX thermostats with Home Assistant."
 date: 2016-06-24 12:00
 sidebar: true
 comments: false
@@ -16,22 +16,61 @@ ha_iot_class: "Local Polling"
 
 The `knx` climate platform is used as in interface with KNX thermostats.
 
-KNX thermostats use at least 2 group addresses: one for the current temperature and one for the target temperature (named set-point in KNX terms).
+The `knx` component must be configured correctly, see [KNX Component](/components/knx).
 
-To use your KNX thermostats in your installation, add the following to your `configuration.yaml` file:
+To use your KNX thermostats in your installation, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+   - platform: knx
+     name: HASS-Kitchen.Temperature
+     temperature_address: '5/1/1'
+     setpoint_shift_address: '5/1/2'
+     setpoint_shift_state_address: '5/1/3'
+     target_temperature_address: '5/1/4'
+     operation_mode_address: '5/1/5'
+```
+
+Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:
 
 ```yaml
 # Example configuration.yaml entry
 climate:
   - platform: knx
-    address : KNX_ADDRESS
-    temperature_address: 0/1/1
-    setpoint_address: 0/1/0
+    name: HASS-Kitchen.Temperature
+    temperature_address: '5/1/1'
+    setpoint_shift_address: '5/1/2'
+    setpoint_shift_state_address: '5/1/3'
+    target_temperature_address: '5/1/4'
+    operation_mode_frost_protection_address: '5/1/5'
+    operation_mode_night_address: '5/1/6'
+    operation_mode_comfort_address: '5/1/7'
 ```
 
-- **address** (*Required*): The KNX group address that is used to turn on/off this actuator channel.
-- **temperature_address** (*Required*): The group address that is used to communicate the current temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value), check [details](http://www.knx.org/fileadmin/template/documents/downloads_support_menu/KNX_tutor_seminar_page/Advanced_documentation/05_Interworking_E1209.pdf).
-- **setpoint_address** (*Required*): The group address that is used to set/read the target temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value). Make sure, you set the read-flag for the thermostat to allow Home Assistant to read the target temperature.
-- **name** (*Optional*): A name for this devices used within Home Assistant.
+Configuration variables:
 
-With the current version of the module, no advanced KNX thermostat functionalities (e.g. HVAC mode) are supported.
+- **name** (*Optional*): A name for this device used within Home Assistant.
+- **temperature_address**: KNX group address for reading current room temperature from KNX bus.
+- **target_temperature_address**: KNX group address for reading current target temperature from KNX bus.
+
+The `knx` component sets the desired target temperature by modifying the setpoint_shift. The module provides the following configuration options:
+
+* **setpoint_shift_address**: (*Optional*) KNX address for setpoint_shift
+* **setpoint_shift_state_address**: (*Optional*) Explicit KNX address for reading setpoint_shift.
+* **setpoint_shift_step**: (*Optional*) Defines for step size in Kelvin for each step of setpoint_shift. Default is 0.5 K.
+* **setpoint_shift_min**: (*Optional*) Minimum value of setpoint shift. Default is "-6".
+* **setpoint_shift_max**: (*Optional*) Maximum value of setpoint shift. Default is "6".
+
+The operation modes may be controlled with the following directives:
+
+- **operation_mode_address** (*Optional*): KNX address for operation mode (Frost protection/night/comfort).
+- **operation_mode_state_address** (*Optional*): Explicit KNX address for reading operation mode
+- **controller_status_address** (*Optional*): KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3)
+- **controller_status_state_address** (*Optional*): Explicit KNX address for reading HVAC controller status
+
+- **operation_mode_frost_protection_address** (*Optional*): KNX address for switching on/off frost/heat protection mode.
+- **operation_mode_night_address** (*Optional*): KNX address for switching on/off night mode.
+- **operation_mode_comfort_address** (*Optional*): KNX address for switching on/off comfort mode.
+
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` was specified.

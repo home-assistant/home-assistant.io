@@ -63,7 +63,7 @@ unambiguous, but sometimes the component will not be able to guess the actual
 usage of the device.  For example, there might be a table lamp plugged into an
 INSTEON appliance relay module.  By default, this will show as a 'switch'
 device in Home Assistant, but it really should be a 'light' device.  For
-exceptions like this, the component supports a device plaform override.  You
+exceptions like this, the component supports a device platform override.  You
 can set any device (by address) to explicitly use a specific platform if the
 default is not correct.
 

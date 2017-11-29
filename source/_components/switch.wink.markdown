@@ -28,4 +28,3 @@ The requirement is that you have setup [Wink](/components/wink/).
 - iHome smart plug (No Wink hub required)
 - Wink switch groups (User created groups of switches)
 
-

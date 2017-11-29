@@ -12,17 +12,17 @@ ha_category: Hub
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-The 433 Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
+The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. Their website provides details for various RF transmitter, receiver and transceiver modules for 433Mhz, 868Mhz and 2.4 Ghz [here.](http://www.nemcon.nl/blog2/wiring)
+RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
  <p class='note'>
- Note: Versions later than R44 adds support for Ikea Ansluta, Philips Living Colors Gen1, MySensors devices.
+ Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
  </p>
 
-A complete list of devices supported by RFLink can be found [here](http://www.nemcon.nl/blog2/devlist)
+A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
 This component is tested with the following hardware/software:
 
@@ -40,8 +40,8 @@ Configuration variables:
 
 - **port** (*Required*): The path to RFLink USB/serial device or TCP port in TCP mode.
 - **host** (*Optional*): Switches to TCP mode, connects to host instead of to USB/serial.
-- **wait_for_ack** (*Optional*): Wait for RFLink to ackowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
-- **ignore_devices** (*Optional*): List of devices id's to ignore. Supports wildcards (*) at the end.
+- **wait_for_ack** (*Optional*): Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
+- **ignore_devices** (*Optional*): List of device id's to ignore. Supports wildcards (*) at the end.
 - **reconnect_interval** (*Optional*): Time in seconds between reconnect attempts.
 
 Complete example:
@@ -58,7 +58,7 @@ rflink:
 
 ### {% linkable_title TCP mode %}
 
-TCP mode allows connect to a RFLink device over TCP/IP network. This is for example useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
+TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
 To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
 
@@ -71,7 +71,7 @@ Other methods of exposing the serial interface over TCP are possible (eg: ESP826
 Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively. 
 
 <p class='note warning'>
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Living Colors)
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Philips Living Colors)
 </p>
 
 <p class='note'>
@@ -85,9 +85,26 @@ rflink:
   port: 1234
 ```
 
+### {% linkable_title Adding devices Automatically %}
+
+In order to have your devices discovered automatically, you need to add the following to the configuration.
+When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
+
+```yaml
+light:
+  - platform: rflink
+    automatic_add: true
+switch:
+  - platform: rflink
+    automatic_add: true
+sensor:
+  - platform: rflink
+    automatic_add: true
+```
+
 ### {% linkable_title Ignoring devices %}
 
-RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 Mhz technology.
+The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
 For example:
 
@@ -104,7 +121,9 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
-Wildcards only work at the end of the ID, not in the middle of front!
+<p class='note'>
+Wildcards only work at the end of the ID, not in the middle or front!
+</p>
 
 ### {% linkable_title Device support %}
 
@@ -112,16 +131,16 @@ Even though a lot of devices are supported by RFLink, not all have been tested/i
 
 ### {% linkable_title Device Incorrectly Identified %}
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.nemcon.nl/blog2/faq#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
 
-### {% linkable_title Technical overview %}
+### {% linkable_title Technical Overview %}
 
-- The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over Home Assistant's bus which can be subscribed to by entities/platform implementations.
-- The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
-- Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
+- The`rflink` Python module is a asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](https://home-assistant.io/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
+- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
+- Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
-### {% linkable_title Debug logging %}
+### {% linkable_title Debug Logging %}
 
 For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
 

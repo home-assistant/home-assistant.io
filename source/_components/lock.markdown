@@ -16,7 +16,7 @@ Keeps track which locks are in your environment, their state and allows you to c
 
 ### {% linkable_title Use the services %}
 
-Go the the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock/lock` or `lock/unlock` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock/lock` or `lock/unlock` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {"entity_id":"lock.front_door"}

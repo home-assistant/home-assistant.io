@@ -87,3 +87,13 @@ Contents of `sensors.yaml`:
 <p class='note'>
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
 </p>
+
+### {% linkable_title Entity names %}
+
+The only characters valid in entity names are:
+
+* Lowercase letters
+* Numbers
+* Underscores
+
+If you create an entity with other characters then Home Assistant may not generate an error for that entity. However you will find that attempts to use that entity will generate errors (or possibly fail silently).

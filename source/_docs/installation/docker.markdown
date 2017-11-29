@@ -54,9 +54,10 @@ The steps would be:
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
+* To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
-* Your Home Assistant within Docker should now run
+* Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 * Go to the Docker-app and move to "Image"-section
@@ -64,8 +65,16 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 * wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 * Move to "Container"-section
 * Stop your container if it's running
-* Right-click on it and select "Action"->"Clear". You won't loose any data, as all files are stored in your config-directory
+* Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your config-directory
 * Start the container again - it will then boot up with the new Home Assistant image
+
+Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
+* Go to the Docker-app and move to "Container"-section
+* Right-click on it and select "Action"->"Restart".
+
+<p class='note'>
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne. 
+</p>
 
 ### {% linkable_title Restart %}
 
@@ -74,4 +83,4 @@ This will launch Home Assistant and serve the web interface from port 8123 on yo
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
- 2. Or you can restart it from an terminal by running `docker restart home-assistant`
+ 2. Or you can restart it from a terminal by running `docker restart home-assistant`

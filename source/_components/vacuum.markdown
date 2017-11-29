@@ -11,15 +11,14 @@ footer: true
 
 The `vacuum` component enables the ability to control home cleaning robots within Home Assistant.
 
-To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi/).
+To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi_miio/).
 
 ```yaml
 # Example configuration.yaml entry
 vacuum:
-- platform: xiaomi
-  name: 'name of the robot'
-  host: 192.168.1.2
-  token: your-token-here
+  - platform: xiaomi_miio
+    name: Living room
+    host: 192.168.1.2
 ```
 
 ### {% linkable_title Component services %}
@@ -86,7 +85,7 @@ Tell the vacuum cleaner to do a spot clean-up.
 
 #### {% linkable_title Service `vacuum/set_fanspeed` %}
 
-Set the fan speed of the botvac. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number, it depends of the `vacuum` platform.
+Set the fan speed of the botvac. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|

@@ -31,7 +31,7 @@ Configuration variables:
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.
 
-Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/).
+Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/).
 
 The Arlo component also provides a service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
@@ -40,7 +40,7 @@ The Arlo component also provides a service to enable/disable the motion detectio
 - alias: Enable Arlo upton HA start'
   initial_state: 'on'
   trigger:
-    platform: homeassitant
+    platform: homeassistant
     event: start
   action:
     service: camera.enable_motion_detection

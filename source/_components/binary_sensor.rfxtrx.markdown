@@ -25,7 +25,7 @@ binary_sensor:
   automatic_add: True
 ```
 
-Open your local home-assistant web UI and go to the "states" page. Then make sure to trigger your sensor. You should see a new entity appear in the *Current entites* list, starting with "binary_sensor." and some hexadecimal digits. Those hexadecimal digits are your device id.
+Open your local home-assistant web UI and go to the "states" page. Then make sure to trigger your sensor. You should see a new entity appear in the *Current entities* list, starting with "binary_sensor." and some hexadecimal digits. Those hexadecimal digits are your device id.
 
 For example: "binary_sensor.0913000022670e013b70". Here your device id is `0913000022670e013b70`. Then you should update your configuration to:
 
@@ -44,6 +44,9 @@ Do not forget to tweak the configuration variables:
 - **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
 - **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
 
+<p class='note warning'>
+This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
+</p>
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -70,7 +73,7 @@ binary_sensor:
 
 ## Options for PT-2262 devices under the Lighting4 protocol
 
-When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sur cases, the following options are available in order to circumvent the problem:
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
 
 - **data_bits** (*Optional*): Defines how many bits are used for commands inside the data packets sent by the device.
 - **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.
@@ -132,5 +135,5 @@ The following devices are known to work with the rfxtrx binary sensor component.
   - Chuango PIR-700.
 
 - Door / window sensors:
-  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch.
-  - Nexa LMST-606 Magnetic contact switch.
+  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a tamper switch.
+  - Nexa LMST-606.
