@@ -14,6 +14,7 @@ Binary sensors gather information about the state of devices which have a "digit
 The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
+- **battery**: `On` means low, `Off` means normal
 - **cold**: `On` means cold
 - **connectivity**: `On` means connection present, `Off` means no connection
 - **gas**: `On` means gas detected
