@@ -109,7 +109,7 @@ Clear the sleep timer on a speaker, if one is set.
 
 ### {% linkable_title Service `sonos_update_alarm` %}
 
-Update an existing sonos alarm.
+Update an existing Sonos alarm.
  
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -119,3 +119,15 @@ Update an existing sonos alarm.
 | `volume` | yes | Float for volume level.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players. 
+
+### {% linkable_title Service `sonos_set_option` %}
+
+Set Sonos speaker options.
+
+Night Sound and Speech Enhancement modes are only supported on Sonos PLAYBAR and PLAYBASE speakers when playing from the TV source. Other speaker types will ignore these options.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their options set.
+| `night_sound` | yes | Boolean to control Night Sound mode.
+| `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
