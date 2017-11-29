@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Rain Bird Switch"
-description: "Instructions on how to integrate your Rain Bird LNK WiFi Module as Switches within Home Assistant."
+title: "Rain Bird"
+description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
 date: 2017-08-25 12:00
 sidebar: true
 comments: false
