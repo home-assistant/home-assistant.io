@@ -23,16 +23,40 @@ tts:
     app_id: YOUR_APPID
     api_key: YOUR_APIKEY
     secret_key: YOUR_SECRETKEY
-    person: 4
 ```
 
-Configuration variables:
-
-- **app_id** (*Required*): AppID for use this service, registered on Baidu.
-- **api_key** (*Required*): Apikey from Baidu.
-- **secret_key** (*Required*): Secretkey from Baidu.
-- **speed** (*Optional*): Audio speed, from 0 to 9, default is 5.
-- **pitch** (*Optional*): Audio pitch, from 0 to 9, default is 5.
-- **volume** (*Optional*): Audio volume, from 0 to 15, default is 5.
-- **person** (*Optional*): You can choose 0, 1, 3, 4, default is 0(a female voice).
+{% configuration %}
+app_id:
+  description: The App ID for the use this service, must be already registered on Baidu.
+  required: true
+  type: string
+api_key:
+  description: The API key from Baidu.
+  required: true
+  type: string
+secret_key:
+  description: The secret key from Baidu.
+  required: true
+  type: string
+speed:
+  description: Audio speed from 0 to 9.
+  required: false
+  type: int
+  default: 5
+pitch:
+  description: Audio pitch from 0 to 9.
+  required: false
+  type: int
+  default: 5
+volume:
+  description: Audio volume from 0 to 15.
+  required: false
+  type: int
+  default: 5
+person:
+  description: Voice type. You choose one from 0, 1, 3 or 4.
+  required: false
+  type: int
+  default: 0
+{% endconfiguration %}
 
