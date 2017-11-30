@@ -1,0 +1,36 @@
+---
+layout: page
+title: "Antifurto365 iAlarm Control Panel"
+description: "Instructions how to integrate iAlarms alarms into Home Assistant."
+date: 2017-11-30 20:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: antifurto365-ialarm.png
+ha_category: Alarm
+ha_release: 0.59
+---
+
+The `ialarm` platform provides connectivity with the Antifurto365 iAlarm alarm systems.
+
+This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
+
+To enable this, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: ialarm
+    host: ALARM_SYSTEM_IP
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+Configuration variables:
+
+- **name** (*Optional*): Name of device in Home Assistant.
+- **host** (*Required*): The IP address of the iAlarm device on your home network.
+- **username** (*Required*): Username used to sign into the iAlarm web client (should be admin by default).
+- **password** (*Required*): Password used to sign into the iAlarm web client.
+
