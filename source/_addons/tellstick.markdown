@@ -19,7 +19,42 @@ After installation you are presented with a default and example configuration, t
 After any changes has been made to the configuration you need to restart the add-on for the changes to take effect.
 
 
-Example for adding more devices (note the comma separator between devices):
+Configuration variables:
+
+- **id** (*Required*): This is a number and must be unique for each device. 
+- **name** (*Required*): A name for easy identification of the device. 
+- **protocol** (*Required*): This is the protocol the device uses. More on the different protocols later down. 
+- **model** (*Optional*): The parameter model is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus selflearning etc.
+- **house** (*Optional*): Depending on protocol the values here can vary a lot to identify or group per house or type.
+- **unit** (*Optional*): Unit identifier, in most cases a value between 1 to 16 and often used in combination with house.
+- **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instand between values (only for IKEA protocol as it seems).
+- **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
+
+
+
+
+In order to communicate with the add-on you will also need to add Hass.io specific data in the `configuration.yaml` file.
+For regular Home Assistant you only add `tellstick:` but for Hass.io and this add-on you need to add internal communication details.
+
+
+```yaml
+# Example configuration.yaml entry
+
+tellstick:
+    host: core-tellstick
+    port: [50800, 50801]
+    
+```
+
+
+
+To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
+
+
+## {% linkable_title Examples %}
+
+
+Example for adding more devices in the add-on configuration (note the comma separator between devices):
 
 ```json
 {
@@ -43,31 +78,3 @@ Example for adding more devices (note the comma separator between devices):
   ]
 }
 ```
-
-
-Configuration variables:
-
-- **id** (*Required*): This is a number and must be unique for each device. 
-- **name** (*Required*): A name for easy identification of the device. 
-- **protocol** (*Required*): This is the protocol the device uses. More on the different protocols later down. 
-- **model** (*Optional*): The parameter model is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus selflearning etc.
-- **house** (*Optional*): Depending on protocol the values here can vary a lot to identify or group per house or type.
-- **unit** (*Optional*): Unit identifier, in most cases a value between 1 to 16 and often used in combination with house.
-- **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instand between values (only for IKEA protocol as it seems).
-- **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
-
-
-
-
-In order to communicate with the add-on you will also need to add Hass.io specific data in the `configuration.yaml` file.
-For regular Home Assistant you only add `tellstick:` but for Hass.io and this add-on you need to add internal communication details.
-
-```
-tellstick:
-    host: core-tellstick
-    port: [50800, 50801]
-```
-
-
-
-To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
