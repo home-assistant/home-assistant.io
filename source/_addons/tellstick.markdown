@@ -12,10 +12,12 @@ featured: false
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
 
+
 To use this add-on, you first install it from the list of Built-in add-ons in Hass.io.
 After installation you are presented with a default and example configuration, to alter this you must follow both the JSON format and also be aligned with the [valid parameters for Tellstick configuration file (tellstick.conf)](https://developer.telldus.com/wiki/TellStick_conf).
 
 After any changes has been made to the configuration you need to restart the add-on for the changes to take effect.
+
 
 Example for adding more devices (note the comma separator between devices):
 
@@ -42,6 +44,7 @@ Example for adding more devices (note the comma separator between devices):
 }
 ```
 
+
 Configuration variables:
 
 - **id** (*Required*): This is a number and must be unique for each device. 
@@ -54,13 +57,17 @@ Configuration variables:
 - **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
 
 
+
+
 In order to communicate with the add-on you will also need to add Hass.io specific data in the `configuration.yaml` file.
-For regular Home Assistant you add `tellstick:` but for the add-on you need to add internal communication details.
+For regular Home Assistant you only add `tellstick:` but for Hass.io and this add-on you need to add internal communication details.
 
 ```
 tellstick:
     host: core-tellstick
     port: [50800, 50801]
 ```
+
+
 
 To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
