@@ -27,7 +27,7 @@ Configuration variables:
 - **model** (*Optional*): The parameter model is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus selflearning etc.
 - **house** (*Optional*): Depending on protocol the values here can vary a lot to identify or group per house or type.
 - **unit** (*Optional*): Unit identifier, in most cases a value between 1 to 16 and often used in combination with house.
-- **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instand between values (only for IKEA protocol as it seems).
+- **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instant between values (only for IKEA protocol as it seems).
 - **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
 
 
