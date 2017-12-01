@@ -10,7 +10,7 @@ footer: true
 logo: plum-lightpad.png
 ha_category: Light
 ha_iot_class: "Local Push"
-ha_release: 0.58.2
+ha_release: 0.59
 ---
 
 The `plum_lightpad` platform allows you to control your [Plum Lightpad](https://plumlife.com/product/plum-lightpad/) light switches from within Home Assistant.
