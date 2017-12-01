@@ -23,7 +23,9 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
   "customize": {
     "active": false,
     "folder": "mosquitto"
-  }
+  },
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
 }
 ```
 
