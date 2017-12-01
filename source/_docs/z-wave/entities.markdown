@@ -157,9 +157,9 @@ binary_sensor:
         friendly_name: "Friendly name here"
         value_template: >-
           {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
-          on
+          true
           {%- else -%}
-          off
+          false
           {%- endif -%}{% endraw %}
 ```
 
