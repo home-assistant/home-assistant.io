@@ -53,3 +53,20 @@ or change its state:
 $ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 ```
 
+### {% linkable_title Get the current power consumption %}
+
+The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: template
+    sensors:
+      power:
+        friendly_name: "Current Power"
+        unit_of_measurement: "W"
+        value_template: "{{ states.switch.office.attributes.current_power_w }}"
+```
+{% endraw %}
+
