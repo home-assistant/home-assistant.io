@@ -26,18 +26,6 @@ binary_sensor:
     adsvar: .boolean1
 ```
 
-If you want to disable device notifications and use regular polling instead use
-the following configuration:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platforms: ads
-    adsvar: GVL.polled_boolean
-    use_notify: no
-    poll_interval: 5000
-```
-
 Configuration variables:
 
 {% configuration %}
@@ -46,11 +34,6 @@ Configuration variables:
 the ADS device.
 - **name** (*Optional*): An identifier for the switch in the frontend.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **use_notify** (*Optional*): Enable device notifications. Default: yes.
-- **poll_interval** (*Optional*): If device notifications are disabled polling
 to 1000.
 
 {% endconfiguration %}
-
-If *device notifications* are enabled, the *ADS* device will push a change
-directly to Home Assistant. Otherwise, the value will be polled regularly.

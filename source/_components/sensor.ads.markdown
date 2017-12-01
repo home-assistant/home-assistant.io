@@ -37,16 +37,11 @@ Configuration variables:
 - **adstype** (*Optional*): The datatype of the ADS variable. Default: *int*.
 Possible values are: *int, uint, byte*.
 - **name** (*Optional*): An identifier for the sensor
-- **use_notify** (*Optional*): Enable device notifications. Default: yes.
-- **poll_interval** (*Optional*): Sets the polling interval in milliseconds.
 Only used if *use_notify* is *False*. Default: 1000
 - **factor** (*Optional*): Use a factor that divides the stored value before
 displaying in Home Assistant. Default: 1.
 
 {% endconfiguration %}
-
-If *device notifications* are enabled, the *ADS* device will push a change
-directly to Home Assistant. Otherwise, the value will be polled regularly.
 
 The  *factor* can be used to implement fixed decimals. E.g., set *factor* to 100
 if you want to display a fixed decimal value with two decimals. A variable

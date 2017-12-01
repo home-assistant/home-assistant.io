@@ -25,12 +25,6 @@ Configuration parameters:
 - **port** (*Required*): The port that runs the AMS server on the device.
 - **ip_address** (*Optional*): The IP-Address to which the Ams NetId is routed.
 If None is given the first 4 bytes of the device id will be used.
-- **use_notify** (*Optional*): If this parameter is set to *True* all platforms
-will get push notifications on variable changes. If set to *False* polling will
-be used. The poll interval can be changed by the **poll_interval** parameter.
-Default: *True*
-- **poll_interval** (*Optional*): Sets the polling interval in milliseconds.
-Only used if *use_notify* is *False*. Default: 1000
 
 {% endconfiguration %}
 
