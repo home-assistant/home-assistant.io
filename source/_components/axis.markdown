@@ -69,10 +69,6 @@ axis:
 ```
 
 <p class='note'>
-If you are using Python 3.6, you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
-</p>
-
-<p class='note'>
 Any specific levels for triggers needs to be configured on the device.
 </p>
 
