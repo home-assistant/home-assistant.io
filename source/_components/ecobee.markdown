@@ -62,4 +62,4 @@ Configuration variables:
   <img src='{{site_root}}/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-If for whatever reason you delete and re-create your ecobee app at ecobee.com such that your developer api key changes, you will need to delete your /conf/ecobee.conf file.   You will also need to update the api_key in configuration.yaml (or secrets.yaml).  
+If for whatever reason you delete and re-create your ecobee app at ecobee.com such that your developer API key changes, you will need to delete your `/conf/ecobee.conf file`. You will also need to update the `api_key:` in the `configuration.yaml` or `secrets.yaml` file.  
