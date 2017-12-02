@@ -165,14 +165,14 @@ values in a usable form.
 - platform: rest
   name: OWM_report
   json_attributes: main,weather
-  value_template: '{{value_json["weather"][0]["description"].title()}}'
+  value_template: '{% raw %}{{value_json["weather"][0]["description"].title()}}{% endraw %}'
   resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
 
 - platform: template
   sensors:
     owm_weather:
-      value_template: '{{states.sensor.owm_report.attributes.weather[0]["description"].title()}}'
-      icon_template: '{{"http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png"}}'
+      value_template: '{% raw %}{{states.sensor.owm_report.attributes.weather[0]["description"].title()}}{% endraw %}'
+      icon_template: '{% raw %}{{"http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png"}}{% endraw %}'
       entity_id: sensor.owm_report
     owm_temp:
       friendly_name: 'Outside temp'
@@ -183,11 +183,11 @@ values in a usable form.
       friendly_name: 'Outside pressure'
       value_template: '{{states.sensor.owm_report.attributes.main["pressure"]}}'
       unit_of_measurement: "hP"
-      entity_id: sensor.owm_test
+      entity_id: sensor.owm_report
     owm_humidity:
       friendly_name: 'Outside humidity'
       value_template: '{{states.sensor.owm_report.attributes.main["humidity"]}}'
       unit_of_measurement: "%"
-      entity_id: sensor.owm_test
+      entity_id: sensor.owm_report
 ```
 
