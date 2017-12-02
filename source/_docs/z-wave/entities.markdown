@@ -119,7 +119,7 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **254**: Deep sleep
   - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
 
 ```
 binary_sensor:
@@ -128,10 +128,10 @@ binary_sensor:
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
         value_template: >- 
-          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
-          on
+          {% raw %}{%- if is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') -%}
+          true
           {%- else -%}
-          off
+          false
           {%- endif -%}{% endraw %}
 ```
 
@@ -147,7 +147,7 @@ binary_sensor:
    - **254**: Deep sleep
    - **255**: Case open
 
-If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
+If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
 
 ```
 binary_sensor:
@@ -157,9 +157,9 @@ binary_sensor:
         friendly_name: "Friendly name here"
         value_template: >-
           {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
-          on
+          true
           {%- else -%}
-          off
+          false
           {%- endif -%}{% endraw %}
 ```
 
