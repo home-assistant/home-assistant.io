@@ -35,6 +35,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [SABnzbd downloader](https://home-assistant.io/components/sensor.sabnzbd/)
  * [Samsung TVs](https://home-assistant.io/components/media_player.samsungtv/)
  * [Sonos speakers](https://home-assistant.io/components/media_player.sonos/)
+ * [Telldus Live](https://home-assistant.io/components/tellduslive/)
  * [Yamaha media player](https://home-assistant.io/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](https://home-assistant.io/components/light.yeelightsunflower/)
 
@@ -77,6 +78,7 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `tellduslive`: Telldus Live
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
  
