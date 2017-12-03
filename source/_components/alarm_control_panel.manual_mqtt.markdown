@@ -42,15 +42,21 @@ alarm_control_panel:
 
 Configuration variables:
 
-All configuration variables from the base manual alarm platform are available:
+The following configuration variables from the base manual alarm platform are available:
 
 - **name** (*Optional*): The name of the alarm. Default is "HA Alarm".
 - **code** (*Optional*): If defined, specifies a code to enable or disable the alarm in the frontend. This code is not required for MQTT interactions.
-- **pending_time** (*Optional*): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.
+- **code_template** (*Optional*): If defined, returns a code to enable or disable the alarm in the frontend; an empty string disables checking the code.  Inside the template, the variables **from_state** and **to_state** identify the current and desired state.  Only one of **code** and **code_template** can be specified.
+- **delay_time** (*Optional*): The time in seconds of the pending time before triggering the alarm. Default is 0 seconds.
+- **pending_time** (*Optional*): The time in seconds of the pending time before effecting a state change. Default is 60 seconds.
 - **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
 - **disarm_after_trigger** (*Optional*): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
-- **armed_home|armed_away|armed_night|triggered** (*Optional*): State specific settings
-  - **pending_time**: State specific pending time override.
+- **armed_home/armed_away/armed_night/disarmed/triggered** (*Optional*): State specific settings
+  - **delay_time** (*Optional*): State specific setting for **delay_time** (all states except **triggered**)
+  - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
+  - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
+
+See the documentation for the [manual alarm platform](../alarm_control_panel.manual/) for a description.
 
 Additionally, the following MQTT configuration variables are also available:
 
@@ -62,7 +68,13 @@ Additionally, the following MQTT configuration variables are also available:
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on this Alarm Panel. Default is "ARM_AWAY".
 - **payload_arm_night** (*Optional*): The payload to set armed-night mode on this Alarm Panel. Default is "ARM_NIGHT".
 
-In the config example below, armed_home state will have no pending time and triggered state will have a pending time of 20 seconds whereas armed_away state will have a default pending time of 30 seconds.
+In the config example below:
+
+- the disarmed state never triggers the alarm;
+
+- the armed_home state will leave no time to leave the building or disarm the alarm;
+
+- while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,11 +83,13 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     pending_time: 30
+    delay_time: 20
+    trigger_time: 4
+    disarmed:
+      trigger_time: 0
     armed_home:
       pending_time: 0
-    triggered:
-      pending_time: 20
-    trigger_time: 4 
+      delay_time: 0
 ```
 
 ## {% linkable_title Examples %}
