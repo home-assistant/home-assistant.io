@@ -96,7 +96,9 @@ If you are on Windows and you're using Python 3.5, download the [Netifaces](http
 </p>
 
 <p class='note'>
-If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
+If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
+  
+For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
 </p>
 
 If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.
