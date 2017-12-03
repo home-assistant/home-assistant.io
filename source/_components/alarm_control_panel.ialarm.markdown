@@ -27,10 +27,22 @@ alarm_control_panel:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name of device in Home Assistant.
-- **host** (*Required*): The IP address of the iAlarm device on your home network.
-- **username** (*Required*): Username used to sign into the iAlarm web client (should be admin by default).
-- **password** (*Required*): Password used to sign into the iAlarm web client.
+{% configuration %}
+  host:
+    description: The IP address of the iAlarm device on your home network.
+    required: true
+    type: string
+  username:
+    description: Username used to sign into the iAlarm web client (should be admin by default).
+    required: true
+    type: string
+  password:
+    description: Password used to sign into the iAlarm web client.
+    required: true
+    type: string
+  name:
+    description: Name of device in Home Assistant.
+    required: false
+    type: string
+{% endconfiguration %}
 
