@@ -62,7 +62,7 @@ $ sudo systemctl disable hciuart
 Finally, reboot to make those changes active.
 
 <p class='note'>
-	If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`
+  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
 </p>
 
 ### {% linkable_title Aeon Minimote %}
@@ -78,7 +78,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 1
-
   - id: mini_1_held
     alias: 'Minimote Button 1 Held'
     trigger:
@@ -87,7 +86,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 2
-
   - id: mini_2_pressed
     alias: 'Minimote Button 2 Pressed'
     trigger:
@@ -96,7 +94,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 3
-
   - id: mini_2_held
     alias: 'Minimote Button 2 Held'
     trigger:
@@ -105,7 +102,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 4
-
   - id: mini_3_pressed
     alias: 'Minimote Button 3 Pressed'
     trigger:
@@ -114,7 +110,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 5
-
   - id: mini_3_held
     alias: 'Minimote Button 3 Held'
     trigger:
@@ -123,7 +118,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 6
-
   - id: mini_4_pressed
     alias: 'Minimote Button 4 Pressed'
     trigger:
@@ -132,7 +126,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 7
-
   - id: mini_4_held
     alias: 'Minimote Button 4 Held'
     trigger:
