@@ -16,7 +16,7 @@ og_image: /images/blog/2017-12-0.59/components.png
 We are proud to announce the availability of Home Assistant 0.59. To keep you in the loop: This is the second last release in 2017. We have stuck to our bi-weekly release cycle for another year but we decided that we will take a little break between Christmas and New Year.
 
 ## {% linkable_title Dominos Pizza platform %}
-With the Dominos Pizza integration made by [@wardcraigj] your home is now taking care that you don't  starve. In combination with a [Skybell](/components/skybell/) or a [DoorBird](/components/skybell/) you will know exactly when the pizza is in front of your door.
+With the Dominos Pizza integration made by [@wardcraigj] your home is now taking care that you don't  starve. In combination with a [Skybell](/components/skybell/) or a [DoorBird](/components/doorbird/) you will know exactly when the pizza is in front of your door.
 
 ## {% linkable_title Color picker %}
 @NovapaX created a new color picker. While dragging the color badge with your finger, a badge will appear above your finger so you can see the current color.
