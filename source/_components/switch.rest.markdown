@@ -47,12 +47,12 @@ timeout:
   type: int
   default: 10
 body_on:
-  description: "The body of the POST request that commands the switch to become enabled. Default is "ON". This value can be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
   required: false
   type: string
   default: ON
 body_off:
-  description: "The body of the POST request that commands the switch to become disabled. Default is "OFF". This value can also be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/topics/templating/)."
   required: false
   type: string
   default: OFF
