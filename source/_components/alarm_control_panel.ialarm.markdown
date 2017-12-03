@@ -9,10 +9,10 @@ sharing: true
 footer: true
 logo: antifurto365-ialarm.png
 ha_category: Alarm
-ha_release: 0.59
+ha_release: 0.60
 ---
 
-The `ialarm` platform provides connectivity with the Antifurto365 iAlarm alarm systems.
+The `ialarm` platform provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarm alarm systems.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 
