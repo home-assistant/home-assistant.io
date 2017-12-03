@@ -15,7 +15,7 @@ ha_release: 0.29
 ---
 
 <p class='note warning'>
-  This sensor doesn't work anymore as [Yahoo!](https://yahoo.uservoice.com/forums/382977-finance/suggestions/32103877-yahoo-stock-quote-api-please-bring-back) decommissioned the service in early November 2017.
+  This sensor doesn't work anymore as [Yahoo!](https://yahoo.uservoice.com/forums/382977-finance/suggestions/32103877-yahoo-stock-quote-api-please-bring-back) decommissioned the service in early November 2017. A repleacement is the [`alpha_vantage` sensor](/components/sensor.alpha_vantage/).
 </p>
 
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
