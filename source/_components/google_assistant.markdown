@@ -46,7 +46,7 @@ google_assistant:
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
 * *agent_user_id* (Optional): A string to identify the user, e.g., email address. If not provided, the component will generate one.
-* *api_key* (Optional): An API Key generated for the project from Google Console which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
+* *api_key* (Optional): An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
     - `switch`
     - `light`
@@ -115,7 +115,7 @@ homeassistant:
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
-	2. Client ID: Should be the same as `client_id` from your hass config above
+	2. Client ID: The `client_id` from your Home Assistant configuration above
 	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
 	4. Configure your client. Add scopes for `email` and `name`
 	5. Testing instructions: doesn't matter since you won't submit this app
@@ -127,8 +127,8 @@ homeassistant:
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
-11. If you want to use the request_sync service in Home Assistant, then Enable Homegraph API for your project:
-	1. Go to https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview
+11. If you want to use the `google_assistant.request_sync` service in Home Assistant, then enable Homegraph API for your project:
+	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
 	2. Select your project and click Enable Homegraph API
 	3. Go to Credentials and select API Key from Create Credentials
 	4. Note down the generated API Key and use this in the configuration

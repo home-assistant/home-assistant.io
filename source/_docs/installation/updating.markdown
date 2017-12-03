@@ -11,7 +11,7 @@ redirect_from: /getting-started/updating/
 ---
 
 <p class='note warning'>
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [HASSbian](/docs/hassbian/common-tasks/#update-home-assistant), [Raspberry Pi All-In-One Installer](/docs/installation/raspberry-pi-all-in-one/#upgrading), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [HASSbian](/docs/hassbian/common-tasks/#update-home-assistant), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 </p>
 
 View what's new in the latest version and potential impacts on your system [here](https://github.com/home-assistant/home-assistant/releases).
@@ -25,7 +25,7 @@ $ pip3 install --upgrade homeassistant
 After updating, you must restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself or the [autostarting](/docs/autostart/) daemon (if applicable). Startup can take considerable amount of time (i.e. minutes) depending on your device. This is because all requirements are updated as well.
 
 <p class='note'>
-To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [HASSIO](/hassio/), [HASSbian](/docs/hassbian/installation/), [Raspberry Pi All-In-One Installer](/docs/installation/raspberry-pi-all-in-one/), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv).
+To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [HASSbian](/docs/hassbian/installation/), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv).
 </p>
 
 [BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.

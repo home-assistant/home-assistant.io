@@ -215,3 +215,7 @@ Button one single tap|1|TBC
 Button two single tap|2|TBC
 Button three single tap|3|TBC
 Button four single tap|4|TBC
+
+### {% linkable_title Zooz Toggle Switches %}
+
+Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
