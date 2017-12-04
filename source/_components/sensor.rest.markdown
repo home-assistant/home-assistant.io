@@ -49,6 +49,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing the REST endpoint.
 - **password** (*Optional*): The password for accessing the REST endpoint.
 - **headers** (*Optional*): The headers for the requests.
+- **json_attributes** (*Optional*): A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. Default is an empty list.
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
@@ -67,9 +68,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
-You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their http://ip.jsontest.com/ endpoint.
-
-To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
+You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
 ```yaml
 sensor:
@@ -82,8 +81,6 @@ sensor:
 ### {% linkable_title Single value from a local Glances instance %}
 
 The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
-
-Add something similar to the entry below to your `configuration.yaml` file:
 
 ```yaml
 sensor:
@@ -154,3 +151,63 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
+### {% linkable_title Fetch multiple JSON values and present them as attibutes %}
+
+[JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    resource: http://date.jsontest.com/
+    value_template: '{{ value_json.time }}'
+  - platform: template
+    sensors:
+      date:
+        friendly_name: 'Date'
+        value_template: '{{ states.sensor.json_time.attributes["date"] }}'
+      milliseconds:
+        friendly_name: 'milliseconds'
+        value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
+```
+{% endraw %}
+
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: OWM_report
+    json_attributes: 
+      - main
+      - weather
+    value_template: '{{ value_json["weather"][0]["description"].title() }}'
+    resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+  - platform: template
+    sensors:
+      owm_weather:
+        value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
+        icon_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png" }}'
+        entity_id: sensor.owm_report
+      owm_temp:
+        friendly_name: 'Outside temp'
+        value_template: '{{ states.sensor.owm_report.attributes.main["temp"]-273.15 }}'
+        unit_of_measurement: "°C"
+        entity_id: sensor.owm_report
+      owm_pressure:
+        friendly_name: 'Outside pressure'
+        value_template: '{{ states.sensor.owm_report.attributes.main["pressure"] }}'
+        unit_of_measurement: "hP"
+        entity_id: sensor.owm_report
+      owm_humidity:
+        friendly_name: 'Outside humidity'
+        value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
+        unit_of_measurement: "%"
+        entity_id: sensor.owm_report
+```
+{% endraw %}
