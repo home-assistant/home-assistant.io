@@ -56,6 +56,7 @@ google_assistant:
     - `fan`
     - `scene`
     - `script`
+    - `climate`
 
 You can also customize your devices similar to other components by adding keys to entities:
 
