@@ -2,7 +2,7 @@
 layout: page
 title: "TellStick"
 description: "Telldus TellStick service enabler and tools."
-date: 2017-11-30 21:43
+date: 2017-12-04 21:31
 sidebar: true
 comments: false
 sharing: true
@@ -33,8 +33,7 @@ Configuration variables:
 
 
 
-In order to communicate with the add-on you will also need to add Hass.io specific data in the `configuration.yaml` file.
-For regular Home Assistant you only add `tellstick:` but for Hass.io and this add-on you need to add internal communication details.
+You will need to add internal communication details to `configuration.yaml` to enable the integration from Hass.io and the add-on.
 
 
 ```yaml
@@ -50,6 +49,7 @@ tellstick:
 
 To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
 
+The add-on will also enable you to interact with tdtool via a Home Assistant services call, see example below for selflearning device.
 
 ## {% linkable_title Examples %}
 
@@ -78,3 +78,15 @@ Example for adding more devices in the add-on configuration (note the comma sepa
   ]
 }
 ```
+
+
+
+If you wish to teach a selflearning device in your TellStick configuration: 
+
+Go to Home Assistant [service call](http//hassio.local:8123/dev-service) in Developer tools
+Select
+- Domain `hassio`
+- Service: `addon_stdin` 
+- Service Data: `{"addon":"core_tellstick","input":"learn 1"}`
+
+Replace `1` with the corresponding ID of the device in your TellStick configuration.
