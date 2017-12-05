@@ -44,10 +44,12 @@ Configuration variables:
   name:
     required: false
     description: An identifier for the sensor
+    type: string
   factor:
     required: false
     description: A factor that divides the stored value before displaying in Home Assistant
     default: 1
+    type: integer
 {% endconfiguration %}
 
 The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100
