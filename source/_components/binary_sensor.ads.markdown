@@ -29,13 +29,13 @@ binary_sensor:
 Configuration variables:
 
 {% configuration %}
-	adsvar:
+  adsvar:
     required: true
     description: The name of the variable which you want to access on the ADS device
     type: string
   name: 
     required: false
-    description: An identifier for the switch in the frontend
+    description: An identifier for the light in the frontend
     type: string
   device_class:
     required: false

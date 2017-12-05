@@ -38,16 +38,18 @@ Configuration variables:
     type: string
   adstype:
     required: false
-    description: The datatype of the ADS variable (possible values are int, uint, byte; default: int)
+    description: The datatype of the ADS variable, possible values are int, uint, byte
+    default: int
     type: string
   name:
-  	required: false
+    required: false
     description: An identifier for the sensor
   factor:
-  	required: false
-    description: A factor that divides the stored value before displaying in Home Assistant (default: 1)
+    required: false
+    description: A factor that divides the stored value before displaying in Home Assistant
+    default: 1
 {% endconfiguration %}
 
-The  *factor* can be used to implement fixed decimals. E.g., set *factor* to 100
+The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100
 if you want to display a fixed decimal value with two decimals. A variable
 value of `123` will be displayed as `1.23`.

@@ -32,4 +32,8 @@ Configuration variables:
   adsvar:
     required: true
     description: The name of the variable which you want to access on the ADS device
+  name: 
+    required: false
+    description: An identifier for the switch in the frontend
+    type: string
 {% endconfiguration %}

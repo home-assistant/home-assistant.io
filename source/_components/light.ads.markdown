@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ADS Light"
-description: "Instruction on how to set up ADS lights within Home Assistant."
+description: Instructions how to set up ADS lights within Home Assistant
 date: 2017-10-25 10:00
 sidebar: true
 comments: false
@@ -34,7 +34,7 @@ Configuration variables:
     type: string
   adsvar_brightness:
     required: false
-    description: The name of the variable that controls the brightness (Use an unsigned integer on the PLC side)
+    description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
     type: integer
   name:
     required: false

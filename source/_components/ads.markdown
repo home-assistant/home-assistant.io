@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "ADS"
-description: "Connect Home Assistant to TwinCAT devices via the ADS interface."
-date: 2016-05-25 23:39
+description: Connect Home Assistant to TwinCAT devices via the ADS interface
+date: 2017-12-05 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -20,17 +20,17 @@ devices running TwinCAT® and other devices implementing this interface.
 Configuration parameters:
 
 {% configuration %}
-	device:
-  	required: true
+  device:
+    required: true
     description: The AMS NetId that identifies the device
     type: string
   port:
-  	required: true
-    description: The port that runs the AMS server on the device
+    required: true
+    description: The port that runs the AMS server on the device, typically this would be 801 or 851
     type: integer
   ip_address:
-  	required: false
-		description: The IP-Address of the ADS device (if not set the first 4 bytes of the device id will be used)
+    required: false
+    description: The IP-Address of the ADS device, if not set the first 4 bytes of the device id will be used
     type: string
 {% endconfiguration %}
 
@@ -63,4 +63,3 @@ on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use
 - **adstype**: specify the type of the variable. Use one of the following:
 `int`, `byte`, `uint`, `bool`
 - **value**: the value that will be written in the variable
-
