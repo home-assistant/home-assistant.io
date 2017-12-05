@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.59
+ha_release: 0.60
 ha_iot_class: "Local Push"
 ---
 
@@ -20,12 +20,18 @@ devices running TwinCAT® and other devices implementing this interface.
 Configuration parameters:
 
 {% configuration %}
-
-- **device** (*Required*): The AMS NetId that identifies the device.
-- **port** (*Required*): The port that runs the AMS server on the device.
-- **ip_address** (*Optional*): The IP-Address to which the Ams NetId is routed.
-If None is given the first 4 bytes of the device id will be used.
-
+	device:
+  	required: true
+    description: The AMS NetId that identifies the device
+    type: string
+  port:
+  	required: true
+    description: The port that runs the AMS server on the device
+    type: integer
+  ip_address:
+  	required: false
+		description: The IP-Address of the ADS device (if not set the first 4 bytes of the device id will be used)
+    type: string
 {% endconfiguration %}
 
 

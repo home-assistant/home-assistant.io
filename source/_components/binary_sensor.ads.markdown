@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Binary Sensor
-ha_release: 0.59
+ha_release: 0.60
 ha_iot_class: "Local Push"
 ---
 
@@ -29,11 +29,16 @@ binary_sensor:
 Configuration variables:
 
 {% configuration %}
-
-- **adsvar** (*Required*): The name of the variable which you want to access on
-the ADS device.
-- **name** (*Optional*): An identifier for the switch in the frontend.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-to 1000.
-
+	adsvar:
+    required: true
+    description: The name of the variable which you want to access on the ADS device
+    type: string
+  name: 
+    required: false
+    description: An identifier for the switch in the frontend
+    type: string
+  device_class:
+    required: false
+    description:  The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend
+    type: string
 {% endconfiguration %}

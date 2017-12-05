@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Sensor
-ha_release: 0.59
+ha_release: 0.60
 ha_iot_class: "Local Push"
 ---
 
@@ -32,15 +32,20 @@ sensor:
 Configuration variables:
 
 {% configuration %}
-
-- **adsvar** (*Required*): The name of the variable which you want to access on
-- **adstype** (*Optional*): The datatype of the ADS variable. Default: *int*.
-Possible values are: *int, uint, byte*.
-- **name** (*Optional*): An identifier for the sensor
-Only used if *use_notify* is *False*. Default: 1000
-- **factor** (*Optional*): Use a factor that divides the stored value before
-displaying in Home Assistant. Default: 1.
-
+  adsvar:
+    required: true
+    description: The name of the variable which you want to access
+    type: string
+  adstype:
+    required: false
+    description: The datatype of the ADS variable (possible values are int, uint, byte; default: int)
+    type: string
+  name:
+  	required: false
+    description: An identifier for the sensor
+  factor:
+  	required: false
+    description: A factor that divides the stored value before displaying in Home Assistant (default: 1)
 {% endconfiguration %}
 
 The  *factor* can be used to implement fixed decimals. E.g., set *factor* to 100
