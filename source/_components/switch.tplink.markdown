@@ -36,5 +36,6 @@ Configuration variables:
 
 - **host** (*Required*): The IP address of your TP-Link switch, eg. `192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
+- **enable_leds** (*Optional*): If the LEDs on the switch (WiFi and power) should be lit (defaults `True`).
 
 
