@@ -37,6 +37,7 @@ Configuration variables:
 ### {% linkable_title Service `squeezebox_call_method` %}
 
 Call a custom Squeezebox JSONRPC API.
+
 See documentation for this interface on http://HOST:PORT/html/docs/cli-api.html?player= where HOST and PORT are the host name and port for your Logitech Media Server. 
 
 | Service data attribute | Optional | Description |
@@ -45,8 +46,11 @@ See documentation for this interface on http://HOST:PORT/html/docs/cli-api.html?
 | `method` | no | Array of positional parameters to pass to Logitech Media Server.
 
 This service can be used to integrate any Squeezebox action to an automation.
+
 It can also be used to target a Squeezebox from IFTT (or DialogFlow, Alexa...).
+
 For example, to play an album from your collection, create an IFTT applet like this:
 - Trigger: Google assistant, with sentence: `I want to listen to album $`
-- Action: JSON post query with such JSON body: `{ "entity_id": "media_player.squeezebox_radio", "method": ["playlist", "loadtracks", "album.titlesearch={{TextField}}"] }`
+- Action: JSON post query with such JSON body:  
+`{ "entity_id": "media_player.squeezebox_radio", "method": ["playlist", "loadtracks", "album.titlesearch={{TextField}}"] }`  
 This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTT cannot escape the text field.
