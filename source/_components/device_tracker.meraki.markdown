@@ -21,7 +21,6 @@ device_tracker:
   - platform: meraki
     secret: your_secert
     validator: meraki_validator
-    track_new_devices: False
 ```
 
 
@@ -29,4 +28,3 @@ Configuration variables:
 
 - **secret** (*Required*): Secret code added in Meraki
 - **validator** (*Required*): Validation string from Meraki
-- **track_new_devices** (*Optional*): If new discovered devices are tracked by default 
