@@ -33,12 +33,12 @@ Manual configuration and customization is also possible by using the sample conf
 # Example configuration.yaml entry
 climate:
   - platform: daikin
-      ip_address: 10.0.0.1
+      host: 10.0.0.1
       name: optional name
 ```
 
 Configuration variables:
 
-- **ip_address** (*Required*): IP of the device
+- **host** (*Required*): IP of the device
 - **name** (*Optional*): If the device has a name previously set by the user than that name will be used
 
