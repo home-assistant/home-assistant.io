@@ -50,3 +50,12 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own) add the follow
 mqtt:
   broker: core-mosquitto
 ```
+
+If username and password set up in add-on, configuration.yaml should be in this format...
+
+```yaml
+mqtt:
+  broker: core-mosquitto
+  username: "testuser"
+  password: "mypw"
+```
