@@ -183,10 +183,10 @@ stop() {
     echo 'Service not running' >&2
     return 1
   fi
-  echo 'Stopping service…' $REDIRECT
+  echo 'Stopping service…' >&2
   kill $(cat "$PID_FILE")
   while ps -p $(cat "$PID_FILE") > /dev/null 2>&1; do sleep 1;done;
-  echo 'Service stopped' $REDIRECT
+  echo 'Service stopped' >&2
 }
 
 install() {
