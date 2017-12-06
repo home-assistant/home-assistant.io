@@ -7,14 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: beckhoff.png
 ha_category: Light
-ha_release: 0.60
+ha_release: "0.60"
 ha_iot_class: "Local Push"
 ---
 
-To use your ADS device, you first have to set up your [ADS
-hub](/components/ads/) and then add the following to your `configuration.yaml`
+The `ads` light platform allows you to control your connecte ADS lights.
+
+To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -24,8 +25,6 @@ light:
     adsvar: GVL.enable_light
     adsvar_brightness: GVL.brightness
 ```
-
-Configuration variables:
 
 {% configuration %}
   adsvar:
