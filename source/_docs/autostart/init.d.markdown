@@ -169,18 +169,18 @@ REDIRECT="> $CONFIG_DIR/home-assistant.log 2>&1"
 
 start() {
   if [ -f $PID_FILE ] && kill -0 $(cat $PID_FILE) 2> /dev/null; then
-    echo 'Service already running' $REDIRECT
+    echo 'Service already running' >&2
     return 1
   fi
-  echo 'Starting service…' $REDIRECT
+  echo 'Starting service…' >&2
   local CMD="$PRE_EXEC $HASS_BIN $FLAGS $REDIRECT;"
   su -s /bin/bash -c "$CMD" $RUN_AS
-  echo 'Service started' $REDIRECT
+  echo 'Service started' >&2
 }
 
 stop() {
     if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2> /dev/null; then
-    echo 'Service not running' $REDIRECT
+    echo 'Service not running' >&2
     return 1
   fi
   echo 'Stopping service…' $REDIRECT
