@@ -32,9 +32,22 @@ switch:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  type: string
+  default: Random Sensor
+host:
+  description: "The IP address of your TP-Link switch, eg. `192.168.1.32`."
+  required: true
+  type: string
+enable_leds:
+  description: If the LEDs on the switch (WiFi and power) should be lit.
+  required: false
+  type: boolean
+  default: true
+{% endconfiguration %}
 
-- **host** (*Required*): The IP address of your TP-Link switch, eg. `192.168.1.32`.
-- **name** (*Optional*): The name to use when displaying this switch.
 
 
