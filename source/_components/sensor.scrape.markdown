@@ -45,6 +45,7 @@ In this section you find some real life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [https://home-assistant.io/](https://home-assistant.io/)
 
+{% raw %}
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -52,13 +53,15 @@ sensor:
     resource: https://home-assistant.io
     name: Release
     select: ".current-version h1"
-    value_template: '{% raw %}{{ value.split(":")[1] }}{% endraw %}'
+    value_template: '{{ value.split(":")[1] }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Available implementations %}
 
 Get the counter for all our implementations from the [Component overview](/components/) page.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -66,8 +69,9 @@ sensor:
     resource: https://home-assistant.io/components/
     name: Home Assistant impl.
     select: 'a[href="#all"]'
-    value_template: '{% raw %}{{ value.split("(")[1].split(")")[0] }}{% endraw %}'
+    value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Get a value out of a tag %}
 
@@ -109,3 +113,20 @@ sensor:
     select: 'enclosure:nth-of-type(1)'
     attribute: url
 ```
+
+### {% linkable_title Energy price %}
+
+This example tries to retrieve the price for electricity.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: scrape
+    resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+    name: Electricity price
+    select: ".elspot-content"
+    value_template: '{{ value.split(" ")[0] }}'
+    unit_of_measurement: "öre/kWh"
+```
+{% endraw %}

@@ -47,24 +47,60 @@ binary_sensor:
     method: POST
 ```
 
-Configuration variables:
-
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is GET.
-- **name** (*Optional*): Name of the REST binary sensor.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
-- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the REST endpoint.
-- **password** (*Optional*): The password for accessing the REST endpoint.
-- **headers** (*Optional*): The headers for the requests.
+{% configuration %}
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+method:
+  description: The method of the request.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Name of the REST binary sensor.
+  required: false
+  type: string
+  default: REST Binary Sensor
+device_class:
+  description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+payload:
+  description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  type: boolean
+  default: True
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: list, string
+{% endconfiguration %}
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
 </p>
-
 
 ## {% linkable_title Examples %}
 
