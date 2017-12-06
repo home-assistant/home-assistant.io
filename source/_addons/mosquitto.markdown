@@ -51,11 +51,11 @@ mqtt:
   broker: core-mosquitto
 ```
 
-If username and password set up in add-on, configuration.yaml should be in this format...
+If username and password are set up in add-on, your `configuration.yaml` file should contain that data.
 
 ```yaml
 mqtt:
   broker: core-mosquitto
-  username: "testuser"
-  password: "mypw"
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
