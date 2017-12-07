@@ -23,12 +23,10 @@ The NuHeat Thermostat supports the following key concepts.
 
 The _target temperature_ is the temperature that the device attempts to achieve. The target temperature is either determined by the schedule programmed into the thermostat (_auto mode_) or may be overridden. When the target temperature is set by home assistant, the thermostat will hold this temperature until the schedule is resumed.
 
-When in _away mode_ the temperature is permanently overridden to the minimum temperature supported by the thermostat.
-
 
 ## {% linkable_title Attributes %}
 
-The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `target_temperature_low`, `target_temperature_high`, `current_hold_mode`, `current_operation`, `operation_list`, `is_away_mode_on`, `min_temp`, `max_temp`
+The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `current_hold_mode`, `current_operation`, `operation_list`, `min_temp`, `max_temp`
 
 
 ### {% linkable_title Attribute `name` %}
@@ -88,7 +86,7 @@ Returns the current temperature hold, if any.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| String | 'temperature', 'temporary_temperature', 'away', 'auto', etc.
+| String | 'temperature', 'temporary_temperature', 'auto', etc.
 
 ### {% linkable_title Attribute `current_operation` %}
 
@@ -105,14 +103,6 @@ Returns the list of available operation modes.
 | Attribute type | Description |
 | ---------------| ----------- |
 | List of String | Available operation modes
-
-### {% linkable_title Attribute `is_away_mode_on` %}
-
-Returns whether the thermostat is in away mode.
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| Boolean | True, False
 
 ### {% linkable_title Attribute `min_temp` %}
 
@@ -133,18 +123,9 @@ Returns the maximum supported temperature by the thermostat
 
 ## {% linkable_title Services %}
 
-The following services are provided by the NuHeat Thermostat: `set_away_mode`, `set_temperature`, `resume_program`.
+The following services are provided by the NuHeat Thermostat: `set_temperature`, `resume_program`.
 
-The services `fan_min_on_time`, `set_aux_heat`, `set_hold_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
-
-### {% linkable_title Service `set_away_mode` %}
-
-Turns the away mode on or off for the thermostat.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `away_mode` | no | 'on' or 'off'
+The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_hold_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
 
 ### {% linkable_title Service `set_temperature` %}
 
@@ -153,8 +134,6 @@ Puts the thermostat into a temporary hold at the given temperature.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `target_temp_low` | no | Desired heating target temperature (when in auto mode)
-| `target_temp_high` | no | Desired cooling target temperature (when in auto mode)
 | `temperature` | no | Desired target temperature (when not in auto mode)
 
 Only the target temperatures relevant for the current operation mode need to
