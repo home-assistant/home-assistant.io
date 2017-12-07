@@ -27,7 +27,7 @@ First step is to configure Home Assistant to use the development mode for the fr
 
 ```yaml
 frontend:
-  development_repo: ../home-assistant-polymer
+  development_repo: <absolute path to home-assistant-polymer>
 ```
 
 Next step is to git clone the [home-assistant-polymer repository][hass-polymer]. You can place the repository anywhere on your system but to keep these instructions simple we're cloning the home-assistant-polymer repository as a sibling to the Home Assistant repo.

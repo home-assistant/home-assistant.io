@@ -86,7 +86,7 @@ required: inclusive       #=> Inclusive
 required: exclusive       #=> Exclusive
 required: any string here #=> Any string here
 ```
-- **`type:`**: The type of the variable. Allowed entries: `string`, `int` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
+- **`type:`**: The type of the variable. Allowed entries: `string`, `int`, `time`, `template` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
 - **`default:`**: The default value for the variable.
 
 ### {% linkable_title Embedding Code %}

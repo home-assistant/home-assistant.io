@@ -13,7 +13,7 @@ ha_version: 0.57
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier 2. The Air Purifier Pro isn't supported right now.
+The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier 2, Air Purifier 2S andd Air Purifier Pro.
 
 Currently, the supported features are
 

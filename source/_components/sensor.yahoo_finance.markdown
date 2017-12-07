@@ -14,6 +14,10 @@ featured: false
 ha_release: 0.29
 ---
 
+<p class='note warning'>
+  This sensor doesn't work anymore as [Yahoo!](https://yahoo.uservoice.com/forums/382977-finance/suggestions/32103877-yahoo-stock-quote-api-please-bring-back) decommissioned the service in early November 2017. A repleacement is the [`alpha_vantage` sensor](/components/sensor.alpha_vantage/).
+</p>
+
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
 
 To enable the `yahoo_finance` platform, add the following lines to your `configuration.yaml` file:
@@ -24,10 +28,18 @@ sensor:
   - platform: yahoo_finance
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor. If not specified, it defaults to *Yahoo Stock*.
-- **symbols** array (*Optional*): List of stock market symbols for given companies. If not specified, it defaults to *Yahoo (YHOO)*.
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Yahoo Stock
+symbols:
+  description: List of stock market symbols for given companies.
+  required: false
+  type: string, list
+  default: YHOO
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

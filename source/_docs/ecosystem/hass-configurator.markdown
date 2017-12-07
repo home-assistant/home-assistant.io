@@ -15,6 +15,11 @@ redirect_from: /ecosystem/hass-configurator/
 Since there currently is no nice way to edit the yaml-files Home Assistant is using through the frontend, here is a small webapp that hopefully makes the configuration easier. It is a customized and embedded [Ace editor](https://ace.c9.io/), which has syntax highlighting for yaml, the format used for Home Assistants configuration files. There is an integrated file browser to select whatever file you want to edit. When you're done with editing the file, click the save-button and it will replace the original.  
 Essentially this is a browser-based alternative to modifying your configuration through SSH, Windows + SMB, Github etc..
 
+<p class='img'>
+<img src='/images/hassio/screenshots/addon-hass-configurator.png'>
+Screenshot of the HASS Configurator.
+</p>
+
 ### {% linkable_title Feature list %}
 
 - Web-Based editor to modify your files
@@ -64,6 +69,10 @@ Limit access to the configurator by adding allowed IP addresses / networks to th
 List of statically banned IP addresses, e.g. `BANNED_IPS = ["1.1.1.1", "2.2.2.2"]`
 #### BANLIMIT (integer)
 Ban IPs after `n` failed login attempts. Restart the service to reset banning. The default of `0` disables this feature. `CREDENTIALS` has to be set for this to work.
+#### IGNORE_PATTERN (list)
+Files and folders to ignore in the UI, e.g. `IGNORE_PATTERN = [".*", "*.log", "__pycache__"]`.
+#### DIRSFIRST (bool)
+If set to `True`, directories will be displayed at the top of the filebrowser.
 #### GIT (bool)
 Set this variable to `True` to enable Git integration. This feature requires [GitPython](https://gitpython.readthedocs.io)
  to be installed on the system that is running the configurator. For technical reasons this feature can not be enabled with the static settings file.

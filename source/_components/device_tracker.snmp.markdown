@@ -19,7 +19,7 @@ A lot WiFi access points and WiFi routers support the Simple Network Management 
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
 
-OID examples:
+The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker component page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [NMAP](/components/device_tracker.nmap_tracker/) instead.
 
 | Brand | Device/Firmware | OID |
 |---|---|---|---|
@@ -33,6 +33,7 @@ OID examples:
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | EdgeRouter | Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
 | Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
+| DD-WRT | unknown RouterOS version/model |  `1.3.6.1.2.1.4.22.1.2` |
 
 To use the SNMP version 1 platform in your installation, add the following to your `configuration.yaml` file:
 

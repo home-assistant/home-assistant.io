@@ -28,7 +28,7 @@ A service file is needed to control Home Assistant with `systemd`. The template 
 ```
 [Unit]
 Description=Home Assistant
-After=network.target
+After=network-online.target
 
 [Service]
 Type=simple
@@ -46,7 +46,7 @@ If you've setup Home Assistant in `virtualenv` following our [Python installatio
 ```
 [Unit]
 Description=Home Assistant
-After=network.target
+After=network-online.target
 
 [Service]
 Type=simple

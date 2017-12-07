@@ -48,7 +48,7 @@ Configuration variables:
     - **name** (*Required*): Command name.
     - **data** (*Required*): Hex command data.
 
-An example to call the component from developer tools using the remote, send_command service `{ "entity_id":"remote.tv", "device":"0", "command":"menu" }`
+An example to call the component from developer tools using the `remote.send_command` service: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This component converts hex code to Global Cache IR form.
 

@@ -79,9 +79,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
     entities:
       - light.light_family_1
       - binary_sensor.motion_living
-
   Bedroom: light.light_bedroom, switch.sleeping
-
   Rooms:
     view: yes
     name: Rooms
@@ -93,6 +91,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
 ## {% linkable_title Default groups %}
 
 Some components automatically create special groups containing component entities. These groups are named like `group.all_...`, for example:
+
 - `group.all_switches`
 - `group.all_lights`
 - `group.all_devices`
@@ -105,13 +104,11 @@ Default groups appear in the HOME tab, if not overridden by user views and group
 
 ```yaml
 # Example configuration.yaml to include default groups in custom view
-
 customize:
   group.all_automations:
     hidden: false
   group.all_scripts:
     hidden: false
-
 group:
   automation_view:
     name: Automation
@@ -124,3 +121,22 @@ group:
 ## {% linkable_title Group behaviour %}
 
 When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
+
+## {% linkable_title Customize group order %}
+You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
+
+```yaml
+# Example configuration.yaml to order groups with order:
+customize:
+  group.all_automations:
+    order: 1
+  group.all_scripts:
+    order: 2
+group:
+  automation_view:
+    name: Automation
+    view: yes
+    entities:
+      - group.all_automations
+      - group.all_scripts
+```
