@@ -34,3 +34,4 @@ device_tracker:
     description: Validation string from Meraki
     required: true
     type: string
+{% endconfiguration %}
