@@ -10,7 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Scene
 ha_iot_class: "Local Push"
-ha_release: 0.59.0
+ha_release: 0.60.0
 ---
 
 The `vera` platform allows you to control your [Vera](http://getvera.com/) scenes from within Home Assistant.
