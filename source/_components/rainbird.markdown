@@ -2,14 +2,14 @@
 layout: page
 title: "Rain Bird"
 description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
-date: 2017-08-25 12:00
+date: 2017-12-07 12:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: rainbird.png
 ha_category: Hub
-ha_release: 0.57
+ha_release: 0.59.3
 ha_iot_class: "Local Polling"
 ---
 
@@ -19,8 +19,8 @@ To enable it, add the following to your `configuration.yaml` file:
 
 ```yaml
 rainbird:
-    host: '1.1.1.1'
-    password: 'XXXXXXX'
+  host: '1.1.1.1'
+  password: 'XXXXXXX'
 ```
 
 Configuration variables:
