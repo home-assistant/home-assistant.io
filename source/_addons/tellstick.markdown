@@ -79,14 +79,31 @@ Example for adding more devices in the add-on configuration (note the comma sepa
 }
 ```
 
-
+## Service calls
 
 If you wish to teach a selflearning device in your TellStick configuration: 
 
-Go to Home Assistant [service call](http//hassio.local:8123/dev-service) in Developer tools
-Select
-- Domain `hassio`
-- Service: `addon_stdin` 
-- Service Data: `{"addon":"core_tellstick","input":"learn 1"}`
+Go to Home Assistant [service call](http//hassio.local:8123/dev-service) in Developer tools and select
+- Service `hassio.addon_stdin` 
+- Service Data: `{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}`
 
 Replace `1` with the corresponding ID of the device in your TellStick configuration.
+
+You can also use this to list devices or sensors and read the output in the add-on log:
+`{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
+
+
+#### Supported service commands
+
+- `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
+	
+- `"function":"list-sensors"`
+- `"function":"list-devices"`: Alternative devices/sensors listing: Shows devices and/or sensors using key=value format (with tabs as separators, one device/sensor per line, no header lines.)
+
+- `"function":"on":"device":"x"`: Turns on device. ’x’ could either be an integer of the device-id, or the name of the device. 
+
+- `"function":"off":"device":"x"`: Turns off device. ’x’ could either be an integer of the device-id, or the name of the device. 
+
+- `"function":"bell":"device":"x"`: Sends bell command to devices supporting this. ’x’ could either be an integer of the device-id, or the name of the device.
+
+- `"function":"learn":"device":"x"`: Sends a special learn command to devices supporting this. This is normaly devices of ’selflearning’ type. ’x’ could either be an integer of the device-id, or the name of the device. 
