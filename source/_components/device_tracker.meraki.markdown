@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: meraki.png
 ha_category: Presence Detection
-ha_release: 0.59
+ha_release: 0.60
 ---
 Use your `Meraki AP` as device tracker. Note that meraki will see all devices, not only connected to the network.
 Follow instructions [here](https://meraki.cisco.com/technologies/location-analytics-api) how to enable Location Analytics. 
@@ -24,7 +25,12 @@ device_tracker:
 ```
 
 
-Configuration variables:
-
-- **secret** (*Required*): Secret code added in Meraki
-- **validator** (*Required*): Validation string from Meraki
+{% configuration %}
+  secret:
+    description: Secret code added in Meraki
+    required: true
+    type: string
+  validator:
+    description: Validation string from Meraki
+    required: true
+    type: string
