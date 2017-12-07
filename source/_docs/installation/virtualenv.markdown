@@ -26,14 +26,9 @@ The basic guide is for testing Home Assistant. Also check the advanced guide for
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install python3-pip python3-dev
+$ sudo apt-get install python3-pip python3-dev python3-venv
 $ sudo pip3 install --upgrade virtualenv
 ```
-For Debian (8.9+?) installation, add:
-```bash
-$ sudo apt-get install python3-venv
-```
-
 
 ## {% linkable_title Step 2: Setup virtualenv %}
 
