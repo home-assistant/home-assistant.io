@@ -57,3 +57,4 @@ SERVICE_HANDLERS = {
     ...
     SERVICE_AWESOMEDEVICE: ('awesomedevice', None),
 }
+```
