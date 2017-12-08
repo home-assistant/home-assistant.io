@@ -83,9 +83,10 @@ Example for adding more devices in the add-on configuration (note the comma sepa
 
 If you wish to teach a selflearning device in your TellStick configuration: 
 
-Go to Home Assistant [service call](http//hassio.local:8123/dev-service) in Developer tools and select
-- Service `hassio.addon_stdin` 
-- Service Data: `{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}`
+Go to Home Assistant service call in Developer tools and select.  
+- Service: `hassio.addon_stdin`  
+- Enter service Data:  
+```{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}```
 
 Replace `1` with the corresponding ID of the device in your TellStick configuration.
 
