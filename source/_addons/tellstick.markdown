@@ -12,12 +12,10 @@ featured: false
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
 
-
 To use this add-on, you first install it from the list of Built-in add-ons in Hass.io.
 After installation you are presented with a default and example configuration, to alter this you must follow both the JSON format and also be aligned with the [valid parameters for Tellstick configuration file (tellstick.conf)](https://developer.telldus.com/wiki/TellStick_conf).
 
 After any changes has been made to the configuration you need to restart the add-on for the changes to take effect.
-
 
 Configuration variables:
 
@@ -30,9 +28,6 @@ Configuration variables:
 - **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instant between values (only for IKEA protocol as it seems).
 - **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
 
-
-
-
 You will need to add internal communication details to `configuration.yaml` to enable the integration from Hass.io and the add-on.
 
 
@@ -44,8 +39,6 @@ tellstick:
     port: [50800, 50801]
     
 ```
-
-
 
 To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
 
@@ -83,10 +76,10 @@ Example for adding more devices in the add-on configuration (note the comma sepa
 
 If you wish to teach a selflearning device in your TellStick configuration: 
 
-Go to Home Assistant service call in Developer tools and select.  
+Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.  
 - Service: `hassio.addon_stdin`  
 - Enter service Data:  
-```{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}```
+  `{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}`
 
 Replace `1` with the corresponding ID of the device in your TellStick configuration.
 
