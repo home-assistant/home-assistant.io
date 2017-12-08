@@ -51,16 +51,18 @@ Configuration variables:
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
-Another good source of this data would be the [Mi Flora](https://home-assistant.io/components/sensor.miflora/) component. 
+Another good source of this data would be the [Mi Flora](/components/sensor.miflora/) component. 
 
 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
 ## Data Source
 
-The main sources of the data will usually be a [MiFlora sensor](https://home-assistant.io/components/sensor.miflora/) or a [MQTT sensor](https://home-assistant.io/components/sensor.miflora/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
+The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.miflora/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
+
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 plant:
@@ -99,5 +101,6 @@ sensor:
     state_topic: my_plant_topic
     value_template: '{{ value_json.brightness }}'
 ```
+{% endraw %}
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.
