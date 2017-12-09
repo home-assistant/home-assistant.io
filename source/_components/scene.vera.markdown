@@ -15,7 +15,7 @@ ha_release: "0.60"
 
 The `vera` platform allows you to control your [Vera](http://getvera.com/) scenes from within Home Assistant.
 
-They will be automatically discovered if the vera component is loaded.
+They will be automatically discovered if the `vera` component is loaded.
 
 For more configuration information see the [Vera component](/components/vera/) documentation.
 
