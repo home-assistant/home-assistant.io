@@ -13,7 +13,7 @@ ha_release: "0.60"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `canary` sensor platform allows you to integrate your sensors in your [Canary](https://canary.is) in Home Assistant..
+The `canary` sensor platform allows you to integrate the sensors in your [Canary](https://canary.is) devices in Home Assistant.
 
 To add `canary` sensors to your installation, follow instructions in [Canary component](/components/canary/).
 

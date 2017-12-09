@@ -26,11 +26,23 @@ canary:
   password: secret
 ```
 
-Configuration variables:
+{% configuration %}
+  username:
+    description: The username for accessing your Canary account.
+    required: true
+    type: string
+  password:
+    description: The password for accessing your Canary account.
+    required: true
+    type: string
+  timeout:
+    description: Timeout to wait for connections.
+    required: false
+    type: int
+    default: 10
+{% endconfiguration %}
 
-- **username** (*Required*): The username for accessing your Canary account.
-- **password** (*Required*): The password for accessing your Canary account.
-- **timeout**  (*Optional*): Timeout to wait for connections. Defaults to 10 seconds.
+
 
 Once loaded, your front end will have the following components:
 
