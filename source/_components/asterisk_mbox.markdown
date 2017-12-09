@@ -28,7 +28,7 @@ asterisk_mbox:
     port: ASTERISK_PBX_SERVER_PORT
 ```
 
-This will add a new 'Mailbox' side-panel, as well as a sensor to indicate # of messages available.
+This will add a new 'Mailbox' side-panel, as well as a sensor to indicate # of messages available.  If the call-data-record is enabled on the server, a new CDR mailbox will be enabled as well.
 
 Configuration variables:
 
