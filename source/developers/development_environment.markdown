@@ -16,11 +16,13 @@ You'll need to set up a development environment if you want to develop a new fea
 #### {% linkable_title Developing on Linux %}
 
 Install the core dependencies.
+
 ```bash
 $ sudo apt-get install python3-pip python3-dev python3-venv
 ```
 
 In order to run `script/setup` below you will need some more dependencies.
+
 ```bash
 $ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev
 ```
@@ -32,7 +34,7 @@ Different distributions have different package installation mechanisms and somet
 Additional dependencies exist if you you plan to perform Frontend Development, please read the [Frontend](https://home-assistant.io/developers/frontend/) section to learn more.
 
 #### {% linkable_title Developing on Windows %}
-[
+
 If you are using Windows as a development platform, make sure that you have the correct Microsoft [Visual C++ build tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) installed. The installation of the most requirements and validation using `tox` will fail if this is not done correctly. Check the [Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details.
 
 It is recommended using [PyCharm](https://www.jetbrains.com/pycharm/download/) as debugger.
