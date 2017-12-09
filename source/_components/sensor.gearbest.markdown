@@ -10,7 +10,7 @@ footer: true
 logo: gearbest.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: "0.58"
+ha_release: "0.60"
 ---
 
 
