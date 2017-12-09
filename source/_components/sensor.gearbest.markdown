@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: geizhals.png
+logo: gearbest.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
 ha_release: "0.58"
