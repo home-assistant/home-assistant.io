@@ -32,8 +32,10 @@ Different distributions have different package installation mechanisms and somet
 Additional dependencies exist if you you plan to perform Frontend Development, please read the [Frontend](https://home-assistant.io/developers/frontend/) section to learn more.
 
 #### {% linkable_title Developing on Windows %}
+[
+If you are using Windows as a development platform, make sure that you have the correct Microsoft [Visual C++ build tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) installed. The installation of the most requirements and validation using `tox` will fail if this is not done correctly. Check the [Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details.
 
-If you are using Windows as a development platform, make sure that you have the correct Microsoft Visual C++ build tools installed. Check the [Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details. Validation using `tox` will fail if this is not done correctly.
+It is recommended using [PyCharm](https://www.jetbrains.com/pycharm/download/) as debugger.
 
 Also, make sure to install or upgrade the `setuptools` Python package. It contains compatibility improvements and adds automatic use of compilers:
 
