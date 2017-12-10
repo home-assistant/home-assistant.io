@@ -15,7 +15,7 @@ ha_iot_class: No
 
 ### Description ###
 
-The 'daikin' climate component integrates your Daikin AC(s) into Home Assistant, enabling control of setting the following parameters:
+The 'daikin' climate component integrates the european versions of Daikin ACs (models BRP069A41, 42, 43, 45) into Home Assistant, enabling control of setting the following parameters:
 - **mode** (cool, heat, dry, fan only or auto)
 - **fan speed**
 - **target temperature**
