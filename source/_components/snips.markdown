@@ -14,6 +14,8 @@ ha_release: 0.48
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
+The latest documentation can be found here: [Snips Platform Documentation](https://github.com/snipsco/snips-platform-documentation/wiki).
+
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
 Snips takes voice or text as input, and produces *intents* as output, which are explicit representations of an intention behind an utterance, and which can subsequently be used by Home Assistant to perform appropriate actions.
@@ -25,10 +27,22 @@ Snips takes voice or text as input, and produces *intents* as output, which are 
 
 ### Installation
 
-The Snips Voice Platform is installed on Raspberry Pi with the following command:
+The Snips Voice Platform is installed as a docker image on Raspberry Pi with the following command:
 
 ```sh
 (pi) $ curl https://install.snips.ai -sSf | sh
+```
+
+Snips can also be installed on a Debian/Ubuntu machine as well:
+
+```sh
+sudo apt-get update
+sudo apt-get install -y dirmngr
+sudo bash -c  'echo "deb https://debian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys F727C778CCB0A455
+
+sudo apt-get update
+sudo apt-get install -y snips-platform-voice
 ```
 
 ### Creating an assistant
@@ -55,8 +69,13 @@ Make sure that a microphone is plugged to the Raspberry Pi. If you are having tr
 
 Start the Snips Voice Platform using the `snips` command:
 
+Raspberry Pi:
 ```sh
 (pi) $ snips
+```
+Debian/Ubuntu:
+```sh
+sudo systemctl start "snips-*"
 ```
 
 Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say
@@ -67,15 +86,20 @@ followed by a command, e.g.
 
 > Set the lights to green in the living room
 
-We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the `hermes/nlu/intentParsed` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
+We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the `hermes/intent/<slotName>` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
 
 #### Optional: specifying an external MQTT broker
 
 By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, instead of running the `snips` command above (which assumes we are using the internal MQTT broker), we use the full launch command with explicitly specified parameters (replace `MQTT_BROKER_IP` and `MQTT_BROKER_PORT` with appropriate values):
 
+Raspberry Pi:
+
 ```sh
 $ docker run -t --rm --name snips --log-driver none -v /home/pi/.asoundrc:/root/.asoundrc -v /opt/snips/config:/opt/snips/config --privileged -v /dev/snd:/dev/snd snipsdocker/platform --mqtt MQTT_BROKER_IP:MQTT_BROKER_PORT
 ```
+Debian/Ubuntu:
+
+Edit the /etc/snips.toml file. See snips documentation for more information on configuring this
 
 For more details on launch options, check the documentation on [Snips Platform Commands](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Learn-more:-Platform-Commands#using-a-custom-mqtt-bus).
 
@@ -98,10 +122,14 @@ mqtt:
   broker: 127.0.0.1
   port: 9898
 ```
+
+Alternatively, MQTT can be configured to bridge messages between servers if using a custom mqtt broker such as mosquitto.
+
 ### Triggering actions
 
 In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
 
+{% raw %}
 ```yaml
 snips:
 
@@ -110,6 +138,29 @@ intent_script:
     action:
       - service: light.turn_on
         data_template:
-          entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
-          color_name: {% raw %}{{ objectColor }}{% endraw %}
+          entity_id: light.{{ objectLocation | replace(" ","_") }}
+          color_name: {{ objectColor }}
 ```
+{% endraw %}
+
+The variables that can be used in the template are of the form 'slotName = value'.
+
+Snips intents that utilize builtin slot types will contain extended information along with the value and can be exposed using this format:
+
+{% raw %}
+```yaml
+SetTimer:
+  speech:
+    type: plain
+    text: weather
+  action:
+    service: script.set_timer
+    data_template:
+      name: "{{ timer_name }}"
+      duration: "{{ timer_duration }}"
+      seconds: "{{ slots.timer_duration.value.seconds }}"
+      minutes: "{{ slots.timer_duration.value.minutes }}"
+      hours: "{{ slots.timer_duration.value.hours }}"
+```
+{% endraw %}
+
