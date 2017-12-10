@@ -36,20 +36,60 @@ sensor:
     payload: '{ "device" : "heater" }'
 ```
 
-Configuration variables:
-
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is `GET`.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
-- **name** (*Optional*): Name of the REST sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
-- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the REST endpoint.
-- **password** (*Optional*): The password for accessing the REST endpoint.
-- **headers** (*Optional*): The headers for the requests.
-- **json_attributes** (*Optional*): A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. Default is an empty list.
+{% configuration %}
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+method:
+  description: The method of the request.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Name of the REST sensor.
+  required: false
+  type: string
+  default: REST Sensor
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  type: boolean
+  default: True
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: list, string
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  reqired: false
+  type: list, string
+{% endconfiguration %}
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.

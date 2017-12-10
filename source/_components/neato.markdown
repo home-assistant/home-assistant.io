@@ -28,6 +28,13 @@ Configuration variables:
 - **username** (*Required*): Username for the Neato account.
 - **password** (*Required*): Password for the Neato account.
 
+The Home Assistant Neato platform has not been tested with all models of Botvac.
+
+  | BotVac Model | Tested |
+  | --- | --- |
+  | Botvac Connected | SUCCESS |
+  | Botvac D7 Connected | SUCCESS |
+
 <p class='note'>
-The Home Assistant Neato platform has only be tested with a Botvac Connected. There is no support for the Botvac D3 Connected and Botvac D5 Connected robots at this time.
+There is no support for the Botvac D3 Connected and Botvac D5 Connected robots at this time.
 </p>

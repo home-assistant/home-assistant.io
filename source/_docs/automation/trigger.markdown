@@ -138,10 +138,6 @@ The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.ph
 
 ### {% linkable_title Template trigger %}
 
-<p class='note warning'>
-  If your template trigger has no `entity_id` listed, then it is evaluted on *every* state change for *every* entity. Instead you should create a [template sensor](/components/sensor.template/) or [template binary sensor](/components/binary_sensor.template/) and use that in your automation.
-</p>
-
 Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
@@ -149,7 +145,6 @@ With template triggers you can also evaluate attribute changes by using is_state
 automation:
   trigger:
     platform: template
-    entity_id: device_tracker.paulus
     value_template: "{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}"
 ```
 

@@ -2,7 +2,7 @@
 layout: page
 title: "TellStick"
 description: "Telldus TellStick service enabler and tools."
-date: 2017-11-30 21:43
+date: 2017-12-04 21:31
 sidebar: true
 comments: false
 sharing: true
@@ -12,12 +12,10 @@ featured: false
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
 
-
 To use this add-on, you first install it from the list of Built-in add-ons in Hass.io.
 After installation you are presented with a default and example configuration, to alter this you must follow both the JSON format and also be aligned with the [valid parameters for Tellstick configuration file (tellstick.conf)](https://developer.telldus.com/wiki/TellStick_conf).
 
 After any changes has been made to the configuration you need to restart the add-on for the changes to take effect.
-
 
 Configuration variables:
 
@@ -30,11 +28,7 @@ Configuration variables:
 - **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if is should fade smooth or instant between values (only for IKEA protocol as it seems).
 - **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
 
-
-
-
-In order to communicate with the add-on you will also need to add Hass.io specific data in the `configuration.yaml` file.
-For regular Home Assistant you only add `tellstick:` but for Hass.io and this add-on you need to add internal communication details.
+You will need to add internal communication details to `configuration.yaml` to enable the integration from Hass.io and the add-on.
 
 
 ```yaml
@@ -46,10 +40,9 @@ tellstick:
     
 ```
 
-
-
 To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
 
+The add-on will also enable you to interact with tdtool via a Home Assistant services call, see example below for selflearning device.
 
 ## {% linkable_title Examples %}
 
@@ -78,3 +71,33 @@ Example for adding more devices in the add-on configuration (note the comma sepa
   ]
 }
 ```
+
+## Service calls
+
+If you wish to teach a selflearning device in your TellStick configuration: 
+
+Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.  
+- Service: `hassio.addon_stdin`  
+- Enter service Data:  
+  `{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}`
+
+Replace `1` with the corresponding ID of the device in your TellStick configuration.
+
+You can also use this to list devices or sensors and read the output in the add-on log:
+`{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
+
+
+#### Supported service commands
+
+- `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
+	
+- `"function":"list-sensors"`
+- `"function":"list-devices"`: Alternative devices/sensors listing: Shows devices and/or sensors using key=value format (with tabs as separators, one device/sensor per line, no header lines.)
+
+- `"function":"on":"device":"x"`: Turns on device. ’x’ could either be an integer of the device-id, or the name of the device. 
+
+- `"function":"off":"device":"x"`: Turns off device. ’x’ could either be an integer of the device-id, or the name of the device. 
+
+- `"function":"bell":"device":"x"`: Sends bell command to devices supporting this. ’x’ could either be an integer of the device-id, or the name of the device.
+
+- `"function":"learn":"device":"x"`: Sends a special learn command to devices supporting this. This is normaly devices of ’selflearning’ type. ’x’ could either be an integer of the device-id, or the name of the device. 
