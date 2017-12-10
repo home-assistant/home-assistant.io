@@ -137,3 +137,10 @@ homeassistant:
 	4. Note down the generated API Key and use this in the configuration
 
 *Note:* The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink. 
+
+*Note:* The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
+	1. Removing your project on the [developer console](https://console.actions.google.com).
+	2. Add a new project in the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
+	3. Enable Homegraph API to the new project.
+	4. Generete a new API key.
+	5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this they share the same project_id.
