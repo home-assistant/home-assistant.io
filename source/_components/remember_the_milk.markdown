@@ -59,11 +59,19 @@ If the registration was successful, the Configuration panel will disappear from 
 
 In the background Home Assistant downloaded a "token" from the Remember The Milk server which is stored in the `remember_the_milk.conf` file locally. So you only need to register once. After that the token is used to authenticate with the server.
 
-## {% linkable_title Creating tasks %}
+## {% linkable_title Creating/updating tasks %}
 
-This component offers a new service domain ```remember_the_milk``` with the service ```create_task```. You can call this service with the argument ```name``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
+This component offers a new service domain ```remember_the_milk``` with the services ```<account>_create_task```. You can call this service with the argument ```name``` and the optional parameter ```id``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
+
+If you set an ```id``` and a task with that id exists already, the existing task is updated, rather than creating a new task. This way you can change the name of the task. If you do not set an ```id```, a new task is created with every call. If you're using this from an automation, you could use the name of your automation as id or the entity that triggered the task to be created. This way you can later on update or complete this task.
 
 The task creation supports the "smart syntax", so to create a task with the tag "from_hass" which is due today you can create a task with the name ```test task created in Home Assistant ^today #from_hass```. More info about the smart syntax is available on the [Remember The Milk documentation](https://www.rememberthemilk.com/help/answer/basics-smartadd-howdoiuse).
+
+**Note:**
+At the moment, smart syntax is *not* supported when updating tasks. All smart syntax commands are ignored during the update and will end up as normal text in the name of the task.
+
+## {% linkable_title Completing tasks %}
+If you have created your task with an ```id```, calling ```<account>_complete_task``` with the parameter ```id``` will then complete your task. This way you can also complete the tasks you have created.
 
 
 ## {% linkable_title Disclaimer %}
