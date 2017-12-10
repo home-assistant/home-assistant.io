@@ -13,11 +13,11 @@ ha_release: "0.60"
 ---
 
 
-Th `caldav` platform allows you to connect to your WebDav calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDav calendar get updated roughly every 10 minutes.
+The `caldav` platform allows you to connect to your WebDav calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDav calendar get updated roughly every 10 minutes.
 
 ### {% linkable_title Prerequisites %}
 
-You need to determine a CalDav server and eventually credentials for it. This component was tested against [Baikal](http://sabre.io/baikal/) but any component complying with the RFC4791 should work.
+You need to have a CalDav server and eventually credentials for it. This component was tested against [Baikal](http://sabre.io/baikal/) but any component complying with the RFC4791 should work.
 
 You might need some additional system packages to compile the Python caldav library. On a Debian based system, install them by:
 
