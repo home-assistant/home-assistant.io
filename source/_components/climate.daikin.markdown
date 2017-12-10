@@ -10,24 +10,27 @@ footer: true
 logo: N/A
 ha_category: Climate
 ha_release: 0.59
-ha_iot_class: No
+ha_iot_class: "Local Polling"
 ---
 
 ### Description ###
 
-The 'daikin' climate component integrates the european versions of Daikin ACs (models BRP069A41, 42, 43, 45) into Home Assistant, enabling control of setting the following parameters:
+The climate component integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 - **mode** (cool, heat, dry, fan only or auto)
 - **fan speed**
 - **target temperature**
-- **target humidity** (on supported models)
 - **swing mode** (on supported models)
 
-Current temperature and humidity (only on supported models) are also displayed.
+Current temperature is displayed.
+
+<p class='note warning'>
+    Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant
+</p>
 
 ### Configuration ###
 
-The component has been integrated with discovery so all your Daikin AC's can be autodiscovered.
-Manual configuration and customization is also possible by using the sample configuration from below
+The component has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
+Manual configuration and customization is also possible by using the sample configuration from below:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,6 +42,6 @@ climate:
 
 Configuration variables:
 
-- **host** (*Required*): IP of the device
+- **host** (*Required*): IP or hostname of the device
 - **name** (*Optional*): If the device has a name previously set by the user than that name will be used
 
