@@ -14,7 +14,7 @@ ha_release: 0.48
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
-The latest documentation can be found here: [Snips Platform Documentation](https://github.com/snipsco/snips-platform-documentation/wiki)
+The latest documentation can be found here: [Snips Platform Documentation](https://github.com/snipsco/snips-platform-documentation/wiki).
 
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
@@ -93,6 +93,7 @@ We should see the transcribed phrase in the logs, as well as a properly parsed i
 By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, instead of running the `snips` command above (which assumes we are using the internal MQTT broker), we use the full launch command with explicitly specified parameters (replace `MQTT_BROKER_IP` and `MQTT_BROKER_PORT` with appropriate values):
 
 Raspberry Pi:
+
 ```sh
 $ docker run -t --rm --name snips --log-driver none -v /home/pi/.asoundrc:/root/.asoundrc -v /opt/snips/config:/opt/snips/config --privileged -v /dev/snd:/dev/snd snipsdocker/platform --mqtt MQTT_BROKER_IP:MQTT_BROKER_PORT
 ```
@@ -128,6 +129,7 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
 
+{% raw %}
 ```yaml
 snips:
 
@@ -136,13 +138,16 @@ intent_script:
     action:
       - service: light.turn_on
         data_template:
-          entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
-          color_name: {% raw %}{{ objectColor }}{% endraw %}
+          entity_id: light.{{ objectLocation | replace(" ","_") }}
+          color_name: {{ objectColor }}
 ```
-The variables that can be used in the template are of the form 'slotName = value'
+{% endraw %}
+
+The variables that can be used in the template are of the form 'slotName = value'.
 
 Snips intents that utilize builtin slot types will contain extended information along with the value and can be exposed using this format:
 
+{% raw %}
 ```yaml
 SetTimer:
   speech:
@@ -156,4 +161,6 @@ SetTimer:
       seconds: "{{ slots.timer_duration.value.seconds }}"
       minutes: "{{ slots.timer_duration.value.minutes }}"
       hours: "{{ slots.timer_duration.value.hours }}"
-      ```
+```
+{% endraw %}
+
