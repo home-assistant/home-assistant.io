@@ -13,9 +13,9 @@ ha_release: 0.47
 ---
 
 
-The `ONVIF` platform allows you to use an ONVIF camera in Home Assistant. This requires FFmpeg component to be already configured.
+The `onvif` camera platform allows you to use an ONVIF camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
 
-To enable your ONVIF in your installation, add the following to your `configuration.yaml` file:
+To enable your ONVIF camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
