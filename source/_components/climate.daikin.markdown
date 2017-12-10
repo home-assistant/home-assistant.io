@@ -29,8 +29,8 @@ Current temperature is displayed.
 
 ### Configuration ###
 
-The component has been integrated with discovery so all your Daikin AC's can be autodiscovered.
-Manual configuration and customization is also possible by using the sample configuration from below
+The component has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
+Manual configuration and customization is also possible by using the sample configuration from below:
 
 ```yaml
 # Example configuration.yaml entry

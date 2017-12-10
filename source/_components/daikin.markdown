@@ -38,7 +38,8 @@ daikin:
 {% configuration %}
 hosts:
   description: List of IP addresses or hostnames.
-  required: true
+  required: false
+  detault: All discovered hosts
   type: array
 monitored_conditions:
   description: List of items you want to monitor for each device.
