@@ -62,4 +62,8 @@ sensor:
         description: Display the pressure from the sensor.
 {% endconfiguration %}
 
-Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time.
+Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
+
+```bash
+$ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
+```
