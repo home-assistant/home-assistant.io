@@ -11,7 +11,7 @@ footer: true
 
 If you made it here, awesome! That means that you got Home Assistant up and running. It might have already found some of your networked devices. This is going to be fun!
 
-Home Assistant stores its configuration in a file called `configuration.yaml`. A default one is created when Home Assistant is started for the first time. Some of the things in the configuration file can be editted via the user interface, other parts require you to edit the configuration file directly.
+Home Assistant stores its configuration in a file called `configuration.yaml`. A default one is created when Home Assistant is started for the first time. Some of the things in the configuration file can be edited via the user interface, other parts require you to edit the configuration file directly.
 
 There are two common approaches to edit your configuration: via Samba/Windows Networking and via the HASS Configurator. Both of these are [official add-ons for Hass.io](/addons/).
 

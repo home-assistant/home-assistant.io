@@ -20,7 +20,7 @@ We will need a few things to get started with installing Home Assistant. Links b
  - [Raspberry Pi 3 model B](http://a.co/gEfMqL4) + [Power Supply](http://a.co/cgKUgkt) (atleast 2.5A)
  - [Micro SD Card](http://a.co/gslOydD). Get one that is Class 10 as they are more reliable. Size 32GB or bigger recommended.
  - SD Card reader. Part of most laptops. Also available as [standalone USB sticks](http://a.co/5FCyb0N) (brand doesn't matter, just pick cheapest)
- - Ethernet cable (optional, Hass.io can work with wifi too)
+ - Ethernet cable (optional, Hass.io can work with WiFi too)
 
 ### {% linkable_title Software requirements %}
 
@@ -34,11 +34,11 @@ We will need a few things to get started with installing Home Assistant. Links b
 
  1. Put the SD card in your SD card reader,
  2. Open Etcher, select the Hass.io image and flash it to the SD card.
- 3. Wifi setup only: open the file `system-connections/resin-sample` with a text editor. Change `ssid` to be your network name and `psk` to be your password.
+ 3. WiFi setup only: open the file `system-connections/resin-sample` with a text editor. Change `ssid` to be your network name and `psk` to be your password.
  4. Unmount the SD card and remove it from your SD card reader.
- 5. Insert the SD card into your Raspberry Pi 3. If you are going to use an ethernet cable to supply internet, connect that too into the Pi.
+ 5. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable to supply Internet, connect that too.
  6. Connect your Raspberry Pi to the power supply so it turns on.
- 7. The Raspberry Pi will now boot up, connect to the internet and download the latest version of Home Assistant. This will take about 20 minutes.
+ 7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
  8. Home Assistant will be available at [http://hassio.local:8123][local].
 
 [local]: http://hassio.local:8123
