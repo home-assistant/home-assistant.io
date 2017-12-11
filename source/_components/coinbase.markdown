@@ -24,8 +24,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 coinbase:
   api_key: asdfghjklqwertyuiopzxcvbnm 
   api_secret: nkjnewncfghjklqwertyuiopzxcvbnm 
-sensor:
-  platform: coinbase
 ```
 
 Configuration variables:
