@@ -45,16 +45,6 @@ sensor:
     required: false
     default: Luftdaten Sensor
     type: string
-  resource:
-    description: The URL of the API endpoint. Usually this has not to be changed.
-    required: false
-    default: https://api.luftdaten.info/v1/sensor/
-    type: string
-  verify_ssl:
-    description: Verify SSL connection.
-    required: false
-    default: true
-    type: boolean
   monitored_conditions:
     description: A list of conditions you want to monitor.
     required: true
@@ -65,8 +55,15 @@ sensor:
       P2:
         description: Show the particle sensors (particles 2.5 microns and below).
       temperature:
-        description: Display the temperature from a weather sensor.
+        description: Display the temperature from the sensor.
       humidity:
-        description: Display the humidity from a weather sensor.
+        description: Display the humidity from the sensor.
+      pressure:
+        description: Display the pressure from the sensor.
 {% endconfiguration %}
 
+Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
+
+```bash
+$ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
+```
