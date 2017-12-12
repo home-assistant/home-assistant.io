@@ -28,6 +28,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **plug**: `On` means device is plugged in, `Off` means device is unplugged
 - **power**: Power, over-current, etc.
 - **presence**: `On` means Home, `Off` means Away
+- **problem**: `On` means a problem was detected, `Off` means the status is OK
 - **safety**: `On` means unsafe, `Off` means safe
 - **smoke**: `On` means smoke detected
 - **sound**: `On` means sound detected, `Off` means no sound
