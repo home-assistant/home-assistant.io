@@ -99,7 +99,14 @@ $ cd home-assistant
 $ script/setup
 ```
 
-* Run `hass` to invoke your local installation.
+Invoke your installation. If you are using `venv`:
+```bash
+$ hass
+```
+If you're not using `venv`:
+```bash
+$ python3 homeassistant
+```
 
 ### {% linkable_title Logging %}
 
