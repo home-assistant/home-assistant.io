@@ -159,7 +159,7 @@ To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add th
 
 ```yaml
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/ttyAMA0
 ```
 
 For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
