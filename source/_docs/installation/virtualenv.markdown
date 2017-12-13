@@ -41,3 +41,7 @@ _(If you're on a Debian based system, you will need to install Python virtual en
 
 - In the future, if you want to start Home Assistant again, follow step 2, 3 and 5.
 - If you want to upgrade Home Assistant, follow step 2 and 3 and 4.
+
+<p class='info'>
+Looking for more advanced guides? Check our <a href='/docs/installation/'>available guides</a>.
+</p>
