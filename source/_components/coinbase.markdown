@@ -28,6 +28,7 @@ coinbase:
     - BTC
     - ETH
     - LTC
+=======
 ```
 
 Configuration variables:
