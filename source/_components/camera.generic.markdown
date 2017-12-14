@@ -36,6 +36,7 @@ Configuration variables:
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
 - **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
 - **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
+- **referer** (*Optional*): Set the `Referer` header for the requests. Unset by default.
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
