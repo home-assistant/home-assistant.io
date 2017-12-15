@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: deconz.jpeg
 ha_category: Binary Sensor
-ha_release: "0.59"
+ha_release: "0.60"
 ha_iot_class: "Local Push"
 ---
 
