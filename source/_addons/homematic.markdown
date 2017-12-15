@@ -19,7 +19,7 @@ Follow devices will be supported and tested:
 ```json
 {
   "type": "CCU2",
-  "device": "device": "/dev/ttyAMA0"
+  "device": "/dev/ttyAMA0"
 }
 ```
 
