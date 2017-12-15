@@ -98,3 +98,17 @@ logbook:
       - sensor.garage_door_time_in_state
       - sensor.garage_door_wifi_signal_strength
 ```
+
+As of firmware release 1.17 the garadget device has native support for MQTT. The options allow the end-user to configure the device in the following ways 'cloud only', 'cloud and MQTT' or 'MQTT only'.
+
+For configuration of the garadget as a MQTT cover:
+
+```yaml
+cover:
+  - platform: mqtt
+    name: "Garage Door"
+    command_topic: "garadget/device_name/command"
+    state_topic: "garadget/device_name/status"
+    payload_open: "open"
+    payload_close: "close"
+```
