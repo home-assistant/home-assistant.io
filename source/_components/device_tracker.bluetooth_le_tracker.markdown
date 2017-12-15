@@ -43,6 +43,9 @@ device_tracker:
 Configuration variables:
 
 - **device_id** (*Optional*): The device ID for the Bluetooth device to be used for tracking. Defaults to `hci0`.
+- **track_new_devices** (*Optional*): If new discovered devices are tracked by default. Defaults to `True`.
+- **scan_duration** (*Optional*): How long should the scanner be looking for BLE devices. Defaults to `10` seconds.
+- **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
