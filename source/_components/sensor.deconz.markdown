@@ -28,7 +28,8 @@ Entity ids will be sensor.device_name, where device_name is defined in deCONZ.
 #### {% linkable_title Verified to be supported sensors %}
 
 - Humidity Sensor
-  - Xiaomi Humidity/Temperature Sensor
+  - Xiaomi Aqara Humidity/Temperature Sensor
+  - Xiaomi MiJia Smart Temperature & Humidity Sensor
 - Light Level Sensor
 - Pressure Sensor
 - Switches
@@ -37,6 +38,8 @@ Entity ids will be sensor.device_name, where device_name is defined in deCONZ.
   - IKEA Trådfri Remote
   - Philips Hue Dimmer Switch
   - Xiaomi Cube
+  - Xiaomi Aqara Smart Light Switch
   - Xiaomi Aqara Smart Wireless Switch
+  - Xiaomi Smart Home Wireless Switch
 - Temperature Sensor
   - Xiaomi Temperature/Humidity Sensor

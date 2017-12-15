@@ -25,6 +25,9 @@ Entity ids will be binary_sensor.device_name, where device_name is defined in de
 #### {% linkable_title Verified to be supported binary sensors %}
 
 - Open/Close Detection
+  - Xiaomi Smart Home Security Door & Window Contact Sensor
 - Presence Detection
   - IKEA Trådfri Motion Sensor
   - Philips Hue Motion Sensor
+  - Xiaomi Motion Sensor
+  - Xiaomi Smart Home Aqara Human Body Sensor
