@@ -37,7 +37,26 @@ Additional dependencies exist if you plan to perform Frontend Development, pleas
 
 If you are using Windows as a development platform, make sure that you have the correct Microsoft [Visual C++ build tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) installed. The installation of the most requirements and validation using `tox` will fail if this is not done correctly. Check the [Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details.
 
-It is recommended using [PyCharm](https://www.jetbrains.com/pycharm/download/) as debugger.
+Due to Home Assistant is mainly designed and developed on Linux distributions it is not recommended to develop on Windows machines. However on Windows 10 machines you should decide to set up a [Linux subsystem](https://docs.microsoft.com/de-de/windows/wsl/install-win10).
+
+Setup Linux subsystem.
+
+```bash
+$ apt-get update
+$ apt-get upgrade
+$ echo 'export DISPLAY=:0' >> ~/.bashrc && . ~/.bashrc
+$ sudo apt-get install xubuntu-desktop -y
+```
+
+It is recommended using [PyCharm](https://www.jetbrains.com/pycharm/download/) as debugger. Download and start PyCharm.
+
+```bash
+$ wget https://download.jetbrains.com/python/pycharm-community-20XX.X.tar.gz
+$ tar -xzf pycharm-community-20XX.X
+$ ./pycharm.sh
+```
+
+In order to display the PyCharm GUI on Windows you need to run a X-Server like [VcXserv](https://sourceforge.net/projects/vcxsrv/).
 
 Also, make sure to install or upgrade the `setuptools` Python package. It contains compatibility improvements and adds automatic use of compilers:
 
@@ -84,9 +103,6 @@ $ script/setup
 
 ### {% linkable_title Logging %}
 
-By default logging in home-assistant is tuned for operating in
-production (set to INFO by default, with some modules set to even less
-verbose logging levels).
+By default logging in home-assistant is tuned for operating in production (set to INFO by default, with some modules set to even less verbose logging levels).
 
-You can use the [logger](/components/logger/) component to adjust
-logging to DEBUG to see even more details about what is going on.
+You can use the [logger](/components/logger/) component to adjust logging to DEBUG to see even more details about what is going on.

@@ -20,7 +20,7 @@ Before configuring the Z-Wave setup, please take a moment and read [this article
 
 Z-Wave is a wireless communication protocol designed for home automation. It uses a low power, and low bandwidth, mesh network that allows devices that aren't within direct range of each other to communicate indirectly, via other nodes. Any device that's permanently powered (not battery powered) will help build the mesh, if you don't have enough powered devices, or you locate these poorly, your mesh will be unreliable.
 
-There is a limit of 232 devices in a single Z-Wave network. If you need more devices then you could set up a second Home Assistant system with its own Z-Wave network and connect these with the [MQTT Eventstream](/components/mqtt_eventstream/) or [MQTT Statestream](/components/mqtt_statestream) components.
+There is a limit of 232 devices in a single Z-Wave network. If you need more devices then you could set up a second Home Assistant system with its own Z-Wave network and connect these with the [MQTT Eventstream](/components/mqtt_eventstream/) or [MQTT Statestream](/components/mqtt_statestream) components. There is also a limit of 4 hops for Z-Wave, so placing the controller as centrally as you can is important.
 
 The Z-Wave standard was improved with Z-Wave Plus, and if you only use Z-Wave plus devices then you will gain the full benefits.
 
