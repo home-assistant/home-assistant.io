@@ -39,3 +39,10 @@ homematic:
       host: core-homematic
       port: 2001
 ```
+
+## {% linkable_title Raspberry Pi3 %}
+
+With HM-MOD-PRI-PCB you need add follow into your `config.txt` on boot partition:
+```
+dtoverlay=pi3-miniuart-bt
+```
