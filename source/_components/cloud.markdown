@@ -8,12 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_release: 0.57
+ha_release: 0.60
+ha_category: Voice
+ha_iot_class: "Cloud Push"
 ---
-
-<p class='note warning'>
-Home Assistant Cloud is currently in private beta.
-</p>
 
 The Home Assistant Cloud allows you to quickly integrate your local instance with various cloud services. Any processing of services from other cloud services is handled by your local instance.
 
