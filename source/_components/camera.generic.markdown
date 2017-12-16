@@ -36,7 +36,7 @@ Configuration variables:
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
 - **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
 - **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
-- **referer** (*Optional*): Set the `Referer` header for the requests. Unset by default.
+- **headers** (*Optional*): Set request headers. Unset by default.
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
@@ -57,4 +57,15 @@ camera:
     name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
     content_type: 'image/svg+xml'
+```
+
+### {% linkable_title Public webcam requiring headers %}
+
+```yaml
+camera:
+  - platform: generic
+    name: centre_pompidou_metz
+    still_image_url: "http://metz.fr/pages/webcams/images/amphitheatre.jpg?{{ as_timestamp(now()) * 1000 }}"
+    headers:
+      referer: "http://metz.fr/pages/webcams/quartier_amphitheatre.php"
 ```
