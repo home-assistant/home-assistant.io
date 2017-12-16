@@ -13,9 +13,14 @@ ha_category: Voice
 ha_iot_class: "Cloud Push"
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local instance with various cloud services. Any processing of services from other cloud services is handled by your local instance.
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services. Any processing of services from other cloud services is handled by your local Home Assistant.
 
-To get started, create an account and log in via the configuration panel in your Home Assistant instance. There is no need to configure your router or expose your instance to the internet in any other way.
+```yaml
+# Example configuration.yaml entry to enable the cloud component
+cloud:
+```
+
+Once activated, go to the configuration panel in Home Assistant and create an account and log in. There is no need to configure your router or expose your instance to the internet in any other way.
 
 ### {% linkable_title Amazon Alexa %}
 
