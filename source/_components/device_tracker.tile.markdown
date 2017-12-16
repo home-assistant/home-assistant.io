@@ -28,6 +28,7 @@ device_tracker:
     monitored_variables:
       - TILE
       - PHONE
+    show_inactive: false
 ```
 
 {% configuration %}
@@ -43,4 +44,8 @@ device_tracker:
     description: the Tile types to monitor; valid values are `TILE` and `PHONE` (default is for all types to be included)
     required: false
     type: list
+  show_inactive:
+    description: whether to show expired/disabled Tiles
+    required: false
+    type: boolean
 {% endconfiguration %}
