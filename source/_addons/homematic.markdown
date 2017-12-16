@@ -18,15 +18,37 @@ Follow devices will be supported and tested:
 
 ```json
 {
-  "type": "CCU2",
-  "device": "/dev/ttyAMA0"
+  "rf_enable": true,
+  "rf": [
+    {
+      "type": "CCU2",
+      "device": "/dev/ttyAMA0"
+    }
+  ],
+  "wired_enable": false,
+  "wired": [
+    {
+      "serial": "xy",
+      "key": "abc",
+      "ip": "192.168.0.0"
+    }
+  ]
 }
 ```
 
 Configuration variables:
 
+- **rf_enable** (*Require*): Boolean. Enable or disable BidCoS-RF.
+- **wired_enable** (*Require*): Boolean. Enable or disable BidCoS-Wired.
+
+For RF devices
 - **type** (*Require*): Device type for RFD service. Look into handbook of your device.
 - **device** (*Require*): Device on host.
+
+For RF devices
+- **serial** (*Require*): Serial number of device.
+- **key** (*Require*): Encrypted key.
+- **ip** (*Require*): IP address of lan gateway.
 
 ## {% linkable_title Home Assistant configuration %}
 
