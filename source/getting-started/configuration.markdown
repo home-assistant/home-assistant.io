@@ -34,9 +34,13 @@ From the Hass.io main panel open the add-on store.
 
 The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
 
-Go to the add-on store (see previous step), click on Configurator and click on INSTALL. When installation is complete you will be able to click the "WEB UI" link to open the Web UI.
+Go to the add-on store (see previous step), click on Configurator and click on INSTALL. When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on.
 
-Time for the first practice with the configurator. Add the following to your `configuration.yaml` file to add a link to the Configurator in the sidebar:
+ - Change the settings to set a password and click on save
+ - Start the add-on
+ - You will be able to click the "WEB UI" link to open the Web UI
+
+Time for the first practice with the configurator. Add the following to `configuration.yaml` file to add a link to the Configurator in the sidebar:
 
 ```yaml
 panel_iframe:
@@ -52,7 +56,7 @@ Now restart Home Assistant for the changes to the configuration to take effect. 
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can be installed from the Hass.io add-on store.
 
-After you have installed it, click on START. Hass.io should now be available in the networking tab on your computer.
+After you have installed it, click on START. Hass.io should now be available in the networking tab on your computer. Use a text editor like the free [Visual Studio Code](https://code.visualstudio.com/) to edit `configuration.yaml`.
 
 ## {% linkable_title Configuring integrations %}
 
