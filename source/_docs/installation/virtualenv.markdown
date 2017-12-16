@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/installation-virtualenv/
 ---
 
-If you alreacy have Python 3.5 or later installed, you can easily give Home Assistant a spin.
+If you already have Python 3.5 or later installed, you can easily give Home Assistant a spin.
 
 It's recommended when installing Python packages that you use a virtual environment. This will make sure that your Python installation and Home Assistant installation won't impact one another.
 
