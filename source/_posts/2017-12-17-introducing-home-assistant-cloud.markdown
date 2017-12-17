@@ -42,6 +42,8 @@ The next step is to configure Alexa. This can be done by enabling the Home Assis
 
 Once you’re done, ask Alexa to discover devices (“Alexa, discover devices”) and you are all set to control them: “Alexa, turn on &lt;device name&gt;”.
 
+See the [Cloud component configuration](/components/cloud/) to learn how to filter which devices get exposed to Alexa.
+
 ## {% linkable_title FAQ %}
 
 **Will Home Assistant and Hass.io remain open source?**
