@@ -45,7 +45,7 @@ Configuration variables:
 - **total_bandwidth** (*Required*): Your bandwidth limit in Gigabit.
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **usage**: Percent usage
-  - **usage**: Gigabit usage
+  - **usage_gb**: Gigabit usage
   - **limit**: Montly bandwidth limit (Gigabit)
   - **onpeak_download**: Download used outside the unmetered period
   - **onpeak_upload**: Upload used outside the unmetered period
