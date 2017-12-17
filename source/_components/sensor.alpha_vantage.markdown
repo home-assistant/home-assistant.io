@@ -16,7 +16,7 @@ ha_release: "0.60"
 
 The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market.
 
-To enable the `yahoo_finance` platform, add the following lines to your `configuration.yaml` file:
+To enable the `alpha_vantage` platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,6 +26,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Alpha Vantage Sensor
 api_key:
   description: "The API Key from [Alpha Vantage](https://www.alphavantage.co)."
   required: true
@@ -45,7 +50,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ```yaml
 sensor:
-  - platform: yahoo_finance
+  - platform: alpha_vantage
     symbols:
       - RHT
       - GOOGL
