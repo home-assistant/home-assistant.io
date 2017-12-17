@@ -64,7 +64,7 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 
 **What countries are supported?**
 
-Only US is currently supported. Expect more countries to be supported soon.
+Only US is currently supported. Expect more countries to be supported soon. The reason there is a country limitation is that we need to do extra steps and certifications for each country's Alexa skill.
 
 **How is the connection made to the cloud?**
 
