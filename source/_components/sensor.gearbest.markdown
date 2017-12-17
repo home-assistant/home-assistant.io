@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 currency:
-  description: The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default. Either an id or an URL must be present.
+  description: "The currency in which the products should be tracked. Currently supported: USD, EUR, GBP, AUD, CAD, CHF, HKD, CNY, NZD, JPY, RUB, BRL, CLP, NOK, DKK, SEK, KRW, ILS, COP, MXN, PEN, THB, IDR, UAH, PLN, INR, BGN, HUF, RON, TRY, CZK, HRK, MAD, AED, SAR, ZAR, SGD, MYR, TWD, RSD, NGN - if the currency could not be found in the conversion rate list, USD will be used as default. Either an ID or an URL must be present."
   required: true
   type: string
 items:
@@ -38,7 +38,7 @@ items:
   type: map
   keys:
     id:
-      description: The id of the product.
+      description: The ID of the product.
       required: false
       type: int
     url:
@@ -50,12 +50,12 @@ items:
       required: false
       type: string
     currency:
-      description: Overwrite the currency for the current item
+      description: Overwrite the currency for the current item.
       required: false
       type: string
 {% endconfiguration %}
 
-#### Extended example
+### {% linkable_title Extended example %}
 
 ```yaml
 # Example configuration.yaml entry
