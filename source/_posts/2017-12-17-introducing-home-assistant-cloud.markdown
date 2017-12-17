@@ -28,7 +28,7 @@ With donations you have to convince people to keep donating and it will be hard 
 
 ## {% linkable_title Getting started %}
 
-Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`]](/components/config/) components:
+Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`](/components/config/) components:
 
 ```yaml
 # Example configuration.yaml entry
