@@ -10,8 +10,12 @@ footer: true
 logo: amazon-echo.png
 ha_category: Voice
 featured: true
-ha_release: 0.10
+ha_release: '0.10'
 ---
+
+<p class='note'>
+  Use [Home Assistant Cloud](/components/cloud/) to integrate with Alexa without any effort.
+</p>
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
 
@@ -325,7 +329,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - All other settings are up to you
       - Hit "Next"
   - Test
-      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
+      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com

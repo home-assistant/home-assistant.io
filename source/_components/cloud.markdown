@@ -8,16 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_release: 0.57
+ha_release: 0.60
+ha_category: Voice
+ha_iot_class: "Cloud Push"
 ---
 
-<p class='note warning'>
-Home Assistant Cloud is currently in private beta.
-</p>
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services. Any processing of services from other cloud services is handled by your local Home Assistant.
 
-The Home Assistant Cloud allows you to quickly integrate your local instance with various cloud services. Any processing of services from other cloud services is handled by your local instance.
+```yaml
+# Example configuration.yaml entry to enable the cloud component
+cloud:
+```
 
-To get started, create an account and log in via the configuration panel in your Home Assistant instance. There is no need to configure your router or expose your instance to the internet in any other way.
+Once activated, go to the configuration panel in Home Assistant and create an account and log in. There is no need to configure your router or expose your instance to the internet in any other way.
 
 ### {% linkable_title Amazon Alexa %}
 
