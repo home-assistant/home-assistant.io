@@ -34,11 +34,53 @@ Configuration variables:
 - **host** (*Required*): The host entry should be in full URL format, eg. http://192.168.10.100:80
 - **username** (*Required*): The username that used to access the ISY interface.
 - **password** (*Required*): The password that used to access the ISY interface.
-- **sensor_string** (*Optional*): This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. By default, this string is 'sensor'. If this string is found in the device name or folder, Home Assistant will assume it is as a sensor or binary sensor (if the device has on/off or true/false states).
+- **sensor_string** (*Optional*): This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. By default, this string is 'sensor'. If this string is found in the device name or folder, Home Assistant will assume it is as a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
 - **hidden_string** (*Optional*): The HIDDEN_STRING is a string that is used to identify which devices are to be hidden on Home Assistant's front page. This string will be stripped from the device's name before being used. By default, this value is '{HIDE ME}'.
 - **tls** (*Optional*): This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
+
+### {% linkable_title Sensors %}
+
+An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY994 admin panel. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
+
+Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node either in the ISY994 Admin Panel (which will change the entity_id in Home Assistant) or assign a `friendly_name` in the [Customization section](https://home-assistant.io/docs/configuration/customizing-devices/) of your configuration.
+
+If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
+
+### {% linkable_title Handling Insteon Control Events %}
+
+A Home Assistant `isy994_control` event is emitted for every "control" event in the Insteon network. This allows you to write automations that trigger based on Insteon button presses. You can also trigger off of the unique Insteon events, such as double-presses, long-holds etc.
+
+```yaml
+automation:
+  - alias: turn off living room on double tap lightswitch
+    trigger:
+      platform: event
+      event_type: isy994_control
+      event_data:
+        entity_id: light.lr_track_lights_front
+        control: 'DFOF'
+    action:
+      service: light.turn_off
+      entity_id: light.lr_track_lights_rear
+```
+
+All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
+
+- `DON`: On button
+- `DOF`: Off button
+- `DFON`: "Fast On", usually from double-tapping an On button
+- `DFOF`: "Fast Off", usually from double-tapping an Off button
+- `FDUP`: "Fade Up", usually while holding down an On button
+- `FDDOWN`: "Fade Down", usually while holding down an Off button
+- `FDSTOP`: "Fade Stop", when releasing a long-held button
+- `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light
+- `DIM`: "Dim", from controllers that issue a single command to slightly dim a light
+
+### {% linkable_title Insteon Scenes %}
+
+All Insteon scenes configured in the ISY994 will show up as switches in Home Assistant.
 
 ### {% linkable_title Creating Custom Devices %}
 

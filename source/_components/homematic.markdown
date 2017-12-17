@@ -28,58 +28,69 @@ To set up the component, add the following information to your `configuration.ya
 
 ```yaml
 homematic:
-  hosts:
+  interfaces:
     wireless:
-      ip: 127.0.0.1
+      host: 127.0.0.1
 ```
 
 Configuration variables (global):
 
-- **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
+- **interfaces** (*Required*): Configuration for each XML-RPC interface to integrate into Home Assistant.
+- **hosts** (*Optional*): Configuration for each Hub (CCU/Homegear) to integrate into Home Assistant.
 - **local_ip** (*Optional*): IP of device running Home Assistant. Override auto-detected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
 
-Configuration variables (host):
+Configuration variables (interface):
 
-- **ip** (*Required*): IP address of CCU/Homegear device.
+- **host** (*Required*): IP address or Hostname of CCU/Homegear device or Hass.io add-on.
 - **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
 - **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
 - **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
-- **primary** (*Optional*): Set to `true` when using multiple hosts and this host should provide the services and variables.
-- **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.
 - **path** (*Optional*): Set to `/groups` when using port 9292.
+
+Configuration variables (host):
+
+- **host** (*Required*): IP address of CCU/Homegear device.
+- **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
+- **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 
 #### Example configuration with multiple protocols and some other options set:
 
 ```yaml
 homematic:
-  hosts:
+  interfaces:
     rf:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       resolvenames: json
       username: Admin
       password: secret
       primary: true
       variables: true
     wired:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       port: 2000
       resolvenames: json
       username: Admin
       password: secret
     ip:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       port: 2010
     groups:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       port: 9292
       resolvenames: json
       username: Admin
       password: secret
       path: /groups
+  hosts:
+    ccu2:
+      host: 127.0.0.1
+      username: Admin
+      password: secret
+    
 ```
 
 ### {% linkable_title The `resolvenames` option %}
@@ -115,7 +126,7 @@ sensor:
 ### {% linkable_title Variables %}
 
 It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
-The states of the variables are available through the attributes of your hub entity (e.g. `homematic.rf`). Use templates (as mentioned above) to make your variables available to automations or as entities.
+The states of the variables are available through the attributes of your hub entity (e.g. `homematic.ccu2`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
 ### {% linkable_title Events %}
@@ -154,8 +165,8 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 
 * *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 * *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-* *homematic.set_var_value*: Set the value of a system variable.
-* *homematic.set_dev_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+* *homematic.set_variable_value*: Set the value of a system variable.
+* *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
 #### {% linkable_title Examples %}
 Simulate a button being pressed
@@ -184,9 +195,9 @@ Set boolean variable to true
 ```yaml
 ...
 action:
-  service: homematic.set_var_value
+  service: homematic.set_variable_value
   data:
-    entity_id: homematic.rf
+    entity_id: homematic.ccu2
     name: Variablename
     value: true
 ```
@@ -200,7 +211,7 @@ Manually turn on a switch actor
 ```yaml
 ...
 action:
-  service: homematic.set_dev_value
+  service: homematic.set_device_value
   data:
     address: LEQ1234567
     channel: 1
@@ -212,7 +223,7 @@ Manually set temperature on thermostat
 ```yaml
 ...
 action:
-  service: homematic.set_dev_value
+  service: homematic.set_device_value
   data:
     address: LEQ1234567
     channel: 4
