@@ -2,7 +2,7 @@
 layout: page
 title: "TekSavvy"
 description: "Instructions how to integrate TekSavvy data usage within Home Assistant."
-date: 2017-012-17 13:04
+date: 2017-12-17 00:00
 sidebar: true
 comments: false
 sharing: true
