@@ -61,3 +61,11 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on - top of the Home Assistant cloud.
 - IFTTT integration
 - Alexa shopping list integration
+
+**What countries are supported?**
+
+Only US is currently supported. Expect more countries to be supported soon.
+
+**How is the connection made to the cloud?**
+
+The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
