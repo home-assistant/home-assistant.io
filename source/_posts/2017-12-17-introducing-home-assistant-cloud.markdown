@@ -2,8 +2,8 @@
 layout: post
 title: Introducing Home Assistant Cloud
 description: "Use Alexa to control any device that is connected to Home Assistant."
-date: 2017-12-16 02:00:00
-date_formatted: "December 16, 2017"
+date: 2017-12-17 03:00:00
+date_formatted: "December 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -28,7 +28,7 @@ With donations you have to convince people to keep donating and it will be hard 
 
 ## {% linkable_title Getting started %}
 
-Upgrade Home Assistant to 0.60 and enable the cloud and config components:
+Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`]](/components/config/) components:
 
 ```yaml
 # Example configuration.yaml entry
