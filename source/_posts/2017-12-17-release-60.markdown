@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.60: Beckhoff/TwinCAT, WebDav, Gearbest, iAlarm"
-description: "If you don't want to create items on our shopping list with HTTP requests, just order pizza!"
+description: "Use Home Assistant for your production line or track prices and the stock market."
 date: 2017-12-17 02:00:00
 date_formatted: "December 17, 2017"
 author: Fabian Affolter
