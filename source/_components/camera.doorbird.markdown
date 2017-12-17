@@ -29,4 +29,5 @@ camera:
 
 Configuration variables:
 
+- **live_view** (*Optional*): Adds a camera entity that shows the live video feed from the doorbell. Default is `true`.
 - **last_visitor** (*Optional*): Adds a second camera that shows the last picture taken when someone rang the doorbell. Default is `false`.
