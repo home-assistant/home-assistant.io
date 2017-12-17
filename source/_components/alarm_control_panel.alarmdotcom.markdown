@@ -12,7 +12,7 @@ ha_category: Alarm
 ha_release: 0.11
 ---
 
-The `alarmdotcom` platform is consuming the information provided by a [Alarm.com](https://www.alarm.com/).
+The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).
 
 To enable this, add the following lines to your `configuration.yaml`:
 

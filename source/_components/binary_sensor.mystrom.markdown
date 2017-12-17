@@ -38,10 +38,12 @@ binary_sensor:
 
 ### {% linkable_title Setup of the myStrom Buttons %}
 
-After the Wifi Buttons are connected to your Wireless network, you have three minutes to set the actions for the push patterns. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern.
+You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
+
+The endpoint that is receiving the data is `[IP address Home Assistant]:8123/api/mystrom`.
 
 ```bash
-$ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?single%3D[ID of the button]" http://[IP address of the button]/api/v1/device/[MAC address of the button]
+$ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?[action]%3D[ID of the button]" http://[IP address of the button]/api/v1/device/[MAC address of the button]
 {
   "[MAC address of the button]": {
     "type": "button",
@@ -51,7 +53,7 @@ $ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?single%3D
     "charge": true,
     "voltage": 4.292,
     "fw_version": "2.26",
-    "single": "get://[IP address Home Assistant]:8123/api/mystrom?single=[if of the button]",
+    "single": "get://[IP address Home Assistant]:8123/api/mystrom?single=[id of the button]",
     "double": "",
     "long": "",
     "touch": ""

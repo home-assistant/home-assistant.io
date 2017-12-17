@@ -27,10 +27,7 @@ sensor:
     key: XXXXXXXXXXXXXXXXXXX
     secret: YYYYYYYYYYYYYYYYY
     departures:
-      - name: Mot järntorget
-        from: Musikvägen
-        heading: Järntorget
-        delay: 10
+      - from: Musikvägen
 ```
 
 Configuration variables:
@@ -41,6 +38,21 @@ Configuration variables:
   - **name** (*Optional*): Name of the route.
   - **from** (*Required*): The start station.
   - **heading** (*Optional*): Direction of the travelling.
-  - **delay** (*Optional*): Delay in minutes.
+  - **delay** (*Optional*): Delay in minutes. Defaults to 0.
 
 The data are coming from [Västtrafik](https://vasttrafik.se/).
+
+A full configuration example could look like this:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: vasttrafik
+    key: XXXXXXXXXXXXXXXXXXX
+    secret: YYYYYYYYYYYYYYYYY
+    departures:
+      - name: Mot järntorget
+        from: Musikvägen
+        heading: Järntorget
+        delay: 10
+```

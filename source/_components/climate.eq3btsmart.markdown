@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: eq3.gif
 ha_category: Climate
-ha_iot_class: "Local Poll"
+ha_iot_class: "Local Polling"
 ---
 
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
@@ -19,7 +19,7 @@ As the device doesn't contain a temperature sensor ([read more](https://forum.fh
 we report target temperature also as current one.
 
 ### Testing the connectivity ###
-Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can can be done with the eq3cli tool:
+Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can be done with the eq3cli tool:
 
 ```bash
 eq3cli --mac 00:11:22:33:44:55

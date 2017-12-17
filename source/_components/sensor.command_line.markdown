@@ -30,8 +30,8 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
 
 ## {% linkable_title Examples %}
 
@@ -53,6 +53,7 @@ sensor:
   - platform: command_line
     name: HD Temperature
     command: "hddtemp -n /dev/sda"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
 ```
 
@@ -62,9 +63,11 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 ```yaml
 # Example configuration.yaml entry
+sensor:
   - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
@@ -104,7 +107,7 @@ sensor:
 
 ### {% linkable_title Read value out of a remote text file %}
 
-If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value. 
+If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
 ```yaml
 sensor:
@@ -141,4 +144,17 @@ sensor:
     name: Brightness
     command: "python3 /path/to/script/arest-value.py"
     unit_of_measurement: "°C"
+```
+
+### {% linkable_title Usage of templating in `command:` %}
+
+[Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: wind direction
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
+    unit_of_measurement: "Direction"
 ```

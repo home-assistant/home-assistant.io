@@ -29,7 +29,7 @@ binary_sensor:
 Configuration variables:
 
 - **ports** array (*Required*): Array of used ports.
-  - **port: name** (*Required*): Port numbers and corresponding names.
+  - **port: name** (*Required*): Port numbers (BCM mode pin numbers) and corresponding names.
 - **pull_mode** (*Optional*): The internal pull to use (UP or DOWN). Default is UP.
 - **bouncetime** (*Optional*): The time in milliseconds for port debouncing. Default is 50ms.
 - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).

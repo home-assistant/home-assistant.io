@@ -10,6 +10,7 @@ footer: true
 logo: eight_sleep.png
 ha_category: Hub
 ha_release: "0.44"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `eight_sleep` component allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.

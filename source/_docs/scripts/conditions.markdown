@@ -68,9 +68,9 @@ condition:
 
 ### {% linkable_title Numeric state condition %}
 
-This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.
+This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.
 
-For above, the condition passes if `value >= above`. For below, the condition passes if `value <= below`. If both `below` and `above` are specified, both tests have to pass.
+If both `below` and `above` are specified, both tests have to pass.
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
@@ -114,6 +114,23 @@ condition:
   after_offset: "-1:00:00"
 ```
 
+Here is a truth table to clarify the parameters with and without offset:
+
+| command                            |        night | at sunrise  | daytime | at sunset  |
+| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
+| `after: sunset`                    | True         |      ⇒      | False   |     ⇒      |
+| + `after_offset: "01:00:00"`       | True         |      ⇒      | False   |  **+1h**   |
+| + `after_offset: "-01:00:00"`      | True         |      ⇒      | False   |  **-1h**   |
+| `before: sunset`                   | False        |      ⇒      | True    |     ⇒      |
+| + `before_offset: "01:00:00"`      | False        |      ⇒      | True    |  **+1h**   |
+| + `before_offset: "-01:00:00"`     | False        |      ⇒      | True    |  **-1h**   |
+| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |
+| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |
+| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |
+| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |
+| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |
+| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |
+
 ### {% linkable_title Template condition %}
 
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
@@ -146,7 +163,7 @@ condition:
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am. 
+Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
 
 ### {% linkable_title Zone condition %}
 

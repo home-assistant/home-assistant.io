@@ -13,6 +13,8 @@ hide_github_edit: true
 
 This is a community curated list of different ways to use Home Assistant. Most of these examples are using the [automation] component and other built-in [automation related][sec-automation] and [organization] components available.
 
+For [`python_script:` examples](/components/python_script/) visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+
 [automation]: /getting-started/automation/
 [sec-automation]: /components/#automation
 [organization]: /components/#organization

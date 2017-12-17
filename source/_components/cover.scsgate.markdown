@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bus_scs.png
 ha_category: Cover
+ha_iot_class: "Local Polling"
 ---
 
 The SCSGate devices can control motorized covers connected to the BTicino MyHome system.

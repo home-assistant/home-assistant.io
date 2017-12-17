@@ -10,6 +10,7 @@ footer: true
 logo: ethernet.png
 ha_category: Switch
 ha_release: 0.16
+ha_iot_class: "Local Polling"
 ---
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
@@ -40,7 +41,7 @@ Configuration variables:
 
 Here are some real life examples of how to use the **turn_off** variable.
 
-### {% linkable_title Suspending linux %}
+### {% linkable_title Suspending Linux %}
 Suggested recipe for letting the turn_off script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).
 

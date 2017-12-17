@@ -12,6 +12,7 @@ ha_category: Weather
 featured: true
 ha_release: 0.30
 redirect_from: /components/sensor.forecast/
+ha_iot_class: "Cloud Polling"
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
@@ -40,7 +41,7 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specificed), defaults to coordinates defined in your `configuration.yaml`
+- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary of the current conditions.
@@ -65,9 +66,10 @@ Configuration variables:
   - **apparent_temperature_max**: Today's expected apparent high temperature.
   - **apparent_temperature_min**: Today's expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
+  - **uv_index**: The current UV index.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
+- **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
   - `update_interval: 'HH:MM:SS'`
   - `update_interval: 'HH:MM'`
   - Time period dictionary, e.g.:

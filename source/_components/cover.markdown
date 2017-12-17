@@ -11,11 +11,12 @@ footer: true
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
 
-The display style of each entity can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for covers:
-
-- **None**: Generic cover device
-- **window**: Window controller
-- **garage**: Garage door controller
+The display style of each entity can be modified in the [customize section](/getting-started/customizing-devices/). Besides the basic ones like `friendly_name` or `hidden`, the following attributes are supported for covers:
+ 
+| Attribute | Default | Description |
+| --------- | ------- | ----------- |
+| `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
+| `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
 
 ## {% linkable_title Services %}
 
@@ -41,7 +42,7 @@ Set cover position of one or multiple covers.
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: cover.set_cover_position
       data:
@@ -64,7 +65,7 @@ Set cover tilt position of one or multiple covers.
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: cover.set_cover_tilt_position
       data:

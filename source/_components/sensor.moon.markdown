@@ -24,4 +24,4 @@ sensor:
   - platform: moon
 ```
 This sensor will return one of the following values: 
-`Full moon`, `Last quarter`, `First quarter` or `New moon`.
+`New moon`, `Waxing crescent`, `First quarter`, `Waxing gibbous`, `Full moon`, `Waning gibbous`, `Last quarter` or `Waning crescent` .

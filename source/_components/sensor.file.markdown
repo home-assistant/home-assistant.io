@@ -14,7 +14,7 @@ ha_release: 0.45
 ---
 
 
-The `file` sensor platform reading the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line.
+The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line.
 
 To enable the `file` sensor, add the following lines to your `configuration.yaml`:
 
@@ -30,7 +30,7 @@ Configuration variables:
 - **file_path** (*Required*): path to file that stores the sensor data.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `File`.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

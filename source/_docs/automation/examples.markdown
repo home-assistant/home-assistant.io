@@ -12,6 +12,7 @@ redirect_from: /getting-started/automation-examples/
 
 Just some sample automation rules to get you started.
 
+{% raw %}
 ```yaml
 # Example of entry in configuration.yaml
 automation:
@@ -26,7 +27,7 @@ automation:
         offset: '-01:00:00'
       - platform: state
         entity_id: group.all_devices
-        state: 'home'
+        to: 'home'
     condition:
       # Prefix the first line of each condition configuration
       # with a '-'' to enter multiple
@@ -45,7 +46,7 @@ automation:
     trigger:
       platform: state
       entity_id: group.all_devices
-      state: 'not_home'
+      to: 'not_home'
     action:
       service: light.turn_off
       entity_id: group.all_lights
@@ -64,4 +65,20 @@ automation:
       service: notify.notify
       data:
         message: 'Paulus left the house'
+
+# Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  - alias: 'Xiaomi Cube Action'
+    hide_entity: false
+    initial_state: false
+    trigger:
+      platform: event
+      event_type: cube_action
+      event_data:
+        entity_id: binary_sensor.cube_158d000103a3de
+    action:
+      - service_template: notify.pushover
+        data_template: 
+          title: "Cube event detected"
+          message: "Cube has triggered this event: {{ trigger.event }}"
 ```
+{% endraw %}

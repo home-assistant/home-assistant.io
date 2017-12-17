@@ -31,6 +31,7 @@ Available demo platforms:
 - [Switch](/components/switch/) (`switch`)
 - [Text-to-speech](/components/tts/) (`tts`)
 - [Weather](/components/weather/) (`weather`)
+- [Mailbox](/components/mailbox/) (`mailbox`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

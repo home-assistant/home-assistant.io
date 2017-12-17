@@ -10,6 +10,7 @@ footer: true
 logo: enocean.png
 ha_category: Light
 ha_release: 0.21
+ha_iot_class: "Local Push"
 ---
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.

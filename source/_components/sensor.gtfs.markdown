@@ -54,4 +54,5 @@ Configuration variables:
 - **destination** (*Required*): The stop ID of your destination station.
 - **data** (*Required*): The name of the ZIP file or folder containing the GTFS data. It must be located inside the `gtfs` folder of your configuration directory.
 - **name** (*Optional*): Name to use in the frontend.
+- **offset** (*Optional*): A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored. Defaults to `0`.
 

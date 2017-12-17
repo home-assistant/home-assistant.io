@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: radiotherm.png
 ha_category: Climate
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -26,7 +27,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 climate:
-  platform: radiotherm
+  - platform: radiotherm
 ```
 
 Configuration variables:

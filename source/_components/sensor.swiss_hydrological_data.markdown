@@ -13,6 +13,9 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.22
 ---
 
+<p class='note warning'>
+  This sensor doesn't work at the moment due to changed by the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](http://www.hydrodaten.admin.ch) to access the data.
+</p>
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
 

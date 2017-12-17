@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "FRITZ!Box"
+title: "FRITZ!Box Net Monitor"
 description: "Instructions how to integrate an AVM FRITZ!Box monitor into Home Assistant."
 date: 2017-01-17 22:00
 sidebar: true
@@ -34,16 +34,18 @@ Configuration variables:
 
 The following statistics will be exposed as attributes.
 
-|Attribute         |Description                                                  |
-|:-----------------|:------------------------------------------------------------|
-|is_linked         |True if the FritzBox is physically linked to the provider    |
-|is_connected      |True if the FritzBox has established an internet-connection  |
-|wan_access_type   |Connection-type, can be `DSL` or `Cable`                     |
-|external_ip       |External ip address                                          |
-|uptime            |Uptime in seconds                                            |
-|bytes_sent        |Bytes sent                                                   |
-|bytes_received    |Bytes received                                               |
-|max_byte_rate_up  |Maximum upstream-rate in bytes/s                             |
-|max_byte_rate_down|Maximum downstream-rate in bytes/s                           |
+|Attribute              |Description                                                  |
+|:----------------------|:------------------------------------------------------------|
+|is_linked              |True if the FritzBox is physically linked to the provider    |
+|is_connected           |True if the FritzBox has established an internet-connection  |
+|wan_access_type        |Connection-type, can be `DSL` or `Cable`                     |
+|external_ip            |External ip address                                          |
+|uptime                 |Uptime in seconds                                            |
+|bytes_sent             |Bytes sent                                                   |
+|bytes_received         |Bytes received                                               |
+|transmission_rate_up   |Current upstream speed in bytes/s                            |
+|transmission_rate_down |Current downstream speed in bytes/s                          |
+|max_byte_rate_up       |Maximum upstream-rate in bytes/s                             |
+|max_byte_rate_down     |Maximum downstream-rate in bytes/s                           |
 
 The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).

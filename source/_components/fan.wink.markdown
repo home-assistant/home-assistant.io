@@ -10,6 +10,7 @@ footer: true
 logo: wink.png
 ha_category: Fan
 ha_release: 0.36
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -18,12 +19,14 @@ The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fa
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### Supported fan devices
+### {% linkable_title Supported fan devices %}
 
-- Gardinier
+- Home Decorator Wink-enabled Gardinier ceiling fan
+- Hampton Bay ceiling fan module 
 
 
 <p class='note'>
 The above devices are confimed to work, but others may work as well.
 </p>
+
 

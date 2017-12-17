@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: verisure.png
 ha_category: Sensor
-featured: false
+ha_iot_class: "Cloud Polling"
 ---
 
 Integrates Verisure sensors into Home Assistant. See the [main component](/components/verisure/) for configuration instructions.

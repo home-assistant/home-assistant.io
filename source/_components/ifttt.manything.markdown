@@ -11,7 +11,7 @@ logo: manything.png
 ha_category: Camera
 ---
 
-[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a wifi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
+[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a WiFi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
 To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/components/ifttt/) to activate the IFTTT Platform.
 
@@ -26,22 +26,22 @@ automation:
     trigger:
       - platform: state
         entity_id: group.all_devices
-       state: 'not_home'
+        to: 'not_home'
     condition:
       - platform: state
         entity_id: sun.sun
-       state: 'above_horizon'
+        state: 'above_horizon'
     action:
       service: ifttt.trigger
       data: {"event":"manything_on"}
 
   - alias: 'ManyThing Recording OFF'
     # This calls an IFTTT recipe to turn off recording of the ManyThing Camera
-    # when we are home unless it's nighttime.
+    # when we get home unless it's nighttime.
     trigger:
       - platform: state
         entity_id: group.all_devices
-        state: 'home'
+        to: 'home'
     condition:
       - condition: state
         entity_id: sun.sun

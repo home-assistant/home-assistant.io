@@ -10,6 +10,7 @@ footer: true
 logo: eight_sleep.png
 ha_category: Sensor
 ha_release: "0.44"
+ha_iot_class: "Cloud Polling"
 ---
 
 

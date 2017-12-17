@@ -11,19 +11,15 @@ footer: true
 
 A checklist of things to do when you're adding a new platform.
 
+<p class='note'>
+Not all existing platforms follow the requirements in this checklist. This cannot be used as a reason to not follow them!
+</p>
+
 ### {% linkable_title 1. Requirements %}
 
- 1. Requirement version pinned: `REQUIREMENTS = ['phue==0.8.1']`
- 2. If requirement hosted on GitHub:
-     - Point at a zip archive of a release tag or commit SHA.
-     - Add version found in zip-archive as hash to url.
-
-```python
-REQUIREMENTS = [
-    'http://github.com/technicalpickles/python-nest'
-    '/archive/e6c9d56a8df455d4d7746389811f2c1387e8cb33.zip'
-    '#python-nest==3.0.3']
-```
+ 1. Requirement version should be pinned: `REQUIREMENTS = ['phue==0.8.1']`
+ 2. We no longer want requirements hosted on GitHub. Please upload to PyPi.
+ 3. Requirements should only be imported inside functions. This is necessary because requirements are installed on the fly.
 
 ### {% linkable_title 2. Dependencies %}
 
@@ -65,3 +61,18 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
  1. Extend entity from component, e.g. `class HueLight(Light)`
  2. Do not call `update()` in constructor, use `add_devices(devices, True)` instead.
  3. Do not do any I/O inside properties. Cache values inside `update()` instead.
+ 4. The state and/or attributes should not contain relative time since something happened. Instead it should store UTC timestamps.
+
+### {% linkable_title 6. Communication with devices/services %}
+
+ 1. All API specific code has to be part of a third party library hosted on PyPi. Home Assistant should only interact with objects and not make direct calls to the API.
+ 
+```python
+# bad
+status = requests.get(url('/status'))
+
+# good
+from phue import Bridge
+bridge = Bridge(…)
+status = bridge.status()
+```

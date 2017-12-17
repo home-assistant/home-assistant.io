@@ -28,7 +28,7 @@ The history component will be enabled for new users by default. For current user
 </p>
 
 <p class='note'>
-Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transfered to anyone at any time.
+Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
 </p>
 
 <!--more-->

@@ -10,6 +10,7 @@ footer: true
 logo: tcp_ip.png
 ha_category: Sensor
 ha_release: 0.14
+ha_iot_class: "Local Polling"
 ---
 
 The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.
@@ -32,7 +33,7 @@ Configuration options for the a TCP Sensor:
 - **port** (*Required*): The port to connect to the host on.
 - **payload** (*Required*): What to send to the host in order to get the response we're interested in.
 - **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to `10`
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value. By default it's assumed that the entire response is the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
 - **unit_of_measurement** (*Optional*): The unit of measurement to use for the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to `1024`.
 
@@ -54,19 +55,19 @@ You will notice that the output from the service is not just a single value (it 
 ```yaml
 sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: Central Heating Pressure
-  host: 10.0.0.127
-  port: 8888
-  timeout: 5
-  payload: "r WaterPressure\n"
-  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit_of_measurement: Bar
+  - platform: tcp
+    name: Central Heating Pressure
+    host: 10.0.0.127
+    port: 8888
+    timeout: 5
+    payload: "r WaterPressure\n"
+    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
+    unit_of_measurement: Bar
 ```
 
 ### {% linkable_title hddtemp %}
 
-The tool `hddtemp` collects the temperature of your harddisks. 
+The tool `hddtemp` collects the temperature of your hard disks. 
 
 ```bash
 $ hddtemp
@@ -88,12 +89,12 @@ The entry for the `configuration.yaml` file for a `hddtemp` sensor could look li
 ```yaml
 sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: HDD temperature
-  host: 127.0.0.1
-  port: 7634
-  timeout: 5
-  payload: "\n"
-  value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
-  unit_of_measurement: "°C"
+  - platform: tcp
+    name: HDD temperature
+    host: 127.0.0.1
+    port: 7634
+    timeout: 5
+    payload: "\n"
+    value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
+    unit_of_measurement: "°C"
 ```

@@ -2,7 +2,7 @@
 layout: page
 title: "Recorder"
 description: "Instructions how to configure the data recorder for Home Assistant."
-date: 2016-05-21 09:00
+date: 2017-09-24 09:00
 sidebar: true
 comments: false
 sharing: true
@@ -14,7 +14,7 @@ ha_release: pre 0.7
 
 The `recorder` component is storing details in a database which then are handled by the [`history` component](/components/history/).
 
-Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relational Mapper (ORM). This means that you can now use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), or [PostgreSQL](https://www.postgresql.org/).
+Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relational Mapper (ORM). This means that you can now use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
@@ -27,7 +27,8 @@ recorder:
 
 Configuration variables:
 
-- **purge_days** (*Optional*): Delete events and states older than x days.
+- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g. if Home Assistant was not running) then the schedule will resume soon after Home Assistant restarts. You can use [service](#service-purge) call `recorder.purge` when required without impacting the purge schedule.
+- **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
@@ -42,7 +43,8 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_days: 5
+  purge_interval: 2
+  purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
     domains:
@@ -50,8 +52,8 @@ recorder:
       - weblink
       - updater
     entities:
-      - sun.sun   # Don't record sun data
-      - sensor.last_boot
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 ```
 
@@ -85,39 +87,65 @@ recorder:
 
 If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
+### {% linkable_title Service `purge` %}
+
+Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
+
+Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
+
+```yaml
+action:
+  service: recorder.purge
+  data:
+    keep_days: 5
+```
+
 ## Custom database engines
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
+| MariaDB         | `mysql://SERVER_IP/DB_NAME`                              |
+| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME`                |
 | MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
 | MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
 | MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
 | MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8`      |
 
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MySQL %}
+### {% linkable_title MariDB and MySQL %}
+
+For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
+
+```bash
+$ sudo apt-get install libmariadbclient-dev libssl-dev
+$ pip3 install mysqlclient
+```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmysqlclient-dev
+$ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
-If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
+
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
 
 ```bash
-pi@homeassistant:~ $ sudo -i
-root@homeassistant:~# su homeassistant
-homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
-homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
-(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
+pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
+(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
+
+After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 
+
+Once Home Assistant finds the database, with right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
 ### {% linkable_title PostgreSQL %}
 
@@ -126,4 +154,21 @@ For PostgreSQL you may have to install a few dependencies:
 ```bash
 $ sudo apt-get install postgresql-server-dev-X.Y
 $ pip3 install psycopg2
+```
+
+### {% linkable_title MS SQL Server %}
+
+For MS SQL Server you may have to install a few dependencies:
+
+```bash
+$ sudo apt-get install freetds-dev
+$ pip3 install pymssql
+```
+
+If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+
+```bash
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+$ pip3 install pymssql
 ```

@@ -10,6 +10,7 @@ footer: true
 logo: wink.png
 ha_category: Cover
 ha_release: 0.13
+ha_iot_class: "Cloud Polling"
 ---
 
 Wink cover/garage door functionality depends on the product you're using.  With GoControl/Linear Home Assistant can open, close, and view state.  Chamberlain is currently limited to view only.  Meaning Home Assistant will only show the current state of the door and control has been disabled (by Chamberlain).  If you have a Chamberlain garage door, and would like to control it via Home Assistant, please contact Chamberlain and request that they re-enabled third-party control.
@@ -21,7 +22,7 @@ The following quote is from Wink.
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### Supported cover devices
+### {% linkable_title Supported cover devices %}
 
 - Bali window treatments
 - Lutron shades
@@ -30,6 +31,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Chamberlain (Limited functionality) (No Wink hub required)
 
 <p class='note'>
-The above devices are confimed to work, but others may work as well.
+The above devices are confirmed to work, but others may work as well.
 </p>
 

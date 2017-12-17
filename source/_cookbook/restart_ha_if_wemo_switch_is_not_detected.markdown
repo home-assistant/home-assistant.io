@@ -80,7 +80,7 @@ automation:
   trigger:
     - platform: state
       entity_id: switch.KillHass
-      state: 'on'
+      to: 'on'
   action:
     service: homeassistant.stop
   - alias: 'Stop restarting HA is WeMo is found'

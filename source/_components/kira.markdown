@@ -33,7 +33,7 @@ kira:
       host: 0.0.0.0
       port: 65432
   remotes:
-      name: kira_remote
+    - name: kira_remote
       host: 192.168.100.1
       port: 65432
 ```

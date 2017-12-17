@@ -42,7 +42,153 @@ You can use V_TEMP to send the current temperature from the node to Home Assista
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### {% linkable_title Example sketch for MySensors 2.x %}
+
+
+```cpp
+/*
+* Documentation: http://www.mysensors.org
+* Support Forum: http://forum.mysensors.org
+*/
+
+#define MY_RADIO_NRF24
+#define CHILD_ID_HVAC 0
+
+#include <MySensors.h>
+
+// Uncomment your heatpump model
+//#include <FujitsuHeatpumpIR.h>
+//#include <PanasonicCKPHeatpumpIR.h>
+//#include <PanasonicHeatpumpIR.h>
+//#include <CarrierHeatpumpIR.h>
+//#include <MideaHeatpumpIR.h>
+//#include <MitsubishiHeatpumpIR.h>
+//#include <SamsungHeatpumpIR.h>
+//#include <SharpHeatpumpIR.h>
+//#include <DaikinHeatpumpIR.h>
+
+//Some global variables to hold the states
+int POWER_STATE;
+int TEMP_STATE;
+int FAN_STATE;
+int MODE_STATE;
+int VDIR_STATE;
+int HDIR_STATE;
+
+IRSenderPWM irSender(3);       // IR led on Arduino digital pin 3, using Arduino PWM
+
+//Change to your Heatpump
+HeatpumpIR *heatpumpIR = new PanasonicNKEHeatpumpIR();
+
+/*
+new PanasonicDKEHeatpumpIR()
+new PanasonicJKEHeatpumpIR()
+new PanasonicNKEHeatpumpIR()
+new CarrierHeatpumpIR()
+new MideaHeatpumpIR()
+new FujitsuHeatpumpIR()
+new MitsubishiFDHeatpumpIR()
+new MitsubishiFEHeatpumpIR()
+new SamsungHeatpumpIR()
+new SharpHeatpumpIR()
+new DaikinHeatpumpIR()
+*/
+
+MyMessage msgHVACSetPointC(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
+MyMessage msgHVACSpeed(CHILD_ID_HVAC, V_HVAC_SPEED);
+MyMessage msgHVACFlowState(CHILD_ID_HVAC, V_HVAC_FLOW_STATE);
+
+bool initialValueSent = false;
+
+void presentation() {
+  sendSketchInfo("Heatpump", "2.1");
+  present(CHILD_ID_HVAC, S_HVAC, "Thermostat");
+}
+
+void setup() {
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (!initialValueSent) {
+    send(msgHVACSetPointC.set(20));
+    send(msgHVACSpeed.set("Auto"));
+    send(msgHVACFlowState.set("Off"));
+
+    initialValueSent = true;
+  }
+}
+
+void receive(const MyMessage &message) {
+  if (message.isAck()) {
+     Serial.println("This is an ack from gateway");
+     return;
+  }
+
+  Serial.print("Incoming message for: ");
+  Serial.print(message.sensor);
+
+  String recvData = message.data;
+  recvData.trim();
+
+  Serial.print(", New status: ");
+  Serial.println(recvData);
+  switch (message.type) {
+    case V_HVAC_SPEED:
+      Serial.println("V_HVAC_SPEED");
+
+      if(recvData.equalsIgnoreCase("auto")) FAN_STATE = 0;
+      else if(recvData.equalsIgnoreCase("min")) FAN_STATE = 1;
+      else if(recvData.equalsIgnoreCase("normal")) FAN_STATE = 2;
+      else if(recvData.equalsIgnoreCase("max")) FAN_STATE = 3;
+    break;
+
+    case V_HVAC_SETPOINT_COOL:
+      Serial.println("V_HVAC_SETPOINT_COOL");
+      TEMP_STATE = message.getFloat();
+      Serial.println(TEMP_STATE);
+    break;
+
+    case V_HVAC_FLOW_STATE:
+      Serial.println("V_HVAC_FLOW_STATE");
+      if (recvData.equalsIgnoreCase("coolon")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_COOL;
+      }
+      else if (recvData.equalsIgnoreCase("heaton")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_HEAT;
+      }
+      else if (recvData.equalsIgnoreCase("autochangeover")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_AUTO;
+      }
+      else if (recvData.equalsIgnoreCase("off")){
+        POWER_STATE = 0;
+      }
+      break;
+  }
+  sendHeatpumpCommand();
+  sendNewStateToGateway();
+}
+
+void sendNewStateToGateway() {
+  send(msgHVACSetPointC.set(TEMP_STATE));
+  send(msgHVACSpeed.set(FAN_STATE));
+  send(msgHVACFlowState.set(MODE_STATE));
+}
+
+void sendHeatpumpCommand() {
+  Serial.println("Power = " + (String)POWER_STATE);
+  Serial.println("Mode = " + (String)MODE_STATE);
+  Serial.println("Fan = " + (String)FAN_STATE);
+  Serial.println("Temp = " + (String)TEMP_STATE);
+
+  heatpumpIR->send(irSender, POWER_STATE, MODE_STATE, FAN_STATE, TEMP_STATE, VDIR_AUTO, HDIR_AUTO);
+}
+```
+
+### {% linkable_title Example sketch for MySensors 1.x %}
 
 ```cpp
 /*

@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Other
 ha_release: 0.11
+ha_iot_class: depends
 ---
 
 The `mqtt_eventstream` component connects two Home Assistant instances via MQTT.
@@ -23,12 +24,18 @@ mqtt_eventstream:
   subscribe_topic: OtherHaServerName
 ```
 
-Configuration variables:
+{% configuration %}
+publish_topic:
+  description: Topic for publishing local events.
+  required: false
+  type: string
+subscribe_topic:
+  description: Topic to receive events from the remote server.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **publish_topic** (*Optional*): Topic for publishing local events
-- **subscribe_topic** (*Optional*): Topic to receive events from the remote server.
-
-## Multiple Instances
+## {% linkable_title Multiple Instances %}
 
 Events from multiple instances can be aggregated to a single master instance by subscribing to a wildcard topic from the master instance.
 

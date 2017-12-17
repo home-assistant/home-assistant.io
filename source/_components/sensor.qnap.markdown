@@ -70,8 +70,11 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 
 This component has been tested on the following devices:
 
+ - TS-259 Pro+ (QTS 4.2.6)
  - TS-410 (QTS 4.2.3)
+ - TS-419 (QTS 4.2.3)
  - TS-451 (QTS 4.2.2)
+ - TS-470 (QTS 4.2.2)
  - TS-639 (QTS 4.2.3)
 
 Other QNAP NAS devices using similar firmware should work fine. For more information about supported devices, or to report issues with your device, please visit the [qnapstats project](https://github.com/colinodell/python-qnapstats#device-support).

@@ -10,11 +10,12 @@ footer: true
 logo: metoffice.jpg
 ha_category: Weather
 ha_release: 0.42
+ha_iot_class: "Cloud Polling"
 ---
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API][datapoint] for weather data.
 
-To add the Met Office weather platform to your installation you'll need to register for a free api key at the link above and then add the following to your `configuration.yaml` file:
+To add the Met Office weather platform to your installation, you'll need to register for a free API key at the link above and then add the following to your `configuration.yaml` file:
 
 ```yaml
 weather:
@@ -28,7 +29,7 @@ Configuration variables:
 
 <p class='note'>
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
-The weather platform is easier to configure but less customisable.
+The weather platform is easier to configure but less customizable.
 </p>
 
 [datapoint]: http://www.metoffice.gov.uk/datapoint

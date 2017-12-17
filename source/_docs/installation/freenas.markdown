@@ -2,7 +2,7 @@
 layout: page
 title: "Installation on FreeNAS 9.10"
 description: "Installation of Home Assistant on your FreeNAS."
-date: 2017-04-06 17:00
+date: 2017-06-20 11:00
 sidebar: true
 comments: false
 sharing: true
@@ -29,10 +29,25 @@ Install Home Assistant itself.
 # pip3 install homeassistant
 ```
 
-Finally start Home Assistant.
+Create an `/etc/rc.local` file to enable Home Assistant to start when the jail starts. The command in `/etc/rc.local` can also be run in a terminal session but Home Assistant will exit when that session is closed.  
+
 
 ```bash
-# hass --open-ui
+# cd / && mkdir /home && /home/.homeassistant/
 ```
 
-Some suggestions on using a tmux to keep it running can be found in the FreeNAS forums [HERE](https://forums.freenas.org/index.php?threads/how-to-home-assistant-in-a-jail-tested-on-9-10.50371/)
+```bash
+# /usr/local/bin/hass --open-ui --config /home/.homeassistant/ &
+```
+
+Make `/etc/rc.local` executable so it runs on startup
+
+```bash
+# chmod 755 /etc/rc.local
+```
+
+Finally restart the jail from the Freenas GUI.
+
+<p class='note'>
+USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break".  This doesn't impact the function of the Z-wave stick in Hass. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.  
+</p>

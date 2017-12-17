@@ -21,16 +21,16 @@ Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
 
  1. Client connects
  2. Authentication phase starts
-    a. If no further authentication necessary for the user: go to 3
-    b. Server sends `auth_required` message
-    c. Client sends `auth` message
-    d. If `auth` message correct: go to 3.
-    e. Server sends `auth_invalid`. Go to 6.
+    - If no further authentication necessary for the user: go to 3
+    - Server sends `auth_required` message
+    - Client sends `auth` message
+    - If `auth` message correct: go to 3.
+    - Server sends `auth_invalid`. Go to 6.
  3. Send `auth_ok` message
  4. Authentication phase ends.
  5. Command phase starts.
-    a. Client can send commands.
-    b. Server can send results of previous commands.
+    1. Client can send commands.
+    2. Server can send results of previous commands.
  6. Client or server disconnects session.
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.
@@ -222,7 +222,7 @@ The server will respond with a result message to indicate that unsubscribing was
 
 This will call a service in Home Assistant. Right now there is no return value. The client can listen to `state_changed` events if it is interested in changed entities as a result of a service call.
 
-```json5
+```json
 {
   "id": 24,
   "type": "call_service",

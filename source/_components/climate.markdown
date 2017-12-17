@@ -44,7 +44,7 @@ Turn auxiliary heater on/off for climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_aux_heat
       data:
@@ -69,7 +69,7 @@ reflecting a situation where the climate device is set to save energy. This may 
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_away_mode
       data:
@@ -96,7 +96,7 @@ temporary target temperature. The particular modes available depend on the clima
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_hold_mode
       data:
@@ -122,7 +122,7 @@ Set target temperature of climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_temperature
       data:
@@ -146,7 +146,7 @@ Set target humidity of climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_humidity
       data:
@@ -169,7 +169,7 @@ Set fan operation for climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_fan_mode
       data:
@@ -192,7 +192,7 @@ Set operation mode for climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_operation_mode
       data:
@@ -215,10 +215,19 @@ Set operation mode for climate device
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: climate.set_swing_mode
       data:
         entity_id: climate.kitchen
         swing_mode: 1
+```
+#### {% linkable_title Customization  %}
+
+The step for the setpoint can be adjusted (default to 0,5 increments) by adding the following line into configuration
+
+```yaml
+customize:
+  - entity_id
+      target_temp_step: 1
 ```

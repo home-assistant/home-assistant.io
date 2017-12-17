@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
-ha_category: Telegram chatbot
+ha_category: Notifications
 ha_release: 0.42
 ---
 
@@ -22,11 +22,11 @@ To integrate this into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 
 telegram_bot:
-  platform: polling
-  api_key: <telegram api key>
-  allowed_chat_ids:
-    - 12345
-    - 67890
+  - platform: polling
+    api_key: <telegram api key>
+    allowed_chat_ids:
+      - 12345
+      - 67890
 ```
 
 Configuration variables:
@@ -34,6 +34,8 @@ Configuration variables:
 - **allowed_chat_ids** (*Required*): A list of user in the `user_id` Telegram format enabled to interact to webhook
 - **api_key** (*Required*): The API token of your bot.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
+- **proxy_url** (*Optional*): Proxy url if working behind one (`socks5://proxy_ip:proxy_port`)
+- **proxy_params** (*Optional*): Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram/) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram/).
 

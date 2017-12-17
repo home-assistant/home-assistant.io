@@ -28,7 +28,7 @@ Configuration variables:
 
 ### {% linkable_title Use the service %}
 
-Go the the "Developer Tools", then to "Call Service", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
+Go to the "Developer Tools", then to "Call Service", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
 
 ```json
 {"url":"http://domain.tld/path/to/file"}
@@ -36,7 +36,9 @@ Go the the "Developer Tools", then to "Call Service", and choose `downloader/dow
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  |       no | The url of the file to download.
-
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `url`                  |       no | The URL of the file to download.               |
+| `subdir`               |      yes | Download into subdirectory of **download_dir** |
+| `filename`             |      yes | Determine the filename.                        |
+| `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |

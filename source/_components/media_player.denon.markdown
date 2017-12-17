@@ -13,20 +13,14 @@ ha_iot_class: "Local Polling"
 ha_release: 0.7.2
 ---
 
-
-The `denon` platform allows you to control a [Denon Network Receivers](http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant.
+The `denon` platform allows you to control a [Denon Network Receivers](http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
 
 Supported devices:
 
 - Denon DRA-N5
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
-- Denon AVR receivers with Integrated Network support (partial support)
-- Denon AVR-X4100W (via denonavr platform)
-- Denon AVR receivers (via denonavr platform (untested))
-- Marantz M-RC610 (via denonavr platform)
-- Marantz receivers (experimental via denonavr platform)
-
+- Denon AVR receivers with integrated Network support (partial support)
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -44,27 +38,11 @@ Configuration variables:
 - **name** (*Optional*): Name of the device.
 
 A few notes for platform: denon
+
 - The receiver handles only one telnet connection and refuses others.
 - Be careful with the volume. 100% or even 50% is very loud.
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
 
-
-**denonavr platform**
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: denonavr
-    host: IP_ADDRESS
-```
-
-Configuration variables:
-
-- **host** (*Optional*): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.
-- **name** (*Optional*): Name of the device. If not set, friendlyName of receiver is used.
-
-A few notes for platform: denonavr
-- Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
-- denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.
-- Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.
+[Denon AVR]: /components/media_player.denonavr/

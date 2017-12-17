@@ -61,7 +61,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of coordinator speakers.
 | `with_group` | yes | Should be also snapshot the group state of the speaker.
 
 ### {% linkable_title Service `sonos_restore` %}
@@ -70,7 +70,7 @@ Restore a previously taken snapshot of one or more speakers. If no `entity_id` i
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of coordinator speakers.
 | `with_group` | yes | Should be also restore the group state of the speaker. Only if was snapshot with group.
 
 ### {% linkable_title Service `sonos_join` %}

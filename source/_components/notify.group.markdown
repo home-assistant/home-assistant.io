@@ -32,5 +32,5 @@ Configuration variables:
 
 - **name** (*Required*): Setting the parameter `name` sets the name of the group.
 - **services** (*Required*): A list of all the services to be included in the group.
-  - **service** (*Required*): The service part of an entity ID, i.e. if you use `notify.html5` normally, just put `html5`.
+  - **service** (*Required*): The service part of an entity ID, i.e. if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
   - **data** (*Optional*): A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target`, `title`.

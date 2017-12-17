@@ -10,6 +10,7 @@ footer: true
 logo: verisure.png
 ha_category: Hub
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -21,6 +22,7 @@ We support:
  * Reading from thermometers and hygrometers integrated in various [devices](/components/sensor.verisure/)
  * Mouse Detector
  * [Locks](/components/lock.verisure/)
+ * [Door & Window](/components/binary_sensor.verisure/)
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -41,5 +43,6 @@ Configuration variables:
 - **locks** (*Optional*): Set to 1 to show locks, 0 to disable. Default 1.
 - **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
 - **mouse** (*Optional*): Set to 1 to show mouse detectors, 0 to disable. Default 1.
+- **door_window** (*Optional*): Set to 1 to show door and window sensors, 0 to disable. Default 1.
 - **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
-
+- **giid** (*Optional*): The GIID of your installation (If you have more then one alarm system).

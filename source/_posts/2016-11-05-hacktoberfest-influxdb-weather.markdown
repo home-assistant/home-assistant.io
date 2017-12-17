@@ -117,7 +117,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 
 ### {% linkable_title If you need help... %}
 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 [@mweinelt]: https://github.com/mweinelt
 [@aa755]: https://github.com/aa755

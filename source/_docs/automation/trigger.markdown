@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
+On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.
 
 ```yaml
 automation:
@@ -68,11 +68,22 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
+
+    # If given, will trigger when condition has been for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
+
+<p class='note'>
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 
 ### {% linkable_title State trigger %}
 
-Triggers when the state of tracked entities change. If only entity_id given will match all state changes.
+Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
 
 ```yaml
 automation:
@@ -81,10 +92,8 @@ automation:
     entity_id: device_tracker.paulus, device_tracker.anne_therese
     # Optional
     from: 'not_home'
+    # Optional
     to: 'home'
-
-    # Alias for 'to'
-    state: 'home'
 
     # If given, will trigger when state has been the to state for X time.
     for:
@@ -110,6 +119,23 @@ automation:
     offset: '-00:45:00'
 ```
 
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
+
+```yaml
+automation:
+  alias: "Exterior Lighting on when dark outside"
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{% raw %}{{ state.attributes.elevation }}{% endraw %}"
+    # Can be a positive or negative number
+    below: -4.0
+  action:
+    service: switch.turn_on
+    entity_id: switch.exterior_lighting
+```
+The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time.
+
 ### {% linkable_title Template trigger %}
 
 Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
@@ -126,7 +152,7 @@ automation:
 
 ### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
+Time can be triggered in many ways. The most common is to specify `at` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `at` together with hour, minute or second.
 
 ```yaml
 automation:
@@ -139,9 +165,9 @@ automation:
 automation 2:
   trigger:
     platform: time
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # When 'at' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    after: '15:32:00'
+    at: '15:32:00'
 
 automation 3:
   trigger:
@@ -171,7 +197,7 @@ automation:
 
 ### {% linkable_title Multiple triggers %}
 
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
 
 ```yaml
 automation:

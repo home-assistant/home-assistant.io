@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Manual installation on a Raspberry Pi"
-description: "Instructions to install Home Assistant on a Raspberry Pi runnning Raspbian Lite."
+description: "Instructions to install Home Assistant on a Raspberry Pi running Raspbian Lite."
 date: 2016-09-05 16:00
 sidebar: true
 comments: false
@@ -67,7 +67,7 @@ Once you have activated the virtual environment you will notice the prompt chang
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation, create the `.homeasssistant` configuration directory in the `/home/homeassistant` directory and install any basic dependencies.
+Start Home Assistant for the first time. This will complete the installation, create the `.homeassistant` configuration directory in the `/home/homeassistant` directory and install any basic dependencies.
 
 ```bash
 (homeassistant) $ hass

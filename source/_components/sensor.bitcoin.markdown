@@ -21,54 +21,64 @@ To add the Bitcoin sensor to your installation, add a selection of the available
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: bitcoin
-  display_options:
-    - exchangerate
-    - trade_volume_btc
-    - miners_revenue_usd
-    - btc_mined
-    - trade_volume_usd
-    - difficulty
-    - minutes_between_blocks
-    - number_of_transactions
-    - hash_rate
-    - timestamp
-    - mined_blocks
-    - blocks_size
-    - total_fees_btc
-    - total_btc_sent
-    - estimated_btc_sent
-    - total_btc
-    - total_blocks
-    - next_retarget
-    - estimated_transaction_volume_usd
-    - miners_revenue_btc
-    - market_price_usd
+  - platform: bitcoin
+    display_options:
+      - exchangerate
+      - trade_volume_btc
 ```
 
-Configuration variables:
-
-- **currency** (*Optional*): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.
-- **display_options** array (*Required*): Options to display in the frontend.
-  - **exchangerate**: Exchange rate of 1 BTC
-  - **trade_volume_btc**: Trade volume
-  - **miners_revenue_usd**: Miners revenue
-  - **btc_mined**: BTC mined
-  - **trade_volume_usd**: Trade volume in USD
-  - **difficulty**: Difficulty
-  - **minutes_between_blocks**: Time between blocks in minutes
-  - **number_of_transactions**: Number of transactions
-  - **hash_rate**: Hash rate in PH/s
-  - **timestamp**: Timestamp
-  - **mined_blocks**: Minded Blocks
-  - **blocks_size**: Block size
-  - **total_fees_btc**: Total fees in BTC
-  - **total_btc_sent**: Total sent in BTC
-  - **estimated_btc_sent**: Estimated sent in BTC
-  - **total_btc**: Total of BTC
-  - **total_blocks**: Total Blocks
-  - **next_retarget**: Next retarget
-  - **estimated_transaction_volume_usd**: Estimated transaction volume in BTC
-  - **miners_revenue_btc**: Miners revenue in BTC
-  - **market_price_usd**: Market price in USD
+{% configuration %}
+currency:
+  description: The currency to exchange to, eg. CHF, USD, EUR, etc.
+  required: false
+  type: string
+  default: USD
+display_options:
+  description: Options to display in the frontend.
+  required: true
+  type: map
+  keys:
+    exchangerate:
+      description: Exchange rate of 1 BTC
+    trade_volume_btc:
+      description: Trade volume
+    miners_revenue_usd:
+      description: Miners revenue
+    btc_mined:
+      description: BTC mined
+    trade_volume_usd:
+      description: Trade volume in USD
+    difficulty:
+      description: Difficulty
+    minutes_between_blocks:
+      description: Time between blocks in minutes
+    number_of_transactions:
+      description: Number of transactions
+    hash_rate:
+      description: Hash rate in PH/s
+    timestamp:
+      description: Timestamp
+    mined_blocks:
+      description: Minded Blocks
+    blocks_size:
+      description: Block size
+    total_fees_btc:
+      description: Total fees in BTC
+    total_btc_sent:
+      description: Total sent in BTC
+    estimated_btc_sent:
+      description: Estimated sent in BTC
+    total_btc:
+      description: Total of BTC
+    total_blocks:
+      description: Total Blocks
+    next_retarget:
+      description: Next retarget
+    estimated_transaction_volume_usd:
+      description: Estimated transaction volume in BTC
+    miners_revenue_btc:
+      description: Miners revenue in BTC
+    market_price_usd:
+      description: Market price in USD
+{% endconfiguration %}
 

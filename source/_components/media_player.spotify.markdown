@@ -18,10 +18,15 @@ The `spotify` media player platform allows you to control [Spotify](https://www.
 
 ## {% linkable_title Prerequisites %}
 
-- Spotify Premium account.
-- Spotify Application, properly configured.
+- Spotify account.
+- Spotify Application, properly configured
+
+<p class='note'>
+Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+</p>
 
 To create the required Spotify Application:
+
 - Login to [Spotify Developer](https://developer.spotify.com)
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page
 - Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file. 
@@ -46,6 +51,9 @@ media_player:
   - platform: spotify
     client_id: <your client id>
     client_secret: <your client secret>
+    aliases:
+        abc123def456: 'Living Room'
+        9183abas000: 'Bed Room'
 ```
 
 Configuration variables:
@@ -53,13 +61,14 @@ Configuration variables:
 - **client_id** (*Required*): Client ID from your Spotify Application.
 - **client_secret** (*Required*): Client Secret from your Spotify Application.
 - **cache_path** (*Optional*): Path to cache authentication token (defaults to configuration directory).
+- **aliases** (*Optional*): Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing.
 
 ## {% linkable_title Setup %}
 
 After the prerequisites and configuration are complete, restart Home Assistant. A **Spotify** configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear. If Spotify prompts you to download a file after completing authorization, discard the download. It is not needed.
 
 ## {% linkable_title Sources %}
-The sources are based on if you have streamed to these devices before in Spotify. If you don't have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc. Once you do the sources will show up in the developer console as a device to cast/stream to. Also know that the devices won't show up in the dev-console as sources unless they are powered on as well.
+The sources are based on if you have streamed to these devices before in Spotify. If you don't have any sources, then simply stream from your phone to another device in your house, Bluetooth, echo, etc. Once you do the sources will show up in the developer console as a device to cast/stream to. Also know that the devices won't show up in the dev-console as sources unless they are powered on as well.
 
 ## {% linkable_title URI Links For Playlists/Etc %}
 You can send playlists to spotify via the "media_content_type": "playlist" and "media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF" which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant frontend.

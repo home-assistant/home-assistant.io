@@ -12,6 +12,13 @@ redirect_from: /details/updater/
 
 Starting with 0.31 the [updater component](/components/updater/) sends an optional report about Home Assistant instance.
 
+If you want to opt-in to include component information, add `include_used_components` to your config. This will allow the Home Assistant developers to focus development efforts on the most popular components.
+
+```yaml
+updater:
+  include_used_components: true
+```
+
 We are only collecting this information to better understand our user base to provide better long term support and feature development.
 
 | Name                  | Description                                | Example                            | Data Source    |
@@ -49,4 +56,4 @@ The server also adds two timestamps to the data:
 - the original date your instance UUID was first seen
 - the timestamp of the last time we have seen your instance
 
-There are currently no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.
+We will never publicly expose individual gathered data. We might however publish aggregated stats about our user base (example: 70% of all users use Linux). We will never sell or allow the use of this information for non-Home Assistant development purposes.

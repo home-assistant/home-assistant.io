@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Mailgun"
+title: "Mailgun Notify"
 description: "Instructions how to add Mailgun mail notifications to Home Assistant."
 date: 2017-02-06 16:52
 sidebar: true
@@ -12,18 +12,23 @@ ha_category: Notifications
 ha_release: 0.38
 ---
 
-The Mailgun notification service allows you to send emails via Mailgun's REST API.
+The Mailgun notification service allows you to send emails via Mailgun's REST API. It requires the [Mailgun component] to be set up.
+
+[Mailgun component]: /components/mailgun/
 
 ## {% linkable_title Sample configuration %}
 
 ```yaml
 # Example configuration.yaml entry
+mailgun:
+  domain: mg.example.com
+  api_key: token-XXXXXXXXX
+  sandbox: False
+
 notify:
-  - name: NOTIFIER_NAME
+  - name: mailgun
     platform: mailgun
-    domain: YOUR_MAILGUN_DOMAIN
-    token: TOKEN
-    recipient: RECIPIENT_EMAIL
+    recipient: me@example.com
 ```
 
 Configuration variables:
@@ -33,21 +38,6 @@ Configuration variables:
 - **token** (*Required*): This is the API token that has been generated in your Mailgun account.
 - **recipient** (*Required*): The email address of the recipient.
 - **sender** (*Optional*): The sender's email address. Defaults to `hass@DOMAIN`, where `DOMAIN` is outgoint mail domain, as defined by the `domain` and `sanbox` configuration entries.
-
-## {% linkable_title Full configuration %}
-
-A full configuration example for the Mailgun notifier system can look like this:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: mailgun
-    platform: mailgun
-    domain: mg.example.com
-    sanbox: False
-    token: 'token-XXXXXXXXX'
-    recipient: me@example.com
-```
 
 ## {% linkable_title Example automation %}
 

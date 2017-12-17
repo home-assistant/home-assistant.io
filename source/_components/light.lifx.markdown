@@ -21,11 +21,11 @@ _Please note, the `lifx` platform does not support Windows. The `lifx_legacy` pl
 # Example configuration.yaml entry
 light:
   - platform: lifx
-    server: 192.168.1.10
 ```
 Configuration variables:
 
-- **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
+- **broadcast** (*Optional*): The broadcast address for discovering lights. Only needed if using more than one network interface. Omit if you are unsure.
+- **server** (*Optional*): Your server address. Will listen on all interfaces if omitted. Omit if you are unsure.
 
 ## {% linkable_title Set state %}
 
@@ -41,6 +41,8 @@ Change the light to a new state.
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
+| `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
+| `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.
 
@@ -56,7 +58,7 @@ automation:
       - service: light.turn_on
         data:
           entity_id: light.office, light.kitchen
-          effect: lifx_effect_breathe
+          effect: lifx_effect_pulse
 ```
 
 However, if you want to fully control a light effect, you have to use its dedicated service call, like this:
@@ -76,23 +78,9 @@ script:
 
 The available light effects and their options are listed below.
 
-### {% linkable_title Service `light.lifx_effect_breathe` %}
-
-Run a breathe effect by fading to a color and back.
-
-| Service data attribute | Description |
-| ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
-| `color_name` | A color name such as `red` or `green`.
-| `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
-| `brightness` | Integer between 0 and 255 for how bright the color should be.
-| `period` | The duration of a single breathe.
-| `cycles` | The total number of breathes.
-| `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
-
 ### {% linkable_title Service `light.lifx_effect_pulse` %}
 
-Run a flash effect by quickly changing to a color and then back.
+Run a flash effect by changing to a color and then back.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
@@ -100,8 +88,9 @@ Run a flash effect by quickly changing to a color and then back.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
 | `brightness` | Integer between 0 and 255 for how bright the color should be.
-| `period` | The duration of a single pulse.
+| `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
+| `mode` | The way to change between colors. Valid modes: `blink` (default), `breathe`, `ping`, `strobe`, `solid`.
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_colorloop` %}

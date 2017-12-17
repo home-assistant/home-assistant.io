@@ -10,12 +10,33 @@ footer: true
 redirect_from: /ecosystem/hadashboard/
 ---
 
-HADashboard is a dashboard for [Home Assistant](https://home-assistant.io/) that is intended to be wall mounted, and is optimized for distance viewing.
+HADashboard is a modular, skinnable dashboard for [Home Assistant](https://home-assistant.io/) that is intended to be wall mounted, and is optimized for distance viewing.
 
 <p class='img'>
-    <img src='/images/hadashboard/dash.png' />
-    Sample Dashboard
+    <img src='/images/hadashboard/dash1.png' />
+    Default Theme
 </p>
 
-HADashboard was originally created by the excellent work of [FlorianZ](https://github.com/FlorianZ/hadashboard) for use with the SmartThings Home Automation system, with notable contributions from the [SmartThings Community](https://community.smartthings.com/t/home-automation-dashboard/4926). I would also like to acknowledge contributions made by [zipriddy](https://github.com/zpriddy/SmartThings_PyDash). This is my port of hadashboard to Home Assistant.
+<p class='img'>
+    <img src='/images/hadashboard/dash2.png' />
+    Obsidian Theme
+</p>
 
+<p class='img'>
+    <img src='/images/hadashboard/dash3.png' />
+    Zen Theme
+</p>
+
+<p class='img'>
+    <img src='/images/hadashboard/dash4.png' />
+    Simply Red Theme
+</p>
+
+<p class='img'>
+    <img src='/images/hadashboard/dash5.png' />
+    Glassic Theme
+</p>
+
+
+
+For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/latest/DASHBOARD_INSTALL.html)

@@ -47,7 +47,7 @@ You can use [templating] support to dynamically choose which service to call. Fo
 
 ```yaml
 service_template: >
-  {% raw %}{% if states.sensor.temperature | float > 15 %}
+  {% raw %}{% if states.sensor.temperature.state | float > 15 %}
     switch.turn_on
   {% else %}
     switch.turn_off

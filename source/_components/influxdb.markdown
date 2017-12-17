@@ -23,19 +23,23 @@ The default InfluxDB configuration doesn't enforce authentication. If you have i
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
+You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 Configuration variables:
 
 - **host** (*Optional*): IP address of your database host, e.g. 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
-- **username** (*Optional*): The username of the database user.
+- **username** (*Optional*): The username of the database user. The user needs read/write privileges on the database.
 - **password** (*Optional*): The password for the database user account.
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **max_retries** (*Optional*): Allow the component to retry if there was a network error when transmitting data
+- **retry_queue_limit** (*Optional*): If retry enabled, specify how much calls are allowed to be queued for retry.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+- **component_config**, **component_config_domain**, **component_config_glob** (*Optional*): These attributes contains component-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format.
+  - **override_measurement** (*Optional*): Measurement name to use for this component, takes precedence over the global 'override_measurement' and component-specific 'unit_of_measurement' attribute.
 - **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
   - **entities** (*Optional*): The list of entity ids to be excluded from recording to InfluxDB.
   - **domains** (*Optional*): The list of domains to be excluded from recording to InfluxDB.
@@ -43,6 +47,7 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
   - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
+- **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
 ## {% linkable_title Data migration %}
 
@@ -106,10 +111,10 @@ optional arguments:
 
 If you want to import all the recorded data from your recorder database you can use the data import script.
 It will read all your state_change events from the database and add them as data-points to the InfluxDB.
-You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
+You can specify the source database either by pointing the `--config` option to the config directory which includes the default SQLite database or by giving a sqlalchemy connection URI with `--uri`.
 The writing to InfluxDB is done in batches that can be changed with `--step`.
 
-You can control, which data is imported by using the commandline options `--exclude-entities` and `--exclude-domain`.
+You can control, which data is imported by using the command line options `--exclude_entities` and `--exclude_domains`.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
 
 To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.
@@ -120,7 +125,7 @@ Example to run the script:
 ```bash
 $ hass --script influxdb_import --config CONFIG_DIR \
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
 ```
 Script arguments:
 
@@ -172,6 +177,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  max_retries: 3
   default_measurement: state
   exclude:
     entities:

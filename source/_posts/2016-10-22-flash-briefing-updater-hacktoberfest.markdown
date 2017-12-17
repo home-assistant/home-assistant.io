@@ -173,7 +173,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - Weather: Allow tracking severe weather alerts with [WUnderground] ([@tchellomello])
 - Sensor: New support added to track [min/max/mean][min] ([@fabaff])
 - Convert EntityComponent to be async ([@pvizeli], [@balloob])
-- Z-Wave: Add assocation service ([@turbokongen])
+- Z-Wave: Add association service ([@turbokongen])
 - Frontend - Services dev tool: persist state and tweak UI ([@justweb1])
 - Sensor: Support added for [scraping][scrape] websites ([@fabaff])
 - Clean up of tests ([@capellini])
@@ -208,7 +208,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
  - The Z-Wave entity ID change mentioned above
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 ## {% linkable_title Until next time %}
 

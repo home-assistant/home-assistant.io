@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Config"
-description: "Instructions how to setup the configuration panel Home Assistant."
+description: "Instructions how to setup the configuration panel for Home Assistant."
 date: 2017-02-24 20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category: Front end
 ha_release: 0.39
 ---
 
@@ -21,16 +21,7 @@ To enable the configuration panel, add the following to your `configuration.yaml
 config:
 ```
 
-### {% linkable_title Group & Views %}
-
-The **Groups & Views** sections allows you to re-arrange your [groups](/components/group/). Also, you can edit the group's setting and switch between "view" and "group".
-
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/group-views.png' />
-</p>
-
-
-### {% linkable_title Server Management %}
+### {% linkable_title General %}
 
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, and automation, and the Home Assistant process itself. With a single mouse click.
 
@@ -38,4 +29,18 @@ This section enables you to control Home Assistant from within Home Assistant. C
   <img src='{{site_root}}/images/screenshots/server-management.png' />
 </p>
 
+### {% linkable_title Customization %}
 
+This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
+
+### {% linkable_title Automation %}
+
+This section enables you to create and modify automations from within Home Assistant, without needing to write out the yaml code.
+
+### {% linkable_title Script %}
+
+Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the yaml code.
+
+### {% linkable_title Z-Wave %}
+
+This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.

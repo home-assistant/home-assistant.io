@@ -9,9 +9,11 @@ sharing: true
 footer: true
 ---
 
-In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
+See the [developer documentation][devdocs] for a full overview of the documentation. The rest of this page will contain examples on how to use it.
 
-Note: This page is not full documentation for this API, but a collection of examples showing its use.
+[devdocs]: https://dev-docs.home-assistant.io/en/master/api/homeassistant.html#module-homeassistant.remote
+
+In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
 
 A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used.
 
@@ -22,17 +24,6 @@ import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'password')
 print(remote.validate_api(api))
-```
-
-Here's another way to use the `homeassistant.remote` package:
-
-```python
-import homeassistant.remote as remote
-
-api = remote.API('127.0.0.1', 'password')
-hass = remote.HomeAssistant(api)
-hass.start()
-living_room = hass.states.get('group.living_room')
 ```
 
 ### {% linkable_title Get configuration %}
@@ -49,7 +40,7 @@ print(remote.get_config(api))
 
 ### {% linkable_title Get details about services, events, and entitites %}
 
-The output from this is similar to the output you'd find via the frontend, using the DevTools console.
+The output from this is similar to the output you'd find via the frontend, using the [Developer Tools](/docs/tools/dev-tools/).
 
 ```python
 import homeassistant.remote as remote
@@ -80,12 +71,11 @@ To get the details of a single entity, use `get_state`:
 import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
-office_temperature = remote.get_state(api, 'sensor.office_temperature')
-print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
-                            office_temperature.state,
-                            office_temperature.attributes['unit_of_measurement']
-                            )
-      )
+office_temp = remote.get_state(api, 'sensor.office_temperature')
+print('{} is {} {}.'.format(
+    office_temp.name, office_temp.state,
+    office_temp.attributes['unit_of_measurement'])
+)
 ```
 
 This outputs the details which are stored for this entity, ie:
@@ -101,10 +91,9 @@ import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 switch_livingroom = remote.get_state(api, 'switch.livingroom_pin_2')
-print('{} is {}.'.format(switch_livingroom.attributes['friendly_name'],
-                         switch_livingroom.state
-                         )
-      )
+print('{} is {}.'.format(
+    switch_livingroom.name, switch_livingroom.state)
+)
 ```
 
 ### {% linkable_title Set the state of an entity %}
@@ -194,4 +183,54 @@ data = {"title":"Test", "message":"A simple test message from HA."}
 remote.call_service(api, domain, 'jabber', data)
 ```
 
-For more details, please check the source of [homeassistant.remote](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py).
+## {% linkable_title Examples %}
+
+This section contains a couple of sample scripts.
+
+### {% linkable_title List all sensors and their value %}
+
+If you want to see, export or list all sensor states then an easy way to do it, is to get all entities and filter for the one you are looking for. 
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
+entities = remote.get_states(api)
+for entity in entities:
+    if entity.entity_id.startswith('sensor'):
+        data = remote.get_state(api, entity.entity_id)
+        print('{}: {}'.format(data.attributes['friendly_name'], data.state))
+```
+
+### {% linkable_title Show difference between `last_changed` and `last_updated` %}
+
+The documentation about the [State Objects](/docs/configuration/state_object/) describes the 
+`last_changed` and `last_updated` fields. This example shows how it works in practice. 
+
+```python
+import time
+
+from prettytable import PrettyTable
+import homeassistant.remote as remote
+
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
+
+ACTIONS = {
+    'Create sensor': [21, 'Test'],
+    'No new sensor value': [21, 'Test'],
+    'New sensor value': [22, 'Test'],
+    'Update attribute': [22, 'Test1'],
+}
+
+output = PrettyTable(['Action', 'Last changed', 'Last updated'])
+
+for key, value in ACTIONS.items():
+    remote.set_state(api, 'sensor.test', new_state=value[0],
+                     attributes={'friendly_name': value[1]})
+    data = remote.get_state(api, 'sensor.test')
+    output.add_row([key, data.last_changed, data.last_updated])
+    time.sleep(2)
+
+print(output)
+```
+

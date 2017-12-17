@@ -29,7 +29,7 @@ twilio:
 Configuration variables:
 
 - **account_sid** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It starts with the letters `AC`.
-- **auth_token** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`.
+- **auth_token** (*Required*): Your Twilio AUTH TOKEN which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`.
 
 ### {% linkable_title Usage %}
 After configuring the base Twilio component, add and configure either or both of the [twilio SMS](https://home-assistant.io/components/notify.twilio_sms/) and [twilio Phone](https://home-assistant.io/components/notify.twilio_call) components to utilize the notification functionality.

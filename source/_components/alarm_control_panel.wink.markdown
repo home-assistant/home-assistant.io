@@ -20,12 +20,12 @@ The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) 
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### Supported devices
+### {% linkable_title Supported devices %}
 
 - Canary all-in-one security camera
 
 
 <p class='note'>
-The above devices are confimed to work, but others may work as well.
+The above devices are confirmed to work, but others may work as well.
 </p>
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pushbullet Mirrors"
-description: "Instructions how to read user pushes in Home Assitant"
+description: "Instructions how to read user pushes in Home Assistant"
 date: 2017-04-20 16:44
 sidebar: true
 comments: false
@@ -10,12 +10,13 @@ footer: true
 logo: pushbullet.png
 ha_category: Sensor
 ha_release: 0.44
+ha_iot_class: "Cloud Polling"
 ---
 
 The `pushbullet` sensor platform reads messages from [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends.
-This sensor platform provide sensors that show the properties of the latest recevied pushbullet notification mirror.
+This sensor platform provides sensors that show the properties of the latest received Pushbullet notification mirror.
 
-Notification Mirroring allows users to see their Android device's notifications on their computer. It must be first enabled in the app and is currently only available on the Android platform. For more information, please see [this announcement](https://blog.pushbullet.com/2013/11/12/real-time-notification-mirroring-from-android-to-your-computer/) on the Pushbullet Blog
+Notification Mirroring allows users to see their Android device's notifications on their computer. It must be first enabled in the app and is currently only available on the Android platform. For more information, please see [this announcement](https://blog.pushbullet.com/2013/11/12/real-time-notification-mirroring-from-android-to-your-computer/) on the Pushbullet Blog.
 
 To enable the Pushbullet sensor in your installation, add the following to your `configuration.yaml` file:
 

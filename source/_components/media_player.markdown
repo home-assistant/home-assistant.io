@@ -32,16 +32,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
-| `volume_level`         |       no | Float for volume level                         |
-
-#### {% linkable_title Service `media_player/volume_transition` %}
-
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target a specific media player. Defaults to all. |
-| `volume_level`         |       no | Float for volume level                         |
-| `transition`           |       no | Integer for transition time in seconds           |
-
+| `volume_level`         |       no | Float for volume level                           |
 
 #### {% linkable_title Service `media_player/media_seek` %}
 
@@ -56,7 +47,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is component dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
-| `media_content_type`   |       no | A media type. Must be one of `MUSIC`, `TVSHOW`, `VIDEO`, `EPISODE`, `CHANNEL` or `PLAYLIST`. For example, to play music you would set `media_content_type` to `MUSIC`. |
+| `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
 
 #### {% linkable_title Service `media_player/select_source` %}
 
@@ -66,9 +57,12 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
 #### {% linkable_title Service `media_player/shuffle_set` %}
-Currently only supports Spotify.
+
+Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), and [Universal](/components/media_player.universal/).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
-| `source`               |       no | `true`/`false` for enabling/disabling shuffle            |
+| `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle            |
+
+

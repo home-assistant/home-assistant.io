@@ -2,7 +2,7 @@
 layout: post
 title: "To Infinity and Beyond 🚀"
 description: "The state of Home Assistant: past, present, future."
-date: 2016-04-18 22:44:00 -0700
+date: 2016-04-19 22:44:00 UTC
 date_formatted: "April 19, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -37,5 +37,5 @@ Paulus
 
 [gh-ha]: https://github.com/home-assistant/
 [filling in the blanks]: /developers/platform_example_sensor/#code
-[chat room]: https://gitter.im/home-assistant/home-assistant
+[chat room]: https://discord.gg/c5DvZ4e
 [forums]: https://community.home-assistant.io/

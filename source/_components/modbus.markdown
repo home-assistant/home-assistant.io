@@ -10,7 +10,7 @@ footer: true
 logo: modbus.png
 ha_category: Hub
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 
@@ -31,8 +31,9 @@ modbus:
 Configuration variables:
 
 - **type** (*Required*): Type of the connection to Modbus.
-- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
+- **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
 - **port** (*Required*): The port for the communication.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 For a serial connection:
 
@@ -57,6 +58,7 @@ Configuration variables:
 - **stopbits** (*Required*): The stopbits for the serial connection.
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 ### {% linkable_title Services %}
 

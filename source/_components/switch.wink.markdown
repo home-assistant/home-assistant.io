@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: wink.png
 ha_category: Switch
+ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -24,4 +26,5 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Wink Relay load controlling switches
 - Rachio sprinkler controller (No Wink hub required)
 - iHome smart plug (No Wink hub required)
+- Wink switch groups (User created groups of switches)
 

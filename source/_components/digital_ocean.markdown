@@ -26,6 +26,10 @@ digital_ocean:
   access_token: YOUR_API_KEY
 ```
 
-Configuration variables:
+{% configuration %}
+access_token:
+  description: Your Digital Ocean API access token.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **access_token** (*Required*): Your Digital Ocean API access token.

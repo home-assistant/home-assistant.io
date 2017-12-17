@@ -14,9 +14,9 @@ ha_release: "0.37"
 
 The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data are stored in your own private instance in the Azure cloud.
 
-You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) using your microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and 30k requests in a month. If you don't want to use the Azure cloud, you can also get an API key by registering with [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions). However, all keys on cognitive services must be recreated every 90 days.
+You need an API key, which is free, but requires an [Azure registration](https://azure.microsoft.com/de-de/free/) using your Microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and 30k requests in a month. If you don't want to use the Azure cloud, you can also get an API key by registering with [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions). Please note that all keys on cognitive services must be recreated every 90 days.
 
-To enable the Microsoft Face component, add the following lines to your `configuration.yaml`:
+To enable the Microsoft Face component, add the following to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,9 +33,9 @@ Configuration variables:
 
 ### {% linkable_title Person and Groups %}
 
-For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistent creates an entty for all groups and allows you to show the state, person and IDs directly on the frontend.
+For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistant creates an entity for all groups and allows you to show the state, person, and IDs directly on the frontend.
 
-The following services are available for managing this feature. They can be called via the Frontend, a script, or the REST API.
+The following services are available for managing this feature and can be called via the Frontend, a script, or the REST API.
 
 - *microsoft_face.create_group*
 - *microsoft_face.delete_group*

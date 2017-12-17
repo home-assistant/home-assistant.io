@@ -22,12 +22,27 @@ Tox uses virtual environments under the hood to create isolated testing environm
 
 If you are working on tests for a component or platform and you need the dependencies available inside the Tox environment, update the list inside `script/gen_requirements_all.py`. Then run the script and then run `tox -r` to recreate the virtual environments.
 
-### {% linkable_title Testing single files %}
+### {% linkable_title Running single tests using Tox %}
+
+You can pass arguments via Tox to py.test to be able to run single test suites or test files. Replace `py36` with the Python version that you use.
+
+```bash
+# Stop after the first test fails
+$ tox -e py36 -- tests/test_core.py -x
+# Run test with specified name
+$ tox -e py36 -- tests/test_core.py -k test_split_entity_id
+# Fail a test after it runs for 2 seconds
+$ tox -e py36 -- tests/test_core.py --timeout 2
+# Show the 10 slowest tests
+$ tox -e py36 -- tests/test_core.py --duration=10
+```
+
+### {% linkable_title Testing outside of Tox %}
 
 Running tox will invoke the full test suite. Even if you specify which tox target to run, you still run all tests inside that target. That's not very convenient to quickly iterate on your code! To be able to run the specific test suites without Tox, you'll need to install the test dependencies into your Python environment:
 
 ```bash
-$ bash pip3 install -r requirements_test_all.txt
+$ pip3 install -r requirements_test_all.txt
 ```
 
 Now that you have all test dependencies installed, you can run tests on individual files:
@@ -43,21 +58,6 @@ You can also run linting tests against all changed files, as reported by `git di
 
 ```bash
 $ script/lint --changed
-```
-
-#### {% linkable_title Py.test tips %}
-
-Py.test has some great command line parameters to help you with the write-test-fix cycle.
-
-```bash
-# Stop after the first test fails
-$ py.test tests/test_core.py -x
-# Run test with specified name
-$ py.test tests/test_core.py -k test_split_entity_id
-# Fail a test after it runs for 2 seconds
-$ py.test tests/test_core.py --timeout 2
-# Show the 10 slowest tests
-$ py.test tests/test_core.py --duration=10
 ```
 
 ### {% linkable_title Preventing Linter Errors %}

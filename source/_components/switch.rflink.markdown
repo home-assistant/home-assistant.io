@@ -49,15 +49,18 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to RFLink ID.
-- **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
+- **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
 - **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every RFLink command this number of times (default: 1)
+- **group** (*Optional*): Allow switch to respond to group commands (ALLON/ALLOFF). (default: yes)
+- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
+- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
 
 ### {% linkable_title Switch state %}
 
 Initially the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
-Sometimes a switch is controlled by multiple wireless remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliasses:
+Sometimes a switch is controlled by multiple wireless remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +70,7 @@ switch:
     newkaku_0000c6c2_1:
       name: Ceiling fan
       icon: mdi:fan
-      aliasses:
+      aliases:
         - newkaku_000000001_2
         - kaku_000001_a
 ```

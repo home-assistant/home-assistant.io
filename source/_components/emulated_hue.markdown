@@ -7,17 +7,26 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Hub
 ha_release: 0.27
 ha_iot_class: "Local Push"
 ---
+
+<p class='warning'>
+At this time `emulated_hue` doesn't appear to be working for new Google Home users. 
+</p>
 
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no set up cost outside of configuration changes.
 The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
-  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
+A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
+</p>
+
+<p class='note'>
+It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
 </p>
 
 ### {% linkable_title Configuration %}
@@ -27,19 +36,18 @@ To enable the emulated Hue bridge, add one of the following configs to your `con
 ```yaml
 # Google Home example configuration.yaml entry
 emulated_hue:
+  listen_port: 80
   # Google Home does not work on different ports.
 ```
 
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-  type: alexa
-  listen_port: 80
 ```
 
 Configuration variables:
 
-- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`.
+- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
 
@@ -49,11 +57,11 @@ Configuration variables:
 - **upnp_bind_multicast** (*Optional*): Whether or not to bind the UPNP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
 
 - **off_maps_to_on_domains** (*Optional*): The domains that maps an "off" command to an "on" command.
-  
+
   For example, if `script` is included in the list, and you ask Alexa to "turn off the *water plants* script," the command will be handled as if you asked her to turn on the script.
-  
+
   If not specified, this defaults to the following list:
-  
+
   - `script`
   - `scene`
 
@@ -84,7 +92,7 @@ emulated_hue:
     - light
 ```
 
-With additional customization you will be able to specify the behaviour of the existing entities. 
+With additional customization you will be able to specify the behavior of the existing entities.
 
 ```yaml
 # Example customization
@@ -92,7 +100,7 @@ homeassistant:
   customize:
     light.bedroom_light:
       # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue: false
+      emulated_hue_hidden: true
     light.office_light:
       # Address light.office_light as "back office light"
       emulated_hue_name: "back office light"
@@ -100,7 +108,7 @@ homeassistant:
 
 The following are attributes that can be applied in the `customize` section:
 
-- **emulated_hue** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the `expose_by_default` option.
+- **emulated_hue_hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. Adding `emulated_hue_hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
 - **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 
 ### {% linkable_title Troubleshooting %}
@@ -110,11 +118,14 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
+For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
+
 An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as non-root user.
 
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
+Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](https://home-assistant.io/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
 
 ### {% linkable_title License %}
 

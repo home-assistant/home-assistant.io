@@ -1,5 +1,48 @@
 @charset "UTF-8";
 
+$primary-color: #049cdb;
+
+.site-header {
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-top: 19px;
+  padding-right: 15%;
+
+  .search {
+    max-width: 500px;
+    width: 100%;
+    border-bottom: 2px solid $primary-color;
+    float: right;
+
+    .algolia-autocomplete {
+      width: calc(100% - 64px);
+      margin: 0 10px;
+    }
+
+    input {
+      border: 0;
+      width: 100%;
+      outline: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  .search-container {
+    z-index: 20;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
 .hero {
   background-color: #038FC7;
   padding-bottom: 0;
@@ -58,21 +101,39 @@
 }
 
 .frontpage {
+  .material-card {
+    margin-bottom: 24px;
+  }
 
   .current-version {
-    margin-bottom: 16px;
-
     .release-date {
       white-space: nowrap;
     }
-
   }
 
   .recent-posts {
-    margin-bottom: 16px;
-
     .blog-date {
       white-space: nowrap;
+    }
+  }
+
+  .highlight-blog-post {
+    font-size: 2.0rem;
+    line-height: 1.15;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    transition: background-color .5s;
+    background-color: #038FC7;
+
+    &.large {
+      font-size: 2.25rem;
+      line-height: 1.33333;
+    }
+
+    &:hover {
+      background-color: lighten(#038FC7, 10%);
     }
   }
 
@@ -120,6 +181,17 @@
     }
   }
 
+  .seen-press {
+    margin-top: 24px;
+
+    img {
+      border: 0;
+      box-shadow: none;
+      margin: 15px;
+      width: 200px;
+      max-width: 40%;
+    }
+  }
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -129,7 +201,8 @@ h2:hover a.title-link,
 h3:hover a.title-link,
 h4:hover a.title-link,
 h5:hover a.title-link,
-h6:hover a.title-link {
+h6:hover a.title-link,
+dt:hover a.title-link {
   position: relative;
 
   &::before {
@@ -164,7 +237,7 @@ h6:hover a.title-link {
   }
 
   .icon i {
-  border: none !important;
+    border: none !important;
   }
 }
 
@@ -213,7 +286,7 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p {
+    & > p:last-child {
       margin-bottom: 0;
     }
 
@@ -237,6 +310,13 @@ article.post, article.page, article.listing {
   h2 {
     font-size: 1.5em;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
+    //
+    // border: 0;
+    // border-top: 1px solid $primary-color;
+    // padding-top: 1.4rem;
   }
 
   h3 {
@@ -244,11 +324,17 @@ article.post, article.page, article.listing {
     letter-spacing: 0.125rem;
     font-size: 1.2rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 2em 0 1rem;
   }
 
   h4 {
     font-size: 1.1rem;
     margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
   }
 }
 
@@ -308,15 +394,15 @@ p.note {
 
 .aside-module {
   .section {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .brand-logo-container {
     text-align: center;
-    height: 97px;
+    height: 87px;
 
     img {
-      max-height: 97px;
+      max-height: 67px;
     }
   }
 }
@@ -340,7 +426,8 @@ p.note {
 }
 
 .edit-github {
-  text-align: right;
+  float: right;
+  margin-left: 8px;
   margin-bottom: 8px;
   font-size: .8em;
 }
@@ -357,7 +444,7 @@ ul.sidebar-menu {
 }
 
 a code {
-  color: #049cdb;
+  color: $primary-color;
 }
 
 twitterwidget {
@@ -372,4 +459,49 @@ twitterwidget {
 .aside-module {
   max-width: 100%;
   overflow: hidden;
+}
+
+// Configuration variables
+div.config-vars {
+  // Future re-design
+  // h3 {
+  //   border: 0;
+  //   border-top: 1px solid $primary-color;
+  //   padding-top: 1.4rem;
+  // }
+
+  dl {
+    margin-bottom: 1.5em;
+
+    &.nested {
+      border-left: 1px dotted $primary-color;
+      padding-left: 6px;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    dd {
+      margin: 0 0 0.5em 1em;
+
+      p.desc {
+        margin: 0;
+
+        span.type,
+        span.required {
+          font-style: italic;
+
+          &::after {
+            content: " "
+          }
+        }
+      }
+
+      p.default {
+        font-style: italic;
+        margin: 0;
+      }
+    }
+  }
 }

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Synology Camera"
-description: "Instructions how to integrate Synolog Surveillance Station cameras within Home Assistant."
+description: "Instructions how to integrate Synology Surveillance Station cameras within Home Assistant."
 date: 2016-10-13 08:01
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: synology.png
 ha_category: Camera
 ha_release: 0.31
+ha_iot_class: "Local Polling"
 ---
 
 　

@@ -11,6 +11,8 @@ footer: true
 
 This page documents a couple of points for maintaining the Home Assistant code. Most of the tasks don't need to be performed on a regular base thus the steps, used tools, or details are preserved here.
 
+## {% linkable_title Source code %}
+
 ### {% linkable_title Line separator %}
 
 People are using various operating systems to develop components and platforms for Home Assistant. This could lead to different line endings on file. We prefer `LN`. Especially Microsoft Windows tools tend to use `CRLF`.
@@ -36,7 +38,11 @@ If you update the requirements of a component/platform through the `REQUIREMENTS
 $ script/gen_requirements_all.py 
 ```
 
-Start a test run of Home Assistant if that was successful include all files in a Pull Request. Add a short summary of the changes, a sample configuration entry, details about the tests, and other useful information to the description.
+Start a test run of Home Assistant. If that was successful, include all files in a Pull Request. Add a short summary of the changes, a sample configuration entry, details about the tests you performed to ensure the update works, and other useful information to the description.
 
 
+## {% linkable_title Documentation %}
+
+- Merge `current` into `next` on a regular base.
+- Optimize the images.
 

@@ -10,6 +10,7 @@ footer: true
 logo: oem.png
 ha_category: Climate
 ha_release: 0.39
+ha_iot_class: "Local Polling"
 ---
 
 This platform supports the ESP82666 based "WiFi MQTT Relay / Thermostat" sold by [OpenEnergyMonitor](https://shop.openenergymonitor.com/wifi-mqtt-relay-thermostat/). The underlying [library](http://oemthermostat.readthedocs.io/) only supports this single relay variant of the [original device](https://harizanov.com/2014/12/wifi-iot-3-channel-relay-board-with-mqtt-and-http-api-using-esp8266/).

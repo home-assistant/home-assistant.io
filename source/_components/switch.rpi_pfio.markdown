@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Switch
 ha_release: 0.45
+ha_iot_class: "Local Polling"
 ---
 
 The `rpi_pfio` switch platform allows you to control the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) module.

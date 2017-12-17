@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /developers/component_initialization/
 ---
 
 While developing Home Assistant you will see a variable that is everywhere: `hass`. This is the Home Assistant instance that will give you access to all the various parts of the system.

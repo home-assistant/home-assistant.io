@@ -10,6 +10,7 @@ footer: true
 logo: mystrom.png
 ha_category: Light
 ha_release: 0.43
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -25,11 +26,21 @@ light:
     mac: MAC_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your myStrom WiFi Bulb, eg. `192.168.1.32`.
-- **mac** (*Required*): The MAC address of your myStrom WiFi Bulb, eg. `5AAC8CA542F3`.
-- **name** (*Optional*): The name to use when displaying this light.
+{% configuration %}
+host:
+  description: "The IP address of your myStrom WiFi Bulb, e.g., `192.168.1.32`."
+  required: true
+  type: string
+mac:
+  description: "The MAC address of your myStrom WiFi Bulb, e.g., `5AAC8CA542F3`."
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this bulb.
+  required: false
+  type: string
+  default: myStrom Bulb
+{% endconfiguration %}
 
 Check if you are able to access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
 

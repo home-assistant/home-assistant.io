@@ -10,6 +10,7 @@ footer: true
 logo: fedex.png
 ha_category: Sensor
 ha_release: 0.39
+ha_iot_class: "Cloud Polling"
 ---
 
 The `fedex` platform allows one to track deliveries by [FedEx](http://www.fedex.com/). To use this sensor, you need a [FedEx Delivery Manager](https://www.fedex.com/us/delivery/) account.

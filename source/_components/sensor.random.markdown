@@ -14,7 +14,7 @@ ha_release: 0.32
 ---
 
 
-The `random` sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. 
+The `random` sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
 
 To enable the random sensor, add the following lines to your `configuration.yaml`:
 
@@ -24,10 +24,28 @@ sensor:
   - platform: random
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: Random Sensor
+minimum:
+  description: Lower limit for the values.
+  required: false
+  type: string
+  default: 0
+maximum:
+  description: Upper limit for the values.
+  required: false
+  type: int
+  default: 20
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Random Sensor`.
-- **minimum** (*Optional*): Lower limit for the values. Defaults to `0`.
-- **maximum** (*Optional*): Upper limit for the values. Defaults to `20`.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
+See the [entity component options][entity-docs] to control how often the main component polls the random sensor. The default is 30 seconds.
 
+[entity-docs]: https://home-assistant.io/docs/configuration/platform_options/

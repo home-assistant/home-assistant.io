@@ -10,38 +10,38 @@ footer: true
 logo: sonarr.png
 ha_category: Sensor
 ha_release: 0.34
+ha_iot_class: "Local Polling"
 ---
 
 
-This `sonarr` sensor platform pulls data from a given Sonarr instance.
+This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
-To use your [Sonarr](https://sonarr.tv/) sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
-    host: IP_ADDRESS
-    port: PORT
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your Sonarr API key, found in Settings > General in the Sonarr Web UI.
-- **monitored_conditions** array (*Required*): Conditions to display on the frontend.
+- **host** (*Optional*): The host Sonarr is running on. Defaults to `localhost`.
+- **port** (*Optional*): The port Sonarr is running on. Defaults to 8989.
+- **monitored_conditions** array (*Optional*): Conditions to display on the frontend. Defaults to `upcoming`.
   - **series**: The number of series in Sonarr.
   - **upcoming**: The number of upcoming episodes.
   - **wanted**: The number of episodes still 'wanted'.
   - **queue**: The number of episodes in the queue.
   - **commands**: The number of commands being run.
   - **diskspace**: Available disk space.
-- **host** (*Optional*): The host Sonarr is running on (Default: localhost).
-- **port** (*Optional*): The port Sonarr is running on (Default: 8989).
-- **urlbase** (*Optional*): The base URL Sonarr is running under (Default: /).
-- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only (Default: 1).
-- **include_paths** (*Optional*): Array of filepaths to include when calculating diskspace. Leave blank to include all.
-- **unit**: (*Optional*): The unit to display disk space in (Default: GB).
+
+- **urlbase** (*Optional*): The base URL Sonarr is running under. Defaults to `/`.
+- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
+- **include_paths** (*Optional*): Array of file paths to include when calculating diskspace. Leave blank to include all.
+- **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
 - **ssl**:  boolean (*Optional*): Whether or not to use SSL for Sonarr.
 
 ## {% linkable_title Examples %}

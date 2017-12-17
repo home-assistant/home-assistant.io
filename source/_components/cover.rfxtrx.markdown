@@ -57,7 +57,7 @@ cover:
     devices:
       0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
         name: Bedroom Shutter
-      070a00000a000101: # RFY
+      071a00000a000101: # RFY
         name: Bathroom Shutter
 ```
 

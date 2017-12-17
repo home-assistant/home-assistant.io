@@ -2,8 +2,8 @@
 layout: post
 title: "0.18: Bluetooth, LG WebOS TVs and Roombas."
 description: "Home Assistant 0.18 has arrived."
-date: 2016-04-19 23:10:00 -0700
-date_formatted: "April 21, 2016"
+date: 2016-04-20 23:10:00 UTC
+date_formatted: "April 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true

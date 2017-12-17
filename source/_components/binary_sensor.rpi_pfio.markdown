@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Binary Sensor
 ha_release: 0.45
+ha_iot_class: "Local Push"
 ---
 
 The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) .

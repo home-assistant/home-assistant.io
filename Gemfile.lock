@@ -1,45 +1,42 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.3.2)
-    addressable (2.4.0)
-    chunky_png (1.3.6)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    chunky_png (1.3.8)
     coderay (1.1.1)
     colorator (1.1.0)
     compass (0.12.7)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.19)
-    execjs (2.7.0)
-    ffi (1.9.14)
+    ffi (1.9.18)
     forwardable-extended (2.6.0)
     fssm (0.2.10)
-    haml (4.0.7)
-      tilt
-    jekyll (3.2.1)
+    jekyll (3.5.2)
+      addressable (~> 2.4)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
       kramdown (~> 1.3)
-      liquid (~> 3.0)
+      liquid (~> 4.0)
       mercenary (~> 0.3.3)
       pathutil (~> 0.9)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
     jekyll-paginate (1.1.0)
-    jekyll-redirect-from (0.11.0)
-      jekyll (>= 2.0)
+    jekyll-redirect-from (0.12.1)
+      jekyll (~> 3.3)
     jekyll-sass-converter (1.3.0)
       sass (~> 3.2)
-    jekyll-sitemap (0.11.0)
-      addressable (~> 2.4.0)
+    jekyll-sitemap (1.1.1)
+      jekyll (~> 3.3)
     jekyll-time-to-read (0.1.2)
       jekyll
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
-    kramdown (1.12.0)
-    libv8 (3.16.14.15)
-    liquid (3.0.6)
+    kramdown (1.14.0)
+    liquid (4.0.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -57,12 +54,7 @@ GEM
       colorator
     octopress-escape-code (2.1.1)
       jekyll (~> 3.0)
-    octopress-filters (1.4.0)
-      jekyll
-      octopress-hooks (~> 2.0)
-      rubypants-unicode
-      titlecase
-    octopress-hooks (2.6.1)
+    octopress-hooks (2.6.2)
       jekyll (>= 2.0)
     octopress-include-tag (1.1.3)
       jekyll (>= 2.0)
@@ -71,71 +63,54 @@ GEM
       jekyll (>= 2.0)
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
-    posix-spawn (0.3.11)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
-    rack (1.6.4)
+    public_suffix (3.0.0)
+    rack (1.6.8)
     rack-protection (1.5.3)
       rack
     rake (10.5.0)
-    rb-fsevent (0.9.7)
-    rb-inotify (0.9.7)
+    rb-fsevent (0.10.2)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    rdiscount (2.2.0.1)
-    redcarpet (3.3.4)
-    ref (2.0.0)
+    redcarpet (3.4.0)
     rouge (1.11.1)
-    rubypants (0.5.0)
-    rubypants-unicode (0.2.5)
     safe_yaml (1.0.4)
     sass (3.2.19)
     sass-globbing (1.1.5)
       sass (>= 3.1)
-    sinatra (1.4.7)
+    sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     slop (3.6.0)
     stringex (1.5.1)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
-      ref
-    tilt (2.0.5)
+    tilt (2.0.8)
     titlecase (0.1.1)
-    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (~> 4.2)
-  coderay
   compass (~> 0.12)
-  execjs
-  haml (~> 4.0)
   jekyll (~> 3.0)
   jekyll-paginate
   jekyll-redirect-from
   jekyll-sitemap
   jekyll-time-to-read
   octopress (~> 3.0)
-  octopress-filters
   octopress-include-tag
   pry
-  pygments.rb (~> 0.6.3)
   rake (~> 10.0)
-  rb-fsevent (~> 0.9)
-  rdiscount (~> 2.0)
-  rubypants (~> 0.2)
+  rb-inotify (< 0.9.9)
   sass-globbing (~> 1.0)
   sinatra (~> 1.4.2)
   stringex (~> 1.4)
-  therubyracer
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.10.6
+   1.15.4

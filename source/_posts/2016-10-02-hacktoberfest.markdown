@@ -38,5 +38,5 @@ Are you not a programmer but still want to contribute to Home Assistant? Check o
 [issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
 [issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
 [dev-env]: /developers/development_environment/
-[dev-chat]: https://gitter.im/home-assistant/home-assistant/devs
+[dev-chat]: https://discord.gg/8X8DTH4
 [dev-forum]: https://community.home-assistant.io/c/development

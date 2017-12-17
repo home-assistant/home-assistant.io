@@ -152,7 +152,7 @@ You'll notice that this example includes a secondary parameter section (under th
 
 That about wraps it up.
 
-If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to the [Gitter Chatroom](https://gitter.im/balloob/home-assistant) and ask away.
+If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ### {% linkable_title Debugging multiple configuration files %}
 
@@ -247,6 +247,8 @@ action:
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
+the -id: line must be removed from each of the split files.
 
 #### {% linkable_title Example: `!include_dir_named` %}
 
@@ -441,3 +443,5 @@ front_yard:
     - sensor.mailbox
     - camera.front_porch
 ```
+
+[discord]: https://discord.gg/c5DvZ4e

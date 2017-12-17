@@ -7,15 +7,35 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
+regenerate: false
 ---
 
-<p>Add-ons for Hass.io allows the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
+<p>Add-ons for Hass.io allow the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
+
+<p>
+  Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
+</p>
 
 {% assign addons = site.addons | sort: 'title' %}
 
+<h3>{% linkable_title Featured add-ons %}</h3>
+
 <ul>
-{% for addon in addons %}
-  <li><a href='{{ addon.url }}'>{{ addon.title }}</a></li>
-{% endfor %}
+{% for addon in addons %}{% if addon.featured %}
+  <li>
+    <a href='{{ addon.url }}'>{{ addon.title }}</a><br>
+    {{ addon.description }}
+  </li>
+{% endif %}{% endfor %}
+</ul>
+
+<h3>{% linkable_title Other add-ons %}</h3>
+
+<ul>
+{% for addon in addons %}{% if addon.featured != true %}
+  <li>
+    <a href='{{ addon.url }}'>{{ addon.title }}</a><br>
+    {{ addon.description }}
+  </li>
+{% endif %}{% endfor %}
 </ul>

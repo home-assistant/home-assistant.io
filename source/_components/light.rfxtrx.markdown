@@ -10,6 +10,7 @@ footer: true
 logo: rfxtrx.png
 ha_category: Light
 ha_release: 0.7.5
+ha_iot_class: "Assumed State"
 ---
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.

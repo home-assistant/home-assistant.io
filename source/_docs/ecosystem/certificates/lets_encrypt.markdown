@@ -9,6 +9,10 @@ sharing: true
 footer: true
 ---
 
+<p class='note'>
+If you are using Hass.io, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+</p>
+
 <p class=' note warning'>
 Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
 </p>
@@ -24,7 +28,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You are not currently running anything on port 80 on your network (you'd know if you were).
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
- * Each step presumes you have fully completed the previous step succesfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
+ * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
  
 Steps we will take:
  
@@ -33,7 +37,7 @@ Steps we will take:
  - 2 - Set up port forwarding without TLS/SSL and test connection
  - 3 - Set up a DuckDNS account
  - 4 - Obtain a TLS/SSL certificate from Let's Encrypt
- - 5 - Check the incoming conection
+ - 5 - Check the incoming connection
  - 6 - Clean up port forwards
  - 7 - Set up a sensor to monitor the expiry date of the certificate
  - 8 - Set up an automatic renewal of the TLS/SSL certificate
@@ -247,7 +251,7 @@ $ sudo adduser hass sudo
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
 
 ```bash
-$ su -s /bin/bash hass 
+$ sudo su -s /bin/bash hass 
 ```
 
 Make sure you are in the home directory for the HA user:
@@ -290,7 +294,7 @@ $ sudo chmod 755 /etc/letsencrypt/archive/
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
 
-### {% linkable_title 5 - Check the incoming conection %}
+### {% linkable_title 5 - Check the incoming connection %}
 
 <p class='note'>
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to your `homeassistant` folder:
@@ -358,11 +362,11 @@ If you were previously using a webapp on your phone/tablet to access your Home A
 https://home-assistant.io/docs/frontend/mobile/
 ```
 
-All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely neccesary to the outside world.
+All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.
 
 ### {% linkable_title 6 - Clean up port forwards %}
 
-In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer neccessary.
+In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer necessary.
 
 Go to your router's configuration pages and delete the `ha_test` rule.
 
@@ -374,8 +378,8 @@ If you have any more for Home Assistant you should delete them now. If you only 
 
 You are now part of one of two groups:
 
- * If you have BOTH rules you are able to set up auto renewals of you certificates.
- * If you only have one, you will have to manually change the rule when you want to update your certificate, and then change it back afterwards.
+ * If you have BOTH rules you are able to set up auto renewals of your certificates using port 80 and the standard http challenge, as performed above.
+ * If you only have one, you are still able to set up auto renewals of your certificates, but will have to specify additional options when renewing that will temporarily stop Home Assistant and use port 8123 for certificate renewal.
  
 Please remember whether you are a ONE-RULE person or a BOTH-RULE person for step 8!
  
@@ -402,7 +406,7 @@ $ sudo apt-get install ssl-cert-check
 ```
 
 <p class='note'>
-In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if neccessary and so on.
+In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if necessary and so on.
 </p>
 
 To set up a senor add the following to your `configuration.yaml` (remembering to correct the URL for your DuckDNS):
@@ -426,56 +430,14 @@ Got your sensor up and running and where you want it? Top drawer! Nearly there, 
 
 The certbot program we downloaded in step 4 contains a script that will renew your certificate. The script will only obtain a new certificate if the current one has less than 30 days left on it, so running the script more often than is actually needed will not cause any harm.
 
-If you are a ONE-RULE person (from step 6) you cannot 'automatically' renew your certificates because you will need to change your port forwarding rules before the renewal takes place, and change it back again afterwards.
+If you are a ONE-RULE person (from step 6), you can automatically renew your certificate with your current port mapping by temporarily stopping Home Assistant and telling certbot to bind port 8123 internally, and using a `tls-sni` challenge so that the Let's Encrypt CA binds port 443 externally. The flags used to specify these additional steps are shown below.
 
-When you are within 30 days of your certificate's expiry date (you can use the sensor reading from step 7 to tell you this) you will need to complete the following steps:
+If you are a TWO-RULE person (from step 6), you can automatically renew your certificate using a `http-01` challenge and port 80.
 
- * Go to your router's configuration pages and edit your port forwarding rule to
- 
-```text
-Service name - ha_ssl
-Port Range - 443
-Local IP - YOUR-HA-IP
-Local Port - 443
-Protocol - Both
-```
-
- * Save the rule
- * SSH in to your device running HA.
- * Change to your HA user (command similar to):
-
-```bash 
-$ su - s /bin/bash hass
-```
-
- * Change to your certbot folder
-
-```bash 
-$ cd ~/certbot/
-```
-
- * Run the renewal command
- 
-```bash
-$ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
-``` 
-
- * Once succesfully completed, change your port forwarding rule back to 
- 
-```text
-Service name - ha_ssl
-Port Range - 443
-Local IP - YOUR-HA-IP
-Local Port - 8123
-Protocol - Both
-```
-
- * Save the rule
-
-If you are a BOTH-RULE person, you have a number of options at this point.
+There are a number of options for automating the renewal process:
  
 #### Option 1:
-Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independant of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
+Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independent of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
  
 To set a cron job to run the script at regular intervals:
  
@@ -483,7 +445,7 @@ To set a cron job to run the script at regular intervals:
  * Change to your Home Assistant user (command similar to):
  
 ```bash
-$ su - s /bin/bash hass
+$ sudo su -s /bin/bash hass
 ```
  
  * Open the crontab:
@@ -492,18 +454,29 @@ $ su - s /bin/bash hass
 $ crontab -e
 ```
  
- * Scroll to the bottom of the file and paste in the following line
+ * If you are a TWO-RULE Person: Scroll to the bottom of the file and paste in the following line
  
 ```text
-30 2 * * 1 /usr/bin/letsencrypt renew >> /var/log/le-renew.log
+30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
+
+* If you are a ONE-RULE Person: Scroll to the bottom of the file and paste in the following line
+ 
+```text
+30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"
+```
+* Let's take a moment to look at the differences here:
+	1. This method uses a `tls-sni` challenge, so the Let's Encrypt CA will attempt to bind port 443 externally (which you have forwarded)
+	2. `--tls-sni-01-port 8123` tells certbot to bind port 8123 internally, which matches with the port forwarding rules that are already in place.
+	3. We define pre-hooks and post-hooks that stop our Home Assistant service before certbot runs, freeing port 8123 for certificate renewal, and restart Home Assistant after renewal is complete.
+
  * Save the file and exit
  
  
 #### Option 2:
 You can set an automation in Home Assistant to run the certbot renewal script.
  
-Add the following sections to your configuration.yaml
+Add the following sections to your configuration.yaml if you are a TWO-RULE person
 
 ```yaml 
 shell_command: 
@@ -518,6 +491,7 @@ automation:
     action:
       service: shell_command.renew_ssl
 ```
+If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
 
 #### Option 3:
 You can manually update the certificate when your certificate is less than 30 days to expiry.
@@ -542,6 +516,8 @@ $ cd ~/certbot/
 ```bash
 $ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
+
+* If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
  
 So, now were all set up. We have our secured, remotely accesible HA instance and we're on track for keeping our certificates up to date.  But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
  

@@ -16,7 +16,16 @@ ha_iot_class: "Local Polling"
 
 The `sabnzbd` platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
 
-To use SABnzbd with your installation, add the following to your `configuration.yaml` file:
+If SABnzbd is discovered on your network you can enter your API Key in the Configurator Press "CONFIGURE" to do it.
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/sabnzbd-configure.png' />
+</p>
+
+This will enable a minimal setup where `sensor.sabnzbd_status` is enabled.
+
+
+For more advanced usage, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,6 +40,7 @@ sensor:
     - 'queue_remaining'
     - 'disk_size'
     - 'disk_free'
+    - 'queue_count'
 ```
 
 Configuration variables:
@@ -41,12 +51,13 @@ Configuration variables:
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
 - **ssl** (*Optional*): Use `https` instead of `http` to connect. Defaults to False.
 - **monitored_variables** array (*Required*): List of the monitored variables.
-  - **current_status**: current status of the SABnzbd instance
-  - **speed**: Current speed
+  - **current_status**: Current status of the SABnzbd instance
+  - **speed**: Current speed.
   - **queue_size**: Size of the queue
   - **queue_remaining**: Remaining elements in the queue
   - **disk_size**: Disk size of the storage location
   - **disk_free**: Free disk space at the storage location
+  - **queue_count**: Number of items in the queue
 
 Note that this will create the following sensors:
 
@@ -57,6 +68,7 @@ Note that this will create the following sensors:
  - sensor.sabnzbd_left
  - sensor.sabnzbd_disk
  - sensor.sabnzbd_disk_free
+ - sensor.sabnzdb_queue_count
 ```
 
 As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.31
+ha_iot_class: "Local Polling"
 ---
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](http://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.
@@ -18,7 +19,7 @@ To use your ARWN setup, you must already have configured the [MQTT](mqtt) platfo
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: arwn
+  - platform: arwn
 ```
 
-Currently all temperature, barometer, and wind sensors will be displayed. Support for rain gauge sensors will happen in the future.
+Currently all temperatures, barometers, moisture, rain, and wind sensors will be displayed.

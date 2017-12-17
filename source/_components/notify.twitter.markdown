@@ -13,7 +13,7 @@ ha_release: 0.12
 ---
 
 
-The `twitter` platform uses [Twitter](https://twitter.com) to delivery notifications from Home Assistant.
+The `twitter` platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
 Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details ("Consumer Key", "Consumer Secret", "Access Token" and "Access Token Secret" which needs to be generated).
 

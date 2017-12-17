@@ -10,6 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Light
 ha_version: 0.36
+ha_iot_class: "Local Push"
 ---
 
 The `insteon_local` light component lets you control your lights connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
@@ -27,6 +28,7 @@ insteon_local:
 ```
 
 To add lights (dimmers) to your set-up, add the platform to your light configuration:
+
 ```yaml
 light:
   - platform: insteon_local

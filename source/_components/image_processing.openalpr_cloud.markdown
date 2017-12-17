@@ -28,6 +28,7 @@ image_processing:
    source:
     - entity_id: camera.garage
 ```
+
 Configuration variables:
 
 - **region** (*Required*): Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).

@@ -14,6 +14,16 @@
   }
 }
 
+@media only screen and (max-width: $palm-end) {
+  #components-page {
+    .hass-option-cards {
+      .option-card {
+        width: 100%;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: $lap-end) {
   #components-page {
     .filter-button-group {

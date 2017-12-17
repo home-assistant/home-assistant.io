@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: soundtouch.jpg
+logo: soundtouch.png
 ha_category: Media Player
 ha_release: 0.34.0
 ha_iot_class: "Local Polling"
@@ -52,13 +52,30 @@ Configuration variables:
 You can switch between one of your 6 pre-configured presets using ```media_player.play_media```
 
 ```yaml
-# Play media in configuration.yaml
+# Play media preset
 - service: media_player.play_media
   data:
     entity_id: media_player.soundtouch_living_room
     media_content_id: 1..6
     media_content_type: PLAYLIST
 ```
+
+You can also play HTTP (not HTTPS) URLs:
+
+```yaml
+# Play media URL
+- service: media_player.play_media
+  data:
+    entity_id: media_player.soundtouch_living_room
+    media_content_id: http://example.com/music.mp3
+    media_content_type: MUSIC
+```
+
+### {% linkable_title Text-to-Speech services %}
+
+You can use TTS services like [Google Text-to-Speech](/components/tts.google/) or [Amazon Polly](/components/tts.amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
+
+A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([nginx](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
 
 ### {% linkable_title Service `soundtouch_play_everywhere` %}
 

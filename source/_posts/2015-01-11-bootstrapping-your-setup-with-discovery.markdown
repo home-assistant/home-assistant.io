@@ -12,7 +12,7 @@ categories: Release-Notes
 
 Most people do not like configuring things. Things just have to work, out of the box. Reaching this scenario is the goal of what we are about to introduce: our new discovery component.
 
-The discovery component will scan the WiFi network from time to time for connected zeroconf/mDNS and uPnP devices. The intial introduction is mainly focussed on getting the right architecture in place and discovers Belkin WeMo switches and Google Chromecasts connected to your network. When found, it will load and notify the appropritate component and it will be ready to use within seconds.
+The discovery component will scan the WiFi network from time to time for connected zeroconf/mDNS and uPnP devices. The initial introduction is mainly focussed on getting the right architecture in place and discovers Belkin WeMo switches and Google Chromecasts connected to your network. When found, it will load and notify the appropritate component and it will be ready to use within seconds.
 
 Most devices still require some sort of interaction from the user after being discovered - be it a button being pressed or some sort of authentication. This is a challenge that will be solved in the future.
 

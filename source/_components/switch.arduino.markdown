@@ -31,13 +31,32 @@ switch:
       negate: true
 ```
 
-Configuration variables:
-
-- **pins** array (*Required*): List of pins to use.
-  - **[number]** (*Required*): The pin number that corresponds with the pin numbering schema of your board.
-    - **name** (*Required*): Name that will be used in the frontend for the pin.
-    - **initial** (*Optional*): The initial value for this port. Defaults to `False` .
-    - **negate** (*Optional*): If this pin should be inverted. Defaults to `False`.
+{% configuration %}
+pins:
+  description: List of of pins to use.
+  required: true
+  type: map
+  keys:
+    pin_number:
+      description: The pin number that corresponds with the pin numbering schema of your board.
+      required: true
+      type: map
+      keys:
+        name:
+          default: Name that will be used in the frontend for the pin.
+          type: string
+          required: false
+        initial:
+          default: The initial value for this port.
+          type: boolean
+          required: false
+          default: false
+        negate:
+          default: If this pin should be inverted.
+          type: boolean
+          required: false
+          default: false
+{% endconfiguration %}
 
 The digital pins are numbered from 0 to 13 on a Arduino UNO. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
 

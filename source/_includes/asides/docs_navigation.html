@@ -3,26 +3,22 @@
     <h1 class="title delta">Topics</h1>
     <ul class='divided sidebar-menu'>
       <li>
-        {% active_link /docs/installation/ Installation %}
+        <b>{% active_link /faq/ FAQ %}</b> | 
+        <b>{% active_link /docs/glossary/ Glossary %}</b>
+      </li>
+      <li>
+        <b>{% active_link /docs/installation/ Installation %}</b>
         <ul>
+          <li>{% active_link /hassio/ Hass.io %}</li>
           <li>{% active_link /docs/installation/virtualenv/ Python Virtual Env %}</li>
-          <li>{% active_link /docs/installation/raspberry-pi-all-in-one/ Raspberry Pi All-in-One %}</li>
+          <li>{% active_link /docs/installation/hassbian/ Hassbian %}</li>
+          <!--<li>{% active_link /docs/installation/raspberry-pi-all-in-one/ Raspberry Pi All-in-One %}</li>-->
           <li>{% active_link /docs/installation/updating/ Updating %}</li>
           <li>{% active_link /docs/installation/troubleshooting/ Troubleshooting %}</li>
         </ul>
       </li>
       <li>
-        {% active_link /docs/hassbian/ Hassbian %}
-        <ul>
-          <li>{% active_link /docs/hassbian/installation/ Installation %}</li>
-          <li>{% active_link /docs/hassbian/customization/ Customization %}</li>
-          <li>{% active_link /docs/hassbian/common-tasks/ Common tasks %}</li>
-          <li>{% active_link /docs/hassbian/integrations/ Integrations %}</li>
-          <li>{% active_link /docs/hassbian/upgrading/ Upgrading %}</li>
-        </ul>
-      </li>
-      <li>
-        {% active_link /docs/configuration/ Configuration  %}
+        <b>{% active_link /docs/configuration/ Configuration %}</b>
         <ul>
           <li>{% active_link /docs/configuration/yaml/ YAML %}</li>
           <li>{% active_link /docs/configuration/basic/ Basic information %}</li>
@@ -33,7 +29,7 @@
         </ul>
       </li>
       <li>
-        Advanced Configuration
+        <b>Advanced Configuration</b>
         <ul>
           <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
           <li>{% active_link /docs/configuration/packages/ Packages %}</li>
@@ -45,14 +41,14 @@
         </ul>
       </li>
       <li>
-        Core objects
+        <b>Core objects</b>
         <ul>
           <li>{% active_link /docs/configuration/events/ Events %}</li>
           <li>{% active_link /docs/configuration/state_object/ State Objects %}</li>
         </ul>
       </li>
       <li>
-        {% active_link /docs/automation/ Automation %}
+        <b>{% active_link /docs/automation/ Automation %}</b>
         <ul>
           <li>{% active_link /docs/automation/examples/ Examples %}</li>
           <li>{% active_link /docs/automation/editor/ Editor %}</li>
@@ -63,7 +59,7 @@
         </ul>
       </li>
       <li>
-        {% active_link /docs/frontend/ Frontend %}
+        <b>{% active_link /docs/frontend/ Frontend %}</b>
         <ul>
           <li>{% active_link /docs/frontend/mobile/ Android/iOS Homescreen %}</li>
           <li>{% active_link /docs/frontend/webserver/ Web server fingerprint %}</li>
@@ -71,7 +67,7 @@
         </ul>
       </li>
       <li>
-        {% active_link /docs/backend/ Backend %}
+        <b>{% active_link /docs/backend/ Backend %}</b>
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
           <li>{% active_link /docs/backend/updater/ Updater %}</li>
@@ -79,14 +75,15 @@
         </ul>
       </li>
       <li>
-        {% active_link /docs/scripts/ Scripts %}
+        <b>{% active_link /docs/scripts/ Scripts %}</b>
         <ul>
           <li>{% active_link /docs/scripts/service-calls/ Service Calls %}</li>
           <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
+          <li>{% active_link /docs/scripts/editor/ Editor %}</li>
         </ul>
       </li>
       <li>
-        {% active_link /docs/tools/ Tools and Helpers %}
+        <b>{% active_link /docs/tools/ Tools and Helpers %}</b>
         <ul>
           <li>{% active_link /docs/tools/dev-tools/ Developer Tools %}</li>
           <li>{% active_link /docs/tools/hass/ hass %}</li>
@@ -94,15 +91,20 @@
         </ul>
       </li>
       <li>
-        {% active_link /docs/z-wave/ Z-Wave %}
+        <b>{% active_link /docs/z-wave/ Z-Wave %}</b>
         <ul>
+          <li>{% active_link /docs/z-wave/installation/ Configuring the Z-Wave component %}</li>
+          <li>{% active_link /docs/z-wave/adding/ Adding devices %}</li>
+          <li>{% active_link /docs/z-wave/control-panel/ The Z-Wave control panel %}</li>
           <li>{% active_link /docs/z-wave/controllers/ Controllers %}</li>
-          <li>{% active_link /docs/z-wave/settings/ Modifying Settings %}</li>
-          <li>{% active_link /docs/z-wave/device-specific/ Device Specific %}</li>
+          <li>{% active_link /docs/z-wave/devices/ Devices %} and {% active_link /docs/z-wave/entities/ Entities %}</li>
+          <li>{% active_link /docs/z-wave/query-stage/ Query Stages %} for devices</li>
+          <li>{% active_link /docs/z-wave/device-specific/ Device Specific %} configuration</li>
+          <li>{% active_link /docs/z-wave/events/ Events %} and {% active_link /docs/z-wave/services/ Services %}</li>
         </ul>
       </li>
       <li>
-        {% active_link /docs/mqtt/ MQTT %}
+        <b>{% active_link /docs/mqtt/ MQTT %}</b>
         <ul>
           <li>{% active_link /docs/mqtt/broker/ Broker %}</li>
           <li>{% active_link /docs/mqtt/certificate/ Certificate %}</li>
@@ -115,7 +117,7 @@
         </ul>
       </li>
       <li>
-        {% active_link /docs/ecosystem/ios/ iOS %}
+        <b>{% active_link /docs/ecosystem/ios/ iOS %}</b>
         <ul>
           <li>{% active_link /docs/ecosystem/ios/notifications/basic/ Basic notifications %}</li>
           <ul>
@@ -149,28 +151,9 @@
           </li>
           <li>
             {% active_link /docs/ecosystem/appdaemon/ AppDaemon %}
-            <ul>
-              <li>{% active_link /docs/ecosystem/appdaemon/installation/ Installation %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/configuration/ Configuration %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/example_apps/ Example Apps %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/running/ Running AppDaemon %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/reboot/ Starting AppDaemon at Reboot %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/operation/ Operation %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/windows/ AppDaemon on Windows %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/updating/ Updating AppDaemon %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/tutorial/ AppDaemon Tutorial %}</li>
-              <li>{% active_link /docs/ecosystem/appdaemon/api/ AppDaemon API Reference %}</li>
-            </ul>
           </li>
           <li>
             {% active_link /docs/ecosystem/hadashboard/ HADashboard %}
-            <ul>
-              <li>{% active_link /docs/ecosystem/hadashboard/installation/ Installation %}</li>
-              <li>{% active_link /docs/ecosystem/hadashboard/dash_config/ Dashboard Configuration %}</li>
-              <li>{% active_link /docs/ecosystem/hadashboard/hapush/ HAPush %}</li>
-              <li>{% active_link /docs/ecosystem/hadashboard/reboot/ Reboot %}</li>
-              <li>{% active_link /docs/ecosystem/hadashboard/updating/ Updating HADashboard %}</li>
-              </ul>
           </li>
           <li>
             {% active_link /docs/ecosystem/notebooks/ Notebooks %}
@@ -179,7 +162,7 @@
               <li>{% active_link /docs/ecosystem/notebooks/installation/ Installation %}</li>
               <li>{% active_link /docs/ecosystem/notebooks/graph/ Graph %}</li>
               <li>{% active_link /docs/ecosystem/notebooks/api/ Home Assistant API %}</li>
-              <li>{% active_link /docs/ecosystem/notebooks/database/ Databsase %}</li>
+              <li>{% active_link /docs/ecosystem/notebooks/database/ Database %}</li>
               <li>{% active_link /docs/ecosystem/notebooks/stats/ Statistics %}</li>
             </ul>
           </li>
@@ -187,12 +170,14 @@
             Remote access
             <ul>
               <li>{% active_link /docs/ecosystem/apache/ Apache %}</li>
+              <li>{% active_link /docs/ecosystem/caddy/ Caddy Server %}</li>
               <li>{% active_link /docs/ecosystem/nginx/ NGINX %}</li>
+              <li>{% active_link /docs/ecosystem/nginx_subdomain/ NGINX with subdomain%}</li>
               <li>{% active_link /docs/ecosystem/tor/ Tor Onion Service %}</li>
             </ul>
           </li>
           <li>
-            Certificates
+            {% active_link /docs/ecosystem/certificates/ Certificates %}
             <ul>
               <li>{% active_link /docs/ecosystem/certificates/tls_self_signed_certificate/ Self-signed certificate %}</li>
               <li>{% active_link /docs/ecosystem/certificates/tls_domain_certificate/ Certificate domain owners %}</li>

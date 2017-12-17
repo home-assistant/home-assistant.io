@@ -11,6 +11,7 @@ logo: fastdotcom.png
 ha_category: System Monitor
 featured: false
 ha_release: 0.26
+ha_iot_class: "Cloud Polling"
 ---
 
 The `fastdotcom` sensor component uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.

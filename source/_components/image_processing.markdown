@@ -15,7 +15,7 @@ Image processing enables Home Assistant to process images from [cameras](/compon
 For interval control, use `scan_interval` in platform.
 
 <p class='note'>
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base url inside the [http component](/components/http/).
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
 </p>
 
 ## {% linkable_title ALPR %}

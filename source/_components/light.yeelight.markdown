@@ -10,6 +10,7 @@ footer: true
 logo: yeelight.png
 ha_category: Light
 ha_release: 0.32
+ha_iot_class: "Local Polling"
 ---
 
 The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant.
@@ -26,8 +27,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True (defaults to False)
-        save_on_change: False (defaults to True)
+        use_music_mode: True #(defaults to False)
+        save_on_change: False #(defaults to True)
       192.168.1.13:
         name: Front Door
 ```
@@ -46,12 +47,20 @@ Per default the bulb limits the amount of requests per minute to 60, a limitatio
 ### {% linkable_title Initial setup %}
 <p class='note'>
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
-In the bulb property, you have to enable "Developer Mode"  Developer mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
-Determine your bulb ip (using router, software, ping ...)
+In the bulb property, you have to enable "LAN Mode" (previously called "Developer mode"). LAN mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
+Determine your bulb IP (using router, software, ping ...)
 </p>
 
 <p class='note warning'>
-This component is tested to work with models YLDP01YL, YLDP02YL and YLDP03YL. If you have a different model and it is working please let us know.
+This component is tested to work with the following models. If you have a different model and it is working please let us know.
 </p>
+
+- **YLDP01YL**: LED Bulb (White)
+- **YLDP02YL**: LED Bulb (Color)
+- **YLDP03YL**: LED Bulb (Color) - E26
+- **YLDD02YL**: Lightstrip (Color)
+
+
+
 
 

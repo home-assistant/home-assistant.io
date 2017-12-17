@@ -50,11 +50,10 @@ Configuration variables:
  - **duration**: Duration of the measure
 
 
-
 <p class='note'>
-    You have to provide **exactly 2** of `start`, `end` and `duration`.
+  You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
-    You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
+  You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 </p>
 
 ## {% linkable_title Sensor type %}
@@ -102,12 +101,14 @@ duration:
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
 
 **Today**: starts at 00:00 of the current day and ends right now.
+
 ```yaml
     start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
 
 **Yesterday**: ends today at 00:00, lasts 24 hours.
+
 ```yaml
     end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
     duration:
@@ -115,6 +116,7 @@ Here are some examples of periods you could work with, and what to write in your
 ```
 
 **This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
+
 ```yaml
     start: '{% raw %}{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}{% endraw %}'
     duration:
@@ -130,6 +132,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 ```
 
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
+
 ```yaml
     end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
     duration:
@@ -137,11 +140,12 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 ```
 
 **All your history** starts at timestamp = 0, and ends right now.
+
 ```yaml
     start: '{% raw %}{{ 0 }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
 
 <p class='note'>
-    If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+  The `/dev-template` page of your home-assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
 </p>

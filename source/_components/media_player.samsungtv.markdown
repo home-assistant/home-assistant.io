@@ -38,6 +38,7 @@ Configuration variables:
 Currently known supported models:
 
 - C7700
+- D6500
 - D7000
 - D8000
 - ES5500
@@ -47,18 +48,26 @@ Currently known supported models:
 - EH5300
 - EH5600
 - F6400AF
+- F6400
 - D6505
 - D6300SF
 - U6000 (port must be set to 8001)
+- U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - K5600AK (partially supported, turn on works but state is not updated)
+- UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
+- JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
+- JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
+- MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
@@ -66,4 +75,4 @@ If you add your model remember to remove these before adding them to the list.
 
 Currently the ability to select a source is not implemented.
 
-There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TVs receiving a *Key press UP* that can interrupt certain applications. 
+There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TVs receiving a *Key press UP* that can interrupt certain applications. This should be fixed as of March 2017.

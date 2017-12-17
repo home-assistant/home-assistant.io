@@ -10,6 +10,7 @@ footer: true
 logo: rflink.png
 ha_category: Sensor
 ha_release: 0.38
+ha_iot_class: "Local Polling"
 ---
 
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -27,11 +28,10 @@ Assigning name to a sensor:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: rflink
-  devices:
-    # assign name to a sensor
-    alectov1_0334_temp:
-      name: Temperature Outside
+  - platform: rflink
+    devices:
+      alectov1_0334_temp:
+        name: Temperature Outside
 ```
 
 Configuration variables:
@@ -42,9 +42,45 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to RFLink ID.
-- **sensor_type** (*Required*): Override automatically detected type of sensor.
+- **sensor_type** (*Required*): Override automatically detected type of sensor. For list of values see below.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
-- **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
+- **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
+
+Sensor type values:
+
+- average_windspeed
+- barometric_pressure
+- battery
+- weather_forecast
+- doorbell_melody
+- command
+- co2_air_quality
+- current_phase_1
+- current_phase_2
+- current_phase_3
+- distance
+- firmware
+- humidity_status
+- humidity
+- hardware
+- kilowatt
+- light_intensity
+- meter_value
+- total_rain
+- rain_rate
+- total_rain
+- revision
+- noise_level
+- temperature
+- uv_intensity
+- version
+- voltage
+- watt
+- windchill
+- winddirection
+- windgusts
+- windspeed
+- windtemp
 
 ### {% linkable_title Hiding/ignoring sensors %}
 

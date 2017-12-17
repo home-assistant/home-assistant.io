@@ -10,15 +10,17 @@ footer: true
 logo: mhz19_logo.png
 ha_category: Sensor
 ha_release: 0.27
+ha_iot_class: "Local Polling"
 ---
 
-The MH-Z19 is a small nondispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.
+The MH-Z19 is a small non-dispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.
 
 Check out the [Open Home Automation web site](https://www.open-homeautomation.com/2016/08/24/monitor-co2-levels-in-your-house/) for a quick guide how to connect the sensor to your PC or Raspberry Pi.
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: mhz19
     serial_device: /dev/tty.SLAB_USBtoUART

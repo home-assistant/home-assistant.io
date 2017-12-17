@@ -10,6 +10,7 @@ footer: true
 logo: ring.png
 ha_category: Sensor
 ha_release: "0.40"
+ha_iot_class: "Cloud Polling"
 ---
 
 To get your [Ring.com](https://ring.com/) binary sensors working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring).
@@ -20,24 +21,17 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 sensor:
   - platform: ring
-    monitored_conditions:
-      - battery
-      - last_activity
-      - last_ding
-      - last_motion
-      - volume
 ```
 
 Configuration variables:
 
-- **username** (*Required*): The username for accessing your Ring account.
-- **password** (*Required*): The password for accessing your Ring account.
-- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. The default is 30 seconds.
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
   - **battery**: Return the battery level from device
-  - **last_activity**: Return the timestamp from the last event captured (ding/motion/on_demand) by the Ring doorbell camera
+  - **last_activity**: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera
   - **last_ding**: Return the timestamp from the last time the Ring doorbell button was pressed
   - **last_motion**: Return the timestamp from the last motion event captured by the Ring doorbell camera
-  - **volume**: Return the volume level from the device. Currently supported by external chimes and doorbells.
+  - **volume**: Return the volume level from the device.
+  - **wifi_signal_category**: Return the WiFi signal level from the device.
+  - **wifi_signal_strength**: Return the WiFi signal strength (dBm) from the device.
 
-Currently it supports doorbells and external chimes only.
+Currently it supports doorbell, external chimes and stickup cameras.

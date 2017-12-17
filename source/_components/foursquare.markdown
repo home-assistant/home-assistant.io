@@ -46,7 +46,7 @@ After that, you will get redirected to your `REDIRECT_URL` with the `access_toke
 
 The component accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
 
-Foursquare checkin events can be used out of the box to trigger automation actions, e.g.:
+Foursquare check-in events can be used out of the box to trigger automation actions, e.g.:
 
 ```yaml
 automation:
@@ -69,7 +69,7 @@ Parameters:
 - **eventId** (*Optional*): The event the user is checking in to.
 - **shout** (*Optional*): A message about your check-in. The maximum length of this field is 140 characters.
 - **mentions** (*Optional*): Mentions in your check-in. This parameter is a semicolon-delimited list of mentions. A single mention is of the form "start,end,userid", where start is the index of the first character in the shout representing the mention, end is the index of the first character in the shout after the mention, and userid is the userid of the user being mentioned. If userid is prefixed with "fbu-", this indicates a Facebook userid that is being mention. Character indices in shouts are 0-based.
-- **broadcast** (*Optional*): "Who to broadcast this check-in to. Accepts a comma-delimited list of values: private (off the grid) or public (share with friends), facebook share on facebook, twitter share on twitter, followers share with followers (celebrity mode users only), If no valid value is found, the default is public."
+- **broadcast** (*Optional*): "Who to broadcast this check-in to. Accepts a comma-delimited list of values: private (off the grid) or public (share with friends), Facebook share on Facebook, twitter share on twitter, followers share with followers (celebrity mode users only), If no valid value is found, the default is public."
 - **ll** (*Optional*): Latitude and longitude of the user's location. Only specify this field if you have a GPS or other device reported location for the user at the time of check-in.
 - **llAcc** (*Optional*): Accuracy of the user's latitude and longitude, in meters.
 - **alt** (*Optional*): Altitude of the user's location, in meters.

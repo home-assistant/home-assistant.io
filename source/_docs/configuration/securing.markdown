@@ -22,9 +22,9 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 
 If you want to allow remote access, consider these additional points:
 
-- Protect your communication with [TLS](/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
-- Protect your communication with [Tor](/cookbook/tor_configuration/)
-- Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/)
-- Use a [proxy](/cookbook/apache_configuration/)
+- Protect your communication with [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/).
+- Protect your communication with [Tor](/cookbook/tor_configuration/).
+- Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/).
+- Use a [proxy](/cookbook/apache_configuration/).
 
 

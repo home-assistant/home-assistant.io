@@ -10,6 +10,7 @@ footer: true
 logo: verisure.png
 ha_category: Alarm
 ha_release: 0.7.3
+ha_iot_class: "Cloud Polling"
 ---
 
 

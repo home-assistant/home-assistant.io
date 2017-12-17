@@ -10,6 +10,7 @@ footer: true
 logo: tado.png
 ha_category: Sensor
 ha_release: 0.41
+ha_iot_class: "Cloud Polling"
 ---
 
 The `tado` sensor platform allow you to monitor your tado climate devices.

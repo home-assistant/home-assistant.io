@@ -24,6 +24,13 @@ If rebase detects conflicts, repeat this process until all changes have been res
 4. Continue rebase: `git rebase --continue`
 5. Repeat until you've resolved all conflicts
 
+After rebasing your branch, you will have rewritten history relative to your GitHub fork's branch. When you go to push you will see an error that your history has diverged from the original branch. In order to get your GitHub fork up-to-date with your local branch, you will need to force push, using the following command:
+
+```bash
+# Run this from your feature branch
+$ git push origin --force
+```
+
 Other workflows are covered in detail in the [Github documentation](https://help.github.com/articles/fork-a-repo/). Add an additional `remote` after you clone your fork.
 
 ```bash

@@ -13,7 +13,7 @@ This page contains only irrelevant and unhelpful information about Home Assistan
 
 ### {% linkable_title Name %}
 
-Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. It's also common to refer to Home Assistant simply as HA or hass (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice).
+Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. It's common to refer to Home Assistant simply as HA or `hass` (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice). [`hass`](/docs/tools/hass/) is also the name of the command-line part.
 
 ### {% linkable_title Website %}
 
@@ -33,7 +33,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 | Description | 2015 | 2016 |
 |---|---|
-| [Gitter.io](https://gitter.im/home-assistant/home-assistant) | 334 | 2367 |
+| [Gitter.io](https://discord.gg/c5DvZ4e) | 334 | 2367 |
 | [Forum posts](https://community.home-assistant.io/) | 352 | 33004 |
 | [Forum topics](https://community.home-assistant.io/) | 83 | 4863 |
 | [Forum members](https://community.home-assistant.io/) | 92 | 3931 | 
@@ -43,7 +43,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 ### {% linkable_title Commit per year %}
 
-The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), and [home-assistant-js](https://github.com/home-assistant/home-assistant-js)) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), etc.) into account.
 
 ```bash
 2013: 147

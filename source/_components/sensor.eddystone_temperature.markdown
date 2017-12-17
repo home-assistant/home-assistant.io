@@ -19,17 +19,17 @@ All beacons that support the Eddystone protocol, have a temperature sensor and c
 ## Requirements
 
 As this platform uses `bluez` to scan for Bluetooth LE devices **a Linux OS with bluez installed** is required. In addition to that, the `libbluetooth` headers need to be installed:
-```shell
+
+```bash
 $ sudo apt-get install libbluetooth-dev 
 ```
 
 Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:
-```shell
+
+```bash
 $ sudo apt-get install libcap2-bin
 $ sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
 ```
-
-## Configuration
 
 To use your Eddystone beacon in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,16 +42,14 @@ sensor:
       living_room:
         namespace: "112233445566778899AA"
         instance: "000000000001"
-        name: "Living Room" # optional
       kitchen:
         namespace: "112233445566778899AA"
         instance: "000000000002"
-        name: "Kitchen" # optional
 ```
 Configuration variables:
-- **bt_device_id** (*Optional*): The id of the bluetooth device that should be used for scanning (hci*X*). You can find the correct one using `hcitool dev` (default: 0). 
+- **bt_device_id** (*Optional*): The id of the Bluetooth device that should be used for scanning (hci*X*). You can find the correct one using `hcitool dev` (default: 0). 
 - **beacons** array (*Required*): The beacons that should be monitored.
   - **[entry]** (*Required*): Name of the beacon.
     - **namespace** (*Required*): Namespace ID of the beacon in hexadecimal notation. Must be exactly 20 characters (10 bytes) long.
-    - **namespace** (*Required*): Instance ID of the beacon in hexadecimal notation. Must be exactly 12 characters (6 bytes) long.
+    - **instance** (*Required*): Instance ID of the beacon in hexadecimal notation. Must be exactly 12 characters (6 bytes) long.
     - **name** (*Optional*): Friendly name of the beacon.

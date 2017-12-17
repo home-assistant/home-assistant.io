@@ -31,5 +31,5 @@ light:
 
 Configuration variables:
 
-- **id** (*Required*): Device identifier. Composed of house code und unit id.
+- **id** (*Required*): Device identifier. Composed of house code and unit id.
 - **name** (*Optional*): A friendly name for the device. By default *id* from the device is used.

@@ -103,7 +103,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Light - tellstick.py: Tellstick light fix ([@stefan-jonasson])
 - Switch - insteon_local.py: only check for devices when not defined in config ([@wardcraigj])
 - Notify - Twitter: Allow direct messaging to user ([@fabaff])
-- Fan - MQTT: Dont set a speed when fan turns on ([@robbiet480])
+- Fan - MQTT: Don't set a speed when fan turns on ([@robbiet480])
 - Config: Allow easier customization of whole domain, entity lists, globs ([@andrey-git])
 - Sensor - Homematic: Update device support ([@danielperna84])
 - Binary sensor - ISS: Add location to attributes and option to show position on the map ([@fabaff])
@@ -137,7 +137,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Fix Telldus Live dim level error on startup ([@molobrakos])
 - Fix Sonos group coordinators ([@pvizeli])
 - UPC Connect: Parse XML outside event loop ([@pvizeli])
-- Fix Netatmo SSL issue with VPN url ([@jabesq])
+- Fix Netatmo SSL issue with VPN URL ([@jabesq])
 - Homematic: Fix bug with UNREACH device state/restore and variables not updating ([@pvizeli])
 - Sonos: Prevent duplicate entries in favorite list ([@pvizeli])
 - Fix Schlage Connect deadbolt integration via Z-Wave ([@turbokongen])
@@ -155,7 +155,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
 
 ### {% linkable_title If you need help... %}
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.

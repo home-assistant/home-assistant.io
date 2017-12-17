@@ -10,6 +10,7 @@ footer: true
 logo: zoneminder.png
 ha_category: Camera
 ha_release: 0.39
+ha_iot_class: "Local Polling"
 ---
 
 
