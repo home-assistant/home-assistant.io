@@ -22,7 +22,7 @@ You need to have a CalDav server and eventually credentials for it. This compone
 You might need some additional system packages to compile the Python caldav library. On a Debian based system, install them by:
 
 ```bash
-$ sudo apt-get install libxm2-dev libxslt1-dev zlib1g-dev
+$ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 ```
 
 ### {% linkable_title Basic Setup %}
