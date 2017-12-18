@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: https://www.magneticmag.com/.image/t_share/MTQ5OTE1NzU4NTczMzk3OTYw/discogs-vinyl-record-mark.png
 ha_category: Sensor
-ha_release: 0.60
+ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -27,6 +27,13 @@ sensor:
     token: YOUR_TOKEN
 ```
 
-Configuration options for the Discogs Sensor:
-
-- **token** (*Required*): The token to use as identification to get your collection.
+{% configuration %}
+token:
+  description: The Discogs API token to use as identification to get your collection.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+{% endconfiguration %}
