@@ -26,6 +26,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Alpha Vantage Sensor
 api_key:
   description: "The API Key from [Alpha Vantage](https://www.alphavantage.co)."
   required: true
