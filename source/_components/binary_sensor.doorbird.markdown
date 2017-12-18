@@ -10,7 +10,7 @@ footer: true
 logo: doorbird.png
 ha_category: Binary Sensor
 ha_release: "0.54"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 The `doorbird` binary sensor platform allows Home Assistant to monitor when your [DoorBird](http://www.doorbird.com/) doorbell rings.
