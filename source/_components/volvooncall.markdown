@@ -65,5 +65,5 @@ Configuration variables:
 - **service_url** (*Optional*): The service URL to use for Volvo On Call. Normally not neccessary to specify.
 - **name** (*Optional*): Make it possible to provide a name for the vehicles.
 - **resources** (*Optional*): A list of resources to display (defaults to all available).
-- **scandinavian_miles** (*Optional*): If set to yes, uses Scandinavian miles ("mil") for distances and fuel range (defaults to no).
+- **scandinavian_miles** (*Optional*): If set to yes, Scandinavian miles ("mil") are used for distances and fuel range (defaults to no).
 
