@@ -25,11 +25,11 @@ Currently, there is no support in this component for toppings, coupons or order 
 ```yaml
 dominos:
   country_code: ca
-  first_name: Justin
-  last_name: Trudeau
-  email: justin.trudeau@parl.gc.ca
-  phone: 6139950253
-  address: 24 Sussex Dr, Ottawa, ON, K1M1M4
+  first_name: John
+  last_name: Smith
+  email: john.smith@order-me-a-pizza.com
+  phone: 123456789
+  address: 24 Housten Dr, Ottawa, ON, K2M2M2
   orders:
   - name: Medium Pan
     codes:
