@@ -64,8 +64,7 @@ hue:
   bridges:
     - host: BRIDGE1_IP_ADDRESS
       filename: phue.conf
-    - platform: hue
-      host: BRIDGE2_IP_ADDRESS
+    - host: BRIDGE2_IP_ADDRESS
       filename: phue2.conf
 ```
 
