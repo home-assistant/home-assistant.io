@@ -65,7 +65,7 @@ monitored_conditions:
       description: Bandwidth used by upload outside the unmetered period (gigabytes).
     onpeak_total:
       description: Total bandwidth used outside the unmetered period (gigabytes).
-	offpeak_download:
+    offpeak_download:
       description: Bandwidth used by download during the unlimited period (gigabytes).
     offpeak_upload:
       description: Bandwidth used by upload during the unlimited period (gigabytes).
