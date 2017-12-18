@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TekSavvy"
-description: "Instructions how to integrate TekSavvy data usage within Home Assistant."
+description: "Instructions on how to integrate TekSavvy data usage within Home Assistant."
 date: 2017-12-17 00:00
 sidebar: true
 comments: false
@@ -39,18 +39,39 @@ sensor:
      - onpeak_remaining
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: The TekSavvy API key to access the service.
+  required: true
+  type: string
+total_bandwidth:
+  description: Your bandwidth limit in gigabytes.
+  required: true
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    usage:
+      description: Bandwidth usage (percentage).
+    usage_gb:
+      description: Bandwidth usage (gigabytes).
+    limit:
+      description: Monthly bandwidth limit (gigabytes).
+    onpeak_download:
+      description: Bandwidth used by download outside the unmetered period (gigabytes).
+    onpeak_upload:
+      description: Bandwidth used by upload outside the unmetered period (gigabytes).
+    onpeak_total:
+      description: Total bandwidth used outside the unmetered period (gigabytes).
+	offpeak_download:
+      description: Bandwidth used by download during the unlimited period (gigabytes).
+    offpeak_upload:
+      description: Bandwidth used by upload during the unlimited period (gigabytes).
+    offpeak_total:
+      description: Total bandwidth used during the unlimited period (gigabytes).
+    onpeak_remaining:
+      description: Remaining bandwidth (gigabytes).	  
+{% endconfiguration %}
 
-- **api_key** (*Required*): Your TekSavvy API key.
-- **total_bandwidth** (*Required*): Your bandwidth limit in Gigabit.
-- **monitored_variables** array (*Required*): Variables to monitor.
-  - **usage**: Percent usage
-  - **usage_gb**: Gigabit usage
-  - **limit**: Montly bandwidth limit (Gigabit)
-  - **onpeak_download**: Download used outside the unmetered period
-  - **onpeak_upload**: Upload used outside the unmetered period
-  - **onpeak_total**: Total data used outside the unmetered period
-  - **offpeak_download**: Download offpeak usage
-  - **offpeak_upload**: Upload offpeak usage
-  - **offpeak_total**: Total offpeak usage
-  - **onpeak_remaining**: Remaining Gigabit
