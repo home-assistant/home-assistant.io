@@ -27,7 +27,7 @@ dominos:
   country_code: ca
   first_name: John
   last_name: Smith
-  email: john.smith@order-me-a-pizza.com
+  email: john.smith@example.com
   phone: 123456789
   address: 24 Housten Dr, Ottawa, ON, K2M2M2
   orders:
