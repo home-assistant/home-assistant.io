@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iGlo"
-description: "Instructions how to integrate LIFX into Home Assistant."
+description: "Instructions on how to integrate iGlo lights into Home Assistant."
 date: 2017-12-17 08:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 logo: iglo.png
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: 0.60
+ha_release: 0.61
 ---
 
 The `iGlo` platform allows you to integrate your [iGlo Lights](https://www.youtube.com/watch?v=oHTS9ji_v-s) into Home Assistant.
