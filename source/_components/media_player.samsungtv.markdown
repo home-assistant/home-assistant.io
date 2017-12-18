@@ -34,7 +34,7 @@ Configuration variables:
 - **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
 - **timeout** (*Optional*): The time-out in seconds for the communication with the TV. Defaults to 0 (no timeout).
 - **mac** (*Optional*): The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan.
-- **get_status_via_rest** (*Optional*): Use samsung REST end point to determine the status of the TV (host:8001/api/v2/), eg. `True` or `False`. Required for latest 2017 model that are turned ON randomly (sending a key to check status turned the TV ON)
+- **get_status_via_rest** (*Optional*): Use Samsung REST endpoint to determine the status of the TV (host:8001/api/v2/), e.g. `True` or `False`. Required for latest 2017 model that are turned ON randomly (sending a key to check status turned the TV ON)
 
 Currently known supported models:
 
@@ -60,7 +60,7 @@ Currently known supported models:
 - KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - K5600AK (partially supported, turn on works but state is not updated)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
-- MU6300 (port must be set to 8001, `pip3 install websocket-client` must be executed and `get_status_via_rest` must be set to True or the TV will randomly be turned ON)
+- MU6300 (port must be set to 8001, `pip3 install websocket-client` must be executed and `get_status_via_rest` must be set to True, or the TV will randomly be turned ON)
 
 Currently tested but not working models:
 
