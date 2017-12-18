@@ -25,10 +25,6 @@ device_tracker:
   - platform: tile
     username: email@address.com
     password: MY_PASSWORD_123
-    monitored_variables:
-      - TILE
-      - PHONE
-    show_inactive: false
 ```
 
 {% configuration %}
