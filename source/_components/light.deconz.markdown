@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 See the [deCONZ main component](/components/deconz/) for configuration instructions.
 
-Entity Ids names will be light.device_name, where device_name is defined in deCONZ.
+Entity Ids names will be light.device_name, where device_name is defined in deCONZ. Light groups created in deCONZ will be created in Home Assistant as lights named light.group_name_in_deconz, allowing the user to control groups of lights with only a single API call to deCONZ.
 
 #### {% linkable_title Verified to be supported sensors %}
 
@@ -25,3 +25,5 @@ Entity Ids names will be light.device_name, where device_name is defined in deCO
 - IKEA Trådfri Bulb GU10 W 400lm
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
+- Philips Hue White A19
+- Philips Hue White Ambiance A19
