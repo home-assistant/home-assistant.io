@@ -43,7 +43,7 @@ deconz:
 ## {% linkable_title Configuration variables %}
 
 - **host** (*Optional*): The IP address to your deCONZ server.
-- **api-key** (*Optional*): The API key to your deCONZ server.
+- **api_key** (*Optional*): The API key to your deCONZ server.
 - **port** (*Optional*): Configure port deCONZ web server is accessible from. Default is 80.
 
 A full configuration could look like this:
