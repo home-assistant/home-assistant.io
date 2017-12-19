@@ -23,7 +23,9 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
   "customize": {
     "active": false,
     "folder": "mosquitto"
-  }
+  },
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
 }
 ```
 
@@ -47,4 +49,13 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own) add the follow
 # Example configuration.yaml entry
 mqtt:
   broker: core-mosquitto
+```
+
+If username and password are set up in add-on, your `configuration.yaml` file should contain that data.
+
+```yaml
+mqtt:
+  broker: core-mosquitto
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```

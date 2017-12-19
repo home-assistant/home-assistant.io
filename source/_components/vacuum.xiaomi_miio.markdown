@@ -104,7 +104,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](https://home-assistant.io/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and 
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and
 `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
@@ -121,7 +121,7 @@ The following table shows the units of measurement for each attribute:
 | Attribute                 | Unit of measurement | Description                                           |
 |---------------------------|---------------------|-------------------------------------------------------|
 | `do_not_disturb`          |                     | DND mode on / off                                     |
-| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                | 
+| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                |
 | `cleaned_area`            | square meter        | Last / actual cleaned area in square meters           |
 | `main_brush_left`         | hours               | Hours left until a change of the main brush is needed |
 | `side_brush_left`         | hours               | Hours left until a change of the side brush is needed |
@@ -141,6 +141,18 @@ easily via a hidden menu item at the Mi-Home app.
 
 #### {% linkable_title Windows and Android %}
 
+To fetch the token follow these instructions depending on your mobile phone platform.
+
+1. Configure the robot with the Mi-Home app.
+2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
+3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
+4. Change the MiToolKit language to English if you need to.
+5. Click "Extract Token"
+6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
+8. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
+
+#### {% linkable_title Linux and Android (not rooted) %}
+
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
 Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-mirobo` to be installed correctly.
@@ -159,12 +171,15 @@ $ source /srv/homeassistant/bin/activate
 To fetch the token follow these instructions depending on your mobile phone platform.
 
 1. Configure the robot with the Mi-Home app.
-2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
-3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
-4. Change the MiToolKit language to English if you need to.
-5. Click "Extract Token"
-6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
-8. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
+2. Enable developer mode, USB debugging and plug the Android phone into the computer.
+3. Get ADB e.g. `apt-get install android-tools-adb` or `apt-get install adb`
+4. `adb devices` should list your device. Consult ADB manual if necessary.
+5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone)
+6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)
+7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter the password, if prompted)
+8. Untar the unpacked data: `tar -xvf unpacked.tar`
+9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name = "Mi Robot Vacuum";'` returns the token for your Xiaomi vacuum bot.
+
 
 #### {% linkable_title Linux and Android (rooted!) %}
 

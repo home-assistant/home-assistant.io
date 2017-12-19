@@ -38,7 +38,7 @@ This will download the file from the given URL.
 
 | Service data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
-| `url`                  |       no | The url of the file to download.               |
+| `url`                  |       no | The URL of the file to download.               |
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
 | `filename`             |      yes | Determine the filename.                        |
-
+| `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |

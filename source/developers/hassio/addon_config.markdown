@@ -114,7 +114,10 @@ The config for an add-on is stored in `config.json`.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | no | If that is True, the add-on run on host network.
+| host_ipc | no | Default False. Allow to share the IPC namespace with others.
+| host_dbus | no | Default False. Map Host dbus service into add-on.
 | devices | no | Device list to map into the add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm`
+| auto_uart | no | Default False. Auto mapping all UART/Serial device from host into add-on.
 | hassio_api | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
 | homeassistant_api | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
 | privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`

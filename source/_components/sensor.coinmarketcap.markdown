@@ -24,7 +24,18 @@ sensor:
   - platform: coinmarketcap
 ```
 
-Configuration variables:
+{% configuration %}
+currency:
+  description: The cryptocurrency to use.
+  required: false
+  type: string
+  default: Bitcoin
+display_currency:
+  description: The currency to display.
+  required: false
+  type: string
+  default: USD
+{% endconfiguration %}
 
-- **currency** (*Optional*): The cryptocurrency to use, eg. `bitcoin`, `litecoin`, `steem`, etc. Default is `bitcoin`.
-- **display_currency** (*Optional*): The currency to display, eg. `USD`, `EUR`, `GBP`, etc. Default is `USD`. All supported currencies can be found [here](https://coinmarketcap.com/api/).
+All supported currencies can be found [here](https://coinmarketcap.com/api/).
+

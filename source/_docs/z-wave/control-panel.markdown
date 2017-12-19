@@ -28,6 +28,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
+* **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
 
 ## {% linkable_title Z-Wave Node Management %}
 
@@ -37,6 +38,10 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Print Node** prints all state of Z-Wave node to the console log
 
 * **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
+
+* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+
+* **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
@@ -49,7 +54,9 @@ This is a dropdown where you can select all the entities of this node. Once sele
 * **Refresh Entity** to refresh just that entity's values
 * **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
 
-Here you can mark a device as requiring polling (before 0.55 this was displayed at the top), so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/polling/), since excessive polling can break your Z-Wave network.
+Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
+
+The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
@@ -105,6 +112,26 @@ You can set the *wakeup* interval (in seconds) of the device, this is shown for 
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
+## {% linkable_title Node user codes %}
+
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+```yaml
+\x30 = 0
+\x31 = 1
+\x32 = 2
+\x33 = 3
+\x34 = 4
+\x35 = 5
+\x36 = 6
+\x37 = 7
+\x38 = 8
+\x39 = 9
+```
+Some non compliant device like tag readers, have implemented to use raw hex code.
+Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
+
+
 ## {% linkable_title OZW Log %}
 
+If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Refresh** to display the log if you need it to check activities.

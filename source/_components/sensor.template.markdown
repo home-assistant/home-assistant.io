@@ -27,6 +27,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun angle"
+        entity_id: sun.sun
         unit_of_measurement: 'degrees'
         value_template: "{{ states.sun.sun.attributes.elevation }}"
 

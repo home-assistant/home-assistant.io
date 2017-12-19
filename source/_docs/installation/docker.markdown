@@ -72,13 +72,16 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 * Go to the Docker-app and move to "Container"-section
 * Right-click on it and select "Action"->"Restart".
 
+<p class='note'>
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne. 
+</p>
+
 ### {% linkable_title Restart %}
 
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
- 2. Or you can restart it from a terminal by running `docker restart homeassistant`
-
+ 2. Or you can restart it from a terminal by running `docker restart home-assistant`
 
 ### {% linkable_title Docker Compose %}
 
@@ -127,4 +130,3 @@ or in a `docker-compose.yml` file:
       restart: always
       network_mode: host
 ```
-

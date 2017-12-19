@@ -29,8 +29,8 @@ Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
  3. Send `auth_ok` message
  4. Authentication phase ends.
  5. Command phase starts.
-    a. Client can send commands.
-    b. Server can send results of previous commands.
+    1. Client can send commands.
+    2. Server can send results of previous commands.
  6. Client or server disconnects session.
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.

@@ -156,6 +156,35 @@ homeassistant:
 ```
 </p>
 
+### {% linkable_title Video support %}
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send a video
+    message: That's an example that sends a video.
+    data:
+      video:
+        - url: http://192.168.1.28/camera.mp4
+          username: admin
+          password: secrete
+        - file: /tmp/video.mp4
+          caption: Video Title xy
+        - url: http://somebla.ie/video.mp4
+          caption: I.e. for a Title
+```
+
+Configuration variables:
+
+- **url** or **file** (*Required*): For local or remote path to a video.
+- **caption** (*Optional*): The title of the video.
+- **username** (*Optional*): Username for a URL which require HTTP authentication.
+- **password** (*Optional*): Username for a URL which require HTTP authentication.
+- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 ### {% linkable_title Document support %}
 

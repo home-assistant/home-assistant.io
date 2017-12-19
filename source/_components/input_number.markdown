@@ -55,11 +55,9 @@ Configuration variables:
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
-
-# Define input_number
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -67,8 +65,6 @@ input_number:
     min: 0
     max: 254
     step: 1
-
-# Automation.     
 automation:
   - alias: Bedroom Light - Adjust Brightness
     trigger:
@@ -76,20 +72,19 @@ automation:
       entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
-# Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
+        # Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
         data_template:
           entity_id: light.bedroom
           brightness: '{{ trigger.to_state.state | int }}'
-{% endraw %}
+
 ```
+{% endraw %}
 
 Another code example using `input_number`, this time being used in an action in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
-
-# Define 'input_select'
 input_select:
   scene_bedroom:
     name: Scene
@@ -101,8 +96,6 @@ input_select:
       - Relax
       - 'OFF'
     initial: 'Select'
-    
-# Define input_number
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -110,8 +103,6 @@ input_number:
     min: 0
     max: 254
     step: 1
-
-# Automation.     
 automation:
   - alias: Bedroom Light - Custom
     trigger:
@@ -120,21 +111,18 @@ automation:
       to: CUSTOM
     action:
       - service: light.turn_on
-# Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
+        # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
         data_template:
           entity_id: light.bedroom
           brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
-{% endraw %}
 ```
-
+{% endraw %}
 
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
-   
-# Define input_number
 input_number:
   target_temp:
     name: Target Heater Temperature Slider
@@ -143,31 +131,29 @@ input_number:
     step: 1
     unit_of_measurement: step  
     icon: mdi:target
-
-# Automation.     
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
-- alias: Set temp slider
-  trigger:
-    platform: mqtt
-    topic: "setTemperature"
-  action:
-     service: input_number.set_value
-     data_template:
-      entity_id: input_number.target_temp
-      value: '{{ trigger.payload}}'
-
- # This automation script runs when the target temperature slider is moved.
- # It publishes its value to the same MQTT topic it is also subscribed to.
-- alias: Temp slider moved
-  trigger:
-    platform: state
-    entity_id: input_number.target_temp
-  action:
-    service: mqtt.publish
-    data_template:
+automation:
+  - alias: Set temp slider
+    trigger:
+      platform: mqtt
       topic: "setTemperature"
-      retain: true
-      payload: '{{ states.input_number.target_temp.state | int }}'
-{% endraw %}
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.target_temp
+        value: '{{ trigger.payload}}'
+# This automation script runs when the target temperature slider is moved.
+# It publishes its value to the same MQTT topic it is also subscribed to.
+  - alias: Temp slider moved
+    trigger:
+      platform: state
+      entity_id: input_number.target_temp
+    action:
+      service: mqtt.publish
+      data_template:
+        topic: "setTemperature"
+        retain: true
+        payload: '{{ states.input_number.target_temp.state | int }}'
 ```
+{% endraw %}

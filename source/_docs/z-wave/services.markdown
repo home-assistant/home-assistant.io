@@ -18,6 +18,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | cancel_command         | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decide you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | change_association     | Add or remove an association in the Z-Wave network                                                                                           |
 | heal_network           | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.             |
+| heal_node              | Tells the controller to "heal" a specific node on the network. Requires `node_id` field. You can also force return route update with `return_routes` field.
 | print_config_parameter | Prints Z-Wave node's config parameter value to the (console) log.                                                                            |
 | print_node             | Print all states of Z-Wave node.                                                                                                             |
 | refresh_entity         | Refresh the Z-Wave entity by refreshing dependent values.                                                                                    |
@@ -33,6 +34,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | start_network          | Starts the Z-Wave network.                                                                                                                   |
 | stop_network           | Stops the Z-Wave network.                                                                                                                    |
 | test_network           | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead."             |
+| test_node              | Tells the controller to send no-op command(s) to a specific node. Requires `node_id` field. You can specify amount of test_messages to send by specifying it with `messages` field. In theory, this could bring back nodes marked as "presumed dead"
 
 The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below. By default, Home Assistant will run a `heal_network` at midnight. This is a configuration option for the `zwave` component. The option defaults to `true` but can be disabled by setting `autoheal` to false. If you're having issues with your Z-Wave network, try disabling this automation.
 

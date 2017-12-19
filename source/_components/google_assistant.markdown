@@ -28,6 +28,8 @@ google_assistant:
   project_id: someproject-2d0b8
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
+  agent_user_id: [a string to identify user]
+  api_key: [an API Key generated for the Google Actions project]
   exposed_domains:
     - switch
     - light
@@ -38,11 +40,15 @@ google_assistant:
 
 `cat /dev/urandom|fold -w 120|head -n 1|base64 -w 0|tr -dc '0-9A-Za-z'|cut -c -80`
 
+If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
+
 *Configuration Variables:*
 * *expose_by_default* (Optional): Expose devices in all supported domains by default.
 * *project_id* (Required): Project ID from the Google Developer console (looks like `words-2ab12`)
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
+* *agent_user_id* (Optional): A string to identify the user, e.g., email address. If not provided, the component will generate one.
+* *api_key* (Optional): An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
     - `switch`
     - `light`
@@ -52,6 +58,7 @@ google_assistant:
     - `fan`
     - `scene`
     - `script`
+    - `climate`
 
 You can also customize your devices similar to other components by adding keys to entities:
 
@@ -107,11 +114,11 @@ homeassistant:
 	2. Go to Build under the Actions SDK box
 	3. Copy the command that looks like:
 	`gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
-4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions`). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
+4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running on Linux). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
-	2. Client ID: Should be the same as `client_id` from your hass config above
+	2. Client ID: The `client_id` from your Home Assistant configuration above
 	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
 	4. Configure your client. Add scopes for `email` and `name`
 	5. Testing instructions: doesn't matter since you won't submit this app
@@ -123,3 +130,17 @@ homeassistant:
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
+11. If you want to use the `google_assistant.request_sync` service in Home Assistant, then enable Homegraph API for your project:
+	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
+	2. Select your project and click Enable Homegraph API
+	3. Go to Credentials and select API Key from Create Credentials
+	4. Note down the generated API Key and use this in the configuration
+
+*Note:* The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink. 
+
+*Note:* The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
+	1. Removing your project on the [developer console](https://console.actions.google.com).
+	2. Add a new project in the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
+	3. Enable Homegraph API to the new project.
+	4. Generete a new API key.
+	5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this they share the same project_id.

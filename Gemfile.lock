@@ -73,8 +73,8 @@ GEM
       rack
     rake (10.5.0)
     rb-fsevent (0.10.2)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-inotify (0.9.8)
+      ffi (>= 0.5.0)
     redcarpet (3.4.0)
     rouge (1.11.1)
     safe_yaml (1.0.4)
@@ -104,9 +104,13 @@ DEPENDENCIES
   octopress-include-tag
   pry
   rake (~> 10.0)
+  rb-inotify (< 0.9.9)
   sass-globbing (~> 1.0)
   sinatra (~> 1.4.2)
   stringex (~> 1.4)
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.15.4

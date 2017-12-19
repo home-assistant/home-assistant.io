@@ -16,7 +16,7 @@ ha_iot_class: "depends"
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
 
-Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
+Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 

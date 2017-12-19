@@ -53,7 +53,7 @@ Configuration variables:
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **state_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the state value.
+- **state_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the state value. The template should match the payload "on" and "off" values, so if your light uses "power on" to turn on, your `state_value_template` string should return "power on" when the switch is on. For example if the message is just "on", your `state_value_template` should be `power {{ value }}`.
 - **white_value_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's white value.
 - **white_value_state_topic** (*Optional*): The MQTT topic subscribed to receive white value updates.
 - **white_value_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the white value.
