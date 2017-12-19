@@ -22,7 +22,7 @@ Once you have enabled the [Rain Bird component](/components/rainburd), add the f
 sensor:
   - platform: rainbird
     monitored_conditions:
-    - rainsensor
+      - rainsensor
 ```
 
 Configuration variables:
