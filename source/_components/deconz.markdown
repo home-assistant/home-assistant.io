@@ -73,7 +73,7 @@ Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.git
 
 ## {% linkable_title Remote control devices%}
 
-Remote controls (ZHASwitch category) will be exposed as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. An extra entity battery sensor will be created to show battery levels of switch.
+Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
