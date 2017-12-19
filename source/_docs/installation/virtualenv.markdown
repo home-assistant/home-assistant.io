@@ -43,5 +43,5 @@ _(If you're on a Debian based system, you will need to install Python virtual en
 - If you want to upgrade Home Assistant, follow step 2, 3 and 4.
 
 <p class='info'>
-Looking for more advanced guides? Check our the [Rasbian guide](/docs/installation/raspberry-pi/) or the [available installation guides](/docs/installation/]. For details about autostarting, refer to the [autostart section](/docs/autostart/) in the documentation.
+Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/raspberry-pi/) or the [available installation guides](/docs/installation/]. For details about autostarting, refer to the [autostart section](/docs/autostart/) in the documentation.
 </p>
