@@ -23,7 +23,7 @@ The following sensor types are supported:
  * Switches
  * Temperature sensor
 
-Entity ids will be sensor.device_name, where device_name is defined in deCONZ.
+Entity ids will be sensor.device_name, where device_name is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main component](/components/deconz/) for more details.
 
 #### {% linkable_title Verified to be supported sensors %}
 
