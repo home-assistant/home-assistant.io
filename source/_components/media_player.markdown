@@ -63,7 +63,7 @@ Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
-| `repeate`              |       no | `true`/`false` for enabling/disabling repeat         |
+| `repeat`               |       no | `true`/`false` for enabling/disabling repeat         |
 
 #### {% linkable_title Service `media_player/shuffle_set` %}
 
