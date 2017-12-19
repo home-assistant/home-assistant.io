@@ -24,6 +24,7 @@ Configure with either your username/password or your API token for the official 
 
 ```yaml
 # Example configuration.yaml entry
+switch: 
 -  platform: hook
    username: <email address>
    password: !secret hook
@@ -31,6 +32,7 @@ Configure with either your username/password or your API token for the official 
 Or
 ```yaml
 # Example configuration.yaml entry
+switch:
 -  platform: hook
    token: <your API token>
 ```
