@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rainbird.png
 ha_category: Hub
-ha_release: 0.59.3
+ha_release: 0.61
 ha_iot_class: "Local Polling"
 ---
 
@@ -25,7 +25,7 @@ rainbird:
 
 Configuration variables:
 
-- **stickip** (*Required*): The IP address of your LNK WiFi Module.
+- **host** (*Required*): The IP address of your LNK WiFi Module.
 - **password** (*Required*): The password for accessing the module.
 
 Finish its configuration by visiting the [Rain Bird sensor](/components/sensor.rainbird/) and [Rain Bird switch](/components/switch.rainbird/) documentation.
