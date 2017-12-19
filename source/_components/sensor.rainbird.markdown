@@ -21,7 +21,7 @@ Once you have enabled the [Rain Bird component](/components/rainburd), add the f
 # Example configuration.yaml entry
 sensor:
   - platform: rainbird
-  monitored_conditions:
+    monitored_conditions:
     - rainsensor
 ```
 
