@@ -64,8 +64,7 @@ hue:
   bridges:
     - host: BRIDGE1_IP_ADDRESS
       filename: phue.conf
-    - platform: hue
-      host: BRIDGE2_IP_ADDRESS
+    - host: BRIDGE2_IP_ADDRESS
       filename: phue2.conf
 ```
 
@@ -106,7 +105,7 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 The Hue platform has it's own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
-To avoid user interface overload we don't expose scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components.
+To avoid user interface overload we don't expose scenes directly. Instead there is a hue.hue_activate_scene service which can be used by `automation` or `script` components.
 This will have all the bulbs transitioned at once, instead of one at a time using standard scenes in Home Assistant.
 
 For instance:
@@ -115,7 +114,7 @@ For instance:
 script:
   porch_on:
     sequence:
-      - service: light.hue_activate_scene
+      - service: hue.hue_activate_scene
         data:
           group_name: "Porch"
           scene_name: "Porch Orange"

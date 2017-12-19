@@ -42,6 +42,8 @@ The next step is to configure Alexa. This can be done by enabling the Home Assis
 
 Once you’re done, ask Alexa to discover devices (“Alexa, discover devices”) and you are all set to control them: “Alexa, turn on &lt;device name&gt;”.
 
+See the [Cloud component configuration](/components/cloud/) to learn how to filter which devices get exposed to Alexa.
+
 ## {% linkable_title FAQ %}
 
 **Will Home Assistant and Hass.io remain open source?**
@@ -59,3 +61,11 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on - top of the Home Assistant cloud.
 - IFTTT integration
 - Alexa shopping list integration
+
+**What countries are supported?**
+
+Only US is currently supported. Expect more countries to be supported soon. The reason there is a country limitation is that we need to do extra steps and certifications for each country's Alexa skill.
+
+**How is the connection made to the cloud?**
+
+The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
