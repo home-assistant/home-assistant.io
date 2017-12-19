@@ -94,10 +94,10 @@ You can also use this to list devices or sensors and read the output in the add-
 - `"function":"list-sensors"`
 - `"function":"list-devices"`: Alternative devices/sensors listing: Shows devices and/or sensors using key=value format (with tabs as separators, one device/sensor per line, no header lines.)
 
-- `"function":"on":"device":"x"`: Turns on device. ’x’ could either be an integer of the device-id, or the name of the device. 
+- `"function":"on","device":"x"`: Turns on device. ’x’ could either be an integer of the device-id, or the name of the device. 
 
-- `"function":"off":"device":"x"`: Turns off device. ’x’ could either be an integer of the device-id, or the name of the device. 
+- `"function":"off","device":"x"`: Turns off device. ’x’ could either be an integer of the device-id, or the name of the device. 
 
-- `"function":"bell":"device":"x"`: Sends bell command to devices supporting this. ’x’ could either be an integer of the device-id, or the name of the device.
+- `"function":"bell","device":"x"`: Sends bell command to devices supporting this. ’x’ could either be an integer of the device-id, or the name of the device.
 
-- `"function":"learn":"device":"x"`: Sends a special learn command to devices supporting this. This is normaly devices of ’selflearning’ type. ’x’ could either be an integer of the device-id, or the name of the device. 
+- `"function":"learn","device":"x"`: Sends a special learn command to devices supporting this. This is normaly devices of ’selflearning’ type. ’x’ could either be an integer of the device-id, or the name of the device. 
