@@ -48,7 +48,7 @@ Configuration variables:
 - **zones** (*Required*): This is the list of zones available. Valid zones are 11,12,13,14,15,16. In case multiple Monoprice devices are stacked together the list of valid zones is extended by 21,22,23,24,25,26 for the second device and 31,32,33,34,35,36 for the third device. Each zone must have a name assigned to it.
 - **sources** (*Required*): The list of sources available. Valid source numbers are 1,2,3,4,5,6. Each source number corresponds to the input number on the Monoprice amplifier. Similar to zones, each source must have a name assigned to it.
 
-### {% linkable_title Service `monoprice_snapshot` %}
+### {% linkable_title Service `snapshot` %}
 
 Take a snapshot of one or more zones' states. This service, and the following one are useful if you want to play a doorbell or notification sound and resume playback afterward. If no `entity_id` is provided, all zones are snapshotted.
 
@@ -62,7 +62,7 @@ The following attributes are stored in a snapshot:
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of zones.
 
-### {% linkable_title Service `monoprice_restore` %}
+### {% linkable_title Service `restore` %}
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all zones are restored.
 
