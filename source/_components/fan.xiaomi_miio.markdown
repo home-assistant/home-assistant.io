@@ -8,36 +8,38 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Switch
+ha_category: Fan
 ha_version: 0.57
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier 2, Air Purifier 2S andd Air Purifier Pro.
+The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier 2, Air Purifier 2S and Air Purifier Pro.
 
 Currently, the supported features are
 
 * On, Off
 * Operation modes (auto, silent, favorite, idle)
 * Buzzer (on, off)
+* Child lock (on, off)
 * LED (on, off), LED brightness (bright, dim, off)
-* Favorite Level
-* States
+* Favorite Level (0...16)
+* Attributes
   - power
   - aqi
+  - average_aqi
   - humidity
   - temperature
   - mode
+  - favorite_level
   - led
   - led_brightness
   - buzzer
   - child_lock
-  - brightness
-  - favorite_level
-  - filter1_life
-  - f1_hour_used
-  - use_time
-  - motor1_speed
+  - purify_volume
+  - filter_life_remaining
+  - filter_hours_used
+  - motor_speed
+
 
 ## {% linkable_title Setup %}
 
@@ -87,6 +89,22 @@ Turn the led on.
 ### Service fan/xiaomi_miio_set_led_off
 
 Turn the led off.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
+
+### Service fan/xiaomi_miio_set_child_lock_on
+
+Turn the child lock on.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
+
+### Service fan/xiaomi_miio_set_child_lock_off
+
+Turn the child lock off.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
