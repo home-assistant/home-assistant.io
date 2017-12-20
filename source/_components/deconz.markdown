@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: deconz.jpeg
 ha_category: Hub
-ha_release: "0.60"
+ha_release: "0.61"
 ha_iot_class: "Local Push"
 ---
 
