@@ -41,6 +41,7 @@ We will need a few things to get started with installing Home Assistant. Links b
  6. Connect your Raspberry Pi to the power supply so it turns on.
  7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
  8. Home Assistant will be available at [http://hassio.local:8123][local].
+ 9. Note that special commands are needed to shutdown/reboot hassio over SSH as the normal ones don't work i.e. 'hassio host shutdown', 'hassio host reboot'.
 
 [local]: http://hassio.local:8123
 
