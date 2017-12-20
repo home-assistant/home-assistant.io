@@ -13,6 +13,10 @@ featured: true
 ha_release: 0.56
 ---
 
+<p class='note'>
+This is to provide you with voice control via Google Assistant (on your mobile or tablet) or a Google Home device.
+</p>
+
 # Google Assistant Docs
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
