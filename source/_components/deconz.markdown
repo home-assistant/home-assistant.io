@@ -19,7 +19,7 @@ ha_iot_class: "Local Push"
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to Menu->Settings->Unlock Gateway in deCONZ and then use the deCONZ configurator in HASS GUI to create an API key. When you've generated the API key from HASS the API key will be stored in deconz.conf inside the home-assistant folder.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to Menu->Settings->Unlock Gateway in deCONZ and then use the deCONZ configurator in Home Assistant GUI to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in deconz.conf inside the home-assistant folder.
 
 You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
 
@@ -42,7 +42,7 @@ deconz:
 
 ## {% linkable_title Configuration variables %}
 
-- **host** (*Optional*): The IP address to your deCONZ server.
+- **host** (*Optional*): The IP address of your deCONZ server.
 - **api_key** (*Optional*): The API key to your deCONZ server.
 - **port** (*Optional*): Configure port deCONZ web server is accessible from. Default is 80.
 
@@ -65,7 +65,7 @@ Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.git
 | Parameter | Description                                             |
 |-----------|---------------------------------------------------------|
 | `field`   | String representing a specific device in deCONZ.        |
-| `data`    | Data is a json object with what data you want to alter. |
+| `data`    | Data is a JSON object with what data you want to alter. |
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 

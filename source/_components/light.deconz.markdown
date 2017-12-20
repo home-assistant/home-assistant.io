@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "deCONZ lights"
-description: "Instructions how to integrate Zigbee lights from deCONZ into Home Assistant."
+description: "Instructions on how to integrate Zigbee lights from deCONZ into Home Assistant."
 date: 2017-11-12 16:30
 sidebar: true
 comments: false
