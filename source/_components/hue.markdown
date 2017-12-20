@@ -127,7 +127,7 @@ script:
 
 *Note*: `group_name` is not linked to Home Assistant group name.
 
-### Finding Group and Scene Names
+### {% linkable_title Finding Group and Scene Names %}
 
 How do you find these names?
 
@@ -135,7 +135,7 @@ The easiest way to do this is only use the scenes from the 2nd generation Hue ap
 
 Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together but it's sufficient to get values that you can test in the `dev-service` console.
 
-### Caveats
+### {% linkable_title Caveats %}
 
 The Hue API doesn't activate scenes directly, only on a Hue Group (typically rooms, especially if using the 2nd gen app). But Hue Scenes don't actually reference their group. So heuristic matching is used.
 
