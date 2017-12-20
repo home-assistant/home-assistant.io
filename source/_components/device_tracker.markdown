@@ -65,7 +65,10 @@ devicename:
   track: yes
   hide_if_away: no
 ```
-_(Note:  **devicename** refers to the detected name of the device.  For instance, **my_iphone** )_
+
+<p class='note warning'>
+  In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+</p>
 
 | Parameter      | Default                       | Description                                                                                             |
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
