@@ -244,6 +244,6 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
-- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternativly an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
 
