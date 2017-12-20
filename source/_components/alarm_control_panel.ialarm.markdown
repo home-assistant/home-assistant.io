@@ -37,7 +37,7 @@ alarm_control_panel:
     required: true
     type: string
   password:
-    description: Password used to sign into the iAlarm web client.
+    description: Password used to sign into the iAlarm web client. If it has a leading zero you need to put the password within quotes.
     required: true
     type: string
   name:
