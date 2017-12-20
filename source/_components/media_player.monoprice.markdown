@@ -68,4 +68,4 @@ Restore a previously taken snapshot of one or more speakers. If no `entity_id` i
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of zone.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of zones.
