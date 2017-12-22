@@ -70,11 +70,6 @@ custom_calendars:
       required: true
       pending_charges: Regular expression for filtering the events
       type: string
-    all_day:
-      required: false
-      description: Include events that last the whole day.
-      type: boolean
-      default: true
 {% endconfiguration %}
 
 
