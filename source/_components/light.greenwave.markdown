@@ -1,20 +1,18 @@
 ---
 layout: page
-title: TCP Connected (Greenwave Reality) Lights
-description: "Instructions on how to set up TCP Connected lights within Home Assistant."
+title: Greenwave Reality (TCP Connected) Lights
+description: "Instructions on how to set up Greenwave Reality lights within Home Assistant."
 date: 2017-11-17 18:50
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Light
-ha_release: 0.59
+ha_release: 0.62
 ha_iot_class: "Local Polling"
 ---
 
-This component communicates with the TCP Connected (Greenwave Reality) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.
-
-The gateway must be running a firmware that begins with 2, such as 2.0.47. If required, you can find information on how to downgrade [here](https://github.com/bren1818/TCPFirmwareRestore).
+This component communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.
 
 This component has been tested on firmware revisions:
 
@@ -26,11 +24,17 @@ To configure the connection to the gateway, add the following to your `configura
 light:
   - platform: greenwave
     host: XXX.XXX.XXX.XXX
+    version: 3
 ```
+The version option is the major revision of your firmware, which should be 2 or 3. If you are running Version 2, there are no extra steps. If you are running Version 3, you must press the Sync button on the gateway prior to the first launch of Home Assistant, so a token can be grabbed. Once home assistant has started, you can either press the Sync button again or wait for it to time out manually.
 
 {% configuration %}
 host:
   description: The IP Address of your Gateway
   required: true
   type: string
+version:
+  description: Major version of the gateway firmware
+  required: true
+  type: integer
 {% endconfiguration %}
