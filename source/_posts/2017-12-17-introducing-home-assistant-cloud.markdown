@@ -46,11 +46,23 @@ See the [Cloud component configuration](/components/cloud/) to learn how to filt
 
 ## {% linkable_title FAQ %}
 
-**Will Home Assistant and Hass.io remain open source?**
+_Last updated: December 23, 2017_
+
+#### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
+
+You are right, [we don't](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
+
+Instead, the Home Assistant Cloud is an extension of your local instance. It allows to communicate with companies that force us to communicate via a public available cloud endpoint like Amazon Alexa and Google Assistant.
+
+Home Assistant Cloud is only used to route the messages to your Home Assistant instance. All messages are processed locally.
+
+_(Some people have suggested we rename to Home Assistant Bridge to avoid this confusion)_
+
+#### {% linkable_title Will Home Assistant and Hass.io remain open source? %}
 
 Yes. Yes. Yes! Home Assistant is the work of hundreds of developers all working together in creating something amazing. The only thing that will require a subscription is the optional cloud functionality.
 
-**What other features will come to the cloud?**
+#### {% linkable_title What other features will come to the cloud? %}
 
 We have a lot of ideas! We are not going to make any promises but here are some things that we’re looking into:
 
@@ -58,14 +70,29 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 - Allow easy linking of other cloud services to Home Assistant. No more local juggling with OAuth flows. For example, link your Fitbit account and the Fitbit component will show up in Home Assistant.
 - Encrypted backups of your Hass.io data
 - Text to speech powered by AWS Polly
-- Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on - top of the Home Assistant cloud.
+- Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on top of the Home Assistant cloud.
 - IFTTT integration
 - Alexa shopping list integration
 
-**What countries are supported?**
+#### {% linkable_title What countries are supported at launch? %}
 
-Only US is currently supported. Expect more countries to be supported soon. The reason there is a country limitation is that we need to do extra steps and certifications for each country's Alexa skill.
+Only US is currently supported. The reason for this limitation is that we need to do extra steps and certifications for each country's Alexa skill. This is in progress but the timeline depends on Amazon.
 
-**How is the connection made to the cloud?**
+#### {% linkable_title How is the connection made to the cloud? %}
 
 The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
+
+#### {% linkable_title I think that the price is too high for what I get. %}
+
+The Home Assistant Cloud functionality is a perk for becoming a supporter of the Home Assistant project. As a supporter you will help fund development, cover our operating costs and gives you access to use Home Assistant Cloud. You are not paying to just maintain the cloud servers.
+
+The perks offered for being a supporter will also extend over time, as noted in [this answer](#what-other-features-will-come-to-the-cloud).
+
+#### {% linkable_title What will the Home Assistant organization do with the funds ? %}
+
+The plan is to hire developers to work fulltime on Home Assistant. We have grown a lot in the last 4 years and the work load is pushing the limits of what our core developers can do. Open source burn out is very common ([1], [2]) and we want to avoid this by moving most organization and release chores to a paid position.
+
+_For more background on these topics, check out [HASS Podcast 15](https://hasspodcast.io/ha015/)._
+
+[1]: https://nolanlawson.com/2017/03/05/what-it-feels-like-to-be-an-open-source-maintainer/
+[2]: https://www.kennethreitz.org/essays/the-reality-of-developer-burnout
