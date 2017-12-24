@@ -59,7 +59,7 @@ Configuration variables:
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
 ```bash
-$ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' | cut -c -80`
+$ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' | cut -c -80
 ```
 
 If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
