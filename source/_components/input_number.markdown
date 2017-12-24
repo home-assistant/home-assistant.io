@@ -41,8 +41,8 @@ input_number:
 
 
 {% configuration %}
-  [alias]:
-    description: Alias for the input. Multiple entries are allowed
+  input_number:
+    description: Alias for the input. Multiple entries are allowed.
     required: true
     type: map
     keys:
@@ -64,15 +64,15 @@ input_number:
         type: float
         default: 0
       step:
-        description: Step value for the slider. Smallest value: 0.001
+        description: Step value for the slider. Smallest value `0.001`.
         required: false
         type: float
         default: 1
       mode:
         description: Can specify `box` or `slider`.
         required: false
-        type: [`box` | `slider`]
-        default: `slider`
+        type: box | slider
+        default: slider
       unit_of_measurement:
         description: Unit of measurement in which the value of the slider is expressed in.
         required: false
