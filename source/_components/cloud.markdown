@@ -94,6 +94,6 @@ Currently, the following domains are available to be used with Alexa:
 
 [alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2
 
-### {% Frequently Asked Questions %}
+### {% linkable_title Frequently Asked Questions %}
 
 You can find a list of frequently asked questions (and their answers) in [this blog post](https://home-assistant.io/blog/2017/12/17/introducing-home-assistant-cloud/#faq).
