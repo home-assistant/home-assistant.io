@@ -39,17 +39,49 @@ input_number:
     mode: box
 ```
 
-Configuration variables:
 
-- **[alias]** (*Required*): Alias for the input. Multiple entries are allowed.
-  - **min** (*Required*): Minimum value.
-  - **max** (*Required*): Maximum value.
-  - **name** (*Optional*): Friendly name of the input.
-  - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
-  - **step** (*Optional*): Step value for the slider. Defaults to 1.
-  - **mode** (*Optional*): Can specify `box`, or `slider`. Defaults to `slider`.
-  - **unit_of_measurement** (*Optional*): Unit of measurement in which the value of the slider is expressed in.
-  - **icon** (*Optional*): Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+{% configuration %}
+  [alias]:
+    description: Alias for the input. Multiple entries are allowed
+    required: true
+    type: map
+    keys:
+      min:
+        description: Minimum value.
+        required: true
+        type: float
+      max:
+        description: Maxium value.
+        required: true
+        type: float
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: string
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: float
+        default: 0
+      step:
+        description: Step value for the slider. Smallest value: 0.001
+        required: false
+        type: float
+        default: 1
+      mode:
+        description: Can specify `box` or `slider`.
+        required: false
+        type: [`box` | `slider`]
+        default: `slider`
+      unit_of_measurement:
+        description: Unit of measurement in which the value of the slider is expressed in.
+        required: false
+        type: string
+      icon:
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        required: false
+        type: icon
+{% endconfiguration %}
 
 ## {% linkable_title Automation Examples %}
 
@@ -75,8 +107,7 @@ automation:
         # Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
         data_template:
           entity_id: light.bedroom
-          brightness: '{{ trigger.to_state.state | int }}'
-
+          brightness: "{{ trigger.to_state.state | int }}"
 ```
 {% endraw %}
 
@@ -114,7 +145,7 @@ automation:
         # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
         data_template:
           entity_id: light.bedroom
-          brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
+          brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
 {% endraw %}
 
@@ -131,20 +162,23 @@ input_number:
     step: 1
     unit_of_measurement: step  
     icon: mdi:target
+
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
   - alias: Set temp slider
     trigger:
       platform: mqtt
-      topic: "setTemperature"
+      topic: 'setTemperature'
     action:
       service: input_number.set_value
       data_template:
         entity_id: input_number.target_temp
-        value: '{{ trigger.payload}}'
+        value: "{{ trigger.payload }}"
+
 # This automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
+automation:
   - alias: Temp slider moved
     trigger:
       platform: state
@@ -152,8 +186,8 @@ automation:
     action:
       service: mqtt.publish
       data_template:
-        topic: "setTemperature"
+        topic: 'setTemperature'
         retain: true
-        payload: '{{ states.input_number.target_temp.state | int }}'
+        payload: "{{ states('input_number.target_temp') | int }}"
 ```
 {% endraw %}
