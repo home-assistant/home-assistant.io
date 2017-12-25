@@ -18,7 +18,7 @@ The `alarmdecoder` alarm control panel platform allows you to control your [Alar
 
 The requirement is that you have setup your [AlarmDecoder hub](/components/alarmdecoder/).
 
-### Services
+### {% linkable_title Services %}
 
 The Alarm Decoder component gives you access to several services for you to control your alarm with.
 
@@ -30,7 +30,7 @@ The Alarm Decoder component gives you access to several services for you to cont
 
 **Note**: `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder component.
 
-### Attributes
+### {% linkable_title Attributes %}
 
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
@@ -44,12 +44,13 @@ There are several attributes available on the alarm panel to give you more infor
 - `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 
-### Examples
+### {% linkable_title Examples %}
 
 Using a combination of the available services and attributes, you can create switch templates.
 
-#### Chime Status and Control
+#### {% linkable_title Chime Status and Control %}
 
+{% raw %}
 ```yaml
 - platform: template
   switches:
@@ -71,3 +72,4 @@ Using a combination of the available services and attributes, you can create swi
             mdi:bell-off
           {% endif %}
 ```
+{% endraw %}
