@@ -43,7 +43,7 @@ Configuration variables:
 
 1. Set `https://yourdomain/local/` as URL.
 2. For verifying your domain you need to download a file in step 2.
-3. Create a dictionary named "www" in you Hass.io configuration directory.
+3. Create a directory named "www" in you Hass.io configuration directory.
 4. Place the file (something like this: google*.html) in the "www" directory.
 5. Verify the domain.
 6. Proceed with step 3.
