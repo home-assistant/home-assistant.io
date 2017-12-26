@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Thank You"
+description: "Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome."
+date: 2017-12-28 22:00:00 UTC
+date_formatted: "December 28, 2017"
+author: Fabian affolter
+author_twitter: fabaff
+comments: true
+categories: Community
+og_image:
+---
+
+2017 is almost over and this means it's time to do a little recap of our 2017. This was a great year for Home Assistant. Again, we were able to stick to our be-weekly release cycle. This means that there were 25 releases over the year. Beside the regular Home Assistant release we introduced [Hass.io] which is usually releases along new Home Assistant releases only with a little delay.
+
+We got 10000 stars on [GitHub], reached 10000 commits in the main repo (over 4300 were made in 2017), got a [Thomas-Krenn award], participated in [Hacktoberfest], we have now almost 1000 integrations (the exact number is 938), we [moved to Discourse] and we are up to over 2 million page views per months on our forum. Beside that we announced the [Home Assistant cloud] and have regular [Home Assistant Podcasts].
+
+Uff, what a year...Thank you, dear community for being so helpful, supportive and awesome 🙇.
+
+A very big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. You are the foundation for our success and all of you can be proud of yourself.
+
+We would also like to thanks all the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thank you [GitHub], [TravisCI], [CloudFlare] and [Discourse]!
+
+Some of us are taking a break and spending some quality time with family and loved ones.
+
+Stay tuned for more Home Assistant awesomeness in 2018. We will keep the pace but first: Happy New Year!
+
+-- Home Assistant Organization
+
+[GitHub]: https://GitHub.com
+[TravisCI]: https://Travis-ci.org
+[CloudFlare]: https://CloudFlare.com
+[Discourse]: https://Discourse.com
+[Hass.io]: https://home-assistant.io/hassio/
+[Home Assistant Podcasts]: https://hasspodcast.io/
+[forum]: https://community.home-assistant.io
+[Home Assistant cloud]: /blog/2017/12/17/introducing-home-assistant-cloud/
+[Thomas-Krenn award]: /blog/2017/04/01/thomas-krenn-award/
+[Hacktoberfest]: /blog/2017/11/04/release-57/#hacktoberfest
+[moved to Discourse]: /blog/2017/07/03/home-assistant-is-moving-to-discord/
