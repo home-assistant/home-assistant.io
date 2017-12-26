@@ -15,6 +15,16 @@ ha_iot_class: "Local Polling"
 
 The `miflora` sensor platform allows one to monitor to plants. The [Mi Flora plant sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
 
+# Installation
+Depending on the operating system you're running, you have to configure the proper bluetooth backend on your system:
+
+- On [Hass.io](https://home-assistant.io/hassio/installation/): Miflora will work out of the box.
+- On other Linux systems: 
+    - prefered solution: Install the ```bluepy``` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
+    - fallback solution: Install ```gatttool``` via your package manager. Depending on the distribution, the package name might be: bluez, bluetooth, bluez-deprecated
+- Windows and MacOS are currently not supported by the [miflora library](https://github.com/open-homeautomation/miflora/).
+
+# Configuration
 Start a scan to determine the MAC addresses of the sensor:
 
 ```bash
@@ -24,6 +34,17 @@ F8:04:33:AF:AB:A2 [TV] UE48JU6580
 C4:D3:8C:12:4C:57 Flower mate
 [...]
 ```
+
+Or if your distribution is using bluetoothctl:
+
+```bash
+$ bluetoothctl 
+[bluetooth]# scan on
+[NEW] Controller <your Bluetooth adapter> [default]
+[NEW] F8:04:33:AF:AB:A2 [TV] UE48JU6580
+[NEW] C4:D3:8C:12:4C:57 Flower mate
+```
+
 
 Check for `Flower care` or `Flower mate` entries, those are your sensor.
 
