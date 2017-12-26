@@ -46,7 +46,7 @@ See the [Cloud component configuration](/components/cloud/) to learn how to filt
 
 ## {% linkable_title FAQ %}
 
-_Last updated: December 23, 2017_
+_Last updated: December 26, 2017_
 
 #### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
 
@@ -54,13 +54,20 @@ You are right, [we don't](https://home-assistant.io/blog/2016/01/19/perfect-home
 
 Instead, the Home Assistant Cloud is an extension of your local instance. It allows to communicate with companies that force us to communicate via a public available cloud endpoint like Amazon Alexa and Google Assistant.
 
-Home Assistant Cloud is only used to route the messages to your Home Assistant instance. All messages are processed locally.
+Home Assistant Cloud is only used to route the messages to your local Home Assistant instance. All messages are processed locally.
 
 _(Some people have suggested we rename to Home Assistant Bridge to avoid this confusion)_
 
 #### {% linkable_title Will Home Assistant and Hass.io remain open source? %}
 
 Yes. Yes. Yes! Home Assistant is the work of hundreds of developers all working together in creating something amazing. The only thing that will require a subscription is the optional cloud functionality.
+
+#### {% linkable_title Where is the source code for the Alexa skill? %}
+
+All messages are processed locally and so the Alexa skill code is part of the Home Assistant code. The Home Assistant Cloud only routes the messages to your local Home Assistant instance. This means that you can audit the source code to check all the things that the cloud can do:
+
+ - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py)
+ - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py)
 
 #### {% linkable_title What other features will come to the cloud? %}
 
