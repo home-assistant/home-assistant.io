@@ -10,6 +10,7 @@ footer: true
 logo: alarmdotcom.png
 ha_category: Alarm
 ha_release: 0.11
+requirement: hardware
 ---
 
 The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).

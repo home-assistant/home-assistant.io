@@ -10,6 +10,7 @@ footer: true
 logo: simplisafe.png
 ha_release: 0.24
 ha_category: Alarm
+requirement: hardware
 ---
 
 The `simplisafe` platform enables the ability to control a SimpliSafe control panel. [simplisafe.com](http://simplisafe.com/).

@@ -11,6 +11,7 @@ logo: axis.png
 ha_category: Hub
 ha_release: "0.45"
 ha_iot_class: "Local Polling"
+requirement: hardware
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.

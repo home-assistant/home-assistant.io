@@ -10,6 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Polling"
+requirement: hardware
 ---
 
 To get your ZigBee binary sensors working with Home Assistant, follow the instructions for the general [ZigBee Home Automation component](/components/zha/).

@@ -11,6 +11,7 @@ logo: canary.png
 ha_category: Alarm
 ha_release: "0.60"
 ha_iot_class: "Cloud Polling"
+requirement: hardware
 ---
 
 The `canary` alarm control panel platform allows you to integrate your [Canary](https://canary.is) alarm system in Home Assistant.

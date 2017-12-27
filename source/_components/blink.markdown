@@ -11,6 +11,7 @@ logo: blink.png
 ha_category: Hub
 ha_release: "0.40"
 ha_iot_class: "Cloud Polling"
+requirement: hardware
 ---
 
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.

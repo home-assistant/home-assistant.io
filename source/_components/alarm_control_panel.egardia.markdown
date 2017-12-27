@@ -10,13 +10,14 @@ footer: true
 logo: egardia.png
 ha_release: 0.51
 ha_category: Alarm
+requirement: hardware
 ---
 
 The `egardia` platform enables the ability to control an [Egardia](http://egardia.com/)/Woonveilig control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on a Gate01 version of the Egardia/Woonveilig platform.
 
 You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in using your Egardia/Woonveilig account.
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

@@ -10,6 +10,7 @@ footer: true
 logo: apcupsd.png
 ha_category: Hub
 ha_release: 0.13
+requirement: hardware
 ---
 
 [APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) is enabled on the APC device.

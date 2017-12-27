@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+requirement: none
 ---
 
 Please see the [docs section](/docs/automation/) for in-depth documentation on how to use the automation component.

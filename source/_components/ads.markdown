@@ -11,6 +11,7 @@ logo: beckhoff.png
 ha_category: Hub
 ha_release: "0.60"
 ha_iot_class: "Local Push"
+requirement: hardware
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](http://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.

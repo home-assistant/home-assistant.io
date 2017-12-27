@@ -11,6 +11,7 @@ logo: eyezon.png
 ha_category: Alarm
 ha_release: 0.23
 ha_iot_class: "Local Push"
+requirement: hardware
 ---
 
 
