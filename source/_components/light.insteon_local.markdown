@@ -15,16 +15,4 @@ ha_iot_class: "Local Push"
 
 The `insteon_local` light component lets you control your lights connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To integrate add a light, configure your hub Insteon(local) with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml platform entry
-insteon_local:
-  host: YOUR HUB IP
-  username: YOUR HUB USERNAME
-  password: YOUR HUB PASSWORD
-  timeout: 10
-  port: 25105
-```
-
-The lights will be auto discovered by the hub. The names of the devices will be the insteon address of the devices.
+To get your insteon lights working with Home Assistant, follow the instructions for the general [Insteon local component](/components/insteon_local/). The lights will be automatically disovered and added to Home Assistant. The device names will be the Insteon address of the lights.

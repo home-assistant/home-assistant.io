@@ -14,15 +14,4 @@ ha_version: 0.36
 
 The `insteon_local` switch component lets you control your switches connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To integrate add a switch, configure your hub Insteon(local) with Home Assistant, add the following section to your `configuration.yaml` file:
-```yaml
-# Example configuration.yaml platform entry
-insteon_local:
-  host: YOUR HUB IP
-  username: YOUR HUB USERNAME
-  password: YOUR HUB PASSWORD
-  timeout: 10
-  port: 25105
-```
-
-The switches will be discovered by the hub and added to Homeassistant. The device names will be the Insteon address of the switch.
+To get your insteon switches working with Home Assistant, follow the instructions for the general [Insteon local component](/components/insteon_local/). The switches will be automatically disovered and added to Home Assistant. The device names will be the Insteon address of the switch.
