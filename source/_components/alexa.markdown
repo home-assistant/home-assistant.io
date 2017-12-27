@@ -11,6 +11,7 @@ logo: amazon-echo.png
 ha_category: Voice
 featured: true
 ha_release: '0.10'
+requirement: hardware
 ---
 
 <p class='note'>

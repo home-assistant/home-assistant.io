@@ -11,6 +11,7 @@ logo: arlo.png
 ha_category: Hub
 ha_release: 0.46
 ha_iot_class: "Cloud Polling"
+requirement: hardware
 ---
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.

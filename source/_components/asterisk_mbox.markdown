@@ -10,6 +10,7 @@ footer: true
 ha_category: Other
 ha_version: 0.51
 ha_iot_class: "Local Push"
+requirement: software
 ---
 
 The Asterisk Voicemail integration for Home Assistant allows you to view, listen to, and delete voicemails from an Asterisk voicemail mailbox.  The component includes a panel on the frontend that provides caller-id and speech-to-text transcription (using Google's API) of messages in addition to playback and message deletion. There is also an included sensor that indicates of the number of available messages. There is no requirement that the Asterisk PBX and Home Assistant are running on the same machine.

@@ -10,6 +10,7 @@ footer: true
 logo: wink.png
 ha_category: Alarm
 ha_release: 0.37
+requirement: hardware
 ---
 
 No Wink hub is required to support these devices.

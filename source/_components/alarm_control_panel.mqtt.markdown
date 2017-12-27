@@ -11,6 +11,7 @@ logo: mqtt.png
 ha_category: Alarm
 ha_release: 0.7.4
 ha_iot_class: depends
+requirement: hardware
 ---
 
 The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.

@@ -11,6 +11,7 @@ logo: wink.png
 ha_category: Binary Sensor
 ha_release: 0.14
 ha_iot_class: "Cloud Polling"
+requirement: hardware
 ---
 
 

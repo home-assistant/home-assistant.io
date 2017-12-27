@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.38
+requirement: none
 ---
 
 The `alert` component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the `alert` component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also used for low battery sensors, water leak sensors, or any condition that may need your attention.

@@ -11,6 +11,7 @@ ha_category: System Monitor
 logo: vultr.png
 ha_release: "0.58"
 ha_iot_class: "Cloud Polling"
+requirement: none
 ---
 
 The `vultr` binary sensor platform allows you to monitor your [Vultr](https://www.vultr.com/) subscription to see if it is powered on or not.

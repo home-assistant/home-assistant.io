@@ -11,6 +11,7 @@ logo: android_ip_webcam.png
 ha_category: Hub
 ha_release: "0.40"
 ha_iot_class: "Local Polling"
+requirement: hardware
 ---
 
 The `android_ip_webcam` component turns an Android phone into a network camera with multiple viewing options.

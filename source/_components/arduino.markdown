@@ -12,6 +12,7 @@ ha_category: DIY
 featured: true
 ha_release: pre 0.7
 ha_iot_class: "Local Polling"
+requirement: hardware
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection. The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of the board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.

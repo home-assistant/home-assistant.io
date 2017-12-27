@@ -10,13 +10,14 @@ footer: true
 logo: antifurto365-ialarm.png
 ha_category: Alarm
 ha_release: "0.60"
+requirement: hardware
 ---
 
 The `ialarm` platform provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarm alarm systems.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,7 +38,7 @@ alarm_control_panel:
     required: true
     type: string
   password:
-    description: Password used to sign into the iAlarm web client. If it has a leading zero you need to put the password within quotes.
+    description: Password used to sign into the iAlarm web client.
     required: true
     type: string
   name:

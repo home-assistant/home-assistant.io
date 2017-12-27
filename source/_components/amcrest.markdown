@@ -11,6 +11,7 @@ logo: amcrest.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
 ha_release: 0.49
+requirement: hardware
 ---
 
 The `amcrest` platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.

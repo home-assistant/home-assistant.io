@@ -11,6 +11,7 @@ logo: bloomsky.png
 ha_category: Hub
 ha_release: 0.14
 ha_iot_class: "Cloud Polling"
+requirement: hardware
 ---
 
 
