@@ -10,7 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
-ha_version: 0.59.2
+ha_version: 0.36
 ---
 
 The `insteon_local` component let you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
@@ -35,7 +35,7 @@ Configuration variables:
 
 ### {% linkable_title Full configuration %} 
 
-The `insteon_local` component currently supports both lights (dimmers) and switches, fans are now supported as well. With the recent update there is no longer any need to add the light, switch, or fans under the configuration. 
+The `insteon_local` component currently supports both lights (dimmers), switches, and fans. 
 
 ```yaml
 insteon_local:
@@ -46,5 +46,4 @@ insteon_local:
   port: 25105
 ```
 
-In the most recent update we changed the naming of devices to match the insteon address. This means that the automations and scenes will have to be updated. You can also set friendly names for the devices using the customization option.  https://home-assistant.io/docs/configuration/customizing-devices/
 

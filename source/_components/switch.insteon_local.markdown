@@ -25,9 +25,4 @@ insteon_local:
   port: 25105
 ```
 
-To add switches to your set-up, add the platform to your light configuration:
-```yaml
-switch:
-  - platform: insteon_local
-```
-
+The switches will be discovered by the hub and added to Homeassistant. The device names will be the Insteon address of the switch.

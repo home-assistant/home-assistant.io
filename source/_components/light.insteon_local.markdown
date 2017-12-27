@@ -27,10 +27,4 @@ insteon_local:
   port: 25105
 ```
 
-To add lights (dimmers) to your set-up, add the platform to your light configuration:
-
-```yaml
-light:
-  - platform: insteon_local
-```
-
+The lights will be auto discovered by the hub. The names of the devices will be the insteon address of the devices.

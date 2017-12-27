@@ -26,9 +26,4 @@ insteon_local:
   port: 25105
 ```
 
-To add fans to your set-up, add the platform to your light configuration:
-```yaml
-fan:
-  - platform: insteon_local
-```
-
+The devices will be discovered by the hub and added to Homeassistant. The name of the devices will be the Insteon address. 
