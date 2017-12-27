@@ -2,7 +2,7 @@
 layout: page
 title: "Insteon (local)"
 description: "Instructions how to setup the Insteon Hub locally within Home Assistant."
-date:  2017-12-11 08:00
+date:  2016-12-18 08:00
 sidebar: true
 comments: false
 sharing: true
@@ -33,9 +33,9 @@ Configuration variables:
 - **timeout** (*Optional*): Timeout to wait for connections. Defaults to 10 seconds.
 - **port** (*Optional*): The port your hub is configured to listen to. Defaults to `25105`.
 
-### {% linkable_title Full configuration %} 
+### {% linkable_title Full configuration %}
 
-The `insteon_local` component currently supports both lights (dimmers), switches, and fans. 
+The `insteon_local` component currently supports lights (dimmers), switches and fans.
 
 ```yaml
 insteon_local:
@@ -45,5 +45,3 @@ insteon_local:
   timeout: 10
   port: 25105
 ```
-
-
