@@ -78,9 +78,55 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
 
 ### {% linkable_title Restart %}
 
-This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.
-
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
  2. Or you can restart it from a terminal by running `docker restart home-assistant`
+
+### {% linkable_title Docker Compose %}
+
+As the docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
+
+```yaml
+  version: '3'
+  services:
+    web:
+      image: homeassistant/home-assistant
+      volumes:
+        - /path/to/your/config:/config
+        - /etc/localtime:/etc/localtime:ro
+      restart: always
+      network_mode: host
+```
+
+Then start the container with:
+
+```bash
+$ docker-compose up -d
+```
+
+### {% linkable_title Exposing Devices %}
+
+In order to use z-wave, zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+
+```bash
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 --net=host homeassistant/home-assistant
+```
+
+or in a `docker-compose.yml` file:
+
+```yaml
+  version: '3'
+  services:
+    web:
+      image: homeassistant/home-assistant
+      volumes:
+        - /path/to/your/config:/config
+        - /etc/localtime:/etc/localtime:ro
+      devices:
+        - /dev/ttyUSB0:/dev/ttyUSB0
+        - /dev/ttyUSB1:/dev/ttyUSB1
+        - /dev/ttyACM0:/dev/ttyACM0
+      restart: always
+      network_mode: host
+```

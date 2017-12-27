@@ -35,7 +35,7 @@ tts:
     language: 'de'
 ```
 
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `html` component as follows:
+If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` component as follows:
 
 ```yaml
 #Example configuration.yaml entry

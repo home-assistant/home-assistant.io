@@ -16,7 +16,7 @@ The `egardia` platform enables the ability to control an [Egardia](http://egardi
 
 You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in using your Egardia/Woonveilig account.
 
-To enable this, add the following lines to your `configuration.yaml`:
+To enable this, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

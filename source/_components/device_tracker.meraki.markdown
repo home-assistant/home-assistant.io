@@ -20,7 +20,7 @@ After you configure access to the Meraki CMX API, add the following to your `con
 # Example configuration.yaml entry
 device_tracker:
   - platform: meraki
-    secret: your_secert
+    secret: your_secret
     validator: meraki_validator
 ```
 

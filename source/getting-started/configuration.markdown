@@ -9,6 +9,10 @@ sharing: true
 footer: true
 ---
 
+<p class='Note'>
+This guide applies only if you've installed Home Assistant via Hass.io. If you've used any other install method then [see here](/docs/configuration/) instead.
+</p>
+
 If you made it here, awesome! That means that you got Home Assistant up and running. It might have already found some of your networked devices. This is going to be fun!
 
 Home Assistant stores its configuration in a file called `configuration.yaml`. A default one is created when Home Assistant is started for the first time. Some of the things in the configuration file can be edited via the user interface, other parts require you to edit the configuration file directly.

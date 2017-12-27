@@ -44,14 +44,6 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
 
-## {% linkable_title Breaking Changes %}
-
-- Update snips to listen on new mqtt topic and utilize rawValue ([@tschmidty69] - [#11020]) ([snips docs]) (breaking change)
-- Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
-- Use luftdaten module ([@fabaff] - [#10970]) ([sensor.luftdaten docs]) (breaking change)
-- ISY994 sensor improvements ([@OverloadUT] - [#10805]) ([isy994 docs]) ([binary_sensor.isy994 docs]) (breaking change)
-- Homematic next ([@pvizeli] - [#11156]) ([homematic docs]) (breaking change)
-
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -60,6 +52,15 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+<!--more-->
+
+## {% linkable_title Breaking Changes %}
+
+- Update snips to listen on new mqtt topic and utilize rawValue ([@tschmidty69] - [#11020]) ([snips docs]) (breaking change)
+- Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
+- Use luftdaten module ([@fabaff] - [#10970]) ([sensor.luftdaten docs]) (breaking change)
+- ISY994 sensor improvements ([@OverloadUT] - [#10805]) ([isy994 docs]) ([binary_sensor.isy994 docs]) (breaking change)
+- Homematic next ([@pvizeli] - [#11156]) ([homematic docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 
