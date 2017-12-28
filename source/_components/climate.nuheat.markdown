@@ -62,24 +62,6 @@ not in auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `target_temperature_low` %}
-
-Returns the desired heating temperature set in the thermostat when in
-auto operation mode.
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Target temperature
-
-### {% linkable_title Attribute `target_temperature_high` %}
-
-Returns the desired cooling temperature set in the thermostat when in
-auto operation mode.
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Target temperature
-
 ### {% linkable_title Attribute `current_hold_mode` %}
 
 Returns the current temperature hold, if any.
@@ -123,13 +105,13 @@ Returns the maximum supported temperature by the thermostat
 
 ## {% linkable_title Services %}
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `resume_program`.
+The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hold_mode`, `nuheat_resume_program`.
 
-The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_hold_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
+The services `fan_min_on_time`, `set_aux_heat`, `set_away_mode`, `set_humidity`, `set_fan_mode`, `set_operation_mode` and `set_swing_mode` offered by the [Climate component](/components/climate/) are not implemented for this thermostat.
 
 ### {% linkable_title Service `set_temperature` %}
 
-Puts the thermostat into a temporary hold at the given temperature.
+Puts the thermostat into an indefinite hold at the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -139,7 +121,16 @@ Puts the thermostat into a temporary hold at the given temperature.
 Only the target temperatures relevant for the current operation mode need to
 be provided.
 
-### {% linkable_title Service `resume_program` %}
+### {% linkable_title Service `set_hold_mode` %}
+
+Sets the thermostat's hold mode. The NuHeat thermostat supports "auto" (to run the thermostat's programmed schedule), "temperature" (to indefinitely hold the thermostat's current target temperature), or "temporary_temperature" (to hold the thermostat's current target temperature until the thermostat's next scheduled event).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `hold_mode` | no | New value of hold mode.
+
+### {% linkable_title Service `nuheat_resume_program` %}
 
 Resumes the currently active schedule.
 
