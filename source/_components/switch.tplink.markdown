@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "TPLink Switch"
-description: "Instructions how to integrate TPLink switches into Home Assistant."
+title: "TP-Link Switch"
+description: "Instructions how to integrate TP-Link switches into Home Assistant."
 date: 2016-07-13 08:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: "0.24"
 ---
 
 
-The `tplink` switch platform allows you to control the state of your [TPLink smart switch](http://www.tp-link.com/en/products/list-5258.html).
+The `tplink` switch platform allows you to control the state of your [TP-Link smart switch](http://www.tp-link.com/en/products/list-5258.html).
 
 Supported units:
 
@@ -23,7 +23,7 @@ Supported units:
 - HS110
 - HS200
 
-To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
+To use your TP-Link switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,7 +37,7 @@ name:
   description: The name to use when displaying this switch.
   required: false
   type: string
-  default: Random Sensor
+  default: TP-Link Switch
 host:
   description: "The IP address of your TP-Link switch, eg. `192.168.1.32`."
   required: true
@@ -48,6 +48,4 @@ enable_leds:
   type: boolean
   default: true
 {% endconfiguration %}
-
-
 
