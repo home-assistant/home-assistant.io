@@ -25,9 +25,6 @@ device_tracker:
   - platform: tile
     username: email@address.com
     password: MY_PASSWORD_123
-    monitored_variables:
-      - TILE
-      - PHONE
 ```
 
 {% configuration %}
@@ -43,4 +40,8 @@ device_tracker:
     description: the Tile types to monitor; valid values are `TILE` and `PHONE` (default is for all types to be included)
     required: false
     type: list
+  show_inactive:
+    description: whether to show expired/disabled Tiles
+    required: false
+    type: boolean
 {% endconfiguration %}
