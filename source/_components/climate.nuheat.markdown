@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nuheat.png
 ha_category: Climate
-ha_release: 0.58
+ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -21,12 +21,12 @@ To get your [NuHeat Signature](http://www.nuheat.com/products/thermostats/signat
 
 The NuHeat Thermostat supports the following key concepts.
 
-The _target temperature_ is the temperature that the device attempts to achieve. The target temperature is either determined by the schedule programmed into the thermostat (_auto mode_) or may be overridden. When the target temperature is set by home assistant, the thermostat will hold this temperature until the schedule is resumed.
+The `target temperature` is the temperature that the device attempts to achieve. The target temperature is either determined by the schedule programmed into the thermostat (`auto mode`) or may be overridden. When the target temperature is set by Home Assistant, the thermostat will hold this temperature until the schedule is resumed.
 
 
 ## {% linkable_title Attributes %}
 
-The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `current_hold_mode`, `current_operation`, `operation_list`, `min_temp`, `max_temp`
+The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `current_hold_mode`, `current_operation`, `operation_list`, `min_temp` and `max_temp`.
 
 
 ### {% linkable_title Attribute `name` %}

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nuheat.png
 ha_category: Hub
-ha_release: 0.58
+ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -45,7 +45,7 @@ password:
   required: true
   type: string
 devices:
-  description: The serial number / ID of each thermostat you would like to integrate with Home Assistant.
+  description: The serial number/ID of each thermostat you would like to integrate.
   required: true
   type: [string, int]
 {% endconfiguration %}
