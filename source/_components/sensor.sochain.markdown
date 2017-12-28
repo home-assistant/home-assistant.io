@@ -22,13 +22,8 @@ To add the SoChain sensor to your installation, specify a network and address to
 # Example configuration.yaml entry
 sensor:
   - platform: sochain
-    name: Litecoin Balance
     network: LTC
     address: 'M9m37h3dVkLDS13wYK7vcs7ck6MMMX6yhK'
-  - platform: sochain
-    name: Dogecoin Balance
-    network: DOGE
-    address: 'DMpouUtAJ5Lg6UC8C8pb4kZRr1qeN1FMKi'
 ```
 
 {% configuration %}
