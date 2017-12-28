@@ -38,8 +38,7 @@ Configuration variables:
 - **cold_tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor equals or goes below 24.5.
 - **hot_tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched off. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will stop when the sensor equals or goes above 25.5.
 - **keep_alive** (*Optional*): Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate component state (either on or off).
-- **away_temp_heat** (*Optional*): Set the temperature used by "away_mode" when in heater mode (default: 16)
-- **away_temp_cool** (*Optional*): Set the temperature used by "away_mode" when in cooling mode (default: 30)
+- **away_temp** (*Optional*): Set the temperature used by "away_mode" (default: 16). Please specify when using `ac_mode: True` to a higher value.
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
@@ -56,6 +55,7 @@ climate:
     target_sensor: sensor.study_temperature
     min_temp: 15
     max_temp: 21
+    ac_mode: False
     target_temp: 17
     cold_tolerance: 0.3
     hot_tolerance: 0
@@ -63,6 +63,5 @@ climate:
       seconds: 5
     keep_alive:
       minutes: 3
-    away_temp_heat: 18
-    away_temp_cool: 30
+    away_temp: 16
 ```
