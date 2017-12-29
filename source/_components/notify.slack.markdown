@@ -42,7 +42,7 @@ Configuration variables:
 
 ### {% linkable_title Slack service data %}
 
-The following attributes can be placed `data` for extended functionality.
+The following attributes can be placed inside `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
