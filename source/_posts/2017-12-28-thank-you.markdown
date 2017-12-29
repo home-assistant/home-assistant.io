@@ -21,7 +21,7 @@ Uff, what a year...Thank you, dear community for being so helpful, supportive an
 
 A very big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. You are the foundation for our success and all of you can be proud of yourself.
 
-We would also like to thanks all the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thank you [GitHub], [TravisCI], [CloudFlare], [Disord] and [Discourse]!
+We would also like to thanks all the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thank you [GitHub], [TravisCI], [CloudFlare], [Discord] and [Discourse]!
 
 Some of us are taking a break and spending some quality time with family and loved ones.
 
