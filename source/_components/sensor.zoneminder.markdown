@@ -27,11 +27,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 sensor:
   - platform: zoneminder
     include_archived: false
-    monitored_conditions:
-      - all
-      - month
-      - day
-      - hour
 ```
 
 Configuration variables:
