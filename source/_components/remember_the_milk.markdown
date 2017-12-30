@@ -59,7 +59,7 @@ If the registration was successful, the Configuration panel will disappear from 
 
 In the background Home Assistant downloaded a "token" from the Remember The Milk server which is stored in the `remember_the_milk.conf` file locally. So you only need to register once. After that the token is used to authenticate with the server.
 
-## {% linkable_title Creating/updating tasks %}
+## {% linkable_title Creating/updating tasks with service ```create_task```%}
 
 This component offers a new service domain ```remember_the_milk``` with the services ```<account>_create_task```. You can call this service with the argument ```name``` and the optional parameter ```id``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
 
@@ -70,8 +70,49 @@ The task creation supports the "smart syntax", so to create a task with the tag 
 **Note:**
 At the moment, smart syntax is *not* supported when updating tasks. All smart syntax commands are ignored during the update and will end up as normal text in the name of the task.
 
-## {% linkable_title Completing tasks %}
-If you have created your task with an ```id```, calling ```<account>_complete_task``` with the parameter ```id``` will then complete your task. This way you can also complete the tasks you have created.
+|Service data attribute	| Optional | Description | Example |
+|-----------------------|----------|-------------|---------|
+| name | no  | Name of the new task, you can use the smart syntax here. | "do this ^today #from_hass" |
+| id   | yes | Identifier for the task you're creating, can be used to update or complete the task later on | "myid" |
+
+## {% linkable_title Completing tasks with service  ```complete_task```%}
+
+Complete a tasks that was privously created from Home Assistant. You can not complete tasks that were created outside of Home Assistant.
+
+If you have created your task with an ```id```, calling ```<account>_complete_task``` with the parameter ```id``` will then complete your task. 
+
+|Service data attribute	| Optional | Description | Example |
+|-----------------------|----------|-------------|---------|
+| id | no | Identifier that was defined when creating the task | "myid" |
+
+## {% linkable_title Automation example }
+
+Here's an example for an automation that creates a new task whenever ```sensor.mysensor``` is ```on``` and completes it when the sensor reports ```off```. This way it reminds you to switch it off. By using the ```entity_id``` as id for the task, you can use the same rule also for multiple sensors.
+
+
+```yaml
+- id: mysensor_on
+  trigger:
+    platform: state
+    entity_id: sensor.mysensor
+    to: on
+  action:
+    - service: remember_the_milk.myaccount_create_task
+      data_template:
+        name: "Please switch of {{trigger.entity_id}}"
+        id: "{{trigger.entity_id}}"
+- id: mysensor_off
+  trigger:
+    platform: state
+    entity_id: sensor.mysensor
+    to: off
+  action:
+    - service: remember_the_milk.myaccount_complete_task
+      data_template:
+        id: "{{trigger.entity_id}}"
+
+```
+
 
 
 ## {% linkable_title Disclaimer %}
