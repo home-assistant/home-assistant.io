@@ -57,3 +57,15 @@ camera:
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
     content_type: 'image/svg+xml'
 ```
+
+### Local image with HASS.IO
+
+You can show an static image with this component.
+Just place the image here: /config/www/your_image.png
+
+```yaml
+camera:
+  - platform: generic
+    name: Some Image
+    still_image_url: https://127.0.0.1:8123/local/your_image.png
+```
