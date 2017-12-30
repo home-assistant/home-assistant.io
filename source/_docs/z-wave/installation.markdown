@@ -159,7 +159,7 @@ To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add th
 
 ```yaml
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/ttyAMA0
 ```
 
 For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
@@ -186,6 +186,12 @@ Security Z-Wave devices require a network key before being added to the network 
 An easy script to generate a random key:
 ```bash
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+```
+
+```yaml
+# Example configuration.yaml entry for network_key
+zwave:
+  network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.

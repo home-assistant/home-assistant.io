@@ -28,7 +28,7 @@ binary_sensor:
 {% configuration %}
 show_on_map:
   description: Option to show the position of the ISS on the map.
-  required: optionsl
+  required: optional
   default: false
   type: string
 {% endconfiguration %}

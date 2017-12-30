@@ -119,7 +119,7 @@ action:
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MariDB and MySQL %}
+### {% linkable_title MariaDB and MySQL %}
 
 For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
 

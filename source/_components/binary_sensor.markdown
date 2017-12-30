@@ -14,6 +14,7 @@ Binary sensors gather information about the state of devices which have a "digit
 The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
+- **battery**: `On` means low, `Off` means normal
 - **cold**: `On` means cold
 - **connectivity**: `On` means connection present, `Off` means no connection
 - **gas**: `On` means gas detected
@@ -26,6 +27,8 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **opening**: `On` means open, `Off` means closed
 - **plug**: `On` means device is plugged in, `Off` means device is unplugged
 - **power**: Power, over-current, etc.
+- **presence**: `On` means Home, `Off` means Away
+- **problem**: `On` means a problem was detected, `Off` means the status is OK
 - **safety**: `On` means unsafe, `Off` means safe
 - **smoke**: `On` means smoke detected
 - **sound**: `On` means sound detected, `Off` means no sound

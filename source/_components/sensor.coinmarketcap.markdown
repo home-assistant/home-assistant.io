@@ -28,12 +28,12 @@ sensor:
 currency:
   description: The cryptocurrency to use.
   required: false
-  type: string, list
+  type: string
   default: Bitcoin
 display_currency:
   description: The currency to display.
   required: false
-  type: string, list
+  type: string
   default: USD
 {% endconfiguration %}
 

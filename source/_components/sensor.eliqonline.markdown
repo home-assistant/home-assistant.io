@@ -28,7 +28,7 @@ sensor:
 Configuration variables:
 
 - **access_token** (*Required*): The Access Token for your account.
-- **channel_id** (*Optional*): Channel ID (as integer) of your device. Needed if you have more than one device.
+- **channel_id** (*Required*): Channel ID (as integer) of your device.
 - **name** (*Optional*): The name of the sensor, eg. the city.
 
 For details please check the [API documentation](https://my.eliq.se/knowledge/sv-SE/49-eliq-online/299-eliq-online-api).

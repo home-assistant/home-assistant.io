@@ -158,7 +158,7 @@ binary_sensor:
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy
 meter will fluctuate wildly, hitting zero frequently even before the load is
-finished. By utilizing `off_delay`, we can have this sensor only turn off if
+finished. By utilizing `delay_off`, we can have this sensor only turn off if
 there has been no washer activity for 5 minutes.
 
 {% raw %}
