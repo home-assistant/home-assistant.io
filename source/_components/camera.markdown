@@ -52,7 +52,7 @@ action:
   service: camera.snapshot
   data:
     entity_id: camera.yourcamera
-    filename: '/tmp/yourcamera.{{ as_timestamp(now()) }}.jpg'
+    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 ### {% linkable_title Test if it works %}
