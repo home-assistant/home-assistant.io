@@ -29,7 +29,7 @@ light:
 
 Configuration variables:
 
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
+- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
 - **brightness_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's brightness.
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
