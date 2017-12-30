@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: greenwavereality.png
 ha_category: Light
 ha_release: 0.61
 ha_iot_class: "Local Polling"
