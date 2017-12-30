@@ -44,6 +44,7 @@ Your location will be detected from your home `latitude` and `longitude` setting
 Configuration variables:
 
 - **api_key** (*Required*): Your personal API key from the [Datapoint website][datapoint].
+- **name** (*Optional*): Name to use in the frontend, will be the prefix.
 
 <p class='note'>
 This sensor is an alternative to the [`metoffice`](/components/weather.metoffice/) weather platform.
