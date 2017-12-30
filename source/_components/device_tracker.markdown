@@ -70,6 +70,10 @@ devicename:
   hide_if_away: no
 ```
 
+<p class='note warning'>
+  In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+</p>
+
 | Parameter      | Default                       | Description                                                                                             |
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device.                                                                         |
