@@ -23,7 +23,7 @@ climate:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Climate control services %}
-Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`, `climate.set_hold_mode`
+Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`, `climate.set_hold_mode`, `climate.turn_on`, `climate.turn_off`
 
 <p class='note'>
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
@@ -222,6 +222,22 @@ automation:
         entity_id: climate.kitchen
         swing_mode: 1
 ```
+### {% linkable_title Service `climate.turn_on` %}
+
+Turn climate device on
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+
+### {% linkable_title Service `climate.turn_off` %}
+
+Turn climate device off
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+
 #### {% linkable_title Customization  %}
 
 The step for the setpoint can be adjusted (default to 0,5 increments) by adding the following line into configuration
