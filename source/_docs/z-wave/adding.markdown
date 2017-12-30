@@ -58,7 +58,7 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## {% linkable_title Adding Secure Devices %}
 
-After definining your network key, follow these steps to add (include) a secure Z-Wave device:
+After defining your network key, follow these steps to add (include) a secure Z-Wave device:
 
 1. Go to the [Z-Wave control panel](/docs/z-wave/control-panel/) in the Home Assistant frontend
 2. Click the **Add Node Secure** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode
