@@ -36,7 +36,6 @@ testnet:
   required: false
   default: No testnet (false)
   type: bool
-  
 wallets:
   description: List of IOTA wallets
   required: true
