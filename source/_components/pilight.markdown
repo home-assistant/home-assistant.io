@@ -13,7 +13,7 @@ ha_release: 0.26
 ha_iot_class: "Local Push"
 ---
 
-[Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://wiki.pilight.org/doku.php/protocols) are already available.
+[Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://wiki.pilight.org/protocols) are already available.
 
 This pilight hub connects to the [pilight-daemon](https://wiki.pilight.org/doku.php/pdaemon) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication. 
 
