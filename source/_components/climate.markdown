@@ -228,7 +228,7 @@ Turn climate device on
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Targets all when omitted.
 
 ### {% linkable_title Service `climate.turn_off` %}
 
@@ -236,7 +236,7 @@ Turn climate device off
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Targets all when omitted.
 
 #### {% linkable_title Customization  %}
 
