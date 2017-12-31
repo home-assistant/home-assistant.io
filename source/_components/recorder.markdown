@@ -105,15 +105,15 @@ action:
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
-| MariaDB         | `mysql://SERVER_IP/DB_NAME`                              |
-| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME`                |
-| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
-| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
-| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
+| MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8`      |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 ## {% linkable_title Installation notes %}
 
