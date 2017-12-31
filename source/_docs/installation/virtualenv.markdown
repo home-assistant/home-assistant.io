@@ -64,5 +64,5 @@ _(If you're on a Debian based system, you will need to install Python virtual en
 - It's recommanded to run Home Assistant as a dedicated user.
 
 <p class='info'>
-Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/].
+Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
 </p>
