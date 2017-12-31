@@ -58,10 +58,9 @@ camera:
     content_type: 'image/svg+xml'
 ```
 
-### Local image with HASS.IO
+### {% linkable_title Local image with Hass.io %}
 
-You can show an static image with this component.
-Just place the image here: /config/www/your_image.png
+You can show an static image with this platform. Just place the image here: `/config/www/your_image.png`
 
 ```yaml
 camera:
