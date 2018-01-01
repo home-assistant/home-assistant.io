@@ -33,10 +33,10 @@ Configuration variables:
 - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
 - **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`.
 - **switches** (*Optional*): The array that contains all switches.
-  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
-    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
+  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible. Overridden by friendly_name.
+    - **friendly_name** (*Optional*): The name used to display the switch in the frontend. Overrides the identifier declared above.
     - **command_on** (*Required*): Base64 encoded packet from RM device to take for on.
-    - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
+    - **command_off** (*Optional*): Base64 encoded packet from RM device to take for off.
 - **slots** (*Optional*): Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
   - **slot_1** (*Optional*)
   - **slot_2** (*Optional*)
