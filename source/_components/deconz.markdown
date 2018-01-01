@@ -72,7 +72,7 @@ Available services: `configure`.
 #### {% linkable_title Service `deconz/configure` %}
 Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
-| Parameter | Optional | Description |
+| Service data attribute | Optional | Description |
 |-----------|----------|-------------|
 | `field` | No | String representing a specific device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
