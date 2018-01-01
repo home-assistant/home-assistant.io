@@ -40,8 +40,6 @@ deconz:
 - [Switches (Remote Controls)](/components/sensor/deconz/)
 - [Temperature Sensors](/components/sensor/deconz/)
 
-## {% linkable_title Configuration variables %}
-
 {% configuration %}
 host:
   description: The IP address of your deCONZ web server.
@@ -74,10 +72,10 @@ Available services: `configure`.
 #### {% linkable_title Service `deconz/configure` %}
 Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
-| Parameter | Description                                             |
-|-----------|---------------------------------------------------------|
-| `field`   | String representing a specific device in deCONZ.        |
-| `data`    | Data is a JSON object with what data you want to alter. |
+| Parameter | Optional | Description |
+|-----------|----------|-------------|
+| `field` | No | String representing a specific device in deCONZ. |
+| `data` | No | Data is a JSON object with what data you want to alter. |
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 
@@ -89,12 +87,12 @@ Remote controls (ZHASwitch category) will be not be exposed as a regular entity,
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
-| Switch code | Description             |
-|-------------|-------------------------|
-| 1XXX        | Button #1 up to #8      |
-| XXX1        | Button hold             |
-| XXX2        | Button short release    |
-| XXX3        | Button long release     |
+| Switch code | Description |
+|-------------|-------------|
+| 1XXX | Button #1 up to #8 |
+| XXX1 | Button hold |
+| XXX2 | Button short release |
+| XXX3 | Button long release |
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
