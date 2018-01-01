@@ -33,7 +33,7 @@ Create an `/etc/rc.local` file to enable Home Assistant to start when the jail s
 
 
 ```bash
-# cd / && mkdir /home && mkdir /home/.homeassistant/
+# cd / && mkdir -p /home/.homeassistant
 ```
 
 ```bash
