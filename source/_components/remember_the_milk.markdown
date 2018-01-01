@@ -85,7 +85,7 @@ If you have created your task with an ```id```, calling ```<account>_complete_ta
 |-----------------------|----------|-------------|---------|
 | id | no | Identifier that was defined when creating the task | "myid" |
 
-## {% linkable_title Automation example }
+## {% linkable_title Automation example %}
 
 Here's an example for an automation that creates a new task whenever ```sensor.mysensor``` is ```on``` and completes it when the sensor reports ```off```. This way it reminds you to switch it off. By using the ```entity_id``` as id for the task, you can use the same rule also for multiple sensors.
 
