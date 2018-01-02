@@ -46,6 +46,5 @@ enable_leds:
   description: If the LEDs on the switch (WiFi and power) should be lit.
   required: false
   type: boolean
-  default: true
 {% endconfiguration %}
 
