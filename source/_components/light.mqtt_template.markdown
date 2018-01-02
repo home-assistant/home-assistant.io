@@ -33,24 +33,89 @@ light:
     command_off_template: "off"
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the light. Default is "MQTT Template Light."
-- **effect_list** (*Optional*): List of possible effects.
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **command_on_template** (*Required*): The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`.
-- **command_off_template** (*Required*): The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`.
-- **state_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value.
-- **brightness_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value.
-- **red_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value.
-- **green_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value.
-- **blue_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value.
-- **color_temp_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value.
-- **effect_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value.
-- **white_value_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value.
-- **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+{% configuration %}
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT Template Light
+effect_list:
+  description: List of possible effects.
+  required: false
+  type: string list
+command_topic:
+  description: The MQTT topic to publish commands to change the light’s state.
+  required: true
+  type: string
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+command_on_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
+  required: true
+  type: string
+command_off_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`."
+  required: true
+  type: string
+state_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value."
+  required: false
+  type: string
+brightness_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value."
+  required: false
+  type: string
+red_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
+  required: false
+  type: string
+green_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
+  required: false
+  type: string
+blue_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value."
+  required: false
+  type: string
+color_temp_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value."
+  required: false
+  type: string
+effect_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value."
+  required: false
+  type: string
+white_value_template:
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value."
+  required: false
+  type: string
+optimistic:
+  description: Flag that defines if the light works in optimistic mode.
+  required: false
+  type: string
+  default: "`true` if no state topic or state template is defined, else `false`."
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
