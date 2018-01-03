@@ -56,6 +56,8 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 ### {% linkable_title Scanning for devices %}
 
+Make sure Home Sharing is enabled on the Apple TV.
+
 To scan for devices and determine the `login_id`, press the icon in the upper left corner and select the leftmost icon according to the image:
 
 <img src='/images/screenshots/developer-tools.png' />
