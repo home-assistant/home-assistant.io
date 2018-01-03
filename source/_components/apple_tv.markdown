@@ -56,7 +56,7 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 ### {% linkable_title Scanning for devices %}
 
-To scan for devices, press the icon in the upper left corner and select the leftmost icon according to the image:
+To scan for devices and determine the `login_id`, press the icon in the upper left corner and select the leftmost icon according to the image:
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -78,7 +78,7 @@ Found Apple TVs:
 Note: You must use 'pair' with devices that have home sharing disabled
 ```
 
-Just copy and paste the login id from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
+Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
 
 ### {% linkable_title Setting up device authentication %}
 
