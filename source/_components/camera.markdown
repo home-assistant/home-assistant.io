@@ -47,6 +47,7 @@ The path part of `filename` must be an entry in the `whitelist_external_dirs` in
 
 For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
 
+{% raw %}
 ```yaml
 action:
   service: camera.snapshot
@@ -54,6 +55,7 @@ action:
     entity_id: camera.yourcamera
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+{% endraw %}
 
 ### {% linkable_title Test if it works %}
 
