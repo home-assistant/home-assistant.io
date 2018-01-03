@@ -208,10 +208,18 @@ Below is a table of the action/scenes for the Wallmote (as a reference for other
 
 **Action**|**scene\_id**|**scene\_data**
 :-----:|:-----:|:-----:
-Button one single tap|1|TBC
-Button two single tap|2|TBC
-Button three single tap|3|TBC
-Button four single tap|4|TBC
+Button one single tap|1|0
+Button one hold|1|2
+Button one release|1|1
+Button two single tap|2|0
+Button two hold|2|2
+Button two release|2|1
+Button three single tap|3|0
+Button three hold|3|2
+Button three release|3|1
+Button four single tap|4|0
+Button four hold|4|2
+Button four release|4|1
 
 ### {% linkable_title Zooz Toggle Switches %}
 

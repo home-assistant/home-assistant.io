@@ -42,7 +42,7 @@ light:
 {% endraw %}
 
 {% configuration %}
-  switches:
+  lights:
     description: List of your lights.
     required: true
     type: map

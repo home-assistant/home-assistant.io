@@ -63,7 +63,7 @@ light:
 
 There are some rules for packages that will be merged:
 
-1. Component names may only use the basic form (e.g. `switch` and `switch 1` or `switch aa` is not accepted).
+1. Component names may only use the basic form (e.g. `switch`, but not `switch 1` or `switch aa`).
 2. Platform based components (`light`, `switch`, etc) can always be merged.
 3. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file. 
 
