@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: goalfeed.png
 ha_category: Other
-ha_version: 0.60
+ha_version: 0.61
 ---
 
 The `Goalfeed` component lets you use your Goalfeed account to trigger events in Home Assistant whenever a NHL or MLB team scores. 
@@ -35,11 +35,11 @@ Now you can use the goal event type in your automations:
 
 Goal events have the following event data:
 
-- **team**: Three letter code representing the team.This is unique within the leagues, but not unique across the leagues (ie. 'WPG' or 'TOR')
-- **team_name**: The team that scored (ie. 'Winnipeg Jets' or 'Toronto Blue Jays')
+- **team**: Three letter code representing the team. This is unique within the leagues, but not unique across the leagues (i.e. 'WPG' or 'TOR')
+- **team_name**: The team that scored (i.e. 'Winnipeg Jets' or 'Toronto Blue Jays')
 - **team_hash**: A unique hash for the team (you can find these values on https://goalfeed.ca/get-teams)
 - **league_id**: A unique number for the league
-- **league_name**: A the short name of the league (ie. 'NHL' or 'MLB')
+- **league_name**: A the short name of the league (i.e. 'NHL' or 'MLB')
 
 
 {% configuration %}
