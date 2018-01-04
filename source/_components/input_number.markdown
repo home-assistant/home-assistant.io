@@ -78,7 +78,7 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
         required: false
         type: icon
 {% endconfiguration %}
