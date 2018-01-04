@@ -29,11 +29,34 @@ input_text:
     pattern: '[a-fA-F0-9]*'
 ```
 
-Configuration variables:
-
-- **[alias]** (*Required*): Alias for the text input.
-- **min** (*Optional*): Minimum length for the text value. Default is `0`.
-- **max** (*Optional*): Maximum length for the text value. Default is `100`.
-- **name** (*Optional*): Friendly name of the text input.
-- **initial** (*Optional*): Initial value when Home Assistant starts. Default is empty string.
-- **pattern** (*Optional*): Regex pattern for client side validation. Default is empty string, which is treated same as `.*`.
+{% configuration %}
+  input_text:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the text input.
+        required: false
+        type: String
+      min:
+        description: Minimum length for the text value.
+        required: false
+        type: int
+        default: 0
+      max:
+        description: Maximum length for the text value.
+        required: false
+        type: int
+        default: 100
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: String
+        default: empty
+      pattern:
+        description: Regex pattern for client side validation.
+        required: false
+        type: String
+        default: empty
+{% endconfiguration %}
