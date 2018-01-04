@@ -91,7 +91,7 @@ Entity Customization Keys:
 
 ### {% linkable_title Setup %}
 
-1. Install the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later) - you can download this anywhere, just remember where you put it for later (and don't forget to run `chmod +x gactions`)
+1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later) - you can download and run this anywhere and on any machine, just remember where you put it for later (and don't forget to run `chmod +x gactions`to make it executable on mac or linux)
 2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
    Note: This must be an HTTPS URL to work.
 
@@ -120,16 +120,16 @@ Entity Customization Keys:
 	2. Go to Build under the Actions SDK box
 	3. Copy the command that looks like:
 	`gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
-4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running on Linux). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
+4. Replace `PACKAGE_NAME` with `project.json` and run that command in a console from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running it on Linux or Windows). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
 	2. Client ID: The `client_id` from your Home Assistant configuration above
 	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
 	4. Configure your client. Add scopes for `email` and `name`
-	5. Testing instructions: doesn't matter since you won't submit this app
-7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work) so just close that window.
-8. If you haven't already added the configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
+	5. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work so just close that window).
+8. If you haven't already added the component configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
 8. Open the Google Assistant app and go into `Settings > Home Control`
 9. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
 10. If you want to allow other houshold users to control the devices:
