@@ -66,8 +66,8 @@ Remove one or more speakers from a group of speakers. If no `entity_id` is provi
 
 ### {% linkable_title Service `bluesound_set_sleep_timer` %}
 
-Sets a timer that will turn off the speaker. For each time you call this it will increase the time by on step. The steps are (in minutes): 15, 30, 45, 60, 90, 0.
-If you increse an ongoing timer of for example 13 minutes, it will increase it to 15. If the timer is set to 90 it will remove the time (hence the 0).
+Sets a timer that will turn off the speaker. For each time you call this it will increase the time by one step. The steps are (in minutes): 15, 30, 45, 60, 90, 0.
+If you increase an ongoing timer of for example 13 minutes, it will increase it to 15. If the timer is set to 90, it will remove the time (hence the 0).
  
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
