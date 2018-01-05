@@ -32,9 +32,11 @@ notify:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **private_key** (*Required*): Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
 
-**Examples:**
-Message to 2 devices with formated text
-```yaml
+### {% linkable_title Examples %}
+
+Message to two devices with formated text.
+
+```json
 {
   "title": "Test to 2 devices",
   "message": "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]",
@@ -51,8 +53,9 @@ Message to 2 devices with formated text
 }
 ```
 
-Message to 1 device with formated text and image from an external URL
-```yaml
+Message to one device with formated text and image from an external URL.
+
+```json
 {
   "title": "Test to 1 device with image from an url",
   "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
@@ -72,8 +75,9 @@ Message to 1 device with formated text and image from an external URL
 }
 ```
 
-Message to 2 devices and 1 device group with formated text and local image
-```yaml
+Message to two devices and one device group with formated text and local image.
+
+```json
 {
   "title": "Test to 3 devices with local image",
   "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
