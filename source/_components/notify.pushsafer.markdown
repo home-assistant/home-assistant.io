@@ -32,7 +32,8 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **private_key** (*Required*): Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
 
-Example Automation:
+Examples:
+**Message to 2 devices with formated text**
 ```yaml
 {
   "title": "Test to 2 devices",
