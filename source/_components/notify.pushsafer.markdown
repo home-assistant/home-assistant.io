@@ -27,13 +27,13 @@ notify:
     private_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-Configuration variables:
+**Configuration variables:**
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **private_key** (*Required*): Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
 
-Examples:
-**Message to 2 devices with formated text**
+**Examples:**
+Message to 2 devices with formated text
 ```yaml
 {
   "title": "Test to 2 devices",
@@ -47,6 +47,48 @@ Examples:
     "url": "https://home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "0"
+  }
+}
+```
+
+Message to 1 device with formated text and image from an external URL
+```yaml
+{
+  "title": "Test to 1 device with image from an url",
+  "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
+  "target": ["1111"],
+  "data": {
+    "icon": "14", 
+    "iconcolor": "#FFFF00",
+    "sound": "22",
+    "vibration": "3",
+    "url": "https://home-assistant.io/",
+    "urltitle": "Open Home Assistant",
+    "time2live": "60",
+    "picture1": {
+       "url":"https://home-assistant.io/images/components/alexa/alexa-512x512.png"
+     }
+  }
+}
+```
+
+Message to 2 devices and 1 device group with formated text and local image
+```yaml
+{
+  "title": "Test to 3 devices with local image",
+  "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
+  "target": ["1111","2222","gs3333"],
+  "data": {
+    "icon": "20", 
+    "iconcolor": "#FF00FF",
+    "sound": "33",
+    "vibration": "0",
+    "url": "https://home-assistant.io/",
+    "urltitle": "Open Home Assistant",
+    "time2live": "10",
+    "picture1": {
+       "path":"C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
+     }
   }
 }
 ```
