@@ -24,16 +24,34 @@ input_boolean:
     icon: mdi:car
 ```
 
-Configuration variables:
+{% configuration %}
+  input_boolean:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: String
+      initial:
+        description: Initial value whe Home Assistant starts.
+        required: false
+        type: boolean
+        default: false
+      icon:
+        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        required: false
+        type: icon
+{% endconfiguration %}
 
-- **[alias]** (*Required*): Alias for the input.
-  - **name** (*Optional*): Friendly name of the input.
-  - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to `False`.
-  - **icon** (*Optional*): Icon for entry.
+### {% linkable_title Restore State %}
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+This component supports the `restore_state` function which restores the state value after Home Assistant has started to the value it has been before Home Assistant stopped. The use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have and initial value. Additional information and a list of components that support this feature can be found here [recorder/#restore-state](/components/recorder/#restore-state).
 
-Here's an example of an automation using the above input_boolean. This action will only occur if the switch is on.
+## {% linkable_title Automation Examples %}
+
+Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 
 ```yaml
 automation:

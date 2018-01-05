@@ -78,10 +78,14 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
         required: false
         type: icon
 {% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state value after Home Assistant has started to the value it has been before Home Assistant stopped. The use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have and initial value. Additional information and a list of components that support this feature can be found here [recorder/#restore-state](/components/recorder/#restore-state).
 
 ## {% linkable_title Automation Examples %}
 
