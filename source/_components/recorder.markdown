@@ -25,18 +25,51 @@ To setup the `recorder` component in your installation, add the following to you
 recorder:
 ```
 
-Configuration variables:
-
-- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g. if Home Assistant was not running) then the schedule will resume soon after Home Assistant restarts. You can use [service](#service-purge) call `recorder.purge` when required without impacting the purge schedule.
-- **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
-- **exclude** (*Optional*): Configure which components should be excluded from recordings.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
-  - **domains** (*Optional*): The list of domains to be excluded from recordings.
-- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
-- **db_url** (*Optional*): The URL which point to your database. 
-
+{% configuration %}
+  recorder:
+    description: Enables the recorder component. Only allowed once.
+    required: true
+    type: map
+    keys:
+      db_url:
+        description: The URL which points to your database.
+        required: false
+        type: URL
+      purge_interval:
+        description: Enable scheduled purge of older events and states. The purge task runs every `purge_interval` days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
+        required: Inclusive
+        type: int
+      purge_keep_days:
+        description: Specify the number of history days to keep in recorder database after purge. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
+        required: Inclusive
+        type: int
+      exclude:
+        description: Configure which components should be excluded
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be excluded from recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be excluded from recordings.
+            required: false
+            type: List
+      include:
+        description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be included in the recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be included in the recordings.
+            required: false
+            type: List
+{% endconfiguration %}
 
 Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
 
