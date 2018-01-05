@@ -62,6 +62,10 @@ input_select:
 Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 </p>
 
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state value after Home Assistant has started to the value it has been before Home Assistant stopped. The use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have and initial value. Additional information and a list of components that support this feature can be found here [recorder/#restore-state](/components/recorder/#restore-state).
+
 ### {% linkable_title Services %}
 
 This components provide three services to modify the state of the `input_select`.

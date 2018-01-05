@@ -133,6 +133,18 @@ action:
     keep_days: 5
 ```
 
+### {% linkable_title Restore State %}
+
+If the `recorder` component is activated, some components support `restore_state` which will restore the state of the entity after Home Assistant is started to to state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An uncomplete list of components that currently support `restore_state`:
+
+* [`input_boolean`](/components/input_boolean/#restore-state)
+* [`input_number`](/components/input_number/#restore-state)
+* [`input_select`](/components/input_select/#restore-state)
+* [`input_datetime`](/components/input_datetime/#restore-state)
+* [`input_text`](/components/input_text/#restore-state)
+* ...
+
+
 ## Custom database engines
 
 | Database engine | `db_url`                                                 | 

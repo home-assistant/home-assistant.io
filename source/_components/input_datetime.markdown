@@ -60,7 +60,7 @@ input_datetime:
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00
 {% endconfiguration %}
 
-## {% linkable_title Attributes %}
+### {% linkable_title Attributes %}
 
 A datetime input entity's state exports several attributes that can be useful in automations and templates.
 
@@ -71,3 +71,7 @@ A datetime input entity's state exports several attributes that can be useful in
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only availabel if `has_date: true`)
 | `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
+
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state value after Home Assistant has started to the value it has been before Home Assistant stopped. The use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have and initial value. Additional information and a list of components that support this feature can be found here [recorder/#restore-state](/components/recorder/#restore-state).

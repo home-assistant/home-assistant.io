@@ -60,3 +60,7 @@ input_text:
         type: String
         default: empty
 {% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state value after Home Assistant has started to the value it has been before Home Assistant stopped. The use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have and initial value. Additional information and a list of components that support this feature can be found here [recorder/#restore-state](/components/recorder/#restore-state).
