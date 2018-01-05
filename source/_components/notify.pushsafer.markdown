@@ -32,7 +32,25 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **private_key** (*Required*): Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
 
-To modify your push-notification you can take a look at the [Pushsafer API description](https://www.pushsafer.com/en/pushapi).
+Example Automation:
+```yaml
+{
+  "title": "Test to 2 devices",
+  "message": "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]",
+  "target": ["1111", "2222"],
+  "data": {
+    "icon": "2", 
+    "iconcolor": "#FF0000",
+    "sound": "2",
+    "vibration": "1",
+    "url": "https://home-assistant.io/",
+    "urltitle": "Open Home Assistant",
+    "time2live": "0"
+  }
+}
+```
+
+To customize your push-notification you can take a look at the [Pushsafer API description](https://www.pushsafer.com/en/pushapi).
 
 When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
 
