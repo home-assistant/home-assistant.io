@@ -22,7 +22,8 @@ cloud:
 
 Once activated, go to the configuration panel in Home Assistant and create an account and log in. There is no need to configure your router or expose your instance to the internet in any other way.
 
-If you are not seeing the `configuration panel`, make sure you have the following option enabled in your configuration.yaml
+If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your configuration.yaml` file.
+
 ```yaml
 config:
 ```
