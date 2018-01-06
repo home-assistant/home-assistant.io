@@ -20,12 +20,13 @@ To configure IHC switches insert this section in your configuration:
 ```yaml
     switch:
       - platform: ihc
-        autosetup: True
+        auto_setup: True
 ```
 The following products will be recognized from the ihc project if autosetup is enabled:
 
 * Wireless plug outlet
 * Wireless relay
+* Mobile wireless relay
 * Dataline plug outlet
 
 To manually add ihc resources do:
@@ -33,7 +34,7 @@ To manually add ihc resources do:
 ```yaml
 switch:
     - platform: ihc
-    autosetup: True
+    auto_setup: True
     switches:
         - id: 12345
           name: myswitch
@@ -42,7 +43,7 @@ switch:
 ```
 
 Configuration variables:
-- **autosetup** (*Optional*): True to have IHC products auto setup.
+- **auto_setup** (*Optional*): True to have IHC products auto setup.
 - **id** (*Required*): The IHC resource id.
 - **name** (*Optional*): The name of the component.
 - **switches** (*Optional*): List of switches to setup manually

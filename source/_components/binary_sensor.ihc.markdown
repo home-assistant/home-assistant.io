@@ -21,7 +21,7 @@ To configure IHC Binary Sensors insert this section in your configuration:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: ihc
-    autosetup: True
+    auto_setup: True
 ```
 
 When autosetup is enabled the following products will be found in the ihc project:
@@ -39,7 +39,7 @@ If you want to add something manually do it like this:
 ```yaml
 binary_sensor:
   - platform: ihc
-    autosetup: True
+    auto_setup: True
     binary_sensors:
       - id: 12345: 
         name: mysensor
@@ -50,7 +50,7 @@ binary_sensor:
 ```
 
 Configuration variables:
-- **autosetup** (*Optional*): True to have IHC products auto setup.
+- **auto_setup** (*Optional*): True to have IHC products auto setup.
 - **binary_sensors** (*Optional*): List of binary sensors to setup manually.
 - **id** (*Required*): The IHC resource id.
 - **inverting** (*Optional*): If True the sensor will be inverted. Default False.

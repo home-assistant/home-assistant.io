@@ -20,7 +20,7 @@ To configure IHC sensors insert this section:
 ```yaml
 sensor:
   - platform: ihc
-    autosetup: True
+    auto_setup: True
 ```
 When autosetup is not the following products will be found in the ihc project:
 
@@ -33,7 +33,7 @@ If you want to add something manually do it like this:
 ```yaml
 sensor:
   - platform: ihc
-    autosetup: True
+    auto_setup: True
     sensors:
       - id: 12345
         name: 'mysensor'
@@ -43,7 +43,7 @@ sensor:
         ...
 ```
 Configuration variables:
-- **autosetup** (*Optional*): True to have IHC products auto setup.
+- **auto_setup** (*Optional*): True to have IHC products auto setup.
 - **id** (*Required*): The IHC resource id.
 - **name** (*Optional*): The name of the component.
 - **sensors** (*Optional*): List of sensors to setup manually
