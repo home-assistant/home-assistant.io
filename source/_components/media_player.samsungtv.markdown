@@ -38,6 +38,7 @@ Configuration variables:
 Currently known supported models:
 
 - C7700
+- D5500
 - D6500
 - D7000
 - D8000
