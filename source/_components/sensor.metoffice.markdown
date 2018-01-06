@@ -15,8 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `metoffice` sensor platform uses the Met Office's [DataPoint API][datapoint] for weather data.
 
-- Each sensor will be given the `device_id` of "Met Office [condition]"
-- The sensor checks for new data every minute, starting 30 minutes after the timestamp of the most recent data as the data is updated every half-hour.
+- Each sensor will be given the `device_id` of "Met Office [condition]" if `name:` is not set.
+- The sensor checks for new data every minute, starting 30 minutes after the timestamp of the most recent data as the data is updated every half hour.
 
 To add the Met Office weather to your installation you'll need to register for a free api key at the link above and then add the following to your `configuration.yaml` file:
 

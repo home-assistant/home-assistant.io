@@ -48,23 +48,94 @@ light:
     command_topic: "home/rgb1/set"
 ```
 
-Configuration variables:
-
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
-- **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **color_temp** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
-- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
-- **effect_list** (*Optional*): The list of effects the light supports.
-- **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
-- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
-- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
-- **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-- **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **white_value** (*Optional*): Flag that defines if the light supports white values. Default is false.
-- **xy** (*Optional*): Flag that defines if the light supports XY colors. Default is false.
+{% configuration %}
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT JSON Light
+command_topic:
+  description: The MQTT topic to publish commands to change the light’s state.
+  required: true
+  type: string
+brightness:
+  description: Flag that defines if the light supports brightness.
+  required: false
+  type: boolean
+  default: false
+color_temp:
+  description: Flag that defines if the light supports color temperature.
+  required: false
+  type: boolean
+  default: false
+effect:
+  description: Flag that defines if the light supports effects.
+  required: false
+  type: boolean
+  default: false
+effect_list:
+  description: The list of effects the light supports.
+  required: false
+  type: string list
+flash_time_long:
+  description: The duration, in seconds, of a “long” flash.
+  required: false
+  type: integer
+  default: 10
+flash_time_short:
+  description: The duration, in seconds, of a “short” flash.
+  required: false
+  type: integer
+  default: 2
+optimistic:
+  description: Flag that defines if the light works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+rgb:
+  description: Flag that defines if the light supports RGB colors.
+  required: false
+  type: boolean
+  default: false
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+white_value:
+  description: Flag that defines if the light supports white values.
+  required: false
+  type: boolean
+  default: false
+xy:
+  description: Flag that defines if the light supports XY colors.
+  required: false
+  type: boolean
+  default: false
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.

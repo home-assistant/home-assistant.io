@@ -12,7 +12,7 @@ ha_release: 0.51
 ha_category: Alarm
 ---
 
-The `egardia` platform enables the ability to control an [Egardia](http://egardia.com/)/[Woonveilig](http://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on a GATE-01 and GATE-02 version of the Egardia/Woonveilig platform.
+The `egardia` platform enables the ability to control an [Egardia](http://egardia.com/)/[Woonveilig](http://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on the GATE-01, GATE-02 and GATE-03 versions of the Egardia/Woonveilig platform.
 
 You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in using your Egardia/Woonveilig account.
 
@@ -32,7 +32,7 @@ Configuration variables:
 - **host** (*Required*): The local IP address of the Egardia/Woonveilig alarm panel.
 - **username** (*Required*): Username for the Egardia/Woonveilig account.
 - **password** (*Required*): Password for Egardia/Woonveilig account.
-- **version** (*Optional*): The version of the Egardia system. `GATE-01` and `GATE-02` are currently supported. Defaults to `GATE-01`.
+- **version** (*Optional*): The version of the Egardia system. `GATE-01`, `GATE-02` and `GATE-03` are currently supported. Defaults to `GATE-01`.
 - **port** (*Optional*): The port of the alarm panel. Defaults to 80.
 - **name** (*Optional*): Name to use for the alarm panel. Defaults to `Egardia`.
 - **report_server_enabled** (*Optional*): Enable reporting by server. Defaults to `False`.

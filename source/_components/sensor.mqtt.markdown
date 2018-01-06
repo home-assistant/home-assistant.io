@@ -58,8 +58,21 @@ force_update:
   reqired: false
   type: boolean
   default: False
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
 {% endconfiguration %}
-
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.

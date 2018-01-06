@@ -13,8 +13,8 @@ ha_release: 0.27
 ha_iot_class: "Local Push"
 ---
 
-<p class='warning'>
-At this time `emulated_hue` doesn't appear to be working for new Google Home users. 
+<p class='note warning'>
+Be aware that `emulated_hue` doesn't work for new **Google Home** users. If you're a new user of Google Home, use the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
 </p>
 
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
