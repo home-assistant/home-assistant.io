@@ -103,6 +103,7 @@ data:
     - home
     - 1
     - 2
+  device: 4576546
   delay_secs: 0.6
 ```
 
