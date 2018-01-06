@@ -9,12 +9,11 @@ sharing: true
 footer: true
 logo: roth.png
 ha_category: Climate
-ha_release: "0.61"
+ha_release: 0.61
 ha_iot_class: "Local Polling"
 ---
 
-
-The `Roth Touchline` climate platform let you control [ROTH Touchline](http://www.roth-nordic.dk/dk/roth-touchline-tradloes-gulvvarmeregulering-1475.htm) floor heating thermostats from Roth. 
+The `touchline` climate platform let you control [ROTH Touchline](http://www.roth-nordic.dk/dk/roth-touchline-tradloes-gulvvarmeregulering-1475.htm) floor heating thermostats from Roth. 
 
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -25,8 +24,9 @@ climate:
     host: YOUR_IPADDRESS
 ```
 
-
-Configuration variables:
-
-- **host** (*Required*): The ip address of your controller (http://192.168.1.1)
-
+{% configuration %}
+host:
+  description: The IP address of your controller, e.g., http://192.168.1.1.
+  required: false
+  type: string
+{% endconfiguration %}
