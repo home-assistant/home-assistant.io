@@ -2,7 +2,7 @@
 layout: page
 title: "Mercedes me"
 description: "Instructions on how to integrate Mercedes car with Mercedes me into Home Assistant."
-date: 2018-01-06 10:00
+date: 2018-01-06 17:00
 sidebar: true
 comments: false
 sharing: true
@@ -17,7 +17,8 @@ ha_iot_class: "Cloud Polling"
 The `Mercedes me` component offers integration with the [Mercedes me](https://www.mercedes-benz.com/de/mercedes-me/) cloud service and provides presence detection as well as sensors such as doors, tires, windows and service interval.
 
 This component provides the following platforms:
- - Sensors - such as windows, tires, fuelStatus, service interval.
+ - Binary Sensors - such such as windows, tires, doors, lock
+ - Sensors - such as fuelStatus, service interval, remaining km...
  - Device tracker - to track location of your car
 
 To use Mercedes me in your installation, add the following to your `configuration.yaml` file:

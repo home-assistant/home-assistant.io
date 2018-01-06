@@ -2,7 +2,7 @@
 layout: page
 title: "Mercedes me Sensor"
 description: "Instructions on how to integrate Mercedes me sensors into Home Assistant."
-date: 2018-01-06 10:00
+date: 2018-01-06 17:00
 sidebar: true
 comments: false
 sharing: true
