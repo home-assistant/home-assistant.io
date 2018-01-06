@@ -17,7 +17,8 @@ Support for [Leviton Decora Wi-Fi](http://www.leviton.com/en/products/lighting-c
 
 Supported devices (tested):
 
-- [DW6HD1-BZ](https://www.leviton.com/en/products/dw6hd) (Decora Smart Wi-Fi 600W Dimmer)
+- [DW6HD1-BZ](https://www.leviton.com/en/products/dw6hd-1bz) (Decora Smart Wi-Fi 600W Dimmer)
+- [DW15S-1BZ](https://www.leviton.com/en/products/dw15s-1bz) (Decora Smart Wi-Fi 15A Switch)
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
 
