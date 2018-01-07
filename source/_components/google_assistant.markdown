@@ -125,8 +125,8 @@ Entity Customization Keys:
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
 	2. Client ID: The `client_id` from your Home Assistant configuration above
-	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
-	4. Configure your client. Add scopes for `email` and `name`
+	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)
+	4. Configure your client. Add scopes for `email` and `name`.
 	5. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work so just close that window).
 8. If you haven't already added the component configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
