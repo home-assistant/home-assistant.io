@@ -269,6 +269,13 @@ $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
 ```
 
+You might need to stop homeassistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on hassbian:
+
+```text
+$ sudo systemctl stop home-assistant@homeassistant.service 
+```
+
+You can restart homeassistant after the next step using the same command and replacing `stop` with `start`.
 Now we will run the certbot program to get our ssl certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
