@@ -60,7 +60,7 @@ Example for posting file from URL:
 {
   "message":"Message that will be added as a comment to the file.",
   "title":"Title of the file.",
-  "target": ["#channelname"]
+  "target": ["#channelname"], 
   "data":{
     "file":{
       "url":"http://[url to file, photo, security camera etc]",
