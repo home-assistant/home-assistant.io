@@ -22,6 +22,12 @@ cloud:
 
 Once activated, go to the configuration panel in Home Assistant and create an account and log in. There is no need to configure your router or expose your instance to the internet in any other way.
 
+If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your configuration.yaml` file.
+
+```yaml
+config:
+```
+
 ### {% linkable_title Amazon Alexa %}
 
 The Alexa integration allows users to control the entities via the [Home Assistant Smart Home skill for Alexa][alexa skill]. This means that you can say things like "Alexa, turn on the kitchen light" to control your local instance.
@@ -82,14 +88,16 @@ alexa:
 ### {% linkable_title Available domains %}
 Currently, the following domains are available to be used with Alexa:
 - alert
-- automation
+- automation (enables/disables)
 - cover
-- light
 - fan (supports on/off and set speed)
 - group
+- input_boolean
+- light
 - lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)
 - media_player (play, pause, stop, set volume, adjust volume, next track and previous track)
 - scene
+- script (enables/disables)
 - switch
 
 [alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2

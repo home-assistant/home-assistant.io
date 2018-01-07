@@ -32,6 +32,8 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'pending'
 - 'triggered'
 
+To use your panel in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
@@ -56,7 +58,7 @@ The following configuration variables from the base manual alarm platform are av
   - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
   - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
 
-See the documentation for the [manual alarm platform](../alarm_control_panel.manual/) for a description.
+See the documentation for the [manual alarm platform](/component/alarm_control_panel.manual/) for a description.
 
 Additionally, the following MQTT configuration variables are also available:
 
@@ -68,13 +70,11 @@ Additionally, the following MQTT configuration variables are also available:
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on this Alarm Panel. Default is "ARM_AWAY".
 - **payload_arm_night** (*Optional*): The payload to set armed-night mode on this Alarm Panel. Default is "ARM_NIGHT".
 
-In the config example below:
+In the configuration example below:
 
-- the disarmed state never triggers the alarm;
-
-- the armed_home state will leave no time to leave the building or disarm the alarm;
-
-- while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
+- The disarmed state never triggers the alarm.
+- The armed_home state will leave no time to leave the building or disarm the alarm.
+- While other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
 
 ```yaml
 # Example configuration.yaml entry

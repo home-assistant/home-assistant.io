@@ -120,7 +120,7 @@ The config for an add-on is stored in `config.json`.
 | auto_uart | no | Default False. Auto mapping all UART/Serial device from host into add-on.
 | hassio_api | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
 | homeassistant_api | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
-| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_TIME`
+| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
 | map | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
 | environment | no | A dict of environment variable to run add-on.
 | audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
