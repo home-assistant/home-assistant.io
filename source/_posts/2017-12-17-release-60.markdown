@@ -44,7 +44,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
 
-## {% linkable_title Relase 0.60.1 - January 6 %}
+## {% linkable_title Release 0.60.1 - January 6 %}
 
 - Fix async IO in Sesame lock component. ([@veleek] - [#11054]) ([lock.sesame docs])
 - Fix webdav calendar schema ([@maxlaverse] - [#11185]) ([calendar.caldav docs])
