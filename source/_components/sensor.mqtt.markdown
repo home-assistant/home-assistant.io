@@ -72,7 +72,12 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  reqired: false
+  type: list, string
 {% endconfiguration %}
+
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
