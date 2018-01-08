@@ -35,6 +35,7 @@ Configuration variables:
 - **monitored_conditions** array (*Optional*): Event count sensors to display in the frontend. Default is 'all'.
   - **all**: All events.
   - **month**: Events in the last month.
+  - **week**: Events in the last week.
   - **day**: Events in the last day.
   - **hour**: Events in the last hour.
 
