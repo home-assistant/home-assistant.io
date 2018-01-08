@@ -30,4 +30,6 @@ Configuration variables:
 - **port** (*Optional*): The port used to communicate with the Hyperion service. Defaults to `19444`.
 - **name** (*Optional*): The name of the device used in the frontend.
 - **priority** (*Optional*): The priority of the hyperion instance. Defaults to `128`.
+- **hdmi_priority** (*Optional*): The priority of the HDMI grabber of this hyperion instance, note that this priority must be higher than all other priorities used for correct behaviour. Defaults to `880`.
 - **default_color** (*Optional*): The color of the light. Defaults to `[255, 255, 255]`.
+- **effect_list** (*Optional*): The list of effects that can be used. Defaults to `['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']`.
