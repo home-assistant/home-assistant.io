@@ -254,7 +254,7 @@ If you did not already log in as the user that currently runs Home Assistant, ch
 $ sudo su -s /bin/bash hass 
 ```
 
-Make sure you are in the home directory for the HA user:
+Make sure you are in the home directory for the Home Assistant user:
 
 ```bash
 $ cd
@@ -269,14 +269,14 @@ $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
 ```
 
-You might need to stop homeassistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on hassbian:
+You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Hassbian:
 
 ```text
 $ sudo systemctl stop home-assistant@homeassistant.service 
 ```
 
-You can restart homeassistant after the next step using the same command and replacing `stop` with `start`.
-Now we will run the certbot program to get our ssl certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
+You can restart Home Assistant after the next step using the same command and replacing `stop` with `start`.
+Now we will run the certbot program to get our SSL certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
 $ ./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
@@ -304,13 +304,13 @@ Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now
 ### {% linkable_title 5 - Check the incoming connection %}
 
 <p class='note'>
-Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to your `homeassistant` folder:
+Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
 
 ```
 $ cd ~/.homeassistant
 ```
 
-If you use samba shares to edit your files you can exit your SSH now.
+If you use Samba shares to edit your files you can exit your SSH now.
 </p>
 
 If during step 4 you had to use port 443 instead of port 80 to generate your certificate, you should delete that rule now.
@@ -526,7 +526,7 @@ $ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challe
 
 * If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
  
-So, now were all set up. We have our secured, remotely accesible HA instance and we're on track for keeping our certificates up to date.  But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
+So, now were all set up. We have our secured, remotely accessible Home Assistant instance and we're on track for keeping our certificates up to date. But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
  
 ### {% linkable_title 9 - Set up an alert to warn us if something went wrong. %}
  
