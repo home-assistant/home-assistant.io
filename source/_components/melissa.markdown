@@ -14,7 +14,7 @@ ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
-The `melissa climate` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
+The `Melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
 
 To set the Melissa component up, add the following information to your `configuration.yaml` file:
 
