@@ -8,7 +8,7 @@
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
 ## Setup
-https://opensource.org/licenses/Apache-2.0
+
 Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/documentation/).
 
 ## Site preview
