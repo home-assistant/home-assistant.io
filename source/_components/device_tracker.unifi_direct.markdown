@@ -32,11 +32,11 @@ host:
   required: true
   type: string
 username:
-  description: The username used to connect to your Unifi AP.
+  description: The SSH device username used to connect to your Unifi AP.
   required: true
   type: string
 password:
-  description: The password used to connect to your Unifi AP.
+  description: The SSH device password used to connect to your Unifi AP.
   required: true
   type: string
 {% endconfiguration %}

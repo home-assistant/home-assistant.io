@@ -21,11 +21,11 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    kitchen_light:
-      command_on: switch_command on kitchen
-      command_off: switch_command off kitchen
+  - platform: command_line
+    switches:
+      kitchen_light:
+        command_on: switch_command on kitchen
+        command_off: switch_command off kitchen
 ```
 
 Configuration variables:
