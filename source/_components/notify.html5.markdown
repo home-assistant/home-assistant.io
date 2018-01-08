@@ -66,7 +66,7 @@ The `html5` platform can only function if all of the following requirements are 
 Assuming you have already added the platform to your configuration:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider in the sidebar labeled Push Notifications.
+2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider for Push Notifications through the sidebar Configuration > General.
 3. Slide it to the on position.
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
