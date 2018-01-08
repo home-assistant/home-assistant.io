@@ -77,6 +77,7 @@ json_attributes:
   reqired: false
   type: list, string
 {% endconfiguration %}
+
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
