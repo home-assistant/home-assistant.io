@@ -61,6 +61,14 @@ binary_sensor:
             description: Defines a template to set the state of the sensor.
             required: true
             type: template
+          icon_template:
+            description: Defines a template for the icon of the sensor.
+            required: false
+            type: template
+          entity_picture_template:
+            description: Defines a template for the entity picture of the sensor.
+            required: false
+            type: template
           delay_on:
             description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
             required: false
