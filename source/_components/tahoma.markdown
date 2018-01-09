@@ -10,6 +10,7 @@ footer: true
 logo: tahoma.png
 ha_category: Hub
 ha_release: 0.59
+ha_iot_class: "Cloud Polling"
 ---
 
 
