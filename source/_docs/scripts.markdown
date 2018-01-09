@@ -125,10 +125,10 @@ event_data:
   domain: light
 ```
 You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
-an event trigger. This would rarely be used since there are generally other ways to accomplish the same goal.
+an event trigger.
 ```
 event: MY_EVENT
-event_data:
+event_data_template:
   name: myEvent
   customData: "{{ myCustomVariable }}"
 ```
