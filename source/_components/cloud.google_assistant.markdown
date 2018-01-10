@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_release: 0.61
 ha_category: Cloud
 ha_iot_class: "Cloud Push"
-published: true
+published: false
 ---
 
 The Google Assistant integration allows users to control the entities via the Home Assistant Smart Home skill for Google Assistant. This means that you can say things like "Ok Google, turn on the kitchen light" to control your local Home Assistant.
