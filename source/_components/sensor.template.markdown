@@ -46,10 +46,6 @@ sensor:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
-        required: false
-        type: string, list
       unit_of_measurement:
         description: Defines the units of measurement of the sensor, if any.
         required: false
@@ -71,12 +67,11 @@ sensor:
 ## {% linkable_title Considerations %}
 
 If you are using the state of a platform that takes extra time to load, the
-Template Sensor may get an `unknown` state during startup. This results
-in error messages in your log file until that platform has completed loading.
-If you use `is_state()` function in your template, you can avoid this situation.
+Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting
+error messages in your log file), you can use `is_state()` function in your template.
 For example, you would replace
 {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
-with this equivalent that returns `true`/`false` and never gives an unknown
+with this equivalent that returns `true`/`false` and never gives an `unknown`
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
