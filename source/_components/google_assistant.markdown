@@ -35,26 +35,77 @@ google_assistant:
     - switch
     - light
     - group
+  entity_config:
+    switch.kitchen:
+      name: Custom Name for Alexa
+      aliases:
+        - bright lights
+        - entry lights
+      type: 'action.devices.types.LIGHT'
+    light.living_room:
+      expose: false
 ```
 
 Configuration variables:
 
-- **expose_by_default** (*Optional*): Expose devices in all supported domains by default.
-- **project_id** (*Required*): Project ID from the Google Developer console (looks like `words-2ab12`)
-- **client_id** (*Required*): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
-- **access_token** (*Required*): Another different long random URL safe string.
-- **agent_user_id** (*Optional*): A string to identify the user, e.g., email address. If not provided, the component will generate one.
-- **api_key** (*Optional*): An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
-- **exposed_domains** (*Optional*): An array of Home Assistant domains to expose to Google Assistant. Options include:
-    - `switch`
-    - `light`
-    - `cover`
-    - `media_player`
-    - `group`
-    - `fan`
-    - `scene`
-    - `script`
-    - `climate`
+{% configuration %}
+
+project_id:
+  description: Project ID from the Google Developer console (looks like `words-2ab12`)
+  required: true
+  type: string
+client_id:
+  description: A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth (example `aBcDeFgHiJkLmNoP`)
+  required: true
+  type: string
+access_token:
+  description: Another different long random URL safe string  (example `aBcDeFgHiJkLmNoP`)
+  required: true
+  type: string
+agent_user_id:
+  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
+  required: false
+  type: string
+api_key:
+  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
+  required: false
+  type: string
+expose_by_default:
+  description: Expose devices in all supported domains by default.
+  required: false
+  default: True
+  type: boolean
+exposed_domains:
+  description: List of entity domains to expose to Google Assistant.
+  required: false
+  type: list
+entity_config:
+  description: Entity specific configuration for Google Assistant
+  required: false
+  type: map
+  keys:
+    '`<ENTITY_ID>`':
+      description: Entity to configure
+      required: false
+      type: map
+      keys:
+        name:
+          description: Name of entity to show in Google Assistant
+          required: false
+          type: string
+        expose:
+          description: Force an entity to be exposed/excluded.
+          required: false
+          type: boolean
+        aliases:
+          description: Aliases that can also be used to refer to this entity
+          required: false
+          type: list
+        type:
+          description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+          required: false
+          type: string
+{% endconfiguration %}
 
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
@@ -63,31 +114,6 @@ $ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' 
 ```
 
 If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
-
-
-You can also customize your devices similar to other components by adding keys to entities:
-
-```yaml
-homeassistant:
-  customize:
-    master_bedroom_light:
-      google_assistant: true
-      google_assistant_name: bedroom light
-    bedroom_blinds:
-      aliases:
-        - bedroom shades
-        - bedroom covers
-    hallway_ceiling_switch:
-      google_assistant: true
-      google_assistant_type: light
-```
-
-Entity Customization Keys:
-
-- **google_assistant**: True exposes entity, false will hide it.
-- **google_assistant_name**: Can be used to override the primary name of an entity. By default the `friendly_name` of an entity is used.
-- **google_assistant_type**: Can be used to override the domain/type of an entity. For example a switch can be treated as a light
-- **aliases**: Provides "nicknames" to Google Assistant. These function as alternate names for an entity that Assistant will understand when spoken.
 
 ### {% linkable_title Setup %}
 
@@ -143,11 +169,14 @@ Entity Customization Keys:
 	3. Go to Credentials and select API Key from Create Credentials
 	4. Note down the generated API Key and use this in the configuration
 
-*Note:* The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink. 
+### {% linkable_title Troubleshooting the request_sync service %}
 
-*Note:* The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
-	1. Removing your project on the [developer console](https://console.actions.google.com).
-	2. Add a new project in the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
-	3. Enable Homegraph API to the new project.
-	4. Generete a new API key.
-	5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this they share the same project_id.
+The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink.
+
+The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
+
+  1. Removing your project on the [developer console](https://console.actions.google.com).
+  2. Add a new project in the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
+  3. Enable Homegraph API to the new project.
+  4. Generete a new API key.
+  5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this they share the same project_id.
