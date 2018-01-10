@@ -42,6 +42,6 @@ api_secret:
   type: string
 exchange_rate_currencies:
   description: List of currencies to create exchange rate sensors for.
-  required: true
+  required: false
   type: list
 {% endconfiguration %}
