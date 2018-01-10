@@ -69,7 +69,6 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 
 A description of the API s available in this [Tomato API](http://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/) blog post.
 
-
 SSL Certificate:
 
 Gathering the SSL Certificate of your router can be accomplished with this (or a similar) command:
