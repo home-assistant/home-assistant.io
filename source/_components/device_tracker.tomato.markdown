@@ -34,23 +34,24 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of your router, e.g. `192.168.1.1` "or `rt-ac68u`.
+  description: "The IP address or hostname of your router, e.g. `192.168.1.1` or `rt-ac68u`."
   required: false
   type: string
 port:
-  description: "The port number of your router, e.g. `443`.""
+  description: "The port number of your router, e.g. `443`."
   required: false
   type: int
   default: 80
 ssl:
-  description: "Whether to connect via `https`.""
+  description: "Whether to connect via `https`."
   required: false
   type: bool
   default: false
 verify_ssl:
   description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g. `/mnt/NAS/router_cert.pem`."
-  required: true
+  required: false
   type: [string, bool]
+  default: true
 username:
   description: "The username of an user with administrative privileges, usually *admin*."
   required: true
