@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: coinbase.png
-ha_release: 0.60
-ha_iot_class: "Cloud Push"
+ha_release: 0.61
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -31,8 +31,17 @@ coinbase:
 =======
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your coinbase API key.
-- **api_secret** (*Required*): Your coinbase API key.
-- **exchange_rate_currencies** (*Optional*): List of currencies to create exchange rate sensors for.
+{% configuration %}
+api_key:
+  description: Your API key to access coinbase.
+  required: true
+  type: string
+api_secret:
+  description: Your API secret to access coinbase.
+  required: true
+  type: string
+exchange_rate_currencies:
+  description: List of currencies to create exchange rate sensors for.
+  required: true
+  type: list
+{% endconfiguration %}
