@@ -32,15 +32,38 @@ device_tracker:
     http_id: YOUR_HTTP_ID
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of your router, e.g. `192.168.1.1` or `rt-ac68u`.
-- **port** (*Optional*): The port number of your router, e.g. `999`. If no port is provided, the default port (80) will be used.
-- **ssl** (*Optional*): Whether to connect via `https`. Defaults to `false`.
-- **verify_ssl** (*Optional*): Whether SSL certificates should be validated. Defaults to `False` but can (and **should**) point to a certificate accessible by the device, e.g. `/mnt/NAS/router_cert.pem`.
-- **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
-- **password** (*Required*): The password for your given admin account.
-- **http_id** (*Required*): The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
+{% configuration %}
+host:
+  description: "The IP address or hostname of your router, e.g. `192.168.1.1` "or `rt-ac68u`.
+  required: false
+  type: string
+port:
+  description: "The port number of your router, e.g. `443`.""
+  required: false
+  type: int
+  default: 80
+ssl:
+  description: "Whether to connect via `https`.""
+  required: false
+  type: bool
+  default: false
+verify_ssl:
+  description: "If SSL Verification needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g. `/mnt/NAS/router_cert.pem`."
+  required: false
+  type: [string, bool]
+username:
+  description: "The username of an user with administrative privileges, usually *admin*."
+  required: true
+  type: string
+password:
+  description: "The password for your given admin account."
+  required: true
+  type: string
+http_id:
+  description: "The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code."
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
