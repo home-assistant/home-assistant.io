@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: coinbase.png
 ha_category: Sensor
-ha_release: 0.60
+ha_release: 0.61
 ---
 
 To get your coinbase sensors working with Home Assistant, follow the instructions for the general [Coinbase component](/components/coinbase/).
