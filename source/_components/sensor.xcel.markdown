@@ -55,7 +55,7 @@ sensor:
     required: true
     type: string
   monitored_conditions:
-    description: the metrics types to monitor; valid values are specified below
+    description: the metric types to monitor; valid values are specified below
     required: true
     type: list
   monitored_premises:
