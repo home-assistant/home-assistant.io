@@ -18,7 +18,7 @@ The `google_assistant` component allows you to control things via Google Assista
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 <p class='note'>
-To use Google Assistant your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven't already configured that you should do so before continuing.
+To use Google Assistant, your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven't already configured that you should do so before continuing.
 </p>
 
 To enable this, add the following lines to your `configuration.yaml` file:
@@ -90,7 +90,7 @@ entity_config:
       type: map
       keys:
         name:
-          description: Name of entity to show in Google Assistant
+          description: Name of the entity to show in Google Assistant
           required: false
           type: string
         expose:
@@ -158,8 +158,8 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 8. If you haven't already added the component configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
 8. Open the Google Assistant app and go into `Settings > Home Control`
 9. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
-10. If you want to allow other houshold users to control the devices:
-	1. Go to the developer console using address from point 4.
+10. If you want to allow other household users to control the devices:
+	1. Go to the developer console using the address from point 4.
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
@@ -175,8 +175,8 @@ The request_sync service requires that the initial sync from Google includes the
 
 The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
 
-  1. Removing your project on the [developer console](https://console.actions.google.com).
-  2. Add a new project in the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
+  1. Removing your project from the [developer console](https://console.actions.google.com).
+  2. Add a new project to the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
   3. Enable Homegraph API to the new project.
-  4. Generete a new API key.
-  5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this they share the same project_id.
+  4. Generate a new API key.
+  5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same project_id.
