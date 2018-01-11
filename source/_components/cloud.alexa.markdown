@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Push"
 
 The Alexa integration allows users to control the entities via the [Home Assistant Smart Home skill for Alexa][alexa skill]. This means that you can say things like "Alexa, turn on the kitchen light" to control your local Home Assistant.
 
-To use this integration you need to have:
+To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
  - An Alexa enabled device like the Amazon Echo
@@ -96,7 +96,7 @@ alexa:
               type: string
 {% endconfiguration %}
 
-### {% linkable_title Possible values for customize %}
+### {% linkable_title Possible values for customizing %}
 
 _Configuration via `customize:` is no longer available. Use the entity config as described above._
 
@@ -111,7 +111,7 @@ Currently, the following domains are available to be used with Alexa:
 - input_boolean
 - light
 - lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)
-- media_player (play, pause, stop, set volume, adjust volume, next track and previous track)
+- media_player (play, pause, stop, set volume, adjust volume, next track, and previous track)
 - scene
 - script (enables/disables)
 - switch
