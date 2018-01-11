@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Xiaomi AC Partner"
-description: "Instructions how to integrate your Xiaomi Air Conditioner Partner within Home Assistant."
+description: "Instructions on how to integrate your Xiaomi Air Conditioner Partner within Home Assistant."
 date: 2017-11-23 08:45
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Climate
-ha_version: 0.59
+ha_version: 0.61
 ha_iot_class: "Local Polling"
 ---
 
@@ -21,7 +21,7 @@ Mi Air Conditioner Partner: `KTBL02LM`
 
 Currently, the supported features are `set_temperature`, `set_speed`, `set_operation_mode`, `set_swing_mode`, `set_fan_mode`.
 
-You need Access Token to add this device into Home Assistant.  Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+You need Access Token to add this device to Home Assistant. Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi AC Partner to your installation, add the following to your configuration.yaml file:
 
