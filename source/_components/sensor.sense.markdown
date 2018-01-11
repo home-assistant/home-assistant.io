@@ -29,7 +29,6 @@ Two sensors will be created with the following names:
 - **Solar Generation**: Current active power generation in Watts.  Updated every 10 seconds.
 - **Daily Energy Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
 
-Configuration variables:
 {% configuration %}
 email:
   description:The email associated with your Sense account/application.
