@@ -25,7 +25,13 @@ melissa:
   password: ********
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Your melissa username (email).
-- **password** (*Required*): Your melissa password.
+{% configuration %}
+  username:
+    description: The username for accessing your Melissa account.
+    required: true
+    type: string
+  password:
+    description: The password for accessing your Melissa account.
+    required: true
+    type: string
+{% configuration %}
