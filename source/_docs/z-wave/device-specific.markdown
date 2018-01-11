@@ -136,6 +136,14 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           scene_id: 8
 ```
 
+### {% linkable_title Zooz Toggle Switches %}
+
+Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
+
+## {% linkable_title Central Scene configuration %}
+
+To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
+
 ### {% linkable_title HomeSeer Switches %}
 
 For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
@@ -221,6 +229,6 @@ Button four single tap|4|0
 Button four hold|4|2
 Button four release|4|1
 
-### {% linkable_title Zooz Toggle Switches %}
+### {% linkable_title WallC-S Switch %}
 
-Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
+Use the same configuration as for the Aeotec Wallmote.
