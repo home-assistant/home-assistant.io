@@ -140,7 +140,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
 
 Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
 
-## {% Central Scene configuration %}
+## {% linkable_title Central Scene configuration %}
 
 To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
 
