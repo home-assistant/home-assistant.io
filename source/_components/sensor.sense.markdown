@@ -30,6 +30,13 @@ Two sensors will be created with the following names:
 - **Daily Energy Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
 
 Configuration variables:
-
-- **email** (*Required*): The email associated with your Sense account/application.
-- **password** (*Required*): The password for your Sense account/application.
+{% configuration %}
+email:
+  description:The email associated with your Sense account/application.
+  required: true
+  type: string  
+password:
+  description: The password for your Sense account/application.
+  required: true
+  type: string
+{% endconfiguration %}
