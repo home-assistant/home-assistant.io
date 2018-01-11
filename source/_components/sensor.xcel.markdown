@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The `xcel` sensor platform collects and displays energy information on your
 home/premise from [Xcel Energy®](https://www.xcelenergy.com).
 
-## {% linkable_title Configuring the Platform via Latitude/Longitude %}
+## {% linkable_title Configuring the Platform %}
 
 To integrate `xcel` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
