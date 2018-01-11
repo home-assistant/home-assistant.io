@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 [IOTA](http://iota.org/) is a new blockless distributed ledger which is scalable, lightweight and makes it possible to transfer value without any fees. 
 
-The `iota` component displays various details (e.g. balance of wallet, node attributes) of IOTA wallets.
+The `iota` component displays various details (e.g., the balance, node attributes) of IOTA wallets.
 
 ```yaml
 # configuration.yaml example
@@ -47,7 +47,7 @@ wallets:
       description: Seed of the wallet
 {% endconfiguration %}
 
-A full configuration example could looks the one below:
+A full configuration example could look the one below:
 
 ```yaml
 # Full example
