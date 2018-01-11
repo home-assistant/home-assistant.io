@@ -31,6 +31,7 @@ Description=Home Assistant
 After=network-online.target
 
 [Service]
+WorkingDirectory=/home/homeassistant
 Type=simple
 User=%i
 ExecStart=/usr/bin/hass
@@ -49,6 +50,7 @@ Description=Home Assistant
 After=network-online.target
 
 [Service]
+WorkingDirectory=/home/homeassistant
 Type=simple
 User=%i
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
