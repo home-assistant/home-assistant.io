@@ -73,7 +73,7 @@ Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following humany-friendly ratings:
 
 Range      | Rating
----------  | :----------------:
+---------  | -----------
 0.0 - 2.4  | Low
 2.5 - 4.8  | Low/Medium
 4.9 - 7.2  | Medium
