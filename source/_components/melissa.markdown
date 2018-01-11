@@ -34,4 +34,4 @@ melissa:
     description: The password for accessing your Melissa account.
     required: true
     type: string
-{% configuration %}
+{% endconfiguration %}
