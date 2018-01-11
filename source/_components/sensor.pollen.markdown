@@ -70,7 +70,7 @@ forecasted cold/flu index over the next 5 days
 ## {% linkable_title Understanding the Indices %}
 
 Any index-related sensor will have a value between 0.0 and 12.0. The values
-map to the following humany-friendly ratings:
+map to the following human-friendly ratings:
 
 Range      | Rating
 ---------  | -----------
