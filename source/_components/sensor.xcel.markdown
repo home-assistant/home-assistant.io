@@ -66,7 +66,7 @@ sensor:
 
 ## {% linkable_title Finding Your Xcel Premise ID %}
 
-In the case that you want to monitor only specfic premises, it is necessary to
+In the case that you want to monitor only specific premises, it is necessary to
 retrieve the Xcel Premise ID for that premise. To do so:
 
 1. Log into [Xcel's](https://myaccount.xcelenergy.com/oam/index.jsp) website.
