@@ -122,18 +122,18 @@ You can send TTS notifications to Snips using the snips.say and snips.say_action
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
-| `siteId`               |      yes | Site to use to start session.                          |
-| `customData`           |      yes | custom data that will be included with all messages in this session. |
+| `site_id`              |      yes | Site to use to start session.                          |
+| `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
 #### {% linkable_title Service `snips/say_action` %}
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
-| `siteId`               |      yes | Site to use to start session.                          |
-| `customData`           |      yes | custom data that will be included with all messages in this session. |
-| `canBeEnqueued         |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
-| `intentFilter           |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
+| `site_id`              |      yes | Site to use to start session.                          |
+| `custom_data`          |      yes | custom data that will be included with all messages in this session. |
+| `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
+| `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
 #### Configuration Examples
 ```yaml
