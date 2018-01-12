@@ -1,12 +1,13 @@
 ---
 layout: page
-title: "Sense"
+title: Sense
 description: "Instructions how to integrate Sense within Home Assistant."
 date: 2018-01-11 13:50
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
 ha_release: 0.61
@@ -31,7 +32,7 @@ Two sensors will be created with the following names:
 
 {% configuration %}
 email:
-  description:The email associated with your Sense account/application.
+  description: The email associated with your Sense account/application.
   required: true
   type: string  
 password:
