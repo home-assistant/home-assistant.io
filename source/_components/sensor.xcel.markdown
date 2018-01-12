@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xcel.png
 ha_category: Energy
-ha_release: 0.61
+ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
