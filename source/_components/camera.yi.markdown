@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
-* Yi Home 17CN
+* Yi Home 17CN / 27US / 47US
 * Yi 1080p Home
 * Yi Dome
 * Yi 1080p Dome
@@ -63,7 +63,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of the camera.
 - **password** (*Required*): The password to the FTP server on the camera (from above).
 - **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
-- **username** (*Optional*): The user that can access the FTP server. Ddefaults to `root`.
+- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g. image quality or video filter options).
 
 ## {% linkable_title Image quality %}

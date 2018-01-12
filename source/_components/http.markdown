@@ -17,6 +17,10 @@ The `http` component serves all files and data required for the Home Assistant f
 It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
 </p>
 
+<p class='note'>
+Don't use option `server_host` on a hass.io installation!
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 http:
