@@ -32,5 +32,15 @@ Configuration variables:
 - **password** (*Optional*): The password for the camera.
 - **port** (*Optional*): The port for the camera. This defaults to 5000
 
+### {% linkable_title Service `camera.ptz` %}
+
+If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all.
+| `dir_v` | Vertical direction of move. Allowed values: `UP`, `DOWN`
+| `dir_h` | Horizontal direction of move. Allowed values: `RIGHT`, `LEFT`
+| `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
