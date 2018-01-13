@@ -23,10 +23,7 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: tomato
-    host: YOUR_ROUTER_IP_ADDRESS_OR_HOSTNAME
-    port: YOUR_ROUTER_PORT
-    ssl: True
-    ssl_verify: /mnt/NAS/router_cert.pem
+    host: YOUR_ROUTER_IP_ADDRESS
     username: YOUR_ADMIN_USERNAME
     password:  YOUR_ADMIN_PASSWORD
     http_id: YOUR_HTTP_ID
