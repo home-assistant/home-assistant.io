@@ -187,7 +187,6 @@ For all `*_state_topic`s, a template can be specified that will be used to rende
 Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the mode is actually called just `auto`, here's what you could do:
 
 ```yaml
-# Full example configuration.yaml entry
 climate:
   - platform: mqtt
     name: Study
