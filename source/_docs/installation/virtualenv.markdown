@@ -34,7 +34,7 @@ _(If you're on a Debian based system, you will need to install Python virtual en
     ```
     $ python3 -m pip install homeassistant
     ```
- 5. Configure it to [autostart](docs/autostart/)
+ 5. Configure it to [autostart](/docs/autostart/)
  6. Or run Home Assistant manually:
     ```
     $ hass --open-ui
