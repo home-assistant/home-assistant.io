@@ -15,21 +15,14 @@ ha_iot_class: "Local Push"
 
 Before you can use the IHC Switch platform, you must setup the [IHC Component](../ihc/)
 
-To configure IHC switches insert this section in your configuration:
-
-```yaml
-    switch:
-      - platform: ihc
-        auto_setup: True
-```
-The following products will be recognized from the ihc project if autosetup is enabled:
+When auto setup is enabled the following products will be found in the ihc project and setup as switch devices:
 
 * Wireless plug outlet
 * Wireless relay
 * Mobile wireless relay
 * Dataline plug outlet
 
-To manually add ihc resources do:
+To manually configure IHC switches insert this section in your configuration:
 
 ```yaml
 switch:
@@ -49,5 +42,5 @@ Configuration variables:
 - **switches** (*Optional*): List of switches to setup manually
 
 The resource id should be a boolean resource. (On/Off)
-For more information about ihc resource ids see [Manual Setup](../ihc#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
 

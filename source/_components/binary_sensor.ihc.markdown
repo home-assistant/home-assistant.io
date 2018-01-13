@@ -15,16 +15,7 @@ ha_iot_class: "Local Push"
 
 Before you can use the IHC Binary Sensor platform, you must setup the [IHC Component](../ihc/)
 
-To configure IHC Binary Sensors insert this section in your configuration:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: ihc
-    auto_setup: True
-```
-
-When autosetup is enabled the following products will be found in the ihc project:
+When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
 
 * Dataline magnet contacts
 * Dataline Pir sensors
@@ -34,14 +25,13 @@ When autosetup is enabled the following products will be found in the ihc projec
 * Dataline gas detector
 * Dataline light sensor
 
-If you want to add something manually do it like this:
+To manually configure IHC Binary Sensors insert this section in your configuration:
 
 ```yaml
 binary_sensor:
   - platform: ihc
-    auto_setup: True
     binary_sensors:
-      - id: 12345: 
+      - id: 12345
         name: mysensor
         type: opening
         inverting: True
@@ -50,13 +40,12 @@ binary_sensor:
 ```
 
 Configuration variables:
-- **auto_setup** (*Optional*): True to have IHC products auto setup.
 - **binary_sensors** (*Optional*): List of binary sensors to setup manually.
 - **id** (*Required*): The IHC resource id.
 - **inverting** (*Optional*): If True the sensor will be inverted. Default False.
 - **name** (*Optional*): The name of the component.
 - **type** (*Optional*): The binary sensor type. See [Home Assistant binary sensor](../binary_sensor/) for available types.
 
-The resource id should be an id of a boolean resource.
-For more information about ihc resource ids see [Manual Setup](../ihc#manualy-setup)
+The resource id should be an id of a boolean IHC resource.
+For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
 

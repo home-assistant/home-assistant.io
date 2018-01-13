@@ -24,16 +24,19 @@ ihc:
    host: http://192.168.1.3
    username: admin
    password: mysecret
+   auto_setup: True
    info: True
 ```
 Configuration variables:
-- **host** (*Required*): The url of the IHC Controller.
-- **username** (*Required*): The username for the IHC Controller.
-- **password** (*Required*): The password for the IHC Controller.
-- **info** (*Optional*): If True additional ihc info will be shown on each component.
 
-The info option will show the IHC "note" and "position" attributes. 
-This will make it easier to identify the products within Home Assistant
+- **auto_setup** (*Optional*): True to have IHC products auto setup.
+- **host** (*Required*): The url of the IHC Controller.
+- **info** (*Optional*): If True additional ihc info will be shown on each component.
+- **password** (*Required*): The password for the IHC Controller.
+- **username** (*Required*): The username for the IHC Controller.
+
+The info option will show the IHC "name", "note" and "position" attributes. 
+This will make it easier to identify the IHC products within Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,21 +47,22 @@ There is currently support for the following device types within Home Assistant:
 
 ### Auto setup of IHC products
 
-Each compoment can automatically find products from the IHC project and insert these as components in Home Assistant.
-To enable this set autosetup to True for the component. 
-See the individual components for a list of products to be regocnized automatically.
+If auto setup is enabled, the ihc component will automatically find IHC products and insert these as devices in Home Assistant.
+To disable this set auto_setup to False. (Auto setup is on by default)
+See the individual device types for a list of IHC products to be regocnized automatically.
 
-Components will get a default name that is a combination of the IHC location and IHC resource id.
-If you want to change the names use the [Customizing entities](../../docs/configuration/customizing-devices/)
+Components will get a default name that is a combination of the IHC group and IHC resource id.
+If you want to change the display names use the [Customizing entities](../../docs/configuration/customizing-devices/)
 
 ### {% linkable_title Manualy setup %}
 
+Each device is associated with an IHC resource id.
 To manually setup components you specify resource ids from the IHC project.
 (The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand).
 The project file is a XML file and you can view it with any text/xml editor. 
 You can rename it to have the xml extension and use a browser like Chrome or Internet Explorer.
 The resources are the \<airlink_xxx> or \<dataline_xxx> eleements.
-Shown as inputs or outputs of products in the application.
+Shown as inputs or outputs of products in the IHC application.
 You can also use inputs and outputs from function blocks.
 These are the \<resource_input> and \<resource_output> elements from the project file.
 
@@ -66,3 +70,5 @@ The IHC resource id should be specified as an integer value. (In the project fil
 
 If you want an easier way to get the IHC resource ids, you can download the [Alternative Service View application](https://www.dingus.dk/updated-ihc-alternative-service-view/).
 The application will show the product tree. You can expand it, select inputs and outputs and when selected you can see the resource id.
+
+See each device type for the manual configuration options.

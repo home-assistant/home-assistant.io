@@ -15,15 +15,8 @@ ha_iot_class: "Local Push"
 
 Before you can use the IHC Light platform, you must setup the [IHC Component](../ihc/)
 
-To configure light insert this section in your configuration:
+When auto setup is enabled the following products will be found in the IHC project and setup as light devices:
 
-```yaml
-light:
-  - platform: ihc
-    auto_setup: True
-```
-
-autosetup: True will scan the ihc project and insert all products recognized as lights. The following products will be recognized:
 * Wireless lamp outlet dimmer
 * Wireless dimmer
 * Wireless combi dimmer 4 buttons
@@ -32,12 +25,11 @@ autosetup: True will scan the ihc project and insert all products recognized as 
 * Wireless mobile dimmer
 * Dataline lamp outlet
 
- If you want to manually add ihc resources - add the ids like this:
+To manually configure IHC lights insert this section in your configuration:
 
 ```yaml
 light:
   - platform: ihc
-    auto_setup: True
     lights:
       - id: 12345
         name: tablelight
@@ -48,11 +40,11 @@ light:
 ```
 
 Configuration variables:
-- **auto_setup** (*Optional*): True to have IHC products auto setup.
 - **dimmable** (*Optional*): Default false. Set to True if the IHC resource is a light level
 - **id** (*Required*): The IHC resource id.
 - **lights** (*Optional*): List of lights to setup manually
 - **name** (*Optional*): The name of the component.
 
-In the example above 12345 is ihc resource id and "tablelight" is the name. The ihc resource id can be a light level for dimmers or an boolean output of a relay. 
-For more information about ihc resource ids see [Manual Setup](../ihc#manualy-setup)
+In the example above 12345 is ihc resource id and "tablelight" is the name. 
+The IHC resource id can be a light level for dimmers or an boolean output of a relay. 
+For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
