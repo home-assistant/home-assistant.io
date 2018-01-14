@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: huawei.png
+logo: huawei.svg
 ha_category: Presence Detection
 ha_release: 0.51
 ---

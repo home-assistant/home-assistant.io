@@ -17,7 +17,7 @@ The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/
 
 Your Sesame needs to be paired with a mobile device running the app in *virtual station* mode, or a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point).
 
-Once you have remote access enabled, add the following to your `configuration.yaml` file:
+Once you have remote access enabled using one of the above AND the Integration - cloud option enabled on the Sesame app for that lock settings, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 lock:

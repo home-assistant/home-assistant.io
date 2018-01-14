@@ -24,15 +24,17 @@ Configure with either your username/password or your API token for the official 
 
 ```yaml
 # Example configuration.yaml entry
--  platform: hook
-   username: <email address>
-   password: !secret hook
+switch: 
+  -  platform: hook
+     username: <email address>
+     password: !secret hook
 ```
 Or
 ```yaml
 # Example configuration.yaml entry
--  platform: hook
-   token: <your API token>
+switch:
+  -  platform: hook
+     token: <your API token>
 ```
 
 Extra debug logging is available, if you need it.

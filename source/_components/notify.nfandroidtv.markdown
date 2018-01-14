@@ -39,7 +39,6 @@ Configuration variables:
 - **color** (*Optional*): Has to be one of: grey (default), black, indigo, green, red, cyan, teal, amber, pink
 - **transparency** (*Optional*): Has to be one of: 0%, 25% (default), 50%, 75%, 100%
 - **interrupt** (*Optional*): If set to true, 1, on etc., the notification is interactive and can be dismissed or selected to display more details. Depending on the running app (e.g. Netflix), this may stop playback.
-- **icon** (*Optional*): Change the default icon to a custom icon by providing the full path to a PNG image.
 
 The configuration will be used to configure the default values for the notification for the host specified by the IP. However, you can override most of the settings by passing them with the data-attribute when calling the service.
 This is a fully customized JSON you can use to test how the final notification will look like:
@@ -54,7 +53,6 @@ This is a fully customized JSON you can use to test how the final notification w
     "transparency":"0%",
     "color": "red",
     "interrupt": 1,
-    "icon": "/path/to/image.png"
     }
 }
 ```

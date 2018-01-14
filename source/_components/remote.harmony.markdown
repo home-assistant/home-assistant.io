@@ -23,37 +23,33 @@ Supported units:
 - Harmony Pro
 - Harmony Elite
 
-
 The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
 
-However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml`.
+However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 remote:
   - platform: harmony
     name: Bedroom
-    host: 10.168.1.13   # The IP of your hub
+    host: 10.168.1.13
 ```
 
-You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding
-a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will
-discover the host IP automatically, but set the `name` in the config to match exactly the name you have
-set for your Hub so the platform knows what Hub you are trying to configure.
+You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the config to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
 
 ```yaml
 # Example configuration.yaml entry with discovery
   - platform: harmony
-    name: Living Room    # This name must match the name you have set on the Hub
-    activity: Watch TV   # Overriding the 'activity' setting for this discovered hub
+    name: Living Room 
+    activity: Watch TV
 ```
 
 Configuration variables:
 
-- **name** (*Required*): The hub's name to display in the frontend.
+- **name** (*Required*): The hub's name to display in the frontend. This name must match the name you have set on the Hub.
 - **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
-- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data.
+- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
 - **delay_secs** (*Optional*): Default duration in seconds between sending commands to a device.
 
 Configuration file:
@@ -103,6 +99,7 @@ data:
     - home
     - 1
     - 2
+  device: 4576546
   delay_secs: 0.6
 ```
 
@@ -118,20 +115,23 @@ Synchronize the Harmony device with the Harmony web service if any changes are m
 
 Template sensors can be utilized to display current activity in the frontend.
 
+{% raw %}
 ```yaml
 sensor:
   - platform: template
     sensors:
       family_room:
-        value_template: {% raw %}'{{ states.remote.family_room.attributes.current_activity }}'{% endraw %}
+        value_template: '{{ states.remote.family_room.attributes.current_activity }}'
         friendly_name: 'Family Room'
       bedroom:
-        value_template: {% raw %}'{{ states.remote.bedroom.attributes.current_activity }}'{% endraw %}
+        value_template: '{{ states.remote.bedroom.attributes.current_activity }}'
         friendly_name: 'bedroom'
 ```
+{% endraw %}
 
-The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is PowerOff.
+The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
 
+{% raw %}
 ```yaml
 automation:
   - alias: "Watch TV started from harmony hub"
@@ -140,7 +140,7 @@ automation:
       entity_id: remote.family_room
     condition:
       condition: template
-      value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "Kodi" }}'{% endraw %}
+      value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
       service: input_boolean.turn_on
       entity_id: input_boolean.notify
@@ -150,8 +150,9 @@ automation:
       entity_id: remote.family_room
     condition:
       condition: template
-      value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'{% endraw %}
+      value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
       service: input_boolean.turn_off
       entity_id: input_boolean.notify
-````
+```
+{% endraw %}
