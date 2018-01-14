@@ -176,16 +176,17 @@ aux_state_template:
   type: template
 {% endconfiguration %}
 
-#### Optimistic mode
+#### {% linkable_title Optimistic mode %}
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), home assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic.
 
-#### Using Templates
+#### {% linkable_title Using Templates %}
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topis can be specified as `value_template`. This can be useful if you received payloads are e.g. in JSON format. Since in JSON, a quoted string (e.g. `"foo"`) is just a string, this can also be used for unquoting.
 
 Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the mode is actually called just `auto`, here's what you could do:
 
+{% raw %}
 ```yaml
 climate:
   - platform: mqtt
@@ -198,8 +199,9 @@ climate:
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
 ```
+{% endraw %}
 
-This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obvisouly, in this case you could also just set `value_template: "{{ value_json }}"`.
+This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obvisouly, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 
 ### {% linkable_title Example %}
