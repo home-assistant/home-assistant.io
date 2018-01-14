@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Hive Sensor"
+title: "Hive Binary Sensor"
 description: "Instructions on how to integrate Hive Sensors with Home Assistant."
 date: 2017-09-24 21:00
 sidebar: true

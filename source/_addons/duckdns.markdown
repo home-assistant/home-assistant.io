@@ -42,7 +42,7 @@ http:
   ssl_key: /ssl/privkey.pem
 ```
 
-If you use a other port as `8123` or a SSL proxy, change the port number.
+If you use a port other than `8123` or an SSL proxy, change the port number accordingly.
 
 ## {% linkable_title Router configuration %}
 

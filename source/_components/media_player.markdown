@@ -58,7 +58,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 #### {% linkable_title Service `media_player/shuffle_set` %}
 
-Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), and [Universal](/components/media_player.universal/).
+Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), [Squeezebox](/components/media_player.squeezebox/) and [Universal](/components/media_player.universal/).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

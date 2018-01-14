@@ -33,21 +33,58 @@ api_key:
 symbols:
   description: List of stock market symbols for given companies.
   required: false
-  type: string, list
   default: GOOGL
+  type: map
+  keys:
+    name:
+      description: The name of the sensor to use for the frontend.
+      required: false
+      type: string
+    currency:
+      description: The name of the sensor to use for the frontend.
+      required: false
+      type: string
+      default: USD
+    symbol:
+      description: The stock market symbol for the given company.
+      required: required
+      type: string
+foreign_exchange:
+  description: List of currencies.
+  type: map
+  required: false
+  keys:
+    name:
+      description: The name of the sensor to use for the frontend.
+      required: false
+      type: string
+    from:
+      description: The source currency.
+      required: required
+      type: string
+    to:
+      description: The target currency.
+      required: required
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Red Hat and Google %}
+### {% linkable_title Google and the exchange rate for Bitcoin %}
 
 ```yaml
 sensor:
   - platform: alpha_vantage
+    api_key: YOUR_API_KEY
     symbols:
-      - RHT
-      - GOOGL
+      - name: Google
+        currency: USD
+        symbol: GOOGL
+    foreign_exchange:
+      - from: BTC
+        to: USD
+        name: Bitcoin
 ```
 

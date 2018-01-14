@@ -24,7 +24,8 @@ tts:
 
 Configuration variables:
 
-- **language** (*Optional*): The language to use. Defaults to `en`. 
+- **language** (*Optional*): The language to use. Defaults to `en`.
+  - [Complete list of supported languages](https://cloud.google.com/speech/docs/languages).
 
 A full configuration sample:
 

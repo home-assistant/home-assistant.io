@@ -55,10 +55,6 @@ switch:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the switch will try to update its state.
-        required: false
-        type: [string, list]
       value_template:
         description: Defines a template to set the state of the switch.
         required: true

@@ -36,7 +36,9 @@ Configuration variables:
   default name (often model number) that is returned by the device.
 - **host** (*Optional*): IP address or hostname of the device
 - **source_ignore** (*Optional*): List of sources to hide in the front-end
-- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing to rename e.g. `HDMI1` to `ChromeCast`
+- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing one to rename e.g. `HDMI1` to `ChromeCast`
+- **zone_ignore** (*Optional*): List of zones to hide in the front-end
+- **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g. `Main_Zone` to `Family Room`
 
 ### {% linkable_title Discovery notes %}
 
@@ -76,6 +78,10 @@ media_player:
     source_names:
       HDMI1: "ChromeCast"
       AV4: "Vinyl"
+    zone_ignore:
+      - "Zone_2"
+    zone_names:
+      Main_Zone: "Family Room"
 ```
 
 ### {% linkable_title Example `play_media` script %}
