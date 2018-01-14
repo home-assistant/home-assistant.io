@@ -32,8 +32,9 @@ Configuration variables:
 
 - **host** (*Required*): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10
 - **name** (*Required*): The name you would like to give to the LG WebOS Smart TV.
+- **icon** (*Required*): The path to an image file to use as the icon in notifications.
 - **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
-- **icon** (*Optional*): The path to an image file to use as the icon in notifications. If provided, this image will override the Home Assistant logo.
+
 
 A possible automation could be:
 
