@@ -30,7 +30,7 @@ google_assistant:
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
   agent_user_id: [a string to identify user]
-  api_key: [an API Key generated for the Google Actions project]
+  api_key: [a Homegraph API Key generated for the Google Actions project]
   exposed_domains:
     - switch
     - light
@@ -44,7 +44,7 @@ Configuration variables:
 - **client_id** (*Required*): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 - **access_token** (*Required*): Another different long random URL safe string.
 - **agent_user_id** (*Optional*): A string to identify the user, e.g., email address. If not provided, the component will generate one.
-- **api_key** (*Optional*): An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
+- **api_key** (*Optional*): A Homegraph API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
 - **exposed_domains** (*Optional*): An array of Home Assistant domains to expose to Google Assistant. Options include:
     - `switch`
     - `light`
@@ -137,7 +137,7 @@ Entity Customization Keys:
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
-11. If you want to use the `google_assistant.request_sync` service in Home Assistant, then enable Homegraph API for your project:
+11. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
 	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
 	2. Select your project and click Enable Homegraph API
 	3. Go to Credentials and select API Key from Create Credentials
