@@ -10,6 +10,7 @@ footer: true
 logo: lutron.png
 ha_category: Cover
 ha_iot_class: "Local Polling"
+ha_release: 0.61
 ---
 
 To get your Lutron roller shades working with Home Assistant, follow the instructions for the general [Lutron component](/components/lutron/).
