@@ -14,9 +14,11 @@ ha_iot_class: "Local Polling"
 ---
 
 
-Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google&hl=en) and [Notifications for FireTV](https://play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google).
+Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for FireTV](https://play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google).
+
 The notifications are in the global scope of your Android TV device. They will be displayed regardless of which application is running.
-The In-App purchases only apply to the client for Android smartphones, so there isn't any limit when pushing notifications from Home Assistant.
+
+When setting this up be aware, that there are two apps: one for your smartphone to send notifications (not required for this platform) and one for your Android TV device to receive the notifications. The app available in the store of your target device is the one that is needed to display notifications sent from Home Assistant. The In-App purchases only apply to the client for Android smartphones, so there isn't any limit when pushing notifications from Home Assistant.
 
 To enable the notification platform, add the following to your `configuration.yaml` file:
 
@@ -50,7 +52,7 @@ This is a fully customized JSON you can use to test how the final notification w
     "duration":2,
     "transparency":"0%",
     "color": "red",
-    "interrupt": 1
+    "interrupt": 1,
     }
 }
 ```

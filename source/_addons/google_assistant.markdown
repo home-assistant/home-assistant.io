@@ -10,7 +10,11 @@ footer: true
 featured: true
 ---
 
-[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over [api.ai] with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
+<p class='note'>
+  If you are wanting to integrate your Google Home, or mobile phone running Google Assistant, with Home Assistant then you want the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
+</p>
+
+[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact via the [DialogFlow][comp] integration with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
 
 To enable access to the Google Assistant API, do the following:
 
@@ -67,14 +71,13 @@ Configuration variables:
 
 ### {% linkable_title Home Assistant configuration %}
 
-Use the Home Assistant [api.ai component][comp] to integrate the add-on into Home Assistant.
+Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 
 
 [GoogleAssistant]: https://assistant.google.com/
 [GoogleActions]: https://actions.google.com/
-[api.ai]: https://api.ai/
 [Samba]: /addons/samba/
-[comp]: /components/apiai/
+[comp]: /components/dialogflow/
 [project]: https://console.cloud.google.com/project
 [API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 [oauthclient]: https://console.developers.google.com/apis/credentials/oauthclient

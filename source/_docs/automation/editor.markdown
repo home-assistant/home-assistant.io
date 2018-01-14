@@ -62,6 +62,8 @@ automation old:
 
 If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over you'll have to add an `id`. This can be any string as long as it's unique.
 
+For example, the below automation will be triggered when the sun goes from below the horizon to above the horizon. Then, if the temperature is between 17 and 25 degrees, a light will be turned on.
+
 ```yaml
 # Example automations.yaml entry
 - id: my_unique_id  # <-- Required for editor to work.

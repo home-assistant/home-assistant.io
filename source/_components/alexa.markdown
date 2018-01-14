@@ -10,8 +10,12 @@ footer: true
 logo: amazon-echo.png
 ha_category: Voice
 featured: true
-ha_release: 0.10
+ha_release: '0.10'
 ---
+
+<p class='note'>
+  Use [Home Assistant Cloud](/components/cloud/) to integrate with Alexa without any effort.
+</p>
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
 
@@ -134,6 +138,13 @@ Custom slot type for scene support.
 </p>
 
 The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).
+
+In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
+
+<p class='img'>
+<img src='/images/components/alexa/scene_slot_synonyms.png' />
+Custom slot values with synonyms.
+</p>
 
 Add a sample utterance:
 
@@ -318,7 +329,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - All other settings are up to you
       - Hit "Next"
   - Test
-      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
+      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com

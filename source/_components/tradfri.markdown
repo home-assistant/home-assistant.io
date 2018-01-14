@@ -42,3 +42,9 @@ Configuration variables:
 <p class='note'>
 Do not use the `api_key` variable. The key is only needed once at initial setup.
 </p>
+
+<p class='note'>
+
+Please make sure you have `autoconf` installed (`apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1h) on slow devices. You might have to use `sudo` when installing `autoconf`.
+
+</p>

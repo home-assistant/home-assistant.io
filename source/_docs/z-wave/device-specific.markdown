@@ -47,11 +47,23 @@ $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-
 
 ### {% linkable_title Razberry Board %}
 
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`, then rebooting:
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
 ```
 dtoverlay=pi3-disable-bt
 ```
+
+Then disable the Bluetooth modem service:
+
+```bash
+$ sudo systemctl disable hciuart
+```
+
+Finally, reboot to make those changes active. It's been reported that this is also required on the Pi2.
+
+<p class='note'>
+  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
+</p>
 
 ### {% linkable_title Aeon Minimote %}
 
@@ -66,7 +78,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 1
-
   - id: mini_1_held
     alias: 'Minimote Button 1 Held'
     trigger:
@@ -75,7 +86,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 2
-
   - id: mini_2_pressed
     alias: 'Minimote Button 2 Pressed'
     trigger:
@@ -84,7 +94,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 3
-
   - id: mini_2_held
     alias: 'Minimote Button 2 Held'
     trigger:
@@ -93,7 +102,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 4
-
   - id: mini_3_pressed
     alias: 'Minimote Button 3 Pressed'
     trigger:
@@ -102,7 +110,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 5
-
   - id: mini_3_held
     alias: 'Minimote Button 3 Held'
     trigger:
@@ -111,7 +118,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 6
-
   - id: mini_4_pressed
     alias: 'Minimote Button 4 Pressed'
     trigger:
@@ -120,7 +126,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
         event_data:
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 7
-
   - id: mini_4_held
     alias: 'Minimote Button 4 Held'
     trigger:
@@ -130,6 +135,14 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 8
 ```
+
+### {% linkable_title Zooz Toggle Switches %}
+
+Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
+
+## {% linkable_title Central Scene configuration %}
+
+To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
 
 ### {% linkable_title HomeSeer Switches %}
 
@@ -203,7 +216,19 @@ Below is a table of the action/scenes for the Wallmote (as a reference for other
 
 **Action**|**scene\_id**|**scene\_data**
 :-----:|:-----:|:-----:
-Button one single tap|1|TBC
-Button two single tap|2|TBC
-Button three single tap|3|TBC
-Button four single tap|4|TBC
+Button one single tap|1|0
+Button one hold|1|2
+Button one release|1|1
+Button two single tap|2|0
+Button two hold|2|2
+Button two release|2|1
+Button three single tap|3|0
+Button three hold|3|2
+Button three release|3|1
+Button four single tap|4|0
+Button four hold|4|2
+Button four release|4|1
+
+### {% linkable_title WallC-S Switch %}
+
+Use the same configuration as for the Aeotec Wallmote.

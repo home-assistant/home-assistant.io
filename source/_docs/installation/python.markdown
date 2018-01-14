@@ -22,7 +22,7 @@ Running these commands will:
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
-If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
+If you're running a Linux-based platform, we suggest you follow the instructions for a [virtual environment](/docs/installation/virtualenv/) to avoid using `root`.
 
 Video tutorials of this process for various operating systems are available here:
 
@@ -30,3 +30,4 @@ Video tutorials of this process for various operating systems are available here
  - [macOS](https://www.youtube.com/watch?v=hej6ipN86ls)
  - [Ubuntu 14.04](https://www.youtube.com/watch?v=SXaAG1lGNH0)
 
+Keep in mind that the used operating systems and the shown software releases may be outdated.

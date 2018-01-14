@@ -19,7 +19,14 @@ To integrate GPSLogger in Home Assistant, add the following section to your `con
 # Example configuration.yaml entry
 device_tracker:
   - platform: gpslogger
+    password: !secret gpslogger_password
 ```
+{% configuration %}
+password:
+  description: Separate password for GPS Logger endpoint. If provided using regular API password to contact endpoint will result in 401 response.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Setup on your smartphone %}
 

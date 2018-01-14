@@ -48,6 +48,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
 - [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
 - [Smart Home Home Assistant KNX Alexa Sprachsteuerung](http://onesmarthome.de/smart-home-home-assistant-knx-alexa-sprachsteuerung/) - August 2017

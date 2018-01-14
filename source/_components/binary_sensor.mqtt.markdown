@@ -29,18 +29,54 @@ binary_sensor:
     state_topic: "home-assistant/window/contact"
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the binary sensor. Default is `MQTT Binary Sensor`.
-- **state_topic** (*Required*): The MQTT topic subscribed to receive sensor values.
-- **payload_on** (*Optional*): The payload that represents the on state. Default is `ON`.
-- **payload_off** (*Optional*): The payload that represents the off state. Default is `OFF`.
-- **availability_topic** (*Optional*): The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default.
-- **payload_available** (*Optional*): The payload that represents the online state. Default is `online`.
-- **payload_not_available** (*Optional*): The payload that represents the offline state. Default is `offline`.
-- **qos** (*Optional*): The maximum QoS level to be used when receiving messages. Default is `0`.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+{% configuration %}
+name:
+  description: The name of the binary sensor.
+  required: false
+  type: string
+  default: MQTT Binary Sensor
+state_topic:
+  description: The MQTT topic subscribed to receive sensor values.
+  required: true
+  type: string
+payload_on:
+  description: The payload that represents the on state.
+  required: false
+  type: string
+  default: ON
+payload_off:
+  description: The payload that represents the off state.
+  required: false
+  type: string
+  default: OFF
+availability_topic:
+  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the online state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the offline state.
+  required: false
+  type: string
+  default: offline
+qos:
+  description: The maximum QoS level to be used when receiving messages.
+  required: false
+  type: integer
+  default: 0
+device_class:
+  description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
+{% endconfiguration %}
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. To set the state of the binary sensor manually:
 

@@ -25,7 +25,15 @@ sensor:
     address: 'r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV'
 ```
 
-Configuration variables:
+{% configuration %}
+address:
+  description: Ripple wallet address to watch.
+  required: true
+  type: string
+name:
+  description: Name for the sensor to use in the frontend.
+  required: false
+  type: string
+  default: Ripple Balance
+{% endconfiguration %}
 
-- **address** (*Required*): Ripple wallet address to watch
-- **name** (*Optional*): Name for the sensor to use in the frontend.

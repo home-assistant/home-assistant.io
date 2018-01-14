@@ -33,12 +33,22 @@ sensor:
       - C430
 ```
 
-Configuration variables:
-
-- **printers** array (*Required*): List of printers to add.
-- **host** (*Optional*): IP address of the CUPS print server.
-- **port** (*Optional*): Port address of the CUPS print server. Defaults to 631.
-
+{% configuration %}
+printers:
+  description: List of printers to add.
+  required: true
+  type: list
+host:
+  description: IP address of the CUPS print server.
+  required: false
+  type: string
+  default: 127.0.0.1
+port:
+  description: Port of the CUPS print server.
+  required: false
+  type: int
+  default: 631
+{% endconfiguration %}
 
 <p class='note'>
 You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).

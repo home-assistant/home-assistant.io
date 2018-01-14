@@ -21,14 +21,14 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 notify:
   - name: NOTIFIER_NAME
     platform: html5
-    gcm_api_key: 'gcm-sender-key'
+    gcm_api_key: 'gcm-server-key'
     gcm_sender_id: 'gcm-sender-id'
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **gcm_api_key** (*Required if pushing to Chrome*): The API key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+- **gcm_api_key** (*Required if pushing to Chrome*): The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 - **gcm_sender_id** (*Required if pushing to Chrome*): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 
 ### {% linkable_title Getting ready for Chrome %}
@@ -41,11 +41,12 @@ Configuration variables:
 
 #### {% linkable_title Verify your domain with Hass.io %}
 
-1. For verifying your domain you need to download a file in step 2.
-2. Create a dictionary named "www" in you Hass.io configuration dictionary.
-3. Place the file (something like this: google*.html) in the "www" directory.
-4. You can open it by going to **https://yourdomain/local/exact_file_name.html**
-5. Proceed with step 3.
+1. Set `https://yourdomain/local/` as URL.
+2. For verifying your domain you need to download a file in step 2.
+3. Create a directory named "www" in you Hass.io configuration directory.
+4. Place the file (something like this: google*.html) in the "www" directory.
+5. Verify the domain.
+6. Proceed with step 3.
 
 ### {% linkable_title Requirements %}
 
@@ -65,7 +66,7 @@ The `html5` platform can only function if all of the following requirements are 
 Assuming you have already added the platform to your configuration:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider in the sidebar labeled Push Notifications.
+2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider for Push Notifications through the sidebar Configuration > General.
 3. Slide it to the on position.
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!

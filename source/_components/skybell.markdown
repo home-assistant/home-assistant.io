@@ -13,11 +13,11 @@ ha_release: 0.56
 ha_iot_class: "Cloud Polling"
 ---
 
-The `skybell` implementation allows you to integrate your [Skybell.com](https://skybell.com) doorbells in Home Assistant.
+The `skybell` implementation allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.
 
 Currently only the Skybell HD is supported by this platform.
 
-To enable devices set up with your [Skybell.com](https://skybell.com/) account, add the following to your `configuration.yaml` file:
+To enable devices set up with your [Skybell.com](http://www.skybell.com/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,9 +26,15 @@ skybell:
   password: secret
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Skybell account.
-- **password** (*Required*): The password for accessing your Skybell account.
+{% configuration %}
+username:
+  description: The username for accessing your Skybell account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Skybell account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Finish your configuration by visiting the [Skybell binary sensor](/components/binary_sensor.skybell/), [Skybell camera](/components/camera.skybell/), [Skybell light](/components/light.skybell/), [Skybell sensor](/components/sensor.skybell/), or [Skybell switch](/components/switch.skybell/) documentation.

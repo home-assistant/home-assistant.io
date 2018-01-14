@@ -25,9 +25,13 @@ binary_sensor:
   - platform: iss
 ```
 
-Configuration variables:
-
-- **show_on_map** (*Optional*): Option to show the position of the ISS on the map. Defaults to `False`.
+{% configuration %}
+show_on_map:
+  description: Option to show the position of the ISS on the map.
+  required: optional
+  default: false
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 If you set `show_on_map` `True` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.

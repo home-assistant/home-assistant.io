@@ -37,7 +37,4 @@ data:
     - left
     - menu
     - select
-  device: ''
 ```
-
-Please note that `device` must be specified (because of validation) but is not used by this platform. So you may specify any value.
