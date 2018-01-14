@@ -112,6 +112,7 @@ In addition to [all of the attributes provided by the `vacuum` component](https:
 - `main_brush_left`
 - `side_brush_left`
 - `filter_left`
+- `sensor_dirty`
 - `cleaning_count`
 - `total_cleaned_area`
 - `total_cleaning_time`
@@ -126,6 +127,7 @@ The following table shows the units of measurement for each attribute:
 | `main_brush_left`         | hours               | Hours left until a change of the main brush is needed |
 | `side_brush_left`         | hours               | Hours left until a change of the side brush is needed |
 | `filter_left`             | hours               | Hours left until a change of the filter is needed     |
+| `sensor_dirty`             | hours               | Hours since sensors where last cleaned                |
 | `cleaning_count`          |                     | Number of total cleaning cycles                       |
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                   |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                        |
