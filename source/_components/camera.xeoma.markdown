@@ -80,7 +80,8 @@ camera:
       - image_name: back_patio
         hide: true
 ```
-In order to use this platform you must have the Xeoma Web Server module enabled in at least one of your camera chains.
+
+To use this platform, you must have the Xeoma Web Server module enabled in at least one of your camera chains.
  
 This platform will parse the Xeoma web interface to find all enabled cameras and add them all to Home Assistant. You can 
 hide individual cameras using the platform configuration.
