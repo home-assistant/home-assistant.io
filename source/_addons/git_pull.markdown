@@ -13,7 +13,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
 
 ```json
 {
-  "repository": "https://example.com/my_configs",
+  "repository": "https://example.com/my_configs.git",
   "auto_restart": false,
   "repeat": {
     "active": false,
@@ -32,7 +32,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
 }
 ```
 
-- **repository** (*Required*): GIT url to your repository.
+- **repository** (*Required*): GIT url to your repository. You have to add .git to your GITHub-Repository-URL (see example Config)
 - **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
 - **repeat/active** (*Optional*): Pull periodic for GIT updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
