@@ -58,6 +58,24 @@ force_update:
   reqired: false
   type: boolean
   default: False
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  reqired: false
+  type: list, string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
