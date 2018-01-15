@@ -10,7 +10,7 @@ footer: true
 logo: mclimate.png
 ha_category: Hub
 featured: false
-ha_release: 0.61
+ha_release: 0.63
 ha_iot_class: "Cloud Polling"
 ---
 

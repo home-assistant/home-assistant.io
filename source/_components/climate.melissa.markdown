@@ -10,7 +10,7 @@ footer: true
 logo: mclimate.png
 ha_category: Climate
 ha_iot_class: "Cloud Polling"
-ha_release: 0.61
+ha_release: 0.63
 ---
 
 The `Melissa` climate platform allows you to control your [Melissa Climate](http://seemelissa.com/) from within Home Assistant.

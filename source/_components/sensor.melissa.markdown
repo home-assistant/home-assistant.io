@@ -10,7 +10,7 @@ footer: true
 logo: mclimate.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: 0.61
+ha_release: 0.63
 ---
 
 The `Melissa` platform allows you to get data from your [Melissa](http://seemelissa.com/) sensors from within Home Assistant.
