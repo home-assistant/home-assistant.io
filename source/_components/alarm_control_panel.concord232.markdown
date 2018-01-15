@@ -27,3 +27,46 @@ Configuration variables:
 - **host** (*Optional*): The host where the concord232 server process is running. Defaults to localhost.
 - **port** (*Optional*): The port where the Alarm panel is listening. Defaults to 5007.
 
+---
+
+### {% linkable_title Services %}
+
+The Concord232 component gives you access to several services for you to control your alarm with.
+
+- `alarm_arm_home`: Arms the alarm in stay mode (level 2).
+- `alarm_arm_away`: Arms the alarm in away mode (level 3).
+- `alarm_disarm`: Disarms the alarm from any state. Requires a valid code.
+
+The silent and instant options for arming the alarm are supported.
+See examples.
+
+### {% linkable_title Examples %}
+
+Arming the alarm to "stay" silently in a script:
+
+{% raw %}
+```yaml
+  arm_alarm_stay_silent:
+    sequence:
+      - service: alarm_control_panel.alarm_arm_home
+        data:
+          entity_id: alarm_control_panel.concord232
+          params:
+            arming_option: silent
+```
+{% endraw %}
+
+Arming the alarm to "away" instantly.  (Be sure to be outside before
+you do this.)
+
+{% raw %}
+```yaml
+  arm_alarm_away_instant:
+    sequence:
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          entity_id: alarm_control_panel.concord232
+          params:
+            arming_option: instant
+```
+{% endraw %}
