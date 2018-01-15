@@ -17,8 +17,13 @@ Almost a 100 contributors to this release 🎉  That's what you get when you ski
 
 This release contain some breaking changes. Please make sure that you check the section below if you are running into trouble.
 
-There is not much more to tell and I don't want to make something up.
+## {% linkable_title Assistant configs %}
 
+We made a mistake in the foundation of both the Google Assistant and Alexa integrations: they were storing their config inside customize. This is not the right place and we moved them to be under the components itself. See the breaking changes section on how to migrate.
+
+## {% linkable_title Hass.io updates %}
+
+Pascal has made it easier to create and restore snapshots for Hass.io by calling the new services. This way it will be easy to automate the creation of a snapshot at night. The updater has also been fixed and will now report on new versions of Hass.io that are available.
 
 ## {% linkable_title New Platforms %}
 
