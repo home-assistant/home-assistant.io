@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) humdifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
+The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) humidifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
 
 They will be automatically discovered if the discovery component is enabled.
 
