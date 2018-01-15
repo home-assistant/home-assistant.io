@@ -41,7 +41,7 @@ google_assistant:
       aliases:
         - bright lights
         - entry lights
-      type: 'action.devices.types.LIGHT'
+      type: light
     light.living_room:
       expose: false
 ```
@@ -102,7 +102,7 @@ entity_config:
           required: false
           type: list
         type:
-          description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+          description: Override the domain how Google Assistant has to interpretet the entity. For example, set to `light` for a switch entity to have it be handeld as a light.
           required: false
           type: string
 {% endconfiguration %}
