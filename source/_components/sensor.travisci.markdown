@@ -26,7 +26,7 @@ sensor:
 
 Configuration variables:
 
-- **api_key** (*Required*): GitHub [access token](https://github.com/settings/applications) with the following scopes: *read:org*, *user:email*, *repo_deployment*, *repo:status*, *write:repo_hook*.
+- **api_key** (*Required*): GitHub [access token](https://github.com/settings/tokens) with the following scopes: *read:org*, *user:email*, *repo_deployment*, *repo:status*, *write:repo_hook*.
 - **branch** (*Optional*): Determine which default branch should be used by the **state** condition. Defaults to *master*.
 - **scan_interval** (*Optional*): How frequently to query for new data. Defaults to 30 seconds.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.

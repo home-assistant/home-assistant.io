@@ -33,7 +33,7 @@ The Home Assistant Neato platform has not been tested with all models of Botvac.
   | BotVac Model | Tested |
   | --- | --- |
   | Botvac Connected | SUCCESS |
-  | Botvac D3 Connected (firmware 4.0+) | UNTESTED |
+  | Botvac D3 Connected (firmware 4.0+) | PARTIALLY WORKING |
   | Botvac D5 Connected (firmware 4.0+) | PARTIALLY WORKING |
   | Botvac D7 Connected | SUCCESS |
 

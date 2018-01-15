@@ -15,13 +15,13 @@ og_image: /images/blog/2017-12-0.60/components.png
 
 The biggest change for 0.60 will be covered in a separate [blog post](/blog/2017/12/17/introducing-home-assistant-cloud/). Thus, we will keep it short here. Just one thing: This is the last release in 2017. We will be back to our bi-weekly release cycle in 2018.
 
-A big "Thank you" to all people who supported us to make this release possible. 
+A big "Thank you" to all people who supported us to make this release possible.
 
 ## {% linkable_title TwinCAT %}
 With the brand-new [ADS (automation device specification)][ads docs] component by [@stlehmann] allows you to hook Home Assistant into this fieldbus independent interface which is often used between Beckhoff devices running with TwinCAT.
 
 ## {% linkable_title WebDav calendar %}
-Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs]. 
+Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs].
 
 ## {% linkable_title Tracking prices %}
 With the new [`gearbest` sensor][sensor.gearbest docs] there is now an additional sensor available to track the price of a product.
@@ -43,6 +43,23 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Added support for cover in tellstick ([@perfalk] - [#10858]) ([tellstick docs]) ([cover.tellstick docs]) (new-platform)
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
+
+## {% linkable_title Release 0.60.1 - January 6 %}
+
+- Fix async IO in Sesame lock component. ([@veleek] - [#11054]) ([lock.sesame docs])
+- Fix webdav calendar schema ([@maxlaverse] - [#11185]) ([calendar.caldav docs])
+- homematic: add username and password to interface config schema ([@jannau] - [#11214]) ([homematic docs])
+- Fix webostv select source ([@OddBloke] - [#11227]) ([media_player.webostv docs])
+- Fix detection of if a negative node is in use ([@OverloadUT] - [#11255]) ([binary_sensor.isy994 docs])
+- Bugfix homematic available modus ([@pvizeli] - [#11256]) ([homematic docs])
+- Support multiple Hue bridges with lights of the same id ([@andreacampi] - [#11259]) ([light.hue docs])
+- Fix inverted sensors on the concord232 binary sensor component ([@CTLS] - [#11261]) ([binary_sensor.concord232 docs])
+- Fix handling zero values for state_on/state_off ([@ziotibia81] - [#11264]) ([switch.modbus docs])
+- Fix allday events in custom_calendars ([@maxlaverse] - [#11272]) ([calendar.caldav docs])
+- Fix unpredictable entity names in concord232 binary_sensor ([@rwa] - [#11292]) ([binary_sensor.concord232 docs])
+- Fix leak sensors always showing Unknown until Wet ([@OverloadUT] - [#11313]) ([binary_sensor.isy994 docs])
+- Don't block on sevice call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
+- iOS 10 should be served javascript_version:es5 ([@mnoorenberghe] - [#11387])
 
 ## {% linkable_title If you need help... %}
 
@@ -355,3 +372,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vera docs]: https://home-assistant.io/components/vera/
 [volvooncall docs]: https://home-assistant.io/components/volvooncall/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
+[#11054]: https://github.com/home-assistant/home-assistant/pull/11054
+[#11185]: https://github.com/home-assistant/home-assistant/pull/11185
+[#11214]: https://github.com/home-assistant/home-assistant/pull/11214
+[#11227]: https://github.com/home-assistant/home-assistant/pull/11227
+[#11255]: https://github.com/home-assistant/home-assistant/pull/11255
+[#11256]: https://github.com/home-assistant/home-assistant/pull/11256
+[#11259]: https://github.com/home-assistant/home-assistant/pull/11259
+[#11261]: https://github.com/home-assistant/home-assistant/pull/11261
+[#11264]: https://github.com/home-assistant/home-assistant/pull/11264
+[#11272]: https://github.com/home-assistant/home-assistant/pull/11272
+[#11292]: https://github.com/home-assistant/home-assistant/pull/11292
+[#11313]: https://github.com/home-assistant/home-assistant/pull/11313
+[#11358]: https://github.com/home-assistant/home-assistant/pull/11358
+[#11387]: https://github.com/home-assistant/home-assistant/pull/11387
+[@CTLS]: https://github.com/CTLS
+[@OddBloke]: https://github.com/OddBloke
+[@OverloadUT]: https://github.com/OverloadUT
+[@andreacampi]: https://github.com/andreacampi
+[@jannau]: https://github.com/jannau
+[@maxlaverse]: https://github.com/maxlaverse
+[@mnoorenberghe]: https://github.com/mnoorenberghe
+[@pvizeli]: https://github.com/pvizeli
+[@rwa]: https://github.com/rwa
+[@veleek]: https://github.com/veleek
+[@ziotibia81]: https://github.com/ziotibia81
+[alexa.smart_home docs]: https://home-assistant.io/components/alexa.smart_home/
+[binary_sensor.concord232 docs]: https://home-assistant.io/components/binary_sensor.concord232/
+[binary_sensor.isy994 docs]: https://home-assistant.io/components/binary_sensor.isy994/
+[calendar.caldav docs]: https://home-assistant.io/components/calendar.caldav/
+[homematic docs]: https://home-assistant.io/components/homematic/
+[light.hue docs]: https://home-assistant.io/components/light.hue/
+[lock.sesame docs]: https://home-assistant.io/components/lock.sesame/
+[media_player.webostv docs]: https://home-assistant.io/components/media_player.webostv/
+[switch.modbus docs]: https://home-assistant.io/components/switch.modbus/

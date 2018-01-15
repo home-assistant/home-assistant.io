@@ -171,3 +171,61 @@ SetTimer:
 ```
 {% endraw %}
 
+### Sending TTS Notifications
+
+You can send TTS notifications to Snips using the snips.say and snips.say_action services. Say_action starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
+
+#### {% linkable_title Service `snips/say` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `text`                 |       no | Text to say.                                           |
+| `site_id`              |      yes | Site to use to start session.                          |
+| `custom_data`          |      yes | custom data that will be included with all messages in this session. |
+
+#### {% linkable_title Service `snips/say_action` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `text`                 |       no | Text to say.                                           |
+| `site_id`              |      yes | Site to use to start session.                          |
+| `custom_data`          |      yes | custom data that will be included with all messages in this session. |
+| `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
+| `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
+
+#### Configuration Examples
+
+```yaml
+script:
+  turn_on_light:
+    sequence:
+      service: script.turn_on_light
+      service: snips.say
+        data:
+          text: 'OK, the light is now on'
+
+automation:
+  query_garage_door:
+    trigger:
+     - platform: state
+        entity_id: binary_sensor.my_garage_door_sensor
+        from: 'off'
+        to: 'on'
+        for:
+          minutes: 10
+    sequence:
+      service: snips.say_action
+        data:
+          text: 'Garage door has been open 10 minutes, would you like me to close it?'
+          intentFilter:
+            - closeGarageDoor
+
+# This intent is fired if the user responds with the appropriate intent after the above notification
+intent_script:
+  closeGarageDoor:
+    speech:
+      type: plain
+      text: 'OK, closing the garage door'
+    action:
+      - service: script.garage_door_close
+```

@@ -38,6 +38,7 @@ Configuration variables:
 Currently known supported models:
 
 - C7700
+- D5500
 - D6500
 - D7000
 - D8000
@@ -64,6 +65,7 @@ Currently known supported models:
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
+- J5500 - State is always "on" and unable to control (but port 8001 *is* open)
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
