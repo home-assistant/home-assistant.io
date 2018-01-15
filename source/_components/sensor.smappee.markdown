@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.61"
+ha_release: "0.62"
 ha_category: Sensor
 ---
 

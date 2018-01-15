@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.61"
+ha_release: "0.62"
 ha_category: Hub
 ---
 
@@ -34,10 +34,26 @@ smappee:
     password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
+```yaml
+# Minimal example configuration.yaml entry
+smappee:
+    host: 10.0.0.5
+```
+
+```yaml
+# Cloud only example configuration.yaml entry
+smappee:
+    client_id: YOUR_CLIENT_ID
+    client_secret: YOUR_CLIENT_SECRET
+    username: YOUR_MYSMAPPEE_USERNAME
+    password: YOUR_MYSMAPPEE_PASSWORD
+```
+
 Configuration variables:
 
-- **host** (*Required*): Your Local Smappee unit IP.
-- **client_id** (*Required*): Your Smappee API client_id.
-- **client_secret** (*Required*): Your Smappee API client_secret.
-- **username** (*Required*): Your My Smappee username.
-- **password** (*Required*): Your My Smappee password.
+- **host** (*Optional*): Your Local Smappee unit IP.
+- **host_password** (*Optional*): Your Local Smappee password.
+- **client_id** (*Optional*): Your Smappee API client_id.
+- **client_secret** (*Optional*): Your Smappee API client_secret.
+- **username** (*Optional*): Your My Smappee username.
+- **password** (*Optional*): Your My Smappee password.
