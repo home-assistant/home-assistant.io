@@ -25,13 +25,52 @@ media_player:
     host: 192.168.0.150
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The NAD host.
-- **name** (*Optional*): Name of the device. Default is NAD Receiver.
-- **min_volume** (*Optional*): Minimum volume in dB to use with the slider. Default is `-92`
-- **max_volume** (*Optional*): Maximum volume in dB to use with the slider. Default is `-20`
-- **sources** (*Optional*): A list of mappings from source to source name. Valid sources are `1 to 10`.
+{% configuration %}
+host:
+  description: The NAD host name or IP.
+  required: true
+  type: string
+name:
+  description: Name of the device.
+  required: false
+  default: NAD Receiver
+  type: string
+min_volume:
+  description: Minimum volume in dB to use with the slider.
+  required: false
+  default: -92
+  type: int
+max_volume:
+  description: Maximum volume in dB to use with the slider.
+  required: false
+  default: -20
+  type: int
+sources:
+  description: A list of mappings from sources to source name.
+  required: false
+  type: list
+  keys:
+    1:
+      description: A valid source description
+    2:
+      description: A valid source description
+    3:
+      description: A valid source description
+    4:
+      description: A valid source description
+    5:
+      description: A valid source description
+    6:
+      description: A valid source description
+    7:
+      description: A valid source description
+    8:
+      description: A valid source description
+    9:
+      description: A valid source description
+    10:
+      description: A valid source description
+{% endconfiguration %}
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
