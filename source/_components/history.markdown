@@ -87,6 +87,21 @@ history:
      - sensor.date
 ```
 
+If you'd like the order of display of the sensors to follow the way
+they are listed in the included entity list, you can set the flag
+`use_include_order` to True.
+
+```yaml
+# Example configuration.yaml entry using specified entity display order
+history:
+  use_include_order: True
+  include:
+    entities:
+      - sun.sun
+      - light.front_porch
+```
+
+
 #### {% linkable_title Implementation details %}
 
 The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory if the `recorder` component is not set up differently.
