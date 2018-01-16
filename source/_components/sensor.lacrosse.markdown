@@ -59,7 +59,7 @@ sensor:
     required: false
     type: int
   datarate:
-    description: "Set the datarate in kbps. Special values for well known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
+    description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
     required: false
     type: int
   toggle_mask:
