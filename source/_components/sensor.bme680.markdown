@@ -51,7 +51,6 @@ If you want to specify the working mode of the digital sensor or need to change 
 ```yaml
 # Example of customized configuration.yaml entry
 sensor:
-  - platform: yr
   - platform: bme680
     name: BME680 Sensor
     i2c_bus: 1
