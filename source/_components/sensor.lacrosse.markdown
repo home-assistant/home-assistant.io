@@ -41,7 +41,7 @@ sensor:
 
 {% configuration %}
   device:
-    description: The serial baudrate.
+    description: The serial device.
     required: true
     type: string
     default: /dev/ttyUSB0
