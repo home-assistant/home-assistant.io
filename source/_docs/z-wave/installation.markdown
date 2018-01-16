@@ -159,16 +159,20 @@ To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add th
 
 ```yaml
 zwave:
-  usb_path: /dev/ttyAMA0
+  usb_path: /dev/ttyACM0
 ```
 
-For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
+Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1). 
+
+For some devices it is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
 
 ```bash
 $ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
 ```
 
 After that, you need to change `usb_path` to `/dev/ttyAMA0`.
+
+Again, if your device uses a different path, specify it here.
 
 ### {% linkable_title RancherOS %}
 
