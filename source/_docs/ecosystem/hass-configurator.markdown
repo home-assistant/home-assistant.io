@@ -39,14 +39,14 @@ Consider running the configurator as a user with limited privileges to limit pos
 
 ### {% linkable_title Installation (Linux, OS X) %}
 There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn't work when you're offline).  
-- Copy [configurator.py](https://github.com/danielperna84/hass-configurator/blob/master/configurator.py) to your Home Assistant configuration directory (e.g /home/homeassistant/.homeassistant)
+- Copy [configurator.py](https://github.com/danielperna84/hass-configurator/blob/master/configurator.py) to your Home Assistant configuration directory (e.g `/home/homeassistant/.homeassistant`): `wget https://raw.githubusercontent.com/danielperna84/hass-configurator/master/configurator.py`
 - Make it executable: `sudo chmod 755 configurator.py`
 - (Optional) Set the `GIT` variable in configurator.py to `True` if [GitPython](https://gitpython.readthedocs.io/) is installed on your system. This is required if you want to make use of the Git integration.
 - Execute it: `sudo ./configurator.py`
 - To terminate the process do the usual `CTRL+C`, maybe once or twice
 
 ### {% linkable_title Configuration %}
-Near the top of the configurator.py-file you will find some global variables you can change to customize the configurator. If you are unfamiliar with Python: when setting variables of the type _string_, you have to write that within quotation marks. The default settings are fine for just checking out the configurator quickly. With more customized setups you should change some settings though.  
+Near the top of the `configurator.py`-file you will find some global variables you can change to customize the configurator. If you are unfamiliar with Python: when setting variables of the type _string_, you have to write that within quotation marks. The default settings are fine for just checking out the configurator quickly. With more customized setups you should change some settings though.  
 To keep your settings across updates it is also possible to save settings in an external file. In that case copy [settings.conf](https://github.com/danielperna84/hass-configurator/blob/master/settings.conf) wherever you like and append the full path to the file to the command when starting the configurator. E.g. `sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf`. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that `None` becomes `null`.
 
 #### LISTENIP (string)

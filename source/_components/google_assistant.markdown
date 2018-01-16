@@ -30,7 +30,7 @@ google_assistant:
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
   agent_user_id: [a string to identify user]
-  api_key: [an API Key generated for the Google Actions project]
+  api_key: [a Homegraph API Key generated for the Google Actions project]
   exposed_domains:
     - switch
     - light
@@ -41,7 +41,7 @@ google_assistant:
       aliases:
         - bright lights
         - entry lights
-      type: 'action.devices.types.LIGHT'
+      type: light
     light.living_room:
       expose: false
 ```
@@ -102,7 +102,7 @@ entity_config:
           required: false
           type: list
         type:
-          description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+          description: Override the domain how Google Assistant has to interpretet the entity. For example, set to `light` for a switch entity to have it be handeld as a light.
           required: false
           type: string
 {% endconfiguration %}
@@ -163,7 +163,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
-11. If you want to use the `google_assistant.request_sync` service in Home Assistant, then enable Homegraph API for your project:
+11. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
 	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
 	2. Select your project and click Enable Homegraph API
 	3. Go to Credentials and select API Key from Create Credentials
