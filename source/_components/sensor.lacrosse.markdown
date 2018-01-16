@@ -50,6 +50,26 @@ sensor:
     required: true
     type: int
     default: 57600
+  led:
+    description: Activate or deactivate the Jeelink LED.
+    required: false
+    type: boolean
+  frequency:
+    description: Initial frequency in 5kHz steps.
+    required: false
+    type: int
+  datarate:
+    description: Set the datarate in kbps. Special values for well known settings: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps.
+    required: false
+    type: int
+  toggle_mask:
+    description: The toggle mask:  1=17.241 kbps, 2=9.579 kbps, 4=8.842 kbps
+    required: false
+    type: int
+  toggle_interval:
+    description: Enable the toggle mode and set the interval in seconds.
+    required: false
+    type: int
   sensors:
     description: A list of your sensors.
     required: true
