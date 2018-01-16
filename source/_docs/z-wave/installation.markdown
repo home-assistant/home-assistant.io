@@ -28,6 +28,10 @@ $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 The installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi.
 </p>
 
+<p class='note'>
+On raspberry pi you will need to enable the serial interface in the raspbi-config tool before you can add zwave to home assistant.
+</p>
+
 ## {% linkable_title Configuration %}
 
 ```yaml
