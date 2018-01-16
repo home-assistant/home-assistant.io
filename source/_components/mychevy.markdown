@@ -33,8 +33,6 @@ mychevy:
   password: password
 ```
 
-Configuration variables:
-
 {% configuration %}
 username:
     description: The email address associated with your my.chevrolet account
