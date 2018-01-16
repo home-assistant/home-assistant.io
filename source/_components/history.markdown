@@ -97,8 +97,8 @@ history:
   use_include_order: True
   include:
     entities:
-      - sensor.last_boot
-      - sensor.date
+      - sun.sun
+      - light.front_porch
 ```
 
 
