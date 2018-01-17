@@ -29,7 +29,7 @@ The installation of python-openzwave happens when you first enable the Z-Wave co
 </p>
 
 <p class='note'>
-On Raspberry Pi you will need to enable the serial interface in the raspbi-config tool before you can add Z-Wave to home assistant.
+On Raspberry Pi you will need to enable the serial interface in the raspbi-config tool before you can add Z-Wave to Home Assistant.
 </p>
 
 ## {% linkable_title Configuration %}
