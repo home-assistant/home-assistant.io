@@ -162,14 +162,6 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-For some devices the `/dev/ttyACM0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
-
-```bash
-$ curl -d '{"devices": ["ttyACM0"]}' http://hassio/homeassistant/options
-```
-
-After that, you need to change `usb_path` to `/dev/ttyACM0`.
-
 ### {% linkable_title RancherOS %}
 
 If you're using RancherOS for containers, you'll need to ensure you enable the kernel-extras service so that the `USB_ACM` module (also known as `cdc_acm`) is loaded:
