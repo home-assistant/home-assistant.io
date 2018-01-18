@@ -41,12 +41,11 @@ entity_id:
   description: "The entity to monitor. Only [sensors](/components/sensor/) are supported."
   required: true
   type: entity_id
-lower:
-  description: The lower threshold which the observed value is compared against.
+type:
+  description: The type of threshold, `upper` or `lower`.
   required: false
-  type: float
-upper:
-  description: The upper threshold which the observed value is compared against.
+threshold:
+  description: The value of the threshold.
   required: false
   type: float
 hysteresis:
