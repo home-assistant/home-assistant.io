@@ -73,7 +73,7 @@ The sources are based on if you have streamed to these devices before in Spotify
 ## {% linkable_title URI Links For Playlists/Etc %}
 You can send playlists to spotify via the "media_content_type": "playlist" and "media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF" which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant frontend.
 
-Usually the naming convention is: https://open.spotify.com/user/_USERNAME_/playlist/_PLAYLIST-UID_ - In the given example you will find the playlist with the URL: https://open.spotify.com/user/spotify/playlist/37i9dQZF1DWSkkUxEhrBdF
+Usually, the naming convention is: https://open.spotify.com/user/_USERNAME_/playlist/_PLAYLIST-UID_ - In the given example you will find the playlist with the URL: https://open.spotify.com/user/spotify/playlist/37i9dQZF1DWSkkUxEhrBdF
 
 Automation example:
 ```yaml
