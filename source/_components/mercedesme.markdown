@@ -30,7 +30,6 @@ mercedesme:
   password: password
 ```
 
-Configuration variables:
 
 {% configuration %}
 username:
