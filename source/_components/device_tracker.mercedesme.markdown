@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mercedesme.png
 ha_category: Presence Detection
-ha_release: 0.61
+ha_release: 0.62
 ---
 
 The `Mercedes me` platform allows you to get data about the location of your [Mercedes me connected car](https://www.mercedes-benz.com/en/mercedes-me/) car within Home Assistant.

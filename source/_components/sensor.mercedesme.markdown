@@ -10,7 +10,7 @@ footer: true
 logo: mercedesme.png
 ha_category: Sensor
 ha_iot_class: "Cloud Push"
-ha_release: 0.61
+ha_release: 0.62
 ---
 
 The `Mercedes me` platform allows you to get data from your [Mercedes me connected car](https://www.mercedes-benz.com/en/mercedes-me/) sensors from within Home Assistant.
