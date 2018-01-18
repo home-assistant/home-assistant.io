@@ -45,7 +45,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
   * **rsa**
   
 The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using "rsa" protocol.
-  
+
 <p class='note warning'>
 You should only use this add-on if you do not have an existing configuration or if your existing configuration is already in a git repository. If the script does not find the necessary git files in your configuration folder, it will delete anything that might be there. Please ensure that there is a `.git` folder before using this. You can verify this by listing the items in the configuration folder including hidden files. The command is `ls -a /config`.
 </p>
