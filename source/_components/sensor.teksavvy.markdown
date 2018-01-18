@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: teksavvy.png
 ha_category: Sensor
-ha_release: 0.61
+ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -27,16 +27,16 @@ sensor:
     api_key: API_KEY
     total_bandwidth: 400
     monitored_variables:
-     - usage
-     - usage_gb
-     - limit
-     - onpeak_download
-     - onpeak_upload
-     - onpeak_total
-     - offpeak_download
-     - offpeak_upload
-     - offpeak_total
-     - onpeak_remaining
+      - usage
+      - usage_gb
+      - limit
+      - onpeak_download
+      - onpeak_upload
+      - onpeak_total
+      - offpeak_download
+      - offpeak_upload
+      - offpeak_total
+      - onpeak_remaining
 ```
 
 {% configuration %}
