@@ -22,7 +22,7 @@ Use `hassio` to speak with the internal API.
 
 An add-on can speak to the [Home Assistant API][hass-api] with our internal proxy. That makes it very easy to communicate with the API without knowing the password, port or any other information of the Home Assistant instance. Use this URL: `http://hassio/homeassistant/api` and internal communication is redirected to the right place. The next stept is to add `homeassistant_api: true` to `config.json` and read the environment variable `HASSIO_TOKEN` and use this as Home-Assistant password.
 
-We have also a proxy for [Websocket Home Assistant API][hass-websocket]. It work like the API proxy above and use `API_TOKEN` as password. Use this URL: `http://hassio/homeassistant/websocket`.
+We have also a proxy for [Websocket Home Assistant API][hass-websocket]. It work like the API proxy above and use `HASSIO_TOKEN` as password. Use this URL: `http://hassio/homeassistant/websocket`.
 
 It is also possible to speak direct to the Home Assistant instance which is named `homeassistant` over our internal network. But you need to know the configuration that is used by the running instance.
 
