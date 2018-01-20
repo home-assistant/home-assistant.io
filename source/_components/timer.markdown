@@ -25,7 +25,7 @@ To add a timer to your installation, add the following to your `configuration.ya
 ```yaml
 # Example configuration.yaml entry
 timer:
-  timer:
+  laundry:
     duration: '00:01:00'
 ```
 

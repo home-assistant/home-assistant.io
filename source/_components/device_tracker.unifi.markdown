@@ -21,24 +21,63 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: unifi
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
+    username: USERNAME
+    password: PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The hostname or IP address of your controller. Defaults to `localhost`.
-- **port** (*Optional*): The port of your controller's web interface. Defaults to `8443`.
-- **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
-- **password** (*Required*): The password for your given admin account.
-- **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard).
-- **verify_ssl** (*Optional*): Controls if the SSL certificate running on your Unifi webserver must be trusted by a known Certificate Authority on the server running Home Assistant. Defaults to 'True' but can also be a value that points to your custom cert "path/to/custom_cert.pem".
-- **detection_time** (*Optional*): The Unifi component will only return devices that have been seen by the controller in the last 180 seconds. You can adjust this threshold with this variable and accepts seconds or `00:00:00` time formats.
+{% configuration %}
+username:
+    description: A user on the controller
+    type: string
+    required: true
+password:
+    description: The password for the account
+    type: string
+    required: true
+host:
+    description:  The hostname or IP address of your controller
+    default: localhost
+    type: string
+    required: false
+port:
+    description: The port of your controller's web interface
+    default: 8443
+    type: int
+    required: false
+site_id:
+    description: for multisite installations, you can specify `site_id` to specify which is used
+    type: string
+    required: false
+    default: default
+verify_ssl:
+    description: whether to do strict validation on SSL certificates of the unifi controller. This can be true/false or the path to a locally trusted certificate to use for verification (i.e. "/path/to/custom_cert.pm")
+    type: boolean or filename
+    required: false
+    default: true
+detection_time:
+    description: How long since the last seen time before the device is marked away, specified in seconds.
+    type: int
+    required: optional
+    default: 300
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-<p class='note'>
-If you decide to install the Unifi Controller on the same system as your Home Assistant, be aware there may be overlap in ports if you have the MQTT component as well.
+### {% linkable_title Configuring Users %}
+
+The Unifi controller allows you to create multiple users on it besides
+the main administrator. It is recommended that you create a limitted
+user that has `read only` permissions for the unifi device tracker.
+
+### {% linkable_title Conflicts with MQTT %}
+
+The Unifi controller can either be a dedicated hardware device
+(Unifi's cloud key), or as software any Linux system. If you run the
+the Unifi controller on the same operating system as Home Assistant
+there may be conflicts in ports if you have the MQTT component as
+well.
+
+It is recommended that you run the Unifi controller in a dedicate
+virtual machine to avoid that situation.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
-</p>
