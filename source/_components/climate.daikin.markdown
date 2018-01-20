@@ -17,14 +17,15 @@ ha_iot_class: "Local Polling"
 
 The climate component integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 - **mode** (cool, heat, dry, fan only or auto)
-- **fan speed**
+- **fan speed** (on supported models)
 - **target temperature**
 - **swing mode** (on supported models)
 
 Current temperature is displayed.
 
 <p class='note warning'>
-    Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant
+    Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant.
+    BRP069A42 does not support setting of fan speed or fan swing mode.
 </p>
 
 ### Configuration ###
