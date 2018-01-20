@@ -38,6 +38,12 @@ Configuration variables:
 - **name** (*Required*): Friendly name of scene.
 - **entities** (*Required*): Entities to control.
 
+As you can see, there are two ways to define the states of each `entity_id`:
+- Either you define the `state` directly with the entity.
+- Or you define a complex state with its attributes.
+
+The mapping from states to services is done with the [state helper](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/state.py#L74). So, please have a look there for available states for your scenes.
+
 Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
 
 ```yaml
@@ -55,5 +61,5 @@ automation:
 ```
 
 <p class='note'>
-Please note that the scene component currently only supports one service call per entity to achieve the state. Due to this limitation you cannot set states belonging to different services.
+Please note that the scene component currently only supports one service call per entity to achieve the state. Due to this limitation you cannot set states belonging to different services. A workaround for this limitation is to write a script, which you then turn on in your scene.
 </p>
