@@ -84,8 +84,11 @@ data:
   homeassistant.components.media_player.yamaha: debug
 ```
 
-### {% linkable_title Service `dump_config` %}
+### {% linkable_title Services `dump_config` and `list_loggers` %}
 
-This service can be used to access the current configuration,
-which can be helpful for 3rd party developers to provide an interface for controlling logging.
+The `dump_config` service allows querying the log filter settings as defined in the configuration file,
+including the potential changes made with `set_level`.
+
+Instead of just giving information about already configured loggers,
+`list_loggers` returns a dictionary object containing all initialized loggers and their log levels.
 
