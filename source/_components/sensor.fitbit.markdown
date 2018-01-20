@@ -22,7 +22,6 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 sensor:
   - platform: fitbit
     clock_format: 12H
-    unit_system: metric
     monitored_resources:
       - "body/weight"
 ```
