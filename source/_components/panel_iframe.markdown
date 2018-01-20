@@ -40,7 +40,7 @@ panel_iframe:
     required: true
     type: map
     keys:
-      [panel_name]:
+      panel_name:
         description: Name of the panel. Only allowed once.
         required: true
         type: map
