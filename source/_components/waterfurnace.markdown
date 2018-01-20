@@ -33,7 +33,7 @@ To use Waterfurnace in your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 waterfurnace:
-  username: your@email.domain
+  username: you@example.com
   password: secr3tpassword
   unit: 0123456789AB
 ```
