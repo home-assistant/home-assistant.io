@@ -48,7 +48,6 @@ media_player:
     name: NAME
     show_all_sources: True / False
     timeout: POSITIVE INTEGER
-    sound_mode: True
     sound_mode_dict: {'MUSIC':'PLII MUSIC', 'MOVIE':'PLII MOVIE', 'GAME':'PLII GAME'}
     zones:
       - zone: Zone2 / Zone3
@@ -62,7 +61,7 @@ Configuration variables:
 - **show_all_sources** (*Optional*): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case this option could help.
 - **timeout** (*Optional*): Timeout for HTTP requests to the receiver. Defaults to 2 seconds if not provided.
 - **sound_mode** (*Optional*)(*boolean*): Flag that defines if sound mode is supported. Default value: True.
-- **sound_mode_dict** (*Optional*): Dictonary containing the sound modes that are supported, the key needs to be identical with the command to set a specific sound mode and the corresponding value needs to be the sound mode as reported by the AVR. Default value: {'MUSIC':'PLII MUSIC', 'MOVIE':'PLII MOVIE', 'GAME':'PLII GAME', 'PURE DIRECT':'DIRECT', 'AUTO':'None', 'DOLBY DIGITAL':'DOLBY DIGITAL', 'MCH STEREO':'MULTI CH STEREO', 'STEREO':'STEREO'}
+- **sound_mode_dict** (*Optional*): Dictionary containing the sound modes that are supported, the key needs to be identical with the command to set a specific sound mode and the corresponding value needs to be the sound mode as reported by the AVR. Default value: {'MUSIC':'PLII MUSIC', 'MOVIE':'PLII MOVIE', 'GAME':'PLII GAME', 'PURE DIRECT':'DIRECT', 'AUTO':'None', 'DOLBY DIGITAL':'DOLBY DIGITAL', 'MCH STEREO':'MULTI CH STEREO', 'STEREO':'STEREO'}
 - **zones** (*Optional*): List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports
   - **zone**: Zone which should be activated. Valid options are Zone2 and Zone3
   - **name** (*Optional*): Name of the zone. If not set the name of the main device + zone as suffix is taken.
@@ -72,6 +71,6 @@ A few notes:
 - Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
 - denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.
-- The key-value structure in the sound_mode_dict is needed because the commands to set an sound mode and the reported sound mode are diffrent. This structure matches the reported sound mode with the commands to set a sound mode.
+- The key-value structure in the sound_mode_dict is needed because the commands to set an sound mode and the reported sound mode are different. This structure matches the reported sound mode with the commands to set a sound mode.
 
 [Denon]: /components/media_player.denon/
