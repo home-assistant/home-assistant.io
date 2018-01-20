@@ -12,7 +12,6 @@ ha_category: Presence Detection
 ha_release: 0.14
 ---
 
-
 This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
@@ -35,7 +34,7 @@ password:
     type: string
     required: true
 host:
-    description:  The hostname or IP address of your controller
+    description: The hostname or IP address of your controller
     default: localhost
     type: string
     required: false
@@ -45,12 +44,12 @@ port:
     type: int
     required: false
 site_id:
-    description: for multisite installations, you can specify `site_id` to specify which is used
+    description: For multisite installations, you can specify `site_id` to specify which is used
     type: string
     required: false
     default: default
 verify_ssl:
-    description: whether to do strict validation on SSL certificates of the unifi controller. This can be true/false or the path to a locally trusted certificate to use for verification (i.e. "/path/to/custom_cert.pm")
+    description: Whether to do strict validation on SSL certificates of the Unifi controller. This can be true/false or the path to a locally trusted certificate to use for verification (i.e. "/path/to/custom_cert.pm")
     type: boolean or filename
     required: false
     default: true
@@ -66,8 +65,8 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 ### {% linkable_title Configuring Users %}
 
 The Unifi controller allows you to create multiple users on it besides
-the main administrator. It is recommended that you create a limitted
-user that has `read only` permissions for the unifi device tracker.
+the main administrator. It is recommended that you create a limited
+user that has `read-only` permissions for the Unifi device tracker.
 
 ### {% linkable_title Conflicts with MQTT %}
 
