@@ -222,6 +222,25 @@ This example plays the sound of a dog barking when the button is held down and s
       gw_mac: xxxxxxxxxxxx
 ```
 
++### {% linkable_title Double Click on Smart Button %}
+ +
+ +This example toggles the living room lamp on a double click of the button.
+ +
+ +```yaml
+ +- alias: Double Click to toggle living room lamp
+ +  trigger:
+ +    platform: event
+ +    event_type: click
+ +    event_data:
+ +      entity_id: binary_sensor.switch_158d000xxxxxc2
+ +      click_type: double
+ +  action:
+ +    service: light.toggle
+ +    data:
+ +      entity_id: light.living_room_lamp
+ +```
+ +
+
 ## {% linkable_title Troubleshooting %}
 
 ### {% linkable_title Initial setup problem %}
