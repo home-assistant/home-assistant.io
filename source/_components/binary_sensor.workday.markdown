@@ -28,8 +28,8 @@ binary_sensor:
 Configuration variables:
 
 - **name** (*Optional*): A name for this sensor. Defaults to *Workday Sensor*
-- **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.8.1) notation.
-- **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.8.1) notation. Defaults to None.
+- **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.3) notation.
+- **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.3) notation. Defaults to None.
 - **workdays** (*Optional*): List of workdays. Defaults to `mon`, `tue`, `wed`, `thu`, `fri`.
 - **excludes** (*Optional*): List of workday excludes. Defaults to `sat`, `sun`, `holiday`.
 - **days_offset** (*Optional*): Set days offset. Defaults to `0`.
