@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Waterfurnace"
-description: "Instructions on how to integrate Waterfurnace Geothermal System into Home Assistant."
+title: "WaterFurnace"
+description: "Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant."
 date: 2018-01-19 17:00
 sidebar: true
 comments: false
@@ -13,8 +13,8 @@ ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-The `Waterfurnace` component communicates with the Waterfurnace
-Symphony website's websocket to show you many of the sensors in your
+The `waterfurnace` component communicates with the WaterFurnace
+Symphony website's WebSocket to show you many of the sensors in your
 system. While not an official API, this is the same backend the
 Symphony website is based on, and should be reasonably stable.
 
@@ -33,22 +33,22 @@ To use Waterfurnace in your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 waterfurnace:
-  username: email
-  password: password
-  unit: serialnumber
+  username: your@email.domain
+  password: secr3tpassword
+  unit: 0123456789AB
 ```
 
 {% configuration %}
 username:
-    description: The email address for your symphony waterfurnace account
+    description: The email address for your Symphony WaterFurnace account
     required: true
     type: string
 password:
-    description: The password for your symphony waterfurnace account
+    description: The password for your Symphony WaterFurnace account
     required: true
     type: string
 unit:
-    description: The unit serial number for your waterfurnace
+    description: The unit serial number for your WaterFurnace
     required: true
     type: string
 {% endconfiguration %}
@@ -56,8 +56,8 @@ unit:
 
 #### {% linkable_title Limitations %}
 
-The websocket interface used by this module requires active polling,
-otherwise the server side shuts down the connection. By default this
+The WebSocket interface used by this module requires active polling,
+otherwise the server side shuts down the connection. By default, this
 polling is happening every 10 seconds. All sensors are updated during
 every polling cycle.
 
