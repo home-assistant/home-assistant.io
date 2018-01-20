@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Front end
-ha_release: 0.62
+ha_release: 0.13
 ---
 
 The `weblink` component allows you to display links in the Home Assistant frontend.
@@ -34,7 +34,7 @@ name:
   required: true
   type: string
 url:
-  description: The URL (full url or absolute adress) for the link.
+  description: The URL (absolute URL or absolute path) for the link.
   required: true
   type: string
 icon:
