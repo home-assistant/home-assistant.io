@@ -67,7 +67,7 @@ Add the above URL after you modified it with your settings into the **URL** fiel
 - It's HIGHLY recommended to use SSL/TLS.
 - Use the domain that Home Assistant is available on the internet or the public IP address. Can be a local IP address if you are using a VPN setup.
 - Only remove `[Port]` if your Home Assistant instance is using port 80. Otherwise set it to 8123.
-- Click on **Parameters** in the app and you will see all available parameters for the URL. For Home Assistant only the above URL will work.
+- For Home Assistant only the above URL, as written, will work - do not add or remove any parameters.
 - Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your pasword]` to the end of the URL. 
 - You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
 
