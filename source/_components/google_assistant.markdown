@@ -18,7 +18,7 @@ The `google_assistant` component allows you to control things via Google Assista
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 <p class='note'>
-To use Google Assistant, your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven't already configured that you should do so before continuing.
+To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
 
 To enable this, add the following lines to your `configuration.yaml` file:
@@ -63,7 +63,7 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:
@@ -102,7 +102,7 @@ entity_config:
           required: false
           type: list
         type:
-          description: Override how Google Assistant will interpretet the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
+          description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
           required: false
           type: string
 {% endconfiguration %}
