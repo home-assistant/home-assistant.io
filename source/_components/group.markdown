@@ -22,7 +22,7 @@ By default, every group appears in the HOME tab. If you create a group `default_
 group:
   default_view:
     view: yes
-    icon: mdi:home 
+    icon: mdi:home
     entities:
       - group.kitchen
       - group.awesome_people
@@ -56,7 +56,7 @@ group:
 
 Configuration variables:
 
-- **view** (*Optional*): If yes then the entry will be shown as a view (tab) at the top.
+- **view** (*Optional*): If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views.
 - **name** (*Optional*): Name of the group.
 - **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text.  If it's not a view, then the icon shows when this group is used in another group.
 - **control** (*Optional*): Set value to `hidden`. If hidden then the group switch will be hidden.
@@ -69,7 +69,7 @@ Example of groups shown as views in the frontend.
 
 If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once. If you want to hide this switch, set `control` to `hidden`.
 
-You can create views (tabs) that contain other groups.
+You can create views (tabs) that contain other groups (but not other groups which are marked as `view: yes`).
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
 
 ```yaml
@@ -86,7 +86,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
     entities:
       - group.living_room
       - group.bedroom
-``` 
+```
 
 ## {% linkable_title Default groups %}
 
