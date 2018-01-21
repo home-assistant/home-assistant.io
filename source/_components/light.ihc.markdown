@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: ihc.png
 ha_category: Light
-ha_release: 0.59
+ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-Before you can use the IHC Light platform, you must setup the [IHC Component](../ihc/)
+Before you can use the IHC Light platform, you must setup the [IHC Component](/components/ihc/)
 
 When auto setup is enabled the following products will be found in the IHC project and setup as light devices:
 
@@ -39,12 +39,26 @@ light:
       ...
 ```
 
-Configuration variables:
-- **dimmable** (*Optional*): Default false. Set to True if the IHC resource is a light level
-- **id** (*Required*): The IHC resource id.
-- **lights** (*Optional*): List of lights to setup manually
-- **name** (*Optional*): The name of the component.
+{% configuration %}
+lights:
+  description: List of lights to setup manually
+  required: false
+  type: map
+  keys:
+    dimmable:
+      description: Default false. Set to True if the IHC resource is a light level
+      required: false
+      type: bool
+    id:
+      description: The IHC resource id.
+      required: true
+      type: int
+    name:
+      description: The name of the component
+      required: false
+      type: string
+{% endconfiguration %}
 
 In the example above 12345 is ihc resource id and "tablelight" is the name. 
 The IHC resource id can be a light level for dimmers or an boolean output of a relay. 
-For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)

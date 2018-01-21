@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: ihc.png
 ha_category: Switch
-ha_release: 0.59
+ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-Before you can use the IHC Switch platform, you must setup the [IHC Component](../ihc/)
+Before you can use the IHC Switch platform, you must setup the [IHC Component](/components/ihc/)
 
 When auto setup is enabled the following products will be found in the ihc project and setup as switch devices:
 
@@ -35,12 +35,22 @@ switch:
         ....
 ```
 
-Configuration variables:
-- **auto_setup** (*Optional*): True to have IHC products auto setup.
-- **id** (*Required*): The IHC resource id.
-- **name** (*Optional*): The name of the component.
-- **switches** (*Optional*): List of switches to setup manually
+{% configuration %}
+switches:
+  description: List of switches to setup manually
+  required: false
+  type: map
+  keys:
+    id:
+      description: The IHC resource id.
+      required: true
+      type: int
+    name:
+      description: The name of the component
+      required: false
+      type: string
+{% endconfiguration %}
 
 The resource id should be a boolean resource. (On/Off)
-For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
 

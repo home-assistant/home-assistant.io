@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: ihc.png
 ha_category: Hub
-ha_release: "0.59"
+ha_release: "0.62"
 ha_iot_class: "Local Push"
 ---
 
 IHC Controller integration for Home Assistant allows you to connect the LK IHC controller to Home Assistant. 
-(The controller is sold under other names in different countries - "ELKO Living system" in Sweeden and Norway)
+(The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway)
 
 An `ihc` section must be present in the `configuration.yaml` file and contain the following options:
 
@@ -27,13 +27,29 @@ ihc:
    auto_setup: True
    info: True
 ```
-Configuration variables:
 
-- **auto_setup** (*Optional*): True to have IHC products auto setup.
-- **host** (*Required*): The url of the IHC Controller.
-- **info** (*Optional*): If True additional ihc info will be shown on each component.
-- **password** (*Required*): The password for the IHC Controller.
-- **username** (*Required*): The username for the IHC Controller.
+{% configuration %}
+auto_setup:
+  description: True to have IHC products auto setup.
+  required: false
+  type: bool
+host:
+  description: The URL of the IHC Controller.
+  required: true
+  type: string
+info:
+  description: If True additional IHC info will be shown on each component.
+  required: false
+  type: bool
+password:
+  description: The password for the IHC Controller.
+  required: true
+  type: string
+username:
+  description: The username for the IHC Controller.
+  required: true
+  type: string
+{% endconfiguration %}
 
 The info option will show the IHC "name", "note" and "position" attributes. 
 This will make it easier to identify the IHC products within Home Assistant
@@ -47,20 +63,20 @@ There is currently support for the following device types within Home Assistant:
 
 ### Auto setup of IHC products
 
-If auto setup is enabled, the ihc component will automatically find IHC products and insert these as devices in Home Assistant.
+If auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant.
 To disable this set auto_setup to False. (Auto setup is on by default)
-See the individual device types for a list of IHC products to be regocnized automatically.
+See the individual device types for a list of IHC products to be recognized automatically.
 
 Components will get a default name that is a combination of the IHC group and IHC resource id.
-If you want to change the display names use the [Customizing entities](../../docs/configuration/customizing-devices/)
+If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/)
 
 ### {% linkable_title Manualy setup %}
 
 Each device is associated with an IHC resource id.
 To manually setup components you specify resource ids from the IHC project.
 (The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand).
-The project file is a XML file and you can view it with any text/xml editor. 
-You can rename it to have the xml extension and use a browser like Chrome or Internet Explorer.
+The project file is an XML file and you can view it with any text/XML editor. 
+You can rename it to have the XML extension and use a browser like Chrome or Internet Explorer.
 The resources are the \<airlink_xxx> or \<dataline_xxx> eleements.
 Shown as inputs or outputs of products in the IHC application.
 You can also use inputs and outputs from function blocks.

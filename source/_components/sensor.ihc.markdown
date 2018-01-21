@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: ihc.png
 ha_category: Sensor
-ha_release: 0.59
+ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-Before you can use the IHC Sensor platform, you must setup the [IHC Component](../ihc/)
+Before you can use the IHC Sensor platform, you must setup the [IHC Component](/components/ihc/)
 
 When auto setup is enabled the following products will be found in the IHC project and setup as sensors:
 
@@ -29,18 +29,31 @@ sensor:
     sensors:
       - id: 12345
         name: 'mysensor'
-        type: 'Temperature'
         unit_of_measurement: '°C'
       - id: 12346
         ...
 ```
-Configuration variables:
-- **id** (*Required*): The IHC resource id.
-- **name** (*Optional*): The name of the component.
-- **sensors** (*Optional*): List of sensors to setup manually
-- **type** (*Optional*): The sensor type
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+
+{% configuration %}
+sensors:
+  description: List of sensors to setup manually
+  required: false
+  type: map
+  keys:
+    id:
+      description: The IHC resource id.
+      required: true
+      type: int
+    name:
+      description: The name of the component
+      required: false
+      type: string
+    unit_of_measurement:
+      description: Defines the unit of measurement of the sensor, if any.
+      required: false
+      type: string
+{% endconfiguration %}
 
 The resource id should be a IHC float resource.
-For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
 

@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: ihc.png
 ha_category: Binary Sensor
-ha_release: 0.59
+ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-Before you can use the IHC Binary Sensor platform, you must setup the [IHC Component](../ihc/)
+Before you can use the IHC Binary Sensor platform, you must setup the [IHC Component](/components/ihc/)
 
 When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
 
@@ -39,13 +39,30 @@ binary_sensor:
            ...
 ```
 
-Configuration variables:
-- **binary_sensors** (*Optional*): List of binary sensors to setup manually.
-- **id** (*Required*): The IHC resource id.
-- **inverting** (*Optional*): If True the sensor will be inverted. Default False.
-- **name** (*Optional*): The name of the component.
-- **type** (*Optional*): The binary sensor type. See [Home Assistant binary sensor](../binary_sensor/) for available types.
+{% configuration %}
+binary_sensors:
+  description: List of binary sensors to setup manually.
+  required: false
+  type: map
+  keys:
+    id:
+      description: The IHC resource id.
+      required: true
+      type: int
+    inverting:
+      description: If True the sensor will be inverted. Default False.
+      required: false
+      type: bool
+    name:
+      description: The name of the component
+      required: false
+      type: string
+    type:
+      description: The binary sensor type. See [Home Assistant binary sensor](/components/binary_sensor/) for available types.
+      required: false
+      type: string
+{% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource.
-For more information about IHC resource ids see [Manual Setup](../ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
 
