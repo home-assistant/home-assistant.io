@@ -3,12 +3,12 @@ layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC(s) with Home Assistant."
 date: 2017-12-03 05:00
-sidebar: false
+sidebar: True
 comments: false
 sharing: true
 footer: true
-logo: N/A
-ha_category: Climate
+logo: daikin.svg
+ha_category: Sensor
 ha_release: 0.59
 ha_iot_class: "Local Polling"
 ---
