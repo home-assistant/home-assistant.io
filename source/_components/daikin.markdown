@@ -3,12 +3,12 @@ layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Hive devices with Home Assistant."
 date: 2017-12-10 21:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: N/A
-ha_category: Climate
+logo: daikin.svg
+ha_category: Hub
 ha_release: 0.59
 ha_iot_class: "Local Polling"
 ---
