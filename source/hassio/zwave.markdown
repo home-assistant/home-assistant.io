@@ -16,19 +16,20 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt`:
+### RAZBERRY BOARD
+
+If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly; simply plug it into your PC and edit it there):
 
 ```
 dtoverlay=pi3-miniuart-bt
 ```
 
-For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
+After that, you need to change `usb_path` to `/dev/ttyAMA0` in your `configuration.yaml`.
 
-```bash
-$ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
+```yaml
+zwave:
+  usb_path: /dev/ttyAMA0
 ```
-
-After that, you need to change `usb_path` to `/dev/ttyAMA0`.
 
 ### HUSBZB-1:
 

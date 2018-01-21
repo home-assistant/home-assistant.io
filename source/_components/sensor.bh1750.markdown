@@ -26,7 +26,7 @@ To use your BH1750 sensor in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: BH1750
+  - platform: bh1750
 ```
 
 Configuration variables:

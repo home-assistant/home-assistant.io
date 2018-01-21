@@ -14,7 +14,11 @@ ha_release: 0.7.4
 ---
 
 
-This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on Android and iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+
+<p class='note'>
+The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT.
+</p>
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
 
@@ -32,6 +36,9 @@ Configuration variables:
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
 - **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant.  This would be the `username` portion of the Base Topic Name, (e.g. owntracks/**username**/iPhone). Defaults to all users who are connected to Home Assistant via Owntracks.
 - **secret** (*Optional*): [Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present.
+- **mqtt_topic** (*Optional*): The topic to subscribe for Owntracks updates on your MQTT instance (defaults to `owntracks/#`).
+- **events_only** (*Optional*): Home Assistant will ignore all location updates and rely solely on geofence enter/leave events.
+- **region_mapping** (*Optional*): Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`.
 
 A full sample configuration for the `owntracks` platform is shown below:
 
@@ -41,9 +48,14 @@ device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
     waypoints: True
+    mqtt_topic: "owntracks/#"
+    events_only: True
     waypoint_whitelist:
       - jon
       - ram
+    region_mapping:
+      cabin: home
+      office: work
 ```
 
 ### {% linkable_title Using Owntracks with other device trackers %}

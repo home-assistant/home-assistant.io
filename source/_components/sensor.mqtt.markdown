@@ -25,14 +25,58 @@ sensor:
     state_topic: "home/bedroom/temperature"
 ```
 
-Configuration variables:
-
-- **state_topic** (*Required*): The MQTT topic subscribed to receive sensor values.
-- **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **expire_after** (*Optional*): Defines the number of seconds after the value expires if it's not updated. Default is 0 (=never expire).
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+{% configuration %}
+state_topic:
+  description: The MQTT topic subscribed to receive sensor values.
+  required: true
+  type: string
+name:
+  description: Name of the MQTT sensor.
+  required: false
+  type: string
+  default: MQTT Sensor
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: int
+  default: 0
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+expire_after:
+  description: Defines the number of seconds after the value expires if it's not updated.
+  required: false
+  type: int
+  default: 0
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: False
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  reqired: false
+  type: list, string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

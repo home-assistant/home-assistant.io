@@ -26,15 +26,19 @@ device_tracker:
     host: 192.168.1.1
     username: admin
     password: YOUR_PASSWORD
+    new_device_defaults:
+      track_new_devices: True
+      hide_if_away: False
+
 ```
 
 The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `track_new_devices` | True    | If new discovered devices are tracked by default                                                                                                                                                                                                                                                                                                                                          |
-| `interval_seconds`  | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
-| `consider_home`     | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (E.g. the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
+|----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `interval_seconds`   | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
+| `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (E.g. the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
+| `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `True`), `hide_if_away` (default: `False`)                                                                                                                                                                                                                                                     |
 
 The extended example from above would look like the following sample:
 
@@ -65,6 +69,10 @@ devicename:
   track: yes
   hide_if_away: no
 ```
+
+<p class='note warning'>
+  In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+</p>
 
 | Parameter      | Default                       | Description                                                                                             |
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|

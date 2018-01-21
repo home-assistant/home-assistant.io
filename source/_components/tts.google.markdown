@@ -24,7 +24,8 @@ tts:
 
 Configuration variables:
 
-- **language** (*Optional*): The language to use. Defaults to `en`. 
+- **language** (*Optional*): The language to use. Defaults to `en`.
+  - [Complete list of supported languages](https://cloud.google.com/speech/docs/languages).
 
 A full configuration sample:
 
@@ -35,7 +36,7 @@ tts:
     language: 'de'
 ```
 
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `html` component as follows:
+If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` component as follows:
 
 ```yaml
 #Example configuration.yaml entry

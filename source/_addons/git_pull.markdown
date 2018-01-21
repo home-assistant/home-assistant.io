@@ -13,7 +13,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
 
 ```json
 {
-  "repository": "https://example.com/my_configs",
+  "repository": "https://example.com/my_configs.git",
   "auto_restart": false,
   "repeat": {
     "active": false,
@@ -32,7 +32,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
 }
 ```
 
-- **repository** (*Required*): GIT url to your repository.
+- **repository** (*Required*): GIT url to your repository. You have to add .git to your GITHub-Repository-URL (see example Config)
 - **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
 - **repeat/active** (*Optional*): Pull periodic for GIT updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
@@ -44,4 +44,8 @@ Load and update configuration files for Home Assistant from a GIT repository.
   * **ed25519**
   * **rsa**
   
-  The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using "rsa" protocol.
+The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using "rsa" protocol.
+  
+<p class='note warning'>
+You should only use this add-on if you do not have an existing configuration or if your existing configuration is already in a git repository. If the script does not find the necessary git files in your configuration folder, it will delete anything that might be there. Please ensure that there is a `.git` folder before using this. You can verify this by listing the items in the configuration folder including hidden files. The command is `ls -a /config`.
+</p>

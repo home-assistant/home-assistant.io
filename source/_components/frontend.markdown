@@ -19,6 +19,11 @@ frontend:
 ```
 
 {% configuration %}
+  javascript_version:
+    description: "Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
+    required: false
+    type: string
+    default: auto
   themes:
     description: Allow to define different themes. See below for further details.
     required: false
@@ -34,7 +39,11 @@ frontend:
             required: true
             type: [list, string]
   extra_html_url:
-    description: "List of addtional [resources](/developers/frontend_creating_custom_ui/) to load."
+    description: "List of addtional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
+    required: false
+    type: list
+  extra_html_url_es5:
+    description: "List of addtional [resources](/developers/frontend_creating_custom_ui/) to load in `es5` javascript mode."
     required: false
     type: list
   development_repo:
@@ -101,8 +110,12 @@ automation:
 
 ### {% linkable_title Manual Theme Selection %}
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under **General**  called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
+<p class='img'>
+  <img src='/images/frontend/choose-theme.png' />
+  Set a theme
+</p>
 
 ## {% linkable_title Loading extra HTML %}
 
@@ -118,4 +131,13 @@ frontend:
     - /file2.html
 ```
 
-Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels)
+Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels).
+
+### {% linkable_title Manual Language Selection %}
+
+The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select a one from "Choose a Language". It will be applied immediately.
+
+<p class='img'>
+  <img src='/images/frontend/choose-language.png' />
+  Choose a Language
+</p>

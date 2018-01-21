@@ -71,7 +71,7 @@ history:
       - media_player
 ```
 
-Use the `include` list to define the domains/entities to display, and exclude some of them with in the `exclude` list. This makes sense if you for instance include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.
+Use the `include` list to define the domains/entities to display, and exclude some of them within the `exclude` list. This makes sense if you, for instance, include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.  Note that the order of any `include` `entities` will be displayed as listed in the configuration, otherwise, the display order is arbitrary.
 
 ```yaml
 # Example configuration.yaml entry with include and exclude
@@ -86,6 +86,21 @@ history:
      - sensor.last_boot
      - sensor.date
 ```
+
+If you'd like the order of display of the sensors to follow the way
+they are listed in the included entity list, you can set the flag
+`use_include_order` to True.
+
+```yaml
+# Example configuration.yaml entry using specified entity display order
+history:
+  use_include_order: True
+  include:
+    entities:
+      - sun.sun
+      - light.front_porch
+```
+
 
 #### {% linkable_title Implementation details %}
 

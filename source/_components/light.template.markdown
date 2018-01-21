@@ -42,7 +42,7 @@ light:
 {% endraw %}
 
 {% configuration %}
-  switches:
+  lights:
     description: List of your lights.
     required: true
     type: map
@@ -51,10 +51,6 @@ light:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the light will try to update its state.
-        required: false
-        type: [string, list]
       value_template:
         description: Defines a template to get the state of the light.
         required: false

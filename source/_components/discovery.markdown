@@ -35,6 +35,8 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [SABnzbd downloader](https://home-assistant.io/components/sensor.sabnzbd/)
  * [Samsung TVs](https://home-assistant.io/components/media_player.samsungtv/)
  * [Sonos speakers](https://home-assistant.io/components/media_player.sonos/)
+ * [Telldus Live](https://home-assistant.io/components/tellduslive/)
+ * [Wink](https://home-assistant.io/components/wink/)
  * [Yamaha media player](https://home-assistant.io/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](https://home-assistant.io/components/light.yeelightsunflower/)
 
@@ -77,9 +79,11 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `tellduslive`: Telldus Live
+ * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
- 
+
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
@@ -94,7 +98,9 @@ If you are on Windows and you're using Python 3.5, download the [Netifaces](http
 </p>
 
 <p class='note'>
-If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
+If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
+  
+For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
 </p>
 
 If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.

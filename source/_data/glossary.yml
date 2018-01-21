@@ -27,17 +27,17 @@
 - topic: Template
   description: "A [template](/docs/automation/templating/) is an automation definition that can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
 - topic: Script
-  description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on"
+  description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
 - topic: Scene
   description: "[Scenes](/components/scene/) capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red." 
 - topic: HADashboard
   description: "[HADashboard](/docs/ecosystem/hadashboard/) is a modular, skinnable dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
 - topic: hass
-  description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is aslo the comand line tool for accessing"
+  description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command line tool."
 - topic: Hass.io
-  description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended"
+  description: "[Hass.io](/hassio/) is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration, and can easily be extended."
 - topic: Cookbook
-  description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community"
+  description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configuations together."
 - topic: Customize

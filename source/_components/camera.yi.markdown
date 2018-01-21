@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
-* Yi Home 17CN
+* Yi Home 17CN / 27US / 47US
 * Yi 1080p Home
 * Yi Dome
 * Yi 1080p Dome
@@ -26,9 +26,13 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### {% linkable_title Installing Alternative Firmware %}
 
-In order to integrate the camera with Home Assitant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
+
+ <p class='note warning'>
+Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
+</p>
 
 <p class='note warning'>
 Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
@@ -63,7 +67,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of the camera.
 - **password** (*Required*): The password to the FTP server on the camera (from above).
 - **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
-- **username** (*Optional*): The user that can access the FTP server. Ddefaults to `root`.
+- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g. image quality or video filter options).
 
 ## {% linkable_title Image quality %}

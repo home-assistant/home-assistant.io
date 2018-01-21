@@ -42,8 +42,10 @@ http:
   ssl_key: /ssl/privkey.pem
 ```
 
-If you use a other port as `8123` or a SSL proxy, change the port number.
+If you use a port other than `8123` or an SSL proxy, change the port number accordingly.
 
 ## {% linkable_title Router configuration %}
 
 You'll need to forward the port you listed in your configuration (8123 in the example above) on your router to your Home Assistant system. You can find guides on how to do this on [Port Forward](https://portforward.com/) - noting that you'll only need to forward the TCP port.
+
+Ensure that you allocate the Home Assistant system a fixed IP on your network before you configure port forwarding. You can do this either on the computer itself (see the [install guide](/hassio/installation/) or via a static lease on your router.

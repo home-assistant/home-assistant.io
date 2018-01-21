@@ -17,20 +17,22 @@ Home Assistant contains a WebSocket API. This API can be used to stream informat
 
 Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
 
+If you are not using the [`frontend`](/components/frontend/) in your setup then you need to add the [`websocket_api` component](/components/websocket_api/) to your `configuration.yaml` file to use the WebSocket API. 
+
 ## {% linkable_title Server states %}
 
- 1. Client connects
+ 1. Client connects.
  2. Authentication phase starts
-    - If no further authentication necessary for the user: go to 3
-    - Server sends `auth_required` message
-    - Client sends `auth` message
+    - If no further authentication necessary for the user: go to 3.
+    - Server sends `auth_required` message.
+    - Client sends `auth` message.
     - If `auth` message correct: go to 3.
     - Server sends `auth_invalid`. Go to 6.
- 3. Send `auth_ok` message
+ 3. Send `auth_ok` message.
  4. Authentication phase ends.
  5. Command phase starts.
-    a. Client can send commands.
-    b. Server can send results of previous commands.
+    1. Client can send commands.
+    2. Server can send results of previous commands.
  6. Client or server disconnects session.
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.

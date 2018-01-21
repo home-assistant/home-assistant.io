@@ -24,16 +24,41 @@ sensor:
   - platform: pyload
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: This is the IP address of your pyLoad download manager.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port your pyLoad interface uses.
+  required: false
+  type: int
+  default: 8000
+name:
+  description: The name to use when displaying this pyLoad instance.
+  required: false
+  type: string
+  default: 20
+username:
+  description: Your pyLoad username.
+  required: false
+  type: string
+password:
+  description: Your pyLoad password.
+  required: false
+  type: string
+ssl:
+  description: Enable SSL/TLS for the host.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
-- **host** (*Optional*): This is the IP address of your pyLoad download manager, eg. 192.168.0.100. Defaults to `localhost`.
-- **port** (*Optional*): The port your pyLoad interface uses. Defaults to 8000.
-- **name** (*Optional*): The name to use when displaying this pyLoad instance.
-- **username** (*Optional*): Your pyLoad username.
-- **password** (*Optional*): Your pyLoad password.
 
 If everything is setup correctly, the download speed will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/components/pyload/pyload_speed.png' />
 </p>
+

@@ -29,5 +29,5 @@ Configuration variables:
 - **password** (*Required*): Password for the Neato account.
 
 <p class='note'>
-The Home Assistant Neato platform has only be tested with a Botvac Connected. There is no support for the Botvac D3 Connected and Botvac D5 Connected robots at this time.
+After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. The start/stop functionality does not work. More information on how to update here: https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-
 </p>

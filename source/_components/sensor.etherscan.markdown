@@ -25,7 +25,15 @@ sensor:
     address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
 ```
 
-Configuration variables:
+{% configuration %}
+address:
+  description: Ethereum wallet address to watch.
+  required: true
+  type: string
+name:
+  description: The name of the sensor used in the frontend.
+  required: false
+  type: string
+  default: Ethereum Balance
+{% endconfiguration %}
 
-- **address** (*Required*): Ethereum wallet address to watch.
-- **name** (*Optional*): The name of the sensor used in the frontend.

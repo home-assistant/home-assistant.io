@@ -14,7 +14,7 @@ Interacts with media players on your network. Please check the sidebar for a ful
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -58,11 +58,11 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 #### {% linkable_title Service `media_player/shuffle_set` %}
 
-Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), and [Universal](/components/media_player.universal/).
+Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), [Squeezebox](/components/media_player.squeezebox/) and [Universal](/components/media_player.universal/).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
-| `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle            |
+| `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle        |
 
 

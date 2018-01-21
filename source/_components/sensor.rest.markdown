@@ -36,19 +36,65 @@ sensor:
     payload: '{ "device" : "heater" }'
 ```
 
-Configuration variables:
-
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is `GET`.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
-- **name** (*Optional*): Name of the REST sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
-- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the REST endpoint.
-- **password** (*Optional*): The password for accessing the REST endpoint.
-- **headers** (*Optional*): The headers for the requests.
+{% configuration %}
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+method:
+  description: The method of the request.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Name of the REST sensor.
+  required: false
+  type: string
+  default: REST Sensor
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  type: boolean
+  default: True
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: list, string
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  reqired: false
+  type: list, string
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: False
+{% endconfiguration %}
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
@@ -67,9 +113,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
-You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their http://ip.jsontest.com/ endpoint.
-
-To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
+You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
 ```yaml
 sensor:
@@ -82,8 +126,6 @@ sensor:
 ### {% linkable_title Single value from a local Glances instance %}
 
 The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
-
-Add something similar to the entry below to your `configuration.yaml` file:
 
 ```yaml
 sensor:
@@ -154,3 +196,63 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
+### {% linkable_title Fetch multiple JSON values and present them as attibutes %}
+
+[JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    resource: http://date.jsontest.com/
+    value_template: '{{ value_json.time }}'
+  - platform: template
+    sensors:
+      date:
+        friendly_name: 'Date'
+        value_template: '{{ states.sensor.json_time.attributes["date"] }}'
+      milliseconds:
+        friendly_name: 'milliseconds'
+        value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
+```
+{% endraw %}
+
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: OWM_report
+    json_attributes: 
+      - main
+      - weather
+    value_template: '{{ value_json["weather"][0]["description"].title() }}'
+    resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+  - platform: template
+    sensors:
+      owm_weather:
+        value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
+        icon_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png" }}'
+        entity_id: sensor.owm_report
+      owm_temp:
+        friendly_name: 'Outside temp'
+        value_template: '{{ states.sensor.owm_report.attributes.main["temp"]-273.15 }}'
+        unit_of_measurement: "°C"
+        entity_id: sensor.owm_report
+      owm_pressure:
+        friendly_name: 'Outside pressure'
+        value_template: '{{ states.sensor.owm_report.attributes.main["pressure"] }}'
+        unit_of_measurement: "hP"
+        entity_id: sensor.owm_report
+      owm_humidity:
+        friendly_name: 'Outside humidity'
+        value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
+        unit_of_measurement: "%"
+        entity_id: sensor.owm_report
+```
+{% endraw %}

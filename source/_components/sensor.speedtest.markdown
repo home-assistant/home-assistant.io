@@ -113,3 +113,5 @@ automation:
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - Entries under `monitored_conditions` only control what entities are available under home-assistant, it does not disable the condition from running.
+- If ran frequently, this component has the capability of using a very large amount of data. Frequent updates should be avoided on bandwidth capped connections. 
+- While running, network usage is fully utilized. This may have a negative affect on other devices in use the network such as gaming consoles or streaming boxes. 

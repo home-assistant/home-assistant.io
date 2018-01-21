@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Belkin WeMo Lights"
-description: "Instructions how to integrate Belkin WeMo LED lights into Home Assistant."
+description: "Instructions how to integrate Belkin WeMo LED lights and WeMo Dimmer Switch into Home Assistant."
 date: 2016-02-20 00:45
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.14
 ---
 
 
-The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F5Z0489/) LED lights from within Home Assistant.
+The `wemo` platform allows you to control your Belkin WeMo [LED lights](http://www.belkin.com/us/p/P-F5Z0489/) and [Smart Dimmer Switch](http://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/) from within Home Assistant.
 
 They will be automatically discovered if the discovery component is enabled.
 

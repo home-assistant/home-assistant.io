@@ -14,7 +14,7 @@ ha_release: 0.57
 
 The `timer` component aims to simplify automations based on (dynamic) durations.
 
-When a timer finishes or gets cancelled the corresponding events are fired. This allows you to diffferentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
+When a timer finishes or gets cancelled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
 
 <p class='note warning'>
 With the current implementation timers don't persist over restarts. After a restart they will be idle again, together with their initial configuration.
@@ -25,7 +25,7 @@ To add a timer to your installation, add the following to your `configuration.ya
 ```yaml
 # Example configuration.yaml entry
 timer:
-  timer:
+  laundry:
     duration: '00:01:00'
 ```
 
@@ -90,5 +90,44 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 {
   "entity_id": "timer.timer0"
 }
+```
+
+### {% linkable_title Configuration example %}
+
+```yaml
+# Example configuration.yaml entry
+
+# Set a timer called test to a duration of 30 seconds: 
+timer:
+  test:
+    duration: '00:00:30'
+```
+
+```yaml
+# Example automations.yaml entry
+- action:
+  - service: timer.start
+    entity_id: timer.test
+  alias: Timerswitch
+  id: 'Timerstart'
+
+# Timer is started when the switch pumprun is set to on. 
+  trigger: 
+    platform: state
+    entity_id: switch.pumprun
+    to: 'on'
+
+# When timer is stopped, the time run out, another message is sent
+- action:
+  - service: notify.nma
+    data:
+      message: "Timer stop"
+  alias: Timerstop
+  id: 'Timerstop'
+  trigger: 
+    platform: event
+    event_type: timer.finished
+    event_data: 
+      entity_id: timer.test
 ```
 

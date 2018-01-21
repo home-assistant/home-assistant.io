@@ -48,10 +48,6 @@ cover:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
-        required: false
-        type: [string, list]
       value_template:
         description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
@@ -201,9 +197,6 @@ cover:
           {% else %}
             mdi:window-closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 sensor:
   - platform: template
@@ -217,9 +210,6 @@ sensor:
           {% else %}
             closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 script:
   cover_group:

@@ -30,7 +30,7 @@ A `maxcube` section must be present in the `configuration.yaml` file and contain
 ```yaml
 # Example configuration.yaml entry
 maxcube:
-   host: 192.168.0.20
+  host: 192.168.0.20
 ```
 Configuration variables:
 - **host** (*Required*): The IP address of the eQ-3 MAX! Cube to use.
