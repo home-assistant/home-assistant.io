@@ -25,7 +25,8 @@ The sensor component integrates Daikin air conditioning systems into Home Assist
 
 ### Configuration ###
 
-Manual configuration and customization is possible by using the sample configuration from below:
+The component has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
+Manual configuration and customization is also possible by using the sample configuration from below:
 
 ```yaml
 # Example configuration.yaml entry
