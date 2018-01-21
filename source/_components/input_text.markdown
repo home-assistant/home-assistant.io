@@ -29,7 +29,7 @@ input_text:
     pattern: '[a-fA-F0-9]*'
   text4:
     name: Text 4
-    mode: password'
+    mode: 'password'
 ```
 
 {% configuration %}
