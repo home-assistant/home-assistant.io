@@ -18,13 +18,19 @@ ha_iot_class: "Local Polling"
 The component integrates Daikin air conditioning systems into Home Assistant.
 
 To automatically add all your Daikin devices (ACs and associated sensors) into your Home Assistant installation, add the following to your 'configuration.yaml' file:
+```yaml
+# Example configuration.yaml entry
+daikin:
+```
 
 <p class='note warning'>
     Please note, the Daikin platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant
 </p>
 
+A full manual configuration example is give below:
+
 ```yaml
-# Example configuration.yaml entry
+# Full manual example configuration.yaml entry
 daikin:
   hosts:
     - 192.168.4.161
@@ -38,7 +44,8 @@ daikin:
 {% configuration %}
 hosts:
   description: List of IP addresses or hostnames.
-  required: true
+  required: false
+  default: All discovered hosts
   type: array
 monitored_conditions:
   description: List of items you want to monitor for each device.
