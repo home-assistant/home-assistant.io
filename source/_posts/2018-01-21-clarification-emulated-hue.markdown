@@ -10,7 +10,7 @@ comments: true
 categories: Public Service Announcement
 ---
 
-There are some misconceptions floating about the future of the Emulated Hue component and I would like to set it straight. **The Emulated Hue component is not going to be removed nor will we ever remove any functionality from Home Assistant to push you to support the Home Assistant project by subscribing to the Community Support Package.**
+There are some misconceptions floating around about the future of the Emulated Hue component and I would like to set the record straight. **The Emulated Hue component is not going to be removed nor will we ever remove any functionality from Home Assistant to push you to support the Home Assistant project by subscribing to the Community Support Package.**
 
 The reason people are concerned about the future of the Emulated Hue component is because of a poor choice of words in a deprecation message. This message was [introduced a year ago][pr2] when we deprecated the config option `type: alexa` for the Emulated Hue component:
 
