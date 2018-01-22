@@ -199,4 +199,4 @@ light:
 
 - [MQTT JSON Light](https://github.com/mertenats/Open-Home-Automation/tree/master/ha_mqtt_rgbw_light_with_discovery) is another implementation for ESP8266 including [MQTT discovery](/docs/mqtt/discovery/).
 
-- [esphomelib](https://github.com/OttoWinter/esphomelib) is a library for ESP32-based boards that has many of Home Assistants MQTT features (like discovery) pre-implemented and provides high-level abstractions for components such as lights or sensors.
+- [esphomelib](https://github.com/OttoWinter/esphomelib) is a library for ESP32-based boards that has many of Home Assistant's MQTT features (like [discovery](/docs/mqtt/discovery/)) pre-implemented and provides high-level abstractions for components such as lights or sensors.
