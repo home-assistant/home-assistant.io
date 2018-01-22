@@ -56,7 +56,7 @@ Possible log severities are:
 
 ### {% linkable_title Log file location %}
 
-The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
+The log information is stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
 
 If you are a Hassbian user you can use the example below:
 
@@ -64,7 +64,7 @@ If you are a Hassbian user you can use the example below:
 $ tail -f /home/homeassistant/.homeassistant/home-assistant.log
 ```
 
-If you are a Hass.io user you can use the example below, whenlogged in through the ssh addon:
+If you are a Hass.io user you can use the example below, when logged in through the ssh addon:
 
 ```bash
 $ tail -f /config/home-assistant.log
