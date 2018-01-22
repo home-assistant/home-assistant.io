@@ -70,7 +70,7 @@ See the individual device types for a list of IHC products to be recognized auto
 Components will get a default name that is a combination of the IHC group and IHC resource id.
 If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/)
 
-### {% linkable_title Manualy setup %}
+### {% linkable_title Manual setup %}
 
 Each device is associated with an IHC resource id.
 To manually setup components you specify resource ids from the IHC project.

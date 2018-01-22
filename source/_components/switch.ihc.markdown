@@ -52,5 +52,5 @@ switches:
 {% endconfiguration %}
 
 The resource id should be a boolean resource. (On/Off)
-For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)
 

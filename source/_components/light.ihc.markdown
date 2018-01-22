@@ -46,9 +46,10 @@ lights:
   type: map
   keys:
     dimmable:
-      description: Default false. Set to True if the IHC resource is a light level
+      description: Set to True if the IHC resource is a light level
       required: false
       type: bool
+      default: false
     id:
       description: The IHC resource id.
       required: true
@@ -61,4 +62,4 @@ lights:
 
 In the example above 12345 is ihc resource id and "tablelight" is the name. 
 The IHC resource id can be a light level for dimmers or an boolean output of a relay. 
-For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)

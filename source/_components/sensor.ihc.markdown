@@ -55,5 +55,5 @@ sensors:
 {% endconfiguration %}
 
 The resource id should be a IHC float resource.
-For more information about IHC resource ids see [Manual Setup](/components/ihc/#manualy-setup)
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)
 
