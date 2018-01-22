@@ -56,10 +56,10 @@ This will make it easier to identify the IHC products within Home Assistant
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](../binary_sensor.ihc/) 
-- [Sensor](../sensor.ihc/) 
-- [Light](../light.ihc/) 
-- [Switch](../switch.ihc/) 
+- [Binary Sensor](/components/binary_sensor.ihc/) 
+- [Sensor](/components/sensor.ihc/) 
+- [Light](/components/light.ihc/) 
+- [Switch](/components/switch.ihc/) 
 
 ### Auto setup of IHC products
 
