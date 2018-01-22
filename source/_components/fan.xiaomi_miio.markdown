@@ -68,62 +68,62 @@ Turn the buzzer on.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_buzzer_off
 
 Turn the buzzer off.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_led_on
 
 Turn the led on.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_led_off
 
 Turn the led off.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_child_lock_on
 
 Turn the child lock on.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_child_lock_off
 
 Turn the child lock off.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
 ### Service fan/xiaomi_miio_set_led_brightness
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
-| `brightness`              |       no | Brightness, between 0 and 2.                          |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `brightness`              |       no | Brightness, between 0 and 2.                            |
 
 ### Service fan/xiaomi_miio_set_favorite_level
 
 Set the favorite level of the operation mode "favorite".
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specfici air purifier. Else targets all.  |
-| `level`                   |       no |  Level, between 0 and 16.                             |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `level`                   |       no | Level, between 0 and 16.                                |
