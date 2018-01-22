@@ -82,7 +82,7 @@ Field and entity are exclusive, i.e you can only use one in a request.
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 
-{ "entity": "light.light1", "data": {"name": "light2"}}
+{ "entity": "light.light1", "data": {"name": "light2"} }
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
