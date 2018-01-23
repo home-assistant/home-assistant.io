@@ -50,43 +50,7 @@ sources:
   required: false
   type: map
   keys:
-    1:
-      description: A valid source description
-      required: false
-      type: string
-    2:
-      description: A valid source description
-      required: false
-      type: string
-    3:
-      description: A valid source description
-      required: false
-      type: string
-    4:
-      description: A valid source description
-      required: false
-      type: string
-    5:
-      description: A valid source description
-      required: false
-      type: string
-    6:
-      description: A valid source description
-      required: false
-      type: string
-    7:
-      description: A valid source description
-      required: false
-      type: string
-    8:
-      description: A valid source description
-      required: false
-      type: string
-    9:
-      description: A valid source description
-      required: false
-      type: string
-    10:
+    [1-10]:
       description: A valid source description
       required: false
       type: string
