@@ -48,28 +48,48 @@ max_volume:
 sources:
   description: A list of mappings from sources to source name.
   required: false
-  type: list
+  type: map
   keys:
     1:
       description: A valid source description
+      required: false
+      type: string
     2:
       description: A valid source description
+      required: false
+      type: string
     3:
       description: A valid source description
+      required: false
+      type: string
     4:
       description: A valid source description
+      required: false
+      type: string
     5:
       description: A valid source description
+      required: false
+      type: string
     6:
       description: A valid source description
+      required: false
+      type: string
     7:
       description: A valid source description
+      required: false
+      type: string
     8:
       description: A valid source description
+      required: false
+      type: string
     9:
       description: A valid source description
+      required: false
+      type: string
     10:
       description: A valid source description
+      required: false
+      type: string
 {% endconfiguration %}
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
