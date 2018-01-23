@@ -11,27 +11,27 @@ footer: true
 
 Home Assistant contains a WebSocket API. This API can be used to stream information from a Home Assistant instance to any client that implements WebSocket. Implementations in different languages:
 
- - [JavaScript](https://github.com/home-assistant/home-assistant-js-websocket) - powers the frontend
- - [Python](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket-client.py) - CLI client using [`asyncws`](https://async-websockets.readthedocs.io/en/latest/)
- - [JavaScript/HTML](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket.html) - WebSocket connection in your browser 
+- [JavaScript](https://github.com/home-assistant/home-assistant-js-websocket) - powers the frontend
+- [Python](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket-client.py) - CLI client using [`asyncws`](https://async-websockets.readthedocs.io/en/latest/)
+- [JavaScript/HTML](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket.html) - WebSocket connection in your browser 
 
 Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
 
 ## {% linkable_title Server states %}
 
- 1. Client connects
- 2. Authentication phase starts
+1. Client connects
+1. Authentication phase starts
     - If no further authentication necessary for the user: go to 3
     - Server sends `auth_required` message
     - Client sends `auth` message
     - If `auth` message correct: go to 3.
     - Server sends `auth_invalid`. Go to 6.
- 3. Send `auth_ok` message
- 4. Authentication phase ends.
- 5. Command phase starts.
+1. Send `auth_ok` message
+1. Authentication phase ends.
+1. Command phase starts.
     1. Client can send commands.
-    2. Server can send results of previous commands.
- 6. Client or server disconnects session.
+    1. Server can send results of previous commands.
+1. Client or server disconnects session.
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.
 
@@ -216,7 +216,6 @@ The server will respond with a result message to indicate that unsubscribing was
   "result": null
 }
 ```
-
 
 ### {% linkable_title Calling a service %}
 

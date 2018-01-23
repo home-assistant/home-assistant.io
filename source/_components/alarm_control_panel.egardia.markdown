@@ -43,25 +43,25 @@ Note that this basic configuration will only enable you to read the armed/armed 
 You can change this, however, using the following procedure. This is a more advanced configuration.
 
 1. Log in into your alarm system's control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
-2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
-3. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. Refer to the [python-egardia repository](https://github.com/jeroenterheerdt/python-egardia) for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, home) by all means possible (all users, remotes, web login, app) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
-4. Once you have the codes, update your `configuration.yaml`:
-```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: egardia
-    host: YOUR_HOST
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    report_server_enabled: True
-    report_server_port: PORT_OF_EGARDIASERVER (optional, defaults to 52010)
-    report_server_codes:
-      arm: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
-      disarm: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
-      home: XXXXXXXXXXXXXXXX
-      triggered: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
-      ignore: XXXXXXXXXXXXXXXX
-```
+1. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
+1. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. Refer to the [python-egardia repository](https://github.com/jeroenterheerdt/python-egardia) for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, home) by all means possible (all users, remotes, web login, app) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
+1. Once you have the codes, update your `configuration.yaml`:
+    ```yaml
+    # Example configuration.yaml entry
+    alarm_control_panel:
+     - platform: egardia
+       host: YOUR_HOST
+       username: YOUR_USERNAME
+       password: YOUR_PASSWORD
+        report_server_enabled: True
+        report_server_port: PORT_OF_EGARDIASERVER (optional, defaults to 52010)
+        report_server_codes:
+          arm: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
+          disarm: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
+          home: XXXXXXXXXXXXXXXX
+          triggered: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
+          ignore: XXXXXXXXXXXXXXXX
+    ```
 
 Note that for *triggered*, *arm* and *disarm* multiple codes can be entered since each sensor triggers with a different code and each user of the system has its own arm and disarm codes. Also note that your system will do regular system checks which will be reported as well. Since Home Assistant provides no way of handling them properly, you can enter those codes as *ignore* (again, multiple codes can be used here). The egardia component will ignore these codes and continue returning the old status if it receives any of the codes that are listed as ignore. This is useful for example when you have armed your alarm at night: normally a system check will occur at least once during the night and if that code is not specified anywhere Home Assistant will set the status of the alarm to its default, which is unarmed. This is in fact wrong. Listing the code as ignore changes this behavior and Home Assistant will continue to show the status the alarm is in (disarm, arm, home, triggered) even when system checks occur.
 
