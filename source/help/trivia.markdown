@@ -27,7 +27,7 @@ The current logo was created by [Jeremy Geltman](http://jeremygeltman.com/). Fur
 
 Home Assistant is open source software and available under the [MIT](https://opensource.org/licenses/MIT) license.
 
-### {% linkable_title Numbers %} 
+### {% linkable_title Numbers %}
 
 This sections just contains some random numbers of the Home Assistant eco-system. Sorry, only the main repository counts.
 
@@ -36,10 +36,10 @@ This sections just contains some random numbers of the Home Assistant eco-system
 | [Gitter.io](https://discord.gg/c5DvZ4e) | 334 | 2367 |
 | [Forum posts](https://community.home-assistant.io/) | 352 | 33004 |
 | [Forum topics](https://community.home-assistant.io/) | 83 | 4863 |
-| [Forum members](https://community.home-assistant.io/) | 92 | 3931 | 
-| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 | 5239 | 
+| [Forum members](https://community.home-assistant.io/) | 92 | 3931 |
+| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 | 5239 |
 | [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 | 1424 |
-| Page views [ha.io](https://home-assistant.io) | 190,271 | 1,284,855 | 
+| Page views [ha.io](https://home-assistant.io) | 190,271 | 1,284,855 |
 
 ### {% linkable_title Commit per year %}
 
@@ -56,7 +56,7 @@ More details and statistics can be found on [Github](https://github.com/home-ass
 
 ### {% linkable_title First commit %}
 
-The first commit in `git` was made on Sep 17, 2013 by [Paulus Schoutsen](https://github.com/balloob). 
+The first commit in `git` was made on Sep 17, 2013 by [Paulus Schoutsen](https://github.com/balloob).
 
 ```bash
 commit d55e4d53cccc9123d03f45c53441e7cbfc58e515
