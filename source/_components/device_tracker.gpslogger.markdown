@@ -71,11 +71,11 @@ Add the above URL after you modified it with your settings into the **URL** fiel
 - Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your pasword]` to the end of the URL. 
 - You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
 
-If your battery drains fast then you can tune the performence of GPSLogger under **Performance** -> **Location providers** 
+If your battery drains fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers** 
 
 <p class='img'>
   <img width='300' src='/images/components/gpslogger/performance.png' />
   Performance
 </p>
 
-A request can be forced from the app to test if everything is working fine. A succesful request will update the `known_devices.yaml` file with the device's serial number.
+A request can be forced from the app to test if everything is working fine. A successful request will update the `known_devices.yaml` file with the device's serial number.

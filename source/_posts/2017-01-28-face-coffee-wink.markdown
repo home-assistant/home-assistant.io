@@ -120,7 +120,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Switch - Pilight: Implement echo config option ([@janLo])
 - Core: Support customize in packages ([@kellerza])
 - Switch - Flux: Allow disabling setting the brightness ([@rytilahti])
-- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no emtpy image ([@pvizeli], [@andrey-git], [@robbiet480])
+- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no empty image ([@pvizeli], [@andrey-git], [@robbiet480])
 - Climate: Hold mode ([@Duoxilian])
 - Switch - TPlink: No longer doing I/O in event bus ([@balloob])
 - Light - Insteon local: Improve Insteon configuration ([@wardcraigj])

@@ -16,7 +16,7 @@ For more information about each part in this overview, <a href='/blog/2014/12/26
 
  * Home Control is responsible for collecting information and controlling devices.
  * Home Automation triggers commands based on user configurations.
- * Smart Home triggers commands based on previous behaviour.
+ * Smart Home triggers commands based on previous behavior.
 
 <p class='img'>
   <a href='{{site_root}}/images/architecture/home_automation_landscape.png' name='landscape'>

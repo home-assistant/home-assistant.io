@@ -39,7 +39,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
 
-* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+* **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 

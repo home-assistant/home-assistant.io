@@ -29,7 +29,7 @@ Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant co
 
 ### {% linkable_title Aeotec Z-Stick %}
 
-It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behaviour it can be turned off.
+It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
 
 Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
 
