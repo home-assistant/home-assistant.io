@@ -114,7 +114,7 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1

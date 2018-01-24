@@ -27,14 +27,14 @@ With the Dominos Pizza integration made by [@wardcraigj] your home is now taking
 </p>
 
 ## {% linkable_title Shopping list tweaks %}
-[@balloob] has refreshed the shopping list UI to make it more usable. It's now possible to add items by typing, instead of just voice. Also editting has been made easier.
+[@balloob] has refreshed the shopping list UI to make it more usable. It's now possible to add items by typing, instead of just voice. Also editing has been made easier.
 
 ## {% linkable_title Entity picker %}
 [@balloob] improved the way if you want to pick an entity. In the automation editor, the script editor and the service section of the Developer Tools it's much easier to identify the right one! The automation editor will only suggest relevant entities.
 
 <p class='img'>
     <img src='/images/blog/2017-12-0.59/picker.png' alt='Screenshot of the Entity Picker.'>
-    Screenshot of the of the Enitity Picker.
+    Screenshot of the of the Entity Picker.
 </p>
 
 ## {% linkable_title Hass.io Add-ons %}

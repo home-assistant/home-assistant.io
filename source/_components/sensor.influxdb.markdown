@@ -50,7 +50,7 @@ Configuration variables for the server:
 
 ### {% linkable_title Full configuration %}
 
-The example configuration entry bellow create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
+The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`

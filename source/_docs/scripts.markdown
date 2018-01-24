@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Script Syntax"
-description: "Documention for the Home Assistant Script Syntax."
+description: "Documentation for the Home Assistant Script Syntax."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
