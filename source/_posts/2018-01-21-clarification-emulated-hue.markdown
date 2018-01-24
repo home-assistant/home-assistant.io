@@ -7,7 +7,7 @@ date_formatted: "January 21, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Public Service Announcement
+categories: Public-Service-Announcement
 ---
 
 There are some misconceptions floating around about the future of the Emulated Hue component and I would like to set the record straight. **The Emulated Hue component is not going to be removed nor will we ever remove any functionality from Home Assistant to push you to support the Home Assistant project by subscribing to the Community Support Package.**
