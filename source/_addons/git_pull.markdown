@@ -36,6 +36,8 @@ Load and update configuration files for Home Assistant from a GIT repository.
 - **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
 - **repeat/active** (*Optional*): Pull periodic for GIT updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
+- **deployment_user** (*Optional*): Username to use when authenticating to a repo with a username and password.
+- **deployment_password** (*Optional*): Password to use when authenticating to a repo.  Ignored if deployment_user is not set.
 - **deployment_key** (*Optional*): A private SSH key that will be used for communication during git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: `<user>@<host>:<repository path>`.
 - **deployment_key_protocol** (*Optional*): The key protocol. Default is "rsa". Valid protocols are:
 
