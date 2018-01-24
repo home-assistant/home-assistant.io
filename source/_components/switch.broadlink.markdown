@@ -21,6 +21,11 @@ To enable it, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 switch:
   - platform: broadlink
+    # friendly name of service - optional
+    # e.g 'ir_broadlink_learn_command'
+    # if not set,service name will be IP address + '_broadlink_learn_command'
+    # e.g '192_168_0_107_broadlink_learn_command'
+    friendly_name: 'IR'
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
 ```
@@ -30,8 +35,8 @@ Configuration variables:
 - **host** (*Required*): The hostname/IP address to connect to.
 - **mac** (*Required*):  Device MAC address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device.
-- **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`.
+- **friendly_name** (*Optional*): The name used to display the switch in the frontend. Service name will be `friendly_name + service_name`. If not set, service name will be `IP_address + service_name`
+- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini_3`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus`, `spmini3` or `mp1`.
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
@@ -48,7 +53,7 @@ Information about how to install on Windows can be found [here](https://home-ass
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
-Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+Choose Call Service from the Developer Tools. Choose the service `switch.[NAME]_broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -90,9 +95,9 @@ switch:
         friendly_name: "Phillips Tv"
         command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
         command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
-``` 
- 
-Example config for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` and `spminiplus` devices:
+```
+
+Example config for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spmini3` and `spminiplus` devices:
 
 ```yaml
 switch:
@@ -100,13 +105,13 @@ switch:
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     type:  sp1
-    friendly_name: 'Humidifier'
+    friendly_name: 'Humidifier1'
   - platform: broadlink
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     type:  sp2
-    friendly_name: 'Humidifier'
-``` 
+    friendly_name: 'Humidifier2'
+```
 
 Example config for `mp1` device:
 
@@ -126,9 +131,42 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
+### {% linkable_title Service `broadlink_learn_command` %}
+
+You can use the service `switch.[NAME]_broadlink_learn_command` to save IR packet with a custom ID .
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `packet_id` | no | a custom ID such as `tv_ok_button`.
+
+### {% linkable_title Service `broadlink_send_packet_by_id` %}
+
+You can use the service `switch.[NAME]_broadlink_send_packet_by_id` to send IR packet data by custom ID have learned before.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `packet_id` | no | a custom ID such as `tv_ok_button`.
+
+Example:
+
+```yaml
+script:
+  tv_select_source:
+  sequence:
+  - service: switch.ir_broadlink_send_packet_by_id
+    data:
+      packet_id: tv_input_menu
+  - service: switch.ir_broadlink_send_packet_by_id
+    data:
+      packet_id: tv_right_arrow
+  - service: switch.ir_broadlink_send_packet_by_id
+    data:
+      packet_id: tv_ok_button
+```
+
 ### {% linkable_title Service `broadlink_send_packet` %}
 
-You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
+You can use the service `switch.[NAME]_broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -140,12 +178,12 @@ Example:
 script:
   tv_select_source:
     sequence:
-      - service: switch.broadlink_send_packet_192_168_0_107
+      - service: switch.ir_broadlink_send_packet
         data:
           packet: 
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
-``` 
+```
 
 ### {% linkable_title Using E-Control Remotes %}
 
