@@ -23,8 +23,20 @@ sensor:
   - platform: linux_battery
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Friendly name to use for the frontend. Default to "Battery".
-- **battery** (*Optional*): Number of the battery. Default to `1`.
-- **system** (*Optional*): Your local system name. Support `android`. Default to `linux`.
+{% configuration %}
+name:
+  description: Friendly name to use for the frontend.
+  required: false
+  default: Battery
+  type: string
+battery:
+  description: Number of the battery.
+  required: false
+  default: 1
+  type: integer
+system:
+  description: "The local system type. Support `linux` and `android`."
+  required: false
+  default: linux
+  type: string  
+{% endconfiguration %}
