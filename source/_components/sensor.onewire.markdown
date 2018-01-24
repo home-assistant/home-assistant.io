@@ -25,13 +25,17 @@ Supported devices:
 - [DS2406/TAI-8570](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf) Temperature and pressure sensor made by AAG
 - [DS2438/B1-R1-A](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf) Temperature, pressure and humidity sensor by AAG
 
-The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using dedicated interface adapter (e.g [DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf)). 
+The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using dedicated interface adapter (e.g [DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf)). It can also be exposed on the network with the `owserver` protocol.
 
 #### Raspberry Pi setup
 In order ot setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire). Don't use the `mount_dir` option.
 
 #### Interface adapter setup
 When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](http://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
+
+#### Onewire server setup
+One wire devices can be exposed on the network with [owserver](http://owfs.org/index.php?page=owserver). When using an owserver, the `server`option must be configured with the hostname or ip of the server, the `port` option must correspond to the port of the server (default to `4304`). The `timeout`option can be used to prevent timeout (default to `2` seconds).
+
 
 <p class='note warning'>
 This component has been modified to work with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
@@ -68,4 +72,7 @@ Configuration variables:
 
 - **names** array (*Optional*): ID and friendly name of your sensors.
 - **mount_dir** (*Optional*): Location of device tree if owfs driver used.
+- **server** (*Optional*): Hostname or ip of the owserver
+- **port** (*Optional*): port of the owserver, used only if `server`option is not empty. Default to `4304`
+- **timeout** (*Optional*): Max time, in second, to read value from the server. Used only if `server`option is not empty. Default to `2`.
 
