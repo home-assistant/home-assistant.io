@@ -12,10 +12,15 @@ redirect_from: /hassio/addon_config/
 
 Each add-on is stored in a folder. The file structure looks like this:
 
-```
+```text
 addon_name/
-  Dockerfile
+  build.json
+  CHANGELOG.md
   config.json
+  Dockerfile
+  icon.png
+  logo.png
+  README.md
   run.sh
 ```
 
