@@ -43,6 +43,13 @@ Don't forget to save your new automation rule. In order for your saved automatio
 
 ## {% linkable_title Updating your configuration to use the editor %}
 
+First check that you have activated the configuration edor.
+
+```yaml
+# Activate the configuration edior
+config:
+```
+
 The automation editor reads and writes to the file `automations.yaml` in your [configuration](/docs/configuration/) folder. Make sure that you have set up the automation component to read from it:
 
 ```yaml
