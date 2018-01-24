@@ -17,11 +17,14 @@ This is a community curated list of frequently asked questions (FAQ) about the i
 {% assign categories = faq | map: 'ha_category' | uniq | sort %}
 
 {% for category in categories %}
+
 ## {% linkable_title {{ category }} %}
 
   {% for entry in faq %}
     {% if entry.ha_category == category %}
+
 ### {% linkable_title {{ entry.title }} %}
+
 {{entry.content}}
     {% endif %}
   {% endfor %}

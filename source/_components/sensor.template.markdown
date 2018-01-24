@@ -57,7 +57,7 @@ sensor:
         description: Defines a template for the icon of the sensor.
         required: false
         type: template
-      icon_template:
+      entity_picture_template:
         description: Defines a template for the entity picture of the sensor.
         required: false
         type: template

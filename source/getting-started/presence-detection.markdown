@@ -15,8 +15,8 @@ We care about privacy. Collected data is <b>only</b> stored in your instance of 
 
 Presence detection detects if people are home, which is the most valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:
 
- - Send me a notification when my child arrives at school
- - Turn on the AC when I leave work
+- Send me a notification when my child arrives at school
+- Turn on the AC when I leave work
 
 <p class='img'>
 <img src='/images/screenshots/map.png' />

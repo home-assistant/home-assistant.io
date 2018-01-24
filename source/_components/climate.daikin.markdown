@@ -27,7 +27,7 @@ Current temperature is displayed.
 Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant. BRP069A42 does not support setting of fan speed or fan swing mode.
 </p>
 
-The component has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
+The platform has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
 
 To enable the platform, add the following lines to your `configuration.yaml` file:
 

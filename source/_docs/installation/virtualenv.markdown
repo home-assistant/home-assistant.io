@@ -30,12 +30,16 @@ _(If you're on a Debian based system, you will need to install Python virtual en
     ```
     $ source bin/activate
     ```
- 4. Install Home Assistant:
+ 4. Install wheel:
+    ```
+    $ python3 -m pip install wheel
+    ```
+ 5. Install Home Assistant:
     ```
     $ python3 -m pip install homeassistant
-    ```
- 5. Configure it to [autostart](/docs/autostart/)
- 6. Or run Home Assistant manually:
+    ```    
+ 6. Configure it to [autostart](/docs/autostart/)
+ 7. Or run Home Assistant manually:
     ```
     $ hass --open-ui
     ```

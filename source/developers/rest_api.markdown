@@ -11,8 +11,8 @@ footer: true
 
 Home Assistant runs a web server accessible on port 8123.
 
-  * http://IP_ADDRESS:8123/ is an interface to control Home Assistant.
-  * http://IP_ADDRESS:8123/api/ is a Rest API.
+* http://IP_ADDRESS:8123/ is an interface to control Home Assistant.
+* http://IP_ADDRESS:8123/api/ is a Rest API.
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file in the [`http:` section](/components/http/)).
 
@@ -27,7 +27,7 @@ curl -X GET \
     http://IP_ADDRESS:8123/ENDPOINT
 ```
 
-Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. 
+Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. =
 
 ```python
 from requests import get
@@ -46,16 +46,17 @@ You can append `?api_password=YOUR_PASSWORD` to any URL to log in automatically.
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
 
- - 400 (Bad Request)
- - 401 (Unauthorized)
- - 404 (Not Found)
- - 405 (Method not allowed)
+- 400 (Bad Request)
+- 401 (Unauthorized)
+- 404 (Not Found)
+- 405 (Method not allowed)
 
 ### {% linkable_title Actions %}
 
 The API supports the following actions:
 
 #### {% linkable_title GET /api/ %}
+
 Returns a message if the API is up and running.
 
 ```json
@@ -72,11 +73,12 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/config %}
+
 Returns the current configuration as JSON.
 
 ```json
-{  
-   "components":[  
+{
+   "components":[
       "sensor.cpuspeed",
       "frontend",
       "config.core",
@@ -108,7 +110,7 @@ Returns the current configuration as JSON.
       "volume":"L"
    },
    "version":"0.56.2",
-   "whitelist_external_dirs":[  
+   "whitelist_external_dirs":[
       "/home/ha/.homeassistant/www",
       "/home/ha/.homeassistant/"
    ]
@@ -123,6 +125,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/discovery_info %}
+
 Returns basic information about the Home Assistant instance as JSON.
 
 ```json
@@ -142,6 +145,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/events %}
+
 Returns an array of event objects. Each event object contains event name and listener count.
 
 ```json
@@ -165,6 +169,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/services %}
+
 Returns an array of service objects. Each object contains the domain and which services it contains.
 
 ```json
@@ -193,13 +198,15 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/history/period/&lt;timestamp> %}
+
 Returns an array of state changes in the past. Each object contains further details for the entities.
 
 The `<timestamp>` (`YYYY-MM-DDThh:mm:ssTZD`) is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.
 
 You can pass the following optional GET parameters:
-  - `filter_entity_id=<entity_id>` to filter on a single entity
-  - `end_time=<timestamp>` to choose the end of the period in URL encoded format (defaults to 1 day).
+
+- `filter_entity_id=<entity_id>` to filter on a single entity
+- `end_time=<timestamp>` to choose the end of the period in URL encoded format (defaults to 1 day).
 
 ```json
 [
@@ -249,6 +256,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/states %}
+
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
 
 ```json
@@ -276,6 +284,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/states/&lt;entity_id> %}
+
 Returns a state object for specified entity_id. Returns 404 if not found.
 
 ```json
@@ -303,6 +312,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/error_log %}
+
 Retrieve all errors logged during the current session of Home Assistant as a plaintext response.
 
 ```text
@@ -320,6 +330,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/camera_proxy/camera.&lt;entity_id> %}
+
 Returns the data (image) from the specified camera entity_id.
 
 Sample `curl` command:
@@ -331,6 +342,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
+
 Updates or creates the current state of an entity.
 
 Expects a JSON object that has at least a state attribute:
@@ -370,6 +382,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title POST /api/events/&lt;event_type> %}
+
 Fires an event with event_type
 
 You can pass an optional JSON object to be used as `event_data`.
@@ -389,6 +402,7 @@ Returns a message if successful.
 ```
 
 #### {% linkable_title POST /api/services/&lt;domain>/&lt;service> %}
+
 Calls a service within a specific domain. Will return when the service has been executed or after 10 seconds, whichever comes first.
 
 You can pass an optional JSON object to be used as `service_data`.
@@ -444,6 +458,7 @@ The result will include any states that changed while the service was being exec
 </p>
 
 #### {% linkable_title POST /api/template %}
+
 Render a Home Assistant template. [See template docs for more information.](/topics/templating/)
 
 ```json
@@ -467,6 +482,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title POST /api/event_forwarding %}
+
 Set up event forwarding to another Home Assistant instance.
 
 Requires a JSON object that represents the API to forward to.
@@ -488,6 +504,7 @@ It will return a message if event forwarding was set up successfully.
 ```
 
 #### {% linkable_title DELETE /api/event_forwarding %}
+
 Cancel event forwarding to another Home Assistant instance.<br>
 
 Requires a JSON object that represents the API to cancel forwarding to.
@@ -511,4 +528,3 @@ It will return a message if event forwarding was cancelled successfully.
 <p class='note'>
 If your client does not support <code>DELETE</code> HTTP requests you can add an optional attribute <code>_METHOD</code> and set its value to <code>DELETE</code>.
 </p>
-
