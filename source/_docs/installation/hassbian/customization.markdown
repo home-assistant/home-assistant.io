@@ -15,7 +15,7 @@ The tool is available by running `hassbian-config`.
 
 ### Install scripts
 To view the available packages run `hassbian-config show` and `sudo hassbian-config install PACKAGENAME`.
- - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.
+ - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component that's used with Amazon Echo, Google Home and Mycroft.ai.
  - Install MariaDB. This script installs MariaDB and it's dependencies for use with the recorder component in Home Assistant. No database or database user is created during this setup and will need to be created manually.
  - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
  - Install Libcec. Adds local [HDMI CEC support][cec]. *This scipt is currently brooken upstream since it currently doesn't build properly for Python >3.4*

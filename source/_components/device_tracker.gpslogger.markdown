@@ -68,7 +68,7 @@ Add the above URL after you modified it with your settings into the **URL** fiel
 - Use the domain that Home Assistant is available on the internet or the public IP address. Can be a local IP address if you are using a VPN setup.
 - Only remove `[Port]` if your Home Assistant instance is using port 80. Otherwise set it to 8123.
 - For Home Assistant only the above URL, as written, will work - do not add or remove any parameters.
-- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your pasword]` to the end of the URL. 
+- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your password]` to the end of the URL. 
 - You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
 
 If your battery drains fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers** 
