@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Xiaomi Air Purifier 2"
-description: "Instructions how to integrate your Xiaomi Air Purifier 2 within Home Assistant."
+title: "Xiaomi Air Purifier"
+description: "Instructions how to integrate your Xiaomi Air Purifier within Home Assistant."
 date: 2017-10-13 12:35
 sidebar: true
 comments: false
@@ -50,7 +50,7 @@ To add a Xiaomi Air Purifier to your installation, add the following to your `co
 ```yaml
 fan:
   - platform: xiaomi_miio
-    name: Xiaomi Air Purifier 2
+    name: Xiaomi Air Purifier
     host: 192.168.130.66
     token: YOUR_TOKEN
 ```
