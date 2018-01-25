@@ -48,7 +48,7 @@ This release introduces a new input component: `input_text` contributed by @BioS
 
 ## {% linkable_title KNX %}
 
-This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunnelling devices. In the background it uses asyncio communication. Check the climate integration in action [here](https://www.youtube.com/watch?v=JI0VJzlGpx4) and see the lights in action below:
+This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunneling devices. In the background it uses asyncio communication. Check the climate integration in action [here](https://www.youtube.com/watch?v=JI0VJzlGpx4) and see the lights in action below:
 
 <div class='videoWrapper'>
 <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen></iframe>

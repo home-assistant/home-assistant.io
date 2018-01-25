@@ -14,7 +14,7 @@ Home Assistant can run as a daemon within init.d with the script below.
 
 ### {% linkable_title 1. Copy script %}
 
-Copy either the deamon script or the Python environment scrip at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
+Copy either the daemon script or the Python environment scrip at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
 
 After that, set the script to be executable:
 

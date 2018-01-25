@@ -118,7 +118,7 @@ group:
       - group.all_scripts
 ```
 
-## {% linkable_title Group behaviour %}
+## {% linkable_title Group behavior %}
 
 When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
 

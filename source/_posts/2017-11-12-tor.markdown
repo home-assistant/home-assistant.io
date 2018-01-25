@@ -27,7 +27,7 @@ The most amazing part? It is super easy to set up!
 
 ## {% linkable_title Setting up Tor %}
 
-Our [documentation](/docs/ecosystem/tor/) provides an detailled guide about seting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
+Our [documentation](/docs/ecosystem/tor/) provides an detailed guide about seting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
 
 1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo dnf install tor`
 2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:

@@ -17,7 +17,7 @@ og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.
 
 Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited? 
 
-Today we'll flash the latest HASSbian to a [Raspbery Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
+Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
 **With an added bonus** that besides for an USB cable for power, there's no need for any cables!
 
 What you'll need:

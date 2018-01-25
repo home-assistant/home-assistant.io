@@ -22,7 +22,7 @@ The `lacrosse` sensor platform is using the data provided by a [Jeelink](https:/
 
 ## {% linkable_title Setup %}
 
-Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are availble by using the command-line tool `pylacrosse` from the pylacrosse package.
+Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 $ sudo pylacrosse -d /dev/ttyUSB0 scan

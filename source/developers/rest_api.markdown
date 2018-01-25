@@ -515,7 +515,7 @@ Requires a JSON object that represents the API to cancel forwarding to.
 }
 ```
 
-It will return a message if event forwarding was cancelled successfully.
+It will return a message if event forwarding was canceled successfully.
 
 ```json
 {

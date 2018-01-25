@@ -56,7 +56,7 @@ Configuration variables:
   - **groundtemperature**: The current ground temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
   - **windspeed**: The wind speed in [m/s](https://en.wikipedia.org/wiki/M/s).
   - **windforce**: The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale).
-  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
+  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (North-East), etc.
   - **windazimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **pressure**: The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal).
   - **visibility**: Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre)).

@@ -25,9 +25,9 @@ The maximum line length comes directly from the [PEP8 style guide](https://www.p
 
 Those points may require that you adjust your IDE or editor settings.
 
-## {% linkable_title Our recommandations %}
+## {% linkable_title Our recommendations %}
 
-For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommendations about the code style. Those points were collected from the exisiting code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommandations to keep the code unified. 
+For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommendations about the code style. Those points were collected from the existing code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommendations to keep the code unified. 
 
 ### {% linkable_title Quotes %}
 

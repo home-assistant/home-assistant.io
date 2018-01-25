@@ -190,7 +190,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Add multi contracts support for Hydroquebec ([@titilambert])
 - Add Zwave refresh services ([@andrey-git])
 - Add keep-alive feature to the generic thermostat ([@aronsky])
-- Fix wake_on_lan for german version of Windows 10 (#6397) ([@siebert])
+- Fix wake_on_lan for German version of Windows 10 (#6397) ([@siebert])
 - flux led lib ([@danielhiversen])
 - Cleanup async handling ([@pvizeli])
 - Restore for automation entities ([@kellerza])

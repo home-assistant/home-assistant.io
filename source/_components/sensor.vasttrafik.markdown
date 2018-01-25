@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Västtrafik Public Transport"
-description: "Instructions how to integrate timetable data for travelling in Sweden within Home Assistant."
+description: "Instructions how to integrate timetable data for traveling in Sweden within Home Assistant."
 date: 2016-10-05 08:45
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: "0.30"
 ---
 
 
-The `vasttrafik` sensor will provide you travelling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
+The `vasttrafik` sensor will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
 
 You must create an application [here](https://developer.vasttrafik.se/portal/#/applications) to obtain a `key` and a `secret`.
 
@@ -34,10 +34,10 @@ Configuration variables:
 
 - **key** (*Required*): The API key to access your Västtrafik account.
 - **secret** (*Required*): The API secret to access your Västtrafik account.
-- **departures** array (*Required*): List of travelling routes.
+- **departures** array (*Required*): List of traveling routes.
   - **name** (*Optional*): Name of the route.
   - **from** (*Required*): The start station.
-  - **heading** (*Optional*): Direction of the travelling.
+  - **heading** (*Optional*): Direction of the traveling.
   - **delay** (*Optional*): Delay in minutes. Defaults to 0.
 
 The data are coming from [Västtrafik](https://vasttrafik.se/).
