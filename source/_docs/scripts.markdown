@@ -125,6 +125,36 @@ event_data:
   domain: light
 ```
 
+### {% linkable_title Raise and Consume Custom Events %}
+
+The following automation shows how to raise a custom event called `event_light_turned_on` with `entity_id` as the event data. The action part could be inside a script or an automation.
+
+```
+- alias: Fire Event
+  trigger:
+    platform: state
+    entity_id: light.kitchen
+    to: 'on'
+  action:
+    event: event_light_turned_on
+    event_data:
+      entity_id: "{{ trigger.entity_id }}"
+```
+
+The following automation shows how to capture the custom event `event_light_turned_on`, and retrieve corresponsing `entity_id` that was passed as the event data.
+
+```
+- alias: Capture Event
+  trigger:
+    platform: event
+    event_type: light_turned_on
+  action:
+    - service: notify.notify
+      data_template:
+        message: "{{ trigger.event.data.entity_id }} is turned on."
+```
+
+
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /components/alexa/
