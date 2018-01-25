@@ -162,6 +162,8 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
+Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1). 
+
 ### {% linkable_title RancherOS %}
 
 If you're using RancherOS for containers, you'll need to ensure you enable the kernel-extras service so that the `USB_ACM` module (also known as `cdc_acm`) is loaded:
