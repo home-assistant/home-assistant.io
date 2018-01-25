@@ -23,7 +23,23 @@ We made a mistake in the foundation of both the Google Assistant and Alexa integ
 
 ## {% linkable_title Hass.io updates %}
 
-Pascal has made it easier to create and restore snapshots for Hass.io by calling the new services. This way it will be easy to automate the creation of a snapshot at night. The updater has also been fixed and will now report on new versions of Hass.io that are available.
+[@pvizeli] has made it easier to create and restore snapshots for Hass.io by calling the new services. This way it will be easy to automate the creation of a snapshot at night. The updater has also been fixed and will now report on new versions of Hass.io that are available.
+
+## {% linkable_title Improved loading speed %}
+
+[@amelchio] has made startup of Home Assistant _even_ faster. All service descriptions are now loaded only when needed by the frontend instead of during startup. This did mean that we had to enforce our service convention. We found a few platforms that didn't follow this and they have been updated:
+
+```text
+todoist.new_task -> calendar.todoist_new_task
+
+snapcast.snapcast_snapshot -> media_player.snapcast_snapshot
+snapcast.snapcast_restore -> media_player.snapcast_restore
+
+mopar.remote_command -> sensor.mopar_remote_command
+
+broadlink.learn_command_192_168_0_107 -> switch.broadlink_learn_command_192_168_0_107
+broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_107
+```
 
 ## {% linkable_title New Platforms %}
 
@@ -38,6 +54,14 @@ Pascal has made it easier to create and restore snapshots for Hass.io by calling
 - Add new iGlo component ([@jesserockz] - [#11171]) ([light.iglo docs]) (new-platform)
 - Add Dark Sky weather component ([@DanNixon] - [#11435]) ([weather.darksky docs]) (new-platform)
 - Coinbase.com sensor platform ([@nkgilley] - [#11036]) ([coinbase docs]) ([sensor.coinbase docs]) (new-platform)
+
+## {% linkable_title Release 0.61.1 - January 16 %}
+
+- Fix zha color probe ([@rcloran] - [#11670]) ([zha docs]) ([light.zha docs])
+- Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+- Rfxtrx fix ([@danielhiversen] - [#11678]) ([rfxtrx docs]) ([binary_sensor.rfxtrx docs])
+- History order bugfix and opt-in option ([@rwa] - [#11686]) ([history docs])
+- Fix purge with MariaDB / MySQL ([@tinloaf] - [#11713])
 
 ## {% linkable_title If you need help... %}
 
@@ -119,7 +143,22 @@ Note however, that this feature was replaced by a new ignore_string config optio
           type: light
     ```
 ([@balloob] - [#11499]) ([cloud docs]) ([google_assistant docs]) (breaking change)
-- The `climate.set_aux_heat` service is no longer available for the Sensibo cliamte platform. Now call `climate.turn_on` or `climate.turn_off`. ([@andrey-git] - [#11579]) ([climate.sensibo docs]) (breaking change)
+- The `climate.set_aux_heat` service is no longer available for the Sensibo climate platform. Now call `climate.turn_on` or `climate.turn_off`. ([@andrey-git] - [#11579]) ([climate.sensibo docs]) (breaking change)
+- Release 0.61.0 introduced a lazy service loading strategy that relied on all components and platforms following our naming convention. After the release we realized that not all services did, which have been addressed by this fix.  This results in certain services changing names:
+
+   ```
+   todoist.new_task -> calendar.todoist_new_task
+
+   snapcast.snapcast_snapshot -> media_player.snapcast_snapshot
+   snapcast.snapcast_restore -> media_player.snapcast_restore
+
+   mopar.remote_command -> sensor.mopar_remote_command
+
+   broadlink.learn_command_192_168_0_107 -> switch.broadlink_learn_command_192_168_0_107
+   broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_107
+   ```
+   ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+
 
 ## {% linkable_title All changes %}
 
@@ -735,3 +774,24 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [websocket_api docs]: https://home-assistant.io/components/websocket_api/
 [wemo docs]: https://home-assistant.io/components/wemo/
 [zigbee docs]: https://home-assistant.io/components/zigbee/
+[#11670]: https://github.com/home-assistant/home-assistant/pull/11670
+[#11677]: https://github.com/home-assistant/home-assistant/pull/11677
+[#11678]: https://github.com/home-assistant/home-assistant/pull/11678
+[#11686]: https://github.com/home-assistant/home-assistant/pull/11686
+[#11713]: https://github.com/home-assistant/home-assistant/pull/11713
+[@amelchio]: https://github.com/amelchio
+[@danielhiversen]: https://github.com/danielhiversen
+[@rcloran]: https://github.com/rcloran
+[@rwa]: https://github.com/rwa
+[@tinloaf]: https://github.com/tinloaf
+[binary_sensor.rfxtrx docs]: https://home-assistant.io/components/binary_sensor.rfxtrx/
+[calendar.todoist docs]: https://home-assistant.io/components/calendar.todoist/
+[history docs]: https://home-assistant.io/components/history/
+[light.zha docs]: https://home-assistant.io/components/light.zha/
+[media_player.snapcast docs]: https://home-assistant.io/components/media_player.snapcast/
+[media_player.soundtouch docs]: https://home-assistant.io/components/media_player.soundtouch/
+[rfxtrx docs]: https://home-assistant.io/components/rfxtrx/
+[sensor.mopar docs]: https://home-assistant.io/components/sensor.mopar/
+[switch.broadlink docs]: https://home-assistant.io/components/switch.broadlink/
+[switch.scsgate docs]: https://home-assistant.io/components/switch.scsgate/
+[zha docs]: https://home-assistant.io/components/zha/

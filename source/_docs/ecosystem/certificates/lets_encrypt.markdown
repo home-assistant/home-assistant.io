@@ -88,7 +88,7 @@ Type the following command to list your network interfaces:
 $ ifconfig
 ```
 
-You will receive an ouput similar to the image below:
+You will receive an output similar to the image below:
 
 <p class='img'>
   <img src='/images/screenshots/ip-set.jpg' />

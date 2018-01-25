@@ -24,6 +24,7 @@ Here are some examples:
 - [Metropolitan Transit Authority of New York City (MTA)](http://www.bart.gov/schedules/developers/gtfs) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
 - [GBRail.info](http://www.gbrail.info/) - Provides data feeds for most if not all rail companies in Britain.
 - [Official Timetable Switzerland](http://www.fahrplanfelder.ch/en/timetable-data.html) - The official timetable data for Switzerland.
+- [Public Transport Victoria (Australia)](https://www.data.vic.gov.au/data/dataset/ptv-timetable-and-geographic-information-2015-gtfs) - Official PTV GTFS dataset.
 
 You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
 

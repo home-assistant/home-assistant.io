@@ -61,7 +61,7 @@ Configuration variables:
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source
-  only. The `media_id` is a `>` separted string of the menu path on
+  only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
 
 ### {% linkable_title Example configuration %}

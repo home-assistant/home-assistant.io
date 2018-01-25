@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Script Syntax"
-description: "Documention for the Home Assistant Script Syntax."
+description: "Documentation for the Home Assistant Script Syntax."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
@@ -116,6 +116,7 @@ wait_template: "{{ is_state(dummy, 'off') }}"
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
+{% raw %}
 ```yaml
 event: LOGBOOK_ENTRY
 event_data:
@@ -124,6 +125,39 @@ event_data:
   entity_id: device_tracker.paulus
   domain: light
 ```
+{% endraw %}
+
+### {% linkable_title Raise and Consume Custom Events %}
+
+The following automation shows how to raise a custom event called `event_light_turned_on` with `entity_id` as the event data. The action part could be inside a script or an automation.
+
+{% raw %}
+```yaml
+- alias: Fire Event
+  trigger:
+    platform: state
+    entity_id: light.kitchen
+    to: 'on'
+  action:
+    event: event_light_turned_on
+    event_data:
+      entity_id: "{{ trigger.entity_id }}"
+```
+{% endraw %}
+
+The following automation shows how to capture the custom event `event_light_turned_on`, and retrieve corresponsing `entity_id` that was passed as the event data.
+
+```yaml
+- alias: Capture Event
+  trigger:
+    platform: event
+    event_type: light_turned_on
+  action:
+    - service: notify.notify
+      data_template:
+        message: "{{ trigger.event.data.entity_id }} is turned on."
+```
+
 
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/

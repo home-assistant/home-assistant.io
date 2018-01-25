@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Run local scripts"
-description: "Instructions on how-to run local script for Home Assistant."
+description: "Instructions on how to run a local script for Home Assistant."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -72,6 +72,7 @@ RUN apk --no-cache add jq mosquitto-clients
 ```
 
 Now we can process it with `run.sh`:
+
 ```bash
 #!/bin/bash
 set -e

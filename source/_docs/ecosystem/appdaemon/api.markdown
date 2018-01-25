@@ -39,7 +39,7 @@ There are several circumstances under which `initialize()` might be called:
 - Following a change in the status of Daylight Savings Time
 - Following a restart of Home Assistant
 
-In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been cancelled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g. turn off a light that might have been left on by mistake when the app was restarted).
+In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been canceled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g. turn off a light that might have been left on by mistake when the app was restarted).
 
 After the `initialize()` function is in place, the rest of the app consists of functions that are called by the various callback mechanisms, and any additional functions the user wants to add as part of the program logic. Apps are able to subscribe to 2 main classes of events:
 
@@ -539,7 +539,7 @@ self.handle = self.listen_state(self.my_callback, "light.office_1", new = "on", 
 
 ### {% linkable_title cancel_listen_state() %}
 
-Cancel a `listen_state()` callback. This will mean that the App will no longer be notified for the specific state change that has been cancelled. Other state changes will continue to be monitored.
+Cancel a `listen_state()` callback. This will mean that the App will no longer be notified for the specific state change that has been canceled. Other state changes will continue to be monitored.
 
 #### {% linkable_title Synopsis %}
 
@@ -1317,7 +1317,7 @@ self.select_option("input_select.mode", "Day")
 
 ### {% linkable_title notify() %}
 
-This is a convenience function for the `notify.notify` service. It will send a notification to your defualt notification service. If you have more than one, use `call_service()` to call the specific notification service you require instead.
+This is a convenience function for the `notify.notify` service. It will send a notification to your default notification service. If you have more than one, use `call_service()` to call the specific notification service you require instead.
 
 #### {% linkable_title Synopsis %}
 
@@ -1534,7 +1534,7 @@ The name of the event that caused the callback, e.g. `"MODE_CHANGE"` or `call_se
 
 A dictionary containing any additional information associated with the event.
 
-### {% linkable_title Use of Events for Signalling between Home Assistant and AppDaemon %}
+### {% linkable_title Use of Events for Signaling between Home Assistant and AppDaemon %}
 
 Home Assistant allows for the creation of custom events and existing components can send and receive them. This provides a useful mechanism for signaling back and forth between Home Assistant and AppDaemon. For instance, if you would like to create a UI Element to fire off some code in Home Assistant, all that is necessary is to create a script to fire a custom event, then subscribe to that event in AppDaemon. The script would look something like this:
 
@@ -1701,7 +1701,7 @@ time()
 
 #### {% linkable_title Returns %}
 
-A localised Python time object representing the current AppDaemon time.
+A localized Python time object representing the current AppDaemon time.
 
 #### {% linkable_title Parameters %}
 
@@ -1725,7 +1725,7 @@ date()
 
 #### {% linkable_title Returns %}
 
-A localised Python time object representing the current AppDaemon date.
+A localized Python time object representing the current AppDaemon date.
 
 #### {% linkable_title Parameters %}
 
@@ -1749,7 +1749,7 @@ datetime()
 
 #### {% linkable_title Returns %}
 
-A localised Python datetime object representing the current AppDaemon date and time.
+A localized Python datetime object representing the current AppDaemon date and time.
 
 #### {% linkable_title Parameters %}
 
@@ -1764,7 +1764,7 @@ now = self.datetime()
 
 ### {% linkable_title convert_utc() %}
 
-Home Assistant provides timestamps of several different sorts that may be used to gain additional insight into state changes. These timestamps are in UTC and are coded as ISO 8601 Combined date and time strings. `convert_utc()` will accept one of these strings and convert it to a localised Python datetime object representing the timestamp
+Home Assistant provides timestamps of several different sorts that may be used to gain additional insight into state changes. These timestamps are in UTC and are coded as ISO 8601 Combined date and time strings. `convert_utc()` will accept one of these strings and convert it to a localized Python datetime object representing the timestamp
 
 #### {% linkable_title Synopsis %}
 
@@ -1774,7 +1774,7 @@ convert_utc(utc_string)
 
 #### {% linkable_title Returns %}
 
-`convert_utc(utc_string)` returns a localised Python datetime object representing the timestamp.
+`convert_utc(utc_string)` returns a localized Python datetime object representing the timestamp.
 
 #### {% linkable_title Parameters %}
 
@@ -2072,7 +2072,7 @@ Note the timestamps in the log - AppDaemon believes it is now just before sunset
 
 ### {% linkable_title Speeding things up %}
 
-Some Apps need to run for periods of a day or two for you to test all aspects. This can be time consuming, but Time Travel can also help here in two ways. The first is by speeding up time. To do this, simply use the `-t` option on the command line. This specifies the amount of time a second lasts while time travelling. The default of course is 1 second, but if you change it to `0.1` for instance, AppDaemon will work 10x faster. If you set it to `0`, AppDaemon will work as fast as possible and, depending in your hardware, may be able to get through an entire day in a matter of minutes. Bear in mind however, due to the threaded nature of AppDaemon, when you are running with `-t 0` you may see actual events firing a little later than expected as the rest of the system tries to keep up with the timer. To set the tick time, start AppDaemon as follows:
+Some Apps need to run for periods of a day or two for you to test all aspects. This can be time consuming, but Time Travel can also help here in two ways. The first is by speeding up time. To do this, simply use the `-t` option on the command line. This specifies the amount of time a second lasts while time traveling. The default of course is 1 second, but if you change it to `0.1` for instance, AppDaemon will work 10x faster. If you set it to `0`, AppDaemon will work as fast as possible and, depending in your hardware, may be able to get through an entire day in a matter of minutes. Bear in mind however, due to the threaded nature of AppDaemon, when you are running with `-t 0` you may see actual events firing a little later than expected as the rest of the system tries to keep up with the timer. To set the tick time, start AppDaemon as follows:
 
 ```bash
 $ appdaemon -t 0.1
@@ -2105,4 +2105,4 @@ $ appdaemon -s "2016-06-06 19:16:00" -s "2016-06-06 20:16:00" -t 0
 
 ### {% linkable_title A Note on Times %}
 
-Some Apps you write may depend on checking times of events relative to the current time. If you are time travelling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.
+Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.

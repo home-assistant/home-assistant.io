@@ -22,7 +22,7 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
-1. Click on the tab 'OAuth consent screen'.
+1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
 1. Set 'Product name shown to users' to anything you want. We suggest Home-Assistant.
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.

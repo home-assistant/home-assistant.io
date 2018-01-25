@@ -16,7 +16,7 @@ https://github.com/home-assistant/hassio-addons-example
 ```
 
 <p class='note warning'>
-Home Assistant cannot guarantee the quality or security of third party add-ons. Use at your own risk.
+Home Assistant cannot guarantee the quality or security of third-party add-ons. Use at your own risk.
 </p>
 
 <p class='img'>

@@ -12,7 +12,7 @@ categories: Release-Notes
 
 When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
 
-Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can [add it's own page to the frontend][custom-panels]. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you'll come up with!
+Starting with this release, we are extending our extensibility to the frontend. Starting this release, any component can [add it's own page to the frontend][custom-panels]. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you'll come up with!
 
 We have also seen an exciting trend of people starting to visualize their Internet of Things data using [Jupyter] Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] cover the basics.
 
