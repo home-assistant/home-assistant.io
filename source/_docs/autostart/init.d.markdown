@@ -94,11 +94,7 @@ FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --log-file $LOG_FILE --daemo
 
 
 start() {
-  if [ ! -d "$PID_DIR" ]; then
-    echo "It seems you did not run"
-    echo -e "\tservice hass-daemon install"
-    return 1
-  fi
+  create_piddir
   if [ -f $PID_FILE ] && kill -0 $(cat $PID_FILE) 2> /dev/null; then
     echo 'Service already running' >&2
     return 1
@@ -218,11 +214,7 @@ LOG_FILE="$LOG_DIR/home-assistant.log"
 FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --log-file $LOG_FILE --daemon"
 
 start() {
-  if [ ! -d "$PID_DIR" ]; then
-    echo "It seems you did not run"
-    echo -e "\tservice hass-daemon install"
-    return 1
-  fi
+  create_piddir
   if [ -f $PID_FILE ] && kill -0 $(cat $PID_FILE) 2> /dev/null; then
     echo 'Service already running' >&2
     return 1
