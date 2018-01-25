@@ -43,10 +43,10 @@ Don't forget to save your new automation rule. In order for your saved automatio
 
 ## {% linkable_title Updating your configuration to use the editor %}
 
-First check that you have activated the configuration edor.
+First check that you have activated the configuration editor.
 
 ```yaml
-# Activate the configuration edior
+# Activate the configuration editor
 config:
 ```
 
