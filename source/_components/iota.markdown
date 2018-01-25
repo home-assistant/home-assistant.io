@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: iota.png
 ha_category: Finance
-ha_release: 0.61
+ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -28,23 +28,23 @@ iota:
 
 {% configuration %}
 iri:
-  description: Url of the IRI node
+  description: URL of the IRI node.
   required: true
   type: string
 testnet:
-  description: Flag for indicating testnet
+  description: Flag for indicating "testnet".
   required: false
-  default: No testnet (false)
+  default: false
   type: bool
 wallets:
-  description: List of IOTA wallets
+  description: List of IOTA wallets.
   required: true
   type: list
   keys:
     name:
-      description: Name of the wallet
+      description: Name of the wallet.
     seed:
-      description: Seed of the wallet
+      description: Seed of the wallet.
 {% endconfiguration %}
 
 A full configuration example could look the one below:
