@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier 2, Air Purifier 2S and Air Purifier Pro.
 
-Currently, the supported features are
+Currently, the supported features are:
 
 * On, Off
 * Operation modes (auto, silent, favorite, idle)
@@ -41,28 +41,37 @@ Currently, the supported features are
   - motor_speed
 
 
-## {% linkable_title Setup %}
-
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
 To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 fan:
+# Example configuration.yaml entry
   - platform: xiaomi_miio
-    name: Xiaomi Air Purifier
     host: 192.168.130.66
     token: YOUR_TOKEN
 ```
 
-Configuration variables:
-- **host** (*Required*): The IP of your plug.
-- **token** (*Required*): The API token of your plug.
-- **name** (*Optional*): The name of your plug.
+{% configuration %}
+host:
+  description: The IP address of your fan.
+  required: true
+  type: string
+token:
+  description: The API token of your fan.
+  required: true
+  type: string
+name:
+  description: The name of your fan.
+  required: false
+  type: string
+  default: Xiaomi Air Purifier
+{% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
 
-### Service fan/xiaomi_miio_set_buzzer_on
+### {% linkable_title Service fan/xiaomi_miio_set_buzzer_on %}
 
 Turn the buzzer on.
 
@@ -70,7 +79,7 @@ Turn the buzzer on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_buzzer_off
+### {% linkable_title Service fan/xiaomi_miio_set_buzzer_off %}
 
 Turn the buzzer off.
 
@@ -78,7 +87,7 @@ Turn the buzzer off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_led_on
+### {% linkable_title Service fan/xiaomi_miio_set_led_on %}
 
 Turn the led on.
 
@@ -86,7 +95,7 @@ Turn the led on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_led_off
+### {% linkable_title Service fan/xiaomi_miio_set_led_off %}
 
 Turn the led off.
 
@@ -94,7 +103,7 @@ Turn the led off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_child_lock_on
+### {% linkable_title Service fan/xiaomi_miio_set_child_lock_on %}
 
 Turn the child lock on.
 
@@ -102,7 +111,7 @@ Turn the child lock on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_child_lock_off
+### {% linkable_title Service fan/xiaomi_miio_set_child_lock_off %}
 
 Turn the child lock off.
 
@@ -110,7 +119,7 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### Service fan/xiaomi_miio_set_led_brightness
+### {% linkable_title Service fan/xiaomi_miio_set_led_brightness %}
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -119,7 +128,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
-### Service fan/xiaomi_miio_set_favorite_level
+### {% linkable_title Service fan/xiaomi_miio_set_favorite_level %}
 
 Set the favorite level of the operation mode "favorite".
 
@@ -127,3 +136,4 @@ Set the favorite level of the operation mode "favorite".
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 | `level`                   |       no | Level, between 0 and 16.                                |
+
