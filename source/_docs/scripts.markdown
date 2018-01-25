@@ -147,6 +147,7 @@ The following automation shows how to raise a custom event called `event_light_t
 
 The following automation shows how to capture the custom event `event_light_turned_on`, and retrieve corresponsing `entity_id` that was passed as the event data.
 
+{% raw %}
 ```yaml
 - alias: Capture Event
   trigger:
@@ -157,7 +158,7 @@ The following automation shows how to capture the custom event `event_light_turn
       data_template:
         message: "{{ trigger.event.data.entity_id }} is turned on."
 ```
-
+{% endraw %}
 
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/
