@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: venstar.png
 ha_category: Climate
-ha_release: 0.61
+ha_release: 0.62
 ha_iot_class: "Local Polling"
 ---
 
@@ -32,6 +32,41 @@ Note - Please ensure you update your thermostat to the latest firmware. Currentl
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: venstar
+    host: IP_OR_HOSTNAME_OF_THERMOSTAT
+```
+
+{% configuration %}
+host:
+  description: Address of your thermostat, e.g., 192.168.1.32.
+  required: true
+  type: string
+username:
+  description: Username for the thermostat.
+  required: false
+  type: string
+password:
+  description:  Password for the thermostat.
+  required: false
+  type: string
+ssl:
+  description: Whether to use SSL or not when communicating.
+  required: false
+  type: boolean
+  default: False
+timeout:
+  description: Number of seconds for API timeout.
+  required: false
+  type: int
+  default: 5
+{% endconfiguration %}
+
+## {% linkable_title Full configuration sample %}
+
+```yaml
+# Example configuration.yaml entry
 climate:
   - platform: venstar
     host: IP_OR_HOSTNAME_OF_THERMOSTAT
@@ -40,11 +75,3 @@ climate:
     password: OPTIONAL_AUTH_PASS_HERE
     timeout: 5
 ```
-
-Configuration variables:
-
-- **host** (*Required*): Address of your thermostat, eg. 192.168.1.32.
-- **username** (*Optional*): Username for the thermostat.
-- **password** (*Optional*): Password for the thermostat.
-- **ssl** (*Optional*): Whether to use SSL or not when communicating. Default is False.
-- **timeout** (*Optional*): Number of seconds for API timeout. Default is 5 seconds.
