@@ -116,6 +116,7 @@ wait_template: "{{ is_state(dummy, 'off') }}"
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
+{% raw %}
 ```yaml
 event: LOGBOOK_ENTRY
 event_data:
@@ -124,12 +125,14 @@ event_data:
   entity_id: device_tracker.paulus
   domain: light
 ```
+{% endraw %}
 
 ### {% linkable_title Raise and Consume Custom Events %}
 
 The following automation shows how to raise a custom event called `event_light_turned_on` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
-```
+{% raw %}
+```yaml
 - alias: Fire Event
   trigger:
     platform: state
@@ -140,10 +143,11 @@ The following automation shows how to raise a custom event called `event_light_t
     event_data:
       entity_id: "{{ trigger.entity_id }}"
 ```
+{% endraw %}
 
 The following automation shows how to capture the custom event `event_light_turned_on`, and retrieve corresponsing `entity_id` that was passed as the event data.
 
-```
+```yaml
 - alias: Capture Event
   trigger:
     platform: event
