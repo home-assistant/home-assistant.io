@@ -13,10 +13,9 @@ ha_release: 0.47
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).
 
-To add the Etherscan sensor to your installation, specify an ethereum address to watch in the `configuration.yaml` file.  You can also optionally provide a token name to retrieve and ERC-20 token balance.  If no token is provided then the balance retrieved will be in ETH.  You can also optionally provide the token contract address in case the token name is not found.
+To add the Etherscan sensor to your installation, specify an Ethereum address to watch in the `configuration.yaml` file. You can also optionally provide a token name to retrieve and ERC-20 token balance. If no token is provided then the balance retrieved will be in ETH. You can also optionally provide the token contract address in case the token name is not found.
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,13 +42,11 @@ name:
   type: string
   default: ETH Balance
 token:
-  description: The ERC20 token symbol. i.e. OMG
+  description: The ERC20 token symbol. i.e., OMG.
   required: false
   type: string
 token_address:
-  description: The ERC20 token contract address
+  description: The ERC20 token contract address.
   required: false
   type: string
-
 {% endconfiguration %}
-
