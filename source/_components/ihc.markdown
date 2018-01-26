@@ -21,7 +21,7 @@ An `ihc` section must be present in the `configuration.yaml` file and contain th
 ```yaml
 # Example configuration.yaml entry
 ihc:
-   host: http://192.168.1.3
+   url: http://192.168.1.3
    username: admin
    password: mysecret
    auto_setup: True
@@ -33,16 +33,16 @@ auto_setup:
   description: True to have IHC products auto setup.
   required: false
   type: bool
-host:
-  description: The URL of the IHC Controller.
-  required: true
-  type: string
 info:
   description: If True additional IHC info will be shown on each component.
   required: false
   type: bool
 password:
   description: The password for the IHC Controller.
+  required: true
+  type: string
+url:
+  description: The URL of the IHC Controller.
   required: true
   type: string
 username:
@@ -63,7 +63,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### Auto setup of IHC products
 
-If auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant.
+If the auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant.
 To disable this set auto_setup to False. (Auto setup is on by default)
 See the individual device types for a list of IHC products to be recognized automatically.
 
@@ -87,4 +87,4 @@ The IHC resource id should be specified as an integer value. (In the project fil
 If you want an easier way to get the IHC resource ids, you can download the [Alternative Service View application](https://www.dingus.dk/updated-ihc-alternative-service-view/).
 The application will show the product tree. You can expand it, select inputs and outputs and when selected you can see the resource id.
 
-See each device type for the manual configuration options.
+See the manual of each device type for configuration options.
