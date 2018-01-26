@@ -51,7 +51,7 @@ input_number:
         required: true
         type: float
       max:
-        description: Maxium value.
+        description: Maximum value.
         required: true
         type: float
       name:

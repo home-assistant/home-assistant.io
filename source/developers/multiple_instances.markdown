@@ -11,7 +11,7 @@ footer: true
 
 # {% linkable_title This has been deprecated and is no longer supported. %}
 
-Home Assistant supports running multiple synchronised instances using a master-slave model. Whenever `events.fire` or `states.set` is called on the slave it will forward it to the master. The master will replicate all events and changed states to its slaves.
+Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever `events.fire` or `states.set` is called on the slave it will forward it to the master. The master will replicate all events and changed states to its slaves.
 
 <p class='img'>
   <a href='/images/architecture/architecture-remote.png'>

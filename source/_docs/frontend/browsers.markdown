@@ -12,7 +12,7 @@ redirect_from: /getting-started/browsers/
 
 Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which were tested. This doen't mean that older or newer releases not work.
 
-If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extenstion are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
+If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extension are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 

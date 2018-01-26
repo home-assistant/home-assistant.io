@@ -19,7 +19,7 @@ The Hass.io release of 0.58 will be delayed by a couple of days because Pascal i
 
 ## {% linkable_title Translation update %}
 
-Translations are up and running in full speed. Shortly after the last release we got our translation pipeline figured out. [@armills] and [@c727] are doing an amazing job managing this project. We've doubled the number of supported languages to 42 and the amount of keys to translate went from 8 to 130. Our translaters are on top of their game and 79% is already translated.
+Translations are up and running in full speed. Shortly after the last release we got our translation pipeline figured out. [@armills] and [@c727] are doing an amazing job managing this project. We've doubled the number of supported languages to 42 and the amount of keys to translate went from 8 to 130. Our translators are on top of their game and 79% is already translated.
 
 Talking about our translators, we now have 445 people with an account to help with translations. Not bad for 3 weeks!
 

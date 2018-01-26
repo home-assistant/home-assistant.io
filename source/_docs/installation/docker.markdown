@@ -40,7 +40,7 @@ This will let you access your Home Assistant portal from http://localhost:8123, 
 
 ### {% linkable_title Synology NAS %}
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
 
 The steps would be:
 * Install "Docker" package on your Synology NAS

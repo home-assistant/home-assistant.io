@@ -36,7 +36,7 @@ Configuration variables:
 
 {% configuration %}
   name:
-    description: Name of the RTM account, as you can have serveral accounts in RTM. The name must be unique.
+    description: Name of the RTM account, as you can have several accounts in RTM. The name must be unique.
     required: true
     type: string
   api_key:
