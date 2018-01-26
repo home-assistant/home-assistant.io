@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: pollen.jpg
 ha_category: Health
-ha_release: 0.62
+ha_release: 0.63
 ha_iot_class: "Cloud Polling"
 ---
 
