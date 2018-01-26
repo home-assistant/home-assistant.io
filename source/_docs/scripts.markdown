@@ -136,12 +136,12 @@ The following automation shows how to raise a custom event called `event_light_t
 - alias: Fire Event
   trigger:
     platform: state
-    entity_id: light.kitchen
+    entity_id: switch.kitchen
     to: 'on'
   action:
-    event: event_light_turned_on
+    event: event_light_state_changed
     event_data:
-      entity_id: "{{ trigger.entity_id }}"
+      state: "on"
 ```
 {% endraw %}
 
@@ -152,11 +152,11 @@ The following automation shows how to capture the custom event `event_light_turn
 - alias: Capture Event
   trigger:
     platform: event
-    event_type: light_turned_on
+    event_type: event_light_state_changed
   action:
     - service: notify.notify
       data_template:
-        message: "{{ trigger.event.data.entity_id }} is turned on."
+        message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
 {% endraw %}
 
