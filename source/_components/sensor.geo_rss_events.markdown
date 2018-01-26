@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rss.png
 ha_category: Sensor
-ha_version: 0.55
+ha_release: 0.55
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -53,13 +53,77 @@ sensor:
       - 'Advice'
 ```
 
-Configuration variables:
-
-- **url** (*Required*): Full URL of the GeoRSS feed.
-- **name** (*Optional*): Name of the sensor used in generating the entity id. Default is 'Event Service'.
-- **radius** (*Optional*): The distance in kilometres around the Home Assistant's coordinates in which events are considered. Default is: 20km.
-- **categories** (*Optional*): List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined. Default is to join events from all categories into an 'Any' category.
-- **unit_of_measurement** (*Optional*): The type of events found in the GeoRSS feed. Default is 'Events'.
+{% configuration %}
+url:
+  required: true
+  description: Full URL of the GeoRSS feed.
+  type: string
+name:
+  required: false
+  description: Name of the sensor used in generating the entity id.
+  type: string
+  default: Event Service
+radius:
+  required: false
+  description: The distance in kilometres around Home Assistant's coordinates in which events are considered.
+  type: int
+  default: 20km
+categories:
+  required: false
+  description: List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined.
+  type: list
+  default: Join events from all categories into an 'Any' category.
+unit_of_measurement:
+  required: false
+  description: The type of events found in the GeoRSS feed.
+  type: string
+  default: Events
+custom_attributes:
+  required: false
+  description: List of custom attributes extracted from data available from the GeoRSS feed.
+  type: map
+  keys:
+    name:
+      required: true
+      description: Name of the custom attribute.
+      type: string
+    source:
+      required: true
+      description: Source which must be the name of an existing attribute (`title`, `id`, `distance`, `category`, `date_published`, `date_updated`).
+      type: string
+    regexp:
+      required: true
+      description: Regular expression that extracts a new value from the atrribute defined as `source`. The regular expression must contain a named group called `custom_attribute`.
+      type: string
+custom_filters:
+  required: false
+  description: List of custom filters. If an entry does not match all filter criteria it will be discarded.
+  type: map
+  keys:
+    attribute:
+      required: true
+      description: Attribute name that the filter will be applied to. This can be a predefined or a custom attribute.
+      type: string
+    regexp:
+      required: true
+      description: Regular expression that will be used to match the attribute's value. If the attribute's value does not match, the event will be discarded.
+      type: string
+sort_by:
+  required: false
+  description: Attribute name that the events from the GeoRSS feed should be sorted by in the UI. Valid values are `title`, `id`, `distance`, `category`, `date_published`, `date_updated` and any custom attribute name.
+  type: string
+  default: Same order as the events appear in the GeoRSS feed.
+sort_reverse:
+  required: false
+  description: Set to `true` to reverse the sort order to descending order. Set to `false` for ascending order.
+  type: boolean
+  default: false
+publish_events:
+  required: false
+  description: Set to `true` to publish the events from the GeoRSS feed onto the Home Assistant event bus.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ## {% linkable_title Example Feeds %}
 
@@ -105,3 +169,65 @@ sensor:
     categories:
       - 'Earthquake Report'
 ```
+
+## {% linkable_title Custom Attribute and Custom Filter Example %}
+
+The following example shows how to extract earthquake events from a
+GeoRSS feed and how to use a custom attribute and a custom filter to
+only consider earthquakes above a certain magnitude.
+Because GeoRSS is a generic format, it does not specify magnitude, and
+this particular GeoRSS feed contains the magnitude value in the event's
+title.
+
+A custom attribute with the name `magnitude` is defined and it uses the
+feed entry's `title` as its source. The regular expression then looks
+for any characters before the phrase "Magnitude" followed by "M" and
+another character in brackets (to cater for "ML" and "Md" values),
+followed by the numeric magnitude value specified as two digits
+separated by a dot, and finally followed by a space character and
+more characters.
+
+The earthquakes are sorted by the magnitude value in descending order,
+i.e. highest first.
+
+A custom filter is defined on the `magnitude` attribute that only takes
+values of 2.0 or higher into account. The regular expression looks for
+either any two-digit value or a one-digit value that is any number from
+2 to 9, followed by a dot and another one-digit value.
+
+
+```yaml
+sensor:
+  - platform: geo_rss_events
+    name: Terremoti
+    url: http://info.terremoti.ingv.it/feed/atom/all_week
+    radius: 100
+    custom_attributes:
+      - name: magnitude
+        source: title
+        regexp: '.*Magnitude\(M.+\) (?P<custom_attribute>\d+.\d+) .*'
+    sort_by: 'magnitude'
+    sort_reverse: true
+    custom_filters:
+      - attribute: magnitude
+        regexp: '([0-9]{2,}|[2-9]{1})\.\d{1}'
+```
+
+## {% linkable_title Publishing events to event bus %}
+
+The `geo_rss_events` sensor can publish the events retrieved from the
+external GeoRSS feed onto the event bus. Each filtered entry from the
+GeoRSS feed will be published with available attributes extracted from
+the feed.
+
+The sensor will only publish new or updated events, but will always
+publish all found events after a restart of Home Assistant.
+The event type is generated from the sensor name similar to how entity
+ids are generated, i.e. all lower-case, whitespace replaced by
+underscore.
+
+The published events can for example be used as a trigger for an
+automation that notifies you about the event.
+
+To have the sensor publish its event to the event bus, set
+`publish_events` to `true` in the configuration.
