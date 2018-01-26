@@ -118,6 +118,24 @@ group:
       - group.all_scripts
 ```
 
+## {% linkable_title Group features %}
+
+The group exposes the `supported_features` attribute and supports all features that are supported by all grouped elements, e.g.
+
+```yaml
+group:
+  # Group has features: Brightness, Light Temperature
+  living_room_ceiling_light:
+    entities:
+       - light.light1 # Supports Brightness, Light Temperature, Colors
+       - light.light2 # Supports Brightness, Light Temperature
+
+# Set brightness for group through Google Home
+group.living_room_ceiling_light:
+  google_assistant: true
+  google_assistant_type: light
+```
+
 ## {% linkable_title Group behaviour %}
 
 When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
