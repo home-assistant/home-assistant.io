@@ -33,3 +33,4 @@ Configuration variables:
 - **ssl** (*Optional*): True if you want to connect with https/wss. Your SSL certificate must be valid. Default is False.
 - **port** (*Optional*): The port number. Defaults to 8096 with SSL set to False and 8920 with SSL set to True.
 - **auto_hide** (*Optional*): True if you want to automatically hide devices that are unavailable from the Home Assistant Interface. Defaults to False.
+- **auto_group** (*Optional*): True if you want available Emby application instances to automatically be added to a group called "emby". This group can then be referenced elsewhere in home-assistant. Defaults to False.
