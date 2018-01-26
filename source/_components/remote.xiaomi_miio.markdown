@@ -23,6 +23,55 @@ To add a Xiaomi IR Remote to your installation, add the following to your config
 ```yaml
 remote:
   - platform: xiaomi_miio
+    host: 192.168.42.42
+    token: YOUR_TOKEN
+```
+
+{% configuration %}
+
+host:
+  description: The IP of your remote.
+  required: true
+  type: string
+token:
+  description: The API token of your remote.
+  required: true
+  type: string
+name:
+  description: The name of your remote.
+  required: false
+  type: string
+slot:
+  description: The slot used to save learned command.
+  required: false
+  type: int
+  default: 1
+timeout:
+  description: Timeout for learning a new command.
+  required: false
+  type: int
+  default: 30
+hidden:
+  description: Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing.
+  required: false
+  type: boolean
+  default: True
+commands:
+  required: false
+  type: map
+  keys:
+    command:
+      description: A list of commands as base64 string.
+      required: true
+      type: list
+
+{% endconfiguration %}
+
+## {% linkable_title Full Configuration %}
+
+```yaml
+remote:
+  - platform: xiaomi_miio
     name: "bathroom remote"
     host: 192.168.42.42
     token: YOUR_TOKEN
@@ -39,19 +88,7 @@ remote:
           - base64 encoded string learned from remote
 ```
 
-Configuration variables:
-- **host** (*Required*): The IP of your remote.
-- **token** (*Required*): The API token of your remote.
-- **name** (*Optional*): The name of your remote.
-- **slot** (*Optional*): The slot used to save learned command. (Default: 1)
-- **timeout** (*Optional*): Timeout for learning new command. (Default: 10)
-- **hidden** (*Optional*): Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing. (Default: True)
-- **commands** (*Optional*): Commands callable by name.
-  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
-    - **command** (*Required*): The base64 encoded command to send as a list. (At least 1 required, multiple possible.)
-
-
-You can then create an actual UI button in this way:
+## {% linkable_title Use named commands to create UI buttons %}
 ```yaml
 script:
   towel_heater:
@@ -76,7 +113,7 @@ The Xiaomi IR Remote Platform registers two services.
 
 ### {% linkable_title `remote.send_command` %}
 
-Allows to send either named commands using identifer or sending commands as base64 encoded strings.
+Allows sending either named commands using identifier or sending commands as base64 encoded strings.
 
 ### {% linkable_title `remote.xiaomi_miio_learn_command` %}
 
@@ -86,4 +123,4 @@ Use the entity_id of the Xiaomi IR Remote to start a learning process.
 
 `slot` and `timeout` can be specified, but multiple commands learned to the same slot can still be sent using [`remote.send_command`](/components/remote.xiaomi_miio/#remote.send_command) even if they are overwritten.
 
-After learning the command the base64 string can be found as a notification in Overview, the string can be copied by left clicking on the string and choosing the copy option.
+After learning the command the base64 string can be found as a notification in Overview, the string can be copied by left clicking on the string and choose the copy option.
