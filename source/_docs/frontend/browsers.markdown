@@ -12,7 +12,7 @@ redirect_from: /getting-started/browsers/
 
 Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which were tested. This doen't mean that older or newer releases not work.
 
-If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extenstion are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
+If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extension are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
@@ -23,7 +23,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | Internet Explorer ([IE])  | 11             | Not supported | Does not support promises. |
 | Microsoft [Edge]          | deli. Win 10   | works | Streaming updates not working. |
 | [Chrome]                  | 61.0.3163.100  | works      |                          |
-| [Firefox]                 | 56.0           | works      |                          |
+| [Firefox]                 | 57.0           | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
@@ -39,7 +39,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [Firefox]             | 57.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 61.0.3163.100  | works      |                          |
+| [Chromium]            | 63.0.3239.108  | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Tor Browser]         | 7.0.8          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |

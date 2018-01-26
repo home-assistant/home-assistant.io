@@ -20,16 +20,15 @@ To add the Met Office weather platform to your installation, you'll need to regi
 ```yaml
 weather:
   - platform: metoffice
-    api_key: "my-api-key"
+    api_key: YOUR_API_KEY
 ```
 
 Configuration variables:
 
-- **api_key** (*Required*): Your personal API key from the [Datapoint website][datapoint].
+- **api_key** (*Required*): Your personal API key from the [Datapoint website](http://www.metoffice.gov.uk/datapoint).
 
 <p class='note'>
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customizable.
 </p>
 
-[datapoint]: http://www.metoffice.gov.uk/datapoint

@@ -16,7 +16,7 @@ The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receiver
 
 Supported devices are listed on their [German site](https://de.yamaha.com/de/products/contents/audio_visual/musiccast/products.html).
 
-To add a Yamaha Network Receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Yamaha MusicCast Receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +27,7 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): IP address or hostname of the device
-- **port** (*Optional*): UDP Port
+- **port** (*Optional*): UDP source port. If multiple devices are present, specify a different port per device
 - **interval_seconds** (*Optional*): Polling interval (default: 480 seconds = 8 minutes)
 
 A few notes:

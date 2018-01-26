@@ -34,3 +34,14 @@ Configuration variables:
 - **host** (*Required*): The IP of your light.
 - **token** (*Required*): The API token of your light.
 - **name** (*Optional*): The name of your light.
+
+## {% linkable_title Platform Services %}
+
+### Service fan/xiaomi_miio_set_scene
+
+Set one of the 4 available fixed scenes.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific light. Else targets all.         |
+| `scene`                   |       no | Scene, between 1 and 4.                               |

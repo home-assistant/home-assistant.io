@@ -45,6 +45,18 @@ Take a snapshot from a camera.
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
+For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
+
+{% raw %}
+```yaml
+action:
+  service: camera.snapshot
+  data:
+    entity_id: camera.yourcamera
+    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
+
 ### {% linkable_title Test if it works %}
 
 A simple way to test if you have set up your `camera` platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.

@@ -17,6 +17,10 @@ The `http` component serves all files and data required for the Home Assistant f
 It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
 </p>
 
+<p class='note'>
+Don't use option `server_host` on a hass.io installation!
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 http:
@@ -61,9 +65,9 @@ http:
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
-Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/)
+Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
 
-On top of the `http` component is a [REST API](/developers/rest_api/) and a [Python API](/developers/python_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` component is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP. 
 

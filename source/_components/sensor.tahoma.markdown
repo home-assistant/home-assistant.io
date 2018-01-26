@@ -14,7 +14,7 @@ ha_release: 0.59
 
 To use your tahoma sensors in your installation, add the following to your `configuration.yaml` file:
 
-``yaml
+```yaml
 # Example configuration.yml entry
 sensor:
   platform: tahoma

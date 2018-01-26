@@ -18,6 +18,7 @@ The `denonavr` platform allows you to control a [Denon Network Receivers](http:/
 
 Supported devices:
 
+- Denon AVR-X1300W
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W
@@ -66,6 +67,6 @@ A few notes:
 
 - Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
 - denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.
-- Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.
+- Marantz receivers seem to a have quite similar interface. Thus if you own one, give it a try.
 
 [Denon]: /components/media_player.denon/

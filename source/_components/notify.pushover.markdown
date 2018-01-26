@@ -37,12 +37,15 @@ Configuration variables:
 Example Automation:
 ```yaml
 - service: notify.entity_id
-      data: 
+      data:
         message: "This is the message"
         title: "Title of message"
-        sound: pianobar
-        priority: 0
+        data:
+          url: "https://home-assistant.io/"
+          sound: pianobar
+          priority: 0
 ```
+Component specific values in the nested `data` section are optional.
 
 This is a quote from the Pushover website regarding free/open source apps:
 
@@ -54,7 +57,7 @@ When setting up the application you can use this [icon](https://home-assistant.i
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api). 
+When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api).
 
 Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
@@ -67,8 +70,9 @@ alexa:
         service: notify.notify
         data_template:
           message: "The location of {% raw %}{{ User }}{% endraw %} has been queried via Alexa."
+        data:
+          title: "Home Assistant"
           data:
-            title: "Home Assistant"
             sound: falling
             device: pixel
             url: "https://home-assistant.io/"

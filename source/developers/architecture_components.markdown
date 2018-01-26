@@ -51,7 +51,7 @@ In the event of the sun setting:
     Turn on the lights
 ```
 
-Look [here](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py) for a comprehensive example of a home automation component.
+Look [here](/python_component_automation/) for a comprehensive example of a home automation component.
 
 ### {% linkable_title The full picture %}
 

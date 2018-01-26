@@ -240,7 +240,7 @@ For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
 It is not possible to set a vacation hold; such hold has to be 
 defined on the thermostat directly. However, a vacation hold can be
-cancelled.
+canceled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
