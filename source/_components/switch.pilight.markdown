@@ -49,13 +49,15 @@ Variables for the different codes (`on_code` and `off_code`):
 
 - **protocol** (*Required*): Protocol to use, eg. `intertechno_old` or `daycom`.
 - **systemcode** (*Optional*): The systemcode of the device.
-- **unit** (*Optional*): The unit to use.
+- **unit** (*Optional*): The unit to use (is equivalent to pilight-send --unit).
+- **unitcode** (*Optional*): The unitcode to use (is equivalent to pilight-send --unitcode).
+- **programcode** (*Optional*): The programcode to use (is equivalent to pilight-send --programcode).
 - **id** (*Optional*): ID of the device
 - **state** (*Optional*): `'on'` or `'off'` has to be in apostrophes to be parsed correctly.
 - **'off'** (*Optional*): `1` or `0`
 - **'on'** (*Optional*): `1` or `0`
 
-For possible code entries look at the [pilight API](https://www.pilight.org/development/api/). All commands allowed by [pilight-send](https://wiki.pilight.org/doku.php/psend) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
+For possible code entries look at the [pilight API](https://manual.pilight.org/development/api.html). All commands allowed by [pilight-send](https://manual.pilight.org/programs/send.html) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
 
 Variables for the different receive codes (`on_code_receive` and `off_code_receive`):
 
