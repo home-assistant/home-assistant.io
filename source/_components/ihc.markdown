@@ -21,7 +21,7 @@ An `ihc` section must be present in the `configuration.yaml` file and contain th
 ```yaml
 # Example configuration.yaml entry
 ihc:
-   host: http://192.168.1.3
+   url: http://192.168.1.3
    username: admin
    password: mysecret
    auto_setup: True
@@ -33,16 +33,16 @@ auto_setup:
   description: True to have IHC products auto setup.
   required: false
   type: bool
-host:
-  description: The URL of the IHC Controller.
-  required: true
-  type: string
 info:
   description: If True additional IHC info will be shown on each component.
   required: false
   type: bool
 password:
   description: The password for the IHC Controller.
+  required: true
+  type: string
+url:
+  description: The URL of the IHC Controller.
   required: true
   type: string
 username:
