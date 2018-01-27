@@ -18,16 +18,16 @@ The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
 Currently known supported models:
 
-- TX-P42STW50
 - TC-P65VT30
-- TX-55CX700E
+- TX-32AS520E
 - TX-49DX650B
 - TX-50DX700B
-- TX-L42ET50
-- TX-P50GT60E
+- TX-55CX700E
 - TX-65EXW784
-- TX-32AS520E
+- TX-L42ET50
+- TX-P42STW50
 - TX-P50GT30Y
+- TX-P50GT60E
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
