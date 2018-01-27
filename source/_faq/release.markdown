@@ -10,7 +10,5 @@ footer: true
 ha_category: Common
 ---
 
-The usual release cycle is two weeks. 
-
-
-There will be no support for Python 2.x. Python 2 will be EOL in [2020](https://www.python.org/dev/peps/pep-0373/#id2) and it doesn't make any sense to support a release which was planned to be retired in 2015.
+The usual release cycle is two weeks. Every other weekend will a new release of Home Assistant be available. There is no fix day or time when the release will happen because that depends on the person who is finishing the release. It can already be Monday at your location. If there was no announcement made in the previous release notes or on another communication channel then the release will happen.
+  
