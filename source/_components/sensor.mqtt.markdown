@@ -137,7 +137,7 @@ sensor:
 
 ### {% linkable_title Get sensor value from a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to your needed. In this example the topics are prefixed with "home". Also, add a sensor is available in the "Devices" tap with the name "analog" and "brightness" as value. 
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
 
 As soon as the unit is online, you will get the state of the sensor.
 
