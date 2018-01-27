@@ -47,3 +47,29 @@ Configuration variables:
 - **port** (*Optional*): The port number of your Panasonic Viera TV. Defaults to `55000`.
 - **mac** (*Optional*): The MAC address of your Panasonic Viera TV, e.g. `AA:BB:CC:DD:99:1A`.
 - **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
+
+### {% linkable_title Example `play_media` script %}
+
+The `play_media` function can be used to open web pages and other media types (images, movies) in the TV web browser.
+
+```yaml
+# Example play_media script that can be triggered when someone is detected at the door
+#
+script:
+  front_door_camera:
+    alias: "Show who's at the door"
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.living_room_tv
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room_tv
+          media_content_type: "url"
+          media_content_id: "http://google.com"
+      - delay:
+        seconds: 5
+      - service: media_player.media_stop
+        data:
+          entity_id: media_player.living_room_tv
+```

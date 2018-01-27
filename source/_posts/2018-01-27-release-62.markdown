@@ -43,7 +43,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Tahoma platform will get new entity IDs ([@glpatcern] - [#11547]) ([tahoma docs]) ([cover.tahoma docs]) (breaking change)
 - Mold indicator: attribute names no longer include spaces or periods ([@olskar] - [#11694]) ([sensor.mold_indicator docs]) (breaking change)
-- Custom component devs only: `EntityComponent.add_entity(entity)` and `EntityComponent.async_add_entity(entity)` have been removed. Use `EntityComponent.add_entities([entity])` and `EntityComponent.async_add_entities([entity])` instead. ([@balloob] - [#11691]) (breaking change)
+- Custom component devs only: `EntityComponent.add_entity(entity)` and `EntityComponent.async_add_entity(entity)` have been removed. Use `EntityComponent.add_entities([entity])` and `EntityComponent.async_add_entities([entity])` instead. Also `EntityComponent.entities` is no longer a dictionary but instead an iterable. Use `EntityComponent.get_entity(entity_id)` to get entity by id. ([@balloob] - [#11691]) (breaking change)
 
 ## All changes
 
