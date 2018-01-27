@@ -134,7 +134,7 @@ tilt_max:
   type: integer
   default: 100
 tilt_closed_value:
-  description: The value that will be sent on an `close_cover_tilt` command.
+  description: The value that will be sent on a `close_cover_tilt` command.
   required: false
   type: integer
   default: 0

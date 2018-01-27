@@ -16,7 +16,7 @@ Right now add-ons will work with images that are stored on Docker Hub (using `im
 
 ## {% linkable_title Local build %}
 
-You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. If you use `FROM $BUILD_FROM` you need set a base image with build args. Normally you can use follow base images:
+You can build and try the addon on your developer machine also. Move all addon stuff into a temp folder. If you use `FROM $BUILD_FROM` you need set a base image with build args. Normally you can use follow base images:
 
 - armhf: `homeassistant/armhf-base:latest`
 - aarch64: `homeassistant/aarch64-base:latest`

@@ -61,5 +61,5 @@ lights:
 {% endconfiguration %}
 
 In the example above 12345 is ihc resource id and "tablelight" is the name. 
-The IHC resource id can be a light level for dimmers or an boolean output of a relay. 
+The IHC resource id can be a light level for dimmers or a boolean output of a relay. 
 For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)

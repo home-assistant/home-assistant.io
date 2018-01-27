@@ -10,7 +10,7 @@ comments: true
 categories: Release-Notes
 ---
 
-It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/home-assistant/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documentating all the various components.
+It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/home-assistant/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documenting all the various components.
 
 __MQTT Support__
 <img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='50' /> The big new addition in this release is the support for the MQTT protocol by [@fabaff](https://github.com/fabaff) with some help from [@balloob](https://github.com/balloob). It will now be possible to integrate any IoT device that talks via MQTT. For the initial release we support connecting Home Assistant to a broker (no TLS yet). Components can now subscribe and publish to MQTT topics ([see the example][mqtt-example]) and also support for the automation component [has been added][mqtt-automation]. For more information, see [the MQTT component page][mqtt-component].

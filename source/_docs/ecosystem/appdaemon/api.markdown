@@ -944,7 +944,7 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time 
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
 For example:
 

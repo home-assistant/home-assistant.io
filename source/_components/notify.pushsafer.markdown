@@ -15,7 +15,7 @@ ha_release: 0.39
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows you to send messages to the user using Pushsafer.
 
-In order to get an private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
+In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
 To use Pushsafer notifications, add the following to your `configuration.yaml` file:
 
