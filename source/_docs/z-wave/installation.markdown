@@ -10,6 +10,14 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
+The first time you enable the Z-Wave component it will install the Z-Wave drivers (python-openzwave). This can take up to half an hour on slow machines like Raspberry Pi.
+
+Installing the drivers might require some extra packages to be installed. Check your platform below.
+
+## {% linkable_title Platform specific installation instructions %}
+
+### {% linkable_title Linux (except Hass.io) %}
+
 On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
@@ -18,15 +26,17 @@ $ sudo apt-get install libudev-dev
 
 On Python 3.6 you may also have to install libpython3.6-dev, and possibly python3.6-dev.
 
-When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed. 
+### {% linkable_title macOS %}
+
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
 
 ```bash
 $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 ```
 
-<p class='note'>
-The installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi.
-</p>
+### {% linkable_title Raspberry Pi %}
+
+On Raspberry Pi you will need to enable the serial interface in the `raspbi-config` tool before you can add Z-Wave to Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -37,7 +47,7 @@ zwave:
 ```
 
 {% configuration zwave %}
-usb_path: 
+usb_path:
   description: The port where your device is connected to your Home Assistant host.
   required: false
   type: string
@@ -47,7 +57,7 @@ network_key:
   required: false
   type: string
   default: None
-config_path: 
+config_path:
   description: The path to the Python OpenZWave configuration files.
   required: false
   type: string
@@ -72,11 +82,11 @@ new_entity_ids:
   required: false
   type: boolean
   default: True
-device_config: 
+device_config:
   description: This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
   required: false
   type: string, list
-  keys: 
+  keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
       required: false
@@ -162,7 +172,7 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1). 
+Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1).
 
 ### {% linkable_title RancherOS %}
 

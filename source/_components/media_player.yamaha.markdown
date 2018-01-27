@@ -113,3 +113,13 @@ script:
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 
 ```
+
+### {% linkable_title Service `yamaha_enable_output` %}
+
+Enable or disable an output port (HDMI) on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `port` | no | Port to enable or disable, e.g. `hdmi1`.
+| `enabled` | no | To enable set true, otherwise set to false.

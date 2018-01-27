@@ -63,6 +63,11 @@ brightness:
   required: false
   type: boolean
   default: false
+brightness_scale:
+  description: "Defines the maximum brightness value (i.e. 100%) of the MQTT device."
+  required: false
+  type: integer
+  default: 255
 color_temp:
   description: Flag that defines if the light supports color temperature.
   required: false
@@ -189,6 +194,29 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
+```
+
+### {% linkable_title Brightness Scaled %}
+
+To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt_json
+    name: mqtt_json_light_1
+    state_topic: "home/light"
+    command_topic: "home/light/set"
+    brightness: true
+    brightness_scale: 4095
+```
+
+Home Assistant will then convert its 8bit value in the message to and from the device:
+
+```json
+{
+  "brightness": 4095,
+  "state": "ON",
+}
 ```
 
 ### {% linkable_title Implementations %}

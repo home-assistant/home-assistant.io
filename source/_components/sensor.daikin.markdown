@@ -20,10 +20,10 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - **outside temperature**
 
 <p class='note warning'>
-Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant
+Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant.
 </p>
 
-To enable the platform, add the following lines to your `configuration.yaml` file:
+To enable the platform manually, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,8 +31,8 @@ sensor:
   - platform: daikin
     host: 10.0.0.1
     monitored_conditions:
-      - inside_temperature  
-      - outside_temperature  
+      - inside_temperature
+      - outside_temperature
 ```
 
 {% configuration %}

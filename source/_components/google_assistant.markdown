@@ -37,7 +37,7 @@ google_assistant:
     - group
   entity_config:
     switch.kitchen:
-      name: Custom Name for Alexa
+      name: Custom Name for Google Assistant
       aliases:
         - bright lights
         - entry lights

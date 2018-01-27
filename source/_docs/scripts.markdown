@@ -116,7 +116,6 @@ wait_template: "{{ is_state(dummy, 'off') }}"
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
-{% raw %}
 ```yaml
 event: LOGBOOK_ENTRY
 event_data:
@@ -124,6 +123,17 @@ event_data:
   message: is waking up
   entity_id: device_tracker.paulus
   domain: light
+```
+
+You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
+an event trigger.
+
+{% raw %}
+```yaml
+event: MY_EVENT
+event_data_template:
+  name: myEvent
+  customData: "{{ myCustomVariable }}"
 ```
 {% endraw %}
 
