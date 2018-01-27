@@ -148,3 +148,6 @@ date_released: 2018-01-27
 # Major release:
 patch_version_notes: "#"
 # Minor release (Example #release-0431---april-25):
+
+# Date we moved to Discourse for comments
+disqus_end_date: 2018-01-26 0:00:00
