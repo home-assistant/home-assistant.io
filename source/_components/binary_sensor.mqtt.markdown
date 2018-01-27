@@ -78,6 +78,13 @@ value_template:
   type: string
 {% endconfiguration %}
 
+
+## {% linkable_title Examples %}
+
+In this section you will find some real life examples of how to use this sensor.
+
+### {% linkable_title Full configuration %}
+
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. To set the state of the binary sensor manually:
 
 ```bash
@@ -86,6 +93,7 @@ $  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
 
 The example below shows a full configuration for a binary sensor:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -99,5 +107,33 @@ binary_sensor:
     payload_not_available: "offline"
     qos: 0
     device_class: opening
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
 ```
+{% endraw %}
+
+### {% linkable_title Get the state of a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Also, add a "Switch Input" in the "Devices" tap with the name "switch" and "button" as value.
+
+As soon as the unit is online, you will get the state of the attached button.
+
+```bash
+home/bathroom/status Connected
+...
+home/bathroom/switch/button 1
+```
+
+The configuration will look like the example below:
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+binary_sensor:
+  - platform: mqtt
+    name: Bathroom
+    state_topic: "home/bathroom/switch/button"
+    payload_on: "1"
+    payload_off: "0"
+```
+{% endraw %}
+
