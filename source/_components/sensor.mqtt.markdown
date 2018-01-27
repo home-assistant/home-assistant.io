@@ -90,7 +90,7 @@ If you are using the [Owntracks](/components/device_tracker.owntracks/) and enab
 owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
 ```
 
-Thus the trick is extract the battery level from the payload.
+Thus the trick is extracting the battery level from the payload.
 
 {% raw %}
 ```yaml
@@ -137,7 +137,7 @@ sensor:
 
 ### {% linkable_title Get sensor value from a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device. Set up a "Controller" for MQTT with the protocol "OpenHAB MQTT". Adjust the entries ("Controller Subscribe:" and "Controller Publish:") as needed. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to your needed. In this example the topics are prefixed with "home". Also, add a sensor is available in the "Devices" tap with the name "analog" and "brightness" as value. 
 
 As soon as the unit is online, you will get the state of the sensor.
 
@@ -146,6 +146,8 @@ home/bathroom/status Connected
 ...
 home/bathroom/analog/brightness 290.00
 ```
+
+The configuration will look like the example below:
 
 {% raw %}
 ```yaml
