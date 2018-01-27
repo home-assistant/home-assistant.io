@@ -2,7 +2,7 @@
 layout: page
 title: "Weblink"
 description: "Instructions how to setup Links within Home Assistant."
-date: 2018-01-19 20:00
+date: 2016-02-02 20:00
 sidebar: true
 comments: false
 sharing: true
