@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: restful.png
 ha_category: Light
-ha_release: 0.57
+ha_release: 0.63
 ha_iot_class: "Local Polling"
 ---
 
