@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Climate
-ha_version: 0.61
+ha_version: 0.63
 ha_iot_class: "Local Polling"
 ---
 
