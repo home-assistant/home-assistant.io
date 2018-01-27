@@ -29,7 +29,7 @@ Currently known supported models:
 - TX-P50GT30Y
 - TX-P50GT60E
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_viera.markdown).
 
 Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
 
