@@ -61,7 +61,7 @@ commands:
   type: map
   keys:
     command:
-      description: A list of commands as base64 string.
+      description: A list of commands as [raw (learned command)](/components/remote.xiaomi_miio/#raw) or [pronto hex code](/components/remote.xiaomi_miio/#pronto_hex_code).
       required: true
       type: list
 
@@ -81,11 +81,11 @@ remote:
     commands:
       activate_towel_heater:
         command:
-          - base64 encoded string learned from remote
+          - raw:base64:[optional_frequency]
       read_bad_poem:
         command:
-          - base64 encoded string learned from remote
-          - base64 encoded string learned from remote
+          - raw:base64:[optional_frequency]
+          - pronto:pronto_hex:[optional_repeat]
 ```
 
 ## {% linkable_title Use named commands to create UI buttons %}
@@ -107,13 +107,32 @@ script:
             - 'read_bad_poem'
 ```
 
+## {% linkable_title Command Types %}
+The Xiaomi IR Remote Platform currently supports two different formats for IR codes.
+
+### {% linkable_title Raw %}
+A raw command is a command learned from [`remote.xiaomi_miio_learn_command`](/components/remote.xiaomi_miio/#remote.xiaomi_miio_learn_command).
+
+A raw command is defined as in the following example:
+`raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=`
+with an optional last parameter of frequency:
+`raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=:38400`
+
+### {% linkable_title Pronto Hex Code %}
+A pronto hex code is a hex code often supplied from the device manufacture.
+
+A pronto hex code is defined as in the following example:
+`pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0623 015B 0057 0016 0E6E`
+with an optional last parameter of repeats (required by some devices):
+`pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0623 015B 0057 0016 0E6E:2`
+
 ## {% linkable_title Platform Services %}
 
 The Xiaomi IR Remote Platform registers two services.
 
 ### {% linkable_title `remote.send_command` %}
 
-Allows sending either named commands using identifier or sending commands as base64 encoded strings.
+Allows sending either named commands using identifier or sending commands as one of the two types defined in [Command Types](/components/remote.xiaomi_miio/#command_types).
 
 ### {% linkable_title `remote.xiaomi_miio_learn_command` %}
 
