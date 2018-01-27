@@ -92,6 +92,7 @@ owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":1
 
 Thus the trick is extract the battery level from the payload.
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 sensor:
@@ -99,8 +100,9 @@ sensor:
     state_topic: "owntracks/tablet/tablet"
     name: "Battery Tablet"
     unit_of_measurement: "%"
-    value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
+    value_template: '{{ value_json.batt }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Get temperature and humidity %}
 
@@ -116,6 +118,7 @@ office/sensor1
 
 Then use this configuration example to extract the data from the payload:
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 sensor:
@@ -123,10 +126,35 @@ sensor:
     state_topic: 'office/sensor1'
     name: 'Temperature'
     unit_of_measurement: '°C'
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
+    value_template: '{{ value_json.temperature }}'
   - platform: mqtt
     state_topic: 'office/sensor1'
     name: 'Humidity'
     unit_of_measurement: '%'
-    value_template: {% raw %}'{{ value_json.humidity }}'{% endraw %}
+    value_template: '{{ value_json.humidity }}'
 ```
+{% endraw %}
+
+### {% linkable_title Get sensor value from a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device. Set up a "Controller" for MQTT with the protocol "OpenHAB MQTT". Adjust the entries ("Controller Subscribe:" and "Controller Publish:") as needed. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+
+As soon as the unit is online, you will get the state of the sensor.
+
+```bash
+home/bathroom/status Connected
+...
+home/bathroom/analog/brightness 290.00
+```
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+sensor:
+  - platform: mqtt
+    state_topic: 'home/bathroom/analog/brightness'
+    name: Brightness
+```
+{% endraw %}
+
+
