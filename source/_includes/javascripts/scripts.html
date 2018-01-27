@@ -4,11 +4,6 @@
 {% endcomment %}
 
 {% include javascripts/google_analytics.html %}
-
-{% if site.disqus_short_name and post.date < site.disqus_end_date and page.comments == true %}
-{% include javascripts/disqus.html %}
-{% endif %}
-
 {% include javascripts/algolia.html %}
 
 {% if page.sidebar != false %}
