@@ -92,16 +92,18 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 
-### {% linkable_title Configuration example %}
+## {% linkable_title Examples %}
+
+Set a timer called `test` to a duration of 30 seconds. 
 
 ```yaml
 # Example configuration.yaml entry
-
-# Set a timer called test to a duration of 30 seconds: 
 timer:
   test:
     duration: '00:00:30'
 ```
+
+### {% linkable_title Control a timer from the frontend %}
 
 ```yaml
 # Example automations.yaml entry
@@ -129,5 +131,33 @@ timer:
     event_type: timer.finished
     event_data: 
       entity_id: timer.test
+```
+
+### {% linkable_title Control a timer from the frontend %}
+
+With the [`script`](/components/script/) component you would be able to control a timer (see above for a `timer` configuration sample) manually.
+
+```yaml
+script:
+  start_timer:
+    alias: Start timer
+    sequence:
+      - service: timer.start
+        entity_id: timer.test
+  pause_timer:
+    alias: Pause timer
+    sequence:
+      - service: timer.pause
+        entity_id: timer.test
+  cancel_timer:
+    alias: Cancel timer
+    sequence:
+      - service: timer.cancel
+        entity_id: timer.test
+  finish_timer:
+    alias: Finish timer
+    sequence:
+      - service: timer.finish
+        entity_id: timer.test
 ```
 
