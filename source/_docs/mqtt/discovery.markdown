@@ -57,7 +57,7 @@ The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support f
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
 - [esphomelib](https://github.com/OttoWinter/esphomelib)
-- [ESPurna](https://bitbucket.org/xoseperez/espurna)
+- [ESPurna](https://github.com/xoseperez/espurna)
 
 ### {% linkable_title Examples %}
 
