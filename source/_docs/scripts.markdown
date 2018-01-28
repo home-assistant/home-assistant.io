@@ -139,7 +139,7 @@ event_data_template:
 
 ### {% linkable_title Raise and Consume Custom Events %}
 
-The following automation shows how to raise a custom event called `event_light_turned_on` with `entity_id` as the event data. The action part could be inside a script or an automation.
+The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 {% raw %}
 ```yaml
@@ -155,7 +155,7 @@ The following automation shows how to raise a custom event called `event_light_t
 ```
 {% endraw %}
 
-The following automation shows how to capture the custom event `event_light_turned_on`, and retrieve corresponsing `entity_id` that was passed as the event data.
+The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponsing `entity_id` that was passed as the event data.
 
 {% raw %}
 ```yaml
