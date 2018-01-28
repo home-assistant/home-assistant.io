@@ -75,6 +75,8 @@ Configuration variables:
   - `media_player`
   - `fan`
 
+- **entities** (*Optional*): Customization for entities.
+
 A full configuration sample looks like the one below.
 
 ```yaml
@@ -90,26 +92,21 @@ emulated_hue:
   expose_by_default: true
   exposed_domains:
     - light
-```
-
-With additional customization you will be able to specify the behavior of the existing entities.
-
-```yaml
-# Example customization
-homeassistant:
-  customize:
+  entities:
     light.bedroom_light:
-      # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue_hidden: true
-    light.office_light:
-      # Address light.office_light as "back office light"
-      emulated_hue_name: "back office light"
+      name: "Bedside Lamp"
+    light.ceiling_lights:
+      hidden: true
 ```
 
-The following are attributes that can be applied in the `customize` section:
+The following are attributes that can be applied in the `entities` section:
 
-- **emulated_hue_hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. Adding `emulated_hue_hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
-- **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
+- **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
+- **hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
+
+<p class='note'>
+These attributes used to be found under the `customize` section of `homeassistant`, however they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
+</p>
 
 ### {% linkable_title Troubleshooting %}
 
