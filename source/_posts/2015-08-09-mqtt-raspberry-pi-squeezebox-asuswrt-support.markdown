@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "MQTT, Rasperry PI, Logitech Squeezebox and ASUSWRT routers now supported"
-description: "New support for MQTT, Rasperry PI GPIO, Logitech Squeezebox and ASUSWRT routers"
+title: "MQTT, Rasperry Pi, Logitech Squeezebox and ASUSWRT routers now supported"
+description: "New support for MQTT, Rasperry Pi GPIO, Logitech Squeezebox and ASUSWRT routers"
 date: 2015-08-09 18:01 0000
 date_formatted: "August 9, 2015"
 author: Paulus Schoutsen
@@ -33,8 +33,8 @@ mqtt:
 
 <!--more-->
 
-__Raspberry PI GPIO Support__
-<img src='/images/supported_brands/raspberry-pi.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@gbarba](https://github.com/gbarba) has contributed support to use the general purpose input and output pins on a Raspberry PI as switches inside Home Assistant.
+__Raspberry Pi GPIO Support__
+<img src='/images/supported_brands/raspberry-pi.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@gbarba](https://github.com/gbarba) has contributed support to use the general purpose input and output pins on a Raspberry Pi as switches inside Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
