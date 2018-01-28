@@ -24,12 +24,14 @@ sensor:
   - platform: deutsche_bahn
     from: NAME_OF_START_STATION
     to: NAME_OF_FINAL_STATION
+    only_direct: True/False
 ```
 
 Configuration variables:
 
 - **from** (*Required*): The name of the start station.
 - **to** (*Required*): The name of the end/destination station.
+- **only_direct** (*Optional*, default=`False`): If True, only direct connections are retrieved.
 
 This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
 
