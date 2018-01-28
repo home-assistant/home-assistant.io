@@ -52,7 +52,7 @@ _(If you're on a Debian based system, you will need to install Python virtual en
     ```
     $ cd homeassistant
     ```
- 3. Activate the virtual environment:
+ 3. Activate the virtual environment (typically /srv/homeassistant/):
     ```
     $ source bin/activate
     ```
