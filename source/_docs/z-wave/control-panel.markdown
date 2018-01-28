@@ -52,7 +52,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
