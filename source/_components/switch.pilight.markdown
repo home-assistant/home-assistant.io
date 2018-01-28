@@ -51,7 +51,6 @@ Variables for the different codes (`on_code` and `off_code`):
 - **systemcode** (*Optional*): The systemcode of the device.
 - **unit** (*Optional*): The unit to use (is equivalent to pilight-send --unit).
 - **unitcode** (*Optional*): The unitcode to use (is equivalent to pilight-send --unitcode).
-- **programcode** (*Optional*): The programcode to use (is equivalent to pilight-send --programcode).
 - **id** (*Optional*): ID of the device
 - **state** (*Optional*): `'on'` or `'off'` has to be in apostrophes to be parsed correctly.
 - **'off'** (*Optional*): `1` or `0`
