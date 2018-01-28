@@ -28,8 +28,8 @@ Just follow the component pages for each on how to add them to your Home Assista
 
  - [DHT Sensor](/components/sensor.dht/).
  - [Raspberry Pi Cover](/components/cover.rpi_gpio/).
- - [Raspberry PI GPIO Binary Sensor](/components/binary_sensor.rpi_gpio/).
- - [Raspberry PI GPIO Switch](/components/switch.rpi_gpio/).
+ - [Raspberry Pi GPIO Binary Sensor](/components/binary_sensor.rpi_gpio/).
+ - [Raspberry Pi GPIO Switch](/components/switch.rpi_gpio/).
  - [Raspberry Pi RF Switch](/components/switch.rpi_rf/).
 
 ### {% linkable_title Raspberry Pi Camera %}

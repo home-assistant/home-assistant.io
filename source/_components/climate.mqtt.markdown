@@ -201,7 +201,7 @@ climate:
 ```
 {% endraw %}
 
-This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obvisouly, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
+This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 
 ### {% linkable_title Example %}

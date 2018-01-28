@@ -33,4 +33,4 @@ Not all existing platforms follow the requirements in this checklist. This canno
 ### {% linkable_title 3. Component/platform communication %}
 
  1. If you need to share global data with platforms, use the dictionary `hass.data`. `hass.data[DATA_XY]` while `XY` is the component is preferred over `hass.data[DOMAIN]`.
- 2. If the component fetches data that causes it's related platform entities to update, you can notify them using the dispatcher code in `homeassistant.helpers.dispatcher`.
+ 2. If the component fetches data that causes its related platform entities to update, you can notify them using the dispatcher code in `homeassistant.helpers.dispatcher`.

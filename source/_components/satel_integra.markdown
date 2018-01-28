@@ -56,7 +56,7 @@ Configuration variables:
 - **port** (*Optional*): The port on which the ETHM module listens for clients using integration protocol. Default: `7094`
 - **partition** (*Optional*): The partition to operate on. Integra can support multiple partitions, this platform only supports one. Default: `1`
 - **arm_home_mode** (*Optional*): The mode in which arm Satel Integra when 'arm home' is used. Possible options are `1`,`2` or `3`, default being `1`. For more information on what are the differences between them, please refer to Satel Integra manual.
-- **zones** (*Optional*): This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as it's name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+- **zones** (*Optional*): This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
 
 List of all zone IDs can be taken from DloadX program.
 

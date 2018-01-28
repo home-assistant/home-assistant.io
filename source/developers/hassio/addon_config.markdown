@@ -140,7 +140,7 @@ The config for an add-on is stored in `config.json`.
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make a option optional, put `?` to the end of data type, otherwise it will be a required value.
+The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make an option optional, put `?` to the end of data type, otherwise it will be a required value.
 
 ```json
 {

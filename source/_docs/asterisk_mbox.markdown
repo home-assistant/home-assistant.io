@@ -44,7 +44,7 @@ Before beginning make sure that you have the following:
 
 3. Create a configuration file for the server
 
-   As the `asterisk` user create a `asterisk_mbox.ini` file (You can place this in any directory you choose, but the rommended location is `/etc/asterisk/asterisk_mbox.ini`)
+   As the `asterisk` user create an `asterisk_mbox.ini` file (You can place this in any directory you choose, but the rommended location is `/etc/asterisk/asterisk_mbox.ini`)
 
    ```ini
    [default]

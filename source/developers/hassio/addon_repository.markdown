@@ -10,7 +10,7 @@ footer: true
 redirect_from: /hassio/addon_repository/
 ---
 
-An add-on repository can contain one or more add-ons. Each add-on is stored in it's own unique folder. To be indentified as a repository, the repository must contain a configuration file.
+An add-on repository can contain one or more add-ons. Each add-on is stored in its own unique folder. To be indentified as a repository, the repository must contain a configuration file.
 
 Check the [Example add-on repository](https://github.com/home-assistant/hassio-addons-example) for further details.
 
