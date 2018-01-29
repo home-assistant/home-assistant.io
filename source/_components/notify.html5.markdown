@@ -35,12 +35,12 @@ Configuration variables:
 
 1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](https://home-assistant.io/docs/configuration/remote/)).
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain-with-home-assistant).
+3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project, and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
 6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
 
-#### {% linkable_title Verify your domain with Home Assistant %}
+#### {% linkable_title Verify your domain %}
 
 Follow these steps to verify domain ownership with Google Webmaster Central / Search Console:
 1. Enter your domain and add **'/local'** at the end, ie. https://whitehouse.duckdns.org:8123/local
