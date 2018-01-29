@@ -31,7 +31,7 @@ modbus:
 Configuration variables:
 
 - **type** (*Required*): Type of the connection to Modbus. Possible values are:
-  - *tcp*: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation, 
+  - *tcp*: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation,
   - *udp*: Modbus TCP form, but using UDP for transport (removes the overheads required for TCP),
   - *rtuovertcp*: Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.
 - **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
@@ -76,3 +76,4 @@ Configuration variables:
  - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
  - [Modbus Sensor](/components/sensor.modbus/)
  - [Modbus Switch](/components/switch.modbus/)
+ - [Modbus Thermostat](/components/climate.modbus/)
