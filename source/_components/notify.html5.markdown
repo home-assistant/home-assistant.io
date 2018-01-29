@@ -35,17 +35,17 @@ Configuration variables:
 
 1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](https://home-assistant.io/docs/configuration/remote/)).
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [hass.io instructions](#verify-your-domain-with-hassio).
+3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [hass.io instructions](#verify-your-domain-with-home-assistant).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project, and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
 6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
 
-#### {% linkable_title Verify your domain with Hass.io %}
+#### {% linkable_title Verify your domain with Home Assistant %}
 
 Follow these steps to verify domain ownership with Google Webmaster Central / Search Console:
 1. Enter your domain and add **'/local'** at the end, ie. https://whitehouse.duckdns.org:8123/local
 2. Select HTML file verification and download the google*.html file.
-2. Create a directory named "www" in your Hass.io configuration directory (/config share from Samba add-on).
+2. Create a directory named "www" in your Home Assistant configuration directory (/config share from Samba add-on).
 3. Place the downloaded google*.html file in the "www" directory.
 4. RESTART Home Assistant - this is important!
 5. Verify the file can be accessed in the browser, ie. **https://whitehouse.duckdns.org:8123/local/goole123456789.html** (change filename) - you should a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
