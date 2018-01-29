@@ -25,11 +25,21 @@ sensor:
     from: NAME_OF_START_STATION
     to: NAME_OF_FINAL_STATION
 ```
-
-Configuration variables:
-
-- **from** (*Required*): The name of the start station.
-- **to** (*Required*): The name of the end/destination station.
+{% configuration %}
+from:
+  description: The name of the start station.
+  required: true
+  type: string
+to:
+  description: The name of the end/destination station.
+  required: true
+  type: string
+only_direct:
+  description: Only show direct connections.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
 
