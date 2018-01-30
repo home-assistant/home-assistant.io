@@ -53,6 +53,22 @@ Possible log severities are:
 - info
 - debug
 - notset
+
+### {% linkable_title Log file location %}
+
+The log information is stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
+
+If you are a Hassbian user you can use the example below:
+
+```bash
+$ tail -f /home/homeassistant/.homeassistant/home-assistant.log
+```
+
+If you are a Hass.io user you can use the example below, when logged in through the ssh addon:
+
+```bash
+$ tail -f /config/home-assistant.log
+```
  
 ### {% linkable_title Service `set_level` %}
 
@@ -68,16 +84,11 @@ data:
   homeassistant.components.media_player.yamaha: debug
 ```
 
-The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
+### {% linkable_title Services `dump_config` and `list_loggers` %}
 
-If you are a Hassbian user you can use the example below:
+The `dump_config` service allows querying the log filter settings as defined in the configuration file,
+including the potential changes made with `set_level`.
 
-```bash
-$ tail -f /home/homeassistant/.homeassistant/home-assistant.log
-```
+Instead of just giving information about already configured loggers,
+`list_loggers` returns a dictionary object containing all initialized loggers and their log levels.
 
-If you are a Hass.io user you can use the example below, whenlogged in through the ssh addon:
-
-```bash
-$ tail -f /config/home-assistant.log
-```
