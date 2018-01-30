@@ -13,7 +13,7 @@ ha_category: Front end
 
 The `custom_card` component allows the user to show custom cards (custom UI) on the frontend without hijacking the card of another entity (Current custom UI cards that pass their config via `customize:` require updates for this).
 
-To use custom cards in your installation, copy your custom html files to `<config->/www/custom_ui/` and add the following lines to your `configuration.yaml`:
+To use custom cards in your installation, copy your custom html files to `<config-dir>/www/custom_ui/` and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
