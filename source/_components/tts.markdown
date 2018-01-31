@@ -22,6 +22,10 @@ tts:
   - platform: google
 ```
 
+<p class='note'>
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
+</p>
+
 The following optional parameters can be used with any platform. However the TTS component will only look for global settings under the configuration of the first configured platform:
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
@@ -40,10 +44,6 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 ```
-
-<p class='note'>
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
-</p>
 
 ## {% linkable_title Service say %}
 
