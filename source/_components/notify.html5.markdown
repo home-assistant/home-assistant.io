@@ -33,30 +33,32 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-1. Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-2. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
-3. After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-4. Then, click the cogwheel on top left and select "Project settings".
-5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](https://home-assistant.io/docs/configuration/remote/)).
+2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain).
+4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project, and select the project you created.
+5. Then, click the cogwheel on top left and select "Project settings".
+6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
 
-#### {% linkable_title Verify your domain with Hass.io %}
+#### {% linkable_title Verify your domain %}
 
-1. Set `https://yourdomain/local/` as URL.
-2. For verifying your domain you need to download a file in step 2.
-3. Create a directory named "www" in you Hass.io configuration directory.
-4. Place the file (something like this: google*.html) in the "www" directory.
-5. Verify the domain.
-6. Proceed with step 3.
+Follow these steps to verify domain ownership with Google Webmaster Central / Search Console:
+1. Enter your domain and add **'/local'** at the end, ie. https://example.com:8123/local
+2. Select HTML file verification and download the google*.html file.
+2. Create a directory named "www" in your Home Assistant configuration directory (/config share from Samba add-on).
+3. Place the downloaded google*.html file in the "www" directory.
+4. RESTART Home Assistant - this is important!
+5. Verify the file can be accessed in the browser, ie. **https://example.com:8123/local/google123456789.html** (change filename) - you should a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
+6. Go back to Google Webmaster Central / Search Console and proceed with the verification.
 
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
-(On Hass.io these requirements are already met.)
 
 * You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is exposed to the world.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
-* `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
+* If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
 * You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
 
