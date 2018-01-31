@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/influxdb/#data-import-script
 ---
 
 Script to convert an old-structure Influx database to a new one.
