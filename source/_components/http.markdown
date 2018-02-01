@@ -30,7 +30,7 @@ http:
 Configuration variables:
 
 - **api_password** (*Optional*): Protect Home Assistant with a password.
-- **server_host** (*Optional*): Only listen to incoming requests on specific IP/host (default: accept all)
+- **server_host** (*Optional*): Only listen to incoming requests on specific IP/host (default: bind to `0.0.0.0` which means accept all IPv4 connections). Use `server_host: "::0"` if you want to listen to (and only) IPv6.
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
 - **base_url** (*Optional*): The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to the local IP address. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
