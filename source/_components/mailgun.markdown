@@ -12,7 +12,7 @@ ha_category: Notifications
 ha_release: 0.38
 ---
 
-The component supports push messages and generates events based on inbound data. To use, add a Route set to Store and Notify with a URL of the following form: `https://<domain>/api/mailgun?api_password=<password>`
+The component supports push messages and generates events based on inbound data. To use, add a Route set to Store and Notify with a URL of the following form: `https://<home-assistant-domain>/api/mailgun?api_password=<password>`
 
 To send messages, use the [Mailgun notify platform][notify].
 
@@ -30,6 +30,6 @@ mailgun:
 
 Configuration variables:
 
-- **domain** (*Optional*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
+- **domain** (*Required*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up. In the 
 - **sandbox** (*Optional*): Whether to use the sandboxed domain for outgoing mail. The `domain` item takes precedence over this. Defaults to `False`.
 - **api_key** (*Required*): This is the API token that has been generated in your Mailgun account.
