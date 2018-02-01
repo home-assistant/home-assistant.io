@@ -27,23 +27,23 @@ fan:
   - platform: template
     fans:
       bedroom_fan:
-        friendly_name: "Bedroom fan" # Optional
-        value_template: "{{ states('input_boolean.state') }}" # Required
-        speed_template: "{{ states('input_select.speed') }}" # Optional
-        oscillating_template: "{{ states('input_select.osc') }}" # Optional
-        turn_on: # Required
+        friendly_name: "Bedroom fan"
+        value_template: "{{ states('input_boolean.state') }}"
+        speed_template: "{{ states('input_select.speed') }}"
+        oscillating_template: "{{ states('input_select.osc') }}"
+        turn_on:
           service: script.fan_on
-        turn_off: # Required
+        turn_off:
           service: script.fan_off
-        set_speed: # Optional
+        set_speed:
           service: script.fan_speed
           data_template:
             speed: "{{ speed }}"
-        set_oscillating: # Optional
+        set_oscillating:
           service: script.fan_oscillating
           data_template:
             oscillating: "{{ oscillating }}"
-        speeds: # Optional
+        speeds:
           - '1'
           - '2'
           - '3'
