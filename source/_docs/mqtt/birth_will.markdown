@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ---
 
-MQTT supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about an ungracefully disconnected client.
+MQTT supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about a disconnect or ungracefully lost connection.
 
 To integrate MQTT Birth and Last Will messages into Home Assistant, add the following section to your `configuration.yaml` file:
 
