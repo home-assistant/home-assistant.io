@@ -35,13 +35,14 @@ recorder:
         description: The URL which points to your database.
         required: false
         type: URL
-      purge_interval:
-        description: Enable scheduled purge of older events and states. The purge task runs every `purge_interval` days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
-        required: Inclusive
-        type: int
       purge_keep_days:
-        description: Specify the number of history days to keep in recorder database after purge. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
-        required: Inclusive
+        description: Specify the number of history days to keep in recorder database after a purge.
+        required: false
+        type: int
+      purge_interval:
+        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule.
+        required: false
+        default: 1
         type: int
       exclude:
         description: Configure which components should be excluded
@@ -76,7 +77,6 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_interval: 2
   purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
