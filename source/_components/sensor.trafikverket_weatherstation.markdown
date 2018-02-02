@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`.
 sensor:
   - platform: trafikverket_weatherstations
     name: Trafikverket Road WeatherStation Kungälv
-    api: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
     type: road
 ```
@@ -29,7 +29,7 @@ sensor:
 Configuration variables:
 
 - **name** (*Required*): Unique name of the device in the frontend.
-- **api** (*Required*): API key from Trafikverket
+- **api_key** (*Required*): API key from Trafikverket
 - **station** (*Required*): Name of the weather station
 - **type** (*Required*): Defines which temperature you want (`air` or `road`)
 - **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Defaults to 300 seconds (5 minutes)
@@ -46,12 +46,12 @@ Configuration variables:
 sensor:
   - platform: trafikverket_weatherstations
     name: Trafikverket Road WeatherStation Kungälv
-    api: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
     type: road
   - platform: trafikverket_weatherstations
     name: Trafikverket Air WeatherStation Lanna
-    api: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Lanna
     type: air
     scan_interval: 600
