@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_release: 0.63.0
 ---
 
-Showing weather information for air and road temperature provided by Trafikverket in Sweden. This Python file should be used as a custom component in Home Assistant.
+Showing weather information for air and road temperature provided by Trafikverket in Sweden.
 
 #### Configuration
 To enable this sensor, add the following lines to your `configuration.yaml`.
