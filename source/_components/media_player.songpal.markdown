@@ -24,6 +24,8 @@ A few notes:
 - Some devices, e.g. HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
+## {% linkable_title Configuration }}
+
 The platform will be loaded automatically by discover component. If you want to manually configure it, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -33,10 +35,16 @@ media_player:
     endpoint: http://IP_ADDRESS:10000/sony
 ```
 
-Configuration variables:
-
-- **endpoint** (*Required*): API endpoint of the device. See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to do that.
-- **name** (*Optional*): Name of the device
+{% configuration %}
+name:
+  description: The name to display for this device.
+  required: false
+  type: string
+endpoint:
+  description: API endpoint of the device. See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to do that.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Services %}
 
