@@ -21,7 +21,6 @@ To add a Mediaroom STB to your installation, add the following to your `configur
 # Example configuration.yaml entry
 media_player:
   - platform: mediaroom
-    host: 192.168.1.64
 ```
 
 {% configuration %}
@@ -29,6 +28,7 @@ media_player:
     description: The hostname or IP address of the device.
     required: false
     type: string
+    default: Tries to discovery your device.
   name:
     description: The name of the device used in the frontend.
     required: false
