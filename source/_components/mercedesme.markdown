@@ -21,6 +21,10 @@ This component provides the following platforms:
  - Sensors - such as fuel status, service interval, remaining km...
  - Device tracker - to track location of your car
 
+<p class='note warning'>
+  The component can integrate cars out of the European and Africa markets only.  
+</p>
+
 To use Mercedes me in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -29,7 +33,6 @@ mercedesme:
   username: email
   password: password
 ```
-
 
 {% configuration %}
 username:
