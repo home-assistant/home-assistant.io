@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.63
 ---
 
-The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices a [Denon Network Receivers](http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant.
+The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
 
 [List of supported devices](http://vssupport.sony.net/en_ww/device.html) from Sony's Songpal website. Even when the API officially supports only a few devices (STR-DN1080, HT-CT800 and SRS-ZR5), it has also been confirmed to work on others. If the platform works with your non-listed device, or you encounter bugs, please feel free to [report them upstream](https://github.com/rytilahti/python-songpal).
 
