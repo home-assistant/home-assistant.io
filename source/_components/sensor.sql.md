@@ -14,7 +14,7 @@ ha_release: 0.64
 
 
 The `SQL` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
-This can be use to present statistic about Home Assistant sensors if used with the recorder component database. It can also be used with an external data source.
+This can be used to present statistics about Home Assistant sensors if used with the recorder component database. It can also be used with an external data source.
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to  your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -41,4 +41,14 @@ Configuration variables:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   - **column** (*Optional*): The field name to select. Defaults to value.
+
+### {% linkable_title Example SQL queries %}
+
+Obtain the previous state of an entity:
+
+```sql
+SELECT * FROM states WHERE entity_id = 'sensor.abc123' ORDER BY id DESC LIMIT 2
+```
+
+Note that the SQL sensor state corresponds to the last row of the SQL resultset.
 
