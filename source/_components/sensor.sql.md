@@ -34,7 +34,7 @@ sensor:
 
 Configuration variables:
 
-- **db_url** (*Required*): The URL which points to your database. See [supported engines](/components/recorder/#custom-database-engines).
+- **db_url** (*Optional*): The URL which points to your database. See [supported engines](/components/recorder/#custom-database-engines).
 - **queries** array (*Required*): List of queries
   - **name** (*Required*): The name of the sensor.
   - **query** (*Required*): An SQL QUERY string, should return 1 result at most.
