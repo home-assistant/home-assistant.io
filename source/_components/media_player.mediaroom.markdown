@@ -22,22 +22,23 @@ To add a Mediaroom STB to your installation, add the following to your `configur
 media_player:
   - platform: mediaroom
     host: 192.168.1.64
-    name: TV Operator Box
 ```
 
 {% configuration %}
   host:
-    description: The hostname or address of the device.
+    description: The hostname or IP address of the device.
     required: false
     type: string
   name:
     description: The name of the device used in the frontend.
     required: false
     type: string
+    default: Mediaroom STB
   optimistic:
     description: In case the component cannot determine the status of the box, consider the box always ON.
     required: false
     type: boolean
+    default: false
 {% endconfiguration %}
 
 Notice that all parameters are optional, and discovery should configure everything for you.
