@@ -12,7 +12,9 @@ ha_category: Sensor
 ha_release: 0.63.0
 ---
 
-Showing weather information for air and road temperature provided by Trafikverket in Sweden.
+Showing weather information for air and road temperature provided by Trafikverket in Sweden. 
+
+Usage: Get weather data if you live near a weather station, just want to have the current temperature, needing the current temperature to know when your car heating system should start or when to leave for work due to queues (because the road is frozen).
 
 #### Configuration
 To enable this sensor, add the following lines to your `configuration.yaml`.
