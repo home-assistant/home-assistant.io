@@ -25,6 +25,7 @@ binary_sensor:
     address: '6/0/2'
     device_class: 'motion'
     #significant_bit: 2
+    #reset_after: 100
 ```
 
 Configuration variables:
@@ -33,6 +34,7 @@ Configuration variables:
 - **address**: KNX group address of the binary sensor.
 - **device_class** (Optional): HASS device class e.g. "motion".
 - **significant_bit** (Optional): Specify which significant bit of the KNX value should be used. Default is 1.
+- **reset_after** (Optional): Reset back to OFF state after specified milliseconds.
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 
