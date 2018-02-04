@@ -17,7 +17,7 @@ Showing weather information for air and road temperature provided by Trafikverke
 #### Configuration
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
-```
+```yaml
 sensor:
   - platform: trafikverket_weatherstations
     name: Trafikverket Road WeatherStation Kungälv
@@ -34,15 +34,19 @@ Configuration variables:
 - **type** (*Required*): Defines which temperature you want (`air` or `road`)
 - **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Defaults to 300 seconds (5 minutes)
 
-##### Getting API key:
+##### Get API key:
 [https://api.trafikinfo.trafikverket.se/](https://api.trafikinfo.trafikverket.se/)
 
-##### See Trafikverket weather stations
+##### Get Trafikverket weather stations
 [https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b)
 
-##### Example
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
+</p>
 
-```
+##### Examples
+
+```yaml
 sensor:
   - platform: trafikverket_weatherstations
     name: Trafikverket Road WeatherStation Kungälv
