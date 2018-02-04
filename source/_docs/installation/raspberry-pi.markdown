@@ -64,6 +64,7 @@ $ source bin/activate
 Once you have activated the virtual environment you will notice the prompt change and then you can install Home Assistant.
 
 ```bash
+(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip install wheel
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
