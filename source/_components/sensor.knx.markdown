@@ -34,5 +34,5 @@ sensor:
 
 - **name** (*Optional*): A name for this device used within Home Assistant.
 - **address**: KNX group address of the sensor.
-- **type** (Optional): "percent", 'temperature", "humidity", "illuminance", "brightness", "speed_ms", "current", "power", "electric_current", "electric_potential", "energy", "frequency", "heatflowrate", "phaseanglerad", "phaseangledeg", "powerfactor" or "speed".
+- **type** (Optional): "percent", "temperature", "humidity", "illuminance", "brightness", "speed_ms", "current", "power", "electric_current", "electric_potential", "energy", "frequency", "heatflowrate", "phaseanglerad", "phaseangledeg", "powerfactor" or "speed".
 
