@@ -32,4 +32,4 @@ Configuration variables:
 - **url** (*Required*): The URL to your synology, including port.
 - **username** (*Required*): The username for accessing surveillance station.
 - **password** (*Required*): The password for accessing surveillance station.
-- **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.
+- **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 10.
