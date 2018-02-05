@@ -79,4 +79,11 @@ well.
 It is recommended that you run the Unifi controller in a dedicate
 virtual machine to avoid that situation.
 
+### {% linkable_title Troubleshooting and Time Synchronization %}
+
+Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
+
+If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are syncronized.
+Failing to have syncronized clocks will lead to Home Assistant failing to mark a device as home.
+
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
