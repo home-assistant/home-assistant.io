@@ -10,7 +10,7 @@ footer: true
 logo: dark_sky.png
 ha_category: Weather
 featured: true
-ha_release: 0.30
+ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
 ha_iot_class: "Cloud Polling"
 ---
@@ -48,6 +48,7 @@ Configuration variables:
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
   - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
+  - **precip_accumulation**: Daily snow accumulation. Returns unknown if no snow accumulation available.
   - **temperature**: The current temperature.
   - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
   - **dew_point**: The dew point.

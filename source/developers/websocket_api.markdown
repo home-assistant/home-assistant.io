@@ -35,7 +35,7 @@ If you are not using the [`frontend`](/components/frontend/) in your setup then 
     1. Server can send results of previous commands.
 1. Client or server disconnects session.
 
-During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.
+During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to its origin.
 
 ## {% linkable_title Message format %}
 

@@ -52,7 +52,7 @@ Configuration variables:
   have your receiver switched off.
 - In some cases, auto-discovery fails due to a known bug in the
   receiver's firmware. It is possible to manually specify the
-  receiver's IP address or via it's hostname (if it is discoverable by
+  receiver's IP address or via its hostname (if it is discoverable by
   your DNS) then.
 
 ### {% linkable_title Supported operations %}

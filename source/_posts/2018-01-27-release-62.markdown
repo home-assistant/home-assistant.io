@@ -29,6 +29,16 @@ With this new integration by [@sdague] you are able to keep an eye on your Chevy
 - Ihc component and platforms ([@dingusdk] - [#10916]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([sensor.ihc docs]) ([switch.ihc docs]) (new-platform)
 - Iota wallet ([@jinnerbichler] - [#11398]) ([iota docs]) ([sensor.iota docs]) (new-platform)
 
+## {% linkable_title Release 0.62.1 - January 30 %}
+
+- Snips - (fix/change) remove response when intent not handled ([@tschmidty69] - [#11929]) ([snips docs])
+- Fix asuswrt AttributeError on neigh for unknown device ([@scop] - [#11960]) ([device_tracker.asuswrt docs])
+- Set default values for Daikin devices that don't support fan direction and fan speed features ([@rofrantz] - [#12000]) ([climate.daikin docs])
+- Fix parameter escaping ([@smoldaner] - [#12008]) ([media_player.squeezebox docs])
+- Error handling, in case no connections are available ([@ReneNulschDE] - [#12010]) ([sensor.deutsche_bahn docs])
+- Fix 404 for Hass.io panel using frontend dev ([@c727] - [#12039]) ([frontend docs])
+- Upgrade pyharmony to 1.0.20 ([@amelchio] - [#12043]) ([remote.harmony docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -43,7 +53,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Tahoma platform will get new entity IDs ([@glpatcern] - [#11547]) ([tahoma docs]) ([cover.tahoma docs]) (breaking change)
 - Mold indicator: attribute names no longer include spaces or periods ([@olskar] - [#11694]) ([sensor.mold_indicator docs]) (breaking change)
-- Custom component devs only: `EntityComponent.add_entity(entity)` and `EntityComponent.async_add_entity(entity)` have been removed. Use `EntityComponent.add_entities([entity])` and `EntityComponent.async_add_entities([entity])` instead. ([@balloob] - [#11691]) (breaking change)
+- Custom component devs only: `EntityComponent.add_entity(entity)` and `EntityComponent.async_add_entity(entity)` have been removed. Use `EntityComponent.add_entities([entity])` and `EntityComponent.async_add_entities([entity])` instead. Also `EntityComponent.entities` is no longer a dictionary but instead an iterable. Use `EntityComponent.get_entity(entity_id)` to get entity by id. ([@balloob] - [#11691]) (breaking change)
 
 ## All changes
 
@@ -478,3 +488,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zwave docs]: https://home-assistant.io/components/zwave/
 [@martinhjelmare]: https://github.com/martinhjelmare
 [@frenck]: https://github.com/frenck
+[#11929]: https://github.com/home-assistant/home-assistant/pull/11929
+[#11960]: https://github.com/home-assistant/home-assistant/pull/11960
+[#12000]: https://github.com/home-assistant/home-assistant/pull/12000
+[#12008]: https://github.com/home-assistant/home-assistant/pull/12008
+[#12010]: https://github.com/home-assistant/home-assistant/pull/12010
+[#12039]: https://github.com/home-assistant/home-assistant/pull/12039
+[#12043]: https://github.com/home-assistant/home-assistant/pull/12043
+[@ReneNulschDE]: https://github.com/ReneNulschDE
+[@amelchio]: https://github.com/amelchio
+[@c727]: https://github.com/c727
+[@rofrantz]: https://github.com/rofrantz
+[@scop]: https://github.com/scop
+[@smoldaner]: https://github.com/smoldaner
+[@tschmidty69]: https://github.com/tschmidty69
+[climate.daikin docs]: https://home-assistant.io/components/climate.daikin/
+[device_tracker.asuswrt docs]: https://home-assistant.io/components/device_tracker.asuswrt/
+[frontend docs]: https://home-assistant.io/components/frontend/
+[media_player.squeezebox docs]: https://home-assistant.io/components/media_player.squeezebox/
+[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
+[sensor.deutsche_bahn docs]: https://home-assistant.io/components/sensor.deutsche_bahn/
+[snips docs]: https://home-assistant.io/components/snips/

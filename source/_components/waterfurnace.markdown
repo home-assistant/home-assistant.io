@@ -64,5 +64,5 @@ every polling cycle.
 While this is communicating with a thermostat, geothermal systems
 operate most efficiently when setbacks are not used, and the home is
 kept at a constant temperature. It remains useful to collect the data
-from the system to understand it's performance, but a full climate
+from the system to understand its performance, but a full climate
 interface won't be implemented.

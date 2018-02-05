@@ -11,7 +11,7 @@ logo: philips_hue.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
 featured: true
-ha_release: 0.60
+ha_release: "0.60"
 ---
 
 Philips Hue support is integrated into Home Assistant as a Hub that can drive the light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
@@ -54,7 +54,7 @@ You will need to convert each bridge into an entry in the new configuration styl
 
 ### {% linkable_title Multiple Hue bridges %}
 
-Multiple Hue bridges work transparently with discovery, you don't have to do anything. If you prefer to configure them manually and use multiple Hue bridges then it's needed that you provide a configuration file for every bridge. The bridges can't share a single configuration file. 
+Multiple Hue bridges work transparently with discovery, you don't have to do anything. If you prefer to configure them manually and use multiple Hue bridges then it's needed that you provide a configuration file for every bridge. The bridges can't share a single configuration file.
 
 Add `filename` to your Hue configuration entry in your `configuration.yaml` file:
 
@@ -103,7 +103,7 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 ### {% linkable_title Using Hue Scenes in Home Assistant %}
 
-The Hue platform has it's own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
+The Hue platform has its own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
 To avoid user interface overload we don't expose scenes directly. Instead there is a hue.hue_activate_scene service which can be used by `automation` or `script` components.
 This will have all the bulbs transitioned at once, instead of one at a time using standard scenes in Home Assistant.
