@@ -16,7 +16,7 @@ Showing weather information for air and road temperature provided by Trafikverke
 
 Usage: Get weather data if you live near a weather station, just want to have the current temperature, needing the current temperature to know when your car heating system should start or when to leave for work due to queues (because the road is frozen).
 
-#### Configuration
+##### {% linkable_title Configuration %}
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
@@ -36,17 +36,17 @@ Configuration variables:
 - **type** (*Required*): Defines which temperature you want (`air` or `road`)
 - **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Defaults to 300 seconds (5 minutes)
 
-##### Get API key:
+##### {% linkable_title Get API key: %}
 [https://api.trafikinfo.trafikverket.se/](https://api.trafikinfo.trafikverket.se/)
 
-##### Get Trafikverket weather stations
+##### {% linkable_title Get Trafikverket weather stations %}
 [https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b)
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
 
-##### Examples
+##### {% linkable_title Examples %}
 
 ```yaml
 sensor:
