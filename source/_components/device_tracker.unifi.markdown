@@ -64,26 +64,18 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 
 ### {% linkable_title Configuring Users %}
 
-The Unifi controller allows you to create multiple users on it besides
-the main administrator. It is recommended that you create a limited
-user that has `read-only` permissions for the Unifi device tracker.
+The Unifi controller allows you to create multiple users on it besides the main administrator. It is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker.
 
 ### {% linkable_title Conflicts with MQTT %}
 
-The Unifi controller can either be a dedicated hardware device
-(Unifi's cloud key), or as software any Linux system. If you run the
-the Unifi controller on the same operating system as Home Assistant
-there may be conflicts in ports if you have the MQTT component as
-well.
+The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
 
-It is recommended that you run the Unifi controller in a dedicate
-virtual machine to avoid that situation.
+It is recommended that you run the Unifi controller in a dedicate virtual machine to avoid that situation.
 
 ### {% linkable_title Troubleshooting and Time Synchronization %}
 
 Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
 
-If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are syncronized.
-Failing to have syncronized clocks will lead to Home Assistant failing to mark a device as home.
+If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are syncronized. Failing to have syncronized clocks will lead to Home Assistant failing to mark a device as home.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
