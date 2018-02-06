@@ -64,6 +64,9 @@ Configuration variables:
 - **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
 - **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
 - **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+- **exclude** (*Optional*): Configure which components should be excluded. See *Exclude* section below for details.
+  - **excluded_ids** (*Optional*): The list of unique ids to be excluded.
+  - **domains** (*Optional*): The list of domains to be excluded.
 
 Local control:
 - Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
@@ -75,6 +78,11 @@ Local control:
 - Local control isn't used during start-up of Home Assistant; this means initial setup requires an active internet connection.
 
 - Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.
+
+Exclude:
+- This can be used to prevent Wink items from being added. For example, if you have a Nest thermostat connected in Wink for use with the official Android or iOS app, but use the native Nest support in Home Assistant.
+
+- exclude_ids can be found in the entity_registry.yaml or in the device's attributes.
 
 <p class='note'>
 It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens, you will notice requests taking significantly longer as they are redirected online. This doesn't happen often, but when it does, it appears to be resolved by rebooting the hub.
