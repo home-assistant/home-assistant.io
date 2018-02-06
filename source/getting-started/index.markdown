@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant is a Python program and can be installed and run as any other Python program.  However, configuring a whole system can be intimidating for the novice, so there are a number of ways to do most of the hard work of installing and configuring the Home Assistant.
+Home Assistant is a Python program and can be installed and run as any other Python program.  However, configuring a whole system can be intimidating for the novice, so there are a number of ways to do most of the hard work of installing and configuring Home Assistant.
 
 ## {% linkable_title Which Installation Method Should I Choose? %}
 
