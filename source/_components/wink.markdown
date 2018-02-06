@@ -59,14 +59,49 @@ wink:
 
 Configuration variables:
 
-- **email** (*Required for legacy OAuth*): Your Wink login email.
-- **password** (*Required for legacy OAuth*): Your Wink login password.
-- **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
-- **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
-- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
-- **exclude** (*Optional*): Configure which components should be excluded. See *Exclude* section below for details.
-  - **excluded_ids** (*Optional*): The list of unique ids to be excluded.
-  - **domains** (*Optional*): The list of domains to be excluded.
+{% configuration %}
+email:
+  description: Your Wink login email.
+  required: inclusive
+  type: string
+password:
+  description: Your Wink login password.
+  required: inclusive
+  type: string
+client_id:
+  description: Your provided Wink client_id.
+  required: inclusive
+  type: string
+client_secret:
+  description: Your provided Wink client_secret.
+  required: inclusive
+  type: string
+local_control:
+  description: If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+  required: false
+  type: string
+exclude:
+  description: Configure which components should be excluded. See *Exclude* section below for details.
+  required: false
+  type: map
+  keys:
+    domains:
+      description: List of domains to exclude.
+      required: false
+      type: map
+      keys:
+        domain:
+          required: true
+          type: string
+    exclude_ids:
+      description: The list of unique ids to be excluded.
+      required: false
+      type: map
+      keys:
+        exclude_id:
+          required: true
+          type: string
+{% endconfiguration %}
 
 Local control:
 - Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
@@ -83,6 +118,16 @@ Exclude:
 - This can be used to prevent Wink items from being added. For example, if you have a Nest thermostat connected in Wink for use with the official Android or iOS app, but use the native Nest support in Home Assistant.
 
 - exclude_ids can be found in the entity_registry.yaml or in the device's attributes.
+
+```yaml
+wink:
+  exclude:
+    domains:
+      - 'climate'
+    excluded_ids:
+      - '123456_temperature'
+      - '123457'
+```
 
 <p class='note'>
 It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens, you will notice requests taking significantly longer as they are redirected online. This doesn't happen often, but when it does, it appears to be resolved by rebooting the hub.
