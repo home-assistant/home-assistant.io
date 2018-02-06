@@ -17,7 +17,7 @@ Sensor to provide travel time from the [Google Distance Matrix API](https://deve
 
 You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
 
-A free API Key allows 2500 requests per day. The sensor will update the travel time every 5 minutes.
+A free API Key allows 2500 requests per day. The sensor by default will update the travel time every 5 minutes.
 
 ```yaml
 # Example entry for configuration.yaml
@@ -39,6 +39,18 @@ Configuration variables:
   - **departure_time** (*Optional*): Can be `now`, a Unix timestamp, or a 24 hour time string like `08:00:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment.
   - **arrival_time** (*Optional*): See notes above for `departure_time`. `arrival_time` can not be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
   - **units** (*Optional*): Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`.
+- **update_interval** (*Optional*): Minimum time interval between updates. Default is 5 minutes. Supported formats:
+  - `update_interval: 'HH:MM:SS'`
+  - `update_interval: 'HH:MM'`
+  - Time period dictionary, e.g.:
+    <pre>update_interval:
+        # At least one of these must be specified:
+        days: 0
+        hours: 0
+        minutes: 3
+        seconds: 30
+        milliseconds: 0
+    </pre>
 
 ##### {% linkable_title Dynamic Configuration %}
 
