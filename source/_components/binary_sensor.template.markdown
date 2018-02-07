@@ -48,6 +48,10 @@ binary_sensor:
             description: Name to use in the frontend.
             required: false
             type: string
+          entity_id:
+            description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+            required: false
+            type: string, list
           device_class:
             description: The type/class of the sensor to set the icon in the frontend.
             required: false
