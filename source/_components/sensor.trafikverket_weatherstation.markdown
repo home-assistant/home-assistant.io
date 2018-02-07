@@ -12,9 +12,12 @@ ha_category: Sensor
 ha_release: 0.63.0
 ---
 
-Showing weather information for air and road temperature provided by Trafikverket in Sweden. 
+Showing weather information for air and road temperature provided by [Trafikverket](https://www.trafikverket.se/) in Sweden. 
 
-Usage: Get weather data if you live near a weather station, just want to have the current temperature, needing the current temperature to know when your car heating system should start or when to leave for work due to queues (because the road is frozen).
+Potential use cases:
+-	Get weather data in general
+-	You live near a weather station and want to know the current temperature at home
+-	Setup automations for your car heating system. If the road is frozen along the way to work you might want the car heating system to start earlier.
 
 ##### {% linkable_title Configuration %}
 To enable this sensor, add the following lines to your `configuration.yaml`.
@@ -36,11 +39,11 @@ Configuration variables:
 - **type** (*Required*): Defines which temperature you want (`air` or `road`)
 - **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Defaults to 300 seconds (5 minutes)
 
-##### {% linkable_title Get API key: %}
-[https://api.trafikinfo.trafikverket.se/](https://api.trafikinfo.trafikverket.se/)
+##### {% linkable_title Obtaining API key %}
+Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
 
-##### {% linkable_title Get Trafikverket weather stations %}
-[https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b)
+##### {% linkable_title Weather stations %}
+Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it in your `configuration.yaml` file as the `station` variable.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
