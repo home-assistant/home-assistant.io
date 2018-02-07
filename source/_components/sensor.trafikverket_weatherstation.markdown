@@ -31,13 +31,29 @@ sensor:
     type: road
 ```
 
-Configuration variables:
-
-- **name** (*Required*): Unique name of the device in the frontend.
-- **api_key** (*Required*): API key from Trafikverket
-- **station** (*Required*): Name of the weather station
-- **type** (*Required*): Defines which temperature you want (`air` or `road`)
-- **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Defaults to 300 seconds (5 minutes)
+{% configuration %}
+name:
+  description: Unique name of the device in the frontend.
+  required: true
+  type: string
+api_key:
+  description: API key from Trafikverket.
+  required: true
+  type: string
+station:
+  description: Name of the weather station.
+  required: true
+  type: string
+type:
+  description: Defines which temperature you want (`air` or `road`).
+  required: true
+  type: string
+scan_interval:
+  description: How frequently to query for new data (in seconds).
+  required: false
+  type: int
+  default: 300
+{% endconfiguration %}
 
 ##### {% linkable_title Obtaining API key %}
 Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
