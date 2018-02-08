@@ -60,15 +60,6 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | last_boot           |                           |
 | since_last_boot     |                           |
 
-**Note**: Some `type:` names used in the `configuration.yaml` file differ from the entity names.
-
-| Sensor type         | Entity ID                |
-| :------------------ |:-------------------------|
-| memory_free         | sensor.ram_available     |
-| memory_use_percent  | sensor.memory_use_percent  |
-| processor_use       | sensor.cpu_used          |
-| disk_use            | sensor.disk_used         |
-
 ## {% linkable_title Linux specific %}
 
 To retrieve all available network interfaces on a Linux System, execute the `ifconfig` command.
