@@ -9,9 +9,26 @@ sharing: true
 footer: true
 ---
 
-The goal of this getting started guide is to install Hass.io on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry PI into the ultimate home automation hub.
+Home Assistant is a Python program and can be installed and run as any other Python program.  However, configuring a whole system can be intimidating for the novice, so there are a number of ways to do most of the hard work of installing and configuring Home Assistant.
 
-Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users, check our [alternative installation methods](/docs/installation/).
+## {% linkable_title Which Installation Method Should I Choose? %}
+
+If you have a Raspberry Pi but not much Linux knowledge or just want a system up and running to see what it is like, install using HASS.IO method below.  This is the easiest way of installing Home Assistant.
+
+If you have a new Raspberry Pi, but want to be able to run other programs on it alongside Home Assistant, you should try the [Hassbian Image](/docs/hassbian/installation/)
+
+If you have an existing computer (including a Raspberry Pi) and are familiar with Docker, you can install using the [Docker images](docs/installation/docker/).
+
+If you have a MAC, try the [Mac Installation](/docs/installation/macos/)
+
+If you have an existing computer with Python 3.5 already installed, you can install using the [pip packages](/docs/installation/virtualenv/).
+
+Otherwise check all our [alternative installation methods](/docs/installation/).
+
+## {% linkable_title HASS.IO %}
+HASS.IO is the easiest way of installing Home Assistant.  It is our own all in one solution that turns your Raspberry PI into the ultimate home automation hub, but can also be run on other operating systems.
+
+The goal of this getting started guide is to install Hass.io on a Raspberry Pi 3. 
 
 ### {% linkable_title Hardware requirements %}
 
