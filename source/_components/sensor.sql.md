@@ -9,14 +9,13 @@ sharing: true
 footer: true
 logo: sql.png
 ha_category: Sensor
-ha_release: 0.64
+ha_release: 0.63
 ---
-
 
 The `SQL` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the recorder component database. It can also be used with an external data source.
 
-To configure this sensor, you need to define the sensor connection variables and a list of queries to  your `configuration.yaml` file. A sensor will be created for each query:
+To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
 To enable it, add the following lines to your `configuration.yaml`:
 
