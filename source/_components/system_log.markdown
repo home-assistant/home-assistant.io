@@ -12,7 +12,7 @@ ha_category: Other
 ha_release: 0.58
 ---
 
-The `system_log` component stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the amount of stored log entries using the parameter `max_entries`.
+The `system_log` component stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
 
 This component is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file: 
 
@@ -37,21 +37,21 @@ To manually clear the system log, call this service.
 
 ## {% linkable_title Events %}
 
-Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occur. The following information is included in each event:
+Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                |
 |------------------------------------------------------------------------------------------|
 | `level`     | Either `WARNING` or `ERROR` depending on severity.                         |
-| `source`    | File that triggered the error, e.g. `core.py` or `media_player/yamaha.py`. |
-| `exception` | Full stacktrace if available, otherwise empty string.                      |
-| `message`   | Descriptive message of the error, e.g. "Error handling request".           |
-| `timestamp` | Unix timestamp with as a double, e.g. 1517241010.237416.                   |
+| `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
+| `exception` | Full stack trace if available, otherwise empty string.                      |
+| `message`   | Descriptive message of the error, e.g., "Error handling request".           |
+| `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
-Live examples of these events can be found in the Home Assistant log file or by just looking in the system log. An example could for instance look like this:
+Live examples of these events can be found in the Home Assistant log file or by just looking in the system log. An example could, for instance, look like this:
 
 <img src='/images/components/system_log/system_log_entry.png' />
 
-The messsage ("Unable to find service..."), source (`core.py`) and level (`WARNING`) can easily be extracted from the image. Exact timestamp and stacktrace is shown if the entry is selected.
+The message ("Unable to find service..."), source (`core.py`) and level (`WARNING`) can easily be extracted from the image. Exact timestamp and stack trace is shown if the entry is selected.
 
 ## {% linkable_title Examples  %}
 
