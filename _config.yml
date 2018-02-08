@@ -150,4 +150,6 @@ patch_version_notes: "#release-0621---january-30"
 # Minor release (Example #release-0431---april-25):
 
 # Date we moved to Discourse for comments
-disqus_end_date: 2018-01-26 0:00:00
+# disqus_end_date: 2018-01-26 0:00:00
+# Disqus is adding gross ads, move all comments to discourse.
+disqus_end_date: 2010-01-26 0:00:00
