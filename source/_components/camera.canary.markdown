@@ -29,3 +29,4 @@ camera:
     description: Extra options to pass to `ffmpeg`, e.g. image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
     required: false
     type: string
+{% endconfiguration %}
