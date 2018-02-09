@@ -189,7 +189,7 @@ Security Z-Wave devices require a network key before being added to the network 
 
 An easy script to generate a random key:
 ```bash
-cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 ```yaml
@@ -213,7 +213,7 @@ The first run after adding a device is when the `zwave` component will take time
 Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:
 
 ```bash
-ls -l /dev/ttyAMA0
+$ ls -l /dev/ttyAMA0
 ```
 
 You should then see something like this:
@@ -225,15 +225,15 @@ crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
 The important pieces are the first piece `crw-rw----` and the group `dialout`. If those are different then, for your device path, run:
 
 ```bash
-sudo chgrp dialout /dev/ttyAMA0
-sudo chmod g+rw /dev/ttyAMA0
+$ sudo chgrp dialout /dev/ttyAMA0
+$ sudo chmod g+rw /dev/ttyAMA0
 ```
 
 ### {% linkable_title Device path changes %}
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-### {% linkable_title Unable to install python_openzwave %}
+### {% linkable_title Unable to install Python Openzwave %}
 
 If you're getting errors like:
 
