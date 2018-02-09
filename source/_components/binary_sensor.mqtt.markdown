@@ -76,6 +76,11 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: False 
 {% endconfiguration %}
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. To set the state of the binary sensor manually:
