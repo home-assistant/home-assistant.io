@@ -23,7 +23,6 @@ sensor:
       - /config/home-assistant_v2.db
   ```
 
-Configuration variables:
 {% configuration %}
 file_paths:
   description: The absolute path to the file.
