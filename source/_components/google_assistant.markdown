@@ -107,6 +107,19 @@ entity_config:
           type: string
 {% endconfiguration %}
 
+### {% linkable_title Available domains %}
+Currently, the following domains are available to be used with Google Assistant, listed with their default types:
+
+- group = switch (on/off)
+- scene = scene (on)
+- script = scene (on)
+- switch = switch (on/off)
+- fan = switch (on/off)
+- light = light (on/off/brightness/rgb color/color temp)
+- cover = switch (on/off/set position (brightness) )
+- media_player = switch (on/off/set volume (brightness) )
+- climate = thermostat (temperature setting)
+
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
 ```bash

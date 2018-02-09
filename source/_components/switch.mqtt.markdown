@@ -119,5 +119,31 @@ switch:
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
+$ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
+
+### {% linkable_title Set the state of a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
+
+Manually you can set pin 13 to high with `mosquitto_pub` or another MQTT tool:
+
+```bash
+$ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
+```
+
+The configuration will look like the example below:
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+switch:
+  - platform: mqtt
+    name: bathroom
+    state_topic: "home/bathroom/gpio/13"
+    command_topic: "home/bathroom/gpio/13"
+    payload_on: "1"
+    payload_off: "0"
+```
+{% endraw %}
+

@@ -22,13 +22,13 @@ import homeassistant.appapi as appapi
 class MotionLights(appapi.AppDaemon):
 ```
 
-When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to it's `initialize()` function - this function must appear as part of every app:
+When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
 
 ```python
   def initialize(self):
 ```
 
-The initialize function allows the app to register any callbacks it might need for responding to state changes, and also any setup activities. When the `initialize()` function returns, the App will be dormant until any of it's callbacks are activated.
+The initialize function allows the app to register any callbacks it might need for responding to state changes, and also any setup activities. When the `initialize()` function returns, the App will be dormant until any of its callbacks are activated.
 
 There are several circumstances under which `initialize()` might be called:
 
@@ -93,7 +93,7 @@ class = NewApp
 
 When AppDaemon sees the following configuration it will expect to find a class called `NewApp` defined in a module called `new.py` in the apps subdirectory. Apps can be placed at the root of the Apps directory or within a subdirectory, an arbitrary depth down - wherever the App is, as long as it is in some subdirectory of the Apps dir, or in the Apps dir itself, AppDaemon will find it. There is no need to include information about the path, just the name of the file itself (without the `.py`) is sufficient. If names in the subdirectories overlap, AppDir will pick one of them but the exact choice it will make is undefined.
 
-When starting the system for the first time or when reloading an App or Module, the system will log the fact in it's main log. It is often the case that there is a problem with the class, maybe a syntax error or some other problem. If that is the case, details will be output to the error log allowing the user to remedy the problem and reload.
+When starting the system for the first time or when reloading an App or Module, the system will log the fact in its main log. It is often the case that there is a problem with the class, maybe a syntax error or some other problem. If that is the case, details will be output to the error log allowing the user to remedy the problem and reload.
 
 ## {% linkable_title Steps to writing an App %}
 
@@ -154,7 +154,7 @@ Callback constraints are a feature of AppDaemon that removes the need for repeti
 
 Put simply, callback constraints are one or more conditions on callback execution that can be applied to an individual App. An App's callbacks will only be executed if all of the constraints are met. If a constraint is absent it will not be checked for.
 
-For example, the presence callback constraint can be added to an App by adding a parameter to it's configuration like this:
+For example, the presence callback constraint can be added to an App by adding a parameter to its configuration like this:
 
 ```ini
 [some_app]
@@ -565,7 +565,7 @@ self.cancel_listen_state(self.office_light_handle)
 
 ### {% linkable_title info_listen_state() %}
 
-Get information on state a callback from it's handle.
+Get information on state a callback from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -909,7 +909,7 @@ self.cancel_timer(handle)
 
 ### {% linkable_title info_timer() %}
 
-Get information on a scheduler event from it's handle.
+Get information on a scheduler event from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -944,7 +944,7 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time 
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
 For example:
 
@@ -1463,7 +1463,7 @@ self.cancel_listen_event(handle)
 
 ### {% linkable_title info_listen_event() %}
 
-Get information on an event callback from it's handle.
+Get information on an event callback from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -1552,7 +1552,7 @@ The custom event `MODE_CHANGE` would be subscribed to with:
 self.listen_event(self.mode_event, "MODE_CHANGE")
 ```
 
-Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
+Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with its automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
 
 ```yaml
 automation:
@@ -2058,7 +2058,7 @@ OK, time travel sadly isn't really possible but it can be very useful when testi
 
 ### {% linkable_title Choosing a Start Time %}
 
-Internally, AppDaemon keeps track of it's own time relative to when it was started. This make is possible to start AppDaemon with a different start time and date to the current time. For instance to test that sunset App, start AppDaemon at a time just before sunset and see if it works as expected. To do this, simply use the "-s" argument on AppDaemon's command line. e,g,:
+Internally, AppDaemon keeps track of its own time relative to when it was started. This make is possible to start AppDaemon with a different start time and date to the current time. For instance to test that sunset App, start AppDaemon at a time just before sunset and see if it works as expected. To do this, simply use the "-s" argument on AppDaemon's command line. e,g,:
 
 ```bash
 $ appdaemon -s "2016-06-06 19:16:00"

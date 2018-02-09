@@ -195,4 +195,4 @@ sensor:
     state_topic: "home/ttn/garden_temp"
 ```
 
-This solution is not production-ready, scalable or stable but it could fill the gape till Home Assistant is able to connect to multiple MQTT brokers. If you have multiple devices relay all messages to your local broker and add an configuration variable to `mqtt_ttn` sensor which allows you to select the device.
+This solution is not production-ready, scalable or stable but it could fill the gape till Home Assistant is able to connect to multiple MQTT brokers. If you have multiple devices relay all messages to your local broker and add a configuration variable to `mqtt_ttn` sensor which allows you to select the device.

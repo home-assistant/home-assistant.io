@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: 0.37
 ---
 
-The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and it's support for person presence detection based on smartphone location by geofencing.
+The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 
 This tracker uses the Tado API to determine if a mobile device is at home. It tracks all devices in your home that Tado knows about.
 

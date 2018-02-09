@@ -81,7 +81,7 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 sensor:
   - platform: command_line
     name: badlogin
-    command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+    command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
 Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.

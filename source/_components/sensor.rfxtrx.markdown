@@ -66,6 +66,7 @@ Only these data_type are valid :
 - *Sound*
 - *Sensor Status*
 - *Counter value*
+- *UV*
 
 Example configuration:
 
