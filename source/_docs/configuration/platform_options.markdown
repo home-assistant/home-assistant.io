@@ -12,7 +12,7 @@ redirect_from: /topics/platform_options/
 
 Some components or platforms (those that are based on the [entity](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity.py) class) allows various extra options to be set.
 
-### {% linkable_title Entity namespace %}
+### {% linkable_title Entity Namespace %}
 
 By setting an entity namespace, all entities will be prefixed with that namespace. That way `light.bathroom` can become `light.holiday_house_bathroom`.
 
@@ -22,6 +22,25 @@ light:
   platform: hue
   entity_namespace: holiday_house
 ```
+
+Note: This attribute requires the component or platform to implement the [entity_component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity_component.py) class.
+
+#### {% linkable_title Supported Components %}
+
+The following components have implemented the entity_component class and will properly parse the entity_namespace value. (Please note that this list is incomplete and only represents the core domains of HomeAssistant)
+
+* Light
+* Switch
+* Sensor
+* Binary Sensor
+* Climate
+* Lock
+
+#### {% linkable_title Unsupported Components %}
+
+The following components have **not** yet fully implemented the entity_component class and will **not** properly parse the entity_namespace value. (Please note that this list is incomplete and only represents the core domains of HomeAssistant)
+
+* Device Tracker
 
 ### {% linkable_title Scan Interval %}
 
