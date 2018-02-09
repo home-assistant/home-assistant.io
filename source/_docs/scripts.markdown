@@ -155,7 +155,7 @@ The following automation shows how to raise a custom event called `event_light_s
 ```
 {% endraw %}
 
-The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponsing `entity_id` that was passed as the event data.
+The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
 
 {% raw %}
 ```yaml
