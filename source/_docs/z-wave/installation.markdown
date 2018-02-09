@@ -233,7 +233,7 @@ sudo chmod g+rw /dev/ttyAMA0
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-### {% Unable to install python_openzwave %}
+### {% linkable_title Unable to install python_openzwave %}
 
 If you're getting errors like:
 
