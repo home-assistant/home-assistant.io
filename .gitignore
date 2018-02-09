@@ -13,3 +13,7 @@ node_modules
 source/.jekyll-metadata
 *.iml
 .idea/
+/.vs/home-assistant.github.io/v15/.suo
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/config/applicationhost.config
