@@ -22,8 +22,6 @@ sensor:
     folder: /config
 ```
 
-Configuration variables:
-
 {% configuration %}
 folder:
   description: The folder path
