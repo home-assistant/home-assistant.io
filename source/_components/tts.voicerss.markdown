@@ -41,7 +41,7 @@ tts:
     api_key: 'XXXXX'
     language: 'de-de'
     codec: mp3
-    format: 8khz_8bit_mono
+    format: '8khz_8bit_mono'
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'
