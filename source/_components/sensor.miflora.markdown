@@ -20,7 +20,7 @@ Depending on the operating system you're running, you have to configure the prop
 
 - On [Hass.io](https://home-assistant.io/hassio/installation/): Miflora will work out of the box.
 - On other Linux systems: 
-    - Prefered solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
+    - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
     - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
 - Windows and MacOS are currently not supported by the [miflora library](https://github.com/open-homeautomation/miflora/).
 

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The goal of this getting started guide is to install Hass.io on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry PI into the ultimate home automation hub.
+The goal of this getting started guide is to install Hass.io on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.
 
 Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users, check our [alternative installation methods](/docs/installation/).
 
@@ -35,12 +35,12 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.
-1. WiFi setup only: open the file `system-connections/resin-sample` with a text editor. Change `ssid` to be your network name and `psk` to be your password.
+1. WiFi setup only: open the file `system-connections/resin-sample` (from the `resin-boot` volume on the SD card) with a text editor. Change `ssid` to be your network name and `psk` to be your password. Note that the Raspberry Pi 3 is a 2.4GHz WiFi device, so do not try to connect it to a 5GHz network.
 1. Unmount the SD card and remove it from your SD card reader.
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply so it turns on.
-1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
-1. Home Assistant will be available at [http://hassio.local:8123][local].
+1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes. Do not expect anything but the Home Assistant logo on the HDMI display, or any use for a keyboard or mouse.
+1. Home Assistant will be available at [http://hassio.local:8123][local]. Shortly after the download has started, a simple preparation status page will be available at this URL. Point your browser there. The page refreshes automatically, and Home Assistant will be shown when the download is complete.
 
 [local]: http://hassio.local:8123
 

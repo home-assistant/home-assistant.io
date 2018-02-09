@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_release: 0.60
+ha_release: "0.60"
 ha_category: Cloud
 ha_iot_class: "Cloud Push"
 ---

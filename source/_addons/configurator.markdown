@@ -49,6 +49,7 @@ Screenshot of the HASS Configurator.
   "banlimit": 0,
   "ignore_pattern": ["__pycache__"],
   "dirsfirst": false,
+  "sesame": "somesecretnobodycanguess"
 }
 ```
 
@@ -60,6 +61,7 @@ Screenshot of the HASS Configurator.
 - **banlimit** (*Optional*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
 - **ignore_pattern** (*Optional*): Files and folders to ignore in the UI.
 - **dirsfirst** (*Optional*): List directories before files in the file browser.
+- **sesame** (*Optional*): Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and boom! Open Sesame! You can use the _Network status_ menu to revoke IP addresses for which access has been granted.
 
 ### {% linkable_title Embedding into Home-Assistant %}
 

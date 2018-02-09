@@ -22,7 +22,7 @@ It required that you enable the HTTP feature in the `/etc/supervisord.conf` conf
 port=127.0.0.1:9001
 ```
 
-After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as a [iFrame panel](/components/panel_iframe/).
+After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as an [iFrame panel](/components/panel_iframe/).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/supervisor.png' />

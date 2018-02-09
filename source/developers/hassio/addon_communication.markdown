@@ -14,7 +14,7 @@ There are different ways to communication between add-ons inside Home Assistant.
 
 ## {% linkable_title Network %}
 
-We use a internal network. That allow to speak with every add-on or from Home Assistant to add-on by name or alias. Only the add-ons which runs on the host network are a bit limited. They can speak with all internal add-ons over their name but all other add-on can't address the add-on in question with its name. But using an alias work well. Thus the name/alias is used to communicate inside Hass.io. The name have the following format `{REPO}-{SLUG}`, e.g. `local-xy` or `3283fh-myaddon`.
+We use an internal network. That allow to speak with every add-on or from Home Assistant to add-on by name or alias. Only the add-ons which runs on the host network are a bit limited. They can speak with all internal add-ons over their name but all other add-on can't address the add-on in question with its name. But using an alias work well. Thus the name/alias is used to communicate inside Hass.io. The name have the following format `{REPO}-{SLUG}`, e.g. `local-xy` or `3283fh-myaddon`.
 
 Use `hassio` to speak with the internal API.
 

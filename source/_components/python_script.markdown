@@ -44,4 +44,4 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 }
 ```
 
-For [`python_script:` examples](/components/python_script/) visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+For examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.

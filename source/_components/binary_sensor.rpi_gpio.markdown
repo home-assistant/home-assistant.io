@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Raspberry PI GPIO Binary Sensor"
-description: "Instructions how to integrate the GPIO sensor capability of a Raspberry PI into Home Assistant."
+title: "Raspberry Pi GPIO Binary Sensor"
+description: "Instructions how to integrate the GPIO sensor capability of a Raspberry Pi into Home Assistant."
 date: 2015-08-30 19:00
 sidebar: true
 comments: false
