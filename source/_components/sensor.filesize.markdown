@@ -24,5 +24,9 @@ sensor:
   ```
 
 Configuration variables:
-
-- **file_paths** (*Required*): The absolute path to the file.
+{% configuration %}
+file_paths:
+  description: The absolute path to the file.
+  required: true
+  type: string
+{% endconfiguration %}
