@@ -111,7 +111,7 @@ insteon_plm:
       cat: 0x10        
 	  subcat: 0x11     
 ```
-### {% linkable_tile What NOT to do %}
+### {% linkable_title What NOT to do %}
 Insteon PLM is a top level platform and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
