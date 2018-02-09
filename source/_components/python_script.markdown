@@ -44,4 +44,21 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 }
 ```
 
-For examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+## {% linkable_title Calling Services %}
+
+The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
+
+```python
+entity_id = data.get('entity_id')
+rgb_color = data.get('rgb_color', [255, 255, 255])
+if entity_id is not None:
+    service_data = {'entity_id': entity_id, 'rgb_color': rgb_color, 'brightness': 255 }
+    hass.services.call('light', 'turn_on', service_data, False)
+```
+The above `python_script` can be called using the following JSON as an input.
+
+```json
+{"entity_id": "light.bedroom", "rgb_color": [255, 0, 0] }
+```
+
+For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
