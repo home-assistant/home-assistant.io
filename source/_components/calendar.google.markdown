@@ -28,6 +28,7 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 1. Click 'Create credentials' -> OAuth client ID.
 1. Set the Application type to 'Other' and give this credential set a name then click Create.
 1. Save the client ID and secret as you will need to put these in your configuration.yaml file.
+1. Click on "Library", search for "Google Calendar API" and enable it.
 
 ### {% linkable_title Basic Setup %}
 
