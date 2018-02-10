@@ -33,7 +33,6 @@ api_key:
 symbols:
   description: List of stock market symbols for given companies.
   required: false
-  default: GOOGL
   type: map
   keys:
     name:
