@@ -23,7 +23,16 @@ To enable the `alpha_vantage` platform, add the following lines to your `configu
 sensor:
   - platform: alpha_vantage
     api_key: YOUR_API_KEY
+    symbols:
+    - symbol: GOOGL
+      name: Google_stock
+    foreign_exchange:
+    - name: USD_EUR
+      from: USD
+      to: EUR
 ```
+
+Either a symbol or a foreign exchange must be configured, otherwise you will not get any data.
 
 {% configuration %}
 api_key:
