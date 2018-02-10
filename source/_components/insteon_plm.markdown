@@ -108,7 +108,7 @@ insteon_plm:
   port: /dev/ttyUSB0
   device_override:
     - address: a1b2c3  # Hidden Door Sensor [2845-222]
-      cat: 0x10        
+      cat: 0x10
 	  subcat: 0x11     
 ```
 ### {% linkable_title What NOT to do %}
