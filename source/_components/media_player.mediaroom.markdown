@@ -65,5 +65,4 @@ press_button:
       entity_id: media_player.mediaroom_stb
       media_content_id: "{{ value }}"
       media_content_type: "channel"
-
 ```
