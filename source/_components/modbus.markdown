@@ -37,6 +37,7 @@ Configuration variables:
 - **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
 - **port** (*Required*): The port for the communication.
 - **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
+- **delay_between_queries** (*Optional*): Delay before execute a query in milliseconds. (default: 0)
 
 For a serial connection:
 
@@ -62,6 +63,39 @@ Configuration variables:
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
 - **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
+- **delay_between_queries** (*Optional*): Delay before execute a query in milliseconds. (default: 0)
+
+For a RS485 connection:
+
+```yaml
+# Example configuration.yaml entry for a serial connection
+modbus:
+  type: rs485
+  method: rtu
+  port: /dev/ttyUSB0
+  baudrate: 9600
+  stopbits: 1
+  bytesize: 8
+  parity: N
+```
+
+Configuration variables:
+
+- **type** (*Required*): Type of the connection to Modebus.
+- **method** (*Required*): Method of the connection to Modbus.
+- **port** (*Required*): The port where your Modbus device is connected to your Home Assistant host.
+- **baudrate** (*Required*): The speed for the serial connection.
+- **stopbits** (*Required*): The stopbits for the serial connection.
+- **bytesize** (*Required*): The bytesize for the serial connection.
+- **parity** (*Required*): The parity for the serial connection.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
+- **delay_between_queries** (*Optional*): Delay before execute a query in milliseconds. (default: 0)
+- **delay_before_tx** (*Optional*): Delay before TX in milliseconds. (default: 0)
+- **delay_before_rx** (*Optional*): Delay before RX in milliseconds. (default: 0)
+- **rts_level_for_tx** (*Optional*): RTS level for TX. (default: 1)
+- **rts_level_for_rx** (*Optional*): RTS level for RX. (default: 0)
+
+**Note:** `rs485` type need and adapter with builtin RS485 mode. See linux kernel documentation for compatibility list.
 
 ### {% linkable_title Services %}
 
