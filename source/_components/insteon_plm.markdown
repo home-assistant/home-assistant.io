@@ -121,7 +121,5 @@ will NOT work:
 light:
   - platform: insteon_plm
     address: 1a2b3c
-	...
-
 ```
 
