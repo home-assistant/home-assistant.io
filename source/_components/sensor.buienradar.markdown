@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Buienradar"
+title: "Buienradar Sensor"
 description: "Instructions how to integrate buienradar.nl sensor within Home Assistant."
 date: 2017-05-15 14:00
 sidebar: true
