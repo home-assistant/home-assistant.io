@@ -58,6 +58,12 @@ detection_time:
     type: int
     required: optional
     default: 300
+ssid_filter:
+    description: Filter the SSIDs that tracking will occur on.
+    type: list of strings
+    required: false
+    default: None
+
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
