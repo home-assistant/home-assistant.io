@@ -22,7 +22,7 @@ This component provides the following platforms:
  - Device tracker - to track location of your car
 
 <p class='note warning'>
-  The component can integrate cars out of the European and African markets only.  
+  The component can integrate cars from European and African markets only.
 </p>
 
 To use Mercedes me in your installation, add the following to your `configuration.yaml` file:
