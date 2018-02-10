@@ -50,3 +50,20 @@ The component has been developed for Portuguese TV operators currently using the
 In most cases (single STB) you just need to setup the *name* and discovery will do the rest. In case you have more than one STB you are required to set the *host* in each one of the entries. 
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the component will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
+
+### {% linkable_title Example `press_button` script %}
+
+The `play_media` function can be used in scripts easily to change channels. 
+
+```yaml
+# Example play_media script
+#
+press_button:
+  sequence:
+    service: media_player.play_media
+    data_template:
+      entity_id: media_player.mediaroom_stb
+      media_content_id: "{{ value }}"
+      media_content_type: "channel"
+
+```
