@@ -53,7 +53,7 @@ If the STB is on the same network segment as Home Assistant, it can determine wh
 
 ### {% linkable_title Example `press_button` script %}
 
-The `play_media` function can be used in scripts easily to change channels. 
+The `play_media` function can be used in scripts to change channels. 
 
 ```yaml
 # Example play_media script
