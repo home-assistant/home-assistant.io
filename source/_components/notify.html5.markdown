@@ -14,6 +14,10 @@ ha_release: 0.27
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
+<p class='note'>
+HTML5 push notifications **do not** work on iOS.
+</p>
+
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml
