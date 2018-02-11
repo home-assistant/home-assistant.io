@@ -17,4 +17,4 @@ The `Mercedes me` platform allows you to get data from your [Mercedes me connect
 
 They will be automatically discovered if the Mercedes me component is loaded.
 
-For more configuration information see the [Mercedes me component](/components/mercedes me/) documentation.
+For more configuration information see the [Mercedes me component](/components/mercedesme/) documentation.
