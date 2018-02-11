@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-The goal of this getting started guide is to install Hass.io on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.
+The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.
 
-Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users, check our [alternative installation methods](/docs/installation/).
+Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/).
 
 ### {% linkable_title Hardware requirements %}
 
@@ -31,7 +31,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 [Etcher]: https://etcher.io/
 [pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.1/resinos-hassio-1.1-raspberrypi3.img.bz2
 
-### Installing Hass.io
+### {% linkable_title Installing Hass.io %}
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.
