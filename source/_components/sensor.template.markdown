@@ -45,6 +45,10 @@ sensor:
         description: Name to use in the frontend.
         required: false
         type: string
+      friendly_name_template:
+        description: Defines a template for the name to be used in the frontend. (this overrides friendly_name)
+        required: false
+        type: template
       entity_id:
         description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
@@ -242,5 +246,28 @@ sensor:
           {% else %}
             /local/nighttime.png
           {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Name Used in the Frontend %}
+
+This example shows how to change the name that gets used in the frontend based on a date.
+Explanation: we add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      forecast_1_day_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
+          {{ date | timestamp_custom("Tomorrow (%-m/%-d)") }}
+        value_template: {{sensor.darksky_weather_forecast_1}}
+      forecast_2_days_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
+          {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: {{sensor.darksky_weather_forecast_2}}
 ```
 {% endraw %}
