@@ -14,7 +14,7 @@ redirect_from: /components/input_slider/
 ---
 
 <p class='note'>
-Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service 'select_value' is now 'set_value'.
+Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
 </p>
 
 The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
@@ -49,14 +49,14 @@ Configuration variables:
   - **step** (*Optional*): Step value for the slider. Defaults to 1.
   - **mode** (*Optional*): Can specify `box`, or `slider`. Defaults to `slider`.
   - **unit_of_measurement** (*Optional*): Unit of measurement in which the value of the slider is expressed in.
-  - **icon** (*Optional*): Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+  - **icon** (*Optional*): Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
 
 ## {% linkable_title Automation Examples %}
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
 
 # Define input_number
@@ -80,13 +80,13 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ trigger.to_state.state | int }}'
-{% endraw %}
 ```
+{% endraw %}
 
 Another code example using `input_number`, this time being used in an action in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
 
 # Define 'input_select'
@@ -124,14 +124,13 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
-{% endraw %}
 ```
-
+{% endraw %}
 
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
-```yaml
 {% raw %}
+```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
    
 # Define input_number
@@ -170,5 +169,5 @@ input_number:
       topic: "setTemperature"
       retain: true
       payload: '{{ states.input_number.target_temp.state | int }}'
-{% endraw %}
 ```
+{% endraw %}
