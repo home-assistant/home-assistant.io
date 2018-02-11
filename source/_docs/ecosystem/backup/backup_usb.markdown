@@ -12,7 +12,8 @@ footer: true
 This will step you through the process of setting up a backup of your Home Assistant configuration to a USB device. This is a good method if you don't want to mask all of your passwords since the backup is kept locally at your home/residence.
 
 ### {% linkable_title Requirements %}
-First you need a USB drive. It should be formatted properly for your device and connected to your device before beginning. Any type of partition will work, but Linux filesystems are preferred so that you can set permissions.
+
+First, you need a USB drive. It should be formatted properly for your device and connected to your device before beginning. Any type of partition will work, but Linux filesystems are preferred so that you can set permissions.
 Once connected you want to mount the drive. To find the path where it is located, you can use the `dmesg` command. 
 
 ```bash
@@ -41,7 +42,8 @@ Mount the drive (as root) to `/media`
 ```
 
 ### {% linkable_title Prepare the USB Device %}
-Change to the `/media` directory and create a folder called `hassbackup`. Change the ownership to the user that runs Home Assistant. In my case the user and group are both `homeassistant`.
+
+Change to the `/media` directory and create a folder called `hassbackup`. Change the ownership to the user that runs Home Assistant. In this example case, the user and group are both `homeassistant`.
 
 ```bash
 # cd /media/
@@ -91,7 +93,8 @@ $ .homeassistant/extraconfig/shell_code/usb_backup.sh
 ```
 
 ### {% linkable_title Set Up Crontab %}
-In order to automatically backup your configuration on a schedule you can add a crontab for it as the `homeassistant` user.
+
+To automatically backup your configuration on a schedule, you can add a crontab for it as the `homeassistant` user.
 Change the path below to the directory where you placed the `usb_backup.sh` and run the following line. This will backup every night at 3 am.
 
 ```bash
@@ -108,9 +111,8 @@ To manually mount a USB drive located at `/dev/sda1`, run the following line:
 # mount /dev/sda1 /media
 ```
 
-Or to auto-mount the same drive add the following entry to your `/etc/fstab`:
+Alternatively, auto-mount the drive by adding the following entry to your `/etc/fstab`:
 
 ```text
 /dev/sda1  /media               ext4    defaults,noatime  0       1
 ```
-
