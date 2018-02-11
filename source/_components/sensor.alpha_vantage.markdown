@@ -14,7 +14,7 @@ featured: false
 ha_release: "0.60"
 ---
 
-The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market.
+The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
 
 To enable the `alpha_vantage` platform, add the following lines to your `configuration.yaml` file:
 
@@ -25,7 +25,7 @@ sensor:
     api_key: YOUR_API_KEY
     symbols:
     - symbol: GOOGL
-      name: Google_stock
+      name: Google
     foreign_exchange:
     - name: USD_EUR
       from: USD
