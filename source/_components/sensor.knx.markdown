@@ -26,26 +26,13 @@ sensor:
     name: Heating.Valve1
     address: '2/0/0'
     type: 'percent'
-
   - platform: knx
     name: Kitchen.Temperature
     address: '6/2/1'
     type: 'temperature'
-
-  - platform: knx
-    name: Wind speed
-    type: speed_ms
-    address: 1/0/0
-
-  - platform: knx
-    name: Lux
-    type: illuminance
-    address: 1/0/1
 ```
 
-* **name** (*Optional*): A name for this device used within Home Assistant.
-* **address**: KNX group address of the sensor
-* **type**: (Optional) "percent", "temperature", "illuminance", "speed_ms", "current"
-
-
+- **name** (*Optional*): A name for this device used within Home Assistant.
+- **address**: KNX group address of the sensor.
+- **type** (Optional): "percent", "temperature", "humidity", "illuminance", "brightness", "speed_ms", "current", "power", "electric_current", "electric_potential", "energy", "frequency", "heatflowrate", "phaseanglerad", "phaseangledeg", "powerfactor" or "speed".
 

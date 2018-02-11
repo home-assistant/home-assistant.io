@@ -30,4 +30,3 @@ Configuration variables:
 - **password** (*Required*): Password for Alarm.com account.
 - **name** (*Optional*): The name of the alarm. Default is 'Alarm.com'.
 - **code** (*Optional*): Specifies a code to enable or disable the alarm in the frontend.
-

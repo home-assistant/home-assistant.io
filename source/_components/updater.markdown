@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Other
 ---
 
-The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version is found.
+The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version is found. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this component on Hass.io.
 
 The updater component will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91). For further information about the Updater's data, please check the [detailed overview](/docs/backend/updater/).
 

@@ -10,7 +10,7 @@ footer: true
 logo: smtp.png
 ha_category: Sensor
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 
@@ -31,8 +31,8 @@ sensor:
 Configuration variables:
 
 - **server** (*Required*): The IP address or hostname of the IMAP server.
-- **port** (*Required*): The port where the server is accessible.
+- **port** (*Optional*): The port where the server is accessible.
 - **name** (*Optional*): Name of the IMAP sensor.
 - **username** (*Required*): Username for the IMAP server.
 - **password** (*Required*): Password for the IMAP server.
-
+- **folder** (*Optional*): The IMAP folder to watch.

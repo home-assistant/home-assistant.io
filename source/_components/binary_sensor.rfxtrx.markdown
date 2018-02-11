@@ -44,6 +44,9 @@ Do not forget to tweak the configuration variables:
 - **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
 - **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
 
+<p class='note warning'>
+This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
+</p>
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -132,5 +135,5 @@ The following devices are known to work with the rfxtrx binary sensor component.
   - Chuango PIR-700.
 
 - Door / window sensors:
-  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch.
-  - Nexa LMST-606 Magnetic contact switch.
+  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a tamper switch.
+  - Nexa LMST-606.

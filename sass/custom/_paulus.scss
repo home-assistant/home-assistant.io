@@ -286,7 +286,7 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p {
+    & > p:last-child {
       margin-bottom: 0;
     }
 
@@ -394,15 +394,15 @@ p.note {
 
 .aside-module {
   .section {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .brand-logo-container {
     text-align: center;
-    height: 97px;
+    height: 87px;
 
     img {
-      max-height: 97px;
+      max-height: 67px;
     }
   }
 }

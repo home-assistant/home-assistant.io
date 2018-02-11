@@ -16,6 +16,8 @@ ha_release: 0.39
 
 The `itach` remote platform allows you to control IR devices with a [Global Caché iTach Device](https://www.globalcache.com/products/itach/ip2irspecs) and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
 
+In order to utilize the digital input (binary sensor) and relay (switch) features of your Global Cache device you will need to use the [gc100 component](https://home-assistant.io/components/gc100) and associated platforms.
+
 To use your iTach remote in your installation, you will need to know the IR commands for your devices in Pronto hex format and add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -46,7 +48,7 @@ Configuration variables:
     - **name** (*Required*): Command name.
     - **data** (*Required*): Hex command data.
 
-An example to call the component from developer tools using the remote, send_command service `{ "entity_id":"remote.tv", "device":"0", "command":"menu" }`
+An example to call the component from developer tools using the `remote.send_command` service: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This component converts hex code to Global Cache IR form.
 

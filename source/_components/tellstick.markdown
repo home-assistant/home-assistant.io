@@ -21,7 +21,15 @@ To get started, add the devices to your `configuration.yaml` file.
 tellstick:
 ```
 
+```yaml
+# Example configuration.yaml entry for hass.io with TellStick add-on
+tellstick:
+  host: core-tellstick
+  port: [50800, 50801]
+```
 Configuration variables:
 
 - **signal_repetitions** (*Optional*): Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch and light to try to send each signal repeatedly.
+- **host** (*Optional*): If you run tellstick on a other server or with a hass.io add-on.
+- **port** (*Optional*): If needed with host config option. Must be port pair, for example `[50800, 50801]`.
 

@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect: /developers/website/
+redirect_from: /developers/website/
 ---
 
 The website you are reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
@@ -20,7 +20,7 @@ For larger changes, we suggest that you clone the website repository. This way, 
 
 To test your changes locally, you need to install **Ruby** and its dependencies (gems):
 
-- [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already.
+- [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already. Ruby version 2.3.0 or higher is required.
 - Install `bundler`, a dependency manager for Ruby: `$ gem install bundler`
 - In your home-assistant.github.io root directory, run `$ bundle` to install the gems you need.
 

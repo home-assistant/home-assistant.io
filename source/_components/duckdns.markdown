@@ -24,7 +24,7 @@ duckdns:
   access_token: abcdefgh
 ```
 
-{% configuration binary_sensor.template %}
+{% configuration duckdns %}
   domain:
     description: Your duckdns subdomain (without the `.duckdns.org` suffix).
     required: true

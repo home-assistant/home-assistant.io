@@ -39,4 +39,4 @@ HADashboard is a modular, skinnable dashboard for [Home Assistant](https://home-
 
 
 
-For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/latest/DASHBOARD_INSTALL.html)
+For full installation instructions see the HADashboard section in the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io/en/stable/DASHBOARD_INSTALL.html)

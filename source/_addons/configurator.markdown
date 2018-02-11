@@ -11,7 +11,7 @@ featured: true
 og_image: /images/hassio/screenshots/addon-hass-configurator.png
 ---
 
-As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.
+As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser-based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.
 
 More information and a standalone version for regular Home Assistant installations can be found in the [GitHub repository][code].
 
@@ -27,8 +27,8 @@ Screenshot of the HASS Configurator.
 - Web-Based editor to modify your files with syntax highlighting.
 - Upload and download files.
 - Stage and commit changes in Git repositories, create and switch between branches, push to remotes.
-- Lists of available triggers, events, entities, conditions and services. Selected element gets inserted into the editor at the last cursor position.
-- Restart Home Assistant directly with the click of a button. Reloading groups, automations etc. can be done as well. An API-password is required.
+- Lists of available triggers, events, entities, conditions, and services. The selected element gets inserted into the editor at the last cursor position.
+- Restart Home Assistant directly with the click of a button. Reloading groups, automations, etc. can be done as well. An API-password is required.
 - SSL support.
 - Optional authentication and IP filtering for added security.
 - Direct links to Home Assistant documentation and icons.
@@ -46,20 +46,26 @@ Screenshot of the HASS Configurator.
   "ssl": false,
   "allowed_networks": ["192.168.0.0/16"],
   "banned_ips": ["8.8.8.8"],
-  "ignore_pattern": ["__pycache__"]
+  "banlimit": 0,
+  "ignore_pattern": ["__pycache__"],
+  "dirsfirst": false,
+  "sesame": "somesecretnobodycanguess"
 }
 ```
 
 - **username** (*Optional*): Set a username to access your configuration is protected.
 - **password** (*Required*): Set a password for access.
 - **ssl** (*Optional*): Enable or Disable SSL for the editor.
-- **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses / networks to the list.
+- **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses/networks to the list.
 - **banned_ips** (*Optional*): List of statically banned IP addresses.
+- **banlimit** (*Optional*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
 - **ignore_pattern** (*Optional*): Files and folders to ignore in the UI.
+- **dirsfirst** (*Optional*): List directories before files in the file browser.
+- **sesame** (*Optional*): Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and boom! Open Sesame! You can use the _Network status_ menu to revoke IP addresses for which access has been granted.
 
 ### {% linkable_title Embedding into Home-Assistant %}
 
-Using the Home Assistant component [panel_iframe](https://home-assistant.io/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration within the Home Assistant frontend.
+Using the Home Assistant component [panel_iframe](https://home-assistant.io/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration from within the Home Assistant frontend.
 
 An example configuration would look like this:
 
@@ -72,5 +78,5 @@ panel_iframe:
 ```
 
 <p class='note warning'>
-Be careful when setting up port forwarding to the configurator while embedding into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!
+Be careful when setting up port forwarding to the configurator while embedding into Home Assistant. If you don't restrict access by requiring authentication and/or blocking based on client IP addresses, your configuration will be exposed to the internet!
 </p>

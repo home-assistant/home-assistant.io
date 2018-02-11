@@ -32,7 +32,7 @@ In advance of sending a notification:
 
 When sending a notification:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifer.
+1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
 2. Push notification delivered to device
 3. User opens notification.
 3. Action tapped
@@ -44,16 +44,16 @@ When sending a notification:
 </p>
 
 ## {% linkable_title Definitions %}
-- Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:
-- Action - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports. An actions parameters include:
+- Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
+- Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
 ## {% linkable_title Category parameters %}
 
 - **name** (*Required*): A friendly name for this category.
 - **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
-- **action** (*Required*): A list of actions.
+- **actions** (*Required*): A list of actions.
 
-## {% linkable_title Action parameters %}
+## {% linkable_title Actions parameters %}
 
 - **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
@@ -141,3 +141,4 @@ Notes:
 
 * `textInput` will only exist if `behavior` was set to `textInput`.
 * `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+* When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.

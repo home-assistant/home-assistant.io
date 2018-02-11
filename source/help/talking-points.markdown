@@ -17,5 +17,3 @@ People are starting to present Home Assistant at meetings and get-togethers. Bel
 - Control all your devices from a single, mobile-friendly interface
 - Written in Python3 with 94% test coverage
 - Active and helpful community
-
-

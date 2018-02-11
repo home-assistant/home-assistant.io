@@ -40,8 +40,8 @@ import appdaemon.appapi as appapi
 class OutsideLights(appapi.AppDaemon):
 
   def initialize(self):
-    self.run_at_sunrise(self.sunrise_cb, 0)
-    self.run_at_sunset(self.sunset_cb, 0)
+    self.run_at_sunrise(self.sunrise_cb)
+    self.run_at_sunset(self.sunset_cb)
     
   def sunrise_cb(self, kwargs):
     self.turn_on(self.args["off_scene"])
@@ -58,7 +58,7 @@ This is also fairly easy to achieve with Home Assistant automations, but we are 
 Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callback function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
 
 ```python
-import homeassistant.appapi as appapi
+import appdaemon.appapi as appapi
 
 class FlashyMotionLights(appapi.AppDaemon):
 
@@ -79,7 +79,7 @@ This is starting to get a little more complex in Home Assistant automations, req
 Now let's extend this with a somewhat artificial example to show something that is simple in AppDaemon but very difficult if not impossible using automations. Let's warn someone inside the house that there has been motion outside by flashing a lamp on and off ten times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1-second timer to run `flash_warning()`, which, when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after ten iterations.
 
 ```python
-import homeassistant.appapi as appapi
+import appdaemon.appapi as appapi
 
 class MotionLights(appapi.AppDaemon):
 
@@ -107,4 +107,4 @@ Of course, if I wanted to make this App or its predecessor reusable, I would hav
 
 In addition, Apps can write to `AppDaemon`'s log files, and there is a system of constraints that allows you to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
 
-For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/latest/).
+For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/stable/).

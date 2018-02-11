@@ -15,14 +15,14 @@ The tool is available by running `hassbian-config`.
 
 ### Install scripts
 To view the available packages run `hassbian-config show` and `sudo hassbian-config install PACKAGENAME`.
- - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.
+ - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component that's used with Amazon Echo, Google Home and Mycroft.ai.
  - Install MariaDB. This script installs MariaDB and it's dependencies for use with the recorder component in Home Assistant. No database or database user is created during this setup and will need to be created manually.
  - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
  - Install Libcec. Adds local [HDMI CEC support][cec]. *This scipt is currently brooken upstream since it currently doesn't build properly for Python >3.4*
  - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
  - Install Tradfri. Installs dependencies for using IKEA Trådfri.
- - Install Duck DNS auto renewal. This script adds an cron job to auto update you the WAN IP address for the defined domain. Before running this script you should already have an Duck DNS account, during the installation you will be asked to supply your domain name and the token for your account.
- - Install an web terminal for easy access to ssh in an web browser. This script installs an web terminal called 'shellinabox' to you system that give you SSH access in you web browser.
+ - Install Duck DNS auto renewal. This script adds a cron job to auto update the WAN IP address for the defined domain. Before running this script you should already have an Duck DNS account. During the installation you will be asked to supply your domain name and the token for your account.
+ - Install a web terminal for easy access to ssh in any web browser. This script installs a web terminal called 'shellinabox' on your system that gives you SSH access in your web browser.
 
 #### Upgrade scripts
 To view the available packages run `hassbian-config show` and `sudo hassbian-config upgrade PACKAGENAME`.

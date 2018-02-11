@@ -66,4 +66,4 @@ redirect_from: /getting-started/android/
 ---
 ```
 
-Adding a redirect also applies if you move content around in the [documention](/docs/).
+Adding a redirect also applies if you move content around in the [documentation](/docs/).

@@ -12,6 +12,7 @@ logo: home-assistant.png
 ---
 
 This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].
+Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 [script]: /components/script/
 [automation]: /getting-started/automation/

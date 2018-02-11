@@ -28,12 +28,34 @@ panel_iframe:
   fridge:
     title: 'Fridge'
     url: 'http://192.168.1.5'
+  otherapp:
+    title: 'Other App'
+    url: '/otherapp'
 ```
 
-Configuration variables:
 
-- **[panel_name]** (*Required*): Name of the panel.
-  - **title** (*Required*): Friendly title for the panel. Will be used in the sidebar.
-  - **icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
-  - **url** (*Required*): The URL to open.
+{% configuration %}
+  panel_iframe:
+    description: Enables the panel_iframe component. Only allowed once.
+    required: true
+    type: map
+    keys:
+      panel_name:
+        description: Name of the panel. Only allowed once.
+        required: true
+        type: map
+        keys:
+          title:
+            description: Friendly title for the panel. Will be used in the sidebar.
+            required: true
+            type: string
+          url:
+            description: The absolute URL or relative URL with an absolute path to open.
+            required: true
+            type: string
+          icon:
+            description: Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+            required: false
+            type: string
+{% endconfiguration %}
 

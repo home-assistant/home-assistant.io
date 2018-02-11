@@ -13,16 +13,16 @@ ha_release: 0.27
 ha_iot_class: "Local Push"
 ---
 
-<p class='warning'>
-At this time `emulated_hue` doesn't appear to be working for new Google Home users. 
+<p class='note warning'>
+Be aware that `emulated_hue` doesn't work for new **Google Home** users. If you're a new user of Google Home, use the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
 </p>
 
-The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
-entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no set up cost outside of configuration changes.
-The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
+The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
+entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
+The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
-A physical Hue Bridge is required for the lights to function - this virtual bridge will not replace a physical bridge.
+A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
 </p>
 
 <p class='note'>
@@ -47,14 +47,14 @@ emulated_hue:
 
 Configuration variables:
 
-- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
+- **type** (*Optional*): The type of assistant which we are emulating. Either `alexa` or `google_home`, defaults to `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
 
-- **advertise_ip** (*Optional*): If you need to override the IP address used for UPNP discovery. (For example, using network isolation in Docker)
-- **advertise_port** (*Optional*): If you need to specifically override the advertised UPNP port.
+- **advertise_ip** (*Optional*): If you need to override the IP address used for UPnP discovery. (For example, using network isolation in Docker)
+- **advertise_port** (*Optional*): If you need to specifically override the advertised UPnP port.
 
-- **upnp_bind_multicast** (*Optional*): Whether or not to bind the UPNP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
+- **upnp_bind_multicast** (*Optional*): Whether or not to bind the UPnP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
 
 - **off_maps_to_on_domains** (*Optional*): The domains that maps an "off" command to an "on" command.
 
@@ -75,6 +75,8 @@ Configuration variables:
   - `media_player`
   - `fan`
 
+- **entities** (*Optional*): Customization for entities.
+
 A full configuration sample looks like the one below.
 
 ```yaml
@@ -90,26 +92,21 @@ emulated_hue:
   expose_by_default: true
   exposed_domains:
     - light
-```
-
-With additional customization you will be able to specify the behavior of the existing entities.
-
-```yaml
-# Example customization
-homeassistant:
-  customize:
+  entities:
     light.bedroom_light:
-      # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue_hidden: false
-    light.office_light:
-      # Address light.office_light as "back office light"
-      emulated_hue_name: "back office light"
+      name: "Bedside Lamp"
+    light.ceiling_lights:
+      hidden: true
 ```
 
-The following are attributes that can be applied in the `customize` section:
+The following are attributes that can be applied in the `entities` section:
 
-- **emulated_hue_hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. Adding `emulated_hue_hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
-- **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
+- **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
+- **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
+
+<p class='note'>
+These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
+</p>
 
 ### {% linkable_title Troubleshooting %}
 
@@ -118,9 +115,9 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
+For Google Home, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
 
-An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as non-root user.
+An additional step is required to run Home Assistant as a non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as a non-root user.
 
 ```bash
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3

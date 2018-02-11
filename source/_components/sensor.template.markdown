@@ -46,7 +46,7 @@ sensor:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
+        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: string, list
       unit_of_measurement:
@@ -61,17 +61,20 @@ sensor:
         description: Defines a template for the icon of the sensor.
         required: false
         type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the sensor.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
 
 If you are using the state of a platform that takes extra time to load, the
-Template Sensor may get an `unknown` state during startup. This results
-in error messages in your log file until that platform has completed loading.
-If you use `is_state()` function in your template, you can avoid this situation.
+Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting
+error messages in your log file), you can use `is_state()` function in your template.
 For example, you would replace
 {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
-with this equivalent that returns `true`/`false` and never gives an unknown
+with this equivalent that returns `true`/`false` and never gives an `unknown`
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
@@ -212,6 +215,32 @@ sensor:
             mdi:weather-sunny
           {% else %}
             mdi:weather-night
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the day/night cycle.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: "Day/Night"
+        value_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            Day
+          {% else %}
+            Night
+          {% endif %}
+        entity_picture_template: >-
+          {% if is_state('sun.sun', 'above_horizon') %}
+            /local/daytime.png
+          {% else %}
+            /local/nighttime.png
           {% endif %}
 ```
 {% endraw %}

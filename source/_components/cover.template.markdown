@@ -49,7 +49,7 @@ cover:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
+        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -217,9 +217,6 @@ sensor:
           {% else %}
             closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 script:
   cover_group:
@@ -249,5 +246,71 @@ automation:
         data:
           entity_id: cover.cover_group
           position: 25
+```
+{% endraw %}
+
+### {% linkable_title Change The Icon %}
+
+This example shows how to change the icon based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            mdi:window-open
+          {% else %}
+            mdi:window-closed
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            /local/cover-open.png
+          {% else %}
+            /local/cover-closed.png
+          {% endif %}
 ```
 {% endraw %}

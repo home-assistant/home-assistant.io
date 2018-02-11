@@ -17,36 +17,6 @@ ha_iot_class: "Local Polling"
 
 Home Assistant will automatically discover their presence on your network.
 
-## {% linkable_title Dependencies %}
-
-```bash
-$ sudo apt-get install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools python3-gi
-```
-
-Depending on how you run Home Assistant, you may need to symlink the `gi` module into your environment.
-
-Hassbian:
-
-```bash
-$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
-```
-
-Raspberry Pi All-In-One Installer:
-
-```bash
-$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
-```
-
-[Virtualenv](https://home-assistant.io/docs/installation/virtualenv/) installation:
-
-```bash
-$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.5/site-packages
-```
-
-<p class='note'>
-  Adjust "python3.5" in command above to match your version as stored in "/srv/homeassistant/lib/pythonX.X"
-</p>
-
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -97,10 +67,6 @@ axis:
     trigger_time: 0
     location: köket
 ```
-
-<p class='note'>
-If you are using Python 3.6, you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
-</p>
 
 <p class='note'>
 Any specific levels for triggers needs to be configured on the device.

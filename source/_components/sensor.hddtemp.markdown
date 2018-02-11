@@ -26,6 +26,8 @@ To setup a HDDTemp to your installation, add the following to your `configuratio
 # Example configuration.yaml entry
 sensor:
   - platform: hddtemp
+    disks:
+      - /dev/sda1
 ```
 
 Configuration variables:
@@ -33,4 +35,5 @@ Configuration variables:
 - **name** (*Optional*): Friendly name to use for the frontend. Default to "HD Temperature".
 - **host** (*Optional*): Host where `hddtemp` is running. Default to `localhost`.
 - **port** (*Optional*): Port that is used by `hddtemp` . Default to `7634`.
+- **disks** (*Optional*): Disk to be monitored. Example: `/dev/sda1` 
 

@@ -30,9 +30,13 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modbus.
+- **type** (*Required*): Type of the connection to Modbus. Possible values are:
+  - *tcp*: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation, 
+  - *udp*: Modbus TCP form, but using UDP for transport (removes the overheads required for TCP),
+  - *rtuovertcp*: Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.
 - **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
 - **port** (*Required*): The port for the communication.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 For a serial connection:
 
@@ -50,13 +54,14 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modebus.
+- **type** (*Required*): Type of the connection to Modbus.
 - **method** (*Required*): Method of the connection to Modbus.
 - **port** (*Required*): The port where your Modbus device is connected to your Home Assistant host.
 - **baudrate** (*Required*): The speed for the serial connection.
 - **stopbits** (*Required*): The stopbits for the serial connection.
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 ### {% linkable_title Services %}
 

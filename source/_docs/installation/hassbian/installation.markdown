@@ -17,6 +17,10 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using HASSb
  3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network settings **before proceeding to step 4**.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.
 
+<p class='note'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets.
+</p>
+
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  Additional information is available in this [video](https://www.youtube.com/watch?v=tCGlQSsQ-Mc).
 
 After initial boot an installer will run in the background and takes around 15 minutes to complete, after it has finished, you will be prompted to login: `hassbian login:`. Installation is complete at this point. The default username is `pi` and the password is `raspberry`.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave"
-description: "Instructions on how-to use Z-Wave with Hass.io."
+description: "Instructions on how-to enable Z-Wave with Hass.io."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -16,24 +16,32 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-If you need GPIO on raspberry-pi3 for you Z-Wave module add follow line into `config.txt`:
+### RAZBERRY BOARD
+
+If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly; simply plug it into your PC and edit it there):
+
 ```
 dtoverlay=pi3-miniuart-bt
 ```
 
-For some exceptional devices, the `/dev/ttyAMA0` will not be detected by udev and are therefor not mapped with docker.
-So you need explicit set this device for mapping to Home-Assistant. Execute this command on ssh add-on:
-```bash
-$ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
-```
-After that, you need change `usb_path` to `/dev/ttyAMA0`.
+After that, you need to change `usb_path` to `/dev/ttyAMA0` in your `configuration.yaml`.
 
-### HUSBZB-1:
+```yaml
+zwave:
+  usb_path: /dev/ttyAMA0
+```
+
+### HUSBZB-1
+
 ```yaml
 zwave:
   usb_path: /dev/ttyUSB0
-  
+
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
 ```
+
+## {% linkable_title Further reading %}
+
+For more information on using Z-Wave, see the [main documentation](/docs/z-wave/).

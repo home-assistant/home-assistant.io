@@ -15,6 +15,10 @@ ha_release: 0.55
 
 OwnTracks is a free and open source application that allows you to track your location in Home Assistant. This is a platform that supports OwnTracks via their HTTP publishing method.
 
+<p class='note'>
+The Android app for OwnTracks is no longer developed or supported. Consider [GPS Logger](/components/device_tracker.gpslogger/) as an alternative.
+</p>
+
 To integrate Owntracks tracking via HTTP in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml

@@ -26,6 +26,6 @@ If you're running Hassbian it's recommended that you make a backup of your confi
 If you're on Windows, you're fine as our minimum version for Windows has been 3.5 for a while now.
 
 #### Other Debian based systems
-If you're running a Debian based system , follow [these instructions][dist-upgrade] to upgrade.
+If you're running a Debian based system, follow [these instructions][dist-upgrade] to upgrade.
 
 [dist-upgrade]: https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9

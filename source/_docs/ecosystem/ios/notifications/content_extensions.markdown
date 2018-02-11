@@ -57,7 +57,7 @@ You can also pass the following properties under `action_data` to modify the map
 The notification thumbnail will be a still image from the camera.
 The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera.
+You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
 
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
@@ -66,6 +66,8 @@ service: notify.ios_<your_device_id_here>
 data:
   message: Motion detected in the Living Room
   data:
+    attachment:
+      content-type: jpeg
     push:
       category: camera
     entity_id: camera.demo_camera

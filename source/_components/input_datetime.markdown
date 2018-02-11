@@ -12,10 +12,6 @@ ha_category: Automation
 ha_release: 0.55
 ---
 
-<p class='note warning'>
-This component is a work in progress. The frontend is not yet implemented.
-</p>
-
 The `input_datetime` component allows the user to define date and time values that can be controlled via the frontend and can be used within automations and templates.
 
 To add three datetime inputs to your installation, one with both date and time, and one with date or time each, add the following lines to your `configuration.yaml`:
@@ -37,18 +33,45 @@ input_datetime:
     has_time: true
 ```
 
-Configuration variables:
+{% configuration %}
+  input_datetime:
+    description: Alias for the datetime input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the datetime input.
+        required: false
+        type: String
+      has_time:
+        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        required: false
+        type: Boolean
+        default: false
+      has_date:
+        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        required: false
+        type: Boolean
+        default: false
+      initial:
+        description: Set the initial value of this input, depending on `has_time` and `has_date`.
+        required: false
+        type: datetime | time | date
+        default: 1970-01-01 00:00 | 1970-01-01 | 00:00
+{% endconfiguration %}
 
-- **[alias]** (*Required*): Alias for the datetime input. Multiple entries are allowed.
-  - **name** (*Optional*): Friendly name of the datetime input.
-  - **has_time** (*Optional*): Set to `true` if this input should have time. Defaults to `false`.
-  - **has_date** (*Optional*): Set to `true` if this input should have a date. Defaults to `false`.
-  - **initial** (*Optional*): Set the initial value of this input. Defaults to '1970-01-01 00:00'.
+### {% linkable_title Attributes %}
 
-A datetime input entity's state exports several attributes that can be useful in automations and templates:
+A datetime input entity's state exports several attributes that can be useful in automations and templates.
 
-- **has_time**: `true` if this entity has time.
-- **has_date**: `true` if this entity has a date.
-- **year**, **month**, **day** (Only available if *has_date* is true): The year, month and day of the date.
-- **hour**, **minute**, **second** (Only available if *has_time* is true): The hour, minute and second of the time.
-- **timestamp**: A timestamp representing the time held in the input. If *has_date* is true, this is the UNIX timestamp of the date / time held by the input. Otherwise (i.e., if only *has_time* is true) the number of seconds since midnight representing the time held by the input.
+| Attribute | Description |
+| --------- | ----------- |
+| `has_time` | `true` if this entity has a time.
+| `has_date` | `true` if this entity has a date.
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
+| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
+
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.

@@ -32,11 +32,10 @@ Configuration variables:
   - **step** (*Optional*): Incremental/step value for the counter. Defaults to 1 (increments by 1).
   - **icon** (*Optional*): Icon for entry.
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Media control services %}
 Available services: `increment`, `decrement`, and `reset`.
 
 #### {% linkable_title Service `counter.increment` %}

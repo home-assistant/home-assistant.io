@@ -30,11 +30,11 @@ All add-ons are simple docker containers. Inside your add-on `config.json` you s
 
 ```json
 {
-  …
+  ...
 
   "image": "myhub/image-{arch}-addon-name",
 
-  …
+  ...
 }
 ```
 
@@ -49,13 +49,13 @@ You need a Docker Hub account to make your own add-ons. You can build your docke
 For a git repository:
 
 ```bash
-docker run --rm --privileged -v ~/.docker:/root/.docker homeassistant/amd64-builder --all -t addon-folder -r https://github.com/xy/addons -b branchname
+$ docker run --rm --privileged -v ~/.docker:/root/.docker homeassistant/amd64-builder --all -t addon-folder -r https://github.com/xy/addons -b branchname
 ```
 
 For a local repository:
 
 ```bash
-docker run --rm --privileged -v ~/.docker:/root/.docker -v /my_addon:/data homeassistant/amd64-builder --all -t /data
+$ docker run --rm --privileged -v ~/.docker:/root/.docker -v /my_addon:/data homeassistant/amd64-builder --all -t /data
 ```
 
 [builder]: https://github.com/home-assistant/hassio-build/tree/master/builder

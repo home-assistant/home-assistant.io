@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Run local scripts"
-description: "Instructions on how-to run local script for Home Assistant."
+description: "Instructions on how to run a local script for Home Assistant."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -11,11 +11,13 @@ footer: true
 
 Hass.io is a managed environment, which means that you can't install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
 
-There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.io.
+There are three options if you need to run a script to read data from a sensor or send commands to other devices on Hass.io.
 
 The first option is to write a custom component for Home Assistant. Using Python, you can communicate with your device. For more information about developing a custom component, take a  look at the [developer documentation][custom-component].
 
-The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial] first.
+The second option is to use STDIN inside add-on and use the service `hassio.addon_stdin` to send data. More about this options look into [developer documentation][communication] for internal add-on communication. There is also describe how do you can easy access to Home-Assistant Rest API.
+
+The third option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial] first.
 
 For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We're going to use MQTT for this using the [MQTT broker add-on][mqtt-addon].
 
@@ -70,6 +72,7 @@ RUN apk --no-cache add jq mosquitto-clients
 ```
 
 Now we can process it with `run.sh`:
+
 ```bash
 #!/bin/bash
 set -e
@@ -98,3 +101,4 @@ done < <(mosquitto_sub -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$USER" -P "$PASSWOR
 [MQTT-addon]: /addons/mosquitto/
 [custom-component]: /developers/component_loading/
 [addons-tutorial]: /developers/hassio/addon_tutorial/
+[communication]: /developers/hassio/addon_communication/

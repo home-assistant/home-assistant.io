@@ -25,14 +25,58 @@ sensor:
     state_topic: "home/bedroom/temperature"
 ```
 
-Configuration variables:
-
-- **state_topic** (*Required*): The MQTT topic subscribed to receive sensor values.
-- **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **expire_after** (*Optional*): Defines the number of seconds after the value expires if it's not updated. Default is 0 (=never expire).
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+{% configuration %}
+state_topic:
+  description: The MQTT topic subscribed to receive sensor values.
+  required: true
+  type: string
+name:
+  description: Name of the MQTT sensor.
+  required: false
+  type: string
+  default: MQTT Sensor
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: int
+  default: 0
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+expire_after:
+  description: Defines the number of seconds after the value expires if it's not updated.
+  required: false
+  type: int
+  default: 0
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: False
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  reqired: false
+  type: list, string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -46,8 +90,9 @@ If you are using the [Owntracks](/components/device_tracker.owntracks/) and enab
 owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
 ```
 
-Thus the trick is extract the battery level from the payload.
+Thus the trick is extracting the battery level from the payload.
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 sensor:
@@ -55,8 +100,9 @@ sensor:
     state_topic: "owntracks/tablet/tablet"
     name: "Battery Tablet"
     unit_of_measurement: "%"
-    value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
+    value_template: '{{ value_json.batt }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Get temperature and humidity %}
 
@@ -72,6 +118,7 @@ office/sensor1
 
 Then use this configuration example to extract the data from the payload:
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 sensor:
@@ -79,10 +126,37 @@ sensor:
     state_topic: 'office/sensor1'
     name: 'Temperature'
     unit_of_measurement: '°C'
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
+    value_template: '{{ value_json.temperature }}'
   - platform: mqtt
     state_topic: 'office/sensor1'
     name: 'Humidity'
     unit_of_measurement: '%'
-    value_template: {% raw %}'{{ value_json.humidity }}'{% endraw %}
+    value_template: '{{ value_json.humidity }}'
 ```
+{% endraw %}
+
+### {% linkable_title Get sensor value from a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+
+As soon as the unit is online, you will get the state of the sensor.
+
+```bash
+home/bathroom/status Connected
+...
+home/bathroom/analog/brightness 290.00
+```
+
+The configuration will look like the example below:
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+sensor:
+  - platform: mqtt
+    state_topic: 'home/bathroom/analog/brightness'
+    name: Brightness
+```
+{% endraw %}
+
+

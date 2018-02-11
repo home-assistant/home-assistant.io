@@ -12,6 +12,7 @@ ha_category: Cover
 ha_release: 0.55
 ---
 
+
 The `rflink` cover platform supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [rflink hub](/components/rflink/).
@@ -84,7 +85,7 @@ Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).

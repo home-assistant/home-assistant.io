@@ -50,6 +50,11 @@ Configuration variables:
 - **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
 
+<p class='note warning'>
+This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
+</p>
+
+
 Generate codes:
 
 If you need to generate codes for switches you can use a template (useful for example COCO switches).

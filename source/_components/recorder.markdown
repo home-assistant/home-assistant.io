@@ -25,25 +25,58 @@ To setup the `recorder` component in your installation, add the following to you
 recorder:
 ```
 
-Configuration variables:
-
-- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days, starting from when Home Assistant is started. If you restart your instance more frequently, than the purge will never take place. You can use [service](#service-purge) call `recorder.purge` when needed.
-- **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
-- **exclude** (*Optional*): Configure which components should be excluded from recordings.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
-  - **domains** (*Optional*): The list of domains to be excluded from recordings.
-- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
-- **db_url** (*Optional*): The URL which point to your database. 
-
+{% configuration %}
+  recorder:
+    description: Enables the recorder component. Only allowed once.
+    required: true
+    type: map
+    keys:
+      db_url:
+        description: The URL which points to your database.
+        required: false
+        type: URL
+      purge_keep_days:
+        description: Specify the number of history days to keep in recorder database after a purge.
+        required: false
+        type: int
+      purge_interval:
+        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule.
+        required: false
+        default: 1
+        type: int
+      exclude:
+        description: Configure which components should be excluded
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be excluded from recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be excluded from recordings.
+            required: false
+            type: List
+      include:
+        description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be included in the recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be included in the recordings.
+            required: false
+            type: List
+{% endconfiguration %}
 
 Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_interval: 2
   purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
@@ -52,8 +85,8 @@ recorder:
       - weblink
       - updater
     entities:
-      - sun.sun   # Don't record sun data
-      - sensor.last_boot
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 ```
 
@@ -100,26 +133,37 @@ action:
     keep_days: 5
 ```
 
-## Custom database engines
+### {% linkable_title Restore State %}
+
+If the `recorder` component is activated then some components support `restore_state` which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
+
+* [`input_boolean`](/components/input_boolean/#restore-state)
+* [`input_number`](/components/input_number/#restore-state)
+* [`input_select`](/components/input_select/#restore-state)
+* [`input_datetime`](/components/input_datetime/#restore-state)
+* [`input_text`](/components/input_text/#restore-state)
+
+
+## {% linkable_title Custom database engines %}
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
-| MariaDB         | `mysql://SERVER_IP/DB_NAME`                              |
-| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME`                |
-| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
-| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
-| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
+| MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/?charset=utf8`      |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MariDB and MySQL %}
+### {% linkable_title MariaDB and MySQL %}
 
 For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
 

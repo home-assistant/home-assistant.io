@@ -154,7 +154,7 @@ hdmi_cec:
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
+Call the `hdmi_cec.select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}
@@ -179,15 +179,29 @@ action:
       
 ### {% linkable_title Power On %}
 
-Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that support this function.
+Call the `hdmi_cec.power_on` service (no arguments) to power on any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.power_on
+```
 
 ### {% linkable_title Standby %}
 
-Call the `hdmi_cec/standby` service (no arguments) to place in standby any devices that support this function.
+Call the `hdmi_cec.standby` service (no arguments) to place in standby any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.standby
+```
 
 ### {% linkable_title Change volume level %}
 
-Call the `hdmi_cec/volume` service with one of following commands:
+Call the `hdmi_cec.volume` service with one of following commands:
 
 #### {% linkable_title Volume up %}
 Increase volume three times:
@@ -207,7 +221,6 @@ Stop increasing volume:
 ```json
 {"up": "release"}
 ```
-
 
 #### {% linkable_title Volume down %}
 Decrease volume three times:
@@ -235,7 +248,7 @@ Toggle mute:
 {"mute": ""}
 ```
 
-value is ignores.
+value is ignored.
 
 
 ## {% linkable_title Useful References %}

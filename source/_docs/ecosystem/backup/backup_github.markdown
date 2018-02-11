@@ -133,7 +133,7 @@ Every time you run this script, you will be prompted for a comment to describe t
 
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
-- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.
+- [Authorize Travis CI](https://travis-ci.org/auth) to have access to your github repos.
 - Create the build script that travis will run to test your repo.
 - Create a dummy secrets.yaml for Travis.
 
