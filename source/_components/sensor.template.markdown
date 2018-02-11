@@ -262,12 +262,31 @@ sensor:
       forecast_1_day_ahead:
         friendly_name_template: >-
           {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
-          {{ date | timestamp_custom("Tomorrow (%-m/%-d)") }}
+          {{ date|timestamp_custom("Tomorrow (%-m/%-d)") }}
         value_template: "{{ sensor.darksky_weather_forecast_1 }}"
       forecast_2_days_ahead:
         friendly_name_template: >-
           {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
-          {{ date | timestamp_custom("%A (%-m/%-d)") }}
+          {{ date|timestamp_custom("%A (%-m/%-d)") }}
         value_template: "{{ sensor.darksky_weather_forecast_2 }}"
+```
+{% endraw %}
+
+This example shows how to change the name that gets used in the frontend based on a state
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      net_power:
+        friendly_name_template: >-
+          {% if states('sensor.power_consumption')|float < 0 %}
+            Power Consumption
+          {% else %}
+            Power Production
+          {% end %}
+        value_template: "{{ sensor.power_consumption }}"
+        unit_of_measurement: 'kW'
 ```
 {% endraw %}
