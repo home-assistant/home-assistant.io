@@ -10,7 +10,7 @@ footer: true
 logo: file.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.63
+ha_release: 0.64
 ---
 
 Component for displaying the size of a file.
