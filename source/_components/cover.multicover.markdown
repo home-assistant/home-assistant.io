@@ -47,9 +47,13 @@ cover:
         required: false
         type: string
       entity_id:
-        description: List of cover entities you want to control.
-        required: true
+        description: List of cover entities you want to control. At least one `entity_id` or `entity_id_regex` need to be specified.
+        required: inclusive
         type: list
+      entity_id_regex:
+        description: Define a regex pattern to match entities. E.g. to match all cover entities use `(cover+\.[\w]+)`. At least one `entity_id` or `entity_id_regex` need to be specified.
+        required: inclusive
+        type: String
       tilt:
         description: Enable tilt controls.
         required: false
@@ -61,11 +65,11 @@ cover:
         type: map
         keys:
           open_position:
-            description: The max open position if winter protection is enabled. At least one `open_position` or `close_position` needs to be specified.
+            description: The max open position if winter protection is enabled. At least one `open_position` or `close_position` need to be specified.
             required: inclusive
             type: int
           close_position:
-            description: The max close position if winter protection is enabled. At least one `open_position` or `close_position` needs to be specified.
+            description: The max close position if winter protection is enabled. At least one `open_position` or `close_position` need to be specified.
             required: inclusive
             type: int
           temperature:
