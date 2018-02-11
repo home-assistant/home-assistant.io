@@ -46,7 +46,7 @@ sensor:
         required: false
         type: string
       friendly_name_template:
-        description: Defines a template for the name to be used in the frontend. (this overrides friendly_name)
+        description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
         required: false
         type: template
       entity_id:
