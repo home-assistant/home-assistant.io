@@ -38,9 +38,10 @@ recorder:
       purge_keep_days:
         description: Specify the number of history days to keep in recorder database after a purge.
         required: false
+        default: 10
         type: int
       purge_interval:
-        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), purging is disabled.
+        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
         required: false
         default: 1
         type: int
@@ -122,16 +123,12 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 ### {% linkable_title Service `purge` %}
 
-Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
+Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
-Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
-
-```yaml
-action:
-  service: recorder.purge
-  data:
-    keep_days: 5
-```
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
+| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space (only supported for SQLite)
 
 ### {% linkable_title Restore State %}
 
