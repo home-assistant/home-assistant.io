@@ -49,7 +49,7 @@ binary_sensor:
             required: false
             type: string
           entity_id:
-            description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
+            description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
             required: false
             type: string, list
           device_class:
@@ -60,6 +60,14 @@ binary_sensor:
           value_template:
             description: Defines a template to set the state of the sensor.
             required: true
+            type: template
+          icon_template:
+            description: Defines a template for the icon of the sensor.
+            required: false
+            type: template
+          entity_picture_template:
+            description: Defines a template for the entity picture of the sensor.
+            required: false
             type: template
           delay_on:
             description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
@@ -126,13 +134,11 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Combining Multiple Sensors, and Using `entity_id` %}
+### {% linkable_title Combining Multiple Sensors %}
 
 This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
-`true` or `false` explicitly. `entity_id` is used to limit which
-sensors are being monitored to update the state, making computing this
-sensor far more efficient.
+`true` or `false` explicitly.
 
 {% raw %}
 ```yaml
@@ -142,10 +148,6 @@ binary_sensor:
       co:
         friendly_name: "CO"
         device_class: gas
-        entity_id:
-          - sensor.bedroom_co_status
-          - sensor.kitchen_co_status
-          - sensor.wardrobe_co_status
         value_template: >-
           {{ is_state('sensor.bedroom_co_status', 'Ok')
              and is_state('sensor.kitchen_co_status', 'Ok')
@@ -190,14 +192,6 @@ binary_sensor:
   - platform: template
     sensors:
       people_home:
-        entity_id:
-          - device_tracker.sean
-          - device_tracker.susan
-          - binary_sensor.office_124
-          - binary_sensor.hallway_134
-          - binary_sensor.living_room_139
-          - binary_sensor.porch_ms6_1_129
-          - binary_sensor.family_room_144
         value_template: >-
           {{ is_state('device_tracker.sean', 'home')
              or is_state('device_tracker.susan', 'home')

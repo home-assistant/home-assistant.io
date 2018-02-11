@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Dark Sky"
+title: "Dark Sky Sensor"
 description: "How to integrate Dark Sky within Home Assistant."
 date: 2016-09-26 08:00
 sidebar: true
@@ -10,7 +10,7 @@ footer: true
 logo: dark_sky.png
 ha_category: Weather
 featured: true
-ha_release: 0.30
+ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
 ha_iot_class: "Cloud Polling"
 ---
@@ -20,7 +20,7 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <p class='note warning'>
-[Dark Sky](https://darksky.net/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
+[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
@@ -48,6 +48,7 @@ Configuration variables:
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
   - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
+  - **precip_accumulation**: Daily snow accumulation. Returns unknown if no snow accumulation available.
   - **temperature**: The current temperature.
   - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
   - **dew_point**: The dew point.
@@ -67,7 +68,7 @@ Configuration variables:
   - **apparent_temperature_min**: Today's expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
   - **uv_index**: The current UV index.
-- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
+- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
 - **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
   - `update_interval: 'HH:MM:SS'`

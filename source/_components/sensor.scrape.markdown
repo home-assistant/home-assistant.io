@@ -102,7 +102,7 @@ sensor:
 
 ### {% linkable_title Get the latest podcast episode file URL %}
 
-If you want to get the file URL for the latest episode of your [favourite podcast](https://hasspodcast.io/), so you can pass it on to a compatible media player.
+If you want to get the file URL for the latest episode of your [favorite podcast](https://hasspodcast.io/), so you can pass it on to a compatible media player.
 
 ```yaml
 # Example configuration.yaml entry

@@ -134,7 +134,7 @@ The following table shows the units of measurement for each attribute:
 
 <p class='note'>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot
-Vacuum and Xiaomi Philips Lights. The Xiaomi Gateway uses another security
+Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security
 method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app.
 </p>
@@ -155,7 +155,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
-Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-mirobo` to be installed correctly.
+Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
 
 ```bash
 $ sudo apt-get install libffi-dev libssl-dev
@@ -185,7 +185,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
-Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-mirobo` to be installed correctly.
+Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
 
 ```bash
 $ sudo apt-get install libffi-dev libssl-dev

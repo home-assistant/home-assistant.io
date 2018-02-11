@@ -12,7 +12,7 @@ ha_category: Voice
 ha_release: 0.53
 ---
 
-[Mycroft](https://mycroft.ai) is a open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
+[Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry

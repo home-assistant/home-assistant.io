@@ -10,6 +10,14 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
+The first time you enable the Z-Wave component it will install the Z-Wave drivers (python-openzwave). This can take up to half an hour on slow machines like Raspberry Pi.
+
+Installing the drivers might require some extra packages to be installed. Check your platform below.
+
+## {% linkable_title Platform specific installation instructions %}
+
+### {% linkable_title Linux (except Hass.io) %}
+
 On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
@@ -18,15 +26,17 @@ $ sudo apt-get install libudev-dev
 
 On Python 3.6 you may also have to install libpython3.6-dev, and possibly python3.6-dev.
 
-When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed. 
+### {% linkable_title macOS %}
+
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
 
 ```bash
 $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 ```
 
-<p class='note'>
-The installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi.
-</p>
+### {% linkable_title Raspberry Pi %}
+
+On Raspberry Pi you will need to enable the serial interface in the `raspbi-config` tool before you can add Z-Wave to Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -37,7 +47,7 @@ zwave:
 ```
 
 {% configuration zwave %}
-usb_path: 
+usb_path:
   description: The port where your device is connected to your Home Assistant host.
   required: false
   type: string
@@ -47,7 +57,7 @@ network_key:
   required: false
   type: string
   default: None
-config_path: 
+config_path:
   description: The path to the Python OpenZWave configuration files.
   required: false
   type: string
@@ -72,11 +82,11 @@ new_entity_ids:
   required: false
   type: boolean
   default: True
-device_config: 
+device_config:
   description: This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
   required: false
   type: string, list
-  keys: 
+  keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
       required: false
@@ -159,16 +169,10 @@ To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add th
 
 ```yaml
 zwave:
-  usb_path: /dev/ttyAMA0
+  usb_path: /dev/ttyACM0
 ```
 
-For some devices the `/dev/ttyAMA0` device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:
-
-```bash
-$ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
-```
-
-After that, you need to change `usb_path` to `/dev/ttyAMA0`.
+Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1).
 
 ### {% linkable_title RancherOS %}
 
@@ -185,7 +189,7 @@ Security Z-Wave devices require a network key before being added to the network 
 
 An easy script to generate a random key:
 ```bash
-cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 ```yaml
@@ -198,7 +202,7 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## {% linkable_title First Run %}
 
-The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspbery Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
@@ -209,7 +213,7 @@ The first run after adding a device is when the `zwave` component will take time
 Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:
 
 ```bash
-ls -l /dev/ttyAMA0
+$ ls -l /dev/ttyAMA0
 ```
 
 You should then see something like this:
@@ -221,10 +225,18 @@ crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
 The important pieces are the first piece `crw-rw----` and the group `dialout`. If those are different then, for your device path, run:
 
 ```bash
-sudo chgrp dialout /dev/ttyAMA0
-sudo chmod g+rw /dev/ttyAMA0
+$ sudo chgrp dialout /dev/ttyAMA0
+$ sudo chmod g+rw /dev/ttyAMA0
 ```
 
 ### {% linkable_title Device path changes %}
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
+
+### {% linkable_title Unable to install Python Openzwave %}
+
+If you're getting errors like:
+
+    openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
+
+Then the problem is that you're missing `libudev-dev`, please [install it](/docs/z-wave/installation/#linux-except-hassio).

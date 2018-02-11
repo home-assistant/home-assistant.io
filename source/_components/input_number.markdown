@@ -51,7 +51,7 @@ input_number:
         required: true
         type: float
       max:
-        description: Maxium value.
+        description: Maximum value.
         required: true
         type: float
       name:
@@ -78,10 +78,14 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
         required: false
         type: icon
 {% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
 ## {% linkable_title Automation Examples %}
 

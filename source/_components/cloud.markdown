@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Cloud"
+title: "Home Assistant Cloud"
 description: "Enable the Home Assistant Cloud integration."
 date: 2017-11-17 20:00
 sidebar: true
@@ -8,92 +8,40 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_release: 0.60
+ha_release: "0.60"
 ha_category: Voice
 ha_iot_class: "Cloud Push"
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services. Any processing of services from other cloud services is handled by your local Home Assistant.
+<p class='note'>The Home Assistant Cloud is currently in open beta and will become part of the upcoming Community Support Package. [Learn more](/blog/2017/12/17/introducing-home-assistant-cloud/)</p>
+
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa.
+
+The following integrations are currently available:
+
+ - [Amazon Alexa (Amazon Echo)](/components/cloud.alexa/)
+
+<!-- - [Google Assistant (Google Home)](/components/cloud.google_assistant/) -->
+
+### {% linkable_title How does it work? %}
+
+The Home Assistant Cloud has been designed with security in mind. When you activate the Cloud component, your instance will create a secure connection to the Home Assistant Cloud. There is no need for any further configuration or to expose your instance to the internet.
+
+Integrations like Alexa will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back to Alexa. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
+
+You can find a list of frequently asked questions (and their answers) in [this blog post](/blog/2017/12/17/introducing-home-assistant-cloud/#faq).
+
+### {% linkable_title Enabling the cloud %}
+
+The Home Assistant Cloud is enabled by default. If not, add this to your configuration:
 
 ```yaml
 # Example configuration.yaml entry to enable the cloud component
 cloud:
 ```
 
-Once activated, go to the configuration panel in Home Assistant and create an account and log in. There is no need to configure your router or expose your instance to the internet in any other way.
-
-### {% linkable_title Amazon Alexa %}
-
-The Alexa integration allows users to control the entities via the [Home Assistant Smart Home skill for Alexa][alexa skill]. This means that you can say things like "Alexa, turn on the kitchen light" to control your local instance.
+Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your configuration.yaml` file.
 
 ```yaml
-# Example configuration.yaml entry configuring Alexa
-cloud:
-  alexa:
-    filter:
-      include_entities:
-        - light.kitchen
-      include_domains:
-        - switch
-      exclude_entities:
-        - light.living_room
-      exclude_domains:
-        - script
+config:
 ```
-
-{% configuration %}
-alexa:
-  description: Configuration options for the Amazon Alexa integration.
-  required: false
-  type: map
-  keys:
-    filter:
-      description: Filters for entities to include/exclude from Alexa.
-      required: false
-      type: map
-      keys:
-        include_entities:
-          description: Entity IDs to include.
-          required: false
-          type: list
-        include_domains:
-          description: Domains to include.
-          required: false
-          type: list
-        exclude_entities:
-          description: Entity IDs to exclude.
-          required: false
-          type: list
-        exclude_domains:
-          description: Domains to exclude.
-          required: false
-          type: list
-{% endconfiguration %}
-
-### {% linkable_title Possible values for customize %}
-
-| Attribute | Description |
-| --------- | ----------- |
-| `alexa_hidden` | Hide the entity from the Alexa smart home devices.
-| `alexa_name` | Defines name of the entity for a Alexa smart home device. Useful if you have an entity with a friendly name in a local language that you want to access using an English sounding name.
-| `alexa_description` | The description of the device in the Alexa smart home device list.
-| `alexa_display_categories` | Set displayCategories, useful for things like media_player (TV/SPEAKERS) or scene (ACTIVITY_TRIGGER/SCENE_TRIGGER). More info can be found [here](https://developer.amazon.com/docs/device-apis/alexa-discovery.html#display-categories).
-
-### {% linkable_title Available domains %}
-Currently, the following domains are available to be used with Alexa:
-- alert
-- automation
-- cover
-- light
-- fan (supports on/off and set speed)
-- group
-- lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)
-- media_player (play, pause, stop, set volume, adjust volume, next track and previous track)
-- scene
-- switch
-
-[alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2
-
-### {% linkable_title Frequently Asked Questions %}
-
-You can find a list of frequently asked questions (and their answers) in [this blog post](https://home-assistant.io/blog/2017/12/17/introducing-home-assistant-cloud/#faq).

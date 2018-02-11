@@ -35,7 +35,7 @@ crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
 crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
 ```
 
-We need an additional software part to handle the cameras. [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the [RPM Fusion respository](http://rpmfusion.org/) enabled.
+We need an additional software part to handle the cameras. [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the [RPM Fusion repository](http://rpmfusion.org/) enabled.
 
 ```bash
 $ sudo dnf -y install motion

@@ -36,7 +36,7 @@ Configuration variables:
 - **lights** (*Required*) array: List of light entities.
 - **name** (*Optional*): The name to use when displaying this switch.
 - **start_time** (*Optional*): The start time. Default to sunrise.
-- **stop_time** (*Optional*): The stop time. Defaults to 22:00.
+- **stop_time** (*Optional*): The stop time. Defaults to dusk.
 - **start_colortemp** (*Optional*): The color temperature at the start. Defaults to `4000`.
 - **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.

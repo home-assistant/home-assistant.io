@@ -46,7 +46,7 @@ wink:
 
 ### {% linkable_title Full oauth authentication (legacy). %}
 
-This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
+This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
 
 ```yaml

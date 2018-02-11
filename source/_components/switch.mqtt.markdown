@@ -30,20 +30,64 @@ switch:
     command_topic: "home/bedroom/switch1/set"
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
-- **availability_topic** (*Optional*): The MQTT topic subscribed to receive availability (online/offline) updates.
-- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
-- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **payload_available** (*Optional*): The payload that represents the available state, e.g. 'online'. Default is "ON".
-- **payload_not_available** (*Optional*): The payload that represents the unavailable state, e.g. 'offline'. Default is "OFF".
-- **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no `state_topic` defined, else `false`.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-- **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+{% configuration %}
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  type: string
+  default: MQTT Switch
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+command_topic:
+  description: The MQTT topic to publish commands to change the switch state.
+  required: false
+  type: string
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_on:
+  description: The payload that represents enabled state.
+  required: false
+  type: string
+  default: ON
+payload_off:
+  description: The payload that represents disabled state.
+  required: false
+  type: string
+  default: OFF
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+optimistic:
+  description: Flag that defines if switch works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if no `state_topic` defined, else `false`."
+qos:
+  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
@@ -75,5 +119,31 @@ switch:
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
+$ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
+
+### {% linkable_title Set the state of a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
+
+Manually you can set pin 13 to high with `mosquitto_pub` or another MQTT tool:
+
+```bash
+$ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
+```
+
+The configuration will look like the example below:
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+switch:
+  - platform: mqtt
+    name: bathroom
+    state_topic: "home/bathroom/gpio/13"
+    command_topic: "home/bathroom/gpio/13"
+    payload_on: "1"
+    payload_off: "0"
+```
+{% endraw %}
+

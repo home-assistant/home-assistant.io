@@ -107,4 +107,4 @@ Of course, if I wanted to make this App or its predecessor reusable, I would hav
 
 In addition, Apps can write to `AppDaemon`'s log files, and there is a system of constraints that allows you to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
 
-For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/latest/).
+For full installation instructions, see the [AppDaemon Project Documentation pages](http://appdaemon.readthedocs.io/en/stable/).

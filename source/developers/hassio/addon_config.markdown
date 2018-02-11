@@ -12,10 +12,15 @@ redirect_from: /hassio/addon_config/
 
 Each add-on is stored in a folder. The file structure looks like this:
 
-```
+```text
 addon_name/
-  Dockerfile
+  build.json
+  CHANGELOG.md
   config.json
+  Dockerfile
+  icon.png
+  logo.png
+  README.md
   run.sh
 ```
 
@@ -120,7 +125,7 @@ The config for an add-on is stored in `config.json`.
 | auto_uart | no | Default False. Auto mapping all UART/Serial device from host into add-on.
 | hassio_api | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
 | homeassistant_api | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
-| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`
+| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
 | map | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
 | environment | no | A dict of environment variable to run add-on.
 | audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
@@ -135,7 +140,7 @@ The config for an add-on is stored in `config.json`.
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make a option optional, put `?` to the end of data type, otherwise it will be a required value.
+The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make an option optional, put `?` to the end of data type, otherwise it will be a required value.
 
 ```json
 {

@@ -31,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](/components/light.knx)
 - [Thermostat](/components/climate.knx)
 - [Notify](/components/notify.knx)
+- [Scene](/components/scene.knx)
 
 ### {% linkable_title Configuration %}
 
@@ -82,8 +83,7 @@ knx:
 
 - **fire_event** (*Optional*): If set to True, platform will write all received KNX messages to event bus
 - **fire_event_filter** (*Optional*): If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus. 
-- **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behaviour.
-- **time_address** (*Optional*): Broadcast current local time to KNX bus with configured group address.
+- **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
 
 ### {% linkable_title Services %}
 
@@ -97,6 +97,27 @@ Service Data: {"address": "1/0/15", "payload": 0}
 
 * **address**: KNX group address
 * **payload**: Payload, either an integer or an array of integers
+
+### {% linkable_title Exposing sensor values or time to knx bus %}
+
+KNX component is able to expose time or sensor values to KNX bus. The component will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
+
+```yaml
+# Example configuration.yaml entry
+knx:
+    expose::
+        - type: 'temperature'
+          entity_id: 'sensor.owm_temperature'
+          address: '0/0/2'
+        - type: 'time'
+          address: '0/0/1'
+        - type: 'datetime'
+          address: '0/0/23'
+```
+
+* **type**: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g. "temperature" or "humidity").
+* **entity_id**: Entity id of the HASS component to be exposed. Not necessarry for types time and datetime.
+* **address**: KNX group address.
 
 
 ### {% linkable_title Known issues %}

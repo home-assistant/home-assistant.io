@@ -49,7 +49,7 @@ cover:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
+        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -217,9 +217,6 @@ sensor:
           {% else %}
             closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 script:
   cover_group:

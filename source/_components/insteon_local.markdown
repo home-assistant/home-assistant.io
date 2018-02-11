@@ -33,9 +33,9 @@ Configuration variables:
 - **timeout** (*Optional*): Timeout to wait for connections. Defaults to 10 seconds.
 - **port** (*Optional*): The port your hub is configured to listen to. Defaults to `25105`.
 
-### {% linkable_title Full configuration %} 
+### {% linkable_title Full configuration %}
 
-The `insteon_local` component currently supports both lights (dimmers) and switches. A full configuration may look like so:
+The `insteon_local` component currently supports lights (dimmers), switches and fans.
 
 ```yaml
 insteon_local:
@@ -44,14 +44,4 @@ insteon_local:
   password: YOUR HUB PASSWORD
   timeout: 10
   port: 25105
-
-light:
-  - platform: insteon_local
-  
-switch:
-  - platform: insteon_local
-  
-fan:
-  - platform: insteon_local
 ```
-

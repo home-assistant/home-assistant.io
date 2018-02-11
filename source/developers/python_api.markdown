@@ -13,7 +13,7 @@ See the [developer documentation][devdocs] for a full overview of the documentat
 
 [devdocs]: https://dev-docs.home-assistant.io/en/master/api/homeassistant.html#module-homeassistant.remote
 
-In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
+In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found. If you are not using the [`frontend`](/components/frontend/) in your setup then you need to add the [`api` component](/components/api/) to your `configuration.yaml` file to use the Python Remote API. 
 
 A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used.
 

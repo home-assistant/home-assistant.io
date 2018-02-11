@@ -20,7 +20,7 @@ Please visit the [AlarmDecoder website](https://www.alarmdecoder.com/) for furth
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/components/binary_sensor.alarmdecoder/): Reports on zone status
-- [Sensor](/components/sensor.alarmdecoder/): Emulates an keypad display
+- [Sensor](/components/sensor.alarmdecoder/): Emulates a keypad display
 - [Alarm Control Panel](/components/alarm_control_panel.alarmdecoder/): Reports on alarm status, and can be used to arm/disarm the system
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
@@ -39,6 +39,7 @@ alarmdecoder:
     01:
       name: 'Smoke Detector'
       type: 'smoke'
+      rfid: '0123456'
     02:
       name: 'Front Door'
       type: 'opening'
@@ -53,3 +54,4 @@ Configuration variables:
 - **baudrate** (*Optional*): The baud rate of the AlarmDecoder device, if using serial type. Default: `115200`
 - **panel_display** (*Optional*): Create a sensor called sensor.alarm_display to match the Alarm Keypad display. Default: `off`
 - **zones** (*Optional*): AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+- **rfid** (*Optional*): The RF serial-number associated with RF zones.  Providing this field allows Home Assistant to associate raw sensor data to a given zone, allowing direct monitoring of the state, battery, and supervision status.

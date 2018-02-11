@@ -51,6 +51,14 @@ The payload will be checked like an entry in your `configuration.yaml` file if a
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
+### {% linkable_title Support by third-party tools %}
+
+The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
+
+- [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
+- [esphomelib](https://github.com/OttoWinter/esphomelib)
+- [ESPurna](https://github.com/xoseperez/espurna)
+
 ### {% linkable_title Examples %}
 
 A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
@@ -93,3 +101,5 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
 - Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+
+

@@ -36,7 +36,9 @@ Configuration variables:
   default name (often model number) that is returned by the device.
 - **host** (*Optional*): IP address or hostname of the device
 - **source_ignore** (*Optional*): List of sources to hide in the front-end
-- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing to rename e.g. `HDMI1` to `ChromeCast`
+- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing one to rename e.g. `HDMI1` to `ChromeCast`
+- **zone_ignore** (*Optional*): List of zones to hide in the front-end
+- **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g. `Main_Zone` to `Family Room`
 
 ### {% linkable_title Discovery notes %}
 
@@ -50,7 +52,7 @@ Configuration variables:
   have your receiver switched off.
 - In some cases, auto-discovery fails due to a known bug in the
   receiver's firmware. It is possible to manually specify the
-  receiver's IP address or via it's hostname (if it is discoverable by
+  receiver's IP address or via its hostname (if it is discoverable by
   your DNS) then.
 
 ### {% linkable_title Supported operations %}
@@ -59,7 +61,7 @@ Configuration variables:
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source
-  only. The `media_id` is a `>` separted string of the menu path on
+  only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
 
 ### {% linkable_title Example configuration %}
@@ -76,6 +78,10 @@ media_player:
     source_names:
       HDMI1: "ChromeCast"
       AV4: "Vinyl"
+    zone_ignore:
+      - "Zone_2"
+    zone_names:
+      Main_Zone: "Family Room"
 ```
 
 ### {% linkable_title Example `play_media` script %}
@@ -107,3 +113,13 @@ script:
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 
 ```
+
+### {% linkable_title Service `yamaha_enable_output` %}
+
+Enable or disable an output port (HDMI) on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `port` | no | Port to enable or disable, e.g. `hdmi1`.
+| `enabled` | no | To enable set true, otherwise set to false.
