@@ -22,7 +22,7 @@ This addon allows you to set up a [Samba](https://samba.org/) server to access h
     "addons": true,
     "share": true,
     "backup": true,
-    "ssl": false,
+    "ssl": false
   },
   "username": "",
   "password": "",
