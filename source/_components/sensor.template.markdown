@@ -286,7 +286,7 @@ sensor:
           {% else %}
             Power Production
           {% end %}
-        value_template: "{{ sensor.power_consumption }}"
+        value_template: "{{ states('sensor.power_consumption') }}"
         unit_of_measurement: 'kW'
 ```
 {% endraw %}
