@@ -263,11 +263,11 @@ sensor:
         friendly_name_template: >-
           {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
           {{ date | timestamp_custom("Tomorrow (%-m/%-d)") }}
-        value_template: {{sensor.darksky_weather_forecast_1}}
+        value_template: "{{ sensor.darksky_weather_forecast_1 }}"
       forecast_2_days_ahead:
         friendly_name_template: >-
           {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
           {{ date | timestamp_custom("%A (%-m/%-d)") }}
-        value_template: {{sensor.darksky_weather_forecast_2}}
+        value_template: "{{ sensor.darksky_weather_forecast_2 }}"
 ```
 {% endraw %}
