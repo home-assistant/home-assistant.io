@@ -30,7 +30,7 @@ condition:
 
 ### {% linkable_title OR condition %}
 
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
 
 ```yaml
 condition:
