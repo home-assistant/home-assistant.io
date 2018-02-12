@@ -68,9 +68,9 @@ timelapse:
 file_path:
   description: Save the picture in a custom file path.
   required: false
-  default: The camera components folder.
+  default: The Home Assistant configuration folder.
   type: string
 {% endconfiguration %}
  
-The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.
+The given **file_path** must be an existing file because the camera platform setup make a writeable check on it. Also, keep in mind that the path should be whitelisted.
 
