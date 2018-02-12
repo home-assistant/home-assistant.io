@@ -90,6 +90,12 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 
 ### {% linkable_title Database size in Postgres %}
 
-```sql
-SELECT pg_size_pretty(pg_database_size('Database Name'));
+```yaml
+- platform: sql
+    db_url: postgresql://user:password@host/dbname
+    queries:
+    - name: db_size
+      query: "SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
+      column: "db_size"
+      unit_of_measurement: MB 
 ```
