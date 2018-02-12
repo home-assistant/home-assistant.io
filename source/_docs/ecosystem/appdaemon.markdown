@@ -76,7 +76,7 @@ class FlashyMotionLights(appapi.AppDaemon):
 
 This is starting to get a little more complex in Home Assistant automations, requiring an automation rule and two separate scripts.
 
-Now let's extend this with a somewhat artificial example to show something that is simple in AppDaemon but very difficult if not impossible using automations. Let's warn someone inside the house that there has been motion outside by flashing a lamp on and off ten times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1-second timer to run `flash_warning()`, which, when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after ten iterations.
+Now let's extend this with a somewhat artificial example to show something that is simple in AppDaemon but very difficult if not impossible using automations. Let's warn someone inside the house that there has been motion outside by flashing a lamp on and off ten times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1-second timer to run `flash_warning()`, which, when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bails out after ten iterations.
 
 ```python
 import appdaemon.appapi as appapi
