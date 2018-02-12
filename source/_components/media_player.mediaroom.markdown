@@ -70,7 +70,7 @@ press_button:
 ### {% linkable_title Example configuration with 2 STB %}
 
 ```yaml
-# Example configuration.yaml entry for 2 STB 
+# Example configuration.yaml entry for 2 STB
 media_player:
   - platform: mediaroom
     host: 192.168.1.64
@@ -79,5 +79,3 @@ media_player:
     host: 192.168.1.65
     name: Bedroom STB
 ```
-
-
