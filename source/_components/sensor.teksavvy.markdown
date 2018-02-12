@@ -45,7 +45,7 @@ api_key:
   required: true
   type: string
 total_bandwidth:
-  description: Your bandwidth limit in gigabytes.
+  description: Your bandwidth limit in gigabytes. Set to `0` for unlimited plans without a cap.
   required: true
   type: string
 monitored_conditions:
@@ -72,6 +72,6 @@ monitored_conditions:
     offpeak_total:
       description: Total bandwidth used during the unlimited period (gigabytes).
     onpeak_remaining:
-      description: Remaining bandwidth (gigabytes).	  
+      description: Remaining bandwidth (gigabytes).
 {% endconfiguration %}
 

@@ -26,8 +26,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
   - **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
 - **include** (*Optional*): Configure which components should create logbook entries. 
-  - **entities** (*Optional*): The list of entity ids to be included from creating logbook entries.
-  - **domains** (*Optional*): The list of domains to be included from creating logbook entries.
+  - **entities** (*Optional*): The list of entity ids to be included in creating logbook entries.
+  - **domains** (*Optional*): The list of domains to be included in creating logbook entries.
 
 If you want to exclude messages of some entities or domains from the logbook just add the `exclude` parameter like: 
 

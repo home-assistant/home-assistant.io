@@ -49,3 +49,7 @@ scan_interval:
   default: 30
   type: int
 {% endconfiguration %}
+
+<p class='note'>
+The requirement `lxml` has to be [installed](http://lxml.de/installation.html) manually `pip install lxml` on some devices.
+</p>
