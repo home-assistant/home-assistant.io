@@ -249,9 +249,9 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Name Used in the Frontend %}
+### {% linkable_title Change the Friendly Name Used in the Frontend %}
 
-This example shows how to change the name that gets used in the frontend based on a date.
+This example shows how to change the `friendly_name` based on a date.
 Explanation: we add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
 
 {% raw %}
@@ -272,7 +272,7 @@ sensor:
 ```
 {% endraw %}
 
-This example shows how to change the name that gets used in the frontend based on a state
+This example shows how to change the `friendly_name` based on a state.
 
 {% raw %}
 ```yaml
