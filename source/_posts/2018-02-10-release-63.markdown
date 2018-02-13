@@ -88,17 +88,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
      | Resource         | Old Entity ID         | New Entity ID                |
      | :------------------ | :------------------ |:-------------------------|
      | disk_use | sensor.disk_used | sensor.disk_use |
+     | disk_use_percent | sensor.disk_used | sensor.disk_use_percent |
      | load_15m | sensor.average_load_15m | sensor.load_15m |
      | load_1m | sensor.average_load_1m | sensor.load_1m |
      | load_5m | sensor.average_load_5m | sensor.load_5m |
      | memory_free | sensor.ram_available | sensor.memory_free |
      | memory_use | sensor.ram_used | sensor.memory_use |
+     | memory_use_percent | sensor.ram_used | sensor.memory_use_percent |
      | network_in | sensor.received | sensor.network_in |
      | network_out | sensor.sent | sensor.network_out |
      | packets_in | sensor.packets_received | sensor.packets_in |
      | packets_out | sensor.packets_sent | sensor.packets_out |
      | processor_use | sensor.cpu_used | sensor.processor_use |
      | swap_use | sensor.swap_used | sensor.swap_use |
+     | swap_use_percent | sensor.swap_used | sensor.swap_use_percent |
 
 - Developers only: Following EntityComponent methods have been removed: `extract_from_service`, `async_update_group`, `async_reset`, `prepare_reload` ([@balloob] - [#12237]) (breaking change)
 
