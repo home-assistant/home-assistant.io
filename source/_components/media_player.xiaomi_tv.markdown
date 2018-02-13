@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Media Player
-ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_release: next
+ha_iot_class: "Assumed State"
 ---
 
 The `xiaomi_tv` platform allows you to control a [Xiaomi TV](http://www.mi.com/en/mitv3s/65flat/).
@@ -32,7 +32,7 @@ Configuration variables:
 - **host** (*Optional*): The IP of the Xiaomi TV, eg. 192.168.0.10
 - **name** (*Optional*): The name to use on the frontend.
 
-The platform will automatically discover TVs on your network, if you do not set a host in the configuration file. Notice the platform only supports multiple TVs in discovery mode.
+If you do not set a host in the configuration file, local TVs will automatically be discovered.
 
 To manually add a TV you can use the following configuration:
 
@@ -44,6 +44,6 @@ media_player:
     name: YOUR_TV_NAME
 ```
 
-### A note on turning on and off
+### {% linkable_title A note on turning on and off %}
 
-The platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful, because the state of the TV will remain the same.
+The platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful, because the selected source of the TV will remain the same. It will essentially turn your TV into a dumb TV.
