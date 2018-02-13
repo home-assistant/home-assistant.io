@@ -32,9 +32,12 @@ Configuration variables:
 - **ports** array (*Required*): Array of used ports.
   - **port: name** (*Required*): Port numbers and corresponding names (GPIO #).
 - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
-- **shared_gpio** (*Optional*): If true, forces a GPIO.setup() before each write. Default is false.
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+
+<p class='note warning'>
+Note that a pin managed by HASS is expected to be exclusive to HASS.
+</p>
 
 A common question is what does Port refer to, this number is the actual GPIO # not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.
@@ -47,14 +50,4 @@ switch:
       17: Speaker Relay
 ```
 
-In case you have any other python scripts running that use RPi.GPIO no values will be written after the initial HASS-start.
-Setting **shared_gpio** to true will reinit the pin before each write, working around this issue.
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: rpi_gpio
-    shared_gpio: true
-    ports:
-      19: LED-Red
-```
 
