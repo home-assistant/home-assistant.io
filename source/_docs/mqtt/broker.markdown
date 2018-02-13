@@ -99,14 +99,14 @@ tls_insecure:
   type: boolean
 tls_version:
   required: false
-  description: "TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`."
+  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes (`'` or `"`) around the value. Defaults to `'auto'`."
   type: string
 {% endconfiguration %}
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
 
-If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'`  then you need to set `tls_version: 1.2`.
+If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'`  then you need to set `tls_version: '1.2'`.
 </p>
 
 <p class='note'>
