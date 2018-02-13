@@ -68,7 +68,7 @@ timelapse:
 file_path:
   description: Save the picture in a custom file path.
   required: false
-  default: The Home Assistant configuration folder.
+  default: A temporary file is used.
   type: string
 {% endconfiguration %}
  
