@@ -30,7 +30,7 @@ media_player:
 Configuration variables:
 
 - **host** (*Optional*): The IP of the Xiaomi TV, eg. 192.168.0.10
-- **name** (*Optional*): The name to use on the frontend.
+- **name** (*Optional*): The name to use on the frontend. Default is 'Xiaomi TV'.
 
 If you do not set a host in the configuration file, local TVs will automatically be discovered.
 
