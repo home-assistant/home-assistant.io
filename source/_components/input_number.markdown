@@ -80,6 +80,11 @@ input_number:
         description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
         required: false
         type: icon
+      display_state:
+        description: For `slider` - Display the current state with unit. For `box` - Display the unit next to the state.
+        required: false
+        type: boolean
+        default: true
 {% endconfiguration %}
 
 ### {% linkable_title Restore State %}
