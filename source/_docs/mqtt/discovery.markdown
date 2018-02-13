@@ -58,6 +58,7 @@ The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support f
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
 - [esphomelib](https://github.com/OttoWinter/esphomelib)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 
 ### {% linkable_title Examples %}
 
