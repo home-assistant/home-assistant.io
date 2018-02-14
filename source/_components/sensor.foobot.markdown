@@ -17,22 +17,29 @@ The `foobot` sensor platform will fetch air quality data from your or yours [Foo
 
 This sensor requires an API token. Please obtain one at [Foobot API site](https://api.foobot.io/apidoc/index.html).
 
+## {% linkable_title Configuring the Platform %}
+
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: foobot
     token: FOOBOT_SECRET_KEY
     username: FOOBOT_USERNAME
 ```
 
-Configuration variables:
+{% configuration %}
+  token:
+    description: The token for the Foobot API.
+    required: true
+    type: string
+  username:
+    description: Your foobot username, used to fetch devices associated with an account.
+    required: true
+    type: string
+{% endconfiguration %}
 
-- **token** (*Required*): The token for the Foobot API.
-- **username** (*Required*): Your username, used to fetch devices associated with an account.
-
-Data:
+## {% linkable_title Available Metrics %}
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
