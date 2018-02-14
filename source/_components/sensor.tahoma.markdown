@@ -12,10 +12,6 @@ ha_category: Cover
 ha_release: 0.59
 ---
 
-To use your tahoma sensors in your installation, add the following to your `configuration.yaml` file:
+The `tahoma` sensor platform lets you see sensors added to your Tahoma Box in Home Assistant.
 
-```yaml
-# Example configuration.yml entry
-sensor:
-  platform: tahoma
-```
+Sensors will be added automatically. Please refer to the [component](/components/tahoma/) configuration on how to setup Tahoma.
