@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: tahoma.png
-ha_category: Cover
+ha_category: Sensor
 ha_release: 0.59
 ---
 
