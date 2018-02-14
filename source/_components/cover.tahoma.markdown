@@ -12,10 +12,6 @@ ha_category: Cover
 ha_release: 0.59
 ---
 
-To use your tahoma covers in your installation, add the following to your `configuration.yaml` file:
+The `tahoma` cover platform lets you control covers added to your Tahoma Box in Home Assistant.
 
-```yaml
-# Example configuration.yml entry
-cover:
-  platform: tahoma
-```
+Covers will be added automatically. Please refer to the [component](/components/tahoma/) configuration on how to setup Tahoma.
