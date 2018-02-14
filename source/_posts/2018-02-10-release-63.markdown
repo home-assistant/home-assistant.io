@@ -51,6 +51,14 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Always return lockState == LOCKED when handling Alexa.LockController ([@lucasweb78] - [#12328]) ([alexa docs])
 - Fix platform dependencies ([@balloob] - [#12330])
 
+## {% linkable_title Release 0.63.2 - February 14 %}
+
+- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
+- Updated beacontools ([@citruz] - [#12368]) ([sensor.eddystone_temperature docs])
+- Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
+- Downgrade limitlessled to 1.0.8 ([@amelchio] - [#12403]) ([light.limitlessled docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -625,3 +633,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.netatmo docs]: https://home-assistant.io/components/binary_sensor.netatmo/
 [camera.netatmo docs]: https://home-assistant.io/components/camera.netatmo/
 [sensor.netatmo docs]: https://home-assistant.io/components/sensor.netatmo/
+[#12342]: https://github.com/home-assistant/home-assistant/pull/12342
+[#12346]: https://github.com/home-assistant/home-assistant/pull/12346
+[#12368]: https://github.com/home-assistant/home-assistant/pull/12368
+[#12382]: https://github.com/home-assistant/home-assistant/pull/12382
+[#12403]: https://github.com/home-assistant/home-assistant/pull/12403
+[@OttoWinter]: https://github.com/OttoWinter
+[@ReneNulschDE]: https://github.com/ReneNulschDE
+[@amelchio]: https://github.com/amelchio
+[@citruz]: https://github.com/citruz
+[@sdague]: https://github.com/sdague
+[binary_sensor.mercedesme docs]: https://home-assistant.io/components/binary_sensor.mercedesme/
+[device_tracker.mercedesme docs]: https://home-assistant.io/components/device_tracker.mercedesme/
+[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
+[media_player.yamaha docs]: https://home-assistant.io/components/media_player.yamaha/
+[mercedesme docs]: https://home-assistant.io/components/mercedesme/
+[sensor.eddystone_temperature docs]: https://home-assistant.io/components/sensor.eddystone_temperature/
+[sensor.mercedesme docs]: https://home-assistant.io/components/sensor.mercedesme/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
