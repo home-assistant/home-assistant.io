@@ -30,7 +30,7 @@ condition:
 
 ### {% linkable_title OR condition %}
 
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
 
 ```yaml
 condition:
@@ -112,6 +112,16 @@ condition:
   after: sunset
   # Optional offset value
   after_offset: "-1:00:00"
+```
+
+```yaml
+condition:
+    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
 ```
 
 Here is a truth table to clarify the parameters with and without offset:

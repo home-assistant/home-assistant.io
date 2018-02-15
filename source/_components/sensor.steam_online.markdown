@@ -16,9 +16,9 @@ ha_release: 0.14
 
 The Steam component will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
-You need an API key	which is [free](https://steamcommunity.com/dev/apikey) to use the component
+You need a [free API key](https://steamcommunity.com/dev/apikey) to use the component
 
-To find an account's 64-bit SteamID you can check the URL of the profile page, if it ends with a long string on numbers then that's the 64-bit SteamID. However, if the profile has a custom URL you will have to copy the it and enter it into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
+To find an account's 64-bit SteamID on profiles without a custom URL you can check the URL of the profile page, the long string of numbers at the end is the 64-bit SteamID. If the profile has a custom URL you will have to copy the URL into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
 
 To use Steam in your installation, add the following to your `configuration.yaml` file:
 

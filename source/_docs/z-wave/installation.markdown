@@ -36,7 +36,7 @@ $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 
 ### {% linkable_title Raspberry Pi %}
 
-On Raspberry Pi you will need to enable the serial interface in the `raspbi-config` tool before you can add Z-Wave to Home Assistant.
+On Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
 
 ## {% linkable_title Configuration %}
 

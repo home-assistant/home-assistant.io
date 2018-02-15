@@ -47,9 +47,11 @@ Notice that all parameters are optional, and discovery should configure everythi
 
 The component has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
-In most cases (single STB) you just need to setup the *name* and discovery will do the rest. In case you have more than one STB you are required to set the *host* in each one of the entries. 
+In most cases (single STB) you just need to setup the *platform* and discovery will do the rest. In case you have more than one STB you are required to set the *host* in each one of the entries. 
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the component will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
+
+## {% linkable_title Examples %}
 
 ### {% linkable_title Example `press_button` script %}
 
@@ -65,4 +67,16 @@ press_button:
       entity_id: media_player.mediaroom_stb
       media_content_id: "{{ value }}"
       media_content_type: "channel"
+
+### {% linkable_title Example configuration with 2 STB %}
+
+```yaml
+# Example configuration.yaml entry for 2 STB
+media_player:
+  - platform: mediaroom
+    host: 192.168.1.64
+    name: Living Room STB
+  - platform: mediaroom
+    host: 192.168.1.65
+    name: Bedroom STB
 ```

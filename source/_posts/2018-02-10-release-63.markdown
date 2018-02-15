@@ -41,6 +41,24 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - SQL sensor ([@dgomes] - [#12142]) ([sensor.sql docs]) (new-platform)
 - Add Mercedes me component ([@ReneNulschDE] - [#11743]) (new-platform)
 
+## {% linkable_title Release 0.63.1 - February 12 %}
+
+- Fix Alexa Step Volume ([@lucasweb78] - [#12314]) ([alexa docs])
+- Remove unique ID from netatmo ([@balloob] - [#12317]) ([binary_sensor.netatmo docs]) ([camera.netatmo docs]) ([sensor.netatmo docs])
+- Allow overriding name via entity registry ([@balloob] - [#12292])
+- Respect entity namespace for entity registry ([@balloob] - [#12313])
+- Fix Report State for Alexa Brightness Controller ([@lucasweb78] - [#12318]) ([alexa docs])
+- Always return lockState == LOCKED when handling Alexa.LockController ([@lucasweb78] - [#12328]) ([alexa docs])
+- Fix platform dependencies ([@balloob] - [#12330])
+
+## {% linkable_title Release 0.63.2 - February 14 %}
+
+- Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
+- Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
+- Updated beacontools ([@citruz] - [#12368]) ([sensor.eddystone_temperature docs])
+- Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
+- Downgrade limitlessled to 1.0.8 ([@amelchio] - [#12403]) ([light.limitlessled docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -78,17 +96,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
      | Resource         | Old Entity ID         | New Entity ID                |
      | :------------------ | :------------------ |:-------------------------|
      | disk_use | sensor.disk_used | sensor.disk_use |
+     | disk_use_percent | sensor.disk_used | sensor.disk_use_percent |
      | load_15m | sensor.average_load_15m | sensor.load_15m |
      | load_1m | sensor.average_load_1m | sensor.load_1m |
      | load_5m | sensor.average_load_5m | sensor.load_5m |
      | memory_free | sensor.ram_available | sensor.memory_free |
      | memory_use | sensor.ram_used | sensor.memory_use |
+     | memory_use_percent | sensor.ram_used | sensor.memory_use_percent |
      | network_in | sensor.received | sensor.network_in |
      | network_out | sensor.sent | sensor.network_out |
      | packets_in | sensor.packets_received | sensor.packets_in |
      | packets_out | sensor.packets_sent | sensor.packets_out |
      | processor_use | sensor.cpu_used | sensor.processor_use |
      | swap_use | sensor.swap_used | sensor.swap_use |
+     | swap_use_percent | sensor.swap_used | sensor.swap_use_percent |
 
 - Developers only: Following EntityComponent methods have been removed: `extract_from_service`, `async_update_group`, `async_reset`, `prepare_reload` ([@balloob] - [#12237]) (breaking change)
 
@@ -602,3 +623,34 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: https://home-assistant.io/components/zha/
 [zha.const docs]: https://home-assistant.io/components/zha.const/
 [zwave docs]: https://home-assistant.io/components/zwave/
+[#12292]: https://github.com/home-assistant/home-assistant/pull/12292
+[#12313]: https://github.com/home-assistant/home-assistant/pull/12313
+[#12314]: https://github.com/home-assistant/home-assistant/pull/12314
+[#12317]: https://github.com/home-assistant/home-assistant/pull/12317
+[#12318]: https://github.com/home-assistant/home-assistant/pull/12318
+[#12328]: https://github.com/home-assistant/home-assistant/pull/12328
+[#12330]: https://github.com/home-assistant/home-assistant/pull/12330
+[@balloob]: https://github.com/balloob
+[@lucasweb78]: https://github.com/lucasweb78
+[alexa docs]: https://home-assistant.io/components/alexa/
+[binary_sensor.netatmo docs]: https://home-assistant.io/components/binary_sensor.netatmo/
+[camera.netatmo docs]: https://home-assistant.io/components/camera.netatmo/
+[sensor.netatmo docs]: https://home-assistant.io/components/sensor.netatmo/
+[#12342]: https://github.com/home-assistant/home-assistant/pull/12342
+[#12346]: https://github.com/home-assistant/home-assistant/pull/12346
+[#12368]: https://github.com/home-assistant/home-assistant/pull/12368
+[#12382]: https://github.com/home-assistant/home-assistant/pull/12382
+[#12403]: https://github.com/home-assistant/home-assistant/pull/12403
+[@OttoWinter]: https://github.com/OttoWinter
+[@ReneNulschDE]: https://github.com/ReneNulschDE
+[@amelchio]: https://github.com/amelchio
+[@citruz]: https://github.com/citruz
+[@sdague]: https://github.com/sdague
+[binary_sensor.mercedesme docs]: https://home-assistant.io/components/binary_sensor.mercedesme/
+[device_tracker.mercedesme docs]: https://home-assistant.io/components/device_tracker.mercedesme/
+[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
+[media_player.yamaha docs]: https://home-assistant.io/components/media_player.yamaha/
+[mercedesme docs]: https://home-assistant.io/components/mercedesme/
+[sensor.eddystone_temperature docs]: https://home-assistant.io/components/sensor.eddystone_temperature/
+[sensor.mercedesme docs]: https://home-assistant.io/components/sensor.mercedesme/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/

@@ -22,7 +22,7 @@ This addon allows you to set up a [Samba](https://samba.org/) server to access h
     "addons": true,
     "share": true,
     "backup": true,
-    "ssl": false,
+    "ssl": false
   },
   "username": "",
   "password": "",
@@ -32,10 +32,10 @@ This addon allows you to set up a [Samba](https://samba.org/) server to access h
 
 Configuration variables:
 
-- **name** (*Optional*): default `hassio`. Set NetBIOS name of hassio device.
-- **workgroup** (*Optional*): default `WORKGROUP`. Set network workgroup.
-- **guest** (*Optional*): Allow login without a username or password. Defaults to `true`.
-- **map** (*Optional*): Control which folder will be exposed. `config` is for Home Assistant configuration folder. `addons` for a local custom repository. `share` is a folder that can access from add-ons and Home Assistant too. `backup` for access to snapshot files. `ssl` for certificate storage, be careful with this option! Defaults all to `true`, except for `ssl`.
-- **username** (*Optional*): The username for logging in if guest login is not used.
+- **name** (*Optional*): Set netbios name of Hass.io device. Default is `hassio`.
+- **workgroup** (*Optional*): Set network workgroup name. Default is `WORKGROUP`.
+- **guest** (*Optional*): Allow login without a username or password. Default is `true`.
+- **map** (*Optional*): Control which folders will be exposed. `config` shares the Home Assistant configuration folder. `addons` shares the local custom repositiory. `share` shares a folder that can be accessed by add-ons and Home Assistant. `backup` shares access to snapshot files. `ssl` shares certificate storage. Be careful with the `ssl` option! Defaults are all set to `true`, except for `ssl`.
+- **username** (*Optional*): Username for logging in if guest login is not used.
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
-- **interface** (*Optional*): Interface on that will start the share. Normally is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+- **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
