@@ -12,7 +12,7 @@ redirect_from: /cookbook/tls_self_signed_certificate/
 
 If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. 
 [Let's encrypt]({{site_root}}/blog/2015/12/13/setup-encryption-using-lets-encrypt/) will only work if you have a DNS entry and remote access is allowed. 
-The solution is to use a self-signed certificate. As you most likely don't have a certification authority (CA) your browser will conplain about the security. If you have a CA then this will not be an issue.
+The solution is to use a self-signed certificate. As you most likely don't have a certification authority (CA) your browser will complain about the security. If you have a CA then this will not be an issue.
 
 To create a certificate locally, you need the [OpenSSL](https://www.openssl.org/) command-line tool.
 
