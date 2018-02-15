@@ -26,7 +26,7 @@ bmw_connected_drive:
   mycar:
     username: #your user name
     password: #your_password>
-    vin: #your vehicle identification number, 17 digits
+    country: #country of your Connected Drive account
 ```
 {% endraw %}
 
@@ -38,7 +38,7 @@ bmw_connected_drive:
     type: map
     keys:
         name:
-            description: name of your vehicle in Home assistant
+            description: name of your account in Home assistant
             required: true
             type: map
             keys:
@@ -50,8 +50,8 @@ bmw_connected_drive:
                     description: your BMW Connected Drive password
                     required: true
                     type: string
-                vin:
-                    description: Your BMW's vehicle identification number (VIN). This usually has 17 digits.
+                country:
+                    description: The country of your Connected Drive account. Please use the exact names on the country as listed on the [Connected Drive website](https://www.bmw-connecteddrive.com/).
                     required: true
                     type: string
 
