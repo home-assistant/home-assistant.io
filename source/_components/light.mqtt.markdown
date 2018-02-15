@@ -120,7 +120,7 @@ rgb_command_topic:
   required: false
   type: string
 rgb_state_topic:
-  description: The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB components separated by commas, for example `255,0,127`.
+  description: The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example `255,0,127`.
   required: false
   type: string
 rgb_value_template:
