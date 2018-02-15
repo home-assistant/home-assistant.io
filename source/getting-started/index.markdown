@@ -11,7 +11,7 @@ footer: true
 
 The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.
 
-Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/).
+Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/). The [FAQ explains](/faq/#home-assistant-vs-hassio) more about the differences.
 
 ### {% linkable_title Hardware requirements %}
 
