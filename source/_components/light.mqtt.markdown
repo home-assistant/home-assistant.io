@@ -120,7 +120,7 @@ rgb_command_topic:
   required: false
   type: string
 rgb_state_topic:
-  description: The MQTT topic subscribed to receive RGB state updates.
+  description: The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB components separated by commas, for example `255,0,127`.
   required: false
   type: string
 rgb_value_template:
@@ -233,10 +233,10 @@ To enable a light with brightness (no RGB version) in your installation, add the
 light:
   - platform: mqtt
     name: "Office light"
-    state_topic: "office/rgb1/light/status"
-    command_topic: "office/rgb1/light/switch"
-    brightness_state_topic: 'office/rgb1/light/brightness'
-    brightness_command_topic: 'office/rgb1/light/brightness/set'
+    state_topic: "office/light/status"
+    command_topic: "office/light/switch"
+    brightness_state_topic: 'office/light/brightness'
+    brightness_command_topic: 'office/light/brightness/set'
     qos: 0
     payload_on: "ON"
     payload_off: "OFF"
@@ -255,8 +255,8 @@ light:
     state_topic: "office/light/status"
     command_topic: "office/light/switch"
     payload_off: "OFF"
-    brightness_state_topic: 'office/rgb1/light/brightness'
-    brightness_command_topic: 'office/rgb1/light/brightness/set'
+    brightness_state_topic: 'office/light/brightness'
+    brightness_command_topic: 'office/light/brightness/set'
     on_command_type: 'brightness'
 ```
 
