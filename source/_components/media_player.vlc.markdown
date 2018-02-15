@@ -61,8 +61,6 @@ You need to add the `homeassistant` user to the `audio` group:
 sudo usermod -a -G audio homeassistant
 ```
 
-##### {% linkable_title VLC currently not supported with Hassio %}
+##### {% linkable_title VLC currently not supported with Hass.io %}
 
-According to the forum topic "How to add VLC into my Hassio", it is not possible to install packages like VLC on Hass.io. (For this to work an add-on needs to be created that can run VLC)  
-
-[Source](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5?u=partybug)
+According to the forum topic ["How to add VLC into my Hassio"](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.
