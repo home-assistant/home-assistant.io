@@ -99,7 +99,7 @@ tls_insecure:
   type: boolean
 tls_version:
   required: false
-  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes (`'` or `"`) around the value. Defaults to `'auto'`."
+  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
   type: string
 {% endconfiguration %}
 
