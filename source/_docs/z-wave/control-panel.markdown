@@ -131,9 +131,9 @@ Some non compliant device like tag readers, have implemented to use raw hex code
 Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
 
 Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
+
 ```python
 #! /usr/bin/python3
-
 import sys
 
 translations = {}
@@ -143,10 +143,7 @@ for x in range(0, 10):
 
 for c in sys.argv[1]:
     print(translations[c], end='')
-
-print()
 ```
-
 
 ## {% linkable_title OZW Log %}
 
