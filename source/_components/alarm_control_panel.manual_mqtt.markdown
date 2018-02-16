@@ -58,7 +58,7 @@ The following configuration variables from the base manual alarm platform are av
   - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
   - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
 
-See the documentation for the [manual alarm platform](/component/alarm_control_panel.manual/) for a description.
+See the documentation for the [manual alarm platform](/components/alarm_control_panel.manual/) for a description.
 
 Additionally, the following MQTT configuration variables are also available:
 
