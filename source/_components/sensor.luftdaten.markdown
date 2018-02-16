@@ -61,7 +61,7 @@ sensor:
       pressure:
         description: Display the pressure from the sensor.
   show_on_map:
-    description: Option to show the position of the ISS on the map.
+    description: Option to show the position of the sensor on the map.
     required: optional
     default: false
     type: boolean
