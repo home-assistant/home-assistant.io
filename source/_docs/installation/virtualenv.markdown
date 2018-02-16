@@ -34,10 +34,14 @@ _(If you're on a Debian based system, you will need to install Python virtual en
     ```
     $ python3 -m pip install wheel
     ```
- 5. Install Home Assistant:
+ 5. Install Home Assistant (Latest Version):
     ```
     $ python3 -m pip install homeassistant
-    ```    
+    ```
+    To install a specific version of Home Assistant (Optional):
+    ```
+    $ python3 -m pip install homeassistant=0.XX.X
+    ```
  6. Configure it to [autostart](/docs/autostart/)
  7. Or run Home Assistant manually:
     ```
