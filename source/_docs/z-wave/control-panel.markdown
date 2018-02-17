@@ -43,6 +43,10 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
+<p class='note warning'>
+Since 0.63 and the new entity registry **Rename Node** no longer renames the entities. See [this blog post](https://home-assistant.io/blog/2018/02/10/release-63/#entity-registry) for information on the registry and [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+</p>
+
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
