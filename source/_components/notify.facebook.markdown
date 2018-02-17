@@ -117,3 +117,92 @@ script:
                 title: Blue
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
 ```
+
+You can now also use FB public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. FB requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your FB bot needs to be authorized for "page_subscritions" if you want to make it to all, but can be used right away to a selected group of testers of your choice. 
+
+To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
+
+```yaml
+- alias: Facebook Broadcast
+  trigger:
+    <YOUR_TRIGGER_HERE>
+  action:
+    service: notify.<FACEBOOK_NOTIFY_COMPONENT_NAME_YOU_CREATED>
+    data:
+     message: <TEXT_YOU_ARE_SENDING>
+     target:
+       - BROADCAST
+```
+
+Here is an advanced sample for broadcasting wind alerts from a wunderground weather station:
+
+configuration.yaml:
+
+```yaml
+notify:
+  - platform: facebook
+    name: facebook_wind_alerts
+    page_access_token: !secret facebook_page_access_token  
+
+ platform: wunderground
+ api_key: !secret wunder_api_key
+ pws_id: !secret  wunder_station_id
+ monitored_conditions:
+    - wind_kph
+    - wind_dir
+    - wind_gust_kph
+    - pressure_trend
+    - wind_string
+    - weather_1h
+ 
+ 
+ platform: template
+ sensors:
+    windy:
+        friendly_name: 'Wind'
+        icon_template: mdi:weather-windy
+        value_template: >-
+         {% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}
+            Windy
+          {%- else -%}
+            Beer
+          {%- endif -%}
+
+```
+
+automations.yaml:
+```yaml
+
+- alias: Facebook Wind Alert
+  trigger:
+    platform: state
+    entity_id: sensor.windy
+    to: 'Windy'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+      - condition: state
+        entity_id: input_boolean.wind_alert
+        state: 'on'
+      - condition: time
+        before: '19:00:00'
+        after: '07:00:00'
+  action:
+    service: notify.facebook_wind_alerts
+    data_template:
+     message: >
+     
+            {{ states.sensor.pws_wind_string.state }}
+  
+            
+            Pressure Trend : {{ states.sensor.pws_pressure_trend.state }}
+  
+            
+            Next Hour: {{ states.sensor.pws_weather_1h.state }}
+     target:
+       - BROADCAST
+
+```
