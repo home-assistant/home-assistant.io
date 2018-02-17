@@ -131,8 +131,8 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 ### {% linkable_title Setup %}
 
 1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) to be used later. You can download and run this anywhere and on any machine. Just remember where you put it for later and don't forget to run `chmod +x gactions` to make it executable on Mac or Linux.
-2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
-   Note: This must be an HTTPS URL to work.
+2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL:PORT]` below with the URL you use to access Home Assistant.
+   Note: This must be an HTTPS URL to work - don't forget to include the port number if you're not using port 443
 
 ```json
 {
@@ -148,7 +148,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
     "automation":
     {
       "name": "automation",
-      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
+      "url": "https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant"
     }
   }
 }
