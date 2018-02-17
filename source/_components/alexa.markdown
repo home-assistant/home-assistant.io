@@ -375,7 +375,7 @@ which accepts and returns messages conforming to the
 [Smart Home v3 payload](https://developer.amazon.com/docs/smarthome/smart-home-skill-api-message-reference.html).
 You must then create an Amazon developer account with an Alexa skill and Lambda
 function to integrate this endpoint. See
-[Haaska](https://github.com/auchter/haaska) for an example.
+[Haaska](https://github.com/mike-grant/haaska) for an example.
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
