@@ -21,7 +21,7 @@ To use this integration, you need to have:
  - An Alexa enabled device like the Amazon Echo
  - Activated the [Home Assistant Smart Home skill for Alexa][alexa skill]
 
-<p class='note warning'>Only Amazon US is currently supported. Other regions are being certified.</p>
+<p class='note warning'>Only Amazon US, UK, Canada and Germany are currently supported. Other regions are being certified.</p>
 
 You can use `configuration.yaml` to configure the entities that are being shown to Alexa and how they are exposed.
 
