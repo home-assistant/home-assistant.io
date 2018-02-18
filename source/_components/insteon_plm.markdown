@@ -37,7 +37,6 @@ insteon_plm:
        subcat: SUBCATEGORY
        firmware: FIRMWARE
        product_key: PRODUCT_KEY
-  newnames: True
 ```
 Configuration variables:
 - **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
