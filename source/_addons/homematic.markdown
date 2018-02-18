@@ -60,10 +60,6 @@ homematic:
     rf:
       host: core-homematic
       port: 2001
-      resolvenames: json
-  hosts:
-    occu:
-      host: core-homematic
 ```
 
 ## {% linkable_title Raspberry Pi3 %}
