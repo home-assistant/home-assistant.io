@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Media Player
-ha_release: next
+ha_release: 0.64
 ha_iot_class: "Assumed State"
 ---
 
