@@ -32,20 +32,23 @@ instead.
 insteon_plm:
   port: SERIAL_PORT
   device_override:
-     - address: INSTEON_ADDRESS
-       cat: DEVICE_CATEGORY
-       subcat: DEVICE_SUBCATEGORY
-       firmware: DEVICE_FIRMWARE
-       product_key: DEVICE_PRODUCT_KEY
+     - address: ADDRESS
+       cat: CATEGORY
+       subcat: SUBCATEGORY
+       firmware: FIRMWARE
+       product_key: PRODUCT_KEY
+  newnames: True
 ```
 Configuration variables:
 - **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
-- **device_override** (*Optional*): Override the default device platform
-  INSTEON_ADDRESS is found on the device itself in the form 1A.2B.3C or 1a2b3c
-  DEVICE_CATEGORY and DEVICE_FIRMWARE are in the back of the Insteon User Guide 
-  in the form of 0x00 - 0xff
-  DEVICE_FIRMWARE and DEVICE_PRODUCT_KEY are more advanced options and will 
-  typically not be used.
+- **device_override** (*Optional*): Override the default device definition
+    *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
+    *CATEGORY* is found in teh back of the device's User Guide in the form of
+    0x00 - 0xff
+    *SUBCATEGORY* is found in teh back of the device's User Guide in the form 
+    of 0x00 - 0xff
+    *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
+    not be used.
 
 ### {% linkable_title Linking Devices to the PLM %}
 
