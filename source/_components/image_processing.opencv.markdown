@@ -15,7 +15,7 @@ ha_release: 0.47
 
 [OpenCV](http://www.opencv.org) is an open source computer vision image and video processing library.
 
-Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data
+Some pre-defined classifiers can be found [here](https://github.com/opencv/opencv/tree/master/data).
 
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -34,7 +34,7 @@ image_processing:
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
     - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
-- **classifier** (*Optional*): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV's github repo.
+- **classifier** (*Optional*): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV's Github repo.
 
 **classifier** may also be defined as a dictionary of names to classifier configurations:
 
@@ -50,4 +50,4 @@ image_processing:
 - **scale** (*Optional*): The scale to perform when processing, this is a `float` value that must be greater than or equal to `1.0`, default is `1.1`.
 - **neighbors** (*Optional*): The minimum number of neighbors required for a match, default is `4`. The higher this number, the more picky the matching will be; lower the number, the more false positives you may experience.
 
-If you would like to see the regions that OpenCV has detected, add this opencv camera to your config's custom_components/camera directory: [https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f](https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f)
+If you would like to see the regions that OpenCV has detected, add this OpenCV camera to your config's `custom_components/camera` directory: [https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f](https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f)

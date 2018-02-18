@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Raspberry PI GPIO Binary Sensor"
-description: "Instructions how to integrate the GPIO sensor capability of a Raspberry PI into Home Assistant."
+title: "Raspberry Pi GPIO Binary Sensor"
+description: "Instructions how to integrate the GPIO sensor capability of a Raspberry Pi into Home Assistant."
 date: 2015-08-30 19:00
 sidebar: true
 comments: false
@@ -29,7 +29,7 @@ binary_sensor:
 Configuration variables:
 
 - **ports** array (*Required*): Array of used ports.
-  - **port: name** (*Required*): Port numbers and corresponding names.
+  - **port: name** (*Required*): Port numbers (BCM mode pin numbers) and corresponding names.
 - **pull_mode** (*Optional*): The internal pull to use (UP or DOWN). Default is UP.
 - **bouncetime** (*Optional*): The time in milliseconds for port debouncing. Default is 50ms.
 - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).

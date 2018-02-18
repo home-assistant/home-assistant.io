@@ -21,7 +21,14 @@ To use the `prometheus` component in your installation, add the following to you
 prometheus:
 ```
 
-The Prometheus component has no configuration variables.
+Configuration variables:
+
+- **exclude** (*Optional*): Configure which components should be excluded from recording.
+  - **entities** (*Optional*): The list of entity ids to be excluded from recording.
+  - **domains** (*Optional*): The list of domains to be excluded from recording.
+- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded. Values set by the **blacklist** option will prevail.
+  - **entities** (*Optional*): The list of entity ids to be included from recordings.
+  - **domains** (*Optional*): The list of domains to be included from recordings.
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
 

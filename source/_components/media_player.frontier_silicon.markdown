@@ -24,7 +24,7 @@ This component was developed and tested with a Hama [DIR3110] and a Medion [MD 8
 
 ## Configuration
 
-Your Frontier Silicon based device should be automatically discovered by home assistant. The auto-discovery service assumes that the device uses the default PIN code: *1234*. If you have changed the PIN code, the auto-discovery will fail as home assistant will not be able to connect to the device. You can set the PIN code of your device (depending on manufacturer) under:
+Your Frontier Silicon based device should be automatically discovered by Home Assistant. The auto-discovery service assumes that the device uses the default PIN code: *1234*. If you have changed the PIN code, the auto-discovery will fail as Home Assistant will not be able to connect to the device. You can set the PIN code of your device (depending on manufacturer) under:
 
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
 
@@ -43,7 +43,7 @@ Configuration variables:
 - **port** (*Optional*): The port number. Defaults to 80.
 - **password** (*Optional*): PIN code of the Internet Radio. Defaults to 1234.
 
-Some models use a seperate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
+Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
 
 In case your device (friendly name) is called *badezimmer*, an example automation can look something like this:
 
@@ -80,8 +80,8 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 ## Notes and Limitations
 
 <p class='note warning'>
-The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once home assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the home assistant component polls the device state every 30 seconds or issues a command by creating a new session. 
-*If you want to prevent home assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
+The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant component polls the device state every 30 seconds or issues a command by creating a new session. 
+*If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
 </p>
 
 [Frontier Silicon chipset]: http://www.frontier-silicon.com/digital-radio-solutions

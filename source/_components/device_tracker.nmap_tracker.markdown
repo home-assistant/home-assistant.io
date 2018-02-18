@@ -15,10 +15,10 @@ featured: false
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
+You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
 
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
@@ -29,7 +29,7 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: nmap_tracker
-    hosts: 192.168.1.1/24
+    hosts: 192.168.1.0/24
 ```
 
 Configuration variables:
@@ -47,7 +47,7 @@ A full example for the `nmap` tracker could look like the following sample:
 # One whole subnet, and skipping two specific IPs.
 device_tracker:
   - platform: nmap_tracker
-    hosts: 192.168.1.1/24
+    hosts: 192.168.1.0/24
     home_interval: 10
     exclude:
      - 192.168.1.12
@@ -60,7 +60,7 @@ device_tracker:
 device_tracker:
   - platform: nmap_tracker
     hosts:
-      - 192.168.1.1/24
+      - 192.168.1.0/24
       - 10.0.0.2
       - 10.0.0.15
 ```

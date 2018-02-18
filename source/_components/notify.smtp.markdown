@@ -60,7 +60,7 @@ notify:
     sender_name: My Home Assistant
 ```
 
-Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').
+Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps'). If you have 2-step verification enabled on your Google account, you'll need to use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en).
 
 To use the SMTP notification, refer to it in an automation or script like in this example:
 

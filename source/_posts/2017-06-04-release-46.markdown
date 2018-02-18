@@ -147,7 +147,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use expected behvaior for above/below ([@armills] - [#7857]) (breaking change)
 - log time delay of domain setup in info level ([@azogue] - [#7808])
 - Optimize history_stats efficiency and database usage ([@bokub] - [#7858]) ([sensor.history_stats docs])
-- dont use default for switch name, so that the object id is used ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
+- don't use default for switch name, so that the object id is used ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema ([@amelchio] - [#7765]) (breaking change)
 - Make monkey patch work in Python 3.6 ([@balloob] - [#7848])
 - fix permissions issue for Insteon Local #6558 ([@wardcraigj] - [#7860]) ([insteon_local docs])

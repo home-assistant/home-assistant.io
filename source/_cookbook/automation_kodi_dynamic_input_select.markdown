@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-This requires a [Kodi](/components/mediaplayer.kodi/) media player, and consists of commands that perform queries in the Kodi library, and a selection box (`input_select`) that shows the available options. By clicking the commands, the selection box is updated, and when selecting an option, Kodi plays the media.
+This requires a [Kodi](/components/media_player.kodi/) media player, and consists of commands that perform queries in the Kodi library, and a selection box (`input_select`) that shows the available options. By clicking the commands, the selection box is updated, and when selecting an option, Kodi plays the media.
 
 Option filling is done in an [AppDaemon](https://home-assistant.io/docs/ecosystem/appdaemon/tutorial/) app, which listens for events that are triggered with the results of the Kodi JSONRPC API queries when scripts run. This application also listens to the selection box and calls the play media service with the corresponding parameters.
 

@@ -18,7 +18,7 @@ The `panel_custom` support allows you to add additional panels to your Home Assi
 To enable customized panels in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for https://github.com/home-assistant/example-custom-config/blob/master/panels/hello_world.html
 panel_custom:
   - name: todomvc
     sidebar_title: TodoMVC
@@ -26,7 +26,7 @@ panel_custom:
     url_path: my-todomvc
     webcomponent_path: /home/hass/hello.html
     config:
-      hello: world
+      who: world
 ```
 
 Configuration variables:

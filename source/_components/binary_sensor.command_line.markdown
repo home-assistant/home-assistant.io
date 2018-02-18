@@ -28,7 +28,7 @@ binary_sensor:
 Configuration variables:
 
 - **command** (*Required*): The action to take to get the value.
-- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Script Syntax"
-description: "Documention for the Home Assistant Script Syntax."
+description: "Documentation for the Home Assistant Script Syntax."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
@@ -71,13 +71,13 @@ delay:
 ```
 
 ```yaml
-# Waits however many minutes input_slider.minute_delay is set to
+# Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% endraw %}
+delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% endraw %}
 ```
 ### {% linkable_title Wait %}
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/getting-started/automation-trigger/#template-trigger). The Timeout has same syntax as `delay`.  If you set a Timeout for 1 minute and the condition is not satified within that minute, the script will continue.
+Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
 ```yaml
 # wait until media player have stop the playing
@@ -89,6 +89,28 @@ wait_template: {% raw %}"{{ states.media_player.floor.state == 'stop' }}"{% endr
 wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
 timeout: 00:01:00
 ```
+
+When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+
+{% raw %}
+```yaml
+wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+```
+{% endraw %}
+
+It is also possible to use dummy variables, e.g., in scripts, when using `wait_template`.
+
+{% raw %}
+```yaml
+# Service call, e.g. from an automation.
+service: script.do_something
+data_template:
+  dummy: "{{ input_boolean.switch }}"
+
+# Inside the script
+wait_template: "{{ is_state(dummy, 'off') }}"
+```
+{% endraw %}
 
 ### {% linkable_title Fire an Event %}
 
@@ -102,6 +124,51 @@ event_data:
   entity_id: device_tracker.paulus
   domain: light
 ```
+
+You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
+an event trigger.
+
+{% raw %}
+```yaml
+event: MY_EVENT
+event_data_template:
+  name: myEvent
+  customData: "{{ myCustomVariable }}"
+```
+{% endraw %}
+
+### {% linkable_title Raise and Consume Custom Events %}
+
+The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+
+{% raw %}
+```yaml
+- alias: Fire Event
+  trigger:
+    platform: state
+    entity_id: switch.kitchen
+    to: 'on'
+  action:
+    event: event_light_state_changed
+    event_data:
+      state: "on"
+```
+{% endraw %}
+
+The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
+
+{% raw %}
+```yaml
+- alias: Capture Event
+  trigger:
+    platform: event
+    event_type: event_light_state_changed
+  action:
+    - service: notify.notify
+      data_template:
+        message: "kitchen light is turned {{ trigger.event.data.state }}"
+```
+{% endraw %}
 
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/

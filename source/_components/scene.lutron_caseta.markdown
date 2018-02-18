@@ -13,7 +13,12 @@ ha_release: 0.49.2
 ha_iot_class: "Cloud Polling"
 ---
 
+To get Lutron Caseta Scenes working with Home Assistant, follow the instructions for the general [Lutron Caseta component](/components/lutron_caseta/).
 
-The Lutron Caseta scene platform allows you to control your [Lutron Caseta](http://www.casetawireless.com/Pages/Caseta.aspx) SmartBridge Scenes.
+The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.
 
-The requirement is that you have setup the [Lutron Caseta](/components/lutron_caseta/) component.
+After setup, scenes will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a scene called 'Entertain' will appear in Home Assistant as `scene.entertain`.
+
+For more information on working with scenes in Home Assistant, see the [Scenes component](/components/scene/).
+
+Available services: `scene.turn_on`.

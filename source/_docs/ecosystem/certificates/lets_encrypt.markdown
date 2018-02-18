@@ -9,6 +9,10 @@ sharing: true
 footer: true
 ---
 
+<p class='note'>
+If you are using Hass.io, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+</p>
+
 <p class=' note warning'>
 Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
 </p>
@@ -24,7 +28,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You are not currently running anything on port 80 on your network (you'd know if you were).
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
- * Each step presumes you have fully completed the previous step succesfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
+ * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
  
 Steps we will take:
  
@@ -33,7 +37,7 @@ Steps we will take:
  - 2 - Set up port forwarding without TLS/SSL and test connection
  - 3 - Set up a DuckDNS account
  - 4 - Obtain a TLS/SSL certificate from Let's Encrypt
- - 5 - Check the incoming conection
+ - 5 - Check the incoming connection
  - 6 - Clean up port forwards
  - 7 - Set up a sensor to monitor the expiry date of the certificate
  - 8 - Set up an automatic renewal of the TLS/SSL certificate
@@ -84,7 +88,7 @@ Type the following command to list your network interfaces:
 $ ifconfig
 ```
 
-You will receive an ouput similar to the image below:
+You will receive an output similar to the image below:
 
 <p class='img'>
   <img src='/images/screenshots/ip-set.jpg' />
@@ -237,7 +241,7 @@ In cases where your ISP blocks port 80 you will need to change the port forward 
 Now SSH in to the device your Home Assistant is running on.
 
 <p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
+If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' Pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' Pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
 
 ```
 $ sudo adduser hass sudo
@@ -250,7 +254,7 @@ If you did not already log in as the user that currently runs Home Assistant, ch
 $ sudo su -s /bin/bash hass 
 ```
 
-Make sure you are in the home directory for the HA user:
+Make sure you are in the home directory for the Home Assistant user:
 
 ```bash
 $ cd
@@ -265,7 +269,14 @@ $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
 ```
 
-Now we will run the certbot program to get our ssl certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
+You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Hassbian:
+
+```text
+$ sudo systemctl stop home-assistant@homeassistant.service 
+```
+
+You can restart Home Assistant after the next step using the same command and replacing `stop` with `start`.
+Now we will run the certbot program to get our SSL certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
 $ ./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
@@ -290,16 +301,16 @@ $ sudo chmod 755 /etc/letsencrypt/archive/
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
 
-### {% linkable_title 5 - Check the incoming conection %}
+### {% linkable_title 5 - Check the incoming connection %}
 
 <p class='note'>
-Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to your `homeassistant` folder:
+Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
 
 ```
 $ cd ~/.homeassistant
 ```
 
-If you use samba shares to edit your files you can exit your SSH now.
+If you use Samba shares to edit your files you can exit your SSH now.
 </p>
 
 If during step 4 you had to use port 443 instead of port 80 to generate your certificate, you should delete that rule now.
@@ -358,11 +369,11 @@ If you were previously using a webapp on your phone/tablet to access your Home A
 https://home-assistant.io/docs/frontend/mobile/
 ```
 
-All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely neccesary to the outside world.
+All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.
 
 ### {% linkable_title 6 - Clean up port forwards %}
 
-In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer neccessary.
+In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer necessary.
 
 Go to your router's configuration pages and delete the `ha_test` rule.
 
@@ -402,7 +413,7 @@ $ sudo apt-get install ssl-cert-check
 ```
 
 <p class='note'>
-In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if neccessary and so on.
+In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if necessary and so on.
 </p>
 
 To set up a senor add the following to your `configuration.yaml` (remembering to correct the URL for your DuckDNS):
@@ -433,7 +444,7 @@ If you are a TWO-RULE person (from step 6), you can automatically renew your cer
 There are a number of options for automating the renewal process:
  
 #### Option 1:
-Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independant of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
+Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independent of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
  
 To set a cron job to run the script at regular intervals:
  
@@ -441,7 +452,7 @@ To set a cron job to run the script at regular intervals:
  * Change to your Home Assistant user (command similar to):
  
 ```bash
-$ su - s /bin/bash hass
+$ sudo su -s /bin/bash hass
 ```
  
  * Open the crontab:
@@ -515,7 +526,7 @@ $ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challe
 
 * If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
  
-So, now were all set up. We have our secured, remotely accesible HA instance and we're on track for keeping our certificates up to date.  But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
+So, now were all set up. We have our secured, remotely accessible Home Assistant instance and we're on track for keeping our certificates up to date. But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
  
 ### {% linkable_title 9 - Set up an alert to warn us if something went wrong. %}
  

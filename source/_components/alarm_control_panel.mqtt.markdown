@@ -23,7 +23,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - 'pending'
 - 'triggered'
 
-The component is able to control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
+The component can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 
@@ -35,14 +35,56 @@ alarm_control_panel:
     command_topic: "home/alarm/set"
 ```
 
-Configuration variables:
-
-- **state_topic** (*Required*): The MQTT topic subscribed to receive state updates.
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the alarm state.
-- **name** (*Optional*): The name of the alarm. Default is 'MQTT Alarm'.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0. This QoS will also be used to publishing messages.
-- **payload_disarm** (*Optional*): The payload to disarm your Alarm Panel. Default is "DISARM".
-- **payload_arm_home** (*Optional*): The payload to set armed-home mode on your Alarm Panel. Default is "ARM_HOME".
-- **payload_arm_away** (*Optional*): The payload to set armed-away mode on your Alarm Panel. Default is "ARM_AWAY".
-- **code** (*Optional*): If defined, specifies a code to enable or disable the alarm in the frontend.
-
+{% configuration %}
+name:
+  description: The name of the alarm.
+  required: false
+  type: string
+  default: MQTT Alarm
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: true
+  type: string
+command_topic:
+  description: The MQTT topic to publish commands to change the alarm state.
+  required: true
+  type: string
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+payload_disarm:
+  description: The payload to disarm your Alarm Panel.
+  required: false
+  type: string
+  default: DISARM
+payload_arm_home:
+  description: The payload to set armed-home mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_HOME
+payload_arm_away:
+  description: The payload to set armed-away mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_AWAY
+code:
+  description: If defined, specifies a code to enable or disable the alarm in the frontend.
+  required: false
+  type: string
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}

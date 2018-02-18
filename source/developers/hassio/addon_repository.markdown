@@ -10,17 +10,17 @@ footer: true
 redirect_from: /hassio/addon_repository/
 ---
 
-Add-ons repository can contain one or more add-ons. Each add-on is stored in it's own unique folder. For it to be indentified as a repository, a repository contains a configuration file.
+An add-on repository can contain one or more add-ons. Each add-on is stored in its own unique folder. To be indentified as a repository, the repository must contain a configuration file.
 
-[Example add-on repository](https://github.com/home-assistant/hassio-addons-example).
+Check the [Example add-on repository](https://github.com/home-assistant/hassio-addons-example) for further details.
 
-## Installing a repository
+## {% linkable_title Installing a repository %}
 
-A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the URL of your repostory into the repository textarea and click on "Save".
+A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the URL of your repostory into the repository textarea and click on **Save**.
 
-## Repository configuration
+## {% linkable_title Repository configuration %}
 
-Each repository is required to contain `repository.json` at the root of the Git repository.
+Each repository is required to contain `repository.json` at the root in the git repository.
 
 ```json
 {

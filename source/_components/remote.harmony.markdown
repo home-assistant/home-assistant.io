@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: logitech.png
 ha_category: Remote
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ha_release: "0.34"
 ---
 
@@ -23,38 +23,34 @@ Supported units:
 - Harmony Pro
 - Harmony Elite
 
-
 The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
 
-However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml`.
+However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 remote:
   - platform: harmony
     name: Bedroom
-    host: 10.168.1.13   # The IP of your hub
+    host: 10.168.1.13
 ```
 
-You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding
-a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will
-discover the host IP automatically, but set the `name` in the config to match exactly the name you have
-set for your Hub so the platform knows what Hub you are trying to configure.
+You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the config to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
 
 ```yaml
 # Example configuration.yaml entry with discovery
   - platform: harmony
-    name: Living Room    # This name must match the name you have set on the Hub
-    activity: Watch TV   # Overriding the 'activity' setting for this discovered hub
+    name: Living Room 
+    activity: Watch TV
 ```
 
 Configuration variables:
 
-- **name** (*Required*): The hub's name to display in the frontend.
+- **name** (*Required*): The hub's name to display in the frontend. This name must match the name you have set on the Hub.
 - **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
-- **activity** (*Optional*): Activity to use when turnon service is called without any data.
-- **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
+- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
+- **delay_secs** (*Optional*): Default duration in seconds between sending commands to a device.
 
 Configuration file:
 
@@ -64,49 +60,78 @@ Upon startup one file will be written to your Home Assistant configuration direc
 - List of all programmed device names and ID numbers
 - List of all available commands per programmed device
 
-Supported services:
+### {% linkable_title Service `remote.turn_off` %}
 
-- **Turn Off**: Turn off all devices that were switched on from the start of the current activity.s
-- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/). The service will respond faster if the activity ID is passed instead of the name.
-- **Send Command**: Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
-- **Sync**: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.
+Turn off all devices that were switched on from the start of the current activity.
 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
+
+### {% linkable_title Service `remote.turn_on` %}
+
+Start an activity. Will start the default `activity` from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `activity`             |      yes | Activity ID or Activity Name to start.
+
+### {% linkable_title Service `remote.send_command` %}
+
+Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `device`               |       no | Device ID to send the command to.
+| `command`              |       no | A single command or a list of commands to send.
+| `num_repeats`          |      yes | The number of times to repeat the command(s).
+| `delay_secs`           |      yes | The number of seconds between sending each command.
+
+A typical service call for sending several button presses looks like this:
+
+```yaml
+service: remote.send_command
+data:
+  entity_id: remote.tv_room
+  command:
+    - home
+    - 1
+    - 2
+  device: 4576546
+  delay_secs: 0.6
+```
+
+### {% linkable_title Service `remote.harmony_sync` %}
+
+Synchronize the Harmony device with the Harmony web service if any changes are made from the web portal or app.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Only act on a specific remote, else target all.
 
 ### {% linkable_title Examples %}
 
-A template switch can be used to display and control the state of an activity in the frontend.
-
-```yaml
-switch:
-  - platform: template
-    switches:
-      tv:
-        value_template: "{% raw %}{% if is_state('remote.family_room', 'on') %}on{% else %}off{% endif %}{% endraw %}"
-        turn_on:
-          service: remote.turn_on
-          entity_id: remote.family_room
-        turn_off:
-          service: remote.turn_off
-          entity_id: remote.family_room
-```
-
 Template sensors can be utilized to display current activity in the frontend.
 
+{% raw %}
 ```yaml
 sensor:
   - platform: template
     sensors:
       family_room:
-        value_template: {% raw %}'{{ states.remote.family_room.attributes.current_activity }}'{% endraw %}
+        value_template: '{{ states.remote.family_room.attributes.current_activity }}'
         friendly_name: 'Family Room'
       bedroom:
-        value_template: {% raw %}'{{ states.remote.bedroom.attributes.current_activity }}'{% endraw %}
+        value_template: '{{ states.remote.bedroom.attributes.current_activity }}'
         friendly_name: 'bedroom'
 ```
+{% endraw %}
 
+The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
 
-The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is PowerOff.
-
+{% raw %}
 ```yaml
 automation:
   - alias: "Watch TV started from harmony hub"
@@ -115,7 +140,7 @@ automation:
       entity_id: remote.family_room
     condition:
       condition: template
-      value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "Kodi" }}'{% endraw %}
+      value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
       service: input_boolean.turn_on
       entity_id: input_boolean.notify
@@ -125,44 +150,9 @@ automation:
       entity_id: remote.family_room
     condition:
       condition: template
-      value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'{% endraw %}
+      value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
       service: input_boolean.turn_off
       entity_id: input_boolean.notify
-````
-
-The automation example below shows how to send a command via the harmony remote using the `send_command` service to send the 'Pause' command to the hub, which is already defined as an IR code for each device to be used via the Harmony app. It is checking for the activity name as exposed through the sensor in the harmony remote component using Jinja if statements to set the device_id, sending the correct Pause command for the given activity. This requires checking your activity list and device_id from the `harmony_REMOTENAME.conf` file created when you start the component. In this example, the harmony hub is named bedroom.
-
-```yaml
-automation:
-  - alias: Harmony Pause contextual for activity
-    trigger:
-    # trigger happens to be from a flic button - could be any valid event
-      platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da70bbb1
-        click_type: double
-    action:
-      service: remote.send_command
-      data_template:
-      # using a data template to have if brances for relavant device
-        # Always the same entity_id - the harmony hub
-        entity_id: remote.bedroom
-        # Always the same command - the Pause key
-        command: Pause
-        # select device based upon the activity being undertaken.
-        device: >
-          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101
-          {% raw %}{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}
-            22987101
-          # when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316
-          {% raw %}{% elif is_state("sensor.bedroom", "WATCH APPLE TV") %}{% endraw %}
-            23002316
-          {% raw %}{% elif is_state("sensor.bedroom", "PLEX") %}{% endraw %}
-            23048786
-          {% raw %}{% elif is_state("sensor.bedroom", "WATCH BLU RAY") %}{% endraw %}
-            23043122
-          {% raw %}{% endif %}{% endraw %}
-
-````
+```
+{% endraw %}

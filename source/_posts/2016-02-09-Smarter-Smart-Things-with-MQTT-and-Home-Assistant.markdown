@@ -111,7 +111,7 @@ mqtt:
   broker: localhost
 ```
 
-Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `smartthings/<Device Name>/<Atribute>`
+Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `smartthings/<Device Name>/<Attribute>`
 
 For example, my Dimmer Z-Wave Lamp is called "Fireplace Lights" in SmartThings. The following topics are published:
 
@@ -198,7 +198,7 @@ Here is the final sequence of events:
 There are a lot of stops along the way for these events, but each piece is a simple translation layer to shuttle the events between systems.
 
 ### Future Improvements
-- **Raspberry pi**: There is a lot of interest in getting this running on the Raspberry Pi. It only requires binaries compiled for ARM, so we plan to get ARM-compatible versions of the containers going at some point.
+- **Raspberry Pi**: There is a lot of interest in getting this running on the Raspberry Pi. It only requires binaries compiled for ARM, so we plan to get ARM-compatible versions of the containers going at some point.
 - **Authentication for MQTT**: At the moment, the MQTT bridge doesn't understand how to authenticate to MQTT, so only unauthenticated MQTT is supported. This is mitigated to some degree if you use our Docker Compose config, because MQTT's port is not actually shared publicly.
 - **Authentication for MQTT Bridge**: Right now the bridge expects that anyone subscribing is the SmartThings hub. This could use proper authentication.
 

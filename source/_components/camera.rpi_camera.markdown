@@ -24,17 +24,53 @@ camera:
   - platform: rpi_camera
 ```
 
-Configuration variables:
-
- - **name** (*Optional*): Name of the camera
- - **image_width** (*Optional*): Set the image width (default: 640)
- - **image_height** (*Optional*): Set the image height (default: 480)
- - **image_quality** (*Optional*): Set the image quality (from 0 to 100, default: 7)
- - **image_rotation** (*Optional*): Set image rotation (0-359, default: 0)
- - **horizontal_flip** (*Optional*): Set horizontal flip (0 to disable, 1 to enable, default: 0)
- - **vertical_flip** (*Optional*): Set vertical flip (0 to disable, 1 to enable, default: 0)
- - **timelapse** (*Optional*): Takes a picture every ms (default: 1000)
- - **file_path** (*Optional*): Save the picture in a custom file path (default: camera components folder)
+{% configuration %}
+image_width:
+  description: Set the image width.
+  required: false
+  default: 640
+  type: int
+name:
+  description: Name of the camera.
+  required: false
+  default: Raspberry Pi Camera
+  type: string
+image_height:
+  description: Set the image height.
+  required: false
+  default: 480
+  type: int
+image_quality:
+  description: Set the image quality (from 0 to 100).
+  required: false
+  default: 7
+  type: int
+image_rotation:
+  description: Set image rotation (0-359).
+  required: false
+  default: 0
+  type: int
+horizontal_flip:
+  description: Set horizontal flip (0 to disable, 1 to enable).
+  required: false
+  default: 0
+  type: int
+vertical_flip:
+  description: Set vertical flip (0 to disable, 1 to enable).
+  required: false
+  default: 0
+  type: int
+timelapse:
+  description: Takes a picture every millisecond.
+  required: false
+  default: 1000
+  type: int
+file_path:
+  description: Save the picture in a custom file path.
+  required: false
+  default: The camera components folder.
+  type: string
+{% endconfiguration %}
  
 The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.
 

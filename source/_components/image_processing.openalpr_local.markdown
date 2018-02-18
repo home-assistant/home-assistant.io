@@ -22,7 +22,7 @@ For using inside automation look on [component](/components/image_processing) pa
 
 If you want process all data locally, you need version 2.3.1 or higher of the `alpr` commandline tool.
 
-If you don't find binaries for your distribution you can compile from source. Documention of how to build OpenALPR is found [here](https://github.com/openalpr/openalpr/wiki).
+If you don't find binaries for your distribution you can compile from source. Documentation of how to build OpenALPR is found [here](https://github.com/openalpr/openalpr/wiki).
 
 On a Debian system you can use this `cmake` command to build only the command line tool:
 

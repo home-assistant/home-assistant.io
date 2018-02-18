@@ -48,23 +48,99 @@ light:
     command_topic: "home/rgb1/set"
 ```
 
-Configuration variables:
-
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
-- **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **color_temp** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
-- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
-- **effect_list** (*Optional*): The list of effects the light supports.
-- **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
-- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
-- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
-- **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-- **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **white_value** (*Optional*): Flag that defines if the light supports white values. Default is false.
-- **xy** (*Optional*): Flag that defines if the light supports XY colors. Default is false.
+{% configuration %}
+name:
+  description: The name of the light.
+  required: false
+  type: string
+  default: MQTT JSON Light
+command_topic:
+  description: The MQTT topic to publish commands to change the light’s state.
+  required: true
+  type: string
+brightness:
+  description: Flag that defines if the light supports brightness.
+  required: false
+  type: boolean
+  default: false
+brightness_scale:
+  description: "Defines the maximum brightness value (i.e. 100%) of the MQTT device."
+  required: false
+  type: integer
+  default: 255
+color_temp:
+  description: Flag that defines if the light supports color temperature.
+  required: false
+  type: boolean
+  default: false
+effect:
+  description: Flag that defines if the light supports effects.
+  required: false
+  type: boolean
+  default: false
+effect_list:
+  description: The list of effects the light supports.
+  required: false
+  type: string list
+flash_time_long:
+  description: The duration, in seconds, of a “long” flash.
+  required: false
+  type: integer
+  default: 10
+flash_time_short:
+  description: The duration, in seconds, of a “short” flash.
+  required: false
+  type: integer
+  default: 2
+optimistic:
+  description: Flag that defines if the light works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+rgb:
+  description: Flag that defines if the light supports RGB colors.
+  required: false
+  type: boolean
+  default: false
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+white_value:
+  description: Flag that defines if the light supports white values.
+  required: false
+  type: boolean
+  default: false
+xy:
+  description: Flag that defines if the light supports XY colors.
+  required: false
+  type: boolean
+  default: false
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
@@ -120,6 +196,29 @@ light:
     brightness: true
 ```
 
+### {% linkable_title Brightness Scaled %}
+
+To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt_json
+    name: mqtt_json_light_1
+    state_topic: "home/light"
+    command_topic: "home/light/set"
+    brightness: true
+    brightness_scale: 4095
+```
+
+Home Assistant will then convert its 8bit value in the message to and from the device:
+
+```json
+{
+  "brightness": 4095,
+  "state": "ON",
+}
+```
+
 ### {% linkable_title Implementations %}
 
 - A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.
@@ -127,3 +226,5 @@ light:
 - There is also another implementation forked from the above repo, it supports all the same features but is made for addressable LED strips using FastLED on a NodeMCU V3 it can be found [here](https://github.com/JammyDodger231/nodemcu-mqtt-rgb-led).
 
 - [MQTT JSON Light](https://github.com/mertenats/Open-Home-Automation/tree/master/ha_mqtt_rgbw_light_with_discovery) is another implementation for ESP8266 including [MQTT discovery](/docs/mqtt/discovery/).
+
+- [esphomelib](https://github.com/OttoWinter/esphomelib) is a library for ESP32-based boards that has many of Home Assistant's MQTT features (like [discovery](/docs/mqtt/discovery/)) pre-implemented and provides high-level abstractions for components such as lights or sensors.

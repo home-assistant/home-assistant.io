@@ -37,9 +37,9 @@ optional arguments:
   --log-rotate-days LOG_ROTATE_DAYS
                         Enables daily log rotation and keeps up to the
                         specified days
+  --log-file LOG_FILE   Log file to write to. If not set, CONFIG/home-
+                        assistant.log is used
   --runner              On restart exit with code 100
   --script ...          Run one of the embedded scripts
   --daemon              Run Home Assistant as daemon
 ```
-
-

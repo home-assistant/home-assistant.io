@@ -47,6 +47,6 @@ The following conditions are available by device:
 - Nest Protect:
   - co\_status
   - smoke\_status
-  - batter\_health
+  - battery\_health
 - Nest Camera: none
 

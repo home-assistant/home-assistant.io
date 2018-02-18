@@ -2,8 +2,8 @@
 layout: post
 title: "0.27 is here to break eggs and take names: notifications, Hue fakery, safety and unification come to Home Assistant"
 description: "HTML5 push notifications and grouping support, Configuration validations and checking, cover, climate and fan."
-date: 2016-08-27 20:30:25 -0700
-date_formatted: "August 27, 2016"
+date: 2016-08-28 20:30:25 UTC
+date_formatted: "August 28, 2016"
 author: Robbie Trencheny
 author_twitter: Robbie
 comments: true

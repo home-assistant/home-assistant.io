@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Upgrading Hassbian"
-description: "Instructions how to upgrade Hasbian to the latest version."
+description: "Instructions how to upgrade Hassbian to the latest version."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
@@ -20,6 +20,9 @@ $ sudo apt-get -y upgrade
 
 
 #### {% linkable_title Updating Home Assistant %}
+<p class='note'>
+You can also use `hassbian-config` to automate the process by running `sudo hassbian-config upgrade home-assistant`
+</p>
 
 To update the Home Assistant installation execute the following command as the `pi` user.
 

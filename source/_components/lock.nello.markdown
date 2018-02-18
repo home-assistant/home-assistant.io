@@ -46,7 +46,7 @@ Every time someone rings the bell, a `nello_bell_ring` event will be fired.
 Field | Description
 ----- | -----------
 `address` | Postal address of the lock.
-`date` | Date when the event occured.
+`date` | Date when the event occurred.
 `description` | Human readable string describing the event.
 `location_id` | Nello ID of the location where the bell has been rung.
 `short_id` | Shorter Nello ID.

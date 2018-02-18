@@ -104,7 +104,7 @@ group:
 
 
 ### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
-Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual enviroment versions.
+Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
 #### Install SenseHAT package to _homeassistant_venv_
 ```bash

@@ -13,7 +13,7 @@ ha_release: 0.13
 ha_iot_class: "Local Polling"
 ---
 
-The SCSGate component support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a homebrew device allows to interact with the MyHome system from BTicino/Legrande.
+The SCSGate component support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
 
 To enable SCSGate in your installation, add the following to your `configuration.yaml` file:
 

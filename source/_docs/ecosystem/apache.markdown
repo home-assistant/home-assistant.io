@@ -14,7 +14,7 @@ This example demonstrates how you can configure Apache to act as a proxy for Hom
 
 This is useful if you want to have:
 
- * a subdomain redirecting to your home assistant instance
+ * a subdomain redirecting to your Home Assistant instance
  * several subdomain for several instance
  * HTTPS redirection
 
@@ -32,13 +32,19 @@ To be able to access to your Home Assistant instance by using https://home.examp
 
 ```text
 <VirtualHost *:443>
-  ProxyPreserveHost On
-  ProxyRequests Off
   ServerName home.example.org
-  ProxyPass /api/websocket ws://localhost:8123/api/websocket
-  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
+  ProxyPreserveHost On
+  ProxyRequests off
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
+
+  RewriteEngine on
+  RewriteCond %{HTTP:Upgrade} =websocket [NC]
+  RewriteRule /(.*)  ws://localhost:8123/$1 [P,L]
+  RewriteCond %{HTTP:Upgrade} !=websocket [NC]
+  RewriteRule /(.*)  http://localhost:8123/$1 [P,L]
 </VirtualHost>
 ```
 
@@ -54,7 +60,7 @@ If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *
 
 
 <p class='note'>
-In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
+In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") or HTTP 502 messages ("Bad Gateway") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
 </p>
 ```text
 <VirtualHost *:443>
@@ -73,8 +79,8 @@ You already have Home Assistant running on http://localhost:8123 and available a
 You want another instance available at https://countryside.example.org
 
 You can either :
- * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run home assistant as this new user
- * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run home assistant using `hass --config /home/alice/.homeassistant2/`
+ * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run Home Assistant as this new user
+ * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
 
 In both solution, change port number used by modifying `configuration.yaml`
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Run local scripts"
-description: "Instructions on how-to run local script for Home Assistant."
+description: "Instructions on how to run a local script for Home Assistant."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,13 +9,15 @@ sharing: true
 footer: true
 ---
 
-Hass.io is a managed environment. This means that you can install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
+Hass.io is a managed environment, which means you can't install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
 
-There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.io.
+There are three options if you need to run a script which reads data from a sensor or sends commands to other devices on Hass.io.
 
-First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, take a  look at the [developer documentation][custom-component].
+The first option is to write a custom component for Home Assistant. This implies that you can communicate with your device using Python. For more information about developing a custom component, take a look at [custom-component development][custom-component].
 
-The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial] first.
+The second option is to use STDIN inside an add-on and use the service `hassio.addon_stdin` to send data. For more information, have a look at [internal add-on communication][communication]. Here you will also find how you can easily access the Home Assistant Rest API.
+
+The third option is to create a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial] first.
 
 For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We're going to use MQTT for this using the [MQTT broker add-on][mqtt-addon].
 
@@ -23,7 +25,7 @@ For security and speed, Hass.io does not provide a way for containers to communi
 
 We loop in our script to fetch data and push it to MQTT and wait until the next process is ready. Here is a basic example and structure for that process.
 
-Our Dockerfile need to install:
+In our Dockerfile we need to install:
 
 ```
 RUN apk --no-cache add jq mosquitto-clients
@@ -63,13 +65,14 @@ done
 
 We wait for incoming data from the MQTT broker. We can also use an `input_boolean` that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.
 
-Our Dockerfile need to install:
+In our Dockerfile we need to install:
 
 ```
 RUN apk --no-cache add jq mosquitto-clients
 ```
 
 Now we can process it with `run.sh`:
+
 ```bash
 #!/bin/bash
 set -e
@@ -98,3 +101,4 @@ done < <(mosquitto_sub -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$USER" -P "$PASSWOR
 [MQTT-addon]: /addons/mosquitto/
 [custom-component]: /developers/component_loading/
 [addons-tutorial]: /developers/hassio/addon_tutorial/
+[communication]: /developers/hassio/addon_communication/

@@ -122,7 +122,7 @@ script:
 
 
 ### {% linkable_title Using both types of iBeacons at the same time %}
-Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
+Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and an iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
 
 <p class='img'>
   <img  width='300' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Long-Range.jpg'>

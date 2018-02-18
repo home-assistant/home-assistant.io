@@ -12,7 +12,7 @@ categories: Release-Notes
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
 
-We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to recieve [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
+We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to receive [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
 
 A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It's a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.
 
@@ -36,7 +36,7 @@ With the [statistics sensor][stats-sensor] we would like to introduce a new sens
   <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
 </p>
 
-As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
+As the results are processed on-the-fly you still need to use the data from your database for an in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
 
 ### {% linkable_title REST! We don't... %}
 

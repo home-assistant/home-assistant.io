@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: mystrom.png
 ha_category: Switch
+ha_release: 0.9
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -23,10 +25,17 @@ switch:
     host: IP_ADRRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your myStrom switch, eg. `http://192.168.1.32`.
-- **name** (*Optional*): The name to use when displaying this switch.
+{% configuration %}
+host:
+  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  type: string
+  default: myStrom Switch
+{% endconfiguration %}
 
 Check if you are able to access the device located at `http://IP_ADRRESS`. The details about your switch is provided as a JSON response.
 
@@ -43,4 +52,21 @@ or change its state:
 ```bash
 $ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 ```
+
+### {% linkable_title Get the current power consumption %}
+
+The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: template
+    sensors:
+      power:
+        friendly_name: "Current Power"
+        unit_of_measurement: "W"
+        value_template: "{{ states.switch.office.attributes.current_power_w }}"
+```
+{% endraw %}
 

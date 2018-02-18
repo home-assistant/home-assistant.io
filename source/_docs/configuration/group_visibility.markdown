@@ -14,7 +14,7 @@ After filling Home Assistant with all your precious home automation devices, you
 
 ## {% linkable_title Changing visibility of a group %}
 
-To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide wheter the group should be shown or hidden.
+To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide whether the group should be shown or hidden.
 
 ```yaml
 service: group.set_visibility
@@ -104,7 +104,7 @@ sensor:
     command: "python3 occasion.py"
 ```
 <p class='note'>
-If you are using docker to run home assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /command/occasion.py"
+If you are using docker to run Home Assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /command/occasion.py"
 </p>
 
 

@@ -2,15 +2,15 @@
 layout: post
 title: "Smart Baby Monitor"
 description: "How to build your own smart baby monitor"
-date: 2017-02-04 00:00:00 +0100
-date_formatted: "February 4, 2017"
+date: 2017-02-03 01:00:00 UTC
+date_formatted: "February 3, 2017"
 author: Pascal Vizeli
 comments: true
 categories: How-To
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
 
-One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that the baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
+One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that the baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assistant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
 
 Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.
 
@@ -26,7 +26,7 @@ Next, we attach a `ffmpeg_noise` binary sensor to our IP camera. The sensor has 
 We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 </p>
 
-On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install a [icecast2](http://icecast.org/) server using:
+On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install an [icecast2](http://icecast.org/) server using:
 
 ```bash
 $ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
@@ -35,7 +35,7 @@ $ sudo apt-get -t jessie-backports install ffmpeg
 $ sudo apt-get install icecast2
 ```
 
-We setup a icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
+We setup an icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
 
 ```
 <mount>
@@ -93,7 +93,7 @@ automation:
      entity_id: binary_sensor.ffmpeg_noise
 ```
 
-### {% linkable_title Trigger a alarm %}
+### {% linkable_title Trigger an alarm %}
 
 Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
 

@@ -30,7 +30,7 @@ Setup and manage a [Dnsmasq](http://thekelleys.org.uk/dnsmasq/doc.html) DNS serv
 
 Configuration variables:
 
-- **defaults** (*Required*): A list of dns server to forward default requests.
+- **defaults** (*Required*): A list of DNS servers to forward default requests to.
 - **forwards** (*Optional*): A list of domains that will forward to a specific server.
-- **hosts** (*Optional*): A list of hosts to resolve it static.
-- **interface** (*Optional*): If a interface is set, it listen only on this interface. Need to set for resinos. Normaly is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+- **hosts** (*Optional*): A list of hosts to resolve statically.
+- **interface** (*Optional*): If an interface is set, it listens only on this interface. Needs to be set for ResinOS. Normally is `eth0` for ethernet wired connection and `wlan0` for wireless connection.

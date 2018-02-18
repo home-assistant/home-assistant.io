@@ -1,148 +1,204 @@
 ---
 layout: page
 title: "Template Binary Sensor"
-description: "Instructions how to integrate Template binary sensors into Home Assistant."
+description: "Instructions how to integrate Template Binary Sensors into Home Assistant."
 date: 2016-02-25 15:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Binary Sensor
+ha_release: 0.12
+ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform supports sensors which breaks out the `state` and `state_attributes` from other entities. The state of a template binary sensor can only be `on` or `off`.
+The `template` platform supports sensors which breaks out the `state` and
+`state_attributes` from other entities. The state of a Template Binary Sensor
+can only be `on` or `off`.
 
-To enable template binary sensors in your installation, add the following to your `configuration.yaml` file:
+To enable Template Binary Sensors in your installation, add the following to
+your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   - platform: template
     sensors:
       sun_up:
-        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation > 0}}'{% endraw %}
-        friendly_name: 'Sun is up'
+        friendly_name: "Sun is up"
+        value_template: >-
+          {{ states.sun.sun.attributes.elevation|float > 0 }}
 ```
+{% endraw %}
 
-Configuration variables:
+{% configuration binary_sensor.template %}
+  sensors:
+    description: List of your sensors.
+    required: true
+    type: map
+    keys:
+      sensor_name:
+        description: The slug of the sensor.
+        required: true
+        type: map
+        keys:
+          friendly_name:
+            description: Name to use in the frontend.
+            required: false
+            type: string
+          entity_id:
+            description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+            required: false
+            type: string, list
+          device_class:
+            description: The type/class of the sensor to set the icon in the frontend.
+            required: false
+            type: device_class
+            default: None
+          value_template:
+            description: Defines a template to set the state of the sensor.
+            required: true
+            type: template
+          icon_template:
+            description: Defines a template for the icon of the sensor.
+            required: false
+            type: template
+          entity_picture_template:
+            description: Defines a template for the entity picture of the sensor.
+            required: false
+            type: template
+          delay_on:
+            description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
+            required: false
+            type: time
+          delay_off:
+            description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
+            required: false
+            type: time
+{% endconfiguration %}
 
-- **sensors** array (*Required*): List of your sensors.
-  - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
-  - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+## {% linkable_title Considerations %}
+
+If you are using the state of a platform that takes extra time to load, the
+Template Binary Sensor may get an `unknown` state during startup. This results
+in error messages in your log file until that platform has completed loading.
+If you use `is_state()` function in your template, you can avoid this situation.
+For example, you would replace
+{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+with this equivalent that returns `true`/`false` and never gives an unknown
+result:
+{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Sensor threshold %}
+### {% linkable_title Sensor Threshold %}
 
-This example indicates true if a sensor is above a given threshold. Assuming a sensor of `furnace` that provides a current reading for the fan motor, we can determine if the furnace is running by checking that it is over some threshold:
+This example indicates true if a sensor is above a given threshold. Assuming a
+sensor of `furnace` that provides a current reading for the fan motor, we can
+determine if the furnace is running by checking that it is over some threshold:
 
+{% raw %}
 ```yaml
 sensor:
   - platform: template
     sensors:
       furnace_on:
-        value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running'
+        friendly_name: "Furnace Running"
         device_class: heat
+        value_template: "{{ states('sensor.furnace')|float > 2.5 }}"
 ```
+{% endraw %}
 
-### {% linkable_title Switch as sensor %}
+### {% linkable_title Switch as Sensor %}
 
-Some movement sensors and door/window sensors will appear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by [customizing.](/getting-started/customizing-devices/)
+Some movement sensors and door/window sensors will appear as a switch. By using
+a Template Binary Sensor, the switch can be displayed as a binary sensors. The
+original switch can then be hidden by
+[customizing](/getting-started/customizing-devices/).
 
+{% raw %}
 ```yaml
 binary_sensor:
   - platform: template
     sensors:
       movement:
-        value_template: {% raw %}"{{ states.switch.movement.state == 'on' }}"{% endraw %}
         device_class: motion
+        value_template: "{{ is_state('switch.movement', 'on') }}"
       door:
-        value_template: {% raw %}"{{ states.switch.door.state == 'on' }}"{% endraw %}
         device_class: opening
+        value_template: "{{ is_state('switch.door', 'on') }}"
 ```
+{% endraw %}
 
-
-### {% linkable_title Combining multiple sensors, and using entity_id: %}
+### {% linkable_title Combining Multiple Sensors %}
 
 This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
-`True` or `False` explicitly. `entity_id` is used to limit which
-sensors are being monitored to update the state, making computing this
-sensor far more efficient.
+`true` or `false` explicitly.
 
+{% raw %}
 ```yaml
 binary_sensor:
   - platform: template
     sensors:
       co:
-        friendly_name: 'CO'
-        device_class: 'gas'
-        value_template: {% raw %}>-
-          {%- if is_state("sensor.bedroom_co_status", "Ok")
-              and is_state("sensor.kitchen_co_status", "Ok")
-              and is_state("sensor.wardrobe_co_status", "Ok") -%}
-          False
-          {%- else -%}
-          True
-          {%- endif %}{% endraw %}
-        entity_id:
-          - sensor.bedroom_co_status
-          - sensor.kitchen_co_status
-          - sensor.wardrobe_co_status
+        friendly_name: "CO"
+        device_class: gas
+        value_template: >-
+          {{ is_state('sensor.bedroom_co_status', 'Ok')
+             and is_state('sensor.kitchen_co_status', 'Ok')
+             and is_state('sensor.wardrobe_co_status', 'Ok') }}
 ```
-### {% linkable_title Change the icon %}
+{% endraw %}
 
-This example shows how to change the icon based on the day/night cycle.
+### {% linkable_title Washing Machine Running %}
 
+This example creates a washing machine "load running" sensor by monitoring an
+energy meter connected to the washer. During the washer's operation, the energy
+meter will fluctuate wildly, hitting zero frequently even before the load is
+finished. By utilizing `delay_off`, we can have this sensor only turn off if
+there has been no washer activity for 5 minutes.
+
+{% raw %}
 ```yaml
-sensor:
+# Determine when the washing machine has a load running.
+binary_sensor:
   - platform: template
     sensors:
-      day_night:
-        friendly_name: 'Day/Night'
-        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
-        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+      washing_machine:
+        friendly_name: "Washing Machine"
+        delay_off:
+          minutes: 5
+        value_template: >-
+          {{ states('sensor.washing_machine_power')|float > 0 }}
 ```
+{% endraw %}
 
-### {% linkable_title Is anyone home? %}
+### {% linkable_title Is Anyone Home? %}
 
-This example is determining if anyone is home based on the combination
-of device tracking and motion sensors. It's extremely useful if you
-have kids / baby sitter / grand parrents who might still be in your
-house that aren't represented by a trackable device in home
-assistant. This is providing a composite of wifi based device tracking
-and z-wave multisensor presence sensors.
+This example is determining if anyone is home based on the combination of device
+tracking and motion sensors. It's extremely useful if you have kids/baby sitter/
+grand parents who might still be in your house that aren't represented by a
+trackable device in Home Assistant. This is providing a composite of WiFi based
+device tracking and Z-Wave multisensor presence sensors.
 
+{% raw %}
 ```yaml
 binary_sensor:
   - platform: template
     sensors:
       people_home:
-        value_template: {% raw %}>-
-          {%- if is_state("device_tracker.sean", "home")
-          or is_state("device_tracker.susan", "home")
-          or is_state("binary_sensor.office_124", "on")
-          or is_state("binary_sensor.hallway_134", "on")
-          or is_state("binary_sensor.living_room_139", "on")
-          or is_state("binary_sensor.porch_ms6_1_129", "on")
-          or is_state("binary_sensor.family_room_144", "on")
-              -%}
-          True
-          {%- else -%}
-          False
-          {%- endif %}{% endraw %}
-        entity_id:
-          - device_tracker.sean
-          - device_tracker.susan
-          - binary_sensor.office_124
-          - binary_sensor.hallway_134
-          - binary_sensor.living_room_139
-          - binary_sensor.porch_ms6_1_129
-          - binary_sensor.family_room_144
+        value_template: >-
+          {{ is_state('device_tracker.sean', 'home')
+             or is_state('device_tracker.susan', 'home')
+             or is_state('binary_sensor.office_124', 'on')
+             or is_state('binary_sensor.hallway_134', 'on')
+             or is_state('binary_sensor.living_room_139', 'on')
+             or is_state('binary_sensor.porch_ms6_1_129', 'on')
+             or is_state('binary_sensor.family_room_144', 'on') }}
 ```
+{% endraw %}
