@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.
+The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,9 +42,9 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be included to the history.
   - **domains** (*Optional*): The list of domains to be included to the history.
 
-Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you several options:
+Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you have several options:
 
-Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information displayed, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
+Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information displayed, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -59,7 +59,7 @@ history:
       - sensor.date
 ```
 
-Define domains and entities to display by using the `include` configuration (aka. whitelist). If you have a lot of entities in your system and your `exclude` lists possibly get very large, it might be better just to define the entities or domains to display.
+Define domains and entities to display by using the `include` configuration (aka. whitelist). If you have a lot of entities in your system and your `exclude` list is getting too large, it might be better just to define the entities or domains to `include`.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -87,9 +87,24 @@ history:
      - sensor.date
 ```
 
+If you'd like the order of display of the sensors to follow the way
+they are listed in the included entity list, you can set the flag
+`use_include_order` to True.
+
+```yaml
+# Example configuration.yaml entry using specified entity display order
+history:
+  use_include_order: True
+  include:
+    entities:
+      - sun.sun
+      - light.front_porch
+```
+
+
 #### {% linkable_title Implementation details %}
 
-The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory if the `recorder` component is not set up differently.
+The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory unless the `recorder` component is set up differently.
 
  - events table is all events except `time_changed` that happened while recorder component was running.
  - states table contains all the `new_state` values of `state_changed` events.
@@ -114,4 +129,4 @@ datetime.fromtimestamp(1422830502)
 
 #### {% linkable_title API %}
 
-The history information are also available through the [RESTful API](/developers/rest_api/#get-apihistory).
+The history information is also available through the [RESTful API](/developers/rest_api/#get-apihistory).

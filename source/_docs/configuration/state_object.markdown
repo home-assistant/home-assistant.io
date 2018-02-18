@@ -27,7 +27,7 @@ Field | Description
 `state.last_changed` | Time the state changed. This is not updated when there are only updated attributes. Example: `2017-10-28 08:13:36.715874+00:00`.
 `state.attributes` | A dictionary with extra attributes related to the current state.
 
-The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have it's own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.
+The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have its own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.
 
 When using templates, attributes will be available by their name. For example `state.attributes.assumed_state`.
 

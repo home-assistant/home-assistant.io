@@ -13,7 +13,7 @@ ha_release: 0.52
 ha_iot_class: "Cloud Push"
 ---
 
-The `abode` component will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.  
+The `abode` component will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 

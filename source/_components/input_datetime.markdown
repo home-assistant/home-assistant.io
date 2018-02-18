@@ -68,7 +68,7 @@ A datetime input entity's state exports several attributes that can be useful in
 | --------- | ----------- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only availabel if `has_date: true`)
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
 | `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
 

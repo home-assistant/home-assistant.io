@@ -5,7 +5,7 @@
 
 ## Checklist:
 
-  - [ ] Branch: Fixes, changes and adjustments should be created against `current`. New documentation for platforms/components and features should go to `next`. 
-  - [ ] The documentation follow the [standards][standards].
+- [ ] Branch: Fixes, changes and adjustments should be created against `current`. New documentation for platforms/components and features should go to `next`.
+- [ ] The documentation follow the [standards][standards].
 
 [standards]: https://home-assistant.io/developers/documentation/standards/

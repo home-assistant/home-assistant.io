@@ -18,7 +18,7 @@ The `google_assistant` component allows you to control things via Google Assista
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 <p class='note'>
-To use Google Assistant, your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven't already configured that you should do so before continuing.
+To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
 
 To enable this, add the following lines to your `configuration.yaml` file:
@@ -30,18 +30,18 @@ google_assistant:
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
   agent_user_id: [a string to identify user]
-  api_key: [an API Key generated for the Google Actions project]
+  api_key: [a Homegraph API Key generated for the Google Actions project]
   exposed_domains:
     - switch
     - light
     - group
   entity_config:
     switch.kitchen:
-      name: Custom Name for Alexa
+      name: Custom Name for Google Assistant
       aliases:
         - bright lights
         - entry lights
-      type: 'action.devices.types.LIGHT'
+      type: light
     light.living_room:
       expose: false
 ```
@@ -63,7 +63,7 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:
@@ -102,10 +102,23 @@ entity_config:
           required: false
           type: list
         type:
-          description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+          description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
           required: false
           type: string
 {% endconfiguration %}
+
+### {% linkable_title Available domains %}
+Currently, the following domains are available to be used with Google Assistant, listed with their default types:
+
+- group = switch (on/off)
+- scene = scene (on)
+- script = scene (on)
+- switch = switch (on/off)
+- fan = switch (on/off)
+- light = light (on/off/brightness/rgb color/color temp)
+- cover = switch (on/off/set position (brightness) )
+- media_player = switch (on/off/set volume (brightness) )
+- climate = thermostat (temperature setting)
 
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
@@ -117,7 +130,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 
 ### {% linkable_title Setup %}
 
-1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later) - you can download and run this anywhere and on any machine, just remember where you put it for later (and don't forget to run `chmod +x gactions`to make it executable on mac or linux)
+1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) to be used later. You can download and run this anywhere and on any machine. Just remember where you put it for later and don't forget to run `chmod +x gactions` to make it executable on Mac or Linux.
 2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
    Note: This must be an HTTPS URL to work.
 
@@ -132,7 +145,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
     }
   }],
   "conversations": {
-    "automation" :
+    "automation":
     {
       "name": "automation",
       "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
@@ -142,10 +155,11 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 ```
 
 3. Create a new project in the [developer console](https://console.actions.google.com/).
-	1. Add/Import project
-	2. Go to Build under the Actions SDK box
-	3. Copy the command that looks like:
-	`gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
+  a. Add/Import project
+  b. Go to Build under the Actions SDK box
+  c. Copy the command that looks like: 
+  
+  `gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
 4. Replace `PACKAGE_NAME` with `project.json` and run that command in a console from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running it on Linux or Windows). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
@@ -163,7 +177,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
-11. If you want to use the `google_assistant.request_sync` service in Home Assistant, then enable Homegraph API for your project:
+11. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
 	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
 	2. Select your project and click Enable Homegraph API
 	3. Go to Credentials and select API Key from Create Credentials
@@ -179,4 +193,4 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   2. Add a new project to the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
-  5. Again create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same project_id.
+  5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same project_id.

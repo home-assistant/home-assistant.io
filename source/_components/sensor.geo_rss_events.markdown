@@ -57,7 +57,7 @@ Configuration variables:
 
 - **url** (*Required*): Full URL of the GeoRSS feed.
 - **name** (*Optional*): Name of the sensor used in generating the entity id. Default is 'Event Service'.
-- **radius** (*Optional*): The distance in kilometres around the Home Assistant's coordinates in which events are considered. Default is: 20km.
+- **radius** (*Optional*): The distance in kilometers around the Home Assistant's coordinates in which events are considered. Default is: 20km.
 - **categories** (*Optional*): List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined. Default is to join events from all categories into an 'Any' category.
 - **unit_of_measurement** (*Optional*): The type of events found in the GeoRSS feed. Default is 'Events'.
 

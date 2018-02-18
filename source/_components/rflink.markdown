@@ -135,7 +135,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### {% linkable_title Technical Overview %}
 
-- The`rflink` Python module is a asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](https://home-assistant.io/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.

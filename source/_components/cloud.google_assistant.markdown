@@ -38,7 +38,7 @@ cloud:
         - switch.outside
     entity_config:
       switch.kitchen:
-        name: Custom Name for Alexa
+        name: Custom Name for Google Assistant
         aliases:
          - bright lights
          - entry lights
@@ -52,7 +52,7 @@ google_actions:
   type: map
   keys:
     filter:
-      description: Filters for entities to include/exclude from Alexa.
+      description: Filters for entities to include/exclude from Google Assistant.
       required: false
       type: map
       keys:

@@ -31,8 +31,9 @@ Configuration variables:
 - **username** (*Optional*): The username for the camera.
 - **password** (*Optional*): The password for the camera.
 - **port** (*Optional*): The port for the camera. This defaults to 5000
+- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
 
-### {% linkable_title Service `camera.ptz` %}
+### {% linkable_title Service `camera.onvif_ptz` %}
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
 

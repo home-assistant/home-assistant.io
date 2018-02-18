@@ -147,7 +147,7 @@ binary_sensor:
    - **254**: Deep sleep
    - **255**: Case open
 
-If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
 
 ```
 binary_sensor:

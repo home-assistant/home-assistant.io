@@ -20,7 +20,7 @@ The reason I started using iBeacons was to improve presence detection (and I thi
 
 When you use OwnTracks in standard _major move_ mode (which is kind to your phone battery) it sometimes fails to update when you’d like it to. In my case I found that it would often send a location update as I was on my way home, but then not update when I got home. The result would be that Home Assistant would think I was 500M away from home, and take quite a while to notice I was home. It would also mean that the automation that should turn on my lights when I got home didn’t work very well! There were a few times when my phone location updated at 2am and turned the lights on for me. Fortunately my wife is very patient!
 
-Luckily, OwnTracks supports iBeacons so I could use them to make presence detection more reliable. When OwnTracks sees a beacon it recognises, it will send an update. This means that if you put a beacon at your front door - OwnTracks will see it within a few seconds of you arriving home - and send an update saying it has seen this iBeacon.
+Luckily, OwnTracks supports iBeacons so I could use them to make presence detection more reliable. When OwnTracks sees a beacon it recognizes, it will send an update. This means that if you put a beacon at your front door - OwnTracks will see it within a few seconds of you arriving home - and send an update saying it has seen this iBeacon.
 
 <!--more-->
 
@@ -31,7 +31,7 @@ To do this you first need to set up [MQTT] and [OwnTracks] in Home assistant - a
 [MQTT]: /components/mqtt/#picking-a-broker
 [OwnTracks]: /components/device_tracker.owntracks/
 
-You then have to (A) tell Home Assistant where the beacon is located and (B) tell OwnTracks to recognise the beacon.
+You then have to (A) tell Home Assistant where the beacon is located and (B) tell OwnTracks to recognize the beacon.
 
 #### {% linkable_title A. Tell Home Assistant where your beacon is located %}
 

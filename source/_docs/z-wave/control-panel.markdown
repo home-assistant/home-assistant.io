@@ -39,7 +39,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
 
-* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+* **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
@@ -52,7 +52,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
@@ -114,7 +114,7 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1

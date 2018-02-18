@@ -14,15 +14,10 @@ featured: false
 You should not use this if you are also using the [DuckDNS add-on]. The DuckDNS add-on has integrated Let's Encrypt support.
 </p>
 
-Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration.
-
-<p class='note warning'>
-This add-on uses ports 80/443 to verify the certificate request. You will need to stop all other add-ons that also use these ports. If you don't need a port (like with https you don't need port 80) you can remove this from network config.
-</p>
+Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This addon will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration.
 
 ```json
 {
-  "challenge": "https",
   "email": "example@example.com",
   "domains": ["example.com", "mqtt.example.com", "hass.example.com"]
 }
@@ -30,7 +25,6 @@ This add-on uses ports 80/443 to verify the certificate request. You will need t
 
 Configuration variables:
 
-- **challenge** (*Optional*): Default it use 443 ('https') you can change it to 'http' for use port 80.
 - **email** (*Required*): Your email address for registration on Let's Encrypt.
 - **domains** (*Required*): A list of domains to create/renew the certificate.
 
@@ -45,6 +39,6 @@ http:
   ssl_key: /ssl/privkey.pem
 ```
 
-If you use a other port as `8123` or a SSL proxy, change the port number.
+If you use another port such as `8123` or an SSL proxy, change the port number.
 
 [DuckDNS add-on]: /addons/duckdns/

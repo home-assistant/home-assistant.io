@@ -52,7 +52,7 @@ Configuration variables:
   have your receiver switched off.
 - In some cases, auto-discovery fails due to a known bug in the
   receiver's firmware. It is possible to manually specify the
-  receiver's IP address or via it's hostname (if it is discoverable by
+  receiver's IP address or via its hostname (if it is discoverable by
   your DNS) then.
 
 ### {% linkable_title Supported operations %}
@@ -61,7 +61,7 @@ Configuration variables:
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source
-  only. The `media_id` is a `>` separted string of the menu path on
+  only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
 
 ### {% linkable_title Example configuration %}
@@ -113,3 +113,13 @@ script:
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 
 ```
+
+### {% linkable_title Service `yamaha_enable_output` %}
+
+Enable or disable an output port (HDMI) on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `port` | no | Port to enable or disable, e.g. `hdmi1`.
+| `enabled` | no | To enable set true, otherwise set to false.

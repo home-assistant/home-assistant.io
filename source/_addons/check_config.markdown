@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-You can use this addon to check whether your configuration files are valid against the new version of Home Assistant before you actually update your Home Assistant installation. This will help you avoid errors due to breaking changes, resulting in an smooth update.
+You can use this addon to check whether your configuration files are valid against the new version of Home Assistant before you actually update your Home Assistant installation. This addon will help you avoid errors due to breaking changes, resulting in a smooth update.
 
 ```json
 {

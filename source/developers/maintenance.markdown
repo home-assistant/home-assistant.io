@@ -28,6 +28,10 @@ To fix the line separator, use `dos2unix` or `sed`.
 $ dos2unix homeassistant/components/notify/kodi.py
 ```
 
+### {% linkable_title File permissions %}
+
+Most files don't need to the be executable. `0644` is fine.
+
 ### {% linkable_title Dependencies %}
 
 A lot of components and platforms depends on third-party Python modules. The dependencies which are stored in the `requirements_*.txt` files are tracked by [gemnasium](https://gemnasium.com/github.com/home-assistant/home-assistant) and [Requires.io](https://requires.io/github/home-assistant/home-assistant/requirements/?branch=dev).

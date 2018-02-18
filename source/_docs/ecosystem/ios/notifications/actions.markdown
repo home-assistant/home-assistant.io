@@ -32,7 +32,7 @@ In advance of sending a notification:
 
 When sending a notification:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifer.
+1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
 2. Push notification delivered to device
 3. User opens notification.
 3. Action tapped
