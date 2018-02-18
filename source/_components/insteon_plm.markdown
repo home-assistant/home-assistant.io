@@ -50,6 +50,13 @@ Configuration variables:
     *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
     not be used.
 
+### {% linkable_title Autodiscovery %}
+
+The first time autodiscovery runs the duration may require up to 20 seconds 
+per device. Subsiquent startups will occur much quicker using cached device i
+nformation. If a device is not recognized during autodiscovery, you can add
+the device to the **device_override** configuration. 
+
 ### {% linkable_title Linking Devices to the PLM %}
 
 In order for any two Insteon devices to talk with one another, they must be 
@@ -85,14 +92,14 @@ devices.
 ### {% linkable_title Device Overrides %} 
 
 INSTEON devices are added to Home Assistant using the platform(s) that make the
-most sense given the model and features of the hardware.  In most cases this is
-unambiguous, but sometimes the component will not be able to guess the actual
-usage of the device.  For example, there might be a table lamp plugged into an
-INSTEON appliance relay module.  By default, this will show as a 'switch'
-device in Home Assistant, but it really should be a 'light' device.  For
-exceptions like this, the component supports a device plaform override.  You
-can set any device (by address) to explicitly use a specific platform if the
-default is not correct.
+most sense given the model and features of the hardware. The features of the 
+INSTEON device are built into the Home Assistant platform. Changing the 
+platform is not recommended. There are two primary uses for the 
+**device_override** feature.
+- Devices that do not respond during autodiscovery. This is common for battery
+  operated devices.
+- Devices that have not been fully developed. This allows an unknown device to
+  be mapped to a device that operates similarly to another device.
 
 ### {% linkable_title Example Configuration with Options%} 
 
