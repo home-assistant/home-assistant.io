@@ -14,4 +14,4 @@ ha_release: 0.64
 
 The `tahoma` scene platform lets you trigger scenes added to your Tahoma Box in Home Assistant.
 
-Covers will be added automatically. Please refer to the [component](/components/tahoma/) configuration on how to setup Tahoma.
+Scenes will be added automatically. Please refer to the [component](/components/tahoma/) configuration on how to setup Tahoma.
