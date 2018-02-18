@@ -1,19 +1,19 @@
 ---
 layout: page
-title: "Fritzhome"
-description: "Instructions how to integrate the AVM fritzhome components."
-date: 2017-11-12 17:10
+title: "Fritzbox"
+description: "Instructions how to integrate the AVM fritzbox smarthome components."
+date: 2018-02-18 17:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: avm.png
 ha_category: Hub
-ha_release: 0.59
+ha_release: 0.64
 ha_iot_class: "Local Polling"
 ---
 
-The [AVM](www.avm.de) Fritzhome component for Home Assistant allows you to integrate the switch and climate devices.
+The [AVM](www.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
 
 #### {% linkable_title Tested Devices %}
 
@@ -26,24 +26,29 @@ The [AVM](www.avm.de) Fritzhome component for Home Assistant allows you to integ
 
 ```yaml
 # Example configuration.yaml entry
-fritzhome:
-  host: fritz.box
-  username: YOUR_USERNAME
-  passowrd: YOUR_PASSWORD
+fritzbox:
+  devices:
+    - host: fritz.box
+      username: YOUR_USERNAME
+      passowrd: YOUR_PASSWORD
 ```
 
 {% configuration %}
-  host:
-    description: The hostname or IP address of the fritzbox.
+  devices:
+    description: A list of fritzbox devices.
     required: true
-    type: string
-    default: fritz.box
-  username:
-    description: The username for smarthome access.
-    required: true
-    type: string
-  password:
-    description: The password of the user.
-    required: true
-    type: string
+    type: map
+    keys:
+      host:
+        description: The hostname or IP address of the fritzbox.
+        required: true
+        type: string
+      username:
+        description: The username for smarthome access.
+        required: true
+        type: string
+      password:
+        description: The password of the user.
+        required: true
+        type: string
 {% endconfiguration %}
