@@ -41,20 +41,23 @@ insteon_plm:
 Configuration variables:
 - **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
 - **device_override** (*Optional*): Override the default device definition
-    *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
-    *CATEGORY* is found in teh back of the device's User Guide in the form of
+  - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
+  - *CATEGORY* is found in the back of the device's User Guide in the form of
     0x00 - 0xff
-    *SUBCATEGORY* is found in teh back of the device's User Guide in the form 
+  - *SUBCATEGORY* is found in the back of the device's User Guide in the form 
     of 0x00 - 0xff
-    *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
+  - *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
     not be used.
 
 ### {% linkable_title Autodiscovery %}
 
-The first time autodiscovery runs the duration may require up to 20 seconds 
-per device. Subsiquent startups will occur much quicker using cached device i
-nformation. If a device is not recognized during autodiscovery, you can add
+The first time autodiscovery runs, the duration may require up to 20 seconds 
+per device. Subsiquent startups will occur much quicker using cached device
+information. If a device is not recognized during autodiscovery, you can add
 the device to the **device_override** configuration. 
+
+In order for a device to be discovered it must be linked to the PLM as either
+a responder or a controller. 
 
 ### {% linkable_title Linking Devices to the PLM %}
 
