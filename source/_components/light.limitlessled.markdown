@@ -79,4 +79,8 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
 
 ### {% linkable_title Initialization & Synchronization %}
 
-When starting Home Assistant, your LimitlessLED bulbs will be set to known default values. This ensures a consistent user interface and uninterrupted turning on/off. If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe unexpected behavior. This is due to a LimitlessLED limitation.
+When starting Home Assistant, the last recorded state will be shown. This might no longer match the actual state of the bulbs.
+
+If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe obsolete information.
+
+This lack of synchronization is due to a LimitlessLED limitation.
