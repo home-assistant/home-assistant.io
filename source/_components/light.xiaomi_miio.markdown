@@ -28,20 +28,31 @@ light:
     name: Xiaomi Philips Smart LED Ball
     host: 192.168.130.67
     token: YOUR_TOKEN
+    model: philips.light.bulb
 ```
 
 Configuration variables:
 - **host** (*Required*): The IP of your light.
 - **token** (*Required*): The API token of your light.
 - **name** (*Optional*): The name of your light.
+- **model** (*Optional*): The model of your light. Valid values are `philips.light.bulb`, `philips.light.sread1` and `philips.light.ceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
 
 ## {% linkable_title Platform Services %}
 
-### Service fan/xiaomi_miio_set_scene
+### Service light/xiaomi_miio_set_scene
 
 Set one of the 4 available fixed scenes.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific light. Else targets all.         |
+| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
 | `scene`                   |       no | Scene, between 1 and 4.                               |
+
+### Service light/xiaomi_miio_set_delayed_turn_off
+
+Delayed turn off.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+| `delayed_turn_off`        |       no | Turn off delay in seconds.                            |
