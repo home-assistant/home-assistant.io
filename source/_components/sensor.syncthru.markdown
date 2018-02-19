@@ -30,4 +30,41 @@ If you wish not to include certain monitored values specify the values that you 
         - output_tray_0
 ```
 
-Supported values for `monitored_conditions` are `toner_black`, `toner_cyan`, `toner_magenta`, `toner_yellow`, `drum_black`, `drum_cyan`, `drum_magenta`, `drum_yellow`, `tray_1`, `tray_2`, `tray_3`, `tray_4`, `tray_5`, `output_tray_0`, `output_tray_1`, `output_tray_2`, `output_tray_3`, `output_tray_4`, `output_tray_5`.
+
+{% configuration %}
+  resource:
+    description: The address for connecting to the printer. Equal to the SyncThru Webservice address.
+    required: true
+    default: false
+    type: url
+  name:
+    description: A user specified name for the printer. Defaults to "Samsung Printer" and the friendly name will be the name of the printer model.
+    required: false
+    default: Samsung Printer
+    type: string
+  monitored_conditions:
+    description: Conditions to display in the frontend.
+    required: false
+    default: all values
+    type: list
+    keys:
+      toner_black:
+      toner_cyan:
+      toner_magenta:
+      toner_yellow:
+      drum_black:
+      drum_cyan:
+      drum_magenta:
+      drum_yellow:
+      tray_1:
+      tray_2:
+      tray_3:
+      tray_4:
+      tray_5:
+      output_tray_0:
+      output_tray_1:
+      output_tray_2:
+      output_tray_3:
+      output_tray_4:
+      output_tray_5:
+{% endconfiguration %}
