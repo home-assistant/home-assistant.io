@@ -131,8 +131,8 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 ### {% linkable_title Setup %}
 
 1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) to be used later. You can download and run this anywhere and on any machine. Just remember where you put it for later and don't forget to run `chmod +x gactions` to make it executable on Mac or Linux.
-2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
-   Note: This must be an HTTPS URL to work.
+2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL:PORT]` below with the URL you use to access Home Assistant.
+   Note: This must be an HTTPS URL to work. Don't forget to include the port number if you're not using port 443.
 
 ```json
 {
@@ -148,7 +148,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
     "automation":
     {
       "name": "automation",
-      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
+      "url": "https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant"
     }
   }
 }
@@ -190,7 +190,7 @@ The request_sync service requires that the initial sync from Google includes the
 The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
 
   1. Removing your project from the [developer console](https://console.actions.google.com).
-  2. Add a new project to the [cloud console](https://console.cloud.google.com). Here you get a new project_id.
+  2. Add a new project to the [cloud console](https://console.cloud.google.com). Here you get a new `project_id`.
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
-  5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same project_id.
+  5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
