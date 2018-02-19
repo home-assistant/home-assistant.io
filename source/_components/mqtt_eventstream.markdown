@@ -33,6 +33,10 @@ subscribe_topic:
   description: Topic to receive events from the remote server.
   required: false
   type: string
+ignore_call_service:
+  description: Ignore incoming call service events.
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Multiple Instances %}
@@ -44,6 +48,7 @@ Events from multiple instances can be aggregated to a single master instance by 
 mqtt_eventstream:
   publish_topic: master/topic
   subscribe_topic: slaves/#
+  ignore_call_service: False
 ```
 
 For a multiple instance setup, each slave would publish to their own topic.
