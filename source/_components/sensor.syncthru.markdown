@@ -22,6 +22,7 @@ If you wish not to include certain monitored values specify the values that you 
 
 ```yaml
 # Example configuration.yaml entry
+sensor:
   - platform: syncthru
     resource: http://my-printer.address
     name: My Awesome Printer
