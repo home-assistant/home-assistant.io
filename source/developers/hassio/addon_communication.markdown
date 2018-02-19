@@ -14,7 +14,9 @@ There are different ways to communication between add-ons inside Home Assistant.
 
 ## {% linkable_title Network %}
 
-We use an internal network. That allow to speak with every add-on or from Home Assistant to add-on by name or alias. Only the add-ons which runs on the host network are a bit limited. They can speak with all internal add-ons over their name but all other add-on can't address the add-on in question with its name. But using an alias work well. Thus the name/alias is used to communicate inside Hass.io. The name have the following format `{REPO}-{SLUG}`, e.g. `local-xy` or `3283fh-myaddon`.
+We use an internal network. That allow to speak with every add-on or from Home Assistant to add-on by name or alias. Only the add-ons which runs on the host network are a bit limited. They can speak with all internal add-ons over their name but all other add-on can't address the add-on in question with its name. But using an alias work well. Thus the name/alias is used to communicate inside Hass.io. 
+
+The name used for communication with add-ons uses the following format: `{REPO}_{SLUG}`, e.g. `local_xy` or `3283fh_myaddon`. In this example, `{SLUG}` is defined in an add-ons `config.json`. If an add-on is installed locally, `{REPO}` will be `local`. If the add-on is installed from a Github repository, `{REPO}` is a hashed identifier generated from the Github repository's URL (ex: https://github.com/xy/my_hassio_addons). See [here](https://github.com/home-assistant/hassio/blob/587047f9d648b8491dc8eef17dc6777f81938bfd/hassio/addons/utils.py#L17) to understand how this identifier is generated. Note that this identifier is required in certain service calls that use the [hassio add-on API](hassio-addon-api).
 
 Use `hassio` to speak with the internal API.
 
@@ -35,3 +37,4 @@ To enables calls to the [Hass.io API][hassio-api], add `hassio_api: true` to `co
 [hass-api]: https://home-assistant.io/developers/rest_api/
 [hass-websocket]: https://home-assistant.io/developers/websocket_api/
 [hassio-api]: https://github.com/home-assistant/hassio/blob/master/API.md
+[hassio-addon-api]: https://github.com/home-assistant/hassio/blob/dev/API.md#restful-for-api-addons
