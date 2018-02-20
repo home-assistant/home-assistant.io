@@ -65,7 +65,7 @@ input_datetime:
 A datetime input entity's state exports several attributes that can be useful in automations and templates.
 
 | Attribute | Description |
-| ... | ... |
+| ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
@@ -81,7 +81,7 @@ This component supports the `restore_state` function which restores the state af
 This component provides a service to modify the state of the `input_datetime`.
 
 | Service | Data | Description |
-| ... | ... | ... |
+| ----- | ----- | ----- |
 | `set_datetime` | `time` | This can be used to dynamically set the time.
 | `set_datetime` | `date` | This can be used to dynamically set the date.
 
