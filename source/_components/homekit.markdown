@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Homekit"
-description: "Instructions how to setup the homekit component in Home Assistant."
+title: "HomeKit"
+description: "Instructions how to setup the HomeKit component in Home Assistant."
 date: 2018-02-20 17:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Homekit
+ha_category: HomeKit
 ha_release: 0.64
 ha_iot_class:  "Local Polling"
 logo: home-assistant.png
@@ -51,18 +51,17 @@ After Home Assistant has started, all supported entities (see the [list](#suppor
 3. The `Home Assistant` Bridge should be listed their. Select it and follow the instructions to complete the setup.
 
 After the setup is complete you should be able to control your Home Assistant Components through `HomeKit`.
-* If you do have problems with the setup, you might find answers in our [forum](https://community.home-assistant.io/).
 * For bugs: You can check the [known-issues](#known-issues) section or open an issue on [github](https://github.com/home-assistant/home-assistant/issues).
 
 ## {% linkable_title Known issues %}
 
 | Issue | Solution |
 | ----- | -------- |
-| Z-Wave components are not available in `HomeKit`. | (See note unter [supported components](#supported-components)) |
+| Z-Wave components are not available in `HomeKit`. | (See note under [supported components](#supported-components)) |
 
 ## {% linkable_title Supported Components %}
 
-Currently supported are the following components:
+The following components are currently supported:
 
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
