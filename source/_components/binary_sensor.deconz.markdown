@@ -17,6 +17,7 @@ See the [deCONZ main component](/components/deconz/) for configuration instructi
 
 The following sensor types are supported:
 
+ * Fire/Smoke detection
  * Open/Close detection
  * Presence detection
 
