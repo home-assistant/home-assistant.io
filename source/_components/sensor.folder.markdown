@@ -13,8 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.63
 ---
 
-Component for monitoring the contents of a folder.
-The state of the sensor is the time that the most recently modified file in a folder was modified. The use case is detecting when a file in a folder is created or updated. The number of files in the folder and the names of those files are exposed as attributes. Optionally a [wildcard filter]((http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm) ) can be applied to the files considered.
+Component for monitoring the contents of a folder. Note that folder paths must be added to [whitelist_external_dirs](https://home-assistant.io/docs/configuration/basic/). The state of the sensor is the time that the most recently modified file in a folder was modified. The use case is detecting when a file in a folder is created or updated. The number of files in the folder and the names of those files are exposed as attributes. Optionally a [wildcard filter]((http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm) ) can be applied to the files considered.
 
 ```yaml
 sensor:
