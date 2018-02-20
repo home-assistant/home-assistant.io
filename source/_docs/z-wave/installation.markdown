@@ -53,7 +53,7 @@ usb_path:
   type: string
   default: /zwaveusbstick
 network_key:
-  description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices will not function correctly if they are not added securely.
+  description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely.
   required: false
   type: string
   default: None
