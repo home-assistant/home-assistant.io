@@ -65,7 +65,7 @@ input_datetime:
 A datetime input entity's state exports several attributes that can be useful in automations and templates.
 
 | Attribute | Description |
-| --------- | ----------- |
+| ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
@@ -75,3 +75,46 @@ A datetime input entity's state exports several attributes that can be useful in
 ### {% linkable_title Restore State %}
 
 This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+
+### {% linkable_title Services %}
+
+This component provides a service to modify the state of the `input_datetime`.
+
+| Service | Data | Description |
+| ----- | ----- | ----- |
+| `set_datetime` | `time` | This can be used to dynamically set the time.
+| `set_datetime` | `date` | This can be used to dynamically set the date.
+
+## {% linkable_title Automation Examples %}
+
+The following example shows the usage of the `input_datetime` as a trigger in an automation (note that you will need a [time sensor](/components/sensor.time_date/) elsewhere in your configuration):
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+# Turns on bedroom light at the time specified.
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+    - service: light.turn_on
+      entity_id: light.bedroom
+```
+{% endraw %}
+
+To dynamically set the `input_datetime` you can call `input_datetime.set_datetime`. The following example can be used in an automation rule:
+
+```yaml
+# Example configuration.yaml entry
+# Sets input_datetime to '05:30' when an input_boolean is turned on.
+automation:
+  trigger:
+    platform: state
+    entity_id: input_boolean.example
+    to: 'on'
+  action:
+    service: input_datetime.set_datetime
+    entity_id: input_datetime.bedroom_alarm_clock_time
+    data:
+      time: '05:30:00'
+```
