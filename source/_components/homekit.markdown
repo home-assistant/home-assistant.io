@@ -7,13 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: HomeKit
+ha_category: Voice
 ha_release: 0.64
 ha_iot_class:  "Local Polling"
 logo: home-assistant.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to `HomeKit`, so they could be controlled from their as well.
+The `HomeKit` component allows you to forward entities from Home Assistant to Apple `Home` app and `Siri`, so they could be controlled from there as well.
 
 {% configuration %}
   homekit:
@@ -22,10 +22,11 @@ The `HomeKit` component allows you to forward entities from Home Assistant to `H
     type: map
     keys:
       pincode:
-        description: Pincode required during setup of HomeKit Home Assistant accessory. The Format needs to be 'XXX-XX-XXX' where X is a number between 1 and 9.
+        description: Pin code required during setup of HomeKit Home Assistant accessory. The format needs to be 'XXX-XX-XXX' where X is a number between 1 and 9.
         required: false
         type: string
         default: '"123-45-678"'
+        format: 
       port:
         description: Port for the HomeKit extension.
         required: false
@@ -35,7 +36,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to `H
 
 ## {% linkable_title Setup %}
 
-To enable the `HomeKit` component in Home Assistant, add the following to your configurations file:
+To enable the `HomeKit` component in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
@@ -43,21 +44,21 @@ homekit:
   pincode: '123-45-678'
 ```
 
-<p class='note'>It is not recommended to choose '123-45-678' as your pincode! The Pincode must be of the format 'XXX-XX-XXX' where X is a number between 1 and 9.</p>
+<p class='note'>It is not recommended to choose '123-45-678' as your pin code!</p>
 
-After Home Assistant has started, all supported entities (see the [list](#supported-components) belove which entities are already) will be ready to be added to `HomeKit`. To add them:
-1. Open the `HomeKit` App.
+After Home Assistant has started, all supported entities (see the [list](#supported-components) below which entities are already integrated) will be exposed to be added to `HomeKit`. To add them:
+1. Open the `Home` App.
 2. Choose `Add Accessory` and then `Don't Have a Code or Can't Scan?`.
-3. The `Home Assistant` Bridge should be listed their. Select it and follow the instructions to complete the setup.
+3. The `Home Assistant` Bridge should be listed there. Select it and follow the instructions to complete setup.
 
-After the setup is complete you should be able to control your Home Assistant Components through `HomeKit`.
+After the setup is complete you should be able to control your Home Assistant Components through `Home`.
 * For bugs: You can check the [known-issues](#known-issues) section or open an issue on [github](https://github.com/home-assistant/home-assistant/issues).
 
 ## {% linkable_title Known issues %}
 
 | Issue | Solution |
 | ----- | -------- |
-| Z-Wave components are not available in `HomeKit`. | (See note under [supported components](#supported-components)) |
+| Z-Wave components are not available in `Home`. | (See note under [supported components](#supported-components)) |
 
 ## {% linkable_title Supported Components %}
 
