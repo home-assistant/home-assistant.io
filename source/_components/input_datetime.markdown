@@ -87,7 +87,7 @@ This component provides a service to modify the state of the `input_datetime`.
 
 ## {% linkable_title Automation Examples %}
 
-The following example shows the usage of the `input_datetime` as a trigger in an automation (note that you will need a [time sensor](https://home-assistant.io/components/sensor.time_date/) elsewhere in your configuration):
+The following example shows the usage of the `input_datetime` as a trigger in an automation (note that you will need a [time sensor](/components/sensor.time_date/) elsewhere in your configuration):
 
 {% raw %}
 ```yaml
