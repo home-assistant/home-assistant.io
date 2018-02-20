@@ -143,7 +143,7 @@ white_value_state_topic:
   description: The MQTT topic subscribed to receive white value updates.
   required: false
   type: string
-white_value_value_template:
+white_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the white value."
   required: false
   type: string
