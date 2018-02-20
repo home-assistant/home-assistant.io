@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ha_category: Voice
 ha_release: 0.64
-ha_iot_class:  "Local Polling"
 logo: home-assistant.png
 ---
 
