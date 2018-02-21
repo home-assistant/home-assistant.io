@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "file size sensor"
+title: "File size sensor"
 description: "Component for monitoring the size of a file."
 date: 2018-02-06 14:00
 sidebar: true
@@ -27,5 +27,5 @@ sensor:
 file_paths:
   description: The absolute path to the file.
   required: true
-  type: string
+  type: list of strings
 {% endconfiguration %}
