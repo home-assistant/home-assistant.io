@@ -118,7 +118,7 @@ script:
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
 ```
 
-You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. FB requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all, but can be used right away to a selected group of testers of your choice. 
+You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all, but can be used right away to a selected group of testers of your choice. 
 
 To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
 
