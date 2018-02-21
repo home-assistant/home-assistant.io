@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Cover
+ha_category: Scene
 ha_release: 0.15
 ---
 
