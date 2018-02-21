@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fritzbox"
-description: "Instructions how to integrate the AVM fritzbox smarthome components."
+description: "Instructions how to integrate the AVM Fritzbox smarthome components."
 date: 2018-02-18 17:10
 sidebar: true
 comments: false
@@ -35,14 +35,15 @@ fritzbox:
 
 {% configuration %}
   devices:
-    description: A list of fritzbox devices.
+    description: A list of Fritzbox devices.
     required: true
     type: map
     keys:
       host:
-        description: The hostname or IP address of the fritzbox.
+        description: The hostname or IP address of the Fritzbox.
         required: true
-        type: string
+        type: optional
+        default: fritz.box
       username:
         description: The username for smarthome access.
         required: true
