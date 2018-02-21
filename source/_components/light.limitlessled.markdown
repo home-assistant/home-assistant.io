@@ -18,7 +18,7 @@ ha_release: pre 0.7
 
 ### {% linkable_title Setup %}
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing 12 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing 16 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
 
@@ -77,8 +77,8 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
   - When using a legacy WiFi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
   - *Temperature*: Wifi bridge v6 supports 101 temperature steps; older versions only 10.
   - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 10.
-- **Dimmer**
-    - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. Version 6 Wifi bridges are supported and not sure if legacy Wifi bridges(before v6) are working with this type.
+- **Dimmer** (Only supported on v6 bridges)
+    - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. This type is only supported by the version 6 Wifi bridges.
     - *Brightness*: Wifi bridge v6 supports 101 brightness steps.
 - **Transitions**
   - If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible - the color will change immediately.
