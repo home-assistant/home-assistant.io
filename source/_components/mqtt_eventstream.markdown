@@ -33,10 +33,10 @@ subscribe_topic:
   description: Topic to receive events from the remote server.
   required: false
   type: string
-ignore_call_service:
-  description: Ignore incoming call service events.
+ignore_event:
+  description: Ignore sending these [events](/docs/configuration/events/) over mqtt.
   required: false
-  type: boolean
+  type: list
 {% endconfiguration %}
 
 ## {% linkable_title Multiple Instances %}
