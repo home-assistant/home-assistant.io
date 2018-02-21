@@ -118,20 +118,21 @@ script:
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
 ```
 
-You can now also use FB public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. FB requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your FB bot needs to be authorized for "page_subscritions" if you want to make it to all, but can be used right away to a selected group of testers of your choice. 
+You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. FB requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all, but can be used right away to a selected group of testers of your choice. 
 
 To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
 
 ```yaml
 - alias: Facebook Broadcast
   trigger:
-    <YOUR_TRIGGER_HERE>
+    platform: sun
+    event: sunset
   action:
     service: notify.<FACEBOOK_NOTIFY_COMPONENT_NAME_YOU_CREATED>
     data:
-     message: <TEXT_YOU_ARE_SENDING>
-     target:
-       - BROADCAST
+      message: <TEXT_YOU_ARE_SENDING>
+      target:
+        - BROADCAST
 ```
 
 Here is an advanced sample for broadcasting wind alerts from a wunderground weather station:
@@ -159,14 +160,14 @@ notify:
  platform: template
  sensors:
     windy:
-        friendly_name: 'Wind'
-        icon_template: mdi:weather-windy
-        value_template: >-
-         {% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}
+      friendly_name: 'Wind'
+      icon_template: mdi:weather-windy
+      value_template: >-
+        {% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}
             Windy
-          {%- else -%}
+        {%- else -%}
             Beer
-          {%- endif -%}
+        {%- endif -%}
 
 ```
 
@@ -193,16 +194,10 @@ automations.yaml:
   action:
     service: notify.facebook_wind_alerts
     data_template:
-     message: >
-     
-            {{ states.sensor.pws_wind_string.state }}
-  
-            
-            Pressure Trend : {{ states.sensor.pws_pressure_trend.state }}
-  
-            
-            Next Hour: {{ states.sensor.pws_weather_1h.state }}
+      message: >
+        {{ states.sensor.pws_wind_string.state }}
+        Pressure Trend : {{ states.sensor.pws_pressure_trend.state }}
+        Next Hour: {{ states.sensor.pws_weather_1h.state }}
      target:
        - BROADCAST
-
 ```
