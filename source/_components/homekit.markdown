@@ -44,7 +44,7 @@ homekit:
 
 <p class='note'>It is not recommended to choose '123-45-678' as your pin code!</p>
 
-After Home Assistant has started, all supported entities (see the [list](#supported-components) below which types are already integrated) will be exposed to `HomeKit`. To add them:
+After Home Assistant has started, all supported entities (see the [list](#supported-components) below which components are already integrated) will be exposed to `HomeKit`. To add them:
 1. Open the `Home` App.
 2. Choose `Add Accessory` and then `Don't Have a Code or Can't Scan?`.
 3. The `Home Assistant` Bridge should be listed there. Select it and follow the instructions to complete setup.
