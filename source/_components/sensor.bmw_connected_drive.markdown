@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
-ha_release: 0.65
+ha_release: 0.64
 ---
 
 
