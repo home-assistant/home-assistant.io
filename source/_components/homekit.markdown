@@ -49,7 +49,7 @@ After Home Assistant has started, all supported entities (see the [list](#suppor
 2. Choose `Add Accessory` and then `Don't Have a Code or Can't Scan?`.
 3. The `Home Assistant` Bridge should be listed there. Select it and follow the instructions to complete setup.
 
-After the setup is complete you should be able to control your Home Assistant Components through `Home` and `Siri`.
+After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
 
 ## {% linkable_title Supported Components %}
 
