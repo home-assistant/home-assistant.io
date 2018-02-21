@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_release: 0.12
+ha_release: 0.64
 ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `filter` component supports sensors which process the **numeric states** from other entities. `filter` will apply a signal processing algorithm to a serie of states and produce a `new state` given the choosen algorithm.
+The `filter` component enables sensors that process the **numeric states** of other entities.
+
+`filter` applies a signal processing algorithm to a numerical sensor, previous and current states, and generates a `new state` given the chosen algorithm.
 
 To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,12 +34,12 @@ sensor:
     name: filtered temperature
     filter: outlier
     options:
-      constant: 0.10
+      radius: 4 
 ```
 
 {% configuration %}
 entity_id:
-  description: An entity ID so the sensor only reacts to state changes of this entity. 
+  description: The entity ID of the sensor to be filtered.
   required: true
   type: string
 name:
