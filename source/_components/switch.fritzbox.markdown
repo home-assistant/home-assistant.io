@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Fritzhome Switch"
-description: "Instructions how to integrate the AVM Fritzhome switch."
+title: "Fritzbox Switch"
+description: "Instructions how to integrate the AVM Fritzbox switch."
 date: 2017-11-12 17:10
 sidebar: true
 comments: false
