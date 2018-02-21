@@ -113,7 +113,7 @@ static routers=192.168.0.1      <---- Your router's IP address
 static domain_name_servers=192.168.0.1 <---- Your router's IP address
 ```
 
-It is important to note that the first three bits of your static IP address and your router's IP address should be the same, eg:
+It is important to note that the first three bytes of your static IP address and your router's IP address should be the same, eg:
 
 ```text
 Router: 192.168.0.1
