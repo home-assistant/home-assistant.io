@@ -14,7 +14,7 @@ redirect_from: /getting-started/updating/
 The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [HASSbian](/docs/hassbian/common-tasks/#update-home-assistant), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 </p>
 
-View what's new in the latest version and potential impacts on your system [here](https://github.com/home-assistant/home-assistant/releases). It is in good practice to review the release notes and pay close attention to the Breaking Changes that are listed there. If you have not done an update in sometime, you should also look at previous release notes as they can also have Breaking Changes that may impact your system. Breaking Changes may require configuration updates for your components, if not done before the update home assistant may not load or the component will not work.
+View what's new in the latest version and potential impacts on your system [here](https://github.com/home-assistant/home-assistant/releases). It is in good practice to review the release notes and pay close attention to the Breaking Changes that are listed there. If you have not done an update in sometime, you should also look at previous release notes as they can also have Breaking Changes that may impact your system. Breaking Changes may require configuration updates for your components, if not done before the update Home Assistant may not load or the component will not work.
 
 The default way to update Home Assistant to the latest release, when available, is:
 
