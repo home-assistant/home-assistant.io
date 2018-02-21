@@ -81,7 +81,7 @@ phase:
   default: 0
   type: float
 seed:
-  description: The [seed](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html) value for the random noise component
+  description: The [seed](https://docs.python.org/3.6/library/random.html#random.seed) value for the random noise component
   required: false
   default: None
   type: int
