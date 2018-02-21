@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/yaml/
 ---
 
-Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
+Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations. Because the syntax is very specific (and incorrect syntax can cause your entire system to not load correctly) it is recommended to use a text editor that can handle YAML syntax. See the [Tools](/docs/configuration/yaml/#tools) section below for more details.
 
 For each component that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
 The following example entry specifies that you want to use the [notify component](/components/notify) with the [pushbullet platform](/components/notify.pushbullet).
@@ -93,3 +93,13 @@ lights: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
+
+### {% linkable_title Tools %}
+
+The community has found certain tools to be of use when editing YAML files.
+
+#### Notepad++
+- **OS:** Windows
+- **Cost:** Free
+- **URL:** https://notepad-plus-plus.org/
+- **Description:** Notepad++ is a free source code editor and Notepad replacement that supports several languages, including YAML. When editing a YAML file make sure that the **Language** is set to YAML (this should happen automatically if the file extention is .yaml).
