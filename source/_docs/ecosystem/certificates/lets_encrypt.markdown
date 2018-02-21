@@ -546,6 +546,24 @@ automation:
     data:
       message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
 ```
+
+or if you are using automation.yaml and the new automation format (introduced in Home Assistant 0.45)
+
+```yaml
+- action:
+  - alias: ''
+    data:
+      message: Warning - SSL certificate expires in 21 days and has not been automatically
+        renewed
+    service: persistent_notification.[your_notification_preference]
+  alias: SSL expiry notification
+  condition: []
+  id: '1515093929987'
+  trigger:
+  - below: '21'
+    entity_id: sensor.ssl_cert_expiry
+    platform: numeric_state
+```
 	  
 If you receive this warning notification, follow the steps for a manual update from step 8. Any error messages received at that point can be googled and resolved. If the manual update goes without a hitch there may be something wrong with your chosen method for automatic updates, and you can start troubleshooting from there.
 
