@@ -48,7 +48,9 @@ Events from multiple instances can be aggregated to a single master instance by 
 mqtt_eventstream:
   publish_topic: master/topic
   subscribe_topic: slaves/#
-  ignore_call_service: False
+  ignore_event:
+    - call_service
+    - state_changed
 ```
 
 For a multiple instance setup, each slave would publish to their own topic.
