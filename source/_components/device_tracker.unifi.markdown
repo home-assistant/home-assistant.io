@@ -20,8 +20,12 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: unifi
-    username: USERNAME
-    password: PASSWORD
+    host: unifi
+    username: username
+    password: password
+    ssid_filter:
+      - 'HomeSSID'
+      - 'IoTSSID'
 ```
 
 {% configuration %}
@@ -56,7 +60,7 @@ verify_ssl:
 detection_time:
     description: How long since the last seen time before the device is marked away, specified in seconds.
     type: int
-    required: optional
+    required: false
     default: 300
 ssid_filter:
     description: Filter the SSIDs that tracking will occur on.
