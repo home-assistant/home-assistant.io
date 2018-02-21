@@ -30,7 +30,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 </p>
 
 <p class='note'>
-Both Google Home and Alexa devices communicate through the device they were initially set up with, so if that device is removed from the network, emulated_hue will cease to fnction unless it is re-added. (See [this thread](https://community.home-assistant.io/t/41839/5))
+Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
 </p>
 
 ### {% linkable_title Configuration %}
