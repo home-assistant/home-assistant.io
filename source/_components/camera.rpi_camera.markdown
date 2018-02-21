@@ -72,5 +72,5 @@ file_path:
   type: string
 {% endconfiguration %}
  
-The given **file_path** must be an existing file because the camera platform setup make a writeable check on it. Also, keep in mind that the path should be whitelisted.
+The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be whitelisted.
 
