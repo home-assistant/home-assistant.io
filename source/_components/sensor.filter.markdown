@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Filter"
-description: "Instructions how to integrate Filter Sensors into Home Assistant."
+title: "Data Filter"
+description: "Instructions how to integrate Data Filter Sensors into Home Assistant."
 date: 2018-02-20
 sidebar: true
 comments: false
@@ -13,9 +13,9 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `filter` component enables sensors that process the **numeric states** of other entities.
+The `data_filter` component enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a numerical sensor, previous and current states, and generates a `new state` given the chosen algorithm.
+`data_filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm.
 
 To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,13 +23,14 @@ To enable Filter Sensors in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: filter
+  - platform: data_filter
     entity_id: sensor.relative_humidity
     name: filtered relative humidity 
     filter: lowpass
     options:
       time_constant: 10
-  - platform: filter
+      precision: 2
+  - platform: data_filter
     entity_id: sensor.temperature
     name: filtered temperature
     filter: outlier
@@ -65,6 +66,10 @@ options:
       required: false
       type: int
       default: 10
+	precision:
+      description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
+	  type: int
+	  default: None
     radius: 
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
       required: false
@@ -87,6 +92,8 @@ B = 1.0 / time_constant
 A = 1.0 - B
 LowPass(state) = A * previous_state + B * state
 ```
+
+The returned value is rounded to the number of decimals defined in (`precision`).
 
 ### {% linkable_title Outlier %}
 
