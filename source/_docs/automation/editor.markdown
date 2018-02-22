@@ -65,6 +65,14 @@ automation old:
     platform: ...
 ```
 
+You can use the `automation:` and `automation old:` sections in the same time to keep yout manual designed automations and use the editor for next ones:
+
+```yaml
+automation: !include automations.yaml
+automation old: !include_dir_merge_list automations
+```
+
+
 ## {% linkable_title Migrating your automations to `automations.yaml` %}
 
 If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over you'll have to add an `id`. This can be any string as long as it's unique.
