@@ -55,4 +55,4 @@ Delayed turn off.
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
-| `delayed_turn_off`        |       no | Turn off delay in seconds.                            |
+| `seconds`                 |       no | Turn off delay in seconds.                            |
