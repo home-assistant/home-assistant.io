@@ -18,7 +18,7 @@ In addition to having a USPS account, you will need to complete the "Opt-In" pro
 
 ## Prerequisites
 
-This component requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome.
+This component requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
 <p class='note warning'>
   If you are using a Raspberry Pi, you must use PhantomJS.
