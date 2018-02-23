@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: Other
+logo: bmw.png
+ha_category: Hub
 ha_release: 0.64
 ---
 
@@ -53,6 +53,6 @@ bmw_connected_drive:
       type: string
 {% endconfiguration %}
 
-# {% linkable_title Disclaimer 
+## {% linkable_title Disclaimer %}
 
 This software is not affiliated with or endorsed by BMW Group. 
