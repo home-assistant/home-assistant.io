@@ -31,6 +31,6 @@ folder:
 filter:
   description: Filter to apply
   required: false
-  default: `*`
+  default: "`*`"
   type: string
 {% endconfiguration %}
