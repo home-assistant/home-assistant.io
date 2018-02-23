@@ -38,7 +38,7 @@ bmw_connected_drive:
     name:
       description: Name of your account in Home Assistant.
       required: true
-      type: map
+      type: string
     username:
       description: Your BMW Connected Drive username.
       required: true
