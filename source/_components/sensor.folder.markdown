@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "folder sensor"
+title: "Folder sensor"
 description: "Sensor for monitoring the contents of a folder."
 date: 2018-02-21 14:00
 sidebar: true
@@ -14,6 +14,8 @@ ha_release: 0.64
 ---
 
 Sensor for monitoring the contents of a folder. Note that folder paths must be added to [whitelist_external_dirs](https://home-assistant.io/docs/configuration/basic/). Optionally a [wildcard filter]((http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm)) can be applied to the files considered within the folder. The state of the sensor is the size in MB of files within the folder that meet the filter criteria. The number of filtered files in the folder and total size in bytes of those files are exposed as attributes.
+
+To enable the `folder` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 sensor:
