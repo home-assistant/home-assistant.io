@@ -44,7 +44,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
 <p class='note warning'>
-Since 0.63 and the new entity registry **Rename Node** no longer changes the entity id (just the default *friendly_name* and *old_entity_id* and *new_entity_id attributes). See [this blog post](https://home-assistant.io/blog/2018/02/10/release-63/#entity-registry) for information on the registry and [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+Since 0.63 and the new entity registry **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change, the default *friendly_name* and *old_entity_id* and *new_entity_id* attributes for all the entities). See [this blog post](https://home-assistant.io/blog/2018/02/10/release-63/#entity-registry) for information on the registry and [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
 </p>
 
 <p class='note'>
