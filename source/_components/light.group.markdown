@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Group Light"
-description: "Instructions for how to setup grouped lights within Home Assistant."
+title: "Light Group"
+description: "Instructions for how to setup light groups within Home Assistant."
 date: 2018-02-23 11:41
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ light:
 
 {% configuration %}
   name:
-    description: The name of the group. Defaults to "Group Light".
+    description: The name of the light group. Defaults to "Group Light".
     required: false
     type: string
   entities:
