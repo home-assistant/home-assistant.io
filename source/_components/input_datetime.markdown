@@ -93,12 +93,13 @@ The following example shows the usage of the `input_datetime` as a trigger in an
 ```yaml
 # Example configuration.yaml entry
 # Turns on bedroom light at the time specified.
+automation:
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
   action:
-    - service: light.turn_on
-      entity_id: light.bedroom
+    service: light.turn_on
+    entity_id: light.bedroom
 ```
 {% endraw %}
 
