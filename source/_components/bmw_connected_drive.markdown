@@ -23,9 +23,10 @@ To enable this component in your installation, add the following to your
 # Example configuration.yaml entry
 bmw_connected_drive:
   mycar:
-    username: #your user name
-    password: #your_password>
-    country: #country of your Connected Drive account
+    name: Car 1
+    username: USERNAME_BMW_CONNECTED_DRIVE
+    password: PASSWORD_BMW_CONNECTED_DRIVE
+    country: COUNTRY_BMW_CONNECTED_DRIVE
 ```
 
 {% configuration %}
@@ -35,15 +36,15 @@ bmw_connected_drive:
   type: map
   keys:
     name:
-      description: name of your account in Home assistant
+      description: Name of your account in Home Assistant.
       required: true
       type: map
     username:
-      description: your BMW Connected Drive username
+      description: Your BMW Connected Drive username.
       required: true
       type: string
     password:
-      description: your BMW Connected Drive password
+      description: Your BMW Connected Drive password.
       required: true
       type: string
     country:
