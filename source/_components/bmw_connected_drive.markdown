@@ -48,7 +48,7 @@ bmw_connected_drive:
       required: true
       type: string
     country:
-      description: The country of your Connected Drive account. Please use the exact names for the country as listed on the [Connected Drive website](https://www.bmw-connecteddrive.com/).
+      description: "The country of your Connected Drive account. Please use the exact names for the country as listed on the [Connected Drive website](https://www.bmw-connecteddrive.com/)."
       required: true
       type: string
 {% endconfiguration %}
