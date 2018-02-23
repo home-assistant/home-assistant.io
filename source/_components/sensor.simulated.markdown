@@ -84,7 +84,7 @@ phase:
 seed:
   description: The [seed](https://docs.python.org/3.6/library/random.html#random.seed) value for the random noise component
   required: false
-  default: None
+  default: 999
   type: int
 spread:
   description: The spread is the range of the randomly distributed values about their mean. This is sometimes referred to as the Full Width at Half Maximum ([FWHM](https://en.wikipedia.org/wiki/Full_width_at_half_maximum)) of the random distribution
