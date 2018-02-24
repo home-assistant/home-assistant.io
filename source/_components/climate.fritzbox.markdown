@@ -16,3 +16,13 @@ ha_iot_class: "Local Polling"
 <p class='note'>
 To get AVM fritzbox thermostat follow the instructions for the general [Fritzbox](/components/fritzbox/).
 </p>
+
+### {% linkable_title Attributes %}
+
+The are several attributes that can be useful in automation and templates.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `device_locked` | The state of the key lock at the device.
+| `locked` | The state of the lock for configuring the device via app or Fritzbox webinterface.
+| `low_battery` | The low battery state indication.
