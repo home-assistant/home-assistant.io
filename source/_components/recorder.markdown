@@ -159,6 +159,11 @@ If the `recorder` component is activated then some components support `restore_s
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
+<p class='note'>
+If you use MariaDB 10 you need to add port 3307 to the SERVER_IP. 
+Example mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8
+</p>
+
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
