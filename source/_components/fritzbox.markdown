@@ -43,7 +43,6 @@ fritzbox:
         description: The hostname or IP address of the Fritzbox.
         required: true
         type: optional
-        default: fritz.box
       username:
         description: The username for smarthome access.
         required: true
