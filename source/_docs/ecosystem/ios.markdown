@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 redirect_from: /ecosystem/ios/
+redirect_from: /components/ios/
 ---
 
 The Home Assistant for iOS app offers a companion app for iOS which is deeply integrated into both Home Assistant and iOS. Its basic features include:
