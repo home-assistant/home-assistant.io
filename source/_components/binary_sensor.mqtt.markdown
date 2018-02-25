@@ -80,10 +80,9 @@ value_template:
   required: false
   type: string
 expire_after:
-  description: Defines the number of seconds after the value expires if it's not updated.
+  description: "Defines the number of seconds after which the value expires, if it's not updated."
   required: false
-  type: int
-  default: 0
+  type: integer
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
