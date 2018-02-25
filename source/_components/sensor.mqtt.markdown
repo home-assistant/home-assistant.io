@@ -172,9 +172,9 @@ Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.c
 As soon as the unit is online, you will get the state of the sensor.
 
 ```bash
-home/bathroom/status Connected
+/home/bathroom/status Connected
 ...
-home/bathroom/analog/brightness 290.00
+/home/bathroom/analog/brightness 290.00
 ```
 
 The configuration will look like the example below:
@@ -184,7 +184,7 @@ The configuration will look like the example below:
 # Example configuration.yml entry
 sensor:
   - platform: mqtt
-    state_topic: 'home/bathroom/analog/brightness'
+    state_topic: '/home/bathroom/analog/brightness'
     name: Brightness
 ```
 {% endraw %}
