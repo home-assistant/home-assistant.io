@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: 0.59
+ha_release: 0.64
 ---
 
 The `group` alarm platform allows you to combine multiple `alarm` platforms into a single service.
@@ -29,24 +29,17 @@ alarm:
     - panel: alarm_control_panel.tampering
 ```
 
-Configuration variables:
-
 {% configuration %}
   name:
     description: The name of the group
-    required: true
+    required: false
     type: string
   code_format:
     description: A regular expression for the code, only required if you want to protect the alarm with a code.  `'\d+'` denotes a numeric code.
     required: false
     type: string
-  panels:
-    description: A list of alarm control panels to be included in the group.
+  entities:
+    description: A list of entity ids for the alarm control panels to be included in the group.
     required: false
-    type: map
-    keys:
-      panel:
-        description: The entity id of the panel.
-        required: true
-        type: string
+    type: list
 {% endconfiguration %}

@@ -47,8 +47,9 @@ input_boolean:
 ```
 
 We also want two LEDs that show the state of the alarm without opening
-the dashboard.  In this example, I'm using **input_boolean** for those
-as well, though in a real-world scenario you might use GPIO pins or MQTT.
+the dashboard.  In this example, I'm using
+[**input_boolean**](/components/input_boolean) for those as well,
+though in a real-world scenario you might use GPIO pins or MQTT.
 
 ```yaml
   led_siren:
@@ -61,10 +62,10 @@ as well, though in a real-world scenario you might use GPIO pins or MQTT.
 
 The heart of this example is the configuration of the
 [**manual**](/components/alarm_control_panel.manual)
-and [**group**](/components/alarm_control_panel.group) components.
-All the manual control panels can be hidden using the
-**[customize](/docs/configuration/customizing-devices/)** YAML entries,
-leaving only the group visible.
+and [**group**](/components/alarm_control_panel.group) alarm
+control panel components.  If desired, the manual control panels can be
+hidden using the **[customize](/docs/configuration/customizing-devices/)**
+YAML entries, so that only the group remains visible.
 
 ```yaml
 alarm_control_panel:
@@ -244,5 +245,6 @@ And finally, let's turn on and off the siren!
         entity_id: switch.alarm_siren
 ```
 
-As you can see, the timing is entirely described by the **manual**
-alarm control panels and transparently brought to the entire group.
+As you can see, the timing is entirely described by the
+[**manual**](/components/alarm_control_panel.manual) alarm
+control panels and transparently brought to the entire group.
