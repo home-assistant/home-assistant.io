@@ -17,6 +17,10 @@ The `filter` platform enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm.
 
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
+</p>
+
 To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
 
@@ -52,7 +56,7 @@ filters:
   type: map
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are `lowpass` and `outlier`.
+      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier` and `throttle`.
       required: true
       type: string
     window_size:
@@ -107,3 +111,12 @@ if distance > radius:
 else:
     state
 ```
+
+### {% linkable_title Throttle %}
+
+The Throttle filter (`throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
+
+To adjust the rate you need to set the window_size. To throttle a sensor down to 10%, the `window_size` should be set to 10, for 50% should be set to 2.
+
+This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
+
