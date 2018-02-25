@@ -35,6 +35,8 @@ sensor:
         precision: 2
 ```
 
+Filters can be chained and are applied according to the order present in the configuration file.
+
 {% configuration %}
 entity_id:
   description: The entity ID of the sensor to be filtered.
@@ -58,11 +60,11 @@ filters:
       required: false
       type: int
       default: 5  
-	precision:
+    precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
-	  required: false
-	  type: int
-	  default: None
+      required: false
+      type: int
+      default: None
     time_constant: 
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
