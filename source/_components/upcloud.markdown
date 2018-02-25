@@ -36,4 +36,9 @@ password:
   description: Your UpCloud API user password.
   required: true
   type: string
+scan_interval:
+  description: Update interval in seconds.
+  required: false
+  type: int
+  default: 60
 {% endconfiguration %}
