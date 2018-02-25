@@ -35,7 +35,7 @@ Configuration variables:
 - **host** (*Required*): The IP of your light.
 - **token** (*Required*): The API token of your light.
 - **name** (*Optional*): The name of your light.
-- **model** (*Optional*): The model of your light. Valid values are `philips.light.bulb`, `philips.light.sread1` and `philips.light.ceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+- **model** (*Optional*): The model of your light. Valid values are `philips.light.bulb`, `philips.light.sread1`, `philips.light.ceiling` and `philips.light.zyceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
 
 ## {% linkable_title Platform Services %}
 
