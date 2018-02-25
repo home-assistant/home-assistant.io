@@ -71,6 +71,10 @@ device_class:
   description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
   required: false
   type: string
+filter_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to filter updates based on the payload content. The template must resolve to True for the sensor value to be updated."
+  required: false
+  type: template
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
