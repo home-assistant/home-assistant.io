@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Data Filter"
+title: "Filter Sensor"
 description: "Instructions how to integrate Data Filter Sensors into Home Assistant."
 date: 2018-02-20
 sidebar: true
@@ -13,9 +13,9 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `data_filter` component enables sensors that process the states of other entities.
+The `filter` platform enables sensors that process the states of other entities.
 
-`data_filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm.
 
 To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,19 +23,16 @@ To enable Filter Sensors in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: data_filter
-    entity_id: sensor.relative_humidity
-    name: filtered relative humidity 
-    filter: lowpass
-    options:
-      time_constant: 10
-      precision: 2
-  - platform: data_filter
-    entity_id: sensor.temperature
-    name: filtered temperature
-    filter: outlier
-    options:
-      radius: 4 
+  - platform: filter
+    name: "filtered realistic humidity"
+    entity_id: sensor.realistic_humidity
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 4.0
+      - filter: lowpass
+        time_constant: 10
+        precision: 2
 ```
 
 {% configuration %}
@@ -47,37 +44,36 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-filter:
-  description: Algorithm to be used to filter data. Available filters are `lowpass` and `outlier`.
-  required: true
-  type: string
-window_size:
-  description: Size of the window of previous states.
-  required: false
-  type: int
-  default: 5  
-options:
-  description: Filter specific arguments. These options depend on the filter choosen.
-  required: false
+filters:
+  description: Filters to be used.
+  required: true 
   type: map
   keys:
+    filter:
+      description: Algorithm to be used to filter data. Available filters are `lowpass` and `outlier`.
+      required: true
+      type: string
+    window_size:
+      description: Size of the window of previous states.
+      required: false
+      type: int
+      default: 5  
+	precision:
+      description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
+	  required: false
+	  type: int
+	  default: None
     time_constant: 
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
       type: int
       default: 10
-	precision:
-      description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
-	  type: int
-	  default: None
     radius: 
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
       required: false
       type: float
-      default: 5 
+      default: 2.0 
 {% endconfiguration %}
-
-Notice that the various `options` keys are `filter` dependent, albeit all optional.
 
 ## {% linkable_title Filters %}
 
