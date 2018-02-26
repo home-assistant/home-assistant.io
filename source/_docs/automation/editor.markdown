@@ -65,7 +65,9 @@ automation old:
     platform: ...
 ```
 
-You can use the `automation:` and `automation old:` sections in the same time to keep yout manual designed automations and use the editor for next ones:
+You can use the `automation:` and `automation old:` sections in the same time:
+ - `automation old:` to keep your manual designed automations
+ - `automation:` to save the automation created by the online editor
 
 ```yaml
 automation: !include automations.yaml
