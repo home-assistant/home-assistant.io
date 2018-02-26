@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 logo: spotcrime.png
-ha_release: 0.63
+ha_release: 0.64
 ha_iot_class: "Cloud Polling"
 ---
 
