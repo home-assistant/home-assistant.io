@@ -47,9 +47,10 @@ You can override some default configuration values on a discovered hub (e.g. the
 Configuration variables:
 
 - **name** (*Required*): The hub's name to display in the frontend. This name must match the name you have set on the Hub.
+- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
 - **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
-- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
+
 - **delay_secs** (*Optional*): Default duration in seconds between sending commands to a device.
 
 Configuration file:
