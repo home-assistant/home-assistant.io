@@ -59,6 +59,16 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
 - Downgrade limitlessled to 1.0.8 ([@amelchio] - [#12403]) ([light.limitlessled docs])
 
+## {% linkable_title Release 0.63.3 - February 17 %}
+
+- python-miio version bumped. (Closes: #12389, Closes: #12298) ([@syssi] - [#12392]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
+- Fixed 3 small issues in isy994 component ([@OverloadUT] - [#12421]) ([isy994 docs])
+- Reduce the load on met.no servers, yr.no sensor ([@danielhiversen] - [#12435]) ([sensor.yr docs])
+- Fix for contentRating error ([@ryanm101] - [#12445]) ([media_player.plex docs])
+- Fix light template to return brightness as int ([@andrey-git] - [#12447]) ([light.template docs])
+- Optimize recorder purge ([@amelchio] - [#12448])
+- [SQL Sensor] always close session ([@dgomes] - [#12452]) ([sensor.sql docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -654,3 +664,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.eddystone_temperature docs]: https://home-assistant.io/components/sensor.eddystone_temperature/
 [sensor.mercedesme docs]: https://home-assistant.io/components/sensor.mercedesme/
 [sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
+[#12392]: https://github.com/home-assistant/home-assistant/pull/12392
+[#12421]: https://github.com/home-assistant/home-assistant/pull/12421
+[#12435]: https://github.com/home-assistant/home-assistant/pull/12435
+[#12445]: https://github.com/home-assistant/home-assistant/pull/12445
+[#12447]: https://github.com/home-assistant/home-assistant/pull/12447
+[#12448]: https://github.com/home-assistant/home-assistant/pull/12448
+[#12452]: https://github.com/home-assistant/home-assistant/pull/12452
+[@OverloadUT]: https://github.com/OverloadUT
+[@amelchio]: https://github.com/amelchio
+[@andrey-git]: https://github.com/andrey-git
+[@danielhiversen]: https://github.com/danielhiversen
+[@dgomes]: https://github.com/dgomes
+[@ryanm101]: https://github.com/ryanm101
+[@syssi]: https://github.com/syssi
+[fan.xiaomi_miio docs]: https://home-assistant.io/components/fan.xiaomi_miio/
+[isy994 docs]: https://home-assistant.io/components/isy994/
+[light.template docs]: https://home-assistant.io/components/light.template/
+[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
+[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
+[remote.xiaomi_miio docs]: https://home-assistant.io/components/remote.xiaomi_miio/
+[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
+[sensor.yr docs]: https://home-assistant.io/components/sensor.yr/
+[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
+[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/

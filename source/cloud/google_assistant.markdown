@@ -7,10 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_release: 0.61
-ha_category: Cloud
-ha_iot_class: "Cloud Push"
 published: false
 ---
 
@@ -45,7 +41,7 @@ cloud:
         type: 'action.devices.types.LIGHT'
 ```
 
-{% configuration %}
+{% configuration cloud %}
 google_actions:
   description: Configuration options for the Google Assistant integration.
   required: false

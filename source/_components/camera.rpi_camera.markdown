@@ -61,16 +61,16 @@ vertical_flip:
   default: 0
   type: int
 timelapse:
-  description: Takes a picture every millisecond.
+  description: Takes a picture every this many milliseconds (thousands of a second) - the default means one picture a second.
   required: false
   default: 1000
   type: int
 file_path:
   description: Save the picture in a custom file path.
   required: false
-  default: The camera components folder.
+  default: A temporary file is used.
   type: string
 {% endconfiguration %}
  
-The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.
+The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/docs/configuration/basic/).
 

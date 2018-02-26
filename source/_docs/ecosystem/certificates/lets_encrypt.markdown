@@ -113,7 +113,7 @@ static routers=192.168.0.1      <---- Your router's IP address
 static domain_name_servers=192.168.0.1 <---- Your router's IP address
 ```
 
-It is important to note that the first three bits of your static IP address and your router's IP address should be the same, eg:
+It is important to note that the first three bytes of your static IP address and your router's IP address should be the same, eg:
 
 ```text
 Router: 192.168.0.1
@@ -538,13 +538,13 @@ In your `configuration.yaml` add the following automation, adding your preferred
 automation:
   - alias: 'SSL expiry notification'
     trigger:
-    platform: numeric_state
-    entity_id: sensor.ssl_cert_expiry
-    below: 21
-  action:
-    service: notify.[your_notification_preference]
-    data:
-      message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiry
+      below: 21
+    action:
+      service: notify.[your_notification_preference]
+      data:
+        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
 ```
 	  
 If you receive this warning notification, follow the steps for a manual update from step 8. Any error messages received at that point can be googled and resolved. If the manual update goes without a hitch there may be something wrong with your chosen method for automatic updates, and you can start troubleshooting from there.

@@ -57,7 +57,7 @@ Use the following configuration in Home Assistant to use it:
 ```yaml
 homematic:
   interfaces:
-    BidCoS-RF:
+    rf:
       host: core-homematic
       port: 2001
 ```

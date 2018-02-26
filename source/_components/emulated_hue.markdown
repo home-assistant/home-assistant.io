@@ -29,6 +29,10 @@ A physical Hue Bridge is required for Philips Hue lights to function - this virt
 It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
 </p>
 
+<p class='note'>
+Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
+</p>
+
 ### {% linkable_title Configuration %}
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:

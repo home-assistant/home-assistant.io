@@ -48,7 +48,7 @@ See the [Cloud component configuration](/components/cloud/) to learn how to filt
 
 ## {% linkable_title FAQ %}
 
-_Last updated: December 26, 2017_
+_Last updated: February 22, 2018_
 
 #### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
 
@@ -85,7 +85,7 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 
 #### {% linkable_title What countries are supported at launch? %}
 
-Only US is currently supported. The reason for this limitation is that we need to do extra steps and certifications for each country's Alexa skill. This is in progress but the timeline depends on Amazon.
+As of February 2018, we are live in all countries that have Alexa except for Japan (which is under certification).
 
 #### {% linkable_title How is the connection made to the cloud? %}
 
