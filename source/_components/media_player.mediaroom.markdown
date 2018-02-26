@@ -51,6 +51,23 @@ In most cases (single STB) you just need to setup the *platform* and discovery w
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the component will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 
+## {% linkable_title Examples %}
+
+### {% linkable_title Example `press_button` script %}
+
+The `play_media` function can be used in scripts to change channels. 
+
+```yaml
+# Example play_media script
+#
+press_button:
+  sequence:
+    service: media_player.play_media
+    data_template:
+      entity_id: media_player.mediaroom_stb
+      media_content_id: "{{ value }}"
+      media_content_type: "channel"
+
 ### {% linkable_title Example configuration with 2 STB %}
 
 ```yaml

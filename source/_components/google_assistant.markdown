@@ -44,6 +44,7 @@ google_assistant:
       type: light
     light.living_room:
       expose: false
+      room: living room
 ```
 
 Configuration variables:
@@ -103,6 +104,10 @@ entity_config:
           type: list
         type:
           description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
+          required: false
+          type: string
+        room:
+          description: Allows for associating this device to a Room in Google Assistant.  This is currently non-functional, but will be enabled in the near future.
           required: false
           type: string
 {% endconfiguration %}

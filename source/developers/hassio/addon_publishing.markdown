@@ -58,4 +58,8 @@ For a local repository:
 $ docker run --rm --privileged -v ~/.docker:/root/.docker -v /my_addon:/data homeassistant/amd64-builder --all -t /data
 ```
 
+<p class='note'>
+If you are developing on macOS and using Docker for Mac, you may encounter an error message similar to the following: <code>error creating aufs mount to /var/lib/docker/aufs/mnt/<SOME_ID>-init: invalid argument</code>. A proposed workaround is to add the following to the Advanced Daemon JSON configuration via Docker > Preferences > Daemon > Advanced: <code>"storage-driver" : "aufs"</code>.
+</p>
+
 [builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
