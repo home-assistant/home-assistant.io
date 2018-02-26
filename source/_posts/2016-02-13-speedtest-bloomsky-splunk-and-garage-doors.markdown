@@ -2,7 +2,7 @@
 layout: post
 title: "0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors"
 description: "Home Assistant 0.13 brings test coverage to a whopping 90% and adds a whole bunch of new components."
-date: 2016-02-12 22:15:00 -0800
+date: 2016-02-13 22:15:00 UTC
 date_formatted: "February 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob

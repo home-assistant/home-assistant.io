@@ -22,7 +22,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
 
-This event is trigger after OpenALPR found a new licence plate.
+This event is trigger after OpenALPR found a new license plate.
 
 ```yaml
 # Example configuration.yaml automation entry

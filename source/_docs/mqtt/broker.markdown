@@ -17,14 +17,15 @@ The MQTT component needs you to run an MQTT broker for Home Assistant to connect
 
 Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Assistant connects to it. Embedded broker default configuration:
 
-| Setting | Value |
-| ------- | ----- |
-| Host | localhost
-| Port | 1883
-| Protocol | 3.1.1
-| User | homeassistant
-| Password | Your API [password](/components/http/)
-| Websocket port | 8080
+| Setting        | Value |
+| -------------- | ----- |
+| Host           | localhost |
+| Port           | 1883 |
+| Protocol       | 3.1.1 |
+| User           | homeassistant |
+| Password       | Your API [password](/components/http/) |
+| Websocket port | 8080 |
+
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,7 +52,7 @@ mqtt:
 
 ### {% linkable_title Run your own %}
 
-This is the most private option but requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
+Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,18 +60,48 @@ mqtt:
   broker: 192.168.1.100
 ```
 
-Configuration variables:
-
-- **broker** (*Optional*): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.
-- **port** (*Optional*): The network port to connect to. Default is 1883.
-- **client_id** (*Optional*): The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
-- **keepalive** (*Optional*): The time in seconds between sending keep alive messages for this client. Default is 60.
-- **username** (*Optional*): The username to use with your MQTT broker.
-- **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
-- **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.
-- **certificate** (*Optional*): Path to the certificate file, eg. `/home/user/.homeassistant/server.crt`.
-- **tls_insecure** (*Optional*): Set the verification of the server hostname in the server certificate.
-- **tls_version** (*Optional*): TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`.
+{% configuration %}
+broker:
+  required: false
+  description: The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.
+  type: string
+port:
+  required: false
+  description: The network port to connect to. Default is 1883.
+  type: int
+client_id:
+  required: false
+  description: The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
+  type: string
+keepalive:
+  required: false
+  description: The time in seconds between sending keep alive messages for this client. Default is 60.
+  type: int
+username:
+  required: false
+  description: The username to use with your MQTT broker.
+  type: string
+password:
+  required: false
+  description: The corresponding password for the username to use with your MQTT broker.
+  type: string
+protocol:
+  required: false
+  description: "Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1."
+  type: string
+certificate:
+  required: false
+  description: Path to the certificate file, eg. `/home/user/.homeassistant/server.crt`.
+  type: string
+tls_insecure:
+  required: false
+  description: Set the verification of the server hostname in the server certificate.
+  type: boolean
+tls_version:
+  required: false
+  description: "TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`."
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.

@@ -132,7 +132,7 @@ char* deviceId  = "sensor01"; // Name of the sensor
 char* stateTopic = "home-assistant/sensor01/brightness"; // MQTT topic where values are published
 int sensorPin = A0; // Pin to which the sensor is connected to
 char buf[4]; // Buffer to store the sensor value
-int updateInterval = 1000; // Interval in miliseconds
+int updateInterval = 1000; // Interval in milliseconds
 
 // MQTT server settings
 IPAddress mqttServer(192, 168, 0, 12);

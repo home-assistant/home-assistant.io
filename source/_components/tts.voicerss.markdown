@@ -25,9 +25,9 @@ tts:
 
 Configuration variables:
 
-- **api_key** (*Requered*): API Key for use this service.
+- **api_key** (*Required*): API Key for use this service.
 - **language** (*Optional*): The language to use. Defaults to `en-us`.
-- **codec** (*Optional*): Audo codec. Default is 'mp3'.
+- **codec** (*Optional*): Audio codec. Default is 'mp3'.
 - **format** (*Optional*): Audio sample format. Default is '8khz_8bit_mono'
 
 See on api [documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
@@ -41,7 +41,7 @@ tts:
     api_key: 'XXXXX'
     language: 'de-de'
     codec: mp3
-    format: 8khz_8bit_mono
+    format: '8khz_8bit_mono'
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

@@ -57,7 +57,7 @@ You can also pass the following properties under `action_data` to modify the map
 The notification thumbnail will be a still image from the camera.
 The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera.
+You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
 
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
@@ -66,6 +66,8 @@ service: notify.ios_<your_device_id_here>
 data:
   message: Motion detected in the Living Room
   data:
+    attachment:
+      content-type: jpeg
     push:
       category: camera
     entity_id: camera.demo_camera
@@ -78,6 +80,27 @@ data:
 # Combining with actionable notifications
 
 As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](/ecosystem/ios/notifications/actions/) to add actions to the content extension.
+
+For example this configuration adds actions to a camera content message.
+
+```yaml
+ios:
+  push:
+    categories:
+      - name: Camera With Actions
+        identifier: 'camera'
+        actions:
+          - identifier: 'OPEN_COVER'
+            title: 'Open Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: no
+          - identifier: 'CLOSE_COVER'
+            title: 'Close Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+```
 
 # Troubleshooting
 

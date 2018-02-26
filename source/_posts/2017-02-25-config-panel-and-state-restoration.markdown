@@ -59,7 +59,7 @@ Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it pe
 
 ## State restoration
 
-Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
+Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
 
 ## Breaking changes to customize and Z-Wave "customize"
 
@@ -71,9 +71,9 @@ So starting this release, we had to make some breaking changes to right the wron
 
 [**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
 
-#### Customize has been reverted to it's original config
+#### Customize has been reverted to its original config
 
-The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
+The old customize is back. The options to match by domain or using glob have been moved to its own options. It will now look like this:
 
 ```yaml
 homeassistant:

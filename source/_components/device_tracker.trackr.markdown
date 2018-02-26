@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `trackr` platform allows you to detect presence using [TrackR](https://www.thetrackr.com/) devices. 
 
-The offical TrackR mobile app handles the tracking of the TrackR devices using your phones bluetooth and GPS.
+The official TrackR mobile app handles the tracking of the TrackR devices using your phones Bluetooth and GPS.
 
 To integrate TrackR in Home Assistant, add the following section to your `configuration.yaml` file:
 

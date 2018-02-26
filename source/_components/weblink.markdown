@@ -24,11 +24,23 @@ weblink:
       url: http://192.168.1.1/
     - name: Home Assistant
       url: https://home-assistant.io
+    - name: Grafana
+      url: /grafana
 ```
-Configuration variables:
 
-- **name** (*Required*): Text for the link.
-- **url** (*Required*): The URL for the link.
-- **icon** (*Optional*): Icon for entry.
+{% configuration %}
+name:
+  description: Text for the link.
+  required: true
+  type: string
+url:
+  description: The URL (absolute URL or absolute path) for the link.
+  required: true
+  type: string
+icon:
+  description: Icon for entry.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.

@@ -20,7 +20,7 @@ Then make sure logging is enabled in your `configuration.yaml` file for your Hom
 logger:
   default: critical
   logs:
-    homeassistant.components.http: warning
+    homeassistant.components.http.ban: warning
 ```
 
 Next we will be creating these three files :
@@ -43,12 +43,9 @@ Contents of `/etc/fail2ban/filter.d/hass.local`:
 before = common.conf
 
 [Definition]
-failregex = ^%(__prefix_line)s.*Login attempt or request with an invalid password from <HOST>.*$
+failregex = ^%(__prefix_line)s.*Login attempt or request with invalid authentication from <HOST>.*$
 
 ignoreregex =
-
-[Init]
-datepattern = ^%%y-%%m-%%d %%H:%%M:%%S
 ```
 
 Contents of `/etc/fail2ban/jail.local` (Note that you'll need to change the `logpath` to match your logfile which will be different from the path listed.):
@@ -58,7 +55,7 @@ Contents of `/etc/fail2ban/jail.local` (Note that you'll need to change the `log
 enabled = true
 filter = hass
 action = iptables-allports[name=HASS]
-logpath = /opt/hass-prod-cfg/home-assistant.log
+logpath = /home/homeassistant/.homeassistant/home-assistant.log
 maxretry = 5
 ```
 

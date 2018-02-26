@@ -31,6 +31,11 @@ Install Home Assistant itself.
 
 Create an `/etc/rc.local` file to enable Home Assistant to start when the jail starts. The command in `/etc/rc.local` can also be run in a terminal session but Home Assistant will exit when that session is closed.  
 
+
+```bash
+# cd / && mkdir -p /home/.homeassistant
+```
+
 ```bash
 # /usr/local/bin/hass --open-ui --config /home/.homeassistant/ &
 ```

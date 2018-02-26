@@ -30,7 +30,7 @@ Some best practices to consider before putting your configuration on GitHub:
 
 - Extensive use of [secrets.yaml](https://home-assistant.io/topics/secrets/) to hide sensitive information like usernames, passwords, device information, and location
 - Exclusion of some files, including `secrets.yaml` and device-specific information using a [`.gitignore`](https://git-scm.com/docs/gitignore) file
-- Regularly commiting your configuration to GitHub to make sure that your backup is up to date
+- Regularly committing your configuration to GitHub to make sure that your backup is up to date
 - Use a README.md to document your configuration and include screenshots of your Home Assistant GUI
 
 ### {% linkable_title Step 1: Installing and Initializing Git %}
@@ -50,37 +50,17 @@ Before creating and pushing your Home Assistant configuration to GitHub, please 
 
 Creating a `.gitignore` file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your `secrets.yaml` file, device configuration files, and the Home Assistant database/directory structure.  The `.gitignore` file should be placed in your Home Assistant directory.
 
-Here is a sane example, but yours should be based on the files in your structure:
+Here is an example that will include your `.gitignore` file, a `scenes` directory, and all .yaml files except for `secrets.yaml` and `known_devices.yaml`. All other files will be excluded.
 
 `.gitignore`
 
 ```bash
-*.pid
-*.xml
-*.csr
-*.crt
-*.key
-www
-OZW_Log.txt
-home-assistant.log
-home-assistant_v2.db
-*.db-journal
-lib
-deps
-tts
+*
+!*.yaml
+!scenes
+!.gitignore
 secrets.yaml
 known_devices.yaml
-*.conf
-plex.conf
-phue.conf
-harmony_media_room.conf
-pyozw.sqlite
-.*
-!/.gitignore
-!/.travis.yml
-html5_push_registrations.conf
-ip_bans.yaml
-/icloud/*
 ```
 
 More information on the layout of the file can be found in the [.gitignore manual](https://git-scm.com/docs/gitignore).
@@ -147,13 +127,13 @@ git push origin master
 exit
 ```
 
-Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
+Every time you run this script, you will be prompted for a comment to describe the change(s) that you are committing. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
 
 ### {% linkable_title Step 7: Configuration file testing %}
 
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
-- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.
+- [Authorize Travis CI](https://travis-ci.org/auth) to have access to your github repos.
 - Create the build script that travis will run to test your repo.
 - Create a dummy secrets.yaml for Travis.
 
@@ -161,7 +141,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.4"
+  - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 install:
@@ -182,7 +162,7 @@ home_elevation: 0
 
 ### {% linkable_title Extra commands %}
 
-You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:
+You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not committed yet:
 
 
 ```bash

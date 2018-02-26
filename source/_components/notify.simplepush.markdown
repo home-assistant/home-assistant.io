@@ -25,10 +25,28 @@ notify:
     device_key: ABCDE
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **device_key** (*Required*): The device key of your device.
+{% configuration %}
+  name: 
+    description: Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+    required: false
+    type: string
+  device_key:
+    description: The device key of your device.
+    required: true
+    type: string
+  event:
+    description: The event for the events.
+    required: false
+    type: string
+  password:
+    description: The password of the encryption used by your device.
+    required: inclusive
+    type: string
+  salt:
+    description: The salt used by your device.
+    required: inclusive
+    type: string
+{% endconfiguration %}
 
 To test if the service works, just send a message with `curl` from the command-line.
 

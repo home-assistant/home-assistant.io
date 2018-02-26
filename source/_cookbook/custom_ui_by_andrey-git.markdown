@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Custom UI light state-card by andrey-git"
+title: "Custom UI state-card by andrey-git"
 description: ""
 date: 2017-02-04 10:45
 sidebar: true

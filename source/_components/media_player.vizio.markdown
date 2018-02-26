@@ -20,10 +20,15 @@ The `vizio` component will allow you to control [SmartCast](https://www.vizio.co
 
 Before adding your TV to Home Assistant you'll need to pair it manually. To do so follow these steps:
 
-Install the command-line tool using pip (or you can choose to download it manually):
+Install the command-line tool using `pip` (or you can choose to download it manually):
 
 ```bash
 $ pip3 install git+https://github.com/vkorn/pyvizio.git@master
+```
+
+or
+
+```bash
 $ pip3 install -I .
 ```
 
@@ -92,4 +97,7 @@ Vizio SmartCast service is accessible through HTTPS with self-signed certificate
 `InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.`
 
 You can adjust the log level for `media_player` components with the [logger](https://home-assistant.io/components/logger/) component, or if you need to keep a low log level for `media_player` you could proxy calls to your TV through an NGINX reverse proxy.
+
+If you want to only ignore only this specific [python urllib3 SSL warning](https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings), you will need to run Home Assistant with the python flag `-W` or the environment variable `PYTHONWARNINGS` set to:
+`ignore:Unverified HTTPS request is being made`
 </p>

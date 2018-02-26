@@ -26,7 +26,10 @@ switch:
       - 'coreos-512mb-nyc3-01'
 ```
 
-Configuration variables:
-
-- **droplets** (*Required*): List of droplets you want to control.
+{% configuration %}
+droplets:
+  description: List of droplets you want to control.
+  required: true
+  type: list
+{% endconfiguration %}
 

@@ -27,7 +27,7 @@ climate:
 Configuration variables:
 
 - **api_key** (*Required*): Your API key.
-- **id** (*Optional*): A unit ID or a list of IDs. If none specified then all units acessible by the `api_key` will be used.
+- **id** (*Optional*): A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
 
 To get your API key visit <https://home.sensibo.com/me/api>
 

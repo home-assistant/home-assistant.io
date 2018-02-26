@@ -33,7 +33,7 @@ automation:
 
 ### {% linkable_title Home Assistant trigger %}
 
-Use this platform to trigger when Home Assistant starts up and shuts down.
+Triggers when Home Assistant starts up or shuts down.
 
 ```yaml
 automation:
@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
+Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
 
 ```yaml
 automation:
@@ -68,11 +68,22 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
+
+    # If given, will trigger when condition has been for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
+
+<p class='note'>
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 
 ### {% linkable_title State trigger %}
 
-Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
+Triggers when the state of a given entity changes. If only entity_id is given trigger will activate for all state changes, even if only state attributes change.
 
 ```yaml
 automation:
@@ -96,7 +107,7 @@ automation:
 </p>
 
 ### {% linkable_title Sun trigger %}
-Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.
+Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
 
 ```yaml
 automation:
@@ -127,7 +138,7 @@ The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.ph
 
 ### {% linkable_title Template trigger %}
 
-Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
+Template triggers work by evaluating a [template] on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
 ```yaml
@@ -186,7 +197,7 @@ automation:
 
 ### {% linkable_title Multiple triggers %}
 
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
 
 ```yaml
 automation:

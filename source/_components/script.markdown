@@ -11,11 +11,9 @@ logo: home-assistant.png
 ha_category: Automation
 ---
 
-The script component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
+The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
 
-The sequence of actions is specified using the [Home Assistant Script Syntax].
-
-[Home Assistant Script Syntax]: /getting-started/scripts/
+The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,7 +31,8 @@ The preferred way to separate words for better readability is to use underscore 
 </p>
 
 ```yaml
-  # Turns on the bedroom lights and then the living room lights 1 minute later
+script: 
+  # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
     sequence:
@@ -99,6 +98,7 @@ automation:
 ```
 
 Using the variables in the script requires the use of `data_template`:
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -112,3 +112,9 @@ script:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
+
+### {% linkable_title In the Overview %}
+
+Scripts in the Overview panel will be displayed with an **ACTIVATE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
+
+This is to enable you to stop a running script.

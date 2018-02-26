@@ -17,7 +17,7 @@ ha_release: 0.27
 We have received <a href='https://github.com/home-assistant/home-assistant/issues/4442'>numerous reports</a> that this integration will have a big impact on the performance of the server.
 </p>
 
-This tracker discovers new devices on boot and in regular intervals and tracks bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
+This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
 
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
@@ -30,7 +30,7 @@ $ sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev lib
 Before you get started with this platform, please note that:
 
  - This platform is incompatible with Windows
- - This platform requires root privileges
+ - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,12 +42,17 @@ device_tracker:
 
 Configuration variables:
 
-- **device_id** (*Optional*): The device ID for the bluetooth device to be used for tracking. Defaults to `hci0`.
+- **device_id** (*Optional*): The device ID for the Bluetooth device to be used for tracking. Defaults to `hci0`.
+- **track_new_devices** (*Optional*): If new discovered devices are tracked by default. Defaults to `True`.
+- **scan_duration** (*Optional*): How long should the scanner be looking for BLE devices. Defaults to `10` seconds.
+- **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
-For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+## {% linkable_title Rootless Setup %}
+
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 $ sudo apt-get install libcap2-bin

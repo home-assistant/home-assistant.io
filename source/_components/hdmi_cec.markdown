@@ -13,7 +13,7 @@ ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
 
-The `hdmi_cec` component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entites for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
+The `hdmi_cec` component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
 
 ## {% linkable_title CEC Setup %}
 
@@ -26,7 +26,7 @@ The computer running Home Assistant must support CEC, and of course be connected
 [libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/getting-started/installation-virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 #### {% linkable_title Symlinking into virtual environment %}
@@ -154,7 +154,7 @@ hdmi_cec:
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
+Call the `hdmi_cec.select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}
@@ -179,15 +179,29 @@ action:
       
 ### {% linkable_title Power On %}
 
-Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that support this function.
+Call the `hdmi_cec.power_on` service (no arguments) to power on any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.power_on
+```
 
 ### {% linkable_title Standby %}
 
-Call the `hdmi_cec/standby` service (no arguments) to place in standby any devices that support this function.
+Call the `hdmi_cec.standby` service (no arguments) to place in standby any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.standby
+```
 
 ### {% linkable_title Change volume level %}
 
-Call the `hdmi_cec/volume` service with one of following commands:
+Call the `hdmi_cec.volume` service with one of following commands:
 
 #### {% linkable_title Volume up %}
 Increase volume three times:
@@ -207,7 +221,6 @@ Stop increasing volume:
 ```json
 {"up": "release"}
 ```
-
 
 #### {% linkable_title Volume down %}
 Decrease volume three times:
@@ -235,7 +248,7 @@ Toggle mute:
 {"mute": ""}
 ```
 
-value is ignores.
+value is ignored.
 
 
 ## {% linkable_title Useful References %}

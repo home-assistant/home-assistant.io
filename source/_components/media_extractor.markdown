@@ -13,7 +13,7 @@ ha_release: 0.49
 ---
 
 
-The `media_extractor` component gets an stream URL and send it to a media player entity. This component can extract entity specific streams if configured accordingly.
+The `media_extractor` component gets a stream URL and sends it to a media player entity. This component can extract entity specific streams if configured accordingly.
 
 <p class='note'>
 Media extractor doesn't transcode streams, it just tries to find stream that match requested query.
@@ -41,20 +41,29 @@ media_extractor:
       music: bestaudio[ext=mp3]
 ```
 
-This configuration sets query for all service calls like: ```{"entity_id": "media_player.my_sonos", "media_content_id": "https://soundcloud.com/bruttoband/brutto-11", "media_content_type": "music"}``` to 'bestaudio' with mp3 extention.
+This configuration sets query for all service calls like to 'bestaudio' with the mp3 extension:
+
+```json
+{
+  "entity_id": "media_player.my_sonos",
+  "media_content_id": "https://soundcloud.com/bruttoband/brutto-11",
+  "media_content_type": "music"
+}
+```
 
 Query examples with explanations:
- * **bestvideo** - best video only stream
- * **best** - best video + audio stream
- * **bestaudio[ext=m4a]** - best audio stream with m4a extension
- * **worst** - worst video + audio stream
- * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio** - best m4a audio, otherwise best ogg audio and only then any best audio
+
+ * **bestvideo**: Best video only stream
+ * **best**: Best video + audio stream
+ * **bestaudio[ext=m4a]**: Best audio stream with m4a extension
+ * **worst**: Worst video + audio stream
+ * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
 
 More info about queries [here](https://github.com/rg3/youtube-dl#format-selection)
 
 ### {% linkable_title Use the service %}
 
-Go to the "Developer Tools," then to "Call Service," and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE."
+Use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose `media_extractor` from the dropdown menu **Domain** and `play_media` from **Service**, enter something like the JSON sample from above into the **Service Data** field, and hit **CALL SERVICE**.
 
 This will download the file from the given URL.
 

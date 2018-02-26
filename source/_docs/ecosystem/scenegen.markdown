@@ -90,7 +90,7 @@ This output can be cut and pasted into your configuration.yaml file as required 
 
 Scenegen supports all documented effects for lights including transitions and flash effects, however generally it is easier to run scenegen to get the basic setup and add any effects manually later.
 
-Note that depending on the type of light there may be a delay in actually setting up its parameters and Home Assistant actually recieving that state. For instance, if you set a scene up with the Hue App, Home Assistant won't see those changes for up to 10 seconds. Turning on a ZWave light might not be seen for an entire poll interval. For this reason, its good practice to wait for a while after the scene is setup before running scenegen. Alternatively, perform all setup using the Home Assistant frontend and it will instantly have the required state for capture.
+Note that depending on the type of light there may be a delay in actually setting up its parameters and Home Assistant actually receiving that state. For instance, if you set a scene up with the Hue App, Home Assistant won't see those changes for up to 10 seconds. Turning on a ZWave light might not be seen for an entire poll interval. For this reason, its good practice to wait for a while after the scene is setup before running scenegen. Alternatively, perform all setup using the Home Assistant frontend and it will instantly have the required state for capture.
 
 ## {% linkable_title Advanced Usage %}
 
@@ -100,7 +100,7 @@ For a more advanced way to use the output try the following. In configuration.ya
 scene: !include_dir_list scenes
 ```
 
-This will tell home assistant to look in the subdirectory `scenes` for yaml files containing scene information. Each file will be named for the scene it will create and should contain information formatted as above. Then simply run Scenegen and redirect its output to the scenes subdirectory:
+This will tell Home Assistant to look in the subdirectory `scenes` for yaml files containing scene information. Each file will be named for the scene it will create and should contain information formatted as above. Then simply run Scenegen and redirect its output to the scenes subdirectory:
 
 ```
 $ ./scenegen.py https://<some url> -k <some api key> > scenes/my_new_scene.yaml

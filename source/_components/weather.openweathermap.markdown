@@ -13,7 +13,7 @@ ha_release: 0.32
 ha_iot_class: "Cloud Polling"
 ---
 
-The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as an source for current meteorological data for your location.
+The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
 
@@ -30,7 +30,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
 - **name** (*Optional*): Name to use in the frontend.
-- **latitude** (*Optional*): Latitude of the location to display the weather. Defaults to the latitude in your your `configuration.yaml` file. 
+- **latitude** (*Optional*): Latitude of the location to display the weather. Defaults to the latitude in your `configuration.yaml` file. 
 - **longitude** (*Optional*): Longitude of the location to display the weather. Defaults to the longitude in your `configuration.yaml` file.
 
 <p class='note'>

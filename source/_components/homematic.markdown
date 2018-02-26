@@ -13,66 +13,83 @@ ha_iot_class: "Local Push"
 featured: false
 ---
 
+The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.  
+If you are using Homegear with paired [Intertechno](http://intertechno.at/) devices, uni-directional communication is possible as well.
 
-The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
-
-Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.
+Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`.
 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
-You can manually rename the created entities by using Home Assistants [Customizing](https://home-assistant.io/getting-started/customizing-devices/) feature. With it you are also able to hide entities you don't want to see in the UI.
+You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. With it you are also able to hide entities you don't want to see in the UI.
 
 To set up the component, add the following information to your `configuration.yaml` file:
 
 ```yaml
 homematic:
-  hosts:
+  interfaces:
     wireless:
-      ip: 127.0.0.1
+      host: 127.0.0.1
 ```
 
 Configuration variables (global):
 
-- **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
-- **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
+- **interfaces** (*Required*): Configuration for each XML-RPC interface to integrate into Home Assistant.
+- **hosts** (*Optional*): Configuration for each Hub (CCU/Homegear) to integrate into Home Assistant.
+- **local_ip** (*Optional*): IP of device running Home Assistant. Override auto-detected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
-Configuration variables (host):
+Configuration variables (interface):
 
-- **ip** (*Required*): IP address of CCU/Homegear device.
-- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Default is 2001, use 2000 for wired and 2010 for IP.
+- **host** (*Required*): IP address or Hostname of CCU/Homegear device or Hass.io add-on.
+- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
 - **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
 - **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
-- **primary** (*Optional*): Set to `true` when using multiple hosts and this host should provide the services and variables.
-- **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.
+- **path** (*Optional*): Set to `/groups` when using port 9292.
+
+Configuration variables (host):
+
+- **host** (*Required*): IP address of CCU/Homegear device.
+- **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
+- **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 
 #### Example configuration with multiple protocols and some other options set:
 
 ```yaml
 homematic:
-  delay: 1.0
-  hosts:
+  interfaces:
     rf:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       resolvenames: json
       username: Admin
       password: secret
       primary: true
       variables: true
     wired:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       port: 2000
       resolvenames: json
       username: Admin
       password: secret
     ip:
-      ip: 127.0.0.1
+      host: 127.0.0.1
       port: 2010
+    groups:
+      host: 127.0.0.1
+      port: 9292
+      resolvenames: json
+      username: Admin
+      password: secret
+      path: /groups
+  hosts:
+    ccu2:
+      host: 127.0.0.1
+      username: Admin
+      password: secret
+    
 ```
 
 ### {% linkable_title The `resolvenames` option %}
@@ -89,7 +106,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
-This does *not* affect the entites in Home Assistant. They all use their own connection and work as expected.
+This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
 ### {% linkable_title Reading attributes of entities %}
 
@@ -108,7 +125,7 @@ sensor:
 ### {% linkable_title Variables %}
 
 It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
-The states of the variables are available through the attributes of your hub entity (e.g. `homematic.rf`). Use templates (as mentioned above) to make your variables available to automations or as entities.
+The states of the variables are available through the attributes of your hub entity (e.g. `homematic.ccu2`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
 ### {% linkable_title Events %}
@@ -143,12 +160,22 @@ automation:
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. "Kitchen Switch").
 
+You can test whether your button works within Home Assistant if you look at the terminal output. When pressing a button, lines similar to those should appear:
+
+```bash
+2018-01-27 11:51:32 INFO (Thread-12) [pyhomematic.devicetypes.generic] HMGeneric.event: address=MEQ1234567:6, interface_id=homeassistant-CCU2, key=PRESS_SHORT, value=True
+2018-01-27 11:51:32 INFO (MainThread) [homeassistant.core] Bus:Handling <Event homematic.keypress[L]: param=PRESS_SHORT, name=your_nice_name, channel=6>
+2018-01-27 11:51:32 INFO (Thread-12) [pyhomematic.devicetypes.generic] HMGeneric.event: address=MEQ1234567:6, interface_id=homeassistant-CCU2, key=INSTALL_TEST, value=True
+```
+
+It may happen that "your_nice_name" is not resolved correctly; the according message (#2 in the above example) will be missing. This might be due to secure communication between your HM interface and the HM device. You can change the communication from "secure" to "standard" within your HM-interface to solve that issue (in "Einstellungen" - "Geräte" find your device and change "Übertragungsmodus" from secure to standard) - not recommended for devices that should have secure communication.
+
 ### {% linkable_title Services %}
 
 * *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 * *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-* *homematic.set_var_value*: Set the value of a system variable.
-* *homematic.set_dev_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+* *homematic.set_variable_value*: Set the value of a system variable.
+* *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
 #### {% linkable_title Examples %}
 Simulate a button being pressed
@@ -177,9 +204,9 @@ Set boolean variable to true
 ```yaml
 ...
 action:
-  service: homematic.set_var_value
+  service: homematic.set_variable_value
   data:
-    entity_id: homematic.rf
+    entity_id: homematic.ccu2
     name: Variablename
     value: true
 ```
@@ -193,7 +220,7 @@ Manually turn on a switch actor
 ```yaml
 ...
 action:
-  service: homematic.set_dev_value
+  service: homematic.set_device_value
   data:
     address: LEQ1234567
     channel: 1
@@ -205,7 +232,7 @@ Manually set temperature on thermostat
 ```yaml
 ...
 action:
-  service: homematic.set_dev_value
+  service: homematic.set_device_value
   data:
     address: LEQ1234567
     channel: 4

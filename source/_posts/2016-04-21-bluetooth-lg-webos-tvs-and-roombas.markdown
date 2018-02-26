@@ -2,8 +2,8 @@
 layout: post
 title: "0.18: Bluetooth, LG WebOS TVs and Roombas."
 description: "Home Assistant 0.18 has arrived."
-date: 2016-04-19 23:10:00 -0700
-date_formatted: "April 21, 2016"
+date: 2016-04-20 23:10:00 UTC
+date_formatted: "April 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -11,9 +11,9 @@ categories: Release-Notes
 og_image: /images/blog/2016-04-release-18/social.png
 ---
 
-It's time for 0.18. This release cycle is 2 days shorter than usual as I'll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.
+It's time for 0.18. This release cycle is 2 days shorter than usual as I'll be traveling to Europe. This also means that it can take some more time before you get feedback on PRs.
 
-Since the last release we have moved all Home Assistant source code etc into it's own [organisation on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.
+Since the last release we have moved all Home Assistant source code etc into its own [organization on GitHub](https://github.com/home-assistant). We're growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.
 
 <a href='/demo/'><img src='/images/blog/2016-04-release-18/media_player.png' style='box-shadow: none; border: 0;' /></a>
 

@@ -37,7 +37,7 @@ Configuration variables:
 
 ### {% linkable_title Password protecting the web interface %}
 
-First, you'll want to add a password for the Home Assistant web interface. Use your favourite text editor to open `configuration.yaml` and edit the `http` section:
+First, you'll want to add a password for the Home Assistant web interface. Use your favorite text editor to open `configuration.yaml` and edit the `http` section:
 
 ```yaml
 http:

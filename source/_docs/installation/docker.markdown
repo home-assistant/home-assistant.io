@@ -40,7 +40,7 @@ This will let you access your Home Assistant portal from http://localhost:8123, 
 
 ### {% linkable_title Synology NAS %}
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
 
 The steps would be:
 * Install "Docker" package on your Synology NAS
@@ -54,9 +54,10 @@ The steps would be:
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
+* To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
-* Your Home Assistant within Docker should now run
+* Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 * Go to the Docker-app and move to "Image"-section
@@ -64,14 +65,68 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 * wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 * Move to "Container"-section
 * Stop your container if it's running
-* Right-click on it and select "Action"->"Clear". You won't loose any data, as all files are stored in your config-directory
+* Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your config-directory
 * Start the container again - it will then boot up with the new Home Assistant image
 
-### {% linkable_title Restart %}
+Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
+* Go to the Docker-app and move to "Container"-section
+* Right-click on it and select "Action"->"Restart".
 
-This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.
+<p class='note'>
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne. 
+</p>
+
+### {% linkable_title Restart %}
 
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
- 2. Or you can restart it from an terminal by running `docker restart home-assistant`
+ 2. Or you can restart it from a terminal by running `docker restart home-assistant`
+
+### {% linkable_title Docker Compose %}
+
+As the docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
+
+```yaml
+  version: '3'
+  services:
+    web:
+      image: homeassistant/home-assistant
+      volumes:
+        - /path/to/your/config:/config
+        - /etc/localtime:/etc/localtime:ro
+      restart: always
+      network_mode: host
+```
+
+Then start the container with:
+
+```bash
+$ docker-compose up -d
+```
+
+### {% linkable_title Exposing Devices %}
+
+In order to use z-wave, zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+
+```bash
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 --net=host homeassistant/home-assistant
+```
+
+or in a `docker-compose.yml` file:
+
+```yaml
+  version: '3'
+  services:
+    web:
+      image: homeassistant/home-assistant
+      volumes:
+        - /path/to/your/config:/config
+        - /etc/localtime:/etc/localtime:ro
+      devices:
+        - /dev/ttyUSB0:/dev/ttyUSB0
+        - /dev/ttyUSB1:/dev/ttyUSB1
+        - /dev/ttyACM0:/dev/ttyACM0
+      restart: always
+      network_mode: host
+```

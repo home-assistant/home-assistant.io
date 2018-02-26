@@ -2,7 +2,7 @@
 layout: post
 title: "Your hub should be local and open"
 description: "Running a hub that depends on the cloud is a risk that can cost you your home automation."
-date: 2016-04-04 21:11:00 -0700
+date: 2016-04-05 21:11:00 UTC
 date_formatted: "April 5, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob

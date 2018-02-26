@@ -35,7 +35,7 @@ Upstart will launch init scripts that are located in the directory `/etc/init.d/
 #
 # Installation:
 #   1) If any commands need to run before executing hass (like loading a
-#      virutal environment), put them in PRE_EXEC. This command must end with
+#      virtual environment), put them in PRE_EXEC. This command must end with
 #      a semicolon.
 #   2) Set RUN_AS to the username that should be used to execute hass.
 #   3) Copy this script to /etc/init.d/

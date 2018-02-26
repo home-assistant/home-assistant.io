@@ -30,7 +30,7 @@ def async_look_my_coroutine(target):
     if result:
         print("hello {}".format(target))
 
-hass.loop.create_task(async_look_my_coroutine("world")
+hass.loop.create_task(async_look_my_coroutine("world"))
 ```
 
 In this example, we schedule the coroutine by calling `hass.loop.create_task`. This will add the coroutine to the queue of tasks to be run. When the event loop is running `async_look_my_coroutine` it will suspend the task when `yield from entity.async_turn_on()` is called. At that point a new task will be scheduled to execute `entity.async_turn_on()`. When that job has been executed, `async_look_my_coroutine` will resume.

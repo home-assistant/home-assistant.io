@@ -9,12 +9,16 @@ sharing: true
 footer: true
 logo: owntracks.png
 ha_category: Presence Detection
-featured: true
+featured: false
 ha_release: 0.7.4
 ---
 
 
-This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on Android and iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+
+<p class='note'>
+The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT.
+</p>
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
 
@@ -30,8 +34,11 @@ Configuration variables:
 
 - **max_gps_accuracy** (*Optional*): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
-- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. Defaults to all users who are connected to Home Assistant via Owntracks.
-- **secret** (*Optional*): [Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unecrypted (although the comunication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present.
+- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant.  This would be the `username` portion of the Base Topic Name, (e.g. owntracks/**username**/iPhone). Defaults to all users who are connected to Home Assistant via Owntracks.
+- **secret** (*Optional*): [Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present.
+- **mqtt_topic** (*Optional*): The topic to subscribe for Owntracks updates on your MQTT instance (defaults to `owntracks/#`).
+- **events_only** (*Optional*): Home Assistant will ignore all location updates and rely solely on geofence enter/leave events.
+- **region_mapping** (*Optional*): Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`.
 
 A full sample configuration for the `owntracks` platform is shown below:
 
@@ -41,9 +48,14 @@ device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
     waypoints: True
+    mqtt_topic: "owntracks/#"
+    events_only: True
     waypoint_whitelist:
       - jon
       - ram
+    region_mapping:
+      cabin: home
+      office: work
 ```
 
 ### {% linkable_title Using Owntracks with other device trackers %}
@@ -71,20 +83,20 @@ When you exit a zone, Home Assistant will start using location updates to track 
 ### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
-iBeacons are simple bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](http://owntracks.org/booklet/guide/beacons/).
+iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](http://owntracks.org/booklet/guide/beacons/).
 
 When you enter an iBeacon region, Owntracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
 
 When you exit an iBeacon region HA will switch back to using GPS to determine your location. Depending on the size of your zone, and the accuracy of your GPS location this may change your HA zone.
 
-Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognise it as `home`, but you will have a more stable iBeacon connection.
+Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognize it as `home`, but you will have a more stable iBeacon connection.
 
 ### {% linkable_title Using Owntracks iBeacons to track devices %}
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
 When your phone sees a mobile iBeacon that it knows about, it will tell HA the location of that iBeacon. If your phone moves while you are connected to the iBeacon, HA will update the location of the iBeacon. But when your phone loses the connection, HA will stop updating the iBeacon location.
 
-To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for a iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
+To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for an iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
 
 This allows you to write zone automations for devices that can't track themselves (for example *alert me if I leave the house and my keys are still at home*). Another example would be *open the gates if my car arrives home*.
 

@@ -11,11 +11,13 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#discovery
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/).
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
 
 Supported by MQTT discovery:
 
 - [Binary sensors](/components/binary_sensor.mqtt/)
+- [Covers](/components/cover.mqtt/)
+- [Fans](/components/fan.mqtt/)
 - [Lights](/components/light.mqtt/)
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
@@ -48,6 +50,15 @@ The discovery topic need to follow a specific format:
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
+
+### {% linkable_title Support by third-party tools %}
+
+The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
+
+- [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
+- [esphomelib](https://github.com/OttoWinter/esphomelib)
+- [ESPurna](https://github.com/xoseperez/espurna)
+- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 
 ### {% linkable_title Examples %}
 
@@ -83,3 +94,13 @@ Set the state.
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
 ```
+
+Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
+
+- Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
+- Configuration payload no1: `{"device_class": "sensor", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
+- Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
+
+

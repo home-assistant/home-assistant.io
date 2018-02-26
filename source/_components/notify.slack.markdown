@@ -36,13 +36,13 @@ Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): The Slack API token to use for sending Slack messages.
-- **default_channel** (*Required*): The default channel to post to if no channel is explicitly specified when sending the notification message.
+- **default_channel** (*Required*): The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the json at the same level as "message"
 - **username** (*Optional*): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.
-- **icon** (*Optional*): Use one of the Slack emoji's as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+- **icon** (*Optional*): Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
 
 ### {% linkable_title Slack service data %}
 
-The following attributes can be placed `data` for extended functionality.
+The following attributes can be placed inside `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -52,12 +52,15 @@ The following attributes can be placed `data` for extended functionality.
 | `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
 | `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside `file`.
+| `attachments`          |      yes | Array of [Slack attachments](https://api.slack.com/docs/message-attachments). See [the attachment documentation](https://api.slack.com/docs/message-attachments) for how to format. *NOTE*: if using `attachments`, they are shown **in addition** to `message`
 
-Example for posting file from URL
+Example for posting file from URL:
+
 ```json
 {
   "message":"Message that will be added as a comment to the file.",
   "title":"Title of the file.",
+  "target": ["#channelname"], 
   "data":{
     "file":{
       "url":"http://[url to file, photo, security camera etc]",
@@ -68,7 +71,9 @@ Example for posting file from URL
   }
 }
 ```
-Example for posting file from local path
+
+Example for posting file from local path:
+
 ```json
 {
   "message":"Message that will be added as a comment to the file.",
@@ -81,6 +86,24 @@ Example for posting file from local path
 }
 ```
 Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
+
+Example for posting formatted attachment:
+
+```json
+{
+  "message": "",
+  "data": {
+    "attachments": [
+      {
+        "title": "WHAT A HORRIBLE NIGHT TO HAVE A CURSE.",
+        "image_url": "http://i.imgur.com/JEExnsI.gif"
+      }
+    ]
+  }
+}
+```
+
+Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

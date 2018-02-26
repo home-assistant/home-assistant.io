@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `arduino` sensor platform allows you to get an numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024. 
+The `arduino` sensor platform allows you to get numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024. 
 
 To enable an Arduino sensor with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -27,14 +27,23 @@ sensor:
       name: Door switch
     0:
       name: Brightness
-
 ```
 
-Configuration variables:
-
-- **pins** array (*Required*): Array of pins to use.
-  - **[number]** (*Required*): The pin number that corresponds with the pin numbering schema of your board.
-    - **name** (*Optional*): Name that will be used in the frontend for the pin.
+{% configuration %}
+pins:
+  description: List of pins to use.
+  required: true
+  type: map
+  keys:
+    pin_number:
+      description: The pin number that corresponds with the pin numbering schema of your board.
+      required: true
+      type: map
+      keys:
+        name:
+          default: Name that will be used in the frontend for the pin.
+          type: string
+{% endconfiguration %}
 
 The 6 analog pins of an Arduino UNO are numbered from A0 to A5.
 

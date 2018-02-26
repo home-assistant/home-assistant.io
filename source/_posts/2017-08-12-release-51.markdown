@@ -55,6 +55,22 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add new device tracker for Huawei Routers. ([@abmantis] - [#8488]) ([device_tracker.huawei_router docs]) (new-platform)
 - Add Shodan sensor ([@fabaff] - [#8902]) ([sensor.shodan docs]) (new-platform)
 
+## {% linkable_title Release 0.51.1 - August 12 %}
+
+ - Fixed a bug in the automation editor that would break if no conditions available in the config file. ([@balloob])
+
+## {% linkable_title Release 0.51.2 - August 14 %}
+
+- Fix zwave power_consumption attribute ([@andrey-git] - [#8968]) ([zwave docs])
+- Turn foscam verbose mode off ([@andrey-git] - [#8967]) ([camera.foscam docs])
+- fix stack trace in pushbullet ([@Danielhiversen] - [#8965]) ([notify.pushbullet docs])
+- Harmoney remote: Fix call to ha_send_commands ([@MartinHjelmare] - [#8956]) ([remote.harmony docs])
+- fix DeviceException handling when updating xiaomi vacuum ([@azogue] - [#8954]) ([vacuum.xiaomi docs])
+- Sabnzbd: do not assume discovery info is a dict ([@balloob] - [#8951]) ([sensor.sabnzbd docs])
+- Fix login button ([@balloob])
+- Add workaround for broken toggles in Safari  ([@balloob])
+- Fix weblink opening twice ([@azogue])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -441,3 +457,10 @@ vacuum:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#8951]: https://github.com/home-assistant/home-assistant/pull/8951
+[#8954]: https://github.com/home-assistant/home-assistant/pull/8954
+[#8956]: https://github.com/home-assistant/home-assistant/pull/8956
+[#8965]: https://github.com/home-assistant/home-assistant/pull/8965
+[#8967]: https://github.com/home-assistant/home-assistant/pull/8967
+[#8968]: https://github.com/home-assistant/home-assistant/pull/8968
+[@Danielhiversen]: https://github.com/Danielhiversen

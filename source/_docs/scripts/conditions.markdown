@@ -30,7 +30,7 @@ condition:
 
 ### {% linkable_title OR condition %}
 
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
 
 ```yaml
 condition:
@@ -114,6 +114,33 @@ condition:
   after_offset: "-1:00:00"
 ```
 
+```yaml
+condition:
+    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+```
+
+Here is a truth table to clarify the parameters with and without offset:
+
+| command                            |        night | at sunrise  | daytime | at sunset  |
+| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
+| `after: sunset`                    | True         |      ⇒      | False   |     ⇒      |
+| + `after_offset: "01:00:00"`       | True         |      ⇒      | False   |  **+1h**   |
+| + `after_offset: "-01:00:00"`      | True         |      ⇒      | False   |  **-1h**   |
+| `before: sunset`                   | False        |      ⇒      | True    |     ⇒      |
+| + `before_offset: "01:00:00"`      | False        |      ⇒      | True    |  **+1h**   |
+| + `before_offset: "-01:00:00"`     | False        |      ⇒      | True    |  **-1h**   |
+| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |
+| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |
+| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |
+| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |
+| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |
+| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |
+
 ### {% linkable_title Template condition %}
 
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
@@ -146,7 +173,7 @@ condition:
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am. 
+Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
 
 ### {% linkable_title Zone condition %}
 

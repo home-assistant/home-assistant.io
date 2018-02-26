@@ -37,7 +37,7 @@ Configuration variables:
 - **api_key** (*Required*): The API key for Weather Underground. See above for details.
 - **pws_id** (*Optional*): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
 - **lang** (*Optional*): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://www.wunderground.com/weather/api/d/docs?d=language-support). If not specified, it defaults to English (EN).
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specificed). Defaults to coordinates defined in your `configuration.yaml`.
+- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml`.
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml`.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **alerts**: Current severe weather advisories
@@ -56,22 +56,22 @@ Configuration variables:
   - **precip_today_in**: Total precipitation in inches
   - **precip_today_metric**: Total precipitation in metric units
   - **precip_today_string**: Text summary of precipitation today
-  - **precip_1d_mm** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in milimeters
+  - **precip_1d_mm** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in millimeters
   - **precip_1d_in** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in inches
   - **precip_1d** [<sup>[1d]</sup>](#1d): Forecasted precipitation probability in %
   - **pressure_in**: Atmospheric air pressure in inches
   - **pressure_mb**: Atmospheric air pressure in millibars
-  - **pressure_trend**: Atmospheric air presure trend signal (+/-)
+  - **pressure_trend**: Atmospheric air pressure trend signal (+/-)
   - **relative_humidity**: Relative humidity
   - **station_id**: Your personal weather station (PWS) ID
   - **solarradiation**: Current levels of solar radiation
-  - **temperature_string**: Temperature text combinding Fahrenheit and Celsius
+  - **temperature_string**: Temperature text combining Fahrenheit and Celsius
   - **temp_c**: Current temperature in Celsius
   - **temp_f**: Current temperature in Fahrenheit
-  - **temp_high_record_c**: Maximum temperature meassured in Celsius
-  - **temp_high_record_f**: Maximum temperature meassured in Fahrenheit
-  - **temp_low_record_c**: Minimal temperature meassured in Celsius
-  - **temp_low_record_f**: Minimal temperature meassured in Fahrenheit
+  - **temp_high_record_c**: Maximum temperature measured in Celsius
+  - **temp_high_record_f**: Maximum temperature measured in Fahrenheit
+  - **temp_low_record_c**: Minimal temperature measured in Celsius
+  - **temp_low_record_f**: Minimal temperature measured in Fahrenheit
   - **temp_high_avg_c**: Average high for today in Celsius
   - **temp_high_avg_f**: Average high for today in Fahrenheit
   - **temp_low_avg_c**: Average low for today in Celsius
@@ -158,7 +158,7 @@ group:
 ```yaml
 sensor:
   - platform: wunderground
-  - api_key: your_api_key
+    api_key: your_api_key
     monitored_conditions:
       - temp_high_record_c
       - temp_high_1d_c

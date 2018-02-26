@@ -34,6 +34,7 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **max_retries** (*Optional*): Allow the component to retry if there was a network error when transmitting data
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
 - **component_config**, **component_config_domain**, **component_config_glob** (*Optional*): These attributes contains component-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format.
@@ -47,122 +48,12 @@ Configuration variables:
 - **tags** (*Optional*): Tags to mark the data.
 - **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
-## {% linkable_title Data migration %}
+## {% linkable_title Helper scripts %}
 
-Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.
-
-- There will no longer be any tags/fields named `time`.
-- All numeric fields (int/float/bool) will be stored as float inside InfluxDB database.
-- All string fields corresponding to state attributes will be renamed as `FIELDNAME_str`, where `FIELDNAME` is the state attribute, to avoid type conflicts.
-- All string fields corresponding to a state will be renamed as `state` (former value).
-- Fields named `value` will always be stored as float.
-- Fields named `state` will always be stored as string.
-
-### {% linkable_title Migration script %}
-
-If you need to migrate your database, you may require to run the `influxdb_migrator` script. Run the script after upgrade to 0.36 but before the first regular start of `hass` version 0.36.
-
-These are the steps the script will perform:
-1. Create a new database (called `DBNAME__old`) to store old data.
-2. Copy data from `DBNAME` database to `DBNAME__old` database.
-3. Empty `DBNAME` database (using `drop` then `create`). `DBNAME` database is now considered as the new database.
-4. For each measurement of `DBNAME__old` database:
-  1. Read all points from the current measurement (in groups of 1000 points by default) and convert them.
-  2. Send group of points to `DBNAME` database.
-5. Delete the `DBNAME__old` database if needed.
-
-Example to run the script:
-
-```bash
-$ hass --script influxdb_migrator \
-    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    -d INFLUXDB_DB_NAME
-```
-Script arguments:
-
-```
-required arguments:
-  -d dbname, --dbname dbname  InfluxDB database name
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -H host, --host host  InfluxDB host address
-  -P port, --port port  InfluxDB host port
-  -u username, --username username
-                        InfluxDB username
-  -p password, --password password
-                        InfluxDB password
-  -s step, --step step  How many points to migrate at the same time
-  -o override_measurement, --override-measurement override_measurement
-                        Store all your points in the same measurement
-  -D, --delete          Delete old database
-```
-
-- If you run the script with only the `-h` option, you will get a help printout with a short explanation of the different options.
-- The host option defaults to `'127.0.0.1'`.
-- The port option defaults to `8086`.
-- You should be able to omit username and password if InfluxDB authentication is disabled, which it is by default.
-- The step option defaults to `1000`.
-
-
-## {% linkable_title Data import script %}
-
-If you want to import all the recorded data from your recorder database you can use the data import script.
-It will read all your state_change events from the database and add them as data-points to the InfluxDB.
-You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
-The writing to InfluxDB is done in batches that can be changed with `--step`.
-
-You can control, which data is imported by using the commandline options `--exclude_entities` and `--exclude_domains`.
-Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
-
-To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.
-This only writes the statistics how much points would be imported from which entity.
-
-Example to run the script:
-
-```bash
-$ hass --script influxdb_import --config CONFIG_DIR \
-    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
-```
-Script arguments:
-
-```
-required arguments:
-  -d dbname, --dbname dbname
-                        InfluxDB database name
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -c path_to_config_dir, --config path_to_config_dir
-                        Directory that contains the Home Assistant
-                        configuration
-  --uri URI             Connect to URI and import (if other than default
-                        sqlite) eg: mysql://localhost/homeassistant
-
-  -H host, --host host  InfluxDB host address
-  -P port, --port port  InfluxDB host port
-  -u username, --username username
-                        InfluxDB username
-  -p password, --password password
-                        InfluxDB password
-  -s step, --step step  How many points to import at the same time
-  -t tags, --tags tags  Comma separated list of tags (key:value) for all
-                        points
-  -D default_measurement, --default-measurement default_measurement
-                        Store all your points in the same measurement
-  -o override_measurement, --override-measurement override_measurement
-                        Store all your points in the same measurement
-  -e exclude_entities, --exclude_entities exclude_entities
-                        Comma separated list of excluded entities
-  -E exclude_domains, --exclude_domains exclude_domains
-                        Comma separated list of excluded domains
-  -S, --simulate        Do not write points but simulate preprocessing
-                        and print statistics
-```
+- [Helper script `influxdb_import`](/docs/tools/influxdb_import/)
+- [Helper script `db_migrator`](/docs/tools/db_migrator/) (only used for [Home Assistant 0.36](/blog/2017/01/14/iss-usps-images-packages/#influxdb-export))
 
 ## {% linkable_title Examples %}
-
 
 ### {% linkable_title Full configuration %}
 
@@ -175,6 +66,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  max_retries: 3
   default_measurement: state
   exclude:
     entities:

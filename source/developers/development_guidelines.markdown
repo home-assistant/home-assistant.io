@@ -25,9 +25,9 @@ The maximum line length comes directly from the [PEP8 style guide](https://www.p
 
 Those points may require that you adjust your IDE or editor settings.
 
-## {% linkable_title Our recommandations %}
+## {% linkable_title Our recommendations %}
 
-For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommandations about the code style. Those points were collected from the exisiting code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommandations to keep the code unified. 
+For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommendations about the code style. Those points were collected from the existing code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommendations to keep the code unified. 
 
 ### {% linkable_title Quotes %}
 
@@ -67,7 +67,7 @@ REQUIREMENTS = ['xmltodict==0.11.0']
 
 ### {% linkable_title Log messages %}
 
-There is no need to add the platform or component name to the log messages. This will be added automatically. Like `syslog` messages there shouldn't be no period at the end. Try to avoid brackets and additional quotes around the output to make it easier for users to parse the log. A widely style is shown below but you are free to compose the messages as you like.
+There is no need to add the platform or component name to the log messages. This will be added automatically. Like `syslog` messages there shouldn't be any period at the end. Try to avoid brackets and additional quotes around the output to make it easier for users to parse the log. A widely style is shown below but you are free to compose the messages as you like.
 
 ```python
 _LOGGER.error("No route to device: %s", self._resource)

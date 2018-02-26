@@ -9,13 +9,28 @@ sharing: true
 footer: true
 ---
 
-Any component has the possibility to add a panel to the frontend. Panels will be rendered full screen and have real-time access to the Home Assistant object via JavaScript. Examples of this in the app are map, logbook and history.
+Panels are pages within Home Assistant that show information within Home Assistant and can allow controlling it. Panels are linked from the sidebar and rendered full screen. The have have real-time access to the Home Assistant object via JavaScript. Examples of panels in the app are map, logbook and history.
+
+Besides components registering panels, users can also register panels using the `panel_custom` component. This allows users to quickly build their own custom interfaces for Home Assistant.
+
+### {% linkable_title Before you get started %}
+
+The Home Assistant user interface is currently served to browsers in modern JavaScript and older JavaScript (ES5). The older version has a wider browser support but that comes at a cost of size, performance and more difficult to get started building panels for authors.
+
+We therefore advice to set up the frontend to serve the modern version of the frontend so that you won't need any build tools while developing. If you realize that your audience requires both, you can add a transpilation step in the future. To set up your frontend to always serve the latest version, add this to your config:
+
+```
+frontend:
+  javascript_version: latest
+```
+
+### {% linkable_title Building your first panel %}
 
 Create a file called `hello.html` in your <config dir>/panels/.
 
 The `hello.html` contains the needed building blocks to create the elements inside the view.
 
-```javascript
+```html
 <dom-module id='ha-panel-hello'>
   <template>
     <style>
@@ -28,38 +43,38 @@ The `hello.html` contains the needed building blocks to create the elements insi
 </dom-module>
 
 <script>
-Polymer({
-  is: 'ha-panel-hello',
-  properties: {
-    // Home Assistant object
-    hass: {
-      type: Object,
-    },
-    // If should render in narrow mode
-    narrow: {
-      type: Boolean,
-      value: false,
-    },
-    // If sidebar is currently shown
-    showMenu: {
-      type: Boolean,
-      value: false,
-    },
-    // Home Assistant panel info
-    // panel.config contains config passed to register_panel serverside
-    panel: {
-      type: Object,
-    },
-    who: {
-      type: String,
-      computed: 'computeWho(panel)',
-    }
-  },
+class HaPanelHello extends Polymer.Element {
+  static get is() { return 'ha-panel-hello'; }
+  
+  static get properties() {
+    return {
+      // Home Assistant object
+      hass: Object,
+      // If should render in narrow mode
+      narrow: {
+        type: Boolean,
+        value: false,
+      },
+      // If sidebar is currently shown
+      showMenu: {
+        type: Boolean,
+        value: false,
+      },
+      // Home Assistant panel info
+      // panel.config contains config passed to register_panel serverside
+      panel: Object,
+      who: {
+        type: String,
+        computed: 'computeWho(panel)',
+      },
+    };
+  }
 
-  computeWho: function (panel) {
+  computeWho(panel) {
     return panel && panel.config && panel.config.who ? panel.config.who : 'World';
-  },
-});
+  }
+}
+customElements.define(HaPanelHello.is, HaPanelHello);
 </script>
 ```
 

@@ -16,7 +16,7 @@ Keeps track which switches are in your environment, their state and allows you t
 
 ### {% linkable_title Use the services %}
 
-Go the the **Developer Tools**, then to **Call Service** in the frontend, and choose `switch/turn_on` or `switch/turn_off` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Go the **Developer Tools**, then to **Call Service** in the frontend, and choose `switch/turn_on` or `switch/turn_off` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {"entity_id":"livingroom_pin2"}

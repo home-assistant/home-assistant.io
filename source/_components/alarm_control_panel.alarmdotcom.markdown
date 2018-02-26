@@ -12,7 +12,7 @@ ha_category: Alarm
 ha_release: 0.11
 ---
 
-The `alarmdotcom` platform is consuming the information provided by a [Alarm.com](https://www.alarm.com/).
+The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).
 
 To enable this, add the following lines to your `configuration.yaml`:
 
@@ -30,4 +30,3 @@ Configuration variables:
 - **password** (*Required*): Password for Alarm.com account.
 - **name** (*Optional*): The name of the alarm. Default is 'Alarm.com'.
 - **code** (*Optional*): Specifies a code to enable or disable the alarm in the frontend.
-

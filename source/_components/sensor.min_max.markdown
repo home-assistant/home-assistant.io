@@ -14,9 +14,9 @@ ha_release: "0.31"
 ---
 
 
-The `min_max` sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it's recommended filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
+The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last) and the mean of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
 
-It's an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
+This sensor is an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
 
 ```yaml
 {% raw %}{{ ((float(states.sensor.kitchen_temperature.state) + 
@@ -25,9 +25,9 @@ It's an alternative to the [template sensor](/components/sensor.template/)'s `va
 }}{% endraw %}
 ```
 
-Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and the unit of measurement is `ERR`.
+Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
-To enable the minimum/maximum sensor, add the following lines to your `configuration.yaml`:
+To enable the `min_max` sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,7 +42,7 @@ sensor:
 Configuration variables:
 
 - **entity_ids** (*Required*): At least two entities to monitor. The unit of measurement of the first entry will be the one that's used. All entities must use the same unit of measurement.
-- **type** (*Optional*): The type of sensor: `min`, `max` or `mean`. Defaults to `max`.
+- **type** (*Optional*): The type of sensor: `min`, `max`, `last` or `mean`. Defaults to `max`.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
 - **round_digits** (*Optional*): Round mean value to specified number of digits. Defaults to 2.
 

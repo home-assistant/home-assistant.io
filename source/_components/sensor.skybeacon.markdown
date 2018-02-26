@@ -27,7 +27,7 @@ sensor:
 ```
 
 - **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
-- **monitored_conditions** array (*Required*): The paramaters that should be monitored.
+- **monitored_conditions** array (*Required*): The parameters that should be monitored.
   - **temperature**: Temperature at the sensor's location.
   - **humidity**: Humidity at the sensor's location.
 

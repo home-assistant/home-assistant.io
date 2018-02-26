@@ -17,4 +17,5 @@ source/.jekyll-metadata
 /.vs/ProjectSettings.json
 /.vs/slnx.sqlite
 /.vs/config/applicationhost.config
+/.vs/slnx.sqlite-journal
 /.vs/VSWorkspaceState.json
