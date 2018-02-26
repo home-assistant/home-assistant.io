@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.64
+ha_release: 0.65
 ---
 
 This component provides a simulated sensor that generates a time-varying signal ```V(t)``` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
