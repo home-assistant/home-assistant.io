@@ -10,7 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Switch
 ha_iot_class: "Local Push"
-ha_version: 0.39
+ha_version: 0.65
 ---
 
 The `insteon_plm` switch platform lets you control your on/off switches through 

@@ -10,13 +10,13 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Push"
-ha_version: 0.39
+ha_version: 0.65
 ---
 
 This component adds "local push" support for INSTEON PowerLinc Modems allowing
 linked INSTEON devices to be used within Home Assistant as lights, switches,
 and binary sensors.  Device support is provided by the underlying [insteonplm]
-package.  It is known to work with the [2413U] USB and [2412S] RS242 favors
+package.  It is known to work with the [2413U] USB and [2412S] RS242 flavors
 of PLM and the [2448A7] USB stick.  This component does not work with the 
 IP-based hub products.  For that, you'll want the "Insteon (Local)" component 
 instead.
@@ -52,7 +52,7 @@ Configuration variables:
 ### {% linkable_title Autodiscovery %}
 
 The first time autodiscovery runs, the duration may require up to 20 seconds 
-per device. Subsiquent startups will occur much quicker using cached device
+per device. Subsequent startups will occur much quicker using cached device
 information. If a device is not recognized during autodiscovery, you can add
 the device to the **device_override** configuration. 
 
@@ -124,7 +124,7 @@ insteon_plm:
       subcat: 0x11     
 ```
 ### {% linkable_title What NOT to do %}
-Insteon PLM is a top level platform and device discovery will identify 
+Insteon PLM is a top level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
 will NOT work:
