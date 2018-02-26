@@ -21,7 +21,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
     type: map
     keys:
       pincode:
-        description: Pin code required during setup of HomeKit Home Assistant accessory. The format needs to be 'XXX-XX-XXX' where X is a number between 1 and 9.
+        description: Pin code required during setup of HomeKit Home Assistant accessory. The format needs to be 'XXX-XX-XXX' where X is a number between 0 and 9.
         required: false
         type: string
         default: '"123-45-678"'
@@ -58,6 +58,6 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | cover | Window | All covers that support `set_cover_position`. |
-| sensor | TemperatureSensor | All sensors that have `Celsius` as their `unit_of_measurement`. |
+| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
 
 <p class='note'>Currently only devices that are setup when Home Assistant is starting can be exposed to `HomeKit`. This means that especially `Z-Wave` components are currently not supported, since they will be setup afterwards. We are working on a solution for this problem.</p>
