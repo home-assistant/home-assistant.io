@@ -34,9 +34,9 @@ insteon_plm:
   device_override:
      - address: INSTEON_ADDRESS
        cat: DEVICE_CATEGORY
-	   subcat: DEVICE_SUBCATEGORY
-	   firmware: DEVICE_FIRMWARE
-	   product_key: DEVICE_PRODUCT_KEY
+       subcat: DEVICE_SUBCATEGORY
+       firmware: DEVICE_FIRMWARE
+       product_key: DEVICE_PRODUCT_KEY
 ```
 Configuration variables:
 - **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
@@ -109,7 +109,7 @@ insteon_plm:
   device_override:
     - address: a1b2c3  # Hidden Door Sensor [2845-222]
       cat: 0x10
-	  subcat: 0x11     
+      subcat: 0x11     
 ```
 ### {% linkable_title What NOT to do %}
 Insteon PLM is a top level platform and device discovery will identify 
