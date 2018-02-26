@@ -10,7 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
-ha_version: 0.65
+ha_version: 0.39
 ---
 
 The `insteon_plm` binary sensor platform lets you control your sensors through 

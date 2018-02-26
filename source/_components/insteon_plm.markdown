@@ -10,7 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Push"
-ha_version: 0.65
+ha_version: 0.39
 ---
 
 This component adds "local push" support for INSTEON PowerLinc Modems allowing
