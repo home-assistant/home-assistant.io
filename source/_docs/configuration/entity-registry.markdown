@@ -18,7 +18,7 @@ The entity registry makes sure that entities get unique identifiers and allow
 customizing the identifiers and names of these entities.
 
 As this is still a very new part of Home Assistant, changes will require a
-restart of Home Assistant to take affect. A config user interface will be added
+restart of Home Assistant to take effect. A config user interface will be added
 in a future version.
 
 <p class='note'>
