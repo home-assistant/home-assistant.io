@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: trafikverket.png
 ha_category: Sensor
-ha_release: 0.64.0
+ha_release: 0.65.0
 ---
 
 Showing weather information for air and road temperature provided by [Trafikverket](https://www.trafikverket.se/) in Sweden. 
