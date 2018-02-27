@@ -2,7 +2,7 @@
 layout: page
 title: "Homematic"
 description: "Instructions for integrating Homematic into Home Assistant."
-date: 2016-11-27 21:38
+date: 2018-02-13 19:10
 sidebar: true
 comments: false
 sharing: true
@@ -238,4 +238,20 @@ action:
     channel: 4
     param: SET_TEMPERATURE
     value: 23.0
+```
+
+Manually set lock on KeyMatic devices
+```yaml
+...
+action:
+  service: lock.lock
+  entity_id: lock.leq1234567
+```
+
+Manually set unlock on KeyMatic devices
+```yaml
+...
+action:
+  service: lock.unlock
+  entity_id: lock.leq1234567
 ```
