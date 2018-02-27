@@ -110,6 +110,15 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 </p>
 
 <p class='note'>
+If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g. sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
+```
+[Unit]
+Description=Home Assistant
+After=network.target mosquitto.service
+```
+</p>
+
+<p class='note'>
 If you are running a Mosquitto instance on a different server with proper SSL encryption using a service like Let's Encrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of Ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
 </p>
 
