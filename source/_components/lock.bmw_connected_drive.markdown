@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: Other
-ha_release: 0.64
+logo: bmw.png
+ha_category: Lock
+ha_release: 0.65
 ---
 
 
