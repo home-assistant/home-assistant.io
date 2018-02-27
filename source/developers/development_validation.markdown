@@ -28,6 +28,15 @@ Some things to keep in mind:
 - Use the constants defined in `const.py`
 - Import `PLATFORM_SCHEMA` from the parent component and extend it
 - Preferred order is `required` first and `optional` second
+- Starting with Home Assistant version 0.64.0 voluptuous now requires default values for config keys to be valid values. For instance:
+```
+vol.Required(CONF_SWITCH, default=None): cv.string,
+```
+will fail. while:
+```
+vol.Required(CONF_SWITCH, default=""): cv.string,
+```
+will pass the configuration check.
 
 ### {% linkable_title Snippets %} 
 
