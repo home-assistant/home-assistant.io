@@ -1,19 +1,19 @@
 ---
 layout: page
-title: "Insteon PLM Switch"
-description: "Instructions how to setup the Insteon PLM switches locally within Home Assistant."
+title: "Insteon PLM Sensor"
+description: "Instructions how to setup the Insteon PLM sensors locally within Home Assistant."
 date: 2017-02-19 17:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: insteon.png
-ha_category: Switch
+ha_category: Sensor
 ha_iot_class: "Local Push"
-ha_version: 0.39
+ha_version: 0.65
 ---
 
-The `insteon_plm` switch platform lets you control your on/off switches through 
+The `insteon_plm` sensor platform lets you control your sensors through 
 an INSTEON PowerLinc Modem (PLM) device connected directly to your system on a
 USB or serial port.  To add support, set up the primary [insteon_plm]
 component.
