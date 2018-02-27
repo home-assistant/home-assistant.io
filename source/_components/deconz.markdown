@@ -101,6 +101,8 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
+For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.
+
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Step up and step down input number with wireless dimmer %}
