@@ -37,9 +37,29 @@ Configuration variables:
 - **name** (*Optional*): The name of your light.
 - **model** (*Optional*): The model of your light. Valid values are `philips.light.bulb`, `philips.light.sread1`, `philips.light.ceiling` and `philips.light.zyceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
 
+{% configuration %}
+host:
+  description: The IP address of your device.
+  required: true
+  type: string
+token:
+  description: The API token of your device.
+  required: true
+  type: string
+name:
+  description: The name of your device.
+  required: false
+  type: string
+  default: Xiaomi Philips Light
+model:
+  description: The model of your device.
+  required: false
+  type: string
+{% endconfiguration %}
+
 ## {% linkable_title Platform Services %}
 
-### Service light/xiaomi_miio_set_scene
+### {% linkable_title Service `light.xiaomi_miio_set_scene` %}
 
 Set one of the 4 available fixed scenes.
 
@@ -48,7 +68,7 @@ Set one of the 4 available fixed scenes.
 | `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
 | `scene`                   |       no | Scene, between 1 and 4.                               |
 
-### Service light/xiaomi_miio_set_delayed_turn_off
+### {% linkable_title Service `light.xiaomi_miio_set_delayed_turn_off` %}
 
 Delayed turn off.
 
