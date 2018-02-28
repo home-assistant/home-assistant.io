@@ -10,17 +10,19 @@ footer: true
 logo: sony.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: 0.63
+ha_release: 0.65
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
 
-[List of supported devices](http://vssupport.sony.net/en_ww/device.html) from Sony's Songpal website. Even when the API officially supports only a few devices (STR-DN1080, HT-CT800 and SRS-ZR5), it has also been confirmed to work on others. If the platform works with your non-listed device, or you encounter bugs, please feel free to [report them upstream](https://github.com/rytilahti/python-songpal).
+Even when the API officially supports only a few devices (HT-ST5000, HT-MT500, HT-CT800, SRS-ZR5 and STR-DN1080), it has also been confirmed to work on others. [The list of supported devices](http://vssupport.sony.net/en_ww/device.html) from Sony's Songpal website lists devices which are likely to be compatible with this platform.
+
+If the platform works with your non-listed device, or you encounter bugs, please feel free to [report them upstream](https://github.com/rytilahti/python-songpal).
 
 A few notes:
 
 - The quick start-up mode has to be enabled in order to turn the device on.
-- Supports currently only one output terminal, e.g. the volume control works only on the first volume controller as reported by the backend library.
+- Supports currently only one output terminal, i.e. the volume control works only on the first volume controller as reported by the backend library.
 - Some devices, e.g. HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
