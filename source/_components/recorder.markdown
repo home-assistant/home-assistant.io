@@ -156,13 +156,32 @@ If the `recorder` component is activated then some components support `restore_s
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
++<p class='note'>
++If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g. sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the service - for PostgreSQL:
++```
++[Unit]
++Description=Home Assistant
++After=network.target postgresql.service
++```
++</p>
+
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
 ### {% linkable_title MariaDB and MySQL %}
 
-For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
+
+```bash
+pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
+(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
+```
+
+For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, libmariadbclient-dev was renamed to libmariadb-dev, please install the correct package based on your MariaDB version.
+
+On the Python side we use the `mysqlclient`:
 
 ```bash
 $ sudo apt-get install libmariadbclient-dev libssl-dev
@@ -174,14 +193,6 @@ For MySQL you may have to install a few dependencies. You can choose between `py
 ```bash
 $ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
-```
-
-If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
-
-```bash
-pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
-homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
-(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 

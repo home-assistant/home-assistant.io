@@ -60,6 +60,28 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Spotcrime ([@jcconnell] - [#12460]) ([sensor.spotcrime docs]) (new-platform)
 - Add Tahoma scenes ([@bakedraccoon] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
 
+## {% linkable_title Release 0.64.1 - February 27 %}
+
+- Frontend: Don't put unit of sensor on new line ([@NovapaX])
+- Frontend: Fix display issues on iOS 9.3.5 ([@NovapaX])
+- Frontend: Fix chart legend not showing correctly when data has 1 serie ([@fanthos])
+- Frontend: Fix cards not getting updated ([@balloob])
+- Cast automatically drop connection ([@OttoWinter] - [#12635]) ([media_player.cast docs])
+- Roomba timeout ([@kellerza] - [#12645]) ([vacuum.roomba docs])
+- Fix a problem with calling `deconz.close` ([@aronsky] - [#12657]) ([deconz docs])
+- Harmony: make activity optional ([@balloob] - [#12679]) ([remote.harmony docs])
+- Fix getting state from iglo ([@jesserockz] - [#12685]) ([light.iglo docs])
+- Fix mysensor defaults ([@balloob] - [#12687]) ([mysensors docs])
+- Component deconz: Fix dark attribute on presence sensors ([@tumik] - [#12691]) ([binary_sensor.deconz docs])
+- Bugfix: Update of sources for non AVR-X devices always fails ([@scarface-4711] - [#12711]) ([media_player.denonavr docs])
+- Don't allow to use a old unsecure library ([@pvizeli] - [#12715])
+- Unbreak tahoma ([@bakedraccoon] - [#12719]) ([tahoma docs])
+- fix for https://github.com/home-assistant/home-assistant/issues/12673 ([@ChristianKuehnel] - [#12726]) ([sensor.alpha_vantage docs])
+- Fix harmony duplicate detection ([@amelchio] - [#12729]) ([remote.harmony docs])
+- Update ZHA deps ([@balloob] - [#12737]) ([zha docs])
+- MQTT: Fix doing async inside sync context ([@OttoWinter])
+- Fix DarSky humidity precision ([@PhilRW])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -545,4 +567,42 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [weather.buienradar docs]: https://home-assistant.io/components/weather.buienradar/
 [weblink docs]: https://home-assistant.io/components/weblink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
+[zha docs]: https://home-assistant.io/components/zha/
+[#12635]: https://github.com/home-assistant/home-assistant/pull/12635
+[#12645]: https://github.com/home-assistant/home-assistant/pull/12645
+[#12657]: https://github.com/home-assistant/home-assistant/pull/12657
+[#12679]: https://github.com/home-assistant/home-assistant/pull/12679
+[#12685]: https://github.com/home-assistant/home-assistant/pull/12685
+[#12687]: https://github.com/home-assistant/home-assistant/pull/12687
+[#12691]: https://github.com/home-assistant/home-assistant/pull/12691
+[#12711]: https://github.com/home-assistant/home-assistant/pull/12711
+[#12715]: https://github.com/home-assistant/home-assistant/pull/12715
+[#12719]: https://github.com/home-assistant/home-assistant/pull/12719
+[#12726]: https://github.com/home-assistant/home-assistant/pull/12726
+[#12729]: https://github.com/home-assistant/home-assistant/pull/12729
+[#12737]: https://github.com/home-assistant/home-assistant/pull/12737
+[@ChristianKuehnel]: https://github.com/ChristianKuehnel
+[@NovapaX]: https://github.com/NovapaX
+[@OttoWinter]: https://github.com/OttoWinter
+[@amelchio]: https://github.com/amelchio
+[@aronsky]: https://github.com/aronsky
+[@bakedraccoon]: https://github.com/bakedraccoon
+[@balloob]: https://github.com/balloob
+[@jesserockz]: https://github.com/jesserockz
+[@kellerza]: https://github.com/kellerza
+[@pvizeli]: https://github.com/pvizeli
+[@scarface-4711]: https://github.com/scarface-4711
+[@tumik]: https://github.com/tumik
+[@fanthos]: https://github.com/fanthos
+[@PhilRW]: https://github.com/PhilRW
+[binary_sensor.deconz docs]: https://home-assistant.io/components/binary_sensor.deconz/
+[deconz docs]: https://home-assistant.io/components/deconz/
+[light.iglo docs]: https://home-assistant.io/components/light.iglo/
+[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
+[media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
+[mysensors docs]: https://home-assistant.io/components/mysensors/
+[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
+[sensor.alpha_vantage docs]: https://home-assistant.io/components/sensor.alpha_vantage/
+[tahoma docs]: https://home-assistant.io/components/tahoma/
+[vacuum.roomba docs]: https://home-assistant.io/components/vacuum.roomba/
 [zha docs]: https://home-assistant.io/components/zha/

@@ -54,3 +54,27 @@ Hass.io upgrade process from the SSH command line
 [ResinOS]: https://resinos.io/
 [Docker]: https://www.docker.com/
 [install]: /hassio/installation/
+
+## {% linkable_title hassio command %}
+
+On the SSH command line tyou can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
+
+HomeAssistant:
+```  $ hassio homeassistant logs
+  $ hassio homeassistant restart
+  $ hassio homeassistant stop
+  $ hassio homeassistant start
+  $ hassio homeassistant update
+  $ hassio homeassistant check```
+
+Host:
+```  $ hassio host hardware
+  $ hassio host reboot
+  $ hassio host shutdown
+  $ hassio host update```
+
+Supervisor
+```  $ hassio supervisor logs
+  $ hassio supervisor info
+  $ hassio supervisor reload
+  $ hassio supervisor update```
