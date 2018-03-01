@@ -13,7 +13,7 @@ ha_release: 0.57
 ## {% linkable_title How to start %}
 [Join the translation team](https://lokalise.co/signup/3420425759f6d6d241f598.13594006/all/) and choose your language. Even if your language is completely translated, extra proofreading is a big help! Please feel free to review the existing translations, and vote for alternatives that might be more appropriate.
 
-First time users may find it helpful to switch between multilanguage and single language view using the <img src='/images/frontend/lokalise-multilanguage-view-button.png' alt="Multilanguage view" style="width: 17px; border: none;"/> button. For more information about the translation workflow, please see the [Lokalise translation workflow documents](https://docs.lokalise.co/category/iOzEuQPS53-for-team-leads-and-translators).
+For more information about the translation workflow, please see the [Lokalise translation workflow documents](https://docs.lokalise.co/category/iOzEuQPS53-for-team-leads-and-translators).
 
 <p class='note'>
 The translation of the Home Assistant frontend is still a work in progress. More phrases will be available for translation soon.
