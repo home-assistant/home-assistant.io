@@ -71,10 +71,18 @@ device_class:
   description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
   required: false
   type: string
+filter_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to filter updates based on the payload content. The template must resolve to True for the sensor value to be updated."
+  required: false
+  type: template
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+expire_after:
+  description: "Defines the number of seconds after which the value expires, if it's not updated."
+  required: false
+  type: integer
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false

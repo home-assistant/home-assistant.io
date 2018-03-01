@@ -49,6 +49,10 @@ expire_after:
   required: false
   type: int
   default: 0
+filter_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to filter updates based on the payload content. The template must resolve to True for the sensor value to be updated."
+  required: false
+  type: template
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
