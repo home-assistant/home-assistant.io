@@ -29,6 +29,7 @@ light:
       theater_lights:
         friendly_name: "Theater Lights"
         level_template: "{{ sensor.theater_brightness.attributes.lux|int }}"
+        color_template: "{{ sensor.avg_color_from_camera.attributes.color }}"
         value_template: "{{ sensor.theater_brightness.attributes.lux|int > 0 }}"
         turn_on:
           service: script.theater_lights_on
@@ -38,6 +39,10 @@ light:
           service: script.theater_lights_level
           data_template:
             brightness: "{{ brightness }}"
+        set_color:
+          service: script.theater_set_color
+          data_template:
+            color: "{{ color }}"
 ```
 {% endraw %}
 
@@ -65,6 +70,11 @@ light:
         required: false
         type: template
         default: optimistic
+      color_template:
+        description: Defines a template to get the RGB color of the light.
+        required: false
+        type: template
+        default: optimistic
       turn_on:
         description: Defines an action to run when the light is turned on.
         required: true
@@ -75,6 +85,10 @@ light:
         type: action
       set_level:
         description: Defines an action to run when the light is given a brightness command.
+        required: false
+        type: action
+      set_color:
+        description: Defines an action to run when the RGB color of the light is changed.
         required: false
         type: action
 {% endconfiguration %}
@@ -231,3 +245,78 @@ light:
             is_volume_muted: true
 ```
 {% endraw %}
+
+### {% linkable_title Handle discreet number of colors %}
+
+Some devices have fixed colors you can choose from instead of the regular RGB spectrum (cheap IR lights for example). Here is an example that deals with these kind of devices.
+
+{% raw %}
+```yaml
+light:
+  - platform: template
+    lights:
+      led_strip:
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.led_strip
+        turn_off:
+          service: switch.turn_off
+          data:
+            entity_id: switch.led_strip
+        value_template: "{{ states.switch.led_strip.state }}"
+        set_color:
+            service: python_script.color
+            data_template:
+              entity_id: broadlink_send_packet_192_168_1_25
+              color: "{{ color }}"
+              codes: 
+                  red: 'JgBYAAABM5QTFRAWERMTExMTExMRFBIUFDYUNxE5FTURFRE5EjgSOREUEhQSOBIUERUTExUTEBQSORE5ExMSOBE5EjgTNxM3FQAFRgABMUoTAAxdAAExSRQADQU=' #RED
+                  green: 'JgBQAAABMpQUEhQSFRETExIUExMUEhMTEzcUNxM3FDYUEhI5EjgSOBM4EBgQOBIUFBIUEhMTFBIUEhM4EhQSOBI4EzgSOBI4FgAFRwABMkoTAA0FAAAAAAAAAAA=' #GREEN
+                  blue: 'JgBYAAABMJYRFREUERYSExMSFBITExMTETkRORE5ETkSFBM3EzcTNxEVETkRORIUERUSFBMSFBITNxMTExMRORE5ETkRORE5EgAFSgABLksRAAxhAAEwShMADQU=' #BLUE
+                  ...
+```
+{% endraw %}
+
+And you can use the following script that finds the closest color from a list of named colors :
+
+{% raw %}
+```python
+entity_id = data.get('entity_id')
+c1 = data.get('color', [255, 255, 255])
+codes = data.get('codes', {}) # color name : IR code base 64 for broadlink
+colors = { # Standard colors of IR remote lights
+  'red':      [255,20,20],
+  'green':    [20,255,20],
+  'blue':     [20,20,255],
+  'white':    [255,255,255],
+  'orange':   [255,125,20],
+  'gold':     [255,178,20],
+  'beige':    [255,219,20],
+  'yellow':   [255,255,20],
+  'turquoise':[20,255,178],
+  'cyan':     [20,255,255],
+  'aqua':     [20,178,255],
+  'royal':    [20,125,255],
+  'violet':   [125,20,255],
+  'purple':   [178,20,255],
+  'pink':     [219,20,255],
+  'magenta':  [255,20,255]
+  }
+
+if entity_id is not None:
+  minimum = 195075 # Maximum distance
+  winer = -1
+  c1 = c1[1:-1].split(",")
+  for code, c2 in colors.items():
+    distance = (int(c1[0]) - c2[0])**2 + (int(c1[1]) - c2[1])**2 + (int(c1[2]) - c2[2])**2
+    if distance < minimum :
+      winner = code
+      minimum = distance
+  logger.info("Selected color : {}".format(winner))
+  service_data = {'packet': [codes[winner]] }
+  hass.services.call('switch', entity_id, service_data, False)
+```
+{% endraw %}
+
+
