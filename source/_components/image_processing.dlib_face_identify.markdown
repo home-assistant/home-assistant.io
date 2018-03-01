@@ -29,6 +29,13 @@ image_processing:
      Jon: /home/hass/jon.jpg
      Bob: /home/hass/bob.jpg
 ```
+Note: if you are NOT using docker (and in some instances Hass.io)
+you may run into an issue where face_recognition==1.0.0 fails to install due to dependency issues. Check the presence of cmake & scipy, and where needed:
+```sudo apt-get install cmake
+sudo -H pip3 install scipy
+sudo pip3 install face_recognition==1.0.0```
+
+it will take a little time after restart.
 
 Configuration variables:
 
