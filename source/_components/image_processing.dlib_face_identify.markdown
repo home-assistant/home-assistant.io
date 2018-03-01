@@ -29,13 +29,6 @@ image_processing:
      Jon: /home/hass/jon.jpg
      Bob: /home/hass/bob.jpg
 ```
-Note: if you are NOT using docker (and in some instances Hass.io)
-you may run into an issue where face_recognition==1.0.0 fails to install due to dependency issues. Check the presence of cmake & scipy, and where needed:
-```sudo apt-get install cmake
-sudo -H pip3 install scipy
-sudo pip3 install face_recognition==1.0.0```
-
-it will take a little time after restart.
 
 Configuration variables:
 
@@ -43,3 +36,7 @@ Configuration variables:
   - **entity_id** (*Required*): A camera entity id to get picture from.
   - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
 - **faces** array (*Required*): List of faces sources.
+
+<p class='note'>
+If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`. 
+</p>
