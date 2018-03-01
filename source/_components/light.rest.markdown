@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: restful.png
 ha_category: Light
-ha_release: 0.63
+ha_release: 0.65
 ha_iot_class: "Local Polling"
 ---
 
 
-The `rest` light platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The light can get the state via GET and set the state via POST on a given REST resource.
+The `rest` light platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The light can get the state via GET and set the state via POST on a given REST resource/resources.
 
 To enable this light, add the following lines to your `configuration.yaml` file:
 
@@ -22,14 +22,24 @@ To enable this light, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 light:
   - platform: rest
-    resource: http://IP_ADDRESS/ENDPOINT
+    url_on: http://IP_ADDRESS/ENDPOINT/on
+    url_off: http://IP_ADDRESS/ENDPOINT/off
+    url_state: http://IP_ADDRESS/ENDPOINT
 ```
 
 Configuration variables:
 
 {% configuration %}
-  resource:
-    description: 'The resource or endpoint that contains the value.'
+  url_on:
+    description: 'The resource or endpoint used to turn the device on.'
+    required: true
+    type: string
+  url_off:
+    description: 'The resource or endpoint used to turn the device off.'
+    required: true
+    type: string
+  url_state:
+    description: 'The resource or endpoint used to determine the current state.'
     required: true
     type: string
   name:
@@ -116,5 +126,5 @@ Configuration variables:
 {% endconfiguration %}
 
 <p class='note warning'>
-Make sure that the URL matches exactly your endpoint or resource.
+Make sure that the URLs match exactly your endpoints or resources.
 </p>
