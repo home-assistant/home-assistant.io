@@ -16,6 +16,10 @@ It's recommended when installing Python packages that you use a [virtual environ
 
 _(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`.)_
 
+<p class='Note'>
+It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user.  The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
+</p>
+
 ### {% linkable_title Install %}
 
  1. Create a virtual environment in your current directory:
