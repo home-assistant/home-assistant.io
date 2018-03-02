@@ -15,5 +15,5 @@ Home-assistant keeps a list of external directories that are writeable or access
 ```yaml
 homeassistant:
   whitelist_external_dirs:
-    - /www
+    - /data
 ```
