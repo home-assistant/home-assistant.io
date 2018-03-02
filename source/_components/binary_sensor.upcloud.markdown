@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: System Monitor
 logo: upcloud.png
-ha_release: 0.63
+ha_release: 0.65
 ha_iot_class: Cloud Polling
 ---
 
