@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Hub
-ha_release: 0.63
+ha_release: 0.65
 logo: upcloud.png
 ha_iot_class: Cloud Polling
 ---
