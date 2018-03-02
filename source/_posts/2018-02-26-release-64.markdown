@@ -94,6 +94,13 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Fix dead Sonos web interface with some music sources ([@amelchio] - [#12796]) ([media_player.sonos docs])
 - Unique IDs for Plex Clients ([@ryanm101] - [#12799]) ([media_player.plex docs])
 
+## {% linkable_title Release 0.64.3 - March 2 %}
+
+- is_allowed_path: Also test folder #12788 #12807 ([@kellerza] - [#12810])
+- Fix sensibo default IDs to be according to schema ([@andrey-git] - [#12837]) ([climate.sensibo docs])
+- Cloud: handle unauth better ([@balloob] - [#12840]) ([cloud docs])
+- Handle Hue errors better ([@balloob] - [#12845]) ([hue docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -642,3 +649,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
 [sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
 [sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
+[#12810]: https://github.com/home-assistant/home-assistant/pull/12810
+[#12837]: https://github.com/home-assistant/home-assistant/pull/12837
+[#12840]: https://github.com/home-assistant/home-assistant/pull/12840
+[#12845]: https://github.com/home-assistant/home-assistant/pull/12845
+[@andrey-git]: https://github.com/andrey-git
+[@balloob]: https://github.com/balloob
+[@kellerza]: https://github.com/kellerza
+[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
+[cloud docs]: https://home-assistant.io/components/cloud/
+[hue docs]: https://home-assistant.io/components/hue/
