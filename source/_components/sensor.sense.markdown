@@ -10,7 +10,7 @@ footer: true
 logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
-ha_release: 0.61
+ha_release: 0.65
 ---
 
 
@@ -30,11 +30,12 @@ sensor:
     - daily_production
 ```
 
-Two types of sensors can be monitored will be created with the following names:
+Two types of sensors can be monitored and will be created with the following names:
 - **Active Usage/Production**: Current active power usage/production in Watts. Updated every 30 seconds.
 - **Daily Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
+- ...
 
-Weekly, Monthly, and Yearly variants are also available.
+Weekly, Monthly and Yearly variants are also available.
 
 {% configuration %}
 email:
