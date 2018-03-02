@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: upcloud.png
 ha_category: Switch
-ha_release: 0.63
+ha_release: 0.65
 ha_iot_class: Cloud Polling
 ---
 
