@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Climate
-ha_release: 0.64
+ha_release: 0.65
 ha_iot_class: "Local Polling"
 ---
 
