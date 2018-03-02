@@ -12,6 +12,10 @@ redirect_from: /getting-started/installation-raspberry-pi/
 
 This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
+<p class='note'>
+Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well.  This guide is also referred to as the "Advanced Guide" for a virtual environment install.
+</p>
+
 Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
@@ -61,7 +65,13 @@ $ cd /srv/homeassistant
 $ python3 -m venv .
 $ source bin/activate
 ```
-Once you have activated the virtual environment you will notice the prompt change and then you can install Home Assistant.
+Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package.
+
+```bash
+(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ python3 -m pip install wheel
+```
+
+Once you have installed the required python package it is now time to install Home Assistant!
 
 ```bash
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
