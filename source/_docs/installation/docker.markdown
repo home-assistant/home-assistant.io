@@ -90,7 +90,8 @@ As the docker command becomes more complex, switching to `docker-compose` can be
 ```yaml
   version: '3'
   services:
-    web:
+    homeassistant:
+      container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
         - /path/to/your/config:/config
@@ -118,7 +119,8 @@ or in a `docker-compose.yml` file:
 ```yaml
   version: '3'
   services:
-    web:
+    homeassistant:
+      container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
         - /path/to/your/config:/config
