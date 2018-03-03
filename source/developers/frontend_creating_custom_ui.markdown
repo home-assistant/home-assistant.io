@@ -48,7 +48,7 @@ frontend:
     <style>
 
     </style>
-    <textarea>[[_toStr(StateObj)]]</textarea>
+    <textarea>[[_toStr(stateObj)]]</textarea>
   </template>
 </dom-module>
 
