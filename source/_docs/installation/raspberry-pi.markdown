@@ -89,3 +89,15 @@ When you run the `hass` command for the first time, it will download, install an
 </p>
 
 If you want setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
+
+### {% linkable_title Updating %}
+
+To update to the latest version of Home Assistant follow these simple steps:
+
+```bash
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+$ pip3 install --upgrade home assistant
+```
+
+Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
