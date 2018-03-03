@@ -71,9 +71,9 @@ So starting this release, we had to make some breaking changes to right the wron
 
 [**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
 
-#### Customize has been reverted to it's original config
+#### Customize has been reverted to its original config
 
-The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
+The old customize is back. The options to match by domain or using glob have been moved to its own options. It will now look like this:
 
 ```yaml
 homeassistant:

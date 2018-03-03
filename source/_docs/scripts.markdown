@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Script Syntax"
-description: "Documention for the Home Assistant Script Syntax."
+description: "Documentation for the Home Assistant Script Syntax."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
@@ -124,6 +124,51 @@ event_data:
   entity_id: device_tracker.paulus
   domain: light
 ```
+
+You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
+an event trigger.
+
+{% raw %}
+```yaml
+event: MY_EVENT
+event_data_template:
+  name: myEvent
+  customData: "{{ myCustomVariable }}"
+```
+{% endraw %}
+
+### {% linkable_title Raise and Consume Custom Events %}
+
+The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+
+{% raw %}
+```yaml
+- alias: Fire Event
+  trigger:
+    platform: state
+    entity_id: switch.kitchen
+    to: 'on'
+  action:
+    event: event_light_state_changed
+    event_data:
+      state: "on"
+```
+{% endraw %}
+
+The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
+
+{% raw %}
+```yaml
+- alias: Capture Event
+  trigger:
+    platform: event
+    event_type: event_light_state_changed
+  action:
+    - service: notify.notify
+      data_template:
+        message: "kitchen light is turned {{ trigger.event.data.state }}"
+```
+{% endraw %}
 
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/

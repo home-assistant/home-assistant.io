@@ -43,6 +43,13 @@ Don't forget to save your new automation rule. In order for your saved automatio
 
 ## {% linkable_title Updating your configuration to use the editor %}
 
+First check that you have activated the configuration editor.
+
+```yaml
+# Activate the configuration editor
+config:
+```
+
 The automation editor reads and writes to the file `automations.yaml` in your [configuration](/docs/configuration/) folder. Make sure that you have set up the automation component to read from it:
 
 ```yaml
@@ -57,6 +64,16 @@ automation old:
 - trigger:
     platform: ...
 ```
+
+You can use the `automation:` and `automation old:` sections in the same time:
+ - `automation old:` to keep your manual designed automations
+ - `automation:` to save the automation created by the online editor
+
+```yaml
+automation: !include automations.yaml
+automation old: !include_dir_merge_list automations
+```
+
 
 ## {% linkable_title Migrating your automations to `automations.yaml` %}
 

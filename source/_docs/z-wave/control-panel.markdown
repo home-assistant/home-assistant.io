@@ -39,9 +39,13 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
 
-* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+* **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
+
+<p class='note warning'>
+Since 0.63 and the new experimental [entity registry](https://home-assistant.io/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change, the default *friendly_name* and *old_entity_id* and *new_entity_id* attributes for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+</p>
 
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
@@ -52,7 +56,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
@@ -114,7 +118,7 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1
@@ -130,6 +134,20 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 Some non compliant device like tag readers, have implemented to use raw hex code.
 Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
 
+Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
+
+```python
+#! /usr/bin/python3
+import sys
+
+translations = {}
+
+for x in range(0, 10):
+    translations["%s" % x] = "\\x3%s" % x
+
+for c in sys.argv[1]:
+    print(translations[c], end='')
+```
 
 ## {% linkable_title OZW Log %}
 

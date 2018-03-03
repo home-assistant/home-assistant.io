@@ -21,6 +21,7 @@ There are a few ways that you can use Amazon Echo and Home Assistant together.
 
 - [Build custom commands to use](#i-want-to-build-custom-commands-to-use-with-echo)
 - [Create a new Flash Briefing source](#flash-briefing-skills)
+- [Use the Smart Home API to control lights, etc](#smart-home)
 - Alternative: use the [Emulated Hue component][emulated-hue-component] to trick Alexa to thinking Home Assistant is a Philips Hue hub.
 
 Amazon has released [Echosim], a website that simulates the Alexa service in your browser. That way it is easy to test your skills without having access to a physical Amazon Echo.
@@ -331,6 +332,50 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
   - Test
       - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
+
+
+## {% linkable_title Smart Home %}
+
+While the Skills API described above allows for arbitrary intents, all
+utterances must begin with "Alexa, tell $invocation_name ..."
+
+The [Emulated Hue component][emulated-hue-component] provides a simpler
+interface such as, "Alexa, turn on the kitchen light". However it has some
+limitations since everything looks like a light bulb.
+
+Amazon provides a Smart Home API for richer home automation control. It takes
+considerable effort to configure. The easy solution is to use
+[Home Assistant Cloud](/components/cloud/).
+
+If you don't want to use Home Assistant Cloud and are willing to do the
+integration work yourself, Home Assistant can expose an HTTP API which makes
+the integration work easier. Example configuration:
+
+```yaml
+alexa:
+  smart_home:
+    filter:
+      include_entities:
+        - light.kitchen
+        - light.kitchen_left
+      include_domains:
+        - switch
+      exclude_entities:
+        - switch.outside
+    entity_config:
+      light.kitchen:
+        name: Custom Name for Alexa
+        description: The light in the kitchen
+      switch.stairs:
+        display_categories: LIGHT
+```
+
+This exposes an HTTP POST endpoint at `http://your_hass_ip/api/alexa/smart_home`
+which accepts and returns messages conforming to the
+[Smart Home v3 payload](https://developer.amazon.com/docs/smarthome/smart-home-skill-api-message-reference.html).
+You must then create an Amazon developer account with an Alexa skill and Lambda
+function to integrate this endpoint. See
+[Haaska](https://github.com/mike-grant/haaska) for an example.
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing

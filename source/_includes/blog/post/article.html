@@ -15,7 +15,7 @@
     {% include blog/post/tags.html %}
     {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
       <a class='comments'
-         href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread"
+         href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#post-comments"
          >Comments</a>
     {% endif %}
   </div>

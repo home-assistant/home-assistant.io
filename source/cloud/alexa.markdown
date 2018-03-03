@@ -7,10 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_release: 0.60
-ha_category: Cloud
-ha_iot_class: "Cloud Push"
+redirect_from: /components/cloud.alexa/
 ---
 
 The Alexa integration allows users to control the entities via the [Home Assistant Smart Home skill for Alexa][alexa skill]. This means that you can say things like "Alexa, turn on the kitchen light" to control your local Home Assistant.
@@ -20,8 +17,6 @@ To use this integration, you need to have:
  - The cloud component set up. [Learn more](/components/cloud/)
  - An Alexa enabled device like the Amazon Echo
  - Activated the [Home Assistant Smart Home skill for Alexa][alexa skill]
-
-<p class='note warning'>Only Amazon US is currently supported. Other regions are being certified.</p>
 
 You can use `configuration.yaml` to configure the entities that are being shown to Alexa and how they are exposed.
 
@@ -45,7 +40,7 @@ cloud:
         display_categories: LIGHT
 ```
 
-{% configuration %}
+{% configuration cloud %}
 alexa:
   description: Configuration options for the Amazon Alexa integration.
   required: false

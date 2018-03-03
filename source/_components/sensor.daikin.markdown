@@ -3,40 +3,36 @@ layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC(s) with Home Assistant."
 date: 2017-12-03 05:00
-sidebar: false
+sidebar: True
 comments: false
 sharing: true
 footer: true
-logo: N/A
-ha_category: Climate
+logo: daikin.png
+ha_category: Sensor
 ha_release: 0.59
 ha_iot_class: "Local Polling"
 ---
 
-### Description ###
 
-The sensor component integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+
 - **inside temperature**
 - **outside temperature**
 
 <p class='note warning'>
-    Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant
+Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant.
 </p>
 
-### Configuration ###
-
-Manual configuration and customization is possible by using the sample configuration from below:
+To enable the platform manually, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: daikin
-      host: 10.0.0.1
-      name: optional name
-      monitored_conditions:
-        - inside_temperature  
-        - outside_temperature  
-      
+    host: 10.0.0.1
+    monitored_conditions:
+      - inside_temperature
+      - outside_temperature
 ```
 
 {% configuration %}
@@ -47,7 +43,7 @@ host:
 monitored_conditions:
   description: List of items you want to monitor for each device.
   required: false
-  detault: All conditions
+  default: All conditions
   type: list
   keys:
     inside_temperature:

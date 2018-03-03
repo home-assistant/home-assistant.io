@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. At the moment we don't support hmIP but that is in progress. For learning and handling devices use our internal homematic panel and services (in progress) or use [Homematic-Manager](https://github.com/hobbyquaker/homematic-manager) > 2.0.
+Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. At the moment we don't support hmIP, but that is in progress. For learning and handling devices use our internal HomeMatic panel and services (in progress) or use [Homematic-Manager](https://github.com/hobbyquaker/homematic-manager) > 2.0.
 
-The logic layer will be Home-Assistant. There is no ReGa or other logic layer installed. You can't import exists configuration, you need new learn it into Home-Assistant.
+The logic layer will be Home-Assistant. There is no ReGa or other logic layer installed. You can't import an existing configuration, you'll need re-learn it into Home-Assistant.
 
 Follow devices will be supported and tested:
 - [HM-MOD-RPI-PCB](https://www.elv.ch/homematic-funkmodul-fuer-raspberry-pi-bausatz.html)
@@ -42,13 +42,13 @@ Configuration variables:
 - **wired_enable** (*Require*): Boolean. Enable or disable BidCoS-Wired.
 
 For RF devices
-- **type** (*Require*): Device type for RFD service. Look into handbook of your device.
-- **device** (*Require*): Device on host.
+- **type** (*Require*): Device type for RFD service. Look into the manual of your device.
+- **device** (*Require*): Device on the host.
 
 For RF devices
-- **serial** (*Require*): Serial number of device.
+- **serial** (*Require*): Serial number of the device.
 - **key** (*Require*): Encrypted key.
-- **ip** (*Require*): IP address of lan gateway.
+- **ip** (*Require*): IP address of LAN gateway.
 
 ## {% linkable_title Home Assistant configuration %}
 
@@ -57,14 +57,14 @@ Use the following configuration in Home Assistant to use it:
 ```yaml
 homematic:
   interfaces:
-    BidCoS-RF:
+    rf:
       host: core-homematic
       port: 2001
 ```
 
 ## {% linkable_title Raspberry Pi3 %}
 
-With HM-MOD-PRI-PCB you need add follow into your `config.txt` on boot partition:
+With HM-MOD-PRI-PCB you need to add follow into your `config.txt` on boot partition:
 ```
 dtoverlay=pi3-miniuart-bt
 ```

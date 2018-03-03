@@ -48,6 +48,10 @@ binary_sensor:
             description: Name to use in the frontend.
             required: false
             type: string
+          entity_id:
+            description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+            required: false
+            type: string, list
           device_class:
             description: The type/class of the sensor to set the icon in the frontend.
             required: false
@@ -56,6 +60,14 @@ binary_sensor:
           value_template:
             description: Defines a template to set the state of the sensor.
             required: true
+            type: template
+          icon_template:
+            description: Defines a template for the icon of the sensor.
+            required: false
+            type: template
+          entity_picture_template:
+            description: Defines a template for the entity picture of the sensor.
+            required: false
             type: template
           delay_on:
             description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.

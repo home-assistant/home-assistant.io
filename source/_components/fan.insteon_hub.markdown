@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Fan
-ha_release: 0.30
+ha_release: "0.30"
 ---
 
 The `insteon_hub` fan component lets you control your fans connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.

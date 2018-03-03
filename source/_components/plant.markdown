@@ -45,8 +45,9 @@ Configuration variables:
   - **max_conductivity** (*Optional*): Maximum conductivity level before triggering a problem. Typical value: 3000
   - **min_temperature** (*Optional*): Minimum temperature before triggering a problem.
   - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
-  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem.
+  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
   - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
+  - **check_days** (*Optional*): time interval (in days) used when checking **min_brightness**, if not set, the default value is 3
 
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data

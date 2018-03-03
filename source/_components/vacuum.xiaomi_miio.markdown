@@ -134,7 +134,7 @@ The following table shows the units of measurement for each attribute:
 
 <p class='note'>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot
-Vacuum and Xiaomi Philips Lights. The Xiaomi Gateway uses another security
+Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security
 method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app.
 </p>
@@ -174,7 +174,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
 3. Get ADB e.g. `apt-get install android-tools-adb` or `apt-get install adb`
 4. `adb devices` should list your device. Consult ADB manual if necessary.
-5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone)
+5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone). Some devices may required single quotes in the command `adb backup '-noapk com.xiaomi.smarthome -f backup.ab'`
 6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)
 7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter the password, if prompted)
 8. Untar the unpacked data: `tar -xvf unpacked.tar`

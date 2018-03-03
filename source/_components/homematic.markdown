@@ -2,7 +2,7 @@
 layout: page
 title: "Homematic"
 description: "Instructions for integrating Homematic into Home Assistant."
-date: 2016-11-27 21:38
+date: 2018-02-13 19:10
 sidebar: true
 comments: false
 sharing: true
@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 featured: false
 ---
 
-
 The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.  
 If you are using Homegear with paired [Intertechno](http://intertechno.at/) devices, uni-directional communication is possible as well.
 
@@ -22,7 +21,7 @@ Device support is available for most of the wired and wireless devices, as well 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
-You can manually rename the created entities by using Home Assistants [Customizing](https://home-assistant.io/getting-started/customizing-devices/) feature. With it you are also able to hide entities you don't want to see in the UI.
+You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. With it you are also able to hide entities you don't want to see in the UI.
 
 To set up the component, add the following information to your `configuration.yaml` file:
 
@@ -161,6 +160,16 @@ automation:
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. "Kitchen Switch").
 
+You can test whether your button works within Home Assistant if you look at the terminal output. When pressing a button, lines similar to those should appear:
+
+```bash
+2018-01-27 11:51:32 INFO (Thread-12) [pyhomematic.devicetypes.generic] HMGeneric.event: address=MEQ1234567:6, interface_id=homeassistant-CCU2, key=PRESS_SHORT, value=True
+2018-01-27 11:51:32 INFO (MainThread) [homeassistant.core] Bus:Handling <Event homematic.keypress[L]: param=PRESS_SHORT, name=your_nice_name, channel=6>
+2018-01-27 11:51:32 INFO (Thread-12) [pyhomematic.devicetypes.generic] HMGeneric.event: address=MEQ1234567:6, interface_id=homeassistant-CCU2, key=INSTALL_TEST, value=True
+```
+
+It may happen that "your_nice_name" is not resolved correctly; the according message (#2 in the above example) will be missing. This might be due to secure communication between your HM interface and the HM device. You can change the communication from "secure" to "standard" within your HM-interface to solve that issue (in "Einstellungen" - "Geräte" find your device and change "Übertragungsmodus" from secure to standard) - not recommended for devices that should have secure communication.
+
 ### {% linkable_title Services %}
 
 * *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
@@ -229,4 +238,20 @@ action:
     channel: 4
     param: SET_TEMPERATURE
     value: 23.0
+```
+
+Manually set lock on KeyMatic devices
+```yaml
+...
+action:
+  service: lock.lock
+  entity_id: lock.leq1234567
+```
+
+Manually set unlock on KeyMatic devices
+```yaml
+...
+action:
+  service: lock.unlock
+  entity_id: lock.leq1234567
 ```

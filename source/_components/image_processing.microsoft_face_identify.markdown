@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.37
 ---
 
-The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do identify persons on camera and fire a event with identify persons.
+The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do identify persons on camera and fire an event with attributes.
 
 Please refer to the [component](/components/microsoft_face/) configuration on how to setup the API key.
 

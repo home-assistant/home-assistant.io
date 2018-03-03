@@ -27,7 +27,7 @@ You need to have a [supported Z-Wave USB stick or module](https://github.com/Ope
 | ZWave.me UZB1           |   &#10003;     |                  |              |
 
 <p class='note'>
-  If you're using Hass.io, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+  If you're using Hass.io or running HASS in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </p>
 
 ## {% linkable_title Stick Alternatives %}

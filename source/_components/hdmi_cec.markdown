@@ -31,31 +31,23 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 
 #### {% linkable_title Symlinking into virtual environment %}
 
-Create a symlink to the `cec` installation. Keep in mind different installation methods will result in different locations of cec.
+Create a symlink to the `cec` installation including the _cec.so file. Keep in mind different installation methods will result in different locations of cec.
  
 ```bash
-$ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python3.4/site-packages
+$ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python*/site-packages
+$ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
+
 ```
+
 ##### {% linkable_title Symlinking examples: %}
 
 For the default virtual environment of a [HASSbian Image for Raspberry Pi](/getting-started/installation-raspberry-pi-image/) the command would be as follows.
 
 ```bash
-$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/homeassistant/lib/python3.4/site-packages
+$ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages
+$ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
+
 ```
-
-For the default virtual environment of a [Raspberry Pi All-In-One installation](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
-
-```bash
-$ ln -s /usr/local/lib/python3.4/site-packages/cec /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
-```
-
-For the default virtual environment of a [Manual installation](/getting-started/installation-raspberry-pi/) the command would be as follows.
-
-```bash
-$ ln -s /usr/local/lib/python3.4/site-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
-```
-
 
 <p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
 `* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`

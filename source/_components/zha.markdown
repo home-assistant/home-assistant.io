@@ -26,6 +26,7 @@ There is currently support for the following device types within Home Assistant:
 Known working ZigBee radios:
 
 - Nortek/GoControl Z-Wave & Zigbee USB Adaptor - Model HUSBZB-1
+- XBee Series 2C
 
 To configure the component, a `zha` section must be present in the `configuration.yaml`,
 and the path to the serial device for the radio and path to the database which will persist your network data is required.
@@ -39,7 +40,9 @@ zha:
 
 Configuration variables:
 
+ - **radio_type** (*Optional*): One of `ezsp` (default) or `xbee`
  - **usb_path** (*Required*): Path to the serial device for the radio.
+ - **baud_rate** (*Optional*): Baud rate of the serial device.
  - **database_path** (*Required*): Path to the database which will keep persistent network data.
 
 To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)

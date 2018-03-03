@@ -11,6 +11,8 @@ footer: true
 
 When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and appear in the user interface.
 
+The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if your Home Assistant system has the IP address `192.168.0.40` then you'll find the web interface as `http://192.168.0.40:8123/`.
+
 The location of the folder differs between operating systems:
 
 | OS | Path |
