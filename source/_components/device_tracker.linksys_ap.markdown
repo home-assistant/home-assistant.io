@@ -32,6 +32,7 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges (read-only is sufficient).
 - **password** (*Required*): The password for your given admin account.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to true.
+- **enable_cookies** (*Optional*): Enable session support for newer firmware releases. Defaults to false.
 
 Example for all configuration options:
 ```yaml
@@ -44,6 +45,7 @@ device_tracker:
     verify_ssl: true
     scan_interval: 6
     consider_home: 12
+    enable_cookies: false
 ```
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
