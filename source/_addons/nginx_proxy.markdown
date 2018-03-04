@@ -15,13 +15,17 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate` 
 
 ```json
 {
-  "domain": "home.example.com"
+  "domain": "home.example.com",
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
 }
 ```
 
 Configuration variables:
 
 - **domain** (*Required*): Domain they will proxy run with it.
+- **certfile** (*Required*): Certificate file to use in the /ssl dir.
+- **keyfile** (*Required*): Private key file to use in the /ssl dir.
 
 <p class='note'>
 It is possible to deactivate port 80 if you need this for things like `emulate_hue`. Remove the host port from Network option of this add-on.
