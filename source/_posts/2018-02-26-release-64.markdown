@@ -82,6 +82,25 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - MQTT: Fix doing async inside sync context ([@OttoWinter])
 - Fix DarSky humidity precision ([@PhilRW])
 
+## {% linkable_title Release 0.64.2 - March 1 %}
+
+- updated to bimmer_connected 0.4.1 ([@ChristianKuehnel] - [#12759]) ([bmw_connected_drive docs])
+- Revert optimized logbook SQL ([@amelchio] - [#12762]) ([logbook docs])
+- bump fedex version ([@happyleavesaoc] - [#12764]) ([sensor.fedex docs])
+- Silence harmless sonos data structure warnings ([@amelchio] - [#12767]) ([media_player.sonos docs])
+- Update samsungctl library to latest version ([@uchagani] - [#12769]) ([media_player.samsungtv docs])
+- Fixed missing optional keyerror data_bits ([@basschipper] - [#12789]) ([binary_sensor.rfxtrx docs])
+- Fixed Pollen.com bugs with ZIP codes and invalid API responses ([@bachya] - [#12790]) ([sensor.pollen docs])
+- Fix dead Sonos web interface with some music sources ([@amelchio] - [#12796]) ([media_player.sonos docs])
+- Unique IDs for Plex Clients ([@ryanm101] - [#12799]) ([media_player.plex docs])
+
+## {% linkable_title Release 0.64.3 - March 2 %}
+
+- is_allowed_path: Also test folder #12788 #12807 ([@kellerza] - [#12810])
+- Fix sensibo default IDs to be according to schema ([@andrey-git] - [#12837]) ([climate.sensibo docs])
+- Cloud: handle unauth better ([@balloob] - [#12840]) ([cloud docs])
+- Handle Hue errors better ([@balloob] - [#12845]) ([hue docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -606,3 +625,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tahoma docs]: https://home-assistant.io/components/tahoma/
 [vacuum.roomba docs]: https://home-assistant.io/components/vacuum.roomba/
 [zha docs]: https://home-assistant.io/components/zha/
+[#12759]: https://github.com/home-assistant/home-assistant/pull/12759
+[#12762]: https://github.com/home-assistant/home-assistant/pull/12762
+[#12764]: https://github.com/home-assistant/home-assistant/pull/12764
+[#12767]: https://github.com/home-assistant/home-assistant/pull/12767
+[#12769]: https://github.com/home-assistant/home-assistant/pull/12769
+[#12789]: https://github.com/home-assistant/home-assistant/pull/12789
+[#12790]: https://github.com/home-assistant/home-assistant/pull/12790
+[#12796]: https://github.com/home-assistant/home-assistant/pull/12796
+[#12799]: https://github.com/home-assistant/home-assistant/pull/12799
+[@ChristianKuehnel]: https://github.com/ChristianKuehnel
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@basschipper]: https://github.com/basschipper
+[@happyleavesaoc]: https://github.com/happyleavesaoc
+[@ryanm101]: https://github.com/ryanm101
+[@uchagani]: https://github.com/uchagani
+[binary_sensor.rfxtrx docs]: https://home-assistant.io/components/binary_sensor.rfxtrx/
+[bmw_connected_drive docs]: https://home-assistant.io/components/bmw_connected_drive/
+[logbook docs]: https://home-assistant.io/components/logbook/
+[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
+[media_player.samsungtv docs]: https://home-assistant.io/components/media_player.samsungtv/
+[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
+[sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
+[sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
+[#12810]: https://github.com/home-assistant/home-assistant/pull/12810
+[#12837]: https://github.com/home-assistant/home-assistant/pull/12837
+[#12840]: https://github.com/home-assistant/home-assistant/pull/12840
+[#12845]: https://github.com/home-assistant/home-assistant/pull/12845
+[@andrey-git]: https://github.com/andrey-git
+[@balloob]: https://github.com/balloob
+[@kellerza]: https://github.com/kellerza
+[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
+[cloud docs]: https://home-assistant.io/components/cloud/
+[hue docs]: https://home-assistant.io/components/hue/

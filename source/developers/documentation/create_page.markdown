@@ -122,3 +122,6 @@ The images which are displayed on the pages are stored in various directories ac
 | screenshots  | source/images/components                      |
 
 Not everything (product, component, etc.) should have a logo. To show something for internal parts of Home Assistant we are using the [Material Design Icons](https://materialdesignicons.com/).
+
+### {% linkable_title Linking From The Sidebar %}
+If you are adding a new page that requires linking from the sidebar you need to edit the `docs_navigation.html` file in `home-assistant.github.io/source/_includes/asides/docs_navigation.html`.

@@ -20,13 +20,13 @@ Home Assistant cannot guarantee the quality or security of third-party add-ons. 
 </p>
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 
 <p class='img'>
-<img src='/images/hassio/screenshots/repositories_editor.png' />
-Add the URLs of repositories (one per line) and then press "Save". A new card for the repository will appear.
+<img src='/images/hassio/screenshots/adding_repositories.png' />
+Add the URL of the repository and then press "Add". A new card for the repository will appear.
 </p>
 
 ### {% linkable_title Help: Repository is not showing up %}
