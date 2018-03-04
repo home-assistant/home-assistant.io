@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_release: 0.64
+ha_release: 0.65
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -22,22 +22,25 @@ For example, the White House zpid is 84074482 and can be found in it's Zillow UR
 ```yaml
 sensor:
   - platform: zestimate
-    name: <your name>
     api_key: <your API key>
     zpid:
       - <your zpid 1>
       - <your zpid 2>
-      - <your zpid ...>
 ```
 
-Configuration options for the Crime Reports Sensor:
-
-- **api_key** (*Required*): Your Zillow API key.
-- **zpid** (*Required*): List of Zillow property IDs.
-- **name** (*Optional*): Name your sensor.
-
-
-## Notes
+Configuration options for the Zestimate Sensor:
+```yaml
+{% configuration %}
+api_key:
+  description: The API key to access the service.
+  required: true
+  type: string
+zpid:
+  description: Property IDs to track in the front end.
+  required: true
+  type: list
+{% endconfiguration %}
+```
 
 ### Additional Attributes
 
