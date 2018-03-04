@@ -28,7 +28,6 @@ sensor:
       - <your zpid 2>
 ```
 
-Configuration options for the Zestimate Sensor:
 ```yaml
 {% configuration %}
 api_key:
