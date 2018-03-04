@@ -17,7 +17,12 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate` 
 {
   "domain": "home.example.com",
   "certfile": "fullchain.pem",
-  "keyfile": "privkey.pem"
+  "keyfile": "privkey.pem",
+  "customize": {
+    "active": false,
+    "default": "nginx_proxy_default*.conf",
+    "servers": "nginx_proxy/*.conf"
+  }
 }
 ```
 
@@ -26,6 +31,7 @@ Configuration variables:
 - **domain** (*Required*): Domain they will proxy run with it.
 - **certfile** (*Required*): Certificate file to use in the /ssl dir.
 - **keyfile** (*Required*): Private key file to use in the /ssl dir.
+- **customize** (*Optional*): If true, additional NGINX configuration files for the default server and additional servers are read from files in the /share dir specified by the `default` and `servers` variables.
 
 <p class='note'>
 It is possible to deactivate port 80 if you need this for things like `emulate_hue`. Remove the host port from Network option of this add-on.
