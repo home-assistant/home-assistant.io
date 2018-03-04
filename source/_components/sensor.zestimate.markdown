@@ -28,7 +28,6 @@ sensor:
       - <your zpid 2>
 ```
 
-```yaml
 {% configuration %}
 api_key:
   description: The API key to access the service.
@@ -39,7 +38,6 @@ zpid:
   required: true
   type: list
 {% endconfiguration %}
-```
 
 ### Additional Attributes
 
