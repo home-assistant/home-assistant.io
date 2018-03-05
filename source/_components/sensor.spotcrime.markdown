@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_release: 0.64
+ha_release: 0.65
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -18,23 +18,35 @@ The `spotcrime` sensor allows one to track reported incidents occurring in a giv
 
 To enable this sensor, add the following lines to your `configuration.yaml`. Your `radius` should be of sufficient size to capture incidents in your area. 0.01 = 1 mile.
 
+You will need to request an API key from [Spotcrime](mailto:pyrrhus@spotcrime.com).
+
 ```yaml
 sensor:
   - platform: spotcrime
     name: <any name>
-    radius: <your radius>
     days: <your days>
+    radius: <your radius>
+    api_key: <"your_api_key_here">
+    include:
+      - Theft
+      - Vandalism
+      - Other
 ```
 
-Configuration options for the Crime Reports Sensor:
-
-- **name** (*Required*): Name the sensor whatever you want.
-- **radius** (*Required*): Radius in meters.
-- **days** (*Optional*): Defaults to 1 day.
-- **latitude** (*Optional*): Defaults to your home zone latitude.
-- **longitude** (*Optional*): Defaults to your home zone longitude.
-- **include** (*Optional*): List of incident types to include.
-- **exclude** (*Optional*): List of incident types to exclude.
+{% configuration %}
+name:
+  description: Name the sensor what you'd like.
+  required: true
+  type: string
+radius:
+  description: Radius you'd like to search within. 0.01 = 1 mile.
+  required: true
+  type: float
+api_key:
+  description: The API key to access the service.
+  required: true
+  type: string
+{% endconfiguration %}
 
 
 ## Notes
