@@ -73,6 +73,39 @@ The sources are based on if you have streamed to these devices before in Spotify
 ## {% linkable_title URI Links For Playlists/Etc %}
 You can send playlists to spotify via the "media_content_type": "playlist" and "media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF" which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant frontend.
 
-In this example this is a URI link to the Reggae Infusions playlist, the link below from Spotify explains how to get this URI value to use for playlists in the Spotify component.
+Usually, the naming convention is: https://open.spotify.com/user/_USERNAME_/playlist/_PLAYLIST-UID_ - In the given example you will find the playlist with the URL: https://open.spotify.com/user/spotify/playlist/37i9dQZF1DWSkkUxEhrBdF
 
-https://support.spotify.com/us/using_spotify/share_music/why-do-you-have-two-different-link-formats/
+Automation example:
+```yaml
+# Play a foreign playlist you don't own or follow by username and playlist uid
+script:
+  script_play_music_foreign_playlist:
+    sequence:
+      - service: media_player.select_source
+        data_template:
+          source: "{{ source }}"
+      - service: media_player.play_media
+        data:
+          media_content_type: playlist
+          media_content_id: 'spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF'
+          entity_id: media_player.spotify
+```
+
+## {% linkable_title Owned/Starred Playlists %}
+As you own or follow some playlists in Spotify they will expose on the media_player attribute "media_available_playlists". You can call them by their name on automations or on the media_player state card in the Home Assistant frontend.
+
+Automation example:
+```yaml
+# Play a owned/starred playlist by the name
+script:
+  script_play_music_starred_playlist:
+    sequence:
+      - service: media_player.select_source
+        data_template:
+          source: "{{ source }}"
+      - service: media_player.play_media
+        data:
+          media_content_type: playlist
+          media_content_id: 'Top 50 Charts'
+          entity_id: media_player.spotify
+```
