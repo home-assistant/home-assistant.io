@@ -50,10 +50,10 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 
 [Etcher]: https://etcher.io/
 [resinos-network]: https://docs.resin.io/deployment/network/2.0.0/
-[pi1]: https://github.com/home-assistant/hassio-build/releases/download/1.2/resinos-hassio-1.3-raspberrypi.img.bz2
-[pi2]: https://github.com/home-assistant/hassio-build/releases/download/1.2/resinos-hassio-1.3-raspberrypi2.img.bz2
-[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.2/resinos-hassio-1.3-raspberrypi3.img.bz2
-[nuc]: https://github.com/home-assistant/hassio-build/releases/download/1.2/resinos-hassio-1.3-intel-nuc.img.bz2
+[pi1]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi.img.bz2
+[pi2]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi2.img.bz2
+[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi3.img.bz2
+[nuc]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-intel-nuc.img.bz2
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
