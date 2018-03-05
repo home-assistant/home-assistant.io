@@ -43,22 +43,38 @@ The best way to show what AppDaemon does is through a few simple examples.
 
 ### {% linkable_title Sunrise/Sunset Lighting %}
 
-Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called which gives it a chance to register a callback for AppDaemons's scheduler for a specific time. In this case we are using `run_at_sunrise()` and `run_at_sunset()` to register 2 separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
+Lets start with a simple App to turn a light on every night fifteen
+minutes (900 seconds) before sunset and off every morning at sunrise.
+Every App when first started will have its ``initialize()`` function
+called which gives it a chance to register a callback for AppDaemons's
+scheduler for a specific time. In this case we are using
+`run_at_sunrise()` and `run_at_sunset()` to register 2 separate
+callbacks. The named argument `offset` is the number of seconds offset
+from sunrise or sunset and can be negative or positive (it defaults to
+zero). For complex intervals it can be convenient to use Python's
+`datetime.timedelta` class for calculations. In the example below,
+when sunrise or just before sunset occurs, the appropriate callback
+function, `sunrise_cb()` or `before_sunset_cb()` is called which
+then makes a call to Home Assistant to turn the porch light on or off by
+activating a scene. The variables `args["on_scene"]` and
+`args["off_scene"]` are passed through from the configuration of this
+particular App, and the same code could be reused to activate completely
+different scenes in a different version of the App.
 
 ```python
-import homeassistant.appapi as appapi
+    import appdaemon.plugins.hass.hassapi as hass
 
-class OutsideLights(appapi.AppDaemon):
+    class OutsideLights(hass.Hass):
 
-  def initialize(self):
-    self.run_at_sunrise(self.sunrise_cb, 0)
-    self.run_at_sunset(self.sunset_cb, 0)
-    
-  def sunrise_cb(self, kwargs):
-    self.turn_on(self.args["off_scene"])
+      def initialize(self):
+        self.run_at_sunrise(self.sunrise_cb)
+        self.run_at_sunset(self.before_sunset_cb, offset=-900)
+        
+      def sunrise_cb(self, kwargs):
+        self.turn_on(self.args["off_scene"])
 
-  def sunset_cb(self, kwargs):
-    self.turn_on(self.args["on_scene"])
+      def before_sunset_cb(self, kwargs):
+        self.turn_on(self.args["on_scene"])
 
 ```
 
