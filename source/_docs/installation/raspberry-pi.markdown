@@ -97,7 +97,7 @@ To update to the latest version of Home Assistant follow these simple steps:
 ```bash
 $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
-$ pip3 install --upgrade home assistant
+$ pip3 install --upgrade homeassistant
 ```
 
 Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
