@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 The `sabnzbd` component will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from 
 within Home Assistant and setup automations based on the information.
 
-If SABnzbd is discovered on your network you can enter your API Key in the Configurator Press "CONFIGURE" to do it.
+If SABnzbd is discovered on your network you can enter your API Key in the Configurator. Press "CONFIGURE" to do it.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/sabnzbd-configure.png' />
