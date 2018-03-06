@@ -20,13 +20,15 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 
 ### {% linkable_title macOS %}
 
-When using `boot2docker` on macOS you are unable to map the local time to your Docker container. Use `-e "TZ=America/Los_Angeles"` instead of `-v /etc/localtime:/etc/localtime:ro`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container (see Docker issue https://github.com/docker/for-mac/issues/44). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, ex: `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
-Additionally, if your expectation is that you will be able to browse directly to `http://localhost:8123` on your macOS host, then you will also need to replace the `--net=host` switch with `-p 8123:8123`. This is currently the only way to forward ports on to your actual host (macOS) machine instead of the virtual machine inside `xhyve`. More detail on this can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
+If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
 ```
+
+Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs] (https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### {% linkable_title Windows %}
 
@@ -90,7 +92,8 @@ As the docker command becomes more complex, switching to `docker-compose` can be
 ```yaml
   version: '3'
   services:
-    web:
+    homeassistant:
+      container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
         - /path/to/your/config:/config
@@ -118,7 +121,8 @@ or in a `docker-compose.yml` file:
 ```yaml
   version: '3'
   services:
-    web:
+    homeassistant:
+      container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
         - /path/to/your/config:/config
