@@ -82,6 +82,32 @@ json_attributes:
 
 In this section you find some real life examples of how to use this sensor.
 
+### {% linkable_title JSON attributes configuration %}
+
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](configuration/templating/#attributes); Example to extract data from the sensor below {% raw %}'{{ states.sensor.bs_client_name.attributes.ClientName }}'{% endraw %}.
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+sensor:
+  - platform: mqtt
+    state_topic: "HUISHS/BunnyShed/NodeHealthJSON"
+    name: "BS RSSI"
+    unit_of_measurement: "dBm"
+    value_template: '{{ value_json.RSSI }}'
+    availability_topic: "HUISHS/BunnyShed/status"
+    payload_available: "online"
+    payload_not_available: "offline"
+    json_attributes:
+      - ClientName
+      - IP
+      - MAC
+      - RSSI
+      - HostName
+      - ConnectedSSID  
+```
+{% endraw %}
+
 ### {% linkable_title Get battery level %}
 
 If you are using the [Owntracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this: 

@@ -61,7 +61,7 @@ Create homeassistant config directory & switch to it
 
 ```bash
 # mkdir /volume1/homeassistant
-# chown /volume1/homeassistant homeassistant
+# chown homeassistant /volume1/homeassistant 
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```

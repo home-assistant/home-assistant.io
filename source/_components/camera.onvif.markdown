@@ -33,4 +33,15 @@ Configuration variables:
 - **port** (*Optional*): The port for the camera. This defaults to 5000
 - **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
 
+### {% linkable_title Service `camera.onvif_ptz` %}
+
+If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all.
+| `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`
+| `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`
+| `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`
+
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).

@@ -52,7 +52,7 @@ This is a fully customized JSON you can use to test how the final notification w
     "duration":2,
     "transparency":"0%",
     "color": "red",
-    "interrupt": 1,
+    "interrupt": 1
     }
 }
 ```

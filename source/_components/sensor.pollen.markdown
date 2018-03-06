@@ -30,7 +30,7 @@ liking):
 ```yaml
 sensor:
   platform: pollen
-  zip_code: ZIP_CODE
+  zip_code: "00544"
   monitored_conditions:
     - allergy_average_forecasted
     - allergy_average_historical
@@ -42,14 +42,19 @@ sensor:
 
 {% configuration %}
   zip_code:
-    description: the U.S. ZIP code to gather data for
+    description: the U.S. ZIP code to gather data for (as a quoted string)
     required: true
-    type: int
+    type: string
   monitored_conditions:
     description: the metric types to monitor; valid values are specified below
     required: true
     type: list
 {% endconfiguration %}
+
+<p class='note warning'>
+It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
+ZIP codes that start with 0 will cause errors.
+</p>
 
 ## {% linkable_title Available Metrics %}
 

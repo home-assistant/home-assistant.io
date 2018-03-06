@@ -44,6 +44,7 @@ google_assistant:
       type: light
     light.living_room:
       expose: false
+      room: living room
 ```
 
 Configuration variables:
@@ -67,7 +68,7 @@ agent_user_id:
   required: false
   type: string
 api_key:
-  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
+  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this componenet you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
   required: false
   type: string
 expose_by_default:
@@ -103,6 +104,10 @@ entity_config:
           type: list
         type:
           description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
+          required: false
+          type: string
+        room:
+          description: Allows for associating this device to a Room in Google Assistant.  This is currently non-functional, but will be enabled in the near future.
           required: false
           type: string
 {% endconfiguration %}

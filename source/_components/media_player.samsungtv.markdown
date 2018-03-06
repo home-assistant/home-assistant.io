@@ -54,8 +54,10 @@ Currently known supported models:
 - D6300SF
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- K5579 (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- KU6020 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6290 (port must be set to 8001)
 - KU7000 (port must be set to 8001)
 - MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)

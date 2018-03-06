@@ -75,9 +75,14 @@ Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.git
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
 | `field` | No | String representing a specific device in deCONZ. |
+| `entity` | No | String representing a specific HASS entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
+Field and entity are exclusive, i.e you can only use one in a request.
+
 { "field": "/lights/1", "data": {"name": "light2"} }
+
+{ "entity": "light.light1", "data": {"name": "light2"} }
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
@@ -95,6 +100,8 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 | XXX3 | Button long release |
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
+
+For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.
 
 ## {% linkable_title Examples %}
 
