@@ -21,6 +21,10 @@ Chances are, you have a dynamic IP Address (your ISP changes your address period
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
+<p class='note'>
+You will at least need nginx >= 1.3.13, as websocket support is required for the reverse proxy.
+</p>
+
 ### {% linkable_title 3. Obtain an SSL certificate %}
 
 There are two ways of obtaining an SSL certificate.
