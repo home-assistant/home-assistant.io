@@ -13,8 +13,7 @@ ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi miio` vacuum platform allows you to control the state of your
-[Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
 Currently supported features are:
 
@@ -50,10 +49,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to [all of the services provided by the `vacuum` component]
-]) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`,
-`set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific
-services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
@@ -62,8 +58,7 @@ services to access the remote control mode of the robot. These are:
 
 ### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
 
-Start the remote control mode of the robot. You can then move it with
-`remote_control_move`; when done, call `remote_control_stop`.
+Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -79,8 +74,7 @@ Exit the remote control mode of the robot.
 
 ### {% linkable_title Service `vacuum/xiaomi_remote_control_move` %}
 
-Remote control the robot. Please ensure you first set it in remote control
-mode with `remote_control_start`.
+Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -103,9 +97,8 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 
 ## {% linkable_title Attributes %}
 
-In addition to [all of the attributes provided by the `vacuum` component](https://home-assistant.io/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and
-`params`), the `xiaomi` platform introduces specific attributes. These are:
+In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
 - `do_not_disturb`
@@ -133,9 +126,7 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot
-Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security
-method and requires a `key` (16 alphanumeric chars), which can be obtained
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app.
 </p>
 
@@ -205,7 +196,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 3. Get ADB f.e. `apt-get install android-tools-adb`
 4. `adb devices` should list your device
 5. `adb root` (does work for development builds only: ones with `ro.debuggable=1`)
-6. `adb shell` (for those using Magisk based root the previous command wont work. After entering a shell type `su` to enter the root shell)
+6. `adb shell` (for those using Magisk based root the previous command won't work. After entering a shell, type `su` to enter the root shell)
 7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including IP address and token.
 
 #### {% linkable_title iOS %}
