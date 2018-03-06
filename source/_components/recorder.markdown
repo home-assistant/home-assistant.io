@@ -157,13 +157,13 @@ If the `recorder` component is activated then some components support `restore_s
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
-+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file as root.
++If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
 
-```
-sudo nano /etc/systemd/system/home-assistant@homeassistant.service
+```bash
+$ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 ```
 
-and add the service - for PostgreSQL:
+and add the service for PostgreSQL:
 
 ```
 [Unit]
@@ -174,7 +174,7 @@ After=network.target postgresql.service
 Save the file then reload systemctl:
 
 ```bash
-sudo systemctl daemon-reload
+$ sudo systemctl daemon-reload
 ```
 
 </p>
