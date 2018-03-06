@@ -133,11 +133,42 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot
-Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security
-method and requires a `key` (16 alphanumeric chars), which can be obtained
-easily via a hidden menu item at the Mi-Home app.
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
+easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
+
+#### {% linkable_title Miio command line tool %}
+
+You can install the command line tool with:
+
+```bash
+$ npm install -g miio
+```
+
+Discovering devices on current network
+
+```bash
+$ miio discover
+```
+
+This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
+
+The commands outputs each device on this format:
+
+```text
+Device ID: 48765421
+Model info: zhimi.airpurifier.m1
+Address: 192.168.100.9
+Token: token-as-hex-here via auto-token
+Support: At least basic
+```
+
+The information output is:
+
+* __Device ID__ - the unique identifier of the device, does not change if the device is reset.
+* __Model ID__ - the model id if it could be determined, this indicates what type of device it is
+* __Address__ - the IP that the device has on the network
+* __Token__ - the token of the device or ??? if it could not be automatically determined
 
 #### {% linkable_title Windows and Android %}
 
