@@ -24,13 +24,8 @@ You will need to request an API key from [Spotcrime](mailto:pyrrhus@spotcrime.co
 sensor:
   - platform: spotcrime
     name: <any name>
-    days: <your days>
     radius: <your radius>
     api_key: <"your_api_key_here">
-    include:
-      - Theft
-      - Vandalism
-      - Other
 ```
 
 {% configuration %}
@@ -46,6 +41,18 @@ api_key:
   description: The API key to access the service.
   required: true
   type: string
+days:
+  description: Number of days you'd like see to crime statistics for.
+  required: false
+  type: int
+include:
+  description: Event types you want statistics for.
+  required: false
+  type: list
+exclude:
+  description: Event types to ignore statistics for.
+  required: false
+  type: list
 {% endconfiguration %}
 
 
