@@ -34,7 +34,6 @@ The preferred way to separate words for better readability is to use underscore 
 script: 
   # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
-    alias: Wake Up
     sequence:
       # This is Home Assistant Script Syntax
       - event: LOGBOOK_ENTRY
