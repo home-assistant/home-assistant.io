@@ -16,6 +16,10 @@ This installation of Home Assistant requires the Raspberry Pi to run [Raspbian L
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well.  This guide is also referred to as the "Advanced Guide" for a virtual environment install.
 </p>
 
+<p class='note warning'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
+</p>
+
 Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
