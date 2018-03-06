@@ -171,7 +171,7 @@ Description=Home Assistant
 After=network.target postgresql.service
 ```
 
-Save the file then reload systemctl:
+Save the file then reload `systemctl`:
 
 ```bash
 $ sudo systemctl daemon-reload
