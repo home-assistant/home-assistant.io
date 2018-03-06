@@ -84,8 +84,9 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title JSON attributes configuration %}
 
-The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](configuration/templating/#attributes); Example to extract data from the sensor below '{{ states.sensor.bs_client_name.attributes.ClientName }}'.
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](configuration/templating/#attributes); Example to extract data from the sensor below {% raw %}'{{ states.sensor.bs_client_name.attributes.ClientName }}'{% endraw %}.
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 sensor:
@@ -105,6 +106,7 @@ sensor:
       - HostName
       - ConnectedSSID  
 ```
+{% endraw %}
 
 ### {% linkable_title Get battery level %}
 
