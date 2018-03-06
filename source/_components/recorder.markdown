@@ -157,6 +157,8 @@ If the `recorder` component is activated then some components support `restore_s
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
+If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+
 +If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
 
 ```bash
@@ -176,7 +178,6 @@ Save the file then reload `systemctl`:
 ```bash
 $ sudo systemctl daemon-reload
 ```
-
 </p>
 
 ## {% linkable_title Installation notes %}
