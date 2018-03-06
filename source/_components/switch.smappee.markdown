@@ -2,13 +2,13 @@
 layout: page
 title: "Smappee Switch"
 description: "Instructions how to integrate Smappee Comfort Plug into Home Assistant."
-date: 2018-01-06 16:15
+date: 2018-02-26 08:37
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.62"
+ha_release: "0.64"
 ha_category: Switch
 ha_iot_class: "Local Push"
 ---
