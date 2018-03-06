@@ -2,7 +2,7 @@
 layout: page
 title: "RESTful Command"
 description: "Instructions how to integrate REST commands into Home Assistant."
-date: 2016-12-27 00:00
+date: 2018-02-24 00:00
 sidebar: true
 comments: false
 sharing: true
@@ -32,6 +32,7 @@ Configuration variables:
 - **[service_name]** (*Required*): The name used to expose the service. E.g., in the above example, it would be `rest_command.example_request`.
   - **url** (*Required*): The URL (support template) for sending request.
   - **method** (*Optional*): HTTP method to use (`get`, `post`, `put`, or `delete`). Defaults to `get`.
+  - **headers** (*Optional*): The headers for the requests.
   - **payload** (*Optional*): A string/template to send with request.
   - **username** (*Optional*): The username for HTTP authentication.
   - **password** (*Optional*): The password for HTTP authentication.
