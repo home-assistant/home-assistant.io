@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 
 The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
 
+Your favorite channels will appear as sources in the Source List in Home Assistant.
+
 To add Channels to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
