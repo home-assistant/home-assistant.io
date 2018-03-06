@@ -37,7 +37,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-### Service fan/xiaomi_miio_set_scene
+### {% linkable_title Service `light.xiaomi_miio_set_scene` %}
 
 Set one of the 4 available fixed scenes.
 
