@@ -14,7 +14,7 @@ Using NGINX as a proxy for Home Assistant allows you to serve Home Assistant sec
 
 ### {% linkable_title 1. Get a domain name forwarded to your IP %}
 
-Chances are, you have a dynamic IP Address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.
+Chances are, you have a dynamic IP address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.
 
 
 ### {% linkable_title 2 Install nginx on your server %}
@@ -22,7 +22,7 @@ Chances are, you have a dynamic IP Address (your ISP changes your address period
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
 <p class='note'>
-You will at least need nginx >= 1.3.13, as websocket support is required for the reverse proxy.
+You will at least need nginx >= 1.3.13, as WebSocket support is required for the reverse proxy.
 </p>
 
 ### {% linkable_title 3. Obtain an SSL certificate %}
@@ -32,7 +32,7 @@ There are two ways of obtaining an SSL certificate.
 #### {% linkable_title Using Let's Encrypt %}
 If you purchased your own domain, you can use https://letsencrypt.org/ to obtain a free, publicly trusted SSL certificate. This will allow you to work with services like IFTTT. Download and install per the instructions online and get a certificate using the following command.
 
-```
+```bash
 $ sudo ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
 ```
 
@@ -79,14 +79,13 @@ $ sudo ln ../sites-available/hass default
 
 Double check this configuration to ensure all settings are correct and start nginx.
 
-
 ### {% linkable_title 8. Port forwarding. %}
 
 Forward ports 443 and 80 to your server on your router. Do not forward port 8123.
 
 ### {% linkable_title NGINX Config %}
 
-```
+```text
 map $http_upgrade $connection_upgrade {
     default upgrade;
     ''      close;
