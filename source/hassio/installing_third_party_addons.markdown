@@ -31,4 +31,4 @@ Add the URL of the repository and then press "Add". A new card for the repositor
 
 ### {% linkable_title Help: Repository is not showing up %}
 
-If you have added a repository, but it's not showing up, it means that the repository contains invalid configuration. Go to the Hass.io panel -> Three dot menu -> Advanced Settings -> Supervisor card -> View logs and scroll to the bottom. It should tell you what went wrong. Report this information to the repository author.
+If you have added a repository, but it's not showing up, it means that the repository contains invalid configuration. Go to the Hass.io panel and then the System tab to find the System log. It should tell you what went wrong. Report this information to the repository author.
