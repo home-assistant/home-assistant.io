@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Channels"
-description: "Instructions how to integrate Channels into Home Assistant."
+description: "Instructions on how to integrate Channels into Home Assistant."
 date: 2018-03-06 11:00
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP of the device Channels is running on, eg. 192.168.1.50
+- **host** (*Required*): The IP of the device running Channels, e.g., 192.168.1.50
 - **port** (*Optional*): The port where Channels is accessible, defaults to 57000.
 - **name** (*Optional*): The name of the Channels instance in Home Assistant, eg. Family Room Channels. Defaults to Channels.
 
