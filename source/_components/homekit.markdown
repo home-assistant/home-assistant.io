@@ -58,7 +58,7 @@ To not include specific accessories in HomeKit, you can set the `homekit_hidden`
 ```yaml
 # Example to hide accessory in homekit
 domain.name:
-  homekit_hidden: True
+  homekit_hidden: true
 ```
 
 ## {% linkable_title Supported Components %}
