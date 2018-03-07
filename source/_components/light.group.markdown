@@ -31,7 +31,7 @@ light:
 
 {% configuration %}
   name:
-    description: The name of the light group. Defaults to "Group Light".
+    description: The name of the light group. Defaults to "Light Group".
     required: false
     type: string
   entities:
