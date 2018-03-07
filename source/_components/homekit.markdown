@@ -51,6 +51,16 @@ After Home Assistant has started, all supported entities (see the [list](#suppor
 
 After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
 
+## {% linkable_title Hide accessories %}
+
+To not include specific accessories in HomeKit, you can set the `homekit_hidden` attribute in `customize.yaml`:
+
+```yaml
+# Example to hide accessory in homekit
+domain.name:
+  homekit_hidden: True
+```
+
 ## {% linkable_title Supported Components %}
 
 The following components are currently supported:
