@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Group Cover"
+title: "Cover Group"
 description: "Instructions how to setup grouped covers in Home Assistant."
 date: 2018-02-11 10:00
 sidebar: true
@@ -31,7 +31,7 @@ cover:
     description: Name to use in the frontend.
     required: false
     type: string
-    default: "Group Cover"
+    default: "Cover Group"
   entities:
     description: List of all cover entities you want to control.
     required: true
