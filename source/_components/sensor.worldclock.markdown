@@ -14,7 +14,7 @@ ha_release: pre 0.7
 ---
 
 
-The `worldclock` sensor platform simple displays the current time in a different time zone
+The `worldclock` sensor platform simply displays the current time in a different time zone
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
