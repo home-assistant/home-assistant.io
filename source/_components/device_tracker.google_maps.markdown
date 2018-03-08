@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing). 
 
-You first need to create an additional Google account, and share your location with that account. This platform will use that account to fetch the location of your device(s). You have to setup sharing trough the Google Maps app on your mobile phone. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
+You first need to create an additional Google account, and share your location with that account. This platform will use that account to fetch the location of your device(s). You have to setup sharing through the Google Maps app on your mobile phone. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
 
 This platform will create a file named `google_maps_location_sharing.conf` where it caches your login session.
 
