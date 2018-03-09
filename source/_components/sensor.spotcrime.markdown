@@ -29,7 +29,7 @@ sensor:
 Configuration options for the Crime Reports Sensor:
 
 - **name** (*Required*): Name the sensor whatever you want.
-- **radius** (*Required*): Radius in meters.
+- **radius** (*Required*): Radius in miles.
 - **days** (*Optional*): Defaults to 1 day.
 - **latitude** (*Optional*): Defaults to your home zone latitude.
 - **longitude** (*Optional*): Defaults to your home zone longitude.

@@ -78,6 +78,76 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne. 
 </p>
 
+### {% linkable_title QNAP NAS %}
+
+As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
+
+The steps would be:
+
+ - Install “Container Station” package on your Qnap NAS 
+ - Launch Container Station and move to “Create Container”-section 
+ - Search image  “homeassistant/home-assistant” with
+   docker hub and click on “Install”
+ - Choose "latest" version and click next
+ - Choose a container-name you want (e.g.
+   “homeassistant”)
+ - Click on “Advanced Settings”
+ - Within “Shared Folders” click on "Volume from host" > "Add" and
+   choose either an existing folder or add a new folder. The “mount
+   point” has to be “/config”, so that Home Assistant will use it for
+   the configs and logs.
+ - Within “Network” and select Network Mode to “Host”
+ - To ensure that Home Assistant displays the correct
+   timezone go to the “Environment” tab and click the plus sign then add
+   `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+ - Click on “Create”
+ - Wait for some time until your NAS has created the container
+ - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
+
+Remark: to update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder)
+
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Qnap Docker, Fallow this step:
+
+**Z-wave:**
+
+ - Connect to your NAS over SSH
+ - Load cdc-acm kernel module(when nas restart need to run this command)
+    `insmod /usr/local/modules/cdc-acm.ko`
+ - Find USB devices attached. Type command:
+    `ls /dev/tty*`
+    The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
+    
+ - Run Docker command:
+    `docker run --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant`
+    
+    `-v` is your config path
+    `-e` is set timezone
+    
+ - Edit configuration.yaml
+
+```
+zwave:
+  usb_path: /dev/ttyACM0
+```
+
+That will tell Home Assistant where to look for our Z-wave radio.
+
+**Bluetooth:**
+
+ - Connect to your NAS over SSH
+ - Run Docker command:
+    `docker run --name home-assistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e variable=TZ -e value=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant`
+    
+    First `-v` is your config path
+    `-e` is set timezone
+    
+ - Edit configuration.yaml
+
+```
+device_tracker:
+  - platform: bluetooth_tracker
+```
+
 ### {% linkable_title Restart %}
 
 If you change the configuration you have to restart the server. To do that you have 2 options.

@@ -56,7 +56,7 @@ In addition to all of the services provided by the `vacuum` component (`turn_on`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
 
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
@@ -64,7 +64,7 @@ Start the remote control mode of the robot. You can then move it with `remote_co
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_stop` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_stop` %}
 
 Exit the remote control mode of the robot.
 
@@ -72,7 +72,7 @@ Exit the remote control mode of the robot.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_move` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_move` %}
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
@@ -83,8 +83,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees        |
 | `duration`                |       no | The number of seconds that the robot should move for  |
 
-
-### {% linkable_title Service `vacuum/xiaomi_remote_control_move_step` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_move_step` %}
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
