@@ -13,11 +13,11 @@ ha_iot_class: "depends"
 ---
 
 
-The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with post-processed output.
+The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
 
-The current post-processing supports resizing the image/mjpeg size as well as limiting the maximum refresh rate.
+The current post-processing supports resizing the image/MJPEG as well as limiting the maximum refresh rate.
 
-These are intended to reduce the camera bandwidth for slower internet connections.
+The current proxy capabilities are intended to reduce the camera bandwidth for slower internet connections.
 
 To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your `configuration.yaml` file:
 
@@ -32,7 +32,7 @@ camera:
 
 Configuration variables:
 
-- **entity_id** (*Required*): The ID of another Home Assistant camera to post-process
+- **entity_id** (*Required*): The ID of another Home Assistant camera to post-process.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **max_image_width** (*Optional*): The maximum width of single images taken from the camera (aspect ratio will be maintained).
 - **max_stream_width** (*Optional*): The maximum width of the MJPEG stream from the camera (aspect ratio will be maintained).
