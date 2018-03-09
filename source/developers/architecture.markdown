@@ -35,7 +35,7 @@ The Home Assistant core is responsible for Home Control. Home Assistant contains
 
 <p class='img'>
   <a href='/images/architecture/ha_architecture.png' name='architecture'>
-    <img src='/images/architecture/ha_architecture.png' />
+    <img src='/images/architecture/ha_architecture.svg' />
   </a>
   Overview of the Home Assistant core architecture
 </p>

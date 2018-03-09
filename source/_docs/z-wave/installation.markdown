@@ -43,7 +43,7 @@ On Raspberry Pi you will need to enable the serial interface in the `raspi-confi
 ```yaml
 # Example configuration.yaml entry
 zwave:
-  usb_path: /dev/ttyUSB0
+  usb_path: /dev/ttyACM0
 ```
 
 {% configuration zwave %}

@@ -23,7 +23,7 @@ The default InfluxDB configuration doesn't enforce authentication. If you have i
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
+You will still need to create a database named `home_assistant` via InfluxDB's command line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 Configuration variables:
 
