@@ -139,7 +139,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix CODEOWNERS permissions ([@OttoWinter] - [#12621])
 - Xiaomi Aqara Gateway: Service descriptions added ([@syssi] - [#12631])
 - Removing asyncio.coroutine syntax from some components ([@Julius2342] - [#12507])
-- Allow renaming entities in entity registry ([@balloob] - [#12636]) ([config docs]) ([light.demo docs])
+- Allow renaming entities in entity registry ([@balloob] - [#12636]) ([config docs])
 - Check if $files is empty, don't try to execute it ([@armills] - [#12651])
 - Removed py34 ([@cdce8p] - [#12648])
 - Improved Homekit tests ([@cdce8p] - [#12647]) ([homekit docs])
