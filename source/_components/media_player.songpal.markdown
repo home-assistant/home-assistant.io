@@ -26,7 +26,7 @@ A few notes:
 - Some devices, e.g. HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
-## {% linkable_title Configuration }}
+## {% linkable_title Configuration %}
 
 The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
 
