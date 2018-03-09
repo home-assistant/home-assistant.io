@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: egardia.png
-ha_release: 0.47
+ha_release: 0.65
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
 ---
