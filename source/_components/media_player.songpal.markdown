@@ -43,10 +43,12 @@ name:
   required: false
   type: string
 endpoint:
-  description: API endpoint of the device. See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to do that.
+  description: API endpoint of the device.
   required: true
   type: string
 {% endconfiguration %}
+
+See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
 ## {% linkable_title Services %}
 
