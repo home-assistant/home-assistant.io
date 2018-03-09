@@ -34,3 +34,4 @@ password:
   description: Password needed to log in to VeSync.
   required: true
   type: string
+{% endconfiguration %}
