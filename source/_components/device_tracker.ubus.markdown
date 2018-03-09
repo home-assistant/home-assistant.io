@@ -12,20 +12,6 @@ ha_category: Presence Detection
 ha_release: 0.7.6
 ---
 
-_This is one of the multiple ways we support OpenWRT. If you encounter problems, see [openwrt](---
-layout: page
-title: "OpenWRT (luci)"
-description: "Instructions how to integrate OpenWRT routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
-logo: openwrt.png
-ha_category: Presence Detection
-ha_release: pre 0.7
----
-
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
