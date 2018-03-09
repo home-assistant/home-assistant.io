@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: pre 0.7
 ---
 
-_This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 
