@@ -28,7 +28,7 @@ A few notes:
 
 ## {% linkable_title Configuration }}
 
-The platform will be loaded automatically by discover component. If you want to manually configure it, add the following to your `configuration.yaml` file:
+The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
 
 ```yaml
 media_player:
