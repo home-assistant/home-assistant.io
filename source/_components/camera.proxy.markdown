@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ha_category: Camera
 ha_release: 0.65
-ha_iot_class: "depends"
 ---
 
 
