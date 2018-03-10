@@ -122,6 +122,18 @@ intent_script:
 - Add support for input boolean to Google Assistant ([@balloob] - [#13030]) ([google_assistant docs])
 - HomeKit Bugfix: names ([@cdce8p] - [#13031]) ([homekit docs])
 
+## {% linkable_title Release 0.65.2 - March 11 %}
+
+- Fix translations sometimes not loading in the frontend ([@armills])
+- Fix sensibo's min/max_temp properties ([@jra3] - [#12996]) ([climate.sensibo docs])
+- Use request.query ([@ptarjan] - [#13037]) ([wink docs])
+- Ensure we have valid config AFTER merging packages #13015 ([@kellerza] - [#13038])
+- Bump pysabnzbd version ([@jeradM] - [#13042]) ([sensor.sabnzbd docs])
+- Fix async lifx_set_state ([@amelchio] - [#13045]) ([light.lifx docs])
+- Yeelight version bumped. ([@syssi] - [#13056]) ([light.yeelight docs])
+- Don't call async from sync ([@balloob] - [#13057]) ([xiaomi_aqara docs])
+- Convert decimals from SQL results ([@balloob] - [#13059]) ([sensor.sql docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -621,3 +633,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker docs]: https://home-assistant.io/components/device_tracker/
 [google_assistant docs]: https://home-assistant.io/components/google_assistant/
 [homekit docs]: https://home-assistant.io/components/homekit/
+[#12996]: https://github.com/home-assistant/home-assistant/pull/12996
+[#13037]: https://github.com/home-assistant/home-assistant/pull/13037
+[#13038]: https://github.com/home-assistant/home-assistant/pull/13038
+[#13042]: https://github.com/home-assistant/home-assistant/pull/13042
+[#13045]: https://github.com/home-assistant/home-assistant/pull/13045
+[#13056]: https://github.com/home-assistant/home-assistant/pull/13056
+[#13057]: https://github.com/home-assistant/home-assistant/pull/13057
+[#13059]: https://github.com/home-assistant/home-assistant/pull/13059
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@jeradM]: https://github.com/jeradM
+[@jra3]: https://github.com/jra3
+[@kellerza]: https://github.com/kellerza
+[@armills]: https://github.com/armills
+[@ptarjan]: https://github.com/ptarjan
+[@syssi]: https://github.com/syssi
+[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
+[light.lifx docs]: https://home-assistant.io/components/light.lifx/
+[light.yeelight docs]: https://home-assistant.io/components/light.yeelight/
+[sensor.sabnzbd docs]: https://home-assistant.io/components/sensor.sabnzbd/
+[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
+[wink docs]: https://home-assistant.io/components/wink/
+[xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
