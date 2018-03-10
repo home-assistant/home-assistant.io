@@ -26,8 +26,9 @@ Most lights do not support all attributes. You can check the platform documentat
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
-| `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma separated floats that represent the color in XY.
-| `rgb_color` | yes | A list containing three integers representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB.  You can find a great chart here: [Hue Color Chart](http://www.developers.meethue.com/documentation/hue-xy-values)
+| `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
+| `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma separated floats that represent the color in XY. You can find a great chart here: [Hue Color Chart](https://developers.meethue.com/documentation/core-concepts#color_gets_more_complicated).
+| `rgb_color` | yes | A list containing three integers bewteen 0 and 255 representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB. Note that the specified RGB value will not change the light brightness, only the color.
 | `white_value` | yes | Integer between 0 and 255 for how bright a dedicated white LED should be.
 | `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
