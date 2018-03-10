@@ -20,7 +20,7 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 
 ### {% linkable_title macOS %}
 
-When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container (see Docker issue https://github.com/docker/for-mac/issues/44). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, ex: `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, ex: `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
