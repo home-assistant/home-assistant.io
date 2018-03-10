@@ -41,7 +41,6 @@ google_assistant:
       aliases:
         - bright lights
         - entry lights
-      type: light
     light.living_room:
       expose: false
       room: living room
@@ -102,10 +101,6 @@ entity_config:
           description: Aliases that can also be used to refer to this entity
           required: false
           type: list
-        type:
-          description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
-          required: false
-          type: string
         room:
           description: Allows for associating this device to a Room in Google Assistant.  This is currently non-functional, but will be enabled in the near future.
           required: false
@@ -115,15 +110,15 @@ entity_config:
 ### {% linkable_title Available domains %}
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
-- group = switch (on/off)
-- scene = scene (on)
-- script = scene (on)
-- switch = switch (on/off)
-- fan = switch (on/off)
-- light = light (on/off/brightness/rgb color/color temp)
-- cover = switch (on/off/set position (brightness) )
-- media_player = switch (on/off/set volume (brightness) )
-- climate = thermostat (temperature setting)
+- group (on/off)
+- scene (on)
+- script (on)
+- switch (on/off)
+- fan (on/off)
+- light (on/off/brightness/rgb color/color temp)
+- cover (on/off/set position (via set brightness))
+- media_player (on/off/set volume (via set brightness))
+- climate (temperature setting)
 
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
@@ -162,8 +157,8 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 3. Create a new project in the [developer console](https://console.actions.google.com/).
   a. Add/Import project
   b. Go to Build under the Actions SDK box
-  c. Copy the command that looks like: 
-  
+  c. Copy the command that looks like:
+
   `gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
 4. Replace `PACKAGE_NAME` with `project.json` and run that command in a console from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running it on Linux or Windows). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
