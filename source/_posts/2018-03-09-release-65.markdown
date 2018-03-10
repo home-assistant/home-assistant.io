@@ -114,6 +114,14 @@ intent_script:
 - Add support for alarm system, switch and thermostat to homekit ([@maxclaey] - [#12819]) ([homekit docs]) (new-platform)
 - Add camera proxy ([@PhracturedBlue] - [#12006]) ([camera.proxy docs]) (new-platform)
 
+## {% linkable_title Release 0.65.1 - March 10 %}
+
+- allow ios device tracker see calls to go through ([@balloob] - [#13020]) ([device_tracker docs])
+- Fix config component loading YAML ([@kellerza] - [#13024])
+- Make Throttle async aware ([@balloob] - [#13027])
+- Add support for input boolean to Google Assistant ([@balloob] - [#13030]) ([google_assistant docs])
+- HomeKit Bugfix: names ([@cdce8p] - [#13031]) ([homekit docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -602,3 +610,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zabbix docs]: https://home-assistant.io/components/zabbix/
 [zha docs]: https://home-assistant.io/components/zha/
 [zwave docs]: https://home-assistant.io/components/zwave/
+[#13020]: https://github.com/home-assistant/home-assistant/pull/13020
+[#13024]: https://github.com/home-assistant/home-assistant/pull/13024
+[#13027]: https://github.com/home-assistant/home-assistant/pull/13027
+[#13030]: https://github.com/home-assistant/home-assistant/pull/13030
+[#13031]: https://github.com/home-assistant/home-assistant/pull/13031
+[@balloob]: https://github.com/balloob
+[@cdce8p]: https://github.com/cdce8p
+[@kellerza]: https://github.com/kellerza
+[device_tracker docs]: https://home-assistant.io/components/device_tracker/
+[google_assistant docs]: https://home-assistant.io/components/google_assistant/
+[homekit docs]: https://home-assistant.io/components/homekit/
