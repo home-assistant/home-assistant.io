@@ -23,7 +23,7 @@ To use your SHT31 sensor in your installation, add the following to your `config
 sensor:
   platform: sht31
   name: Bedroom
-  i2c_address: '0x44'
+  i2c_address: 0x44
   monitored_conditions:
     - temperature
     - humidity
@@ -32,5 +32,5 @@ sensor:
 Configuration variables:
 
 - **name** (*Optional*): The name of the sensor.
-- **i2c_address** (*Optional*): I2C address of the sensor. Defaults to '0x44'
+- **i2c_address** (*Optional*): I2C address of the sensor. Defaults to 0x44
 - **monitored_conditions** array (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
