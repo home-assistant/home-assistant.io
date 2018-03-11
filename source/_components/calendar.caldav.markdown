@@ -42,10 +42,10 @@ calendar:
 # Example configuration.yaml entry for nextcloud, calendars will be found automatically
 calendar:
   - platform: caldav
+    username: john.doe
+    password: !secret caldav
     url: https://nextcloud.example.com/remote.php/dav
 ```
-
-Note that all day events only work for custom calendars.
 
 This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
 
@@ -122,20 +122,6 @@ custom_calendars:
  - **end_time**: End time of event.
 
 ### {% linkable_title Examples %}
-
-Example entry for creating one custom calendar containing all events from the calendar "Agenda" which contain "HomeOffice" in the description, location, or summary.
-```yaml
-# Example configuration.yaml entry for baikal
-calendar:
-  - platform: caldav
-    url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
-    username: john.doe@test.com
-    password: !secret caldav
-    custom_calendars:
-      - name: 'HomeOffice'
-        calendar: 'Agenda'
-        search: 'HomeOffice'
-```
 
 All events of the calendars "private" and "holidays". Note that all day events are not included.
 ```yaml
