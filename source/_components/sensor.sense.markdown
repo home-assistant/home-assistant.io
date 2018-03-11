@@ -21,19 +21,20 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   platform: sense
-  email: CLIENT_ID
-  password: CLIENT_SECRET
+  email: SENSE_EMAIL
+  password: SENSE_PASSWORD
   monitored_conditions:
     - active_usage
     - active_production
     - daily_usage
     - daily_production
+    - devices
 ```
 
-Two types of sensors can be monitored and will be created with the following names:
+Three types of sensors can be monitored and will be created with the following names:
 - **Active Usage/Production**: Current active power usage/production in Watts. Updated every 30 seconds.
-- **Daily Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
-- ...
+- **Daily/Weekly/Monthly/Yearly Usage/Production**:  Power usage/production over the period in kWh. Updated every 5 minutes.
+- **Devices**: Current power usage in Watts for every Sense detected device. Updated every 30 seconds.
 
 Weekly, Monthly and Yearly variants are also available.
 
@@ -71,4 +72,6 @@ monitored_conditions:
       description: Total power used for current year in kWh
     yearly_production:
       description: Total power produced for current year in kWh
+    devices:
+      description: Detected devices current power usage in W
 {% endconfiguration %}
