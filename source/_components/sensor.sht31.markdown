@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: DIY
 ha_release: N/A
-logo: dht.png
+logo: sensirion.png
 ha_iot_class: "Local Polling"
 ---
 
