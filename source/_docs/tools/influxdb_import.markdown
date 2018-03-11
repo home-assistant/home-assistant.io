@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/influxdb/#data-import-script
 ---
 
 If you want to import all the recorded data from your recorder database you can use the data import script. It will read all your state_change events from the database and add them as data-points to the InfluxDB. You can specify the source database either by pointing the `--config` option to the config directory which includes the default SQLite database or by giving a sqlalchemy connection URI with `--uri`.
