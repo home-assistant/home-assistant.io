@@ -33,6 +33,8 @@ To integrate a WebDav calendar in Home Assistant, add the following section to y
 # Example configuration.yaml entry for baikal
 calendar:
   - platform: caldav
+    username: john.doe@test.com
+    password: !secret caldav
     url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
 ```
 
@@ -44,6 +46,33 @@ calendar:
 ```
 
 Note that all day events only work for custom calendars.
+
+This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
+
+
+### {% linkable_title Custom calendars %}
+
+You have the possibility to create multiple binary sensors for events that match certain conditions.
+
+```yaml
+# Example configuration.yaml entry
+calendar:
+  - platform: caldav
+    username: john.doe@test.com
+    password: !secret caldav
+    url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
+    custom_calendars:
+      - name: 'HomeOffice'
+        calendar: 'Agenda'
+        search: 'HomeOffice'
+      - name: 'WarmupFlat'
+        calendar: 'Agenda'
+        search: 'Warmup'
+```
+
+This will create two binary sensors for the calendar name Agenda: "HomeOffice" and "WarmupFlat". Those sensors will be `on` if there is an ongoing event matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
+
+Please note that when you configure custom calendars, the default ones are not created anymore.
 
 {% configuration %}
 url:
@@ -77,7 +106,7 @@ custom_calendars:
       type: string
     search:
       required: true
-      description: Regular expression for filtering the events. If this matches the description, summary, or location then the event will be included in this custom calendar.
+      description: Regular expression for filtering the events based on the content of their summary, description or location.
       type: string
 {% endconfiguration %}
 
