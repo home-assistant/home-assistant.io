@@ -26,7 +26,7 @@ Running these commands will:
 
 Using the Synology webadmin:
 
- - Install python3 using the Synology Package Center
+ - Install python3 using the Synology Package Center (be aware, this provides 3.5.1, which is not compatible with Home Assistant 0.65.0 or later)
  - Create homeassistant user and add to the "users" group
 
 SSH onto your synology & login as admin or root
