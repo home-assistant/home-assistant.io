@@ -8,7 +8,6 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#processing-json
 ---
 
 The MQTT [switch](/components/switch.mqtt/) and [sensor](/components/sensor.mqtt/) platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
