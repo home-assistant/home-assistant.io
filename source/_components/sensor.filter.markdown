@@ -30,10 +30,21 @@ sensor:
   - platform: filter
     name: "filtered realistic humidity"
     entity_id: sensor.realistic_humidity
+    history_period: 00:05
     filters:
       - filter: outlier
         window_size: 4
         radius: 4.0
+      - filter: lowpass
+        time_constant: 10
+        precision: 2
+  - platform: filter
+    name: "filtered realistic temperature"
+    entity_id: sensor.realistic_temperature
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
       - filter: lowpass
         time_constant: 10
         precision: 2
@@ -50,6 +61,10 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+history_period:
+  description: Load entity_id's states from the last period
+  required: false
+  type: 'datetime'
 filters:
   description: Filters to be used.
   required: true 
