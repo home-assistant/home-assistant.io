@@ -31,6 +31,25 @@ sensor:
 
 Configuration variables:
 
-- **name** (*Optional*): The name of the sensor.
-- **i2c_address** (*Optional*): I2C address of the sensor. Defaults to 0x44
-- **monitored_conditions** array (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
+{% configuration %}
+  name:
+    description: The name of the sensor. Temperature and Humidity will be added to the name for the sensor name.
+    required: false
+    default: SHT31
+    type: string
+  i2c_address:
+    description: I2C address of the sensor.
+    required: false
+    default: "`0x44`"
+    type: int
+  monitored_conditions:
+    description: Conditions to monitor.
+    required: false
+    default: All conditions
+    type: list
+    keys:
+      temperature: 
+        description: The current temperature of the SHT31.
+      humidity:
+        description: The current humidity of the SHT31.
+{% endconfiguration %}
