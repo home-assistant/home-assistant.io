@@ -67,5 +67,3 @@ Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 This will create the notification entry shown above.
-
-NOTE: if you have defined a ```default_view:``` in your ```Groups:``` configuration you will need to include ```persistent_notification.<notification_id>``` e.g. ```persistent_notification.1234``` as per the example above, to your Groups configuration, in order to see the notification after creating it. 

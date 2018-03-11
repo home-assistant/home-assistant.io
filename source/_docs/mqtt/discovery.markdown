@@ -8,7 +8,6 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#discovery
 ---
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.

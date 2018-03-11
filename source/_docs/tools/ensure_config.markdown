@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /docs/tools/scripts/#existence-of-configuration
 ---
 
 This script checks if the `configuration.yaml` file exists. If the file is not available, one is created.
