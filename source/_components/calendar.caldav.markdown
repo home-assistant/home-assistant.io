@@ -13,11 +13,11 @@ ha_release: "0.60"
 ---
 
 
-The `caldav` platform allows you to connect to your WebDav calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDav calendar get updated roughly every 10 minutes.
+The `caldav` platform allows you to connect to your WebDav calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDav calendar get updated roughly every 15 minutes.
 
 ### {% linkable_title Prerequisites %}
 
-You need to have a CalDav server and eventually credentials for it. This component was tested against [Baikal](http://sabre.io/baikal/) but any component complying with the RFC4791 should work.
+You need to have a CalDav server and credentials for it. This component was tested against [Baikal](http://sabre.io/baikal/) but any component complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
 
 You might need some additional system packages to compile the Python caldav library. On a Debian based system, install them by:
 
@@ -30,11 +30,20 @@ $ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 To integrate a WebDav calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for baikal
 calendar:
   - platform: caldav
     url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
 ```
+
+```yaml
+# Example configuration.yaml entry for nextcloud, calendars will be found automatically
+calendar:
+  - platform: caldav
+    url: https://nextcloud.example.com/remote.php/dav
+```
+
+Note that all day events only work for custom calendars.
 
 {% configuration %}
 url:
@@ -51,7 +60,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering.
+  description: List of the calendars to filter. Empty or absent means no filtering, i.e. all calendars will be added.
   type: list
 custom_calendars:
   required: false
@@ -68,7 +77,7 @@ custom_calendars:
       type: string
     search:
       required: true
-      pending_charges: Regular expression for filtering the events
+      description: Regular expression for filtering the events. If this matches the description, summary, or location then the event will be included in this custom calendar.
       type: string
 {% endconfiguration %}
 
@@ -83,10 +92,11 @@ custom_calendars:
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-### {% linkable_title Sensor attributes %}
+### {% linkable_title Examples %}
 
+Example entry for creating one custom calendar containing all events from the calendar "Agenda" which contain "HomeOffice" in the description, location, or summary.
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for baikal
 calendar:
   - platform: caldav
     url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
@@ -96,4 +106,49 @@ calendar:
       - name: 'HomeOffice'
         calendar: 'Agenda'
         search: 'HomeOffice'
+```
+
+All events of the calendars "private" and "holidays". Note that all day events are not included.
+```yaml
+# Example configuration.yaml entry for nextcloud
+calendar:
+  - platform: caldav
+    url: https://nextcloud.example.com/remote.php/dav
+    username: 'me'
+    password: !secret caldav
+    calendars:
+      - private
+      - holidays
+```
+
+Full example with automation to wake up to music if not holiday. Prerequisite: you have a calendar named "work" where you create calendar entries containing "Holiday".
+
+Custom calendar names are built from the main calendar + name of the custom calendar.
+
+```yaml
+# configuration.yaml
+calendar:
+  - platform: caldav
+    url: https://nextcloud.example.com/remote.php/dav
+    username: 'me'
+    password: !secret caldav
+    custom_calendars:
+      - name: holiday
+        calendar: work
+        search: 'Holiday'
+
+# automations.yaml
+- id: wakeup
+  alias: worktime wakeup
+  trigger:
+    platform: time
+    at: 06:40:00
+  action:
+  - service: media_player.media_play
+    entity_id: media_player.bedroom
+  condition:
+  - condition: state
+    entity_id: calendar.work_holiday
+    state: 'off'
+
 ```
