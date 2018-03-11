@@ -122,7 +122,7 @@ intent_script:
 - Add support for input boolean to Google Assistant ([@balloob] - [#13030]) ([google_assistant docs])
 - HomeKit Bugfix: names ([@cdce8p] - [#13031]) ([homekit docs])
 
-## {% linkable_title Release 0.65.2 - March 11 %}
+## {% linkable_title Release 0.65.2 - March 10 %}
 
 - Fix translations sometimes not loading in the frontend ([@armills])
 - Fix sensibo's min/max_temp properties ([@jra3] - [#12996]) ([climate.sensibo docs])
@@ -133,6 +133,18 @@ intent_script:
 - Yeelight version bumped. ([@syssi] - [#13056]) ([light.yeelight docs])
 - Don't call async from sync ([@balloob] - [#13057]) ([xiaomi_aqara docs])
 - Convert decimals from SQL results ([@balloob] - [#13059]) ([sensor.sql docs])
+
+## {% linkable_title Release 0.65.3 - March 11 %}
+
+- Implement Hue available property ([@balloob] - [#12939]) ([light.hue docs])
+- Catch async from sync context by running asyncio event loop in debug mode during tests ([@balloob] - [#13058]) ([camera.arlo docs]) ([climate.generic_thermostat docs])
+- Fixes KNX fire event problem, issue https://github.com/home-assistant/home-assistant/issues/13049 ([@Julius2342] - [#13062]) ([knx docs])
+- Bump iGlo Version ([@jesserockz] - [#13063]) ([light.iglo docs])
+- Fix Tado doing async wrong ([@balloob] - [#13078]) ([device_tracker.tado docs])
+- Synology Camera: auto-renew session when it's expired ([@snjoetw] - [#13079]) ([camera.synology docs])
+- Revert "Cast automatically drop connection (#12635)" ([@OttoWinter] - [#13094]) ([media_player.cast docs])
+- Bump pyvera to 0.2.42. Improve event loop robustness. ([@pavoni] - [#13095]) ([vera docs])
+- Fix Kodi by updateding jsonrpc-websocket to 0.6 ([@Tadly] - [#13096]) ([media_player.kodi docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -656,3 +668,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
+[#12939]: https://github.com/home-assistant/home-assistant/pull/12939
+[#13058]: https://github.com/home-assistant/home-assistant/pull/13058
+[#13062]: https://github.com/home-assistant/home-assistant/pull/13062
+[#13063]: https://github.com/home-assistant/home-assistant/pull/13063
+[#13078]: https://github.com/home-assistant/home-assistant/pull/13078
+[#13079]: https://github.com/home-assistant/home-assistant/pull/13079
+[#13094]: https://github.com/home-assistant/home-assistant/pull/13094
+[#13095]: https://github.com/home-assistant/home-assistant/pull/13095
+[#13096]: https://github.com/home-assistant/home-assistant/pull/13096
+[@Julius2342]: https://github.com/Julius2342
+[@OttoWinter]: https://github.com/OttoWinter
+[@Tadly]: https://github.com/Tadly
+[@balloob]: https://github.com/balloob
+[@jesserockz]: https://github.com/jesserockz
+[@pavoni]: https://github.com/pavoni
+[@snjoetw]: https://github.com/snjoetw
+[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
+[camera.synology docs]: https://home-assistant.io/components/camera.synology/
+[climate.generic_thermostat docs]: https://home-assistant.io/components/climate.generic_thermostat/
+[device_tracker.tado docs]: https://home-assistant.io/components/device_tracker.tado/
+[knx docs]: https://home-assistant.io/components/knx/
+[light.hue docs]: https://home-assistant.io/components/light.hue/
+[light.iglo docs]: https://home-assistant.io/components/light.iglo/
+[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
+[media_player.kodi docs]: https://home-assistant.io/components/media_player.kodi/
+[vera docs]: https://home-assistant.io/components/vera/
