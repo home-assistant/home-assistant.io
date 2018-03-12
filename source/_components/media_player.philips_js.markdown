@@ -30,3 +30,4 @@ Configuration variables:
 - **host** (*Required*): IP address of TV.
 - **name** (*Optional*): The name you would like to give to the Philips TV.
 - **turn_on_action** (*Optional*): A script that will be executed to turn on the TV (can be used with wol).
+- **api_version** (*Optional*): The JointSpace API version of your Philips TV, defaults to `1`.
