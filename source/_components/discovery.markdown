@@ -79,6 +79,7 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `songpal` : Songpal
  * `tellduslive`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
