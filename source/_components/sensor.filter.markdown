@@ -102,7 +102,7 @@ filters:
 
 The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcuting peaks and valleys.
 
-The included Low-pass filter is very basic and is based on a moving average, in which the previous data point is weighted with the new data point.
+The included Low-pass filter is very basic and is based on [exponential smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing), in which the previous data point is weighted with the new data point.
 
 ```python
 B = 1.0 / time_constant
