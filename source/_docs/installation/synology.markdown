@@ -57,6 +57,10 @@ Use PIP to install Homeassistant package
 # ./python3 -m pip install homeassistant
 ```
 
+<p class='note'>
+Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3`
+</p> 
+
 Create homeassistant config directory & switch to it
 
 ```bash
