@@ -54,10 +54,13 @@ Automations can be triggered on filesystem event data using a data_template. The
 - action:
   - data_template:
       message: 'Created {{trigger.event.data.file}} in {{trigger.event.data.folder}}'
-    service: notify.my_notify_service
+      title: New image captured!
+      data:
+        file: "{{trigger.event.data.folder}}/{{trigger.event.data.file}}"
+    service: notify.pushbullet
   alias: New file alert
   condition: []
-  id: '1234'
+  id: '1520092824697'
   trigger:
   - event_data: {"event_type":"created"}
     event_type: folder_watcher
