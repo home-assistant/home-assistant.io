@@ -61,30 +61,30 @@ report_server_port:
   type: int
   default: 52010
 report_server_codes:
-  description: List of codes for the different states.
+  description: Map of list of codes for the different states.
   required: false
   type: map
   keys:
     arm:
       description: List of codes for the 'arm' state.
       required: false
-      type: map
+      type: list
     disarm:
       description: List of codes for the 'disarm' state.
       required: false
-      type: map
+      type: list
     armhome:
       description: List of codes for the 'armhome' state.
       required: false
-      type: map
+      type: list
     triggered:
       description: List of codes for the 'triggered' state.
       required: false
-      type: map
+      type: list
     ignore:
       description: List of codes that will be ignored.
       required: false
-      type: map
+      type: list
 {% endconfiguration %}
 
 Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will **not** update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
