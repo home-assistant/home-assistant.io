@@ -91,6 +91,8 @@ class StateCardMyCustomLight extends Polymer.Element {
 customElements.define(StateCardMyCustomLight.is, StateCardMyCustomLight);
 </script>
 ```
-Note: Some browsers don't support latest ECMAScript standards, these require a separate ES5 compatible file (`extra_html_url_es5`).
+<p class='note'>
+SomeSome browsers don't support latest ECMAScript standards, these require a separate ES5 compatible file (`extra_html_url_es5`).
+</p>
 
 For more possibilities, see the [Custom UI section](/cookbook/#user-interface) on our Examples page.
