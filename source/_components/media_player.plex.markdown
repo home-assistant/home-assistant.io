@@ -78,6 +78,7 @@ media_player:
 - **show_all_controls** (*Optional*): Forces all controls to display. Defaults to `false`. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
 - **use_custom_entity_ids** (*Optional*): Name Entity ID's by client ID's instead of friendly names. Defaults to `false`.  HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn).
 - **use_episode_art** (*Optional*): Display TV episode art instead of TV show art. Defaults to `false`.
+- **remove_unavailable_clients** (*Optional*): Remove stale plex clients from UI after interval. Defaults to `true`.
 - **client_remove_interval** (*Optional*): How long a client is to be unavailable for before it is cleaned up. Defaults to `600 seconds (10min)`.
 
 ### {% linkable_title Service `play_media` %}
