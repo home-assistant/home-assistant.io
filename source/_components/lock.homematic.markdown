@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Lock
-ha_release: 0.62
+ha_release: 0.66
 ha_iot_class: "Local Push"
 ---
-
 
 The `homematic` lock platform lets you observe and control the state of the HomeMatic  [Homematic](http://www.homematic.com/) KeyMatic lock through Home Assistant.
 
