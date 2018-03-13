@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: bmw.png
 ha_category: Lock
-ha_release: 0.65
+ha_release: 0.66
 ---
 
 
