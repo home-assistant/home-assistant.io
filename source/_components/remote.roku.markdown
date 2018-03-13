@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Roku Remote"
-description: "Instructions how to integrate Roku into Home Assistant."
+description: "Instructions on how to integrate Roku into Home Assistant."
 date: 2018-02-19 20:0+0000
 sidebar: true
 comments: false
@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: roku.png
 ha_category: Remote
-ha_release: "0.64"
+ha_release: 0.66
 ha_iot_class: "Local Polling"
 ---
 
-The `roku` remote platform allows you to send remote control buttons to a Roku device. It is automatically setup when a Roku is configured, please see [Roku Component page](/components/roku/) for configuration details.
+The `roku` remote platform allows you to send remote control buttons to a Roku device. It is automatically set up when a Roku is configured; please see [Roku Component page](/components/roku/) for configuration details.
 
 At the moment, the following buttons are supported:
 
