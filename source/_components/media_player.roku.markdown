@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Roku Media Player"
-description: "Instructions how to integrate Roku into Home Assistant."
+description: "Instructions on how to integrate Roku into Home Assistant."
 date: 2018-02-19 20:0+0000
 sidebar: true
 comments: false
@@ -13,4 +13,4 @@ ha_release: "0.20"
 ha_iot_class: "Local Polling"
 ---
 
-To setup the `roku` media player platform, please follow the instructions on the [Roku Component page](/components/roku/).
+To set up the `roku` media player platform, please follow the instructions on the [Roku Component page](/components/roku/).
