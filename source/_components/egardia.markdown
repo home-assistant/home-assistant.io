@@ -2,7 +2,7 @@
 layout: page
 title: "Egardia"
 description: "Instructions how to setup Egardia / Woonveilig within Home Assistant."
-date: 2018-03-12 09:00
+date: 2018-03-13 09:00
 sidebar: true
 comments: false
 sharing: true
@@ -16,7 +16,8 @@ The `egardia` platform enables the ability to control an [Egardia](http://egardi
 
 You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in using your Egardia/Woonveilig account.
 
-{% linkable_title Basic configuration %}
+## {% linkable_title Basic configuration %}
+
 To enable the integration with your alarm panel, add the following lines to your `configuration.yaml` file:
  ```yaml
     # Example configuration.yaml entry
@@ -89,7 +90,8 @@ report_server_codes:
 Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will **not** update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
 You can change this, however, using the following procedure. This is a more advanced (and more useful) configuration.
 
-{% linkable_title Advanced configuration %}
+##{% linkable_title Advanced configuration %}
+
 1. Log in to your alarm system's control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
 2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
 3. The Egardia component relies on capturing the status codes that your alarm emits when something happens (status change or trigger). These codes will be unique for every situation - i.e. the code emitted by the alarm when a sensor is triggered is unique to that sensor. Also, if you have multiple users or remotes, each remote has unique codes that are emitted by the alarm when status is changed using that remote or by that user. For the Egardia component to work correctly you will need to capture the codes. To do this, on your Home Assistant machine run `$ sudo python3 egardiaserver.py`. Refer to the [python-egardia repository](https://github.com/jeroenterheerdt/python-egardia) for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. Record the codes shown as well as the status they relate to (see step 4 below). Make sure to change the status of your alarm to all states (disarm, arm, home) by all means possible (all users, remotes, web login, app) as well as trigger the alarm in all ways possible to get 100% coverage of all the codes the alarm system generates. You will need to run this script once and stop it once you have captured all the possible codes. Also, if you ever add users, remotes or sensors to your alarm system, make sure to re-run the script to capture the extra codes so you can update your configuration (see step 4 below). **For comfort, before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
