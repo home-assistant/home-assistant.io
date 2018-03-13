@@ -102,7 +102,7 @@ entity_config:
           required: false
           type: list
         type:
-          description: Override the domain how Google Assistant has to interpretet the entity. For example, set to `light` for a switch entity to have it be handeld as a light. (options: switch, light, cover, media_player, group, fan, scene, script, climate)
+          description: Override the domain how Google Assistant has to interpretet the entity. For example, set to `light` for a switch entity to have it be handeld as a light. Valid options: switch, light, cover, media_player, group, fan, scene, script and climate.
           required: false
           type: string
 {% endconfiguration %}
