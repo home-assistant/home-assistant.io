@@ -73,7 +73,7 @@ payload_not_available:
   type: string
   default: offline
 json_attributes:
-  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes. Use the "." operator to access nested JSON keys.
   reqired: false
   type: list, string
 {% endconfiguration %}
