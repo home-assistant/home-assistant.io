@@ -82,10 +82,8 @@ This will display the Z-Wave related information about the node:
 * **lastResponseRTT** The Round Trip Time of the response to the last request
 * **manufacturer_name** The name of the manufacturer, as supplied by OpenZWave
 * **max_baud_rate** The maximum bandwidth the device supports, most modern devices will support 40,000 or higher
-* **new_entity_id** In 0.47, Home Assistant introduced a new naming convention for entities, this shows the new naming convention
 * **node_id** The unique node ID of this node
 * **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
-* **old_entity_id** If `new_entity_ids: false` has been configured, then this is the entity_id that will be used. Support for this will be removed in the future
 * **product_name** The product name of the device, as supplied by OpenZWave
 * **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
 * **receivedCnt** The number of messages received from the device
