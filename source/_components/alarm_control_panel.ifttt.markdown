@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: ifttt.png
 ha_category: Alarm
-ha_release: ?
 ---
 
 The `ifttt` platform allows you to integrate security systems that have no open API, but can be controlled through [IFTTT](https://ifttt.com/discover).
