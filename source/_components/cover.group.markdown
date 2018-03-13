@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `group` platform can create a cover that combine several cover entities into one.
+The `group` platform can create a cover that combines several cover entities into one.
 
 To enable `Cover Groups` in your installation, add the following to your `configuration.yaml` file:
 
