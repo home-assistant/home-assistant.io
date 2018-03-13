@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: modbus.png
 ha_category: Thermostat
-ha_release: pre 0.7
+ha_release: 0.66
 ha_iot_class: "Local Polling"
 ---
 
@@ -21,22 +21,16 @@ registers.
 To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
 climate:
   - platform: modbus
     name: Watlow F4T
-    # Modbus TCP
     slave: 1
-    # Control Loop 1 Setpoint
     target_temp_register: 2782
-    # Universal Input 1 Module 1
     current_temp_register: 27586
-    data_type: float
 
 ```
 
-Configuration variables:
-
+{% configuration %}
   - **name** (*Required*): Name of the sensor.
   - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
   - **target_temp_register** (*Required*): Register number for target temperature (Setpoint)
@@ -44,6 +38,8 @@ Configuration variables:
   - **data_type** (*Optional*): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. Default float.
   - **count** (*Optional*): Number of registers to read.
   - **precision** (*Optional*): Number of valid decimals, default 0.
+{% endconfiguration %}
+
 
 ### {% linkable_title Services %}
 
