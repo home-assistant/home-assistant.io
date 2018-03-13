@@ -12,7 +12,7 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they could be controlled from Apple `Home` app and `Siri`.
+The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they could be controlled from Apple `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
 
 {% configuration %}
   homekit:
@@ -89,6 +89,20 @@ After Home Assistant has started, the entities specified by the filter are expos
 6. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
 After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
+
+
+## {% linkable_title Considerations %}
+
+
+### {% linkable_title Accessory ID %}
+
+Currently this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This however means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+
+### {% linkable_title Persistence Storage %}
+
+Unfortunately `HomeKit` doesn't support any kind of persistence storage, only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
+
+A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
 
 ## {% linkable_title Disable Auto Start %}
