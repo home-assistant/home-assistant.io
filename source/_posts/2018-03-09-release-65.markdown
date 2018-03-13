@@ -146,7 +146,7 @@ intent_script:
 - Bump pyvera to 0.2.42. Improve event loop robustness. ([@pavoni] - [#13095]) ([vera docs])
 - Fix Kodi by updateding jsonrpc-websocket to 0.6 ([@Tadly] - [#13096]) ([media_player.kodi docs])
 
-## {% linkable_title Release 0.65.3 - March 12 %}
+## {% linkable_title Release 0.65.4 - March 12 %}
 
 - Fix unavailable property for wemo switch ([@balloob] - [#13106]) ([switch.wemo docs])
 - Hue: Catch if bridge goes unavailable ([@balloob] - [#13109]) ([hue docs]) ([light.hue docs])
