@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Foobot Air Quality Monitor"
-description: "Instructions how to setup Foobot Air Quality sensor in Home Assistant."
+description: "Instructions on how to setup Foobot Air Quality sensor in Home Assistant."
 date: 2018-02-14 06:00
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: foobot.png
 ha_category: Health
-ha_release: 0.64
+ha_release: 0.66
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -34,7 +34,7 @@ sensor:
     required: true
     type: string
   username:
-    description: Your foobot username, used to fetch devices associated with an account.
+    description: Your Foobot username, used to fetch devices associated with an account.
     required: true
     type: string
 {% endconfiguration %}
