@@ -23,7 +23,7 @@ binary_sensor:
   - platform: trend
     sensors:
       solar_angle:
-        entity_id: sun.sun
+        entity_id: sensor.cpu_speed
 ```
 
 Configuration variables:
@@ -59,7 +59,7 @@ binary_sensor:
   - platform: trend
     sensors:
       sun_rising:
-        entity_id: sun.sun
+        entity_id: sensor.cpu_speed
 ```
 
 This example creates two sensors to indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:
