@@ -45,10 +45,10 @@ For this system to operate correctly, the following IFTTT applets have to be set
 * **IF** Webhook event `alarm_arm_home` is called, **THEN** set the alarm system to armed home.
 * **IF** Webhook event `alarm_arm_away` is called, **THEN** set the alarm system to armed away.
 * **IF** Webhook event `alarm_arm_night` is called, **THEN** set the alarm system to armed night.
-* **IF** the alarm system was disarmed, **THEN** perform a Webhook `POST` web request to url `https://HAS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "disarmed"}`.
-* **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to url `https://HAS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
-* **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to url `https://HAS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
-* **IF** the alarm system state changed to armed night, **THEN** perform a Webhook `POST` web request to url `https://HAS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_night"}`.
+* **IF** the alarm system was disarmed, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "disarmed"}`.
+* **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
+* **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
+* **IF** the alarm system state changed to armed night, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_night"}`.
 
 
 {% configuration %}
