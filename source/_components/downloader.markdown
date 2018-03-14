@@ -45,8 +45,8 @@ This will download the file from the given URL.
 
 ### {% linkable_title Download Status Events %}
 
-When download is finished successfully Home Asssitant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
-In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successully.
+When a download finished successfully, Home Assistant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
+In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successfully.
 
 Along with the event the following payload parameters are available:
 
