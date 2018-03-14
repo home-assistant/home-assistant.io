@@ -153,6 +153,14 @@ intent_script:
 - Adding check for empty discovery info in alarm control panel Egardia. ([@jeroenterheerdt] - [#13114]) ([alarm_control_panel.egardia docs])
 - Throttle Arlo api calls ([@arsaboo] - [#13143]) ([arlo docs])
 
+## {% linkable_title Release Notes 0.65.5 - March 14 %}
+
+- Bugfix HomeKit: Error string values for temperature ([@cdce8p] - [#13162]) ([homekit docs])
+- Revert throttle Arlo api calls ([@arsaboo] - [#13174]) ([arlo docs])
+- Ignore unsupported Sonos favorites ([@amelchio] - [#13195]) ([media_player.sonos docs])
+- Avoid Sonos error when joining with self ([@amelchio] - [#13196]) ([media_player.sonos docs])
+- Fix input_boolean Google Assistant serialize error ([@balloob] - [#13220]) ([google_assistant docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -713,3 +721,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: https://home-assistant.io/components/hue/
 [light.hue docs]: https://home-assistant.io/components/light.hue/
 [switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
+[#13162]: https://github.com/home-assistant/home-assistant/pull/13162
+[#13174]: https://github.com/home-assistant/home-assistant/pull/13174
+[#13195]: https://github.com/home-assistant/home-assistant/pull/13195
+[#13196]: https://github.com/home-assistant/home-assistant/pull/13196
+[#13220]: https://github.com/home-assistant/home-assistant/pull/13220
+[@amelchio]: https://github.com/amelchio
+[@arsaboo]: https://github.com/arsaboo
+[@balloob]: https://github.com/balloob
+[@cdce8p]: https://github.com/cdce8p
+[arlo docs]: https://home-assistant.io/components/arlo/
+[google_assistant docs]: https://home-assistant.io/components/google_assistant/
+[homekit docs]: https://home-assistant.io/components/homekit/
+[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
