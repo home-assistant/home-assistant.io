@@ -36,6 +36,7 @@ patterns:
 {% endconfiguration %}
 
 ## Patterns
+
 Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns. The following example shows the configuration required to only monitor filetypes `.yaml` and `.txt`.
 
 ```yaml
@@ -48,6 +49,7 @@ folder_watcher:
 ```
 
 ## Automations
+
 Automations can be triggered on filesystem event data using a data_template. The following automation will send a notification with the name and folder of new files added to that folder:
 
 ```yaml
