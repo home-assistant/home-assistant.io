@@ -9,11 +9,10 @@ sharing: true
 footer: true
 logo: vesync.png
 ha_category: Switch
-ha_release: 0.64.4
+ha_release: 0.66
 ---
 
 The `vesync` switch platform enabled integration with Etekcity VeSync smart switches.
-
 
 To use your VeSync switches, you must first register your switches with the VeSync app. Once registration is complete you must add the following to your `configuration.yaml` file:
 
