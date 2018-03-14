@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /docs/configuration/secrets/#storing-passwords-in-a-keyring-managed-by-your-os
 ---
 
 Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. The secrets can be managed from the command line via the `keyring` script.

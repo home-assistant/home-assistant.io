@@ -57,7 +57,10 @@ The following components are currently supported:
 
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
+| alarm_control_panel | SecuritySystem | All security systems. |
+| climate | Thermostat | All climate devices. |
 | cover | Window | All covers that support `set_cover_position`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
+| switch/remote | Switch | All switches or remotes (represented as switches). |
 
 <p class='note'>Currently only devices that are setup when Home Assistant is starting can be exposed to `HomeKit`. This means that especially `Z-Wave` components are currently not supported, since they will be setup afterwards. We are working on a solution for this problem.</p>

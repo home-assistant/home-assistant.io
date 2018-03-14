@@ -28,9 +28,31 @@ switch:
     name: Original Xiaomi Mi Smart WiFi Socket
     host: 192.168.130.59
     token: YOUR_TOKEN
+    model: chuangmi.plug.m1
 ```
 
 Configuration variables:
-- **host** (*Required*): The IP of your plug.
-- **token** (*Required*): The API token of your plug.
-- **name** (*Optional*): The name of your plug.
+- **host** (*Required*): The IP of your miio device.
+- **token** (*Required*): The API token of your miio device.
+- **name** (*Optional*): The name of your miio device.
+- **model** (*Optional*): The model of your miio device. Valid values are chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1` and `chuangmi.plug.v2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+
+{% configuration %}
+host:
+  description: The IP address of your device.
+  required: true
+  type: string
+token:
+  description: The API token of your device.
+  required: true
+  type: string
+name:
+  description: The name of your device.
+  required: false
+  type: string
+  default: Xiaomi Miio Switch
+model:
+  description: The model of your device.
+  required: false
+  type: string
+{% endconfiguration %}

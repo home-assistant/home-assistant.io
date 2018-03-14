@@ -57,7 +57,7 @@ Hass.io upgrade process from the SSH command line
 
 ## {% linkable_title hassio command %}
 
-On the SSH command line tyou can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
+On the SSH command line you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
 
 HomeAssistant:
 ```  $ hassio homeassistant logs

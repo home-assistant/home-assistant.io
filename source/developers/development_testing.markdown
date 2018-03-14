@@ -54,10 +54,10 @@ $ pydocstyle homeassistant/core.py
 $ py.test tests/test_core.py
 ```
 
-You can also run linting tests against all changed files, as reported by `git diff upstream/dev --name-only`, using the `lint` script:
+You can also run linting tests against all changed files, as reported by `git diff upstream/dev... --diff-filter=d --name-only`, using the `lint` script:
 
 ```bash
-$ script/lint --changed
+$ script/lint
 ```
 
 ### {% linkable_title Preventing Linter Errors %}

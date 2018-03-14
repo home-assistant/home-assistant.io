@@ -22,6 +22,7 @@ weblink:
   entities:
     - name: Router
       url: http://192.168.1.1/
+      icon: mdi:router-wireless
     - name: Home Assistant
       url: https://home-assistant.io
     - name: Grafana

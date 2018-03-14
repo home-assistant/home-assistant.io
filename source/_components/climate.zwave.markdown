@@ -46,12 +46,12 @@ automation:
         at: "20:00:00"
     action:
       - service: climate.set_operation_mode
-        entity_id: climate.remotec_zxt120_heating_1_id
         data:
+          entity_id: climate.remotec_zxt120_heating_1_id
           operation_mode: Heat
       - service: climate.set_temperature
-        entity_id: climate.remotec_zxt120_heating_1_39
         data:
+          entity_id: climate.remotec_zxt120_heating_1_39
           temperature: 24
 ```
 
@@ -65,8 +65,8 @@ automation:
         at: "21:00:00"
     action:
       - service: climate.set_operation_mode
-        entity_id: climate.remotec_zxt120_heating_1_id
         data:
+          entity_id: climate.remotec_zxt120_heating_1_id
           operation_mode: 'Off'
 ```
 

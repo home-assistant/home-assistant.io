@@ -14,11 +14,9 @@ ha_iot_class: "Cloud Polling"
 
 The `spotcrime` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Spot Crime](http://spotcrime.com). Your regional emergency services may or may not report data. The sensor defaults to counting incidents within one day, but can be customized via configuration.yaml.
 
-## Configuration
+You will need to request an API key from [Spotcrime](mailto:pyrrhus@spotcrime.com).
 
 To enable this sensor, add the following lines to your `configuration.yaml`. Your `radius` should be of sufficient size to capture incidents in your area. 0.01 = 1 mile.
-
-You will need to request an API key from [Spotcrime](mailto:pyrrhus@spotcrime.com).
 
 ```yaml
 sensor:
@@ -55,10 +53,9 @@ exclude:
   type: list
 {% endconfiguration %}
 
+## {% linkable_title Notes %}
 
-## Notes
-
-### Incident Types
+### {% linkable_title Incident Types %}
 
 You can explicitly include or exclude incident types. Specifying `include`s restricts the incidents to those types. Specifying `exclude`s will return all incident types except those specified.
 
@@ -74,6 +71,6 @@ These incident types are available:
 - Vandalism
 - Other
 
-### Events
+### {% linkable_title Events %}
 
 The `crimealerts` sensor fires a `crimealerts_incident` event when a new incident is detected, including the type, time, and location of the incident.
