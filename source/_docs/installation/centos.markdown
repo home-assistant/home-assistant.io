@@ -30,7 +30,7 @@ $ yum install rh-python36
 Once installed, switch to your `homeassistant` user (if you've set one up), enable the software collection and check that it has set up the new version of Python:
 
 ```bash
-$ scl enable rh-python35 bash
+$ scl enable rh-python36 bash
 $ python --version
 Python 3.6.3
 ```
@@ -55,7 +55,7 @@ User=homeassistant
 Environment=VIRTUAL_ENV="/srv/homeassistant"
 Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
 # ExecStart using software collection:
-ExecStart=/usr/bin/scl enable rh-python35 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+ExecStart=/usr/bin/scl enable rh-python36 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
