@@ -278,7 +278,7 @@ light:
 ```
 {% endraw %}
 
-And you can use the following script that finds the closest color from a list of named colors :
+Moreover, you can use the following script that finds the closest color from a list of named colors:
 
 {% raw %}
 ```python
