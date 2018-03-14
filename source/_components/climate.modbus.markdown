@@ -31,13 +31,35 @@ climate:
 ```
 
 {% configuration %}
-  - **name** (*Required*): Name of the sensor.
-  - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
-  - **target_temp_register** (*Required*): Register number for target temperature (Setpoint)
-  - **current_temp_register** (*Required*): Register number for current temperature (Setpoint)
-  - **data_type** (*Optional*): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. Default float.
-  - **count** (*Optional*): Number of registers to read.
-  - **precision** (*Optional*): Number of valid decimals, default 0.
+name:
+  description: Name of the device
+  required: true
+  type: string
+slave:
+  description: The number of the slave (Optional for tcp and upd Modbus, use 1).
+  required: true
+  type: int
+target_temp_register:
+  description: Register number for target temperature (Setpoint).
+  required: true
+  type: int
+current_temp_register:
+  description: Register number for current temperature (Process value).
+  required: true
+  type: int
+data_type:
+  description: Response representation (int, uint, float, custom). If float selected, value will converted to IEEE 754 floating point format.
+    Default float.
+  required: false
+  type: string
+count:
+  description: Number of registers to read.
+  required: false
+  type: int
+precision:
+  description: Number of valid decimals, default 0.
+  required: false
+  type: int
 {% endconfiguration %}
 
 
