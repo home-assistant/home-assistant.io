@@ -62,3 +62,4 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
++| `max_irradiance` | The theoretical maximum solar irradiance based on the global radiation on a horizontal surface and the current elevation. Can be used to calculate the percentage of solar radiation which is an indication for cloudiness.
