@@ -30,17 +30,16 @@ resource:
   description: The resource or endpoint that contains the value.
   required: true
   type: string
-  default: string
 method:
   description: "The method of the request. Supported `post` or `put`."
   required: false
   type: string
-  default: POST
+  default: "post"
 name:
   description: Name of the REST Switch.
   required: false
   type: string
-  default: REST Binary Switch
+  default: "REST Switch"
 timeout:
   description: Timeout for the request.
   required: false
@@ -50,12 +49,12 @@ body_on:
   description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
   required: false
   type: string
-  default: ON
+  default: "ON"
 body_off:
   description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/topics/templating/)."
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 is_on_template:
   description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
   required: false
