@@ -27,8 +27,6 @@ device_tracker:
   - platform: bluetooth_tracker
 ```
 
-Configuration variables:
-
 {% configuration %}
 request_rssi:
   description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device
