@@ -28,6 +28,21 @@ condition:
       below: '20'
 ```
 
+If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
+The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: numeric_state
+    entity_id: 'sensor.temperature'
+    below: '20'
+```
+
+Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
+
 ### {% linkable_title OR condition %}
 
 Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.

@@ -90,3 +90,16 @@ When starting Home Assistant, the last recorded state will be shown. This might 
 If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe obsolete information.
 
 This lack of synchronization is due to a LimitlessLED limitation.
+
+<p class='img'>
+<img src='/images/screenshots/limitlessled_assumed_state.png' />
+</p>
+
+Because LimitlessLED lights may have an obsolete state, Home Assistant shows the power switch as two buttons rather than a toggle. This ensures that the power can be set with a single click even if the assumed state is wrong. You can change to use the power toggle with [Customize](/docs/configuration/customizing-devices/):
+
+```yaml
+homeassistant:
+  customize_domain:
+    light:
+      assumed_state: false
+```

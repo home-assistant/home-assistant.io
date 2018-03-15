@@ -48,6 +48,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
 - [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
@@ -61,7 +62,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
-- [Zammad, Home Assistant und Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
+- [Zammad, Home Assistant and Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
 - [10 open source software tools for developing IoT applications](http://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017
 - [A Look at HASSbian: Raspberry Pi for Home Automation](http://www.piboards.com/2017/03/07/a-look-at-hassbian-raspberry-pi-for-home-automation/)- March 2017
 - [Home Assistant with Paulus Schoutsen - Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017

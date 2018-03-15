@@ -26,7 +26,7 @@ Running these commands will:
 
 Using the Synology webadmin:
 
- - Install python3 using the Synology Package Center
+ - Install python3 using the Synology Package Center (be aware, this provides 3.5.1, which is not compatible with Home Assistant 0.65.0 or later)
  - Create homeassistant user and add to the "users" group
 
 SSH onto your synology & login as admin or root
@@ -56,6 +56,10 @@ Use PIP to install Homeassistant package
 ```bash
 # ./python3 -m pip install homeassistant
 ```
+
+<p class='note'>
+Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python3 -m pip install homeassistant==0.64.3`
+</p> 
 
 Create homeassistant config directory & switch to it
 

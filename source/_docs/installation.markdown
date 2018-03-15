@@ -14,7 +14,7 @@ redirect_from: /getting-started/installation/
 Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require advanced installations.
 </p>
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5+](https://www.python.org/downloads/) installed.
+Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5.3 or later](https://www.python.org/downloads/) installed.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/getting-started/'>
