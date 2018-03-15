@@ -29,17 +29,46 @@ camera:
     max_image_width: 720
 ```
 
-Configuration variables:
-
-- **entity_id** (*Required*): The ID of another Home Assistant camera to post-process.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **max_image_width** (*Optional*): The maximum width of single images taken from the camera (aspect ratio will be maintained).
-- **max_stream_width** (*Optional*): The maximum width of the MJPEG stream from the camera (aspect ratio will be maintained).
-- **image_quality** (*Optional*): The quality level used for resulting JPEG for snapshots (default: 75).
-- **stream_quality** (*Optional*): The quality level used for resulting MJPEG streams (default: 75).
-- **image_refresh_rate** (*Optional*): The minimum time in seconds between generating successive image snapshots.
-- **force_resize** (*Optional*): Resize the image even if the resulting image would take up more bandwidth than the original.
-- **cache_images** (*Optional*): Preserve the last image and re-send in the case the camera is not responding.
+{% configuration %}
+  entity_id:
+    description: The ID of another Home Assistant camera to post-process.
+    required: true
+    type: string
+  name:
+    description: This parameter allows you to override the name of your camera.
+    required: false
+    type: string
+  max_image_width:
+    description: The maximum width of single images taken from the camera (aspect ratio will be maintained).
+    required: false
+    type: integer
+  max_stream_width:
+    description: The maximum width of the MJPEG stream from the camera (aspect ratio will be maintained).
+    required: false
+    type: integer
+  image_quality:
+    description: The quality level used for resulting JPEG for snapshots.
+    required: false
+    type: integer
+    default: 75
+  stream_quality:
+    description: The quality level used for resulting MJPEG streams.
+    required: false
+    type: integer
+    default: 75
+  image_refresh_rate:
+    description: The minimum time in seconds between generating successive image snapshots.
+    required: false
+    type: float
+  force_resize:
+    description: Resize the image even if the resulting image would take up more bandwidth than the original.
+    required: false
+    type: boolean
+  cache_images:
+    description: Preserve the last image and re-send in the case the camera is not responding.
+    required: false
+    type: boolean
+{% endconfiguration %}
 
 
 ## {% linkable_title Examples %}
