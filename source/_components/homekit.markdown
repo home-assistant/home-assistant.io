@@ -157,8 +157,10 @@ The following components are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | climate | Thermostat | All climate devices. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
+| light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
-| switch / remote | Switch | All switches or remotes (represented as switches). |
+| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
+| switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 
 ## {% linkable_title Error reporting %}
