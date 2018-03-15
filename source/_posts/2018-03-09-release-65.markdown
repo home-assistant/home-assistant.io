@@ -153,7 +153,7 @@ intent_script:
 - Adding check for empty discovery info in alarm control panel Egardia. ([@jeroenterheerdt] - [#13114]) ([alarm_control_panel.egardia docs])
 - Throttle Arlo api calls ([@arsaboo] - [#13143]) ([arlo docs])
 
-## {% linkable_title Release Notes 0.65.5 - March 14 %}
+## {% linkable_title Release 0.65.5 - March 14 %}
 
 - Bugfix HomeKit: Error string values for temperature ([@cdce8p] - [#13162]) ([homekit docs])
 - Revert throttle Arlo api calls ([@arsaboo] - [#13174]) ([arlo docs])
