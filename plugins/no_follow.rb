@@ -11,18 +11,19 @@ module Jekyll
 
             # Find all links
             dom.css('a').each do |link|
+                rel = ['external', 'nofollow']
 
                 # All external links start with 'http', skip when this one does not
                 next unless link.get_attribute('href') =~ /\Ahttp/i
 
-                # Play nice with links that already have a rel attribute set, skip it
-                next if link.get_attribute('rel')
-
                 # Play nice with our own links
                 next if link.get_attribute('href') =~ /\Ahttps?:\/\/\w*.?home-assistant.io/i
 
+                # Play nice with links that already have a rel attribute set
+                rel.unshift(link.get_attribute('rel'))
+
                 # Add rel attribute to link
-                link.set_attribute('rel', 'external nofollow')
+                link.set_attribute('rel', rel.join(' ').strip)
             end
             dom.to_s
         end
