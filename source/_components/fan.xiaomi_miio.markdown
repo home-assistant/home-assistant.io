@@ -137,3 +137,11 @@ Set the favorite level of the operation mode "favorite".
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
+### {% linkable_title Service `fan.xiaomi_miio_set_mode` %}
+
+Set the operation mode.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `mode`                    |       no | Operation mode: "Auto", "Silent", "Favorite", "Idle"    |
