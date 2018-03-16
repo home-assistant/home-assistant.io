@@ -93,7 +93,7 @@ filters:
 
 ### {% linkable_title Low-pass %}
 
-The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcuting peaks and valleys.
+The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcutting peaks and valleys.
 
 The included Low-pass filter is very basic and is based on a moving average, in which the previous data point is weighted with the new data point.
 
@@ -134,4 +134,4 @@ The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algori
 
 The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 
-Theta, as described on the paper, is the `window_size` parameter, and can be descriped using time notation (e.g. 00:05 for a five minutes time window).
+Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).
