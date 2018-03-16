@@ -17,7 +17,6 @@ The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monito
 
 Currently, the supported features are:
 
-* On, Off
 * Air Quality Index (AQI)
 * Attributes
   - power
@@ -54,22 +53,3 @@ name:
   type: string
   default: Xiaomi Miio Sensor
 {% endconfiguration %}
-
-## {% linkable_title Platform Services %}
-
-### {% linkable_title Service `sensor.turn_on` %}
-
-Turn the device on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific entity. Else targets all.        |
-
-### {% linkable_title Service `sensor.turn_off` %}
-
-Turn the Xiaomi Mi Air Quality Monitor off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific entity. Else targets all.        |
-
