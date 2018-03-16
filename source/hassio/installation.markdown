@@ -18,7 +18,7 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
 - Download the appropriate image for your Raspberry Pi / Intel NUC:
   - [Raspberry Pi / Zero][pi1]
   - [Raspberry Pi 2][pi2]
-  - [Raspberry Pi 3][pi3] <p class='note'>(It's not working with Raspberry pi 3 B+ yet)</p>
+  - [Raspberry Pi 3][pi3]
   - [Intel NUC][nuc]
 
 - Flash the downloaded image to an SD card using [Etcher].
