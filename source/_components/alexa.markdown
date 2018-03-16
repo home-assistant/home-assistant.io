@@ -167,7 +167,7 @@ intent_script:
       text: OK
 ```
 
-Here we are using [templates] to take the name we gave to Alexa e.g. `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
+Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
 Now say `Alexa ask Home Assistant to activate <some scene>` and Alexa will activate that scene for you.
 

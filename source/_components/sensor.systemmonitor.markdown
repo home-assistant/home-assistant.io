@@ -56,7 +56,7 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | ipv4_address        | Interface, eg. `eth0`     |
 | ipv6_address        | Interface, eg. `eth0`     |
 | processor_use       |                           |
-| process             | Binary, e.g. `octave-cli` |
+| process             | Binary, e.g., `octave-cli` |
 | last_boot           |                           |
 | since_last_boot     |                           |
 

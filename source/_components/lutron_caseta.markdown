@@ -25,7 +25,7 @@ The currently supported Caseta devices are:
 - Scenes as Home Assistant [scenes](/components/scene.lutron_caseta/)
 - Lutron shades as Home Assistant [covers](/components/cover.lutron_caseta/)
 
-When configured, the `lutron_caseta` component will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g. a dimmer called 'Bedroom Lamp' becomes `light.bedroom_lamp` in Home Assistant.
+When configured, the `lutron_caseta` component will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Bedroom Lamp' becomes `light.bedroom_lamp` in Home Assistant.
 
 To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [this script](/assets/get_lutron_cert.zip), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
 

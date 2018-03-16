@@ -45,7 +45,7 @@ Configuration variables:
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
 - **resolution** (*Optional*): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option `high`. For VGA resolution (640x480p), specify the option `low`. If omitted, it defaults to *high*.
 - **stream_source** (*Optional*): The data source for the live stream. `mjpeg` will use the camera's native MJPEG stream, whereas `snapshot` will use the camera's snapshot API to create a stream from still images. You can also set the `rtsp` option to generate the streaming via RTSP protocol. If omitted, it defaults to *snapshot*.
-- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g. image quality or video filter options.
+- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g., image quality or video filter options.
 - **authentication**: (*Optional*): Defines which authentication method to use only when **stream_source** is **mjpeg**. Currently, *aiohttp* only support *basic*. It defaults to *basic*.
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. The default is 10 seconds.
 - **sensors** array (*Optional*): Conditions to display in the frontend. By default, *none* of the conditions are enabled. The following conditions can be monitored.

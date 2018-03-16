@@ -22,7 +22,7 @@ Additional sensors can be added but at the expense of a reduced refresh rate. 2 
 
 Queries are entered as a list, with the two transport modes available being `bus` and `train`.
 
-Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](http://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g. `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json).
+Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](http://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g., `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json).
 
 To add a single train departure sensor add the following to your `configuration.yaml` file:
 

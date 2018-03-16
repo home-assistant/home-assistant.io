@@ -28,7 +28,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
+- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
 - **username** (*Required*): The username to login into the router (the same used trough the router's web interface).
 - **password** (*Required*): The password for the specified username.
 

@@ -24,7 +24,7 @@ rfxtrx:
 
 Configuration variables:
 
-- **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+- **device** (*Required*): The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 - **debug** (*Optional*): If you want to receive debug output.
 - **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
 

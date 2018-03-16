@@ -33,7 +33,7 @@ sensor:
 
 Configuration variables:
 
-- **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
+- **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g., http://192.168.1.10.
 - **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **[variable]** (*Required*): Name of the variable to monitor.

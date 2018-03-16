@@ -32,7 +32,7 @@ sensor:
 Configuration variables:
 
 - **stopid** (*Required*): The ID of the bus stop to get the information for.
-- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g. `83`.
+- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`.
 - **name** (*Optional*): A friendly name for this sensor.
 
 The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).

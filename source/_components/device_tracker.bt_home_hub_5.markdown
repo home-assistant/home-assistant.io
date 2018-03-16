@@ -25,6 +25,6 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.254.
+- **host** (*Required*): The IP address of your router, e.g., 192.168.1.254.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

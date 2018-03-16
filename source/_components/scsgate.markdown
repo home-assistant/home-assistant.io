@@ -25,7 +25,7 @@ scsgate:
 
 Configuration variables:
 
-- **device** (*Required*): The path to your device, e.g. `/dev/ttyACM0`
+- **device** (*Required*): The path to your device, e.g., `/dev/ttyACM0`
 
 ### {% linkable_title How to find the scs_id for your devices %}
 

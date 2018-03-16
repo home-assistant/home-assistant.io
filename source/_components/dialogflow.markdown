@@ -47,10 +47,10 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
 - Go to "Fulfillment" (in the left menu)
-- Enable Webhook and set your Home Assistant URL with the Dialogflow endpoint, e.g. `https://myhome.duckdns.org/api/dialogflow?api_password=HA_PASSWORD`
+- Enable Webhook and set your Home Assistant URL with the Dialogflow endpoint, e.g., `https://myhome.duckdns.org/api/dialogflow?api_password=HA_PASSWORD`
 - Click "Save"
 - Create a new intent
-- Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g. `What is the temperature at home?`
+- Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
 - In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
 - In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"

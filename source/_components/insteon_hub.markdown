@@ -32,6 +32,6 @@ insteon_hub:
 
 Configuration variables:
 
-- **username** (*Required*): The username used to access the Insteon interface (e.g. the [connect.insteon.com](http://connect.insteon.com/) site).
+- **username** (*Required*): The username used to access the Insteon interface (e.g., the [connect.insteon.com](http://connect.insteon.com/) site).
 - **password** (*Required*): The password used to access the Insteon interface.
 - **api_key** (*Required*): The Insteon REST API key emailed to you once you are approved in the Insteon Developer program.

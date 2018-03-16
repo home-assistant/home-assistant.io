@@ -11,7 +11,7 @@ logo: logbook.png
 ha_category: "History"
 ---
 
-<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. [See the demo for a live example](/demo/). It depends on the `recorder` component for storing the data. This means that if the [`recorder`](/components/recorder/) component is set up to use e.g. MySQL or PostgreSQL as data store, the `logbook` component does not use the default SQLite database to store data.
+<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. [See the demo for a live example](/demo/). It depends on the `recorder` component for storing the data. This means that if the [`recorder`](/components/recorder/) component is set up to use e.g., MySQL or PostgreSQL as data store, the `logbook` component does not use the default SQLite database to store data.
 
 To enable the logbook in your installation, add the following to your `configuration.yaml` file:
 

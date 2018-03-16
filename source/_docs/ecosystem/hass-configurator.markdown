@@ -47,7 +47,7 @@ There are no dependencies on Python modules that are not part of the standard li
 
 ### {% linkable_title Configuration %}
 Near the top of the `configurator.py`-file you will find some global variables you can change to customize the configurator. If you are unfamiliar with Python: when setting variables of the type _string_, you have to write that within quotation marks. The default settings are fine for just checking out the configurator quickly. With more customized setups you should change some settings though.  
-To keep your settings across updates it is also possible to save settings in an external file. In that case copy [settings.conf](https://github.com/danielperna84/hass-configurator/blob/master/settings.conf) wherever you like and append the full path to the file to the command when starting the configurator. E.g. `sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf`. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that `None` becomes `null`.
+To keep your settings across updates it is also possible to save settings in an external file. In that case copy [settings.conf](https://github.com/danielperna84/hass-configurator/blob/master/settings.conf) wherever you like and append the full path to the file to the command when starting the configurator. e.g., `sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf`. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that `None` becomes `null`.
 
 #### LISTENIP (string)
 The IP the service is listening on. By default it is binding to `0.0.0.0`, which is every interface on the system.
@@ -66,11 +66,11 @@ Set credentials in the form of `"username:password"` if authentication should be
 #### ALLOWED_NETWORKS (list)
 Limit access to the configurator by adding allowed IP addresses / networks to the list, e.g `ALLOWED_NETWORKS = ["192.168.0.0/24", "172.16.47.23"]`
 #### BANNED_IPS (list)
-List of statically banned IP addresses, e.g. `BANNED_IPS = ["1.1.1.1", "2.2.2.2"]`
+List of statically banned IP addresses, e.g., `BANNED_IPS = ["1.1.1.1", "2.2.2.2"]`
 #### BANLIMIT (integer)
 Ban IPs after `n` failed login attempts. Restart the service to reset banning. The default of `0` disables this feature. `CREDENTIALS` has to be set for this to work.
 #### IGNORE_PATTERN (list)
-Files and folders to ignore in the UI, e.g. `IGNORE_PATTERN = [".*", "*.log", "__pycache__"]`.
+Files and folders to ignore in the UI, e.g., `IGNORE_PATTERN = [".*", "*.log", "__pycache__"]`.
 #### DIRSFIRST (bool)
 If set to `True`, directories will be displayed at the top of the filebrowser.
 #### GIT (bool)
@@ -81,7 +81,7 @@ __Note regarding `ALLOWED_NETWORKS`, `BANNED_IPS` and `BANLIMIT`__:
 The way this is implemented works in the following order:
 
 1. (Only if `CREDENTIALS` is set) Check credentials
-  - Failure: Retry `BANLIMIT` times, after that return error 420 (unless you try again without any authentication headers set, e.g. private tab of your browser)
+  - Failure: Retry `BANLIMIT` times, after that return error 420 (unless you try again without any authentication headers set, e.g., private tab of your browser)
   - Success: Continue
 2. Check if client IP address is in `BANNED_IPS`
   - Yes: Return error 420

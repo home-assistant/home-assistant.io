@@ -32,7 +32,7 @@ Configuration variables:
 - **qos** (*Optional*): The QoS level of the topic.
 
 
-Example JSON you can publish to the topic (e.g. via mqtt.publish service):
+Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 
 ```json
 {

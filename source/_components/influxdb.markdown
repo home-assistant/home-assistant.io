@@ -27,7 +27,7 @@ You will still need to create a database named `home_assistant` via InfluxDB's c
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of your database host, e.g. 192.168.1.10. Defaults to `localhost`.
+- **host** (*Optional*): IP address of your database host, e.g., 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
 - **username** (*Optional*): The username of the database user. The user needs read/write privileges on the database.
 - **password** (*Optional*): The password for the database user account.

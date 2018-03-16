@@ -120,7 +120,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   This fixes errors when an entity has an attribute that is not "a string, bytearray, int, float or None" and mqtt_statestream is used. As of now, the attribute is just handed over to paho, and paho can only send the aforementioned types. This patch fixes the issue by just casting everything to string before handing it over to paho.
 
-  There are a number of components / entities which have "other" attributes, e.g. light that have an RGB attribute which is a list. ([@tinloaf] - [#9872]) ([mqtt_statestream docs]) (breaking change)
+  There are a number of components / entities which have "other" attributes, e.g., light that have an RGB attribute which is a list. ([@tinloaf] - [#9872]) ([mqtt_statestream docs]) (breaking change)
 - Generic thermostat: the configuration option `tolerance` has been removed and has been replaced by `cold_tolerance` and `hot_tolerance`. This allows on and off states to have different error bands. ([@biggms] - [#9843]) ([climate.generic_thermostat docs]) (breaking change)
 - Developers only: frontend has been refactored. The method `register_panel` has been turned into a coroutine function called `async_register_panel`. The parameter `url_path` has been renamed to `frontend_url_path`. For frontend, development, you no longer pass `development: 1` to the http component but instead configure the frontend component to be in development mode by pointing it at a local checkout of the Polymer repo: ([@balloob] - [#9915]) (breaking change)
 

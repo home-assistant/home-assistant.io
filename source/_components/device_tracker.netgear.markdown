@@ -29,7 +29,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP address of your router, e.g. `192.168.1.1`. If not provided `routerlogin.net` will be used.
+- **host** (*Optional*): The IP address of your router, e.g., `192.168.1.1`. If not provided `routerlogin.net` will be used.
 - **username** (*Optional*): The username of an user with administrative privileges. If not provided `admin` will be used.
 - **port** (*Optional*): The port your router communicates with (defaults to `5000`, but `80` is also known to be used on some models).
 - **password** (*Required*): The password for your given admin account.

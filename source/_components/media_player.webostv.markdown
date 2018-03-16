@@ -36,7 +36,7 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP of the LG webOS Smart TV, e.g. `192.168.0.10`.
+- **host** (*Optional*): The IP of the LG webOS Smart TV, e.g., `192.168.0.10`.
 - **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
 - **timeout** (*Optional*): The timeout for connections to the TV in seconds.

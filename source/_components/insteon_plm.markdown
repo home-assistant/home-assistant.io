@@ -39,7 +39,7 @@ insteon_plm:
        product_key: PRODUCT_KEY
 ```
 Configuration variables:
-- **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
+- **port** (*Required*): The port for your device, e.g., `/dev/ttyUSB0`
 - **device_override** (*Optional*): Override the default device definition
   - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
   - *CATEGORY* is found in the back of the device's User Guide in the form of
@@ -80,7 +80,7 @@ disclaimers carefully, they are important.
 The only configuration item that is absolutely necessary is the port so that
 Home Assistant can connect to the PLM.  This will expose all the supported INSTEON
 devices which exist in the modem's ALL-Link database.  However, devices will
-only be shown by their INSTEON hex address (e.g. "1A.2B.3C") which can be a bit
+only be shown by their INSTEON hex address (e.g., "1A.2B.3C") which can be a bit
 unwieldy.  As you link and unlink devices using the 'Set' buttons, they'll be
 added and removed from Home Assistant automatically.
 
