@@ -73,7 +73,7 @@ name:
 
 ### {% linkable_title Service `fan.set_speed` %}
 
-Set the fan speed / operation mode.
+Set the fan speed/operation mode.
 
 | Service data attribute    | Optional | Description                                                         |
 |---------------------------|----------|---------------------------------------------------------------------|
