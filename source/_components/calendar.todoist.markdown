@@ -142,10 +142,11 @@ Here are two example JSON payloads resulting in the same task:
 
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
-- **date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times).
+- **due_date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
 
-- **date_lang** (*Optional*): When `date_string` is set, it is posisble to set the language.
+- **due_date_lang** (*Optional*): When `due_date_string` is set, it is posisble to set the language. 
+  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl` 
 
-- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. This will override `date_string` if both are set.
+- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.
 
 Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
