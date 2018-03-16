@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installing Hassbian"
-description: "Instructions to flash the Home Assistant HASSbian image on a Raspberry Pi."
+description: "Instructions to flash the Home Assistant Hassbian image on a Raspberry Pi."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 redirect_from: /docs/hassbian/installation/
 ---
 
-The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
+One of the easiest ways to install Home Assistant on your Raspberry Pi Zero, 2 ,3 and 3B+ is by using Hassbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
 
  1. [Download the Hassbian image][image-download]
  2. Use [Etcher][etcher] to flash the image to your SD card
