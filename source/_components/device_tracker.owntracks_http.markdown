@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OwnTracks (via HTTP)"
-description: "Instructions how to use Owntracks via HTTP to track devices in Home Assistant."
+description: "Instructions on how to use Owntracks via HTTP to track devices in Home Assistant."
 date: 2017-09-28 07:00
 sidebar: true
 comments: false

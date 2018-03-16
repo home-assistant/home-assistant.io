@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HDMI CEC"
-description: "Instructions how to interact with HDMI CEC via Home Assistant."
+description: "Instructions on how to interact with HDMI CEC via Home Assistant."
 date: 2016-06-24 19:59
 sidebar: true
 comments: false

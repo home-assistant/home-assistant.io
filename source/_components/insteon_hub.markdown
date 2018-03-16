@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon Hub"
-description: "Instructions how to setup the Insteon Hub within Home Assistant."
+description: "Instructions on how to setup the Insteon Hub within Home Assistant."
 date: 2016-01-27 08:00
 sidebar: true
 comments: false

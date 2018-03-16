@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Huawei Router"
-description: "Instructions how to integrate Huawei Routers into Home Assistant."
+description: "Instructions on how to integrate Huawei Routers into Home Assistant."
 date: 2017-07-16 01:40
 sidebar: true
 comments: false

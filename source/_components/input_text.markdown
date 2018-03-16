@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Text"
-description: "Instructions how to integrate the Input Text component into Home Assistant."
+description: "Instructions on how to integrate the Input Text component into Home Assistant."
 date: 2016-03-15 06:00
 sidebar: true
 comments: false

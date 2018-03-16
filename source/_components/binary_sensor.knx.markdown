@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX Binary Sensor"
-description: "Instructions how to setup the KNX binary sensors within Home Assistant."
+description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
 date: 2016-07-13 07:00
 sidebar: true
 comments: false

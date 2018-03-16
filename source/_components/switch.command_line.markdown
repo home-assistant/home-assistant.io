@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Switch"
-description: "Instructions how to have switches call command line commands."
+description: "Instructions on how to have switches call command line commands."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false

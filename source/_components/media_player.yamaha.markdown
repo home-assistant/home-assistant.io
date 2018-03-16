@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yamaha Network Receivers"
-description: "Instructions how to integrate Yamaha Network Receivers into Home Assistant."
+description: "Instructions on how to integrate Yamaha Network Receivers into Home Assistant."
 date: 2016-03-26 0:58 -0700
 sidebar: true
 comments: false

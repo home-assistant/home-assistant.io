@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Apple TV"
-description: "Instructions how to integrate Apple TV devices into Home Assistant."
+description: "Instructions on how to integrate Apple TV devices into Home Assistant."
 date: 2017-06-26 20:47
 sidebar: true
 comments: false

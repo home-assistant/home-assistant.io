@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Flexit A/C controller"
-description: "Instructions how to integrate Flexit A/C unit into Home Assistant."
+description: "Instructions on how to integrate Flexit A/C unit into Home Assistant."
 date: 2017-06-02 16:30 +0200
 sidebar: true
 comments: false

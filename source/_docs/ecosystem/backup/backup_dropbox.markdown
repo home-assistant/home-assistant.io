@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to Dropbox"
-description: "Instructions how backup your Home Assistant configuration to Dropbox"
+description: "Instructions on how backup your Home Assistant configuration to Dropbox"
 date: 2017-04-24 18:00
 sidebar: true
 comments: false

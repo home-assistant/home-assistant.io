@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "File Sensor"
-description: "Instructions how to integrate sensors which read from files into Home Assistant."
+description: "Instructions on how to integrate sensors which read from files into Home Assistant."
 date: 2017-05-13 12:10
 sidebar: true
 comments: false

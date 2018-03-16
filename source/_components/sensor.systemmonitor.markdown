@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "System Monitor"
-description: "Instructions how to monitor the Home Assistant host."
+description: "Instructions on how to monitor the Home Assistant host."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false

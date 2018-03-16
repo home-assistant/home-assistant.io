@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BT Home Hub 5"
-description: "Instructions how to integrate BT Home Hub 5 router into Home Assistant."
+description: "Instructions on how to integrate BT Home Hub 5 router into Home Assistant."
 date: 2016-06-13 13:00
 sidebar: true
 comments: false

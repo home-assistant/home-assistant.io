@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Discoverable"
-description: "Instructions how to setup the discoverable component with Home Assistant."
+description: "Instructions on how to setup the discoverable component with Home Assistant."
 date: 2016-03-01 07:00
 sidebar: true
 comments: false

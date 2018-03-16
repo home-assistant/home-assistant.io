@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Harmony Hub Remote"
-description: "Instructions how to integrate Harmony Hub remotes into Home Assistant."
+description: "Instructions on how to integrate Harmony Hub remotes into Home Assistant."
 date: 2016-11-05 17:00
 sidebar: true
 comments: false

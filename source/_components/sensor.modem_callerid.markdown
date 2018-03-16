@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Caller ID Sensor"
-description: "Instructions how to integrate the Caller ID sensor into Home Assistant."
+description: "Instructions on how to integrate the Caller ID sensor into Home Assistant."
 date: 2017-02-20 22:10
 sidebar: true
 comments: false

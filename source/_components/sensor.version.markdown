@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Version Sensor"
-description: "Instructions how to integrate a version sensor into Home Assistant."
+description: "Instructions on how to integrate a version sensor into Home Assistant."
 date: 2017-08-10 10:30
 sidebar: true
 comments: false

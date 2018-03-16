@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MessageBird"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2016-03-15 17:00
 sidebar: true
 comments: false

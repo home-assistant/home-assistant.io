@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon PLM Sensor"
-description: "Instructions how to setup the Insteon PLM sensors locally within Home Assistant."
+description: "Instructions on how to setup the Insteon PLM sensors locally within Home Assistant."
 date: 2017-02-19 17:00
 sidebar: true
 comments: false

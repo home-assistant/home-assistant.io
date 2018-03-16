@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kira"
-description: "Instructions how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
+description: "Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
 date: 2017-05-07 00:00
 sidebar: true
 comments: false

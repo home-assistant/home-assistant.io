@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Keenetic NDMS2 Routers"
-description: "Instructions how to integrate Keenetic NDMS2 Routers into Home Assistant."
+description: "Instructions on how to integrate Keenetic NDMS2 Routers into Home Assistant."
 date: 2017-09-15 15:40
 sidebar: true
 comments: false

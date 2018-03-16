@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iTunes"
-description: "Instructions how to integrate iTunes into Home Assistant."
+description: "Instructions on how to integrate iTunes into Home Assistant."
 date: 2015-06-22 11:00
 sidebar: true
 comments: false

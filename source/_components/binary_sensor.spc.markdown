@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SPC Binary Sensor"
-description: "Instructions how to integrate Vanderbilt SPC binary sensors into Home Assistant."
+description: "Instructions on how to integrate Vanderbilt SPC binary sensors into Home Assistant."
 date: 2017-05-18 22:05
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Processing JSON"
-description: "Instructions how to process the MQTT payload."
+description: "Instructions on how to process the MQTT payload."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false

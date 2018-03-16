@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dialogflow"
-description: "Instructions how integrate Dialogflow with Home Assistant."
+description: "Instructions on how integrate Dialogflow with Home Assistant."
 date: 2017-01-27 11:28
 sidebar: true
 comments: false

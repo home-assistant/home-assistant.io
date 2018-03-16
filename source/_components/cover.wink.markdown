@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Cover"
-description: "Instructions how to setup the Wink garage doors within Home Assistant."
+description: "Instructions on how to setup the Wink garage doors within Home Assistant."
 date: 2016-06-28 17:30
 sidebar: true
 comments: false

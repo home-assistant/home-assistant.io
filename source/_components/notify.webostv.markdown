@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LG WebOS TV notifications"
-description: "Instructions how to integrate a LG WebOS TV within Home Assistant."
+description: "Instructions on how to integrate a LG WebOS TV within Home Assistant."
 date: 2016-04-18 23:24
 sidebar: true
 comments: false

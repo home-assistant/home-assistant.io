@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Cover"
-description: "Instructions how to integrate Template Covers into Home Assistant."
+description: "Instructions on how to integrate Template Covers into Home Assistant."
 date: 2017-06-19 20:32
 sidebar: true
 comments: false

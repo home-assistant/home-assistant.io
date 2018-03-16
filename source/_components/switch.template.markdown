@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Switch"
-description: "Instructions how to integrate Template Switches into Home Assistant."
+description: "Instructions on how to integrate Template Switches into Home Assistant."
 date: 2016-02-07 07:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tibber"
-description: "Instructions how to integrate Tibber within Home Assistant."
+description: "Instructions on how to integrate Tibber within Home Assistant."
 date: 2017-10-03 17:00
 sidebar: true
 comments: false

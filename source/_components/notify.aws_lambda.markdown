@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AWS Lambda"
-description: "Instructions how to invoke AWS Lambda functions from Home Assistant."
+description: "Instructions on how to invoke AWS Lambda functions from Home Assistant."
 date: 2016-05-14 16:35
 sidebar: true
 comments: false

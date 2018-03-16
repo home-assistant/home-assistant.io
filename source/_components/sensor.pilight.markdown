@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pilight Sensor"
-description: "Instructions how to integrate pilight sensors within Home Assistant."
+description: "Instructions on how to integrate pilight sensors within Home Assistant."
 date: 2016-10-08 23:21
 sidebar: true
 comments: false

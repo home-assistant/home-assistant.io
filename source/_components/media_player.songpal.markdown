@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sony SongPal compatible devices"
-description: "Instructions how to integrate Sony Songpal devices into Home Assistant."
+description: "Instructions on how to integrate Sony Songpal devices into Home Assistant."
 date: 2018-02-03 09:00
 sidebar: true
 comments: false

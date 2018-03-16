@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HomeKit"
-description: "Instructions how to setup the HomeKit component in Home Assistant."
+description: "Instructions on how to setup the HomeKit component in Home Assistant."
 date: 2018-02-20 17:30
 sidebar: true
 comments: false

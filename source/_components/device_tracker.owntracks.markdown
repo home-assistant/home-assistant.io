@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Owntracks"
-description: "Instructions how to use Owntracks to track devices in Home Assistant."
+description: "Instructions on how to use Owntracks to track devices in Home Assistant."
 date: 2015-09-22 07:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zigbee Home Automation"
-description: "Instructions how to integrate your Zigbee Home Automation within Home Assistant."
+description: "Instructions on how to integrate your Zigbee Home Automation within Home Assistant."
 date: 2017-02-22 19:59
 sidebar: true
 comments: false

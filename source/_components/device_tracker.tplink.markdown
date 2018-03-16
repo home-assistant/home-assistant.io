@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TP-Link"
-description: "Instructions how to integrate TP-Link routers into Home Assistant."
+description: "Instructions on how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OTP Sensor"
-description: "Instructions how to add One-Time Password (OTP) sensors into Home Assistant."
+description: "Instructions on how to add One-Time Password (OTP) sensors into Home Assistant."
 date: 2017-07-04 07:00:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Concord232 Alarm Control Panel"
-description: "Instructions how to integrate Interlogix/GE Concord4 with RS-232 Automation Control Module into Home Assistant."
+description: "Instructions on how to integrate Interlogix/GE Concord4 with RS-232 Automation Control Module into Home Assistant."
 date: 2016-10-11 10:00
 sidebar: true
 comments: false

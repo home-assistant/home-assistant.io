@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Random Binary Sensor"
-description: "Instructions how to integrate random state sensors into Home Assistant."
+description: "Instructions on how to integrate random state sensors into Home Assistant."
 date: 2017-10-27 08:00
 sidebar: true
 comments: false

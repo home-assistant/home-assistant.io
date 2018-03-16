@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "aREST Sensor"
-description: "Instructions how to integrate aREST sensors within Home Assistant."
+description: "Instructions on how to integrate aREST sensors within Home Assistant."
 date: 2015-09-07 18:15
 sidebar: true
 comments: false

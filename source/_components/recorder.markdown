@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Recorder"
-description: "Instructions how to configure the data recorder for Home Assistant."
+description: "Instructions on how to configure the data recorder for Home Assistant."
 date: 2017-09-24 09:00
 sidebar: true
 comments: false

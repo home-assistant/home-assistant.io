@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BeagleBone Black GPIO Binary Sensor"
-description: "Instructions how to integrate the GPIO sensor capability of a BeagleBone Black into Home Assistant."
+description: "Instructions on how to integrate the GPIO sensor capability of a BeagleBone Black into Home Assistant."
 date: 2017-01-14 10:00
 sidebar: true
 comments: false

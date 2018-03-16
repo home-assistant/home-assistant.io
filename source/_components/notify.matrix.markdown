@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Matrix"
-description: "Instructions how to add Matrix notifications to Home Assistant."
+description: "Instructions on how to add Matrix notifications to Home Assistant."
 date: 2016-10-11 23:51
 sidebar: true
 comments: false

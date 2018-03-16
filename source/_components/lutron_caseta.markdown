@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron Caseta"
-description: "Instructions how to use Lutron Caseta devices with Home Assistant."
+description: "Instructions on how to use Lutron Caseta devices with Home Assistant."
 date: 2017-01-28 13:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Cisco IOS"
-description: "Instructions how to integrate Cisco IOS routers into Home Assistant."
+description: "Instructions on how to integrate Cisco IOS routers into Home Assistant."
 date: 2016-11-07 19:59
 sidebar: true
 comments: false

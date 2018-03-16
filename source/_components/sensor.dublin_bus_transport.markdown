@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dublin Bus Transport"
-description: "Instructions how to integrate timetable data for traveling on Dublin Bus within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling on Dublin Bus within Home Assistant."
 date: 2017-01-09 21:45
 sidebar: true
 comments: false

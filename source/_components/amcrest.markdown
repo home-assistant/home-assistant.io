@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Amcrest IP Camera"
-description: "Instructions how to integrate Amcrest IP cameras within Home Assistant."
+description: "Instructions on how to integrate Amcrest IP cameras within Home Assistant."
 date: 2017-06-24 10:00
 sidebar: true
 comments: false

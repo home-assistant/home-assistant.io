@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Arlo Control Panel"
-description: "Instructions how to setup the Netgear Arlo Base Stations as a control panel within Home Assistant."
+description: "Instructions on how to setup the Netgear Arlo Base Stations as a control panel within Home Assistant."
 date: 2017-10-05 17:45
 sidebar: true
 comments: false

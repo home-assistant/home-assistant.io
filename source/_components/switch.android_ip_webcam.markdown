@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Android IP Webcam Settings"
-description: "Instructions how to integrate settings for Android IP webcam as switch within Home Assistant."
+description: "Instructions on how to integrate settings for Android IP webcam as switch within Home Assistant."
 date: 2017-03-10 00:00
 sidebar: true
 comments: false

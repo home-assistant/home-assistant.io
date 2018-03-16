@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron Cover"
-description: "Instructions how to setup the Lutron shades within Home Assistant."
+description: "Instructions on how to setup the Lutron shades within Home Assistant."
 date: 2018-01-11 20:00
 sidebar: true
 comments: false

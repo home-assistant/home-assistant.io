@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "myStrom Binary Sensor"
-description: "Instructions how to integrate myStrom buttons into Home Assistant."
+description: "Instructions on how to integrate myStrom buttons into Home Assistant."
 date: 2017-04-14 08:15
 sidebar: true
 comments: false

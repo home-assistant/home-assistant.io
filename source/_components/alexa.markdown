@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alexa / Amazon Echo"
-description: "Instructions how to connect Alexa/Amazon Echo to Home Assistant."
+description: "Instructions on how to connect Alexa/Amazon Echo to Home Assistant."
 date: 2015-12-13 13:02
 sidebar: true
 comments: false

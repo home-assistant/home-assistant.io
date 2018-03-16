@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Raspberry Pi Cover"
-description: "Instructions how to setup the Raspberry Pi covers within Home Assistant."
+description: "Instructions on how to setup the Raspberry Pi covers within Home Assistant."
 date: 2016-08-24 14:28
 sidebar: true
 comments: false
