@@ -24,12 +24,12 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 ### {% linkable_title Software requirements %}
 
-- Download [Hass.io image for Raspberry Pi 3][pi3]
+- Download [Hass.io image for Raspberry Pi 3][pi3] <p class='note'>(It's not working with 3B+ yet)</p>
 - Download [Etcher] to write the image to an SD card
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
 [Etcher]: https://etcher.io/
-[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.1/resinos-hassio-1.1-raspberrypi3.img.bz2
+[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi3.img.bz2
 
 ### {% linkable_title Installing Hass.io %}
 
