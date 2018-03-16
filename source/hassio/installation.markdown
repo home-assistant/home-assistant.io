@@ -11,6 +11,10 @@ footer: true
 
 Hass.io images are available for all available Raspberry Pi and Intel NUC platforms.
 
+<p class='note warning'>
+  The recently released Raspberry Pi 3 model B+ is not yet supported.
+</p>
+
 - Download the appropriate image for your Raspberry Pi / Intel NUC:
   - [Raspberry Pi / Zero][pi1]
   - [Raspberry Pi 2][pi2]
