@@ -22,9 +22,13 @@ We will need a few things to get started with installing Home Assistant. Links b
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](http://a.co/5FCyb0N) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi too)
 
+<p class='note warning'>
+  The recently released Raspberry Pi 3 model B+ is not yet supported.
+</p>
+
 ### {% linkable_title Software requirements %}
 
-- Download [Hass.io image for Raspberry Pi 3][pi3] <p class='note'>(It's not working with 3B+ yet)</p>
+- Download [Hass.io image for Raspberry Pi 3][pi3]
 - Download [Etcher] to write the image to an SD card
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
