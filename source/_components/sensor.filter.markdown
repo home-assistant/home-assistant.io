@@ -37,7 +37,7 @@ sensor:
       - filter: lowpass
         time_constant: 10
         precision: 2
-      - filter: time_sma
+      - filter: time_simple_moving_average
         window_size: 00:05
         precision: 2
 ```
@@ -59,11 +59,11 @@ filters:
   type: map
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_sma`.
+      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
       required: true
       type: string
     window_size:
-      description: Size of the window of previous states. Time based filters such as `time_sma` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
+      description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
       required: false
       type: [int, time]
       default: 1 
@@ -82,8 +82,8 @@ filters:
       required: false
       type: float
       default: 2.0
-    variant:
-      description: See [_time_sma_](#time-sma) filter. Defines the variant of Simple Moving Average.
+    type:
+      description: See [_time_simple_moving_average_](#time-simple-moving-average) filter. Defines the type of Simple Moving Average.
       required: false
       type: string
       default: last
@@ -128,10 +128,10 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
 
-### {% linkable_title Time SMA %}
+### {% linkable_title Time Simple Moving Average %}
 
-The Time SMA filter (`time_sma`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner. 
+The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner. 
 
-The paper defines three versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
+The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 
 Theta, as described on the paper, is the `window_size` parameter, and can be descriped using time notation (e.g. 00:05 for a five minutes time window).
