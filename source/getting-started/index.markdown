@@ -23,7 +23,9 @@ We will need a few things to get started with installing Home Assistant. Links b
 - Ethernet cable (optional, Hass.io can work with WiFi too)
 
 <p class='note warning'>
-  The recently released Raspberry Pi 3 model B+ is not yet supported.
+  Support for the Raspberry Pi 3 model B+ is available in the alternative installation method [Hassbian](/docs/hassbian/installation/).
+
+  The recently released Raspberry Pi 3 model B+ is not yet supported by Hass.io
 </p>
 
 ### {% linkable_title Software requirements %}
