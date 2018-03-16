@@ -169,3 +169,4 @@ Turn the eyecare mode off.
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific light. Else targets all.       |
+=======

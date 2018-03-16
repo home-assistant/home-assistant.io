@@ -60,6 +60,13 @@ task :generate do
   abort("Generating CSS failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  if ENV["CONTEXT"] != 'production'
+    File.open("#{public_dir}robots.txt", 'w') do |f|
+      f.write "User-agent: *\n"
+      f.write "Disallow: /\n"
+    end
+  end
+  public_dir
 end
 
 desc "Watch the site and regenerate when it changes"

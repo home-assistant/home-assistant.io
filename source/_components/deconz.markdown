@@ -32,9 +32,11 @@ deconz:
 #### {% linkable_title Supported Device types %}
 
 - [Zigbee Lights](/components/light.deconz/)
+- [Consumption Sensors](/components/sensor.deconz/)
 - [Humidity Sensors](/components/sensor.deconz/)
 - [Light Level Sensors](/components/sensor.deconz/)
 - [OpenClose Detectors](/components/binary_sensor.deconz/)
+- [Power Sensors](/components/sensor.deconz/)
 - [Presence Detectors](/components/binary_sensor.deconz/)
 - [Pressure Sensors](/components/sensor.deconz/)
 - [Switches (Remote Controls)](/components/sensor.deconz/)

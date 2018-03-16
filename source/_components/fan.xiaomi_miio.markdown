@@ -71,7 +71,16 @@ name:
 
 ## {% linkable_title Platform Services %}
 
-### {% linkable_title Service fan/xiaomi_miio_set_buzzer_on %}
+### {% linkable_title Service `fan.set_speed` %}
+
+Set the fan speed/operation mode.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.              |
+| `speed`                   |       no | Fan speed. Valid values are 'Auto', 'Silent', 'Favorite' and 'Idle' |
+
+### {% linkable_title Service `fan.xiaomi_miio_set_buzzer_on` %}
 
 Turn the buzzer on.
 
@@ -79,7 +88,7 @@ Turn the buzzer on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_buzzer_off %}
+### {% linkable_title Service `fan.xiaomi_miio_set_buzzer_off` %}
 
 Turn the buzzer off.
 
@@ -87,7 +96,7 @@ Turn the buzzer off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_led_on %}
+### {% linkable_title Service `fan.xiaomi_miio_set_led_on` %}
 
 Turn the led on.
 
@@ -95,7 +104,7 @@ Turn the led on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_led_off %}
+### {% linkable_title Service `fan.xiaomi_miio_set_led_off` %}
 
 Turn the led off.
 
@@ -103,7 +112,7 @@ Turn the led off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_child_lock_on %}
+### {% linkable_title Service `fan.xiaomi_miio_set_child_lock_on` %}
 
 Turn the child lock on.
 
@@ -111,7 +120,7 @@ Turn the child lock on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_child_lock_off %}
+### {% linkable_title Service `fan.xiaomi_miio_set_child_lock_off` %}
 
 Turn the child lock off.
 
@@ -119,7 +128,7 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 
-### {% linkable_title Service fan/xiaomi_miio_set_led_brightness %}
+### {% linkable_title Service `fan.xiaomi_miio_set_led_brightness` %}
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -128,7 +137,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 | `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
-### {% linkable_title Service fan/xiaomi_miio_set_favorite_level %}
+### {% linkable_title Service `fan.xiaomi_miio_set_favorite_level` %}
 
 Set the favorite level of the operation mode "favorite".
 

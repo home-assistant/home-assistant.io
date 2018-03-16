@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 logo: dark_sky.png
 ha_category: Weather
 ha_release: 0.61

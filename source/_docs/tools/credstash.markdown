@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /docs/configuration/secrets/#storing-passwords-securely-in-aws
 ---
 
 Using [Credstash](https://github.com/fugue/credstash) is an alternative way to `secrets.yaml`. They can be managed from the command line via the credstash script.

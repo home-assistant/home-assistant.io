@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/influxdb/#data-migration
 ---
 
 <p class='note warning'>
