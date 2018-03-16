@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: stride.png
 ha_category: Notifications
-ha_release: "0.66"
+ha_release: 0.66
 ---
-
 
 The `stride` platform allows you to send notifications from Home Assistant to [Stride](https://stride.com/).
 
@@ -22,19 +21,35 @@ To enable the Stride notification in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: stride
+  - platform: stride
     cloudid: CLOUD-ID
     token: TOKEN
     room: ROOM-ID
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **token** (*Required*): The Stride API token to use for sending Stride notifications.
-- **room** (*Required*): The default room to post to if no room is explicitly specified when sending the notification.
-- **panel** (*Optional*): Setting panel will override the default panel type (`None`) for the notification. By default not setting this will post to Stride without using a panel type. Valid options are 'None', 'info', 'note', 'tip', 'warning'.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+cloudid:
+  description: The Stride Cloud ID to use for sending Stride notification.
+  required: true
+  type: string
+token:
+  description: The Stride API token to use for sending Stride notifications.
+  required: true
+  type: string
+room:
+  description: The default room to post to if no room is explicitly specified when sending the notification.
+  required: true
+  type: string
+panel:
+  description: Setting panel will override the default panel type (`None`) for the notification. By default not setting this will post to Stride without using a panel type. Valid options are 'None', 'info', 'note', 'tip', 'warning'.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Stride service data %}
 
@@ -46,4 +61,3 @@ The following attributes can be placed `data` for extended functionality.
 | `panel`                |      yes | (str) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
