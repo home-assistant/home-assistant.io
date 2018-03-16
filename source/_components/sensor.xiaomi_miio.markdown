@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Sensor
-ha_version: 0.65
+ha_version: 0.66
 ha_iot_class: "Local Polling"
 ---
 
