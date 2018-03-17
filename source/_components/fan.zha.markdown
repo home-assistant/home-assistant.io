@@ -10,6 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Fan
 ha_iot_class: "Local Polling"
+ha_release: 0.66
 ---
 
 To get your ZigBee fans working with Home Assistant, follow the instructions for the general [ZigBee Home Automation component](/components/zha/).
