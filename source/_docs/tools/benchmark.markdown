@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /docs/tools/scripts/#benchmark
 ---
 
 For testing the performance of Home Assistant the Benchmark script runs until you exit using Control+C.

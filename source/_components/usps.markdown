@@ -32,6 +32,8 @@ Install the latest version of [PhantomJS]( http://phantomjs.org/download.html). 
   Don't use apt-get to install PhantomJS. This version is not compatible.
 </p>
 
+If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` configuration.
+
 
 ### Chrome
 
@@ -60,6 +62,7 @@ Configuration options for the USPS component:
 
 - **username** (*Required*): The username to access the MyUSPS service.
 - **password** (*Required*): The password for the given username.
+- **driver** (*Required*): Specify if you're using `phantomjs` or `chrome`.
 - **name** (*Optional*): Prefix for sensor names (defaults to "USPS")
 
 <p class='note warning'>
