@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ziggo Mediabox XL"
-description: "Instructions how to integrate the Ziggo Mediabox XL into Home Assistant."
+description: "Instructions on how to integrate the Ziggo Mediabox XL into Home Assistant."
 date: 2017-11-10 20:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Climate"
-description: "Instructions how to setup the Wink climate devices within Home Assistant."
+description: "Instructions on how to setup the Wink climate devices within Home Assistant."
 date: 2016-11-01 22:36
 sidebar: true
 comments: false

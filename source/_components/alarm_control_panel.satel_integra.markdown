@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Satel Integra Alarm Control Panel"
-description: "Instructions how to setup the Satel Integra control panel within Home Assistant."
+description: "Instructions on how to setup the Satel Integra control panel within Home Assistant."
 date: 2017-09-07 13:28
 sidebar: true
 comments: false

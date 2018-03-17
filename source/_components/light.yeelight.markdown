@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yeelight Wifi Bulb"
-description: "Instructions how to setup Yeelight Wifi devices within Home Assistant."
+description: "Instructions on how to setup Yeelight Wifi devices within Home Assistant."
 date: 2016-10-29
 sidebar: true
 comments: false

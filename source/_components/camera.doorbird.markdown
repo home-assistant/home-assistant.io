@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DoorBird Camera"
-description: "Instructions how to integrate DoorBird video doorbell images into Home Assistant."
+description: "Instructions on how to integrate DoorBird video doorbell images into Home Assistant."
 date: 2017-08-06 11:30
 sidebar: true
 comments: false

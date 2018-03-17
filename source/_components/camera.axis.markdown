@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Axis Camera"
-description: "Instructions how to setup Axis cameras within Home Assistant."
+description: "Instructions on how to setup Axis cameras within Home Assistant."
 date: 2017-05-01 19:09
 sidebar: true
 comments: false

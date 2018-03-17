@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Light"
-description: "Instructions how to integrate RFXtrx lights into Home Assistant."
+description: "Instructions on how to integrate RFXtrx lights into Home Assistant."
 date: 2015-10-08 10:15
 sidebar: true
 comments: false

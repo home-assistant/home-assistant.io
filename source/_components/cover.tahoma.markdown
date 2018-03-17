@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tahoma Cover"
-description: "Instructions how to integrate Tahoma covers into Home Assistant."
+description: "Instructions on how to integrate Tahoma covers into Home Assistant."
 date: 2017-07-18 12:00
 sidebar: true
 comments: false

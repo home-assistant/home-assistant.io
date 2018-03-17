@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart using systemd"
-description: "Instructions how to setup Home Assistant to launch on boot using systemd."
+description: "Instructions on how to setup Home Assistant to launch on boot using systemd."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false

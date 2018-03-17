@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CoinMarketCap"
-description: "Instructions how to integrate CoinMarketCap data within Home Assistant."
+description: "Instructions on how to integrate CoinMarketCap data within Home Assistant."
 date: 2016-08-31 08:15
 sidebar: true
 comments: false

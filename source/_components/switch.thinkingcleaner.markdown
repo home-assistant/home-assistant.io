@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Thinking Cleaner Switch"
-description: "Instructions how to integrate a ThinkingCleaner switches within Home Assistant."
+description: "Instructions on how to integrate a ThinkingCleaner switches within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
 comments: false

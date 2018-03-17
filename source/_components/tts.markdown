@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Text-to-Speech (TTS)"
-description: "Instructions how to setup Text-to-Speech (TTS) with Home Assistant."
+description: "Instructions on how to setup Text-to-Speech (TTS) with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Filter Sensor"
-description: "Instructions how to integrate Data Filter Sensors into Home Assistant."
+description: "Instructions on how to integrate Data Filter Sensors into Home Assistant."
 date: 2018-02-20
 sidebar: true
 comments: false

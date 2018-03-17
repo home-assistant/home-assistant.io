@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DSMR or Slimme meter"
-description: "Instructions how to integrate DSMR Smartmeter within Home Assistant."
+description: "Instructions on how to integrate DSMR Smartmeter within Home Assistant."
 date: 2016-11-12 12:00
 sidebar: true
 comments: false

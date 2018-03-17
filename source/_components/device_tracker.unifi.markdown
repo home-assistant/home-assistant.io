@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ubiquiti Unifi WAP"
-description: "Instructions how to use a Unifi WAP controller as a device tracker module."
+description: "Instructions on how to use a Unifi WAP controller as a device tracker module."
 date: 2016-02-19 20:59
 sidebar: true
 comments: false

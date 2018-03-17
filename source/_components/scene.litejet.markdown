@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LiteJet Scenes"
-description: "Instructions how to setup LiteJet scenes within Home Assistant."
+description: "Instructions on how to setup LiteJet scenes within Home Assistant."
 date: 2016-10-26 16:00
 sidebar: true
 comments: false

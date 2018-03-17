@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Sensor"
-description: "Instructions how to integrate MQTT sensors within Home Assistant."
+description: "Instructions on how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
 comments: false

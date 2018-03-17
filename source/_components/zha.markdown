@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zigbee Home Automation"
-description: "Instructions how to integrate your Zigbee Home Automation within Home Assistant."
+description: "Instructions on how to integrate your Zigbee Home Automation within Home Assistant."
 date: 2017-02-22 19:59
 sidebar: true
 comments: false
@@ -18,8 +18,8 @@ integration for Home Assistant allows you to connect many off-the-shelf ZigBee d
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](../binary_sensor.zha) (e.g. motion and door sensors)
-- [Sensor](../sensor.zha) (e.g. temperature sensors)
+- [Binary Sensor](../binary_sensor.zha) (e.g., motion and door sensors)
+- [Sensor](../sensor.zha) (e.g., temperature sensors)
 - [Light](../light.zha)
 - [Switch](../switch.zha)
 

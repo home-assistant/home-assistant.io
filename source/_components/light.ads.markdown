@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ADS Light"
-description: Instructions how to set up ADS lights within Home Assistant
+description: Instructions on how to set up ADS lights within Home Assistant
 date: 2017-10-25 10:00
 sidebar: true
 comments: false

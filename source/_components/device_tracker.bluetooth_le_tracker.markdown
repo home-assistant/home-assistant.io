@@ -48,7 +48,7 @@ Configuration variables:
 - **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
-Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
+Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
 ## {% linkable_title Rootless Setup %}
 

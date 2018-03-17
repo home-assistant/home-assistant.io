@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Eight Sleep Binary Sensor"
-description: "Instructions how to integrate binary motion sensors for Eight Sleep within Home Assistant."
+description: "Instructions on how to integrate binary motion sensors for Eight Sleep within Home Assistant."
 date: 2017-04-24 00:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Smappee"
-description: "Instructions how to setup Smappee within Home Assistant."
+description: "Instructions on how to setup Smappee within Home Assistant."
 date: 2018-02-26 08:37
 sidebar: true
 comments: false

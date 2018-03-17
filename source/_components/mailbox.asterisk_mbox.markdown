@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Asterisk Voicemail Mailbox"
-description: "Instructions how to integrate an Asterisk Voicemail within Home Assistant."
+description: "Instructions on how to integrate an Asterisk Voicemail within Home Assistant."
 date: 2017-06-30 18:30
 sidebar: true
 comments: false

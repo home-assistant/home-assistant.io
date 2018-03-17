@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nest Binary Sensor"
-description: "Instructions how to integrate Nest binary sensors within Home Assistant."
+description: "Instructions on how to integrate Nest binary sensors within Home Assistant."
 date: 2016-01-26 08:00
 sidebar: true
 comments: false

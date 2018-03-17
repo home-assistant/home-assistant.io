@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Owntracks"
-description: "Instructions how to use Owntracks to track devices in Home Assistant."
+description: "Instructions on how to use Owntracks to track devices in Home Assistant."
 date: 2015-09-22 07:00
 sidebar: true
 comments: false
@@ -34,7 +34,7 @@ Configuration variables:
 
 - **max_gps_accuracy** (*Optional*): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
-- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant.  This would be the `username` portion of the Base Topic Name, (e.g. owntracks/**username**/iPhone). Defaults to all users who are connected to Home Assistant via Owntracks.
+- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant.  This would be the `username` portion of the Base Topic Name, (e.g., owntracks/**username**/iPhone). Defaults to all users who are connected to Home Assistant via Owntracks.
 - **secret** (*Optional*): [Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present.
 - **mqtt_topic** (*Optional*): The topic to subscribe for Owntracks updates on your MQTT instance (defaults to `owntracks/#`).
 - **events_only** (*Optional*): Home Assistant will ignore all location updates and rely solely on geofence enter/leave events.
