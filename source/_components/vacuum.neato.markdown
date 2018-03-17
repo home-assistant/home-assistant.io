@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Robotics Vacuum"
-description: "Instructions how to integrate a Neato Botvac Connected Vacuum within Home Assistant."
+description: "Instructions on how to integrate a Neato Botvac Connected Vacuum within Home Assistant."
 date: 2017-10-18 16:11
 sidebar: true
 comments: false

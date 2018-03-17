@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Amazon Polly"
-description: "Instructions how to setup Amazon Polly with Home Assistant."
+description: "Instructions on how to setup Amazon Polly with Home Assistant."
 date: 2017-01-28 09:00
 sidebar: true
 comments: false

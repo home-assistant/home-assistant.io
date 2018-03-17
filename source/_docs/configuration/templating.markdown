@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Templating"
-description: "Instructions how to use the templating feature of Home Assistant."
+description: "Instructions on how to use the templating feature of Home Assistant."
 date: 2015-12-12 12:00
 sidebar: true
 comments: false

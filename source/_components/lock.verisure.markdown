@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Verisure Lock"
-description: "Instructions how to setup the Verisure locks within Home Assistant."
+description: "Instructions on how to setup the Verisure locks within Home Assistant."
 date: 2016-02-12 06:00
 sidebar: true
 comments: false

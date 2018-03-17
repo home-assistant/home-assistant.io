@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sense
-description: "Instructions how to integrate Sense within Home Assistant."
+description: "Instructions on how to integrate Sense within Home Assistant."
 date: 2018-01-11 13:50
 sidebar: true
 comments: false

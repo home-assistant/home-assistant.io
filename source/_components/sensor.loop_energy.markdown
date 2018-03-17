@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Loop Energy"
-description: "Instructions how to integrate Loop Energy devices within Home Assistant."
+description: "Instructions on how to integrate Loop Energy devices within Home Assistant."
 date: 2016-04-02 22:00
 sidebar: true
 comments: false

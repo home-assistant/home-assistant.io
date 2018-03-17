@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Scrape Sensor"
-description: "Instructions how to integrate Web scrape sensors into Home Assistant."
+description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
 date: 2016-10-12 09:10
 sidebar: true
 comments: false

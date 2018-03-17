@@ -63,7 +63,7 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:

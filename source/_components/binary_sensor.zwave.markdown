@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Binary Sensor"
-description: "Instructions how to setup the Z-Wave binary sensors within Home Assistant."
+description: "Instructions on how to setup the Z-Wave binary sensors within Home Assistant."
 date: 2016-02-22 07:00
 sidebar: true
 comments: false

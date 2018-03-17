@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DTE Energy Bridge"
-description: "Instructions how to setup DTE Energy Bridge with Home Assistant."
+description: "Instructions on how to setup DTE Energy Bridge with Home Assistant."
 date: 2016-06-07 08:10
 sidebar: true
 comments: false

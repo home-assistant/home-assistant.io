@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BME280 Sensor"
-description: "Instructions how to integrate a BME280 sensor into Home Assistant."
+description: "Instructions on how to integrate a BME280 sensor into Home Assistant."
 date: 2017-06-10 00:00
 sidebar: true
 comments: false

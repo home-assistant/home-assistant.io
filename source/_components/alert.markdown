@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alert"
-description: "Instructions how to setup automatic alerts within Home Assistant."
+description: "Instructions on how to setup automatic alerts within Home Assistant."
 date: 2017-01-15 20:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Binary Sensor"
-description: "Instructions how to integrate Template Binary Sensors into Home Assistant."
+description: "Instructions on how to integrate Template Binary Sensors into Home Assistant."
 date: 2016-02-25 15:00
 sidebar: true
 comments: false

@@ -105,7 +105,7 @@ aq_humidity_baseline:
   default: 40
   type: int
 aq_humidity_bias:
-  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g. 25% hudidtity to 75% gas. 
+  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g., 25% hudidtity to 75% gas. 
   required: false
   default: 25
   type: int

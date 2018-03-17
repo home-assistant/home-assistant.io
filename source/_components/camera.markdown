@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Camera"
-description: "Instructions how to integrate cameras within Home Assistant."
+description: "Instructions on how to integrate cameras within Home Assistant."
 date: 2015-11-09 08:36
 sidebar: true
 comments: false

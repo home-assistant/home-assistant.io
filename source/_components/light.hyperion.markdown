@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Hyperion"
-description: "Instructions how to integrate Hyperion into Home Assistant."
+description: "Instructions on how to integrate Hyperion into Home Assistant."
 date: 2015-10-25 22:43
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Västtrafik Public Transport"
-description: "Instructions how to integrate timetable data for traveling in Sweden within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling in Sweden within Home Assistant."
 date: 2016-10-05 08:45
 sidebar: true
 comments: false

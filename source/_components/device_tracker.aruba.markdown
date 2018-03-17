@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Aruba"
-description: "Instructions how to integrate Aruba routers into Home Assistant."
+description: "Instructions on how to integrate Aruba routers into Home Assistant."
 date: 2015-08-31 08:45
 sidebar: true
 comments: false
@@ -36,7 +36,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. `192.168.1.1`.
+- **host** (*Required*): The IP address of your router, e.g., `192.168.1.1`.
 - **username** (*Required*): The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 

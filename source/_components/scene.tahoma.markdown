@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tahoma Scene"
-description: "Instructions how to integrate Tahoma scenes into Home Assistant."
+description: "Instructions on how to integrate Tahoma scenes into Home Assistant."
 date: 2018-02-18 12:00
 sidebar: true
 comments: false

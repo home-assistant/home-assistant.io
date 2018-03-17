@@ -102,7 +102,7 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 
 {% raw %}
 ```yaml
-# Service call, e.g. from an automation.
+# Service call, e.g., from an automation.
 service: script.do_something
 data_template:
   dummy: "{{ input_boolean.switch }}"

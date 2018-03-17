@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Philips Hue Light"
-description: "Instructions how to integrate Philips Hue lights into Home Assistant."
+description: "Instructions on how to integrate Philips Hue lights into Home Assistant."
 date: 2015-03-23 20:09
 sidebar: true
 comments: false

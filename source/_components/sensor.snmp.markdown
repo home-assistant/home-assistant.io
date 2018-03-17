@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SNMP"
-description: "Instructions how to integrate SNMP sensors within Home Assistant."
+description: "Instructions on how to integrate SNMP sensors within Home Assistant."
 date: 2016-06-05 20:00
 sidebar: true
 comments: false

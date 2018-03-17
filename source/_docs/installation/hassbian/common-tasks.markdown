@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Common tasks on Hassbian"
-description: "Instructions how to do common tasks on Hassbian."
+description: "Instructions on how to do common tasks on Hassbian."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false

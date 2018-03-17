@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Harmony Hub Remote"
-description: "Instructions how to integrate Harmony Hub remotes into Home Assistant."
+description: "Instructions on how to integrate Harmony Hub remotes into Home Assistant."
 date: 2016-11-05 17:00
 sidebar: true
 comments: false
@@ -35,7 +35,7 @@ remote:
     host: 10.168.1.13
 ```
 
-You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the config to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
+You can override some default configuration values on a discovered hub (e.g., the `port` or `activity`) by adding a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will discover the host IP automatically, but set the `name` in the config to match exactly the name you have set for your Hub so the platform knows what Hub you are trying to configure.
 
 ```yaml
 # Example configuration.yaml entry with discovery

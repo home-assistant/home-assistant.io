@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alpha Vantage"
-description: "Instructions how to setup Alpha Vantage within Home Assistant."
+description: "Instructions on how to setup Alpha Vantage within Home Assistant."
 date: 2017-12-02 12:00
 sidebar: true
 comments: false

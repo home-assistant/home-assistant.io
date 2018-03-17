@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Egardia Binary Sensor"
-description: "Instructions how to integrate Egardia / Woonveilig binary sensors into Home Assistant."
+description: "Instructions on how to integrate Egardia / Woonveilig binary sensors into Home Assistant."
 date: 2018-03-02 09:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Text-to-Speech"
-description: "Instructions how to setup Google Text-to-Speech with Home Assistant."
+description: "Instructions on how to setup Google Text-to-Speech with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false

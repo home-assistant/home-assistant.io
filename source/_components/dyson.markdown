@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dyson"
-description: "Instructions how to integrate Dyson into Home Assistant."
+description: "Instructions on how to integrate Dyson into Home Assistant."
 date: 2017-05-27 10:00
 sidebar: true
 comments: false
