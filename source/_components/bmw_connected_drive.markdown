@@ -25,7 +25,7 @@ bmw_connected_drive:
   name:
     username: USERNAME_BMW_CONNECTED_DRIVE
     password: PASSWORD_BMW_CONNECTED_DRIVE
-    region: <one of "north_america", "china" , "rest_of_world">
+    region: one of "north_america", "china" , "rest_of_world"
 ```
 
 {% configuration %}
@@ -47,7 +47,7 @@ bmw_connected_drive:
       required: true
       type: string
     region:
-      description: The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`
+      description: "The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`"
       required: true
       type: string
 {% endconfiguration %}
