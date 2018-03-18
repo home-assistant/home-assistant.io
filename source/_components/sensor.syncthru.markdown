@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-# logo: removed until copyright solved
+logo: samsung.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
 ha_release: 0.65.5
@@ -30,7 +30,6 @@ sensor:
         - toner_black
         - output_tray_0
 ```
-
 
 {% configuration %}
   resource:
