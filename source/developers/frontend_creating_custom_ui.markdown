@@ -46,15 +46,15 @@ frontend:
 <script>
 {
   // show the version of your custom UI in the HA dev info panel (HA 0.66.0+):
-  const NAME = 'My custom light';
-  const VERSION = '20180312';
-  const URL = 'https://home-assistant.io/developers/frontend_creating_custom_ui/';
+  const _NAME = 'My custom light';
+  const _URL = 'https://home-assistant.io/developers/frontend_creating_custom_ui/';
+  const _VERSION = '20180312';
 
   if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
   window.CUSTOM_UI_LIST.push({
-    name: NAME,
-    url: URL
-    version: VERSION    
+    name: _NAME,
+    url: _URL
+    version: _VERSION    
   });
 }
 </script>
