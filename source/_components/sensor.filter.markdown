@@ -56,7 +56,7 @@ name:
 filters:
   description: Filters to be used.
   required: true 
-  type: map
+  type: list
   keys:
     filter:
       description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
