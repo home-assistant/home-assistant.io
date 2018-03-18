@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IFTTT Alarm Control Panel"
-description: "Instructions how to integrate IFTTT-controlled security systems into Home Assistant."
+description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
 date: 2018-03-10 21:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Alarm
 ha_release: 0.66
 ---
 
-The `ifttt` platform allows you to integrate security systems that have no open API, but can be controlled through [IFTTT](https://ifttt.com/discover).
+The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
 
 This platform depends on the [IFTTT](https://home-assistant.io/components/ifttt/) Home Assistant component. See the component's documentation to set it up.
 
@@ -34,7 +34,7 @@ alarm_control_panel:
 ```
 
 <p class='note warning'>
-It is strongly discouraged to use this platform when you don't use encryption, otherwise your API password will be send unprotected through the IFTTT Webhooks. It is adviced to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is adviced to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 </p>
 
 {% linkable_title Required IFTTT applets %}
