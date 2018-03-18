@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Samsung SyncThru Printer"
-description: "Instructions how to integrate a Samsung printer providing SyncThru within Home Assistant."
+description: "Instructions on how to integrate a Samsung printer providing SyncThru within Home Assistant."
 date: 2018-02-19 23:33
 sidebar: true
 comments: false
@@ -13,10 +13,10 @@ ha_iot_class: "Local Polling"
 ha_release: 0.65.5
 ---
 
-The Samsung SyncThru Printer platform allows you to read current data off your local Samsung printer.
+The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.
 
 It usually provides information about the device's state, the left amount of ink or toner and the state of paper trays.
-The platform automatically monitors every supported component part.
+The platform automatically monitors every supported part.
 
 If you wish not to include certain monitored values specify the values that you would like to see in the front-end via the `monitored_conditions` setting.
 
