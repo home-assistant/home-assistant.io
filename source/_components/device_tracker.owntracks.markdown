@@ -17,7 +17,8 @@ ha_release: 0.7.4
 This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
 
 <p class='note'>
-The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT.
+The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT. 
+<a href="#using-owntracks-with-zanzito">See Instructions</a>
 </p>
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
@@ -72,6 +73,9 @@ USERNAME_DEVICE_ID:
   track: yes
   hide_if_away: no
 ```
+
+### {% linkable_title Using Owntracks with Zanzito %}
+To use Owntracks component with Zanzito set the `mqtt_topic` parameter to `"zanzito/#"`
 
 ### {% linkable_title Using Owntracks regions %}
 Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
