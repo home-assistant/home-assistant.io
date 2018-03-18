@@ -15,7 +15,9 @@ featured: true
 ```json
 {
   "lets_encrypt": {
-    "accept_terms": true
+    "accept_terms": true,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
   },
   "token": "sdfj-2131023-dslfjsd-12321",
   "domains": ["my-domain.duckdns.org"]
