@@ -54,7 +54,7 @@ frontend:
   window.CUSTOM_UI_LIST.push({
     name: _NAME,
     url: _URL,
-    version: _VERSION    
+    version: _VERSION
   });
 }
 </script>
