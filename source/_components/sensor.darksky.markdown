@@ -41,6 +41,7 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
+- **lang** (*Optional*): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://darksky.net/dev/docs#request-parameters). If not specified, it defaults to English (en).
 - **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
