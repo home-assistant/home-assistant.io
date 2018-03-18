@@ -129,8 +129,8 @@ Here are two example JSON payloads resulting in the same task:
     "project": "Errands",
     "labels":"Homework,School",
     "priority":3,
-    "date_string":"tomorrow at 14:00",
-    "date_lang":"en"
+    "due_date_string":"tomorrow at 14:00",
+    "due_date_lang":"en"
 }
 ```
 
