@@ -53,7 +53,7 @@ frontend:
   if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
   window.CUSTOM_UI_LIST.push({
     name: _NAME,
-    url: _URL
+    url: _URL,
     version: _VERSION    
   });
 }
