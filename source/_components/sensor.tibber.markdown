@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tibber"
-description: "Instructions how to integrate Tibber within Home Assistant."
+description: "Instructions on how to integrate Tibber within Home Assistant."
 date: 2017-10-03 17:00
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Sensor
 ha_release: 0.55
 ha_iot_class: "Cloud Polling"
 ---
-
 
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 
@@ -32,10 +31,7 @@ sensor:
     type: string
 {% endconfiguration %}
 
-
-
-The electricity price can be used to make automations. Here is an example to get a notification when the price is above 90% of maximum price for the day:
-
+The electricity price can be used to make automations. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
 
 ```yaml
 - alias: "Electricity price"
