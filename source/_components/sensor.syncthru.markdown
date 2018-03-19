@@ -87,4 +87,3 @@ sensor:
       output_tray_5:
         description: Sixth paper output tray state
 {% endconfiguration %}
-{% endconfiguration %}
