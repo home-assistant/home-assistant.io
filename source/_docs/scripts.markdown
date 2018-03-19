@@ -164,9 +164,9 @@ The following automation shows how to capture the custom event `event_light_stat
     platform: event
     event_type: event_light_state_changed
   action:
-    - service: notify.notify
-      data_template:
-        message: "kitchen light is turned {{ trigger.event.data.state }}"
+    service: notify.notify
+    data_template:
+      message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
 {% endraw %}
 
