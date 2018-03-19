@@ -16,8 +16,9 @@ ha_release: 0.7.4
 This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
 
 <p class='note'>
-The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT. 
-<a href="#using-owntracks-with-zanzito">See Instructions</a>
+<del>The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT. 
+  <a href="#using-owntracks-with-zanzito">See Instructions</a></del>
+As of February 2018 it appears that development of the Android app for OwnTracks is being done again.  It is currently in beta status and a direct play store link is https://play.google.com/apps/testing/org.owntracks.android
 </p>
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
