@@ -49,22 +49,42 @@ sensor:
     type: list
     keys:
       toner_black:
+        description: Black toner fill level
       toner_cyan:
+        description: Cyan toner fill level
       toner_magenta:
+        description: Magenta toner fill level
       toner_yellow:
+        description: Yellow toner fill level
       drum_black:
+        description: Black drum state
       drum_cyan:
+        description: Cyan drum state
       drum_magenta:
+        description: Magenta drum state
       drum_yellow:
+        description: Yellow drum state
       tray_1:
+        description: First paper input tray state
       tray_2:
+        description: Second paper input tray state
       tray_3:
+        description: Third paper input tray state
       tray_4:
+        description: Fourth paper input tray state
       tray_5:
+        description: Fifth paper input tray state
       output_tray_0:
+        description: First paper output tray state
       output_tray_1:
+        description: Second paper output tray state
       output_tray_2:
+        description: Third paper output tray state
       output_tray_3:
+        description: Fourth paper output tray state
       output_tray_4:
+        description: Fifth paper output tray state
       output_tray_5:
+        description: Sixth paper output tray state
+{% endconfiguration %}
 {% endconfiguration %}
