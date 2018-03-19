@@ -195,13 +195,17 @@ In the domains section pick a name for your subdomain, this can be anything you 
 
 The URL you will be using later to access your Home Assistant instance from outside will be the subdomain you picked, followed by duckdns.org . For our example we will say our URL is examplehome.duckdns.org
 
-On the top left of duckdns.org select the install option. Then pick your operating system from the list. In our example we will use a Raspberry Pi. In the dropdown box select the URL you just created.
+Set up homeassistant to keep your DuckDNS url and external IP address in sync.  In your configuration.yaml add the following:
 
-Duckdns.org will now generate personalised instructions for you to follow so that your device can update their website every time your IP address changes. Carefully follow the instructions given on duckdns.org to set up your device.
+```yaml
+duckdns:
+  domain: examplehome
+  access_token: abcdefgh-1234-abcd-1234-abcdefgh
+```
 
-At the end of the instructions DuckDNS will suggest you set up port forwarding.  No need, we have already done this in step 2.
+The access token is available on your DuckDNS page.  Restart homeassistant.
 
-What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because your device running Home Assistant will update DuckDNS every time it changes.
+What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
 
 Now type your new URL in to your address bar on your browser with port 8123 on the end:
 
