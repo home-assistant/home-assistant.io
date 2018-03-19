@@ -31,7 +31,7 @@ sensor:
     type: string
 {% endconfiguration %}
 
-The electricity price can be used to make automations. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
+The electricity price can be used to make automations. The sensor has a `max_price` and `min_price` attribute, with max and min price for the current day. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
 
 ```yaml
 - alias: "Electricity price"
