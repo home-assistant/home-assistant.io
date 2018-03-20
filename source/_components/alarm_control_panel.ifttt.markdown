@@ -31,6 +31,10 @@ alarm_control_panel:
   - platform: ifttt
     name: YOUR_ALARM_NAME
     code: YOUR_ALARM_CODE
+    event_arm_away: YOUR_ARM_AWAY_EVENT
+    event_arm_home: YOUR_ARM_HOME_EVENT
+    event_arm_night: YOUR_ARM_NIGHT_EVENT
+    event_disarm: YOUR_DISARM_EVENT
 ```
 
 <p class='note warning'>
@@ -42,10 +46,10 @@ It is strongly discouraged to use this platform when you don't use encryption; o
 This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered. 
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
-* **IF** Webhook event `alarm_disarm` is called, **THEN** disarm the alarm system.
-* **IF** Webhook event `alarm_arm_home` is called, **THEN** set the alarm system to armed home.
-* **IF** Webhook event `alarm_arm_away` is called, **THEN** set the alarm system to armed away.
-* **IF** Webhook event `alarm_arm_night` is called, **THEN** set the alarm system to armed night.
+* **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
+* **IF** Webhook event `YOUR_ARM_HOME_EVENT` is called, **THEN** set the alarm system to armed home.
+* **IF** Webhook event `YOUR_ARM_NIGHT_EVENT` is called, **THEN** set the alarm system to armed away.
+* **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** set the alarm system to armed night.
 * **IF** the alarm system was disarmed, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "disarmed"}`.
 * **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
 * **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
@@ -61,4 +65,29 @@ For this system to operate correctly, the following IFTTT applets have to be set
     description: The code for the alarm control panel.
     required: false
     type: string
+  event_arm_away:
+    description: IFTTT webhook event to call when the state is set to armed away.
+    required: false
+    type: string
+    default: alarm_arm_away
+  event_arm_home:
+    description: IFTTT webhook event to call when the state is set to armed home.
+    required: false
+    type: string
+    default: alarm_arm_home
+  event_arm_night:
+    description: IFTTT webhook event to call when the state is set to armed night.
+    required: false
+    type: string
+    default: alarm_arm_night
+  event_disarm:
+    description: IFTTT webhook event to call when the state is set to disarmed.
+    required: false
+    type: string
+    default: alarm_disarm
+  await_callback:
+    description: Specify if the state will be updated by a ifttt_push_alarm_state call (true) or can be set immediately (false).
+    required: false
+    type: boolean
+    default: true
 {% endconfiguration %}
