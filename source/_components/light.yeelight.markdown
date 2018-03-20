@@ -63,5 +63,13 @@ This component is tested to work with the following models. If you have a differ
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
 
+## {% linkable_title Platform Services %}
 
+### {% linkable_title Service `light.yeelight_set_mode` %}
 
+Set a operation mode.
+
+| Service data attribute    | Optional | Description                                                                                 |
+|---------------------------|----------|---------------------------------------------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
+| `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
