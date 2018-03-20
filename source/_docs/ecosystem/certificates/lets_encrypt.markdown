@@ -195,7 +195,7 @@ In the domains section pick a name for your subdomain, this can be anything you 
 
 The URL you will be using later to access your Home Assistant instance from outside will be the subdomain you picked, followed by duckdns.org . For our example we will say our URL is examplehome.duckdns.org
 
-Set up homeassistant to keep your DuckDNS url and external IP address in sync.  In your configuration.yaml add the following:
+Set up Home Assistant to keep your DuckDNS URL and external IP address in sync. In your `configuration.yaml` file add the following:
 
 ```yaml
 duckdns:
@@ -203,7 +203,7 @@ duckdns:
   access_token: abcdefgh-1234-abcd-1234-abcdefgh
 ```
 
-The access token is available on your DuckDNS page.  Restart homeassistant.
+The access token is available on your DuckDNS page. Restart Home Assistant after the change.
 
 What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
 
