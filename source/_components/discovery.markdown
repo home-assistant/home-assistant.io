@@ -23,6 +23,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DirecTV receivers](/components/media_player.directv/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
+ * [HomeKit](/components/homekit_controller/)
  * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
