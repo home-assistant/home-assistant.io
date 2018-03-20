@@ -21,46 +21,57 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 notify:
   - name: NOTIFIER_NAME
     platform: html5
-    gcm_api_key: 'gcm-sender-key'
+    gcm_api_key: 'gcm-server-key'
     gcm_sender_id: 'gcm-sender-id'
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **gcm_api_key** (*Required if pushing to Chrome*): The API key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+- **gcm_api_key** (*Required if pushing to Chrome*): The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 - **gcm_sender_id** (*Required if pushing to Chrome*): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 
 ### {% linkable_title Getting ready for Chrome %}
 
-- Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-- Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
-- After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-- Then, click the cogwheel on top left and select "Project settings".
-- Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+1. Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+2. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
+3. After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
+4. Then, click the cogwheel on top left and select "Project settings".
+5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
+#### {% linkable_title Verify your domain with Hass.io %}
+
+1. Set `https://yourdomain/local/` as URL.
+2. For verifying your domain you need to download a file in step 2.
+3. Create a directory named "www" in you Hass.io configuration directory.
+4. Place the file (something like this: google*.html) in the "www" directory.
+5. Verify the domain.
+6. Proceed with step 3.
 
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
+(On Hass.io these requirements are already met.)
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
+* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is exposed to the world.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
 * You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
 
+
 ### {% linkable_title Setting up %}
 
 Assuming you have already added the platform to your configuration:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider in the sidebar labeled Push Notifications.
+2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider for Push Notifications through the sidebar Configuration > General.
 3. Slide it to the on position.
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
 
 ### {% linkable_title Usage %}
 
@@ -93,7 +104,7 @@ Chrome supports notification actions, which are configurable buttons that arrive
 
 #### {% linkable_title Data %}
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](#automating-notification-events).
+Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](#automating-notification-events).
 
 ```json
 {
@@ -119,7 +130,7 @@ By default, every notification sent has a randomly generated UUID (v4) set as it
 }
 ```
 
-Example of adding a tag to your configuration. This won't create new notification if there already exists one with the same tag.
+Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 ```yaml
   - alias: Push/update notification of sensor state with tag
@@ -183,13 +194,13 @@ During the lifespan of a single push notification, Home Assistant will emit a fe
 
 Common event payload parameters are:
 
-| Parameter | Description                                                                                                                                                                                                                                           |
-|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                               |
-| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`). |
-| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                               |
-| `target`  | The target that this notification callback describes.                                                                                                                                                                                                 |
-| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                        |
+| Parameter | Description                                                                                                                                                                                                                                                    |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
+| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`). |
+| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |
+| `target`  | The target that this notification callback describes.                                                                                                                                                                                                          |
+| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                 |
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
@@ -223,7 +234,7 @@ or
     platform: event
     event_type: html5_notification.clicked
     event_data:
-     action: open_door
+      action: open_door
 ```
 
 #### {% linkable_title closed event %}

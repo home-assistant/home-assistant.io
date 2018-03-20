@@ -30,7 +30,7 @@ Some best practices to consider before putting your configuration on GitHub:
 
 - Extensive use of [secrets.yaml](https://home-assistant.io/topics/secrets/) to hide sensitive information like usernames, passwords, device information, and location
 - Exclusion of some files, including `secrets.yaml` and device-specific information using a [`.gitignore`](https://git-scm.com/docs/gitignore) file
-- Regularly commiting your configuration to GitHub to make sure that your backup is up to date
+- Regularly committing your configuration to GitHub to make sure that your backup is up to date
 - Use a README.md to document your configuration and include screenshots of your Home Assistant GUI
 
 ### {% linkable_title Step 1: Installing and Initializing Git %}
@@ -127,7 +127,7 @@ git push origin master
 exit
 ```
 
-Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
+Every time you run this script, you will be prompted for a comment to describe the change(s) that you are committing. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
 
 ### {% linkable_title Step 7: Configuration file testing %}
 
@@ -141,7 +141,7 @@ Example .travis.yml
 ```yaml
 language: python
 python:
-  - "3.4"
+  - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 install:
@@ -162,7 +162,7 @@ home_elevation: 0
 
 ### {% linkable_title Extra commands %}
 
-You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:
+You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not committed yet:
 
 
 ```bash

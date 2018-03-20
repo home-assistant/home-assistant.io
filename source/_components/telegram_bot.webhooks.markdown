@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
-ha_category: Telegram chatbot
+ha_category: Notifications
 ha_release: 0.42
 ---
 
@@ -36,7 +36,7 @@ telegram_bot:
 
 Configuration variables:
 
-- **allowed_chat_ids** (*Required*): A list of ids representing the users and group chats that are authorised to interact with the webhook.
+- **allowed_chat_ids** (*Required*): A list of ids representing the users and group chats that are authorized to interact with the webhook.
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
@@ -44,7 +44,7 @@ Configuration variables:
 - **proxy_params** (*Optional*): Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
 - **url** (*Optional*): Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorising the chat, if you have added your bot to a group you will also need to authorise any user that will be interacting with the webhook. When an unauthorised user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the the users id by looking in the "from" section of this error message.
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
 
 Full configuration sample:
 

@@ -48,7 +48,7 @@ Information about how to install on Windows can be found [here](https://home-ass
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
-Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -126,9 +126,9 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-### {% linkable_title Service `send_packet` %}
+### {% linkable_title Service `broadlink_send_packet` %}
 
-You can use the service broadlink/send_packet to directly send IR packets without the need to assign a switch entity for each command. 
+You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -140,7 +140,7 @@ Example:
 script:
   tv_select_source:
     sequence:
-      - service: broadlink.send_packet_192_168_0_107
+      - service: switch.broadlink_send_packet_192_168_0_107
         data:
           packet: 
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
@@ -184,7 +184,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
   3. `sudo python setup.py install`
 
 7. Test the codes
-Use the `sendcode` script you have already downloded to test the codes you got from the device.
+Use the `sendcode` script you have already downloaded to test the codes you got from the device.
 You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
 When run the script, you know the code works when get message .
 Code sent...

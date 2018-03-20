@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX Switch"
-description: "Instructions on how to integrate KXN switches with Home Assistant."
+description: "Instructions on how to integrate KNX switches with Home Assistant."
 date: 2016-06-24 12:00
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ switch:
 * **address**: KNX group address for switching the switch on/off
 * **state_address**: (*Optional*) separate KNX group address for retrieving the switch state.
 
-Some KNX devices can change their state internally without any messages on the KXN bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
 
 

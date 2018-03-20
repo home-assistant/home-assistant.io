@@ -10,9 +10,25 @@ footer: true
 redirect_from: /getting-started/installation/
 ---
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows, we require at least **Python 3.5** and for other operating systems at least **Python 3.4.2**.
+<p class='note'>
+Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require advanced installations.
+</p>
+
+Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5+](https://www.python.org/downloads/) installed.
 
 <div class="text-center hass-option-cards" markdown="0">
+  <a class='option-card' href='/getting-started/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/home-assistant.png' />
+    </div>
+    <div class='title'>Hass.io<br>(Beginner friendly)</div>
+  </a>
+  <a class='option-card' href='/docs/installation/virtualenv/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/python.svg' />
+    </div>
+    <div class='title'>On top of an existing Python 3.5+ installation</div>
+  </a>
   <a class='option-card' href='/docs/hassbian/installation/'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
@@ -99,5 +115,5 @@ For more details about `hass`, please refer to the [tools section](/docs/tools/h
 
 If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
 
-It may be needed that you install additional library depending on the platforms/components you want to use.
+You may need to install additional libraries depending on the platforms/components you want to use.
 

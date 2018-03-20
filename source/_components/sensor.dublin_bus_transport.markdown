@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: dublin_bus.jpg
+logo: dublin_bus.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
 ha_release: 0.36

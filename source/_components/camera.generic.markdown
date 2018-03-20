@@ -16,7 +16,7 @@ ha_iot_class: "depends"
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
 
-Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
+Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -34,7 +34,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
-- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits refetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
 - **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
 
 <p class='img'>
@@ -56,4 +56,15 @@ camera:
     name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
     content_type: 'image/svg+xml'
+```
+
+### {% linkable_title Local image with Hass.io %}
+
+You can show an static image with this platform. Just place the image here: `/config/www/your_image.png`
+
+```yaml
+camera:
+  - platform: generic
+    name: Some Image
+    still_image_url: https://127.0.0.1:8123/local/your_image.png
 ```

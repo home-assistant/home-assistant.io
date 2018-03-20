@@ -59,7 +59,7 @@ Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it pe
 
 ## State restoration
 
-Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
+Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
 
 ## Breaking changes to customize and Z-Wave "customize"
 

@@ -13,13 +13,13 @@ ha_release: 0.7.5
 ---
 
 
-A lot WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of insances and metrics, like network interfaces, disks, and wifi registrations.
+A lot WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks, and WiFi registrations.
 
 <p class='note warning'>
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
 
-OID examples:
+The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker component page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [NMAP](/components/device_tracker.nmap_tracker/) instead.
 
 | Brand | Device/Firmware | OID |
 |---|---|---|---|
@@ -33,6 +33,7 @@ OID examples:
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | EdgeRouter | Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
 | Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
+| DD-WRT | unknown RouterOS version/model |  `1.3.6.1.2.1.4.22.1.2` |
 
 To use the SNMP version 1 platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -61,7 +62,7 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of the router, eg. 192.168.1.1.
-- **community** (*Required*): The SNMP community which is set for the device. Most devices have a default community set to to `public` with read-only permission (which is sufficient).
+- **community** (*Required*): The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
 - **baseoid** (*Required*): The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
 - **authkey** (*Inclusive*): Authentication key for SNMPv3. Variable privkey must also be set.
 - **privkey** (*Inclusive*): Privacy key SNMPv3. Variable authkey must also be set.

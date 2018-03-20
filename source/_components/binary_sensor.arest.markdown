@@ -30,7 +30,7 @@ Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
 - **pin** (*Required*): Number of the pin to monitor.
-- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 
 Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as `return_value`.
 

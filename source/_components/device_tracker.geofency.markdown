@@ -42,3 +42,5 @@ To configure Geofency, you must configure (via the Webhook feature) to send a PO
 Geofency will automatically generate the device tracker name used for geofences, and you will find it in `known_devices.yaml` after the first request. For beacons, the device name will be `beacon_<name from Geofency>`, e.g., `device_tracker.beacon_car`. 
 
 When you enter a geofence or stationary beacon, your location name in Home Assistant will be set to the name of the geofence or beacon location in Geofency. When you exit a geofence or stationary beacon, your location name in Home Assistant will be set to 'not home'. For mobile beacons, the location name will be 'not_home' whenever the beacon is entered or exited outside of a [zone](https://home-assistant.io/components/zone/), otherwise, it will be set to the name of the zone.
+
+To make Geofency work better with the [proximity](https://home-assistant.io/components/proximity/) component, you should enable the 'Send Current Location' feature in the Webhook configuration screen. This ensures that the _current_ GPS coordinates are included in exit events instead of the coordinates of the (center of) the zone that was exited.

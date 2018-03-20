@@ -87,7 +87,7 @@ script:
     sequence:
       - service: wink.wink_set_lock_alarm_state
         data:
-          enabled: false 
+          enabled: false
 ```
 
 ### {% linkable_title Service `wink_set_lock_beeper_state` %}
@@ -130,6 +130,20 @@ script:
           enabled: false
 ```
 
+### {% linkable_title Service `wink_add_new_lock_key_code` %}
+
+You can use the service wink/wink_add_new_lock_key_code to add a new user code to your Wink lock.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of locks.
+| `name` | no | the name of the new key code
+| `code` | no | The new code. Must match length of existing codes.
+
+
+<p class='note'>
+Calling service wink/pull_newly_added_wink_devices will add the new key code to Home Assistant. The device will also show up on the next restart of Home Assistant.
+</p>
 
 <p class='note'>
 If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.

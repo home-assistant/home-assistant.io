@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Hive Sensor"
+title: "Hive Binary Sensor"
 description: "Instructions on how to integrate Hive Sensors with Home Assistant."
 date: 2017-09-24 21:00
 sidebar: true
@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The 'hive' binary sensor component integrates your Hive sensors into Home Assistant.
 
-The Hive sensor component supports the following Hive products:
+The Hive binary sensor component supports the following Hive products:
 - **Hive Window or Door Sensor**
 - **Hive Motion Sensor**
 

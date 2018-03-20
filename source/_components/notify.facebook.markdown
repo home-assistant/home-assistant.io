@@ -46,8 +46,53 @@ automation:
       data:
         message: 'Good Evening'
         target:
-          - +919413017584
-          - +919784516314
+          - '+919413017584'
+          - '+919784516314'
+```
+
+You can also send messages to users that do not have stored their phone number with Facebook, but this requires a bit more work. The Messenger platform uses page specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specifc ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
+
+```php
+<?php
+
+$access_token = "";
+$verify_token = "";
+
+if (isset($_REQUEST['hub_challenge'])) {
+    $challenge        = $_REQUEST['hub_challenge'];
+    $hub_verify_token = $_REQUEST['hub_verify_token'];
+
+    if ($hub_verify_token === $verify_token) {
+        echo $challenge;
+    }
+}
+
+$input   = json_decode(file_get_contents('php://input'), true);
+$sender  = $input['entry'][0]['messaging'][0]['sender']['id'];
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
+
+if (preg_match('/get my id/', strtolower($message))) {
+    $url      = 'https://graph.facebook.com/v2.10/me/messages?access_token=' . $access_token;
+    $ch       = curl_init($url);
+    $jsonData = '{
+        "recipient":{
+            "id":"' . $sender . '"
+        },
+        "message":{
+            "text":"Your ID: ' . $sender . '"
+        }
+      }';
+
+    $jsonDataEncoded = $jsonData;
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+    if (!empty($input['entry'][0]['messaging'][0]['message'])) {
+        $result = curl_exec($ch);
+    }
+}
+
 ```
 
 ### {% linkable_title Rich messages %}

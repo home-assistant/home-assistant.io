@@ -18,7 +18,7 @@ ha_release: pre 0.7
 
 ### {% linkable_title Setup %}
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [itunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an `rgbw`, `rgbww` and `white` group to the same group number, effectively allowing 12 groups (4 `rgbww`, 4 `rgbw` and 4 `white`) per bridge.
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an `rgbw`, `rgbww` and `white` group to the same group number, effectively allowing 12 groups (4 `rgbww`, 4 `rgbw` and 4 `white`) per bridge.
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
 
@@ -71,7 +71,7 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
   - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness can not be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
   - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 25.
 - **White**
-  - When using a legacy wifi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
+  - When using a legacy WiFi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
   - *Temperature*: Wifi bridge v6 supports 101 temperature steps; older versions only 10.
   - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 10.
 - **Transitions**

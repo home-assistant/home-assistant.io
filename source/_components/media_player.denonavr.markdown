@@ -18,12 +18,14 @@ The `denonavr` platform allows you to control a [Denon Network Receivers](http:/
 
 Supported devices:
 
+- Denon AVR-X1300W
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
+- Denon AVR-4810
 - Marantz M-CR603
 - Marantz M-RC610
 - Marantz SR5008

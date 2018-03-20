@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Switch
 ha_release: 0.54
 ha_iot_class: "Local Polling"
@@ -29,7 +28,7 @@ switch:
       command_on: "PWR ON"
       command_off: "PWR OFF"
       command_state: "PWR?"
-      value_template: '{{ value == "PWR=01" }}'
+      value_template: '{% raw %}{{ value == "PWR=01" }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -41,5 +40,5 @@ Configuration variables:
     - **command_on** (*Required*): Command to turn device on.
     - **command_off** (*Required*): Command to turn device off.
     - **command_state** (*Required*): Command to determine the state of the switch. If not defined the switch will assume successful state changes.
-    - **value_template** (*Required*): The template evaluating to `true` will indicate the switch is on.
+    - **value_template** (*Required*): The template evaluating to `true` will indicate that the switch is on.
     - **name** (*Optional*): The name used to display the switch in the frontend.

@@ -2,7 +2,7 @@
 layout: page
 title: "Recorder"
 description: "Instructions how to configure the data recorder for Home Assistant."
-date: 2016-05-21 09:00
+date: 2017-09-24 09:00
 sidebar: true
 comments: false
 sharing: true
@@ -25,24 +25,59 @@ To setup the `recorder` component in your installation, add the following to you
 recorder:
 ```
 
-Configuration variables:
-
-- **purge_days** (*Optional*): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.
-- **exclude** (*Optional*): Configure which components should be excluded from recordings.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
-  - **domains** (*Optional*): The list of domains to be excluded from recordings.
-- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
-- **db_url** (*Optional*): The URL which point to your database. 
-
+{% configuration %}
+  recorder:
+    description: Enables the recorder component. Only allowed once.
+    required: true
+    type: map
+    keys:
+      db_url:
+        description: The URL which points to your database.
+        required: false
+        type: URL
+      purge_interval:
+        description: Enable scheduled purge of older events and states. The purge task runs every `purge_interval` days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
+        required: Inclusive
+        type: int
+      purge_keep_days:
+        description: Specify the number of history days to keep in recorder database after purge. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
+        required: Inclusive
+        type: int
+      exclude:
+        description: Configure which components should be excluded
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be excluded from recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be excluded from recordings.
+            required: false
+            type: List
+      include:
+        description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+        required: false
+        type: map
+        keys:
+          domains:
+            description: The list of domains to be included in the recordings.
+            required: false
+            type: List
+          entities:
+            description: The list of entity ids to be included in the recordings.
+            required: false
+            type: List
+{% endconfiguration %}
 
 Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_days: 5
+  purge_interval: 2
+  purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
     domains:
@@ -50,8 +85,8 @@ recorder:
       - weblink
       - updater
     entities:
-      - sun.sun   # Don't record sun data
-      - sensor.last_boot
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 ```
 
@@ -85,39 +120,71 @@ recorder:
 
 If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
-## Custom database engines
+### {% linkable_title Service `purge` %}
+
+Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
+
+Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
+
+```yaml
+action:
+  service: recorder.purge
+  data:
+    keep_days: 5
+```
+
+### {% linkable_title Restore State %}
+
+If the `recorder` component is activated then some components support `restore_state` which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
+
+* [`input_boolean`](/components/input_boolean/#restore-state)
+* [`input_number`](/components/input_number/#restore-state)
+* [`input_select`](/components/input_select/#restore-state)
+* [`input_datetime`](/components/input_datetime/#restore-state)
+* [`input_text`](/components/input_text/#restore-state)
+
+
+## {% linkable_title Custom database engines %}
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
-| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
-| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
-| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
+| MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/?charset=utf8`      |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MySQL %}
+### {% linkable_title MariaDB and MySQL %}
+
+For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
+
+```bash
+$ sudo apt-get install libmariadbclient-dev libssl-dev
+$ pip3 install mysqlclient
+```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmysqlclient-dev
+$ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
-If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
+
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
 
 ```bash
-pi@homeassistant:~ $ sudo -i
-root@homeassistant:~# su homeassistant
-homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
-homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
-(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
+pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
+(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 

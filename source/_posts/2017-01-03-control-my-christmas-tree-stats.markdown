@@ -15,7 +15,7 @@ Hello and Happy New Year!
 
 I am not Paulus. My name is Ben. I'm the creator of the [BRUH Automation YouTube channel][bruh]. If you've ever seen any of my videos then you'll know I love home automation and Home Assistant. 
 
-I wanted to share some exciting stats from one of my latest projects - [Control My Christmas tree!](https://github.com/bruhautomation/BRUH-Christmas-Tree-2016) For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publically accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance. 
+I wanted to share some exciting stats from one of my latest projects - [Control My Christmas tree!](https://github.com/bruhautomation/BRUH-Christmas-Tree-2016) For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publicly accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance. 
 
 I added three devices to the Home Assistant instance - a Wemo Insight, Sonoff Switch (running MQTT firmware), and a DIY MQTT Digital LED strip. After adding a few 3D printed Star War decorations, the tree was ready to go! 
 

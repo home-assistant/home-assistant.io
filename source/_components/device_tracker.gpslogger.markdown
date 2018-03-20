@@ -11,7 +11,7 @@ ha_category: Presence Detection
 ha_release: 0.34
 ---
 
-This platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
+The `gpslogger` device tracker platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
 
 To integrate GPSLogger in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -19,38 +19,63 @@ To integrate GPSLogger in Home Assistant, add the following section to your `con
 # Example configuration.yaml entry
 device_tracker:
   - platform: gpslogger
+    password: !secret gpslogger_password
 ```
+{% configuration %}
+password:
+  description: Separate password for GPS Logger endpoint. If provided using regular API password to contact endpoint will result in 401 response.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Setup on your smartphone %}
 
-- [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger)
+Install [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) on your device.
 
-To configure GPSLogger, you must set up the app to send a `GET` request to your Home Assistant server at 
-```yaml
-http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+After the launch, go to **General Options**. Enable **Start on bootup** and **Start on app launch**.
+
+<p class='img'>
+  <img width='300' src='/images/components/gpslogger/settings.png' />
+  GPSLogger Settings
+</p>
+
+Go to **Logging details** and disable **Log to GPX**. **Log to KML**, and **Log to NMEA**. Enable **Log to custom URL**.
+
+<p class='img'>
+  <img width='300' src='/images/components/gpslogger/logging-details.png' />
+  Logging Details
+</p>
+
+Right after enabling, the app will take you to the **Log to custom URL** settings.
+
+<p class='img'>
+  <img width='300' src='/images/components/gpslogger/custom-url.png' />
+  Log to custom URL details
+</p>
+
+The relevant endpoint is: `/api/gpslogger`
+
+```text
+http://[IP address Home Assistant]:[Port]/api/gpslogger?
+   latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
+   &battery=%BATT&speed=%SPD&direction=%DIR
+   &altitude=%ALT&provider=%PROV&activity=%ACT
 ```
-. Make sure to include the API password if you have configured a password in Home Assistant (add `&api_password=<password>` to the end of the URL). Configure that options under "General Options":
 
-- Start on boot: yes
-- Start on app launch: yes
+Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.
 
-Set the URL under "General Options -> Logging details":
+- It's HIGHLY recommended to use SSL/TLS.
+- Use the domain that Home Assistant is available on the internet or the public IP address. Can be a local IP address if you are using a VPN setup.
+- Only remove `[Port]` if your Home Assistant instance is using port 80. Otherwise set it to 8123.
+- Click on **Parameters** in the app and you will see all available parameters for the URL. For Home Assistant only the above URL will work.
+- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your pasword]` to the end of the URL. 
+- You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
 
-- Log to GPX: no
-- Log to KML: no
-- Log to custom URL: yes and set 
-```yaml
-http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
-```
-(be sure you include API password (`&api_password=<password>`) if needed, or you can also use HTTP Basic authentication `http://<username>:<password>@<ha_server>/api/gpslogger...`)
-- Log to OpenGTS Server: no
-- Log to Plain Text: no
-- Log to NMEA: no
+If your battery drains fast then you can tune the performence of GPSLogger under **Performance** -> **Location providers** 
 
-You should also tune GPSLogger performance to save your battery under "General Options -> Logging details -> Performance -> Location providers":
+<p class='img'>
+  <img width='300' src='/images/components/gpslogger/performance.png' />
+  Performance
+</p>
 
-- GPS: no
-- Network: no
-- Passive: yes
-
-A request can be forced from the app to test if everything is working fine. A succesfull request will update `known_devices.yaml` with device serial number.
+A request can be forced from the app to test if everything is working fine. A succesful request will update the `known_devices.yaml` file with the device's serial number.

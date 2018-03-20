@@ -29,21 +29,49 @@ sensor:
       - weather
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your API key for http://openweathermap.org/.
-- **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **forecast** (*Optional*): Enables the forecast. The default is to display the current conditions.
-- **language** (*Optional*): The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc. Defaults to English.
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **weather**: A human-readable text summary.
-  - **temperature**: The current temperature.
-  - **wind_speed**: The wind speed.
-  - **wind_bearing**: The wind bearing.
-  - **humidity**: The relative humidity.
-  - **pressure**: The sea-level air pressure in millibars.
-  - **clouds**: Description about cloud coverage.
-  - **rain**: The rain volume.
-  - **snow**: The snow volume
+{% configuration %}
+  api_key:
+    description: Your API key for OpenWeatherMap.
+    required: true
+    type: string
+  name:
+    description: Additional name for the sensors. Default to platform name.
+    required: false
+    default: OWM
+    type: string
+  forecast:
+    description: Enables the forecast. The default is to display the current conditions.
+    required: false
+    default: false
+    type: string
+  language:
+    description: The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc.
+    required: false
+    default: en
+    type: string
+  monitored_conditions:
+    description: Conditions to display in the frontend.
+    required: true
+    type: list
+    keys:
+      weather:
+        description: A human-readable text summary.
+      temperature:
+        description: The current temperature.
+      wind_speed:
+        description: The wind speed.
+      wind_bearing:
+        description: The wind bearing.
+      humidity:
+        description: The relative humidity.
+      pressure:
+        description: The sea-level air pressure in millibars.
+      clouds:
+        description: Description about cloud coverage.
+      rain:
+        description: The rain volume.
+      snow:
+        description: The snow volume.
+{% endconfiguration %}
 
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).

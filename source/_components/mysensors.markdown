@@ -27,9 +27,9 @@ mysensors:
       persistence_file: 'path/mysensors.json'
       baud_rate: 38400
       nodes:
-        1: 
+        1:
           name: 'kitchen'
-        3: 
+        3:
           name: 'living_room'
     - device: '/dev/ttyACM0'
       persistence_file: 'path/mysensors2.json'
@@ -47,21 +47,75 @@ mysensors:
   version: '2.0'
 ```
 
-Configuration variables:
-
-- **device** (*Required*): The path to the serial gateway where it is connected to your Home Assistant host, or the address of the tcp ethernet gateway, or `mqtt` to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.
-- **baud_rate** (*Optional*): Specifies the baud rate of the connected serial gateway. Default is 115200.
-- **tcp_port** (*Optional*): Specifies the port of the connected tcp ethernet gateway. Default is 5003.
-- **topic_in_prefix** (*Optional*): Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant. Default is an empty string.
-- **topic_out_prefix** (*Optional*): Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway. Default is an empty string.
-- **debug** (*DEPRECATED*): This option has been deprecated. Please remove this from your config is you have it included. Use the logger component to filter log messages on log level.
-- **persistence** (*Optional*): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.
-- **persistence_file** (*Optional*): The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
-- **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.
-- **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
-- **retain** (*Optional*): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.
-- **nodes** (*Optional*): Nodes that need a custom name.
-  - **name** (*Optional*): The name the node will be renamed to. This nodename becomes part of the entity_id. Default the entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
+{% configuration %}
+  gateways:
+    description: A list of gateways to set up.
+    required: true
+    type: map
+    keys:
+      device:
+        description: The path to the serial gateway where it is connected to your Home Assistant host, or the address of the TCP Ethernet gateway, or `mqtt` to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.
+        required: true
+        type: string
+      baud_rate:
+        description: Specifies the baud rate of the connected serial gateway.
+        required: false
+        type: int
+        default: 115200
+      tcp_port:
+        description: Specifies the port of the connected TCP Ethernet gateway.
+        required: false
+        type: int
+        default: 5003
+      topic_in_prefix:
+        description: Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant.
+        required: false
+        type: string
+        default: ''
+      topic_out_prefix:
+        description: Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway.
+        required: false
+        type: string
+        default: ''
+      nodes:
+        description: A mapping of node ids to node settings, eg custom name.
+        required: false
+        type: map
+        keys:
+          name:
+            description: The name the node will be renamed to. This nodename becomes part of the entity_id. Default entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
+            required: true
+            type: string
+  debug:
+    description: This option has been deprecated. Please remove this from your config if you have it included. Use the [logger component](/components/logger/) to filter log messages on log level.
+    required: false
+    type: int
+  persistence:
+    description: Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts.
+    required: false
+    type: int
+    default: true
+  persistence_file:
+    description: The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
+    required: false
+    type: string
+    default: path/to/config/directory/mysensors.pickle
+  version:
+    description: Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.
+    required: false
+    type: string
+    default: '1.4'
+  optimistic:
+    description: Enable or disable optimistic mode for actuators (switch/light). Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
+    required: false
+    type: int
+    default: false
+  retain:
+    description: Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway.
+    required: false
+    type: int
+    default: true
+{% endconfiguration %}
 
 <p class='note'>
 Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
@@ -88,7 +142,7 @@ The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway
 
 Present a MySensors sensor or actuator, by following these steps:
 
-1. Connect the serial gateway to your computer or the ethernet or MQTT gateway to your network.
+1. Connect the serial gateway to your computer or the Ethernet or MQTT gateway to your network.
 2. Configure the MySensors component in `configuration.yaml`.
 3. Start hass.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
@@ -183,7 +237,7 @@ Sending a heartbeat from the MySensors device to Home Assistant activates the Sm
 
 ### {% linkable_title Message validation %}
 
-Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from home assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
+Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
 If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` component and the `mysensors` package.
 ```yaml

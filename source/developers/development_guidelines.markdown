@@ -67,7 +67,7 @@ REQUIREMENTS = ['xmltodict==0.11.0']
 
 ### {% linkable_title Log messages %}
 
-There is no need to add the platform or component name to the log messages. This will be added automatically. Like `syslog` messages there shouldn't be no period at the end. Try to avoid brackets and additional quotes around the output to make it easier for users to parse the log. A widely style is shown below but you are free to compose the messages as you like.
+There is no need to add the platform or component name to the log messages. This will be added automatically. Like `syslog` messages there shouldn't be any period at the end. Try to avoid brackets and additional quotes around the output to make it easier for users to parse the log. A widely style is shown below but you are free to compose the messages as you like.
 
 ```python
 _LOGGER.error("No route to device: %s", self._resource)

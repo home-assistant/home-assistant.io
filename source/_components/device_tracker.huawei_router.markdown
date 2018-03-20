@@ -7,13 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: huawei.png
+logo: huawei.svg
 ha_category: Presence Detection
 ha_release: 0.51
 ---
 
 This component offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).
-Currently, this was only tested with the Huawei HG8247H (used by Vodafone Portugal).
+Currently, this was only tested with the Huawei HG8247H and HG8247Q Smart Router (used by Vodafone Portugal).
 
 To use a Huawei router in your installation, add the following to your `configuration.yaml` file:
 

@@ -18,14 +18,16 @@ The `workday` binary sensor indicates, whether the current day is a workday or n
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuation.yaml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: workday
     country: DE
+    workdays: [ mon, wed, fri ]
 ```
 
 Configuration variables:
 
+- **name** (*Optional*): A name for this sensor. Defaults to *Workday Sensor*
 - **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.8.1) notation.
 - **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.8.1) notation. Defaults to None.
 - **workdays** (*Optional*): List of workdays. Defaults to `mon`, `tue`, `wed`, `thu`, `fri`.
@@ -35,6 +37,7 @@ Configuration variables:
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`. The keyword `holiday` is used for public holidays identified by the holidays module.
 
 <p class='note warning'>
+If you use the sensor for Norway (`NO`) you need to wrap `NO`in quotes or write the name in full. Otherwise the value is evaluated as `False`.
 If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes. Otherwise the value is evaluated as `True` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 

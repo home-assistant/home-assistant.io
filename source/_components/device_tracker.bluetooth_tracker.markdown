@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bluetooth Tracker"
-description: "Instructions for integrating bluetooth tracking within Home Assistant."
+description: "Instructions for integrating Bluetooth tracking within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
 comments: false
@@ -16,7 +16,7 @@ ha_release: 0.18
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
 <p class='note'>
-[Hass.io](/hassio/) only supports bluetooth on Raspberry Pi 3 via the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon. [Hass.io](/hassio/) doesn't support external Bluetooth dongles.
+[Hass.io](/hassio/) only supports Bluetooth on Raspberry Pi 3 via the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon. [Hass.io](/hassio/) doesn't support external Bluetooth dongles.
 </p>
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:

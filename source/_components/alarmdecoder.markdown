@@ -39,6 +39,7 @@ alarmdecoder:
     01:
       name: 'Smoke Detector'
       type: 'smoke'
+      rfid: '0123456'
     02:
       name: 'Front Door'
       type: 'opening'
@@ -50,6 +51,7 @@ Configuration variables:
 - **host** (*Optional*): The IP address of the AlarmDecoder device on your home network, if using socket type. Default: `localhost`
 - **port** (*Optional*): The port of the AlarmDecoder device on your home network, if using socket type. Default: `10000`
 - **path** (*Optional*): The path of the AlarmDecoder device, if using socket type. Default: `/dev/ttyUSB0`
-- **baud** (*Optional*): The baud rate of the AlarmDecoder device, if using serial type. Default: `115200`
+- **baudrate** (*Optional*): The baud rate of the AlarmDecoder device, if using serial type. Default: `115200`
 - **panel_display** (*Optional*): Create a sensor called sensor.alarm_display to match the Alarm Keypad display. Default: `off`
 - **zones** (*Optional*): AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+- **rfid** (*Optional*): The RF serial-number associated with RF zones.  Providing this field allows Home Assistant to associate raw sensor data to a given zone, allowing direct monitoring of the state, battery, and supervision status.

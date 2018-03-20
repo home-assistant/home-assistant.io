@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: worx.png
 ha_category: DIY
 ha_release: 0.54
-logo: home-assistant.png
 ha_iot_class: "Local Polling"
 ---
 

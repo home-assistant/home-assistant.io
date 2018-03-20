@@ -143,7 +143,6 @@ sensor:
   - platform: command_line
     name: Brightness
     command: "python3 /path/to/script/arest-value.py"
-    unit_of_measurement: "°C"
 ```
 
 ### {% linkable_title Usage of templating in `command:` %}
@@ -155,6 +154,6 @@ sensor:
 sensor:
   - platform: command_line
     name: wind direction
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {% raw %}{{ states.sensor.wind_direction.state }}{% endraw %}'
     unit_of_measurement: "Direction"
 ```

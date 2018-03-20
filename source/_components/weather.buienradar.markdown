@@ -47,7 +47,7 @@ weather:
 
 <p class='note'>
 This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
-The weather platform is easier to configure but less customisable.
+The weather platform is easier to configure but less customizable.
 </p>
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)

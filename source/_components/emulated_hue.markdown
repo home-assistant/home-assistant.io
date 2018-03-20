@@ -13,12 +13,20 @@ ha_release: 0.27
 ha_iot_class: "Local Push"
 ---
 
+<p class='note warning'>
+Be aware that `emulated_hue` doesn't work for new **Google Home** users. If you're a new user of Google Home, use the [Google Assistant component](https://home-assistant.io/components/google_assistant/).
+</p>
+
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no set up cost outside of configuration changes.
 The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
-  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
+A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
+</p>
+
+<p class='note'>
+It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
 </p>
 
 ### {% linkable_title Configuration %}
@@ -92,7 +100,7 @@ homeassistant:
   customize:
     light.bedroom_light:
       # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue: false
+      emulated_hue_hidden: true
     light.office_light:
       # Address light.office_light as "back office light"
       emulated_hue_name: "back office light"
@@ -100,7 +108,7 @@ homeassistant:
 
 The following are attributes that can be applied in the `customize` section:
 
-- **emulated_hue** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the `expose_by_default` option.
+- **emulated_hue_hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. Adding `emulated_hue_hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
 - **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 
 ### {% linkable_title Troubleshooting %}

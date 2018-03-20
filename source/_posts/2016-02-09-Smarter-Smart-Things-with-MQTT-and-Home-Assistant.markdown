@@ -111,7 +111,7 @@ mqtt:
   broker: localhost
 ```
 
-Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `smartthings/<Device Name>/<Atribute>`
+Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `smartthings/<Device Name>/<Attribute>`
 
 For example, my Dimmer Z-Wave Lamp is called "Fireplace Lights" in SmartThings. The following topics are published:
 

@@ -10,7 +10,7 @@ categories: How-To
 og_image: /images/blog/2017-03-bridge/social.png
 ---
 
-The idea of creating [HTTP to MQTT bridge](https://github.com/petkov/http_to_mqtt) appeared when I was trying to integrate Google Assistant with my Home Assistant after watching [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video. Right now there is no MQTT service available in [IFTTT](https://ifttt.com/about). Existing integration solution uses [Maker Webhooks](https://ifttt.com/maker_webhooks) which requires that your Home Assistant instance is publically accessible, which I think brings some security concerns or simply not always possible to set up.
+The idea of creating [HTTP to MQTT bridge](https://github.com/petkov/http_to_mqtt) appeared when I was trying to integrate Google Assistant with my Home Assistant after watching [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video. Right now there is no MQTT service available in [IFTTT](https://ifttt.com/about). Existing integration solution uses [Maker Webhooks](https://ifttt.com/maker_webhooks) which requires that your Home Assistant instance is publicly accessible, which I think brings some security concerns or simply not always possible to set up.
 
 The HTTP to MQTT bridge should fill that gap. The idea is to receive messages using HTTP requests and transfer them to your MQTT broker, which can be contacted by Home Assistant. The HTTP to MQTT bridge is written using Node.js with [Express](https://expressjs.com/) for the server part and [MQTT.js](https://www.npmjs.com/package/mqtt) for the client.
 

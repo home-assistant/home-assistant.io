@@ -17,7 +17,7 @@ The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philip
 
 Currently, the supported features are `on`, `off`, `set_cct` (colortemp) , `set_bright` (brightness).
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
 

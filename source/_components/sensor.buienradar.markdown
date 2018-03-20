@@ -14,9 +14,9 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands. The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weatherstations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0). 
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0). 
 
-The selected weatherstation will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weatherstation).
+The selected weather station will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weather station).
 
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -60,10 +60,10 @@ Configuration variables:
   - **windazimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **pressure**: The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal).
   - **visibility**: Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre)).
-  - **windgust**: The windspeed of wind gusts ([m/s](https://en.wikipedia.org/wiki/M/s)).
+  - **windgust**: The wind speed of wind gusts ([m/s](https://en.wikipedia.org/wiki/M/s)).
   - **precipitation**: The amount of precipitation/rain in mm/h.
-  - **precipitation_forecast_average**: The average expected precipitation/rain in mm/h within the given timeframe.
-  - **precipitation_forecast_total**: The total expected precipitation/rain in mm within the given timeframe. The total expected rain in the configured timeframe will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with timeframe configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If timeframe is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
+  - **precipitation_forecast_average**: The average expected precipitation/rain in mm/h within the given time-frame.
+  - **precipitation_forecast_total**: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
   - **irradiance**: Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2)).
   - **temperature_1d** [<sup>[1d]</sup>](#1d): The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
   - **mintemp_1d** [<sup>[1d]</sup>](#1d): The forecasted minimum temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
@@ -162,4 +162,4 @@ sensor:
 ```
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
-> Buienradar makes free weatherdata available for use by individuals and businesses (website/intranet). The use of the weatherdata is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your usage or to request permission.
+> Buienradar makes free weather-data available for use by individuals and businesses (website/intranet). The use of the weather-data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your usage or to request permission.

@@ -27,7 +27,7 @@ Singleboard computers are very popular to run Home Assistant. To support this fa
 There are countless bugfixes included in this release which will make your experience with the `climate` and the `cover` platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to [@turbokongen], [@pvizeli], [@djbanks], [@danielperna84], and others the improvements on the code and the frontend side is continuing... 
 
 ### {% linkable_title API documentation %}
-The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already exisiting user documentation. The focus is not end-users but developers who whant to get details about the code without actually browsing the code on Github.
+The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already exisiting user documentation. The focus is not end-users but developers who want to get details about the code without actually browsing the code on Github.
 
 ### {% linkable_title Configuration validation %}
 The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!

@@ -30,3 +30,8 @@ Configuration variables:
 - **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
 - **username** (*Required*): The username of a non-administrator user account on the device.
 - **password** (*Required*): The password for the user specified.
+- **doorbell_events** (*Optional*): Setting this to `true` this will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
+
+<p class="note warning">
+Enabling `doorbell_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
+</p>

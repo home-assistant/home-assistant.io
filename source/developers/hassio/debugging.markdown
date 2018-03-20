@@ -28,10 +28,10 @@ Alternative instructions, for Mac, Windows and Linux can be found [here](https:/
 
 Follow steps 1-4 under 'Generating a new SSH key' (The other sections are not applicable to Hass.io and can be ignored.)
 
-Step 3 in the link above, shows the path to the private key file `id_rsa` for your chosen operating system. Your public key, `id_rsa.pub`, is saved in the same folder. Next, copy your public key file to the root of your SD card.
+Step 3 in the link above, shows the path to the private key file `id_rsa` for your chosen operating system. Your public key, `id_rsa.pub`, is saved in the same folder. Next, copy your public key file to the root of your SD card as `authorized_keys`.
 
 <p class='note'>
-Make sure when you are copying the public key to the root of the /boot partition of the SD card that you rename the file correctly with no `.pub` file extension.
+Make sure when you are copying the public key to the root of the /resin-boot partition of the SD card that you rename the file correctly to `authorized_keys` with no `.pub` file extension.
 </p> 
 
 You should then be able to SSH into your Hass.io device. On mac/linux, use:

@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/basic/#remote-access
 ---
 
-If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible.
+If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible. Remember to follow the [securing checklist](/docs/configuration/securing/) before doing this.
 
 The most common approach is to set up port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. General instructions on how to do this can be found by searching `<router model> port forwarding instructions`.
 

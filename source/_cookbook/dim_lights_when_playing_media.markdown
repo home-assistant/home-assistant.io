@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 Like it how the lights dim up/down at the movies? Do it at home as well!
 
-This example uses the [media player](https://home-assistant.io/components/media_player/), [Philips Hue](https://home-assistant.io/components/light.hue/) (transitions) and the [sun](https://home-assistant.io/components/sun/) component. We'll use actions to detect media player state changes and scenes to control multiple lights, color settings and transition between scenes.
+This example uses the [media player](https://home-assistant.io/components/media_player/), [lights](https://home-assistant.io/components/light/) (transitions) and the [sun](https://home-assistant.io/components/sun/) component. We'll use actions to detect media player state changes and [scenes](https://home-assistant.io/components/scene/) to control multiple lights and transition between scenes.
 
 #### {% linkable_title Scenes %}
 One scene for normal light, one for when movies are on. A 2 second transition gives a nice 'feel' to the switch.
@@ -24,25 +24,21 @@ scene:
         light.light1:
             state: on
             transition: 2
-            brightness: 150
-            xy_color: [ 0.4448, 0.4066 ]
+            brightness_pct: 60
         light.light2:
             state: on
             transition: 2
-            brightness: 215
-            xy_color: [ 0.4448, 0.4066 ]
+            brightness_pct: 85
   - name: Livingroom dim
     entities:
         light.light1:
             state: on
             transition: 2
-            brightness: 75
-            xy_color: [ 0.5926, 0.3814 ]
+            brightness_pct: 30
         light.light2:
             state: on
             transition: 2
-            brightness: 145
-            xy_color: [ 0.5529, 0.4107 ]
+            brightness_pct: 55
 ```
 
 

@@ -33,11 +33,11 @@ Configuration variables:
 
 - **entity_id** (*Required*): Set by you and is used by the component as the `entity_id`.
   - **sensors** (*Required*): 
-    - **moisture** (*Optional*): Moisture of the plant. Meassured in %. Can have a min and max value set optionally.
-    - **battery** (*Optional*): Battery level of the plant sensor. Meassured in %. Can only have a min level set optionally.
-    - **temperature:** (*Optional*): Temperaure of the plant. Meassured in degrees Celcius. Can have a min and max value set optionally.
-    - **conductivity:** (*Optional*): Conductivity of the plant. Meassured in µS/cm. Can have a min and max value set optionally.
-    - **brightness:** (*Optional*): Light exposure of the plant. Meassured in Lux. Can have a min and max value set optionally.
+    - **moisture** (*Optional*): Moisture of the plant. Measured in %. Can have a min and max value set optionally.
+    - **battery** (*Optional*): Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.
+    - **temperature:** (*Optional*): Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.
+    - **conductivity:** (*Optional*): Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
+    - **brightness:** (*Optional*): Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
   - **min_moisture** (*Optional*): Minimum moisture level before triggering a problem. Typical value: 20
   - **max_moisture** (*Optional*): Maximum moisture level before triggering a problem. Typical value: 60
   - **min_battery** (*Optional*): Minimum battery level before triggering a problem. Typical value: 20
@@ -50,17 +50,19 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
-This is a practial example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
-Another good source of this data would be the [Mi Flora](https://home-assistant.io/components/sensor.miflora/) component. 
+This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
+Another good source of this data would be the [Mi Flora](/components/sensor.miflora/) component. 
 
 
-If the sensor data within the the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
+If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
 ## Data Source
 
-The main sources of the data will usually be a [MiFlora sensor](sensor.miflora) or a [MQTT sensor](sensor.mqtt) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
+The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.miflora/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
+
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 plant:
@@ -99,5 +101,6 @@ sensor:
     state_topic: my_plant_topic
     value_template: '{{ value_json.brightness }}'
 ```
+{% endraw %}
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.

@@ -31,7 +31,7 @@ To get the region name:
 - Find your region here: `https://www.dwd.de/DE/wetter/warnungen_landkreise/warnWetter_node.html?ort=Hamburg`
 - Verify if you find any warning for your region here: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
 
-The warning level is between 0 (no danger) and 4 (extrem weather conditions):
+The warning level is between 0 (no danger) and 4 (extreme weather conditions):
 - Warnungen vor extremem Unwetter (Stufe 4)
 - Unwetterwarnungen (Stufe 3)
 - Warnungen vor markantem Wetter (Stufe 2)

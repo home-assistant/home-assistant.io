@@ -47,7 +47,7 @@ sensor:
         instance: "000000000002"
 ```
 Configuration variables:
-- **bt_device_id** (*Optional*): The id of the bluetooth device that should be used for scanning (hci*X*). You can find the correct one using `hcitool dev` (default: 0). 
+- **bt_device_id** (*Optional*): The id of the Bluetooth device that should be used for scanning (hci*X*). You can find the correct one using `hcitool dev` (default: 0). 
 - **beacons** array (*Required*): The beacons that should be monitored.
   - **[entry]** (*Required*): Name of the beacon.
     - **namespace** (*Required*): Namespace ID of the beacon in hexadecimal notation. Must be exactly 20 characters (10 bytes) long.

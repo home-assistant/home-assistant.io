@@ -16,7 +16,7 @@ Hass.io turns your Raspberry Pi (or another device) into the ultimate home autom
 The advantages of using Hass.io:
 
  - Free and open source
- - Optimized for embedded device like Raspberry Pi
+ - Optimized for embedded devices like Raspberry Pi
  - 100% local home automation
  - Easy installation and updates (powered by [ResinOS] and [Docker])
  - Management user interface integrated into Home Assistant
@@ -34,10 +34,13 @@ Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. Howeve
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
-Hass.io dashboard
+Hass.io dashboard with upgrade notification (under the hamburger menu -> Hass.io)
 </p>
 
-If you would prefer not to be notified of the general updates in the UI you can disable the [updater](components/updater/) component in your configuration.
+<p class='img'>
+<img src='/images/hassio/screenshots/ssh-upgrade.png'>
+Hass.io upgrade process from the SSH command line
+</p>
 
 [Google Assistant]: /addons/google_assistant/
 [Snips.ai]: /addons/snips/

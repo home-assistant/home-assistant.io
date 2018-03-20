@@ -88,7 +88,7 @@ Advantages:
 
 Disadvantages:
 
- - Home automation will assume the wrong state if the the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
+ - Home automation will assume the wrong state if the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
 
 ### {% linkable_title Polling the cloud %}
 These are devices that will only report their state to their own cloud backend. The cloud backend will allow reading the state but will not notify when a new state has arrived. This requires the home automation to check frequently if the state has been updated.
@@ -143,7 +143,7 @@ Controlling a device can, just like state, be done through cloud and/or local co
 These devices are not able to be controlled. They will only offer state.
 
 ### {% linkable_title Poll State after sending command %}
-These devices will require the state to be polled after sending a command to see if a command was successfull.
+These devices will require the state to be polled after sending a command to see if a command was successful.
 
 Advantages:
 

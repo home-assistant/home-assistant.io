@@ -12,4 +12,5 @@ ha_category: Sensor
 ha_iot_class: "Local Polling"
 ---
 
-To get your ZigBee sensors working with Home Assistant, follow the instructions for the general [ZigBee Home Automation component](/components/zha/).
+To get your ZigBee sensors working with Home Assistant, follow the instructions for the general [ZigBee Home Automation Component](/components/zha/).
+

@@ -12,6 +12,7 @@ logo: home-assistant.png
 ---
 
 This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].
+Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 [script]: /components/script/
 [automation]: /getting-started/automation/
@@ -39,11 +40,11 @@ automation:
   - alias: run_set_ac
     trigger:
       platform: state
-      entity_id: input_slider.ac_temperature
+      entity_id: input_number.ac_temperature
     action:
       service: shell_command.set_ac_to_slider
 
-input_slider:
+input_number:
   ac_temperature:
     name: A/C Setting
     initial: 24
@@ -53,6 +54,6 @@ input_slider:
     
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state }}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_number.ac_temperature.state }}_AUTO'
 {% endraw %}
 ```

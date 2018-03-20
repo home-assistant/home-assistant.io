@@ -33,4 +33,4 @@ Configuration variables:
 - **defaults** (*Required*): A list of dns server to forward default requests.
 - **forwards** (*Optional*): A list of domains that will forward to a specific server.
 - **hosts** (*Optional*): A list of hosts to resolve it static.
-- **interface** (*Optional*): If a interface is set, it listen only on this interface. Need to set for resinos. Normaly is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+- **interface** (*Optional*): If a interface is set, it listen only on this interface. Need to set for resinos. Normally is `eth0` for ethernet wired connection and `wlan0` for wireless connection.

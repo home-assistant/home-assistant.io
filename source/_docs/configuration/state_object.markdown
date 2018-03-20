@@ -23,8 +23,8 @@ Field | Description
 `state.domain` | Domain of the entity. Example: `light`.
 `state.object_id` | Object ID of entity. Example: `kitchen`.
 `state.name` | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.
-`state.last_updated` | Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: `14:10:03 13-03-2016`.
-`state.last_changed` | Time the state changed. This is not updated when there are only updated attributes. Example: `14:10:03 13-03-2016`.
+`state.last_updated` | Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: `2017-10-28 08:13:36.715874+00:00`.
+`state.last_changed` | Time the state changed. This is not updated when there are only updated attributes. Example: `2017-10-28 08:13:36.715874+00:00`.
 `state.attributes` | A dictionary with extra attributes related to the current state.
 
 The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have it's own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.

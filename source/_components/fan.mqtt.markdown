@@ -13,9 +13,9 @@ ha_release: 0.27
 ha_iot_class: depends
 ---
 
-The `mqtt` fan platform let you control your MQTT enabled fans.
+The `mqtt` fan platform lets you control your MQTT enabled fans.
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the fan will be `false`.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
 When a `state_topic` is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from `state_topic`).
 
@@ -30,33 +30,120 @@ fan:
     command_topic: "bedroom_fan/on/set"
 ```
 
-Configuration variables:
-
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the fan state.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **name** (*Optional*): The name of the fan. Default is 'MQTT Fan'.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **payload_on** (*Optional*): The payload that represents the running state. Default is "ON".
-- **payload_off** (*Optional*): The payload that represents the stop state. Default is "OFF".
-- **state_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-- **optimistic** (*Optional*): Flag that defines if lock works in optimistic mode. Default is `true` if no state topic defined, else `false`.
-- **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **oscillation_state_topic** (*Optional*): The MQTT topic subscribed to receive oscillation state updates.
-- **oscillation_command_topic** (*Optional*): The MQTT topic to publish commands to change the oscillation state.
-- **payload_oscillation_on** (*Optional*): The payload that represents the oscillation on state. Default is "oscillate_on".
-- **payload_oscillation_off** (*Optional*): The payload that presents the oscillation off state. Default is "oscillate_off".
-- **oscillation_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the oscillation.
-- **speed_state_topic** (*Optional*): The MQTT topic subscribed to receive speed state updates.
-- **speed_command_topic** (*Optional*): The MQTT topic to publish commands to change speed state.
-- **payload_low_speed** (*Optional*): The payload that represents the fan's low speed.
-- **payload_medium_speed** (*Optional*): The payload that represents the fan's medium speed.
-- **payload_high_speed** (*Optional*): The payload that represents the fan's high speed.
-- **speed_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload.
-- **speeds** array (*Optional*): Valid entries for the list are `off`, `low`, `medium`, and `high`.
+{% configuration %}
+name:
+  description: The name of the fan.
+  required: false
+  type: string
+  default: MQTT Fan
+command_topic:
+  description: The MQTT topic to publish commands to change the fan state.
+  required: true
+  type: string
+state_topic:
+  description: The MQTT topic subscribed to receive state updates.
+  required: false
+  type: string
+payload_on:
+  description: The payload that represents the running state.
+  required: false
+  type: string
+  default: ON
+payload_off:
+  description: The payload that represents the stop state.
+  required: false
+  type: string
+  default: OFF
+state_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
+  required: false
+  type: string
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+optimistic:
+  description: Flag that defines if lock works in optimistic mode
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: true
+oscillation_state_topic:
+  description: The MQTT topic subscribed to receive oscillation state updates.
+  required: false
+  type: string
+oscillation_command_topic:
+  description: The MQTT topic to publish commands to change the oscillation state.
+  required: false
+  type: string
+payload_oscillation_on:
+  description: The payload that represents the oscillation on state.
+  required: false
+  type: string
+  default: oscillate_on
+payload_oscillation_off:
+  description: The payload that represents the oscillation off state.
+  required: false
+  type: string
+  default: oscillate_off
+oscillation_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the oscillation."
+  required: false
+  type: string
+speed_state_topic:
+  description: The MQTT topic subscribed to receive speed state updates.
+  required: false
+  type: string
+speed_command_topic:
+  description: The MQTT topic to publish commands to change speed state.
+  required: false
+  type: string
+payload_low_speed:
+  description: The payload that represents the fan's low speed.
+  required: false
+  type: string
+  default: low
+payload_medium_speed:
+  description: The payload that represents the fan's medium speed.
+  required: false
+  type: string
+  default: medium
+payload_high_speed:
+  description: The payload that represents the fan's high speed.
+  required: false
+  type: string
+  default: high
+speed_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload."
+  required: false
+  type: string
+speeds:
+  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium`, and `high`."
+  required: false
+  type: string list
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+{% endconfiguration %}
 
 <p class='note warning'>
-Make sure that your topic is an exact match. `some-topic/` and `some-topic` are different topics.
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
 ## {% linkable_title Examples %}

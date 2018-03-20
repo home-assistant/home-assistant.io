@@ -31,7 +31,7 @@ Configuration variables:
 - **host** (*Required*): The IP address of your host, eg. `192.168.1.32`.
 - **baseoid** (*Required*): The OID where the information is located. It's advised to use the numerical notation.
 - **port** (*Option*): The SNMP port of your host. Defaults to `161`.
-- **community** (*Optional*): The SNMP community which is set for the device. Most devices have a default community set to to `public` with read-only permission (which is sufficient).
+- **community** (*Optional*): The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
 - **version** (*Optional*) version of SNMP protocol, `1` or `2c`. Defaults to `1`. Version `2c` is needed to read data from 64-bit counters.
 - **name** (*Optional*): Name of the SNMP sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.

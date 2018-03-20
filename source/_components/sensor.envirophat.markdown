@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.44
 ---
 
-The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board featues a wide range of sensors, such as:
+The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board features a wide range of sensors, such as:
 
 - BMP280 temperature/pressure sensor
 - TCS3472 light and RGB colour sensor with two LEDs for illumination
@@ -50,7 +50,7 @@ sensor:
 Configuration variables:
 
 - **display_options** (*Optional*) array: List of readings to monitor. Default is monitoring all of them:
-  - **temperature**: ambient temperature in Celsius. Since the sensor is close to the Raspberry Pi, that migth affect the accuracy of the reading (ie. the Pi might heat up the sensor)
+  - **temperature**: ambient temperature in Celsius. Since the sensor is close to the Raspberry Pi, that might affect the accuracy of the reading (ie. the Pi might heat up the sensor)
   - **pressure**: atmospheric pressure in hPa.
   - **light**: ambient light, as an integer in the 0-65535 range
   - **light_red**: red color reading scaled to the ambient light, as an integer in the 0-255 range
@@ -66,7 +66,7 @@ Configuration variables:
   - **voltage_1**: voltage reading on Analog In 1 in units of V
   - **voltage_2**: voltage reading on Analog In 2 in units of V
   - **voltage_3**: voltage reading on Analog In 3 in units of V
-- **use_led** (*Optional*) True / False boolean; Default value is False, declaring that the onboard LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the onboard LEDs will blink whenever a reading is taken.
+- **use_led** (*Optional*) True / False boolean; Default value is False, declaring that the on-board LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the on-board LEDs will blink whenever a reading is taken.
 
 ### Notes
 
@@ -101,7 +101,7 @@ Add something like the following to your [customize section](/docs/configuration
 # Example configuration.yaml entry
 group:
   enviro_phat_voltages:
-    name: Enviro pHAT Volages`
+    name: Enviro pHAT Voltages`
     entities:
       - sensor.voltage_0
       - sensor.voltage_1

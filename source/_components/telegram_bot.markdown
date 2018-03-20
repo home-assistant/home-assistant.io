@@ -52,6 +52,23 @@ Send a photo.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
+
+#### {% linkable_title Service `telegram_bot/send_video` %}
+Send a video.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a video. |
+| `file`                    |       no | Local path to a video.  |
+| `caption`                 |      yes | The title of the video. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+
 #### {% linkable_title Service `telegram_bot/send_document` %}
 Send a document.
 
@@ -81,7 +98,7 @@ Send a location.
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 #### {% linkable_title Service `telegram_bot/edit_message` %}
-Edit a previusly sent message in a conversation.
+Edit a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -94,7 +111,7 @@ Edit a previusly sent message in a conversation.
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 #### {% linkable_title Service `telegram_bot/edit_caption` %}
-Edit the caption of a previusly sent message.
+Edit the caption of a previously sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -124,7 +141,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
 #### {% linkable_title Service `telegram_bot/delete_message` %}
-Delete a previusly sent message in a conversation.
+Delete a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -134,7 +151,7 @@ Delete a previusly sent message in a conversation.
 ### {% linkable_title `Telegram` notification platform %}
 
 
-The [Telegram notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customised shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [Telegram notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
 The required yaml configuration now reduces to:
 ```yaml

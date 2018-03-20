@@ -103,7 +103,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Light - tellstick.py: Tellstick light fix ([@stefan-jonasson])
 - Switch - insteon_local.py: only check for devices when not defined in config ([@wardcraigj])
 - Notify - Twitter: Allow direct messaging to user ([@fabaff])
-- Fan - MQTT: Dont set a speed when fan turns on ([@robbiet480])
+- Fan - MQTT: Don't set a speed when fan turns on ([@robbiet480])
 - Config: Allow easier customization of whole domain, entity lists, globs ([@andrey-git])
 - Sensor - Homematic: Update device support ([@danielperna84])
 - Binary sensor - ISS: Add location to attributes and option to show position on the map ([@fabaff])

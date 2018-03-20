@@ -51,6 +51,6 @@ automation:
         data:
           sonos_entity: media_player.office
           volume: 0.5
-          message: 'Your husband comming home!'
+          message: 'Your husband coming home!'
           delay: '00:00:05'
 ```

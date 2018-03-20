@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX"
-description: "Instructions on how to integrate KXN components with Home Assistant."
+description: "Instructions on how to integrate KNX components with Home Assistant."
 date: 2016-06-08 12:00
 sidebar: true
 comments: false
@@ -13,12 +13,14 @@ ha_release: 0.24
 ha_iot_class: "Local Polling"
 ---
 
-Overview
---------
 
 The [KNX](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
 The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+
+<p class='note warning'>
+  Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
+</p>
 
 There is currently support for the following device types within Home Assistant:
  
@@ -30,8 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Thermostat](/components/climate.knx)
 - [Notify](/components/notify.knx)
 
-Configuration
---------------
+### {% linkable_title Configuration %}
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -39,13 +40,14 @@ To use your KNX in your installation, add the following lines to your `configura
 knx:
 ```
 
-Optional, recommended for large KNX installations (>100 devices) and/or if you want to use the XKNX abstraction also for other scripted tools outside HASS:
+Optional, recommended for large KNX installations (>100 devices) and/or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
 
 ```yaml
 knx:
   config_file: '/path/to/xknx.yaml'
 ```
-* **config_file**: (*Optional*) path for xknx configuration file.
+
+- **config_file** (*Optional*): The path for XKNX configuration file.
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
 
@@ -56,9 +58,10 @@ knx:
     port: 3671
     local_ip: '192.168.2.109'
 ```
-* **host**: Host of the KNX/IP tunneling device
-* **port**: Port of the KNX/IP tunneling device
-* **local_ip**: IP of the local interface
+
+- **host**: Host of the KNX/IP tunneling device.
+- **port**: Port of the KNX/IP tunneling device.
+- **local_ip**: IP of the local interface.
 
 Explicit connection to a KNX/IP routing device:
 
@@ -68,7 +71,8 @@ knx:
   routing:
      local_ip: '192.168.2.109'
 ```
-* **local_ip**: local ip of interface (which should be used for multicasting)
+
+- **local_ip**: The local IP address of interface (which should be used for multicasting).
 
 ```yaml
 knx:
@@ -76,13 +80,12 @@ knx:
     fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 
-* **fire_event** (Optional) if set to True, platform will write all received KNX messages to event bus
-* **fire_event_filter** If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HASS event bus. 
+- **fire_event** (*Optional*): If set to True, platform will write all received KNX messages to event bus
+- **fire_event_filter** (*Optional*): If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus. 
+- **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behaviour.
+- **time_address** (*Optional*): Broadcast current local time to KNX bus with configured group address.
 
-
-
-Service
--------
+### {% linkable_title Services %}
 
 In order to directly interact with the KNX bus, you can now use the following service:
 
@@ -92,16 +95,11 @@ Service: send
 Service Data: {"address": "1/0/15", "payload": 0}
 ```
 
-* **address** : KNX group address
-* **payload** : payload, either an integer or an array of integers
+* **address**: KNX group address
+* **payload**: Payload, either an integer or an array of integers
 
 
+### {% linkable_title Known issues %}
 
-Known issues:
--------------
-
-Due to lame multicast support the routing abstraction and the gateway scanner
-only work with python >=3.5.
-
-
+Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.
 

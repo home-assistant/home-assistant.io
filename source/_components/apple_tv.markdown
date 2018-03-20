@@ -11,7 +11,6 @@ logo: apple.png
 ha_category: Hub
 ha_iot_class: "Local Push"
 ha_release: 0.49
-featured: true
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g. arrow keys.
@@ -57,7 +56,9 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 ### {% linkable_title Scanning for devices %}
 
-To scan for devices, press the icon in the upper left corner and select the leftmost icon according to the image:
+Make sure Home Sharing is enabled on the Apple TV.
+
+To scan for devices and determine the `login_id`, press the icon in the upper left corner and select the leftmost icon according to the image:
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -79,26 +80,7 @@ Found Apple TVs:
 Note: You must use 'pair' with devices that have home sharing disabled
 ```
 
-Just copy and paste the login id from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
-
-### {% linkable_title My Apple TV turns on when I restart Home Assistant %}
-
-The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
-
-So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design, and there is no real fix for it. There's also no known way to turn off the Apple TV via the protocol used for communication. You have the following options:
-
-- Do not use this platform
-- Disable HDMI CEC on your Apple TV
-- Use "fake standby"
-
-The first two points are quite obvious. Fake standby is a concept implemented in this platform that disables all requests to the device and makes it appear as being "off" in the web interface. This will make sure that the device is not woken up, but it will of course not show any information or allow you to control it. It is however easy to turn it on (or off) in the web interface or to use an automation with `turn_on`. To make it more useful, you can write automations that turn it on or off depending on some other device, like the input source on your receiver.
-
-To put a device into fake standby when starting Home Assistant, add `start_off: true` to your configuration.
-
-<p class='note warning'>
-Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
-</p>
-
+Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
 
 ### {% linkable_title Setting up device authentication %}
 
@@ -129,6 +111,24 @@ apple_tv:
 ```
 
 Restart Home Assistant, and you should now be able to use `play_url` as before.
+
+### {% linkable_title My Apple TV turns on when I restart Home Assistant %}
+
+The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
+
+So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design, and there is no real fix for it. There's also no known way to turn off the Apple TV via the protocol used for communication. You have the following options:
+
+- Do not use this platform
+- Disable HDMI CEC on your Apple TV
+- Use "fake standby"
+
+The first two points are quite obvious. Fake standby is a concept implemented in this platform that disables all requests to the device and makes it appear as being "off" in the web interface. This will make sure that the device is not woken up, but it will of course not show any information or allow you to control it. It is however easy to turn it on (or off) in the web interface or to use an automation with `turn_on`. To make it more useful, you can write automations that turn it on or off depending on some other device, like the input source on your receiver.
+
+To put a device into fake standby when starting Home Assistant, add `start_off: true` to your configuration.
+
+<p class='note warning'>
+Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
+</p>
 
 ## {% linkable_title Services %}
 

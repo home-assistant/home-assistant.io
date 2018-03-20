@@ -87,7 +87,7 @@ Returns the current temperature measured by the thermostat.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| Integer | Currenly measured temperature
+| Integer | Currently measured temperature
 
 ### {% linkable_title Attribute `target_temperature` %}
 
@@ -171,7 +171,7 @@ is returned as the user-visible name (rather than the internally used name).
 
 ### {% linkable_title Attribute `fan_min_on_time` %}
 
-Returns the current fan mimimum on time.
+Returns the current fan minimum on time.
 
 | Attribute type | Description |
 | ---------------| ----------- |
@@ -234,7 +234,7 @@ Turns the away mode on or off for the thermostat.
 ### {% linkable_title Service `set_hold_mode` %}
 
 Puts the thermostat into the given hold mode. For 'home', 'away', 'sleep',
-and ony other hold based on a reference climate, the
+and any other hold based on a reference climate, the
 target temperature is taken from the reference climate.
 For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.

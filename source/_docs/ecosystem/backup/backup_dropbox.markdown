@@ -18,7 +18,7 @@ You need two parts in order to get it working correctly.
 
 Become the user that run Home Assistant.
 
-- A seperate Python script that syncs a specific folder. Which can be found [here](https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f)
+- A separate Python script that syncs a specific folder. Which can be found [here](https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f)
 - The excellent [dropbox uploader script](https://github.com/andreafabrizi/Dropbox-Uploader/blob/master/dropbox_uploader.sh) you can grab the .sh file only.
 
 Download those files to a folder of your liking, after that edit both files and change paths accordingly.
@@ -46,7 +46,7 @@ Do note, this will **backup your passwords to Dropbox**.
 
 ### {% linkable_title Automate the backup %}
 
-So you just made a full backup, next time you want it to be done automaticly. Since your database can change and so do other files over time.
+So you just made a full backup, next time you want it to be done automatically. Since your database can change and so do other files over time.
 Add it to your crontab, edit the **path/to** part.
 
 ```bash

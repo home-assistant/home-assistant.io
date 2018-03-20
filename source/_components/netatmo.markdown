@@ -55,6 +55,3 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 <img src='/images/screenshots/netatmo_api.png' />
 </p>
 
-<p class='note'>
-The Home Assistant Netatmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
-</p>

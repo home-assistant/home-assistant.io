@@ -101,7 +101,7 @@ Change below path to where you placed the `usb_backup.sh` and run the following 
 
 ### {% linkable_title Auto mount %}
 
-This does not automaticly mount your USB drive at boot. You need to do that manually or add a line to your `/etc/fstab` file.
+This does not automatically mount your USB drive at boot. You need to do that manually or add a line to your `/etc/fstab` file.
 
 If your drive is on `/dev/sda1`, you could add a entry to your `/etc/fstab` like so:
 
