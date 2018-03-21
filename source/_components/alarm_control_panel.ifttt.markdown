@@ -85,9 +85,9 @@ For this system to operate correctly, the following IFTTT applets have to be set
     required: false
     type: string
     default: alarm_disarm
-  await_callback:
-    description: Specify if the state will be updated by a ifttt_push_alarm_state call (true) or can be set immediately (false).
+  optimistic:
+    description: Specify if the state will be updated by a ifttt_push_alarm_state call (false) or can be set immediately (true).
     required: false
     type: boolean
-    default: true
+    default: false
 {% endconfiguration %}
