@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' sensor component can expose hive data as a sensor.
+The 'hive' sensor component exposes hive data as a sensor.
 
 The Hive sensor component exposes the following sensors:
 - **Hive Hub Online Status**
