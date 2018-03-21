@@ -37,8 +37,8 @@ To integrate Google Calendar in Home Assistant, add the following section to you
 ```yaml
 # Example configuration.yaml entry
 google:
-  client_id: *Value_created_from_steps_above*
-  client_secret: *Value_created_from_steps_above*
+  client_id: [Value_created_from_steps_above]
+  client_secret: [Value_created_from_steps_above]
 ```
 
 Configuration variables:
