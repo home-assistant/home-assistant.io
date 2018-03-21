@@ -62,4 +62,4 @@ This component is tested to work with the following models. If you have a differ
 - **YLDD01YL**: Lightstrip (Color)
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
-- **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (auto discovery not possible because the device doesn't provide a mDNS announcement)
+- **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (auto discovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
