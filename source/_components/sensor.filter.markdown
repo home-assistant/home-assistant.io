@@ -99,7 +99,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 ### {% linkable_title Band-pass %}
 
-The Band-pass filter (`bandpass`) cuts out any value outside a specific range.
+The Band-pass filter (`outlier`) cuts out any value outside a specific range.
 
 The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the 
 
