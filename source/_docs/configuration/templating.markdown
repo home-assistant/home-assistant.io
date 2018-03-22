@@ -68,6 +68,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states.sensor.temperature` returns the state object for `sensor.temperature`.
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
@@ -114,7 +115,7 @@ The next two statements result in same value if state exists. The second one wil
 
 ### {% linkable_title Attributes %}
 
-Print an attribute if state is defined
+Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
 ```text
 {% raw %}{% if states.device_tracker.paulus %}
@@ -122,6 +123,19 @@ Print an attribute if state is defined
 {% else %}
   ??
 {% endif %}{% endraw %}
+```
+
+With strings
+
+```text
+{% set tracker_name = "paulus"%}
+ 
+{% raw %}{% if states("device_tracker." + tracker_name) != "unknown" %}
+  {{ state_attr("device_tracker." + tracker_name, "battery")}}
+{% else %}
+  ??
+{% endif %}{% endraw %}
+
 ```
 
 ### {% linkable_title Sensor states %}
