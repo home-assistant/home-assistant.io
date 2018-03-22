@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Raspihats Switch"
-description: "Instructions how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant as a switch."
+description: "Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant as a switch."
 date: 2017-05-15 04:20
 sidebar: true
 comments: false

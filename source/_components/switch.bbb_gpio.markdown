@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BeagleBone Black GPIO Switch"
-description: "Instructions how to integrate the GPIO of a BeagleBone Black into Home Assistant as a switch."
+description: "Instructions on how to integrate the GPIO of a BeagleBone Black into Home Assistant as a switch."
 date: 2017-01-14 10:00
 sidebar: true
 comments: false

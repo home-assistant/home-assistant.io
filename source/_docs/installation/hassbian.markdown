@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/hassbian/
 ---
 
-Hassbian is our customized operating system for the Raspberry Pi 3. It is the easiest way of installing Home Assistant.
+Hassbian is our customized operating system for the Raspberry Pi Zero, 2,3 and 3B+. It is one of the easiest ways of installing Home Assistant.
 
  - [Install Hassbian][install]
  - [Customize your installation][customize]

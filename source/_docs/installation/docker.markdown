@@ -51,7 +51,7 @@ The steps would be:
 * Wait for some time until your NAS has pulled the image
 * Move to the "Image"-section of the Docker-app
 * Click on "Launch"
-* Choose a container-name you want (e.g. "homeassistant")
+* Choose a container-name you want (e.g., "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.

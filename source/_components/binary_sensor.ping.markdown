@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ping (ICMP) Binary sensor"
-description: "Instructions how to integrate Ping (ICMP)-based binary sensors into Home Assistant."
+description: "Instructions on how to integrate Ping (ICMP)-based binary sensors into Home Assistant."
 date: 2017-04-11 08:00
 sidebar: true
 comments: false

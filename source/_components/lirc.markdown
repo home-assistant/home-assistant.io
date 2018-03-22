@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LIRC"
-description: "Instructions how to integrate IR remotes with LIRC into Home Assistant."
+description: "Instructions on how to integrate IR remotes with LIRC into Home Assistant."
 date: 2016-05-22 19:59
 sidebar: true
 comments: false
@@ -39,7 +39,7 @@ For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where
 
 ### {% linkable_title Configuring LIRC %}
 
-Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g. for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
+Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g., for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
 
 Next, you have to make a `~/.lircrc` file that maps keypresses to system actions. [The configuration](http://www.lirc.org/html/configure.html) is a bit tedious but it must be done. Use the `prog = home-assistant` for all keys you want to be recognized by Home Assistant. The values you set for `button` must be the same as in the `lircd.conf` file and the values you put for `config` entry will be the sensor value in Home Assistant when you press the button. An example may look like this:
 
@@ -98,4 +98,4 @@ automation:
       entity_id: group.a_lights
 ```
 
-The `button_name` data values (e.g. `KEY_0`) are set by you in the `.lircrc` file.
+The `button_name` data values (e.g., `KEY_0`) are set by you in the `.lircrc` file.

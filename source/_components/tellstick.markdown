@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TellStick"
-description: "Instructions how to integrate your TellStick into Home Assistant."
+description: "Instructions on how to integrate your TellStick into Home Assistant."
 date: 2015-03-28 13:06
 sidebar: true
 comments: false

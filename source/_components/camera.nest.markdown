@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nest Camera"
-description: "Instructions how to integrate Nest cameras into Home Assistant."
+description: "Instructions on how to integrate Nest cameras into Home Assistant."
 date: 2016-12-03 08:10
 sidebar: true
 comments: false

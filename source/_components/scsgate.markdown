@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SCSGate"
-description: "Instructions how to integrate SCSGate into Home Assistant."
+description: "Instructions on how to integrate SCSGate into Home Assistant."
 date: 2016-01-31 19:20
 sidebar: true
 comments: false
@@ -25,7 +25,7 @@ scsgate:
 
 Configuration variables:
 
-- **device** (*Required*): The path to your device, e.g. `/dev/ttyACM0`
+- **device** (*Required*): The path to your device, e.g., `/dev/ttyACM0`
 
 ### {% linkable_title How to find the scs_id for your devices %}
 

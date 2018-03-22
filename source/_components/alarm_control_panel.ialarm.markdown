@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Antifurto365 iAlarm Control Panel"
-description: "Instructions how to integrate iAlarms alarms into Home Assistant."
+description: "Instructions on how to integrate iAlarms alarms into Home Assistant."
 date: 2017-11-30 20:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TP-Link Bulb"
-description: "Instructions how to integrate TP-Link bulbs into Home Assistant."
+description: "Instructions on how to integrate TP-Link bulbs into Home Assistant."
 date: 2017-07-25 08:00
 sidebar: true
 comments: false

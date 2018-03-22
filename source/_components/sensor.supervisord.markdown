@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Supervisord"
-description: "Instructions how to integrate Supervisord within Home Assistant."
+description: "Instructions on how to integrate Supervisord within Home Assistant."
 date: 2016-05-13 22:00
 sidebar: true
 comments: false

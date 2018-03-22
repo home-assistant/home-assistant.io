@@ -140,7 +140,7 @@ In this section you find some real life examples of how to use this light.
 
 ### {% linkable_title Simple string payload %}
 
-For a simple string payload with the format `state,brightness,r-g-b` (e.g. `on,255,255-255-255`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

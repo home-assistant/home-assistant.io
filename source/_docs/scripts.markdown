@@ -102,7 +102,7 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 
 {% raw %}
 ```yaml
-# Service call, e.g. from an automation.
+# Service call, e.g., from an automation.
 service: script.do_something
 data_template:
   dummy: "{{ input_boolean.switch }}"
@@ -164,9 +164,9 @@ The following automation shows how to capture the custom event `event_light_stat
     platform: event
     event_type: event_light_state_changed
   action:
-    - service: notify.notify
-      data_template:
-        message: "kitchen light is turned {{ trigger.event.data.state }}"
+    service: notify.notify
+    data_template:
+      message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
 {% endraw %}
 

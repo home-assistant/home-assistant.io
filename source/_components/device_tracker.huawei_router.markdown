@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Huawei Router"
-description: "Instructions how to integrate Huawei Routers into Home Assistant."
+description: "Instructions on how to integrate Huawei Routers into Home Assistant."
 date: 2017-07-16 01:40
 sidebar: true
 comments: false
@@ -28,7 +28,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
+- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
 - **username** (*Required*): The username to login into the router (the same used trough the router's web interface).
 - **password** (*Required*): The password for the specified username.
 

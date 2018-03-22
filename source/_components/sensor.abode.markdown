@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Abode Sensor"
-description: "Instructions how to integrate Abode sensors into Home Assistant."
+description: "Instructions on how to integrate Abode sensors into Home Assistant."
 date: 2017-10-05 14:00
 sidebar: true
 comments: false

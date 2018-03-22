@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Notify"
-description: "Instructions how to add command line notifications to Home Assistant."
+description: "Instructions on how to add command line notifications to Home Assistant."
 date: 2016-02-22 20:00
 sidebar: true
 comments: false

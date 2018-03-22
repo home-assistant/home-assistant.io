@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Conversation"
-description: "Instructions how to have conversations with your Home Assistant."
+description: "Instructions on how to have conversations with your Home Assistant."
 date: 2015-03-15 00:39
 sidebar: true
 comments: false

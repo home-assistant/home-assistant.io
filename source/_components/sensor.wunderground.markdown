@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Weather Underground (WUnderground)"
-description: "Instructions how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
+description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
 date: 2016-08-18
 sidebar: true
 comments: false
@@ -86,7 +86,7 @@ Configuration variables:
   - **weather**: A human-readable text summary with picture from Wunderground.
   - **weather_1d** [<sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units.
   - **weather_1d_metric** [<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units.
-  - **weather_1h** [<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g. "Thunderstorm" etc.)
+  - **weather_1h** [<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)
   - **wind_degrees**: Wind degrees
   - **wind_dir**: Wind direction
   - **wind_gust_kph**: Wind gusts speed in kph
@@ -105,7 +105,7 @@ All the conditions listed above will be updated every 5 minutes.
 
 _12 hour forecasts_
 
-Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g. `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
+Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g., `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
 
 _Daily forecasts_
 
@@ -115,7 +115,7 @@ in `_1d_` part of the sensor name. Valid values are from `1` to `4`.
 _Hourly forecasts_
 
 Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
-in the `_1h_` part of the sensor name with `1` to `36`. E.g. `weather_24h` will give you weather in 24 hours.
+in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will give you weather in 24 hours.
 
 ### {% linkable_title Additional examples %}
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Switch"
-description: "Instructions how to integrate REST switches into Home Assistant."
+description: "Instructions on how to integrate REST switches into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false

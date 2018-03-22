@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Belkin WeMo Lights"
-description: "Instructions how to integrate Belkin WeMo LED lights and WeMo Dimmer Switch into Home Assistant."
+description: "Instructions on how to integrate Belkin WeMo LED lights and WeMo Dimmer Switch into Home Assistant."
 date: 2016-02-20 00:45
 sidebar: true
 comments: false

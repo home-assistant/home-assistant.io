@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Plex"
-description: "Instructions how to integrate Plex into Home Assistant."
+description: "Instructions on how to integrate Plex into Home Assistant."
 date: 2015-10-05 21:21
 sidebar: true
 comments: false

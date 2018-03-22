@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Actiontec"
-description: "Instructions how to integrate Actiontec routers into Home Assistant."
+description: "Instructions on how to integrate Actiontec routers into Home Assistant."
 date: 2015-08-30 19:00
 sidebar: true
 comments: false

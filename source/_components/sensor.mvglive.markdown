@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MVG"
-description: "Instructions how to integrate Munich public transport departure times into Home Assistant."
+description: "Instructions on how to integrate Munich public transport departure times into Home Assistant."
 date: 2017-03-21 20:00
 sidebar: true
 comments: false
@@ -29,9 +29,9 @@ sensor:
 Configuration variables:
 
   - **station** (*Required*): Name of the stop or station. Visit [the MVG live web site](http://www.mvg-live.de) to find valid names.
-  - **destinations** (*Optional*): One or multiple final stop names, e.g. 'Feldmoching' or ['Feldmoching','Harthof']. This can be used to only consider a particular direction of travel
+  - **destinations** (*Optional*): One or multiple final stop names, e.g., 'Feldmoching' or ['Feldmoching','Harthof']. This can be used to only consider a particular direction of travel
   - **directions** (*Optional*): Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz.
-  - **lines** (*Optional*): One or more line numbers, e.g. 'U2' or ['U2','U8','N41']
+  - **lines** (*Optional*): One or more line numbers, e.g., 'U2' or ['U2','U8','N41']
   - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
   - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.

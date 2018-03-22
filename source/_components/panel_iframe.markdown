@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Panel iFrame"
-description: "Instructions how to add iFrames in the frontend of Home Assistant."
+description: "Instructions on how to add iFrames in the frontend of Home Assistant."
 date: 2015-07-17 18:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink"
-description: "Instructions how to setup the Wink hub within Home Assistant."
+description: "Instructions on how to setup the Wink hub within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false

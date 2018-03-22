@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IFTTT"
-description: "Instructions how to setup IFTTT within Home Assistant."
+description: "Instructions on how to setup IFTTT within Home Assistant."
 date: 2015-09-07 18:00
 sidebar: true
 comments: false
@@ -21,7 +21,7 @@ ifttt:
   key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-`key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
+`key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
 
 
 <p class='img'>

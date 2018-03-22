@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SynologyDSM Sensor"
-description: "Instructions how to integrate the SynologyDSM sensor within Home Assistant."
+description: "Instructions on how to integrate the SynologyDSM sensor within Home Assistant."
 date: 2016-10-30 23:21
 sidebar: true
 comments: false

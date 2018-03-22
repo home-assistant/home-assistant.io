@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Logger"
-description: "Instructions how to enable the logger component for Home Assistant."
+description: "Instructions on how to enable the logger component for Home Assistant."
 date: 2015-11-12 17:00
 sidebar: true
 comments: false

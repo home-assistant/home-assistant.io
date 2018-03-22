@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ecobee Thermostat"
-description: "Instructions how to setup the Ecobee thermostats within Home Assistant."
+description: "Instructions on how to setup the Ecobee thermostats within Home Assistant."
 date: 2016-08-26 18:00
 sidebar: true
 comments: false

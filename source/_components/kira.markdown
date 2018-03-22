@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kira"
-description: "Instructions how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
+description: "Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
 date: 2017-05-07 00:00
 sidebar: true
 comments: false
@@ -76,7 +76,7 @@ Configuration variables:
 - **type** (*Optional*): The type of this code. If this field is omitted, the type will be autodetected if possible.
 - **repeat** (*Optional*): The number of times to repeat this code (on transmit). Default is 1.
 
-Some manufacturers (e.g. Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
+Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
 ### {% linkable_title Code Types %}
 

@@ -169,7 +169,7 @@ homeassistant:
         - mqtt
 ```
 
-This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g. mqtt for the broker host in Home Assistant).
+This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g., mqtt for the broker host in Home Assistant).
 
 ### How it works
 
