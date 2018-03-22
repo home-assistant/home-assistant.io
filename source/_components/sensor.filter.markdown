@@ -59,7 +59,7 @@ filters:
   type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
+      description: Algorithm to be used to filter data. Available filters are `bandpass`, `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
       required: true
       type: string
     window_size:
@@ -87,6 +87,16 @@ filters:
       required: false
       type: string
       default: last
+    lower_bound: 
+      description: See [_bandpass_](#band-pass) filter. Lower bound for filter band.
+      required: false
+      type: float
+      default: negative infinity
+    upper_bound: 
+      description: See [_bandpass_](#band-pass) filter. Upper bound for filter band.
+      required: false
+      type: float
+      default: positive infinity
 {% endconfiguration %}
 
 ## {% linkable_title Filters %}
@@ -135,3 +145,18 @@ The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algori
 The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 
 Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).
+
+### {% linkable_title Band-pass %}
+
+
+The Band-pass filter (`bandpass`) restricts incoming data to a range specified by a lower and upper bound.
+
+All values greater then the upper bound are replaced by the upper bound and all values lower than the lower bound are replaced by the lower bound.
+
+```python
+if new_state > upper_bound:
+    upper_bound
+if new_state < lower_bound:
+    lower_bound
+new_state
+```
