@@ -73,7 +73,7 @@ delay:
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% endraw %}
+delay: {% raw %}'00:{{ states('input_number.minute_delay')|int }}:00'{% endraw %}
 ```
 ### {% linkable_title Wait %}
 
@@ -81,12 +81,12 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 
 ```yaml
 # wait until media player have stop the playing
-wait_template: {% raw %}"{{ states.media_player.floor.state == 'stop' }}"{% endraw %}
+wait_template: {% raw %}"{{ is_state('media_player.floor', 'stop') }}"{% endraw %}
 ```
 
 ```yaml
 # wait until a valve is < 10 or abort after 1 minutes.
-wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
+wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve|int < 10 }}"{% endraw %}
 timeout: 00:01:00
 ```
 
