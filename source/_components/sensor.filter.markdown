@@ -81,12 +81,21 @@ filters:
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
       required: false
       type: float
+<<<<<<< Upstream, based on origin/next
       default: 2.0
     type:
       description: See [_time_simple_moving_average_](#time-simple-moving-average) filter. Defines the type of Simple Moving Average.
       required: false
       type: string
       default: last
+=======
+      default: 2.0 
+    median:
+      description: See [_outlier_](#outlier) filter. Manually set band center for radius application.
+      required: false
+      type: float
+      default: median of previous states
+>>>>>>> 7ad1ef3 Added description for manually set median
 {% endconfiguration %}
 
 ## {% linkable_title Filters %}
@@ -109,10 +118,10 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
-The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the 
+The included Outlier filter will discard any value beyond a band centered on the median of the previous values or the manually set band center, replacing it with the median value of the previous values. If inside the band, the 
 
 ```python
-distance = abs(state - median(previous_states))
+distance = abs(state - median(previous_states)) or abs(state - manual_median)
 
 if distance > radius:
     median(previous_states)
