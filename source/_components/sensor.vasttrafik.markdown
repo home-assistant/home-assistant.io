@@ -38,6 +38,7 @@ Configuration variables:
   - **name** (*Optional*): Name of the route.
   - **from** (*Required*): The start station.
   - **heading** (*Optional*): Direction of the traveling.
+  - **lines** (*Optional*): Only consider these lines.
   - **delay** (*Optional*): Delay in minutes. Defaults to 0.
 
 The data are coming from [Västtrafik](https://vasttrafik.se/).
@@ -54,5 +55,8 @@ sensor:
       - name: Mot järntorget
         from: Musikvägen
         heading: Järntorget
+        lines:
+          - 7
+          - GRÖN
         delay: 10
 ```
