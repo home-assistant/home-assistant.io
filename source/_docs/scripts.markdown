@@ -70,25 +70,31 @@ delay:
   minutes: 1
 ```
 
+{% raw %}
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ states('input_number.minute_delay')|int }}:00'{% endraw %}
+delay: "00:{{ states('input_number.minute_delay')|int }}:00"
 ```
+{% endraw %}
 ### {% linkable_title Wait %}
 
 Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
+{% raw %}
 ```yaml
 # wait until media player have stop the playing
-wait_template: {% raw %}"{{ is_state('media_player.floor', 'stop') }}"{% endraw %}
+wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
+{% endraw %}
 
+{% raw %}
 ```yaml
 # wait until a valve is < 10 or abort after 1 minutes.
-wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve|int < 10 }}"{% endraw %}
-timeout: 00:01:00
+wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+timeout: '00:01:00'
 ```
+{% endraw %}
 
 When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
