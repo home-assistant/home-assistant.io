@@ -41,6 +41,46 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
+- **language** (*Optional*): The desired language of the summary properties. Valid options are
+  - `ar`: Arabic
+  - `az`: Azerbaijani
+  - `be`: Belarusian
+  - `bg`: Bulgarian
+  - `bs`: Bosnian
+  - `ca`: Catalan
+  - `cs`: Czech
+  - `da`: Danish
+  - `de`: German
+  - `el`: Greek
+  - `en`: English (which is the default)
+  - `es`: Spanish
+  - `et`: Estonian
+  - `fi`: Finnish
+  - `fr`: French
+  - `hr`: Croatian
+  - `hu`: Hungarian
+  - `id`: Indonesian
+  - `is`: Icelandic
+  - `it`: Italian
+  - `ja`: Japanese
+  - `ka`: Georgian
+  - `kw`: Cornish
+  - `nb`: Norwegian Bokmål
+  - `nl`: Dutch
+  - `pl`: Polish
+  - `pt`: Portuguese
+  - `ro`: Romanian
+  - `ru`: Russian
+  - `sk`: Slovak
+  - `sl`: Slovenian
+  - `sr`: Serbian
+  - `sv`: Swedish
+  - `tet`: Tetum
+  - `tr`: Turkish
+  - `uk`: Ukrainian
+  - `x-pig-latin`: Igpay Atinlay
+  - `zh`: simplified Chinese
+  - `zh-tw`: traditional Chinese
 - **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
