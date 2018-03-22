@@ -2,7 +2,7 @@
 layout: page
 title: "Snips.ai"
 description: "Enhance your Hass.io installation with a local voice assistant."
-date: 2017-04-30 13:28
+date: 2018-03-22 13:28
 sidebar: true
 comments: false
 sharing: true
@@ -11,11 +11,24 @@ footer: true
 
 [Snips.ai] is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.
 
-To get started, follow [their tutorial] to create an assistant and download the training data.
+The Snips add on depends on the Mosquitto add on to bridge to Home Assistannt, so make sure that is installed.
+
+HomeAssistant comes with certaion Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
+
+The Snips addon by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a shopping list if that component is enabled.
+
+If using a USB microphone and speakers plugged into the raspberry pi output, Snips will work without any change to the configuration. Trying saying things like:
+```
+Turn on kitchen light
+Open garage door
+What is on my shopping list
+```
+
+To get started creating your own configuratiom, follow [their tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Create-an-assistant-using-an-existing-bundle) to create an assistant and download the training data. You can add the HomeAssistant bundle to your assistant to enable the built in intents, and add or create your own intents to do more complex tasks.
 
 Now install and activate the [Samba] add-on so you can upload your training data. Connect to the "share" Samba share and copy your training data over. Name the file `assistant.zip`.
 
-Now it's time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:
+Now it's time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices. If you using a USB mic and the raspberry pi output, you won't need to change anything:
 
 ```text
 **** List of PLAYBACK Hardware Devices ****
@@ -59,8 +72,8 @@ Now start the add-on.
 
 Configuration variables:
 
-- **mqtt_bridge** (*Optional*): Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your own.
-- **mic**: This is the hardware address of your microphone. Look at the Snips 
+- **mqtt_bridge** : Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your the Mosquitto add on.
+- **mic**: This is the hardware address of your microphone. Look at the Snips output if you are using different hardware.
 
 ### {% linkable_title Home Assistant configuration %}
 
@@ -71,6 +84,6 @@ snips:
 ```
 
 [Snips.ai]: https://snips.ai/
-[their tutorial]: https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant
+[their tutorial]: https://github.com/snipsco/snips-platform-documentation/wiki/2.-Create-an-assistant-using-an-existing-bundle
 [Samba]: /addons/samba/
 [comp]: /components/snips/
