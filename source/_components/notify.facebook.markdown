@@ -163,11 +163,11 @@ notify:
       friendly_name: 'Wind'
       icon_template: mdi:weather-windy
       value_template: >-
-        {% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}
+        "{% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}"
             Windy
-        {%- else -%}
+        "{%- else -%}"
             Beer
-        {%- endif -%}
+        "{%- endif -%}"
 
 ```
 
