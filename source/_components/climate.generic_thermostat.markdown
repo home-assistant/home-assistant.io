@@ -13,10 +13,10 @@ ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
-
 The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and switches to control heaters and A/C units. In can be used for heating, cooling or both at the same time.
 
 ## Heater mode
+
 You can choose to use `generic_thermostat` as heater only by applying a simple configuration as below:
 
 ```yaml
@@ -53,6 +53,7 @@ climate:
 </p>
 
 ## Auto - Using both a heater and an A/C unit together
+
 You can have both a heater and an A/C unit setup inside `generic_thermostat` to allow `auto` operation mode with a low target temperature and a high target temperature. 
 
 ```yaml
