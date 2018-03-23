@@ -47,8 +47,8 @@ Send a photo.
 | `url`                     |       no | Remote path to an image. |
 | `file`                    |       no | Local path to an image.  |
 | `caption`                 |      yes | The title of the image. |
-| `username`                |      yes | Username for a URL which require HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which require HTTP basic authentication. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
@@ -81,8 +81,8 @@ Send a document.
 | `url`                     |       no | Remote path to a document. |
 | `file`                    |       no | Local path to a document.  |
 | `caption`                 |      yes | The title of the document. |
-| `username`                |      yes | Username for a URL which require HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which require HTTP basic authentication. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
@@ -130,7 +130,7 @@ Edit the caption of a previously sent message.
 
 ### {% linkable_title Service `telegram_bot.edit_replymarkup` %}
 
-Edit the inline keyboard of a previusly sent message.
+Edit the inline keyboard of a previously sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -228,7 +228,7 @@ action:
       message: 'pong'
 ```
 
-Example that show keyboard interaction with `notify.telegram`
+An example that shows keyboard interaction with `notify.telegram`
 
 ```yaml
 trigger:
@@ -263,7 +263,7 @@ action:
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
 
-An example to show the use of event_data in the action:
+An example to show the use of event_data in action:
 
 {% raw %}
 ```yaml
@@ -283,7 +283,7 @@ An example to show the use of event_data in the action:
 
 ### {% linkable_title Sample automations with callback queries and inline keyboards %}
 
-Quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
+A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
 
 - Pressing 'EDIT' changes the sent message.
 - Pressing 'NO' only shows a brief notification (answering the callback query).
