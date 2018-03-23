@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenWRT"
-description: "Instructions how to integrate OpenWRT routers into Home Assistant."
+description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
 date: 2018-03-09 12:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: pre 0.7
 ---
 
-There are _multiple_ ways of integrating an OpenWRT router for presence detction. A broad distinction can be made between presence detection methods which actively scan for devices (by default every 12 seconds) and those that are notified by some external service on changes. It is essentially a problem of synchronizing states between two remote machines.
+There are _multiple_ ways of integrating an OpenWRT router for presence detection. A broad distinction can be made between presence detection methods which actively scan for devices (by default every 12 seconds) and those that are notified by some external service on changes. It is essentially a problem of synchronizing states between two remote machines.
 
 * __active scanning__  
   Scan for devices regularly.
@@ -25,7 +25,7 @@ There are _multiple_ ways of integrating an OpenWRT router for presence detction
     * [ubus](/components/device_tracker.ubus/)
     * [luci](/components/device_tracker.luci/)
 * __passive/event-based__  
-  External services which notify Home Assistant of devices vie the [REST API endpoint](/developers/rest_api.markdown). 
+  External services which notify Home Assistant of devices via the [REST API endpoint](/developers/rest_api.markdown). 
   * Advantages: 
     * devices typically registered in under one second when they connect
     * very few network requests
