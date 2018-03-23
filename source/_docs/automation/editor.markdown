@@ -50,7 +50,9 @@ First check that you have activated the configuration editor.
 config:
 ```
 
-The automation editor reads and writes to the file `automations.yaml` in your [configuration](/docs/configuration/) folder. Make sure that you have set up the automation component to read from it:
+The automation editor reads and writes to the file `automations.yaml` in the root of your [configuration](/docs/configuration/) folder. 
+Currently both the name of this file and its location are fixed.
+Make sure that you have set up the automation component to read from it:
 
 ```yaml
 # Configuration.yaml example
