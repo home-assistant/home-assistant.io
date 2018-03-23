@@ -128,14 +128,13 @@ Print an attribute if state is defined. Both will return the same thing but the 
 With strings
 
 ```text
-{% set tracker_name = "paulus"%}
+{% raw %}{% set tracker_name = "paulus"%}
  
-{% raw %}{% if states("device_tracker." + tracker_name) != "unknown" %}
+{% if states("device_tracker." + tracker_name) != "unknown" %}
   {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
   ??
 {% endif %}{% endraw %}
-
 ```
 
 ### {% linkable_title Sensor states %}
