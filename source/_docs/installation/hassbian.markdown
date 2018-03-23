@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Hassbian"
-description: "Instructions to flash the Home Assistant HASSbian image on a Raspberry Pi."
+description: "Instructions to flash the Home Assistant Hassbian image on a Raspberry Pi."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
