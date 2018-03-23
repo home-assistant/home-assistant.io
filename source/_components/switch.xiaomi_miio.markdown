@@ -91,7 +91,7 @@ Turn the wifi led on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_wifi_led_off` %} (Power Strip only)
 
@@ -99,7 +99,7 @@ Turn the wifi led off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_power_price` %} (Power Strip)
 
@@ -107,7 +107,7 @@ Set the power price.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
 | `price`                   |       no | Power price, between 0 and 999.                         |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_power_mode` %} (Power Strip V1 only)
@@ -116,5 +116,5 @@ Set the power mode.
 
 | Service data attribute    | Optional | Description                                                   |
 |---------------------------|----------|---------------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio entity. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
 | `mode`                    |       no | Power mode, valid values are 'normal' and 'green'             |
