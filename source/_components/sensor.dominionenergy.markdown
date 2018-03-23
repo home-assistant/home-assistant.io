@@ -23,6 +23,7 @@ sensor:
     username: yourusername
     password: yourpassword
     name: optionalName
+```
 
 {% configuration %}
 
