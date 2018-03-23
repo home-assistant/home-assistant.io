@@ -24,13 +24,13 @@ to GPIO pins, Zigbee sensors, or anything else.
 ```yaml
 input_boolean:
   alarm_presence_garage:
-    name: IR sensor for garage area
+    name: IR sensor for the garage area
     initial: off
   alarm_presence_livingroom:
-    name: IR sensor for living room area
+    name: IR sensor for the living room area
     initial: off
   alarm_presence_bedroom:
-    name: IR sensor for bed room area
+    name: IR sensor for the bedroom area
     initial: off
   alarm_tamper_garage:
     name: Anti-tampering signal on garage area IR sensor
@@ -39,10 +39,10 @@ input_boolean:
     name: Anti-tampering signal on living room IR sensor
     initial: off
   alarm_tamper_bedroom:
-    name: Anti-tampering signal on bed room IR sensor
+    name: Anti-tampering signal on bedroom IR sensor
     initial: off
   alarm_tamper_siren:
-    name: Anti-tampering signal on siren
+    name: Anti-tampering signal on the siren
     initial: off
 ```
 
@@ -122,7 +122,7 @@ alarm_control_panel:
 
 The next step is adding a template switch to trigger the siren.  In this
 simplified example I'm only turning the LED on/off, and therefore the
-script only has one action.  However, in a real application you would
+script only has one action.  However, in a real application, you would
 probably toggle the siren itself in these scripts!
 
 ```yaml
