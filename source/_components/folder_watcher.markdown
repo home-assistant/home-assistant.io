@@ -18,9 +18,11 @@ This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system m
 To configure the `folder_watcher` component add to you `configuration.yaml` file:
 
 ```yaml
+{% raw %}
 folder_watcher:
   watchers:
     - folder: /config
+{% endraw %}
 ```
 
 {% configuration %}
@@ -31,7 +33,7 @@ folder:
 patterns:
   description: Pattern matching to apply
   required: false
-  default: *
+  default: "*" 
   type: string
 {% endconfiguration %}
 
@@ -40,20 +42,22 @@ patterns:
 Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns. The following example shows the configuration required to only monitor filetypes `.yaml` and `.txt`.
 
 ```yaml
+{% raw %}
 folder_watcher:
   watchers:
     - folder: /config
       patterns:
         - '*.yaml'
         - '*.txt'
+{% raw %}
 ```
 
 ## Automations
 
 Automations can be triggered on filesystem event data using a data_template. The following automation will send a notification with the name and folder of new files added to that folder:
 
-{% raw %}
 ```yaml
+{% raw %}
 - action:
   - data_template:
       message: 'Created {{trigger.event.data.file}} in {{trigger.event.data.folder}}'
@@ -68,5 +72,6 @@ Automations can be triggered on filesystem event data using a data_template. The
   - event_data: {"event_type":"created"}
     event_type: folder_watcher
     platform: event
-```
 {% endraw %}
+```
+
