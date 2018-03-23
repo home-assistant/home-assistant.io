@@ -11,7 +11,7 @@ redirect_from: /docs/hassbian/common-tasks/
 ---
 
 ### {% linkable_title Login to the Raspberry Pi %}
-To login to your Raspberry Pi running HASSbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Max OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
+To login to your Raspberry Pi running Hassbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Max OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
 
 Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.
 Linux and Mac OS users execute the following command in a terminal.
@@ -28,11 +28,11 @@ Optionally, starting with Windows 10 anniversary update, you can use the built-i
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo systemctl stop home-assistant@homeassistant.service 
+$ sudo systemctl stop home-assistant@homeassistant.service
 ```
 
 Replace `stop` with `start` or `restart` to get the desired functionality.
-To get the current state of the `homeassistant.service` replace `stop` with `status`. 
+To get the current state of the `homeassistant.service` replace `stop` with `status`.
 
 ### {% linkable_title Update Home Assistant %}
 
@@ -43,7 +43,7 @@ You can also use `hassbian-config` to automate the process by running `sudo hass
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo systemctl stop home-assistant@homeassistant.service 
+$ sudo systemctl stop home-assistant@homeassistant.service
 $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
@@ -53,12 +53,12 @@ $ sudo systemctl start home-assistant@homeassistant.service
 
 This will in order do the following:
 
-- Stop the Home Assistant service running on HASSbian
+- Stop the Home Assistant service running on Hassbian
 - Open a shell as the `homeassistant` user running the Homeassistant service and that has ownership over the Home Assistant installation.
 - Change into the virtual Python environment at `/srv/homeassistant/` containing the Home Assistant installation.
 - Upgrade the Home Assistant installation to the latest release.
 - Exit the shell and return to the `pi` user.
-- Restart the Home Assistant service.
+- Start the Home Assistant service.
 
 ### {% linkable_title Manually launch Home Assistant %}
 Log in as the `pi` account and execute the following commands:
