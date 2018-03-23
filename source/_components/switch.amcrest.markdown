@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Amcrest IP Camera Settings"
-description: "Instructions how to integrate settings for Amcrest IP Camera as switches within Home Assistant."
+description: "Instructions on how to integrate settings for Amcrest IP Camera as switches within Home Assistant."
 date: 2018-03-08 00:00
 sidebar: true
 comments: false
@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: amcrest.png
 ha_category: Switch
-ha_release: "0.65"
+ha_release: 0.66
 ha_iot_class: "Local Polling"
 ---
-
 
 The `amcrest` switch platform lets you control settings of [Amcrest IP Camera](https://home-assistant.io/components/camera.amcrest/) through Home Assistant.
 
