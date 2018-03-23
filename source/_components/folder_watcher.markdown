@@ -31,7 +31,7 @@ folder:
 patterns:
   description: Pattern matching to apply
   required: false
-  default: `*`
+  default: *
   type: string
 {% endconfiguration %}
 
