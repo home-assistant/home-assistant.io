@@ -1,18 +1,17 @@
 ---
 layout: page
 title: "Sensirion SHT31 Sensor"
-description: "Instructions how to integrate SHT31 sensors within Home Assistant."
+description: "Instructions on how to integrate SHT31 sensors within Home Assistant."
 date: 2018-03-06 19:15
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: DIY
-ha_release: N/A
+ha_release: 0.66
 logo: sensirion.png
 ha_iot_class: "Local Polling"
 ---
-
 
 The `sht31` sensor platform allows you to get the current temperature and humidity from a Sensirion SHT31 device.
 
