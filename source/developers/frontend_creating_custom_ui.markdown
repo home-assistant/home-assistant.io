@@ -42,7 +42,22 @@ frontend:
 
 `www/custom_ui/state-card-my-custom-light.html`:
 
-```javascript
+```html
+<script>
+{
+  // show the version of your custom UI in the HA dev info panel (HA 0.66.0+):
+  const _NAME = 'My custom light';
+  const _URL = 'https://home-assistant.io/developers/frontend_creating_custom_ui/';
+  const _VERSION = '20180312';
+
+  if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
+  window.CUSTOM_UI_LIST.push({
+    name: _NAME,
+    url: _URL,
+    version: _VERSION
+  });
+}
+</script>
 <dom-module id='state-card-my-custom-light'>
   <template>
     <style>
@@ -53,20 +68,6 @@ frontend:
 </dom-module>
 
 <script>
-// show the version of your custom UI in the HA dev info panel (HA 0.66.0+):
-const CUSTOM_UI_NAME = 'state-card-my-custom-light';
-const CUSTOM_UI_VERSION = '20180312';
-const CUSTOM_UI_URL = 'https://home-assistant.io/developers/frontend_creating_custom_ui/';
-
-if (!window.CUSTOM_UI_LIST) {
-  window.CUSTOM_UI_LIST = [];
-}
-window.CUSTOM_UI_LIST.push({
-  name: CUSTOM_UI_NAME,
-  version: CUSTOM_UI_VERSION,
-  url: CUSTOM_UI_URL
-}); 
-
 class StateCardMyCustomLight extends Polymer.Element {
   static get is() { return 'state-card-my-custom-light'; }
   
@@ -85,7 +86,7 @@ class StateCardMyCustomLight extends Polymer.Element {
   }
 
   _toStr(obj) {
-    return JSON.stringify(obj);
+    return JSON.stringify(obj, null, 2);
   }
 }
 customElements.define(StateCardMyCustomLight.is, StateCardMyCustomLight);
