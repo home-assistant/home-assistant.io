@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenALPR Local"
-description: "Instructions how to integrate licences plates with OpenALPR local into Home Assistant."
+description: "Instructions on how to integrate licences plates with OpenALPR local into Home Assistant."
 date: 2017-01-09 00:00
 sidebar: true
 comments: false

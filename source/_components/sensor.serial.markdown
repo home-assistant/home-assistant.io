@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Serial Sensor"
-description: "Instructions how to integrate data from serial connected sensors into Home Assistant."
+description: "Instructions on how to integrate data from serial connected sensors into Home Assistant."
 date: 2017-10-13 07:00
 sidebar: true
 comments: false

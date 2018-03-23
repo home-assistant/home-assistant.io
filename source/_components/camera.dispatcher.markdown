@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dispatcher IP Camera"
-description: "Instructions how to integrate internal dispatcher cameras within Home Assistant."
+description: "Instructions on how to integrate internal dispatcher cameras within Home Assistant."
 date: 2017-03-08 00:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Command"
-description: "Instructions how to integrate REST commands into Home Assistant."
+description: "Instructions on how to integrate REST commands into Home Assistant."
 date: 2018-02-24 00:00
 sidebar: true
 comments: false

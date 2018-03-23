@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Matrix"
-description: "Instructions how to add Matrix notifications to Home Assistant."
+description: "Instructions on how to add Matrix notifications to Home Assistant."
 date: 2016-10-11 23:51
 sidebar: true
 comments: false
@@ -31,7 +31,7 @@ notify:
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **homeserver** (*Required*): The base URL of the homeserver, where the notifier account is registered (e.g. `https://matrix.org`).
+- **homeserver** (*Required*): The base URL of the homeserver, where the notifier account is registered (e.g., `https://matrix.org`).
 - **username** (*Required*): The username of the notifying Matrix account.
 - **password** (*Required*): The password for the given Matrix account.
 - **default_room** (*Required*): The room all messages will be sent to, when no other target is given.

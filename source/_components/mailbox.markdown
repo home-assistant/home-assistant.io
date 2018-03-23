@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mailbox"
-description: "Instructions how to setup your mailboxes with Home Assistant."
+description: "Instructions on how to setup your mailboxes with Home Assistant."
 date: 2017-06-30 18:30
 sidebar: true
 comments: false

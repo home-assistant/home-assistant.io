@@ -78,7 +78,8 @@ automation:
 
 <p class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above)
+would fire this trigger.
 </p>
 
 ### {% linkable_title State trigger %}
@@ -182,7 +183,7 @@ automation 3:
 
 ### {% linkable_title Zone trigger %}
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/components/device_tracker.gpslogger/), the [OwnTracks platform](/components/device_tracker.owntracks/), and the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
 automation:

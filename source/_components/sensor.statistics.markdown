@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Statistics Sensor"
-description: "Instructions how to integrate statistical sensors into Home Assistant."
+description: "Instructions on how to integrate statistical sensors into Home Assistant."
 date: 2016-09-28 12:10
 sidebar: true
 comments: false

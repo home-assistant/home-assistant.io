@@ -30,7 +30,7 @@ Hass.io add-ons are installed from the add-on store embedded in the Hass.io pane
 [local]: http://hassio.local:8123
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 

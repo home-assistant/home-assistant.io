@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Homematic Binary Sensor"
-description: "Instructions how to integrate binary Homematic sensors within Home Assistant."
+description: "Instructions on how to integrate binary Homematic sensors within Home Assistant."
 date: 2016-06-28 08:30
 sidebar: true
 comments: false

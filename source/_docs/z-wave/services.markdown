@@ -29,7 +29,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | remove_failed_node     | Remove a failed node from the network. The Node should be on the controller's Failed Node List, otherwise this command will fail.            |
 | replace_failed_node    | Replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail. |
 | reset_node_meters      | Reset a node's meter values. Only works if the node supports this.                                                                           |
-| set_config_parameter   | Lets the user set a config parameter to a node. NOTE: Use the parameter option's `label` string as the `value` for list parameters (e.g. `"value": "Off"`). For all other parameters use the relevant integer `value` (e.g. `"value": 1`). |
+| set_config_parameter   | Lets the user set a config parameter to a node. NOTE: Use the parameter option's `label` string as the `value` for list parameters (e.g., `"value": "Off"`). For all other parameters use the relevant integer `value` (e.g., `"value": 1`). |
 | soft_reset             | Tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command. |
 | start_network          | Starts the Z-Wave network.                                                                                                                   |
 | stop_network           | Stops the Z-Wave network.                                                                                                                    |

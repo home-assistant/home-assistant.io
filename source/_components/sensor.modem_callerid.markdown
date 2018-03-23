@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Caller ID Sensor"
-description: "Instructions how to integrate the Caller ID sensor into Home Assistant."
+description: "Instructions on how to integrate the Caller ID sensor into Home Assistant."
 date: 2017-02-20 22:10
 sidebar: true
 comments: false
@@ -31,7 +31,7 @@ To find the path of your USB modem, run:
 
 `$ ls /dev/ttyACM*`
 
-If Home Assistant (`hass`) runs with another user (e.g. `homeassistant` on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
 
 `$ sudo usermod -a -G dialout homeassistant`
 

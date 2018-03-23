@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Arduino Sensor"
-description: "Instructions how to integrate Arduino boards pins as sensors within Home Assistant."
+description: "Instructions on how to integrate Arduino boards pins as sensors within Home Assistant."
 date: 2015-09-14 18:28
 sidebar: true
 comments: false

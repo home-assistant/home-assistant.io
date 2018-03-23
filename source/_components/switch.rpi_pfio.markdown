@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "PiFace Digital I/O Switch"
-description: "Instructions how to integrate the PiFace Digital I/O module into Home Assistant as a switch."
+description: "Instructions on how to integrate the PiFace Digital I/O module into Home Assistant as a switch."
 date: 2016-05-08 15:00
 sidebar: true
 comments: false

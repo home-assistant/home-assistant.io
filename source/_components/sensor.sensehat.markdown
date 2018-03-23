@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sense HAT"
-description: "Instructions how to integrate Sense HAT within Home Assistant."
+description: "Instructions on how to integrate Sense HAT within Home Assistant."
 date: 2017-06-03 04:00
 sidebar: true
 comments: false

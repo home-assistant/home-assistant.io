@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Microsoft Face Identify"
-description: "Instructions how to integrate Microsoft Face Identify into Home Assistant."
+description: "Instructions on how to integrate Microsoft Face Identify into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false

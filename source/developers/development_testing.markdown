@@ -16,7 +16,7 @@ $ tox
 ```
 **Important:** Run `tox` before you create your pull request to avoid annoying fixes.
 
-Running Tox will run unit tests against the locally available Pythons, as well as validate the code and document style using `pycodestyle`, `pydocstyle` and  `pylint`. You can run tests on only one tox target -- just use `-e` to select an environment. For example, `tox -e lint` runs the linters only, and `tox -e py34` runs unit tests only on Python 3.4.
+Running Tox will run unit tests against the locally available Pythons, as well as validate the code and document style using `pycodestyle`, `pydocstyle` and  `pylint`. You can run tests on only one tox target -- just use `-e` to select an environment. For example, `tox -e lint` runs the linters only, and `tox -e py36` runs unit tests only on Python 3.6.
 
 Tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run `tox -r` to tell Tox to recreate the virtual environments.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Arlo Control Panel"
-description: "Instructions how to setup the Netgear Arlo Base Stations as a control panel within Home Assistant."
+description: "Instructions on how to setup the Netgear Arlo Base Stations as a control panel within Home Assistant."
 date: 2017-10-05 17:45
 sidebar: true
 comments: false
@@ -27,11 +27,11 @@ alarm_control_panel:
 
 {% configuration %}
 home_mode_name:
-  description: "Arlo base station does not have a built-in home mode. You can map one of your custom modes to home assistant's home mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match exactly as you set it up in the Arlo app."
+  description: "Arlo base station does not have a built-in home mode. You can map one of your custom modes to Home Assistant's home mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match exactly as you set it up in the Arlo app."
   required: false
   type: string
 away_mode_name:
-  description: "Arlo base station does not have a built-in away mode. You can map one of your custom modes to home assistant's away mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match eactly as you set it up in the Arlo app."
+  description: "Arlo base station does not have a built-in away mode. You can map one of your custom modes to Home Assistant's away mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match eactly as you set it up in the Arlo app."
   required: false
   type: string
   default: "`Armed` mode in Arlo"
@@ -74,4 +74,3 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.
 
 More examples and configuration options can be found on the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples).
-

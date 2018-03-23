@@ -63,7 +63,7 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:
@@ -71,7 +71,7 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: Expose devices in all supported domains by default.
+  description: Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in entity_config and set it to true.
   required: false
   default: True
   type: boolean

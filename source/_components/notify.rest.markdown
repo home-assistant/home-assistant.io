@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "REST"
-description: "Instructions how to add RESTful notifications to Home Assistant."
+description: "Instructions on how to add RESTful notifications to Home Assistant."
 date: 2016-02-12 07:00
 sidebar: true
 comments: false

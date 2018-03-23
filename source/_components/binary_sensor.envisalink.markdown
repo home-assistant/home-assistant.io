@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Envisalink Binary Sensor"
-description: "Instructions how to integrate Envisalink binary sensors into Home Assistant."
+description: "Instructions on how to integrate Envisalink binary sensors into Home Assistant."
 date: 2016-07-01 08:00
 sidebar: true
 comments: false

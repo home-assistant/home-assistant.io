@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note'>
-If you are using Hass.io, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
 </p>
 
 <p class=' note warning'>
@@ -29,9 +29,9 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
  * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
- 
+
 Steps we will take:
- 
+
  - 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
  - 1 - Set your device to have a static IP address
  - 2 - Set up port forwarding without TLS/SSL and test connection
@@ -42,48 +42,48 @@ Steps we will take:
  - 7 - Set up a sensor to monitor the expiry date of the certificate
  - 8 - Set up an automatic renewal of the TLS/SSL certificate
  - 9 - Set up an alert to warn us if something went wrong
- 
+
 ### {% linkable_title 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding %}
- 
+
 An IP address is a bit like a phone number. When you access your Home Assistant instance you type something similar to 192.168.0.200:8123 in to your address bar of your browser. The bit before the colon is the IP address (in this case 192.168.0.200) and the bit after is the port number (in this case 8123).  When you SSH in to the device running Home Assistant you will use the same IP address, and you will use port 22. You may not be aware that you are using port 22, but if you are using Putty look in the box next to where you type the IP address, you will see that it has already selected port 22 for you.
- 
+
 So, if an IP address is like a phone number, a port number is like an extension number. An analogy would be if you phone your local doctors on 192-1680-200 and the receptionist answers, you ask to speak to Dr. Smith and she will put you through to extension 8123, which is the phone Dr. Smith is sitting at. The doctors surgery is the device your Home Assistant is running on, Dr. Smith is your Home Assistant. Thusly, your Home Assistant instance is 'waiting for your call' on port 8123, at the device IP 192.168.0.200 .
- 
+
 Now, to speak to the outside world your connection goes through a router. Your router will have two IP addresses. One is the internal network number, most likely 192.168.0.1 in my example, and an external IP address that incoming traffic is sent to.  In the example of calling the doctors, the external IP is your telephone number's area code.
- 
+
 So, when we want to connect to our Home Assistant instance from outside our network we will need to call the correct extension number, at the correct phone number, in the correct area code.
- 
+
 We will be looking for a system to run like this (in this example I will pretend our external IP is 12.12.12.12):
- 
+
 ```text
 Outside world -> 12.12.12.12:8123 -> your router -> 192.168.0.200:8123
 ```
 Sounds simple?  It really is except for two small, but easy to overcome, complications:
- 
+
  * IP addresses are often dynamically allocated, so they can change.
  * Because of the way the internet works you cannot chain IP addresses together to get from where you are, to where you want to go.
- 
+
 To get around the issue of changing IP addresses we must remember that there are two IP addresses affected.  Your external one (which we will 'call' to get on to your network from the internet) and your internal one (192.168.0.200 in the example I am currently using).
- 
+
 So, we can use a static IP to ensure that whenever our device running Home Assistant connects to our router it always uses the same address.  This way our internal IP never changes.  This is covered in step 1 below.
- 
+
 We then have no control over our external IP, as our Service Provider will give us a new one at random intervals. To fix this we will use a service called DuckDNS which will give us a name for our connection (something like examplehome.duckdns.org) and behind the scenes will continue to update your external IP. So no matter how many times the IP address changes, typing examplehome.duckdns.org in to our browser will convert to the correct, up-to-date, IP address.  This is covered in step 3 below.
- 
+
 To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we will be doing this later on. The end result being that when we have our TSL/SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
- 
+
 ```text
 Outside world -> https://examplehome.duckdns.org -> 12.12.12.12:443 -> your router -> 192.168.0.200:8123
 ```
 So, let's make it happen...
 
 ### {% linkable_title 1 - Set your device to have a static IP address %}
- 
+
 Whenever a device is connected to a network it has an IP address. This IP address is often dynamically assigned to the device on connection. This means there are occasions where the IP address you use to access Home Assistant, or SSH in to the device running Home Assistant, may change. Setting a static IP address means that the device will always be on the same address.
- 
+
 SSH in to your system running Home Assistant and login.
- 
+
 Type the following command to list your network interfaces:
- 
+
 ```bash
 $ ifconfig
 ```
@@ -94,17 +94,17 @@ You will receive an output similar to the image below:
   <img src='/images/screenshots/ip-set.jpg' />
   Screenshot
 </p>
- 
+
 Make a note of the interface name and the IP address you are currently on. In the picture it is the wireless connection that is highlighted, but with your setup it may be the wired one (eth0 or similar), make sure you get the correct information.
- 
+
 Then type the following command to open the text file that controls your network connection:
 
-```bash 
+```bash
 $ sudo nano /etc/dhcpcd.conf
 ```
 
 At the bottom of the file add the following lines:
- 
+
 ```text
 interface wlan0 <----- or the interface you just wrote down.
 
@@ -195,13 +195,17 @@ In the domains section pick a name for your subdomain, this can be anything you 
 
 The URL you will be using later to access your Home Assistant instance from outside will be the subdomain you picked, followed by duckdns.org . For our example we will say our URL is examplehome.duckdns.org
 
-On the top left of duckdns.org select the install option. Then pick your operating system from the list. In our example we will use a Raspberry Pi. In the dropdown box select the URL you just created.
+Set up Home Assistant to keep your DuckDNS URL and external IP address in sync. In your `configuration.yaml` file add the following:
 
-Duckdns.org will now generate personalised instructions for you to follow so that your device can update their website every time your IP address changes. Carefully follow the instructions given on duckdns.org to set up your device.
+```yaml
+duckdns:
+  domain: examplehome
+  access_token: abcdefgh-1234-abcd-1234-abcdefgh
+```
 
-At the end of the instructions DuckDNS will suggest you set up port forwarding.  No need, we have already done this in step 2.
+The access token is available on your DuckDNS page. Restart Home Assistant after the change.
 
-What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because your device running Home Assistant will update DuckDNS every time it changes.
+What you have now done is set up DuckDNS so that whenever you type examplehome.duckdns.org in to your browser it will convert that to your router's external IP address. Your external IP address will always be up to date because Homeassistant will update DuckDNS every time it changes.
 
 Now type your new URL in to your address bar on your browser with port 8123 on the end:
 
@@ -251,7 +255,7 @@ $ sudo adduser hass sudo
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
 
 ```bash
-$ sudo su -s /bin/bash hass 
+$ sudo su -s /bin/bash hass
 ```
 
 Make sure you are in the home directory for the Home Assistant user:
@@ -272,7 +276,7 @@ $ chmod a+x certbot-auto
 You might need to stop Home Assistant before continuing with the next step. You can do this via the Web-UI or use the following command if you are running on Hassbian:
 
 ```text
-$ sudo systemctl stop home-assistant@homeassistant.service 
+$ sudo systemctl stop home-assistant@homeassistant.service
 ```
 
 You can restart Home Assistant after the next step using the same command and replacing `stop` with `start`.
@@ -336,7 +340,7 @@ http:
   ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
   base_url: examplehome.duckdns.org
 ```
-  
+
 You may wish to set up other options for the [http](https://home-assistant.io/components/http/) component at this point, these extra options are beyond the scope of this guide.
 
 Save the changes to configuration.yaml. Restart Home Assistant.
@@ -363,7 +367,7 @@ https://YOUR-HA-IP:8123
 
 Some cases such as this are where your router does not allow 'loopback' or where there is a problem with incoming connections due to technical failure. In these cases you can still use your internal connection and safely ignore the warnings.
 
-If you were previously using a webapp on your phone/tablet to access your Home Assistant you should delete the old one and create a new one with the new address. The old one will no longer work as it is not keyed to your new, secure URL.  Instructions for creating your new webapp can be found here: 
+If you were previously using a webapp on your phone/tablet to access your Home Assistant you should delete the old one and create a new one with the new address. The old one will no longer work as it is not keyed to your new, secure URL.  Instructions for creating your new webapp can be found here:
 
 ```text
 https://home-assistant.io/docs/frontend/mobile/
@@ -387,11 +391,11 @@ You are now part of one of two groups:
 
  * If you have BOTH rules you are able to set up auto renewals of your certificates using port 80 and the standard http challenge, as performed above.
  * If you only have one, you are still able to set up auto renewals of your certificates, but will have to specify additional options when renewing that will temporarily stop Home Assistant and use port 8123 for certificate renewal.
- 
+
 Please remember whether you are a ONE-RULE person or a BOTH-RULE person for step 8!
- 
+
 Let's Encrypt certificates only last for 90 days. When they have less than 30 days left they can be renewed. Renewal is a simple process.
- 
+
 Move on to step 7 to see how to monitor your certificates expiry date, and be ready to renew your certificate when the time comes.
 
 ### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
@@ -402,9 +406,9 @@ Setting a sensor to read the number of days left on your TLS/SSL certificate bef
  * You can set automations based on the number of days left
  * You can set alerts to notify you if your certificate has not been renewed and is coming close to expiry.
  * If you cannot set up automatic renewals due to your ISP blocking port 80, you will have timely reminders to complete the process manually.
- 
+
 If you do not wish to set up a sensor you can skip straight to step 8 to learn how to update your certificates.
- 
+
 The sensor will rely on a command line program that needs to be installed on your device running Home Assistant. SSH in to the device and run the following commands:
 
 ```bash
@@ -442,33 +446,33 @@ If you are a ONE-RULE person (from step 6), you can automatically renew your cer
 If you are a TWO-RULE person (from step 6), you can automatically renew your certificate using a `http-01` challenge and port 80.
 
 There are a number of options for automating the renewal process:
- 
+
 #### Option 1:
 Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independent of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
- 
+
 To set a cron job to run the script at regular intervals:
- 
+
  * SSH in to your device running Home Assistant.
  * Change to your Home Assistant user (command similar to):
- 
+
 ```bash
 $ sudo su -s /bin/bash hass
 ```
- 
+
  * Open the crontab:
- 
+
 ```bash
 $ crontab -e
 ```
- 
+
  * If you are a TWO-RULE Person: Scroll to the bottom of the file and paste in the following line
- 
+
 ```text
 30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
 
 * If you are a ONE-RULE Person: Scroll to the bottom of the file and paste in the following line
- 
+
 ```text
 30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"
 ```
@@ -478,17 +482,17 @@ $ crontab -e
 	3. We define pre-hooks and post-hooks that stop our Home Assistant service before certbot runs, freeing port 8123 for certificate renewal, and restart Home Assistant after renewal is complete.
 
  * Save the file and exit
- 
- 
+
+
 #### Option 2:
 You can set an automation in Home Assistant to run the certbot renewal script.
- 
+
 Add the following sections to your configuration.yaml if you are a TWO-RULE person
 
-```yaml 
-shell_command: 
+```yaml
+shell_command:
   renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
-  
+
 automation:
   - alias: 'Auto Renew SSL Cert'
     trigger:
@@ -502,34 +506,34 @@ If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/c
 
 #### Option 3:
 You can manually update the certificate when your certificate is less than 30 days to expiry.
- 
-To manually update: 
- 
+
+To manually update:
+
  * SSH in to your device running Home Assistant.
  * Change to your Home Assistant user (command similar to):
- 
+
 ```bash
 $ su - s /bin/bash hass
 ```
- 
+
  * Change to your certbot folder
- 
+
 ```bash
 $ cd ~/certbot/
 ```
 
  * Run the renewal command
- 
+
 ```bash
 $ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
 
 * If you are a ONE-RULE person, replace the `certbot-auto` command above with `~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"`
- 
+
 So, now were all set up. We have our secured, remotely accessible Home Assistant instance and we're on track for keeping our certificates up to date. But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
- 
+
 ### {% linkable_title 9 - Set up an alert to warn us if something went wrong. %}
- 
+
 We set up our automatic renewal of our certificates and whatever method we used the certificate should be renewed on or around 30 days before it expires. But what if a week later it still hasn't been? This alert will go off if the expiry time on the certificate gets down to 21 days. This will give you 3 weeks to fix the problem, get your new certificate installed and get another 90 days of secure Home Assistant connections in play.
 
 In your `configuration.yaml` add the following automation, adding your preferred notification platform where appropriate:
@@ -546,7 +550,7 @@ automation:
       data:
         message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
 ```
-	  
+
 If you receive this warning notification, follow the steps for a manual update from step 8. Any error messages received at that point can be googled and resolved. If the manual update goes without a hitch there may be something wrong with your chosen method for automatic updates, and you can start troubleshooting from there.
 
 So, that's it. We've taken a Home Assistant instance that was only reachable on the local network, made it accessible from the internet, secured it, and set up a system to ensure that it always stays secure. Well done, go and treat yourself to a cookie!

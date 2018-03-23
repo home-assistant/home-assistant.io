@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pi-Hole Sensor"
-description: "Instructions how to integrate REST sensors into Home Assistant."
+description: "Instructions on how to integrate REST sensors into Home Assistant."
 date: 2016-09-03 16:30
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Garadget Cover"
-description: "Instructions how to integrate Garadget covers within Home Assistant."
+description: "Instructions on how to integrate Garadget covers within Home Assistant."
 date: 2016-10-24 14:25
 sidebar: true
 comments: false

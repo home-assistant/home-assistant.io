@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Onkyo"
-description: "Instructions how to integrate Onkyo and some Pioneer receivers into Home Assistant."
+description: "Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant."
 date: 2016-03-30 08:00
 sidebar: true
 comments: false

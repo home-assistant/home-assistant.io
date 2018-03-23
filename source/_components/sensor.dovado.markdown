@@ -33,8 +33,8 @@ Configuration variables:
 
 - **username** (*Required*): Your username.
 - **password** (*Required*): Your password.
-- **host** (*Optional*): The IP address of your router, e.g. `192.168.1.1`. If no host is provided, the gateway for the same network as Home Assistant will automatically be used.
-- **port** (*Optional*): The port number of your router, e.g. `999`. If no port is provided, the default API port (6435) will be used.
+- **host** (*Optional*): The IP address of your router, e.g., `192.168.1.1`. If no host is provided, the gateway for the same network as Home Assistant will automatically be used.
+- **port** (*Optional*): The port number of your router, e.g., `999`. If no port is provided, the default API port (6435) will be used.
 - **sensors** array (*Required*): Conditions to display in the frontend.
   - **network**: Network state (3G, 4G, etc).
   - **signal**: The signal strength (%).

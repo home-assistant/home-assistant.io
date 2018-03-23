@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Sensor"
-description: "Instructions how to setup the Z-Wave sensors within Home Assistant."
+description: "Instructions on how to setup the Z-Wave sensors within Home Assistant."
 date: 2015-11-15 13:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Synology Chat"
-description: "Instructions how to add a Synology Chat Bot notifications to Home Assistant."
+description: "Instructions on how to add a Synology Chat Bot notifications to Home Assistant."
 date: 2018-02-15 07:00
 sidebar: true
 comments: false

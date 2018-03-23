@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Requirements & Dependencies"
-description: "Instructions how to define requirements and dependencies."
+description: "Instructions on how to define requirements and dependencies."
 date: 2016-04-16 13:32
 sidebar: true
 comments: false
