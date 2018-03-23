@@ -24,8 +24,6 @@ To integrate pilight into Home Assistant, add the following section to your `con
 ```yaml
 # Example configuration.yaml entry
 pilight:
-  host: 127.0.0.1
-  port: 5001
 ```
 
 Configuration variables:
@@ -43,7 +41,7 @@ A full configuration sample could look like the sample below:
 # Example configuration.yaml entry
 pilight:
   host: 127.0.0.1
-  port: 5001
+  port: 5000
   send_delay: 0.4
   whitelist:  # optional
     protocol:
