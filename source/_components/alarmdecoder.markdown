@@ -20,7 +20,7 @@ Please visit the [AlarmDecoder website](https://www.alarmdecoder.com/) for furth
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/components/binary_sensor.alarmdecoder/): Reports on zone status
-- [Sensor](/components/sensor.alarmdecoder/): Emulates an keypad display
+- [Sensor](/components/sensor.alarmdecoder/): Emulates a keypad display
 - [Alarm Control Panel](/components/alarm_control_panel.alarmdecoder/): Reports on alarm status, and can be used to arm/disarm the system
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.

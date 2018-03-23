@@ -43,12 +43,13 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        message: >
-          {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
-            Ha, Paulus is home!
-          {% else %}
-            Paulus is at {{ states('device_tracker.paulus') }}.
-          {% endif %}{% endraw %}
+        data_template:
+          message: >
+            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+              Ha, Paulus is home!
+            {% else %}
+              Paulus is at {{ states('device_tracker.paulus') }}.
+            {% endif %}{% endraw %}
 ```
 
 [Jinja2](http://jinja.pocoo.org/) supports a wide variety of operations:
@@ -75,7 +76,6 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `as_timestamp()` will convert datetime object or string to UNIX timestamp
 - `distance()` will measure the distance in meters between home, entity, coordinates.
 - `closest()` will find the closest entity.
-- `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
 - `float` will format the output as float.
 - `strptime(string, format)` will parse a string to a datetime based on a [format][strp-format].
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.

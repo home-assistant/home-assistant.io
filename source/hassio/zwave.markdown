@@ -31,12 +31,12 @@ zwave:
   usb_path: /dev/ttyAMA0
 ```
 
-### HUSBZB-1:
+### HUSBZB-1
 
 ```yaml
 zwave:
   usb_path: /dev/ttyUSB0
-  
+
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db

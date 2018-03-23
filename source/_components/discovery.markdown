@@ -36,6 +36,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Samsung TVs](https://home-assistant.io/components/media_player.samsungtv/)
  * [Sonos speakers](https://home-assistant.io/components/media_player.sonos/)
  * [Telldus Live](https://home-assistant.io/components/tellduslive/)
+ * [Wink](https://home-assistant.io/components/wink/)
  * [Yamaha media player](https://home-assistant.io/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](https://home-assistant.io/components/light.yeelightsunflower/)
 
@@ -78,10 +79,12 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `songpal` : Songpal
  * `tellduslive`: Telldus Live
+ * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
- 
+
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.

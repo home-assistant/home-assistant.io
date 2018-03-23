@@ -36,3 +36,7 @@ Configuration variables:
   - **entity_id** (*Required*): A camera entity id to get picture from.
   - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
 - **faces** array (*Required*): List of faces sources.
+
+<p class='note'>
+If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`. 
+</p>

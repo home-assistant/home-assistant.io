@@ -88,7 +88,7 @@ Type the following command to list your network interfaces:
 $ ifconfig
 ```
 
-You will receive an ouput similar to the image below:
+You will receive an output similar to the image below:
 
 <p class='img'>
   <img src='/images/screenshots/ip-set.jpg' />
@@ -113,7 +113,7 @@ static routers=192.168.0.1      <---- Your router's IP address
 static domain_name_servers=192.168.0.1 <---- Your router's IP address
 ```
 
-It is important to note that the first three bits of your static IP address and your router's IP address should be the same, eg:
+It is important to note that the first three bytes of your static IP address and your router's IP address should be the same, eg:
 
 ```text
 Router: 192.168.0.1
@@ -241,7 +241,7 @@ In cases where your ISP blocks port 80 you will need to change the port forward 
 Now SSH in to the device your Home Assistant is running on.
 
 <p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
+If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' Pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' Pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
 
 ```
 $ sudo adduser hass sudo
@@ -538,13 +538,13 @@ In your `configuration.yaml` add the following automation, adding your preferred
 automation:
   - alias: 'SSL expiry notification'
     trigger:
-    platform: numeric_state
-    entity_id: sensor.ssl_cert_expiry
-    below: 21
-  action:
-    service: notify.[your_notification_preference]
-    data:
-      message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiry
+      below: 21
+    action:
+      service: notify.[your_notification_preference]
+      data:
+        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
 ```
 	  
 If you receive this warning notification, follow the steps for a manual update from step 8. Any error messages received at that point can be googled and resolved. If the manual update goes without a hitch there may be something wrong with your chosen method for automatic updates, and you can start troubleshooting from there.

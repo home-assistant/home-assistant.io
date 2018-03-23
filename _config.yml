@@ -139,12 +139,17 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 60
-current_patch_version: 1
-date_released: 2018-01-06
+current_minor_version: 65
+current_patch_version: 5
+date_released: 2018-03-14
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#release-0601---january-6"
+patch_version_notes: "#release-0655---march-14"
 # Minor release (Example #release-0431---april-25):
+
+# Date we moved to Discourse for comments
+# disqus_end_date: 2018-01-26 0:00:00
+# Disqus is adding gross ads, move all comments to discourse.
+disqus_end_date: 2010-01-26 0:00:00

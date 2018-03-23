@@ -13,8 +13,7 @@ ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi miio` vacuum platform allows you to control the state of your
-[Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
 Currently supported features are:
 
@@ -50,26 +49,22 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to [all of the services provided by the `vacuum` component]
-]) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`,
-`set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific
-services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
 
-Start the remote control mode of the robot. You can then move it with
-`remote_control_move`; when done, call `remote_control_stop`.
+Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_stop` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_stop` %}
 
 Exit the remote control mode of the robot.
 
@@ -77,10 +72,9 @@ Exit the remote control mode of the robot.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum/xiaomi_remote_control_move` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_move` %}
 
-Remote control the robot. Please ensure you first set it in remote control
-mode with `remote_control_start`.
+Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -89,8 +83,7 @@ mode with `remote_control_start`.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees        |
 | `duration`                |       no | The number of seconds that the robot should move for  |
 
-
-### {% linkable_title Service `vacuum/xiaomi_remote_control_move_step` %}
+### {% linkable_title Service `vacuum.xiaomi_remote_control_move_step` %}
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
@@ -103,9 +96,8 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 
 ## {% linkable_title Attributes %}
 
-In addition to [all of the attributes provided by the `vacuum` component](https://home-assistant.io/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and
-`params`), the `xiaomi` platform introduces specific attributes. These are:
+In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
 - `do_not_disturb`
@@ -133,11 +125,44 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot
-Vacuum and Xiaomi Philips Lights. The Xiaomi Gateway uses another security
-method and requires a `key` (16 alphanumeric chars), which can be obtained
-easily via a hidden menu item at the Mi-Home app.
+As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
+
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
+easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
+
+#### {% linkable_title Miio command line tool %}
+
+You can install the command line tool with:
+
+```bash
+$ npm install -g miio
+```
+
+Discovering devices on current network
+
+```bash
+$ miio discover
+```
+
+This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
+
+The commands outputs each device on this format:
+
+```text
+Device ID: 48765421
+Model info: zhimi.airpurifier.m1
+Address: 192.168.100.9
+Token: token-as-hex-here via auto-token
+Support: At least basic
+```
+
+The information output is:
+
+* __Device ID__ - the unique identifier of the device, does not change if the device is reset.
+* __Model ID__ - the model id if it could be determined, this indicates what type of device it is
+* __Address__ - the IP that the device has on the network
+* __Token__ - the token of the device or ??? if it could not be automatically determined
 
 #### {% linkable_title Windows and Android %}
 
@@ -174,7 +199,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
 3. Get ADB e.g. `apt-get install android-tools-adb` or `apt-get install adb`
 4. `adb devices` should list your device. Consult ADB manual if necessary.
-5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone)
+5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone). Some devices may required single quotes in the command `adb backup '-noapk com.xiaomi.smarthome -f backup.ab'`
 6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)
 7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter the password, if prompted)
 8. Untar the unpacked data: `tar -xvf unpacked.tar`
@@ -205,7 +230,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 3. Get ADB f.e. `apt-get install android-tools-adb`
 4. `adb devices` should list your device
 5. `adb root` (does work for development builds only: ones with `ro.debuggable=1`)
-6. `adb shell`
+6. `adb shell` (for those using Magisk based root the previous command won't work. After entering a shell, type `su` to enter the root shell)
 7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including IP address and token.
 
 #### {% linkable_title iOS %}

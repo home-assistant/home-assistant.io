@@ -35,13 +35,15 @@ recorder:
         description: The URL which points to your database.
         required: false
         type: URL
-      purge_interval:
-        description: Enable scheduled purge of older events and states. The purge task runs every `purge_interval` days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
-        required: Inclusive
-        type: int
       purge_keep_days:
-        description: Specify the number of history days to keep in recorder database after purge. If `purge_interval` is set, `purge_keep_days` needs to be set as well.
-        required: Inclusive
+        description: Specify the number of history days to keep in recorder database after a purge.
+        required: false
+        default: 10
+        type: int
+      purge_interval:
+        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
+        required: false
+        default: 1
         type: int
       exclude:
         description: Configure which components should be excluded
@@ -76,7 +78,6 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_interval: 2
   purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
@@ -122,16 +123,12 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 ### {% linkable_title Service `purge` %}
 
-Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
+Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
-Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
-
-```yaml
-action:
-  service: recorder.purge
-  data:
-    keep_days: 5
-```
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
+| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space (only supported for SQLite)
 
 ### {% linkable_title Restore State %}
 
@@ -159,13 +156,47 @@ If the `recorder` component is activated then some components support `restore_s
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
+<p class='note'>
+If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+
++If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+
+```bash
+$ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
+```
+
+and add the service for PostgreSQL:
+
+```
+[Unit]
+Description=Home Assistant
+After=network.target postgresql.service
+```
+
+Save the file then reload `systemctl`:
+
+```bash
+$ sudo systemctl daemon-reload
+```
+</p>
+
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
 ### {% linkable_title MariaDB and MySQL %}
 
-For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
+
+```bash
+pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
+(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
+```
+
+For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, libmariadbclient-dev was renamed to libmariadb-dev, please install the correct package based on your MariaDB version.
+
+On the Python side we use the `mysqlclient`:
 
 ```bash
 $ sudo apt-get install libmariadbclient-dev libssl-dev
@@ -177,14 +208,6 @@ For MySQL you may have to install a few dependencies. You can choose between `py
 ```bash
 $ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
-```
-
-If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
-
-```bash
-pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
-homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
-(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 

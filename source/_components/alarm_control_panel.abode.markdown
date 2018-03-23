@@ -13,7 +13,6 @@ ha_release: 0.52
 ha_iot_class: "Cloud Push"
 ---
 
-
 The `abode` security control panel platform allows you to control your [Abode](https://goabode.com/) alarms.
 
 The requirement is that you have setup your [Abode hub](/components/abode/).

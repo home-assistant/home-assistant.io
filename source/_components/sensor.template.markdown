@@ -27,7 +27,6 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun angle"
-        entity_id: sun.sun
         unit_of_measurement: 'degrees'
         value_template: "{{ states.sun.sun.attributes.elevation }}"
 
@@ -46,6 +45,14 @@ sensor:
         description: Name to use in the frontend.
         required: false
         type: string
+      friendly_name_template:
+        description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
+        required: false
+        type: template
+      entity_id:
+        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        required: false
+        type: string, list
       unit_of_measurement:
         description: Defines the units of measurement of the sensor, if any.
         required: false
@@ -58,7 +65,7 @@ sensor:
         description: Defines a template for the icon of the sensor.
         required: false
         type: template
-      icon_template:
+      entity_picture_template:
         description: Defines a template for the entity picture of the sensor.
         required: false
         type: template
@@ -239,5 +246,47 @@ sensor:
           {% else %}
             /local/nighttime.png
           {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change the Friendly Name Used in the Frontend %}
+
+This example shows how to change the `friendly_name` based on a date.
+Explanation: we add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      forecast_1_day_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
+          {{ date|timestamp_custom("Tomorrow (%-m/%-d)") }}
+        value_template: "{{ sensor.darksky_weather_forecast_1 }}"
+      forecast_2_days_ahead:
+        friendly_name_template: >-
+          {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
+          {{ date|timestamp_custom("%A (%-m/%-d)") }}
+        value_template: "{{ sensor.darksky_weather_forecast_2 }}"
+```
+{% endraw %}
+
+This example shows how to change the `friendly_name` based on a state.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      net_power:
+        friendly_name_template: >-
+          {% if states('sensor.power_consumption')|float < 0 %}
+            Power Consumption
+          {% else %}
+            Power Production
+          {% end %}
+        value_template: "{{ states('sensor.power_consumption') }}"
+        unit_of_measurement: 'kW'
 ```
 {% endraw %}

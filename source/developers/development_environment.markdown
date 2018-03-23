@@ -85,7 +85,7 @@ $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 
 ### {% linkable_title Setting up virtual environment %} 
 
-To isolate your environment from the rest of the system, set up a [`venv`](https://docs.python.org/3.4/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
+To isolate your environment from the rest of the system, set up a [`venv`](https://docs.python.org/3/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
 
 ```bash
 $ python3 -m venv .

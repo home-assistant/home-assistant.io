@@ -14,7 +14,7 @@ Home Assistant can run as a daemon within init.d with the script below.
 
 ### {% linkable_title 1. Copy script %}
 
-Copy the script at the end of this page to `/etc/init.d/hass-daemon`.
+Copy either the daemon script or the Python environment scrip at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
 
 After that, set the script to be executable:
 
@@ -26,27 +26,41 @@ $ sudo chmod +x /etc/init.d/hass-daemon
 
 Create or pick a user that the Home Assistant daemon will run under. Update script to set `RUN_AS` to the username that should be used to execute hass.
 
-### {% linkable_title 3. Change hass executable if required. %}
+### {% linkable_title 3. Change hass executable and other variables if required. %}
 
-Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path.
+Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path. Please also check the other variables for the appropriate value. In general the defaults should work
 
-### {% linkable_title 4. Register the daemon with Linux %}
-
-```bash
-$ sudo update-rc.d hass-daemon defaults
-```
-
-### {% linkable_title 5. Install this service %}
+### {% linkable_title 4. Install this service %}
 
 ```bash
 $ sudo service hass-daemon install
+```
+
+### {% linkable_title 5. Create logrotate rule %}
+
+This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage of a few seconds every week at night. If you do not want this add `--log-rotate-days 7` to the `FLAGS` variable in the init script.
+
+```
+/var/log/homeassistant/home-assistant.log
+{
+        rotate 7
+        daily
+        missingok
+        notifempty
+        delaycompress
+        compress
+        postrotate
+                invoke-rc.d hass-daemon restart > /dev/null
+        endscript
+}
+
 ```
 
 ### {% linkable_title 6. Restart Machine %}
 
 That's it. Restart your machine and Home Assistant should start automatically.
 
-If HA does not start, check the log file output for errors at `/var/opt/homeassistant/home-assistant.log`
+If HA does not start, check the log file output for errors at `/var/log/homeassistant/home-assistant.log`
 
 ### {% linkable_title Extra: Running commands before hass executes %}
 
@@ -71,53 +85,83 @@ PRE_EXEC=""
 # Typically /usr/bin/hass
 HASS_BIN="hass"
 RUN_AS="USER"
-PID_FILE="/var/run/hass.pid"
+PID_DIR="/var/run"
+PID_FILE="$PID_DIR/hass.pid"
 CONFIG_DIR="/var/opt/homeassistant"
-FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --daemon"
-REDIRECT="> $CONFIG_DIR/home-assistant.log 2>&1"
+LOG_DIR="/var/log/homeassistant"
+LOG_FILE="$LOG_DIR/home-assistant.log"
+FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --log-file $LOG_FILE --daemon"
+
 
 start() {
+  create_piddir
   if [ -f $PID_FILE ] && kill -0 $(cat $PID_FILE) 2> /dev/null; then
     echo 'Service already running' >&2
     return 1
   fi
-  echo 'Starting service…' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS $REDIRECT;"
-  su -c "$CMD" $RUN_AS
-  echo 'Service started' >&2
+  echo -n 'Starting service… ' >&2
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
+  su -s /bin/bash -c "$CMD" $RUN_AS
+  if [ $? -ne 0 ]; then
+    echo "Failed" >&2
+  else
+    echo 'Done' >&2
+  fi
 }
 
 stop() {
-    if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2> /dev/null; then
+  if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2> /dev/null; then
     echo 'Service not running' >&2
     return 1
   fi
-  echo 'Stopping service…' >&2
+  echo -n 'Stopping service… ' >&2
   kill $(cat "$PID_FILE")
   while ps -p $(cat "$PID_FILE") > /dev/null 2>&1; do sleep 1;done;
-  echo 'Service stopped' >&2
+  rm -f $PID_FILE
+  echo 'Done' >&2
 }
 
 install() {
-    echo "Installing Home Assistant Daemon (hass-daemon)"
-    echo "999999" > $PID_FILE
-    chown $RUN_AS $PID_FILE
-    mkdir -p $CONFIG_DIR
-    chown $RUN_AS $CONFIG_DIR
+  echo "Installing Home Assistant Daemon (hass-daemon)"
+  update-rc.d hass-daemon defaults
+  create_piddir
+  mkdir -p $CONFIG_DIR
+  chown $RUN_AS $CONFIG_DIR
+  mkdir -p $LOG_DIR
+  chown $RUN_AS $LOG_DIR
 }
 
 uninstall() {
-  echo -n "Are you really sure you want to uninstall this service? That cannot be undone. [yes|No] "
+  echo "Are you really sure you want to uninstall this service? The INIT script will"
+  echo -n "also be deleted! That cannot be undone. [yes|No] "
   local SURE
   read SURE
   if [ "$SURE" = "yes" ]; then
     stop
-    rm -fv "$PID_FILE"
+    remove_piddir
     echo "Notice: The config directory has not been removed"
     echo $CONFIG_DIR
+    echo "Notice: The log directory has not been removed"
+    echo $LOG_DIR
     update-rc.d -f hass-daemon remove
     rm -fv "$0"
     echo "Home Assistant Daemon has been removed. Home Assistant is still installed."
+  fi
+}
+
+create_piddir() {
+  if [ ! -d "$PID_DIR" ]; then
+    mkdir -p $PID_DIR
+    chown $RUN_AS "$PID_DIR"
+  fi
+}
+
+remove_piddir() {
+  if [ -d "$PID_DIR" ]; then
+    if [ -e "$PID_FILE" ]; then
+      rm -fv "$PID_FILE"
+    fi
+    rmdir -fv "$PID_DIR"
   fi
 }
 
@@ -158,57 +202,86 @@ esac
 
 # /etc/init.d Service Script for Home Assistant
 # Created with: https://gist.github.com/naholyr/4275302#file-new-service-sh
-PRE_EXEC="cd /srv/homeassistant && python3 -m venv . && source bin/activate &&"
+PRE_EXEC="cd /srv/homeassistant; python3 -m venv .; source bin/activate;"
 # Typically /usr/bin/hass
 HASS_BIN="hass"
-RUN_AS="USER"
-PID_FILE="/var/run/hass.pid"
-CONFIG_DIR="/home/USER/.homeassistant"
-FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --daemon"
-REDIRECT="> $CONFIG_DIR/home-assistant.log 2>&1"
+RUN_AS="homeassistant"
+PID_DIR="/var/run/hass"
+PID_FILE="$PID_DIR/hass.pid"
+CONFIG_DIR="/home/$RUN_AS/.homeassistant"
+LOG_DIR="/var/log/homeassistant"
+LOG_FILE="$LOG_DIR/home-assistant.log"
+FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --log-file $LOG_FILE --daemon"
 
 start() {
+  create_piddir
   if [ -f $PID_FILE ] && kill -0 $(cat $PID_FILE) 2> /dev/null; then
     echo 'Service already running' >&2
     return 1
   fi
-  echo 'Starting service…' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS $REDIRECT;"
+  echo -n 'Starting service… ' >&2
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
   su -s /bin/bash -c "$CMD" $RUN_AS
-  echo 'Service started' >&2
+  if [ $? -ne 0 ]; then
+    echo "Failed" >&2
+  else
+    echo 'Done' >&2
+  fi
 }
 
 stop() {
-    if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2> /dev/null; then
+  if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2> /dev/null; then
     echo 'Service not running' >&2
     return 1
   fi
-  echo 'Stopping service…' >&2
+  echo -n 'Stopping service… ' >&2
   kill $(cat "$PID_FILE")
   while ps -p $(cat "$PID_FILE") > /dev/null 2>&1; do sleep 1;done;
-  echo 'Service stopped' >&2
+  rm -f $PID_FILE
+  echo 'Done' >&2
 }
 
 install() {
-    echo "Installing Home Assistant Daemon (hass-daemon)"
-    echo "999999" > $PID_FILE
-    chown $RUN_AS $PID_FILE
-    mkdir -p $CONFIG_DIR
-    chown $RUN_AS $CONFIG_DIR
+  echo "Installing Home Assistant Daemon (hass-daemon)"
+  update-rc.d hass-daemon defaults
+  create_piddir
+  mkdir -p $CONFIG_DIR
+  chown $RUN_AS $CONFIG_DIR
+  mkdir -p $LOG_DIR
+  chown $RUN_AS $LOG_DIR
 }
 
 uninstall() {
-  echo -n "Are you really sure you want to uninstall this service? That cannot be undone. [yes|No] "
+  echo "Are you really sure you want to uninstall this service? The INIT script will"
+  echo -n "also be deleted! That cannot be undone. [yes|No] "
   local SURE
   read SURE
   if [ "$SURE" = "yes" ]; then
     stop
-    rm -fv "$PID_FILE"
+    remove_piddir
     echo "Notice: The config directory has not been removed"
     echo $CONFIG_DIR
+    echo "Notice: The log directory has not been removed"
+    echo $LOG_DIR
     update-rc.d -f hass-daemon remove
     rm -fv "$0"
     echo "Home Assistant Daemon has been removed. Home Assistant is still installed."
+  fi
+}
+
+create_piddir() {
+  if [ ! -d "$PID_DIR" ]; then
+    mkdir -p $PID_DIR
+    chown $RUN_AS "$PID_DIR"
+  fi
+}
+
+remove_piddir() {
+  if [ -d "$PID_DIR" ]; then
+    if [ -e "$PID_FILE" ]; then
+      rm -fv "$PID_FILE"
+    fi
+    rmdir -fv "$PID_DIR"
   fi
 }
 

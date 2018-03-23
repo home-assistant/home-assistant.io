@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `yr` platform uses [YR.no](http://www.yr.no/) as an source for current meteorological data for your location. The
+The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current meteorological data for your location. The
 weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
 To add YR to your installation, add the following to your `configuration.yaml` file:

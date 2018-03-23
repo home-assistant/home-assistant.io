@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL (Red Hat Enterprise Linux), [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated first.
+To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL (Red Hat Enterprise Linux), [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python36/) needs to be activated first.
 
-There are effort in progress to bring Python 3.4 to [Extra Packages for Enterprise Linux (EPEL)](https://fedoraproject.org/wiki/EPEL) which will allow you to follow the [Fedora Instructions](/docs/installation/fedora/).
+You must install Python 3.5.3 or later. Software Collections version of Python 3.5 is 3.5.1 so this guide uses Python 3.6.
 
 ### {% linkable_title Using Software Collections %}
 
@@ -21,21 +21,21 @@ First of all install the software collection repository as root. For example, on
 $ yum install centos-release-scl
 ```
 
-Then install the Python 3.5 package:
+Then install the Python 3.6 package:
 
 ```bash
-$ yum install rh-python35
+$ yum install rh-python36
 ```
 
 Once installed, switch to your `homeassistant` user (if you've set one up), enable the software collection and check that it has set up the new version of Python:
 
 ```bash
-$ scl enable rh-python35 bash
+$ scl enable rh-python36 bash
 $ python --version
-Python 3.5.1
+Python 3.6.3
 ```
 
-You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main [instructions](https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
+You will be in a command shell set up with Python 3.6 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main [instructions](https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
 
 You will need to enable the software collection each time you log on before you activate your virtual environment.
 
@@ -55,7 +55,7 @@ User=homeassistant
 Environment=VIRTUAL_ENV="/srv/homeassistant"
 Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
 # ExecStart using software collection:
-ExecStart=/usr/bin/scl enable rh-python35 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+ExecStart=/usr/bin/scl enable rh-python36 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target

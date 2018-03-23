@@ -68,4 +68,11 @@ Now that you are able to edit the configuration, it's time to set up some of you
 
 <p class='note'>YAML can be a little daunting at first. A lot is possible! [Here is some more info.](/docs/configuration/devices/)</p>
 
+For a sensor that is showing [random values](/components/sensor.random/), the entry would look like the sample below:
+
+```yaml
+sensor:
+  - platform: random
+```
+
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)

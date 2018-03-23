@@ -14,7 +14,11 @@ ha_release: 0.7.4
 ---
 
 
-This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on Android and iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+
+<p class='note'>
+The Android app for OwnTracks is no longer developed or supported, Zanzito is a drop in replacement for OwnTracks MQTT.
+</p>
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
 
@@ -92,7 +96,7 @@ iBeacons don't need to be stationary. You could put one on your key ring, or in 
 
 When your phone sees a mobile iBeacon that it knows about, it will tell HA the location of that iBeacon. If your phone moves while you are connected to the iBeacon, HA will update the location of the iBeacon. But when your phone loses the connection, HA will stop updating the iBeacon location.
 
-To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for a iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
+To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for an iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
 
 This allows you to write zone automations for devices that can't track themselves (for example *alert me if I leave the house and my keys are still at home*). Another example would be *open the gates if my car arrives home*.
 

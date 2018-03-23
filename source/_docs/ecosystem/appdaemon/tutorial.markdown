@@ -23,14 +23,14 @@ So given the importance of Automation, what should Automation allow us to do? I 
 - Is it open and expandable?
 - Does it run locally without any reliance on the cloud?
 
-In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and it's Restful API.
+In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and its Restful API.
 
 So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:
 
 - New paradigm - some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can't
 - Ease of use - AppDaemon's API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible, experienced Python programmers should feel right at home.
 - Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file
-- Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it's loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it and restart them to use the new code with out the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
+- Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to its loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it and restart them to use the new code with out the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
 - Complex logic - Python's If/Else constructs are clearer and easier to code for arbitrarily complex nested logic
 - Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened
 - All the power of Python - use any of Python's libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!
@@ -43,22 +43,38 @@ The best way to show what AppDaemon does is through a few simple examples.
 
 ### {% linkable_title Sunrise/Sunset Lighting %}
 
-Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called which gives it a chance to register a callback for AppDaemons's scheduler for a specific time. In this case we are using `run_at_sunrise()` and `run_at_sunset()` to register 2 separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
+Lets start with a simple App to turn a light on every night fifteen
+minutes (900 seconds) before sunset and off every morning at sunrise.
+Every App when first started will have its ``initialize()`` function
+called which gives it a chance to register a callback for AppDaemons's
+scheduler for a specific time. In this case we are using
+`run_at_sunrise()` and `run_at_sunset()` to register 2 separate
+callbacks. The named argument `offset` is the number of seconds offset
+from sunrise or sunset and can be negative or positive (it defaults to
+zero). For complex intervals it can be convenient to use Python's
+`datetime.timedelta` class for calculations. In the example below,
+when sunrise or just before sunset occurs, the appropriate callback
+function, `sunrise_cb()` or `before_sunset_cb()` is called which
+then makes a call to Home Assistant to turn the porch light on or off by
+activating a scene. The variables `args["on_scene"]` and
+`args["off_scene"]` are passed through from the configuration of this
+particular App, and the same code could be reused to activate completely
+different scenes in a different version of the App.
 
 ```python
-import homeassistant.appapi as appapi
+    import appdaemon.plugins.hass.hassapi as hass
 
-class OutsideLights(appapi.AppDaemon):
+    class OutsideLights(hass.Hass):
 
-  def initialize(self):
-    self.run_at_sunrise(self.sunrise_cb, 0)
-    self.run_at_sunset(self.sunset_cb, 0)
-    
-  def sunrise_cb(self, kwargs):
-    self.turn_on(self.args["off_scene"])
+      def initialize(self):
+        self.run_at_sunrise(self.sunrise_cb)
+        self.run_at_sunset(self.before_sunset_cb, offset=-900)
+        
+      def sunrise_cb(self, kwargs):
+        self.turn_on(self.args["off_scene"])
 
-  def sunset_cb(self, kwargs):
-    self.turn_on(self.args["on_scene"])
+      def before_sunset_cb(self, kwargs):
+        self.turn_on(self.args["on_scene"])
 
 ```
 

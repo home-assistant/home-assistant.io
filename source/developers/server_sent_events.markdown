@@ -15,7 +15,7 @@ The URI that is generating the data is `/api/stream`.
 
 A requirement on the client-side is existing support for the [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) interface.
 
-There are various ways to access the stream. One is `curl`:
+There are various ways to access the stream. If you have not set an `api_password` in the [`http`](/components/http/) section of your `configuration.yaml` file then you use your modern browser to read the messages. A command-line option is `curl`:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \

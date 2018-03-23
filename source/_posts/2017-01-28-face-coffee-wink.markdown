@@ -120,7 +120,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Switch - Pilight: Implement echo config option ([@janLo])
 - Core: Support customize in packages ([@kellerza])
 - Switch - Flux: Allow disabling setting the brightness ([@rytilahti])
-- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no emtpy image ([@pvizeli], [@andrey-git], [@robbiet480])
+- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no empty image ([@pvizeli], [@andrey-git], [@robbiet480])
 - Climate: Hold mode ([@Duoxilian])
 - Switch - TPlink: No longer doing I/O in event bus ([@balloob])
 - Light - Insteon local: Improve Insteon configuration ([@wardcraigj])
@@ -152,7 +152,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Due to massive improvements of the [Wink][wink] integration, the names of your binary sensors will change and new devices can show up.
 - The [MySensors][mysensors] component now requires all persistence file paths to be set if any is set by the user. This is to avoid name conflicts for the paths. If no path is set Home Assistant will set all paths for you.
 - The [Sonos][sonos] service `sonos_group_players` was removed. Use now `sonos_join` for this function.
-- TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
+- TTS cache have change for the last time. Files use now also an option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

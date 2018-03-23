@@ -30,7 +30,7 @@ $ sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev lib
 Before you get started with this platform, please note that:
 
  - This platform is incompatible with Windows
- - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further infomation
+ - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ Some BTLE devices (e.g. fitness trackers) are only visible to the devices that t
 
 ## {% linkable_title Rootless Setup %}
 
-Normaly accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 $ sudo apt-get install libcap2-bin

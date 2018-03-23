@@ -34,7 +34,7 @@ The configuration is slightly different :
  - The former single `lirc` service is replaced with the three systemd services `lircd.service`, `lircmd.service` and `irexec.service`. There is no counterpart to the 0.9.0 `lirc` service which covered all of these. Using a separate transmitter device requires yet another service.
  - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.  
     
-For more infomation have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
+For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
 </p>
 
 ### {% linkable_title Configuring LIRC %}

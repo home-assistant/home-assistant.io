@@ -10,6 +10,7 @@ footer: true
 logo: https://www.magneticmag.com/.image/t_share/MTQ5OTE1NzU4NTczMzk3OTYw/discogs-vinyl-record-mark.png
 ha_category: Sensor
 ha_release: 0.61
+logo: discogs.png
 ha_iot_class: "Cloud Polling"
 ---
 

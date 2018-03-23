@@ -14,7 +14,7 @@ redirect_from: /components/input_slider/
 ---
 
 <p class='note'>
-Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option.
+Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
 </p>
 
 The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
@@ -39,7 +39,6 @@ input_number:
     mode: box
 ```
 
-
 {% configuration %}
   input_number:
     description: Alias for the input. Multiple entries are allowed.
@@ -51,7 +50,7 @@ input_number:
         required: true
         type: float
       max:
-        description: Maxium value.
+        description: Maximum value.
         required: true
         type: float
       name:

@@ -15,7 +15,7 @@ ha_release: 0.39
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows you to send messages to the user using Pushsafer.
 
-In order to get an private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
+In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
 To use Pushsafer notifications, add the following to your `configuration.yaml` file:
 
@@ -34,7 +34,7 @@ notify:
 
 ### {% linkable_title Examples %}
 
-Message to two devices with formated text.
+Message to two devices with formatted text.
 
 ```json
 {
@@ -53,7 +53,7 @@ Message to two devices with formated text.
 }
 ```
 
-Message to one device with formated text and image from an external URL.
+Message to one device with formatted text and image from an external URL.
 
 ```json
 {
@@ -75,7 +75,7 @@ Message to one device with formated text and image from an external URL.
 }
 ```
 
-Message to two devices and one device group with formated text and local image.
+Message to two devices and one device group with formatted text and local image.
 
 ```json
 {

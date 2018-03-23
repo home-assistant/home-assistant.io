@@ -109,7 +109,7 @@ Home Assistant does its best to determine what task in each project is "most" im
 
 ### {% linkable_title Services %}
 
-Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
+Todoist also comes with access to a service, `calendar.todoist_new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
 
 Here's an example JSON payload:
 

@@ -14,7 +14,7 @@ ha_release: 0.57
 
 The `timer` component aims to simplify automations based on (dynamic) durations.
 
-When a timer finishes or gets cancelled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
+When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.  
 
 <p class='note warning'>
 With the current implementation timers don't persist over restarts. After a restart they will be idle again, together with their initial configuration.
@@ -25,7 +25,7 @@ To add a timer to your installation, add the following to your `configuration.ya
 ```yaml
 # Example configuration.yaml entry
 timer:
-  timer:
+  laundry:
     duration: '00:01:00'
 ```
 
@@ -42,7 +42,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 |           Event | Description |
 | --------------- | ----------- |
-| timer.cancelled | Fired when a timer has been cancelled |
+| timer.cancelled | Fired when a timer has been canceled |
 |  timer.finished | Fired when a timer has completed |
 
 ## {% linkable_title Services %}
@@ -67,7 +67,7 @@ Pause a running timer. This will retain the remaining duration for later continu
 
 #### {% linkable_title Service `timer.cancel` %}
 
-Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. If no `entity_id` is given all active timers will be cancelled.
+Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. If no `entity_id` is given all active timers will be canceled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -92,16 +92,18 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 
-### {% linkable_title Configuration example %}
+## {% linkable_title Examples %}
+
+Set a timer called `test` to a duration of 30 seconds. 
 
 ```yaml
 # Example configuration.yaml entry
-
-# Set a timer called test to a duration of 30 seconds: 
 timer:
   test:
     duration: '00:00:30'
 ```
+
+### {% linkable_title Control a timer from the frontend %}
 
 ```yaml
 # Example automations.yaml entry
@@ -129,5 +131,33 @@ timer:
     event_type: timer.finished
     event_data: 
       entity_id: timer.test
+```
+
+### {% linkable_title Control a timer from the frontend %}
+
+With the [`script`](/components/script/) component you would be able to control a timer (see above for a `timer` configuration sample) manually.
+
+```yaml
+script:
+  start_timer:
+    alias: Start timer
+    sequence:
+      - service: timer.start
+        entity_id: timer.test
+  pause_timer:
+    alias: Pause timer
+    sequence:
+      - service: timer.pause
+        entity_id: timer.test
+  cancel_timer:
+    alias: Cancel timer
+    sequence:
+      - service: timer.cancel
+        entity_id: timer.test
+  finish_timer:
+    alias: Finish timer
+    sequence:
+      - service: timer.finish
+        entity_id: timer.test
 ```
 

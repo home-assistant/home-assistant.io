@@ -8,7 +8,6 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#testing-your-setup
 ---
 
 The `mosquitto` broker package ships commandline tools (often as `*-clients` package) to send and receive MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provided by HBMQTT. For sending test messages to a broker running on localhost check the example below:

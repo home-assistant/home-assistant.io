@@ -13,16 +13,16 @@ featured: true
 Setting up an [SSH](https://openssh.org/) server allows access to your Hass.io folders with any SSH client. It also includes a command-line tool to access the [Hass.io API](https://github.com/home-assistant/hassio/blob/dev/API.md). Try it out:
 
 ```bash
-$ hassio help
+hassio help
 ```
 
 <p class='note'>
 This add-on will not enable you to install packages or do anything as root. This is not allowed with Hass.io.
 </p>
 
-To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other]. It is possible to set a password for login since version 2.0 but for high security use private/public keys. You can not run both variant at same time.
+To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other]. It is possible to set a password for login since version 2.0 but for high security use private/public keys. You can not run both variants at the same time.
 
-In order to start this add-on for the first time, you either need to include an ssh key (enclosed in quotation marks, on a single line without line breaks) or set a password in the options section. 
+To start this add-on for the first time, you either need to include an ssh key (enclosed in quotation marks, on a single line without line breaks) or set a password in the options section. 
 
 ```json
 {
@@ -39,7 +39,7 @@ After logging in, you will find yourself in this add-ons container. The Home Ass
 
 Configuration variables:
 
-- **authorized_keys** (*Optional*): Your public keys for authorized keyfile. Every element will be a line inside that file.
+- **authorized_keys** (*Optional*): Your public keys for the authorized key file. Every element will be a line inside that file.
 - **password** (*Optional*): Set a password for login. We do not recommend this variant.
 
 

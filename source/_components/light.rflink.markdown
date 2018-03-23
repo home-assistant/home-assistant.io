@@ -50,7 +50,7 @@ Device configuration variables:
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below. (default: Switchable)
 - **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
@@ -86,7 +86,7 @@ Any on/off command from any alias ID updates the current state of the light. How
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink component support three types of lights to make things work in every situation:
 
-- *Hybrid*: This type sends a `dim` followed by an a `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+- *Hybrid*: This type sends a `dim` followed by an an `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
 - *Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
 - *Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
 - *Toggle*: Device type that sends only `on` commands to turn on or off the device. Some switches like for example Livolo light switches use the same 'on' command to switch on and switch off the lights. If the light is on and 'on' gets sent, the light will turn off and if the light is off and 'on' gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.
