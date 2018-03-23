@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: monoprice.svg
 ha_category: Media Player
-ha_release: 0.66
+ha_release: 0.67
 ha_iot_class: "Local Polling"
 ---
 
@@ -48,11 +48,27 @@ media_player:
         name: AppleTV
 ```
 
-Configuration variables:
+{% configuration %}
+port: 
+  description: The serial port to which Blackbird matrix switch is connected.
+  required: true
+  type: string
+zones:
+  description: This is the list of zones available. Valid zones are 1,2,3,4,5,6,7,8. Each zone must have a name assigned to it.
+  required: true
+  type: int
+  keys:
+    name:
+      description: The name of the zone.
 
-- **port** (*Required*): The serial port to which Blackbird matrix switch is connected
-- **zones** (*Required*): This is the list of zones available. Valid zones are 1,2,3,4,5,6,7,8. Each zone must have a name assigned to it.
-- **sources** (*Required*): The list of sources available. Valid source numbers are 1,2,3,4,5,6,7,8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
+sources:
+  description: The list of sources available. Valid source numbers are 1,2,3,4,5,6,7,8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
+  required: true
+  type: int
+  keys:
+    name:
+      description: The name of the source.
+{% endconfiguration%}
 
 ### {% linkable_title Service `BLACKBIRD_SETALLZONES` %}
 
