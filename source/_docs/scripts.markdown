@@ -102,7 +102,7 @@ When using `wait_template` within an automation `trigger.entity_id` is supported
 
 {% raw %}
 ```yaml
-- wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+- wait_template: "{{ is_state('trigger.entity_id', 'on') }}"
 ```
 {% endraw %}
 
