@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SABnzbd"
-description: "Instructions how to integrate SABnzbd within Home Assistant."
+description: "Instructions on how to integrate SABnzbd with Home Assistant."
 date: 2018-03-03 19:09
 sidebar: true
 comments: false
@@ -9,15 +9,14 @@ sharing: true
 footer: true
 logo: sabnzbd.png
 ha_category: Downloading
-ha_release: 0.65
+ha_release: 0.66
 ha_iot_class: "Local Polling"
 ---
-
 
 The `sabnzbd` component will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from 
 within Home Assistant and setup automations based on the information.
 
-If SABnzbd is discovered on your network you can enter your API Key in the Configurator. Press "CONFIGURE" to do it.
+If SABnzbd is discovered on your network, you can enter your API Key in the Configurator. Press "CONFIGURE" to do it.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/sabnzbd-configure.png' />
@@ -40,7 +39,7 @@ api_key:
   required: true
   type: string
 host:
-  description: The hostname of your SABnzbd instance, eg. 192.168.1.32.
+  description: The hostname of your SABnzbd instance, e.g., 192.168.1.32.
   required: false
   default: localhost
   type: string
@@ -64,7 +63,7 @@ sensors:
   required: false
   type: list
 ssl:
-  description: Set to true to use ssl (https) to access SABnzbd.
+  description: Set to true to use SSL (https) to access SABnzbd.
   required: false
   default: false
   type: boolean
@@ -120,5 +119,5 @@ Available services: `pause`, `resume`, `set_speed`.
 
 | Service data attribute | Optional | Description                                                                                                                                                                             |
 |------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `speed`                |      yes | Sets the download speed limit. If specified as a number with no units, will be interpreted as percent. If units are provided (eg. 500K) will be interpreted absolutely. Defaults to 100 |
+| `speed`                |      yes | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
 
