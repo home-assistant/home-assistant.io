@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fritzbox"
-description: "Instructions how to integrate the AVM Fritzbox smarthome components."
+description: "Instructions on how to integrate the AVM Fritzbox Smart Home components."
 date: 2018-02-18 17:10
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Hub
-ha_release: 0.65
+ha_release: 0.66
 ha_iot_class: "Local Polling"
 ---
 
@@ -30,7 +30,7 @@ fritzbox:
   devices:
     - host: fritz.box
       username: YOUR_USERNAME
-      passowrd: YOUR_PASSWORD
+      password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -44,7 +44,7 @@ fritzbox:
         required: true
         type: optional
       username:
-        description: The username for smarthome access.
+        description: The username for Smart Home access.
         required: true
         type: string
       password:
