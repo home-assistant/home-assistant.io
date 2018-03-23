@@ -14,8 +14,8 @@ A component will be loaded on start if a section (ie. `light:`) for it exists in
  * `<config directory>/custom_components/<component name>`
  * `homeassistant/components/<component name>` (built-in components)
     
-    If Home Assistant is installed in an **venv**:
-    * `homeassistant/lib/python3.5/site-packages/homeassistant/components/<component name>`
+    If Home Assistant is installed in an **venv** you find the components folder under the following subfolder:
+    * `lib/python3.5/site-packages/homeassistant/components/<component name>`
 
 Once loaded, a component will only be setup if all dependencies can be loaded and are able to setup. Keep an eye on the logs to see if your component could be loaded and initialized.
 
