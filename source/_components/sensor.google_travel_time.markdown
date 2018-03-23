@@ -17,7 +17,7 @@ Sensor to provide travel time from the [Google Distance Matrix API](https://deve
 
 You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
 
-A free API Key allows 2500 requests per day. The sensor by default will update the travel time every 5 minutes.
+A free API Key allows 2500 requests per day. The sensor, by default, will update the travel time every 5 minutes.
 
 ```yaml
 # Example entry for configuration.yaml
