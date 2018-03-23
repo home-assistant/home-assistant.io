@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alarm Group"
-description: "Instructions how to setup the alarm group platform."
+description: "Instructions on how to set up the alarm group platform."
 date: 2017-11-22 00:12
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: 0.64
+ha_release: 0.66
 ---
 
 The `group` alarm platform allows you to combine multiple `alarm` platforms into a single service.
