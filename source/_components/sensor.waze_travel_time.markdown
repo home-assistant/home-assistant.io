@@ -10,15 +10,13 @@ footer: true
 logo: waze.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.63
+ha_release: 0.66
 ---
 
 Sensor to provide travel time from the [WazeRouteCalculator](https://github.com/kovacsbalu/WazeRouteCalculator).
 
 The sensor will update the travel time every 5 minutes by default.
 Unit system is set to metric system (at least for the moment).
-
-
 
 ```yaml
 # Example entry for configuration.yaml
