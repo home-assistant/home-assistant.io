@@ -37,6 +37,15 @@ sensor:
       - filter: lowpass
         time_constant: 10
         precision: 2
+  - platform: filter
+    name: "filtered realistic temperature"
+    entity_id: sensor.realistic_temperature
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
       - filter: time_simple_moving_average
         window_size: 00:05
         precision: 2
@@ -95,7 +104,7 @@ filters:
 
 The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcutting peaks and valleys.
 
-The included Low-pass filter is very basic and is based on a moving average, in which the previous data point is weighted with the new data point.
+The included Low-pass filter is very basic and is based on [exponential smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing), in which the previous data point is weighted with the new data point.
 
 ```python
 B = 1.0 / time_constant
