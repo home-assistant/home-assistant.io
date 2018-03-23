@@ -28,8 +28,6 @@ sensor:
     - humidity
 ```
 
-Configuration variables:
-
 {% configuration %}
   name:
     description: The name of the sensor. Temperature and Humidity will be added to the name for the sensor name.
