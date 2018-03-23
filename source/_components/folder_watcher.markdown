@@ -52,6 +52,7 @@ folder_watcher:
 
 Automations can be triggered on filesystem event data using a data_template. The following automation will send a notification with the name and folder of new files added to that folder:
 
+{% raw %}
 ```yaml
 - action:
   - data_template:
@@ -68,3 +69,4 @@ Automations can be triggered on filesystem event data using a data_template. The
     event_type: folder_watcher
     platform: event
 ```
+{% endraw %}
