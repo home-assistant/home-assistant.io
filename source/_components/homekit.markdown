@@ -14,6 +14,11 @@ logo: apple-homekit.png
 
 The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they could be controlled from Apple `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
 
+<p class="note warning">
+  It might be necessary to install an additional package:  
+  `$ sudo apt-get install libavahi-compat-libdnssd-dev`
+</p>
+
 {% configuration %}
   homekit:
     description: HomeKit configuration.
