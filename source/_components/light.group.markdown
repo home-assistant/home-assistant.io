@@ -49,7 +49,7 @@ The supported features of all lights will be added together. For example, if you
 
 ## {% linkable_title Script Example %}
 
-Here's an example of an script using the above light group.
+Here's an example of a script using the above light group.
 
 ```yaml
 script:
