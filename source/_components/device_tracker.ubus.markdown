@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenWRT (ubus)"
-description: "Instructions how to integrate OpenWRT routers into Home Assistant."
+description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -68,7 +68,7 @@ Configuration variables:
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **username** (*Required*): The username of an user with administrative privileges, usually *root*.
 - **password** (*Required*): The password for your given account.
-- **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq` or `dhcpd`. Defaults to `dnsmasq`.
+- **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`. Defaults to `dnsmasq`.
 
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

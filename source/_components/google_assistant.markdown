@@ -41,7 +41,6 @@ google_assistant:
       aliases:
         - bright lights
         - entry lights
-      type: light
     light.living_room:
       expose: false
       room: living room
@@ -64,15 +63,15 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:
-  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see setup below). If not provided then the request_sync service is not exposed.
+  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this componenet you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
   required: false
   type: string
 expose_by_default:
-  description: Expose devices in all supported domains by default.
+  description: Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in entity_config and set it to true.
   required: false
   default: True
   type: boolean
@@ -102,10 +101,6 @@ entity_config:
           description: Aliases that can also be used to refer to this entity
           required: false
           type: list
-        type:
-          description: Override how Google Assistant interprets the domain of the entity. For example, set to `light` for a switch entity to have it be handled as a light.
-          required: false
-          type: string
         room:
           description: Allows for associating this device to a Room in Google Assistant.  This is currently non-functional, but will be enabled in the near future.
           required: false
@@ -115,15 +110,16 @@ entity_config:
 ### {% linkable_title Available domains %}
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
-- group = switch (on/off)
-- scene = scene (on)
-- script = scene (on)
-- switch = switch (on/off)
-- fan = switch (on/off)
-- light = light (on/off/brightness/rgb color/color temp)
-- cover = switch (on/off/set position (brightness) )
-- media_player = switch (on/off/set volume (brightness) )
-- climate = thermostat (temperature setting)
+- group (on/off)
+- input boolean (on/off)
+- scene (on)
+- script (on)
+- switch (on/off)
+- fan (on/off)
+- light (on/off/brightness/rgb color/color temp)
+- cover (on/off/set position (via set brightness))
+- media_player (on/off/set volume (via set brightness))
+- climate (temperature setting)
 
 It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
 
@@ -135,58 +131,32 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 
 ### {% linkable_title Setup %}
 
-1. Download the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) to be used later. You can download and run this anywhere and on any machine. Just remember where you put it for later and don't forget to run `chmod +x gactions` to make it executable on Mac or Linux.
-2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL:PORT]` below with the URL you use to access Home Assistant.
-   Note: This must be an HTTPS URL to work. Don't forget to include the port number if you're not using port 443.
-
-```json
-{
-  "actions": [{
-    "name": "actions.devices",
-    "deviceControl": {
-    },
-    "fulfillment": {
-      "conversationName": "automation"
-    }
-  }],
-  "conversations": {
-    "automation":
-    {
-      "name": "automation",
-      "url": "https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant"
-    }
-  }
-}
-```
-
-3. Create a new project in the [developer console](https://console.actions.google.com/).
+1. Create a new project in the [developer console](https://console.actions.google.com/).
   a. Add/Import project
-  b. Go to Build under the Actions SDK box
-  c. Copy the command that looks like: 
-  
-  `gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
-4. Replace `PACKAGE_NAME` with `project.json` and run that command in a console from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions` if you're running it on Linux or Windows). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
-5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
-6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
-	1. Grant type: `Implicit`
-	2. Client ID: The `client_id` from your Home Assistant configuration above
-	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)
-	4. Configure your client. Add scopes for `email` and `name`.
-	5. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
-7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work so just close that window).
-8. If you haven't already added the component configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
-8. Open the Google Assistant app and go into `Settings > Home Control`
-9. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
-10. If you want to allow other household users to control the devices:
-	1. Go to the developer console using the address from point 4.
-	2. Under the gear icon, click `Permissions`
-	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
-	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
-11. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
-	1. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
-	2. Select your project and click Enable Homegraph API
-	3. Go to Credentials and select API Key from Create Credentials
-	4. Note down the generated API Key and use this in the configuration
+  b. Click on `BUILD` on the `Smart home` card
+  c. Type in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable. 
+  d. Click `Done`. Then click on `Overview`, which will lead you to the app details screen.
+2. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
+3. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
+	a. Grant type: `Implicit`
+	b. Client ID: The `client_id` from your Home Assistant configuration above
+	c. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)
+	d. Configure your client. Add scopes for `email` and `name`.
+	e. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+4. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work so just close that window).
+5. If you haven't already added the component configuration to `configuration.yaml` and restarted Home Assistant, you'll be unable to continue until you have.
+6. Open the Google Assistant app and go into `Settings > Home Control`
+7. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you the screen where you can set rooms for your devices or nicknames for your devices.
+8. If you want to allow other household users to control the devices:
+	a. Go to the developer console using the address from point 4.
+	b. Under the gear icon, click `Permissions`
+	c. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
+	d. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 
+9. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
+	a. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
+	b. Select your project and click Enable Homegraph API
+	c. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials
+	d. Note down the generated API Key and use this in the configuration
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 

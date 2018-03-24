@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LiteJet"
-description: "Instructions how to setup the LiteJet hub within Home Assistant."
+description: "Instructions on how to setup the LiteJet hub within Home Assistant."
 date: 2015-10-26 09:37
 sidebar: true
 comments: false

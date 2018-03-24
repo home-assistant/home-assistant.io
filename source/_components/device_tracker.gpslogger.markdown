@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GPSLogger"
-description: "Instructions how to use GPSLogger to track devices in Home Assistant."
+description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
 date: 2016-11-25 15:00
 sidebar: true
 comments: false
@@ -39,7 +39,7 @@ After the launch, go to **General Options**. Enable **Start on bootup** and **St
   GPSLogger Settings
 </p>
 
-Go to **Logging details** and disable **Log to GPX**. **Log to KML**, and **Log to NMEA**. Enable **Log to custom URL**.
+Go to **Logging details** and disable **Log to GPX**, **Log to KML** and **Log to NMEA**. Enable **Log to custom URL**.
 
 <p class='img'>
   <img width='300' src='/images/components/gpslogger/logging-details.png' />

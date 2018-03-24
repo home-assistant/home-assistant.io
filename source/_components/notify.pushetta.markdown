@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pushetta"
-description: "Instructions how to add Pushetta notifications to Home Assistant."
+description: "Instructions on how to add Pushetta notifications to Home Assistant."
 date: 2015-11-10 18:00
 sidebar: true
 comments: false

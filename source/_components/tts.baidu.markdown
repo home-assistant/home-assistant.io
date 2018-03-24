@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Baidu Text-to-Speech"
-description: "Instructions how to setup Baidu TTS with Home Assistant."
+description: "Instructions on how to setup Baidu TTS with Home Assistant."
 date: 2017-11-21 09:00
 sidebar: true
 comments: false

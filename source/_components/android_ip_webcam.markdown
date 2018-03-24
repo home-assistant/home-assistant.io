@@ -48,6 +48,9 @@ Sensors:
 - light
 - motion
 - pressure
+- proximity
+- sound
+- video_connections
 
 Settings (Switches):
 
@@ -76,6 +79,9 @@ android_ip_webcam:
       - light
       - motion
       - pressure
+      - proximity
+      - sound
+      - video_connections
     switches:
       - exposure_lock
       - ffc

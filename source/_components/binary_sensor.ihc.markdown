@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IHC Binary Sensor"
-description: "Instructions how to integrate IHC Binary Sensors within Home Assistant."
+description: "Instructions on how to integrate IHC Binary Sensors within Home Assistant."
 date: 2017-11-27 13:35
 sidebar: true
 comments: false

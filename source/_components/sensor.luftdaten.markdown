@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Luftdaten Sensor"
-description: "Instructions how to setup Luftdaten sensor in Home Assistant."
+description: "Instructions on how to setup Luftdaten sensor in Home Assistant."
 date: 2017-11-01 00:00
 sidebar: true
 comments: false
@@ -60,7 +60,16 @@ sensor:
         description: Display the humidity from the sensor.
       pressure:
         description: Display the pressure from the sensor.
+  show_on_map:
+    description: Option to show the position of the sensor on the map.
+    required: optional
+    default: false
+    type: boolean
 {% endconfiguration %}
+
+<p class='note warning'>
+If you set `show_on_map` to `True` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
+</p>
 
 Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
 

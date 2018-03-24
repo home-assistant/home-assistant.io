@@ -81,7 +81,7 @@ Now comes the fun part, time to open the Hass.io UI and install and run your add
  - On the top right click the shopping basket to go to the add-on store.
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 

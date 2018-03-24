@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Xiaomi Air Purifier"
-description: "Instructions how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
+description: "Instructions on how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
 date: 2017-10-13 12:35
 sidebar: true
 comments: false
@@ -200,6 +200,15 @@ model:
 {% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
+
+### {% linkable_title Service `fan.set_speed` %}
+
+Set the fan speed/operation mode.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific air purifier. Else targets all.              |
+| `speed`                   |       no | Fan speed. Valid values are 'Auto', 'Silent', 'Favorite' and 'Idle' |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_buzzer_on` %} (Air Purifier Pro excluded)
 

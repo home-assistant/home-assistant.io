@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Filter Sensor"
-description: "Instructions how to integrate Data Filter Sensors into Home Assistant."
+description: "Instructions on how to integrate Data Filter Sensors into Home Assistant."
 date: 2018-02-20
 sidebar: true
 comments: false
@@ -15,7 +15,7 @@ logo: home-assistant.png
 
 The `filter` platform enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph]({{site_roor}}/components/history_graph/) component.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
@@ -37,6 +37,18 @@ sensor:
       - filter: lowpass
         time_constant: 10
         precision: 2
+  - platform: filter
+    name: "filtered realistic temperature"
+    entity_id: sensor.realistic_temperature
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
+      - filter: time_simple_moving_average
+        window_size: 00:05
+        precision: 2
 ```
 
 Filters can be chained and are applied according to the order present in the configuration file.
@@ -53,17 +65,17 @@ name:
 filters:
   description: Filters to be used.
   required: true 
-  type: map
+  type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier` and `throttle`.
+      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
       required: true
       type: string
     window_size:
-      description: Size of the window of previous states.
+      description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
       required: false
-      type: int
-      default: 5  
+      type: [int, time]
+      default: 1 
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
       required: false
@@ -78,16 +90,21 @@ filters:
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
       required: false
       type: float
-      default: 2.0 
+      default: 2.0
+    type:
+      description: See [_time_simple_moving_average_](#time-simple-moving-average) filter. Defines the type of Simple Moving Average.
+      required: false
+      type: string
+      default: last
 {% endconfiguration %}
 
 ## {% linkable_title Filters %}
 
 ### {% linkable_title Low-pass %}
 
-The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcuting peaks and valleys.
+The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcutting peaks and valleys.
 
-The included Low-pass filter is very basic and is based on a moving average, in which the previous data point is weighted with the new data point.
+The included Low-pass filter is very basic and is based on [exponential smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing), in which the previous data point is weighted with the new data point.
 
 ```python
 B = 1.0 / time_constant
@@ -99,7 +116,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 ### {% linkable_title Outlier %}
 
-The Outlier filter (`outlier`) is a basic Band-stop filter, as it cuts out any value outside a specific range.
+The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
 The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the 
 
@@ -120,3 +137,10 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
 
+### {% linkable_title Time Simple Moving Average %}
+
+The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner. 
+
+The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
+
+Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).

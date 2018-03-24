@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sonarr Sensor"
-description: "Instructions how to integrate Sonarr sensors with Home Assistant"
+description: "Instructions on how to integrate Sonarr sensors with Home Assistant"
 date: 2016-11-19 13:35
 sidebar: true
 comments: false

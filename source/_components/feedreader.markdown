@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Feedreader
-description: "Instructions how to integrate RSS feeds into Home Assistant."
+description: "Instructions on how to integrate RSS feeds into Home Assistant."
 date: 2016-04-18 22:00
 sidebar: true
 comments: false
@@ -67,4 +67,4 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 
 To get started developing custom components, please refer to the [developers](/developers) documentation
 
-For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml).
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

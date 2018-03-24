@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Smappee"
-description: "Instructions how to setup Smappee within Home Assistant."
-date: 2018-01-06 16:15
+description: "Instructions on how to setup Smappee within Home Assistant."
+date: 2018-02-26 08:37
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.62"
+ha_release: "0.64"
 ha_category: Hub
 ---
 

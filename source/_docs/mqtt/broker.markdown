@@ -1,14 +1,13 @@
 ---
 layout: page
 title: "MQTT Brokers"
-description: "Instructions how to setup MQTT brokers for Home Assistant."
+description: "Instructions on how to setup MQTT brokers for Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#picking-a-broker
 ---
 
 The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
@@ -63,7 +62,7 @@ mqtt:
 {% configuration %}
 broker:
   required: false
-  description: The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.
+  description: The IP address or hostname of your MQTT broker, e.g., 192.168.1.32.
   type: string
 port:
   required: false
@@ -110,7 +109,7 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 </p>
 
 <p class='note'>
-If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g. sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
+If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g., sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
 ```
 [Unit]
 Description=Home Assistant

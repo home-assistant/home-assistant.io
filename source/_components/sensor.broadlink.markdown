@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Broadlink RM2 and A1 sensor"
-description: "Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant."
+description: "Instructions on how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant."
 date: 2016-12-03 21:59
 sidebar: true
 comments: false
@@ -78,7 +78,7 @@ sensor:
 The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
 </p>
 
-The quickest way around this is to use a pre-built binary, e.g. from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
+The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
 
 Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
 

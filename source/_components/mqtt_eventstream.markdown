@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Eventstream"
-description: "Instructions how to setup MQTT eventstream within Home Assistant."
+description: "Instructions on how to setup MQTT eventstream within Home Assistant."
 date: 2016-01-13 08:00
 sidebar: true
 comments: false

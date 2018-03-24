@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Apple TV"
-description: "Instructions how to integrate Apple TV devices into Home Assistant."
+description: "Instructions on how to integrate Apple TV devices into Home Assistant."
 date: 2017-06-26 20:47
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ha_release: 0.49
 ---
 
-The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g. arrow keys.
+The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g., arrow keys.
 
 <p class='note'>
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
@@ -92,7 +92,7 @@ then device authentication is required. Press the icon in the upper left corner 
 
 <img src='/images/screenshots/developer-tools.png' />
 
-Select `apple_tv` as domain, `apple_tv_authenticate` as service and enter `{"entity_id": "XXX"}` into "Service Data", but replace XXX with the entity id of your device (e.g. `media_player.apple_tv`). Press the button and hopefully you are presented with an input dialog asking for a pin code:
+Select `apple_tv` as domain, `apple_tv_authenticate` as service and enter `{"entity_id": "XXX"}` into "Service Data", but replace XXX with the entity id of your device (e.g., `media_player.apple_tv`). Press the button and hopefully you are presented with an input dialog asking for a pin code:
 
 <img src='/images/components/apple_tv/auth_start.jpg' />
 
@@ -143,4 +143,3 @@ To play media on an Apple TV with device authentication enabled (e.g., ATV4 with
 ### {% linkable_title Service `apple_tv_scan` %}
 
 Scans the local network for Apple TVs. All found devices are presented as a persistent notification.
-

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Efergy"
-description: "Instructions how to integrate Efergy devices within Home Assistant."
+description: "Instructions on how to integrate Efergy devices within Home Assistant."
 date: 2015-07-11 0:15
 sidebar: true
 comments: false

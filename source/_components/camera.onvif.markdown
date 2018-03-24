@@ -30,8 +30,11 @@ Configuration variables:
 - **name** (*Optional*): Override the name of your camera.
 - **username** (*Optional*): The username for the camera.
 - **password** (*Optional*): The password for the camera.
-- **port** (*Optional*): The port for the camera. This defaults to 5000
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+- **port** (*Optional*): The port for the camera. This defaults to 5000.
+- **profile** (*Optional*): Video profile that will be used to obtain the stream. This defaults to 0. More details below.
+- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+
+Most of the Onvif cameras support more than one audio/video Profile. Each profile provides different image quality. Usually, the first profile has the highest quality, and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time - especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in config `profile` variable.
 
 ### {% linkable_title Service `camera.onvif_ptz` %}
 

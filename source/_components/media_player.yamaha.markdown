@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yamaha Network Receivers"
-description: "Instructions how to integrate Yamaha Network Receivers into Home Assistant."
+description: "Instructions on how to integrate Yamaha Network Receivers into Home Assistant."
 date: 2016-03-26 0:58 -0700
 sidebar: true
 comments: false
@@ -36,9 +36,9 @@ Configuration variables:
   default name (often model number) that is returned by the device.
 - **host** (*Optional*): IP address or hostname of the device
 - **source_ignore** (*Optional*): List of sources to hide in the front-end
-- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing one to rename e.g. `HDMI1` to `ChromeCast`
+- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing one to rename e.g., `HDMI1` to `ChromeCast`
 - **zone_ignore** (*Optional*): List of zones to hide in the front-end
-- **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g. `Main_Zone` to `Family Room`
+- **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g., `Main_Zone` to `Family Room`
 
 ### {% linkable_title Discovery notes %}
 
@@ -121,5 +121,5 @@ Enable or disable an output port (HDMI) on the receiver.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `port` | no | Port to enable or disable, e.g. `hdmi1`.
+| `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.

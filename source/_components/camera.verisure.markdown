@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Verisure Camera"
-description: "Instructions how to setup the Verisure cameras within Home Assistant."
+description: "Instructions on how to setup the Verisure cameras within Home Assistant."
 date: 2016-10-22 09:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mochad"
-description: "Instructions how to integrate Mochad into Home Assistant."
+description: "Instructions on how to integrate Mochad into Home Assistant."
 date: 2016-10-20 17:09
 sidebar: true
 comments: false

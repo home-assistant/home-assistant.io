@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Weather"
-description: "Instructions how to setup your Weather platforms with Home Assistant."
+description: "Instructions on how to setup your Weather platforms with Home Assistant."
 date: 2016-09-28 14:00
 sidebar: true
 comments: false

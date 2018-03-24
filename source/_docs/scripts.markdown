@@ -21,7 +21,8 @@ script:
     sequence:
       # This is written using the Script Syntax
       - service: light.turn_on
-        entity_id: light.ceiling
+        data:
+          entity_id: light.ceiling
       - service: notify.notify
         data:
           message: 'Turned on the ceiling light!'
@@ -32,11 +33,11 @@ script:
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
 ```yaml
-alias: Bedroom lights on
-service: light.turn_on
-data:
-  entity_id: group.bedroom
-  brightness: 100
+- alias: Bedroom lights on
+  service: light.turn_on
+  data:
+    entity_id: group.bedroom
+    brightness: 100
 ```
 
 ### {% linkable_title Test a Condition %}
@@ -44,9 +45,9 @@ data:
 While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will finish. There are many different conditions which are documented at the [conditions page].
 
 ```yaml
-condition: state
-entity_id: device_tracker.paulus
-state: 'home'
+- condition: state
+  entity_id: device_tracker.paulus
+  state: 'home'
 ```
 
 ### {% linkable_title Delay %}
@@ -55,46 +56,53 @@ Delays are useful for temporarily suspending your script and start it at a later
 
 ```yaml
 # Waits 1 hour
-delay: 01:00
+- delay: '01:00'
 ```
 
 ```yaml
 # Waits 1 minute, 30 seconds
-delay: 00:01:30
+- delay: '00:01:30'
 ```
 
 ```yaml
 # Waits 1 minute
-delay:
-  # supports milliseconds, seconds, minutes, hours, days
-  minutes: 1
+- delay:
+    # supports milliseconds, seconds, minutes, hours, days
+    minutes: 1
 ```
 
+{% raw %}
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% endraw %}
+- delay: "00:{{ states('input_number.minute_delay')|int }}:00"
 ```
+{% endraw %}
+
 ### {% linkable_title Wait %}
 
 Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
+{% raw %}
 ```yaml
 # wait until media player have stop the playing
-wait_template: {% raw %}"{{ states.media_player.floor.state == 'stop' }}"{% endraw %}
+- wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
+{% endraw %}
 
+{% raw %}
 ```yaml
-# wait until a valve is < 10 or abort after 1 minutes.
-wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
-timeout: 00:01:00
+# wait until a valve is < 10 or abort after 1 minute.
+- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+  timeout: '00:01:00'
 ```
+{% endraw %}
 
 When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 {% raw %}
 ```yaml
-wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+- wait_template: "{{ is_state('trigger.entity_id', 'on') }}"
 ```
 {% endraw %}
 
@@ -102,13 +110,13 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 
 {% raw %}
 ```yaml
-# Service call, e.g. from an automation.
-service: script.do_something
-data_template:
-  dummy: "{{ input_boolean.switch }}"
+# Service call, e.g., from an automation.
+- service: script.do_something
+  data_template:
+    dummy: input_boolean.switch
 
 # Inside the script
-wait_template: "{{ is_state(dummy, 'off') }}"
+- wait_template: "{{ is_state(dummy, 'off') }}"
 ```
 {% endraw %}
 
@@ -117,12 +125,12 @@ wait_template: "{{ is_state(dummy, 'off') }}"
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
 ```yaml
-event: LOGBOOK_ENTRY
-event_data:
-  name: Paulus
-  message: is waking up
-  entity_id: device_tracker.paulus
-  domain: light
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: Paulus
+    message: is waking up
+    entity_id: device_tracker.paulus
+    domain: light
 ```
 
 You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
@@ -130,10 +138,10 @@ an event trigger.
 
 {% raw %}
 ```yaml
-event: MY_EVENT
-event_data_template:
-  name: myEvent
-  customData: "{{ myCustomVariable }}"
+- event: MY_EVENT
+  event_data_template:
+    name: myEvent
+    customData: "{{ myCustomVariable }}"
 ```
 {% endraw %}
 
@@ -145,13 +153,13 @@ The following automation shows how to raise a custom event called `event_light_s
 ```yaml
 - alias: Fire Event
   trigger:
-    platform: state
-    entity_id: switch.kitchen
-    to: 'on'
+    - platform: state
+      entity_id: switch.kitchen
+      to: 'on'
   action:
-    event: event_light_state_changed
-    event_data:
-      state: "on"
+    - event: event_light_state_changed
+      event_data:
+        state: 'on'
 ```
 {% endraw %}
 
@@ -161,8 +169,8 @@ The following automation shows how to capture the custom event `event_light_stat
 ```yaml
 - alias: Capture Event
   trigger:
-    platform: event
-    event_type: event_light_state_changed
+    - platform: event
+      event_type: event_light_state_changed
   action:
     - service: notify.notify
       data_template:

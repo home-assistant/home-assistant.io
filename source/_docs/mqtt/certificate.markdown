@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Certificate"
-description: "Instructions how to setup MQTT with a certificate in Home Assistant."
+description: "Instructions on how to setup MQTT with a certificate in Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false

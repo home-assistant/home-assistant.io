@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Recorder"
-description: "Instructions how to configure the data recorder for Home Assistant."
+description: "Instructions on how to configure the data recorder for Home Assistant."
 date: 2017-09-24 09:00
 sidebar: true
 comments: false
@@ -119,7 +119,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### {% linkable_title Service `purge` %}
 
@@ -156,14 +156,29 @@ If the `recorder` component is activated then some components support `restore_s
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
-+<p class='note'>
-+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g. sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the service - for PostgreSQL:
-+```
-+[Unit]
-+Description=Home Assistant
-+After=network.target postgresql.service
-+```
-+</p>
+<p class='note'>
+If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+
++If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+
+```bash
+$ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
+```
+
+and add the service for PostgreSQL:
+
+```
+[Unit]
+Description=Home Assistant
+After=network.target postgresql.service
+```
+
+Save the file then reload `systemctl`:
+
+```bash
+$ sudo systemctl daemon-reload
+```
+</p>
 
 ## {% linkable_title Installation notes %}
 

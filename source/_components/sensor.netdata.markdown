@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netdata"
-description: "Instructions how to integrate Netdata within Home Assistant."
+description: "Instructions on how to integrate Netdata within Home Assistant."
 date: 2016-12-05 07:00
 sidebar: true
 comments: false

@@ -43,7 +43,7 @@ On Raspberry Pi you will need to enable the serial interface in the `raspi-confi
 ```yaml
 # Example configuration.yaml entry
 zwave:
-  usb_path: /dev/ttyUSB0
+  usb_path: /dev/ttyACM0
 ```
 
 {% configuration zwave %}
@@ -77,11 +77,6 @@ debug:
   required: false
   type: boolean
   default: False
-new_entity_ids:
-  description: Switch to new entity_id generation.
-  required: false
-  type: boolean
-  default: True
 device_config / device_config_domain / device_config_glob:
   description: This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
   required: false
@@ -140,7 +135,7 @@ Or, if there is no result, try to find detailed USB connection info with:
 $ dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., *homeassistant* on Hassbian) give access to the stick with:
 
 ```bash
 $ sudo usermod -a -G dialout homeassistant

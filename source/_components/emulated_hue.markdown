@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Emulated Hue Bridge"
-description: "Instructions how to emulated Hue Bridge within Home Assistant."
+description: "Instructions on how to emulated Hue Bridge within Home Assistant."
 date: 2016-08-26 08:00
 sidebar: true
 comments: false

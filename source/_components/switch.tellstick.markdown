@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TellStick Switch"
-description: "Instructions how to integrate TellStick switches into Home Assistant."
+description: "Instructions on how to integrate TellStick switches into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
 comments: false

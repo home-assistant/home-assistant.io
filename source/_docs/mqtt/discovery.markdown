@@ -1,14 +1,13 @@
 ---
 layout: page
 title: "MQTT Discovery"
-description: "Instructions how to setup MQTT Discovery within Home Assistant."
+description: "Instructions on how to setup MQTT Discovery within Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#discovery
 ---
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
@@ -44,7 +43,7 @@ The discovery topic need to follow a specific format:
 
 - `<component>`: One of the supported components, eg. `binary_sensor`.
 - `<node_id>`: (*Optional*) id of the node providing the topic.
-- `<object_id>`: The ID of the device. This will become the `entity_id` in Home Assistant.
+- `<object_id>`: "The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`."
 - `<>`: The topic `config` or `state` which defines the current action.
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.

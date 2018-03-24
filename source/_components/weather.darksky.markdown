@@ -1,12 +1,13 @@
 ---
 layout: page
 title: "Dark Sky"
-description: "Instructions how to integrate Dark Sky within Home Assistant."
+description: "Instructions on how to integrate Dark Sky within Home Assistant."
 date: 2016-09-29 09:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 logo: dark_sky.png
 ha_category: Weather
 ha_release: 0.61

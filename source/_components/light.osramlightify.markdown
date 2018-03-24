@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Osram Lightify"
-description: "Instructions how to integrate Osram Lightify into Home Assistant."
+description: "Instructions on how to integrate Osram Lightify into Home Assistant."
 date: 2016-05-29 08:00
 sidebar: true
 comments: false

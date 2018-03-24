@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Discovery"
-description: "Instructions how to setup Home Assistant to discover new devices."
+description: "Instructions on how to setup Home Assistant to discover new devices."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -79,6 +79,7 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `songpal` : Songpal
  * `tellduslive`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player

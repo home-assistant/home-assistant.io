@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tile"
-description: "Instructions how to use Tile to track devices in Home Assistant."
+description: "Instructions on how to use Tile to track devices in Home Assistant."
 date: 2017-11-08 20:40:00
 sidebar: true
 comments: false

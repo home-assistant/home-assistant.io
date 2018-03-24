@@ -1,7 +1,7 @@
 ---
 layout: page
 title: UpCloud
-description: Instructions how to integrate UpCloud within Home Assistant.
+description: Instructions on how to integrate UpCloud within Home Assistant.
 date: 2018-01-28 20:00
 sidebar: true
 comments: false

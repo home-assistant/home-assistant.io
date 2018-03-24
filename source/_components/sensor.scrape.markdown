@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Scrape Sensor"
-description: "Instructions how to integrate Web scrape sensors into Home Assistant."
+description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
 date: 2016-10-12 09:10
 sidebar: true
 comments: false
@@ -126,7 +126,7 @@ sensor:
     resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
     name: Electricity price
     select: ".elspot-content"
-    value_template: '{{ value.split(" ")[0] }}'
+    value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "öre/kWh"
 ```
 {% endraw %}

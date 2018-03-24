@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Sensor"
-description: "Instructions how to integrate MQTT sensors within Home Assistant."
+description: "Instructions on how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
 comments: false
@@ -44,6 +44,10 @@ unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
+icon:
+  description: Icon for the sensor (e.g. `mdi:gauge`).
+  required: false
+  type: string
 expire_after:
   description: Defines the number of seconds after the value expires if it's not updated.
   required: false
@@ -81,6 +85,32 @@ json_attributes:
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title JSON attributes configuration %}
+
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](configuration/templating/#attributes); Example to extract data from the sensor below {% raw %}'{{ states.sensor.bs_client_name.attributes.ClientName }}'{% endraw %}.
+
+{% raw %}
+```yaml
+# Example configuration.yml entry
+sensor:
+  - platform: mqtt
+    state_topic: "HUISHS/BunnyShed/NodeHealthJSON"
+    name: "BS RSSI"
+    unit_of_measurement: "dBm"
+    value_template: '{{ value_json.RSSI }}'
+    availability_topic: "HUISHS/BunnyShed/status"
+    payload_available: "online"
+    payload_not_available: "offline"
+    json_attributes:
+      - ClientName
+      - IP
+      - MAC
+      - RSSI
+      - HostName
+      - ConnectedSSID  
+```
+{% endraw %}
 
 ### {% linkable_title Get battery level %}
 

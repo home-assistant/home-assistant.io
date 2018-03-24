@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Glances"
-description: "Instructions how to integrate Glances sensors into Home Assistant."
+description: "Instructions on how to integrate Glances sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -58,6 +58,9 @@ sensor:
       - 'process_thread'
       - 'process_sleeping'
       - 'cpu_temp'
+      - 'docker_active'
+      - 'docker_cpu_use'
+      - 'docker_memory_use'
 ```
 
 Configuration variables:
@@ -81,5 +84,8 @@ Configuration variables:
   - **process_thread**: Number of threads
   - **process_sleeping**: Number of sleeping processes
   - **cpu_temp**: CPU Temperature (may not available on all platforms)
+  - **docker_active**: Count of active Docker containers
+  - **docker_cpu_use**: Total CPU usage in percent of Docker containers
+  - **docker_memory_use**: Total memory used of Docker containers
 
 Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

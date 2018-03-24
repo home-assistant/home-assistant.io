@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telnet Switch"
-description: "Instructions how to integrate telnet switches into Home Assistant."
+description: "Instructions on how to integrate telnet switches into Home Assistant."
 date: 2017-08-10 19:19
 sidebar: true
 comments: false

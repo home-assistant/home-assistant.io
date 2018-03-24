@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Push Notifications"
-description: "Instructions how to use the HTML5 push notifications platform from Home Assistant."
+description: "Instructions on how to use the HTML5 push notifications platform from Home Assistant."
 date: 2016-08-17 21:58
 sidebar: true
 comments: false

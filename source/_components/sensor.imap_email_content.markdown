@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IMAP Email Content"
-description: "Instructions how to integrate IMAP email content sensor into Home Assistant."
+description: "Instructions on how to integrate IMAP email content sensor into Home Assistant."
 date: 2016-09-09 12:30
 sidebar: true
 comments: false

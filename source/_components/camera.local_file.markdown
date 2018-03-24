@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Local File"
-description: "Instructions how to use Local File as a Camera within Home Assistant."
+description: "Instructions on how to use Local File as a Camera within Home Assistant."
 date: 2016-06-12 17:00
 sidebar: true
 comments: false
