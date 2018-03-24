@@ -10,10 +10,9 @@ footer: true
 logo: epson.png
 ha_category: Media Player
 featured: true
-ha_release: "0.66"
+ha_release: "0.67"
 ha_iot_class: "Local Push"
 ---
-
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.
 
@@ -26,12 +25,24 @@ media_player:
     host: 192.168.0.123
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or address of the Epson projector
-- **port** (*Optional*): The HTTP port number. Defaults to 80.
-- **name** (*Optional*): The name of the device used in the frontend.
-- **ssl** (*Optional*): Enable SSL. **It is not working so far.**
+{% configuration %}
+host:
+  description: The host name or address of the Epson projector
+  required: true
+  type: string
+port
+  description: The HTTP port number. Defaults to 80.
+  required: false
+  type: int
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+ssl:
+  description: Enable SSL. **It is not working so far.**
+  required: false
+  type: int
+{% endconfiguration %}
 
 Supported features of Epson projector:
 - turn on/off
