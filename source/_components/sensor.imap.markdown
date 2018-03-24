@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IMAP Unread E-mail"
-description: "Instructions how to integrate IMAP unread email into Home Assistant."
+description: "Instructions on how to integrate IMAP unread email into Home Assistant."
 date: 2016-07-11 06:00
 sidebar: true
 comments: false

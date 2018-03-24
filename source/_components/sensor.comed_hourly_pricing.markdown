@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ComEd Hourly Pricing"
-description: "Instructions how to set up the ComEd Hourly Pricing sensor in Home Assistant."
+description: "Instructions on how to set up the ComEd Hourly Pricing sensor in Home Assistant."
 date: 2017-03-02 0:15
 sidebar: true
 comments: false

@@ -68,7 +68,7 @@ Configuration variables:
 - **password** (*Required*): The password to the FTP server on the camera (from above).
 - **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
 - **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
-- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g. image quality or video filter options).
+- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
 
 ## {% linkable_title Image quality %}
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Deluge Sensor"
-description: "Instructions how to integrate Deluge sensors within Home Assistant."
+description: "Instructions on how to integrate Deluge sensors within Home Assistant."
 date: 2017-10-24 17:06
 sidebar: true
 comments: false

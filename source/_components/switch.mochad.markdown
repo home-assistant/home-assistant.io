@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mochad Switch"
-description: "Instructions how to integrate X10 Mochad switches into Home Assistant."
+description: "Instructions on how to integrate X10 Mochad switches into Home Assistant."
 date: 2016-10-20 21:13
 sidebar: true
 comments: false

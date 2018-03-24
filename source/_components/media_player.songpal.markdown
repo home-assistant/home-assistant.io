@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sony SongPal compatible devices"
-description: "Instructions how to integrate Sony Songpal devices into Home Assistant."
+description: "Instructions on how to integrate Sony Songpal devices into Home Assistant."
 date: 2018-02-03 09:00
 sidebar: true
 comments: false
@@ -23,7 +23,7 @@ A few notes:
 
 - The quick start-up mode has to be enabled in order to turn the device on.
 - Supports currently only one output terminal, i.e. the volume control works only on the first volume controller as reported by the backend library.
-- Some devices, e.g. HT-XT3, do not support decreasing the volume step-by-step correctly.
+- Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
 ## {% linkable_title Configuration %}
@@ -61,8 +61,8 @@ For a list of available settings and their values use [`songpal sound`](https://
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target entity, leave unset for all devices       |
-| `name`                 |       no | Configuration variable, e.g. `nightmode`         |
-| `value`                |       no | New configuration value, e.g. `on`               |
+| `name`                 |       no | Configuration variable, e.g., `nightmode`         |
+| `value`                |       no | New configuration value, e.g., `on`               |
 
 
 

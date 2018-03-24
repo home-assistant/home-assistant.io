@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vacuum cleaner robots"
-description: "Instructions how to setup a botvac in Home Assistant."
+description: "Instructions on how to setup a botvac in Home Assistant."
 date: 2017-07-28 15:00
 sidebar: true
 comments: false

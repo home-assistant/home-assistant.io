@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Transmission Sensor"
-description: "Instructions how to integrate Transmission sensors within Home Assistant."
+description: "Instructions on how to integrate Transmission sensors within Home Assistant."
 date: 2015-04-25 9:06
 sidebar: true
 comments: false

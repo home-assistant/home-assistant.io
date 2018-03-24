@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "InfluxDB Sensor"
-description: "Instructions how to integrate InfluxDB sensors within Home Assistant."
+description: "Instructions on how to integrate InfluxDB sensors within Home Assistant."
 date: 2016-10-26 23:15
 sidebar: true
 comments: false

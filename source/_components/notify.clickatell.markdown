@@ -40,7 +40,7 @@ Configuration variables:
 
 * **name** (Optional): Setting the optional parameter name allows multiple notifiers to be created. The default value is `clickatell`. The notifier will bind to the service notify.NOTIFIER_NAME.
 * **api_key** (Required): Your API key.
-* **recipient** (Required): Your phone number. This is where you want to send your notification SMS messages. e.g. `61444333444`.
+* **recipient** (Required): Your phone number. This is where you want to send your notification SMS messages. e.g., `61444333444`.
 
 
 To use notifications, please see the [getting started with automation page](https://home-assistant.io/getting-started/automation/).

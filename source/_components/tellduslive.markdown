@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telldus Live"
-description: "Instructions how to integrate Telldus Live into Home Assistant."
+description: "Instructions on how to integrate Telldus Live into Home Assistant."
 date: 2016-01-17 16:00
 sidebar: true
 comments: false
@@ -21,7 +21,7 @@ If you are upgrading from 0.58 or older, you need to remove all Telldus configur
 
 Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network if the [discovery]({{site_root}}/components/discovery/) component is enabled. When discovery and the key exchange with Telldus Live have been completed, you will be presented with an option to integrate with the cloud or local API for direct communication with your hardware in your LAN. Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
 
-To manually integrate your Telldus Live with Home Assistant, e.g. if your device is on another network or in another location, add the following section to your `configuration.yaml` file:
+To manually integrate your Telldus Live with Home Assistant, e.g., if your device is on another network or in another location, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

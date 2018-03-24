@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Acer Projector Switch"
-description: "Instructions how to integrate Acer Projector switches into Home Assistant."
+description: "Instructions on how to integrate Acer Projector switches into Home Assistant."
 date: 2016-05-07 07:00
 sidebar: true
 comments: false

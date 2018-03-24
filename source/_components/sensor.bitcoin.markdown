@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bitcoin"
-description: "Instructions how to integrate Bitcoin data within Home Assistant."
+description: "Instructions on how to integrate Bitcoin data within Home Assistant."
 date: 2015-05-08 17:15
 sidebar: true
 comments: false

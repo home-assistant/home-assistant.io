@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sun"
-description: "Instructions how to track the sun within Home Assistant."
+description: "Instructions on how to track the sun within Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false

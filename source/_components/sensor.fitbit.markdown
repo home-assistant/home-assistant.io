@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fitbit"
-description: "Instructions how to integrate Fitbit devices within Home Assistant."
+description: "Instructions on how to integrate Fitbit devices within Home Assistant."
 date: 2016-05-09 15:01
 sidebar: true
 comments: false

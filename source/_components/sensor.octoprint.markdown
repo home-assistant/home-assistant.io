@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OctoPrint Sensor"
-description: "Instructions how to integrate OctoPrint sensors within Home Assistant."
+description: "Instructions on how to integrate OctoPrint sensors within Home Assistant."
 date: 2016-05-05 08:00
 sidebar: true
 comments: false

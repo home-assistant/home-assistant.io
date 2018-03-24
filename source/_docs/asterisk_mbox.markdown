@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Asterisk Voicemail Server Installation"
-description: "Instructions how to integrate your existing Asterisk voicemail within Home Assistant."
+description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
 date: 2017-06-30 18:30
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Modbus"
-description: "Instructions how to integrate Modbus within Home Assistant."
+description: "Instructions on how to integrate Modbus within Home Assistant."
 date: 2015-04-25 9:16
 sidebar: true
 comments: false

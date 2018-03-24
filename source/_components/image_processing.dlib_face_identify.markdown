@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dlib Face Identify"
-description: "Instructions how to integrate Dlib Face Identify into Home Assistant."
+description: "Instructions on how to integrate Dlib Face Identify into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false

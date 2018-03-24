@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Binary Sensor"
-description: "Instructions how to integrate Netatmo binary sensor into Home Assistant."
+description: "Instructions on how to integrate Netatmo binary sensor into Home Assistant."
 date: 2016-09-19 15:10
 sidebar: true
 comments: false

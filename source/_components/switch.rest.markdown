@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Switch"
-description: "Instructions how to integrate REST switches into Home Assistant."
+description: "Instructions on how to integrate REST switches into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Switch
 ha_release: 0.7.6
 ha_iot_class: "Local Polling"
 ---
-
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
 
@@ -30,17 +29,16 @@ resource:
   description: The resource or endpoint that contains the value.
   required: true
   type: string
-  default: string
 method:
   description: "The method of the request. Supported `post` or `put`."
   required: false
   type: string
-  default: POST
+  default: post
 name:
   description: Name of the REST Switch.
   required: false
   type: string
-  default: REST Binary Switch
+  default: REST Switch
 timeout:
   description: Timeout for the request.
   required: false
@@ -78,12 +76,11 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 ### {% linkable_title Switch with templated value %}
 
-This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example the REST endpoint returns this JSON response with true indicating the switch is on.
+This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 
 ```json
 {"is_active": "true"}
 ```
-
 
 ```yaml
 switch:
@@ -95,4 +92,3 @@ switch:
 ```
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'{% endraw %}`.
-

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kodi"
-description: "Instructions how to add Kodi notifications to Home Assistant."
+description: "Instructions on how to add Kodi notifications to Home Assistant."
 date: 2016-09-12 16:00
 sidebar: true
 comments: false

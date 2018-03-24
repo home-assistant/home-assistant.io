@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Random Sensor"
-description: "Instructions how to integrate random number sensors into Home Assistant."
+description: "Instructions on how to integrate random number sensors into Home Assistant."
 date: 2016-10-30 12:10
 sidebar: true
 comments: false

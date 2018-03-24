@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "FireTV"
-description: "Instructions how to integrate Fire-TV into Home Assistant."
+description: "Instructions on how to integrate Fire-TV into Home Assistant."
 date: 2015-10-23 18:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Smappee Sensor"
-description: "Instructions how to integrate Smappee energy monitor into Home Assistant."
+description: "Instructions on how to integrate Smappee energy monitor into Home Assistant."
 date: 2018-02-26 08:37
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Anthem A/V Receivers"
-description: "Instructions how to integrate Anthem A/V Receivers into Home Assistant."
+description: "Instructions on how to integrate Anthem A/V Receivers into Home Assistant."
 date: 2016-12-31 23:11
 sidebar: true
 comments: false

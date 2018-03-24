@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Binary Sensor"
-description: "Instructions how to integrate RFXtrx binary sensors into Home Assistant."
+description: "Instructions on how to integrate RFXtrx binary sensors into Home Assistant."
 date: 2017-03-26 12:45
 sidebar: true
 comments: false

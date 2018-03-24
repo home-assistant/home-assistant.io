@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Raspihats Binary Sensor"
-description: "Instructions how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant as a binary_sensor."
+description: "Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant as a binary_sensor."
 date: 2017-05-01 04:09
 sidebar: true
 comments: false

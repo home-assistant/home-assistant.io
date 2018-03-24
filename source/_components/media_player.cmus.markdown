@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "cmus"
-description: "Instructions how to integrate cmus Music Player into Home
+description: "Instructions on how to integrate cmus Music Player into Home
 Assistant."
 date: 2016-06-17 18:45
 sidebar: true

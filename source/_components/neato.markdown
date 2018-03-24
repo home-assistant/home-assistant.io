@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Robotics"
-description: "Instructions how to integrate your Neato within Home Assistant."
+description: "Instructions on how to integrate your Neato within Home Assistant."
 date: 2016-10-09 20:15
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HaveIBeenPwned Sensor"
-description: "Instructions how to integrate HaveIBeenPwned sensor into Home Assistant."
+description: "Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant."
 date: 2016-09-29 18:00
 sidebar: true
 comments: false

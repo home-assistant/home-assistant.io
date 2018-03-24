@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Cover"
-description: "Instructions how to setup the Z-Wave covers within Home Assistant."
+description: "Instructions on how to setup the Z-Wave covers within Home Assistant."
 date: 2016-12-18 19:41
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Climate"
-description: "Instructions how to setup the Z-Wave thermostat or HVAC within Home Assistant."
+description: "Instructions on how to setup the Z-Wave thermostat or HVAC within Home Assistant."
 date: 2016-04-03 9:52
 sidebar: true
 comments: false

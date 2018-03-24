@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenALPR Cloud"
-description: "Instructions how to integrate licences plates with OpenALPR cloud into Home Assistant."
+description: "Instructions on how to integrate licences plates with OpenALPR cloud into Home Assistant."
 date: 2017-01-09 00:00
 sidebar: true
 comments: false

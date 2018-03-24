@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave"
-description: "Instructions how to integrate your existing Z-Wave within Home Assistant."
+description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
 date: 2016-02-27 19:59
 sidebar: true
 comments: false

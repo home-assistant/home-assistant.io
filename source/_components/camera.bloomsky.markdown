@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BloomSky Camera"
-description: "Instructions how to integrate the BloomSky camera within Home Assistant."
+description: "Instructions on how to integrate the BloomSky camera within Home Assistant."
 date: 2016-02-03 20:00
 sidebar: true
 comments: false

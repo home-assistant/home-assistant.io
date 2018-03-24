@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iCloud"
-description: "Instructions how to use iCloud to track devices in Home Assistant."
+description: "Instructions on how to use iCloud to track devices in Home Assistant."
 date: 2015-12-15 1000
 sidebar: true
 comments: false

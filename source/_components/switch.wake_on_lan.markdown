@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wake on LAN Switch"
-description: "Instructions how to integrate a wake on lan switch."
+description: "Instructions on how to integrate a wake on lan switch."
 date: 2016-03-18 18:00
 sidebar: true
 comments: false
