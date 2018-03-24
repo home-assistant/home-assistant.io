@@ -53,6 +53,13 @@ By default events will be fired if the value in the command (cmd) field of the l
 - `SCENE EXE` - QwikSwitch Scene Transmitter buttons
 - `LEVEL` - QwikSwitch OFF Transmitter buttons
 
-The list of recognized commands can be extended for Keyfobs, door sensors, and PIR transmitters with the **button_events** configuration option. **button_events** contain a comma separated list of commands that will fire Home Assistant events. By default it is: TOGGLE,SCENE EXE,LEVEL.
+The list of recognized commands can be extended for Keyfobs, door sensors, and PIR transmitters with the **button_events** configuration option. **button_events** contain a comma separated list of commands that will fire Home Assistant events. By default it is: TOGGLE,SCENE EXE,LEVEL. 
+
+If you would like to add an event point your browser at  `/&listen` and note the value in `{"cmd": "NEW.CMD", ...}`. You have to include the `NEW.CMD` with the defaults:
+```
+qwikswitch:
+  url: ...
+  button_events: TOGGLE,SCENE EXE,LEVEL,NEW.CMD
+```
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
