@@ -128,76 +128,10 @@ To enable broadcast just use the keyword "BROADCAST" as your target. Only put ON
     platform: sun
     event: sunset
   action:
-    service: notify.<FACEBOOK_NOTIFY_COMPONENT_NAME_YOU_CREATED>
+    service: notify.facebook
     data:
-      message: <TEXT_YOU_ARE_SENDING>
+      message: Some text you want to send
       target:
         - BROADCAST
 ```
 
-Here is an advanced sample for broadcasting wind alerts from a wunderground weather station:
-
-configuration.yaml:
-
-```yaml
-notify:
-  - platform: facebook
-    name: facebook_wind_alerts
-    page_access_token: !secret facebook_page_access_token  
-
- platform: wunderground
- api_key: !secret wunder_api_key
- pws_id: !secret  wunder_station_id
- monitored_conditions:
-    - wind_kph
-    - wind_dir
-    - wind_gust_kph
-    - pressure_trend
-    - wind_string
-    - weather_1h
- 
- 
- platform: template
- sensors:
-    windy:
-      friendly_name: 'Wind'
-      icon_template: mdi:weather-windy
-      value_template: >-
-        "{% if (states.sensor.pws_wind_kph.state | float + states.sensor.pws_wind_gust_kph.state | float)/2.0 > 18.0 -%}"
-            Windy
-        "{%- else -%}"
-            Beer
-        "{%- endif -%}"
-
-```
-
-automations.yaml:
-```yaml
-
-- alias: Facebook Wind Alert
-  trigger:
-    platform: state
-    entity_id: sensor.windy
-    to: 'Windy'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: sun.sun
-        state: 'above_horizon'
-      - condition: state
-        entity_id: input_boolean.wind_alert
-        state: 'on'
-      - condition: time
-        before: '19:00:00'
-        after: '07:00:00'
-  action:
-    service: notify.facebook_wind_alerts
-    data_template:
-      message: >
-        {{ states.sensor.pws_wind_string.state }}
-        Pressure Trend : {{ states.sensor.pws_pressure_trend.state }}
-        Next Hour: {{ states.sensor.pws_weather_1h.state }}
-     target:
-       - BROADCAST
-```
