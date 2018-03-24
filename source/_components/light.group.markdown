@@ -46,3 +46,18 @@ Example of the light group "Kitchen Lights".
 </p>
 
 The supported features of all lights will be added together. For example, if you have one RGB light in a group of otherwise brightness-only lights, the light group will be shown with a color picker.
+
+## {% linkable_title Script Example %}
+
+Here's an example of an script using the above light group.
+
+```yaml
+script:
+  turn_on_kitchen_lights:
+    alias: Kitchen lights on
+    sequence:
+      service: light.turn_on
+      data:
+        entity_id: light.kitchen_lights
+        brightness: 100
+```
