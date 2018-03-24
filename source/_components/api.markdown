@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "API"
-description: "Instructions how to setup the RESTful API within Home Assistant."
+description: "Instructions on how to setup the RESTful API within Home Assistant."
 date: 2018-01-21 08:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX Binary Sensor"
-description: "Instructions how to setup the KNX binary sensors within Home Assistant."
+description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
 date: 2016-07-13 07:00
 sidebar: true
 comments: false
@@ -32,7 +32,7 @@ Configuration variables:
 
 - **name** (*Optional*): A name for this device used within Home Assistant.
 - **address**: KNX group address of the binary sensor.
-- **device_class** (Optional): HASS device class e.g. "motion".
+- **device_class** (Optional): HASS device class e.g., "motion".
 - **significant_bit** (Optional): Specify which significant bit of the KNX value should be used. Default is 1.
 - **reset_after** (Optional): Reset back to OFF state after specified milliseconds.
 

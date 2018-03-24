@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Demo platforms"
-description: "Instructions how to use the Platform demos with Home Assistant."
+description: "Instructions on how to use the Platform demos with Home Assistant."
 date: 2016-02-24 07:00
 sidebar: true
 comments: false

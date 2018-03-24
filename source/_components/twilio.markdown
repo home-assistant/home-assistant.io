@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Twilio"
-description: "Instructions how to add Twilio notifications to Home Assistant."
+description: "Instructions on how to add Twilio notifications to Home Assistant."
 date: 2016-05-14 14:14
 sidebar: true
 comments: false

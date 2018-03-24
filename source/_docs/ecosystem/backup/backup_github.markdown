@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to GitHub"
-description: "Instructions how backup your Home Assistant configuration to GitHub"
+description: "Instructions on how backup your Home Assistant configuration to GitHub"
 date: 2017-01-05 18:00
 sidebar: true
 comments: false
@@ -35,7 +35,7 @@ Some best practices to consider before putting your configuration on GitHub:
 
 ### {% linkable_title Step 1: Installing and Initializing Git %}
 
-In order to put your configuration on GitHub, you must install the git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubunutu, or any Debian-based system):
+In order to put your configuration on GitHub, you must install the git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubunutu, or any Debian-based system) *note: this isn't required in Hass.io, it's included as default so proceed to step 2*:
 
 ```bash
 $ sudo apt-get update

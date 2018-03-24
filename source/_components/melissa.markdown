@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Melissa Climate"
-description: "Instructions how to integrate Melissa Climate into Home Assistant."
+description: "Instructions on how to integrate Melissa Climate into Home Assistant."
 date: 2017-01-05 17:30
 sidebar: true
 comments: false

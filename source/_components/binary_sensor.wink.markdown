@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Binary Sensor"
-description: "Instructions how to setup the Wink binary sensors within Home Assistant."
+description: "Instructions on how to setup the Wink binary sensors within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false

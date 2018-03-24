@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yahoo Finance"
-description: "Instructions how to setup Yahoo Finance within Home Assistant."
+description: "Instructions on how to setup Yahoo Finance within Home Assistant."
 date: 2016-09-18 21:00
 sidebar: true
 comments: false

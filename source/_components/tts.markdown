@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Text-to-Speech (TTS)"
-description: "Instructions how to setup Text-to-Speech (TTS) with Home Assistant."
+description: "Instructions on how to setup Text-to-Speech (TTS) with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -22,13 +22,17 @@ tts:
   - platform: google
 ```
 
-The following optional parameters can be used with any platform. However the TTS component will only look for global settings under the configuration of the first configured platform:
+<p class='note'>
+Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/).
+</p>
+
+The following optional parameters can be used with any platform. However, the TTS component will only look for global settings under the configuration of the first configured platform:
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `cache` | True    | Allow TTS to cache voice file to local storage. |
-| `cache_dir`  | tts      | Folder name or path to folder for caching files. |
-| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on media player. Minimum is 60 s and the maximum 57600 s (16 hours). |
+| `cache_dir`  | tts      | Folder name or path to a folder for caching files. |
+| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours). |
 
 The extended example from above would look like the following sample:
 
@@ -41,13 +45,9 @@ tts:
     time_memory: 300
 ```
 
-<p class='note'>
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
-</p>
-
 ## {% linkable_title Service say %}
 
-The `say` service support `language` and on some platforms also `options` for set i.e. *voice, motion, speed, etc*. The text for speech is set with `message`.
+The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.
 
 Say to all `media_player` device entities:
 

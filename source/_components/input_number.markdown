@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Number"
-description: "Instructions how to integrate the Input Number component into Home Assistant."
+description: "Instructions on how to integrate the Input Number component into Home Assistant."
 date: 2017-09-19 03:30
 sidebar: true
 comments: false

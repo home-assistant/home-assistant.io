@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nest"
-description: "Instructions how to integrate Nest into Home Assistant."
+description: "Instructions on how to integrate Nest into Home Assistant."
 date: 2016-01-29 21:57
 sidebar: true
 comments: false

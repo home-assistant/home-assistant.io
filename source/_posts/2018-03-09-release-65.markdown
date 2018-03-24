@@ -153,13 +153,21 @@ intent_script:
 - Adding check for empty discovery info in alarm control panel Egardia. ([@jeroenterheerdt] - [#13114]) ([alarm_control_panel.egardia docs])
 - Throttle Arlo api calls ([@arsaboo] - [#13143]) ([arlo docs])
 
-## {% linkable_title Release Notes 0.65.5 - March 14 %}
+## {% linkable_title Release 0.65.5 - March 14 %}
 
 - Bugfix HomeKit: Error string values for temperature ([@cdce8p] - [#13162]) ([homekit docs])
 - Revert throttle Arlo api calls ([@arsaboo] - [#13174]) ([arlo docs])
 - Ignore unsupported Sonos favorites ([@amelchio] - [#13195]) ([media_player.sonos docs])
 - Avoid Sonos error when joining with self ([@amelchio] - [#13196]) ([media_player.sonos docs])
 - Fix input_boolean Google Assistant serialize error ([@balloob] - [#13220]) ([google_assistant docs])
+
+## {% linkable_title Release 0.65.6 - March 21 %}
+
+- More robust MJPEG parser. Fixes #13138. ([@PhracturedBlue] - [#13226]) ([camera.proxy docs])
+- Tado: don't reference unset hass var ([@balloob] - [#13237]) ([device_tracker docs])
+- Fix Sonos join/unjoin in scripts ([@amelchio] - [#13248]) ([media_player.sonos docs])
+- Fix Sonos radio stations with ampersand ([@amelchio] - [#13293]) ([media_player.sonos docs])
+- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light.demo docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -733,4 +741,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arlo docs]: https://home-assistant.io/components/arlo/
 [google_assistant docs]: https://home-assistant.io/components/google_assistant/
 [homekit docs]: https://home-assistant.io/components/homekit/
+[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
+[#13226]: https://github.com/home-assistant/home-assistant/pull/13226
+[#13237]: https://github.com/home-assistant/home-assistant/pull/13237
+[#13248]: https://github.com/home-assistant/home-assistant/pull/13248
+[#13293]: https://github.com/home-assistant/home-assistant/pull/13293
+[#13358]: https://github.com/home-assistant/home-assistant/pull/13358
+[@PhracturedBlue]: https://github.com/PhracturedBlue
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[camera.proxy docs]: https://home-assistant.io/components/camera.proxy/
+[device_tracker docs]: https://home-assistant.io/components/device_tracker/
+[google_assistant docs]: https://home-assistant.io/components/google_assistant/
+[light.demo docs]: https://home-assistant.io/components/light.demo/
 [media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/

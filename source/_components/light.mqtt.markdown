@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Light"
-description: "Instructions how to setup MQTT lights within Home Assistant."
+description: "Instructions on how to setup MQTT lights within Home Assistant."
 date: 2015-11-13 08:30
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron Caseta Switch"
-description: "Instructions how to setup the Lutron Caseta switches within Home Assistant."
+description: "Instructions on how to setup the Lutron Caseta switches within Home Assistant."
 date: 2017-04-30 09:00
 sidebar: true
 comments: false

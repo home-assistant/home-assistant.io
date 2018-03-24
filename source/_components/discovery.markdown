@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Discovery"
-description: "Instructions how to setup Home Assistant to discover new devices."
+description: "Instructions on how to setup Home Assistant to discover new devices."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false

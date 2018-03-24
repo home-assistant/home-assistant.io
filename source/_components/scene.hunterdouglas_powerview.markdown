@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "PowerView Scenes"
-description: "Instructions how to setup Hunter Douglas PowerView scenes within Home Assistant."
+description: "Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant."
 date: 2016-03-11 16:00
 sidebar: true
 comments: false

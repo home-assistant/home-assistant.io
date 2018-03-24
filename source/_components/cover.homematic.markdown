@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Homematic Cover"
-description: "Instructions how to integrate Homematic covers within Home Assistant."
+description: "Instructions on how to integrate Homematic covers within Home Assistant."
 date: 2016-08-24 14:25
 sidebar: true
 comments: false

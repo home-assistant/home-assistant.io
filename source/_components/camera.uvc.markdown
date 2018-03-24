@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "UniFi Video Camera"
-description: "Instructions how to integrate UVC cameras within Home Assistant."
+description: "Instructions on how to integrate UVC cameras within Home Assistant."
 date: 2016-02-07 10:00
 sidebar: true
 comments: false

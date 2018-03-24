@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mochad Light"
-description: "Instructions how to integrate X10 Mochad lights into Home Assistant."
+description: "Instructions on how to integrate X10 Mochad lights into Home Assistant."
 date: 2017-07-14 11:29
 sidebar: true
 comments: false

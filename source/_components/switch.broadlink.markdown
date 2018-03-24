@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Broadlink RM Switch"
-description: "Instructions how to have Broadlink RM switches."
+description: "Instructions on how to have Broadlink RM switches."
 date: 2016-11-22 22:41
 sidebar: true
 comments: false

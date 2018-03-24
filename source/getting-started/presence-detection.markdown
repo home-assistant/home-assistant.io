@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Setting up presence detection"
-description: "Instructions how to setup presence detection within Home Assistant."
+description: "Instructions on how to setup presence detection within Home Assistant."
 date: 2015-10-04 12:08
 sidebar: true
 comments: false

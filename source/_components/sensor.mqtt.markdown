@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Sensor"
-description: "Instructions how to integrate MQTT sensors within Home Assistant."
+description: "Instructions on how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
 comments: false
@@ -42,6 +42,10 @@ qos:
   default: 0
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+icon:
+  description: Icon for the sensor (e.g. `mdi:gauge`).
   required: false
   type: string
 expire_after:

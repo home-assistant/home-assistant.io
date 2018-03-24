@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installing third-party add-ons"
-description: "Instructions how to get started using third-party add-ons."
+description: "Instructions on how to get started using third-party add-ons."
 date: 2017-05-14 13:28
 sidebar: true
 comments: false

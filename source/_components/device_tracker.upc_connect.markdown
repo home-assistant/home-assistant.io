@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "UPC ConnectBox"
-description: "Instructions how to integrate UPC ConnectBox into Home Assistant."
+description: "Instructions on how to integrate UPC ConnectBox into Home Assistant."
 date: 2016-12-30 00:00
 sidebar: true
 comments: false

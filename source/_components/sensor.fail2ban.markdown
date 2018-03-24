@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fail2Ban Sensor"
-description: "Instructions how to integrate a fail2ban sensor into Home Assistant."
+description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
 date: 2017-10-19 10:30
 sidebar: true
 comments: false

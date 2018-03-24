@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SoChain"
-description: "Instructions how to integrate chain.so data within Home Assistant."
+description: "Instructions on how to integrate chain.so data within Home Assistant."
 date: 2017-06-01 16:20
 sidebar: true
 comments: false

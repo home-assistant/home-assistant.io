@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pilight Binary Sensor"
-description: "Instructions how to integrate Pilight binary sensors within Home Assistant."
+description: "Instructions on how to integrate Pilight binary sensors within Home Assistant."
 date: 2017-03-24 20:41
 sidebar: true
 comments: false

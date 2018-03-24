@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ADS Sensor"
-description: "Instructions how to integrate ADS numeric values into Home Assistant."
+description: "Instructions on how to integrate ADS numeric values into Home Assistant."
 date: 2017-10-25 10:00
 sidebar: true
 comments: false

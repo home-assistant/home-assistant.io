@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pilight Switch"
-description: "Instructions how to have switches using 433 MHz connected to a computer running pilight."
+description: "Instructions on how to have switches using 433 MHz connected to a computer running pilight."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bluesound"
-description: "Instructions how to integrate Bluesound devices into Home Assistant."
+description: "Instructions on how to integrate Bluesound devices into Home Assistant."
 date: 2017-04-21 19:00
 sidebar: true
 comments: false

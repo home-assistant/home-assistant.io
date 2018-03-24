@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TrackR"
-description: "Instructions how to use TrackR to track devices in Home Assistant."
+description: "Instructions on how to use TrackR to track devices in Home Assistant."
 date: 2016-12-22 1000
 sidebar: true
 comments: false

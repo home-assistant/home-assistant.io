@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon (local)"
-description: "Instructions how to setup the Insteon Hub locally within Home Assistant."
+description: "Instructions on how to setup the Insteon Hub locally within Home Assistant."
 date:  2016-12-18 08:00
 sidebar: true
 comments: false

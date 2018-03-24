@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Envisalink Alarm"
-description: "Instructions how to setup the Envisalink Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the Envisalink Alarm control panel within Home Assistant."
 date: 2016-07-01 08:00
 sidebar: true
 comments: false

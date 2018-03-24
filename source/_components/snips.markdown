@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Snips"
-description: "Instructions how to integrate Snips within Home Assistant."
+description: "Instructions on how to integrate Snips within Home Assistant."
 date: 2017-06-22 12:00
 sidebar: true
 comments: false

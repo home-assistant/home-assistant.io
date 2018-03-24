@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BT Home Hub 5"
-description: "Instructions how to integrate BT Home Hub 5 router into Home Assistant."
+description: "Instructions on how to integrate BT Home Hub 5 router into Home Assistant."
 date: 2016-06-13 13:00
 sidebar: true
 comments: false
@@ -25,6 +25,6 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.254.
+- **host** (*Required*): The IP address of your router, e.g., 192.168.1.254.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

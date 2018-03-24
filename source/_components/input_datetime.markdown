@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Datetime"
-description: "Instructions how to integrate the Input Datetime component into Home Assistant."
+description: "Instructions on how to integrate the Input Datetime component into Home Assistant."
 date: 2017-09-14 16:01
 sidebar: true
 comments: false
