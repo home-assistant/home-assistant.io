@@ -28,10 +28,16 @@ roku:
   name: Roku
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): Set the IP address of the Roku device.  Use only if you don't want to autodiscover devices.
-- **name** (*Optional*): Name of Roku device. 
+{% configuration %}
+host:
+  description: Set the IP address of the Roku device.  Use only if you don't want to autodiscover devices.
+  required: false
+  type: string
+name:
+  description: Name of Roku device. 
+  required: false
+  type: string
+{% endconfiguration %} 
 
 ## {% linkable_title Services %}
 
