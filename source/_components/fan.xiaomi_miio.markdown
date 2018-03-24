@@ -216,7 +216,7 @@ Turn the buzzer on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_buzzer_off` %} (Air Purifier Pro excluded)
 
@@ -224,7 +224,7 @@ Turn the buzzer off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_led_on` %} (Air Purifier only)
 
@@ -232,7 +232,7 @@ Turn the led on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_led_off` %} (Air Purifier only)
 
@@ -240,7 +240,7 @@ Turn the led off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_child_lock_on` %}
 
@@ -248,7 +248,7 @@ Turn the child lock on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_child_lock_off` %}
 
@@ -256,7 +256,7 @@ Turn the child lock off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_led_brightness` %} (Air Purifier Pro excluded)
 
@@ -264,7 +264,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_favorite_level` %} (Air Purifier only)
@@ -273,7 +273,7 @@ Set the favorite level of the operation mode "favorite".
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_on` %} (Air Purifier Pro only)
@@ -282,7 +282,7 @@ Turn the auto detect on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_off` %} (Air Purifier Pro only)
 
@@ -290,7 +290,7 @@ Turn the auto detect off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_learn_mode_on` %} (Air Purifier 2 only)
 
@@ -298,7 +298,7 @@ Turn the learn mode on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_learn_mode_off` %} (Air Purifier 2 only)
 
@@ -306,7 +306,7 @@ Turn the learn mode off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_volume` %} (Air Purifier Pro only)
 
@@ -314,7 +314,7 @@ Set the sound volume.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `volume`                  |       no | Volume, between 0 and 100.                              |
 
 ### {% linkable_title Service `fan.xiaomi_miio_reset_filter` %} (Air Purifier 2 only)
@@ -323,7 +323,7 @@ Reset the filter lifetime and usage.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_extra_features` %} (Air Purifier only)
 
@@ -331,7 +331,7 @@ Set the extra features.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_target_humidity` %} (Air Humidifier only)
@@ -340,7 +340,7 @@ Set the target humidity.
 
 | Service data attribute    | Optional | Description                                                     |
 |---------------------------|----------|-----------------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `humidity`                |       no | Target humidity. Allowed values are 30, 40, 50, 60, 70 and 80   |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_dry_on` %} (Air Humidifier CA only)
@@ -349,7 +349,7 @@ Turn the dry mode on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
 ### {% linkable_title Service `fan.xiaomi_miio_set_dry_off` %} (Air Humidifier CA only)
 
@@ -357,4 +357,4 @@ Turn the dry mode off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio fan entity. Else targets all. |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
