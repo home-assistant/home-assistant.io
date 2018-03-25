@@ -28,7 +28,7 @@ sensor:
     pin: <your FinTS pin>
     url: <FinTS url of your bank>
     accounts: # optional
-    - iban: <some iban number>
+    - account: <some iban number>
       name: <give the account a name>
 ```
 {% endraw %}
@@ -66,8 +66,8 @@ To find out the configuration for your bank, check their website or call their h
         required: false
         type: list
         keys: 
-          iban:
-            description: IBAN of the account to be shown.
+          account:
+            description: For balance accounts use the IBAN of the account for holdings accounts use the classic account number.
             required: true
             type: string
           name:
