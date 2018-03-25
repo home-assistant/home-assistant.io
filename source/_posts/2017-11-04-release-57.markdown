@@ -32,7 +32,7 @@ As part of getting translations to work, we did a lot of cleanup work on the fro
 
 [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2017 is over! FINALLY. Each year we're attracting more developers that want to contribute to Home Assistant. This is great but also very exhausting to our code reviewers. I want to give an enormous gigantic huge big shout out to our reviewers @pvizeli, @andrey-git, @armills, @MartinHjelmare, @fabaff. You have all done an amazing job and we couldn't run Home Assistant without any of you! ❤
 
-Hacktoberfest is obviously about the people contributing to open source. Big thanks to everyone that has taken the time to learn our code base and make contributions. We hope it was a pleasant experience and show how great open source can be. Hope to see many contributions in the future 👍 
+Hacktoberfest is obviously about the people contributing to open source. Big thanks to everyone that has taken the time to learn our code base and make contributions. We hope it was a pleasant experience and show how great open source can be. Hope to see many contributions in the future 👍
 
 Here are our Hacktoberfest 2017 stats. It's a miracle everyone is still alive:
 
@@ -56,7 +56,7 @@ Long time contributor [@lwis] jumped on the case and managed to migrate our inte
 
 ## {% linkable_title Timer %}
 
-Okay, one more highlight before we'll let you check out the changelog. Contributor [@danielperna84] (famous for creating the [HASS Configurator](https://home-assistant.io/addons/configurator/)), had another great component up his sleeve: the Timer component. With the timer component you'll be able to start countdown timers. A neat tool for your automation toolbox! More info in the [timer docs].
+Okay, one more highlight before we'll let you check out the changelog. Contributor [@danielperna84] (famous for creating the [HASS Configurator](/addons/configurator/)), had another great component up his sleeve: the Timer component. With the timer component you'll be able to start countdown timers. A neat tool for your automation toolbox! More info in the [timer docs].
 
 ## {% linkable_title New Platforms %}
 
@@ -110,7 +110,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## {% linkable_title Breaking Changes %}
 
 - IKEA TRÅDFRI: We no longer support entering the key in the configuration. ([@lwis] - [#10282]) ([tradfri docs]) (breaking change)
-- API.AI was renamed to [Dialogflow](https://home-assistant.io/components/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
+- API.AI was renamed to [Dialogflow](/components/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
 - Wink: Removed support for entering your `username` and `password` in your config. Use the [new authentication method][wink-auth] instead. ([@w1ll1am23] - [#10277]) ([wink docs]) (breaking change)
 - Use feed name assigned in EmonCMS if there is one. This changes the default behavior but still uses configured 'name' if it's set, so it won't break the configuration of people who have customized their feed names in HA config. ([@KlaasH] - [#10021]) ([sensor.emoncms docs]) (breaking change)
 - The `namecheapdns` now uses `password:` instead of `access_token` in the configuration. Also, `host` is now optional which allow people who are not using subdomains to keep their configuration shorter. ([@fabaff] - [#10063]) ([namecheapdns docs]) (breaking change)
@@ -522,138 +522,138 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wardcraigj]: https://github.com/wardcraigj
 [@ypollart]: https://github.com/ypollart
 [@zabuldon]: https://github.com/zabuldon
-[alarm_control_panel.totalconnect docs]: https://home-assistant.io/components/alarm_control_panel.totalconnect/
-[alexa.smart_home docs]: https://home-assistant.io/components/alexa.smart_home/
-[api docs]: https://home-assistant.io/components/api/
-[automation.event docs]: https://home-assistant.io/docs/automation/trigger/#event-trigger
-[automation.numeric_state docs]: https://home-assistant.io/docs/automation/trigger/#numeric-state-trigger
-[axis docs]: https://home-assistant.io/components/axis/
-[binary_sensor.axis docs]: https://home-assistant.io/components/binary_sensor.axis/
-[binary_sensor.gc100 docs]: https://home-assistant.io/components/binary_sensor.gc100/
-[binary_sensor.linode docs]: https://home-assistant.io/components/binary_sensor.linode/
-[binary_sensor.random docs]: https://home-assistant.io/components/binary_sensor.random/
-[binary_sensor.rfxtrx docs]: https://home-assistant.io/components/binary_sensor.rfxtrx/
-[binary_sensor.ring docs]: https://home-assistant.io/components/binary_sensor.ring/
-[binary_sensor.tellduslive docs]: https://home-assistant.io/components/binary_sensor.tellduslive/
-[binary_sensor.trend docs]: https://home-assistant.io/components/binary_sensor.trend/
-[binary_sensor.xiaomi_aqara docs]: https://home-assistant.io/components/binary_sensor.xiaomi_aqara/
-[camera docs]: https://home-assistant.io/components/camera/
-[camera.ring docs]: https://home-assistant.io/components/camera.ring/
-[climate.ephember docs]: https://home-assistant.io/components/climate.ephember/
-[climate.generic_thermostat docs]: https://home-assistant.io/components/climate.generic_thermostat/
-[climate.honeywell docs]: https://home-assistant.io/components/climate.honeywell/
-[climate.toon docs]: https://home-assistant.io/components/climate.toon/
-[cloud docs]: https://home-assistant.io/components/cloud/
-[cloud.iot docs]: https://home-assistant.io/components/cloud.iot/
-[cover.template docs]: https://home-assistant.io/components/cover.template/
-[device_tracker docs]: https://home-assistant.io/components/device_tracker/
-[device_tracker.asuswrt docs]: https://home-assistant.io/components/device_tracker.asuswrt/
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[device_tracker.geofency docs]: https://home-assistant.io/components/device_tracker.geofency/
-[device_tracker.mikrotik docs]: https://home-assistant.io/components/device_tracker.mikrotik/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[device_tracker.snmp docs]: https://home-assistant.io/components/device_tracker.snmp/
-[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
-[dialogflow docs]: https://home-assistant.io/components/dialogflow/
-[downloader docs]: https://home-assistant.io/components/downloader/
-[duckdns docs]: https://home-assistant.io/components/duckdns/
-[fan.mqtt docs]: https://home-assistant.io/components/fan.mqtt/
-[fan.xiaomi_miio docs]: https://home-assistant.io/components/fan.xiaomi_miio/
-[gc100 docs]: https://home-assistant.io/components/gc100/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[google_domains docs]: https://home-assistant.io/components/google_domains/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[history docs]: https://home-assistant.io/components/history/
-[http docs]: https://home-assistant.io/components/http/
-[image_processing.openalpr_local docs]: https://home-assistant.io/components/image_processing.openalpr_local/
-[input_number docs]: https://home-assistant.io/components/input_number/
-[input_text docs]: https://home-assistant.io/components/input_text/
-[introduction docs]: https://home-assistant.io/components/introduction/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.hyperion docs]: https://home-assistant.io/components/light.hyperion/
-[light.mqtt docs]: https://home-assistant.io/components/light.mqtt/
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
-[light.yeelight docs]: https://home-assistant.io/components/light.yeelight/
-[linode docs]: https://home-assistant.io/components/linode/
-[logbook docs]: https://home-assistant.io/components/logbook/
-[mailbox docs]: https://home-assistant.io/components/mailbox/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player docs]: https://home-assistant.io/components/media_player/
-[media_player.liveboxplaytv docs]: https://home-assistant.io/components/media_player.liveboxplaytv/
-[media_player.monoprice docs]: https://home-assistant.io/components/media_player.monoprice/
-[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
-[media_player.russound_rnet docs]: https://home-assistant.io/components/media_player.russound_rnet/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[media_player.yamaha docs]: https://home-assistant.io/components/media_player.yamaha/
-[mqtt_statestream docs]: https://home-assistant.io/components/mqtt_statestream/
-[namecheapdns docs]: https://home-assistant.io/components/namecheapdns/
-[no_ip docs]: https://home-assistant.io/components/no_ip/
-[notify.aws_lambda docs]: https://home-assistant.io/components/notify.aws_lambda/
-[notify.aws_sns docs]: https://home-assistant.io/components/notify.aws_sns/
-[notify.aws_sqs docs]: https://home-assistant.io/components/notify.aws_sqs/
-[notify.clickatell docs]: https://home-assistant.io/components/notify.clickatell/
-[notify.sendgrid docs]: https://home-assistant.io/components/notify.sendgrid/
-[notify.yessssms docs]: https://home-assistant.io/components/notify.yessssms/
-[panel_custom docs]: https://home-assistant.io/components/panel_custom/
-[persistent_notification docs]: https://home-assistant.io/components/persistent_notification/
-[plant docs]: https://home-assistant.io/components/plant/
-[raincloud docs]: https://home-assistant.io/components/raincloud/
-[remember_the_milk docs]: https://home-assistant.io/components/remember_the_milk/
-[rfxtrx docs]: https://home-assistant.io/components/rfxtrx/
-[ring docs]: https://home-assistant.io/components/ring/
-[sensor.coinmarketcap docs]: https://home-assistant.io/components/sensor.coinmarketcap/
-[sensor.emoncms docs]: https://home-assistant.io/components/sensor.emoncms/
-[sensor.fail2ban docs]: https://home-assistant.io/components/sensor.fail2ban/
-[sensor.gitter docs]: https://home-assistant.io/components/sensor.gitter/
-[sensor.glances docs]: https://home-assistant.io/components/sensor.glances/
-[sensor.google_travel_time docs]: https://home-assistant.io/components/sensor.google_travel_time/
-[sensor.hddtemp docs]: https://home-assistant.io/components/sensor.hddtemp/
-[sensor.imap docs]: https://home-assistant.io/components/sensor.imap/
-[sensor.irish_rail_transport docs]: https://home-assistant.io/components/sensor.irish_rail_transport/
-[sensor.lastfm docs]: https://home-assistant.io/components/sensor.lastfm/
-[sensor.luftdaten docs]: https://home-assistant.io/components/sensor.luftdaten/
-[sensor.nederlandse_spoorwegen docs]: https://home-assistant.io/components/sensor.nederlandse_spoorwegen/
-[sensor.radarr docs]: https://home-assistant.io/components/sensor.radarr/
-[sensor.rest docs]: https://home-assistant.io/components/sensor.rest/
-[sensor.ring docs]: https://home-assistant.io/components/sensor.ring/
-[sensor.scrape docs]: https://home-assistant.io/components/sensor.scrape/
-[sensor.snmp docs]: https://home-assistant.io/components/sensor.snmp/
-[sensor.sonarr docs]: https://home-assistant.io/components/sensor.sonarr/
-[sensor.speedtest docs]: https://home-assistant.io/components/sensor.speedtest/
-[sensor.swiss_public_transport docs]: https://home-assistant.io/components/sensor.swiss_public_transport/
-[sensor.synologydsm docs]: https://home-assistant.io/components/sensor.synologydsm/
-[sensor.sytadin docs]: https://home-assistant.io/components/sensor.sytadin/
-[sensor.toon docs]: https://home-assistant.io/components/sensor.toon/
-[sensor.uk_transport docs]: https://home-assistant.io/components/sensor.uk_transport/
-[sensor.whois docs]: https://home-assistant.io/components/sensor.whois/
-[shopping_list docs]: https://home-assistant.io/components/shopping_list/
-[switch.deluge docs]: https://home-assistant.io/components/switch.deluge/
-[switch.flux docs]: https://home-assistant.io/components/switch.flux/
-[switch.gc100 docs]: https://home-assistant.io/components/switch.gc100/
-[switch.snmp docs]: https://home-assistant.io/components/switch.snmp/
-[switch.template docs]: https://home-assistant.io/components/switch.template/
-[switch.toon docs]: https://home-assistant.io/components/switch.toon/
-[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
-[tellduslive docs]: https://home-assistant.io/components/tellduslive/
-[tellstick docs]: https://home-assistant.io/components/tellstick/
-[tesla docs]: https://home-assistant.io/components/tesla/
-[timer docs]: https://home-assistant.io/components/timer/
-[toon docs]: https://home-assistant.io/components/toon/
-[tradfri docs]: https://home-assistant.io/components/tradfri/
-[tts.amazon_polly docs]: https://home-assistant.io/components/tts.amazon_polly/
-[tts.microsoft docs]: https://home-assistant.io/components/tts.microsoft/
-[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
-[vera docs]: https://home-assistant.io/components/vera/
-[wink docs]: https://home-assistant.io/components/wink/
-[xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
+[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
+[alexa.smart_home docs]: /components/alexa.smart_home/
+[api docs]: /components/api/
+[automation.event docs]: /docs/automation/trigger/#event-trigger
+[automation.numeric_state docs]: /docs/automation/trigger/#numeric-state-trigger
+[axis docs]: /components/axis/
+[binary_sensor.axis docs]: /components/binary_sensor.axis/
+[binary_sensor.gc100 docs]: /components/binary_sensor.gc100/
+[binary_sensor.linode docs]: /components/binary_sensor.linode/
+[binary_sensor.random docs]: /components/binary_sensor.random/
+[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
+[binary_sensor.ring docs]: /components/binary_sensor.ring/
+[binary_sensor.tellduslive docs]: /components/binary_sensor.tellduslive/
+[binary_sensor.trend docs]: /components/binary_sensor.trend/
+[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
+[camera docs]: /components/camera/
+[camera.ring docs]: /components/camera.ring/
+[climate.ephember docs]: /components/climate.ephember/
+[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
+[climate.honeywell docs]: /components/climate.honeywell/
+[climate.toon docs]: /components/climate.toon/
+[cloud docs]: /components/cloud/
+[cloud.iot docs]: /components/cloud.iot/
+[cover.template docs]: /components/cover.template/
+[device_tracker docs]: /components/device_tracker/
+[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[device_tracker.geofency docs]: /components/device_tracker.geofency/
+[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
+[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
+[device_tracker.snmp docs]: /components/device_tracker.snmp/
+[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[dialogflow docs]: /components/dialogflow/
+[downloader docs]: /components/downloader/
+[duckdns docs]: /components/duckdns/
+[fan.mqtt docs]: /components/fan.mqtt/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[gc100 docs]: /components/gc100/
+[google_assistant docs]: /components/google_assistant/
+[google_domains docs]: /components/google_domains/
+[hassio docs]: /components/hassio/
+[history docs]: /components/history/
+[http docs]: /components/http/
+[image_processing.openalpr_local docs]: /components/image_processing.openalpr_local/
+[input_number docs]: /components/input_number/
+[input_text docs]: /components/input_text/
+[introduction docs]: /components/introduction/
+[light.hue docs]: /components/light.hue/
+[light.hyperion docs]: /components/light.hyperion/
+[light.mqtt docs]: /components/light.mqtt/
+[light.tradfri docs]: /components/light.tradfri/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[light.yeelight docs]: /components/light.yeelight/
+[linode docs]: /components/linode/
+[logbook docs]: /components/logbook/
+[mailbox docs]: /components/mailbox/
+[media_extractor docs]: /components/media_extractor/
+[media_player docs]: /components/media_player/
+[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
+[media_player.monoprice docs]: /components/media_player.monoprice/
+[media_player.plex docs]: /components/media_player.plex/
+[media_player.russound_rnet docs]: /components/media_player.russound_rnet/
+[media_player.sonos docs]: /components/media_player.sonos/
+[media_player.yamaha docs]: /components/media_player.yamaha/
+[mqtt_statestream docs]: /components/mqtt_statestream/
+[namecheapdns docs]: /components/namecheapdns/
+[no_ip docs]: /components/no_ip/
+[notify.aws_lambda docs]: /components/notify.aws_lambda/
+[notify.aws_sns docs]: /components/notify.aws_sns/
+[notify.aws_sqs docs]: /components/notify.aws_sqs/
+[notify.clickatell docs]: /components/notify.clickatell/
+[notify.sendgrid docs]: /components/notify.sendgrid/
+[notify.yessssms docs]: /components/notify.yessssms/
+[panel_custom docs]: /components/panel_custom/
+[persistent_notification docs]: /components/persistent_notification/
+[plant docs]: /components/plant/
+[raincloud docs]: /components/raincloud/
+[remember_the_milk docs]: /components/remember_the_milk/
+[rfxtrx docs]: /components/rfxtrx/
+[ring docs]: /components/ring/
+[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
+[sensor.emoncms docs]: /components/sensor.emoncms/
+[sensor.fail2ban docs]: /components/sensor.fail2ban/
+[sensor.gitter docs]: /components/sensor.gitter/
+[sensor.glances docs]: /components/sensor.glances/
+[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
+[sensor.hddtemp docs]: /components/sensor.hddtemp/
+[sensor.imap docs]: /components/sensor.imap/
+[sensor.irish_rail_transport docs]: /components/sensor.irish_rail_transport/
+[sensor.lastfm docs]: /components/sensor.lastfm/
+[sensor.luftdaten docs]: /components/sensor.luftdaten/
+[sensor.nederlandse_spoorwegen docs]: /components/sensor.nederlandse_spoorwegen/
+[sensor.radarr docs]: /components/sensor.radarr/
+[sensor.rest docs]: /components/sensor.rest/
+[sensor.ring docs]: /components/sensor.ring/
+[sensor.scrape docs]: /components/sensor.scrape/
+[sensor.snmp docs]: /components/sensor.snmp/
+[sensor.sonarr docs]: /components/sensor.sonarr/
+[sensor.speedtest docs]: /components/sensor.speedtest/
+[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
+[sensor.synologydsm docs]: /components/sensor.synologydsm/
+[sensor.sytadin docs]: /components/sensor.sytadin/
+[sensor.toon docs]: /components/sensor.toon/
+[sensor.uk_transport docs]: /components/sensor.uk_transport/
+[sensor.whois docs]: /components/sensor.whois/
+[shopping_list docs]: /components/shopping_list/
+[switch.deluge docs]: /components/switch.deluge/
+[switch.flux docs]: /components/switch.flux/
+[switch.gc100 docs]: /components/switch.gc100/
+[switch.snmp docs]: /components/switch.snmp/
+[switch.template docs]: /components/switch.template/
+[switch.toon docs]: /components/switch.toon/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[tellduslive docs]: /components/tellduslive/
+[tellstick docs]: /components/tellstick/
+[tesla docs]: /components/tesla/
+[timer docs]: /components/timer/
+[toon docs]: /components/toon/
+[tradfri docs]: /components/tradfri/
+[tts.amazon_polly docs]: /components/tts.amazon_polly/
+[tts.microsoft docs]: /components/tts.microsoft/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[vera docs]: /components/vera/
+[wink docs]: /components/wink/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
 [ikea email]: https://twitter.com/home_assistant/status/925373865802502144
-[wink-auth]: https://home-assistant.io/components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
+[wink-auth]: /components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
 [#10384]: https://github.com/home-assistant/home-assistant/pull/10384
 [#10428]: https://github.com/home-assistant/home-assistant/pull/10428
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@tchellomello]: https://github.com/tchellomello
-[binary_sensor.ring docs]: https://home-assistant.io/components/binary_sensor.ring/
-[camera.ring docs]: https://home-assistant.io/components/camera.ring/
-[sensor.ring docs]: https://home-assistant.io/components/sensor.ring/
-[tellstick docs]: https://home-assistant.io/components/tellstick/
+[binary_sensor.ring docs]: /components/binary_sensor.ring/
+[camera.ring docs]: /components/camera.ring/
+[sensor.ring docs]: /components/sensor.ring/
+[tellstick docs]: /components/tellstick/

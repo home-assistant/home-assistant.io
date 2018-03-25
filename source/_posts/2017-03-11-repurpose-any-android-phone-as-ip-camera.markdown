@@ -312,7 +312,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [EFF]: https://www.eff.org
-[hass-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[hass-shirt]: /blog/2017/02/22/home-assistant-tshirts-have-arrived/
 [#6532]: https://github.com/home-assistant/home-assistant/pull/6532
 [#6552]: https://github.com/home-assistant/home-assistant/pull/6552
 [#6574]: https://github.com/home-assistant/home-assistant/pull/6574

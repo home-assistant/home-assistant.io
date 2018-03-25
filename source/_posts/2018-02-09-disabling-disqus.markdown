@@ -10,7 +10,7 @@ comments: true
 categories: Community
 ---
 
-Last week, starting with the release of [Home Assistant 0.62](https://home-assistant.io/blog/2018/01/27/release-62/), we switched to using our [community forums](https://community.home-assistant.io) for comments on our blog posts. By doing so, people are able to use their existing Home Assistant community accounts to comment on our blog posts and engage with one another. It has been easier for our users to stay in the loop with one less channel to keep track off.
+Last week, starting with the release of [Home Assistant 0.62](/blog/2018/01/27/release-62/), we switched to using our [community forums](https://community.home-assistant.io) for comments on our blog posts. By doing so, people are able to use their existing Home Assistant community accounts to comment on our blog posts and engage with one another. It has been easier for our users to stay in the loop with one less channel to keep track off.
 
 Previously, we were using the free version of Disqus to power comments on our blog. After the switch, to preserve the old comments, we decided to keep Disqus active on the older blog post pages. However, today we decided to turn them off.
 
