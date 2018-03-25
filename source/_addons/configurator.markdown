@@ -65,7 +65,7 @@ Screenshot of the HASS Configurator.
 
 ### {% linkable_title Embedding into Home-Assistant %}
 
-Using the Home Assistant component [panel_iframe](https://home-assistant.io/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration from within the Home Assistant frontend.
+Using the Home Assistant component [panel_iframe](/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration from within the Home Assistant frontend.
 
 An example configuration would look like this:
 

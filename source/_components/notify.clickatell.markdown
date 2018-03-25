@@ -43,4 +43,4 @@ Configuration variables:
 * **recipient** (Required): Your phone number. This is where you want to send your notification SMS messages. e.g., `61444333444`.
 
 
-To use notifications, please see the [getting started with automation page](https://home-assistant.io/getting-started/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

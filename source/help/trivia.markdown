@@ -17,7 +17,7 @@ Isn't it obvious? Home Assistant is the good soul that is assisting you in your 
 
 ### {% linkable_title Website %}
 
-The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and components, and for the developers.
+The website [https://www.home-assistant.io](/) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and components, and for the developers.
 
 ### {% linkable_title Logo %}
 
@@ -38,7 +38,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 | [Forum members](https://community.home-assistant.io/) | 92 | 3931 | 16663 |
 | [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 | 5239 | 12074 |
 | [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 | 1424 | 3474 |
-| Page views [ha.io](https://home-assistant.io) | 600,372 | 6,614,343 | 23,727,481 |
+| Page views [ha.io](/) | 600,372 | 6,614,343 | 23,727,481 |
 
 ### {% linkable_title Commit per year %}
 

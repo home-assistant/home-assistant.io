@@ -18,7 +18,7 @@ To add (include) a non-secure Z-Wave [device](/docs/z-wave/devices/) to your sys
 3. Activate your device to be included by following the instructions provided with the device
 4. With the device in its final location, run a *Heal Network*
 
-Don't use this for [secure devices](https://home-assistant.io/docs/z-wave/adding/#adding-secure-devices), since this is likely to limit the features the device supports.
+Don't use this for [secure devices](/docs/z-wave/adding/#adding-secure-devices), since this is likely to limit the features the device supports.
 
 <p class='note warning'>
 Don't use the OpenZWave control panel (OZWCP), **or the physical button on a controller**, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won't have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.

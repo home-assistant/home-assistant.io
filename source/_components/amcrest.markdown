@@ -56,7 +56,7 @@ Configuration variables:
 **Note:** Amcrest cameras with newer firmware no longer have the ability to stream `high` definition video with MJPEG encoding. You may need to use `low` resolution stream or the `snapshot` stream source instead.  If the quality seems too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in your camera's configuration manager. If you defined the *stream_source* to **mjpeg**, make sure your camera supports *Basic* HTTP authentication. Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 
 **Note:** If you set the `stream_source` option to `rtsp`, make sure to follow the steps mentioned at
-[FFMPEG](https://home-assistant.io/components/ffmpeg/) documentation to install the `ffmpeg`.
+[FFMPEG](/components/ffmpeg/) documentation to install the `ffmpeg`.
 
 Finish its configuration by visiting the [Amcrest sensor page](/components/sensor.amcrest/) or [Amcrest camera page](/components/camera.amcrest/).
 

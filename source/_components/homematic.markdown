@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 featured: false
 ---
 
-The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.  
+The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](http://intertechno.at/) devices, uni-directional communication is possible as well.
 
 Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`.
@@ -89,7 +89,7 @@ homematic:
       host: 127.0.0.1
       username: Admin
       password: secret
-    
+
 ```
 
 ### {% linkable_title The `resolvenames` option %}
@@ -110,7 +110,7 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 ### {% linkable_title Reading attributes of entities %}
 
-Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](https://home-assistant.io/components/sensor.template/) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/components/sensor.template/) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
 
 ```yaml
 sensor:

@@ -31,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
 
 ## {% linkable_title Examples %}
 
@@ -84,7 +84,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
+Make sure to configure the [logger component](/components/logger) to monitor the [http component](/components/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works

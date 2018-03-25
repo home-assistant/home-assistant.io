@@ -31,7 +31,7 @@ $ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-de
 Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release && sudo yum install python34 python34-devel mysql-devel`
 </p>
 
-Additional dependencies exist if you plan to perform Frontend Development, please read the [Frontend](https://home-assistant.io/developers/frontend/) section to learn more.
+Additional dependencies exist if you plan to perform Frontend Development, please read the [Frontend](/developers/frontend/) section to learn more.
 
 #### {% linkable_title Developing on Windows %}
 
@@ -83,7 +83,7 @@ $ cd home-assistant
 $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 ```
 
-### {% linkable_title Setting up virtual environment %} 
+### {% linkable_title Setting up virtual environment %}
 
 To isolate your environment from the rest of the system, set up a [`venv`](https://docs.python.org/3/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
 

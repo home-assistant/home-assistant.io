@@ -19,9 +19,9 @@ After any changes have been made to the configuration, you need to restart the a
 
 Configuration variables:
 
-- **id** (*Required*): A number and must be unique for each device. 
-- **name** (*Required*): A name for easy identification of the device. 
-- **protocol** (*Required*): This is the protocol the device uses. More on the different protocols later down. 
+- **id** (*Required*): A number and must be unique for each device.
+- **name** (*Required*): A name for easy identification of the device.
+- **protocol** (*Required*): This is the protocol the device uses. More on the different protocols later down.
 - **model** (*Optional*): The model parameter is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus self-learning, etc.
 - **house** (*Optional*): Depending on protocol the values here can vary a lot to identify or group per house or type.
 - **unit** (*Optional*): Unit identifier, in most cases a value between 1 to 16 and often used in combination with the house.
@@ -37,10 +37,10 @@ You will need to add internal communication details to `configuration.yaml` to e
 tellstick:
     host: core-tellstick
     port: [50800, 50801]
-    
+
 ```
 
-To add [lights](https://home-assistant.io/components/light.tellstick/), [sensors](https://home-assistant.io/components/sensor.tellstick/) and [switches](https://home-assistant.io/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](https://home-assistant.io/components/tellstick/)
+To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tellstick/) and [switches](/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](/components/tellstick/)
 
 The add-on will also enable you to interact with the `tdtool` via a Home Assistant services call, see example below for self-learning device.
 

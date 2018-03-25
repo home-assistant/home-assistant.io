@@ -38,4 +38,4 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **vibration**: `On` means vibration detected, `Off` means no vibration (clear)
 - **window**: `On` means open, `Off` means closed
 
-For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
+For analog sensors please check the [component overview](/components/#sensor).
