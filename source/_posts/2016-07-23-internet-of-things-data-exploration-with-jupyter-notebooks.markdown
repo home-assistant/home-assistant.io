@@ -27,7 +27,7 @@ One of the graphs created with this tutorial.
 
 _TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
 
-[blog post by Fabian]: https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/
+[blog post by Fabian]: /blog/2016/07/19/visualizing-your-iot-data/
 [DB Browser for SQLite]: http://sqlitebrowser.org/
 [Pandas]: http://pandas.pydata.org/
 [matplotlib]: http://matplotlib.org/

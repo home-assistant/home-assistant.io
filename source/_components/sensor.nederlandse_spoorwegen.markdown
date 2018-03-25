@@ -24,16 +24,16 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
 - platform: nederlandse_spoorwegen
-    email: you@example.com
-    password: !secret ns_password
-    routes:
-      - name: Rotterdam-Amsterdam
-        from: Rtd
-        to: Asd
-      - name: Groningen-Zwolle-Maastricht
-        from: Gn
-        to: Mt
-        via: Zl
+  email: you@example.com
+  password: !secret ns_password
+  routes:
+    - name: Rotterdam-Amsterdam
+      from: Rtd
+      to: Asd
+    - name: Groningen-Zwolle-Maastricht
+      from: Gn
+      to: Mt
+      via: Zl
 ```
 
 Configuration variables:

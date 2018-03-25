@@ -3,7 +3,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: https://home-assistant.io
+url: https://www.home-assistant.io
 title: Home Assistant
 subtitle: Open-source home automation platform running on Python 3
 author: Home Assistant
@@ -139,14 +139,14 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 65
-current_patch_version: 6
-date_released: 2018-03-21
+current_minor_version: 66
+current_patch_version: 0
+date_released: 2018-03-31
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#release-0656---march-21"
+patch_version_notes: "#"
 # Minor release (Example #release-0431---april-25):
 
 # Date we moved to Discourse for comments
