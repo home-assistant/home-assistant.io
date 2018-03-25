@@ -86,10 +86,10 @@ PRE_EXEC=""
 HASS_BIN="hass"
 RUN_AS="USER"
 PID_DIR="/var/run"
-PID_FILE="$PID_DIR/hass.pid"
+PID_FILE="${PID_DIR}/hass.pid"
 CONFIG_DIR="/var/opt/homeassistant"
 LOG_DIR="/var/log/homeassistant"
-LOG_FILE="$LOG_DIR/home-assistant.log"
+LOG_FILE="${LOG_DIR}/home-assistant.log"
 FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --log-file $LOG_FILE --daemon"
 
 
