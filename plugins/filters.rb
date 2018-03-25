@@ -24,7 +24,7 @@ module Jekyll
     # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 
     def site_url
-      'https://home-assistant.io'
+      'https://www.home-assistant.io'
     end
 
     # Prepend a url with the full site url
