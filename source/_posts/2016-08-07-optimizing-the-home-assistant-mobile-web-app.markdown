@@ -159,7 +159,7 @@ A lot of optimizations have been applied but this journey will never be over. Th
 - Reduce size of initial bundle by moving out all things that are not visible for initial paint. For example the dialogs that show more info about entities.
 - Prefetch the other pages using `<link rel="preload" …>`
 
-[demo]: https://home-assistant.io/demo
+[demo]: /demo
 [hap]: https://github.com/home-assistant/home-assistant-polymer
 [mantra]: https://www.youtube.com/watch?v=zfQoleQEa4w&feature=youtu.be&t=1380
 [sw-precache]: https://github.com/GoogleChrome/sw-precache

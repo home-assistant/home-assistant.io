@@ -29,4 +29,4 @@ The goal is to create a more stable first release without the need for a quick f
 
 The documentation for the beta version can be found at [https://rc.home-assistant.io/](https://rc.home-assistant.io/).
 
-If you find issues with either the code or the docs of the pre-release, please open an issue in the [appropriate place](https://home-assistant.io/help/#bugs-feature-requests-and-alike) or, even better, submit a pull request to fix it.
+If you find issues with either the code or the docs of the pre-release, please open an issue in the [appropriate place](/help/#bugs-feature-requests-and-alike) or, even better, submit a pull request to fix it.
