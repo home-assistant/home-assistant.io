@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.36
 ---
 
-[OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you to process licences plates from a camera. You can use them to open a garage door or trigger any other [automation](https://home-assistant.io/components/automation/).
+[OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you to process licences plates from a camera. You can use them to open a garage door or trigger any other [automation](/components/automation/).
 
 For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 

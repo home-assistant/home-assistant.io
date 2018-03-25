@@ -37,7 +37,7 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](https://home-assistant.io/docs/configuration/remote/)).
+1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](/docs/configuration/remote/)).
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project, and select the project you created.

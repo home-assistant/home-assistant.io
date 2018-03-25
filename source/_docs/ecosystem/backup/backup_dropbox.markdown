@@ -10,7 +10,7 @@ footer: true
 redirect_from: /cookbook/dropboxbackup/
 ---
 
-Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](https://home-assistant.io/docs/ecosystem/backup/backup_github/)
+Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](/docs/ecosystem/backup/backup_github/)
 
 ### {% linkable_title Requirements %}
 

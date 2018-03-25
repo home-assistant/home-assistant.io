@@ -29,7 +29,7 @@ To create the required Spotify Application:
 
 - Login to [Spotify Developer](https://developer.spotify.com)
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page
-- Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file. 
+- Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
 - Add a **Redirect URI** in the following forms:
 
  No SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
@@ -38,7 +38,7 @@ To create the required Spotify Application:
 
 The URL is whatever you use to access Home Assistant from outside your network (including port if applicable).
 
-- Click **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](https://home-assistant.io/components/http/).
+- Click **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](/components/http/).
 
 
 ## {% linkable_title Configuration %}

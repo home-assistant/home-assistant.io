@@ -13,7 +13,7 @@ Home Assistant can get information from your wireless router or third party serv
 
 There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
 
-An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time. 
+An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time.
 
 ## {% linkable_title Configuring a `device_tracker` platform %}
 
@@ -65,7 +65,7 @@ Here's an example configuration for a single device:
 devicename:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
-  picture: https://home-assistant.io/images/favicon-192x192.png
+  picture: https://www.home-assistant.io/images/favicon-192x192.png
   track: yes
   hide_if_away: no
 ```

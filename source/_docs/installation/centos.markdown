@@ -35,13 +35,13 @@ $ python --version
 Python 3.6.3
 ```
 
-You will be in a command shell set up with Python 3.6 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main [instructions](https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
+You will be in a command shell set up with Python 3.6 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main [instructions](/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
 
 You will need to enable the software collection each time you log on before you activate your virtual environment.
 
 ### {% linkable_title Systemd with Software Collections %}
 
-To autostart Home Assistant using systemd follow the main [instructions](https://home-assistant.io/docs/autostart/systemd/) and adjust the template as follows:
+To autostart Home Assistant using systemd follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
 
 ```
 [Unit]

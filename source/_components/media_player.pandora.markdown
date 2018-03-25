@@ -14,17 +14,17 @@ ha_release: 0.22
 ha_iot_class: "Local Polling"
 ---
 
-If you have a Pandora account, you can control it from Home Assistant with this media player. 
+If you have a Pandora account, you can control it from Home Assistant with this media player.
 
 
 ### {% linkable_title Installation of Pianobar %}
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_
 
-The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with ffmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](https://home-assistant.io/components/ffmpeg/) before doing this. Install the following basic dependencies:
+The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with ffmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/components/ffmpeg/) before doing this. Install the following basic dependencies:
 
 ```bash
-$ sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config  libcurl4-openssl-dev  
+$ sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config  libcurl4-openssl-dev
 ```
 
 And now install the backported ffmpeg-related libraries (note that if you're using an older version of ffmpeg for other things on this machine, you may encounter issues after doings this):
@@ -61,7 +61,7 @@ media_player:
   - platform: pandora
 ```
 
-That's it! Now you will find a media player. If you click it you will find all your stations listed as different sources. If you switch to one, the station will begin playing. 
+That's it! Now you will find a media player. If you click it you will find all your stations listed as different sources. If you switch to one, the station will begin playing.
 
 <p class='img'>
 <img src='/images/screenshots/pandora_player.png' />

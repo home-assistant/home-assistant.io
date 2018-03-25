@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick](http://www.telldus.se/products/tellstick) device.
 
 
-To use your TellStick device, you first have to set up your [Tellstick hub](https://home-assistant.io/components/tellstick/) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](/components/tellstick/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -36,7 +36,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 The notification component supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:
@@ -59,8 +59,8 @@ For services which have support for sending images.
 
 ```json
 { "message": "Test plugin",
-  "data": { 
-    "photo": { 
+  "data": {
+    "photo": {
         "url": "http://www.gbsun.de/gbpics/berge/berge106.jpg"
     }
   }

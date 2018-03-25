@@ -46,7 +46,7 @@ Additionally, note that at the time of this writing, your Alexa skill endpoint *
   OR
   2. Change your Home Assistant serving port to 443 this is done in the [`http`](/components/http/) section with the `server_port` entry in your `configuration.yaml` file
 
-[blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
+[blog-lets-encrypt]: /blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
 To get started with Alexa skills:
 
