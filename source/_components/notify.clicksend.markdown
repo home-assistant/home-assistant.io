@@ -54,4 +54,4 @@ sender:
   default: recipient
 {% endconfiguration %}
 
-To use notifications, please see the [getting started with automation page](https://home-assistant.io/getting-started/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

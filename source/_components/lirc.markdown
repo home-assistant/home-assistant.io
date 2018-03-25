@@ -14,9 +14,9 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-[LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](https://home-assistant.io/components/automation/).
+[LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/components/automation/).
 
-Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](https://home-assistant.io/components/shell_command/) in conjunction with the `irsend` command.
+Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
 
 ### {% linkable_title Installation %}
 
@@ -32,8 +32,8 @@ The configuration is slightly different :
 
  - The `hardware.conf` file is not supported, obsoleted by a new `lirc_options.conf` file and systemd unit definitions.
  - The former single `lirc` service is replaced with the three systemd services `lircd.service`, `lircmd.service` and `irexec.service`. There is no counterpart to the 0.9.0 `lirc` service which covered all of these. Using a separate transmitter device requires yet another service.
- - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.  
-    
+ - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.
+
 For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
 </p>
 

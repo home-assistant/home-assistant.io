@@ -12,7 +12,7 @@ ha_category: Other
 ---
 
 
-The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](https://home-assistant.io/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
+The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
 
 Available demo platforms:
 

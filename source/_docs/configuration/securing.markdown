@@ -14,10 +14,10 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 
 ### {% linkable_title Checklist %}
 
-- [Protect your web interface with a password](https://home-assistant.io/getting-started/basic/#password-protecting-the-web-interface)
+- [Protect your web interface with a password](/getting-started/basic/#password-protecting-the-web-interface)
 - Secure your host. Sources could be [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf), or the [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html).
 - Restrict network access to your devices. Set `PermitRootLogin no` in your sshd config (usually `/etc/ssh/sshd_config`) and to use SSH keys for authentication instead of passwords.
-- Don't run Home Assistant as root – consider the Principle of Least Privilege. 
+- Don't run Home Assistant as root – consider the Principle of Least Privilege.
 - Keep your [secrets](/topics/secrets/) safe.
 
 If you want to allow remote access, consider these additional points:

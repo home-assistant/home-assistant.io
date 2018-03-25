@@ -10,7 +10,7 @@ footer: true
 redirect_from: /ecosystem/hadashboard/
 ---
 
-HADashboard is a modular, skinnable dashboard for [Home Assistant](https://home-assistant.io/) that is intended to be wall mounted, and is optimized for distance viewing.
+HADashboard is a modular, skinnable dashboard for [Home Assistant](/) that is intended to be wall mounted, and is optimized for distance viewing.
 
 <p class='img'>
     <img src='/images/hadashboard/dash1.png' />

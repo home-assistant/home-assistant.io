@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 #### {% linkable_title Sonos say script to speak with text-to-speech %}
 
-This script allows you to use [TTS](https://home-assistant.io/components/#text-to-speech) on Sonos.
+This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
 
 ```yaml
 script:
@@ -46,7 +46,7 @@ automation:
     trigger:
       - platform: state
         entity_id: input_boolean.mytest
-    action:   
+    action:
       - service: script.sonos_say
         data:
           sonos_entity: media_player.office

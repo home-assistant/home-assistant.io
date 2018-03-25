@@ -20,7 +20,7 @@ To use RSS feeds in your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 feedreader:
   urls:
-    - https://home-assistant.io/atom.xml
+    - https://www.home-assistant.io/atom.xml
     - https://github.com/blog.atom
     - https://hasspodcast.io/feed/podcast
 ```

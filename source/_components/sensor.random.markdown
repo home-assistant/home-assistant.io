@@ -48,4 +48,4 @@ unit_of_measurement:
 
 See the [entity component options][entity-docs] to control how often the main component polls the random sensor. The default is 30 seconds.
 
-[entity-docs]: https://home-assistant.io/docs/configuration/platform_options/
+[entity-docs]: /docs/configuration/platform_options/

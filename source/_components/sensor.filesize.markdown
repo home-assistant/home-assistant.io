@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.64
 ---
 
-Component for displaying the size in MB of a file. Note that paths must be added to [whitelist_external_dirs](https://home-assistant.io/docs/configuration/basic/).
+Component for displaying the size in MB of a file. Note that paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 Add to your config:
 
 ```yaml

@@ -41,7 +41,7 @@ Example Automation:
         message: "This is the message"
         title: "Title of message"
         data:
-          url: "https://home-assistant.io/"
+          url: "https://www.home-assistant.io/"
           sound: pianobar
           priority: 0
 ```
@@ -53,7 +53,7 @@ This is a quote from the Pushover website regarding free/open source apps:
   If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software.
 </blockquote>
 
-When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
+When setting up the application you can use this [icon](/images/favicon-192x192.png).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -75,5 +75,5 @@ alexa:
           data:
             sound: falling
             device: pixel
-            url: "https://home-assistant.io/"
+            url: "https://www.home-assistant.io/"
 ```

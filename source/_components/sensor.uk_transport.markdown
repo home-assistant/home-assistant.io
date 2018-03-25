@@ -48,7 +48,7 @@ Configuration variables:
 - **origin** (*Required*): Specify the three character long origin station code.
 - **destination** (*Required*): Specify the three character long destination station code.
 
-A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains. The status of the next departing train is accessed using the [template sensor](https://home-assistant.io/components/sensor.template/) below, as are the train origin, estimated and scheduled departure times, and the departure platform.
+A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains. The status of the next departing train is accessed using the [template sensor](/components/sensor.template/) below, as are the train origin, estimated and scheduled departure times, and the departure platform.
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.

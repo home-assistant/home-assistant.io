@@ -20,7 +20,7 @@ This component allows you to write Python scripts that are exposed as services i
 | `data` | The data passed to the Python Script service call.
 | `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
 
-[hass-api]: https://home-assistant.io/developers/development_hass_object/
+[hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
 
 ## {% linkable_title Writing your first script %}

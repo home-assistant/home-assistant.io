@@ -52,7 +52,7 @@ See [python-songpal's documentation](https://github.com/rytilahti/python-songpal
 
 ## {% linkable_title Services %}
 
-In addition to the general [media player services](https://home-assistant.io/components/media_player/#services), the following services are provided:
+In addition to the general [media player services](/components/media_player/#services), the following services are provided:
 
 ### {% linkable_title Service `media_player/songpal_set_sound_setting` %}
 

@@ -37,7 +37,7 @@ Attribute | Description
 `icon` | Icon to use for the entity in the frontend. Example: `mdi:home`.
 `hidden` | Boolean if the entity should not be shown in the frontend. Example: `true`.
 `entity_picture` | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.
-`assumed_state` | Boolean if the current state is an assumption. [More info](https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`.
+`assumed_state` | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`.
 `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.
 
 When an attribute contains spaces, you can retrieve it like this: `states.sensor.livingroom.attributes["Battery numeric"]`.
