@@ -63,7 +63,7 @@ calendar:
           - Calculus II
 ```
 
-(See [here](https://home-assistant.io/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
+(See [here](/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
 
 As you can see, there are 4 custom projects here:
 

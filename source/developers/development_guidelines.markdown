@@ -27,7 +27,7 @@ Those points may require that you adjust your IDE or editor settings.
 
 ## {% linkable_title Our recommendations %}
 
-For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommendations about the code style. Those points were collected from the existing code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommendations to keep the code unified. 
+For some cases [PEPs](https://www.python.org/dev/peps/) don't make a statement. This section covers our recommendations about the code style. Those points were collected from the existing code and based on what contributors and developers were using the most. This is basically a majority decision, thus you may not agree with it. But we would like to encourage you follow those recommendations to keep the code unified.
 
 ### {% linkable_title Quotes %}
 
@@ -43,7 +43,7 @@ SENSOR_TYPES = {
 
 ### {% linkable_title File headers %}
 
-The docstring in the file header should contain a link to the documentation to make it easy to find further information, especially about the configuration or details which are not mentioned in the code. 
+The docstring in the file header should contain a link to the documentation to make it easy to find further information, especially about the configuration or details which are not mentioned in the code.
 
 ```python
 """
@@ -56,7 +56,7 @@ https://home-assistant.io/components/light.mqtt/
 
 ### {% linkable_title Requirements %}
 
-Please place [Platform requirements](/developers/code_review_platform/#1-requirements) right after the imports. 
+Please place [Platform requirements](/developers/code_review_platform/#1-requirements) right after the imports.
 
 ```python
 [...]

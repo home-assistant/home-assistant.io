@@ -15,7 +15,7 @@ ha_iot_class: "Assumed State"
 
 This `tellstick` light platform allows you to control your [TellStick](http://www.telldus.se/products/tellstick) dimmers.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](https://home-assistant.io/components/tellstick/) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](/components/tellstick/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

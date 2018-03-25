@@ -28,7 +28,7 @@ This will not create a full backup of your Home Assistant files or your OS. In a
 
 Some best practices to consider before putting your configuration on GitHub:
 
-- Extensive use of [secrets.yaml](https://home-assistant.io/topics/secrets/) to hide sensitive information like usernames, passwords, device information, and location
+- Extensive use of [secrets.yaml](/topics/secrets/) to hide sensitive information like usernames, passwords, device information, and location
 - Exclusion of some files, including `secrets.yaml` and device-specific information using a [`.gitignore`](https://git-scm.com/docs/gitignore) file
 - Regularly committing your configuration to GitHub to make sure that your backup is up to date
 - Use a README.md to document your configuration and include screenshots of your Home Assistant GUI
@@ -42,7 +42,7 @@ $ sudo apt-get update
 $ sudo apt-get install git
 ```
 
-### {% linkable_title Step 2: Creating %} `.gitignore` 
+### {% linkable_title Step 2: Creating %} `.gitignore`
 
 <p class='note warning'>
 Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the `secrets.yaml` best practice mentioned above and scrub your configuration for any passwords or sensitive information.
