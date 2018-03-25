@@ -41,7 +41,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.
-1. WiFi setup only: open the file `system-connections/resin-sample` (from the `resin-boot` volume on the SD card) with a text editor. Change `ssid` to be your network name and `psk` to be your password. Note that the Raspberry Pi 3 is a 2.4GHz WiFi device, so do not try to connect it to a 5GHz network.
+1. WiFi setup only: open the file `system-connections/resin-sample` (from the `resin-boot` volume on the SD card) with a text editor. Change `ssid` to be your network name and `psk` to be your password. Note: When connecting to a 5GHz-only network, make sure your device supports that. If you don't know what that means, then you probably have nothing to worry about.
 1. Unmount the SD card and remove it from your SD card reader.
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply so it turns on.
