@@ -27,13 +27,13 @@ If you start using a PocketCHIP you will definitely look like a Blackberry or a 
 
 First a couple of tweaks like setting up `sudo`, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell...it's straight-forward. For the sake of completeness below the notes about what I did.
 
-A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven't checked if a new build for the PocketCHIP would include them. So, after a `$ sudo apt-get update` installing those dependencies take a minute or two. 
+A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven't checked if a new build for the PocketCHIP would include them. So, after a `$ sudo apt-get update` installing those dependencies take a minute or two.
 
 ```bash
 $ sudo apt-get install python3-dev python3-pip python3-venv
 ```
 
-As usual I run Python applications in a [venv](https://docs.python.org/3/library/venv.html). 
+As usual I run Python applications in a [venv](https://docs.python.org/3/library/venv.html).
 
 ```bash
 $ pvenv ha
@@ -46,14 +46,14 @@ $ cd ha
 $ source bin/activate
 ```
 
-If you haven't seen the next two commands already then you should visit our [frontsite](https://home-assistant.io/). 
+If you haven't seen the next two commands already then you should visit our [frontsite](/).
 
 ```bash
 $ pip3 install homeassistant
 $ hass --open-ui
 ```
 
-With `surf` the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, [`midori`](https://twitter.com/fabaff/status/748852317047418880) is not better. 
+With `surf` the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, [`midori`](https://twitter.com/fabaff/status/748852317047418880) is not better.
 
 <p class='img'>
   <img src='/images/blog/2016-07-pocketchip/pocketchip.png' />

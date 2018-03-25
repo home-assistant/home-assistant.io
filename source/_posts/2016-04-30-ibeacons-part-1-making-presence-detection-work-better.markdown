@@ -120,7 +120,7 @@ Presence tracking sounds easy - and it's an important part of Home Automation. T
 
 You can find out more about configuring the OwnTracks application and beacons [here](http://owntracks.org/booklet/features/beacons/)
 
-There is information about configuring Homeassistant to use beacons [here](https://home-assistant.io/components/device_tracker.owntracks/)
+There is information about configuring Homeassistant to use beacons [here](/components/device_tracker.owntracks/)
 
 #### {% linkable_title Connections and disconnecting %}
 

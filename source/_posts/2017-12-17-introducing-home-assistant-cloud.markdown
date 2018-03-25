@@ -52,7 +52,7 @@ _Last updated: February 22, 2018_
 
 #### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
 
-You are right, [we don't](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
+You are right, [we don't](/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
 
 Instead, the Home Assistant Cloud is an extension of your local instance. It allows to communicate with companies that force us to communicate via a public available cloud endpoint like Amazon Alexa and Google Assistant.
 

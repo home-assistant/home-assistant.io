@@ -15,7 +15,7 @@ og_image: /images/blog/2018-02-0.63/components.png
 
 ## {% linkable_title Date set for dropping Python 3.4 support %}
 
-As [announced in October](https://home-assistant.io/blog/2017/10/06/deprecating-python-3.4-support/), we're going to drop Python 3.4 support in 2018. We've now decided that in two releases, 0.65, the minimum Python version that will be supported is bumped to 3.5.3. This won't impact most users. You are already fine if you're using Hass.io, the latest Debian stable (Stretch) or a derivative of that (Raspbian, Ubuntu).
+As [announced in October](/blog/2017/10/06/deprecating-python-3.4-support/), we're going to drop Python 3.4 support in 2018. We've now decided that in two releases, 0.65, the minimum Python version that will be supported is bumped to 3.5.3. This won't impact most users. You are already fine if you're using Hass.io, the latest Debian stable (Stretch) or a derivative of that (Raspbian, Ubuntu).
 
 ## {% linkable_title Entity Registry %}
 
@@ -85,10 +85,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
 - Avoid influxdb filling connection pool: The influxdb `retry_queue_limit` configuration variable no longer has any effect and can be removed. ([@amelchio] - [#12182]) ([influxdb docs]) (breaking change)
 - Some spelling mistakes in default entity names have been fixed in ([@OttoWinter] - [#12041]). This is causing these `entity_id` changes:
-   - [Seven segments display](https://home-assistant.io/components/image_processing.seven_segments/):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
-   - [Rain Bird Switch](https://home-assistant.io/components/switch.rainbird/): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
-   - [OpenEVSE Sensor](https://home-assistant.io/components/sensor.openevse/): `sensor.ambient_termperature` → `sensor.ambient_temperature`
-   - [Fido](https://home-assistant.io/components/sensor.fido/): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
+   - [Seven segments display](/components/image_processing.seven_segments/):  `image_processing.seven_segement_ocr_[...]` → `image_processing.seven_segment_ocr_[...]`
+   - [Rain Bird Switch](/components/switch.rainbird/): `switch.sprinker_[...]` → `switch.sprinkler_[...]`
+   - [OpenEVSE Sensor](/components/sensor.openevse/): `sensor.ambient_termperature` → `sensor.ambient_temperature`
+   - [Fido](/components/sensor.fido/): `sensor.[...]_internaltional_remaining` → `sensor.[...]_international remaining`
 - From version 0.64, Home Assistant will by default purge recorded state history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain:
     ```yaml
     recorder:
@@ -503,136 +503,136 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@zabuldon]: https://github.com/zabuldon
-[alexa docs]: https://home-assistant.io/components/alexa/
-[binary_sensor.deconz docs]: https://home-assistant.io/components/binary_sensor.deconz/
-[binary_sensor.mercedesme docs]: https://home-assistant.io/components/binary_sensor.mercedesme/
-[binary_sensor.mqtt docs]: https://home-assistant.io/components/binary_sensor.mqtt/
-[binary_sensor.template docs]: https://home-assistant.io/components/binary_sensor.template/
-[binary_sensor.threshold docs]: https://home-assistant.io/components/binary_sensor.threshold/
-[binary_sensor.zha docs]: https://home-assistant.io/components/binary_sensor.zha/
-[camera.canary docs]: https://home-assistant.io/components/camera.canary/
-[camera.uvc docs]: https://home-assistant.io/components/camera.uvc/
-[camera.xeoma docs]: https://home-assistant.io/components/camera.xeoma/
-[canary docs]: https://home-assistant.io/components/canary/
-[climate.demo docs]: https://home-assistant.io/components/climate.demo/
-[climate.ecobee docs]: https://home-assistant.io/components/climate.ecobee/
-[climate.econet docs]: https://home-assistant.io/components/climate.econet/
-[climate.generic_thermostat docs]: https://home-assistant.io/components/climate.generic_thermostat/
-[climate.heatmiser docs]: https://home-assistant.io/components/climate.heatmiser/
-[climate.melissa docs]: https://home-assistant.io/components/climate.melissa/
-[climate.nest docs]: https://home-assistant.io/components/climate.nest/
-[climate.tado docs]: https://home-assistant.io/components/climate.tado/
-[climate.touchline docs]: https://home-assistant.io/components/climate.touchline/
-[climate.venstar docs]: https://home-assistant.io/components/climate.venstar/
-[cloud docs]: https://home-assistant.io/components/cloud/
-[coinbase docs]: https://home-assistant.io/components/coinbase/
-[cover.mqtt docs]: https://home-assistant.io/components/cover.mqtt/
-[cover.tahoma docs]: https://home-assistant.io/components/cover.tahoma/
-[cover.template docs]: https://home-assistant.io/components/cover.template/
-[deconz docs]: https://home-assistant.io/components/deconz/
-[device_tracker.huawei_router docs]: https://home-assistant.io/components/device_tracker.huawei_router/
-[device_tracker.mercedesme docs]: https://home-assistant.io/components/device_tracker.mercedesme/
-[device_tracker.mikrotik docs]: https://home-assistant.io/components/device_tracker.mikrotik/
-[device_tracker.mqtt docs]: https://home-assistant.io/components/device_tracker.mqtt/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
-[doorbird docs]: https://home-assistant.io/components/doorbird/
-[emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
-[fan.xiaomi_miio docs]: https://home-assistant.io/components/fan.xiaomi_miio/
-[feedreader docs]: https://home-assistant.io/components/feedreader/
-[frontend docs]: https://home-assistant.io/components/frontend/
-[goalfeed docs]: https://home-assistant.io/components/goalfeed/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[group docs]: https://home-assistant.io/components/group/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[http docs]: https://home-assistant.io/components/http/
-[image_processing.openalpr_cloud docs]: https://home-assistant.io/components/image_processing.openalpr_cloud/
-[influxdb docs]: https://home-assistant.io/components/influxdb/
-[input_text docs]: https://home-assistant.io/components/input_text/
-[ios docs]: https://home-assistant.io/components/ios/
-[iota docs]: https://home-assistant.io/components/iota/
-[light.deconz docs]: https://home-assistant.io/components/light.deconz/
-[light.greenwave docs]: https://home-assistant.io/components/light.greenwave/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
-[light.template docs]: https://home-assistant.io/components/light.template/
-[light.xiaomi_aqara docs]: https://home-assistant.io/components/light.xiaomi_aqara/
-[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
-[light.zha docs]: https://home-assistant.io/components/light.zha/
-[lock docs]: https://home-assistant.io/components/lock/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player docs]: https://home-assistant.io/components/media_player/
-[media_player.bluesound docs]: https://home-assistant.io/components/media_player.bluesound/
-[media_player.clementine docs]: https://home-assistant.io/components/media_player.clementine/
-[media_player.itunes docs]: https://home-assistant.io/components/media_player.itunes/
-[media_player.mediaroom docs]: https://home-assistant.io/components/media_player.mediaroom/
-[media_player.panasonic_viera docs]: https://home-assistant.io/components/media_player.panasonic_viera/
-[media_player.philips_js docs]: https://home-assistant.io/components/media_player.philips_js/
-[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
-[media_player.samsungtv docs]: https://home-assistant.io/components/media_player.samsungtv/
-[media_player.squeezebox docs]: https://home-assistant.io/components/media_player.squeezebox/
-[media_player.vlc docs]: https://home-assistant.io/components/media_player.vlc/
-[media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
-[media_player.webostv docs]: https://home-assistant.io/components/media_player.webostv/
-[melissa docs]: https://home-assistant.io/components/melissa/
-[mercedesme docs]: https://home-assistant.io/components/mercedesme/
-[mochad docs]: https://home-assistant.io/components/mochad/
-[notify.gntp docs]: https://home-assistant.io/components/notify.gntp/
-[notify.kodi docs]: https://home-assistant.io/components/notify.kodi/
-[notify.pushsafer docs]: https://home-assistant.io/components/notify.pushsafer/
-[notify.twitter docs]: https://home-assistant.io/components/notify.twitter/
-[panel_iframe docs]: https://home-assistant.io/components/panel_iframe/
-[plant docs]: https://home-assistant.io/components/plant/
-[remote.xiaomi_miio docs]: https://home-assistant.io/components/remote.xiaomi_miio/
-[rfxtrx docs]: https://home-assistant.io/components/rfxtrx/
-[sensor.alpha_vantage docs]: https://home-assistant.io/components/sensor.alpha_vantage/
-[sensor.broadlink docs]: https://home-assistant.io/components/sensor.broadlink/
-[sensor.canary docs]: https://home-assistant.io/components/sensor.canary/
-[sensor.coinbase docs]: https://home-assistant.io/components/sensor.coinbase/
-[sensor.coinmarketcap docs]: https://home-assistant.io/components/sensor.coinmarketcap/
-[sensor.darksky docs]: https://home-assistant.io/components/sensor.darksky/
-[sensor.deconz docs]: https://home-assistant.io/components/sensor.deconz/
-[sensor.deutsche_bahn docs]: https://home-assistant.io/components/sensor.deutsche_bahn/
-[sensor.fritzbox_callmonitor docs]: https://home-assistant.io/components/sensor.fritzbox_callmonitor/
-[sensor.melissa docs]: https://home-assistant.io/components/sensor.melissa/
-[sensor.mercedesme docs]: https://home-assistant.io/components/sensor.mercedesme/
-[sensor.miflora docs]: https://home-assistant.io/components/sensor.miflora/
-[sensor.onewire docs]: https://home-assistant.io/components/sensor.onewire/
-[sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
-[sensor.qnap docs]: https://home-assistant.io/components/sensor.qnap/
-[sensor.radarr docs]: https://home-assistant.io/components/sensor.radarr/
-[sensor.sonarr docs]: https://home-assistant.io/components/sensor.sonarr/
-[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
-[sensor.statistics docs]: https://home-assistant.io/components/sensor.statistics/
-[sensor.synologydsm docs]: https://home-assistant.io/components/sensor.synologydsm/
-[sensor.systemmonitor docs]: https://home-assistant.io/components/sensor.systemmonitor/
-[sensor.tahoma docs]: https://home-assistant.io/components/sensor.tahoma/
-[sensor.template docs]: https://home-assistant.io/components/sensor.template/
-[sensor.tesla docs]: https://home-assistant.io/components/sensor.tesla/
-[sensor.xiaomi_aqara docs]: https://home-assistant.io/components/sensor.xiaomi_aqara/
-[sensor.zha docs]: https://home-assistant.io/components/sensor.zha/
-[spc docs]: https://home-assistant.io/components/spc/
-[switch.broadlink docs]: https://home-assistant.io/components/switch.broadlink/
-[switch.flux docs]: https://home-assistant.io/components/switch.flux/
-[switch.pulseaudio_loopback docs]: https://home-assistant.io/components/switch.pulseaudio_loopback/
-[switch.template docs]: https://home-assistant.io/components/switch.template/
-[switch.tplink docs]: https://home-assistant.io/components/switch.tplink/
-[switch.wake_on_lan docs]: https://home-assistant.io/components/switch.wake_on_lan/
-[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
-[system_log docs]: https://home-assistant.io/components/system_log/
-[tado docs]: https://home-assistant.io/components/tado/
-[tahoma docs]: https://home-assistant.io/components/tahoma/
-[tesla docs]: https://home-assistant.io/components/tesla/
-[tts docs]: https://home-assistant.io/components/tts/
-[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
-[wake_on_lan docs]: https://home-assistant.io/components/wake_on_lan/
-[waterfurnace docs]: https://home-assistant.io/components/waterfurnace/
-[weather.openweathermap docs]: https://home-assistant.io/components/weather.openweathermap/
-[weblink docs]: https://home-assistant.io/components/weblink/
-[websocket_api docs]: https://home-assistant.io/components/websocket_api/
-[zha docs]: https://home-assistant.io/components/zha/
-[zha.const docs]: https://home-assistant.io/components/zha.const/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[alexa docs]: /components/alexa/
+[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
+[binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
+[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
+[binary_sensor.template docs]: /components/binary_sensor.template/
+[binary_sensor.threshold docs]: /components/binary_sensor.threshold/
+[binary_sensor.zha docs]: /components/binary_sensor.zha/
+[camera.canary docs]: /components/camera.canary/
+[camera.uvc docs]: /components/camera.uvc/
+[camera.xeoma docs]: /components/camera.xeoma/
+[canary docs]: /components/canary/
+[climate.demo docs]: /components/climate.demo/
+[climate.ecobee docs]: /components/climate.ecobee/
+[climate.econet docs]: /components/climate.econet/
+[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
+[climate.heatmiser docs]: /components/climate.heatmiser/
+[climate.melissa docs]: /components/climate.melissa/
+[climate.nest docs]: /components/climate.nest/
+[climate.tado docs]: /components/climate.tado/
+[climate.touchline docs]: /components/climate.touchline/
+[climate.venstar docs]: /components/climate.venstar/
+[cloud docs]: /components/cloud/
+[coinbase docs]: /components/coinbase/
+[cover.mqtt docs]: /components/cover.mqtt/
+[cover.tahoma docs]: /components/cover.tahoma/
+[cover.template docs]: /components/cover.template/
+[deconz docs]: /components/deconz/
+[device_tracker.huawei_router docs]: /components/device_tracker.huawei_router/
+[device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
+[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
+[device_tracker.mqtt docs]: /components/device_tracker.mqtt/
+[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
+[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[doorbird docs]: /components/doorbird/
+[emulated_hue docs]: /components/emulated_hue/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[feedreader docs]: /components/feedreader/
+[frontend docs]: /components/frontend/
+[goalfeed docs]: /components/goalfeed/
+[google_assistant docs]: /components/google_assistant/
+[group docs]: /components/group/
+[homematic docs]: /components/homematic/
+[http docs]: /components/http/
+[image_processing.openalpr_cloud docs]: /components/image_processing.openalpr_cloud/
+[influxdb docs]: /components/influxdb/
+[input_text docs]: /components/input_text/
+[ios docs]: /components/ios/
+[iota docs]: /components/iota/
+[light.deconz docs]: /components/light.deconz/
+[light.greenwave docs]: /components/light.greenwave/
+[light.lifx docs]: /components/light.lifx/
+[light.limitlessled docs]: /components/light.limitlessled/
+[light.template docs]: /components/light.template/
+[light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[light.zha docs]: /components/light.zha/
+[lock docs]: /components/lock/
+[media_extractor docs]: /components/media_extractor/
+[media_player docs]: /components/media_player/
+[media_player.bluesound docs]: /components/media_player.bluesound/
+[media_player.clementine docs]: /components/media_player.clementine/
+[media_player.itunes docs]: /components/media_player.itunes/
+[media_player.mediaroom docs]: /components/media_player.mediaroom/
+[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
+[media_player.philips_js docs]: /components/media_player.philips_js/
+[media_player.plex docs]: /components/media_player.plex/
+[media_player.samsungtv docs]: /components/media_player.samsungtv/
+[media_player.squeezebox docs]: /components/media_player.squeezebox/
+[media_player.vlc docs]: /components/media_player.vlc/
+[media_player.volumio docs]: /components/media_player.volumio/
+[media_player.webostv docs]: /components/media_player.webostv/
+[melissa docs]: /components/melissa/
+[mercedesme docs]: /components/mercedesme/
+[mochad docs]: /components/mochad/
+[notify.gntp docs]: /components/notify.gntp/
+[notify.kodi docs]: /components/notify.kodi/
+[notify.pushsafer docs]: /components/notify.pushsafer/
+[notify.twitter docs]: /components/notify.twitter/
+[panel_iframe docs]: /components/panel_iframe/
+[plant docs]: /components/plant/
+[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[rfxtrx docs]: /components/rfxtrx/
+[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
+[sensor.broadlink docs]: /components/sensor.broadlink/
+[sensor.canary docs]: /components/sensor.canary/
+[sensor.coinbase docs]: /components/sensor.coinbase/
+[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
+[sensor.darksky docs]: /components/sensor.darksky/
+[sensor.deconz docs]: /components/sensor.deconz/
+[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
+[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
+[sensor.melissa docs]: /components/sensor.melissa/
+[sensor.mercedesme docs]: /components/sensor.mercedesme/
+[sensor.miflora docs]: /components/sensor.miflora/
+[sensor.onewire docs]: /components/sensor.onewire/
+[sensor.pollen docs]: /components/sensor.pollen/
+[sensor.qnap docs]: /components/sensor.qnap/
+[sensor.radarr docs]: /components/sensor.radarr/
+[sensor.sonarr docs]: /components/sensor.sonarr/
+[sensor.sql docs]: /components/sensor.sql/
+[sensor.statistics docs]: /components/sensor.statistics/
+[sensor.synologydsm docs]: /components/sensor.synologydsm/
+[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
+[sensor.tahoma docs]: /components/sensor.tahoma/
+[sensor.template docs]: /components/sensor.template/
+[sensor.tesla docs]: /components/sensor.tesla/
+[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
+[sensor.zha docs]: /components/sensor.zha/
+[spc docs]: /components/spc/
+[switch.broadlink docs]: /components/switch.broadlink/
+[switch.flux docs]: /components/switch.flux/
+[switch.pulseaudio_loopback docs]: /components/switch.pulseaudio_loopback/
+[switch.template docs]: /components/switch.template/
+[switch.tplink docs]: /components/switch.tplink/
+[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[system_log docs]: /components/system_log/
+[tado docs]: /components/tado/
+[tahoma docs]: /components/tahoma/
+[tesla docs]: /components/tesla/
+[tts docs]: /components/tts/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[wake_on_lan docs]: /components/wake_on_lan/
+[waterfurnace docs]: /components/waterfurnace/
+[weather.openweathermap docs]: /components/weather.openweathermap/
+[weblink docs]: /components/weblink/
+[websocket_api docs]: /components/websocket_api/
+[zha docs]: /components/zha/
+[zha.const docs]: /components/zha.const/
+[zwave docs]: /components/zwave/
 [#12292]: https://github.com/home-assistant/home-assistant/pull/12292
 [#12313]: https://github.com/home-assistant/home-assistant/pull/12313
 [#12314]: https://github.com/home-assistant/home-assistant/pull/12314
@@ -642,10 +642,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#12330]: https://github.com/home-assistant/home-assistant/pull/12330
 [@balloob]: https://github.com/balloob
 [@lucasweb78]: https://github.com/lucasweb78
-[alexa docs]: https://home-assistant.io/components/alexa/
-[binary_sensor.netatmo docs]: https://home-assistant.io/components/binary_sensor.netatmo/
-[camera.netatmo docs]: https://home-assistant.io/components/camera.netatmo/
-[sensor.netatmo docs]: https://home-assistant.io/components/sensor.netatmo/
+[alexa docs]: /components/alexa/
+[binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
+[camera.netatmo docs]: /components/camera.netatmo/
+[sensor.netatmo docs]: /components/sensor.netatmo/
 [#12342]: https://github.com/home-assistant/home-assistant/pull/12342
 [#12346]: https://github.com/home-assistant/home-assistant/pull/12346
 [#12368]: https://github.com/home-assistant/home-assistant/pull/12368
@@ -656,14 +656,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
-[binary_sensor.mercedesme docs]: https://home-assistant.io/components/binary_sensor.mercedesme/
-[device_tracker.mercedesme docs]: https://home-assistant.io/components/device_tracker.mercedesme/
-[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
-[media_player.yamaha docs]: https://home-assistant.io/components/media_player.yamaha/
-[mercedesme docs]: https://home-assistant.io/components/mercedesme/
-[sensor.eddystone_temperature docs]: https://home-assistant.io/components/sensor.eddystone_temperature/
-[sensor.mercedesme docs]: https://home-assistant.io/components/sensor.mercedesme/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
+[binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
+[device_tracker.mercedesme docs]: /components/device_tracker.mercedesme/
+[light.limitlessled docs]: /components/light.limitlessled/
+[media_player.yamaha docs]: /components/media_player.yamaha/
+[mercedesme docs]: /components/mercedesme/
+[sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
+[sensor.mercedesme docs]: /components/sensor.mercedesme/
+[sensor.wunderground docs]: /components/sensor.wunderground/
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392
 [#12421]: https://github.com/home-assistant/home-assistant/pull/12421
 [#12435]: https://github.com/home-assistant/home-assistant/pull/12435
@@ -678,13 +678,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dgomes]: https://github.com/dgomes
 [@ryanm101]: https://github.com/ryanm101
 [@syssi]: https://github.com/syssi
-[fan.xiaomi_miio docs]: https://home-assistant.io/components/fan.xiaomi_miio/
-[isy994 docs]: https://home-assistant.io/components/isy994/
-[light.template docs]: https://home-assistant.io/components/light.template/
-[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
-[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
-[remote.xiaomi_miio docs]: https://home-assistant.io/components/remote.xiaomi_miio/
-[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
-[sensor.yr docs]: https://home-assistant.io/components/sensor.yr/
-[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
-[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[isy994 docs]: /components/isy994/
+[light.template docs]: /components/light.template/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[media_player.plex docs]: /components/media_player.plex/
+[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[sensor.sql docs]: /components/sensor.sql/
+[sensor.yr docs]: /components/sensor.yr/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/

@@ -15,7 +15,7 @@ I have been working on a new subsystem to complement Home Assistant's Automation
 
 ## {% linkable_title Another Take on Automation %}
 
-If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
+If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
 So given the importance of Automation, what should Automation allow us to do? I am a pragmatist at heart so I judge individual systems by the ease of accomplishing a few basic but representative tasks:
 
@@ -77,12 +77,12 @@ class MotionLights(appapi.AppDaemon):
 
   def initialize(self):
     self.listen_state(self.motion, "binary_sensor.drive", new = "on")
-  
+
   def motion(self, entity, attribute, old, new, kwargs):
     if self.sun_down():
       self.turn_on("light.drive")
       self.run_in(self.light_off, 60)
-  
+
   def light_off(self, kwargs):
     self.turn_off("light.drive")
 ```
@@ -98,17 +98,17 @@ class FlashyMotionLights(appapi.AppDaemon):
 
   def initialize(self):
     self.listen_state(self.motion, "binary_sensor.drive", new = "on")
-  
+
   def motion(self, entity, attribute, old, new, kwargs):
     if self.self.sun_down():
       self.turn_on("light.drive")
       self.run_in(self.light_off, 60)
       self.flashcount = 0
       self.run_in(self.flash_warning, 1)
-  
+
   def light_off(self, kwargs):
     self.turn_off("light.drive")
-    
+
   def flash_warning(self, kwargs):
     self.toggle("light.living_room")
     self.flashcount += 1

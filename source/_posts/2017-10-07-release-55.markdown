@@ -16,7 +16,7 @@ og_image: /images/blog/2017-10-0.55/components.png
 Beside the improved Wink support which was contributed by [@w1ll1am23], ships this release a wide variety of new components and platforms. The `input_slider` components has received a makeover by [@BioSehnsucht] and is now [`input_number`][input_number docs]. [@tinloaf] added a feature that allows you to enter dates: [`input_datetime`][input_datetime docs]. Both will help you to improve your automation rules.
 
 ## {% linkable_title DuckDNS %}
-Using Home Assistant with [DuckDNS](http://www.duckdns.org) for Dynamic DNS (DDNS or DynDNS) is an [old story](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/). DuckDNS  is also integrated in [Hass.io](https://home-assistant.io/addons/duckdns/). 0.55 ships a component for non Hass.io users to get a similar feature.
+Using Home Assistant with [DuckDNS](http://www.duckdns.org) for Dynamic DNS (DDNS or DynDNS) is an [old story](/blog/2015/12/13/setup-encryption-using-lets-encrypt/). DuckDNS  is also integrated in [Hass.io](/addons/duckdns/). 0.55 ships a component for non Hass.io users to get a similar feature.
 
 ## {% linkable_title Recorder %}
 The purging of data was [improved][recorder docs]. With `purge_interval` you can schedule regular purges of older events and states. In combination you can specify with `purge_keep_days` the amount of days you want to keep. The new service `recorder.purge` allows you to handle this task when needed.
@@ -305,92 +305,92 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tinloaf]: https://github.com/tinloaf
 [@vickyg3]: https://github.com/vickyg3
 [@w1ll1am23]: https://github.com/w1ll1am23
-[abode docs]: https://home-assistant.io/components/abode/
-[alarm_control_panel.egardia docs]: https://home-assistant.io/components/alarm_control_panel.egardia/
-[alarm_control_panel.manual_mqtt docs]: https://home-assistant.io/components/alarm_control_panel.manual_mqtt/
-[alexa.smart_home docs]: https://home-assistant.io/components/alexa/
-[apple_tv docs]: https://home-assistant.io/components/apple_tv/
-[arlo docs]: https://home-assistant.io/components/arlo/
-[binary_sensor.raincloud docs]: https://home-assistant.io/components/binary_sensor.raincloud/
-[binary_sensor.threshold docs]: https://home-assistant.io/components/binary_sensor.threshold/
-[binary_sensor.wink docs]: https://home-assistant.io/components/binary_sensor.wink/
-[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
-[camera.synology docs]: https://home-assistant.io/components/camera.synology/
-[camera.usps docs]: https://home-assistant.io/components/camera.usps/
-[climate.ecobee docs]: https://home-assistant.io/components/climate.ecobee/
-[climate.mqtt docs]: https://home-assistant.io/components/climate.mqtt/
-[cover.mqtt docs]: https://home-assistant.io/components/cover.mqtt/
-[cover.rflink docs]: https://home-assistant.io/components/cover.rflink/
-[demo docs]: https://home-assistant.io/components/demo/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[device_tracker.owntracks_http docs]: https://home-assistant.io/components/device_tracker.owntracks_http/
-[duckdns docs]: https://home-assistant.io/components/duckdns/
-[ecobee docs]: https://home-assistant.io/components/ecobee/
-[emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
-[google docs]: https://home-assistant.io/components/calendar.google/
-[group docs]: https://home-assistant.io/components/group/
-[hassio docs]: https://home-assistant.io/hassio/
-[history docs]: https://home-assistant.io/components/history/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[http docs]: https://home-assistant.io/components/http/
-[image_processing.opencv docs]: https://home-assistant.io/components/image_processing.opencv/
-[influxdb docs]: https://home-assistant.io/components/influxdb/
-[input_datetime docs]: https://home-assistant.io/components/input_datetime/
-[input_number docs]: https://home-assistant.io/components/input_number/
-[light.flux_led docs]: https://home-assistant.io/components/light.flux_led/
-[light.rflink docs]: https://home-assistant.io/components/light.rflink/
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[light.yeelight docs]: https://home-assistant.io/components/light.yeelight/
-[lock.wink docs]: https://home-assistant.io/components/lock.wink/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player.apple_tv docs]: https://home-assistant.io/components/media_player.apple_tv/
-[media_player.webostv docs]: https://home-assistant.io/components/media_player.webostv/
-[media_player.yamaha_musiccast docs]: https://home-assistant.io/components/media_player.yamaha_musiccast/
-[mqtt_statestream docs]: https://home-assistant.io/components/mqtt_statestream/
-[notify.clicksendaudio docs]: https://home-assistant.io/components/notify.clicksendaudio/
-[notify.discord docs]: https://home-assistant.io/components/notify.discord/
-[notify.facebook docs]: https://home-assistant.io/components/notify.facebook/
-[notify.simplepush docs]: https://home-assistant.io/components/notify.simplepush/
-[raincloud docs]: https://home-assistant.io/components/raincloud/
-[raspihats docs]: https://home-assistant.io/components/raspihats/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[remote.itach docs]: https://home-assistant.io/components/remote.itach/
-[rflink docs]: https://home-assistant.io/components/rflink/
-[sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
-[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
-[sensor.comed_hourly_pricing docs]: https://home-assistant.io/components/sensor.comed_hourly_pricing/
-[sensor.dsmr docs]: https://home-assistant.io/components/sensor.dsmr/
-[sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
-[sensor.geo_rss_events docs]: https://home-assistant.io/components/sensor.geo_rss_events/
-[sensor.google_travel_time docs]: https://home-assistant.io/components/sensor.google_travel_time/
-[sensor.imap docs]: https://home-assistant.io/components/sensor.imap/
-[sensor.lyft docs]: https://home-assistant.io/components/sensor.lyft/
-[sensor.onewire docs]: https://home-assistant.io/components/sensor.onewire/
-[sensor.pvoutput docs]: https://home-assistant.io/components/sensor.pvoutput/
-[sensor.raincloud docs]: https://home-assistant.io/components/sensor.raincloud/
-[sensor.systemmonitor docs]: https://home-assistant.io/components/sensor.systemmonitor/
-[sensor.thethingsnetwork docs]: https://home-assistant.io/components/sensor.thethingsnetwork/
-[sensor.tibber docs]: https://home-assistant.io/components/sensor.tibber/
-[sensor.ups docs]: https://home-assistant.io/components/sensor.ups/
-[sensor.usps docs]: https://home-assistant.io/components/sensor.usps/
-[sensor.vera docs]: https://home-assistant.io/components/sensor.vera/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
-[splunk docs]: https://home-assistant.io/components/splunk/
-[switch.abode docs]: https://home-assistant.io/components/switch.abode/
-[switch.raincloud docs]: https://home-assistant.io/components/switch.raincloud/
-[switch.rflink docs]: https://home-assistant.io/components/switch.rflink/
-[switch.tplink docs]: https://home-assistant.io/components/switch.tplink/
-[thethingsnetwork docs]: https://home-assistant.io/components/thethingsnetwork/
-[tradfri docs]: https://home-assistant.io/components/tradfri/
-[upnp docs]: https://home-assistant.io/components/upnp/
-[usps docs]: https://home-assistant.io/components/usps/
-[vacuum.xiaomi docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
-[wink docs]: https://home-assistant.io/components/wink/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[abode docs]: /components/abode/
+[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
+[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
+[alexa.smart_home docs]: /components/alexa/
+[apple_tv docs]: /components/apple_tv/
+[arlo docs]: /components/arlo/
+[binary_sensor.raincloud docs]: /components/binary_sensor.raincloud/
+[binary_sensor.threshold docs]: /components/binary_sensor.threshold/
+[binary_sensor.wink docs]: /components/binary_sensor.wink/
+[camera.arlo docs]: /components/camera.arlo/
+[camera.synology docs]: /components/camera.synology/
+[camera.usps docs]: /components/camera.usps/
+[climate.ecobee docs]: /components/climate.ecobee/
+[climate.mqtt docs]: /components/climate.mqtt/
+[cover.mqtt docs]: /components/cover.mqtt/
+[cover.rflink docs]: /components/cover.rflink/
+[demo docs]: /components/demo/
+[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
+[device_tracker.owntracks_http docs]: /components/device_tracker.owntracks_http/
+[duckdns docs]: /components/duckdns/
+[ecobee docs]: /components/ecobee/
+[emulated_hue docs]: /components/emulated_hue/
+[google docs]: /components/calendar.google/
+[group docs]: /components/group/
+[hassio docs]: /hassio/
+[history docs]: /components/history/
+[homematic docs]: /components/homematic/
+[http docs]: /components/http/
+[image_processing.opencv docs]: /components/image_processing.opencv/
+[influxdb docs]: /components/influxdb/
+[input_datetime docs]: /components/input_datetime/
+[input_number docs]: /components/input_number/
+[light.flux_led docs]: /components/light.flux_led/
+[light.rflink docs]: /components/light.rflink/
+[light.tradfri docs]: /components/light.tradfri/
+[light.yeelight docs]: /components/light.yeelight/
+[lock.wink docs]: /components/lock.wink/
+[media_extractor docs]: /components/media_extractor/
+[media_player.apple_tv docs]: /components/media_player.apple_tv/
+[media_player.webostv docs]: /components/media_player.webostv/
+[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
+[mqtt_statestream docs]: /components/mqtt_statestream/
+[notify.clicksendaudio docs]: /components/notify.clicksendaudio/
+[notify.discord docs]: /components/notify.discord/
+[notify.facebook docs]: /components/notify.facebook/
+[notify.simplepush docs]: /components/notify.simplepush/
+[raincloud docs]: /components/raincloud/
+[raspihats docs]: /components/raspihats/
+[recorder docs]: /components/recorder/
+[remote.itach docs]: /components/remote.itach/
+[rflink docs]: /components/rflink/
+[sensor.airvisual docs]: /components/sensor.airvisual/
+[sensor.arlo docs]: /components/sensor.arlo/
+[sensor.comed_hourly_pricing docs]: /components/sensor.comed_hourly_pricing/
+[sensor.dsmr docs]: /components/sensor.dsmr/
+[sensor.fedex docs]: /components/sensor.fedex/
+[sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
+[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
+[sensor.imap docs]: /components/sensor.imap/
+[sensor.lyft docs]: /components/sensor.lyft/
+[sensor.onewire docs]: /components/sensor.onewire/
+[sensor.pvoutput docs]: /components/sensor.pvoutput/
+[sensor.raincloud docs]: /components/sensor.raincloud/
+[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
+[sensor.thethingsnetwork docs]: /components/sensor.thethingsnetwork/
+[sensor.tibber docs]: /components/sensor.tibber/
+[sensor.ups docs]: /components/sensor.ups/
+[sensor.usps docs]: /components/sensor.usps/
+[sensor.vera docs]: /components/sensor.vera/
+[sensor.wunderground docs]: /components/sensor.wunderground/
+[splunk docs]: /components/splunk/
+[switch.abode docs]: /components/switch.abode/
+[switch.raincloud docs]: /components/switch.raincloud/
+[switch.rflink docs]: /components/switch.rflink/
+[switch.tplink docs]: /components/switch.tplink/
+[thethingsnetwork docs]: /components/thethingsnetwork/
+[tradfri docs]: /components/tradfri/
+[upnp docs]: /components/upnp/
+[usps docs]: /components/usps/
+[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
+[wink docs]: /components/wink/
+[zwave docs]: /components/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
-[history_graph docs]: https://home-assistant.io/components/history_graph/
+[history_graph docs]: /components/history_graph/
 [#9754]: https://github.com/home-assistant/home-assistant/pull/9754
 [#9776]: https://github.com/home-assistant/home-assistant/pull/9776
 [#9785]: https://github.com/home-assistant/home-assistant/pull/9785
@@ -404,9 +404,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@passie]: https://github.com/passie
 [@pschmitt]: https://github.com/pschmitt
 [@snjoetw]: https://github.com/snjoetw
-[camera.synology docs]: https://home-assistant.io/components/camera.synology/
-[cover.rflink docs]: https://home-assistant.io/components/cover.rflink/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[google docs]: https://home-assistant.io/components/google/
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[media_player.liveboxplaytv docs]: https://home-assistant.io/components/media_player.liveboxplaytv/
+[camera.synology docs]: /components/camera.synology/
+[cover.rflink docs]: /components/cover.rflink/
+[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
+[google docs]: /components/google/
+[light.tradfri docs]: /components/light.tradfri/
+[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/

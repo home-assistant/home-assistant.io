@@ -30,7 +30,7 @@ Let you control [VLC media player][vlc-media] and  play sound on connected speak
 
 This Broadlink [switch][bl-switch] platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink [sensor][bl-sensor] platform adds support for Broadlink RM2 and A1 Devices.
 
-The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
+The [GPSLogger](/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
 
 ## {% linkable_title All changes %}
 - Media player: Support for Sharp [AquaosTV][aquostv] ([@titilambert])
@@ -86,7 +86,7 @@ http:
  - Fix async component update on service calls ([@pvizeli])
  - Fix async log handle do not close ([@pvizeli])
  - Fix nest component with various KeyError exceptions ([@technicalpickles])
- 
+
 ### {% linkable_title  If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -141,16 +141,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 
-[vlc-media]: https://home-assistant.io/components/media_player.vlc/
-[aquostv]: https://home-assistant.io/components/media_player.aquostv/
-[digitalloggers]: https://home-assistant.io/components/switch.digitalloggers/
-[netdata]: https://home-assistant.io/components/sensor.netdata/
-[bl-sensor]: https://home-assistant.io/components/sensor.broadlink/
-[bl-switch]: https://home-assistant.io/components/switch.broadlink/
-[hikvision]: https://home-assistant.io/components/binary_sensor.hikvision/
-[zamg]: https://home-assistant.io/components/sensor.zamg/
-[flic]: https://home-assistant.io/components/binary_sensor.flic/
-[sensehat]: https://home-assistant.io/components/sensor.sensehat/
-[tts]: https://home-assistant.io/components/tts/
+[vlc-media]: /components/media_player.vlc/
+[aquostv]: /components/media_player.aquostv/
+[digitalloggers]: /components/switch.digitalloggers/
+[netdata]: /components/sensor.netdata/
+[bl-sensor]: /components/sensor.broadlink/
+[bl-switch]: /components/switch.broadlink/
+[hikvision]: /components/binary_sensor.hikvision/
+[zamg]: /components/sensor.zamg/
+[flic]: /components/binary_sensor.flic/
+[sensehat]: /components/sensor.sensehat/
+[tts]: /components/tts/
 [discord]: https://discord.gg/c5DvZ4e
 [discord-devs]: https://discord.gg/8X8DTH4

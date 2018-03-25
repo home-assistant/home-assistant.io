@@ -20,7 +20,7 @@ A new toggle has been added to the sidebar to turn streaming updates on and off.
 
 Streaming updates has been implemented using the HTML5 `EventSource` tag. Implementation is pretty straight forward as all the reconnection logic will be handled by the event source tag. The [server-side code](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/api.py#L90) is 50 lines and the [client-side code](https://github.com/home-assistant/home-assistant-js/blob/master/src/actions/stream.js) is 80 lines of code.
 
-All events that happen on the server will now also be sent to the browser. This turns any browser running the UI into a fully functioning [slave instance](https://home-assistant.io/developers/architecture/#multiple-connected-instances) of Home Assistant. This opens up new possibilities for Home Assistant components that live completely client-side.
+All events that happen on the server will now also be sent to the browser. This turns any browser running the UI into a fully functioning [slave instance](/developers/architecture/#multiple-connected-instances) of Home Assistant. This opens up new possibilities for Home Assistant components that live completely client-side.
 
 Implementing EventSource was not without challenges. Here are some of the issues that had to be solved:
 
