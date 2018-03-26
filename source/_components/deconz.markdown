@@ -29,7 +29,7 @@ deconz:
   host: IP ADDRESS
 ```
 
-#### {% linkable_title Supported Device types %}
+#### {% linkable_title Supported device types %}
 
 - [Zigbee Lights](/components/light.deconz/)
 - [Humidity Sensors](/components/sensor.deconz/)
@@ -64,6 +64,18 @@ deconz:
   host: 127.0.0.1
   api_key: 0123456789
   port: 80
+```
+
+#### {% linkable_title Debugging component %}
+
+If you have problems with deCONZ or the component you can add debug prints to the log.
+
+```yaml
+logger:
+  default: info
+  logs:
+    pydeconz: debug
+    homeassistant.components.deconz: debug
 ```
 
 ## {% linkable_title Device services %}
