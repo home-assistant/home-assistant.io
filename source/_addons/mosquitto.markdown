@@ -59,3 +59,15 @@ mqtt:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
+
+### Listening Simultaneously on SSL/TLS (8883) and insecure (1883) ports
+1. Configure SSL as normal.
+2. Set customize flag true in your config.
+3. Create a file in `/share/mosquitto` named `insecure.conf` with the following contents:
+```
+listener 1883
+protocol mqtt
+```
+4. Restart MQTT
+
+Note: It's recommened you only open your firewall to the SSL port (8883) and only use the insecure port (1883) for local devices.
