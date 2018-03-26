@@ -228,3 +228,5 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 - [MQTT JSON Light](https://github.com/mertenats/Open-Home-Automation/tree/master/ha_mqtt_rgbw_light_with_discovery) is another implementation for ESP8266 including [MQTT discovery](/docs/mqtt/discovery/).
 
 - [esphomelib](https://github.com/OttoWinter/esphomelib) is a library for ESP8266 and ESP32 boards that has many of Home Assistant's MQTT features (like [discovery](/docs/mqtt/discovery/)) pre-implemented and provides high-level abstractions for components such as lights or sensors.
+
+- [AiLight](https://github.com/stelgenhof/AiLight) is a custom firmware for the Ai-Thinker (and equivalent) RGBW WiFi light bulbs that has an ESP8266 onboard and controlled by the MY9291 LED driver. It implements the [MQTT JSON light](/components/light.mqtt_json/) platform and supports ON/OFF, RGBW colours, brightness, colour temperature, flashing and transitions. Also it includes [MQTT Auto Discovery](/docs/mqtt/discovery/)) and the MQTT Last Will and Testament is enabled as well.
