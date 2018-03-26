@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: epson.png
 ha_category: Media Player
-featured: true
 ha_release: "0.67"
 ha_iot_class: "Local Push"
 ---
