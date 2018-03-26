@@ -26,12 +26,12 @@ If you want to use a different folder for configuration, use the config command 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
 <p class='note'>
-  You will have to restart Home Assistant for changes to `configuration.yaml` to take effect.
+  You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect. You can load changes to [automations](/docs/automation/), [customize](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
 </p>
 
 If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
 
 <p class='note tip'>
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant.
+  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
 </p>
 
