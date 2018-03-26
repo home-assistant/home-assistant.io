@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Caller ID Sensor"
-description: "Instructions how to integrate the Caller ID sensor into Home Assistant."
+description: "Instructions on how to integrate the Caller ID sensor into Home Assistant."
 date: 2017-02-20 22:10
 sidebar: true
 comments: false
@@ -31,13 +31,13 @@ To find the path of your USB modem, run:
 
 `$ ls /dev/ttyACM*`
 
-If Home Assistant (`hass`) runs with another user (e.g. `homeassistant` on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
 
 `$ sudo usermod -a -G dialout homeassistant`
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 
-When the sensor detects a new call, it's state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
+When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
 
 Some example automations:
 ```yaml

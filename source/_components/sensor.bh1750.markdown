@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BH1750 Light sensor"
-description: "Instructions how to integrate a BH1750 light sensor into Home Assistant."
+description: "Instructions on how to integrate a BH1750 light sensor into Home Assistant."
 date: 2017-06-10 00:00
 sidebar: true
 comments: false
@@ -26,7 +26,7 @@ To use your BH1750 sensor in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: BH1750
+  - platform: bh1750
 ```
 
 Configuration variables:

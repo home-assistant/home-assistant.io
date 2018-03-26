@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Text"
-description: "Instructions how to integrate the Input Text component into Home Assistant."
+description: "Instructions on how to integrate the Input Text component into Home Assistant."
 date: 2016-03-15 06:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Automation
 ha_release: 0.53
 ---
 
-The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. 
+The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 ```yaml
 # Example configuration.yaml entries
@@ -27,6 +27,9 @@ input_text:
   text3:
     name: Text 3
     pattern: '[a-fA-F0-9]*'
+  text4:
+    name: Text 4
+    mode: password
 ```
 
 {% configuration %}
@@ -59,6 +62,11 @@ input_text:
         required: false
         type: String
         default: empty
+      mode:
+        description: Can specify `text` or `password`. Elements of type "password" provide a way for the user to securely enter a value.
+        required: false
+        type: String
+        default: text
 {% endconfiguration %}
 
 ### {% linkable_title Restore State %}

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Sensor"
-description: "Instructions how to integrate RFXtrx sensors into Home Assistant."
+description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
 date: 2015-08-06 17:15
 sidebar: true
 comments: false
@@ -66,6 +66,7 @@ Only these data_type are valid :
 - *Sound*
 - *Sensor Status*
 - *Counter value*
+- *UV*
 
 Example configuration:
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Manual Alarm Control Panel with MQTT Support"
-description: "Instructions how to integrate manual alarms into Home Assistant with MQTT support."
+description: "Instructions on how to integrate manual alarms into Home Assistant with MQTT support."
 date: 2017-07-02 9:10
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: 0.50
+ha_release: "0.50"
 ---
 
 This platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
@@ -58,7 +58,7 @@ The following configuration variables from the base manual alarm platform are av
   - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
   - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
 
-See the documentation for the [manual alarm platform](/component/alarm_control_panel.manual/) for a description.
+See the documentation for the [manual alarm platform](/components/alarm_control_panel.manual/) for a description.
 
 Additionally, the following MQTT configuration variables are also available:
 

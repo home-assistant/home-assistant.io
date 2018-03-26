@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Updated documentation"
-description: "We have reorganised our documentation which should make it easier to get started and develop for Home Assistant."
+description: "We have reorganized our documentation which should make it easier to get started and develop for Home Assistant."
 date: 2016-04-17 23:09:00 UTC
 date_formatted: "April 17, 2016"
 author: Paulus Schoutsen
@@ -14,7 +14,7 @@ One of the main complaints that we receive is something along the lines "I read 
 
 Our documentation has been going through various phases. Initially it was just the README in our GitHub repository. I discovered Jekyll and GitHub pages in December 2014 and created home-assistant.io. I more or less broke the README in 5 pages and [called it a website]. Back then we had a whopping [11 components](https://github.com/home-assistant/home-assistant.io/blob/86bb2df430ce267ab2123d51592d3f068ae509b5/source/components/index.markdown).
 
-As Home Assistant grew, so did our documentation. [Fabian Affolter](https://github.com/fabaff) does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that's quite a feat given our [frequent releases](https://home-assistant.io/blog/categories/release-notes/)! But despite all the efforts, the documentation outgrew our existing documentation organisation.
+As Home Assistant grew, so did our documentation. [Fabian Affolter](https://github.com/fabaff) does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that's quite a feat given our [frequent releases](/blog/categories/release-notes/)! But despite all the efforts, the documentation outgrew our existing documentation organization.
 
 Today it has been almost 1.5 years since we started the website. We now have [264 components and platforms] under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SNMP"
-description: "Instructions how to integrate SNMP into Home Assistant."
+description: "Instructions on how to integrate SNMP into Home Assistant."
 date: 2015-10-08 12:00
 sidebar: true
 comments: false

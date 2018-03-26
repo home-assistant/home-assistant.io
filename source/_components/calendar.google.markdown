@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Calendar Event"
-description: "Instructions how to use Google Calendars in Home Assistant."
+description: "Instructions on how to use Google Calendars in Home Assistant."
 date: 2015-05-08 17:15
 sidebar: true
 comments: false
@@ -22,12 +22,13 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
-1. Click on the tab 'OAuth consent screen'.
+1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
 1. Set 'Product name shown to users' to anything you want. We suggest Home-Assistant.
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.
 1. Set the Application type to 'Other' and give this credential set a name then click Create.
 1. Save the client ID and secret as you will need to put these in your configuration.yaml file.
+1. Click on "Library", search for "Google Calendar API" and enable it.
 
 ### {% linkable_title Basic Setup %}
 

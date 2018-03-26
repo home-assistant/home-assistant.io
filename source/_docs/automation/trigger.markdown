@@ -33,7 +33,7 @@ automation:
 
 ### {% linkable_title Home Assistant trigger %}
 
-Use this platform to trigger when Home Assistant starts up and shuts down.
+Triggers when Home Assistant starts up or shuts down.
 
 ```yaml
 automation:
@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.
+Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
 
 ```yaml
 automation:
@@ -78,12 +78,13 @@ automation:
 
 <p class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above)
+would fire this trigger.
 </p>
 
 ### {% linkable_title State trigger %}
 
-Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
+Triggers when the state of a given entity changes. If only entity_id is given trigger will activate for all state changes, even if only state attributes change.
 
 ```yaml
 automation:
@@ -107,7 +108,7 @@ automation:
 </p>
 
 ### {% linkable_title Sun trigger %}
-Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.
+Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
 
 ```yaml
 automation:
@@ -182,7 +183,7 @@ automation 3:
 
 ### {% linkable_title Zone trigger %}
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/components/device_tracker.gpslogger/), the [OwnTracks platform](/components/device_tracker.owntracks/), and the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
 automation:

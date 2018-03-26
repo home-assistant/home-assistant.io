@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Cover"
-description: "Instructions how to integrate Template Covers into Home Assistant."
+description: "Instructions on how to integrate Template Covers into Home Assistant."
 date: 2017-06-19 20:32
 sidebar: true
 comments: false
@@ -48,6 +48,10 @@ cover:
         description: Name to use in the frontend.
         required: false
         type: string
+      entity_id:
+        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        required: false
+        type: [string, list]
       value_template:
         description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
@@ -197,6 +201,9 @@ cover:
           {% else %}
             mdi:window-closed
           {% endif %}
+        entity_id:
+          - cover.bedroom
+          - cover.livingroom
 
 sensor:
   - platform: template

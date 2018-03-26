@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Keenetic NDMS2 Routers"
-description: "Instructions how to integrate Keenetic NDMS2 Routers into Home Assistant."
+description: "Instructions on how to integrate Keenetic NDMS2 Routers into Home Assistant."
 date: 2017-09-15 15:40
 sidebar: true
 comments: false
@@ -28,7 +28,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
+- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
 - **username** (*Required*): The username to login into the router (user should have read access to web interface of the router).
 - **password** (*Required*): The password for the specified username.
 - **interface** (*Optional*): Ihe internal name of the interface to get devices connected to. Default is 'Home'. For expert users only. 

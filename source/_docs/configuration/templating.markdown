@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Templating"
-description: "Instructions how to use the templating feature of Home Assistant."
+description: "Instructions on how to use the templating feature of Home Assistant."
 date: 2015-12-12 12:00
 sidebar: true
 comments: false
@@ -43,12 +43,13 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        message: >
-          {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
-            Ha, Paulus is home!
-          {% else %}
-            Paulus is at {{ states('device_tracker.paulus') }}.
-          {% endif %}{% endraw %}
+        data_template:
+          message: >
+            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+              Ha, Paulus is home!
+            {% else %}
+              Paulus is at {{ states('device_tracker.paulus') }}.
+            {% endif %}{% endraw %}
 ```
 
 [Jinja2](http://jinja.pocoo.org/) supports a wide variety of operations:

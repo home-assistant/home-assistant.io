@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Facebook Messenger"
-description: "Instructions how to add Facebook user notifications to Home Assistant."
+description: "Instructions on how to add Facebook user notifications to Home Assistant."
 date: 2016-12-31 14:14
 sidebar: true
 comments: false
@@ -50,7 +50,7 @@ automation:
           - '+919784516314'
 ```
 
-You can also send messages to users that do not have stored their phone number with Facebook, but this requires a bit more work. The Messenger platform uses page specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specifc ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
+You can also send messages to users that do not have stored their phone number with Facebook, but this requires a bit more work. The Messenger platform uses page specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
 
 ```php
 <?php

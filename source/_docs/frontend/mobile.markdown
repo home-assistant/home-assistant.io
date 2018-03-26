@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/mobile/
 ---
 
-Home Assistant has [a companion app for iOS](https://home-assistant.io/docs/ecosystem/ios/).
+Home Assistant has [a companion app for iOS](/docs/ecosystem/ios/).
 
 On both Android and iOS, you can add the Home Assistant "web app" to your homescreen as if it was native (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sense HAT"
-description: "Instructions how to integrate Sense HAT within Home Assistant."
+description: "Instructions on how to integrate Sense HAT within Home Assistant."
 date: 2017-06-03 04:00
 sidebar: true
 comments: false
@@ -35,7 +35,7 @@ Configuration variables:
   - 'humidity'
   - 'pressure'
   is_hat_attached (Optional): True|False boolean; Default value is True declaring that the SenseHAT _is_ physically on the Raspberry Pi
-  
+
 
 #### Customizing the Sense HAT data
 
@@ -145,10 +145,10 @@ These issues have been discussed in the repository issue (#5093)[https://github.
 
 This fix has been tested with a clean install of:
 
-* [Raspbian Jessie - version January 2017](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/) 
- 
+* [Raspbian Jessie - version January 2017](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/)
+
 and
- 
-* [Home-Assistant 0.37.1](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
+
+* [Home-Assistant 0.37.1](/getting-started/installation-raspberry-pi-all-in-one/)
 
 For setting up the Sense HAT's RGB LED matrix as lights within Home Assistant, please see the [Sense HAT light component](/components/light.sensehat/).

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Image Processing"
-description: "Instructions how to setup image processing with Home Assistant."
+description: "Instructions on how to setup image processing with Home Assistant."
 date: 2017-01-09 00:00
 sidebar: true
 comments: false
@@ -22,7 +22,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
 
-This event is trigger after OpenALPR found a new licence plate.
+This event is trigger after OpenALPR found a new license plate.
 
 ```yaml
 # Example configuration.yaml automation entry

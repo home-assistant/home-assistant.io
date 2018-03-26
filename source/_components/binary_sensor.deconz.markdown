@@ -17,8 +17,10 @@ See the [deCONZ main component](/components/deconz/) for configuration instructi
 
 The following sensor types are supported:
 
+ * Fire/Smoke detection
  * Open/Close detection
  * Presence detection
+ * Water leakage detection
 
 Entity ids will be binary_sensor.device_name, where device_name is defined in deCONZ.
 

@@ -16,9 +16,9 @@ To add (include) a non-secure Z-Wave [device](/docs/z-wave/devices/) to your sys
 1. Go to the [Z-Wave control panel](/docs/z-wave/control-panel/) in the Home Assistant frontend
 2. Click the **Add Node** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode
 3. Activate your device to be included by following the instructions provided with the device
-4. With the device in its final location, run a *Heal*
+4. With the device in its final location, run a *Heal Network*
 
-Don't use this for [secure devices](https://home-assistant.io/docs/z-wave/adding/#adding-secure-devices), since this is likely to limit the features the device supports.
+Don't use this for [secure devices](/docs/z-wave/adding/#adding-secure-devices), since this is likely to limit the features the device supports.
 
 <p class='note warning'>
 Don't use the OpenZWave control panel (OZWCP), **or the physical button on a controller**, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won't have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.
@@ -35,7 +35,7 @@ A valid network key will be a 16 byte value, defined in the zwave section of you
 ```
 zwave:
    usb_path: /dev/ttyACM0
-   network_key: "0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10"
+   network_key: "0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
 ```
 
 Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Define your own key by making changes to the above example key or for additional security try one of the two scripts mentioned below.
@@ -63,6 +63,7 @@ After defining your network key, follow these steps to add (include) a secure Z-
 1. Go to the [Z-Wave control panel](/docs/z-wave/control-panel/) in the Home Assistant frontend
 2. Click the **Add Node Secure** button in the *Z-Wave Network Management* card - this will place the controller in inclusion mode
 3. Activate your device to be included by following the instructions provided with the device
+4. With the device in its final location, run a *Heal Network*
 
 ## {% linkable_title Removing Devices %}
 
@@ -71,4 +72,4 @@ To remove (exclude) a Z-Wave device from your system:
 1. Go to the Z-Wave control panel in the Home Assistant frontend
 2. Click the **Remove Node** button in the *Z-Wave Network Management* card - this will place the controller in exclusion mode
 3. Activate your device to be excluded by following the instructions provided with the device
-4. With the device in its final location, run a *Heal*
+4. Run a *Heal Network* so all the other nodes learn about its removal

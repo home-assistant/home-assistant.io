@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dublin Bus Transport"
-description: "Instructions how to integrate timetable data for travelling on Dublin Bus within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling on Dublin Bus within Home Assistant."
 date: 2017-01-09 21:45
 sidebar: true
 comments: false
@@ -32,7 +32,7 @@ sensor:
 Configuration variables:
 
 - **stopid** (*Required*): The ID of the bus stop to get the information for.
-- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g. `83`.
+- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`.
 - **name** (*Optional*): A friendly name for this sensor.
 
 The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).

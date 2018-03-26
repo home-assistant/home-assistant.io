@@ -16,7 +16,7 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
 * The language of the documentation should be American-English.
 * Don't put two spaces after a period and avoid the "Oxford comma".
 * Be objective and not gender favoring, polarizing, race related or religion inconsiderate.
-* The case of brand names, services, protocols, components, and platforms must match its respective counterpart. E.g. "Z-Wave" **not** "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" **not** "input select" or "Input select".
+* The case of brand names, services, protocols, components, and platforms must match its respective counterpart. e.g., "Z-Wave" **not** "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" **not** "input select" or "Input select".
 * All headings should use the {% raw %}`{% linkable_title %}`{% endraw %} tag.
 
 ## {% linkable_title Component and Platform Pages %}
@@ -66,4 +66,4 @@ redirect_from: /getting-started/android/
 ---
 ```
 
-Adding a redirect also applies if you move content around in the [documention](/docs/).
+Adding a redirect also applies if you move content around in the [documentation](/docs/).

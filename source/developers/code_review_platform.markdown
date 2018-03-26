@@ -28,7 +28,7 @@ Not all existing platforms follow the requirements in this checklist. This canno
 ### {% linkable_title 3. Configuration %}
 
  1. Voluptuous schema present for config validation
- 2. Voluptuous schema extends schema from component<br>(e.g. `light.hue.PLATFORM_SCHEMA` extends `light.PLATFORM_SCHEMA`)
+ 2. Voluptuous schema extends schema from component<br>(e.g., `light.hue.PLATFORM_SCHEMA` extends `light.PLATFORM_SCHEMA`)
  3. Default parameters specified in voluptuous schema, not in `setup_platform(…)`
  4. Your `PLATFORM_SCHEMA` should use as many generic config keys as possible from `homeassistant.const`
     ```python
@@ -58,7 +58,7 @@ Not all existing platforms follow the requirements in this checklist. This canno
 
 ### {% linkable_title 5. Entity %}
 
- 1. Extend entity from component, e.g. `class HueLight(Light)`
+ 1. Extend entity from component, e.g., `class HueLight(Light)`
  2. Do not call `update()` in constructor, use `add_devices(devices, True)` instead.
  3. Do not do any I/O inside properties. Cache values inside `update()` instead.
  4. The state and/or attributes should not contain relative time since something happened. Instead it should store UTC timestamps.

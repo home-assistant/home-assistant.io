@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Group Visibility"
-description: "Instructions how to change group visibility using automations."
+description: "Instructions on how to change group visibility using automations."
 date: 2016-10-29 13:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ After filling Home Assistant with all your precious home automation devices, you
 
 ## {% linkable_title Changing visibility of a group %}
 
-To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide wheter the group should be shown or hidden.
+To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide whether the group should be shown or hidden.
 
 ```yaml
 service: group.set_visibility

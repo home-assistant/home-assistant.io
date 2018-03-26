@@ -30,7 +30,7 @@ The service `persistent_notification/create` takes in `message`, `title`, and `n
 
 The `persistent_notification` component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:
@@ -67,5 +67,3 @@ Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 This will create the notification entry shown above.
-
-NOTE: if you have defined a ```default_view:``` in your ```Groups:``` configuration you will need to include ```persistent_notification.<notification_id>``` e.g. ```persistent_notification.1234``` as per the example above, to your Groups configuration, in order to see the notification after creating it. 

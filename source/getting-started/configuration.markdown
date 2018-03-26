@@ -30,7 +30,7 @@ Hass.io add-ons are installed from the add-on store embedded in the Hass.io pane
 [local]: http://hassio.local:8123
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 
@@ -67,5 +67,12 @@ After you have installed it, click on START. Hass.io should now be available in 
 Now that you are able to edit the configuration, it's time to set up some of your devices and services. Each service and device will have its own instructions on how to be integrated. Find  your devices and services on the [components overview page](/components/).
 
 <p class='note'>YAML can be a little daunting at first. A lot is possible! [Here is some more info.](/docs/configuration/devices/)</p>
+
+For a sensor that is showing [random values](/components/sensor.random/), the entry would look like the sample below:
+
+```yaml
+sensor:
+  - platform: random
+```
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)

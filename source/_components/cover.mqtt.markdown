@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Cover"
-description: "Instructions how to integrate MQTT covers into Home Assistant."
+description: "Instructions on how to integrate MQTT covers into Home Assistant."
 date: 2016-09-28 17:30
 sidebar: true
 comments: false
@@ -134,7 +134,7 @@ tilt_max:
   type: integer
   default: 100
 tilt_closed_value:
-  description: The value that will be sent on an `close_cover_tilt` command.
+  description: The value that will be sent on a `close_cover_tilt` command.
   required: false
   type: integer
   default: 0

@@ -11,10 +11,10 @@ categories: Release-Notes
 og_image: /images/blog/2017-03-0.41/social.png
 ---
 
-Welcome to 0.41. There was a lot going on in the last two weeks. Not only from the code side but also from the social one of Home Assistant. [Paulus][@balloob] did an [interview] with [OpenSourceCraft], [Fabian][@fabaff] did a [workshop] at the [Chemnitzer Linux Tage][clt], and we are now an award-winning Open source project (I will cover that in a separate blog post). 
+Welcome to 0.41. There was a lot going on in the last two weeks. Not only from the code side but also from the social one of Home Assistant. [Paulus][@balloob] did an [interview] with [OpenSourceCraft], [Fabian][@fabaff] did a [workshop] at the [Chemnitzer Linux Tage][clt], and we are now an award-winning Open source project (I will cover that in a separate blog post).
 
 ## Plex
-[@JesseWebDotCom] made massive changes to the [Plex][plex] media player platform. From better metadata support over new configuration options to improved controls and non-controllable clients. 
+[@JesseWebDotCom] made massive changes to the [Plex][plex] media player platform. From better metadata support over new configuration options to improved controls and non-controllable clients.
 
 ## Component overview
 The [Components][components] overview is now powered by search/filtering feature. This will make it faster to get the component/platform you are looking for more quickly. Thanks again, [@bdurrer] for this.
@@ -334,16 +334,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wmalgadey]: https://github.com/wmalgadey
 [@yeralin]: https://github.com/yeralin
 
-[components]: https://home-assistant.io/components/
-[kodi]: https://home-assistant.io/components/notify.kodi/
-[mpd]: https://home-assistant.io/components/media_player.mpd/ 
-[emby]: https://home-assistant.io/components/media_player.emby/
-[mqtt]: https://home-assistant.io/docs/mqtt/
-[plex]: https://home-assistant.io/components/media_player.plex/
-[tado]: https://home-assistant.io/components/climate.tado/
-[volumio]: https://home-assistant.io//components/media_player.volumio/
-[workday]: https://home-assistant.io/components/binary_sensor.workday/
-[android]: https://home-assistant.io/components/android_ip_webcam/
+[components]: /components/
+[kodi]: /components/notify.kodi/
+[mpd]: /components/media_player.mpd/
+[emby]: /components/media_player.emby/
+[mqtt]: /docs/mqtt/
+[plex]: /components/media_player.plex/
+[tado]: /components/climate.tado/
+[volumio]: //components/media_player.volumio/
+[workday]: /components/binary_sensor.workday/
+[android]: /components/android_ip_webcam/
 [shadow]: https://www.w3.org/TR/shadow-dom/
 
 [forum]: https://community.home-assistant.io/
@@ -351,7 +351,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [discord]: https://discord.gg/c5DvZ4e
 
 [@bdurrer]: https://github.com/bdurrer
-[interview]: https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/
+[interview]: /blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/
 [OpenSourceCraft]: http://codepop.com/open-sourcecraft
 [clt]: https://chemnitzer.linux-tage.de/2017/en/
 [workshop]: https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop

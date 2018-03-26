@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Min/max Sensor"
-description: "Instructions how to integrate min/max sensors into Home Assistant."
+description: "Instructions on how to integrate min/max sensors into Home Assistant."
 date: 2016-10-13 12:00
 sidebar: true
 comments: false

@@ -1,21 +1,17 @@
 ---
 layout: page
 title: "Tahoma Sensor"
-description: "Instructions how to integrate Tahoma sensors into Home Assistant."
+description: "Instructions on how to integrate Tahoma sensors into Home Assistant."
 date: 2017-07-18 12:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: tahoma.png
-ha_category: Cover
+ha_category: Sensor
 ha_release: 0.59
 ---
 
-To use your tahoma sensors in your installation, add the following to your `configuration.yaml` file:
+The `tahoma` sensor platform lets you see sensors added to your Tahoma Box in Home Assistant.
 
-```yaml
-# Example configuration.yml entry
-sensor:
-  platform: tahoma
-```
+Sensors will be added automatically. Please refer to the [component](/components/tahoma/) configuration on how to setup Tahoma.

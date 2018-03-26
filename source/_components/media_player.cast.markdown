@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Cast"
-description: "Instructions how to integrate Google Cast into Home Assistant."
+description: "Instructions on how to integrate Google Cast into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/). There is a issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.
+Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/). There is an issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.
 
 The Chromecast platform can also be forced to load by adding the following lines to your `configuration.yaml`:
 

@@ -28,9 +28,24 @@ condition:
       below: '20'
 ```
 
+If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
+The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: numeric_state
+    entity_id: 'sensor.temperature'
+    below: '20'
+```
+
+Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
+
 ### {% linkable_title OR condition %}
 
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
 
 ```yaml
 condition:
@@ -104,14 +119,24 @@ condition:
 
 The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
-[sun_trigger]: /getting-started/automation-trigger/#sun-trigger
+[sun_trigger]: /docs/automation/trigger/#sun-trigger
 
 ```yaml
 condition:
   condition: sun
   after: sunset
-  # Optional offset value
+  # Optional offset value - in this case it must from -1 hours relative to sunset, or after
   after_offset: "-1:00:00"
+```
+
+```yaml
+condition:
+    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
 ```
 
 Here is a truth table to clarify the parameters with and without offset:

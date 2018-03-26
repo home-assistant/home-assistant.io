@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Sensor"
-description: "Instructions how to integrate REST sensors into Home Assistant."
+description: "Instructions on how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -196,7 +196,7 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
-### {% linkable_title Fetch multiple JSON values and present them as attibutes %}
+### {% linkable_title Fetch multiple JSON values and present them as attributes %}
 
 [JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 

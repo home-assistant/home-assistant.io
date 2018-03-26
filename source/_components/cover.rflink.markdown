@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFLink Cover"
-description: "Instructions how to integrate RFLink Somfy RTS Cover into Home Assistant."
+description: "Instructions on how to integrate RFLink Somfy RTS Cover into Home Assistant."
 date: 2017-08-08
 sidebar: true
 comments: false
@@ -85,7 +85,7 @@ Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).

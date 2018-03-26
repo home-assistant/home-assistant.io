@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iCloud"
-description: "Instructions how to use iCloud to track devices in Home Assistant."
+description: "Instructions on how to use iCloud to track devices in Home Assistant."
 date: 2015-12-15 1000
 sidebar: true
 comments: false
@@ -50,5 +50,5 @@ To disable the drainage of the battery, a dynamic interval is being used for eac
 4 services are available for this component:
 - **icloud_update**: This service can be used to ask for an update of a certain iDevice. The `account_name` and `device_name` are optional.
 - **icloud_lost_iphone**: This service will play the Lost iPhone sound on a certain iDevice. The `account_name` and `device_name` are optional.
-- **icloud_set_interval**: This service will change the dynamic interval of an iDevice. The `account_name` and `device_name` are optional. If `interval` is used in the service_data, the iDevice will be updated with that new interval. That interval will be fixed until the iDevice changes zone or if this service is called again. If `interval` isn't used in the service_data, the interval for that iDevice will revert back to it's default dynamic interval based on it's current zone, it's distance towards home and it's battery level.
+- **icloud_set_interval**: This service will change the dynamic interval of an iDevice. The `account_name` and `device_name` are optional. If `interval` is used in the service_data, the iDevice will be updated with that new interval. That interval will be fixed until the iDevice changes zone or if this service is called again. If `interval` isn't used in the service_data, the interval for that iDevice will revert back to its default dynamic interval based on its current zone, its distance towards home and its battery level.
 - **icloud_reset_account**: This service can be used to reset an iCloud account. This is helpful when not all devices are being found by the component or if you have added a new iDevice to your account. The `account_name` is optional.

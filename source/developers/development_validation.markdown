@@ -11,7 +11,7 @@ footer: true
 
 The `configuration.yaml` file contains the configuration options for components and platforms. We use [voluptuous](https://pypi.python.org/pypi/voluptuous) to make sure that the configuration provided by the user is valid. Some entries are optional or could be required to set up a platform or a component. Others must be a defined type or from an already-defined list.
 
-We test the configuration to ensure that users have a great experience and minimise notifications if something is wrong with a platform or component setup before Home Assistant runs.
+We test the configuration to ensure that users have a great experience and minimize notifications if something is wrong with a platform or component setup before Home Assistant runs.
 
 Besides [voluptuous](https://pypi.python.org/pypi/voluptuous) default types, many custom types are available. For an overview, take a look at the [config_validation.py](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py) helper.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Switch"
-description: "Instructions how to integrate Template Switches into Home Assistant."
+description: "Instructions on how to integrate Template Switches into Home Assistant."
 date: 2016-02-07 07:00
 sidebar: true
 comments: false
@@ -55,6 +55,10 @@ switch:
         description: Name to use in the frontend.
         required: false
         type: string
+      entity_id:
+        description: A list of entity IDs so the switch only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        required: false
+        type: [string, list]
       value_template:
         description: Defines a template to set the state of the switch.
         required: true
@@ -67,6 +71,10 @@ switch:
         description: Defines an action to run when the switch is turned off.
         required: true
         type: action
+      icon_template:
+        description: Defines a template for the icon of the switch.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}

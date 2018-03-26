@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Random Sensor"
-description: "Instructions how to integrate random number sensors into Home Assistant."
+description: "Instructions on how to integrate random number sensors into Home Assistant."
 date: 2016-10-30 12:10
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.32
 ---
 
 
-The `random` sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
+The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
 
 To enable the random sensor, add the following lines to your `configuration.yaml`:
 
@@ -48,4 +48,4 @@ unit_of_measurement:
 
 See the [entity component options][entity-docs] to control how often the main component polls the random sensor. The default is 30 seconds.
 
-[entity-docs]: https://home-assistant.io/docs/configuration/platform_options/
+[entity-docs]: /docs/configuration/platform_options/

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Allow to shutdown a Windows computer with a service call from Home Assistant.
+Allows you to shut down a Windows computer with a service call from Home Assistant.
 
 ```json
 {
@@ -23,10 +23,10 @@ Allow to shutdown a Windows computer with a service call from Home Assistant.
 }
 ```
 
-- **computers** (*Required*): A list of computer object to shutdown from Home-Assistant.
-- **computers/alias** (*Required*): Set a alias for this record and that is the name for the input.
-- **computers/address** (*Required*): IP address or netbios name of the computer for shutdown.
-- **computers/credentials** (*Required*): Credentials for logging into computer. Use a `%` as delimiter of username and password.
+- **computers** (*Required*): A list of computer objects to shutdown from Home-Assistant.
+- **computers/alias** (*Required*): Set an alias for this record which becomes the name for the input.
+- **computers/address** (*Required*): IP address or NetBIOS name of the computer for the shutdown.
+- **computers/credentials** (*Required*): Credentials for logging into computer. Use a `%` as the delimiter of username and password.
 
 ## {% linkable_title Home Assistant %}
 

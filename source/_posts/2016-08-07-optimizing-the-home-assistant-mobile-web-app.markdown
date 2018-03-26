@@ -22,7 +22,7 @@ And thus started my journey to take a critical look at how the Home Assistant ap
 
 I hope this list can be useful to other people, as a guide for optimizing their own apps or for avoiding pitfalls when building a new one.
 
-The first thing to do is to measure. The Home Assistant front end is a mobile web app, so we shouldn’t measure this on a machine with 8 cores and gigabytes of ram but instead measure on devices you expect a mobile web app to run: phones. Below are two timelines recorded with Home Assistant 0.18.2 (pre-optimizations) and Google Chrome 53. **On my Mac the app starts in 1400 miliseconds and on my Nexus 5x in ~6500 miliseconds (~4.5 times slower!).**
+The first thing to do is to measure. The Home Assistant front end is a mobile web app, so we shouldn’t measure this on a machine with 8 cores and gigabytes of ram but instead measure on devices you expect a mobile web app to run: phones. Below are two timelines recorded with Home Assistant 0.18.2 (pre-optimizations) and Google Chrome 53. **On my Mac the app starts in 1400 milliseconds and on my Nexus 5x in ~6500 milliseconds (~4.5 times slower!).**
 
 <p class='img'>
   <img
@@ -30,7 +30,7 @@ The first thing to do is to measure. The Home Assistant front end is a mobile we
     alt='Timeline of loading the front end in Home Assistant 0.18.2' />
 </p>
 
-Although the app takes 6500 milliseconds to load on my phone, it would perform well afterwards. Still, that initial load is unacceptable. You expect to open an app on your phone and be able to use it, quickly. After I applied all the changes described below, I managed to reduce startup time to 900 miliseconds (-35%) on my Mac and 2400 miliseconds (-63%) on my Nexus 5x. [Check out the demo here.][demo]
+Although the app takes 6500 milliseconds to load on my phone, it would perform well afterwards. Still, that initial load is unacceptable. You expect to open an app on your phone and be able to use it, quickly. After I applied all the changes described below, I managed to reduce startup time to 900 milliseconds (-35%) on my Mac and 2400 milliseconds (-63%) on my Nexus 5x. [Check out the demo here.][demo]
 
 <p class='img'>
   <img
@@ -159,7 +159,7 @@ A lot of optimizations have been applied but this journey will never be over. Th
 - Reduce size of initial bundle by moving out all things that are not visible for initial paint. For example the dialogs that show more info about entities.
 - Prefetch the other pages using `<link rel="preload" …>`
 
-[demo]: https://home-assistant.io/demo
+[demo]: /demo
 [hap]: https://github.com/home-assistant/home-assistant-polymer
 [mantra]: https://www.youtube.com/watch?v=zfQoleQEa4w&feature=youtu.be&t=1380
 [sw-precache]: https://github.com/GoogleChrome/sw-precache

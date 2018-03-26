@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Discord"
-description: "Instructions how to add Discord notifications to Home Assistant."
+description: "Instructions on how to add Discord notifications to Home Assistant."
 date: 2016-01-14 15:15
 sidebar: true
 comments: false
@@ -16,7 +16,7 @@ The [Discord service](https://discordapp.com/) is a platform for the notify comp
 
 In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**) and activate **Require OAuth2 Code Grant**. Retrieve the **Client ID** and the (hidden) **Token** of your bot for later.
 
-When setting up the application you can use this [icon](https://home-assistant.io/demo/favicon-192x192.png).
+When setting up the application you can use this [icon](/demo/favicon-192x192.png).
 
 To use Discord notifications, add the following to your `configuration.yaml` file:
 
@@ -35,11 +35,11 @@ Configuration variables:
 
 ### {% linkable_title Setting up the bot %}
 
-Bots can only send messages to servers. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me). 
+Bots can only send messages to servers. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
-</p> 
+</p>
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
 

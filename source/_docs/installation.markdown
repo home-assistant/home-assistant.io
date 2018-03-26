@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installation of Home Assistant"
-description: "Instructions how to install Home Assistant to launch on start."
+description: "Instructions on how to install Home Assistant to launch on start."
 date: 2017-02-15 08:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ redirect_from: /getting-started/installation/
 Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require advanced installations.
 </p>
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5+](https://www.python.org/downloads/) installed.
+Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5.3 or later](https://www.python.org/downloads/) installed.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/getting-started/'>

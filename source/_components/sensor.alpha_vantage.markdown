@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alpha Vantage"
-description: "Instructions how to setup Alpha Vantage within Home Assistant."
+description: "Instructions on how to setup Alpha Vantage within Home Assistant."
 date: 2017-12-02 12:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ featured: false
 ha_release: "0.60"
 ---
 
-The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market.
+The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
 
 To enable the `alpha_vantage` platform, add the following lines to your `configuration.yaml` file:
 
@@ -23,7 +23,16 @@ To enable the `alpha_vantage` platform, add the following lines to your `configu
 sensor:
   - platform: alpha_vantage
     api_key: YOUR_API_KEY
+    symbols:
+    - symbol: GOOGL
+      name: Google
+    foreign_exchange:
+    - name: USD_EUR
+      from: USD
+      to: EUR
 ```
+
+Either a symbol or a foreign exchange must be configured, otherwise you will not get any data.
 
 {% configuration %}
 api_key:
@@ -33,7 +42,6 @@ api_key:
 symbols:
   description: List of stock market symbols for given companies.
   required: false
-  default: GOOGL
   type: map
   keys:
     name:

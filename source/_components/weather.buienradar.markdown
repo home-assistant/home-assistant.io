@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Buienradar Weather"
-description: "Instructions how to integrate buienradar.nl weather within Home Assistant."
+title: "Buienradar"
+description: "Instructions on how to integrate buienradar.nl weather within Home Assistant."
 date: 2017-05-15 14:00
 sidebar: true
 comments: false

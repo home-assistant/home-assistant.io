@@ -59,7 +59,7 @@ automation
 ```
 
 ### {% linkable_title Sending notifications to multiple phones %}
-To send notifications to multiple phones, create a [notification group](https://home-assistant.io/components/notify.group/):
+To send notifications to multiple phones, create a [notification group](/components/notify.group/):
 ```yaml
 notify:
   - name: NOTIFIER_NAME

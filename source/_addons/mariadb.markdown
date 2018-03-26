@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside home assistant use `core-mariadb` as the host address.
+Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databases, users, and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telegram"
-description: "Instructions how to add Telegram notifications to Home Assistant."
+description: "Instructions on how to add Telegram notifications to Home Assistant."
 date: 2015-10-09 18:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Switch"
-description: "Instructions how to have switches call command line commands."
+description: "Instructions on how to have switches call command line commands."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false
@@ -40,7 +40,7 @@ Configuration variables:
 
 A note on `friendly_name`:
 
-When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g. from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example. 
+When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example.
 
 ## {% linkable_title Examples %}
 
@@ -63,7 +63,7 @@ switch:
       friendly_name: Kitchen Lightswitch
 ```
 
-Given this example, in the UI one would see the `friendly_name` of "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the `entity_id` `switch.arest_pin_four`, which is what one would use in [`automation`](https://home-assistant.io/components/automation/) or in [API calls](https://home-assistant.io/developers/).
+Given this example, in the UI one would see the `friendly_name` of "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the `entity_id` `switch.arest_pin_four`, which is what one would use in [`automation`](/components/automation/) or in [API calls](/developers/).
 
 ### {% linkable_title Shutdown your local host %}
 
@@ -85,7 +85,7 @@ switch:
 
 ### {% linkable_title Control your VLC player %}
 
-This switch will control a local VLC media player ([Source](https://community.home-assistant.io/t/vlc-player/106)). 
+This switch will control a local VLC media player ([Source](https://community.home-assistant.io/t/vlc-player/106)).
 
 
 ```yaml

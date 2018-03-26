@@ -7,10 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_release: 0.61
-ha_category: Cloud
-ha_iot_class: "Cloud Push"
 published: false
 ---
 
@@ -20,7 +16,7 @@ To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
  - A Google Assistant enabled device like the Google Home
- - Activated the Home Assistant Smart Home skill for Google Assistant
+ - Activated the [Home Assistant Smart Home skill for Google Assistant](https://assistant.google.com/services/a/uid/00000091fd5fb875)
 
 You can use `configuration.yaml` to configure the entities that are being shown to Google Assistant and how they are exposed.
 
@@ -45,7 +41,7 @@ cloud:
         type: 'action.devices.types.LIGHT'
 ```
 
-{% configuration %}
+{% configuration cloud %}
 google_actions:
   description: Configuration options for the Google Assistant integration.
   required: false

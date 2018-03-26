@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Denon AVR Network Receivers"
-description: "Instructions how to integrate Denon AVR Network Receivers into Home Assistant."
+description: "Instructions on how to integrate Denon AVR Network Receivers into Home Assistant."
 date: 2015-09-08 09:00
 sidebar: true
 comments: false
@@ -72,5 +72,6 @@ A few notes:
 - denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.
 - The key-value structure in the sound_mode_dict is needed because the commands to set an sound mode and the reported sound mode are different. This structure matches the reported sound mode with the commands to set a sound mode.
+
 
 [Denon]: /components/media_player.denon/

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ubiquiti Unifi direct AP"
-description: "Instructions how to use a Unifi WAP as a device tracker."
+description: "Instructions on how to use a Unifi WAP as a device tracker."
 date: 2017-11-17 14:59
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.59
 ---
 
 
-This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ubnt.com/products/#unifi). This device tracker differs form [Ubiquiti Unifi WAP](https://home-assistant.io/components/device_tracker.unifi/) because it doesn't require the Unifi controller software.
+This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ubnt.com/products/#unifi). This device tracker differs form [Ubiquiti Unifi WAP](/components/device_tracker.unifi/) because it doesn't require the Unifi controller software.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

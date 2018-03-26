@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Robotics"
-description: "Instructions how to integrate your Neato within Home Assistant."
+description: "Instructions on how to integrate your Neato within Home Assistant."
 date: 2016-10-09 20:15
 sidebar: true
 comments: false
@@ -27,15 +27,6 @@ Configuration variables:
 
 - **username** (*Required*): Username for the Neato account.
 - **password** (*Required*): Password for the Neato account.
-
-The Home Assistant Neato platform has not been tested with all models of Botvac.
-
-  | BotVac Model | Tested |
-  | --- | --- |
-  | Botvac Connected | SUCCESS |
-  | Botvac D3 Connected (firmware 4.0+) | PARTIALLY WORKING |
-  | Botvac D5 Connected (firmware 4.0+) | PARTIALLY WORKING |
-  | Botvac D7 Connected | SUCCESS |
 
 <p class='note'>
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. The start/stop functionality does not work. More information on how to update here: https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-

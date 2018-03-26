@@ -22,6 +22,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **gas**: `On` means gas detected, `Off` means no gas (clear)
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
+- **lock**: `On` means open (unlocked), `Off` means closed (locked)
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
 - **motion**: `On` means motion detected, `Off` means no motion (clear)
 - **moving**: `On` means moving, `Off` means not moving (stopped)
@@ -37,4 +38,4 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **vibration**: `On` means vibration detected, `Off` means no vibration (clear)
 - **window**: `On` means open, `Off` means closed
 
-For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
+For analog sensors please check the [component overview](/components/#sensor).

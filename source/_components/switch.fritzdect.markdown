@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AVM FRITZ!DECT Switch"
-description: "Instructions how to integrate your AVM FRITZ!DECT switches into Home Assistant."
+description: "Instructions on how to integrate your AVM FRITZ!DECT switches into Home Assistant."
 date: 2017-01-24 21:00
 sidebar: true
 comments: false
@@ -23,7 +23,7 @@ Supported devices (tested):
 Supported Firmwares (tested):
 
 - FRITZ!OS: 06.80 / FRITZ!DECT: 03.83
-- FRITZ!OS: 06.60 / FRITZ!DECT: 03.83
+- FRITZ!OS: 06.98-51288 (Beta) / FRITZ!DECT: 03.87
 
 To use your AVM FRITZ!DECT switch(es) in your installation, add the following to your `configuration.yaml` file:
 
@@ -41,6 +41,7 @@ Configuration variables:
 - **password** (*Required*): The password for your Fritz!Box.
 - **host** (*Optional*): The IP address/hostname of your Fritz!Box. Defaults to `fritz.box`.
 
+It is recommened to create a dedicated user for Home Assistant and only allow access to "Smart Home".
 
 <p class='note warning'>
 If this component throws an error when starting home-assistant you should check if all actors are plugged in and connected to the FritzBox. Inactive actors that are not deleted from FritzBox configuration might lead to errors.

@@ -28,7 +28,7 @@ Configuration variables:
 - **longitude** (*Optional*): Longitude of your location required to calculate the time the sun rises and sets.
 - **elevation** (*Optional*): Altitude above sea level in meters. Impacts weather/sunrise data. 
 - **unit_system** (*Optional*): `metric` for Metric, `imperial` for Imperial.
-- **time_zone** (*Optional*): Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+- **time_zone** (*Optional*): Pick yours from here: [http://en.wikipedia.org/wiki/List_of_tz_database_time_zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 - **name** (*Optional*): Name of the location where Home Assistant is running.
 - **customize** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities.
 - **customize_domain** (*Optional*): [Customize](/docs/configuration/customizing-devices/) all entities in a domain.
@@ -37,7 +37,7 @@ Configuration variables:
 
 ### {% linkable_title Password protecting the web interface %}
 
-First, you'll want to add a password for the Home Assistant web interface. Use your favourite text editor to open `configuration.yaml` and edit the `http` section:
+First, you'll want to add a password for the Home Assistant web interface. Use your favorite text editor to open `configuration.yaml` and edit the `http` section:
 
 ```yaml
 http:

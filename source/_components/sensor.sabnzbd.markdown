@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SABnzbd"
-description: "Instructions how to integrate SABnzbd within Home Assistant."
+description: "Instructions on how to integrate SABnzbd within Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false

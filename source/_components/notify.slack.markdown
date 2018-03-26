@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Slack"
-description: "Instructions how to add Slack notifications to Home Assistant."
+description: "Instructions on how to add Slack notifications to Home Assistant."
 date: 2015-08-06 18:00
 sidebar: true
 comments: false

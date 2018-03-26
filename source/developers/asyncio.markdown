@@ -23,5 +23,5 @@ The backwards compatible API works by scheduling a task from a different thread 
 
 ### [Next step: asyncio 101 &raquo;](/developers/asyncio_101/)
 
-[0.29]: https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/
+[0.29]: /blog/2016/09/29/async-sleepiq-emoncms-stocks/
 [ben]: https://github.com/bbangert/

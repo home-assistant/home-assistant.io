@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Device Tracker"
-description: "Instructions how to setup device tracking within Home Assistant."
+description: "Instructions on how to setup device tracking within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ Home Assistant can get information from your wireless router or third party serv
 
 There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
 
-An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time. 
+An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time.
 
 ## {% linkable_title Configuring a `device_tracker` platform %}
 
@@ -37,7 +37,7 @@ The following optional parameters can be used with any platform. However device 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `interval_seconds`   | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
-| `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (E.g. the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
+| `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
 | `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `True`), `hide_if_away` (default: `False`)                                                                                                                                                                                                                                                     |
 
 The extended example from above would look like the following sample:
@@ -65,7 +65,7 @@ Here's an example configuration for a single device:
 devicename:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
-  picture: https://home-assistant.io/images/favicon-192x192.png
+  picture: https://www.home-assistant.io/images/favicon-192x192.png
   track: yes
   hide_if_away: no
 ```

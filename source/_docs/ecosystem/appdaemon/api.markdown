@@ -22,13 +22,13 @@ import homeassistant.appapi as appapi
 class MotionLights(appapi.AppDaemon):
 ```
 
-When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to it's `initialize()` function - this function must appear as part of every app:
+When configured as an app in the config file (more on that later) the lifecycle of the App begins. It will be instantiated as an object by AppDaemon, and immediately, it will have a call made to its `initialize()` function - this function must appear as part of every app:
 
 ```python
   def initialize(self):
 ```
 
-The initialize function allows the app to register any callbacks it might need for responding to state changes, and also any setup activities. When the `initialize()` function returns, the App will be dormant until any of it's callbacks are activated.
+The initialize function allows the app to register any callbacks it might need for responding to state changes, and also any setup activities. When the `initialize()` function returns, the App will be dormant until any of its callbacks are activated.
 
 There are several circumstances under which `initialize()` might be called:
 
@@ -39,7 +39,7 @@ There are several circumstances under which `initialize()` might be called:
 - Following a change in the status of Daylight Savings Time
 - Following a restart of Home Assistant
 
-In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been cancelled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g. turn off a light that might have been left on by mistake when the app was restarted).
+In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been canceled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g., turn off a light that might have been left on by mistake when the app was restarted).
 
 After the `initialize()` function is in place, the rest of the app consists of functions that are called by the various callback mechanisms, and any additional functions the user wants to add as part of the program logic. Apps are able to subscribe to 2 main classes of events:
 
@@ -93,7 +93,7 @@ class = NewApp
 
 When AppDaemon sees the following configuration it will expect to find a class called `NewApp` defined in a module called `new.py` in the apps subdirectory. Apps can be placed at the root of the Apps directory or within a subdirectory, an arbitrary depth down - wherever the App is, as long as it is in some subdirectory of the Apps dir, or in the Apps dir itself, AppDaemon will find it. There is no need to include information about the path, just the name of the file itself (without the `.py`) is sufficient. If names in the subdirectories overlap, AppDir will pick one of them but the exact choice it will make is undefined.
 
-When starting the system for the first time or when reloading an App or Module, the system will log the fact in it's main log. It is often the case that there is a problem with the class, maybe a syntax error or some other problem. If that is the case, details will be output to the error log allowing the user to remedy the problem and reload.
+When starting the system for the first time or when reloading an App or Module, the system will log the fact in its main log. It is often the case that there is a problem with the class, maybe a syntax error or some other problem. If that is the case, details will be output to the error log allowing the user to remedy the problem and reload.
 
 ## {% linkable_title Steps to writing an App %}
 
@@ -150,11 +150,11 @@ light = light.garage
 
 ## {% linkable_title Callback Constraints %}
 
-Callback constraints are a feature of AppDaemon that removes the need for repetition of some common coding checks. Many Apps will wish to process their callbacks only when certain conditions are met, e.g. someone is home, and it's after sunset. These kinds of conditions crop up a lot, and use of callback constraints can significantly simplify the logic required within callbacks.
+Callback constraints are a feature of AppDaemon that removes the need for repetition of some common coding checks. Many Apps will wish to process their callbacks only when certain conditions are met, e.g., someone is home, and it's after sunset. These kinds of conditions crop up a lot, and use of callback constraints can significantly simplify the logic required within callbacks.
 
 Put simply, callback constraints are one or more conditions on callback execution that can be applied to an individual App. An App's callbacks will only be executed if all of the constraints are met. If a constraint is absent it will not be checked for.
 
-For example, the presence callback constraint can be added to an App by adding a parameter to it's configuration like this:
+For example, the presence callback constraint can be added to an App by adding a parameter to its configuration like this:
 
 ```ini
 [some_app]
@@ -194,7 +194,7 @@ constrain_input_boolean = input_boolean.enable_motion_detection,off
 ```
 
 ### {% linkable_title input_select %}
-The input_select constraint prevents callbacks unless the specified input_select is set to one or more of the nominated (comma separated) values. This is useful to allow certain Apps to be turned on and off according to some flag, e.g. a house mode flag.
+The input_select constraint prevents callbacks unless the specified input_select is set to one or more of the nominated (comma separated) values. This is useful to allow certain Apps to be turned on and off according to some flag, e.g., a house mode flag.
 
 ```ini
 # Single value
@@ -272,7 +272,7 @@ Any other attributes such as brightness for a lamp will only be present if the e
 
 Also bear in mind that some attributes such as brightness for a light, will not be present when the light is off.
 
-In most cases, the attribute `state` has the most important value in it, e.g. for a light or switch this will be `on` or `off`, for a sensor it will be the value of that sensor. Many of the AppDaemon API calls and callbacks will implicitly return the value of state unless told to do otherwise.
+In most cases, the attribute `state` has the most important value in it, e.g., for a light or switch this will be `on` or `off`, for a sensor it will be the value of that sensor. Many of the AppDaemon API calls and callbacks will implicitly return the value of state unless told to do otherwise.
 
 ### {% linkable_title get_state() %}
 
@@ -294,9 +294,9 @@ All parameters are optional, and if `get_state()` is called with no parameters i
 
 ##### {% linkable_title entity %}
 
-This is the name of an entity or device type. If just a device type is provided, e.g. `light` or `binary_sensor`, `get_state()` will return a dictionary of all devices of that type, indexed by the entity_id, containing all the state for each entity.
+This is the name of an entity or device type. If just a device type is provided, e.g., `light` or `binary_sensor`, `get_state()` will return a dictionary of all devices of that type, indexed by the entity_id, containing all the state for each entity.
 
-If a fully qualified `entity_id` is provided, `get_state()` will return the state attribute for that entity, e.g. `on` or `off` for a light.
+If a fully qualified `entity_id` is provided, `get_state()` will return the state attribute for that entity, e.g., `on` or `off` for a light.
 
 ##### {% linkable_title attribute %}
 
@@ -345,11 +345,11 @@ set_state(entity_id, **kwargs)
 
 ##### {% linkable_title entity_id %}
 
-Entity id for which the state is to be set, e.g. `light.office_1`.
+Entity id for which the state is to be set, e.g., `light.office_1`.
 
 ##### {% linkable_title values %}
 
-A list of keyword values to be changed or added to the entities state. e.g. `state = "off"`. Note that any optional attributes such as colors for bulbs etc, need to reside in a dictionary called `attributes`; see the example.
+A list of keyword values to be changed or added to the entities state. e.g., `state = "off"`. Note that any optional attributes such as colors for bulbs etc, need to reside in a dictionary called `attributes`; see the example.
 
 #### {% linkable_title Examples %}
 
@@ -461,7 +461,7 @@ handle = listen_state(callback, entity = None, **kwargs)
 
 #### {% linkable_title Returns %}
 
-A unique identifier that can be used to cancel the callback if required. Since variables created within object methods are local to the function they are created in, and in all likelihood the cancellation will be invoked later in a different function, it is recommended that handles are stored in the object namespace, e.g. `self.handle`.
+A unique identifier that can be used to cancel the callback if required. Since variables created within object methods are local to the function they are created in, and in all likelihood the cancellation will be invoked later in a different function, it is recommended that handles are stored in the object namespace, e.g., `self.handle`.
 
 #### {% linkable_title Parameters %}
 
@@ -473,9 +473,9 @@ Function to be invoked when the requested state change occurs. It must conform t
 
 ##### {% linkable_title entity %}
 
-This is the name of an entity or device type. If just a device type is provided, e.g. `light` or `binary_sensor`, `listen_state()` will subscribe to state changes of all devices of that type. If a fully qualified `entity_id` is provided, `listen_state()` will listen for state changes for just that entity.
+This is the name of an entity or device type. If just a device type is provided, e.g., `light` or `binary_sensor`, `listen_state()` will subscribe to state changes of all devices of that type. If a fully qualified `entity_id` is provided, `listen_state()` will listen for state changes for just that entity.
 
-When called, AppDaemon will supply the callback function, in old and new, with the state attribute for that entity, e.g. `on` or `off` for a light.
+When called, AppDaemon will supply the callback function, in old and new, with the state attribute for that entity, e.g., `on` or `off` for a light.
 
 ##### {% linkable_title attribute (optional) %}
 
@@ -539,7 +539,7 @@ self.handle = self.listen_state(self.my_callback, "light.office_1", new = "on", 
 
 ### {% linkable_title cancel_listen_state() %}
 
-Cancel a `listen_state()` callback. This will mean that the App will no longer be notified for the specific state change that has been cancelled. Other state changes will continue to be monitored.
+Cancel a `listen_state()` callback. This will mean that the App will no longer be notified for the specific state change that has been canceled. Other state changes will continue to be monitored.
 
 #### {% linkable_title Synopsis %}
 
@@ -565,7 +565,7 @@ self.cancel_listen_state(self.office_light_handle)
 
 ### {% linkable_title info_listen_state() %}
 
-Get information on state a callback from it's handle.
+Get information on state a callback from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -909,7 +909,7 @@ self.cancel_timer(handle)
 
 ### {% linkable_title info_timer() %}
 
-Get information on a scheduler event from it's handle.
+Get information on a scheduler event from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -944,16 +944,16 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time 
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
 For example:
 
 ```python
-# Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g. run between 60 and 120 seconds from now
+# Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g., run between 60 and 120 seconds from now
 self.handle = self.run_in(callback, 120, random_start = -60, **kwargs)
-# Run a callback in 2 minutes plus a random number of seconds between 0 and 60, e.g. run between 120 and 180 seconds from now
+# Run a callback in 2 minutes plus a random number of seconds between 0 and 60, e.g., run between 120 and 180 seconds from now
 self.handle = self.run_in(callback, 120, random_end = 60, **kwargs)
-# Run a callback in 2 minutes plus or minus a random number of seconds between 0 and 60, e.g. run between 60 and 180 seconds from now
+# Run a callback in 2 minutes plus or minus a random number of seconds between 0 and 60, e.g., run between 60 and 180 seconds from now
 self.handle = self.run_in(callback, 120, random_start = -60, random_end = 60, **kwargs)
 ```
 
@@ -1150,11 +1150,11 @@ None
 
 ##### {% linkable_title service %}
 
-The service name, e.g. `light.turn_on`.
+The service name, e.g., `light.turn_on`.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Each service has different parameter requirements. This argument allows you to specify a comma separated list of keyword value pairs, e.g. `entity_id = light.office_1`. These parameters will be different for every service and can be discovered using the developer tools. Most if not all service calls require an `entity_id` however, so use of the above example is very common with this call.
+Each service has different parameter requirements. This argument allows you to specify a comma separated list of keyword value pairs, e.g., `entity_id = light.office_1`. These parameters will be different for every service and can be discovered using the developer tools. Most if not all service calls require an `entity_id` however, so use of the above example is very common with this call.
 
 #### {% linkable_title Examples %}
 
@@ -1187,7 +1187,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be turned on, e.g. `light.office_lamp` or ```scene.downstairs_on```
+Fully qualified entity_id of the thing to be turned on, e.g., `light.office_lamp` or ```scene.downstairs_on```
 
 ##### {% linkable_title \*\*kwargs %}
 
@@ -1219,7 +1219,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be turned off, e.g. `light.office_lamp` or `scene.downstairs_on`.
+Fully qualified entity_id of the thing to be turned off, e.g., `light.office_lamp` or `scene.downstairs_on`.
 
 #### {% linkable_title Examples %}
 
@@ -1246,7 +1246,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be toggled, e.g. `light.office_lamp` or `scene.downstairs_on`.
+Fully qualified entity_id of the thing to be toggled, e.g., `light.office_lamp` or `scene.downstairs_on`.
 
 #### {% linkable_title Examples %}
 
@@ -1273,7 +1273,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_number to be changed, e.g. `input_number.alarm_hour`.
+Fully qualified entity_id of the input_number to be changed, e.g., `input_number.alarm_hour`.
 
 ##### {% linkable_title value %}
 
@@ -1303,7 +1303,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_select to be changed, e.g. `input_select.mode`.
+Fully qualified entity_id of the input_select to be changed, e.g., `input_select.mode`.
 
 ##### {% linkable_title value %}
 
@@ -1317,7 +1317,7 @@ self.select_option("input_select.mode", "Day")
 
 ### {% linkable_title notify() %}
 
-This is a convenience function for the `notify.notify` service. It will send a notification to your defualt notification service. If you have more than one, use `call_service()` to call the specific notification service you require instead.
+This is a convenience function for the `notify.notify` service. It will send a notification to your default notification service. If you have more than one, use `call_service()` to call the specific notification service you require instead.
 
 #### {% linkable_title Synopsis %}
 
@@ -1385,7 +1385,7 @@ A standard Python object reference.
 
 #### {% linkable_title event_name %}
 
-Name of the event that was called, e.g. `call_service`.
+Name of the event that was called, e.g., `call_service`.
 
 #### {% linkable_title data %}
 
@@ -1463,7 +1463,7 @@ self.cancel_listen_event(handle)
 
 ### {% linkable_title info_listen_event() %}
 
-Get information on an event callback from it's handle.
+Get information on an event callback from its handle.
 
 #### {% linkable_title Synopsis %}
 
@@ -1528,13 +1528,13 @@ def service(self, event_name, data):
 
 #### {% linkable_title event_name %}
 
-The name of the event that caused the callback, e.g. `"MODE_CHANGE"` or `call_service`.
+The name of the event that caused the callback, e.g., `"MODE_CHANGE"` or `call_service`.
 
 #### {% linkable_title data %}
 
 A dictionary containing any additional information associated with the event.
 
-### {% linkable_title Use of Events for Signalling between Home Assistant and AppDaemon %}
+### {% linkable_title Use of Events for Signaling between Home Assistant and AppDaemon %}
 
 Home Assistant allows for the creation of custom events and existing components can send and receive them. This provides a useful mechanism for signaling back and forth between Home Assistant and AppDaemon. For instance, if you would like to create a UI Element to fire off some code in Home Assistant, all that is necessary is to create a script to fire a custom event, then subscribe to that event in AppDaemon. The script would look something like this:
 
@@ -1552,7 +1552,7 @@ The custom event `MODE_CHANGE` would be subscribed to with:
 self.listen_event(self.mode_event, "MODE_CHANGE")
 ```
 
-Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
+Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with its automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
 
 ```yaml
 automation:
@@ -1617,7 +1617,7 @@ A string representing the location of the tracker.
 
 ##### {% linkable_title tracker_id %}
 
-Fully qualified entity_id of the device tracker to query, e.g. `device_tracker.andrew`.
+Fully qualified entity_id of the device tracker to query, e.g., `device_tracker.andrew`.
 
 #### {% linkable_title Examples %}
 
@@ -1701,7 +1701,7 @@ time()
 
 #### {% linkable_title Returns %}
 
-A localised Python time object representing the current AppDaemon time.
+A localized Python time object representing the current AppDaemon time.
 
 #### {% linkable_title Parameters %}
 
@@ -1725,7 +1725,7 @@ date()
 
 #### {% linkable_title Returns %}
 
-A localised Python time object representing the current AppDaemon date.
+A localized Python time object representing the current AppDaemon date.
 
 #### {% linkable_title Parameters %}
 
@@ -1749,7 +1749,7 @@ datetime()
 
 #### {% linkable_title Returns %}
 
-A localised Python datetime object representing the current AppDaemon date and time.
+A localized Python datetime object representing the current AppDaemon date and time.
 
 #### {% linkable_title Parameters %}
 
@@ -1764,7 +1764,7 @@ now = self.datetime()
 
 ### {% linkable_title convert_utc() %}
 
-Home Assistant provides timestamps of several different sorts that may be used to gain additional insight into state changes. These timestamps are in UTC and are coded as ISO 8601 Combined date and time strings. `convert_utc()` will accept one of these strings and convert it to a localised Python datetime object representing the timestamp
+Home Assistant provides timestamps of several different sorts that may be used to gain additional insight into state changes. These timestamps are in UTC and are coded as ISO 8601 Combined date and time strings. `convert_utc()` will accept one of these strings and convert it to a localized Python datetime object representing the timestamp
 
 #### {% linkable_title Synopsis %}
 
@@ -1774,7 +1774,7 @@ convert_utc(utc_string)
 
 #### {% linkable_title Returns %}
 
-`convert_utc(utc_string)` returns a localised Python datetime object representing the timestamp.
+`convert_utc(utc_string)` returns a localized Python datetime object representing the timestamp.
 
 #### {% linkable_title Parameters %}
 
@@ -1871,7 +1871,7 @@ self.log("{}  ({}) is {}".format(tracker, self.friendly_name(tracker), self.get_
 
 ### {% linkable_title split_entity() %}
 
-`split_entity()` will take a fully qualified entity id of the form `light.hall_light` and split it into 2 values, the device and the entity, e.g. `light` and `hall_light`.
+`split_entity()` will take a fully qualified entity id of the form `light.hall_light` and split it into 2 values, the device and the entity, e.g., `light` and `hall_light`.
 
 #### {% linkable_title Synopsis %}
 
@@ -1925,7 +1925,7 @@ MyApp.turn_light_on()
 
 ### {% linkable_title split_device_list() %}
 
-`split_device_list()` will take a comma separated list of device types (or anything else for that matter) and return them as an iterable list. This is intended to assist in use cases where the App takes a list of entities from an argument, e.g. a list of sensors to monitor. If only one entry is provided, an iterable list will still be returned to avoid the need for special processing.
+`split_device_list()` will take a comma separated list of device types (or anything else for that matter) and return them as an iterable list. This is intended to assist in use cases where the App takes a list of entities from an argument, e.g., a list of sensors to monitor. If only one entry is provided, an iterable list will still be returned to avoid the need for special processing.
 
 #### {% linkable_title Synopsis %}
 
@@ -1941,7 +1941,7 @@ A list of split devices with 1 or more entries.
 
 ```python
 for sensor in self.split_device_list(self.args["sensors"]):
-    do something for each sensor, e.g. make a state subscription
+    do something for each sensor, e.g., make a state subscription
 ```
 
 
@@ -2058,7 +2058,7 @@ OK, time travel sadly isn't really possible but it can be very useful when testi
 
 ### {% linkable_title Choosing a Start Time %}
 
-Internally, AppDaemon keeps track of it's own time relative to when it was started. This make is possible to start AppDaemon with a different start time and date to the current time. For instance to test that sunset App, start AppDaemon at a time just before sunset and see if it works as expected. To do this, simply use the "-s" argument on AppDaemon's command line. e,g,:
+Internally, AppDaemon keeps track of its own time relative to when it was started. This make is possible to start AppDaemon with a different start time and date to the current time. For instance to test that sunset App, start AppDaemon at a time just before sunset and see if it works as expected. To do this, simply use the "-s" argument on AppDaemon's command line. e,g,:
 
 ```bash
 $ appdaemon -s "2016-06-06 19:16:00"
@@ -2072,7 +2072,7 @@ Note the timestamps in the log - AppDaemon believes it is now just before sunset
 
 ### {% linkable_title Speeding things up %}
 
-Some Apps need to run for periods of a day or two for you to test all aspects. This can be time consuming, but Time Travel can also help here in two ways. The first is by speeding up time. To do this, simply use the `-t` option on the command line. This specifies the amount of time a second lasts while time travelling. The default of course is 1 second, but if you change it to `0.1` for instance, AppDaemon will work 10x faster. If you set it to `0`, AppDaemon will work as fast as possible and, depending in your hardware, may be able to get through an entire day in a matter of minutes. Bear in mind however, due to the threaded nature of AppDaemon, when you are running with `-t 0` you may see actual events firing a little later than expected as the rest of the system tries to keep up with the timer. To set the tick time, start AppDaemon as follows:
+Some Apps need to run for periods of a day or two for you to test all aspects. This can be time consuming, but Time Travel can also help here in two ways. The first is by speeding up time. To do this, simply use the `-t` option on the command line. This specifies the amount of time a second lasts while time traveling. The default of course is 1 second, but if you change it to `0.1` for instance, AppDaemon will work 10x faster. If you set it to `0`, AppDaemon will work as fast as possible and, depending in your hardware, may be able to get through an entire day in a matter of minutes. Bear in mind however, due to the threaded nature of AppDaemon, when you are running with `-t 0` you may see actual events firing a little later than expected as the rest of the system tries to keep up with the timer. To set the tick time, start AppDaemon as follows:
 
 ```bash
 $ appdaemon -t 0.1
@@ -2105,4 +2105,4 @@ $ appdaemon -s "2016-06-06 19:16:00" -s "2016-06-06 20:16:00" -t 0
 
 ### {% linkable_title A Note on Times %}
 
-Some Apps you write may depend on checking times of events relative to the current time. If you are time travelling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.
+Some Apps you write may depend on checking times of events relative to the current time. If you are time traveling this will not work if you use standard python library calls to get the current time and date etc. For this reason, always use the AppDamon supplied `time()`, `date()` and `datetime()` calls, documented earlier. These calls will consult with AppDaemon's internal time rather than the actual time and give you the correct values.

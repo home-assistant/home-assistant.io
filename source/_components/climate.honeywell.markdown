@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Honeywell Thermostat"
-description: "Instructions how to integrate Honeywell thermostats within Home Assistant."
+description: "Instructions on how to integrate Honeywell thermostats within Home Assistant."
 date: 2016-02-07 22:01
 sidebar: true
 comments: false
@@ -36,5 +36,5 @@ Configuration variables:
 - **region** (*Optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
 - **scan_interval**(*Optional*): Scan interval is expressed in seconds. Recommended value of 600 seconds. Default value is 120 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
 - **away_temperature** (*Optional*) (*only for eu region*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
-- **cool_away_temperature** (*Optional*) (*only for us region*): Cooling setpoint when away mode is on. If omitted it defaults to 30.0 deg C.
-- **heat_away_temperature** (*Optional*) (*only for us region*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
+- **away_cool_temperature** (*Optional*) (*only for us region*): Cooling setpoint when away mode is on. If omitted it defaults to 30.0 deg C.
+- **away_heat_temperature** (*Optional*) (*only for us region*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.

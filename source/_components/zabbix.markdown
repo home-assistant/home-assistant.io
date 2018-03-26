@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zabbix"
-description: "Instructions how to integrate Zabbix into Home Assistant."
+description: "Instructions on how to integrate Zabbix into Home Assistant."
 date: 2016-12-13 22:57
 sidebar: true
 comments: false

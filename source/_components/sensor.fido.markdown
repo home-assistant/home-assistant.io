@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fido"
-description: "Instructions how to integrate Fido data usage within Home Assistant."
+description: "Instructions on how to integrate Fido data usage within Home Assistant."
 date: 2017-01-01 17:17
 sidebar: true
 comments: false

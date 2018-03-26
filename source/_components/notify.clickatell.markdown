@@ -16,7 +16,7 @@ ha_release: 0.56
 The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.
 
 ### Get your Clickatell API Credentials
-Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) section and create a new SMS integration. There are three screens of information required to creater an integration. Please ensure the following:
+Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) section and create a new SMS integration. There are three screens of information required to create an integration. Please ensure the following:
 
 1. Give the new Integration an identification name.
 2. Ensure it is set for 'production' use.
@@ -40,7 +40,7 @@ Configuration variables:
 
 * **name** (Optional): Setting the optional parameter name allows multiple notifiers to be created. The default value is `clickatell`. The notifier will bind to the service notify.NOTIFIER_NAME.
 * **api_key** (Required): Your API key.
-* **recipient** (Required): Your phone number. This is where you want to send your notification SMS messages. e.g. `61444333444`.
+* **recipient** (Required): Your phone number. This is where you want to send your notification SMS messages. e.g., `61444333444`.
 
 
-To use notifications, please see the [getting started with automation page](https://home-assistant.io/getting-started/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
