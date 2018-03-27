@@ -32,14 +32,14 @@ Finish your configuration by visiting the [WirelessTag binary sensor](/component
 
 **Note:**
 
-Current implementation does setup of local push notifications for "update" event for any sensors (temperature, humidity, light, moisture) requested and corresponding binary events for any binary sensors. 
+Current implementation does setup of local push notifications for "update" event for any sensors (temperature, humidity, light, moisture) requested and corresponding binary events for any binary sensors.
 
 So you would see custom url calls installed for all your tags as:
- - http://"ha local ip address":8123/api/events/update_tags
- and
- - http://"ha local ip address":8123/api/events/binary_event
- 
- to provide immidate data update to ha. 
+
+- <http://ha_local_ip_address":8123/api/events/update_tags>
+- <http://ha_local_ip_address":8123/api/events/binary_event>
+
+ to provide immidate data update to ha.
  "update" event works out of the box. Other binary events are enabled by "switch" component which arms correspoding sensor data monitoring.
 Water sensor leaks events are enabled by default as well.
 
