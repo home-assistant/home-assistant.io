@@ -63,3 +63,4 @@ This component is tested to work with the following models. If you have a differ
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
 - **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
+- **YLXD01YL**: Yeelight Smart LED Ceiling Light - Youth Version
