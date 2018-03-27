@@ -29,7 +29,7 @@ host:
   description: The host name or address of the Epson projector
   required: true
   type: string
-port
+port:
   description: The HTTP port number. Defaults to 80.
   required: false
   type: int
