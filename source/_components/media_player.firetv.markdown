@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `firetv` platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
 
-The python-firetv Python 2.x module with its helper script that exposes a HTTP server to fetch state and perform actions is used.
+The python-firetv Python 2.x module with its helper script that exposes an HTTP server to fetch state and perform actions is used.
 
 Steps to configure your Amazon Fire TV stick with Home Assistant:
 

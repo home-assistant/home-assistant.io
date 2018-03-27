@@ -21,7 +21,7 @@ To set the Melissa component up, add the following information to your `configur
 ```yaml
 # Example configuration.yaml entry
 melissa:
-  username: <email adress>
+  username: <email address>
   password: ********
 ```
 
