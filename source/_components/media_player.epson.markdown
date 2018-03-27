@@ -38,9 +38,9 @@ name:
   required: false
   type: string
 ssl:
-  description: Enable SSL. **It is not working so far.**
+  description: Enable SSL. **Feature not tested.**
   required: false
-  type: int
+  type: bool
 {% endconfiguration %}
 
 Supported features of Epson projector:
@@ -50,3 +50,8 @@ Supported features of Epson projector:
 - increase/decrease volume via HDMI CEC
 - mute/unmute volume and video input
 - send next/previous track via HDMI CEC
+
+Supported devices:
+- Epson EH-TW5350
+
+To make this module work you need to connect your projector to WiFi. The best is to use iProjection app by Epson to test if it is working.
