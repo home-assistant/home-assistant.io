@@ -7,6 +7,7 @@ comments: false
 sidebar: true
 sharing: true
 footer: true
+logo: wirelesstag.png
 ha_category: Sensor
 ha_release: pre 0.67
 ha_iot_class: "Local Push"
