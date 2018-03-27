@@ -69,7 +69,7 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
-    value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
+    value_template: '{% raw %}{{ value | multiply(0.001) | round(1) }}{% endraw %}'
 ```
 
 ### {% linkable_title Monitoring failed login attempts on Home Assistant %}
