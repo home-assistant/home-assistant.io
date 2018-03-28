@@ -42,12 +42,12 @@ payload_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 availability_topic:
   description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
   required: false
