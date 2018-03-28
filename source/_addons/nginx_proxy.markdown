@@ -18,6 +18,7 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate` 
   "domain": "home.example.com",
   "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
+  "hsts": "max-age=31536000; includeSubDomains",
   "customize": {
     "active": false,
     "default": "nginx_proxy_default*.conf",
@@ -31,6 +32,7 @@ Configuration variables:
 - **domain** (*Required*): Domain they will proxy run with it.
 - **certfile** (*Required*): Certificate file to use in the /ssl dir.
 - **keyfile** (*Required*): Private key file to use in the /ssl dir.
+- **hsts** (*Optional*): Value for the [`Strict-Transport-Security`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) HTTP header to send. If empty or `null`, the header is not sent.
 - **customize** (*Optional*): If true, additional NGINX configuration files for the default server and additional servers are read from files in the /share dir specified by the `default` and `servers` variables.
 
 <p class='note'>
