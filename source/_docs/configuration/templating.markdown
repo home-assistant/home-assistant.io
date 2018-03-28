@@ -83,7 +83,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
-- Filter `max` will obtain the larget item in a sequence.
+- Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
 
 [strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
