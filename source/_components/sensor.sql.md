@@ -37,7 +37,7 @@ sensor:
 db_url:
   description: The URL which points to your database. See [supported engines](/components/recorder/#custom-database-engines).
   required: false
-  default: Defaults to the default recorder db_url (not the current db_url of recorder).
+  default: "Defaults to the default recorder `db_url` (not the current `db_url` of recorder)."
   type: string
 queries:
   description: List of your queries.
