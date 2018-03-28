@@ -47,11 +47,11 @@ Supported features of Epson projector:
 - turn on/off
 - set input
 - set/get color mode
-- increase/decrease volume via HDMI CEC
-- mute/unmute volume and video input
-- send next/previous track via HDMI CEC
+- increase/decrease volume
+- mute/unmute audio
+- send next/previous track
 
 Supported devices:
 - Epson EH-TW5350
 
-To make this module work you need to connect your projector to WiFi. The best is to use iProjection app by Epson to test if it is working.
+To make this module work you need to connect your projector to your LAN. The best is to use iProjection app by Epson to test if it is working.
