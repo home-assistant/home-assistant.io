@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "WirelessTag Binary Sensor"
-description: "Instructions on how to integrate your Wireless Tags sensors within Home Assistant."
+description: "Instructions on how to integrate Wireless Tags sensors within Home Assistant."
 date: 2018-03-26 21:49
 comments: false
 sidebar: true
