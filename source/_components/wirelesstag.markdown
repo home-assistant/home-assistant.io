@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Hub
-ha_release: pre 0.67
 ha_iot_class: "Local Push"
 ---
 
@@ -24,9 +23,15 @@ wirelesstag:
   password: secret
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for your my.wirelesstag.net account.
-- **password** (*Required*): Password for your my.wirelesstag.net account.
+{% configuration %}
+  username:
+    description: Username for your [wirelesstag.net](http://wirelesstag.net) account.
+    required: true
+    type: string
+  password:
+    description: Password for your [wirelesstag.net](http://wirelesstag.net) account.
+    required: true
+    type: string
+{% endconfiguration %}
 
 Finish your configuration by visiting the [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/), [WirelessTag sensor](/components/sensor.wirelesstag/), or [WirelessTag switch](/components/switch.wirelesstag/) documentation.

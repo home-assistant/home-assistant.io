@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Binary Sensor
-ha_release: pre 0.67
 ha_iot_class: "Local Push"
 ---
 
@@ -27,16 +26,22 @@ binary_sensor:
       - low_battery
 ```
 
-Configuration variables:
+{% configuration %}
+  monitored_conditions:
+    description: The conditions types to monitor; valid values are specified below
+    required: true
+    type: list
+{% endconfiguration %}
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **presence**: On means in range, Off means out of range.
-  - **motion**: On when when movement was detected, Off when clear.
-  - **door**: On when when door is open, Off when door is closed.
-  - **cold**: On means temperature become too cold, Off means normal.
-  - **heat**: On means hot, Off means normal.
-  - **dry**: On means too dry (humidity), Off means normal.
-  - **wet**: On means too wet (humidity), Off means normal.
-  - **light**: On means light detected, Off means no light.
-  - **moisture**: On means moisture detected (wet), Off means no moisture (dry).
-  - **low_battery**: On means tag battery is low, Off means normal.
+The following conditions can be monitored:
+
+* (`presence`): On means in range, Off means out of range.
+* (`motion`): On when when movement was detected, Off when clear.
+* (`door`): On when when door is open, Off when door is closed.
+* (`cold`): On means temperature become too cold, Off means normal.
+* (`heat`): On means hot, Off means normal.
+* (`dry`): On means too dry (humidity), Off means normal.
+* (`wet`): On means too wet (humidity), Off means normal.
+* (`light`): On means light detected, Off means no light.
+* (`moisture`): On means moisture detected (wet), Off means no moisture (dry).
+* (`low_battery`): On means tag battery is low, Off means normal.

@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Switch
-ha_release: pre 0.67
 ha_iot_class: "Local Push"
 ---
 
@@ -26,14 +25,20 @@ switch:
       - humidity
 ```
 
-Configuration variables:
+{% configuration %}
+  monitored_conditions:
+    description: The metrics types to control; valid values are specified below
+    required: true
+    type: list
+{% endconfiguration %}
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **temperature**: Control arm/disarm temperature monitoring.
-  - **humidity**: Control arm/disarm humidity monitoring.
-  - **motion**: Control arm/disarm motion and door open/close events monitoring.
-  - **light**: Control monitoring of light changes.
-  - **moisture**: Control monitoring of water level/soil moisture for water sensor.
+The following metrics can be controlled:
+
+* (`temperature`): Control arm/disarm temperature monitoring.
+* (`humidity`): Control arm/disarm humidity monitoring.
+* (`motion`): Control arm/disarm motion and door open/close events monitoring.
+* (`light`): Control monitoring of light changes.
+* (`moisture`): Control monitoring of water level/soil moisture for water sensor.
 
 Arm/Disam of motion switch is required to receive motion and door binary sensors events.
 Others are needed only if you want to receive push notifications from tags on specific range of changes for temperature, humidity, light or moisture.

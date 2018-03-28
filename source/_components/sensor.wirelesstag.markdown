@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Sensor
-ha_release: pre 0.67
 ha_iot_class: "Local Push"
 ---
 
@@ -26,10 +25,16 @@ sensor:
       - humidity
 ```
 
-Configuration variables:
+{% configuration %}
+  monitored_conditions:
+    description: The metrics types to monitor; valid values are specified below
+    required: true
+    type: list
+{% endconfiguration %}
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **temperature**: Value is in Celcius or in Fahrenheit (accourding to your settings at Tag Manager).
-  - **humidity**: Humidity level in %.
-  - **moisture**: Water level/soil moisture in % (applicable for Water Tag only).
-  - **light**: Brightness in lux (if supported by tag).
+The following metrics can be monitored:
+
+* (`temperature`): Value is in Celcius or in Fahrenheit (accourding to your settings at Tag Manager).
+* (`humidity`): Humidity level in %.
+* (`moisture`): Water level/soil moisture in % (applicable for Water Tag only).
+* (`light`): Brightness in lux (if supported by tag).
