@@ -16,6 +16,8 @@ ha_release: 0.32
 
 The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
 
+## {% linkable_title Configuration %}
+
 To enable the random sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml

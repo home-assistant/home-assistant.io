@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-This `synologydsm` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com).
+The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,8 +23,8 @@ To use the `synologydsm` sensor in your installation, add the following to your 
 sensor:
   - platform: synologydsm
     host: IP_ADDRESS_OF_SYNOLOGY_NAS
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     monitored_conditions:
       - cpu_total_load
       - memory_real_usage
