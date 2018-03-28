@@ -34,7 +34,7 @@ sensor:
 
 The following metrics can be monitored:
 
-* (`temperature`): Value is in Celsius or in Fahrenheit (accourding to your settings at Tag Manager).
+* (`temperature`): Value is in Celsius or in Fahrenheit (according to your settings at Tag Manager).
 * (`humidity`): Humidity level in %.
 * (`moisture`): Water level/soil moisture in % (applicable for Water Tag only).
 * (`light`): Brightness in lux (if supported by tag).
