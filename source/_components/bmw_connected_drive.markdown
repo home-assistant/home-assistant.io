@@ -14,7 +14,7 @@ ha_release: 0.64
 
 This component lets you retrieve data on your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
 
-For compatibility with your BMW vehicle check the (bimmer_connected page)[https://github.com/ChristianKuehnel/bimmer_connected] on github.
+For compatibility with your BMW vehicle check the (bimmer_connected page)[https://github.com/m1n3rva/bimmer_connected] on github.
 
 To enable this component in your installation, add the following to your
 `configuration.yaml` file:
