@@ -14,7 +14,7 @@ ha_release: 0.33
 ---
 
 
-The `google` platform allows you to connect to your [Google Calendars](https://calendar.google.com) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file `google_calendars.yaml` that will contain information about all of the calendars you can see.
+The `google` calendar platform allows you to connect to your [Google Calendars](https://calendar.google.com) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file `google_calendars.yaml` that will contain information about all of the calendars you can see.
 
 ### {% linkable_title Prerequisites %}
 
