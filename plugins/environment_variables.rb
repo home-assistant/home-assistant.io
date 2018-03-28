@@ -6,7 +6,7 @@ module Jekyll
 
       # Rewrite urls if repo url is the ssh format.
       if repo_url.start_with? 'git@github.com:'
-        repo_url = repo_url.sub 'git@github.com:', 'https://github.com'
+        repo_url = repo_url.sub 'git@github.com:', 'https://github.com/'
       end
 
       # These values will be available as {{ site.NLY_REPOSITORY_URL }}
