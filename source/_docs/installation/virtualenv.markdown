@@ -77,8 +77,9 @@ Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/r
 
 ### {% linkable_title After upgrading Python %}
 
-If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new venv. Simply rename your existing venv directory:
-```
+If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new virtual environment. Simply rename your existing venv directory:
+
+```bash
 $ mv homeassistant homeassistant.old
 ```
-Then follow the Install steps again, being sure to use the newly installed version of Python.
+Then follow the [Install](/docs/installation/virtualenv/#install) steps again, being sure to use the newly installed version of Python.
