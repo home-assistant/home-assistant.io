@@ -26,7 +26,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Home Assistant](https://github.com/home-assistant/home-assistant/issues)
 - [Issue tracker home-assistant.io](https://github.com/home-assistant/home-assistant.io/issues) (Website and documentation)
 - [Issue tracker Frontend](https://github.com/home-assistant/home-assistant-polymer/issues) (Frontend)
-- [Issue tracker Hass.io](https://github.com/home-assistant/hassio)
+- [Issue tracker Hass.io](https://github.com/home-assistant/hassio/issues)
 - [Feature requests Home Assistant](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks.)
 
 ### {% linkable_title Videos, talks, workshops and alike %}
