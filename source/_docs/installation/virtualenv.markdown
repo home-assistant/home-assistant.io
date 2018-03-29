@@ -17,7 +17,7 @@ It's recommended when installing Python packages that you use a [virtual environ
 _(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`.)_
 
 <p class='Note'>
-It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user.  The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
+It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user. The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 </p>
 
 ### {% linkable_title Install %}
@@ -77,7 +77,7 @@ Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/r
 
 ### {% linkable_title After upgrading Python %}
 
-If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new virtual environment. Simply rename your existing venv directory:
+If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
 
 ```bash
 $ mv homeassistant homeassistant.old
