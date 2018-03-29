@@ -24,18 +24,28 @@ Be sure you have a [mopar.com](http://mopar.com) account with your vehicle(s) re
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: mopar
-    username: <mopar.com username>
-    password: <mopar.com password>
-    pin: <uconnect pin>
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    pin: YOUR_UCONNECT_PIN
 ```
 
-Configuration options for the Mopar sensor:
-
-- **username** (*Required*): Your mopar.com username.
-- **password** (*Required*): Your mopar.com password.
-- **pin** (*Required*): Your uConnect pin.
+{% configuration %}
+username:
+  description: Your mopar.com username.
+  required: true
+  type: string
+password:
+  description: Your mopar.com password.
+  required: true
+  type: string
+pin:
+  description: v
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Service %}
 

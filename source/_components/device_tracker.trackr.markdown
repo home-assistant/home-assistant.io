@@ -24,11 +24,18 @@ To integrate TrackR in Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 device_tracker:
   platform: trackr
-  username: USERNAME
-  password: PASSWORD
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: The email address for the TrackR account.
+  required: true
+  type: string
+password:
+  description: The password for your given username.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **username** (*Required*): The email address for the TrackR account.
-- **password** (*Required*): The password for your given username.

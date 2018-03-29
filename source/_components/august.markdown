@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant. Currently this component supports August Lock and Doorbell.
 
+## {% linkable_title Configuration %}
+
 You will need your August login information (username (either phone# or email), and password) to use this module.
 
 To set it up, add the following to your `configuration.yaml` file:
@@ -24,27 +26,27 @@ To set it up, add the following to your `configuration.yaml` file:
 august:
   login_method: phone
   username: "+16041234567"
-  password: secret
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
-  login_method:
-    description: Method to login to your August account, either "email" or "phone". A verification code will be sent to your email or phone during setup.
-    required: true
-    type: string
-  username:
-    description: The username for accessing your August account. This depends on your login_method, if login_method is email, this will be your email of the account. Otherwise, this will be your phone number.
-    required: true
-    type: string
-  password:
-    description: The password for accessing your August account.
-    required: true
-    type: string
-  timeout:
-    description: Timeout to wait for connections.
-    required: false
-    type: int
-    default: 10
+login_method:
+  description: Method to login to your August account, either "email" or "phone". A verification code will be sent to your email or phone during setup.
+  required: true
+  type: string
+username:
+  description: The username for accessing your August account. This depends on your login_method, if login_method is email, this will be your email of the account. Otherwise, this will be your phone number.
+  required: true
+  type: string
+password:
+  description: The password for accessing your August account.
+  required: true
+  type: string
+timeout:
+  description: Timeout to wait for connections.
+  required: false
+  type: int
+  default: 10
 {% endconfiguration %}
 
 Once Home Assistant is started, a configurator will pop up asking you to enter verification code that is sent to your phone number or email.

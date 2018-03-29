@@ -21,8 +21,8 @@ To use Volvo On Call in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 Users registered with Volvo in North America or China will need to specify a region:
@@ -30,15 +30,18 @@ Users registered with Volvo in North America or China will need to specify a reg
 ```yaml
 # North America 
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   region: na
 ```
+
+or
+
 ```yaml
 # China
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   region: cn
 ```
 
@@ -47,8 +50,8 @@ A more advanced example for setting the vehicle name and selecting what resource
 ```yaml
 # Example configuration.yaml entry
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   name:
     abc123: 'Batmobile'
   resources:

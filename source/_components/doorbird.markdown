@@ -21,8 +21,8 @@ To connect your device, add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 doorbird:
   host: IP_OR_HOSTNAME
-  username: abcdef0001
-  password: xxxxxxxxxx
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 Configuration variables:

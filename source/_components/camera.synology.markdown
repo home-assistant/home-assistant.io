@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 　
-The `synology` platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
+The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
 
 To enable your Surveillance Station cameras in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,9 +22,9 @@ To enable your Surveillance Station cameras in your installation, add the follow
 # Minimum configuration.yaml entry
 camera:
   - platform: synology
-    url: SYNOLOGY_URL
-    username: USERNAME
-    password: PASSWORD
+    url: IP_ADDRESS_OF_SYNOLOGY_NAS
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:
@@ -43,8 +43,8 @@ A full sample configuration for the `synology` platform is shown below:
 camera:
   - platform: synology
     url: https://192.168.1.120:5001
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     timeout: 15
     verify_ssl: False
 ```

@@ -22,14 +22,14 @@ Once you have the Thermostat ID(s), add the following information to your `confi
 ```yaml
 # Example configuration.yaml entry
 nuheat:
-  username: you@example.com
-  password: very-secure-password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   devices: 12345
 
 # Example configuration.yaml entry with multiple thermostats
 nuheat:
-  username: you@example.com
-  password: very-secure-password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   devices:
     - 12345
     - 67890

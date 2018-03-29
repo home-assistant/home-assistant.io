@@ -24,8 +24,8 @@ sensor:
   - platform: imap
     server: imap.gmail.com
     port: 993
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:
