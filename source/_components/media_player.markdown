@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Interacts with media players on your network. Please check the sidebar for a full list of supported devices.
+Interacts with media players on your network. Please check the right sidebar for a full list of supported devices.
 
 ## {% linkable_title Services %}
 
