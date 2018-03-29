@@ -2,7 +2,7 @@
 layout: page
 title: "Blackbird 8x8 HDMI Matrix Switch"
 description: "Instructions on how to integrate Monoprice Blackbird 4k 8x8 HDBaseT Matrix Switch into Home Assistant."
-date: 2018-03-23 16:45
+date: 2018-03-29 16:35
 sidebar: true
 comments: false
 sharing: true
@@ -21,6 +21,7 @@ To add a Blackbird device to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: blackbird
+    type: serial
     port: /dev/ttyUSB0
     zones:
       1:
@@ -49,9 +50,17 @@ media_player:
 ```
 
 {% configuration %}
-port: 
-  description: The serial port to which Blackbird matrix switch is connected.
+type:
+  description: The type of device connection - serial or socket
   required: true
+  type: string
+port: 
+  description: The serial port to which Blackbird matrix switch is connected. Either port or host must be defined.
+  required: optional
+  type: string
+host:
+  description: The IP address of the Blackbird matrix switch. Either port or host must be defined.
+  required: optional
   type: string
 zones:
   description: This is the list of zones available. Valid zones are 1,2,3,4,5,6,7,8. Each zone must have a name assigned to it.
