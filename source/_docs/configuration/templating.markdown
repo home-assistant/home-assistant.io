@@ -86,7 +86,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
 
-[strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
+[strp-format]: https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior
 
 <p class='note'>
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
