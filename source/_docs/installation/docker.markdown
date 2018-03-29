@@ -80,7 +80,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
 
 ### {% linkable_title QNAP NAS %}
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
+As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
 
 The steps would be:
 
