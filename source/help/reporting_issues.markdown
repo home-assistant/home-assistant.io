@@ -44,7 +44,7 @@ Please add the link to the documention of the component/platform in question. E.
 
 Provide a summary of your issue and tell us what's wrong.
 
-There are components and platform which requires addition steps to get them working. Please describe the steps you took and the ones to reproduce the issue if needed.
+There are components and platform which require additional steps (installing third-party tools, compilers, etc.) to get your setup working. Please describe the steps you took and the ones to reproduce the issue if needed.
 
 ### {% linkable_title Problem-relevant `configuration.yaml` entries %}
 
@@ -59,7 +59,7 @@ Make sure that you don't post your username, password, API key, access token or 
 
 ### {% linkable_title Traceback (if applicable) %}
 
-If things go wrong there will be a so-called trackback or an error message in other works in your log. Please include this. It starts with **Traceback** and can contain informations where the error was triggered in the code.
+If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain informations where the error was triggered in the code.
 
 ```bash
 Traceback (most recent call last):
