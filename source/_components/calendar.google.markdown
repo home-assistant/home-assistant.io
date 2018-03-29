@@ -51,7 +51,7 @@ minimum:
   required: true
   type: string
 track_new_calendar:
-  description: Will automatically generate a binary sensor when a new calendar is detected. The system scans for new calendars on startup.
+  description: Will automatically generate a binary sensor when a new calendar is detected. The system scans for new calendars only on startup.
   required: false
   type: boolean
   default: true
