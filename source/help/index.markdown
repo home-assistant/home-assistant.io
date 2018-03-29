@@ -21,7 +21,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
-Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](help/reporting_issues/) page.
+Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
 
 - [Issue tracker Home Assistant](https://github.com/home-assistant/home-assistant/issues)
 - [Issue tracker home-assistant.io](https://github.com/home-assistant/home-assistant.io/issues) (Website and documentation)
