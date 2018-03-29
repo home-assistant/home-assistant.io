@@ -39,7 +39,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         description: Set timeout interval for certain settings in the `Home` app. Float value between 0 and 5, in seconds. ([Input timeout](#input-timeout))
         required: false
         type: float
-        default: 1
+        default: 0.5
       filter:
         description: Filter entities to available in the `Home` app. ([Configure Filter](#configure-filter))
         required: false
