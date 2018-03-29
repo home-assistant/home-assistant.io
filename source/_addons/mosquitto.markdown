@@ -43,7 +43,7 @@ Configuration variables:
 
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own) add the following entry to the `configuration.yaml` file.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), add the following entry to the `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry
