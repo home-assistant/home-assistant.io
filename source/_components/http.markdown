@@ -75,8 +75,6 @@ To use those kind of [sensors](/components/sensor.http/) or [binary sensors](com
 
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
-If you want to use Home Assistant to host or serve static files then create a directory called `www` under the `.homeassistant` configuration path. The static files in `.homeassistant/www/` can be accessed by the following URL `http://your.domain:8123/local/`.
-
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `True` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
 ```yaml
@@ -88,4 +86,12 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 
 <p class='note warning'>
 Please note, that sources from `trusted_networks` won't be banned automatically.
+</p>
+
+## {% linkable_title Hosting files %}
+
+If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config` on Hass.io, `.homeassistant` elswhere). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
+
+<p class='note'>
+  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
 </p>
