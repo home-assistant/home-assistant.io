@@ -116,7 +116,7 @@ knx:
 ```
 
 * **type**: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
-* **entity_id**: Entity id of the HASS component to be exposed. Not necessarry for types time and datetime.
+* **entity_id**: Entity id of the HASS component to be exposed. Not necessary for types time and datetime.
 * **address**: KNX group address.
 
 

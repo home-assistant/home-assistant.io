@@ -17,19 +17,7 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
 
-Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
-
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to Menu->Settings->Unlock Gateway in deCONZ and then use the deCONZ configurator in Home Assistant GUI to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in deconz.conf inside the home-assistant folder.
-
-You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
-
-```yaml
-# Example configuration.yaml entry
-deconz:
-  host: IP ADDRESS
-```
-
-#### {% linkable_title Supported Device types %}
+### {% linkable_title Supported device types %}
 
 - [Zigbee Lights](/components/light.deconz/)
 - [Humidity Sensors](/components/sensor.deconz/)
@@ -39,6 +27,20 @@ deconz:
 - [Pressure Sensors](/components/sensor.deconz/)
 - [Switches (Remote Controls)](/components/sensor.deconz/)
 - [Temperature Sensors](/components/sensor.deconz/)
+
+## {% linkable_title Configuration %}
+
+Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
+
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in `deconz.conf` inside the `.homeassistant` folder.
+
+You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
+
+```yaml
+# Example configuration.yaml entry
+deconz:
+  host: IP_ADDRESS
+```
 
 {% configuration %}
 host:
@@ -66,10 +68,24 @@ deconz:
   port: 80
 ```
 
+## {% linkable_title Debugging component %}
+
+If you have problems with deCONZ or the component you can add debug prints to the log.
+
+```yaml
+logger:
+  default: info
+  logs:
+    pydeconz: debug
+    homeassistant.components.deconz: debug
+```
+
 ## {% linkable_title Device services %}
+
 Available services: `configure`.
 
-#### {% linkable_title Service `deconz/configure` %}
+#### {% linkable_title Service `deconz.configure` %}
+
 Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
@@ -86,7 +102,7 @@ Field and entity are exclusive, i.e you can only use one in a request.
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
-## {% linkable_title Remote control devices%}
+## {% linkable_title Remote control devices %}
 
 Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
@@ -107,6 +123,7 @@ For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is le
 
 ### {% linkable_title Step up and step down input number with wireless dimmer %}
 
+{% raw %}
 ```yaml
 automation:
   - alias: 'Toggle lamp from dimmer'
@@ -133,9 +150,9 @@ automation:
       - service: light.turn_on
         data_template:
           entity_id: light.lamp
-          brightness: {% raw %}>
+          brightness: >
             {% set bri = states.light.lamp.attributes.brightness | int %}
-            {{ [bri+30, 249] | min }}{% endraw %}
+            {{ [bri+30, 249] | min }}
 
   - alias: 'Decrease brightness of lamp from dimmer'
     initial_state: 'on'
@@ -149,7 +166,8 @@ automation:
       - service: light.turn_on
         data_template:
           entity_id: light.lamp
-          brightness: {% raw %}>
+          brightness: >
             {% set bri = states.light.lamp.attributes.brightness | int %}
-            {{ [bri-30, 0] | max }}{% endraw %}
+            {{ [bri-30, 0] | max }}
 ```
+{% endraw %}
