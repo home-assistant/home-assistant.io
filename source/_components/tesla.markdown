@@ -29,8 +29,8 @@ To use Tesla in your installation, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 tesla:
-  username: email
-  password: password
+  username: YOUR_E_MAIL_ADDRESS
+  password: YOUR_PASSWORD
 ```
 
 Configuration variables:

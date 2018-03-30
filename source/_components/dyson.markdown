@@ -15,29 +15,31 @@ ha_release: 0.47
 
 The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan/dyson/) and [Robot vacuum](/components/vacuum/dyson/).
 
+## {% linkable_title Configuration %}
+
 To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 dyson:
-  username: <dyson_account_user_email>
-  password: <dyson_acount_password>
-  language: <dyson_account_language>
+  username: YOUR_DYSON_USERNAME
+  password: YOUR_DYSON_PASSWORD
+  language: YOUR_DYSON_ACCOUNT_LANGUGAGE
   devices:
-    - device_id: <device_id_1> # eg: Pure Cool Link device
-      device_ip: <device_ip_1>
-    - device_id: <device_id_2> # eg: Eye 360 robot vacuum
-      device_ip: <device_ip_2>
-    ...
+    - device_id: DEVICE_ID_1 # eg: Pure Cool Link device
+      device_ip: DEVICE_ID_1
+    - device_id: DEVICE_ID_2 # eg: Eye 360 robot vacuum
+      device_ip: DEVICE_ID_2
 ```
 
 Configuration variables:
 
-- **username** (*Required*): Dyson account username (email address)
-- **password** (*Required*): Dyson account password
+- **username** (*Required*): Dyson account username (email address).
+- **password** (*Required*): Dyson account password.
 - **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. But others codes should work.
-- **devices** (*Optional*): List of devices
-  - **device_id** (*Required*): Device ID. Available in the mobiles applications (*Settings* page)
-  - **device_ip** (*Required*): Device IP address
+- **devices** (*Optional*): List of devices.
+  - **device_id** (*Required*): Device ID. Available in the mobiles applications (*Settings* page).
+  - **device_ip** (*Required*): Device IP address.
 
 `devices` list is optional but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 *If your are using a robot vacuum (Dyson 360 Eye), discovery is not yet supported so you have to provide `devices` list.*

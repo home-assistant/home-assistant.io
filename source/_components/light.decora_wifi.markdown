@@ -26,13 +26,18 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: decora_wifi
-    username: my_leviton_user_email@email.com
-    password: my_leviton_password
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Your "My Leviton" app email address/user name.
-- **password** (*Required*): Your "My Leviton" app password.
-
+{% configuration %}
+username:
+  description: Your "My Leviton" app email address/user name.
+  required: true
+  type: string
+password:
+  description: Your "My Leviton" app password.
+  required: true
+  type: string
+{% endconfiguration %}
 

@@ -35,7 +35,7 @@ Configuration variables:
 - **name** (*Optional*): Set netbios name of Hass.io device. Default is `hassio`.
 - **workgroup** (*Optional*): Set network workgroup name. Default is `WORKGROUP`.
 - **guest** (*Optional*): Allow login without a username or password. Default is `true`.
-- **map** (*Optional*): Control which folders will be exposed. `config` shares the Home Assistant configuration folder. `addons` shares the local custom repositiory. `share` shares a folder that can be accessed by add-ons and Home Assistant. `backup` shares access to snapshot files. `ssl` shares certificate storage. Be careful with the `ssl` option! Defaults are all set to `true`, except for `ssl`.
+- **map** (*Optional*): Control which folders will be exposed. `config` shares the Home Assistant configuration folder. `addons` shares the local custom repository. `share` shares a folder that can be accessed by add-ons and Home Assistant. `backup` shares access to snapshot files. `ssl` shares certificate storage. Be careful with the `ssl` option! Defaults are all set to `true`, except for `ssl`.
 - **username** (*Optional*): Username for logging in if guest login is not used.
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
 - **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
