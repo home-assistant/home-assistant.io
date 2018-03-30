@@ -21,7 +21,7 @@ So this weekend we're going to shake things a little up. Instead of releasing a 
 Diagram of the new release schedule
 </p>
 
-The goal is to create a more stable first release without the need for a quick follow up hot fix. So if you want to be able to access the new features faster but don't mind the risk of running into the occassional bug, get yourself on the beta channel today:
+The goal is to create a more stable first release without the need for a quick follow up hot fix. So if you want to be able to access the new features faster but don't mind the risk of running into the occasional bug, get yourself on the beta channel today:
 
  - Hass.io users will be able to enable the dev channel in the system settings.
  - For Docker users, the beta's will be published under the `rc` tag.

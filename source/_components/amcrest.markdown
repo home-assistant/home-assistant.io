@@ -13,23 +13,25 @@ ha_iot_class: "Local Polling"
 ha_release: 0.49
 ---
 
-The `amcrest` platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable your camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 amcrest:
-  - host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
+  - host: IP_ADDRESS_CAMERA_1
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     sensors:
       - motion_detector
       - sdcard
 
- - host: IP_ADDRESS
-   username: USERNAME
-   password: PASSWORD
+ - host: IP_ADDRESS_CAMERA_2
+   username: YOUR_USERNAME
+   password: YOUR_PASSWORD
    resolution: low
    stream_source: snapshot
    sensors:

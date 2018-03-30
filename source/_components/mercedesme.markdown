@@ -14,12 +14,13 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Mercedes me` component offers integration with the [Mercedes me](https://www.mercedes-benz.com/de/mercedes-me/) cloud service and provides presence detection as well as sensors such as doors, tires, windows, and service interval.
+The `mercedesme` component offers integration with the [Mercedes me](https://www.mercedes-benz.com/de/mercedes-me/) cloud service and provides presence detection as well as sensors such as doors, tires, windows, and service interval.
 
 This component provides the following platforms:
- - Binary Sensors - such as windows, tires, doors, lock
- - Sensors - such as fuel status, service interval, remaining km...
- - Device tracker - to track location of your car
+
+ - Binary Sensors: Windows, tires, doors and lock.
+ - Sensors:Fuel status, service interval, remaining km, etc.
+ - Device tracker: To track location of your car.
 
 <p class='note warning'>
   The component can integrate cars from European and African markets only.
@@ -30,8 +31,8 @@ To use Mercedes me in your installation, add the following to your `configuratio
 ```yaml
 # Example configuration.yaml entry
 mercedesme:
-  username: email
-  password: password
+  username: YOUR_E_MAIL_ADDRESS
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -43,11 +44,6 @@ password:
   description: The password for your given Mercedes me account.
   required: true
   type: string
-scan_interval:
-  description: API polling interval. The minimal value can't be less then 30 seconds.
-  required: true
-  default: 30
-  type: int
 {% endconfiguration %}
 
 <p class='note'>
