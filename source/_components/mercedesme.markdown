@@ -22,34 +22,5 @@ This component provides the following platforms:
  - Device tracker - to track location of your car
 
 <p class='note warning'>
-  The component can integrate cars from European and African markets only.
-</p>
-
-To use Mercedes me in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-mercedesme:
-  username: email
-  password: password
-```
-
-{% configuration %}
-username:
-  description: The email address associated with your Mercedes me account.
-  required: true
-  type: string
-password:
-  description: The password for your given Mercedes me account.
-  required: true
-  type: string
-scan_interval:
-  description: API polling interval. The minimal value can't be less then 30 seconds.
-  required: true
-  default: 30
-  type: int
-{% endconfiguration %}
-
-<p class='note'>
-The requirement `lxml` has to be [installed](http://lxml.de/installation.html) manually `pip install lxml` on some devices.
+  The component was removed. The vendor disabled the API endpoint and a new API is not available currently.
 </p>
