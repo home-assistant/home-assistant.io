@@ -35,6 +35,11 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: int
         default: 51827
+      timeout:
+        description: Set timeout interval for certain settings in the `Home` app. Float value between 0 and 5, in seconds. ([Input timeout](#input-timeout))
+        required: false
+        type: float
+        default: 0.5
       filter:
         description: Filter entities to available in the `Home` app. ([Configure Filter](#configure-filter))
         required: false
@@ -146,6 +151,11 @@ automation:
       - service: homekit.start
 ```
 {% endraw %}
+
+
+## {% linkable_title Input timeout %}
+
+For all settings that use a slider in the `Home` app (e.g. brightness or temperature), the [**timeout**](#timeout) parameter is used to reduce the number of calls to Home Assistant when the slider is set slowly. That might prevent unexpected behavior, like flickering of a light. However expect that it will result in some additional latency when setting a value in the `Home` app.
 
 
 ## {% linkable_title Configure Filter %}
