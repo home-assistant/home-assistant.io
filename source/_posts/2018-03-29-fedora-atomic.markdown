@@ -67,14 +67,14 @@ $ sudo mkdir -p /opt/home-assistant
 $ sudo mkdir -p /opt/mosquitto/{config,data,log}
 ```
 
-We need a copy of `mosquitto.conf`:
+We need a copy of `mosquitto.conf` to run Mosquitto later:
 
 ```bash
 $ sudo curl -o /opt/mosquitto/config/mosquitto.conf \
   https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf
 ```
 
-To handle the containers we created service unit files for the [Home Assistant](https://hub.docker.com/r/homeassistant/home-assistant/) and the [Mosquitto](https://hub.docker.com/_/eclipse-mosquitto/) container. For Home Assistant the file can looks like the sample below. Further details about the `ExecStart` line can be found in the documentation about a [Docker](/docs/installation/docker/) setup. For Home Assistant
+To handle the containers we created service unit files for the [Home Assistant](https://hub.docker.com/r/homeassistant/home-assistant/) and the [Mosquitto](https://hub.docker.com/_/eclipse-mosquitto/) container. For Home Assistant and Mosquitto the file can looks like the sample below. Further details about the `ExecStart` line can be found in the documentation about a [Docker](/docs/installation/docker/) setup. For Home Assistant
 
 ```bash
 $ su
