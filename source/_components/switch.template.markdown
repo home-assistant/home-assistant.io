@@ -75,6 +75,10 @@ switch:
         description: Defines a template for the icon of the switch.
         required: false
         type: template
+      entity_picture_template:
+        description: Defines a template for the picture of the switch.
+        required: false
+        type: template
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
