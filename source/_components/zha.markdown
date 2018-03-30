@@ -22,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](../sensor.zha) (e.g., temperature sensors)
 - [Light](../light.zha)
 - [Switch](../switch.zha)
+- [Fan](../fan.zha)
 
 Known working ZigBee radios:
 

@@ -42,7 +42,22 @@ frontend:
 
 `www/custom_ui/state-card-my-custom-light.html`:
 
-```javascript
+```html
+<script>
+{
+  // show the version of your custom UI in the HA dev info panel (HA 0.66.0+):
+  const _NAME = 'My custom light';
+  const _URL = 'https://home-assistant.io/developers/frontend_creating_custom_ui/';
+  const _VERSION = '20180312';
+
+  if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
+  window.CUSTOM_UI_LIST.push({
+    name: _NAME,
+    url: _URL,
+    version: _VERSION
+  });
+}
+</script>
 <dom-module id='state-card-my-custom-light'>
   <template>
     <style>
@@ -71,11 +86,14 @@ class StateCardMyCustomLight extends Polymer.Element {
   }
 
   _toStr(obj) {
-    return JSON.stringify(obj);
+    return JSON.stringify(obj, null, 2);
   }
 }
 customElements.define(StateCardMyCustomLight.is, StateCardMyCustomLight);
 </script>
 ```
+<p class='note'>
+Some browsers don't support latest ECMAScript standards, these require a separate ES5 compatible file (`extra_html_url_es5`).
+</p>
 
 For more possibilities, see the [Custom UI section](/cookbook/#user-interface) on our Examples page.
