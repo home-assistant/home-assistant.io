@@ -7,14 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: homematicip.png
 ha_category: Hub
 ha_iot_class: "Cloud Polling"
 ha_release: 0.66
 featured: false
 ---
 
-The [HomematicIP](http://www.homematicip.com/) component platform is used as an interface to the cloud server. 
+The [HomematicIP](http://www.homematicip.com/) component platform is used as an interface to the cloud server.
 For for communication [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used.
 
 To set up the component:
