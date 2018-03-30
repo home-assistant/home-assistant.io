@@ -13,11 +13,9 @@ ha_release: 0.13
 ha_iot_class: "Cloud Polling"
 ---
 
-Wink cover/garage door functionality depends on the product you're using.  With GoControl/Linear Home Assistant can open, close, and view state.  Chamberlain is currently limited to view only.  Meaning Home Assistant will only show the current state of the door and control has been disabled (by Chamberlain).  If you have a Chamberlain garage door, and would like to control it via Home Assistant, please contact Chamberlain and request that they re-enabled third-party control.
+Wink Cover garage door functionality varies on the product.  Home Assistant can open, close, and view state of GoControl/Linear openers.  For Chamberlain MyQ-enabled openers, Home Assistant is limited to show current state (open or closed) only using this Wink cover.  This restriction was imposed by Chamberlain for third party control.  Wink suggests that MyQ customers should contact Chamberlain directly to inquire about expanding permissions.
 
-The following quote is from Wink.
-
-> As part of our agreement with Chamberlain, third-party access to control Chamberlain garage doors has been restricted. Please contact Chamberlain directly to inquire about permissions.
+The [MyQ Cover](/components/cover.myq/) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors.  If installed along with the Wink Component, a duplicate garage door entity may exist.   In that case, the semi-functional Wink garage door entity can be hidden via customize.yaml.
 
 The requirement is that you have setup [Wink](/components/wink/).
 
@@ -28,7 +26,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Lutron shades
 - Pella motorized blinds and shades
 - GoControl garage door opener
-- Chamberlain (Limited functionality) (No Wink hub required)
+- Chamberlain MyQ (Limited functionality) (No Wink hub required)
 
 <p class='note'>
 The above devices are confirmed to work, but others may work as well.
