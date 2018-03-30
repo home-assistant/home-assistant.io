@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Fedora Atomic"
+title: "Using Fedora Atomic with Home Assistant"
 description: "Running Home Assistant on a Fedora Atomic host."
 date: 2018-03-29 22:00:00
 date_formatted: "March 29, 2018"
@@ -53,7 +53,7 @@ $ sudo systemctl status docker
 
 Further we will cover how it works for Home Assistant and [Mosquitto](https://mosquitto.org/). For a small setup using [kubernetes](https://kubernetes.io) seems a bit overkill. Thus, we decided to stick to `systemd`.
 
-Instead of `docker` we can use the command-line tool [`atomic`](http://www.projectatomic.io/docs/usr-bin-atomic/) to perform a lot of tasks. Download the images for the containers. We are pulling the images from [Docker Hub](https://hub.docker.com/).
+Instead of `docker` we can use the command-line tool [`atomic`](http://www.projectatomic.io/docs/usr-bin-atomic/) to perform a lot of tasks. Download the images for the containers. We are pulling the images from [Docker Hub](https://hub.docker.com/), thus we need to add the registry to use.
 
 ```bash
 $ sudo atomic install docker.io/​homeassistant/home-assistant
