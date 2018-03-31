@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Media Player"
-description: "Instructions how to setup your media players with Home Assistant."
+description: "Instructions on how to setup your media players with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Interacts with media players on your network. Please check the sidebar for a full list of supported devices.
+Interacts with media players on your network. Please check the right sidebar for a full list of supported devices.
 
 ## {% linkable_title Services %}
 
@@ -27,7 +27,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
 | `is_volume_muted`      |       no | True/false for mute/unmute                       |
 
-#### {% linkable_title Service `media_player/volume_set` %}
+#### {% linkable_title Service `media_player.volume_set` %}
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|

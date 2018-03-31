@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BH1750 Light sensor"
-description: "Instructions how to integrate a BH1750 light sensor into Home Assistant."
+description: "Instructions on how to integrate a BH1750 light sensor into Home Assistant."
 date: 2017-06-10 00:00
 sidebar: true
 comments: false

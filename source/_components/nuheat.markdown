@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NuHeat"
-description: "Instructions how to integrate your NuHeat Signature thermostats within Home Assistant."
+description: "Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant."
 date: 2017-11-11 18:00
 sidebar: true
 comments: false
@@ -22,14 +22,14 @@ Once you have the Thermostat ID(s), add the following information to your `confi
 ```yaml
 # Example configuration.yaml entry
 nuheat:
-  username: you@example.com
-  password: very-secure-password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   devices: 12345
 
 # Example configuration.yaml entry with multiple thermostats
 nuheat:
-  username: you@example.com
-  password: very-secure-password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   devices:
     - 12345
     - 67890

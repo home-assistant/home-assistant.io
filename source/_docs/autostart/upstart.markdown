@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart using Upstart"
-description: "Instructions how to setup Home Assistant to launch on boot using Upstart."
+description: "Instructions on how to setup Home Assistant to launch on boot using Upstart."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false

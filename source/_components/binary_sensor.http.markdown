@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HTTP Binary Sensor"
-description: "Instructions how to integrate HTTP binary sensors within Home Assistant."
+description: "Instructions on how to integrate HTTP binary sensors within Home Assistant."
 date: 2016-02-05 12:15
 sidebar: true
 comments: false

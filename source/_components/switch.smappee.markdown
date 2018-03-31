@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Smappee Switch"
-description: "Instructions how to integrate Smappee Comfort Plug into Home Assistant."
+description: "Instructions on how to integrate Smappee Comfort Plug into Home Assistant."
 date: 2018-02-26 08:37
 sidebar: true
 comments: false

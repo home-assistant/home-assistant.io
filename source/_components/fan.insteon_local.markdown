@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon (Local) Fan"
-description: "Instructions how to setup the Insteon Hub Fans locally within Home Assistant."
+description: "Instructions on how to setup the Insteon Hub Fans locally within Home Assistant."
 date:  2017-04-06 11:00
 sidebar: true
 comments: false

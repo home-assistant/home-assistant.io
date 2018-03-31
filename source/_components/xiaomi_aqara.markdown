@@ -165,12 +165,6 @@ Stops a playing ringtone immediately.
 
 #### {% linkable_title Service `xiaomi_aqara.add_device` %}
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-
-#### {% linkable_title Service `xiaomi_aqara.add_device` %}
-
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
 | Service data attribute    | Optional | Description                                           |

@@ -51,7 +51,7 @@ The steps would be:
 * Wait for some time until your NAS has pulled the image
 * Move to the "Image"-section of the Docker-app
 * Click on "Launch"
-* Choose a container-name you want (e.g. "homeassistant")
+* Choose a container-name you want (e.g., "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
@@ -80,7 +80,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
 
 ### {% linkable_title QNAP NAS %}
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
+As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.qnap.com/solution/container_station/en/index.php
 
 The steps would be:
 

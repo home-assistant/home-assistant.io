@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to Dropbox"
-description: "Instructions how backup your Home Assistant configuration to Dropbox"
+description: "Instructions on how backup your Home Assistant configuration to Dropbox"
 date: 2017-04-24 18:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 redirect_from: /cookbook/dropboxbackup/
 ---
 
-Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](https://home-assistant.io/docs/ecosystem/backup/backup_github/)
+Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](/docs/ecosystem/backup/backup_github/)
 
 ### {% linkable_title Requirements %}
 

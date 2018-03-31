@@ -15,7 +15,7 @@ og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.
   <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
 </p>
 
-Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited? 
+Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited?
 
 Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
 **With an added bonus** that besides for an USB cable for power, there's no need for any cables!
@@ -33,9 +33,9 @@ First, download the HASSbian 1.21 image from [here](https://github.com/home-assi
 
 Unzip it.
 
-Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/) 
+Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/)
 
-When the flashing finishes, remove it and plug it back in. You should see a drive called "boot". 
+When the flashing finishes, remove it and plug it back in. You should see a drive called "boot".
 
 Right in there, not in any folders, create a file called `wpa_supplicant.conf`.
 
@@ -67,5 +67,5 @@ Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspber
 
 To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac.
 
-For further details about HASSbian, take a look at the [documentation](https://home-assistant.io/docs/hassbian/).
+For further details about HASSbian, take a look at the [documentation](/docs/hassbian/).
 

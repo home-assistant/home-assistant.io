@@ -13,7 +13,7 @@ og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 
 <a href='/components/#version/0.65'><img src='/images/blog/2018-03-0.65/components.png' style='border: 0;box-shadow: none;'></a>
 
-Release 0.65 has arrived and oh boy, is it awesome. First off, in case you have missed the previous release notes and [announcements](https://home-assistant.io/blog/2017/10/06/deprecating-python-3.4-support/): **Starting with this release, Home Assistant has dropped support for Python 3.4. The minimum supported version is now Python 3.5.3.** If you are on Hass.io or Docker, you'll automatically be running the latest and greatest. If you're on an older Hassbian installation or did your own Linux setup you'll need to upgrade to at least Python 3.5.3.
+Release 0.65 has arrived and oh boy, is it awesome. First off, in case you have missed the previous release notes and [announcements](/blog/2017/10/06/deprecating-python-3.4-support/): **Starting with this release, Home Assistant has dropped support for Python 3.4. The minimum supported version is now Python 3.5.3.** If you are on Hass.io or Docker, you'll automatically be running the latest and greatest. If you're on an older Hassbian installation or did your own Linux setup you'll need to upgrade to at least Python 3.5.3.
 
 ## {% linkable_title Naming entities %}
 
@@ -153,13 +153,21 @@ intent_script:
 - Adding check for empty discovery info in alarm control panel Egardia. ([@jeroenterheerdt] - [#13114]) ([alarm_control_panel.egardia docs])
 - Throttle Arlo api calls ([@arsaboo] - [#13143]) ([arlo docs])
 
-## {% linkable_title Release Notes 0.65.5 - March 14 %}
+## {% linkable_title Release 0.65.5 - March 14 %}
 
 - Bugfix HomeKit: Error string values for temperature ([@cdce8p] - [#13162]) ([homekit docs])
 - Revert throttle Arlo api calls ([@arsaboo] - [#13174]) ([arlo docs])
 - Ignore unsupported Sonos favorites ([@amelchio] - [#13195]) ([media_player.sonos docs])
 - Avoid Sonos error when joining with self ([@amelchio] - [#13196]) ([media_player.sonos docs])
 - Fix input_boolean Google Assistant serialize error ([@balloob] - [#13220]) ([google_assistant docs])
+
+## {% linkable_title Release 0.65.6 - March 21 %}
+
+- More robust MJPEG parser. Fixes #13138. ([@PhracturedBlue] - [#13226]) ([camera.proxy docs])
+- Tado: don't reference unset hass var ([@balloob] - [#13237]) ([device_tracker docs])
+- Fix Sonos join/unjoin in scripts ([@amelchio] - [#13248]) ([media_player.sonos docs])
+- Fix Sonos radio stations with ampersand ([@amelchio] - [#13293]) ([media_player.sonos docs])
+- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light.demo docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -172,7 +180,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](https://home-assistant.io/components/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/components/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
 - TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
@@ -534,121 +542,121 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@teharris1]: https://github.com/teharris1
 [@thejta]: https://github.com/thejta
 [@turbokongen]: https://github.com/turbokongen
-[alarm_control_panel.alarmdotcom docs]: https://home-assistant.io/components/alarm_control_panel.alarmdotcom/
-[alarm_control_panel.concord232 docs]: https://home-assistant.io/components/alarm_control_panel.concord232/
-[alarm_control_panel.egardia docs]: https://home-assistant.io/components/alarm_control_panel.egardia/
-[api docs]: https://home-assistant.io/components/api/
-[august docs]: https://home-assistant.io/components/august/
-[binary_sensor docs]: https://home-assistant.io/components/binary_sensor/
-[binary_sensor.concord232 docs]: https://home-assistant.io/components/binary_sensor.concord232/
-[binary_sensor.egardia docs]: https://home-assistant.io/components/binary_sensor.egardia/
-[binary_sensor.hikvision docs]: https://home-assistant.io/components/binary_sensor.hikvision/
-[binary_sensor.insteon_plm docs]: https://home-assistant.io/components/binary_sensor.insteon_plm/
-[binary_sensor.isy994 docs]: https://home-assistant.io/components/binary_sensor.isy994/
-[binary_sensor.knx docs]: https://home-assistant.io/components/binary_sensor.knx/
-[binary_sensor.upcloud docs]: https://home-assistant.io/components/binary_sensor.upcloud/
-[binary_sensor.zha docs]: https://home-assistant.io/components/binary_sensor.zha/
-[camera.onvif docs]: https://home-assistant.io/components/camera.onvif/
-[camera.proxy docs]: https://home-assistant.io/components/camera.proxy/
-[camera.rpi_camera docs]: https://home-assistant.io/components/camera.rpi_camera/
-[camera.yi docs]: https://home-assistant.io/components/camera.yi/
-[canary docs]: https://home-assistant.io/components/canary/
-[climate docs]: https://home-assistant.io/components/climate/
-[climate.nest docs]: https://home-assistant.io/components/climate.nest/
-[climate.wink docs]: https://home-assistant.io/components/climate.wink/
-[cloud docs]: https://home-assistant.io/components/cloud/
-[coinbase docs]: https://home-assistant.io/components/coinbase/
-[config docs]: https://home-assistant.io/components/config/
-[conversation docs]: https://home-assistant.io/components/conversation/
-[demo docs]: https://home-assistant.io/components/demo/
-[device_tracker docs]: https://home-assistant.io/components/device_tracker/
-[device_tracker.asuswrt docs]: https://home-assistant.io/components/device_tracker.asuswrt/
-[device_tracker.icloud docs]: https://home-assistant.io/components/device_tracker.icloud/
-[device_tracker.tesla docs]: https://home-assistant.io/components/device_tracker.tesla/
-[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
-[egardia docs]: https://home-assistant.io/components/egardia/
-[fan.insteon_plm docs]: https://home-assistant.io/components/fan.insteon_plm/
-[frontend docs]: https://home-assistant.io/components/frontend/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[group docs]: https://home-assistant.io/components/group/
-[homekit docs]: https://home-assistant.io/components/homekit/
-[http docs]: https://home-assistant.io/components/http/
-[hue docs]: https://home-assistant.io/components/hue/
-[ihc docs]: https://home-assistant.io/components/ihc/
-[influxdb docs]: https://home-assistant.io/components/influxdb/
-[insteon_plm docs]: https://home-assistant.io/components/insteon_plm/
-[knx docs]: https://home-assistant.io/components/knx/
-[light docs]: https://home-assistant.io/components/light/
-[light.demo docs]: https://home-assistant.io/components/light.demo/
-[light.group docs]: https://home-assistant.io/components/light.group/
-[light.group docs]: https://home-assistant.io/components/light.group/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.hyperion docs]: https://home-assistant.io/components/light.hyperion/
-[light.insteon_plm docs]: https://home-assistant.io/components/light.insteon_plm/
-[light.knx docs]: https://home-assistant.io/components/light.knx/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
-[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
-[light.zha docs]: https://home-assistant.io/components/light.zha/
-[logbook docs]: https://home-assistant.io/components/logbook/
-[media_player.apple_tv docs]: https://home-assistant.io/components/media_player.apple_tv/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.channels docs]: https://home-assistant.io/components/media_player.channels/
-[media_player.emby docs]: https://home-assistant.io/components/media_player.emby/
-[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
-[media_player.songpal docs]: https://home-assistant.io/components/media_player.songpal/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.synology_chat docs]: https://home-assistant.io/components/notify.synology_chat/
-[remote.xiaomi_miio docs]: https://home-assistant.io/components/remote.xiaomi_miio/
-[rest_command docs]: https://home-assistant.io/components/rest_command/
-[scene docs]: https://home-assistant.io/components/scene/
-[sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
-[sensor.citybikes docs]: https://home-assistant.io/components/sensor.citybikes/
-[sensor.filter docs]: https://home-assistant.io/components/sensor.filter/
-[sensor.fitbit docs]: https://home-assistant.io/components/sensor.fitbit/
-[sensor.folder docs]: https://home-assistant.io/components/sensor.folder/
-[sensor.history_stats docs]: https://home-assistant.io/components/sensor.history_stats/
-[sensor.imap docs]: https://home-assistant.io/components/sensor.imap/
-[sensor.insteon_plm docs]: https://home-assistant.io/components/sensor.insteon_plm/
-[sensor.luftdaten docs]: https://home-assistant.io/components/sensor.luftdaten/
-[sensor.netatmo docs]: https://home-assistant.io/components/sensor.netatmo/
-[sensor.plex docs]: https://home-assistant.io/components/sensor.plex/
-[sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
-[sensor.rest docs]: https://home-assistant.io/components/sensor.rest/
-[sensor.sense docs]: https://home-assistant.io/components/sensor.sense/
-[sensor.serial_pm docs]: https://home-assistant.io/components/sensor.serial_pm/
-[sensor.simulated docs]: https://home-assistant.io/components/sensor.simulated/
-[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
-[sensor.systemmonitor docs]: https://home-assistant.io/components/sensor.systemmonitor/
-[sensor.teksavvy docs]: https://home-assistant.io/components/sensor.teksavvy/
-[sensor.tesla docs]: https://home-assistant.io/components/sensor.tesla/
-[sensor.tibber docs]: https://home-assistant.io/components/sensor.tibber/
-[sensor.xbox_live docs]: https://home-assistant.io/components/sensor.xbox_live/
-[sensor.xiaomi_aqara docs]: https://home-assistant.io/components/sensor.xiaomi_aqara/
-[sensor.zestimate docs]: https://home-assistant.io/components/sensor.zestimate/
-[shopping_list docs]: https://home-assistant.io/components/shopping_list/
-[switch.edimax docs]: https://home-assistant.io/components/switch.edimax/
-[switch.insteon_plm docs]: https://home-assistant.io/components/switch.insteon_plm/
-[switch.rest docs]: https://home-assistant.io/components/switch.rest/
-[switch.tesla docs]: https://home-assistant.io/components/switch.tesla/
-[switch.upcloud docs]: https://home-assistant.io/components/switch.upcloud/
-[switch.volvooncall docs]: https://home-assistant.io/components/switch.volvooncall/
-[switch.xiaomi_aqara docs]: https://home-assistant.io/components/switch.xiaomi_aqara/
-[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
-[switch.zha docs]: https://home-assistant.io/components/switch.zha/
-[telegram_bot.broadcast docs]: https://home-assistant.io/components/telegram_bot.broadcast/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[upcloud docs]: https://home-assistant.io/components/upcloud/
-[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
-[weather docs]: https://home-assistant.io/components/weather/
-[weather.darksky docs]: https://home-assistant.io/components/weather.darksky/
-[xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
-[zabbix docs]: https://home-assistant.io/components/zabbix/
-[zha docs]: https://home-assistant.io/components/zha/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[alarm_control_panel.alarmdotcom docs]: /components/alarm_control_panel.alarmdotcom/
+[alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
+[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
+[api docs]: /components/api/
+[august docs]: /components/august/
+[binary_sensor docs]: /components/binary_sensor/
+[binary_sensor.concord232 docs]: /components/binary_sensor.concord232/
+[binary_sensor.egardia docs]: /components/binary_sensor.egardia/
+[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
+[binary_sensor.insteon_plm docs]: /components/binary_sensor.insteon_plm/
+[binary_sensor.isy994 docs]: /components/binary_sensor.isy994/
+[binary_sensor.knx docs]: /components/binary_sensor.knx/
+[binary_sensor.upcloud docs]: /components/binary_sensor.upcloud/
+[binary_sensor.zha docs]: /components/binary_sensor.zha/
+[camera.onvif docs]: /components/camera.onvif/
+[camera.proxy docs]: /components/camera.proxy/
+[camera.rpi_camera docs]: /components/camera.rpi_camera/
+[camera.yi docs]: /components/camera.yi/
+[canary docs]: /components/canary/
+[climate docs]: /components/climate/
+[climate.nest docs]: /components/climate.nest/
+[climate.wink docs]: /components/climate.wink/
+[cloud docs]: /components/cloud/
+[coinbase docs]: /components/coinbase/
+[config docs]: /components/config/
+[conversation docs]: /components/conversation/
+[demo docs]: /components/demo/
+[device_tracker docs]: /components/device_tracker/
+[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
+[device_tracker.icloud docs]: /components/device_tracker.icloud/
+[device_tracker.tesla docs]: /components/device_tracker.tesla/
+[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[egardia docs]: /components/egardia/
+[fan.insteon_plm docs]: /components/fan.insteon_plm/
+[frontend docs]: /components/frontend/
+[google_assistant docs]: /components/google_assistant/
+[group docs]: /components/group/
+[homekit docs]: /components/homekit/
+[http docs]: /components/http/
+[hue docs]: /components/hue/
+[ihc docs]: /components/ihc/
+[influxdb docs]: /components/influxdb/
+[insteon_plm docs]: /components/insteon_plm/
+[knx docs]: /components/knx/
+[light docs]: /components/light/
+[light.demo docs]: /components/light.demo/
+[light.group docs]: /components/light.group/
+[light.group docs]: /components/light.group/
+[light.hue docs]: /components/light.hue/
+[light.hyperion docs]: /components/light.hyperion/
+[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.knx docs]: /components/light.knx/
+[light.lifx docs]: /components/light.lifx/
+[light.limitlessled docs]: /components/light.limitlessled/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[light.zha docs]: /components/light.zha/
+[logbook docs]: /components/logbook/
+[media_player.apple_tv docs]: /components/media_player.apple_tv/
+[media_player.cast docs]: /components/media_player.cast/
+[media_player.channels docs]: /components/media_player.channels/
+[media_player.emby docs]: /components/media_player.emby/
+[media_player.plex docs]: /components/media_player.plex/
+[media_player.songpal docs]: /components/media_player.songpal/
+[media_player.sonos docs]: /components/media_player.sonos/
+[mqtt docs]: /components/mqtt/
+[notify.html5 docs]: /components/notify.html5/
+[notify.synology_chat docs]: /components/notify.synology_chat/
+[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[rest_command docs]: /components/rest_command/
+[scene docs]: /components/scene/
+[sensor.airvisual docs]: /components/sensor.airvisual/
+[sensor.citybikes docs]: /components/sensor.citybikes/
+[sensor.filter docs]: /components/sensor.filter/
+[sensor.fitbit docs]: /components/sensor.fitbit/
+[sensor.folder docs]: /components/sensor.folder/
+[sensor.history_stats docs]: /components/sensor.history_stats/
+[sensor.imap docs]: /components/sensor.imap/
+[sensor.insteon_plm docs]: /components/sensor.insteon_plm/
+[sensor.luftdaten docs]: /components/sensor.luftdaten/
+[sensor.netatmo docs]: /components/sensor.netatmo/
+[sensor.plex docs]: /components/sensor.plex/
+[sensor.pollen docs]: /components/sensor.pollen/
+[sensor.rest docs]: /components/sensor.rest/
+[sensor.sense docs]: /components/sensor.sense/
+[sensor.serial_pm docs]: /components/sensor.serial_pm/
+[sensor.simulated docs]: /components/sensor.simulated/
+[sensor.sql docs]: /components/sensor.sql/
+[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
+[sensor.teksavvy docs]: /components/sensor.teksavvy/
+[sensor.tesla docs]: /components/sensor.tesla/
+[sensor.tibber docs]: /components/sensor.tibber/
+[sensor.xbox_live docs]: /components/sensor.xbox_live/
+[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
+[sensor.zestimate docs]: /components/sensor.zestimate/
+[shopping_list docs]: /components/shopping_list/
+[switch.edimax docs]: /components/switch.edimax/
+[switch.insteon_plm docs]: /components/switch.insteon_plm/
+[switch.rest docs]: /components/switch.rest/
+[switch.tesla docs]: /components/switch.tesla/
+[switch.upcloud docs]: /components/switch.upcloud/
+[switch.volvooncall docs]: /components/switch.volvooncall/
+[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[switch.zha docs]: /components/switch.zha/
+[telegram_bot.broadcast docs]: /components/telegram_bot.broadcast/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[upcloud docs]: /components/upcloud/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[weather docs]: /components/weather/
+[weather.darksky docs]: /components/weather.darksky/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[zabbix docs]: /components/zabbix/
+[zha docs]: /components/zha/
+[zwave docs]: /components/zwave/
 [#13020]: https://github.com/home-assistant/home-assistant/pull/13020
 [#13024]: https://github.com/home-assistant/home-assistant/pull/13024
 [#13027]: https://github.com/home-assistant/home-assistant/pull/13027
@@ -657,9 +665,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
 [@kellerza]: https://github.com/kellerza
-[device_tracker docs]: https://home-assistant.io/components/device_tracker/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[homekit docs]: https://home-assistant.io/components/homekit/
+[device_tracker docs]: /components/device_tracker/
+[google_assistant docs]: /components/google_assistant/
+[homekit docs]: /components/homekit/
 [#12996]: https://github.com/home-assistant/home-assistant/pull/12996
 [#13037]: https://github.com/home-assistant/home-assistant/pull/13037
 [#13038]: https://github.com/home-assistant/home-assistant/pull/13038
@@ -676,13 +684,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@armills]: https://github.com/armills
 [@ptarjan]: https://github.com/ptarjan
 [@syssi]: https://github.com/syssi
-[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.yeelight docs]: https://home-assistant.io/components/light.yeelight/
-[sensor.sabnzbd docs]: https://home-assistant.io/components/sensor.sabnzbd/
-[sensor.sql docs]: https://home-assistant.io/components/sensor.sql/
-[wink docs]: https://home-assistant.io/components/wink/
-[xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
+[climate.sensibo docs]: /components/climate.sensibo/
+[light.lifx docs]: /components/light.lifx/
+[light.yeelight docs]: /components/light.yeelight/
+[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
+[sensor.sql docs]: /components/sensor.sql/
+[wink docs]: /components/wink/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
 [#12939]: https://github.com/home-assistant/home-assistant/pull/12939
 [#13058]: https://github.com/home-assistant/home-assistant/pull/13058
 [#13062]: https://github.com/home-assistant/home-assistant/pull/13062
@@ -699,16 +707,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jesserockz]: https://github.com/jesserockz
 [@pavoni]: https://github.com/pavoni
 [@snjoetw]: https://github.com/snjoetw
-[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
-[camera.synology docs]: https://home-assistant.io/components/camera.synology/
-[climate.generic_thermostat docs]: https://home-assistant.io/components/climate.generic_thermostat/
-[device_tracker.tado docs]: https://home-assistant.io/components/device_tracker.tado/
-[knx docs]: https://home-assistant.io/components/knx/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.iglo docs]: https://home-assistant.io/components/light.iglo/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.kodi docs]: https://home-assistant.io/components/media_player.kodi/
-[vera docs]: https://home-assistant.io/components/vera/
+[camera.arlo docs]: /components/camera.arlo/
+[camera.synology docs]: /components/camera.synology/
+[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
+[device_tracker.tado docs]: /components/device_tracker.tado/
+[knx docs]: /components/knx/
+[light.hue docs]: /components/light.hue/
+[light.iglo docs]: /components/light.iglo/
+[media_player.cast docs]: /components/media_player.cast/
+[media_player.kodi docs]: /components/media_player.kodi/
+[vera docs]: /components/vera/
 [#13106]: https://github.com/home-assistant/home-assistant/pull/13106
 [#13109]: https://github.com/home-assistant/home-assistant/pull/13109
 [#13114]: https://github.com/home-assistant/home-assistant/pull/13114
@@ -716,11 +724,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@jeroenterheerdt]: https://github.com/jeroenterheerdt
-[alarm_control_panel.egardia docs]: https://home-assistant.io/components/alarm_control_panel.egardia/
-[arlo docs]: https://home-assistant.io/components/arlo/
-[hue docs]: https://home-assistant.io/components/hue/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
+[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
+[arlo docs]: /components/arlo/
+[hue docs]: /components/hue/
+[light.hue docs]: /components/light.hue/
+[switch.wemo docs]: /components/switch.wemo/
 [#13162]: https://github.com/home-assistant/home-assistant/pull/13162
 [#13174]: https://github.com/home-assistant/home-assistant/pull/13174
 [#13195]: https://github.com/home-assistant/home-assistant/pull/13195
@@ -730,7 +738,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
-[arlo docs]: https://home-assistant.io/components/arlo/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[homekit docs]: https://home-assistant.io/components/homekit/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
+[arlo docs]: /components/arlo/
+[google_assistant docs]: /components/google_assistant/
+[homekit docs]: /components/homekit/
+[media_player.sonos docs]: /components/media_player.sonos/
+[#13226]: https://github.com/home-assistant/home-assistant/pull/13226
+[#13237]: https://github.com/home-assistant/home-assistant/pull/13237
+[#13248]: https://github.com/home-assistant/home-assistant/pull/13248
+[#13293]: https://github.com/home-assistant/home-assistant/pull/13293
+[#13358]: https://github.com/home-assistant/home-assistant/pull/13358
+[@PhracturedBlue]: https://github.com/PhracturedBlue
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[camera.proxy docs]: /components/camera.proxy/
+[device_tracker docs]: /components/device_tracker/
+[google_assistant docs]: /components/google_assistant/
+[light.demo docs]: /components/light.demo/
+[media_player.sonos docs]: /components/media_player.sonos/

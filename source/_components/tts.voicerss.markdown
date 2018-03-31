@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "VoiceRSS"
-description: "Instructions how to setup VoiceRSS TTS with Home Assistant."
+description: "Instructions on how to setup VoiceRSS TTS with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false

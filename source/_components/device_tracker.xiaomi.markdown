@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Xiaomi Router"
-description: "Instructions how to integrate Xiaomi routers into Home Assistant."
+description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
 date: 2017-01-12 12:04
 sidebar: true
 comments: false

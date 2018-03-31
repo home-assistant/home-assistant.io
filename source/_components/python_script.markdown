@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Python Scripts"
-description: "Instructions how to setup Python scripts within Home Assistant."
+description: "Instructions on how to setup Python scripts within Home Assistant."
 date: 2017-06-15 19:59
 sidebar: true
 comments: false
@@ -20,7 +20,7 @@ This component allows you to write Python scripts that are exposed as services i
 | `data` | The data passed to the Python Script service call.
 | `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
 
-[hass-api]: https://home-assistant.io/developers/development_hass_object/
+[hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
 
 ## {% linkable_title Writing your first script %}

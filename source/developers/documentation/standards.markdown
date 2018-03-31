@@ -16,7 +16,7 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
 * The language of the documentation should be American-English.
 * Don't put two spaces after a period and avoid the "Oxford comma".
 * Be objective and not gender favoring, polarizing, race related or religion inconsiderate.
-* The case of brand names, services, protocols, components, and platforms must match its respective counterpart. E.g. "Z-Wave" **not** "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" **not** "input select" or "Input select".
+* The case of brand names, services, protocols, components, and platforms must match its respective counterpart. e.g., "Z-Wave" **not** "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" **not** "input select" or "Input select".
 * All headings should use the {% raw %}`{% linkable_title %}`{% endraw %} tag.
 
 ## {% linkable_title Component and Platform Pages %}
@@ -28,6 +28,8 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
   * Use `[string, int]` for configuration variables that accept multiple types.
 * Use YAML sequence syntax in the sample code if it is supported.
 * All examples should be formatted to be included in `configuration.yaml` unless explicitly stated.
+  * Use capital letters and `_` to indicate that the value needs to be replaced. E.g., `api_key: YOUR_API_KEY` or `api_key: REPLACE_ME`.
+  * If you know that the API key or value contains [control characters](https://en.wikipedia.org/wiki/YAML#Syntax), e.g., `#`, `[`, `?`, etc., wrap it in quotes and add a note. 
 * Component and platform names should be a link to their respective documentation pages.
 
 ## {% linkable_title Templates %}

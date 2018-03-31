@@ -15,11 +15,11 @@ og_image: /images/blog/2018-02-0.64/components.png
 
 🎉 1000 integrations, 1000 integrations, 1000 integrations! 🎉
 
-That's right, Home Assistant 0.64 is here! In case you have missed our latest [Cloud update](https://home-assistant.io/blog/2018/02/19/cloud-update/), the Home Assistant Alexa skill is now live in all regions and we're working with Google in getting the Smart Home skill for Google Assistant approved. Exciting times!
+That's right, Home Assistant 0.64 is here! In case you have missed our latest [Cloud update](/blog/2018/02/19/cloud-update/), the Home Assistant Alexa skill is now live in all regions and we're working with Google in getting the Smart Home skill for Google Assistant approved. Exciting times!
 
 In the meanwhile, some great new integrations have landed, including yet another car 🚗 This time it's BMW.
 
-This is going to be the last release that supports Python 3.4. Starting with the next release, the minimum version required will be Python 3.5.3. [Learn more here.](https://home-assistant.io/blog/2017/10/06/deprecating-python-3.4-support/)
+This is going to be the last release that supports Python 3.4. Starting with the next release, the minimum version required will be Python 3.5.3. [Learn more here.](/blog/2017/10/06/deprecating-python-3.4-support/)
 
 ## {% linkable_title HomeKit %}
 
@@ -482,111 +482,111 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@frenck]: https://github.com/frenck
 [@pvizeli]: https://github.com/pvizeli
 [@ryanm101]: https://github.com/ryanm101
-[alexa docs]: https://home-assistant.io/components/alexa/
-[august docs]: https://home-assistant.io/components/august/
-[binary_sensor.august docs]: https://home-assistant.io/components/binary_sensor.august/
-[binary_sensor.bloomsky docs]: https://home-assistant.io/components/binary_sensor.bloomsky/
-[binary_sensor.deconz docs]: https://home-assistant.io/components/binary_sensor.deconz/
-[binary_sensor.knx docs]: https://home-assistant.io/components/binary_sensor.knx/
-[bmw_connected_drive docs]: https://home-assistant.io/components/bmw_connected_drive/
-[calendar.caldav docs]: https://home-assistant.io/components/calendar.caldav/
-[camera.august docs]: https://home-assistant.io/components/camera.august/
-[camera.bloomsky docs]: https://home-assistant.io/components/camera.bloomsky/
-[camera.doorbird docs]: https://home-assistant.io/components/camera.doorbird/
-[camera.onvif docs]: https://home-assistant.io/components/camera.onvif/
-[camera.rpi_camera docs]: https://home-assistant.io/components/camera.rpi_camera/
-[climate.eq3btsmart docs]: https://home-assistant.io/components/climate.eq3btsmart/
-[climate.knx docs]: https://home-assistant.io/components/climate.knx/
-[climate.melissa docs]: https://home-assistant.io/components/climate.melissa/
-[cloud docs]: https://home-assistant.io/components/cloud/
-[config docs]: https://home-assistant.io/components/config/
-[conversation docs]: https://home-assistant.io/components/conversation/
-[cover.knx docs]: https://home-assistant.io/components/cover.knx/
-[cover.opengarage docs]: https://home-assistant.io/components/cover.opengarage/
-[deconz docs]: https://home-assistant.io/components/deconz/
-[device_tracker.asuswrt docs]: https://home-assistant.io/components/device_tracker.asuswrt/
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[device_tracker.bmw_connected_drive docs]: https://home-assistant.io/components/device_tracker.bmw_connected_drive/
-[device_tracker.nmap_tracker docs]: https://home-assistant.io/components/device_tracker.nmap_tracker/
-[device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
-[fan.xiaomi_miio docs]: https://home-assistant.io/components/fan.xiaomi_miio/
-[frontend docs]: https://home-assistant.io/components/frontend/
-[google_assistant docs]: https://home-assistant.io/components/google_assistant/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[history docs]: https://home-assistant.io/components/history/
-[homekit docs]: https://home-assistant.io/components/homekit/
-[homekit.accessories docs]: https://home-assistant.io/components/homekit.accessories/
-[homekit.const docs]: https://home-assistant.io/components/homekit.const/
-[homekit.covers docs]: https://home-assistant.io/components/homekit.covers/
-[homekit.sensors docs]: https://home-assistant.io/components/homekit.sensors/
-[http docs]: https://home-assistant.io/components/http/
-[input_datetime docs]: https://home-assistant.io/components/input_datetime/
-[isy994 docs]: https://home-assistant.io/components/isy994/
-[knx docs]: https://home-assistant.io/components/knx/
-[light.deconz docs]: https://home-assistant.io/components/light.deconz/
-[light.iglo docs]: https://home-assistant.io/components/light.iglo/
-[light.knx docs]: https://home-assistant.io/components/light.knx/
-[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
-[light.xiaomi_miio docs]: https://home-assistant.io/components/light.xiaomi_miio/
-[lock.august docs]: https://home-assistant.io/components/lock.august/
-[lock.zwave docs]: https://home-assistant.io/components/lock.zwave/
-[logbook docs]: https://home-assistant.io/components/logbook/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player.bluesound docs]: https://home-assistant.io/components/media_player.bluesound/
-[media_player.braviatv_psk docs]: https://home-assistant.io/components/media_player.braviatv_psk/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
-[media_player.frontier_silicon docs]: https://home-assistant.io/components/media_player.frontier_silicon/
-[media_player.panasonic_viera docs]: https://home-assistant.io/components/media_player.panasonic_viera/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[media_player.xiaomi_tv docs]: https://home-assistant.io/components/media_player.xiaomi_tv/
-[melissa docs]: https://home-assistant.io/components/melissa/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[mqtt_eventstream docs]: https://home-assistant.io/components/mqtt_eventstream/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.knx docs]: https://home-assistant.io/components/notify.knx/
-[notify.lametric docs]: https://home-assistant.io/components/notify.lametric/
-[panel_iframe docs]: https://home-assistant.io/components/panel_iframe/
-[remote.xiaomi_miio docs]: https://home-assistant.io/components/remote.xiaomi_miio/
-[scene docs]: https://home-assistant.io/components/scene/
-[sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
-[sensor.alpha_vantage docs]: https://home-assistant.io/components/sensor.alpha_vantage/
-[sensor.bloomsky docs]: https://home-assistant.io/components/sensor.bloomsky/
-[sensor.bmw_connected_drive docs]: https://home-assistant.io/components/sensor.bmw_connected_drive/
-[sensor.buienradar docs]: https://home-assistant.io/components/sensor.buienradar/
-[sensor.deconz docs]: https://home-assistant.io/components/sensor.deconz/
-[sensor.fastdotcom docs]: https://home-assistant.io/components/sensor.fastdotcom/
-[sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
-[sensor.filesize docs]: https://home-assistant.io/components/sensor.filesize/
-[sensor.folder docs]: https://home-assistant.io/components/sensor.folder/
-[sensor.knx docs]: https://home-assistant.io/components/sensor.knx/
-[sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
-[sensor.rfxtrx docs]: https://home-assistant.io/components/sensor.rfxtrx/
-[sensor.sabnzbd docs]: https://home-assistant.io/components/sensor.sabnzbd/
-[sensor.sma docs]: https://home-assistant.io/components/sensor.sma/
-[sensor.smappee docs]: https://home-assistant.io/components/sensor.smappee/
-[sensor.speedtest docs]: https://home-assistant.io/components/sensor.speedtest/
-[sensor.spotcrime docs]: https://home-assistant.io/components/sensor.spotcrime/
-[sensor.startca docs]: https://home-assistant.io/components/sensor.startca/
-[sensor.template docs]: https://home-assistant.io/components/sensor.template/
-[sensor.tibber docs]: https://home-assistant.io/components/sensor.tibber/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
-[sensor.zha docs]: https://home-assistant.io/components/sensor.zha/
-[shopping_list docs]: https://home-assistant.io/components/shopping_list/
-[smappee docs]: https://home-assistant.io/components/smappee/
-[switch.knx docs]: https://home-assistant.io/components/switch.knx/
-[switch.rainmachine docs]: https://home-assistant.io/components/switch.rainmachine/
-[switch.smappee docs]: https://home-assistant.io/components/switch.smappee/
-[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
-[tahoma docs]: https://home-assistant.io/components/tahoma/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[usps docs]: https://home-assistant.io/components/usps/
-[vacuum.xiaomi_miio docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
-[vera docs]: https://home-assistant.io/components/vera/
-[weather.buienradar docs]: https://home-assistant.io/components/weather.buienradar/
-[weblink docs]: https://home-assistant.io/components/weblink/
-[xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
-[zha docs]: https://home-assistant.io/components/zha/
+[alexa docs]: /components/alexa/
+[august docs]: /components/august/
+[binary_sensor.august docs]: /components/binary_sensor.august/
+[binary_sensor.bloomsky docs]: /components/binary_sensor.bloomsky/
+[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
+[binary_sensor.knx docs]: /components/binary_sensor.knx/
+[bmw_connected_drive docs]: /components/bmw_connected_drive/
+[calendar.caldav docs]: /components/calendar.caldav/
+[camera.august docs]: /components/camera.august/
+[camera.bloomsky docs]: /components/camera.bloomsky/
+[camera.doorbird docs]: /components/camera.doorbird/
+[camera.onvif docs]: /components/camera.onvif/
+[camera.rpi_camera docs]: /components/camera.rpi_camera/
+[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
+[climate.knx docs]: /components/climate.knx/
+[climate.melissa docs]: /components/climate.melissa/
+[cloud docs]: /components/cloud/
+[config docs]: /components/config/
+[conversation docs]: /components/conversation/
+[cover.knx docs]: /components/cover.knx/
+[cover.opengarage docs]: /components/cover.opengarage/
+[deconz docs]: /components/deconz/
+[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[device_tracker.bmw_connected_drive docs]: /components/device_tracker.bmw_connected_drive/
+[device_tracker.nmap_tracker docs]: /components/device_tracker.nmap_tracker/
+[device_tracker.unifi docs]: /components/device_tracker.unifi/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[frontend docs]: /components/frontend/
+[google_assistant docs]: /components/google_assistant/
+[hassio docs]: /components/hassio/
+[history docs]: /components/history/
+[homekit docs]: /components/homekit/
+[homekit.accessories docs]: /components/homekit.accessories/
+[homekit.const docs]: /components/homekit.const/
+[homekit.covers docs]: /components/homekit.covers/
+[homekit.sensors docs]: /components/homekit.sensors/
+[http docs]: /components/http/
+[input_datetime docs]: /components/input_datetime/
+[isy994 docs]: /components/isy994/
+[knx docs]: /components/knx/
+[light.deconz docs]: /components/light.deconz/
+[light.iglo docs]: /components/light.iglo/
+[light.knx docs]: /components/light.knx/
+[light.limitlessled docs]: /components/light.limitlessled/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[lock.august docs]: /components/lock.august/
+[lock.zwave docs]: /components/lock.zwave/
+[logbook docs]: /components/logbook/
+[media_extractor docs]: /components/media_extractor/
+[media_player.bluesound docs]: /components/media_player.bluesound/
+[media_player.braviatv_psk docs]: /components/media_player.braviatv_psk/
+[media_player.cast docs]: /components/media_player.cast/
+[media_player.denonavr docs]: /components/media_player.denonavr/
+[media_player.frontier_silicon docs]: /components/media_player.frontier_silicon/
+[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
+[media_player.sonos docs]: /components/media_player.sonos/
+[media_player.xiaomi_tv docs]: /components/media_player.xiaomi_tv/
+[melissa docs]: /components/melissa/
+[mqtt docs]: /components/mqtt/
+[mqtt_eventstream docs]: /components/mqtt_eventstream/
+[notify.html5 docs]: /components/notify.html5/
+[notify.knx docs]: /components/notify.knx/
+[notify.lametric docs]: /components/notify.lametric/
+[panel_iframe docs]: /components/panel_iframe/
+[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[scene docs]: /components/scene/
+[sensor.airvisual docs]: /components/sensor.airvisual/
+[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
+[sensor.bloomsky docs]: /components/sensor.bloomsky/
+[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
+[sensor.buienradar docs]: /components/sensor.buienradar/
+[sensor.deconz docs]: /components/sensor.deconz/
+[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
+[sensor.fedex docs]: /components/sensor.fedex/
+[sensor.filesize docs]: /components/sensor.filesize/
+[sensor.folder docs]: /components/sensor.folder/
+[sensor.knx docs]: /components/sensor.knx/
+[sensor.pollen docs]: /components/sensor.pollen/
+[sensor.rfxtrx docs]: /components/sensor.rfxtrx/
+[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
+[sensor.sma docs]: /components/sensor.sma/
+[sensor.smappee docs]: /components/sensor.smappee/
+[sensor.speedtest docs]: /components/sensor.speedtest/
+[sensor.spotcrime docs]: /components/sensor.spotcrime/
+[sensor.startca docs]: /components/sensor.startca/
+[sensor.template docs]: /components/sensor.template/
+[sensor.tibber docs]: /components/sensor.tibber/
+[sensor.wunderground docs]: /components/sensor.wunderground/
+[sensor.zha docs]: /components/sensor.zha/
+[shopping_list docs]: /components/shopping_list/
+[smappee docs]: /components/smappee/
+[switch.knx docs]: /components/switch.knx/
+[switch.rainmachine docs]: /components/switch.rainmachine/
+[switch.smappee docs]: /components/switch.smappee/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[tahoma docs]: /components/tahoma/
+[telegram_bot docs]: /components/telegram_bot/
+[usps docs]: /components/usps/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[vera docs]: /components/vera/
+[weather.buienradar docs]: /components/weather.buienradar/
+[weblink docs]: /components/weblink/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[zha docs]: /components/zha/
 [#12635]: https://github.com/home-assistant/home-assistant/pull/12635
 [#12645]: https://github.com/home-assistant/home-assistant/pull/12645
 [#12657]: https://github.com/home-assistant/home-assistant/pull/12657
@@ -614,17 +614,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tumik]: https://github.com/tumik
 [@fanthos]: https://github.com/fanthos
 [@PhilRW]: https://github.com/PhilRW
-[binary_sensor.deconz docs]: https://home-assistant.io/components/binary_sensor.deconz/
-[deconz docs]: https://home-assistant.io/components/deconz/
-[light.iglo docs]: https://home-assistant.io/components/light.iglo/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
-[mysensors docs]: https://home-assistant.io/components/mysensors/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[sensor.alpha_vantage docs]: https://home-assistant.io/components/sensor.alpha_vantage/
-[tahoma docs]: https://home-assistant.io/components/tahoma/
-[vacuum.roomba docs]: https://home-assistant.io/components/vacuum.roomba/
-[zha docs]: https://home-assistant.io/components/zha/
+[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
+[deconz docs]: /components/deconz/
+[light.iglo docs]: /components/light.iglo/
+[media_player.cast docs]: /components/media_player.cast/
+[media_player.denonavr docs]: /components/media_player.denonavr/
+[mysensors docs]: /components/mysensors/
+[remote.harmony docs]: /components/remote.harmony/
+[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
+[tahoma docs]: /components/tahoma/
+[vacuum.roomba docs]: /components/vacuum.roomba/
+[zha docs]: /components/zha/
 [#12759]: https://github.com/home-assistant/home-assistant/pull/12759
 [#12762]: https://github.com/home-assistant/home-assistant/pull/12762
 [#12764]: https://github.com/home-assistant/home-assistant/pull/12764
@@ -641,14 +641,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@ryanm101]: https://github.com/ryanm101
 [@uchagani]: https://github.com/uchagani
-[binary_sensor.rfxtrx docs]: https://home-assistant.io/components/binary_sensor.rfxtrx/
-[bmw_connected_drive docs]: https://home-assistant.io/components/bmw_connected_drive/
-[logbook docs]: https://home-assistant.io/components/logbook/
-[media_player.plex docs]: https://home-assistant.io/components/media_player.plex/
-[media_player.samsungtv docs]: https://home-assistant.io/components/media_player.samsungtv/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[sensor.fedex docs]: https://home-assistant.io/components/sensor.fedex/
-[sensor.pollen docs]: https://home-assistant.io/components/sensor.pollen/
+[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
+[bmw_connected_drive docs]: /components/bmw_connected_drive/
+[logbook docs]: /components/logbook/
+[media_player.plex docs]: /components/media_player.plex/
+[media_player.samsungtv docs]: /components/media_player.samsungtv/
+[media_player.sonos docs]: /components/media_player.sonos/
+[sensor.fedex docs]: /components/sensor.fedex/
+[sensor.pollen docs]: /components/sensor.pollen/
 [#12810]: https://github.com/home-assistant/home-assistant/pull/12810
 [#12837]: https://github.com/home-assistant/home-assistant/pull/12837
 [#12840]: https://github.com/home-assistant/home-assistant/pull/12840
@@ -656,6 +656,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@andrey-git]: https://github.com/andrey-git
 [@balloob]: https://github.com/balloob
 [@kellerza]: https://github.com/kellerza
-[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
-[cloud docs]: https://home-assistant.io/components/cloud/
-[hue docs]: https://home-assistant.io/components/hue/
+[climate.sensibo docs]: /components/climate.sensibo/
+[cloud docs]: /components/cloud/
+[hue docs]: /components/hue/

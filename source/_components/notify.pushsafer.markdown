@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pushsafer"
-description: "Instructions how to add Pushsafer notifications to Home Assistant."
+description: "Instructions on how to add Pushsafer notifications to Home Assistant."
 date: 2018-01-05 11:15
 sidebar: true
 comments: false
@@ -42,11 +42,11 @@ Message to two devices with formatted text.
   "message": "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]",
   "target": ["1111", "2222"],
   "data": {
-    "icon": "2", 
+    "icon": "2",
     "iconcolor": "#FF0000",
     "sound": "2",
     "vibration": "1",
-    "url": "https://home-assistant.io/",
+    "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "0"
   }
@@ -58,18 +58,18 @@ Message to one device with formatted text and image from an external URL.
 ```json
 {
   "title": "Test to 1 device with image from an url",
-  "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
+  "message": "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]",
   "target": ["1111"],
   "data": {
-    "icon": "14", 
+    "icon": "14",
     "iconcolor": "#FFFF00",
     "sound": "22",
     "vibration": "3",
-    "url": "https://home-assistant.io/",
+    "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "60",
     "picture1": {
-       "url":"https://home-assistant.io/images/components/alexa/alexa-512x512.png"
+       "url":"https://www.home-assistant.io/images/components/alexa/alexa-512x512.png"
      }
   }
 }
@@ -80,14 +80,14 @@ Message to two devices and one device group with formatted text and local image.
 ```json
 {
   "title": "Test to 3 devices with local image",
-  "message": "Attention [i]italic[/i] Text[br][url=https://home-assistant.io/]Testlink[/url]",
+  "message": "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]",
   "target": ["1111","2222","gs3333"],
   "data": {
-    "icon": "20", 
+    "icon": "20",
     "iconcolor": "#FF00FF",
     "sound": "33",
     "vibration": "0",
-    "url": "https://home-assistant.io/",
+    "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "10",
     "picture1": {
@@ -99,6 +99,6 @@ Message to two devices and one device group with formatted text and local image.
 
 To customize your push-notification you can take a look at the [Pushsafer API description](https://www.pushsafer.com/en/pushapi).
 
-When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
+When setting up the application you can use this [icon](/images/favicon-192x192.png).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Recorder"
-description: "Instructions how to configure the data recorder for Home Assistant."
+description: "Instructions on how to configure the data recorder for Home Assistant."
 date: 2017-09-24 09:00
 sidebar: true
 comments: false
@@ -119,7 +119,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### {% linkable_title Service `purge` %}
 

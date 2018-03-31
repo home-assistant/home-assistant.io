@@ -63,15 +63,15 @@ access_token:
   required: true
   type: string
 agent_user_id:
-  description: A string to identify the user, e.g. email address. If not provided, the component will generate one.
+  description: A string to identify the user, e.g., email address. If not provided, the component will generate one.
   required: false
   type: string
 api_key:
-  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this componenet you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
+  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this component you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
   required: false
   type: string
 expose_by_default:
-  description: Expose devices in all supported domains by default.
+  description: Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in entity_config and set it to true.
   required: false
   default: True
   type: boolean

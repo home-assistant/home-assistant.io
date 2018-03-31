@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Camera Proxy"
-description: "Instructions how to integrate a camera proxy within Home Assistant."
+description: "Instructions on how to integrate a camera proxy within Home Assistant."
 date: 2018-03-08 19:00
 sidebar: true
 comments: false

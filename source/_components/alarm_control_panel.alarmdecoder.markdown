@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AlarmDecoder Alarm Control Panel"
-description: "Instructions how to setup the AlarmDecoder Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the AlarmDecoder Alarm control panel within Home Assistant."
 date: 2017-04-02 13:28
 sidebar: true
 comments: false

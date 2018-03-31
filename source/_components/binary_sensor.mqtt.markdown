@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Binary Sensor"
-description: "Instructions how to integrate MQTT binary sensors within Home Assistant."
+description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
 comments: false
@@ -16,6 +16,8 @@ ha_iot_class: "depends"
 The `mqtt` binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: `on` or `off`.
 
 The binary sensor state will be updated only after a new message is published on `state_topic` matching `payload_on` or `payload_off`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
+
+## {% linkable_title Configuration %}
 
 The `mqtt` binary sensor platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT cover device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability_topic` is defined, Home Assistant will consider the MQTT device to be available.
 
@@ -42,12 +44,12 @@ payload_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 availability_topic:
   description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
   required: false

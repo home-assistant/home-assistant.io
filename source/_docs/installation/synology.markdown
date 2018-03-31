@@ -69,7 +69,7 @@ Create homeassistant config directory & switch to it
 # chmod 755 /volume1/homeassistant
 # cd /volume1/homeassistant
 ```
-Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g. via "File Station") - this has the advantage that the folder is visible via "File Station".
+Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g., via "File Station") - this has the advantage that the folder is visible via "File Station".
 
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
 

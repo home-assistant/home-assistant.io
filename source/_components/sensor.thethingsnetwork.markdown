@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "The Things Network Sensor"
-description: "Instructions how to integrate The Things Network sensors into Home Assistant."
+description: "Instructions on how to integrate The Things Network sensors into Home Assistant."
 date: 2017-09-30 08:00
 sidebar: true
 comments: false

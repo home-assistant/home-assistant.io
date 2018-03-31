@@ -31,4 +31,4 @@ More info:
 
 [pr1]: https://github.com/home-assistant/home-assistant/pull/4708
 [pr2]: https://github.com/home-assistant/home-assistant/pull/5549
-[eh-conf]: https://home-assistant.io/components/emulated_hue/#configuration
+[eh-conf]: /components/emulated_hue/#configuration

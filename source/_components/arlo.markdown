@@ -15,19 +15,27 @@ ha_iot_class: "Cloud Polling"
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable device linked in your [Arlo](https://arlo.netgear.com/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 arlo:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Arlo account.
-- **password** (*Required*): The password for accessing your Arlo account.
+{% configuration %}
+username:
+  description: The username for accessing your Arlo account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Arlo account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.
 

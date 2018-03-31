@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Belkin WeMo"
-description: "Instructions how to integrate Belkin WeMo devices into Home Assistant."
+description: "Instructions on how to integrate Belkin WeMo devices into Home Assistant."
 date: 2016-02-20 00:41
 sidebar: true
 comments: false

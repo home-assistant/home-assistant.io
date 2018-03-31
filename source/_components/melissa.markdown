@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Melissa Climate"
-description: "Instructions how to integrate Melissa Climate into Home Assistant."
+description: "Instructions on how to integrate Melissa Climate into Home Assistant."
 date: 2017-01-05 17:30
 sidebar: true
 comments: false
@@ -16,13 +16,15 @@ ha_iot_class: "Cloud Polling"
 
 The `Melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
 
+## {% linkable_title Configuration %}
+
 To set the Melissa component up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 melissa:
-  username: <email adress>
-  password: ********
+  username: YOUR_MELISSA_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Abode Alarm Control Panel"
-description: "Instructions how to setup the Abode Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the Abode Alarm control panel within Home Assistant."
 date: 2017-08-26 0:28
 sidebar: true
 comments: false

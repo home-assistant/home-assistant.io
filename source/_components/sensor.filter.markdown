@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Filter Sensor"
-description: "Instructions how to integrate Data Filter Sensors into Home Assistant."
+description: "Instructions on how to integrate Data Filter Sensors into Home Assistant."
 date: 2018-02-20
 sidebar: true
 comments: false
@@ -37,6 +37,15 @@ sensor:
       - filter: lowpass
         time_constant: 10
         precision: 2
+  - platform: filter
+    name: "filtered realistic temperature"
+    entity_id: sensor.realistic_temperature
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
       - filter: time_simple_moving_average
         window_size: 00:05
         precision: 2
@@ -95,7 +104,7 @@ filters:
 
 The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcutting peaks and valleys.
 
-The included Low-pass filter is very basic and is based on a moving average, in which the previous data point is weighted with the new data point.
+The included Low-pass filter is very basic and is based on [exponential smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing), in which the previous data point is weighted with the new data point.
 
 ```python
 B = 1.0 / time_constant
@@ -107,7 +116,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 ### {% linkable_title Outlier %}
 
-The Outlier filter (`outlier`) is a basic Band-stop filter, as it cuts out any value outside a specific range.
+The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
 The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the 
 

@@ -22,7 +22,7 @@ Additional sensors can be added but at the expense of a reduced refresh rate. 2 
 
 Queries are entered as a list, with the two transport modes available being `bus` and `train`.
 
-Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](http://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g. `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json).
+Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](http://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g., `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json).
 
 To add a single train departure sensor add the following to your `configuration.yaml` file:
 
@@ -48,7 +48,7 @@ Configuration variables:
 - **origin** (*Required*): Specify the three character long origin station code.
 - **destination** (*Required*): Specify the three character long destination station code.
 
-A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains. The status of the next departing train is accessed using the [template sensor](https://home-assistant.io/components/sensor.template/) below, as are the train origin, estimated and scheduled departure times, and the departure platform.
+A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains. The status of the next departing train is accessed using the [template sensor](/components/sensor.template/) below, as are the train origin, estimated and scheduled departure times, and the departure platform.
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.

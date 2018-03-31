@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tado"
-description: "Instructions how to integrate Tado into Home Assistant."
+description: "Instructions on how to integrate Tado into Home Assistant."
 date: 2017-01-17 12:00
 sidebar: true
 comments: false

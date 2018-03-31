@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ISY994 Controller"
-description: "Instructions how to setup the ISY994 controller within Home Assistant."
+description: "Instructions on how to setup the ISY994 controller within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -45,7 +45,7 @@ Once the ISY controller is configured, it will automatically import any binary s
 
 An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY994 admin panel. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
-Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node either in the ISY994 Admin Panel (which will change the entity_id in Home Assistant) or assign a `friendly_name` in the [Customization section](https://home-assistant.io/docs/configuration/customizing-devices/) of your configuration.
+Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node either in the ISY994 Admin Panel (which will change the entity_id in Home Assistant) or assign a `friendly_name` in the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
@@ -125,7 +125,7 @@ My Programs
 ```
 
 A device is created by creating a directory, with the name for the device, under any of the following root directories:
- * *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](https://home-assistant.io/getting-started/customizing-devices/) to set the sensor class)
+ * *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class)
  * *HA.cover* will create a cover
  * *HA.fan* will create a fan
  * *HA.lock* will create a lock

@@ -104,7 +104,7 @@ sensor:
     device: PATH_TO_DEVICE
 ```
 
-The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 
 __TEMPer temperature sensor support__
 Support for Temper temperature sensors has been contributed by [@rkabadi](https://github.com/rkabadi).

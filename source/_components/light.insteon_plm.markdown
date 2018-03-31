@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon PLM Light"
-description: "Instructions how to setup Insteon PLM lights locally within Home Assistant."
+description: "Instructions on how to setup Insteon PLM lights locally within Home Assistant."
 date: 2017-02-19 17:00
 sidebar: true
 comments: false

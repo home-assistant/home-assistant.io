@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yeelight Wifi Bulb"
-description: "Instructions how to setup Yeelight Wifi devices within Home Assistant."
+description: "Instructions on how to setup Yeelight Wifi devices within Home Assistant."
 date: 2016-10-29
 sidebar: true
 comments: false
@@ -35,7 +35,7 @@ light:
 
 Configuration variables:
 
-- **ip** (*Required*): IP(s) of your wifi bulbs
+- **ip** (*Required*): IP(s) of your Wifi bulbs
 - **name** (*Optional*): A friendly name for the device.
 - **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
 - **use_music_mode** (*Optional*, default False): Enable music mode.
@@ -62,6 +62,17 @@ This component is tested to work with the following models. If you have a differ
 - **YLDD01YL**: Lightstrip (Color)
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
+- **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
+- **YLXD01YL**: Yeelight Smart LED Ceiling Light - Youth Version
 
 
+## {% linkable_title Platform Services %}
 
+### {% linkable_title Service `light.yeelight_set_mode` %}
+
+Set a operation mode.
+
+| Service data attribute    | Optional | Description                                                                                 |
+|---------------------------|----------|---------------------------------------------------------------------------------------------|
+| `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
+| `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |

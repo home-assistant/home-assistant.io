@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The frontend contains a section called "Developer Tools". 
+The frontend contains a section called "Developer Tools".
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
@@ -63,7 +63,7 @@ For ex: Changing the `light.bedroom` state from `off` to `on` does not turn on t
 
 This Events section is as basic as it can get. It does only one thing – fires events on the event bus.
 To fire an event, simply type the name of the event, and pass the event data in JSON format.
-For ex: To fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as 
+For ex: To fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as
 
 ```json
 { "state":"on" }
@@ -83,19 +83,20 @@ If there is an automation that handles that event, it will be automatically trig
 
 {% linkable_title Template Editor %}
 
-The Template Editor provides a way to test the template code quickly. When the Template Editor page is loaded, it comes with a sample template code that illustrates how the code can be written and tested. 
+The Template Editor provides a way to test the template code quickly. When the Template Editor page is loaded, it comes with a sample template code that illustrates how the code can be written and tested.
 
-It has two sections, code goes on the left hand side, and the output is shown on the right hand side. The code can be removed and replaced, and when the page is loaded/refreshed, the default sample code will be loaded back. 
+It has two sections, code goes on the left hand side, and the output is shown on the right hand side. The code can be removed and replaced, and when the page is loaded/refreshed, the default sample code will be loaded back.
 
 It is a good practice to test the template code in the template editor prior to putting it in automations and scripts.
 
-For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](https://home-assistant.io/topics/templating/)
+For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](/topics/templating/)
 
 
 {% linkable_title mqtt %}
 
-This section is only visible if the MQTT is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to [mqtt]( https://home-assistant.io/components/mqtt/)
-Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button. 
+This section is only visible if the MQTT component is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/components/mqtt/) component.
+
+Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 
 {% linkable_title Info %}
 

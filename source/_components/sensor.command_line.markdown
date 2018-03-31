@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Command line Sensor"
-description: "Instructions how to integrate command line sensors into Home Assistant."
+description: "Instructions on how to integrate command line sensors into Home Assistant."
 date: 2015-09-13 10:10
 sidebar: true
 comments: false
@@ -31,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
 
 ## {% linkable_title Examples %}
 
@@ -61,6 +61,7 @@ sensor:
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -69,8 +70,9 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
-    value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Monitoring failed login attempts on Home Assistant %}
 
@@ -84,7 +86,7 @@ sensor:
     command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
+Make sure to configure the [logger component](/components/logger) to monitor the [http component](/components/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works
@@ -149,11 +151,13 @@ sensor:
 
 [Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: command_line
     name: wind direction
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {% raw %}{{ states.sensor.wind_direction.state }}{% endraw %}'
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
 ```
+{% endraw %}

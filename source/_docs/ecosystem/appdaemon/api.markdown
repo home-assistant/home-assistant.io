@@ -39,7 +39,7 @@ There are several circumstances under which `initialize()` might be called:
 - Following a change in the status of Daylight Savings Time
 - Following a restart of Home Assistant
 
-In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been canceled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g. turn off a light that might have been left on by mistake when the app was restarted).
+In every case, the App is responsible for recreating any state it might need as if it were the first time it was ever started. If `initialize()` is called, the app can safely assume that it is either being loaded for the first time, or that all callbacks and timers have been canceled. In either case, the APP will need to recreate them. Depending upon the application it may be desirable for the App to establish state such as whether or not a particular light is on, within the `initialize()` function to ensure that everything is as expected or to make immediate remedial action (e.g., turn off a light that might have been left on by mistake when the app was restarted).
 
 After the `initialize()` function is in place, the rest of the app consists of functions that are called by the various callback mechanisms, and any additional functions the user wants to add as part of the program logic. Apps are able to subscribe to 2 main classes of events:
 
@@ -150,7 +150,7 @@ light = light.garage
 
 ## {% linkable_title Callback Constraints %}
 
-Callback constraints are a feature of AppDaemon that removes the need for repetition of some common coding checks. Many Apps will wish to process their callbacks only when certain conditions are met, e.g. someone is home, and it's after sunset. These kinds of conditions crop up a lot, and use of callback constraints can significantly simplify the logic required within callbacks.
+Callback constraints are a feature of AppDaemon that removes the need for repetition of some common coding checks. Many Apps will wish to process their callbacks only when certain conditions are met, e.g., someone is home, and it's after sunset. These kinds of conditions crop up a lot, and use of callback constraints can significantly simplify the logic required within callbacks.
 
 Put simply, callback constraints are one or more conditions on callback execution that can be applied to an individual App. An App's callbacks will only be executed if all of the constraints are met. If a constraint is absent it will not be checked for.
 
@@ -194,7 +194,7 @@ constrain_input_boolean = input_boolean.enable_motion_detection,off
 ```
 
 ### {% linkable_title input_select %}
-The input_select constraint prevents callbacks unless the specified input_select is set to one or more of the nominated (comma separated) values. This is useful to allow certain Apps to be turned on and off according to some flag, e.g. a house mode flag.
+The input_select constraint prevents callbacks unless the specified input_select is set to one or more of the nominated (comma separated) values. This is useful to allow certain Apps to be turned on and off according to some flag, e.g., a house mode flag.
 
 ```ini
 # Single value
@@ -272,7 +272,7 @@ Any other attributes such as brightness for a lamp will only be present if the e
 
 Also bear in mind that some attributes such as brightness for a light, will not be present when the light is off.
 
-In most cases, the attribute `state` has the most important value in it, e.g. for a light or switch this will be `on` or `off`, for a sensor it will be the value of that sensor. Many of the AppDaemon API calls and callbacks will implicitly return the value of state unless told to do otherwise.
+In most cases, the attribute `state` has the most important value in it, e.g., for a light or switch this will be `on` or `off`, for a sensor it will be the value of that sensor. Many of the AppDaemon API calls and callbacks will implicitly return the value of state unless told to do otherwise.
 
 ### {% linkable_title get_state() %}
 
@@ -294,9 +294,9 @@ All parameters are optional, and if `get_state()` is called with no parameters i
 
 ##### {% linkable_title entity %}
 
-This is the name of an entity or device type. If just a device type is provided, e.g. `light` or `binary_sensor`, `get_state()` will return a dictionary of all devices of that type, indexed by the entity_id, containing all the state for each entity.
+This is the name of an entity or device type. If just a device type is provided, e.g., `light` or `binary_sensor`, `get_state()` will return a dictionary of all devices of that type, indexed by the entity_id, containing all the state for each entity.
 
-If a fully qualified `entity_id` is provided, `get_state()` will return the state attribute for that entity, e.g. `on` or `off` for a light.
+If a fully qualified `entity_id` is provided, `get_state()` will return the state attribute for that entity, e.g., `on` or `off` for a light.
 
 ##### {% linkable_title attribute %}
 
@@ -345,11 +345,11 @@ set_state(entity_id, **kwargs)
 
 ##### {% linkable_title entity_id %}
 
-Entity id for which the state is to be set, e.g. `light.office_1`.
+Entity id for which the state is to be set, e.g., `light.office_1`.
 
 ##### {% linkable_title values %}
 
-A list of keyword values to be changed or added to the entities state. e.g. `state = "off"`. Note that any optional attributes such as colors for bulbs etc, need to reside in a dictionary called `attributes`; see the example.
+A list of keyword values to be changed or added to the entities state. e.g., `state = "off"`. Note that any optional attributes such as colors for bulbs etc, need to reside in a dictionary called `attributes`; see the example.
 
 #### {% linkable_title Examples %}
 
@@ -461,7 +461,7 @@ handle = listen_state(callback, entity = None, **kwargs)
 
 #### {% linkable_title Returns %}
 
-A unique identifier that can be used to cancel the callback if required. Since variables created within object methods are local to the function they are created in, and in all likelihood the cancellation will be invoked later in a different function, it is recommended that handles are stored in the object namespace, e.g. `self.handle`.
+A unique identifier that can be used to cancel the callback if required. Since variables created within object methods are local to the function they are created in, and in all likelihood the cancellation will be invoked later in a different function, it is recommended that handles are stored in the object namespace, e.g., `self.handle`.
 
 #### {% linkable_title Parameters %}
 
@@ -473,9 +473,9 @@ Function to be invoked when the requested state change occurs. It must conform t
 
 ##### {% linkable_title entity %}
 
-This is the name of an entity or device type. If just a device type is provided, e.g. `light` or `binary_sensor`, `listen_state()` will subscribe to state changes of all devices of that type. If a fully qualified `entity_id` is provided, `listen_state()` will listen for state changes for just that entity.
+This is the name of an entity or device type. If just a device type is provided, e.g., `light` or `binary_sensor`, `listen_state()` will subscribe to state changes of all devices of that type. If a fully qualified `entity_id` is provided, `listen_state()` will listen for state changes for just that entity.
 
-When called, AppDaemon will supply the callback function, in old and new, with the state attribute for that entity, e.g. `on` or `off` for a light.
+When called, AppDaemon will supply the callback function, in old and new, with the state attribute for that entity, e.g., `on` or `off` for a light.
 
 ##### {% linkable_title attribute (optional) %}
 
@@ -949,11 +949,11 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 For example:
 
 ```python
-# Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g. run between 60 and 120 seconds from now
+# Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g., run between 60 and 120 seconds from now
 self.handle = self.run_in(callback, 120, random_start = -60, **kwargs)
-# Run a callback in 2 minutes plus a random number of seconds between 0 and 60, e.g. run between 120 and 180 seconds from now
+# Run a callback in 2 minutes plus a random number of seconds between 0 and 60, e.g., run between 120 and 180 seconds from now
 self.handle = self.run_in(callback, 120, random_end = 60, **kwargs)
-# Run a callback in 2 minutes plus or minus a random number of seconds between 0 and 60, e.g. run between 60 and 180 seconds from now
+# Run a callback in 2 minutes plus or minus a random number of seconds between 0 and 60, e.g., run between 60 and 180 seconds from now
 self.handle = self.run_in(callback, 120, random_start = -60, random_end = 60, **kwargs)
 ```
 
@@ -1150,11 +1150,11 @@ None
 
 ##### {% linkable_title service %}
 
-The service name, e.g. `light.turn_on`.
+The service name, e.g., `light.turn_on`.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Each service has different parameter requirements. This argument allows you to specify a comma separated list of keyword value pairs, e.g. `entity_id = light.office_1`. These parameters will be different for every service and can be discovered using the developer tools. Most if not all service calls require an `entity_id` however, so use of the above example is very common with this call.
+Each service has different parameter requirements. This argument allows you to specify a comma separated list of keyword value pairs, e.g., `entity_id = light.office_1`. These parameters will be different for every service and can be discovered using the developer tools. Most if not all service calls require an `entity_id` however, so use of the above example is very common with this call.
 
 #### {% linkable_title Examples %}
 
@@ -1187,7 +1187,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be turned on, e.g. `light.office_lamp` or ```scene.downstairs_on```
+Fully qualified entity_id of the thing to be turned on, e.g., `light.office_lamp` or ```scene.downstairs_on```
 
 ##### {% linkable_title \*\*kwargs %}
 
@@ -1219,7 +1219,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be turned off, e.g. `light.office_lamp` or `scene.downstairs_on`.
+Fully qualified entity_id of the thing to be turned off, e.g., `light.office_lamp` or `scene.downstairs_on`.
 
 #### {% linkable_title Examples %}
 
@@ -1246,7 +1246,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the thing to be toggled, e.g. `light.office_lamp` or `scene.downstairs_on`.
+Fully qualified entity_id of the thing to be toggled, e.g., `light.office_lamp` or `scene.downstairs_on`.
 
 #### {% linkable_title Examples %}
 
@@ -1273,7 +1273,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_number to be changed, e.g. `input_number.alarm_hour`.
+Fully qualified entity_id of the input_number to be changed, e.g., `input_number.alarm_hour`.
 
 ##### {% linkable_title value %}
 
@@ -1303,7 +1303,7 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_select to be changed, e.g. `input_select.mode`.
+Fully qualified entity_id of the input_select to be changed, e.g., `input_select.mode`.
 
 ##### {% linkable_title value %}
 
@@ -1385,7 +1385,7 @@ A standard Python object reference.
 
 #### {% linkable_title event_name %}
 
-Name of the event that was called, e.g. `call_service`.
+Name of the event that was called, e.g., `call_service`.
 
 #### {% linkable_title data %}
 
@@ -1422,7 +1422,7 @@ Name of the event to subscribe to. Can be a standard Home Assistant event such a
 
 One or more keyword value pairs representing App specific parameters to supply to the callback. If the keywords match values within the event data, they will act as filters, meaning that if they don't match the values, the callback will not fire.
 
-As an example of this, a Minimote controller when activated will generate an event called `zwave.scene_activated`, along with 2 pieces of data that are specific to the event - `entity_id` and `scene`. If you include keyword values for either of those, the values supplied to the `listen_event()1 call must match the values in the event or it will not fire. If the keywords do not match any of the data in the event they are simply ignored.
+As an example of this, a Minimote controller when activated will generate an event called `zwave.scene_activated`, along with 2 pieces of data that are specific to the event - `entity_id` and `scene`. If you include keyword values for either of those, the values supplied to the `listen_event()` call must match the values in the event or it will not fire. If the keywords do not match any of the data in the event they are simply ignored.
 
 Filtering will work with any event type, but it will be necessary to figure out the data associated with the event to understand what values can be filtered on. This can be achieved by examining Home Assistant's logfiles when the event fires.
 
@@ -1528,7 +1528,7 @@ def service(self, event_name, data):
 
 #### {% linkable_title event_name %}
 
-The name of the event that caused the callback, e.g. `"MODE_CHANGE"` or `call_service`.
+The name of the event that caused the callback, e.g., `"MODE_CHANGE"` or `call_service`.
 
 #### {% linkable_title data %}
 
@@ -1617,7 +1617,7 @@ A string representing the location of the tracker.
 
 ##### {% linkable_title tracker_id %}
 
-Fully qualified entity_id of the device tracker to query, e.g. `device_tracker.andrew`.
+Fully qualified entity_id of the device tracker to query, e.g., `device_tracker.andrew`.
 
 #### {% linkable_title Examples %}
 
@@ -1871,7 +1871,7 @@ self.log("{}  ({}) is {}".format(tracker, self.friendly_name(tracker), self.get_
 
 ### {% linkable_title split_entity() %}
 
-`split_entity()` will take a fully qualified entity id of the form `light.hall_light` and split it into 2 values, the device and the entity, e.g. `light` and `hall_light`.
+`split_entity()` will take a fully qualified entity id of the form `light.hall_light` and split it into 2 values, the device and the entity, e.g., `light` and `hall_light`.
 
 #### {% linkable_title Synopsis %}
 
@@ -1925,7 +1925,7 @@ MyApp.turn_light_on()
 
 ### {% linkable_title split_device_list() %}
 
-`split_device_list()` will take a comma separated list of device types (or anything else for that matter) and return them as an iterable list. This is intended to assist in use cases where the App takes a list of entities from an argument, e.g. a list of sensors to monitor. If only one entry is provided, an iterable list will still be returned to avoid the need for special processing.
+`split_device_list()` will take a comma separated list of device types (or anything else for that matter) and return them as an iterable list. This is intended to assist in use cases where the App takes a list of entities from an argument, e.g., a list of sensors to monitor. If only one entry is provided, an iterable list will still be returned to avoid the need for special processing.
 
 #### {% linkable_title Synopsis %}
 
@@ -1941,7 +1941,7 @@ A list of split devices with 1 or more entries.
 
 ```python
 for sensor in self.split_device_list(self.args["sensors"]):
-    do something for each sensor, e.g. make a state subscription
+    do something for each sensor, e.g., make a state subscription
 ```
 
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Sensor"
-description: "Instructions how to integrate REST sensors into Home Assistant."
+description: "Instructions on how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -151,7 +151,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing a HTTP authentication protected endpoint %}
+### {% linkable_title Accessing an HTTP authentication protected endpoint %}
 
 The REST sensor supports HTTP authentication and customized headers.
 

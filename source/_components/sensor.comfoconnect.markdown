@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zehnder ComfoAir Q Ventilation sensors"
-description: "Instructions how to integrate Zehnder ComfoAir Q350/450/600 sensors into Home Assistant."
+description: "Instructions on how to integrate Zehnder ComfoAir Q350/450/600 sensors into Home Assistant."
 date: 2017-06-28 18:00
 sidebar: true
 comments: false

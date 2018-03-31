@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iRobot Roomba"
-description: "Instructions how to integrate your Wi-Fi enabled Roomba within Home Assistant."
+description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
 date: 2017-08-04 20:43
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Handling visibility"
-description: "Instructions how to handle visibility with your component."
+description: "Instructions on how to handle visibility with your component."
 date: 2016-07-01 20:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Scrape Sensor"
-description: "Instructions how to integrate Web scrape sensors into Home Assistant."
+description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
 date: 2016-10-12 09:10
 sidebar: true
 comments: false
@@ -22,7 +22,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: https://home-assistant.io
+    resource: https://www.home-assistant.io
     select: ".current-version h1"
 ```
 
@@ -43,14 +43,14 @@ In this section you find some real life examples of how to use this sensor. Ther
 
 ### {% linkable_title Home Assistant %}
 
-The current release Home Assistant is published on [https://home-assistant.io/](https://home-assistant.io/)
+The current release Home Assistant is published on [https://www.home-assistant.io/](/)
 
 {% raw %}
 ```yaml
 sensor:
 # Example configuration.yaml entry
   - platform: scrape
-    resource: https://home-assistant.io
+    resource: https://www.home-assistant.io
     name: Release
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
@@ -66,7 +66,7 @@ Get the counter for all our implementations from the [Component overview](/compo
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: https://home-assistant.io/components/
+    resource: https://www.home-assistant.io/components/
     name: Home Assistant impl.
     select: 'a[href="#all"]'
     value_template: '{{ value.split("(")[1].split(")")[0] }}'

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Broadlink RM Switch"
-description: "Instructions how to have Broadlink RM switches."
+description: "Instructions on how to have Broadlink RM switches."
 date: 2016-11-22 22:41
 sidebar: true
 comments: false
@@ -43,7 +43,7 @@ Configuration variables:
   - **slot_3** (*Optional*)
   - **slot_4** (*Optional*)
 
-Information about how to install on Windows can be found [here](https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation)
+Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
 
 
 ### {% linkable_title How to obtain IR/RF packets? %}
@@ -90,8 +90,8 @@ switch:
         friendly_name: "Phillips Tv"
         command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
         command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
-``` 
- 
+```
+
 Example config for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` and `spminiplus` devices:
 
 ```yaml
@@ -106,7 +106,7 @@ switch:
     mac: 'MAC_ADDRESS'
     type:  sp2
     friendly_name: 'Humidifier'
-``` 
+```
 
 Example config for `mp1` device:
 
@@ -142,10 +142,10 @@ script:
     sequence:
       - service: switch.broadlink_send_packet_192_168_0_107
         data:
-          packet: 
+          packet:
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
-``` 
+```
 
 ### {% linkable_title Using E-Control Remotes %}
 
@@ -168,7 +168,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     jsonSubIr
     jsonButton
     jsonIrCode
-  
+
 4. Install Requirements
 
     Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".

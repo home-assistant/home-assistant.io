@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MyQ Cover"
-description: "Instructions how to integrate MyQ-Enabled garage door covers into Home Assistant."
+description: "Instructions on how to integrate MyQ-Enabled garage door covers into Home Assistant."
 date: 2017-02-14 14:21
 sidebar: true
 comments: false
@@ -21,13 +21,23 @@ To use your MyQ cover in your installation, add the following to your `configura
 # Example configuration.yml entry
 cover:
   - platform: myq
-    username: email@email.com
-    password: password
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     type: chamberlain
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: Your MyQ account username.
+  required: true
+  type: string
+password:
+  description: Your MyQ account password.
+  required: true
+  type: string
+password:
+  description: "Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`."
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **username** (*Required*): Your MyQ account username.
-- **password** (*Required*): Your MyQ account password.
-- **type** (*Required*): Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Remotes"
-description: "Instructions how to setup your remotes with Home Assistant."
+description: "Instructions on how to setup your remotes with Home Assistant."
 date: 2016-11-05 19:39
 sidebar: true
 comments: false

@@ -26,7 +26,7 @@ Luckily, OwnTracks supports iBeacons so I could use them to make presence detect
 
 ### {% linkable_title Getting Started %}
 
-To do this you first need to set up [MQTT] and [OwnTracks] in Home assistant - and make sure that HA can track your phone.
+To do this you first need to set up [MQTT] and [OwnTracks] in Home Assistant - and make sure that HA can track your phone.
 
 [MQTT]: /components/mqtt/#picking-a-broker
 [OwnTracks]: /components/device_tracker.owntracks/
@@ -57,7 +57,7 @@ Once you’ve created the zone - you need to restart HA. The next step is:-
 1. Go to the OwnTracks app on your phone
 2. Touch the `Regions` menu at the bottom of the screen
 3. Touch the `+` symbol at the top right of the screen
-4. Give the beacon a name e.g. `-drive` ’(start the name with a `-` see below for the reason)
+4. Give the beacon a name e.g., `-drive` ’(start the name with a `-` see below for the reason)
 5. Turn Share to `On`
 6. Skip the `Circular Region` section
 7. Enter the `UUID` of your beacon - this may be written on your beacon - or you can copy it from the management app that came with your iBeacon device. It’s a long number – so it’s easier to copy if you can!
@@ -120,7 +120,7 @@ Presence tracking sounds easy - and it's an important part of Home Automation. T
 
 You can find out more about configuring the OwnTracks application and beacons [here](http://owntracks.org/booklet/features/beacons/)
 
-There is information about configuring Homeassistant to use beacons [here](https://home-assistant.io/components/device_tracker.owntracks/)
+There is information about configuring Homeassistant to use beacons [here](/components/device_tracker.owntracks/)
 
 #### {% linkable_title Connections and disconnecting %}
 

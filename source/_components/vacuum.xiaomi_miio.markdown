@@ -197,7 +197,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
-3. Get ADB e.g. `apt-get install android-tools-adb` or `apt-get install adb`
+3. Get ADB e.g., `apt-get install android-tools-adb` or `apt-get install adb`
 4. `adb devices` should list your device. Consult ADB manual if necessary.
 5. Issue a backup command via adb: `adb backup -noapk com.xiaomi.smarthome -f backup.ab` (set a password if prompted on your phone). Some devices may required single quotes in the command `adb backup '-noapk com.xiaomi.smarthome -f backup.ab'`
 6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)

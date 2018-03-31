@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DoorBird Switch"
-description: "Instructions how to integrate DoorBird video doorbell relays into Home Assistant."
+description: "Instructions on how to integrate DoorBird video doorbell relays into Home Assistant."
 date: 2017-08-06 11:30
 sidebar: true
 comments: false

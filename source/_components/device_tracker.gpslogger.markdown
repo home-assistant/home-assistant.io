@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GPSLogger"
-description: "Instructions how to use GPSLogger to track devices in Home Assistant."
+description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
 date: 2016-11-25 15:00
 sidebar: true
 comments: false

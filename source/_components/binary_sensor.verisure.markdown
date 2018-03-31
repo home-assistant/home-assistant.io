@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Verisure Binary Sensor"
-description: "Instructions how to integrate Verisure binary sensors into Home Assistant."
+description: "Instructions on how to integrate Verisure binary sensors into Home Assistant."
 date: 2016-02-23 21:31 +0100
 sidebar: true
 comments: false

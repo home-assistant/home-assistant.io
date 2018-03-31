@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TellStick"
-description: "Instructions how to integrate your TellStick into Home Assistant."
+description: "Instructions on how to integrate your TellStick into Home Assistant."
 date: 2015-03-28 13:06
 sidebar: true
 comments: false
@@ -30,6 +30,6 @@ tellstick:
 Configuration variables:
 
 - **signal_repetitions** (*Optional*): Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch and light to try to send each signal repeatedly.
-- **host** (*Optional*): If you run tellstick on a other server or with a hass.io add-on.
+- **host** (*Optional*): If you run tellstick on another server or with a hass.io add-on.
 - **port** (*Optional*): If needed with host config option. Must be port pair, for example `[50800, 50801]`.
 

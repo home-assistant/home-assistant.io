@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nederlandse Spoorwegen"
-description: "Instructions how to integrate timetable data for traveling by train in the Netherlands within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling by train in the Netherlands within Home Assistant."
 date: 2017-10-25 13:35
 sidebar: true
 comments: false
@@ -24,16 +24,16 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
 - platform: nederlandse_spoorwegen
-    email: you@example.com
-    password: !secret ns_password
-    routes:
-      - name: Rotterdam-Amsterdam
-        from: Rtd
-        to: Asd
-      - name: Groningen-Zwolle-Maastricht
-        from: Gn
-        to: Mt
-        via: Zl
+  email: you@example.com
+  password: !secret ns_password
+  routes:
+    - name: Rotterdam-Amsterdam
+      from: Rtd
+      to: Asd
+    - name: Groningen-Zwolle-Maastricht
+      from: Gn
+      to: Mt
+      via: Zl
 ```
 
 Configuration variables:
