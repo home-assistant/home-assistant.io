@@ -84,7 +84,7 @@ homekit:
 ```
 
 After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if the are [supported](#supported-components). To add them:
-1. Open the Home Assistant frontend. A new card will display the `pin code`.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. [help](#pin-code)
 1. Open the `Home` app.
 2. Choose `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and enter the `pin code`.
 4. Confirm the you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
@@ -146,6 +146,21 @@ automation:
       - service: homekit.start
 ```
 {% endraw %}
+
+
+## {% linkable_title Pin Code %}
+
+If you have trouble finding the card with the `pin code`, you can add the following to your configurations file. Restart Home Assistant and you should find a new log statement with your `pin code`.
+
+```yaml
+logger:
+  logs:
+    homeassistant.components.homekit: info
+```
+
+<p class="note">
+  This behaivior was added in `0.66.1`. For `0.65` the pincode is: `123-45-678`.
+</p>
 
 
 ## {% linkable_title Configure Filter %}
