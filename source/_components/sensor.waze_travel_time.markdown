@@ -28,10 +28,6 @@ sensor:
     origin: Montréal, QC
     destination: Québec, QC
     region: 'US'
-    outputs:
-      - duration
-      - distance
-      - route
 ```
 
 {% configuration %}
@@ -47,17 +43,6 @@ region:
   description: Choose one of the available regions from 'EU', 'US', 'NA' (equivalent to 'US') or 'IL'.
   required: true
   type: string
-outputs:
-  description: Conditions to display in the frontend. At least one output type (see below) is required.
-  required: true
-  type: list
-  keys:
-    duration:
-      description: The sensor will display the duration of the best-chosen route, in min.
-    distance:
-      description: The sensor will display the distance of the best-chosen route, in km.
-    route:
-      description: The sensor will display the main steps of the best-chosen route.
 name:
   description: A name to display on the sensor.
   required: false
