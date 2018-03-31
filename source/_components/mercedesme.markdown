@@ -14,12 +14,13 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Mercedes me` component offers integration with the [Mercedes me](https://www.mercedes-benz.com/de/mercedes-me/) cloud service and provides presence detection as well as sensors such as doors, tires, windows, and service interval.
+The `mercedesme` component offers integration with the [Mercedes me](https://www.mercedes-benz.com/de/mercedes-me/) cloud service and provides presence detection as well as sensors such as doors, tires, windows, and service interval.
 
 This component provides the following platforms:
- - Binary Sensors - such as windows, tires, doors, lock
- - Sensors - such as fuel status, service interval, remaining km...
- - Device tracker - to track location of your car
+
+ - Binary Sensors: Windows, tires, doors and lock.
+ - Sensors:Fuel status, service interval, remaining km, etc.
+ - Device tracker: To track location of your car.
 
 <p class='note warning'>
   The component was removed. The vendor disabled the API endpoint and a new API is not available currently.

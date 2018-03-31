@@ -15,6 +15,10 @@ ha_iot_class: "Cloud Polling"
 
 To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
 
+This platform does not support Arlo Q.
+
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml

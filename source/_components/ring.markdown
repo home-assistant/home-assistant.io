@@ -21,13 +21,19 @@ To enable device linked in your [Ring.com](https://ring.com/) account, add the f
 ```yaml
 # Example configuration.yaml entry
 ring:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Ring account.
-- **password** (*Required*): The password for accessing your Ring account.
+{% configuration %}
+username:
+  description: The username for accessing your Ring account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Ring account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Finish its configuration by visiting the [Ring binary sensor](/components/binary_sensor.ring/) or [Ring sensor](/components/sensor.ring/) documentation.

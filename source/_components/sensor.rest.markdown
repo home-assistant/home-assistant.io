@@ -151,7 +151,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing a HTTP authentication protected endpoint %}
+### {% linkable_title Accessing an HTTP authentication protected endpoint %}
 
 The REST sensor supports HTTP authentication and customized headers.
 

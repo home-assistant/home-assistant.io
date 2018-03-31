@@ -12,8 +12,11 @@ ha_category: Presence Detection
 ha_release: 0.51
 ---
 
-This component offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).
+The `huawei` device trakcer platform offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).
+
 Currently, this was only tested with the Huawei HG8247H and HG8247Q Smart Router (used by Vodafone Portugal).
+
+## {% linkable_title Configuration %}
 
 To use a Huawei router in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,15 +25,23 @@ To use a Huawei router in your installation, add the following to your `configur
 device_tracker:
   - platform: huawei_router
     host: 192.168.1.1
-    username: user
-    password: pass
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username to login into the router (the same used trough the router's web interface).
-- **password** (*Required*): The password for the specified username.
-
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+username:
+  description: The username to login into the router (the same used trough the router's web interface).
+  required: true
+  type: string
+password:
+  description: The password for the specified username.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
