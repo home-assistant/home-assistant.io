@@ -37,7 +37,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 57.0           | works      |                          |
+| [Firefox]             | 59.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
 | [Chromium]            | 63.0.3239.108  | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
