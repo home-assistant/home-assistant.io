@@ -55,7 +55,7 @@ brightness_value_template:
   required: false
   type: string
 color_temp_command_topic:
-  description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).
+  description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 154 to 500 mireds (micro reciprocal degrees).
   required: false
   type: string
 color_temp_state_topic:
