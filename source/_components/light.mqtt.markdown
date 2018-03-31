@@ -95,12 +95,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 qos:
   description: The maximum QoS level of the state topic.
   required: false
