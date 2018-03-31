@@ -32,7 +32,7 @@ Most lights do not support all attributes. You can check the platform documentat
 | `white_value` | yes | Integer between 0 and 255 for how bright a dedicated white LED should be.
 | `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
-| `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/2010/PR-css3-color-20101028/#svg-color) are supported.
+| `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the color should be.
 | `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100).
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
