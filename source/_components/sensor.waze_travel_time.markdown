@@ -10,27 +10,28 @@ footer: true
 logo: waze.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.66
+ha_release: 0.67
 ---
 
-Sensor to provide travel time from the [WazeRouteCalculator](https://github.com/kovacsbalu/WazeRouteCalculator).
+The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
 
-The sensor will update the travel time every 5 minutes by default.
-Unit system is set to metric system (at least for the moment).
+Unit system is set to metric system.
+
+## {% linkable_title Configuration %}
+
+To use this sensor in your installation, add the following `abode` section to your `configuration.yaml` file:
 
 ```yaml
 # Example entry for configuration.yaml
 sensor:
   - platform: waze_travel_time
-    name: "Example Name"
     origin: Montréal, QC
     destination: Québec, QC
     region: 'US'
-    update_interval: '00:03'
     outputs:
-     - duration
-     - distance
-     - route
+      - duration
+      - distance
+      - route
 ```
 
 {% configuration %}
@@ -43,10 +44,9 @@ destination:
   required: true
   type: string
 region:
-  description: Choose one of the available regions from 'EU', 'US', 'NA' (equivalent to 'US'), 'IL'.
+  description: Choose one of the available regions from 'EU', 'US', 'NA' (equivalent to 'US') or 'IL'.
   required: true
   type: string
-  default: 'US'
 outputs:
   description: Conditions to display in the frontend. At least one output type (see below) is required.
   required: true
@@ -62,10 +62,5 @@ name:
   description: A name to display on the sensor.
   required: false
   default: "Waze Travel Time"
-  type: string
-update_interval:
-  description: Update interval using the template 'hh:mm', 'hh:mm:ss'. Default value is '00:05', i.e. measurement is made every 5 minutes.
-  required: false
-  default: '00:05'
   type: string
 {% endconfiguration %}
