@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.66: ...."
-description: "...."
+title: "0.66: VeSync switches, HomematicIP, and a group cover."
+description: "Fabulous release 0.66 has landed! Tons of fixes, improvements and joy."
 date: 2018-03-30 00:01:00
 date_formatted: "March 30, 2018"
 author: Paulus Schoutsen
@@ -35,6 +35,13 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 - Adding a discoverable Samsung Syncthru Printer sensor platform ([@nielstron] - [#13134]) ([sensor.syncthru docs]) (new-platform)
 - Add trafikverket_weatherstation sensor platform ([@Qxlkdr] - [#12115]) ([sensor.trafikverket_weatherstation docs]) (new-platform)
 - Security fix & lock for HomeMatic ([@PH89] - [#11980]) ([homematic docs]) ([lock docs]) ([lock.homematic docs]) (breaking change) (new-platform)
+
+## {% linkable_title Release 0.66.1 - April 1 %}
+
+- Update frontend to fix climate and chart issues ([@NovapaX] & [@c727])
+- Fix mqtt_json color commands ([@armills] - [#13617]) ([light.mqtt_json docs])
+- Add pincode fallback ([@cdce8p] - [#13587]) ([homekit docs])
+- Fix mysensors sensor type lookup ([@MartinHjelmare] - [#13574]) ([sensor.mysensors docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -553,3 +560,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zeroconf docs]: /components/zeroconf/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
+[#13574]: https://github.com/home-assistant/home-assistant/pull/13574
+[#13587]: https://github.com/home-assistant/home-assistant/pull/13587
+[#13617]: https://github.com/home-assistant/home-assistant/pull/13617
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@armills]: https://github.com/armills
+[@cdce8p]: https://github.com/cdce8p
+[homekit docs]: https://www.home-assistant.io/components/homekit/
+[light.mqtt_json docs]: https://www.home-assistant.io/components/light.mqtt_json/
+[sensor.mysensors docs]: https://www.home-assistant.io/components/sensor.mysensors/

@@ -25,7 +25,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
 sensor:
-  - platform: trafikverket_weatherstations
+  - platform: trafikverket_weatherstation
     name: Trafikverket Road WeatherStation Kungälv
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
@@ -72,12 +72,12 @@ Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=pers
 
 ```yaml
 sensor:
-  - platform: trafikverket_weatherstations
+  - platform: trafikverket_weatherstation
     name: Trafikverket Road WeatherStation Kungälv
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
     type: road
-  - platform: trafikverket_weatherstations
+  - platform: trafikverket_weatherstation
     name: Trafikverket Air WeatherStation Lanna
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Lanna
