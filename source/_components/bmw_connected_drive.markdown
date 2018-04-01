@@ -66,19 +66,19 @@ The vehicle can be locked and unlocked via the lock component that is created au
 
 The air condition of the vehicle can be activated with the service `bmw_connected_drive.activate_air_conditioning`.
 
-What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxilary heating to real air conditioning. If your vehicle is equipped with an auxilary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g. not in an underground parking). 
+What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxilary heating to real air conditioning. If your vehicle is equipped with an auxilary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g. not in an underground parking or closed garage). 
 
 The vehicle is identified via the parameter `vin`.
 
 **Sound the horn**
 
-The service `bmw_connected_drive.sound_horn`sounds the horn of the vehicle. Use this feature responsibly, as it might annoy your neighbours. The vehicle is identified via the parameter `vin`. 
+The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. Use this feature responsibly, as it might annoy your neighbours. The vehicle is identified via the parameter `vin`. 
 
 **Flash the lights**
-Flash the lights of the vehicle. The vehicle is identified via the parameter `vin`.
+The service `bmw_connected_drive.light_flash' flashes the lights of the vehicle. The vehicle is identified via the parameter `vin`.
 
 **Update the state***
-Fetch the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle, it just gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
+The service `bmw_connected_drive.update_state`fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle, it just gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
 
 This servies does not require any attributes.
 
