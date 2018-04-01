@@ -108,6 +108,16 @@ You can use this to enable one device to directly control another. This is prima
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
 
+#### {% linkable_title Broadcast group %}
+
+Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+
+```json
+{"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}
+```
+
+That would remove the broadcast group from association group 1 of the device with node_id 3.
+
 ### {% linkable_title Node config options %}
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
