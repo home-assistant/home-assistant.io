@@ -77,6 +77,11 @@ The service `bmw_connected_drive.sound_horn`sounds the horn of the vehicle. Use 
 **Flash the lights**
 Flash the lights of the vehicle. The vehicle is identified via the parameter `vin`.
 
+**Update the state***
+Fetch the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle, it just gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
+
+This servies does not require any attributes.
+
 
 ## {% linkable_title Disclaimer %}
 
