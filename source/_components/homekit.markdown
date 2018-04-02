@@ -19,6 +19,10 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
 </p>
 
+<p class="note">
+  If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
+</p>
+
 {% configuration %}
   homekit:
     description: HomeKit configuration.
