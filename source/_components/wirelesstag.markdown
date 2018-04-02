@@ -38,6 +38,6 @@ wirelesstag:
 Finish your configuration by visiting the [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/), [WirelessTag sensor](/components/sensor.wirelesstag/), or [WirelessTag switch](/components/switch.wirelesstag/) documentation.
 
 <p class='note'>
-  To enable local push notifications from Tags Manager you need to add ip address of Tags Manager into whitelist in http component  - i.e add it to `trusted_networks`. See [HTTP](/components/http/) for details.
+  To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into whitelist in `http` component; i.e., add it to `trusted_networks`. See the [HTTP](/components/http/) for details.
   Additionally, you need add at least one [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/) in config to start receiving local push notifications.
 </p>
