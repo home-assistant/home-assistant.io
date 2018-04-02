@@ -10,9 +10,10 @@ footer: true
 logo: dominos.png
 ha_category: Other
 ha_version: 0.59
+ha_iot_class: "Cloud Polling"
 ---
 
-The `Dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
+The `dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
 
 At present, this component only supports ordering within Canada and the US.
 
