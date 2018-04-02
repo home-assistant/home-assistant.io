@@ -24,27 +24,6 @@ Integrate your Serial, Ethernet or MQTT Client MySensors Gateway by adding the f
 mysensors:
   gateways:
     - device: '/dev/ttyUSB0'
-      persistence_file: 'path/mysensors.json'
-      baud_rate: 38400
-      nodes:
-        1:
-          name: 'kitchen'
-        3:
-          name: 'living_room'
-    - device: '/dev/ttyACM0'
-      persistence_file: 'path/mysensors2.json'
-      baud_rate: 115200
-    - device: '192.168.1.18'
-      persistence_file: 'path/mysensors3.json'
-      tcp_port: 5003
-    - device: mqtt
-      persistence_file: 'path/mysensors4.json'
-      topic_in_prefix: 'mygateway1-out'
-      topic_out_prefix: 'mygateway1-in'
-  optimistic: false
-  persistence: true
-  retain: true
-  version: '2.0'
 ```
 
 {% configuration %}
@@ -62,6 +41,11 @@ mysensors:
         required: false
         type: int
         default: 115200
+      persistence_file:
+        description: The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
+        required: false
+        type: string
+        default: path/to/config/directory/mysensors.pickle
       tcp_port:
         description: Specifies the port of the connected TCP Ethernet gateway.
         required: false
@@ -86,20 +70,11 @@ mysensors:
             description: The name the node will be renamed to. This nodename becomes part of the entity_id. Default entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
             required: true
             type: string
-  debug:
-    description: This option has been deprecated. Please remove this from your config if you have it included. Use the [logger component](/components/logger/) to filter log messages on log level.
-    required: false
-    type: int
   persistence:
     description: Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts.
     required: false
     type: int
     default: true
-  persistence_file:
-    description: The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
-    required: false
-    type: string
-    default: path/to/config/directory/mysensors.pickle
   version:
     description: Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.
     required: false
@@ -137,6 +112,36 @@ mqtt:
 <p class='note'>
 The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway is supported.
 </p>
+
+### {% linkable_title Extended configuration example %}
+
+```yaml
+# Example configuration.yaml entry
+mysensors:
+  gateways:
+    - device: '/dev/ttyUSB0'
+      persistence_file: 'path/mysensors.json'
+      baud_rate: 38400
+      nodes:
+        1:
+          name: 'kitchen'
+        3:
+          name: 'living_room'
+    - device: '/dev/ttyACM0'
+      persistence_file: 'path/mysensors2.json'
+      baud_rate: 115200
+    - device: '192.168.1.18'
+      persistence_file: 'path/mysensors3.json'
+      tcp_port: 5003
+    - device: mqtt
+      persistence_file: 'path/mysensors4.json'
+      topic_in_prefix: 'mygateway1-out'
+      topic_out_prefix: 'mygateway1-in'
+  optimistic: false
+  persistence: true
+  retain: true
+  version: '2.0'
+```
 
 ### {% linkable_title Presentation %}
 
@@ -231,9 +236,11 @@ void receive(const MyMessage &message) {
 }
 ```
 
-### {% linkable_title Heartbeats %}
+### {% linkable_title SmartSleep %}
 
-Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.
+Sending a heartbeat, `I_HEARTBEAT_RESPONSE`, from the MySensors device to Home Assistant, using MySensors version 2.0 - 2.1, activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands. See the MySensors library API for information on how to send heartbeats and sleep the device.
+
+In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE` to signal SmartSleep, to using `I_PRE_SLEEP_NOTIFICATION` and `I_POST_SLEEP_NOTIFICATION`. Home Assistant has been upgraded to support the new message types and will activate SmartSleep when receiving a message of type `I_PRE_SLEEP_NOTIFICATION`, if using MySensors version 2.2.x or higher. If Home Assistant is configured to use MySensors version 2.0 - 2.1 the old SmartSleep behavior is retained.
 
 ### {% linkable_title Message validation %}
 
