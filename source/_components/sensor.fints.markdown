@@ -8,14 +8,14 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_release: 0.66
+ha_release: 0.67
 ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-With the FinTS sensor you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
+With the FinTS sensor, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
 
-For each account you have with the bank, a separate sensor is created. If you have several accounts with a bank, you can select which ones you want to have and you can also give the accounts a name.
+For each account you have with the bank, a separate sensor is created. If you have several accounts with a bank, you can select which ones you want to have, and you can also give the accounts a name.
 
 {% raw %}
 ```yaml
@@ -33,7 +33,7 @@ sensor:
 ```
 {% endraw %}
 
-To find out the configuration for your bank, check their website or call their hotline. Do not use random information you find on the Internet! As you're storing your bank account information in the Home Assistant configuration: make sure that this configuration is not accessable to anyone.
+To find out the configuration for your bank, check their website or call their hotline. Do not use random information you find on the Internet! As you're storing your bank account information in the Home Assistant configuration: make sure that this configuration is not accessible to anyone.
 
 {% configuration %}
   sensors:
@@ -42,23 +42,23 @@ To find out the configuration for your bank, check their website or call their h
     type: map
     keys:
       name:
-        description: (optional) name of the bank
+        description: (optional) name of the bank.
         required: false
         type: string
       bank_identification_number: 
-        description: bank identifcation number, in most cases the "Bankleitzahl"
+        description: Bank identification number, in most cases the "Bankleitzahl".
         required: true
         type: string
       username: 
-        description: your FinTS user name
+        description: Your FinTS username.
         required: true
         type: string
       pin:
-        description: your FinTS PIN or password
+        description: Your FinTS PIN or password.
         required: true
         type: string
       url: 
-        description: url of your bank's FinTS server
+        description: URL of your bank's FinTS server.
         required: true
         type: string
       accounts:
@@ -76,5 +76,3 @@ To find out the configuration for your bank, check their website or call their h
             type: string           
 
 {% endconfiguration %}
-
-
