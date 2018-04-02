@@ -25,28 +25,10 @@ media_player:
     port: /dev/ttyUSB0
     zones:
       1:
-        name: Main Bedroom
-      2:
         name: Living Room
-      3:
-        name: Kitchen
-      4:
-        name: Bathroom
-      5:
-        name: Dining Room
-      6:
-        name: Guest Bedroom
-      7:
-        name: Outside
-      8:
-        name: Theater
     sources:
-      1: 
+      3: 
         name: BluRay
-      3:
-        name: Chromecast
-      8:
-        name: AppleTV
 ```
 
 {% configuration %}
