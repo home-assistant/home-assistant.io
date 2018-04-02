@@ -29,14 +29,20 @@ If you want to enable the component without relying on the [discovery component]
 hue:
   bridges:
     - host: DEVICE_IP_ADDRESS
+      allow_unreachable: true
+      allow_hue_groups: false
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+- **host** (*Optional* before 0.66): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
 - **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 - **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+
+<p class='note'>
+For versions 0.66 and later, the `host` parameter is required.
+</p>
 
 ### {% linkable_title Migrating from older configuration %}
 
