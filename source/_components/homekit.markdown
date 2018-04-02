@@ -150,7 +150,37 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. By default no entity will be excluded. Keep in mind though that only supported components can be added.
+By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added. 
+
+{% raw %}
+```yaml
+# Example filter to include specified domains and exclude specified entities
+homekit:
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+    exclude_entities:
+      - light.kitchen_light
+```
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   * Include domain specified
+      - if domain is included, and entity not excluded, pass
+      - if domain is not included, and entity not included, fail
+   * Exclude domain specified
+      - if domain is excluded, and entity not included, fail
+      - if domain is not excluded, and entity not excluded, pass
+      - if both include and exclude domains specified, the exclude domains are ignored
+   * Neither include or exclude domain specified
+      - if entity is included, pass (as #2 above)
+      - if entity include and exclude, the entity exclude is ignored 
 
 
 ## {% linkable_title Supported Components %}
