@@ -17,6 +17,8 @@ The `dominos` component allows you to order Dominos Pizza from within your Home 
 
 At present, this component only supports ordering within Canada and the US.
 
+## {% linkable_title Configuration %}
+
 To enable the component, you need to set up your customer information and define some orders.
 
 Orders are a group of product codes. You can get these product codes by inspecting an order request from the Dominos web app, or you can [add this custom panel by following this readme](https://github.com/wardcraigj/hass-dominos-panel) to see the available product codes in a separate panel in your install.
