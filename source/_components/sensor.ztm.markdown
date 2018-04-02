@@ -15,7 +15,7 @@ ha_release: "0.68"
 
 The `ztm` sensor will give you information about departure times for bus/trams using [Warsaw Open Data](https://api.um.warszawa.pl/) API.
 
-To access the data you need an `api_key` that is provided after creating an account at [Otwarte dane po warszawsku](https://api.um.warszawa.pl/) -> Logowanie -> Rejestracja konta.
+To access the data, you need an `api_key` that is provided after creating an account at [Otwarte dane po warszawsku](https://api.um.warszawa.pl/) -> Logowanie -> Rejestracja konta.
 
 To activate the sensor you need the bus/tram `number`, `stop_id` and the `stop_number`. 
 You can obtain `stop_id` and `number_id` by searching for a stop at [ZTM](http://www.ztm.waw.pl/rozklad_nowy.php?c=183&l=1) website. 
@@ -74,6 +74,5 @@ lines:
       required: true
       type: string
 {% endconfiguration %}
-
 
 The public data is coming from [Miasto Stołeczne Warszawa](http://api.um.warszawa.pl ). 
