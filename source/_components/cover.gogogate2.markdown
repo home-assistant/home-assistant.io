@@ -26,8 +26,23 @@ cover:
     ip_address: 192.168.1.200
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: Your Gogogate2 account username.
+  required: true
+  type: string
+password:
+  description: Your Gogogate2 account password.
+  required: true
+  type: string
+ip_address:
+  description: The IP Address of your Gogogate2 device.
+  required: true
+  type: string
+name:
+  description: Allows you to override the default name
+  default: gogogate2
+  required: false
+  type: string
 
-- **username** (*Required*): Your Gogogate2 account username.
-- **password** (*Required*): Your Gogogate2 account password.
-- **ip_address** (*Required*): IP address of your Gogogate2 device
+{% endconfiguration %}
