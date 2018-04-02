@@ -10,6 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Switch
 ha_iot_class: "Local Push"
+ha_release: 0.67
 ---
 
 To get your [wirelesstag.net](http://wirelesstag.net) switches working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).
@@ -41,4 +42,4 @@ The following metrics can be controlled:
 * (`moisture`): Control monitoring of water level/soil moisture for water sensor.
 
 Arm/Disarm of motion switch is required to receive motion and door binary sensors events.
-Others are needed only if you want to receive push notifications from tags on specific range of changes for temperature, humidity, light or moisture.
+Others are needed only if you want to receive push notifications from tags on a specific range of changes in temperature, humidity, light or moisture.

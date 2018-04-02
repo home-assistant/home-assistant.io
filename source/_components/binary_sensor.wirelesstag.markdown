@@ -10,6 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
+ha_release: 0.67
 ---
 
 To get your [wirelesstag.net](http://wirelesstag.net) binary sensors working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).
@@ -36,8 +37,8 @@ binary_sensor:
 The following conditions can be monitored:
 
 * (`presence`): On means in range, Off means out of range.
-* (`motion`): On when when movement was detected, Off when clear.
-* (`door`): On when when door is open, Off when door is closed.
+* (`motion`): On when movement was detected, Off when clear.
+* (`door`): On when door is open, Off when door is closed.
 * (`cold`): On means temperature become too cold, Off means normal.
 * (`heat`): On means hot, Off means normal.
 * (`dry`): On means too dry (humidity), Off means normal.

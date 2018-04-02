@@ -10,6 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Hub
 ha_iot_class: "Local Push"
+ha_release: 0.67
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](http://wirelesstag.net) sensors tags in Home Assistant.
@@ -35,3 +36,8 @@ wirelesstag:
 {% endconfiguration %}
 
 Finish your configuration by visiting the [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/), [WirelessTag sensor](/components/sensor.wirelesstag/), or [WirelessTag switch](/components/switch.wirelesstag/) documentation.
+
+<p class='note'>
+  To enable local push notifications from Tags Manager you need to add ip address of Tags Manager into whitelist in http component  - i.e add it to `trusted_networks`. See [HTTP](/components/http/) for details.
+  Additionally, you need add at least one [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/) in config to start receiving local push notifications.
+</p>

@@ -10,6 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
+ha_release: 0.67
 ---
 
 To get your [wirelesstag.net](http://wirelesstag.net) sensors working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).
