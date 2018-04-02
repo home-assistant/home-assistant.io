@@ -42,4 +42,4 @@ The following metrics can be controlled:
 * (`moisture`): Control monitoring of water level/soil moisture for water sensor.
 
 Arm/Disarm of motion switch is required to receive motion and door binary sensors events.
-Others are needed only if you want to receive push notifications from tags on a specific range of changes in temperature, humidity, light or moisture.
+Others are only needed if you want to receive push notifications from tags on a specific range of changes in temperature, humidity, light or moisture.
