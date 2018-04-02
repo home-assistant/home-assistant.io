@@ -67,7 +67,7 @@ mysensors:
         type: map
         keys:
           name:
-            description: The name the node will be renamed to. This nodename becomes part of the entity_id. Default entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
+            description: The name the node will be renamed to. This node name becomes part of the entity_id. Default entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
             required: true
             type: string
   persistence:
@@ -149,11 +149,11 @@ Present a MySensors sensor or actuator, by following these steps:
 
 1. Connect the serial gateway to your computer or the Ethernet or MQTT gateway to your network.
 2. Configure the MySensors component in `configuration.yaml`.
-3. Start hass.
+3. Start Home Assistant.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
     - Send sketch name.
     - Present the sensor's S_TYPE.
-    - Send at least one initial value per V_TYPE. In version 2.0 of MySensors this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
+    - Send at least one initial value per V_TYPE. In version 2.0 of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
 5. Start the sensor.
 
 ```cpp
@@ -254,7 +254,7 @@ logger:
     homeassistant.components.mysensors: debug
     mysensors: debug
 ```
-The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. Eg. the S_BARO child type supports both V_PRESSURE and V_FORECAST value types. If you only send a V_PRESSURE value, an S_BARO entity with V_PRESSURE value will be set up for the sensor platform. But the log will inform of a sensor platform that failed validation due to missing V_FORECAST value type for the S_BARO child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
+The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. Eg. the S_BARO child type supports both V_PRESSURE and V_FORECAST value types. If you only send a V_PRESSURE value, an S_BARO entity with V_PRESSURE value will be set up for the sensor platform. However, the log will inform of a sensor platform that failed validation due to missing V_FORECAST value type for the S_BARO child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
 
 Message validation was introduced in version 0.52 of Home Assistant.
 
