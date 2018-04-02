@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: google_maps.png
-ha_release: 0.66
+ha_release: 0.67
 ha_category: Presence Detection
 ha_iot_class: "Cloud Polling"
 ---
@@ -34,7 +34,13 @@ device_tracker:
   password: password
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The email address for the Google account that has access to your shared location.
-- **password** (*Required*): The password for your given username.
+{% configuration %}
+username:
+  description: The email address for the Google account that has access to your shared location.
+  required: true
+  type: string
+password:
+  description: The password for your given username.
+  required: true
+  type: string
+{% endconfiguration %}
