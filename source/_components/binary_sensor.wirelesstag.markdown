@@ -37,8 +37,8 @@ binary_sensor:
 The following conditions can be monitored:
 
 * (`presence`): On means in range, Off means out of range.
-* (`motion`): On when movement was detected, Off when clear.
-* (`door`): On when door is open, Off when door is closed.
+* (`motion`): On when a movement was detected, Off when clear.
+* (`door`): On when a door is open, Off when the door is closed.
 * (`cold`): On means temperature become too cold, Off means normal.
 * (`heat`): On means hot, Off means normal.
 * (`dry`): On means too dry (humidity), Off means normal.
