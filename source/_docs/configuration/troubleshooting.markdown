@@ -20,7 +20,7 @@ Whenever a component or configuration option results in a warning, it will be st
 
 When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your component you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the `check_config` script to assist in identifying them: `hass --script check_config`.
+If you have incorrect entries in your configuration files you can use the `check_config` script to assist in identifying them: `hass --script check_config`. If you need to provide the path for you config you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
 
 #### {% linkable_title Problems with the configuration %}
 
