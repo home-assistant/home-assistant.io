@@ -23,10 +23,12 @@ matrix:
     - "#hasstest:matrix.org"
   commands:
     - word: my_command
+      name: my_command
 ```
 
 Configuration variables:
 
+{% configuration %}
 - **username** (*Required*): The matrix username that home assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g. "@my_matrix_bot:matrix.org". Please note also that the "@" character has a special meaning in YAML, so this must always be given in quotes.
 - **homeserver** (*Required*): The full URL for your homeserver. If you use the defauls matrix.org homeserver, this is "https://matrix.org".
 - **password** (*Required*): The password for your Matrix account.
@@ -35,8 +37,56 @@ Configuration variables:
 - **commands** (*Optional*): A list of commands that the bot should listen for. If a command is triggered (via its *word* or *expression*, see below), an event is fired that you can handle using automations. Every command consists of these possible configuration options:
   - **word** (*Required* if **expression** is not given, *Forbidden* otherwise): Specifies a word that the bot should listen for. If you specify "my_command" here, the bot will react to any message starting with "!my_command".
   - **expression** (*Required* if **word** is not given, *Forbidden* otherwise): Specifies a regular expression (in python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression.
-  - **name** (*Required* if **expression** is given, *Optional* otherwise): The name of the command. This will be an attribute of the event that is fired when this command triggers.
+  - **name** (*Required*): The name of the command. This will be an attribute of the event that is fired when this command triggers.
   - **rooms** (*Optional*): A list of rooms that the bot should listen for this command in. If this is not given, the *rooms* list from the main config is used. Please note that every room in this list must also be in the main *room* config.
+
+username:
+  description: The matrix username that home assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g. "@my_matrix_bot:matrix.org". Please note also that the "@" character has a special meaning in YAML, so this must always be given in quotes.
+  required: true
+  type: string
+password:
+  description: The password for your Matrix account.
+  required: true
+  type: string
+homeserver:
+  description: The full URL for your homeserver. If you use the defauls matrix.org homeserver, this is "https://matrix.org".
+  required: true
+  type: string
+verify_ssl:
+  description: Verify the homeservers certificate.
+  required: false
+  type: string
+  default: true
+rooms:
+  description: The list of rooms that the bot should join and listen for commands (see below) in. While you can limit the list of rooms that a certain command applies to on a per-command basis (see below), you must still list all rooms here that commands should be received in. Rooms can be given either by their internal ID (e.g., "!cURbafjkfsMDVwdRDQ:matrix.org") or any of their aliases (e.g., "#matrix:matrix.org").
+  required: false
+  type: [string]
+  default: empty
+commands:
+  description: A list of commands that the bot should listen for. If a command is triggered (via its *word* or *expression*, see below), an event is fired that you can handle using automations. Every command consists of these possible configuration options:
+  required: false
+  type: map
+  default: empty
+  keys:
+    word:
+      description: Specifies a word that the bot should listen for. If you specify "my_command" here, the bot will react to any message starting with "!my_command".
+      required: false
+      type: string
+    expression:
+      description: Specifies a regular expression (in python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression.
+      required: false
+      type: string
+    name:
+      description: The name of the command. This will be an attribute of the event that is fired when this command triggers.
+      required: true
+      type: string
+    rooms:
+      description: A list of rooms that the bot should listen for this command in. If this is not given, the *rooms* list from the main config is used. Please note that every room in this list must also be in the main *room* config.
+      required: false
+      type: [string]
+      default: empty
+      
+{% endconfiguration %}
 
 ### {% linkable_title Event Data %}
 
