@@ -35,6 +35,10 @@ Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. 
 </p>
 
 <p class='note warning'>
+HASSBIAN users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video..
+</p>
+
+<p class='note warning'>
 Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 </p>
 
