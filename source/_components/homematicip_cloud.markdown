@@ -13,17 +13,17 @@ ha_release: 0.66
 featured: false
 ---
 
-The [HomematicIP](http://www.homematicip.de) component platform is used as an interface to the cloud server.
+The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server.
 For for communication [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used.
 
 To set up the component:
 
-- **generate the authentication token**:
+- generate the authentication token:
 ```yaml
 generate_auth_token.py
 ```
 
-- **add the information to your `configuration.yaml` file**:
+- add the information to your `configuration.yaml` file:
 
 ```yaml
 homematicip_cloud:
