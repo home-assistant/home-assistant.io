@@ -26,7 +26,7 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### {% linkable_title Installing Alternative Firmware %}
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3). Also, don't forget to install ffmpeg on your server.
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
