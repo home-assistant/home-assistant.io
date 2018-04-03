@@ -35,13 +35,13 @@ def setup(hass, config):
     return True
 ```
 
-Last step is to add `hello_world:` entry at the end of your `configuration.yaml` file (please note colon after 'hello_world'). This way Home Assistant will notice to include and run our new component.
+Last step is to add `hello_world:` entry at the end of your `configuration.yaml` file (please note colon after "hello_world"). This way Home Assistant will notice to include and run our new component.
 ```yaml
 # Hello World component
 hello_world:
 ```
 
-After running `hass`, we should see log entries stating that `hello_world` component was loaded. What is more, additional state card shall appear.
+After running `hass`, we should see log entries stating that `hello_world` component was loaded. What is more, additional state card shall appear within main panel.
 ```log
 2018-04-03 21:44:20 INFO (MainThread) [homeassistant.loader] Loaded hello_world from custom_components.hello_world
 2018-04-03 21:44:20 INFO (MainThread) [homeassistant.setup] Setting up hello_world
