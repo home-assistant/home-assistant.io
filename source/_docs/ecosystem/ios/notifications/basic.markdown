@@ -36,6 +36,7 @@ automation:
     action:
       service: notify.ios_<your_device_id_here>
       data:
+        title: "Smart Home Alerts"
         message: "Something happened at home!"
         data:
           push:
@@ -53,6 +54,7 @@ automation
     action:
       service: notify.ios_<your_device_id_here>
       data:
+        title: "Smart Home Alerts"
         message: "Something happened at home!"
         data:
           subtitle: "Subtitle goes here"
