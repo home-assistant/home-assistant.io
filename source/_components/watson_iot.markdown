@@ -20,7 +20,7 @@ To use this component, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
 this check the [official documentation](https://console.bluemix.net/docs/services/IoT/gateways/dashboard.html#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
-for your home-assistant you'll need 5 pieces of information:
+for your home-assistant you'll need 4 pieces of information:
  - Organization ID
  - Gateway device Type
  - Gateway device ID
@@ -37,18 +37,51 @@ watson_iot:
   token: 'auth_token'
 ```
 
-Configuration variables:
+{% configuration %}
+organization:
+  description: The Organization ID for your Watson IoT Platform instance
+  required: true
+  type: string
+type:
+  description: The device type for the gateway device to use
+  required: true
+  type: string
+id:
+  description: The device id for the gateway device to use
+  required: true
+  type: string
+token:
+  description: The authentication token for the gateway device
+  required: true
+  type: string
+exclude:
+  description: Configure which components should be excluded from recording to Watson IoT Platform.
+  required: false
+  type: map
+  keys:
+    entities:
+      description: The list of entity ids to be excluded from recording to Watson IoT Platform.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be excluded from recording to Watson IoT Platform.
+      required: false
+      type: list
+include:
+  description: Configure which components should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
+  required: false
+  type: map
+  keys:
+    entities:
+      description: The list of entity ids to be included from recordings to Watson IoT Platform.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be included from recordings to Watson IoT Platform.
+      required: false
+      type: list
+{% endconfiguration %}
 
-- **organization** (*Required*): The Organization ID for your Watson IoT Platform instance
-- **type** (*Required*): The device type for the gateway device to use
-- **id** (*Required*): The device id for the gateway device to use
-- **token** (*Required*): The authentication token for the gateway device
-- **exclude** (*Optional*): Configure which components should be excluded from recording to Watson IoT Platform.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recording to Watson IoT Platform.
-  - **domains** (*Optional*): The list of domains to be excluded from recording to Watson IoT Platform.
-- **include** (*Optional*): Configure which components should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings to Watson IoT Platform.
-  - **domains** (*Optional*): The list of domains to be included from recordings to Watson IoT Platform.
 
 ## {% linkable_title Examples %}
 
