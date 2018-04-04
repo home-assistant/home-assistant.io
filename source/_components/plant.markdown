@@ -59,7 +59,7 @@ If the sensor data is within the min/max values the status will be `ok`, if not 
 
 ## Data Source
 
-The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.miflora/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
+The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.mqtt/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
 
