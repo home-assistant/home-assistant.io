@@ -274,7 +274,7 @@ sensor:
     json_attributes:
       - forks
       - watchers
-    json_template: '{{ {'forks':value_json|sum(attribute="forks"), 'watchers':value_json|sum(attribute="watchers")} | tojson }}'
+    json_template: "{{ {'forks':value_json|sum(attribute='forks'), 'watchers':value_json|sum(attribute='watchers')}|tojson }}"
     value_template: '{{ value_json|count }}'
   - platform: template
     sensors:
