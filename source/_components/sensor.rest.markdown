@@ -89,6 +89,10 @@ json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
   type: list, string
+json_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to create a new object with the attributes you want. Then use the `json_attributes` to extract it to attributes of the sensor. Useful if the endpoint return an array."
+  required: false
+  type: template
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
@@ -254,5 +258,28 @@ sensor:
         value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
+```
+{% endraw %}
+
+### {% linkable_title Restructure JSON values in json_template and present them as attributes %}
+
+[Github API](https://developer.github.com/v3/#schema) returns an array of all the users repos [https://api.github.com/users/home-assistant/repos](https://api.github.com/users/home-assistant/repos).
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: Repos
+    resource: https://api.github.com/users/home-assistant/repos
+    json_attributes:
+      - forks
+      - watchers
+    json_template: '{{ {'forks':value_json|sum(attribute="forks"), 'watchers':value_json|sum(attribute="watchers")} | tojson }}'
+    value_template: '{{ value_json|count }}'
+  - platform: template
+    sensors:
+      watchers:
+        friendly_name: 'GitHub watchers'
+        value_template: '{{ states.sensor.repos.attributes.watchers }}'
 ```
 {% endraw %}
