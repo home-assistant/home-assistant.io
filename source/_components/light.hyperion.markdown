@@ -36,13 +36,15 @@ Configuration variables:
 
 Effect arguments:
 
-When an effect is called with the light.turn_on service, additional arguments to the effect can be specified using the following syntax: 
+When an effect is called with the `light.turn_on` service, additional arguments to the effect can be specified using the following syntax:
+
 ```
 entity_id: "light.LIGHT_NAME"
 effect: "EFFECT_NAME||ARGUMENT1=VALUE1||ARGUMENT2=VALUE2"
 ```
-for instance:
+
+For instance:
 `effect: "Knight rider||speed=1.0||fadeFactor=0.7||color=[0,255,0]"`
 
 More about effect arguments can be found on [hyperion-project.org](https://hyperion-project.org/wiki/hyperion-remote-JSON-interface).
-All specific effect arguments for each effect can be found in the json files on the [Hyperion Github](https://github.com/hyperion-project/hyperion/tree/master/effects).
+All specific effect arguments for each effect can be found in the JSON files on the [Hyperion Github](https://github.com/hyperion-project/hyperion/tree/master/effects).
