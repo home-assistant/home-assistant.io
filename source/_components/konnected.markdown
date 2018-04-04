@@ -14,12 +14,12 @@ ha_release: "0.67"
 
 The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the 
 [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and 
-siren from an old or pre-wired alarm system installation and integrate them directly to Home Assistant.   
+siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.   
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and
 compatible hardware. 
 
-The component currently support the following device types in Home Assistant:
+The component currently supports the following device types in Home Assistant:
 - [Binary Sensor](/components/binary_sensor.konnected/): Wired door and window sensors, motion detectors, glass-break
 detectors, leak sensors, smoke & CO detectors or any open/close switch.
 - [Switch](/components/switch.konnected/): Actuate a siren, strobe, buzzer, or relay module.
