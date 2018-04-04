@@ -95,3 +95,13 @@ If you want to use Home Assistant to host or serve static files then create a di
 <p class='note'>
   If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
 </p>
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title LetsEncrypt - not a file for dictionary value %}
+
+If you're getting the error message `Invalid config for [http]: not a file for dictionary value @ data['http']['ssl_certificate'].` then it's most likely down to a permissions problem. Some installs of certbot are too locked down, and the following will resolve this:
+
+```bash
+$ sudo chmod a+x /etc/letsencrypt/live /etc/letsencrypt/keys /etc/letsencrypt/archive
+```
