@@ -33,7 +33,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 ## {% linkable_title Z-Wave Node Management %}
 
 <p class='note warning'>
-Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change, the default *friendly_name* and *old_entity_id* and *new_entity_id* attributes for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change the default *friendly_name* attribute for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
 </p>
 
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
