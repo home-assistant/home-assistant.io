@@ -35,7 +35,7 @@ Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. 
 </p>
 
 <p class='note warning'>
-HASSBIAN users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video..
+Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
 </p>
 
 <p class='note warning'>
