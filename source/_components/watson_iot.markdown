@@ -16,7 +16,7 @@ with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace
 
 ## {% linkable_title Configuration %}
 
-To use this component you first need to register a gateway device type and then
+To use this component, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
 this check the [official documentation](https://console.bluemix.net/docs/services/IoT/gateways/dashboard.html#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
