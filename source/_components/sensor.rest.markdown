@@ -90,7 +90,7 @@ json_attributes:
   reqired: false
   type: list, string
 json_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to create a new object with the attributes you want. Then use the `json_attributes` to extract it to attributes of the sensor. Useful if the endpoint return an array."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to create a new object with the attributes you want. Then use the `json_attributes` to extract it to attributes of the sensor. Useful if the endpoint returns an array."
   required: false
   type: template
 force_update:
