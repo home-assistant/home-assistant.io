@@ -44,12 +44,20 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: map
         keys:
+          include_platforms:
+            description: Platforms to be included.
+            required: false
+            type: list
           include_domains:
             description: Domains to be included.
             required: false
             type: list
           include_entities:
             description: Entities to be included.
+            required: false
+            type: list
+          exclude_platforms:
+            description: Platforms to be excluded.
             required: false
             type: list
           exclude_domains:
@@ -161,6 +169,8 @@ By default no entity will be excluded. To limit which entities are being exposed
 # Example filter to include specified domains and exclude specified entities
 homekit:
   filter:
+    exclude_platforms:
+      - hue
     include_domains:
       - alarm_control_panel
       - light
@@ -175,6 +185,12 @@ Filters are applied as follows:
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
+   * Include platform specified
+      - if platform is included, and domain and entity not excluded, pass
+      - if platform is not included, and entity or domain not included, fail
+   * Exclude platform specified
+      - if platform is excluded, and entity not included, fail
+      - if platform is not excluded; and entity is included, or the domain is included but the entity is neither, pass
    * Include domain specified
       - if domain is included, and entity not excluded, pass
       - if domain is not included, and entity not included, fail
