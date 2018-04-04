@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: matrix.png
 ha_category: Hub
+ha_version: 0.67
 ---
 
 This component allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
