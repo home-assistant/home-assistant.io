@@ -15,7 +15,9 @@ ha_release: pre 0.7
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using Pushover.
 
-In order to get an API key you need to go to the [Pushover website](https://pushover.net) and register a new application. From the website you can also retrieve your user key.
+## {% linkable_title Configuration %}
+
+In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 To use Pushover notifications, add the following to your `configuration.yaml` file:
 
@@ -35,6 +37,7 @@ Configuration variables:
 - **user_key** (*Required*): Your user key for Pushover.
 
 Example Automation:
+
 ```yaml
 - service: notify.entity_id
       data:
@@ -45,15 +48,8 @@ Example Automation:
           sound: pianobar
           priority: 0
 ```
+
 Component specific values in the nested `data` section are optional.
-
-This is a quote from the Pushover website regarding free/open source apps:
-
-<blockquote>
-  If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software.
-</blockquote>
-
-When setting up the application you can use this [icon](/images/favicon-192x192.png).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -61,6 +57,7 @@ When sending a notification, optional parameters can also be set as per the push
 
 Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entries
 alexa:
@@ -69,7 +66,7 @@ alexa:
       action:
         service: notify.notify
         data_template:
-          message: "The location of {% raw %}{{ User }}{% endraw %} has been queried via Alexa."
+          message: "The location of {{ User }} has been queried via Alexa."
         data:
           title: "Home Assistant"
           data:
@@ -77,3 +74,4 @@ alexa:
             device: pixel
             url: "https://www.home-assistant.io/"
 ```
+{% endraw %}
