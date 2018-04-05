@@ -74,7 +74,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `utcnow()` will be rendered as UTC time.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` will convert datetime object or string to UNIX timestamp
-- `distance()` will measure the distance in meters between home, entity, coordinates.
+- `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 - `float` will format the output as float.
 - `strptime(string, format)` will parse a string to a datetime based on a [format][strp-format].
@@ -189,7 +189,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endr
 Since closest returns a state, we can combine it with distance too.
 
 ```text
-{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
+{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.{% endraw %}
 ```
 
 ## {% linkable_title Processing incoming data %}
