@@ -55,6 +55,26 @@ action:
     notification_id: "1234"
 ```
 
+
+### {% linkable_title Markdown support %}
+
+The message attribute supports the Markdown language. For a list of supported markdown commands, see: [pagedown-extra](https://github.com/jmcmanus/pagedown-extra/blob/master/README.md#usage). Some examples are:
+
+| Type | Message |
+| ---- | ------- |
+| Headline 1 | `# Headline` |
+| Headline 2 | `## Headline` |
+| Newline | `\n` |
+| Bold | `**My bold text**` |
+| Cursive | `*My cursive text*` |
+| Link | `[Link](https://home-assistant.io/)` |
+| Image | `![image](/local/my_image.jpg)` |
+
+<p class="note">
+  `/local/` in this context refers to the `.homeassistant/www/` folder.
+</p>
+
+
 ### {% linkable_title Create a persistent notification %}
 
 Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
