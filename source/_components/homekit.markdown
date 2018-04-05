@@ -212,6 +212,7 @@ logger:
   default: warning
   logs:
        homeassistant.components.homekit: debug
+       pyhap: debug
 ```
 2. Reproduce the bug / problem you have encountered.
 3. Stop Home Assistant and copy the log from the log file. That is necessary since some errors only get logged, when Home Assistant is being shutdown.
