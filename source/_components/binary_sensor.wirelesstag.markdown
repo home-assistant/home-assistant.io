@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Binary Sensor
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Push and Cloud Polling"
 ha_release: 0.67
 ---
 

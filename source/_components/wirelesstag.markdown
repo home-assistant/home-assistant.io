@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: wirelesstag.png
 ha_category: Hub
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Push and Cloud Polling"
 ha_release: 0.67
 ---
 
@@ -40,4 +40,8 @@ Finish your configuration by visiting the [WirelessTag binary sensor](/component
 <p class='note'>
   To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into whitelist in `http` component; i.e., add it to `trusted_networks`. See the [HTTP](/components/http/) for details.
   Additionally, you need add at least one [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/) in config to start receiving local push notifications.
+</p>
+
+<p class='note warning'>
+  Tag manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
 </p>
