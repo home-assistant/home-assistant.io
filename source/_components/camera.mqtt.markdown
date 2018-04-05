@@ -23,11 +23,11 @@ To enable this camera in your installation, add the following to your `configura
 # Example configuration.yaml entry
 camera:
   - platform: mqtt
-    topic: zanzito/shared_locations/my-device
+    state_topic: zanzito/shared_locations/my-device
 ```
 
 Configuration variables:
 
- - **topic** (*Required*): MQTT topic to subscribe to.
+ - **state_topic** (*Required*): MQTT topic to subscribe to.
  - **name** (*Optional*): Name of the camera
 
