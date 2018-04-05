@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: ibm.png
 ha_category: History
 ha_release: 0.67
 ---
