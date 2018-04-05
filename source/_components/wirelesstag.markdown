@@ -43,5 +43,5 @@ Finish your configuration by visiting the [WirelessTag binary sensor](/component
 </p>
 
 <p class='note warning'>
-  Tag manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
+  Tags Manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
 </p>
