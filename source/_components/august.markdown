@@ -13,8 +13,11 @@ ha_release: "0.64"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant. Currently this component supports August Lock and Doorbell. 
-NOTE: August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
+The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant. Currently this component supports August Lock and Doorbell.
+
+<p class='note'>
+August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
+</p>
 
 ## {% linkable_title Configuration %}
 
