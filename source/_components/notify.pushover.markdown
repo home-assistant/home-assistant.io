@@ -15,7 +15,7 @@ ha_release: pre 0.7
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using Pushover.
 
-In order to get an API key you need to go to the [Pushover website](https://pushover.net) and register a new application. From the website you can also retrieve your user key.
+In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website.  Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 To use Pushover notifications, add the following to your `configuration.yaml` file:
 
@@ -46,14 +46,6 @@ Example Automation:
           priority: 0
 ```
 Component specific values in the nested `data` section are optional.
-
-This is a quote from the Pushover website regarding free/open source apps:
-
-<blockquote>
-  If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software.
-</blockquote>
-
-When setting up the application you can use this [icon](/images/favicon-192x192.png).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
