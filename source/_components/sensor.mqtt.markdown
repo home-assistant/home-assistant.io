@@ -167,14 +167,19 @@ sensor:
 
 ### {% linkable_title Get sensor value from a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the `configuration.yaml` file.
+
+- **Controller Subscribe**:	`home/%sysname%/#` (instead of `/%sysname%/#`)
+- **Controller Publish**: `home/%sysname%/%tskname%/%valname%` (instead of `/%sysname%/%tskname%/%valname%`)
+
+Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
 
 As soon as the unit is online, you will get the state of the sensor.
 
 ```bash
-/home/bathroom/status Connected
+home/bathroom/status Connected
 ...
-/home/bathroom/analog/brightness 290.00
+home/bathroom/analog/brightness 290.00
 ```
 
 The configuration will look like the example below:
@@ -184,9 +189,7 @@ The configuration will look like the example below:
 # Example configuration.yml entry
 sensor:
   - platform: mqtt
-    state_topic: '/home/bathroom/analog/brightness'
+    state_topic: 'home/bathroom/analog/brightness'
     name: Brightness
 ```
 {% endraw %}
-
-
