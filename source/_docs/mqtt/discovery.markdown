@@ -42,8 +42,8 @@ The discovery topic need to follow a specific format:
 ```
 
 - `<component>`: One of the supported components, eg. `binary_sensor`.
-- `<node_id>`: (*Optional*) id of the node providing the topic.
-- `<object_id>`: "The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`."
+- `<node_id>` (*Optional*):  ID of the node providing the topic.
+- `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`.
 - `<>`: The topic `config` or `state` which defines the current action.
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
