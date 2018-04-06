@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Hub
-ha_release: 0.66
+ha_release: 0.68
 ha_iot_class: "Local Polling"
 ---
 
