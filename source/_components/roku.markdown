@@ -10,7 +10,7 @@ footer: true
 logo: roku.png
 ha_category: Hub
 ha_iot_class: "Local Push"
-ha_release: 0.64
+ha_release: 0.68
 ---
 
 The [Roku](http://www.roku.com/) platform allows integration of Roku [media players](/components/media_player.roku) and [remotes](/components/remote.roku/) which will be automatically discovered if you enable the [discovery component](/components/discovery/).
@@ -44,4 +44,3 @@ name:
 ### {% linkable_title Service `roku_scan` %}
 
 Scans the local network for Rokus. All found devices are presented as a persistent notification.
-
