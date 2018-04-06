@@ -58,7 +58,7 @@ action:
 
 ### {% linkable_title Markdown support %}
 
-The message attribute supports the Markdown language. For a list of supported markdown commands, see: [pagedown-extra](https://github.com/jmcmanus/pagedown-extra/blob/master/README.md#usage). Some examples are:
+The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
 
 | Type | Message |
 | ---- | ------- |
