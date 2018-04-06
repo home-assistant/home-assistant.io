@@ -33,6 +33,18 @@ sensor:
       - Job Percentage
 ```
 
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: true
+  type: string
+  default: Octoprint
+monitored_conditions:
+  description: Conditions to monitor.
+  required: true
+  type: list
+{% endconfiguration %}
+
 Configuration variables:
 
 - **name** (*Required*): The name of the sensor. This needs to match a name under the Octoprint platform configuration.

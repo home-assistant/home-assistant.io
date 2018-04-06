@@ -28,6 +28,39 @@ octoprint:
      number_of_tools: 1
 ```
 
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: true
+  type: string
+  default: Octoprint
+host:
+  description: IP Address or host name.
+  required: true
+  type: string
+api_key:
+  description: API key for Octoprint host.
+  required: true
+  type: string
+port:
+  description: Port to use for the Octoprint host.
+  required: false
+  type: string
+ssl:
+  description: Use SSL when communication to Octoprint host.
+  required: false
+  type: bool
+  default: false
+bed:
+  description: Does this printer have a heated bed
+  required: false
+  type: bool
+number_of_tools:
+  description: Number of temperature adjustable tools. i.e. nozzle.
+  required: false
+  type: int
+{% endconfiguration %}
+
 Configuration variables:
 - **name** (*Required*): Name for this Octoprint. This will need to be used also for the sensors.
 - **host** (*Required*): IP address or hostname of Octoprint host.
