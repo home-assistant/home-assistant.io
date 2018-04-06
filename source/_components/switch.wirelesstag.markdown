@@ -10,7 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Switch
 ha_iot_class: "Local Push and Cloud Polling"
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 To get your [wirelesstag.net](http://wirelesstag.net) switches working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).

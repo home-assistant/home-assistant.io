@@ -10,7 +10,7 @@ footer: true
 logo: wirelesstag.png
 ha_category: Hub
 ha_iot_class: "Local Push and Cloud Polling"
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](http://wirelesstag.net) sensors tags in Home Assistant.
