@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ibm.png
 ha_category: History
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 The `watson_iot` component enables you to link the devices in home-assistant
