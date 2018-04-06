@@ -42,7 +42,7 @@ ip_address:
   required: true
   type: string
 name:
-  description: Allows you to override the default name
+  description: Allows you to override the default name.
   default: gogogate2
   required: false
   type: string
