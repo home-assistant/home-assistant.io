@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dominionenergy.jpg
 ha_category: Sensor
-ha_release: 0.57
+ha_release: 0.68
 ha_iot_class: "Cloud Polling"
 ---
 
