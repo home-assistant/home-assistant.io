@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: konnected.png
 ha_category: Alarm
-ha_release: "0.67"
+ha_release: 0.68
 ---
 
 The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the 
