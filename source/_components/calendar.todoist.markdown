@@ -111,7 +111,7 @@ Home Assistant does its best to determine what task in each project is "most" im
 
 Todoist also comes with access to a service, `calendar.todoist_new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
 
-Here's an example JSON payload:
+Here are two example JSON payloads resulting in the same task:
 
 ```json
 {
@@ -123,6 +123,17 @@ Here's an example JSON payload:
 }
 ```
 
+```json
+{
+    "content": "Pick up the mail",
+    "project": "Errands",
+    "labels":"Homework,School",
+    "priority":3,
+    "due_date_string":"tomorrow at 14:00",
+    "due_date_lang":"en"
+}
+```
+
 - **content** (*Required*): The name of the task you want to create.
 
 - **project** (*Optional*): The project to put the task in.
@@ -131,6 +142,11 @@ Here's an example JSON payload:
 
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
-- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format.
+- **due_date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
+
+- **due_date_lang** (*Optional*): When `due_date_string` is set, it is posisble to set the language. 
+  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl` 
+
+- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.
 
 Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
