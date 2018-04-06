@@ -26,7 +26,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: octoprint
-    name: OctoPrint
+    name: YOUR_OCTOPRINT_NAME
     monitored_conditions:
       - Current State
       - Temperatures
@@ -35,7 +35,7 @@ sensor:
 
 Configuration variables:
 
-- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
+- **name** (*Required*): The name of the sensor. This needs to match a name under the Octoprint platform configuration.
 - **monitored_conditions** array (*Required*): States to monitor.
   - **Current State**: Text of current state)
   - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.

@@ -21,16 +21,18 @@ To get started with the OctoPrint API, please follow the directions on their [si
 
 ```yaml
 octoprint:
-  host: YOUR_OCTOPRINT_HOST
-  api_key: YOUR_API_KEY
-  bed: false
-  number_of_tools: 1
+  - name: YOUR_OCTOPRINT_NAME
+     host: YOUR_OCTOPRINT_HOST
+     api_key: YOUR_API_KEY
+     bed: false
+     number_of_tools: 1
 ```
 
 Configuration variables:
-
+- **name** (*Required*): Name for this Octoprint. This will need to be used also for the sensors.
 - **host** (*Required*): IP address or hostname of Octoprint host.
 - **api_key** (*Required*): The retrieved api key.
+- **port** (*Optional*): Port of the Octoprint host
+- **ssl** (*Optional*): Use https instead of http when communicating to Octoprint host
 - **bed** (*Optional*): If the printer has a heated bed.
 - **number_of_tools** (*Optional*): Number of temperature adjustable tools. i.e. nozzle.
-
