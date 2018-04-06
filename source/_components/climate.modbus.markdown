@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: modbus.png
 ha_category: Thermostat
-ha_release: 0.66
+ha_release: 0.68
 ha_iot_class: "Local Polling"
 ---
 
