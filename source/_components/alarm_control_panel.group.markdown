@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: 0.66
+ha_release: 0.68
 ---
 
 The `group` alarm platform allows you to combine multiple `alarm` platforms into a single service.
