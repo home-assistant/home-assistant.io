@@ -68,6 +68,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states.sensor.temperature` returns the state object for `sensor.temperature`.
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
@@ -85,6 +86,10 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
+- Filter `regex_match(string, find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
+- Filter `regex_search(string, find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
+- Filter `regex_replace(string, find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `regex_findall_index(string, find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
 [strp-format]: https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior
 
@@ -114,11 +119,23 @@ The next two statements result in same value if state exists. The second one wil
 
 ### {% linkable_title Attributes %}
 
-Print an attribute if state is defined
+Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
 ```text
 {% raw %}{% if states.device_tracker.paulus %}
   {{ states.device_tracker.paulus.attributes.battery }}
+{% else %}
+  ??
+{% endif %}{% endraw %}
+```
+
+With strings
+
+```text
+{% raw %}{% set tracker_name = "paulus"%}
+ 
+{% if states("device_tracker." + tracker_name) != "unknown" %}
+  {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
   ??
 {% endif %}{% endraw %}

@@ -31,6 +31,7 @@ Configuration variables:
 - **username** (*Required*): The username of a non-administrator user account on the device.
 - **password** (*Required*): The password for the user specified.
 - **doorbell_events** (*Optional*): Setting this to `true` this will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
+- **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration, specify the LAN IP of the machine here to force a LAN connection.
 
 <p class="note warning">
 Enabling `doorbell_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
