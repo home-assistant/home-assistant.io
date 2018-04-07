@@ -24,6 +24,21 @@ sensor:
     password: YOUR_PASSWORD
     name: OPTIONAL_NAME
 ```
+## Prerequisites
+
+This component requires that a headless-capable web browser is installed on your system PhantomJS.
+
+### PhantomJS
+
+Install the latest version of [PhantomJS]( http://phantomjs.org/download.html). Ensure the executable is on your `PATH`. `phantomjs --version` should work and report the correct version. This is the default option and requires no further configuration.
+
+<p class='note warning'>
+  Don't use apt-get to install PhantomJS. This version is not compatible.
+</p>
+
+If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` configuration.
+
+
 
 {% configuration %}
 name:
