@@ -47,6 +47,11 @@ Example Automation:
           url: "https://www.home-assistant.io/"
           sound: pianobar
           priority: 0
+          file:
+            url: !secret camera_still_image
+            auth: basic
+            username: !secret camera_username
+            password: !secret camera_password
 ```
 
 Component specific values in the nested `data` section are optional.
