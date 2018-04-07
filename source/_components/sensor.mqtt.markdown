@@ -76,6 +76,10 @@ json_attributes:
   description: A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
   reqired: false
   type: list, string
+unique_id:
+  description: "An id that uniquely identifies this sensor. If 2 sensors have the same unique id, Home Assistant will raise an exception.**"
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
