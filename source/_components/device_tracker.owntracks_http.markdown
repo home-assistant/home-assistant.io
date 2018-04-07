@@ -34,3 +34,17 @@ Open OwnTracks and go to Connection preferences:
  - Identification: Turn **Authentication** on, username `homeassistant` and password is your API password that you use to login to Home Assistant.
  
 Host example: If I host my Home Assistant at `https://example.duckdns.org`, my name is Paulus and my phone is a Pixel I would set the host to be `https://example.duckdns.org/api/owntracks/paulus/pixel`. This will result in an entity with an ID of `device_tracker.paulus_pixel`. You can pick any name for the user and the device.
+
+You can track the battery of you device, by defining a template sensor:
+
+```yaml
+# Example configuration.yaml entry for battery monitoring
+device_tracker:
+    - platform: template
+    sensors:
+      pixel_battery:
+        value_template: '{{ states.device_tracker.paulus_pixel.attributes.battery|int }}'
+        unit_of_measurement: "%"
+        entity_id: 
+        - device_tracker.paulus_pixel
+```
