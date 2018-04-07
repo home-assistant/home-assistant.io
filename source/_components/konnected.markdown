@@ -42,7 +42,7 @@ konnected:
         - zone: 3
           type: motion
           name: 'Test Motion'
-      actuators:
+      switches:
         - zone: out
           name: siren
     - id: 438a38
@@ -53,7 +53,7 @@ konnected:
         - pin: 2
           type: door
           name: 'Office Door'
-      actuators:
+      switches:
         - pin: 5
           name: 'Garage Door'
           activation: low
@@ -78,8 +78,8 @@ devices:
       description: A list of sensors connected to the device. See [Konnected Binary Sensor](/components/binary_sensor.konnected/) for configuration variables.
       required: false
       type: list
-    actuators:
-      description: A list of actuators (switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
+    switches:
+      description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
       required: false
       type: list
 
