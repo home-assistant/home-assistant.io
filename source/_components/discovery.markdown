@@ -51,6 +51,8 @@ discovery:
   ignore:
     - sonos
     - samsung_tv
+  enable:
+    - homekit
 ```
 
 Configuration variables:
@@ -85,6 +87,12 @@ Valid values for ignore are:
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
+
+- **enable** (*Optional*): A list of platforms not enabled by default that `discovery` should discover.
+
+Valid values for enable are:
+
+ * `homekit`: HomeKit accessories
 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
