@@ -27,9 +27,6 @@ sensor:
     username: <your FinTS user name>
     pin: <your FinTS pin>
     url: <FinTS url of your bank>
-    accounts: # optional
-    - account: <some iban number>
-      name: <give the account a name>
 ```
 {% endraw %}
 
