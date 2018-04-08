@@ -20,4 +20,4 @@ Once loaded, a component will only be setup if all dependencies can be loaded an
 
 You can override a built-in component by having a component with the same name in a `custom_components` folder inside your [`.homeassistant`](/docs/configuration/) directory. If the built-in component is inside a subfolder, take care to place your customization in a folder with the same name in `.homeassistant/custom_components/[platform]`. Note that overriding built-in components is not recommended and will probably break things!
 
-Home Assistant will use the directory that contains your configuration file as the directory that holds your customizations. By default this is the [.homeassistant] folder. You can use a different folder by running Home Assistant with the `--config` argument: `$ python3 homeassistant --config /YOUR/CONFIG/PATH/`.
+Home Assistant will use the directory that contains your configuration file as the directory that holds your customizations. By default this is the `.homeassistant` folder. You can use a different folder by running Home Assistant with the `--config` argument: `$ python3 homeassistant --config /YOUR/CONFIG/PATH/`.
