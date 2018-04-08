@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: apple.png
 ha_category: Hub
-featured: true
+featured: false
 ha_release: 0.31
 ha_iot_class: depends
 ---
