@@ -8,25 +8,28 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+logo: zillow.png
 ha_release: 0.65
 ha_iot_class: "Cloud Polling"
 ---
 
 The `zestimate` sensor allows one to track the Zestimate value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm).
 
+## {% linkable_title Configuration %}
+
 You will need to sign up for the Zillow API at the following link [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). You will also need the Zillow property ID for each property you'd like to track. This information is available from the URL of a property you are interested in. 
 
-For example, the White House zpid is 84074482 and can be found in it's Zillow URL: https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/
+For example, the White House zpid is 84074482 and can be found in it's Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
 
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
 sensor:
   - platform: zestimate
-    api_key: API_KEY
+    api_key: YOUR_API_KEY
     zpid:
-      - <your zpid 1>
-      - <your zpid 2>
+      - YOUR_ZPID_1
+      - YOUR_ZPID_2
 ```
 
 {% configuration %}
@@ -40,7 +43,7 @@ zpid:
   type: list
 {% endconfiguration %}
 
-### Additional Attributes
+### {% linkable_title Additional Attributes %}
 
 The following additional attributes are also available via the sensor.
 

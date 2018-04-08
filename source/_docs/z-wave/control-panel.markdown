@@ -33,7 +33,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 ## {% linkable_title Z-Wave Node Management %}
 
 <p class='note warning'>
-Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change, the default *friendly_name* and *old_entity_id* and *new_entity_id* attributes for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change the default *friendly_name* attribute for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
 </p>
 
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
@@ -107,6 +107,16 @@ Where the device supports the *Association* command class, this will allow you t
 You can use this to enable one device to directly control another. This is primarily useful for remote controls that operate lights or switches, or where you want to have multiple devices operate as one.
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
+
+#### {% linkable_title Broadcast group %}
+
+Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+
+```json
+{"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}
+```
+
+That would remove the broadcast group from association group 1 of the device with node_id 3.
 
 ### {% linkable_title Node config options %}
 

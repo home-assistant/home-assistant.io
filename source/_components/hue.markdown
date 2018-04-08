@@ -33,11 +33,19 @@ hue:
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+- **host**: IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
 - **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
-- **allow_in_emulated_hue** (*Optional*): (true/false) Enable this to block all Hue entities from being added to the `emulated_hue` component.
 - **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+
+```yaml
+# Example configuration.yaml entry specifying optional parameters
+hue:
+  bridges:
+    - host: DEVICE_IP_ADDRESS
+      allow_unreachable: true
+      allow_hue_groups: true
+```
 
 ### {% linkable_title Migrating from older configuration %}
 

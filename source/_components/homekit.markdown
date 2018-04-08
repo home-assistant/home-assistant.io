@@ -19,6 +19,10 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
 </p>
 
+<p class="note">
+  If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
+</p>
+
 {% configuration %}
   homekit:
     description: HomeKit configuration.
@@ -150,7 +154,37 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. By default no entity will be excluded. Keep in mind though that only supported components can be added.
+By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added. 
+
+{% raw %}
+```yaml
+# Example filter to include specified domains and exclude specified entities
+homekit:
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+    exclude_entities:
+      - light.kitchen_light
+```
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   * Include domain specified
+      - if domain is included, and entity not excluded, pass
+      - if domain is not included, and entity not included, fail
+   * Exclude domain specified
+      - if domain is excluded, and entity not included, fail
+      - if domain is not excluded, and entity not excluded, pass
+      - if both include and exclude domains specified, the exclude domains are ignored
+   * Neither include or exclude domain specified
+      - if entity is included, pass (as #2 above)
+      - if entity include and exclude, the entity exclude is ignored 
 
 
 ## {% linkable_title Supported Components %}
@@ -178,6 +212,7 @@ logger:
   default: warning
   logs:
        homeassistant.components.homekit: debug
+       pyhap: debug
 ```
 2. Reproduce the bug / problem you have encountered.
 3. Stop Home Assistant and copy the log from the log file. That is necessary since some errors only get logged, when Home Assistant is being shutdown.

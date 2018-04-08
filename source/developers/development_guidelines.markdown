@@ -78,4 +78,4 @@ _LOGGER.error("No route to device: %s", self._resource)
 ```
 
 Don't print out wrong API keys, tokens, usernames, or passwords.
-
+Also note that `_LOGGER.info` is reserved for the core, use `_LOGGER.debug` in anything else.

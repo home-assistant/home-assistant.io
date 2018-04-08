@@ -16,13 +16,14 @@ ha_iot_class: "Cloud Polling"
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
+## {% linkable_title Configuration %}
+
 By default, it will run every hour. The user can change the update frequency in the configuration by defining the minute, hour, and day for a speed test to run. For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
 
 To add a Speedtest.net sensor to your installation, add the following to your `configuration.yaml` file:
 
 Once per hour, on the hour (default):
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -32,7 +33,6 @@ sensor:
       - download
       - upload
 ```
-{% endraw %}
 
 {% configuration %}
   monitored_conditions:
@@ -79,7 +79,6 @@ This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to g
 
 When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test.  You can turn on manual mode to disable the scheduled speed tests.
 
-
 ## {% linkable_title Examples %}
 
 In this section, you find some real-life examples of how to use this sensor.
@@ -88,7 +87,6 @@ In this section, you find some real-life examples of how to use this sensor.
 
 Every half hour of every day:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -101,13 +99,11 @@ sensor:
       - download
       - upload
 ```
-{% endraw %}
 
 ### {% linkable_title Run at a specific time %}
 
 Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -123,7 +119,6 @@ sensor:
       - download
       - upload
 ```
-{% endraw %}
 
 ### {% linkable_title Using as a trigger in an automation %}
 
@@ -150,6 +145,7 @@ automation:
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- Running this platform can have negative effects on the system's performance as it requires a fair amount of memory.
 - Entries under `monitored_conditions` only control what entities are available in Home Assistant, it does not disable the condition from running.
 - If ran frequently, this component has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While running, your network capacity is fully utilized. This may have a negative effect on other devices in use the network such as gaming consoles or streaming boxes.

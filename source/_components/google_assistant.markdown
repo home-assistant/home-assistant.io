@@ -67,7 +67,7 @@ agent_user_id:
   required: false
   type: string
 api_key:
-  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this componenet you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
+  description: An API Key generated for the project from [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see step 9 below). If not provided then the `google_assistant.request_sync` service is not exposed.  It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices".  Once you have setup this component you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
   required: false
   type: string
 expose_by_default:
@@ -148,10 +148,10 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 6. Open the Google Assistant app and go into `Settings > Home Control`
 7. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you the screen where you can set rooms for your devices or nicknames for your devices.
 8. If you want to allow other household users to control the devices:
-	a. Go to the developer console using the address from point 4.
+	a. Go to the settings for the project you created in point 1 in the developer console.
 	b. Under the gear icon, click `Permissions`
 	c. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
-	d. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 
+	d. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 4
 9. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
 	a. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
 	b. Select your project and click Enable Homegraph API

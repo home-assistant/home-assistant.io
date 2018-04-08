@@ -10,7 +10,7 @@ footer: true
 ---
 
 ## {% linkable_title What about ‘async’ and ‘await’ syntax? %}
-Python 3.5 introduced new syntax to formalize the asynchronous pattern. This is however not compatible with Python 3.4. The minimum required Python version for Home Assistant is based on the Python version shipped with Debian stable, which is currently 3.4.2.
+Python 3.5 introduced new syntax to formalize the asynchronous pattern. This is however not compatible with Python 3.4. The minimum required Python version for Home Assistant is based on the Python version shipped with Debian stable, which is currently 3.5.3.
 
 For more information, Brett Cannon wrote [an excellent breakdown][brett] on 'async' and 'await' syntax and how asynchronous programming works.
 

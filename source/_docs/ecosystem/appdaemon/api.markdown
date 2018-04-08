@@ -1422,7 +1422,7 @@ Name of the event to subscribe to. Can be a standard Home Assistant event such a
 
 One or more keyword value pairs representing App specific parameters to supply to the callback. If the keywords match values within the event data, they will act as filters, meaning that if they don't match the values, the callback will not fire.
 
-As an example of this, a Minimote controller when activated will generate an event called `zwave.scene_activated`, along with 2 pieces of data that are specific to the event - `entity_id` and `scene`. If you include keyword values for either of those, the values supplied to the `listen_event()1 call must match the values in the event or it will not fire. If the keywords do not match any of the data in the event they are simply ignored.
+As an example of this, a Minimote controller when activated will generate an event called `zwave.scene_activated`, along with 2 pieces of data that are specific to the event - `entity_id` and `scene`. If you include keyword values for either of those, the values supplied to the `listen_event()` call must match the values in the event or it will not fire. If the keywords do not match any of the data in the event they are simply ignored.
 
 Filtering will work with any event type, but it will be necessary to figure out the data associated with the event to understand what values can be filtered on. This can be achieved by examining Home Assistant's logfiles when the event fires.
 

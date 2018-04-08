@@ -23,19 +23,19 @@ media_player:
   - platform: cmus
 ```
 
-if cmus is running on a remote server:
+If cmus is running on a remote server:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: cmus
-    host: IP_ADDRESS
-    password: PASSWORD
+    host: IP_ADDRESS_OF_CMUS_PLAYER
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Optional*):  Hostname or IP address of the machine running cmus. Note if a remote cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.
+- **host** (*Optional*): Hostname or IP address of the machine running cmus. Note if a remote cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.
 - **password** (*Required if host is set*): Password for your cmus player.
 - **port** (*Optional*): Port of the cmus socket, defaults to 3000.
 - **name** (*Optional*): The name you'd like to give the cmus player in Home Assistant

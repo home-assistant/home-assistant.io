@@ -19,8 +19,8 @@ To use this component, enter your email address and password from your goalfeed.
 ```yaml
 # Example configuration.yaml entry
 goalfeed:
-  username: your_email@gmail.com
-  password: goalfeed_password
+  username: YOUR_E_MAIL_ADDRESS
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}

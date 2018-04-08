@@ -17,13 +17,15 @@ The `skybell` implementation allows you to integrate your [Skybell.com](http://w
 
 Currently only the Skybell HD is supported by this platform.
 
+## {% linkable_title Configuration %}
+
 To enable devices set up with your [Skybell.com](http://www.skybell.com/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 skybell:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}

@@ -43,7 +43,7 @@ Configuration variables:
 
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own) add the following entry to the `configuration.yaml` file.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), add the following entry to the `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,3 +59,20 @@ mqtt:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
+
+### {% linkable_title Listening simultaneously on SSL/TLS (8883) and insecure (1883) ports %}
+
+1. Configure SSL/TLS as normal.
+2. Set `customize` flag to `true` in your configuration.
+3. Create a file in `/share/mosquitto` named `insecure.conf` with the following contents:
+
+```text
+listener 1883
+protocol mqtt
+```
+
+4. Restart MQTT
+
+<p class='note warning'>
+It's recommened that you only open your firewall to the SSL/TLS port (8883) and only use the insecure port (1883) for local devices.
+</p>

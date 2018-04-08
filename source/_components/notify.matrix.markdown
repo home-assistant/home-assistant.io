@@ -15,6 +15,8 @@ ha_release: 0.32
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](http://matrix.org) room. Rooms can be both direct as well as group chats.
 
+## {% linkable_title Configuration %}
+
 To enable Matrix notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -23,8 +25,8 @@ notify:
   - name: NOTIFIER_NAME
     platform: matrix
     homeserver: HOMESERVER
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     default_room: ROOM_ID_OR_ALIAS
 ```
 

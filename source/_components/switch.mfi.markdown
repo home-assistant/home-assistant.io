@@ -15,15 +15,17 @@ ha_iot_class: "Local Polling"
 
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 
+## {% linkable_title Configuration %}
+
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 switch:
   - platform: mfi
-    host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
+    host: IP_ADDRESS_OF_SWITCH
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:

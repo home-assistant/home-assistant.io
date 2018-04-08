@@ -54,3 +54,14 @@ automation:
           message: 'Your husband coming home!'
           delay: '00:00:05'
 ```
+Note that this example uses the `voicerss` text-to-speech platform. There are many platforms that can be used. The one installed by default with Home Assistant is Google TTS. This appears in your `configuration.yaml` file as:
+
+```
+  tts:
+    - platform: google
+```
+
+If you want to use this TTS engine, change the line in the example provided to:
+```
+- service: tts.google_say
+```

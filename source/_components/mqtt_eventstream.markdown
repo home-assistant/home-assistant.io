@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt_eventstream` component connects two Home Assistant instances via MQTT.
 
+## {% linkable_title Configuration %}
+
 To integrate MQTT Eventstream into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml

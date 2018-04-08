@@ -13,23 +13,28 @@ ha_iot_class: "Local Polling"
 ha_release: 0.49
 ---
 
-The `amcrest` platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable your camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 amcrest:
-  - host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
+  - host: IP_ADDRESS_CAMERA_1
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     sensors:
       - motion_detector
       - sdcard
+    switches:
+      - motion_detection
+      - motion_recording
 
- - host: IP_ADDRESS
-   username: USERNAME
-   password: PASSWORD
+ - host: IP_ADDRESS_CAMERA_2
+   username: YOUR_USERNAME
+   password: YOUR_PASSWORD
    resolution: low
    stream_source: snapshot
    sensors:
@@ -52,6 +57,9 @@ Configuration variables:
   - **motion_detector**: Return True/False when a motion is detected
   - **sdcard**: Return the SD card usage by reporting the total and used space
   - **ptz_preset**: Return the number of PTZ preset positions configured for the given camera
+- **switches** array (*Optional*): Switches to display in the frontend. By default, *none* of the switches are shown. The following switches can be monitored.
+  - **motion_detection**: Enable/disable motion detection setting 
+  - **motion_recording**: Enable/disable recording on motion detection setting
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to stream `high` definition video with MJPEG encoding. You may need to use `low` resolution stream or the `snapshot` stream source instead.  If the quality seems too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in your camera's configuration manager. If you defined the *stream_source* to **mjpeg**, make sure your camera supports *Basic* HTTP authentication. Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 
