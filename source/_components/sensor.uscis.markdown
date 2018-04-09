@@ -13,7 +13,7 @@ ha_release: 0.68
 ha_iot_class: "Cloud Polling"
 ---
 
-The `uscis` sensor component allows you to monitor the cost of Washington Dominion Energy.
+The `uscis` sensor component allows you get updates on you USCIS case using your case number/ receipt number
 
 ## Example for `configuration.yaml` :
 
@@ -36,4 +36,4 @@ case_id:
   type: string
 {% endconfiguration %}
 
-All the data will be fetch from  [USCIS](https://egov.uscis.gov/casestatus/displayLogon.do) using your Case number.
+All the data will be fetch from  [USCIS](https://egov.uscis.gov/casestatus/mycasestatus.do) using [uscisstatus](https://pypi.python.org/pypi/uscisstatus/) 
