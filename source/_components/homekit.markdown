@@ -198,6 +198,7 @@ The following components are currently supported:
 | climate | Thermostat | All climate devices. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
+| lock | DoorLock | Support for `lock / unlock`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
 | switch / remote / input_boolean / script | Switch | All represented as switches. |
