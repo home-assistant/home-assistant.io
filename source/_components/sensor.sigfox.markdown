@@ -13,8 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.68
 ---
 
-
-[SigFox](https://www.sigfox.com/en) component adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ( [snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
+[SigFox](https://www.sigfox.com/en) component adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ( [snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,11 +23,21 @@ sensor:
     api_password: your_api_password
 ```
 
-Configuration variables:
-
-- **api_login** (*Required*): Your Sigfox API login.
-- **api_password** (*Required*): Your Sigfox API password.
-- **name** (*Optional*): The name to prepend to the device ID, default `sigfox`
+{% configuration %}
+api_login:
+  description: Your Sigfox API login.
+  required: true
+  type: string
+api_password:
+  description: Your Sigfox API password.
+  required: true
+  type: string
+name:
+  description: The name to prepend to the device ID.
+  required: false
+  default: "sigfox"
+  type: string
+{% endconfiguration %}
 
 Note that `your_api_login` and `your_api_password` are your **API access credentials** which can be accessed by following:
 
