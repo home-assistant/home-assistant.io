@@ -13,7 +13,7 @@ ha_release: 0.68
 ha_iot_class: "Cloud Polling"
 ---
 
-The `uscis` sensor component allows you get updates on your USCIS case using your case number / receipt number. the sensor use uscisstatus package to get the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
+The `uscis` sensor component allows you get updates on your USCIS case using your case number / receipt number. The sensor  get the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
 
 ## Example for `configuration.yaml` :
 
