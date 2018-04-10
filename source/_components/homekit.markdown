@@ -201,6 +201,9 @@ The following components are currently supported:
 | lock | DoorLock | Support for `lock / unlock`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
+| sensor | AirQualitySensor | All sensors that contains `pm25` in their `entity_id`, or `pm25` as their `device_class` |
+| sensor | CarbonDioxideSensor | All sensors that contains `co2` in their `entity_id`, or `co2` as their `device_class` |
+| sensor | LightSensor | All sensors that have `lm`/`lux` as their `unit_of_measurement`, or `lux` as their `device_class` |
 | switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 
