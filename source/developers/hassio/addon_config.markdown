@@ -117,7 +117,7 @@ The config for an add-on is stored in `config.json`.
 | startup | bool | yes | `initialize` will start addon on setup of Hass.io. `system` is for things like databases and not dependent on other things. `services` will start before Home Assistant, while `application` is started afterwards. Finally `once` is for applications that don't run as a daemon.
 | webui | string | no | A URL for web interface of this add-on. Like `http://[HOST]:[PORT:2839]/dashboard`, the port needs the internal port, which will be replaced with the effective port. It is also possible to bind the proto part to a config options with: `[PROTO:option_name]://[HOST]:[PORT:2839]/dashboard` and he lookup if they is True and going to `https`.
 | boot | string | yes | `auto` by system and manual or only `manual`
-| ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
+| ports | dict | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | bool | no | If that is True, the add-on run on host network.
 | host_ipc | bool | no | Default False. Allow to share the IPC namespace with others.
 | host_dbus | bool | no | Default False. Map Host dbus service into add-on.
@@ -125,7 +125,7 @@ The config for an add-on is stored in `config.json`.
 | auto_uart | bool | no | Default False. Auto mapping all UART/Serial device from host into add-on.
 | hassio_api | bool | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
 | homeassistant_api | bool | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
-| privileged | array | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
+| privileged | list | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
 | apparmor | bool | no | Enable or disable AppArmor support. If it is enable, you can also use custom profiles.
 | seccomp | bool | no | Enable or disable Seccomp support. If it is enable, you can also use custom profiles.
 | map | list | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
