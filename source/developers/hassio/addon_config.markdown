@@ -106,37 +106,39 @@ The config for an add-on is stored in `config.json`.
 }
 ```
 
-| Key | Required | Description |
-| --- | -------- | ----------- |
-| name | yes | Name of the add-on
-| version | yes | Version of the add-on
-| slug | yes | Slug of the add-on
-| description | yes | Description of the add-on
-| arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
-| url | no | Homepage of the addon. Here you can explain the add-ons and options.
-| startup | yes | `initialize` will start addon on setup of Hass.io. `system` is for things like databases and not dependent on other things. `services` will start before Home Assistant, while `application` is started afterwards. Finally `once` is for applications that don't run as a daemon.
-| webui | no | A URL for web interface of this add-on. Like `http://[HOST]:[PORT:2839]/dashboard`, the port needs the internal port, which will be replaced with the effective port. It is also possible to bind the proto part to a config options with: `[PROTO:option_name]://[HOST]:[PORT:2839]/dashboard` and he lookup if they is True and going to `https`.
-| boot | yes | `auto` by system and manual or only `manual`
+| Key | Type | Required | Description |
+| --- | ---- | -------- | ----------- |
+| name | string | yes | Name of the add-on
+| version | string | yes | Version of the add-on
+| slug | string | yes | Slug of the add-on
+| description | string | yes | Description of the add-on
+| arch | array | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
+| url | url | no | Homepage of the addon. Here you can explain the add-ons and options.
+| startup | bool | yes | `initialize` will start addon on setup of Hass.io. `system` is for things like databases and not dependent on other things. `services` will start before Home Assistant, while `application` is started afterwards. Finally `once` is for applications that don't run as a daemon.
+| webui | string | no | A URL for web interface of this add-on. Like `http://[HOST]:[PORT:2839]/dashboard`, the port needs the internal port, which will be replaced with the effective port. It is also possible to bind the proto part to a config options with: `[PROTO:option_name]://[HOST]:[PORT:2839]/dashboard` and he lookup if they is True and going to `https`.
+| boot | string | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
-| host_network | no | If that is True, the add-on run on host network.
-| host_ipc | no | Default False. Allow to share the IPC namespace with others.
-| host_dbus | no | Default False. Map Host dbus service into add-on.
-| devices | no | Device list to map into the add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm`
-| auto_uart | no | Default False. Auto mapping all UART/Serial device from host into add-on.
-| hassio_api | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
-| homeassistant_api | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
-| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
-| map | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
-| environment | no | A dict of environment variable to run add-on.
-| audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
-| gpio | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
-| stdin | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
-| legacy | no | Boolean. If the docker image have no hass.io labels, you can enable the legacy mode to use the config data.
-| options | yes | Default options value of the add-on
-| schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
-| image | no | For use with Docker Hub.
-| timeout | no | Default 10 (second). The timeout to wait until the docker is done or will be killed.
-| tmpfs | no | Mount a tmpfs file system in `/tmpfs`. Valide format for this option is : `size=XXXu,uid=N,rw`. Size is mandatory, valid units (`u`) are `k`, `m` and `g` and `XXX` has to be replaced by a number. `uid=N` (with `N` the uid number) and `rw` are optional.
+| host_network | bool | no | If that is True, the add-on run on host network.
+| host_ipc | bool | no | Default False. Allow to share the IPC namespace with others.
+| host_dbus | bool | no | Default False. Map Host dbus service into add-on.
+| devices | list | no | Device list to map into the add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm`
+| auto_uart | bool | no | Default False. Auto mapping all UART/Serial device from host into add-on.
+| hassio_api | bool | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
+| homeassistant_api | bool | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
+| privileged | array | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`, `SYS_TIME`, `SYS_NICE`
+| apparmor | bool | no | Enable or disable AppArmor support. If it is enable, you can also use custom profiles.
+| seccomp | bool | no | Enable or disable Seccomp support. If it is enable, you can also use custom profiles.
+| map | list | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
+| environment | dict | no | A dict of environment variable to run add-on.
+| audio | bool | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
+| gpio | bool | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
+| stdin | bool | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
+| legacy | bool | no | Boolean. If the docker image have no hass.io labels, you can enable the legacy mode to use the config data.
+| options | dict | yes | Default options value of the add-on
+| schema | dict | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
+| image | string | no | For use with Docker Hub.
+| timeout | integer | no | Default 10 (second). The timeout to wait until the docker is done or will be killed.
+| tmpfs | string | no | Mount a tmpfs file system in `/tmpfs`. Valide format for this option is : `size=XXXu,uid=N,rw`. Size is mandatory, valid units (`u`) are `k`, `m` and `g` and `XXX` has to be replaced by a number. `uid=N` (with `N` the uid number) and `rw` are optional.
 
 ### {% linkable_title Options / Schema %}
 
