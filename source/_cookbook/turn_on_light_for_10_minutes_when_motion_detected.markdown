@@ -16,23 +16,27 @@ This recipe will turn on a light when there is motion and turn off the light whe
 
 ```yaml
 automation:
-- alias: Turn on kitchen light when there is movement
-  trigger:
-    platform: state
-    entity_id: sensor.motion_sensor
-    to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: light.kitchen_light
+  - alias: Turn on kitchen light when there is movement
+    trigger:
+      - platform: state
+        entity_id: sensor.motion_sensor
+        to: 'on'
+    action:
+      - service: timer.start
+        entity_id: timer.kitchen_timer
+      - service: homeassistant.turn_on
+        entity_id: light.kitchen_light
+  - alias: Turn off kitchen light 10 minutes after last movement
+    trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.kitchen_timer
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.kitchen_light
 
-- alias: Turn off kitchen light 10 minutes after last movement
-  trigger:
-    platform: state
-    entity_id: sensor.motion_sensor
-    to: 'off'
-    for:
-      minutes: 10
-  action:
-    service: homeassistant.turn_off
-    entity_id: light.kitchen_light
+timer:
+  kitchen_timer:
+    duration: '00:10:00'
 ```
