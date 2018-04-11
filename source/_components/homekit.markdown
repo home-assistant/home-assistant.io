@@ -196,6 +196,7 @@ The following components are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | binary_sensor | Sensor | Support for `CO2`, `Gas`, `Moisture`, `Motion`, `Occupancy`, `Opening` and `Smoke` device classes. Defaults to the `Occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
+| cover | GarageDoorOpener | All covers that have `device_class: garage` and support at least open and close. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
