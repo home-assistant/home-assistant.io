@@ -23,6 +23,7 @@ prometheus:
 
 Configuration variables:
 
+- **namespace** (*Optional*): The "namespace" that will be assigned for all the prometheus metrics. This is the prefix of the metric name. E.g. having `myhass` as the namespace will causes the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default namespace is `hass`.
 - **exclude** (*Optional*): Configure which components should be excluded from recording.
   - **entities** (*Optional*): The list of entity ids to be excluded from recording.
   - **domains** (*Optional*): The list of domains to be excluded from recording.
@@ -43,3 +44,10 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
     static_configs:
       - targets: ['HOSTNAME:8123']
 ```
+
+When looking into the metrics in the prometheus side, there will be:
+
+  - All HomeAssistant domains, which can be easily found through the common **namespace** prefix (`hass` by default).
+  - The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e. HomeAssistant python interpreter.
+  
+Typically, you will only be interested in the first set of metrics.
