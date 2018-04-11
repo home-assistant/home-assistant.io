@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: eufy.png
 ha_category: Hub
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 The `eufy` component is the main component to integrate various [eufy](http://https://www.eufylife.com/) devices with Home Assistant.
@@ -26,7 +26,7 @@ eufy:
 where username and password are the ones configured in the EufyHome app. Alternately, Eufy devices that are not discoverable can be statically configured.
 
 ```yaml
-wemo:
+eufy:
   devices:
     - address: 192.168.1.10
       access_token: 1234567890abcdef
