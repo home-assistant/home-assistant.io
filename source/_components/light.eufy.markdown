@@ -10,7 +10,7 @@ footer: true
 logo: eufy.png
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 The `eufy` platform allows you to control your [Eufy](http://www.eufylife.com) lights from within Home Assistant.
