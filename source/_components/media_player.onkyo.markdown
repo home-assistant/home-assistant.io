@@ -24,6 +24,7 @@ media_player:
   - platform: onkyo
     host: 192.168.1.2
     name: receiver
+    max_volume: 50
     sources:
       pc: 'HTPC'
 ```
@@ -32,6 +33,7 @@ Configuration variables:
 
 - **host** (*Optional*): IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
 - **name** (*Required if host is specified*): Name of the device.
+- **max_volume** (*Optional*): Maximum allowed volume set by the volume slider. Must be less than or equal to `80`. Defaults to `80`.
 - **sources** (*Optional*): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
 
 List of source names:
