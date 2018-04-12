@@ -205,7 +205,7 @@ The first run after adding a device is when the `zwave` component will take time
 
 ### {% linkable_title Component could not be set up %}
 
-Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path:
+Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path (here we're using `/dev/ttyAMA0` for our Razberry board):
 
 ```bash
 $ ls -l /dev/ttyAMA0
@@ -222,6 +222,18 @@ The important pieces are the first piece `crw-rw----` and the group `dialout`. I
 ```bash
 $ sudo chgrp dialout /dev/ttyAMA0
 $ sudo chmod g+rw /dev/ttyAMA0
+```
+
+Check too that the account you're running Home Assistant as is in the `dialout` group. For instance, if you're using `homeassistant`:
+
+```bash
+$ groups homeassistant
+```
+
+That should include `dialout`, if it doesn't then:
+
+```bash
+$ sudo usermod -G dialout homeassistant
 ```
 
 ### {% linkable_title Device path changes %}
