@@ -130,7 +130,7 @@ The config for an add-on is stored in `config.json`.
 | seccomp | bool | no | Enable or disable Seccomp support. If it is enable, you can also use custom profiles.
 | map | list | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
 | environment | dict | no | A dict of environment variable to run add-on.
-| audio | bool | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
+| audio | bool | no | Boolean. Mark this add-on to use internal an audio system. The ALSA configuration for this add-on will be mount automatic.
 | gpio | bool | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
 | stdin | bool | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
 | legacy | bool | no | Boolean. If the docker image have no hass.io labels, you can enable the legacy mode to use the config data.
