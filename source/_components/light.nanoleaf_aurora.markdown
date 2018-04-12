@@ -21,7 +21,7 @@ To enable the Aurora lights, add the following lines to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: aurora
+  - platform: nanoleaf_aurora
     host: 192.168.1.10
     token: xxxxxxxxxxxxxxxxxxxxx
 ```
