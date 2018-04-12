@@ -199,8 +199,11 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
-| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
-| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
+| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
+| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` or `humidity` as their `device_class`. |
+| sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
+| sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
+| sensor | LightSensor | All sensors that have `lm`/`lux` as their `unit_of_measurement` or `light` as their `device_class` |
 | switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 
