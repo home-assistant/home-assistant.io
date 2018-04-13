@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "0.67: TBD - ALSO UPDATE DATE"
-description: "TBD"
-date: 2018-04-06 00:01:00
-date_formatted: "April 14, 2018"
+title: "0.67: Mastodon, Tahoma switches, Nanoleaf Aurora Light Panels"
+description: "Security fixes and performance improvements 😅"
+date: 2018-04-13 00:01:00
+date_formatted: "April 13, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -11,19 +11,22 @@ categories: Release-Notes
 og_image: /images/blog/2018-04-0.67/components.png
 ---
 
-<a href='/components/#version/0.67'><img src='/images/blog/2018-03-0.67/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.67'><img src='/images/blog/2018-04-0.67/components.png' style='border: 0;box-shadow: none;'></a>
+
+Release 0.67 is here! In case you missed [the announcement from yesterday][ann-ubiquiti], Ubiquiti is paying me to write these release notes. Ooooooh yeah. With more time on my hands I'm going to be focusing on major improvements that we have been postponing for a while, first up will be a user system.
+
+This release includes a security fix. The error log was accessible via the API without requiring authentication in previous releases. Although not a leak on it's own, combined with a faulty component that would log sensitive information to the error log could lead to that being exposed (we don't know of any component that does this). Thanks to [Matt Hamilton](https://github.com/Eriner) for disclosing this issue to us.
 
 ## {% linkable_title New Platforms %}
 
-- Qwikswitch async refactor & sensor ([@kellerza] - [#13509]) ([qwikswitch docs]) ([light.qwikswitch docs]) ([sensor.qwikswitch docs]) ([switch.qwikswitch docs]) (new-platform)
-- Adds folder_watcher component ([@robmarkcole] - [#12918]) ([watchdog_file_watcher docs]) (new-platform)
+- Adds folder_watcher component ([@robmarkcole] - [#12918]) ([folder_watcher docs]) (new-platform)
 - Add FreeDNS component ([@bdurrer] - [#13526]) ([freedns docs]) (new-platform)
 - Google Maps location sharing device tracker ([@michaelarnauts] - [#12301]) ([device_tracker.google_maps docs]) (new-platform)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
 - Add mastodon ([@fabaff] - [#13441]) ([notify docs]) (new-platform)
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
-- Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.aurora docs]) (new-platform)
+- Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -40,7 +43,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update to new "b2vapi" of BMW ConnectedDrive ([@ChristianKuehnel] - [#13305]) ([bmw_connected_drive docs]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (breaking change)
 - Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
 - Channel up and down for webostv ([@stephanerosi] - [#13624]) ([media_player.webostv docs]) (breaking change)
-- Add media type separation for video/movie ([@Tadly] - [#13612]) (breaking change)
+- Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
 
 ## {% linkable_title All changes %}
@@ -58,7 +61,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade aiohttp to 3.1.0 ([@fabaff] - [#13451])
 - Qwikswitch async & updates ([@kellerza] - [#12641]) ([qwikswitch docs]) ([light.qwikswitch docs]) ([switch.qwikswitch docs])
 - Make Telnet Switch value template optional ([@DanNixon] - [#13433]) ([switch.telnet docs])
-- Update yeelightsunflower to 0.0.10 ([@lindsaymarkwawrd] - [#13448])
+- Update yeelightsunflower to 0.0.10 ([@lindsaymarkward] - [#13448])
 - Add more info to issue template ([@c727] - [#12955])
 - [RFC] Update issue template ([@amelchio] - [#12989])
 - Update total_connect_client to 0.17 for Honeywell L5100-WiFi Support ([@phileaton] - [#13473]) ([alarm_control_panel.totalconnect docs])
@@ -71,7 +74,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix typos and update link (fixes #13520) ([@fabaff] - [#13529])
 - Tradfri - unique_id's and color_temp support for rgb-bulbs ([@NovapaX] - [#13531]) ([light.tradfri docs])
 - Qwikswitch async refactor & sensor ([@kellerza] - [#13509]) ([qwikswitch docs]) ([light.qwikswitch docs]) ([sensor.qwikswitch docs]) ([switch.qwikswitch docs]) (new-platform)
-- Adds folder_watcher component ([@robmarkcole] - [#12918]) ([watchdog_file_watcher docs]) (new-platform)
+- Adds folder_watcher component ([@robmarkcole] - [#12918]) ([folder_watcher docs]) (new-platform)
 - Update rflink to 0.0.37 ([@olskar] - [#12603]) ([rflink docs])
 - Added file path validity checks to file sensor ([@FrederikBolding] - [#12505]) ([sensor.file docs])
 - Allow for overriding the DoorBird push notification URL in configuration ([@Klikini] - [#13268]) ([doorbird docs])
@@ -88,8 +91,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for Canary Flex ([@snjoetw] - [#13280]) ([canary docs]) ([sensor.canary docs])
 - Fixes #12758. Try other cameras even if one fails to initialize ([@PhracturedBlue] - [#13276]) ([amcrest docs])
 - Added HassOpenCover and HassCloseCover intents ([@tschmidty69] - [#13372]) ([conversation docs]) ([cover docs])
-- rfxtrx lib 0.22.0 ([@danielhiversen] - [#13576]) ([rfxtrx docs])
-- xiaomi lib upgrade ([@danielhiversen] - [#13577]) ([xiaomi_aqara docs])
+- rfxtrx lib 0.22.0 ([@Danielhiversen] - [#13576]) ([rfxtrx docs])
+- xiaomi lib upgrade ([@Danielhiversen] - [#13577]) ([xiaomi_aqara docs])
 - Remove MercedesME component ([@ReneNulschDE] - [#13538]) ([device_tracker docs]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([sensor.mercedesme docs]) (breaking change)
 - Added Waze travel time sensor ([@Myrddyn1] - [#12387]) ([sensor.waze_travel_time docs]) (new-platform)
 - Added switch component to Amcrest IP Camera. ([@adpriebe] - [#12992]) ([amcrest docs]) ([switch.amcrest docs]) (new-platform)
@@ -97,7 +100,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add mastodon ([@fabaff] - [#13441]) ([notify docs]) (new-platform)
 - Added support for requesting RSSI values from Bluetooth devices ([@FrederikBolding] - [#12458]) ([device_tracker.bluetooth_tracker docs])
 - Fix mysensors update callback ([@MartinHjelmare] - [#13602]) ([mysensors docs])
-- Broadlink ([@danielhiversen] - [#13585]) ([sensor.broadlink docs]) ([switch.broadlink docs])
+- Broadlink ([@Danielhiversen] - [#13585]) ([sensor.broadlink docs]) ([switch.broadlink docs])
 - Fix IMAP email message_data ([@zhaokoh] - [#13606]) ([sensor.imap_email_content docs])
 - Re-add group polling as a fallback for observation ([@lwis] - [#13613]) ([light.tradfri docs])
 - Unflake folder watcher test ([@balloob] - [#13569])
@@ -112,7 +115,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Xiaomi Mi WiFi Repeater 2 integration as device tracker ([@syssi] - [#13521])
 - Upgrade youtube_dl to 2018.04.03 ([@fabaff] - [#13647]) ([media_extractor docs])
 - Update plex.py ([@chronm] - [#13659]) ([sensor.plex docs])
-- Always enable config entries & remove config_entry_example ([@balloob] - [#13663]) ([config docs]) ([config_entry_example docs])
+- Always enable config entries & remove config_entry_example ([@balloob] - [#13663]) ([config docs])
 - Add missing service docs for hs_color ([@armills] - [#13667])
 - Add regex functions as templating helpers ([@mountainsandcode] - [#13631])
 - Channel up and down for webostv ([@stephanerosi] - [#13624]) ([media_player.webostv docs]) (breaking change)
@@ -129,7 +132,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix asuswrt ap mode failure ([@shuaiger] - [#13693]) ([device_tracker docs])
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
-- Add media type separation for video/movie ([@Tadly] - [#13612]) (breaking change)
+- Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
 - Adding configration to disable ip address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Send XY color for non-osram hue bulbs ([@armills] - [#13665]) ([light.hue docs])
@@ -137,8 +140,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enable autodiscovery for mqtt cameras ([@jmtatsch] - [#13697]) ([mqtt docs]) ([camera.mqtt docs])
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
 - Fix #10175 ([@pschmitt] - [#13713]) ([media_player.liveboxplaytv docs])
-- Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.aurora docs]) (new-platform)
+- Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 - Added gogogate2 cover ([@dlbroadfoot] - [#13467])
+- Remove vendor lookup for mac addresses ([@balloob] - [#13788]) ([device_tracker docs])
+- iglo hs color fix ([@armills] - [#13808]) ([light.iglo docs])
+- Fix too green color conversion ([@amelchio] - [#13828])
+- Rename from aurora light to nanoleaf_aurora ([@Oro] - [#13831]) ([light.nanoleaf_aurora docs])
+- Channel up/down for LiveTV and next/previous for other apps ([@stephanerosi] - [#13829]) ([media_player.webostv docs])
+- Add authentication to error log endpoint ([@balloob] - [#13836]) ([api docs])
 
 [#11187]: https://github.com/home-assistant/home-assistant/pull/11187
 [#12301]: https://github.com/home-assistant/home-assistant/pull/12301
@@ -234,9 +243,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#13702]: https://github.com/home-assistant/home-assistant/pull/13702
 [#13709]: https://github.com/home-assistant/home-assistant/pull/13709
 [#13713]: https://github.com/home-assistant/home-assistant/pull/13713
+[#13788]: https://github.com/home-assistant/home-assistant/pull/13788
+[#13808]: https://github.com/home-assistant/home-assistant/pull/13808
+[#13828]: https://github.com/home-assistant/home-assistant/pull/13828
+[#13829]: https://github.com/home-assistant/home-assistant/pull/13829
+[#13831]: https://github.com/home-assistant/home-assistant/pull/13831
+[#13836]: https://github.com/home-assistant/home-assistant/pull/13836
 [@5LICK]: https://github.com/5LICK
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
 [@DanNixon]: https://github.com/DanNixon
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@FrederikBolding]: https://github.com/FrederikBolding
 [@Kane610]: https://github.com/Kane610
 [@Klikini]: https://github.com/Klikini
@@ -250,7 +266,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@PlanetJ]: https://github.com/PlanetJ
 [@ReneNulschDE]: https://github.com/ReneNulschDE
 [@Skaronator]: https://github.com/Skaronator
-[@Tadly]: https://github.com/Tadly
 [@adpriebe]: https://github.com/adpriebe
 [@alandtse]: https://github.com/alandtse
 [@amelchio]: https://github.com/amelchio
@@ -262,7 +277,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cdce8p]: https://github.com/cdce8p
 [@chronm]: https://github.com/chronm
 [@colinodell]: https://github.com/colinodell
-[@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84
 [@dlbroadfoot]: https://github.com/dlbroadfoot
 [@fabaff]: https://github.com/fabaff
@@ -272,7 +286,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ikucuze]: https://github.com/ikucuze
 [@jmtatsch]: https://github.com/jmtatsch
 [@kellerza]: https://github.com/kellerza
-[@lindsaymarkwawrd]: https://github.com/lindsaymarkwawrd
+[@lindsaymarkward]: https://github.com/lindsaymarkward
 [@lwis]: https://github.com/lwis
 [@mf-social]: https://github.com/mf-social
 [@michaelarnauts]: https://github.com/michaelarnauts
@@ -288,6 +302,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@snjoetw]: https://github.com/snjoetw
 [@stephanerosi]: https://github.com/stephanerosi
 [@syssi]: https://github.com/syssi
+[@tadly]: https://github.com/tadly
 [@teharris1]: https://github.com/teharris1
 [@timmo001]: https://github.com/timmo001
 [@titilambert]: https://github.com/titilambert
@@ -301,6 +316,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
 [alexa docs]: /components/alexa/
 [amcrest docs]: /components/amcrest/
+[api docs]: /components/api/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
 [binary_sensor.mercedesme docs]: /components/binary_sensor.mercedesme/
 [binary_sensor.workday docs]: /components/binary_sensor.workday/
@@ -326,9 +342,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /components/hue/
 [insteon_plm docs]: /components/insteon_plm/
 [light docs]: /components/light/
-[light.aurora docs]: /components/light.aurora/
+[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
 [light.hue docs]: /components/light.hue/
+[light.iglo docs]: /components/light.iglo/
 [light.mystrom docs]: /components/light.mystrom/
+[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
 [light.qwikswitch docs]: /components/light.qwikswitch/
 [light.tradfri docs]: /components/light.tradfri/
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
@@ -373,6 +391,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tado docs]: /components/tado/
 [tahoma docs]: /components/tahoma/
 [tradfri docs]: /components/tradfri/
-[watchdog_file_watcher docs]: /components/watchdog_file_watcher/
+[folder_watcher docs]: /components/folder_watcher/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zwave docs]: /components/zwave/
+[ann-ubiquiti]: /blog/2018/04/12/ubiquiti-and-home-assistant/

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "folder watcher"
+title: "Folder Watcher"
 description: "Component for monitoring changes within the filesystem."
 date: 2018-03-11 14:00
 sidebar: true
@@ -32,7 +32,7 @@ folder:
 patterns:
   description: Pattern matching to apply
   required: false
-  default: "*" 
+  default: "*"
   type: string
 {% endconfiguration %}
 
