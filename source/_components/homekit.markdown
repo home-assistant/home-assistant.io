@@ -15,7 +15,7 @@ logo: apple-homekit.png
 The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they could be controlled from Apple `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
 
 <p class="note warning">
-  It might be necessary to install an additional package:  
+  It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
 </p>
 
@@ -154,7 +154,7 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added. 
+By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 {% raw %}
 ```yaml
@@ -184,7 +184,7 @@ Filters are applied as follows:
       - if both include and exclude domains specified, the exclude domains are ignored
    * Neither include or exclude domain specified
       - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored 
+      - if entity include and exclude, the entity exclude is ignored
 
 
 ## {% linkable_title Supported Components %}
