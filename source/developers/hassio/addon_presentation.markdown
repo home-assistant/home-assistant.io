@@ -47,3 +47,7 @@ A changelog is a file which contains a curated, chronologically ordered list of 
 If you are in need of a guide on keeping a changelog, we would recommend checking the [keep a changelog](http://keepachangelog.com) website. They have developed a standard that is used by many opensource projects around the world.
 
 In future versions of Hass.io, the `CHANGELOG.md` file will be displayed in the Home Assistant frontend.
+
+## {% linkable_title Extended Security %}
+
+You can use own security profile for you Add-on with Seccomp or AppArmor. Default it is enabled and use the docker default profile. Put `apparmor` or `seccomp.json` file into your Add-on folder and it will load this file as primary profile.

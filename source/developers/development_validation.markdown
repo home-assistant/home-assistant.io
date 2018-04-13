@@ -28,6 +28,7 @@ Some things to keep in mind:
 - Use the constants defined in `const.py`
 - Import `PLATFORM_SCHEMA` from the parent component and extend it
 - Preferred order is `required` first and `optional` second
+- Starting with Home Assistant 0.64 `voluptuous` requires default values for optional configuration keys to be valid values. Don't use a default which is `None` like `vol.Optional(CONF_SOMETHING, default=None): cv.string`, set the default to `default=""` if required.
 
 ### {% linkable_title Snippets %} 
 
