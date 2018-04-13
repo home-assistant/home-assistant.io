@@ -49,7 +49,7 @@ $ sudo apt-get install python3 python3-venv python3-pip
 ```
 
 Add an account for Home Assistant called `homeassistant`.
-Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout` adds the user to the `dialout` group - required for using Z-Wave and Zigbee controllers.
+Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout` adds the user to the `dialout` group. This is required for using Z-Wave and Zigbee controllers.
 
 ```bash
 $ sudo useradd -rm homeassistant -G dialout
