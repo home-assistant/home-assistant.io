@@ -95,7 +95,7 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this sensor.
+In this section, you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 
