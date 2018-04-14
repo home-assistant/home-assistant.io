@@ -17,9 +17,9 @@ ha_iot_class: "Local Push"
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to setup the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
-In case discovery does not work or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
+In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
