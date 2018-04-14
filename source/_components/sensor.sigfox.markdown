@@ -42,6 +42,6 @@ name:
 Note that `your_api_login` and `your_api_password` are your **API access credentials** which can be accessed by following:
 
 1. Log into [Sigfox backend](https://backend.sigfox.com)
-2. Select `GROUP`
-4. Select `API ACCESS`
-5. Click on `new` and create new access entry
+1. Select `GROUP`
+1. Select `API ACCESS`
+1. Click on `new` and create new access entry
