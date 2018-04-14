@@ -21,7 +21,7 @@ This platform will create a file named `google_maps_location_sharing.conf` where
 
 <p class='note warning'>
 Since this platform is using an official API with the help of [locationsharinglib](https://github.com/costastf/locationsharinglib), Google seems to block access to your data the first time you've logged in with this component.
-This issue can be fixed by logging in with your new account and approving your login on the [Device Activity](https://myaccount.google.com/device-activity) page.
+This issue can be fixed by logging in with your new account and approving your login on the [Device Activity](https://myaccount.google.com/device-activity) page. If you have 2-step verification turned on, you may need to generate an [App password](https://support.google.com/accounts/answer/185833) for your account.
 </p>
 
 To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
