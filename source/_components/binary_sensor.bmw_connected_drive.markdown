@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BMW Connected Drive Binary Sensor"
-description: "Instructions on how to setup your BMW connected drive account with Home Assistant."
+description: "Instructions on how to setup your BMW Connected Drive account with Home Assistant."
 date: 2018-02-22 23:00
 sidebar: true
 comments: false
