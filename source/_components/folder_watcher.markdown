@@ -19,6 +19,8 @@ This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system m
 * `modified`
 * `moved`
 
+Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+
 To enable the Folder Watcher component in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
