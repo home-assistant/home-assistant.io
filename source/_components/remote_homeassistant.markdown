@@ -22,7 +22,7 @@ The component keeps track which objects originate from which instance. Whenever 
 
 When the connection to the remote instance is lost, all previously published states are removed again from the local state registry.
 
-A possible use case for this is to be able to use different z-wave networks, on different z-wave sticks (with the second one possible running on another computer in a different location).
+A possible use case for this is to be able to use different Z-Wave networks, on different Z-Wave sticks (with the second one possible running on another computer in a different location).
 
 ## {% linkable_title Configuration %}
 
