@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](../light.homekit_controller)
 - [Switch](../switch.homekit_controller)
 
-The component will be automatically configured if the [`discovery:`](components/discovery/) component is enabled and an enable entry added for homekit:
+The component will be automatically configured if the [`discovery:`](components/discovery/) component is enabled and an enable entry added for HomeKit:
 
 ```yaml
 discovery:
