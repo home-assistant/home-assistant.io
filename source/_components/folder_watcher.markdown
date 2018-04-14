@@ -13,16 +13,17 @@ ha_iot_class: "Local Polling"
 ha_release: 0.67
 ---
 
-This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home-Assistant bus on the creation/deletion/modification of files.
+This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files.
 
-To configure the `folder_watcher` component add to you `configuration.yaml` file:
+To enable the Folder Watcher component in your installation, add the following to your `configuration.yaml` file:
 
-```yaml
 {% raw %}
+```yaml
 folder_watcher:
-  - folder: /config
-{% endraw %}
+  watchers:
+    - folder: /config
 ```
+{% endraw %}
 
 {% configuration %}
 folder:
@@ -40,28 +41,29 @@ patterns:
 
 Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns. The following example shows the configuration required to only monitor filetypes `.yaml` and `.txt`.
 
+{% raw %}
 ```yaml
-{% raw %}
 folder_watcher:
-  - folder: /config
-    patterns:
-      - '*.yaml'
-      - '*.txt'
-{% raw %}
+  watchers:
+    - folder: /config
+      patterns:
+        - '*.yaml'
+        - '*.txt'
 ```
+{% endraw %}
 
 ## Automations
 
-Automations can be triggered on filesystem event data using a data_template. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on filesystem event data using a `data_template`. The following automation will send a notification with the name and folder of new files added to that folder:
 
-```yaml
 {% raw %}
+```yaml
 - action:
   - data_template:
-      message: 'Created {{trigger.event.data.file}} in {{trigger.event.data.folder}}'
+      message: 'Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}'
       title: New image captured!
       data:
-        file: "{{trigger.event.data.path}}"
+        file: " {{ trigger.event.data.path }} "
     service: notify.pushbullet
   alias: New file alert
   condition: []
@@ -70,6 +72,5 @@ Automations can be triggered on filesystem event data using a data_template. The
   - event_data: {"event_type":"created"}
     event_type: folder_watcher
     platform: event
-{% endraw %}
 ```
-
+{% endraw %}
