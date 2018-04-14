@@ -31,7 +31,7 @@ import logging
 import voluptuous as vol
 
 # Import the device class from the component that you want to support
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA, SUPPORT_BRIGHTNESS
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
 import homeassistant.helpers.config_validation as cv
 
@@ -94,6 +94,15 @@ class AwesomeLight(Light):
         that brightness is not supported for this light.
         """
         return self._brightness
+    
+    @property
+    def supported_features(self):
+        """Flag supported features.
+        This method is optional. Removing it indicates to Home Assistant
+        that brightness is not supported for this light.
+        """
+        return SUPPORT_BRIGHTNESS
+
 
     @property
     def is_on(self):
