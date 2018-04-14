@@ -30,6 +30,10 @@ To use your TP-Link switch in your installation, add the following to your `conf
 switch:
   - platform: tplink
     host: IP_ADDRESS
+    name: switch
+  - platform: tplink
+    host: IP_ADDRESS
+    name: another switch
 ```
 
 {% configuration %}
