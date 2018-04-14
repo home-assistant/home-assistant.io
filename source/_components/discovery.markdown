@@ -23,6 +23,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DirecTV receivers](/components/media_player.directv/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
+ * [HomeKit](/components/homekit_controller/)
  * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
@@ -50,6 +51,8 @@ discovery:
   ignore:
     - sonos
     - samsung_tv
+  enable:
+    - homekit
 ```
 
 Configuration variables:
@@ -84,6 +87,12 @@ Valid values for ignore are:
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
+
+- **enable** (*Optional*): A list of platforms not enabled by default that `discovery` should discover.
+
+Valid values for enable are:
+
+ * `homekit`: HomeKit accessories
 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
