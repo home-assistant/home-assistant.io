@@ -26,8 +26,7 @@ To enable the Folder Watcher component in your installation, add the following t
 {% raw %}
 ```yaml
 folder_watcher:
-  watchers:
-    - folder: /config
+  - folder: /config
 ```
 {% endraw %}
 
@@ -50,11 +49,10 @@ Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.htm
 {% raw %}
 ```yaml
 folder_watcher:
-  watchers:
-    - folder: /config
-      patterns:
-        - '*.yaml'
-        - '*.txt'
+  - folder: /config
+    patterns:
+      - '*.yaml'
+      - '*.txt'
 ```
 {% endraw %}
 
