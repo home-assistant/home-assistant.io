@@ -47,7 +47,7 @@ folder_watcher:
     patterns:
       - '*.yaml'
       - '*.txt'
-{% raw %}
+{% endraw %}
 ```
 
 ## Automations
