@@ -20,7 +20,7 @@ You first need to create an additional Google account and share your location wi
 This platform will create a file named `google_maps_location_sharing.conf` where it caches your login session.
 
 <p class='note warning'>
-Since this platform is using an official API with the help of [locationsharinglib](https://github.com/costastf/locationsharinglib), Google seems to block access to your data the first time you've logged in with this component.
+Since this platform is using an unofficial API with the help of [locationsharinglib](https://github.com/costastf/locationsharinglib), Google seems to block access to your data the first time you've logged in with this component.
 This issue can be fixed by logging in with your new account and approving your login on the [Device Activity](https://myaccount.google.com/device-activity) page.
 </p>
 
