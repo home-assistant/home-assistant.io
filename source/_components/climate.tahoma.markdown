@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Climate
-ha_release: 0.67
+ha_release: 0.68
 ---
 
 The `tahoma` climate platform lets you see heat pump derogation added to your Tahoma Box in Home Assistant. This component is a part of the Heat Pump Pack device for electrical consumption monitoring.
