@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "BMW connected drive"
+title: "BMW Connected Drive Lock"
 description: "Instructions on how to setup your BMW connected drive account with Home Assistant."
 date: 2018-02-22 23:00
 sidebar: true
