@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "BMW connected drive"
+title: "BMW Connected Drive Device Tracker"
 description: "Instructions on how to setup your BMW connected drive account with Home Assistant."
 date: 2018-01-10 23:00
 sidebar: true
