@@ -15,9 +15,12 @@ ha_iot_class: "Cloud Polling"
 
 The `bom` weather platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
 
+## {% linkable_title Configuration %}
+
 To add the BOM weather platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 weather:
   - platform: bom
 ```
