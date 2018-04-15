@@ -15,7 +15,7 @@ Home Assistant currently supports free web services and such which require a reg
 
 ## {% linkable_title Condition mapping %}
 
-The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available.
+The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available and mapped in the [frontend](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/cards/ha-weather-card.html#L77).
 
 - 'cloudy'
 - 'fog'
