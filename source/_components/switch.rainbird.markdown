@@ -19,16 +19,18 @@ Once you have enabled the [Rain Bird component](/components/rainbird), add the f
 
 ```yaml
 switch:
-    sprinkler_1:
-      zone: 1
-      friendly_name: "Front sprinklers"
-      trigger_time: 20
-      scan_interval: 10
-    sprinkler_2:
-      friendly_name: "Back sprinklers"
-      zone: 2
-      trigger_time: 20
-      scan_interval: 10
+  - platform: rainbird
+    switches:
+      sprinkler_1:
+        zone: 1
+        friendly_name: "Front sprinklers"
+        trigger_time: 10
+        scan_interval: 10
+      sprinkler_2:
+        friendly_name: "Back sprinklers"
+        zone: 2
+        trigger_time: 20
+        scan_interval: 10
 ```
 
 Configuration variables:
