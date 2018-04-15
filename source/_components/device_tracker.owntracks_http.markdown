@@ -35,8 +35,9 @@ Open OwnTracks and go to Connection preferences:
  
 Host example: If I host my Home Assistant at `https://example.duckdns.org`, my name is Paulus and my phone is a Pixel I would set the host to be `https://example.duckdns.org/api/owntracks/paulus/pixel`. This will result in an entity with an ID of `device_tracker.paulus_pixel`. You can pick any name for the user and the device.
 
-Since the battery data is available as an attribute of the device tracker entity, it can be tracked with a Template Sensor.
+Since the battery data is available as an attribute of the device tracker entity, it can be tracked with a [`template` sensor](/components/sensor.template/).
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -59,4 +60,4 @@ sensor:
         entity_id: 
         - device_tracker.paulus_pixel
 ```
-
+{% endraw %}
