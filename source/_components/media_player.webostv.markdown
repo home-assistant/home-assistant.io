@@ -96,3 +96,10 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 *Sources*
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+
+
+*Next/Previous buttons*
+
+The behaviour of the next and previsous buttons is different depending on the active source:
+ - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
+ - otherwise: next/previsous buttons act as next/previous track
