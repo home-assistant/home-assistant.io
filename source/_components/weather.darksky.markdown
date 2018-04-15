@@ -14,17 +14,14 @@ ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
-The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as
-a source for meteorological data for your location.
+The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location.
 
-You need an API key which is free but requires
-[registration](https://darksky.net/dev/register). The free tier allows up to
-1000 calls per day, this platform updates at most every 3 minutes, using up to
-480 of those calls.
+## {% linkable_title Configuration %}
+
+You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
 
 <p class='note warning'>
-[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you
-enter your credit card details and create more than 1000 calls per day.
+[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
