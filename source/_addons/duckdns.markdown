@@ -26,10 +26,10 @@ featured: true
 
 Configuration variables:
 
+- **lets_encrypt.accept_terms** (*Optional*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate & update Let's Enrypt certificates for your DuckDNS domain.
 - **token** (*Required*): Your Duck DNS API key.
 - **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Optional*): Seconds between updates to Duck DNS.
-- **lets_encrypt.accept_terms** (*Optional*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate & update Let's Enrypt certificates for your DuckDNS domain.
 
 [le]: https://letsencrypt.org/repository/
 
