@@ -44,11 +44,12 @@ You can create an automation that triggers on event `doorbird_doorbell` to play 
 
 #### Example using SONOS
 
-[`SONOS`](http://www.sonos.com) players have features allowing for "snapshotting" the current state of some or all players so those state(s) can be "restored" at a later time. This feature is perfect for implementing a doorbell sound (from Doorbird or any other Doorbell setup for that matter). The [`media_player.sonos`](/components/media_player.sonos/) platform includes the [`SONOS_SNAPSHOT`](/components/media_player.sonos/#service-sonos_snapshot) and [`SONOS_RESTORE`](/components/media_player.sonos/#service-sonos_restore) features. The result of not using these features is any currently playing songs or media will not continue playing after the doorbell sound has played and you will be left with the doorbell sound queued as the last played song. This setup allows for seamless ringing of the doorbell and all SONOS devices continuing nicely on as if nothing had happerned.
+[`SONOS`](http://www.sonos.com) players have features allowing for "snapshotting" the current state of some or all players so those state(s) can be "restored" at a later time. This feature is perfect for implementing a doorbell sound (from Doorbird or any other Doorbell setup for that matter). The [`media_player.sonos`](/components/media_player.sonos/) platform includes the [`SONOS_SNAPSHOT`](/components/media_player.sonos/#service-sonos_snapshot) and [`SONOS_RESTORE`](/components/media_player.sonos/#service-sonos_restore) features. The result of not using these features is any currently playing songs or media will not continue playing after the doorbell sound has played and you will be left with the doorbell sound queued as the last played song. This setup allows for seamless ringing of the doorbell and all SONOS devices continuing nicely on as if nothing had happened.
 
-The example script below takes a snapshot of three SONOS players that are not currently grouped together, joins the three players in a group (so the sound plays at the same time on all players), plays the doorbell MP3 sound, unjoins the players from the group and finally restores the players to their original state. When the players are grouped they are controlled by refering to the `master`
+The example script below takes a snapshot of three SONOS players that are not currently grouped together, joins the three players in a group (so the sound plays at the same time on all players), plays the doorbell MP3 sound, unjoins the players from the group and finally restores the players to their original state. When the players are grouped they are controlled by refering to the `master`.
 
 Automation file:
+
 ```yaml
 - alias: Doorbird ring
   trigger:
@@ -60,6 +61,7 @@ Automation file:
 ```
 
 Script file:
+
 ```yaml
 doorbell:
   alias: Ring Doorbell
