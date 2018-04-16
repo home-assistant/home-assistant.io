@@ -20,13 +20,14 @@ featured: true
     "keyfile": "privkey.pem"
   },
   "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["my-domain.duckdns.org"]
+  "domains": ["my-domain.duckdns.org"],
+  "seconds": 300
 }
 ```
 
 Configuration variables:
 
-- **lets_encrypt.accept_terms** (*Optional*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate and update Let's Enrypt certificates for your DuckDNS domain.
+- **lets_encrypt.accept_terms** (*Required*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate and update Let's Enrypt certificates for your DuckDNS domain.
 - **token** (*Required*): Your Duck DNS API key.
 - **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Required*): Seconds between updates to Duck DNS.
