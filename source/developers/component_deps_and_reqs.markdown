@@ -41,3 +41,12 @@ If you need to make changes to a requirement to support your component, it's als
 * `git clone https://github.com/balloob/pychromecast.git`
 * `pip install ./pychromecast`
 * `hass --skip-pip`
+
+You can also to point to a hosted package in the form of a zip-file as a requirement. GitHub provides zip-files for a specific branch, release or even a specific commit. To do that the string in `REQUIREMENTS` needs to be composed of two parts:
+* an URL pointing to the zip-file (e.g. https://github.com/my/repo/archive/branch-x.zip) a
+* a hashtag and pip-string (as described above) to declare what package and version that zipfile contains.
+
+For example, the Neato robot vacuum components specifies the v.0.0.5 release on GitHub as a requirement that gets installed as pybotvac version 0.0.5 (`pybotvac==0.0.5`)
+```python
+REQUIREMENTS = ['https://github.com/jabesq/pybotvac/archive/v0.0.5.zip'#pybotvac==0.0.5']
+```
