@@ -96,3 +96,27 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 *Sources*
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+
+### {% linkable_title Change channel through play_media service %}
+
+The `play_media` service can be used in a script to switch to the specified tv channel.
+It selects the best matching cannel according to the `media_content_id` parameter:
+ 1. Channel number *(i.e. '1' or '6')*
+ 2. Exact channel name *(i.e. 'France 2' or 'CNN')*
+ 3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
+ 
+```yaml
+# Example action entry in script to switch to channel number 1
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: 1
+  media_content_type: "channel"
+
+# Example action entry in script to switch to channel including 'TF1' in its name
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: "TF1"
+  media_content_type: "channel"
+```
