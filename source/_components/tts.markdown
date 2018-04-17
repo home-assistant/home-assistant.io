@@ -88,3 +88,33 @@ data_template:
 ## {% linkable_title Cache %}
 
 The component has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
+
+## {% linkable_title REST Api %}
+
+#### {% linkable_title POST /api/tts_get_url %}
+
+Returns an URL to the generated TTS file. Platform and message are required.
+
+```json
+{
+    "plaform": "amazon_polly",
+    "message": "I am speaking now"
+}
+```
+
+The return code is 200 if the file is generated. The message body will contain a JSON object with the URL.
+
+```json
+{
+    "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3"
+}
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
+       http://localhost:8123/api/tts_get_url
+```
