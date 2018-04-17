@@ -93,7 +93,7 @@ The component has two caches. Both caches can be controlled with the `cache` opt
 
 #### {% linkable_title POST /api/tts_get_url %}
 
-Returns a url to the generated TTS file. Platform and message are required
+Returns an URL to the generated TTS file. Platform and message are required.
 
 ```json
 {
@@ -102,7 +102,7 @@ Returns a url to the generated TTS file. Platform and message are required
 }
 ```
 
-The return code is 200 if the file is generated. The message body will contain a json object with the url.
+The return code is 200 if the file is generated. The message body will contain a JSON object with the URL.
 
 ```json
 {
