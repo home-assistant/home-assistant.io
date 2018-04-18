@@ -13,6 +13,12 @@ ha_release: 0.52
 ha_iot_class: "Cloud Polling"
 ---
 
+# DO NOT USE
+See these issues and posts before using, USPS has been blocking users from ALL of USPS due to webscraping abuse:
+https://community.home-assistant.io/t/do-not-use-usps-component/49357?u=coolie1101
+https://github.com/home-assistant/home-assistant/issues/13688
+
+
 The `usps` platform allows one to track deliveries and inbound mail from the [US Postal Service (USPS)](https://www.usps.com/).
 In addition to having a USPS account, you will need to complete the "Opt-In" process for packages by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). You must also "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see inbound mail.
 
