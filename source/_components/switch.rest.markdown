@@ -66,6 +66,10 @@ password:
   description: The password for accessing the REST endpoint.
   required: false
   type: string
+headers:
+  description: The headers for the request.
+  required: false
+  type: list, string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -82,13 +86,17 @@ This example shows a switch that uses a [template](/topics/templating/) to allow
 {"is_active": "true"}
 ```
 
+{% raw %}
 ```yaml
 switch:
   - platform: rest
     resource: http://IP_ADDRESS/led_endpoint
     body_on: '{"active": "true"}'
     body_off: '{"active": "false"}'
-    is_on_template: '{% raw %}{{value_json.is_active}}{% endraw %}'
+    is_on_template: '{{value_json.is_active}}'
+    headers:
+      Content-Type: application/json
 ```
+{% endraw %}
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'{% endraw %}`.
