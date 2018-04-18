@@ -198,7 +198,8 @@ The following components are currently supported:
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
-| cover | WindowCovering | All covers that support `open_cover`, `close_cover`, optionally (`stop_cover`). Value Mapping with `stop_cover`: `<30`: `close_cover`, `>70`: `open_cover`, `else`: `stop_cover`. Value mapping without `stop_cover`: `>=50`: `open_cover`, `else`: `close_cover` |
+| cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
+| cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
