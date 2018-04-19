@@ -15,19 +15,16 @@ ha_iot_class: "Cloud Push"
 
 <p class='note'>The Home Assistant Cloud is currently free and will become part of the upcoming Community Support Package. [Learn more](/blog/2017/12/17/introducing-home-assistant-cloud/)</p>
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa.
-
-The following integrations are currently available:
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services. The following integrations are currently available:
 
  - [Amazon Alexa (Amazon Echo)](/cloud/alexa/)
-
-<!-- - [Google Assistant (Google Home)](/cloud/google_assistant/) -->
+ - [Google Assistant (Google Home)](/cloud/google_assistant/)
 
 ### {% linkable_title How does it work? %}
 
 The Home Assistant Cloud has been designed with security in mind. When you activate the Cloud component, your instance will create a secure connection to the Home Assistant Cloud. There is no need for any further configuration or to expose your instance to the internet.
 
-Integrations like Alexa will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back to Alexa. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
+Integrations like Alexa or Google will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
 
 You can find a list of frequently asked questions (and their answers) in [this blog post](/blog/2017/12/17/introducing-home-assistant-cloud/#faq).
 

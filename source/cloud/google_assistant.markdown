@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-published: false
 ---
 
 The Google Assistant integration allows users to control the entities via the Home Assistant Smart Home skill for Google Assistant. This means that you can say things like "Ok Google, turn on the kitchen light" to control your local Home Assistant.
