@@ -52,5 +52,5 @@ Note: components included in home-assisstant should point to published pypi pack
 
 For example, the Neato robot vacuum components specifies the v.0.0.5 release on GitHub as a requirement that gets installed as pybotvac version 0.0.5 (`pybotvac==0.0.5`)
 ```python
-REQUIREMENTS = ['https://github.com/jabesq/pybotvac/archive/v0.0.5.zip'#pybotvac==0.0.5']
+REQUIREMENTS = ['https://github.com/jabesq/pybotvac/archive/v0.0.5.zip#pybotvac==0.0.5']
 ```
