@@ -20,10 +20,16 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
-  host: DOORBIRD_IP_OR_HOSTNAME
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  hass_url_override: HASS_IP
+  - host: DOORBIRD_IP_OR_HOSTNAME
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    hass_url_override: HASS_IP
+    name: Front Door
+  - host: DOORBIRD_IP_OR_HOSTNAME
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    hass_url_override: HASS_IP
+    name: Driveway Gate
 ```
 
 Configuration variables:
@@ -31,6 +37,7 @@ Configuration variables:
 - **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
 - **username** (*Required*): The username of a non-administrator user account on the device.
 - **password** (*Required*): The password for the user specified.
+- **name** (*Optional*): Custom name for this device.
 - **doorbell_events** (*Optional*): Setting this to `true` this will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
 - **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
 
@@ -38,9 +45,11 @@ Configuration variables:
 Enabling `doorbell_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
 
-### Doorbell Sound Examples
+### Using Doorbell Events
 
-You can create an automation that triggers on event `doorbird_doorbell` to play a doorbell sound when the Doorbird button is pressed. This should work with any media player.
+Enabling `doorbell_events` will allow you to respond to events from each device independently.  Each device is assigned an event identifier based on the order they appear in your config file.
+
+For the config example above with 2 devices, the identifiers would be `doorbird_1_doorbell` for the Front Door device and `doorbird_2_doorbell` for the Driveway Gate device. See below for an example of how to use an event identifier in an automation.
 
 #### Example using SONOS
 
@@ -54,7 +63,7 @@ Automation file:
 - alias: Doorbird ring
   trigger:
     platform: event
-    event_type: doorbird_doorbell
+    event_type: doorbird_1_doorbell
   action:
     service: script.turn_on
       entity_id: script.doorbell
