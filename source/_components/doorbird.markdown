@@ -20,19 +20,20 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
-  - host: DOORBIRD_IP_OR_HOSTNAME
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    hass_url_override: HASS_IP
-    name: Front Door
-  - host: DOORBIRD_IP_OR_HOSTNAME
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    hass_url_override: HASS_IP
-    name: Driveway Gate
+  devices:
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      hass_url_override: HASS_IP
+      name: Front Door
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      hass_url_override: HASS_IP
+      name: Driveway Gate
 ```
 
-Configuration variables:
+Device Configuration Variables:
 
 - **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
 - **username** (*Required*): The username of a non-administrator user account on the device.
