@@ -48,4 +48,12 @@ name:
   required: false
   default: "Waze Travel Time"
   type: string
+inc_filter:
+  description: A substring that has to be present in the description of the selected route (a simple case-insensitive matching).
+  required: false
+  type: string
+excl_filter:
+  description: A substring that has to be NOT present in the description of the selected route (a simple case-insensitive matching).
+  required: false
+  type: string
 {% endconfiguration %}
