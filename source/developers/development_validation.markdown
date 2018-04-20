@@ -21,7 +21,7 @@ Besides [voluptuous](https://pypi.python.org/pypi/voluptuous) default types, man
 - Time: `time`, `time_zone`
 - Misc: `template`, `slug`, `temperature_unit`, `latitude`, `longitude`, `isfile`, `sun_event`, `ensure_list`, `port`, `url`,  and `icon`
  
-To validate plaforms using [MQTT](/components/mqtt/), `valid_subscribe_topic` and `valid_publish_topic` are available.
+To validate platforms using [MQTT](/components/mqtt/), `valid_subscribe_topic` and `valid_publish_topic` are available.
 
 Some things to keep in mind:
 

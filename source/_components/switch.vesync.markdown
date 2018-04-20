@@ -45,7 +45,3 @@ VeSync switches will expose the following details.
 | ------------------- | ------------------------------------------------------------------- | --------------- |
 | `current_power_w`   | The present power consumption of the switch in watts.               | 100             |
 | `today_energy_kwh`  | The kilowatt hours used by the switch during the previous 24 hours. | 0.12            |
-| `connection_status` | The connection status of the switch.                                | online          |
-| `connection_type`   | The connection type of the switch.                                  | wifi            |
-| `device_type`       | The device type of the switch.                                      | wifi-switch-1.3 |
-| `model`             | The model of the switch.                                            | wifi-switch     |
