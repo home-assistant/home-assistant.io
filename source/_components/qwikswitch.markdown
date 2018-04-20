@@ -60,16 +60,19 @@ On some QS Mobile servers button events are only generated for switches added to
 
 ### {% linkable_title Qwikswitch Sensors %}
 
-The sensor configuration is a list of sensors. Each sensor is configured with the following parameters:
+The sensor configuration is a list of sensors. Depending on the type, it will be a sensor or binary_sensor. Each sensor is configured with the following parameters:
 
 - **name** (*Required*): The sensor name from which the entity_id will be derived.
 - **id** (*Required*): A QS_Id
 - **type** (*Required*): The Qwikswitch sensor type. These could include:
-   - imod (up to 6 channels)
-   - door (single channel)
-   - qwikcord (Channel1 = CTavg, Channel 2 = CTsum)
+   - imod (binary_sensor, up to 6 channels)
+   - door (binary_sensor, single channel)
+   - qwikcord (Channel 1 = CTavg, Channel 2 = CTsum)
 - **channel** (*Optional, default=1*): The channel of interest. Refer to type above.
 
+The following parameters are only applicabe to binary_sensors (i.e. door/imod).
+- **invert** (*Optional, default=False): Invert the open/close state. 
+- **class** (*Optional, default=door): The [class](https://www.home-assistant.io/components/binary_sensor) or binary_sensor.
 
 Example sensor configuration:
 
