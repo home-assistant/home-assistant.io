@@ -87,7 +87,7 @@ To enable the `HomeKit` component in Home Assistant, add the following to your c
 homekit:
 ```
 
-After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if the are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if they are [supported](#supported-components). To add them:
 1. Open the Home Assistant frontend. A new card will display the `pin code`.
 1. Open the `Home` app.
 2. Choose `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and enter the `pin code`.
