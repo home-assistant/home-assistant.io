@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HomeKit Switch"
-description: "Instructions how to setup HomeKit switches within Home Assistant."
+description: "Instructions on how to setup HomeKit switches within Home Assistant."
 date: 2017-03-19 21:08
 sidebar: true
 comments: false
