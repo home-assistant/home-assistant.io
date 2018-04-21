@@ -23,10 +23,12 @@ This platform supports on/off, brightness, RGB colors, XY colors, color temperat
   "color_temp": 155,
   "color": {
     "r": 255,
-    "g": 255,
-    "b": 255,
-    "x": 0.123,
-    "y": 0.123
+    "g": 180,
+    "b": 200,
+    "x": 0.406,
+    "y": 0.301,
+    "h": 344.0,
+    "s": 29.412
   },
   "effect": "colorloop",
   "state": "ON",
@@ -126,6 +128,11 @@ xy:
   required: false
   type: boolean
   default: false
+hs:
+  description: Flag that defines if the light supports HS colors.
+  required: false
+  type: boolean
+  default: false
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -161,6 +168,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
