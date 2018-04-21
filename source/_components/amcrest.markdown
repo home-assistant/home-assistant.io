@@ -46,7 +46,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of your camera. If using a hostname, make sure the DNS works as expected.
 - **username** (*Required*): The username for accessing your camera.
 - **password** (*Required*): The password for accessing your camera.
-- **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
+- **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera". In the case of multi-camera setups this is highly recommended as camera id number will be randomly changed at each reboot if name is not allocated.
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
 - **resolution** (*Optional*): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option `high`. For VGA resolution (640x480p), specify the option `low`. If omitted, it defaults to *high*.
 - **stream_source** (*Optional*): The data source for the live stream. `mjpeg` will use the camera's native MJPEG stream, whereas `snapshot` will use the camera's snapshot API to create a stream from still images. You can also set the `rtsp` option to generate the streaming via RTSP protocol. If omitted, it defaults to *snapshot*.
