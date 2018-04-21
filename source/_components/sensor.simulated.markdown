@@ -81,6 +81,11 @@ spread:
   required: false
   default: None
   type: float
+relative_to_epoch:
+  description: Whether to simulate from epoch time (00:00:00, 1970-01-01), or relative to when the sensor was started.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
@@ -96,4 +101,5 @@ sensor:
     mean: 50
     spread: 10
     seed: 999
+    relative_to_epoch: false
 ```
