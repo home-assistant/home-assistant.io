@@ -25,7 +25,6 @@ switch:
 
 Configuration variables:
 
-- **watering_minutes** (*Optional*): Value in minutes to watering your garden via frontend. Defaults to 15.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.
   - **auto_watering**: Toggle the watering scheduled per zone.
   - **manual_watering**: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
