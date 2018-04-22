@@ -8,7 +8,7 @@ author: Home Assistant
 author_twitter: home_assistant
 comments: true
 categories: Announcements
-og_image: /images/blog/2018-04-22-hassio-2018/blogpost.png
+og_image: /images/blog/2018-04-hassio-2018/blogpost.png
 ---
 
 TL;DR: We noticed that there is some confusion in the community about how Hass.io relates to Home Assistant and what impact the upcoming Hass.io changes will have. We will try to clarify it all in this blog post.
