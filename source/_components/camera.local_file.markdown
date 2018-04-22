@@ -35,3 +35,10 @@ Configuration variables:
 The given `file_path` must be an existing file because the camera platform setup make a readable check on it.
 </p>
 
+### {% linkable_title Service `camera.update_file_path` %}
+
+Use this service to change the file displayed by the camera.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `file_path` | The full path to the new image file to be displayed.
