@@ -14,7 +14,7 @@ og_image: /images/blog/2018-04-hassio-2018/blogpost.png
 We noticed that there is some confusion in the community about how Hass.io relates to Home Assistant and what impact the upcoming Hass.io changes will have. We will try to clarify it all in this blog post.
 
 ## {% linkable_title What is Hass.io %}
-Hass.io is a complete solution to run Home Assistant, by the authors of Home Assistant. The goal of Hass.io is to provide an easy to use and secure system, entirely managed from within the Home Assistant user interface. 
+Hass.io is a complete solution to run Home Assistant, by the authors of Home Assistant. The goal of Hass.io is to provide an easy to use and secure system, entirely managed from within the Home Assistant user interface.
 
 Hass.io is a complete solution, which means that it comes with its own highly secure and optimized operating system, a supervisor application to maintain and configure that system, and of course Home Assistant itself.
 
@@ -34,14 +34,14 @@ Home Assistant has recently introduced configuration entries. We’re going to h
 To control the host system, we currently use a custom service called HostControl. This allows the user to manage here host and restart/shutdown the computer from within Home Assistant. Instead of relying on our own system, we’re going to change to use D-Bus. D-Bus is a standardized mechanism for services and applications to communicate. Using a defined standard means that all parts of the host can now be remotely configured: sound, network, etc, etc. We will be extending the Hass.io panel in Home Assistant with controls to configure various parts of the host.
 
 ### {% linkable_title Hass.io OS %}
-Hass.io is currently using a forked version of ResinOS as our operating system. ResinOS has been designed to run a minimal environment for Docker, simple over the air updates and connect to the ResinIO cloud. Our fork removed the ResinIO logic. Over time, ResinOS has been evolving but not in a direction that is aligned with our goals, resulting in the maintenance of our fork to take up a lot of time. 
+Hass.io is currently using a forked version of ResinOS as our operating system. ResinOS has been designed to run a minimal environment for Docker, simple over the air updates and connect to the ResinIO cloud. Our fork removed the ResinIO logic. Over time, ResinOS has been evolving but not in a direction that is aligned with our goals, resulting in the maintenance of our fork to take up a lot of time.
 
 The ResinOS build system is based on the Yocto Project. This is a very powerful system, but also requires specific support for each hardware platform need to be specifically added and maintained (like each version of Raspberry Pi), which caused long build and development times for Hass.io.
 
 All these factors made us decide to build our own, custom, operating system. We’re obviously not starting from scratch, but instead, are basing it off [Buildroot] as the foundation and use [RAUC] for over the air updates.
 
 Some things that the new operating system will be able to do:
-- Adding support for new hardware will be easy. Creating new builds for, e.g., a new Raspberry Pi model should be a matter of days, not months.
+- Easier to add support for new hardware.
 - Updating will be atomic and has a Fail-safe. If a system fails to boot after an OS upgrade, it will fallback, by booting the previous working version.
 - Updates are required to be securely signed by the Home Assistant team, adding a whole new level of security.
 - Compressing the root file system, making it faster on SD cards and slow IO-Interfaces.
