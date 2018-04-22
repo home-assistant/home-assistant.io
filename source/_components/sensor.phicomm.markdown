@@ -7,32 +7,43 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: https://cdn-mall.phicomm.com/themes/pc/feixun/images/logo.png
+logo: phicomm.png
 ha_category: Sensor
-ha_release: 0.67
-ha_iot_class: "Local Polling"
+ha_release: 0.68
+ha_iot_class: "Cloud Polling"
 ---
 
 
 The `phicomm` sensor platform let you monitor data from an Phicomm M1 air sensor.
 
-To enable it, add the following lines to your `configuration.yaml`:
+To configure the `phicomm` component add to you `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+{% raw %}
 sensors:
   - platform: phicomm
-    name: Phicomm
     username: ********
     password: ********
-    devices: 1
-    sensors: [pm25, hcho, temperature, humidity]
+{% endraw %}
 ```
 
-Configuration options:
-
-- **username** (*Required*): Phicomm account username.
-- **password** (*Required*):  Phicomm account password.
-- **name** (*Optional*): Default BL. Sensor name
-- **devices** (*Optional*): Default 1. Number of M1 devices in this account.
-- **sensors** (*Optional*): Default `[pm25, hcho, temperature, humidity]`. Monitored sensor type.
+{% configuration %}
+name:
+  description: Sensor name
+  required: false
+  default: "Phicomm"
+  type: string
+username:
+  description: Phicomm account username
+  required: true
+  type: string
+password:
+  description: Phicomm account password
+  required: true
+  type: string
+name:
+  description: Sensor name
+  required: false
+  default: ["pm25", "hcho", "temperature", "humidity"]
+  type: string
+{% endconfiguration %}
