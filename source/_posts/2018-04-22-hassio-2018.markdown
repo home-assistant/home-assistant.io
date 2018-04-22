@@ -38,7 +38,7 @@ Hass.io is currently using a forked version of ResinOS as our operating system. 
 
 The ResinOS build system is based on the Yocto Project. This is a very powerful system, but also requires specific support for each hardware platform need to be specifically added and maintained (like each version of Raspberry Pi), which caused long build and development times for Hass.io.
 
-All these factors made us decide to build our own, custom, operating system. We’re obviously not starting from scratch, but instead, are basing it off Buildroot as the foundation and use RAUC for over the air updates.
+All these factors made us decide to build our own, custom, operating system. We’re obviously not starting from scratch, but instead, are basing it off [Buildroot] as the foundation and use [RAUC] for over the air updates.
 
 Some things that the new operating system will be able to do:
 - Adding support for new hardware will be easy. Creating new builds for, e.g., a new Raspberry Pi model should be a matter of days, not months.
@@ -57,3 +57,6 @@ Once our new installation images with HassioOS are released, you have to reflash
 - Flash the SD card with the new Hass.io OS image.
 - Restore your snapshot.
 - Enjoy a new and improved Hass.io
+
+[Buildroot]: https://buildroot.org/
+[RAUC]: https://www.rauc.io/
