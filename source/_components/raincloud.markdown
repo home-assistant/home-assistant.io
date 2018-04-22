@@ -32,6 +32,10 @@ password:
   description: The password for accessing your Melnor RainCloud account.
   required: true
   type: string
+watering_minutes:
+  description: Value in minutes to watering your garden via frontend. Defaults to 15.
+  required: false
+  type: number
 {% endconfiguration %}
 
 Finish its configuration by visiting the [Raincloud binary sensor](/components/binary_sensor.raincloud/), [Raincloud sensor](/components/sensor.raincloud/) and [Raincloud switch](/components/switch.raincloud/) documentation.
