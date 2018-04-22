@@ -23,7 +23,7 @@ When using Hass.io, you'll see a new Hass.io panel inside the Home Assistant UI.
 We wanted to be able to provide the convenience of seamless updates and configuration via the UI to other applications too, and so we introduced Hass.io add-ons. Any application can be packaged up as a Hass.io add-on, allowing any user to install and manage it easily. Since the introduction, we’ve seen an amazing growth in users sharing their add-ons with the community. It’s now possible to install an adblocker for your network, an MQTT broker or Tor with a single click.
 
 ## {% linkable_title Upcoming changes to Hass.io %}
-We’ve introduced Hass.io last July. Since then, we’ve noticed some room for improvements in making Hass.io easier to use, lighter to maintain and easier to integrate with other host systems.
+We’ve introduced Hass.io [last July]. Since then, we’ve noticed some room for improvements in making Hass.io easier to use, lighter to maintain and easier to integrate with other host systems.
 
 Note that the descriptions of upcoming improvements can get quite technical. Feel free to jump to the conclusion.
 
@@ -58,5 +58,6 @@ Once our new installation images with HassioOS are released, you have to reflash
 - Restore your snapshot.
 - Enjoy a new and improved Hass.io
 
+[last July]: https://www.home-assistant.io/blog/2017/07/25/introducing-hassio/
 [Buildroot]: https://buildroot.org/
 [RAUC]: https://www.rauc.io/
