@@ -33,9 +33,8 @@ zone:
   description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are 1, 2, 3, 4, 5 and 6.
   required: exclusive
 type:
-  description: The [binary sensor](/components/binary_sensor/) class.
-  required: false 
-  default: motion
+  description: Any [binary sensor](/components/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
+  required: true 
 name: 
   description: The name of the device used in the front end.
   required: false
