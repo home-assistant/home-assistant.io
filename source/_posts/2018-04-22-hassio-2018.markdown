@@ -4,14 +4,14 @@ title: "Hass.io 2018"
 description: "We noticed that there is some confusion in the community about how Hass.io relates to Home Assistant and what impact the upcoming Hass.io changes will have. We will try to clarify it all in this blog post."
 date: 2018-04-22 00:00:00
 date_formatted: "April 22, 2018"
-author: Home Assistant
-author_twitter: home_assistant
+author: Pascal Vizeli
+author_twitter: pvizeli
 comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-hassio-2018/blogpost.png
 ---
 
-TL;DR: We noticed that there is some confusion in the community about how Hass.io relates to Home Assistant and what impact the upcoming Hass.io changes will have. We will try to clarify it all in this blog post.
+We noticed that there is some confusion in the community about how Hass.io relates to Home Assistant and what impact the upcoming Hass.io changes will have. We will try to clarify it all in this blog post.
 
 ## {% linkable_title What is Hass.io %}
 Hass.io is a complete solution to run Home Assistant, by the authors of Home Assistant. The goal of Hass.io is to provide an easy to use and secure system, entirely managed from within the Home Assistant user interface. 
