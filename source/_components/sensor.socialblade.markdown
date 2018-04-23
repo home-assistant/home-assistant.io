@@ -40,4 +40,4 @@ channel_id:
   type: string
 {% endconfiguration %}
 
-All the data will be fetch from  [USCIS]( https://socialblade.com/) using an [unofficial Social Blade Client]( https://pypi.org/project/socialbladeclient/). 
+All the data will be fetch from  [Social Blade]( https://socialblade.com/) using an [unofficial Social Blade Client]( https://pypi.org/project/socialbladeclient/). 
