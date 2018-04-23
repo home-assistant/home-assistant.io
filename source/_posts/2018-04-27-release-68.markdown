@@ -18,7 +18,7 @@ Highlights:
 - Ability to _control_ HomeKit
 - Eufy bulbs
 
-## New Platforms
+## {% linkable_title New Platforms %}
 
 - Add support for Eufy bulbs and switches ([@mjg59] - [#13773]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs]) (new-platform)
 - Add support for controlling homekit lights and switches ([@mjg59] - [#13346]) ([homekit_controller docs]) ([light.homekit_controller docs]) (new-platform)
@@ -30,7 +30,7 @@ Highlights:
 - Add support for Sensirion SHT31 temperature/humidity sensor ([@viorels] - [#12952]) ([sensor.sht31 docs]) (new-platform)
 - Upgraded miflora library to version 0.4.0 ([@ChristianKuehnel] - [#14005]) ([sensor.lmsensor docs]) ([sensor.miflora docs]) (new-platform)
 
-## New Features
+## {% linkable_title New Features %}
 
 - Support binary_sensor and device_tracker in HomeKit ([@Yonsm] - [#13735]) ([homekit docs]) (new-feature)
 - Add Homekit locks support ([@philk] - [#13625]) ([homekit docs]) (new-feature)
@@ -47,35 +47,12 @@ Highlights:
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## {% linkable_title Breaking Changes %}
 
 - Support for multiple MAX!Cube LAN gateways added ([@syssi] - [#13517]) ([maxcube docs]) ([binary_sensor.maxcube docs]) ([climate.maxcube docs]) (breaking change)
 - Disable ebox requirement ([@balloob] - [#14003]) ([sensor.ebox docs]) (breaking change)
 
-## Beta Fixes
-
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
-
-## All changes
+## {% linkable_title All changes %}
 
 - Update Homekit to 1.1.9 ([@cdce8p] - [#13716]) ([homekit docs])
 - Update docstrings ([@fabaff] - [#13720]) ([ihc docs]) ([cover.opengarage docs]) ([cover.tahoma docs]) ([light.aurora docs]) ([sensor.trafikverket_weatherstation docs])
@@ -84,7 +61,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add timeout / debounce (for brightness and others) ([@cdce8p] - [#13534]) ([homekit docs])
 - added support for smappee water sensors ([@hmn] - [#12831]) ([smappee docs]) ([sensor.smappee docs])
 - Initialise filter_sensor with historical values ([@dgomes] - [#13075]) ([sensor.filter docs])
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
 - Bluesound bugfix status 595 and await ([@thrawnarn] - [#13727]) ([media_player.bluesound docs])
 - Upgrade aiohttp to 3.1.2 ([@fabaff] - [#13732])
 - Upgrade sqlalchemy to 1.2.6 ([@fabaff] - [#13733]) ([sensor.sql docs])
@@ -92,7 +68,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update CODEOWNERS (sensor.filter, sensor.upnp) ([@dgomes] - [#13736])
 - Reset permission ([@fabaff] - [#13743]) ([light.abode docs])
 - Throw an error when invalid device_mode is given ([@dangyuluo] - [#13739])
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
 - Upgrade netdisco to 1.3.1 ([@fabaff] - [#13744])
 - Add MQTT Sensor unique_id ([@OttoWinter] - [#13318]) ([sensor.mqtt docs])
 - Prepare entity component for config entries ([@balloob] - [#13730])
@@ -132,18 +107,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - bump python-ecobee-api version to 0.0.18 ([@geekofweek] - [#13854]) ([ecobee docs])
 - Adding USCIS component ([@meauxt] - [#13764]) ([sensor.uscis docs]) (new-platform)
 - Avoid unnecessary cast state updates ([@dersger] - [#13770]) ([media_player.cast docs])
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
 - Update yweather.py ([@TheCellMC] - [#13851]) ([weather.yweather docs])
 - add support for Kodi discovery ([@escoand] - [#13790]) ([media_player.kodi docs])
 - Further untangle data entry flow ([@balloob] - [#13855])
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
 - Added snips service descriptions ([@tschmidty69] - [#13883])
 - Add unique_id for BMW ConnectedDrive ([@gerard33] - [#13888]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs])
 - Revert "Update yweather.py" ([@pvizeli] - [#13900]) ([weather.yweather docs])
 - Eufy colour bulb updates ([@mjg59] - [#13895]) ([eufy docs]) ([light.eufy docs])
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
 - Fritzbox netmonitor name ([@escoand] - [#13903]) ([sensor.fritzbox_netmonitor docs])
 - Restore typeerror check for units sans energy tracking ([@andersonshatch] - [#13824]) ([switch.edimax docs])
 - Add more math functions to templates ([@Shou] - [#13915])
@@ -154,10 +124,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for new platform: climate.modbus ([@Kirchoff] - [#12224]) ([climate.modbus docs]) (new-platform)
 - Hive R3 update ([@KJonline] - [#13357]) ([hive docs]) ([binary_sensor.hive docs]) ([climate.hive docs]) ([light.hive docs]) ([sensor.hive docs]) ([switch.hive docs])
 - Updated foobot_async package version ([@reefab] - [#13942]) ([sensor.foobot docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
 - Upgrade alpha_vantage to 2.0.0 ([@fabaff] - [#13943]) ([sensor.alpha_vantage docs])
 - Cleanup on exit ([@dgomes] - [#13918]) ([media_player.mediaroom docs])
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
 - Add data entry flow helper ([@balloob] - [#13935]) ([config docs])
 - Xiaomi MiIO Device Tracker: Unused variable removed ([@syssi] - [#13948]) ([device_tracker docs])
 - Implement play media to set a channel based on (by priority): ([@stephanerosi] - [#13934]) ([media_player.webostv docs])
@@ -169,20 +137,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added FB messenger broadcast api to notify.facebook component ([@B1tMaster] - [#12459]) ([notify.facebook docs])
 - Added web view for TTS to get url ([@tschmidty69] - [#13882]) ([tts docs])
 - Add services for bmw_connected_drive ([@ChristianKuehnel] - [#13497]) ([bmw_connected_drive docs]) ([device_tracker docs])
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
 - Bump deCONZ requirement to v36 ([@Kane610] - [#13960]) ([deconz docs])
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
-- Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
-- Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
 - Bump skybellpy version to 0.1.2 ([@MisterWil] - [#13974]) ([skybell docs])
 - Fix typo an coding style ([@stephanerosi] - [#13970]) ([device_tracker docs])
 - Params of the send command can be a list now ([@syssi] - [#13905]) ([vacuum docs])
