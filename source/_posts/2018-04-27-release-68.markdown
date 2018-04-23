@@ -17,6 +17,7 @@ Highlights:
 
 - Ability to _control_ HomeKit
 - Eufy bulbs
+- Breaking MDI icons?
 
 ## {% linkable_title New Platforms %}
 
