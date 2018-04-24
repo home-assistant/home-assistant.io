@@ -23,7 +23,7 @@ Guess what? Yep, our Google Assistant Smart Home skill is live! It's a mouthful 
 To get started:
 
  - [Enable Home Assistant Cloud](/cloud/#enabling-the-cloud)
- - [Install our skill for Google Assistant](https://assistant.google.com/services/a/uid/00000091fd5fb875). Alternatively, you can find it by opening the Google Home app -> Home Control, tap on the blue + at the bottom right and find Hass.io in the list.
+ - Install our skill for Google Assistant. As of this writing, the link is not live yet: you can find it by opening the Google Home app -> Home Control, tap on the blue + at the bottom right and find Hass.io in the list.
  - Optional: [Tweak the devices](/cloud/google_assistant/) that are getting exposed to Google Assistant.
 
 Things to note:
