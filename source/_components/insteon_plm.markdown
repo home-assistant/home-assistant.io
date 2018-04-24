@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon PLM"
-description: "Instructions how to setup an Insteon USB PLM locally within Home Assistant."
+description: "Instructions on how to setup an Insteon USB PLM locally within Home Assistant."
 date:  2017-02-19 16:00
 sidebar: true
 comments: false
@@ -39,7 +39,7 @@ insteon_plm:
        product_key: PRODUCT_KEY
 ```
 Configuration variables:
-- **port** (*Required*): The port for your device, e.g. `/dev/ttyUSB0`
+- **port** (*Required*): The port for your device, e.g., `/dev/ttyUSB0`
 - **device_override** (*Optional*): Override the default device definition
   - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
   - *CATEGORY* is found in the back of the device's User Guide in the form of
@@ -67,10 +67,10 @@ linked. For an overview of device linking please read the Insteon page on
 [Development Tools] service calls. The following services are available:
 
 In order for any two Insteon devices to talk with one another, they must be 
-linked. For an overview of device linking please read the Insteon page on
+linked. For an overview of device linking, please read the Insteon page on
 [understanding linking]. The Insteon PLM module supports All-Linking through 
 [Development Tools] service calls. The following services are available:
-- **insteon_plm.add_all_link**: Tells the Insteom Modem (IM) start All-Linking 
+- **insteon_plm.add_all_link**: Tells the Insteon Modem (IM) start All-Linking 
 mode. Once the IM is in All-Linking mode, press the link button on the device 
 to complete All-Linking.
 - **insteon_plm.delete_all_link**: Tells the Insteon Modem (IM) to remove an 
@@ -78,8 +78,8 @@ All-Link record from the All-Link Database of the IM and a device. Once the IM
 is set to delete the link, press the link button on the corresponding device 
 to complete the process.
 - **insteon_plm.load_all_link_database**: Load the All-Link Database for a 
-device. WARNING - Loading a device All-LInk database is very time consuming 
-and inconsistant. This may take a LONG time and may need to be repeated to 
+device. WARNING - Loading a device All-Link database is very time consuming 
+and inconsistent. This may take a LONG time and may need to be repeated to 
 obtain all records.
 - **insteon_plm.print_all_link_database**: Print the All-Link Database for a 
 device. Requires that the All-Link Database is loaded into memory.
@@ -91,7 +91,7 @@ If you are looking for more advanced options, you can use the
 [insteonplm] Python module. Please see the documentation on the [insteonplm] 
 GitHub site. Alternatively, you can download [HouseLinc] which runs on any 
 Windows PC, or you can use [Insteon Terminal] which is open source and runs 
-on most platforms. HouseLinc is no longer supported by SmartHome but it still 
+on most platforms. SmartHome no longer supports HouseLinc, but it still 
 works. Insteon Terminal is a very useful tool but please read the disclaimers 
 carefully, they are important.
 
@@ -103,12 +103,12 @@ carefully, they are important.
 
 ### {% linkable_title Customization %} 
 
-The only configuration item that is absolutely necessary is the port so that
-Home Assistant can connect to the PLM.  This will expose all the supported INSTEON
-devices which exist in the modem's ALL-Link database.  However, devices will
-only be shown by their INSTEON hex address (e.g. "1A.2B.3C") which can be a bit
-unwieldy.  As you link and unlink devices using the 'Set' buttons, they'll be
-added and removed from Home Assistant automatically.
+The only configuration item that is absolutely necessary is the port so that 
+Home Assistant can connect to the PLM. This will expose all the supported 
+INSTEON devices which exist in the modem’s ALL-Link database. However, devices 
+will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can 
+be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, 
+they’ll be added and removed from Home Assistant automatically.
 
 You can use the normal Home Assistant [device customization] section of your
 configuration to assign friendly names and special icons to your devices.  This
