@@ -14,7 +14,7 @@ ha_release: 0.56
 ---
 
 <p class='note'>
-  Use [Home Assistant Cloud](/components/cloud/) to integrate with Google Assistant without any effort.
+  Use [Home Assistant Cloud](/cloud/) to integrate with Google Assistant without any effort.
 </p>
 
 The `google_assistant` component allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
