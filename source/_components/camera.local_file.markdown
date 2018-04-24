@@ -41,4 +41,5 @@ Use this service to change the file displayed by the camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera to update.
 | `file_path` | The full path to the new image file to be displayed.
