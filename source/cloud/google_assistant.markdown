@@ -37,7 +37,6 @@ cloud:
         aliases:
          - bright lights
          - entry lights
-        type: 'action.devices.types.LIGHT'
 ```
 
 {% configuration cloud %}
@@ -85,9 +84,5 @@ google_actions:
               description: Aliases that can also be used to refer to this entity
               required: false
               type: list
-            type:
-              description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
-              required: false
-              type: string
 {% endconfiguration %}
 
