@@ -2,7 +2,7 @@
 layout: page
 title: "EufyLights"
 description: "Instructions on how to integrate Eufy LED lights into Home Assistant."
-date: 2018-05-09 19:00
+date: 2018-04-09 19:00
 sidebar: true
 comments: false
 sharing: true
