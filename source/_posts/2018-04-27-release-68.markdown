@@ -30,6 +30,7 @@ Highlights:
 - Add blackbird media player component ([@koolsb] - [#13549]) ([media_player.blackbird docs]) (new-platform)
 - Add support for Sensirion SHT31 temperature/humidity sensor ([@viorels] - [#12952]) ([sensor.sht31 docs]) (new-platform)
 - Upgraded miflora library to version 0.4.0 ([@ChristianKuehnel] - [#14005]) ([sensor.lmsensor docs]) ([sensor.miflora docs]) (new-platform)
+- Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -38,6 +39,15 @@ Highlights:
 - Support CO2/PM2.5/Light sensors in HomeKit ([@Yonsm] - [#13804]) ([homekit docs]) (new-feature)
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Support basic covers with open/close/stop services HomeKit ([@nickw444] - [#13819]) ([homekit docs]) (new-feature)
+
+## {% linkable_title Beta Fixes %}
+
+- Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
+- Order the output of the automation editor ([@balloob] - [#14019]) ([config docs]) (beta fix)
+- HomeKit Alarm Control Panel Code Exception Fix ([@schmittx] - [#14025]) ([homekit docs]) (beta fix)
+- Revert cast platform polling mode ([@OttoWinter] - [#14027]) ([media_player.cast docs]) (beta fix)
+- Handle HomeKit configuration failure more cleanly ([@mjg59] - [#14041]) ([homekit_controller docs]) (beta fix)
+- Update device classes for contact sensor HomeKit ([@marthoc] - [#14051]) ([homekit docs]) (beta fix)
 
 ## {% linkable_title If you need help... %}
 
@@ -161,6 +171,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber available ([@Danielhiversen] - [#13865]) ([sensor.tibber docs])
 - Upgrade pylutron-caseta to 0.5.0 to reestablish connections ([@rohankapoorcom] - [#14013]) ([lutron_caseta docs])
 - Add sensor device classes ([@balloob] - [#14010]) ([sensor docs]) ([sensor.ecobee docs]) ([sensor.linux_battery docs]) ([sensor.nest docs])
+- Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
+- Order the output of the automation editor ([@balloob] - [#14019]) ([config docs]) (beta fix)
+- HomeKit Alarm Control Panel Code Exception Fix ([@schmittx] - [#14025]) ([homekit docs]) (beta fix)
+- Revert cast platform polling mode ([@OttoWinter] - [#14027]) ([media_player.cast docs]) (beta fix)
+- Handle HomeKit configuration failure more cleanly ([@mjg59] - [#14041]) ([homekit_controller docs]) (beta fix)
+- Update device classes for contact sensor HomeKit ([@marthoc] - [#14051]) ([homekit docs]) (beta fix)
 
 [#10688]: https://github.com/home-assistant/home-assistant/pull/10688
 [#12224]: https://github.com/home-assistant/home-assistant/pull/12224
@@ -443,3 +459,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [weather.yweather docs]: /components/weather.yweather/
 [zha docs]: /components/zha/
+[#14008]: https://github.com/home-assistant/home-assistant/pull/14008
+[#14019]: https://github.com/home-assistant/home-assistant/pull/14019
+[#14025]: https://github.com/home-assistant/home-assistant/pull/14025
+[#14027]: https://github.com/home-assistant/home-assistant/pull/14027
+[#14041]: https://github.com/home-assistant/home-assistant/pull/14041
+[#14051]: https://github.com/home-assistant/home-assistant/pull/14051
+[@OttoWinter]: https://github.com/OttoWinter
+[@balloob]: https://github.com/balloob
+[@kellerza]: https://github.com/kellerza
+[@marthoc]: https://github.com/marthoc
+[@mjg59]: https://github.com/mjg59
+[@schmittx]: https://github.com/schmittx
+[binary_sensor.qwikswitch docs]: /components/binary_sensor.qwikswitch/
+[config docs]: /components/config/
+[homekit docs]: /components/homekit/
+[homekit_controller docs]: /components/homekit_controller/
+[media_player.cast docs]: /components/media_player.cast/
+[qwikswitch docs]: /components/qwikswitch/
+[sensor.qwikswitch docs]: /components/sensor.qwikswitch/
