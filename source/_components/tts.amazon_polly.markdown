@@ -35,7 +35,7 @@ Configuration variables:
 | `aws_access_key_id` | Required |  Your AWS Access Key ID. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name` |
 | `aws_secret_access_key` | Required | Your AWS Secret Access Key. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`. |
 | `profile_name` | Optional | A credentials profile name. For more information, please see the [boto3 Documentation](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) for more information. |
-| `region_name` | Optional | The region identifier to connect to. The default is `us-east-1`. |
+| `region_name` | Optional | The region identifier to connect to. The default is `us-east-1`. See the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions. |
 | `name` | Optional | Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`. |
 | `text_type` | text/ssml    | text or ssml: Specify wherever to use text (default) or ssml markup by default. |
 | `voice` | Optional | Voice name to be used. See the [Amazon Documentation](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) for available voices. |
