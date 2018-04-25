@@ -21,7 +21,7 @@ To add the Domain Expiry sensor to your installation, add these options to `conf
 # Example configuration.yaml entry
 sensor:
   - platform: domain_expiry
-    host: home-assistant.io
+    domain: home-assistant.io
 ```
 
 {% configuration %}
