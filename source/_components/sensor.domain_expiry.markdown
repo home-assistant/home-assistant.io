@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: System Monitor
-ha_release: 0.68
+ha_release: 0.69
 ha_iot_class: "depends"
 ---
 
-The `domain_expiry` sensor gets whois information abount domain and displays the expiry in days. 
+The `domain_expiry` sensor gets whois information about domain and displays the expiry in days. 
 
 To add the Domain Expiry sensor to your installation, add these options to `configuration.yaml` file:
 
@@ -24,7 +24,14 @@ sensor:
     host: home-assistant.io
 ```
 
-Configuration variables:
-
-- **host** (*Required*): Domain name to track.
-- **name** (*Optional*): The friendly name for the certificate.
+{% configuration %}
+domain:
+  description:  Domain name to track
+  required: true
+  type: string
+name: 
+  description: The friendly name for the certificate.
+  required: false
+  type: string
+  default: Domain Expiry
+{% endconfiguration %}
