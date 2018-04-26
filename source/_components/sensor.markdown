@@ -24,5 +24,5 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
-Example of various device classes icons for sensors.
+Example of various device class icons for sensors.
 </p>
