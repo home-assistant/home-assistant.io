@@ -28,6 +28,23 @@ This release includes a security fix. The error log was accessible via the API w
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 
+## {% linkable_title Release 0.67.1 - April 17 %}
+
+- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728])
+- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741])
+- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs])
+- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs])
+- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs])
+- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs])
+- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs])
+- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs])
+- Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
+- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs])
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs])
+- Update pyfido to 2.1.1 ([@titilambert] - [#13947]) ([sensor.fido docs])
+- Bumped pypollencom to 1.1.2 ([@bachya] - [#13959]) ([sensor.pollen docs])
+- Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -395,3 +412,35 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zwave docs]: /components/zwave/
 [ann-ubiquiti]: /blog/2018/04/12/ubiquiti-and-home-assistant/
+[#13728]: https://github.com/home-assistant/home-assistant/pull/13728
+[#13741]: https://github.com/home-assistant/home-assistant/pull/13741
+[#13862]: https://github.com/home-assistant/home-assistant/pull/13862
+[#13884]: https://github.com/home-assistant/home-assistant/pull/13884
+[#13887]: https://github.com/home-assistant/home-assistant/pull/13887
+[#13889]: https://github.com/home-assistant/home-assistant/pull/13889
+[#13906]: https://github.com/home-assistant/home-assistant/pull/13906
+[#13908]: https://github.com/home-assistant/home-assistant/pull/13908
+[#13920]: https://github.com/home-assistant/home-assistant/pull/13920
+[#13940]: https://github.com/home-assistant/home-assistant/pull/13940
+[#13946]: https://github.com/home-assistant/home-assistant/pull/13946
+[#13947]: https://github.com/home-assistant/home-assistant/pull/13947
+[#13959]: https://github.com/home-assistant/home-assistant/pull/13959
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Kane610]: https://github.com/Kane610
+[@aav7fl]: https://github.com/aav7fl
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@dlbroadfoot]: https://github.com/dlbroadfoot
+[@kellerza]: https://github.com/kellerza
+[@syssi]: https://github.com/syssi
+[@titilambert]: https://github.com/titilambert
+[climate.honeywell docs]: /components/climate.honeywell/
+[config docs]: /components/config/
+[device_tracker docs]: /components/device_tracker/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[qwikswitch docs]: /components/qwikswitch/
+[sensor.fido docs]: /components/sensor.fido/
+[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
+[sensor.pollen docs]: /components/sensor.pollen/
+[switch.broadlink docs]: /components/switch.broadlink/
+[switch.vesync docs]: /components/switch.vesync/

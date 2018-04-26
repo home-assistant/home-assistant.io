@@ -20,7 +20,7 @@ The Things network support various integrations to make the data available:
 | The Things Network Integration | Home Assistant platform |
 |---|---|
 | [MQTT](https://www.thethingsnetwork.org/docs/applications/mqtt/) | |
-| [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](/component/sensor.thethingsnetwork/) |
+| [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](/components/sensor.thethingsnetwork/) |
 | [HTTP](https://www.thethingsnetwork.org/docs/applications/http/) | |
 
 ### {% linkable_title Setup %}
