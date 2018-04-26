@@ -52,10 +52,3 @@ determine how long to run for)
 Programs and zones are linked. If a program is running its final zone,
 you will see both the program and zone switches turned on; turning either one
 off will turn the other one off (just like in the web app).
-
-## {% linkable_title For Awareness %}
-
-The remote RainMachine API currently has two broken operations (i.e., they
-return error codes): starting a program and stopping a program. Please note
-that starting/stopping programs with the remote API is disabled until
-RainMachine can fix the issue.

@@ -18,41 +18,23 @@ related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachin
 
 ## {% linkable_title Configuration %}
 
-The platform allows for either local (i.e., directly across the LAN) or remote
-(i.e., through RainMachine's cloud API) access; the route you choose will
-dictate what your configuration should look like.
-
-For local access, specify the IP address/hostname of your RainMachine unit,
-your RainMachine password, and optionally, the device's HTTP port:
+To connect to your RainMachine device, add the following to your
+`configuration.yaml` file:
 
 ```yaml
 rainmachine:
-  platform: rainmachine
   ip_address: 192.168.1.100
   password: YOUR_PASSWORD
 ```
 
-For remote access, specify your RainMachine username/email and password:
-
-```yaml
-rainmachine:
-  platform: rainmachine
-  email: user@host.com
-  password: YOUR_PASSWORD
-```
-
 {% configuration %}
+ip_address:
+  description: the IP address or hostname of your RainMachine unit
+  required: optional
+  type: string
 password:
   description: your RainMachine password.
   required: true
-  type: string
-email:
-  description: your RainMachine username/email; cannot be used with the `ip_address` parameter
-  required: false
-  type: string
-ip_address:
-  description: the IP address or hostname of your RainMachine unit; cannot be used with the `email` parameter
-  required: optional
   type: string
 port:
   description: the TCP port used by your unit for the REST API
@@ -65,19 +47,3 @@ ssl:
   type: boolean
   default: true
 {% endconfiguration %}
-
-## {% linkable_title Weblink %}
-
-If you would like to see and control more detailed information, create an
-[iFrame](/components/panel_iframe/) that renders the RainMachine web app:
-
-```yaml
-panel_iframe:
-  rainmachine:
-    title: RainMachine
-    url: "https://my.rainmachine.com/s/<YOUR_DEVICE_ID>/ui/"
-    icon: mdi:water
-```
-
-You can find `<YOUR_DEVICE_ID>` by logging into
-[your RainMachine dashboard](https://my.rainmachine.com) and noting it in the URL.
