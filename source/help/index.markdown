@@ -3,7 +3,7 @@ layout: page
 title: "Help"
 description: "If you need help or have a question..."
 date: 2015-06-25 12:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -17,7 +17,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
 - Join the [Google+ community][google-plus]
-- Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
+- Join the Reddit in [/r/homeassistant][reddit]
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
@@ -76,10 +76,6 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Episode 105 - DIY Home Automation Roundup](https://www.hometech.fm/shows/105) by [HomeTech.fm](https://www.hometech.fm/) - April 2016
 - [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016
 - [Home Assistant – Open Source Python Home Automation Platform](http://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
-
-### {% linkable_title Roadmap %}
-
-There is no explicit roadmap available, but the public [tracker](https://www.pivotaltracker.com/n/projects/1250084) can give you some insight into what is going on.
 
 [forum]: https://community.home-assistant.io/
 [twitter]: https://twitter.com/home_assistant

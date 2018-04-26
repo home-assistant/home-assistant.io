@@ -37,7 +37,6 @@ cloud:
         aliases:
          - bright lights
          - entry lights
-        type: 'action.devices.types.LIGHT'
 ```
 
 {% configuration cloud %}
