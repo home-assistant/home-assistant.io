@@ -15,9 +15,14 @@ Home Assistant currently supports a wide range of sensors. They are able to disp
 
 ### {% linkable_title Device Class %}
 
-The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for sensors:
+The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **battery**: Percentage of battery that is left
 - **humidity**: Percentage of humidity in the air
 - **temperature**: Temperature in °C or °F.
+
+<p class='img'>
+<img src='/images/screenshots/sensor_device_classes_icons.png' />
+Example of various device classes icons for sensors.
+</p>

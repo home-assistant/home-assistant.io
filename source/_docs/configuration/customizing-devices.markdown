@@ -71,9 +71,10 @@ homeassistant:
 
 ### {% linkable_title Device Class %}
 
-Device class is currently supported by the following platforms:
+Device class is currently supported by the following domains:
 
 * [Binary Sensor](/components/binary_sensor/)
+* [Sensor](/components/sensor/)
 * [Cover](/components/cover/)
 
 ### {% linkable_title Reloading customize %}

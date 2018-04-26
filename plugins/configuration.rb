@@ -2,7 +2,7 @@ module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
       'action'       => '/docs/scripts/',
-      'device_class' => '/components/%{component}/#device_class',
+      'device_class' => '/components/%{component}/#device-class',
       'template'     => '/docs/configuration/templating/',
     }
 
