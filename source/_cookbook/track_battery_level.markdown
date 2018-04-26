@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 ### {% linkable_title iOS Devices %}
 
-If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/). You can also the `battery` [sensor device class](/components/binary_sensor/) to dynamically change the icon with the battery level.
+If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/). You can also the `battery` [sensor device class](/components/sensor/#device-class) to dynamically change the icon with the battery level.
 
 {% raw %}
 ```yaml
@@ -21,8 +21,6 @@ sensor:
     sensors:
       battery_iphone:
         friendly_name: iPhone Battery
-        # "entity_id:" ensures that this sensor will only update when your device tracker does.
-        entity_id: device_tracker.iphone
         unit_of_measurement: '%'
         value_template: >-
             {%- if states.device_tracker.iphone.attributes.battery %}
@@ -46,5 +44,6 @@ sensor:
     name: "Battery Tablet"
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
+    device_class: battery
 ```
 {% endraw %}
