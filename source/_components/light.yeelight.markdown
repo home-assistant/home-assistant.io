@@ -40,7 +40,7 @@ Configuration variables:
 - **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
 - **use_music_mode** (*Optional*, default False): Enable music mode.
 - **save_on_change** (*Optional*, default True): Saves the bulb state when changed from Home Assistant.
-- **model** (*Optional*): Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The settings is used to enable model specific features f.e. a particular color temperature range.
+- **model** (*Optional*): Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range.
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
