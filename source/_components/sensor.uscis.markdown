@@ -7,7 +7,7 @@ sidebar: false
 comments: false
 sharing: true
 footer: true
-logo: uscis.jpg
+logo: uscis.png
 ha_category: Sensor
 ha_release: 0.68
 ha_iot_class: "Cloud Polling"
@@ -31,9 +31,9 @@ friendly_name:
   default: USCIS
   type: string
 case_id:
-  description: Case/receipt number used to get the case details from USCIS web client. 
+  description: Case/receipt number used to get the case details from USCIS web client.
   required: true
   type: string
 {% endconfiguration %}
 
-All the data will be fetch from  [USCIS](https://egov.uscis.gov/casestatus/mycasestatus.do). 
+All the data will be fetch from  [USCIS](https://egov.uscis.gov/casestatus/mycasestatus.do).
