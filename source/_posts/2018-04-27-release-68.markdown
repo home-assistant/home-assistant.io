@@ -56,26 +56,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Beta Fixes %}
 
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
-- Fix Gogogate2 'available' attribute ([@dlbroadfoot] - [#13728]) (beta fix)
-- Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
-- Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
-- Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
-- Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
-- Fix call to parent broadlink switch ([@Danielhiversen] - [#13906]) ([switch.broadlink docs]) (beta fix)
-- Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
-- Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
 - Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 - Order the output of the automation editor ([@balloob] - [#14019]) ([config docs]) (beta fix)
 - HomeKit Alarm Control Panel Code Exception Fix ([@schmittx] - [#14025]) ([homekit docs]) (beta fix)
@@ -85,6 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade broadlink lib ([@Danielhiversen] - [#14074]) ([sensor.broadlink docs]) ([switch.broadlink docs]) (beta fix)
 - Fix timezone issue when calculating min/max values in tibber #14009 ([@Danielhiversen] - [#14080]) ([sensor.tibber docs]) (beta fix)
 - Updated list of AWS regions for Amazon Polly ([@GotoCode] - [#14097]) ([tts docs]) (beta fix)
+- Change Eufy brightness handling ([@mjg59] - [#14111]) (beta fix)
 
 ## {% linkable_title All changes %}
 
