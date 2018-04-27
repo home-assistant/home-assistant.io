@@ -61,9 +61,9 @@ sensor:
 
 - **mac** (*Required*): The MAC address of your sensor.
 - **monitored_conditions** array (*Optional*): The parameters that should be monitored (defaults to monitoring all parameters).
-  - **temperature**: Temperature at the sensor's location.
-  - **humidity**: Moisture in the soil.
-  - **battery**: Battery details.
+  - **temperature**: Temperature in C at the sensor's location.
+  - **humidity**: Humidity level in % at the sensor's location.
+  - **battery**: Battery details (in %).
 - **name** (*Optional*): The name displayed in the frontend.
 - **force_update** (*Optional*): Sends update events even if the value hasn't changed.
 - **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine.
