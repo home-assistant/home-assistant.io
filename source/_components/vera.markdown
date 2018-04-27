@@ -39,6 +39,8 @@ Vera imports detailed Z-Wave devices into Home Assistant. This can include syste
 
 You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (under the developer tools).
 
+Imported devices from Vera will receive unique entity ids in Home Assistant by combining the Vera device name with the Vera device id. If you prefer entity ids generated from device name only, this behaviour can be changed by using the `unique_entities` parameter.
+
 ```yaml
 vera:
   vera_controller_url: http://192.168.1.161:3480/
@@ -46,6 +48,8 @@ vera:
   exclude: [ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]
   # Optional to import switches as lights - this is a list of vera device ids
   lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
+  # Optionally disable unique entity ids
+  unique_entities: False
 ```
 
 ### {% linkable_title Using Z-Wave devices in automation %} 
