@@ -20,6 +20,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 - Xiaomi Aqara Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
+- Aqara Intelligent Door Lock (lock.aq1)
 - Temperature and Humidity Sensor (1st and 2nd generation)
 - Motion Sensor (1st and 2nd generation)
 - Door and Window Sensor (1st and 2nd generation)
