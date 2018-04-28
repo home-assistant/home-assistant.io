@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Xiaomi Mijia BLE Temperature and Humidity sensor with LCD"
+title: "Xiaomi BLE Temperature and Humidity sensor"
 description: "Instructions on how to integrate MiTemp BLE temperature and humidity sensor with Home Assistant."
 date: 2018-04-22 12:00
 sidebar: true
