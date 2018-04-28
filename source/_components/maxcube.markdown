@@ -34,7 +34,7 @@ A `maxcube` section must be present in the `configuration.yaml` file and contain
 maxcube:
   gateways:
     - host: 192.168.0.20
-      update_interval: 300
+      scan_interval: 300
 ```
 
 ### {% linkable_title Multiple Gateways %}
@@ -59,7 +59,7 @@ maxcube:
     required: false
     type: int
     default: 62910
-  update_interval:
+  scan_interval:
     description: The update interval in seconds
     required: false
     type: int
