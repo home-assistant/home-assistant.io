@@ -15,7 +15,7 @@ logo: apple-homekit.png
 The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
 
 <p class="note warning">
-  It might be necessary to install an additional package:  
+  It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
 </p>
 
@@ -154,7 +154,7 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added. 
+By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 {% raw %}
 ```yaml
@@ -184,7 +184,7 @@ Filters are applied as follows:
       - if both include and exclude domains specified, the exclude domains are ignored
    * Neither include or exclude domain specified
       - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored 
+      - if entity include and exclude, the entity exclude is ignored
 
 
 ## {% linkable_title Supported Components %}
@@ -194,11 +194,19 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
+| binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
+| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
-| light | Light | Support for `on / off`, `brightness`, `color_temp` and `rgb_color`. |
-| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
-| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
+| cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
+| cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
+| light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
+| lock | DoorLock | Support for `lock / unlock`. |
+| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
+| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` or `humidity` as their `device_class`. |
+| sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
+| sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
+| sensor | LightSensor | All sensors that have `lm`/`lux` as their `unit_of_measurement` or `light` as their `device_class` |
 | switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 

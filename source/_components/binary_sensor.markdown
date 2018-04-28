@@ -39,3 +39,8 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **window**: `On` means open, `Off` means closed
 
 For analog sensors please check the [component overview](/components/#sensor).
+
+<p class='img'>
+<img src='/images/screenshots/binary_sensor_classes_icons.png' />
+Example of various device classes icons in `On` and `Off` state.
+</p>

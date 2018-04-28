@@ -25,13 +25,37 @@ Supported Devices:
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
+### {% linkable_title One Gateway %}
+
 A `maxcube` section must be present in the `configuration.yaml` file and contain the following options as required:
 
 ```yaml
 # Example configuration.yaml entry
 maxcube:
-  host: 192.168.0.20
+  gateways:
+    - host: 192.168.0.20
 ```
-Configuration variables:
-- **host** (*Required*): The IP address of the eQ-3 MAX! Cube to use.
-- **port** (*Optional*): The UDP port number. Defaults to `62910`.
+
+### {% linkable_title Multiple Gateways %}
+
+```yaml
+# Example configuration.yaml entry
+maxcube:
+  gateways:
+    - host: 192.168.0.20
+      port: 62910
+    - host: 192.168.0.21
+      port: 62910
+```
+
+{% configuration %}
+  host:
+    description: The IP address of the eQ-3 MAX! Cube to use.
+    required: true
+    type: string
+  port:
+    description: The UDP port number.
+    required: false
+    type: int
+    default: 62910
+{% endconfiguration %}
