@@ -16,7 +16,16 @@ Installation with Docker is straightforward. Adjust the following command so tha
 
 ```bash
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+```​
+
+### {% linkable_title Raspberry Pi 3 (Raspbian) %}
+
+```bash
+
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant:0.XX.x
 ```
+The Docker container for Raspberry Pi 3 does not have a 'latest' tag so the version number must be specified explicitly, i.e. 0.68.0 or whatever version is desired. This goes for both CLI and Docker Compose.
+
 
 ### {% linkable_title macOS %}
 
