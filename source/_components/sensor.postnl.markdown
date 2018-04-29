@@ -9,22 +9,21 @@ sharing: true
 footer: true
 logo: postnl.png
 ha_category: Sensor
-ha_release: 0.68
+ha_release: 0.69
 ha_iot_class: "Cloud Polling"
 ---
 
 The `postnl` platform allows one to track deliveries by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use this sensor, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
 
+## {% linkable_title Configuration %}
+
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-{% raw %}
 sensors:
   - platform: postnl
-    name: SENSOR_NAME
     username: POSTNL_USERNAME
     password: POSTNL_PASSWORD
-{% endraw %}
 ```
 
 {% configuration %}
