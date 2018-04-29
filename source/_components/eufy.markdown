@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: 0.68
 ---
 
-The `eufy` component is the main component to integrate various [eufy](http://https://www.eufylife.com/) devices with Home Assistant.
+The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
 
 Supported devices will be discovered after the `eufy` component is configured:
 
