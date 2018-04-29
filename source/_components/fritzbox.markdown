@@ -17,9 +17,10 @@ The [AVM](www.avm.de) Fritzbox component for Home Assistant allows you to integr
 
 #### {% linkable_title Tested Devices %}
 
-- [FRITZ!Box 6490 Cable](https://avm.de/produkte/fritzbox/fritzbox-6490-cable/)
-- [FRITZ!DECT 200](https://avm.de/produkte/fritzdect/fritzdect-200/)
-- [Eurotronic Comet DECT](https://www.eurotronic.org/produkte/comet-dect.html)
+- [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
+- [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
+- [Eurotronic Comet DECT](https://www.eurotronic.org/en/products/comet-dect.html)
 
 
 ## {% linkable_title Setup %}
