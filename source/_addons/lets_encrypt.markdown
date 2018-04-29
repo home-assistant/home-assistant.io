@@ -45,9 +45,10 @@ If you use another port such as `8123` or an SSL proxy, change the port number.
 
 Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificte, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
 
-However, you can automate this process using Home Assistant!
+However, you can automate this process using Home Assistant.
 
 Use this in your `automations.yaml` to attempt certificate renewal each day at midnight:
+
 ```yaml
 - id: letsencrypt-renewal
   alias: "Let's Encrypt Renewal"
@@ -59,6 +60,5 @@ Use this in your `automations.yaml` to attempt certificate renewal each day at m
     data:
       addon: core_letsencrypt
 ```
-
 
 [DuckDNS add-on]: /addons/duckdns/
