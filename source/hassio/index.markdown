@@ -59,8 +59,9 @@ Hass.io upgrade process from the SSH command line
 
 On the SSH command line you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
 
-HomeAssistant:
-```shell
+Home Assistant:
+
+```bash
 $ hassio homeassistant logs
 $ hassio homeassistant restart
 $ hassio homeassistant stop
@@ -70,7 +71,8 @@ $ hassio homeassistant check
 ```
 
 Host:
-```shell
+
+```bash
 $ hassio host hardware
 $ hassio host reboot
 $ hassio host shutdown
@@ -78,7 +80,8 @@ $ hassio host update
 ```
 
 Supervisor
-```shell
+
+```bash
 $ hassio supervisor logs
 $ hassio supervisor info
 $ hassio supervisor reload
@@ -86,7 +89,9 @@ $ hassio supervisor update
 ```
 
 You can get a better description of the CLI capabilities by typing `hassio help`:
-```NAME:
+
+```bash
+NAME:
    hassio - Commandline tool to allow interation with hass.io
 
 USAGE:
@@ -111,4 +116,5 @@ COMMANDS:
 GLOBAL OPTIONS:
    --debug, -d    Prints Debug information
    --help, -h     show help
-   --version, -v  print the version```
+   --version, -v  print the version
+```
