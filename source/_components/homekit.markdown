@@ -39,6 +39,10 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: int
         default: 51827
+      ip_address:
+        description: The local network IP address. Only necessary if the default from Home Assistant does not work.
+        required: false
+        type: string
       filter:
         description: Filter entities to available in the `Home` app. ([Configure Filter](#configure-filter))
         required: false
