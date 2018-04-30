@@ -39,6 +39,18 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Support basic covers with open/close/stop services HomeKit ([@nickw444] - [#13819]) ([homekit docs]) (new-feature)
 
+## {% linkable_title Release 0.68.1 - April 30 %}
+
+- Fix color setting of tplink lights ([@amelchio] - [#14108]) ([light.tplink docs])
+- Improve precision of Hue color state ([@amelchio] - [#14113]) ([light.hue docs])
+- Revert Hue color state to be xy-based ([@amelchio] - [#14154])
+- Fix Python 3.6 compatibility for HomeKit controller ([@mjg59] - [#14160]) ([homekit_controller docs])
+- Added CONF_IP_ADDRESS to HomeKit ([@cdce8p] - [#14163]) ([homekit docs])
+- Do not sync entities with an empty name ([@balloob] - [#14181]) ([google_assistant docs])
+- Improve chromecast disconnection logic ([@OttoWinter] - [#14190]) ([media_player.cast docs])
+- Fix poorly formatted automations ([@balloob] - [#14196])
+- Disable eliqonline requirement ([@balloob] - [#14156])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -499,3 +511,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [weather.yweather docs]: /components/weather.yweather/
 [zha docs]: /components/zha/
+[#14108]: https://github.com/home-assistant/home-assistant/pull/14108
+[#14113]: https://github.com/home-assistant/home-assistant/pull/14113
+[#14154]: https://github.com/home-assistant/home-assistant/pull/14154
+[#14160]: https://github.com/home-assistant/home-assistant/pull/14160
+[#14163]: https://github.com/home-assistant/home-assistant/pull/14163
+[#14181]: https://github.com/home-assistant/home-assistant/pull/14181
+[#14190]: https://github.com/home-assistant/home-assistant/pull/14190
+[#14196]: https://github.com/home-assistant/home-assistant/pull/14196
+[#14156]: https://github.com/home-assistant/home-assistant/pull/14156
+[@OttoWinter]: https://github.com/OttoWinter
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@cdce8p]: https://github.com/cdce8p
+[@mjg59]: https://github.com/mjg59
+[google_assistant docs]: /components/google_assistant/
+[homekit docs]: /components/homekit/
+[homekit_controller docs]: /components/homekit_controller/
+[light.hue docs]: /components/light.hue/
+[light.tplink docs]: /components/light.tplink/
+[media_player.cast docs]: /components/media_player.cast/
