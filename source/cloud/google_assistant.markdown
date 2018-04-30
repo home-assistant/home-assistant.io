@@ -37,6 +37,7 @@ cloud:
         aliases:
          - bright lights
          - entry lights
+        room: living room
 ```
 
 {% configuration cloud %}
@@ -84,5 +85,8 @@ google_actions:
               description: Aliases that can also be used to refer to this entity
               required: false
               type: list
+            room:
+              description: Hint for Google Assistant in which room this entity is.
+              required: false
+              type: string
 {% endconfiguration %}
-
