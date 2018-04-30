@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: konnected.png
 ha_category: Alarm
-ha_release: 0.68
+ha_release: 0.69
 ---
 
 The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the 
@@ -35,7 +35,7 @@ konnected:
   auth_token: REPLACE_ME_WITH_A_RANDOM_STRING
   devices:
     - id: 8bcd53
-      sensors:
+      binary_sensors:
         - zone: 1
           type: door
           name: 'Front Door'
@@ -46,7 +46,7 @@ konnected:
         - zone: out
           name: siren
     - id: 438a38
-      sensors:
+      binary_sensors:
         - pin: 1
           type: motion
           name: 'Office Motion'
@@ -74,8 +74,8 @@ devices:
       description: The MAC address of the WiFi module with colons/punctuation removed. You can either use the full 12-character MAC address or only the last 6 characters. This is visible in the device's WiFi SSID and hostname.
       required: true
       type: string
-    sensors:
-      description: A list of sensors connected to the device. See [Konnected Binary Sensor](/components/binary_sensor.konnected/) for configuration variables.
+    binary_sensors:
+      description: A list of binary sensors connected to the device. See [Konnected Binary Sensor](/components/binary_sensor.konnected/) for configuration variables.
       required: false
       type: list
     switches:
