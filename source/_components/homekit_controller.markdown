@@ -13,12 +13,12 @@ ha_release: 0.68
 ha_iot_class: "Local Polling"
 ---
 
-[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](homekit) component, which allows you to control Home Assistant devices via HomeKit.
+[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Light](../light.homekit_controller)
-- [Switch](../switch.homekit_controller)
+- [Light](/components/light.homekit_controller/)
+- [Switch](/components/switch.homekit_controller/)
 
 The component will be automatically configured if the [`discovery:`](components/discovery/) component is enabled and an enable entry added for HomeKit:
 
