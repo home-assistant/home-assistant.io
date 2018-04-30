@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rainmachine.png
 ha_category: Hub
-ha_release: 0.68
+ha_release: 0.69
 ha_iot_class: "Cloud Polling"
 ---
 
