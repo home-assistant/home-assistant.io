@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: snips.png
 ha_category: Voice
-ha_release: 0.48
+ha_release: 0.66
 ---
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
@@ -105,6 +105,12 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 
 ## {% linkable_title Home Assistant configuration %}
 
+Configuration variables:
+
+- **feedback_sounds** (*Optional*): Turn on feedbacks sounds for Snips (true/false)
+- **site_ids** (*Optional*): A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites
+- **probability_threshhold** (*Optional*): Threshhold for intent probability. Intents under this are discarded
+
 ### {% linkable_title Specifying the MQTT broker %}
 
 Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
@@ -123,11 +129,27 @@ mqtt:
   port: 9898
 ```
 
-Alternatively, MQTT can be configured to bridge messages between servers if using a custom MQTT broker such as [mosquitto](https://mosquitto.org/).
+Snips uses mosquitto by default. If Snips is running on a seperate server feom HomeAssistant you can use a bridging configuration.
+
+```
+connection snipsmqtt
+address HASS_MQTT_ADDRESS:1883
+#remote_username HASS_MQTT_USER
+#remote_password HASS_MQTT_PASSWORD
+remote_clientid snips
+start_type automatic
+topic hermes/# in
+
+topic hermes/dialogueManager/# in
+topic hermes/intent/# out
+topic hermes/asr/# out
+topic hermes/hotword/# out
+topic hermes/nlu/# out
+```
 
 ### {% linkable_title Triggering actions %}
 
-In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles an `ActivateLightColor` intent to change light colors:
 
 {% raw %}
 ```yaml
@@ -147,24 +169,7 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-In the above example, the slots are plain strings. However, when more complex types are used, such as dates or time ranges, they will be transformed to rich Python objects, for example:
-
-{% raw %}
-```yaml
-SetTimer:
-  speech:
-    type: plain
-    text: weather
-  action:
-    service: script.set_timer
-    data_template:
-      name: "{{ timer_name }}"
-      duration: "{{ timer_duration }}"
-      seconds: "{{ slots.timer_duration.value.seconds }}"
-      minutes: "{{ slots.timer_duration.value.minutes }}"
-      hours: "{{ slots.timer_duration.value.hours }}"
-```
-{% endraw %}
+In the above example, the slots are plain strings. However, certain builtin snips types are parses into a format HomeAssistant can use. Currently this is only the duration type, which is converted to seconds for use in a delay action in a script for example.
 
 ### Sending TTS Notifications
 
@@ -187,6 +192,20 @@ You can send TTS notifications to Snips using the snips.say and snips.say_action
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
+
+YOu can use the following services to toggle feedback sounds on or off.
+
+#### {% linkable_title Service `snips/feedback_on` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `site_id`              |      yes | Site to toggle feedback on.                            |
+
+#### {% linkable_title Service `snips/feedback_off` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `site_id`              |      yes | Site to toggle feedback on.                            |
 
 #### Configuration Examples
 
