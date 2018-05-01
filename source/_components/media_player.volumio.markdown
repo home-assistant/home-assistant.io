@@ -15,9 +15,9 @@ ha_release: 0.41
 The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player
 from Home Assistant.
 
+The preferred way to set up the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/).
 
-To add a Volumio player to your installation, add the following to
-your `configuration.yaml` file.
+In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
