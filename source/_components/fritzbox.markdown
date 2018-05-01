@@ -13,7 +13,7 @@ ha_release: 0.68
 ha_iot_class: "Local Polling"
 ---
 
-The [AVM](www.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
+The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
 
 #### {% linkable_title Tested Devices %}
 
