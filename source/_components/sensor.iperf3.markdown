@@ -106,4 +106,4 @@ sensor:
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
-- This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](https://iperf.fr/iperf-download.php) for installation instructions.
+- This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
