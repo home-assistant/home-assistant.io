@@ -18,17 +18,21 @@ within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.c
 
 <p class='note'>
 You must have the [RainMachine component](https://www.home-assistant.io/components/rainmachine/)
-configured to use this switch.
+configured to use this switch. After configuring that component, switches will
+automatically appear.
 </p>
 
 ## {% linkable_title Configuring the Platform %}
 
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
+To optionally extend the functionality of these switches, augment your 
+`configuration.yaml` as below:
 
 ```yaml
-switch:
-  - platform: rainmachine
+rainmachine:
+  ip_address: 192.168.1.100
+  password: YOUR_PASSWORD
+  switches:
+    zone_run_time: 240
 ```
 
 {% configuration %}
