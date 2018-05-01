@@ -81,9 +81,14 @@ json_attributes:
   reqired: false
   type: list, string
 unique_id:
-  description: "An id that uniquely identifies this sensor. If 2 sensors have the same unique id, Home Assistant will raise an exception.**"
+  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
+device_class:
+  description: The type/class of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
