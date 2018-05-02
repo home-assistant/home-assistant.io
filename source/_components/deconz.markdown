@@ -34,7 +34,7 @@ ha_iot_class: "Local Push"
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in `deconz.conf` inside the `.homeassistant` folder.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in `.config_entries.json` inside the `.homeassistant` folder.
 
 You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
 
