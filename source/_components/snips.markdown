@@ -2,7 +2,7 @@
 layout: page
 title: "Snips"
 description: "Instructions on how to integrate Snips within Home Assistant."
-date: 2017-06-22 12:00
+date: 2018-05-02 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -14,7 +14,7 @@ ha_release: 0.48
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
-The latest documentation can be found here: [Snips Platform Documentation](https://github.com/snipsco/snips-platform-documentation/wiki).
+The latest documentation can be found here: [Snips Platform Documentation](https://snips.gitbook.io/documentation/).
 
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
@@ -188,19 +188,44 @@ You can send TTS notifications to Snips using the snips.say and snips.say_action
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
-#### Configuration Examples
 
+### {% linkable_title Snips Support %}
+
+There is an active [discord](discord) channel for further support.
+
+
+### Configuration Examples
+
+#### Turn on a light
 ```yaml
-script:
+intent_script:
   turn_on_light:
-    sequence:
-      service: script.turn_on_light
-      service: snips.say
+    speech:
+      type: plain
+      text: 'OK, closing the garage door'
+    action:
+      service: light.turn_on
+```
+##### Open a Garage Door
+```yaml
+intent_script:
+  OpenGarageDoor:
+    speech:
+      type: plain
+      text: 'OK, opening the garage door'
+    action:
+      - service: cover.open_cover
         data:
-          text: 'OK, the light is now on'
+          entity_id: garage_door
+```
+##### Intiating a query
 
+Here is a more complex example. The automation is triggered if the garage door is open for more than 10 minutes.
+Snips will then ask you if you want to close it and if you respond with something like "Close the garage door" it
+will do so. Unfortunately there is no builtin support for yes and no responses.
+```yaml
 automation:
-  query_garage_door:
+  garage_door_has_been_open:
     trigger:
      - platform: state
         entity_id: binary_sensor.my_garage_door_sensor
@@ -224,3 +249,39 @@ intent_script:
     action:
       - service: script.garage_door_close
 ```
+
+##### Weather
+So now you can open and close your garage door, let's check the weather. Log on to the [console](console).
+
+Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the api_key in the secrets file.
+
+```yaml
+- platform: darksky
+  name: "Dark Sky Weather"
+  api_key: !secret dark_sky_key
+  update_interval:
+    minutes: 10
+  monitored_conditions:
+    - summary
+    - hourly_summary
+    - temperature
+    - temperature_max
+    - temperature_min
+```
+Then create this intent_script.yaml file in your config directory
+
+```yaml
+intent_script:
+  searchWeatherForecast:
+    speech:
+      type: plain
+      text: >
+        The weather is currently
+        {{ states('sensor.dark_sky_weather_temperature') | round(0) }}
+        degrees outside and {{ states('sensor.dark_sky_weather_summary') }}.
+        The high today will be
+        {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
+        and {{ states('sensor.dark_sky_weather_hourly_summary') }}
+```
+
+[discord]: https://discordapp.com/invite/3939Kqx
