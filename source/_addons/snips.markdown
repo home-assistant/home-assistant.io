@@ -68,11 +68,11 @@ snips:
 
 ### {% linkable_title Home Assistant configuration %}
 
-There is an active [discord](discord) channel for further support.
+There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
 
 ### Examples
 
-So now you can turn lights on and off, let's check the weather. Log on to the [console](console). If this is your first time, create a new assistant and add the Home Assistant skill, along with the Weather skill by snips. Download your assistant manually and copy it to the /share folder on your HassIO installation using the Samba addon.
+So now you can turn lights on and off, let's check the weather. Log on to the [console](https://console.snips.ai/). If this is your first time, create a new assistant and add the Home Assistant skill, along with the Weather skill by snips. Download your assistant manually and copy it to the /share folder on your HassIO installation using the Samba addon.
 
 Next create a weather sensor, I happen to use (Dark Sky)[/components/sensor.darksky/] and have my api_key in my secrets file.
 
@@ -117,5 +117,4 @@ Now just restart HassIO and ask it what the weather is like!
 [their tutorial]: https://github.com/snipsco/snips-platform-documentation/wiki/2.-Create-an-assistant-using-an-existing-bundle
 [Samba]: /addons/samba/
 [comp]: /components/snips/
-[console]: https://console.snips.ai/
-[discord]: https://discordapp.com/invite/3939Kqx
+
