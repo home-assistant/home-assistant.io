@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The `rainmachine` component is the main component to integrate all platforms
 related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
 
-## {% linkable_title Configuration %}
+## {% linkable_title Base Configuration %}
 
 To connect to your RainMachine device, add the following to your
 `configuration.yaml` file:
@@ -46,4 +46,26 @@ ssl:
   required: false
   type: boolean
   default: true
+{% endconfiguration %}
+
+## {% linkable_title Switch Configuration %}
+
+To configure switch-related functionality, add configuration options beneath
+a `switches` key within the `rainmachine` sections of `configuration.yaml`
+as below:
+
+```yaml
+rainmachine:
+  ip_address: 192.168.1.100
+  password: YOUR_PASSWORD
+  switches:
+    # switch configuration options
+```
+
+{% configuration %}
+zone_run_time:
+  description: the default number of seconds that a zone should run when turned on
+  required: false
+  type: int
+  default: 600
 {% endconfiguration %}
