@@ -25,6 +25,10 @@ To connect to your RainMachine device, add the following to your
 rainmachine:
   ip_address: 192.168.1.100
   password: YOUR_PASSWORD
+  port: 8080
+  ssl: true
+  switches:
+    zone_run_time: 300
 ```
 
 {% configuration %}
@@ -46,23 +50,6 @@ ssl:
   required: false
   type: boolean
   default: true
-{% endconfiguration %}
-
-## {% linkable_title Switch Configuration %}
-
-To configure switch-related functionality, add configuration options beneath
-a `switches` key within the `rainmachine` sections of `configuration.yaml`
-as below:
-
-```yaml
-rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
-  switches:
-    # switch configuration options
-```
-
-{% configuration %}
 zone_run_time:
   description: the default number of seconds that a zone should run when turned on
   required: false
