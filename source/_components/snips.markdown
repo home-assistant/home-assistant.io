@@ -251,7 +251,7 @@ intent_script:
 ```
 
 ##### Weather
-So now you can open and close your garage door, let's check the weather. Log on to the [console](console).
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant.
 
 Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the api_key in the secrets file.
 
