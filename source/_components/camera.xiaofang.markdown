@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Xiaomi Xiaofang 1080p Camera"
+title: "Xiaomi Cameras"
 description: "Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant."
 date: 2018-05-02 13:00
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: 0.56
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaofang` camera platform allows you to utilize [Xiaofang 1080p Cameras](https://www.yitechnology.com/) within Home Assistant. 
+The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant. 
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
@@ -21,9 +21,13 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### {% linkable_title Installing Alternative Firmware %}
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [Collection of modifications for the XiaoFang WiFi Camera - GitHub project](https://github.com/samtap/fang-hacks).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
-Once installed, please ensure that you have enabled.
+* [Yi 720p](https://github.com/fritz-smh/yi-hack)
+* [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+* [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
+
+Once installed, please ensure that you have enabled FTP.
 
  <p class='note warning'>
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
@@ -34,7 +38,7 @@ Hassbian users: don't forget to install ffmpeg support on your platform, otherwi
 </p>
 
 <p class='note warning'>
-The live stream writing by the camera is not an supported format when the ffmpeg read through FTP, so this component retrives the video which was saved 1 minute earlier.
+The live stream writing by the camera is not an supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this component retrives the video which was saved 1 minute earlier.
 </p>
 
 <p class='note warning'>
@@ -47,9 +51,10 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 
 ```yaml
 camera:
-  - platform: xiaofang
+  - platform: xiaomi
     name: Camera
     host: '192.168.1.100'
+    model: 'yi'
     password: my_password_123
 ```
 
@@ -57,6 +62,7 @@ Configuration variables:
 
 - **name** (*Required*): A human-friendly name for the camera.
 - **host** (*Required*): The IP address or hostname of the camera.
+- **model** (*Required*): The model of Xiaomi Camera, currently supporting yi and xiaofang.
 - **password** (*Required*): The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
 - **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
 - **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
@@ -70,9 +76,10 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 
 ```yaml
 camera:
-  - platform: xiaofang
+  - platform: xiaomi
     name: My Camera
     host: '192.168.1.100'
+    model: 'xiaofang'
     password: my_password_123
     path: /home/camera/feed
     ffmpeg_arguments: '-vf scale=800:450'
