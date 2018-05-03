@@ -22,12 +22,24 @@ notify:
   - name: NOTIFIER_NAME
     platform: facebook
     page_access_token: FACEBOOK_PAGE_ACCESS_TOKEN
+    allowed_chat_ids:
+    - 0034643123212
 ```
 
-Configuration variables:
-
-- **page_access_token** (*Required*): Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+{% configuration %}
+page_access_token:
+  required: true
+  description: Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information.
+  type: string
+name:
+  required: false
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  type: string
+allowed_chat_ids:
+  required: false
+  description: User IDs (page specific) that can trigger Home Assistant events from Facebook messenger
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 
@@ -50,50 +62,11 @@ automation:
           - '+919784516314'
 ```
 
-You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
+If you have your Home Assistant installation exposed to the internet you can also retrieve a page-specific user ID. This user ID can be used as a target for users who do not have their phone number stored on facebook. This user ID is also required if you'd like to trigger events within Home Assistant by sending messages through facebook, or to create actionable notifications with quick reply buttons.
 
-```php
-<?php
+To enable this functionality, enable a webhook for the "messages" event in Facebook's developer console-- the callback URL for this will be https://{your homeassistant base url}/api/facebook_webhooks and the verify token will be your page_access_token.
 
-$access_token = "";
-$verify_token = "";
-
-if (isset($_REQUEST['hub_challenge'])) {
-    $challenge        = $_REQUEST['hub_challenge'];
-    $hub_verify_token = $_REQUEST['hub_verify_token'];
-
-    if ($hub_verify_token === $verify_token) {
-        echo $challenge;
-    }
-}
-
-$input   = json_decode(file_get_contents('php://input'), true);
-$sender  = $input['entry'][0]['messaging'][0]['sender']['id'];
-$message = $input['entry'][0]['messaging'][0]['message']['text'];
-
-if (preg_match('/get my id/', strtolower($message))) {
-    $url      = 'https://graph.facebook.com/v2.10/me/messages?access_token=' . $access_token;
-    $ch       = curl_init($url);
-    $jsonData = '{
-        "recipient":{
-            "id":"' . $sender . '"
-        },
-        "message":{
-            "text":"Your ID: ' . $sender . '"
-        }
-      }';
-
-    $jsonDataEncoded = $jsonData;
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-
-    if (!empty($input['entry'][0]['messaging'][0]['message'])) {
-        $result = curl_exec($ch);
-    }
-}
-
-```
+Once this is enabled, a user can find their page specific user ID by sending a message to your page with the text `get my id`
 
 ### {% linkable_title Rich messages %}
 You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types of messages and how to build them.
@@ -112,10 +85,37 @@ script:
             quick_replies:
               - content_type: text
                 title: Red
-                payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED
+                payload: FOO
               - content_type: text
                 title: Blue
-                payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
+                payload: BAR
+```
+
+If a users page specific id is in your allowed_chat_ids list, their messages to your page will trigger a `facebook_message` event. This can be used as the basis for automations. This event will have the following event_data:
+
+- **sender_id**: The page specific user ID of the user who sent the message
+- **message**: The text body of the message
+- **payload**: In the case of quick replies, the developer defined payload.
+
+An automation that reacts to the quick reply message from above might look like this:
+
+```yaml
+# Example automation for clicking the red button
+
+automation:
+- alias: 'red message'
+  trigger:
+    platform: event
+    event_type: facebook_message
+    event_data:
+      payload: FOO
+      sender_id: 0034643123212
+  action:
+  - service: notify.facebook
+    data:
+      message: 'Received red'
+      target:
+        - 0034643123212
 ```
 
 You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice. 
