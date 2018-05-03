@@ -14,11 +14,12 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' binary sensor component integrates your Hive sensors into Home Assistant.
+The `hive` binary sensor component integrates your Hive sensors into Home Assistant.
 
-The Hive binary sensor component supports the following Hive products:
-- **Hive Window or Door Sensor**
-- **Hive Motion Sensor**
+The platform supports the following Hive products:
+
+- Hive Window or Door Sensor
+- Hive Motion Sensor
 
 
 <p class='note'>
