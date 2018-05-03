@@ -82,7 +82,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
 {% endconfiguration %}
 
 <p class='note'>
-  If you use Z-Wave you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this and then start the HomeKit component once Z-Wave is ready.
+  If you use Z-Wave, or `discovery:` you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this. You'll then need to start the HomeKit component once Z-Wave is ready, or an appropriate delay to allow your entities to be discovered.
 </p>
 
 ## {% linkable_title Setup %}
