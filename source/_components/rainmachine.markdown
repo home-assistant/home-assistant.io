@@ -27,6 +27,18 @@ rainmachine:
   password: YOUR_PASSWORD
 ```
 
+To configure switch-related functionality, add configuration options beneath
+a `switches` key within the `rainmachine` sections of `configuration.yaml`
+as below:
+
+```yaml
+rainmachine:
+  ip_address: 192.168.1.100
+  password: YOUR_PASSWORD
+  switches:
+    zone_run_time: 300
+```
+
 {% configuration %}
 ip_address:
   description: the IP address or hostname of your RainMachine unit
@@ -46,21 +58,6 @@ ssl:
   required: false
   type: boolean
   default: true
-{% endconfiguration %}
-
-To configure switch-related functionality, add configuration options beneath
-a `switches` key within the `rainmachine` sections of `configuration.yaml`
-as below:
-
-```yaml
-rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
-  switches:
-    # switch configuration options
-```
-
-{% configuration %}
 zone_run_time:
   description: the default number of seconds that a zone should run when turned on
   required: false
