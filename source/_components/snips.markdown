@@ -166,11 +166,11 @@ SetTimer:
 ```
 {% endraw %}
 
-### Sending TTS Notifications
+### {% linkable_title Sending TTS Notifications %}
 
 You can send TTS notifications to Snips using the snips.say and snips.say_action services. Say_action starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
-#### {% linkable_title Service `snips/say` %}
+#### {% linkable_title Service `snips.say` %}
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -178,7 +178,7 @@ You can send TTS notifications to Snips using the snips.say and snips.say_action
 | `site_id`              |      yes | Site to use to start session.                          |
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
-#### {% linkable_title Service `snips/say_action` %}
+#### {% linkable_title Service `snips.say_action` %}
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -191,12 +191,12 @@ You can send TTS notifications to Snips using the snips.say and snips.say_action
 
 ### {% linkable_title Snips Support %}
 
-There is an active [discord](discord) channel for further support.
+There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
 
+### {% linkable_title Configuration Examples %}
 
-### Configuration Examples
+#### {% linkable_title Turn on a light %}
 
-#### Turn on a light
 ```yaml
 intent_script:
   turn_on_light:
@@ -206,7 +206,9 @@ intent_script:
     action:
       service: light.turn_on
 ```
-##### Open a Garage Door
+
+##### {% linkable_title Open a Garage Door %}
+
 ```yaml
 intent_script:
   OpenGarageDoor:
@@ -218,11 +220,13 @@ intent_script:
         data:
           entity_id: garage_door
 ```
-##### Intiating a query
+
+##### {% linkable_title Intiating a query %}
 
 Here is a more complex example. The automation is triggered if the garage door is open for more than 10 minutes.
 Snips will then ask you if you want to close it and if you respond with something like "Close the garage door" it
 will do so. Unfortunately there is no builtin support for yes and no responses.
+
 ```yaml
 automation:
   garage_door_has_been_open:
@@ -250,7 +254,8 @@ intent_script:
       - service: script.garage_door_close
 ```
 
-##### Weather
+##### {% linkable_title Weather %}
+
 So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant.
 
 Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the api_key in the secrets file.
@@ -268,8 +273,10 @@ Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/]
     - temperature_max
     - temperature_min
 ```
+
 Then create this intent_script.yaml file in your config directory
 
+{% raw %}
 ```yaml
 intent_script:
   searchWeatherForecast:
@@ -283,5 +290,5 @@ intent_script:
         {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
         and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+{% endraw %}
 
-[discord]: https://discordapp.com/invite/3939Kqx
