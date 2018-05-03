@@ -36,7 +36,7 @@ rainmachine:
   ip_address: 192.168.1.100
   password: YOUR_PASSWORD
   switches:
-    zone_run_time: 300
+    # switch configuration options...
 ```
 
 {% configuration %}
