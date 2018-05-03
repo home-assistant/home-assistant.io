@@ -58,9 +58,14 @@ ssl:
   required: false
   type: boolean
   default: true
-zone_run_time:
-  description: the default number of seconds that a zone should run when turned on
+switches:
+  description: switch-related configuration options
   required: false
-  type: int
-  default: 600
+  type: map
+  keys:
+    zone_run_time:
+      description: the default number of seconds that a zone should run when turned on
+      required: false
+      type: int
+      default: 600
 {% endconfiguration %}
