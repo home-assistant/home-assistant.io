@@ -13,13 +13,14 @@ ha_iot_class: "Local Polling"
 ha_release: 0.67
 ---
 
-This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files. The monitored `event_type` are:
+This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
+
 * `created`
 * `deleted`
 * `modified`
 * `moved`
 
-Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+Configured folders must be added to [whitelist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
 To enable the Folder Watcher component in your installation, add the following to your `configuration.yaml` file:
 
