@@ -26,7 +26,7 @@ To enable the `workday` sensor in your installation, add the following to your `
 binary_sensor:
   - platform: workday
     country: DE
-    workdays: [ mon, wed, fri ]
+    workdays: [mon, wed, fri]
 ```
 
 Configuration variables:

@@ -15,8 +15,11 @@ ha_release: 0.48
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
 
-### Get your ClickSend API Credentials
+## {% linkable_title Prerequisites %}
+
 Go to your [ClickSend Dashboard](https://dashboard.clicksend.com) section and create your new project. After creating your project, you should now be able to obtain your `username` and `api_key`.
+
+## {% linkable_title Configuration %}
 
 To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
 
