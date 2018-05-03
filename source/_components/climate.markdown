@@ -11,7 +11,7 @@ footer: true
 
 
 The `climate` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.
- 
+
 To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
@@ -20,6 +20,42 @@ climate:
   platform: demo
 ```
 
+## {% linkable_title Properties %}
+
+Every climate device has a set of properties that control the operation of the climate device. These properties can be set via the frontend or by calling services and are reported in the attributes of the device's state. Note that not all platforms implement all the properties. Also, for properties that have a certain set of possible choices, not all platforms implement all choices.
+
+We explain each of the properties and the possible choices for them shortly:
+
+* The `on / off` property completely disables the device if set of `off`.
+* The **temperature_action** property specifies how the device currently controls the room's temperature. It can be any of:
+  * Cooling
+  * Heating
+  * Auto (Cool or heat, depending on what's necessary to achieve the target temperature)
+  * Off
+* The **humidity_action** property specifies how the device currently controls the room's humidity. It can be any of:
+  * Humidifying
+  * Dehumidifying
+  * Auto (Humidify or dehumidify, depending on what's necessary to achieve the target humidity)
+  * Off
+* The **target_temperature** property selects the desired temperature for the device to achieve. The device will take measures to do so depending on what `action` is chosen. While most devices allow only to specify a `target_temperature` and will start heating / cooling when the temperature differs too far from that temperature, some devices allow finer control by specifying an  acceptable temperature corridor:
+  * The **target_temperature_high** property selects an upper limit on the acceptable temperature. The device will start cooling (if `cooling` or `auto` are selected as `temperature_action`) if that temperature is exceeded.
+  * The **target_temperature_low** property selects a lower limit on the acceptable temperature. The device will start heating (if `heating` or `auto` are selected as `temperature_action`) if that temperature is undershot.
+* The **target_humidity** property selects the target humidity. If this is set and the device is able to humidify / dehumidify the air, it will do so if the actual humidity differs from this value. Some devices allow for a finer control of the target humidity:
+  * The **target_humidity_high** property selects an upper limit on the acceptable humidity. The device will start dehumidifying (if `dehumidifying` or `auto` are selected as `humidity_action`) if that humidity is exceeded.
+  * The **target_humidity_low** property selects an lower limit on the acceptable humidity. The device will start humidifying (if `humidifying` or `auto` are selected as `humidity_action`) if that humidity is undershot.
+* The **control** property specifies how the device is currently being controlled. Many devices allow to chose between an automated control (following a given preset) or a manual control. Thus, while the choices for this property are not strictly standardized, common possibilities are:
+  * Manual
+  * Auto
+  * Eco
+* The **source** property specifies (for devices which support this), what source to use for achieving the goal given in the `action`. Each of the possible choices can be individually turned on or off. Choices are:
+ * Electric
+ * Gas
+ * Auxiliary
+ * Heat Pump
+* The **away** property can only be on or off and sets devices into a away-mode in which they usually conserve energy by heating / cooling less. After disabling the away mode, the device should return to the exact settings it had set before the away mode was enabled.
+* The **fan_mode** property selects between the different modes of the device's fan, if it has any. Choices differ from device to device.
+* The **swing_mode** property selects whether and how the device should swing, if it supports this. Choices differ from device to device.
+P
 ## {% linkable_title Services %}
 
 ### {% linkable_title Climate control services %}
@@ -54,7 +90,7 @@ automation:
 
 ### {% linkable_title Service `climate.set_away_mode` %}
 
-Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
+Set away mode for climate device. The away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. This may be used to emulate a
 "vacation mode", for example.
 
