@@ -48,8 +48,6 @@ ssl:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Switch Configuration %}
-
 To configure switch-related functionality, add configuration options beneath
 a `switches` key within the `rainmachine` sections of `configuration.yaml`
 as below:
