@@ -97,6 +97,8 @@ intent_script: !include intent_script.yaml
 ```
 
 Finally, create this intent_script.yaml file in your config directory
+
+{% raw %}
 ```yaml
 searchWeatherForecast:
   speech:
@@ -109,6 +111,8 @@ searchWeatherForecast:
       {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
       and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+{% endraw %}
+
 Now just restart HassIO and ask it what the weather is like!
 
 
