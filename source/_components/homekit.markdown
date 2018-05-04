@@ -239,3 +239,17 @@ logger:
    - The configuration entries for `homekit` and the `component` that is causing the issue.
    - The log / traceback you have generated before.
    - Screenshots of the failing entity in the `states` panel.
+
+## {% linkable_title Troubleshooting PIN not appearing %}
+
+In some instances, the PIN will not appear as a persistant status or in the log files despite deleting .homekit.state, enabling logging, and reboot.
+
+In such cases, modifying your configuration.yaml to add a filter limiting the included entities similar to the folowing:
+
+```yaml
+filter:
+  include_domains:
+    - light
+```
+
+Restart Home-Assistant and re-attempt pairing - a persistant status should now properly appear.
