@@ -97,7 +97,7 @@ followed by a command, e.g.
 
 > Set the lights to green in the living room
 
-As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
+As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
 
 #### {% linkable_title Optional: specifying an external MQTT broker %}
 
@@ -256,9 +256,7 @@ intent_script:
 
 ##### {% linkable_title Weather %}
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant.
-
-Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the api_key in the secrets file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky
@@ -274,7 +272,7 @@ Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/]
     - temperature_min
 ```
 
-Then create this intent_script.yaml file in your config directory
+Then create this `intent_script.yaml` file in your configuration directory.
 
 {% raw %}
 ```yaml
