@@ -29,9 +29,9 @@ To integrate Google Maps Location Sharing in Home Assistant, add the following s
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: google_maps
-  username: example@gmail.com
-  password: password
+  - platform: google_maps
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
