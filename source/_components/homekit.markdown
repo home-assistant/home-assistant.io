@@ -81,6 +81,9 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
                 default: ''
 {% endconfiguration %}
 
+<p class='note'>
+  If you use Z-Wave, or `discovery:` you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this. You'll then need to start the HomeKit component once Z-Wave is ready, or an appropriate delay to allow your entities to be discovered.
+</p>
 
 ## {% linkable_title Setup %}
 
@@ -120,7 +123,7 @@ A common situation might be if you decide to disable parts of the configuration 
 
 Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
 
-This can be automated using an `automation`.
+If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation:
 
 {% raw %}
 ```yaml
@@ -137,6 +140,8 @@ automation:
       - service: homekit.start
 ```
 {% endraw %}
+
+For a general delay where your component doesn't generate an event, you can also do:
 
 {% raw %}
 ```yaml
