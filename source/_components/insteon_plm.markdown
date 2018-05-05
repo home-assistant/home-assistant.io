@@ -145,7 +145,7 @@ homeassistant:
 insteon_plm:
   port: /dev/ttyUSB0
   device_override:
-    - address: a1b2c3  # Hidden Door Sensor [2845-222]
+    - address: a1b2c3  # Hidden Door Sensor
       cat: 0x10
       subcat: 0x11     
 ```
