@@ -37,7 +37,7 @@ media_player:
   - platform: cambridgeaudio
     name: CA851N
     host: 192.168.1.31
-	poweroff_command: OFF
+    poweroff_command: OFF
 ```
 
 {% configuration %}
