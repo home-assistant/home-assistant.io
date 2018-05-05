@@ -21,7 +21,6 @@ Verified to work with:
 
 If your non-listed device works with this this platform, if you encounter any bugs, or want to request a specific feature, please feel free to [report them upstream](https://github.com/sebk-666/stream_magic)
 
-
 A few notes:
 
 - The platform currently does not support the pre-amp features of the player, i.e. no controls for volume, muting, balance and such are currently available.
