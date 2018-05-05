@@ -18,6 +18,15 @@ Installation with Docker is straightforward. Adjust the following command so tha
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
+### {% linkable_title Raspberry Pi 3 (Raspbian) %}
+
+```bash
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant:0.XX.x
+```
+
+The Docker container for Raspberry Pi 3 does not have a 'latest' tag so the version number must be specified explicitly, i.e. 0.68.0. This goes for both CLI and Docker Compose.
+
+
 ### {% linkable_title macOS %}
 
 When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).

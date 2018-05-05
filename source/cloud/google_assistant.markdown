@@ -9,6 +9,11 @@ sharing: true
 footer: true
 ---
 
+
+<p class='note'>
+The minimum supported version of Home Assistant is 0.65.6.
+</p>
+
 The Google Assistant integration allows users to control the entities via the Home Assistant Smart Home skill for Google Assistant. This means that you can say things like "Ok Google, turn on the kitchen light" to control your local Home Assistant.
 
 To use this integration, you need to have:

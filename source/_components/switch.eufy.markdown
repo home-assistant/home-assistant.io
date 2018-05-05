@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "EufySwitch"
+title: "Eufy Switch"
 description: "Instructions on how to integrate Eufy switches into Home Assistant."
-date: 2018-05-09 19:00
+date: 2018-04-09 19:00
 sidebar: true
 comments: false
 sharing: true

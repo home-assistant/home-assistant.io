@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Rain Bird component](/components/rainbird), add the following to your `configuration.yaml` file:
 
 ```yaml

@@ -31,6 +31,10 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
 - Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
 <p class='note'>
+If your router doesn't support mDNS then you'll have to use the IP address of your Pi, instead of `hassio.local`, for example `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
+</p>
+
+<p class='note'>
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
 </p>
 

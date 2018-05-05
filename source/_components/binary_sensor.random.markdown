@@ -16,6 +16,8 @@ ha_release: 0.57
 
 The `random` binary sensor platform is creating random states (`True`, 1, `on` or `False`, 0, `off`). This can be useful if you want to test automation rules. It generates a new state every time it is polled.
 
+## {% linkable_title Configuration %}
+
 To enable the random binary sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
