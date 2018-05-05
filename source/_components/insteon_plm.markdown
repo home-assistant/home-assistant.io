@@ -63,26 +63,52 @@ a responder or a controller.
 
 In order for any two Insteon devices to talk with one another, they must be 
 linked. For an overview of device linking please read the Insteon page on
-[understanding linking]. Currently Insteon PLM does not support software
-linking of devices. If you need software that can link your devices (if you 
-are using a USB Stick PLM for example), you can download [HouseLinc] which runs
-on any Windows PC, or you can use [Insteon Terminal] which is open source and 
-runs on most platforms. HouseLinc is no longer supported by SmartHome but it 
-still works. Insteon Terminal is a very useful tool but please read the 
-disclaimers carefully, they are important.
+[understanding linking]. The Insteon PLM module supports All-Linking through 
+[Development Tools] service calls. The following services are available:
+
+In order for any two Insteon devices to talk with one another, they must be 
+linked. For an overview of device linking, please read the Insteon page on
+[understanding linking]. The Insteon PLM module supports All-Linking through 
+[Development Tools] service calls. The following services are available:
+- **insteon_plm.add_all_link**: Tells the Insteon Modem (IM) start All-Linking 
+mode. Once the IM is in All-Linking mode, press the link button on the device 
+to complete All-Linking.
+- **insteon_plm.delete_all_link**: Tells the Insteon Modem (IM) to remove an 
+All-Link record from the All-Link Database of the IM and a device. Once the IM 
+is set to delete the link, press the link button on the corresponding device 
+to complete the process.
+- **insteon_plm.load_all_link_database**: Load the All-Link Database for a 
+device. WARNING - Loading a device All-Link database is very time consuming 
+and inconsistent. This may take a LONG time and may need to be repeated to 
+obtain all records.
+- **insteon_plm.print_all_link_database**: Print the All-Link Database for a 
+device. Requires that the All-Link Database is loaded into memory.
+- **insteon_plm.print_im_all_link_database**: Print the All-Link Database for 
+the INSTEON Modem (IM).
+
+If you are looking for more advanced options, you can use the 
+[insteonplm_interactive] command line tool that is distributed with the 
+[insteonplm] Python module. Please see the documentation on the [insteonplm] 
+GitHub site. Alternatively, you can download [HouseLinc] which runs on any 
+Windows PC, or you can use [Insteon Terminal] which is open source and runs 
+on most platforms. SmartHome no longer supports HouseLinc, but it still 
+works. Insteon Terminal is a very useful tool but please read the disclaimers 
+carefully, they are important.
 
 [understanding linking]: http://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
+[Development Tools]: https://www.home-assistant.io/docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
+[insteonplm_interactive]: https://github.com/nugget/python-insteonplm#command-line-interface
 
 ### {% linkable_title Customization %} 
 
-The only configuration item that is absolutely necessary is the port so that
-Home Assistant can connect to the PLM.  This will expose all the supported INSTEON
-devices which exist in the modem's ALL-Link database.  However, devices will
-only be shown by their INSTEON hex address (e.g., "1A.2B.3C") which can be a bit
-unwieldy.  As you link and unlink devices using the 'Set' buttons, they'll be
-added and removed from Home Assistant automatically.
+The only configuration item that is absolutely necessary is the port so that 
+Home Assistant can connect to the PLM. This will expose all the supported 
+INSTEON devices which exist in the modem’s ALL-Link database. However, devices 
+will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can 
+be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, 
+they’ll be added and removed from Home Assistant automatically.
 
 You can use the normal Home Assistant [device customization] section of your
 configuration to assign friendly names and special icons to your devices.  This
@@ -123,7 +149,9 @@ insteon_plm:
       cat: 0x10
       subcat: 0x11     
 ```
+
 ### {% linkable_title What NOT to do %}
+
 Insteon PLM is a top level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
@@ -134,4 +162,3 @@ light:
   - platform: insteon_plm
     address: 1a2b3c
 ```
-
