@@ -25,15 +25,9 @@ https://socialblade.com/youtube/channel/{channel_id}
 sensor:
   - platform: socialblade
     channel_id: YOUR_CHANNEL_NUMBER
-    name: OPTIONAL_NAME
 ```
 
 {% configuration %}
-friendly_name:
-  description: Name of the sensor in Home Assistant.
-  required: false
-  default: Social Blade
-  type: string
 channel_id:
   description: channel id number optained from the URL when you access Social Blade web client. 
   required: true
