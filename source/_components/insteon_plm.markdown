@@ -105,10 +105,10 @@ carefully, they are important.
 
 The only configuration item that is absolutely necessary is the port so that 
 Home Assistant can connect to the PLM. This will expose all the supported 
-INSTEON devices which exist in the modemís ALL-Link database. However, devices 
-will only be shown by their INSTEON hex address (e.g., ì1A.2B.3Cî) which can 
-be a bit unwieldy. As you link and unlink devices using the ëSetí buttons, 
-theyíll be added and removed from Home Assistant automatically.
+INSTEON devices which exist in the modem‚Äôs ALL-Link database. However, devices 
+will only be shown by their INSTEON hex address (e.g., ‚Äú1A.2B.3C‚Äù) which can 
+be a bit unwieldy. As you link and unlink devices using the ‚ÄòSet‚Äô buttons, 
+they‚Äôll be added and removed from Home Assistant automatically.
 
 You can use the normal Home Assistant [device customization] section of your
 configuration to assign friendly names and special icons to your devices.  This
@@ -149,7 +149,9 @@ insteon_plm:
       cat: 0x10
       subcat: 0x11     
 ```
+
 ### {% linkable_title What NOT to do %}
+
 Insteon PLM is a top level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
