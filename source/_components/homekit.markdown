@@ -242,7 +242,7 @@ logger:
 
 ## {% linkable_title Troubleshooting PIN not appearing %}
 
-In some instances, the PIN will not appear as a persistant status or in the log files despite deleting .homekit.state, enabling logging, and reboot.
+In some instances, the PIN will not appear as a persistant status or in the log files despite deleting .homekit.state, enabling logging, and reboot.  The log files will include the error ```Duplicate AID found when attempting to add accessory```.
 
 In such cases, modifying your configuration.yaml to add a filter limiting the included entities similar to the folowing:
 
