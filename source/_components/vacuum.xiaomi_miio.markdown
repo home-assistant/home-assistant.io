@@ -81,7 +81,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 | `velocity`                |       no | Speed: between -0.29 and 0.29                         |
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees        |
-| `duration`                |       no | The number of seconds that the robot should move for  |
+| `duration`                |       no | The number of milliseconds that the robot should move for  |
 
 ### {% linkable_title Service `vacuum.xiaomi_remote_control_move_step` %}
 
@@ -92,7 +92,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 | `velocity`                |       no | Speed: between -0.29 and 0.29.                        |
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees.       |
-| `duration`                |       no | The number of seconds that the robot should move for  |
+| `duration`                |       no | The number of milliseconds that the robot should move for  |
 
 ## {% linkable_title Attributes %}
 

@@ -33,6 +33,10 @@ mqtt:
   broker: IP_ADDRESS_BROKER
 ```
 
+<p class='note'>
+The minimal setup uses the embedded MQTT broker, however a separate broker is advised for more stability.
+</p>
+
 ## {% linkable_title Additional features %}
 
 - [Certificate](/docs/mqtt/certificate/)

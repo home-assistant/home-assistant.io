@@ -12,10 +12,10 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they could be controlled from Apple `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
+The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
 
 <p class="note warning">
-  It might be necessary to install an additional package:  
+  It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
 </p>
 
@@ -87,7 +87,7 @@ To enable the `HomeKit` component in Home Assistant, add the following to your c
 homekit:
 ```
 
-After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if the are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if they are [supported](#supported-components). To add them:
 1. Open the Home Assistant frontend. A new card will display the `pin code`.
 1. Open the `Home` app.
 2. Choose `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and enter the `pin code`.
@@ -107,7 +107,7 @@ Currently this component uses the `entity_id` to generate a unique `accessory id
 
 ### {% linkable_title Persistence Storage %}
 
-Unfortunately `HomeKit` doesn't support any kind of persistence storage, only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
+Unfortunately `HomeKit` doesn't support any kind of persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
@@ -154,7 +154,7 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added. 
+By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 {% raw %}
 ```yaml
@@ -184,7 +184,7 @@ Filters are applied as follows:
       - if both include and exclude domains specified, the exclude domains are ignored
    * Neither include or exclude domain specified
       - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored 
+      - if entity include and exclude, the entity exclude is ignored
 
 
 ## {% linkable_title Supported Components %}
@@ -196,11 +196,17 @@ The following components are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | binary_sensor | Sensor | Support for `CO2`, `Gas`, `Moisture`, `Motion`, `Occupancy`, `Opening` and `Smoke` device classes. Defaults to the `Occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
+| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
+| cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
+| cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
-| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement`. |
-| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` |
+| sensor | TemperatureSensor | All sensors that have `Celsius` and `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
+| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` or `humidity` as their `device_class`. |
+| sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
+| sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
+| sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 

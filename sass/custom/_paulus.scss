@@ -4,6 +4,10 @@ $primary-color: #049cdb;
 
 .site-header {
   position: relative;
+
+  .site-title {
+    font-weight: normal;
+  }
 }
 
 .search-container {
@@ -377,18 +381,26 @@ p.note {
 }
 
 .copyright {
-  text-align: center;
+  text-align: left;
 
-  i {
-    font-size: 3em;
-    margin-right: 8px;
-    position: relative;
-    top: -5px;
+  .company {
+    .title {
+      font-size: 1.5em;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    i {
+      font-size: 2em;
+      padding: 0 5px;
+    }
   }
-  .credit {
-    text-align: left;
-    display: inline-block;
-    font-size: .8em;
+
+  ul {
+    margin: 0;
+    list-style: none;
   }
 }
 

@@ -52,3 +52,7 @@ value to each entry.
    cause integrations to fail and might be removed in the future.
 
    _Added in Home Assistant 0.64._
+   
+{% linkable_title Supported Components %}
+   
+At the moment, only the following components are supported: Z-Wave, Hue, Nest, LIFX, Sonos, Apple TV

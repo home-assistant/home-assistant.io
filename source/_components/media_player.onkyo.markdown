@@ -28,12 +28,28 @@ media_player:
       pc: 'HTPC'
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
-- **name** (*Required if host is specified*): Name of the device.
-- **max_volume** (*Optional*): Maximum allowed volume set by the volume slider. Must be between `1` and `80`. Defaults to `80`.
-- **sources** (*Optional*): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
+{% configuration %}
+host:
+  description: IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
+  required: false
+  type: string
+name:
+  description: Name of the device. (*Required if host is specified*)
+  required: false
+  type: string
+max_volume:
+  description: Maximum volume. Defaults to 80.
+  required: false
+  type: number
+sources:
+  description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
+  required: false
+  type: list
+zone2:
+  description: Enables control for the receiver's second zone.
+  required: false
+  type: bool
+{% endconfiguration %}
 
 List of source names:
 

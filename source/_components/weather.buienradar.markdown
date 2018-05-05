@@ -14,7 +14,10 @@ ha_iot_class: "Cloud Polling"
 ---
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
+
+## {% linkable_title Configuration %}
 
 To add the Buienradar weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -26,7 +29,7 @@ weather:
 
 Configuration variables:
 
-- **name** (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the weather component will get an entity name of 'weather.[name]'; if no name is specified, it will try to set its name to 'weather.BR_[stationname]'. However at the moment in time, the entity is created, no data has been retrieved yet, so the entity will get named 'weather.BR_unknown_station'. Later the station name will be known and get updated, but the entity name remains.
+- **name** (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the weather component will get an entity name of `weather.[name]`; if no name is specified, it will try to set its name to `weather.BR_[stationname]`. However at the moment in time, the entity is created, no data has been retrieved yet, so the entity will get named `weather.BR_unknown_station`. Later the station name will be known and get updated, but the entity name remains.
 - **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this component to select a different location for Buienradar.
 - **longitude**(*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this component to select a different location for Buienradar.
 - **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it.

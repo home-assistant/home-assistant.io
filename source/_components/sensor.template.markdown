@@ -69,6 +69,11 @@ sensor:
         description: Defines a template for the entity picture of the sensor.
         required: false
         type: template
+      device_class:
+        description: The type/class of the sensor to set the icon in the frontend.
+        required: false
+        type: device_class
+        default: None
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}

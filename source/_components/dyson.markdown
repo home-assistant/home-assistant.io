@@ -26,9 +26,9 @@ dyson:
   password: YOUR_DYSON_PASSWORD
   language: YOUR_DYSON_ACCOUNT_LANGUGAGE
   devices:
-    - device_id: DEVICE_ID_1 # eg: Pure Cool Link device
+    - device_id: DEVICE_ID_1 # eg. Serial number: XXX-XX-XXXXXXXX
       device_ip: DEVICE_ID_1
-    - device_id: DEVICE_ID_2 # eg: Eye 360 robot vacuum
+    - device_id: DEVICE_ID_2
       device_ip: DEVICE_ID_2
 ```
 
@@ -38,7 +38,7 @@ Configuration variables:
 - **password** (*Required*): Dyson account password.
 - **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. But others codes should work.
 - **devices** (*Optional*): List of devices.
-  - **device_id** (*Required*): Device ID. Available in the mobiles applications (*Settings* page).
+  - **device_id** (*Required*): Device ID. The Serial Number of the device. Found in the mobiles applications device settings page.
   - **device_ip** (*Required*): Device IP address.
 
 `devices` list is optional but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).

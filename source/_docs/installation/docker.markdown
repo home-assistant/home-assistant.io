@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 
-Installation with Docker is straightforward. Adjust the following command so that `/path/to/your/config/` points at the folder where you want to store your config and run it:
+Installation with Docker is straightforward. Adjust the following command so that `/path/to/your/config/` points at the folder where you want to store your configuration and run it:
 
 ### {% linkable_title Linux %}
 
@@ -20,7 +20,7 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 
 ### {% linkable_title macOS %}
 
-When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, ex: `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
@@ -28,7 +28,7 @@ If you wish to browse directly to `http://localhost:8123` from your macOS host, 
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
 ```
 
-Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs] (https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
+Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### {% linkable_title Windows %}
 
@@ -84,31 +84,24 @@ As QNAP within QTS now supports Docker (with a neat UI), you can simply install 
 
 The steps would be:
 
- - Install “Container Station” package on your Qnap NAS 
- - Launch Container Station and move to “Create Container”-section 
- - Search image  “homeassistant/home-assistant” with
-   docker hub and click on “Install”
+ - Install "Container Station" package on your Qnap NAS
+ - Launch Container Station and move to "Create Container"-section 
+ - Search image  "homeassistant/home-assistant" with Docker hub and click on "Install"
  - Choose "latest" version and click next
- - Choose a container-name you want (e.g.
-   “homeassistant”)
- - Click on “Advanced Settings”
- - Within “Shared Folders” click on "Volume from host" > "Add" and
-   choose either an existing folder or add a new folder. The “mount
-   point” has to be “/config”, so that Home Assistant will use it for
-   the configs and logs.
- - Within “Network” and select Network Mode to “Host”
- - To ensure that Home Assistant displays the correct
-   timezone go to the “Environment” tab and click the plus sign then add
-   `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
- - Click on “Create”
+ - Choose a container-name you want (e.g., "homeassistant")
+ - Click on "Advanced Settings"
+ - Within "Shared Folders" click on "Volume from host" > "Add" and choose either an existing folder or add a new folder. The "mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
+ - Within "Network" and select Network Mode to "Host"
+ - To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+ - Click on "Create"
  - Wait for some time until your NAS has created the container
  - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
 
-Remark: to update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder)
+Remark: To update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder).
 
-If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Qnap Docker, Fallow this step:
+If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assistant on Qnap Docker, follow those steps:
 
-**Z-wave:**
+#### {% linkable_title Z-Wave %}
 
  - Connect to your NAS over SSH
  - Load cdc-acm kernel module(when nas restart need to run this command)
@@ -123,16 +116,16 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
     `-v` is your config path
     `-e` is set timezone
     
- - Edit configuration.yaml
+ - Edit `configuration.yaml`
 
-```
+```yaml
 zwave:
   usb_path: /dev/ttyACM0
 ```
 
 That will tell Home Assistant where to look for our Z-wave radio.
 
-**Bluetooth:**
+#### {% linkable_title Bluetooth %}
 
  - Connect to your NAS over SSH
  - Run Docker command:
@@ -141,9 +134,9 @@ That will tell Home Assistant where to look for our Z-wave radio.
     First `-v` is your config path
     `-e` is set timezone
     
- - Edit configuration.yaml
+ - Edit the `configuration.yaml` file
 
-```
+```yaml
 device_tracker:
   - platform: bluetooth_tracker
 ```
@@ -180,10 +173,12 @@ $ docker-compose up -d
 
 ### {% linkable_title Exposing Devices %}
 
-In order to use z-wave, zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+In order to use Z-Wave, ZigBbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 --net=host homeassistant/home-assistant
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config \
+   -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
+   --net=host homeassistant/home-assistant
 ```
 
 or in a `docker-compose.yml` file:

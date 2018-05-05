@@ -194,6 +194,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
@@ -204,6 +205,7 @@ In this section you will find some real life examples of how to use this sensor.
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yml entry
 light:
@@ -215,14 +217,15 @@ light:
     brightness_command_topic: "office/rgb1/brightness/set"
     rgb_state_topic: "office/rgb1/rgb/status"
     rgb_command_topic: "office/rgb1/rgb/set"
-    state_value_template: "{% raw %}{{ value_json.state }}{% endraw %}"
-    brightness_value_template: "{% raw %}{{ value_json.brightness }}{% endraw %}"
-    rgb_value_template: "{% raw %}{{ value_json.rgb | join(',') }}{% endraw %}"
+    state_value_template: "{{ value_json.state }}"
+    brightness_value_template: "{{ value_json.brightness }}"
+    rgb_value_template: "{{ value_json.rgb | join(',') }}"
     qos: 0
     payload_on: "ON"
     payload_off: "OFF"
     optimistic: false
 ```
+{% endraw %}
 
 ### {% linkable_title Brightness and no RGB support %}
 
@@ -259,7 +262,6 @@ light:
     brightness_command_topic: 'office/light/brightness/set'
     on_command_type: 'brightness'
 ```
-
 
 ### {% linkable_title Implementations %}
 

@@ -26,11 +26,11 @@ For more details about the GPIO layout, visit the [documentation](https://www.ra
 Permission have been given to the `homeassistant` user to use the GPIO pins and all of the following components should require no underlying changes to work.
 Just follow the component pages for each on how to add them to your Home Assistant installation.
 
- - [DHT Sensor](/components/sensor.dht/).
- - [Raspberry Pi Cover](/components/cover.rpi_gpio/).
- - [Raspberry Pi GPIO Binary Sensor](/components/binary_sensor.rpi_gpio/).
- - [Raspberry Pi GPIO Switch](/components/switch.rpi_gpio/).
- - [Raspberry Pi RF Switch](/components/switch.rpi_rf/).
+ - [DHT Sensor](/components/sensor.dht/)
+ - [Raspberry Pi Cover](/components/cover.rpi_gpio/)
+ - [Raspberry Pi GPIO Binary Sensor](/components/binary_sensor.rpi_gpio/)
+ - [Raspberry Pi GPIO Switch](/components/switch.rpi_gpio/)
+ - [Raspberry Pi RF Switch](/components/switch.rpi_rf/)
 
 ### {% linkable_title Raspberry Pi Camera %}
 

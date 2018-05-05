@@ -23,10 +23,12 @@ This platform supports on/off, brightness, RGB colors, XY colors, color temperat
   "color_temp": 155,
   "color": {
     "r": 255,
-    "g": 255,
-    "b": 255,
-    "x": 0.123,
-    "y": 0.123
+    "g": 180,
+    "b": 200,
+    "x": 0.406,
+    "y": 0.301,
+    "h": 344.0,
+    "s": 29.412
   },
   "effect": "colorloop",
   "state": "ON",
@@ -126,6 +128,11 @@ xy:
   required: false
   type: boolean
   default: false
+hs:
+  description: Flag that defines if the light supports HS colors.
+  required: false
+  type: boolean
+  default: false
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -147,7 +154,7 @@ payload_not_available:
 </p>
 
 <p class='note warning'>
-  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+  RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 </p>
 
 ## {% linkable_title Comparison of light MQTT platforms %}
@@ -161,6 +168,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
@@ -215,7 +223,32 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 ```json
 {
   "brightness": 4095,
+  "state": "ON"
+}
+```
+
+### {% linkable_title HS Color %}
+
+To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
+
+```yaml
+light:
+  - platform: mqtt_json
+    name: mqtt_json_hs_light
+    state_topic: "home/light"
+    command_topic: "home/light/set"
+    hs: True
+```
+
+Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:
+
+```json
+{
   "state": "ON",
+  "color": {
+    "h": 24.0,
+    "s": 100.0
+  }
 }
 ```
 

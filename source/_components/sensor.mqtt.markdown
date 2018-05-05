@@ -81,9 +81,14 @@ json_attributes:
   reqired: false
   type: list, string
 unique_id:
-  description: "An id that uniquely identifies this sensor. If 2 sensors have the same unique id, Home Assistant will raise an exception.**"
+  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
+device_class:
+  description: The type/class of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -171,7 +176,12 @@ sensor:
 
 ### {% linkable_title Get sensor value from a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the `configuration.yaml` file.
+
+- **Controller Subscribe**: `home/%sysname%/#` (instead of `/%sysname%/#`)
+- **Controller Publish**: `home/%sysname%/%tskname%/%valname%` (instead of `/%sysname%/%tskname%/%valname%`)
+
+Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
 
 As soon as the unit is online, you will get the state of the sensor.
 
@@ -192,5 +202,3 @@ sensor:
     name: Brightness
 ```
 {% endraw %}
-
-

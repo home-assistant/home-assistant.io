@@ -12,41 +12,42 @@ ha_release: "0.64"
 ha_category: Hub
 ---
 
-[Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
+The `smappee` component adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
 
 Switches and Sensors are supported - and will be automatically added when you connect to the Smappee controller.
 
-The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/display/DEVAPI/API+Methods) using the [smappy](https://github.com/EnergieID/smappy) pypy module
+The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/display/DEVAPI/API+Methods).
 
-<p class='note'>
-Info on how to get api access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki)
-</p>
+## {% linkable_title Configuration %}
 
-# Configuration
+Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
+
+To use the `smappee` component in your installation, add the following to your `configuration.yaml` file:
+
 
 ```yaml
 # Example configuration.yaml entry
 smappee:
-    host: 10.0.0.5
-    client_id: YOUR_CLIENT_ID
-    client_secret: YOUR_CLIENT_SECRET
-    username: YOUR_MYSMAPPEE_USERNAME
-    password: YOUR_MYSMAPPEE_PASSWORD
+  host: 10.0.0.5
+  client_id: YOUR_CLIENT_ID
+  client_secret: YOUR_CLIENT_SECRET
+  username: YOUR_MYSMAPPEE_USERNAME
+  password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
 ```yaml
 # Minimal example configuration.yaml entry
 smappee:
-    host: 10.0.0.5
+  host: 10.0.0.5
 ```
 
 ```yaml
 # Cloud only example configuration.yaml entry
 smappee:
-    client_id: YOUR_CLIENT_ID
-    client_secret: YOUR_CLIENT_SECRET
-    username: YOUR_MYSMAPPEE_USERNAME
-    password: YOUR_MYSMAPPEE_PASSWORD
+  client_id: YOUR_CLIENT_ID
+  client_secret: YOUR_CLIENT_SECRET
+  username: YOUR_MYSMAPPEE_USERNAME
+  password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
 Configuration variables:
