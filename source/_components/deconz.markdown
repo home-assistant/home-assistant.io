@@ -21,18 +21,9 @@ ha_iot_class: "Local Push"
 
 Use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs. It works both as a standalone container as well as with HASS.io.
 
-### {% linkable_title Supported device types %}
+### {% linkable_title Supported devices %}
 
-- [Zigbee Lights](/components/light.deconz/)
-- [Consumption Sensors](/components/sensor.deconz/)
-- [Humidity Sensors](/components/sensor.deconz/)
-- [Light Level Sensors](/components/sensor.deconz/)
-- [OpenClose Detectors](/components/binary_sensor.deconz/)
-- [Power Sensors](/components/sensor.deconz/)
-- [Presence Detectors](/components/binary_sensor.deconz/)
-- [Pressure Sensors](/components/sensor.deconz/)
-- [Switches (Remote Controls)](/components/sensor.deconz/)
-- [Temperature Sensors](/components/sensor.deconz/)
+See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
 ## {% linkable_title Configuration %}
 
