@@ -23,6 +23,26 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
   If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
 </p>
 
+```yaml
+# Example configuration.yaml entry configuring HomeKit
+homekit:
+  auto_start: true
+  port: 51827
+  ip_address: 192.168.0.100
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+  entity_config:
+    alarm_control_panel.home:
+      code: 1234
+    light.kitchen_light:
+      name: Custom name for HomeKit
+      manufacturer: Acme Inc.
+      model: A19 Bulb
+      serial_number: 012345
+```
+
 {% configuration %}
   homekit:
     description: HomeKit configuration.
@@ -44,7 +64,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: string
       filter:
-        description: Filter entities to available in the `Home` app. ([Configure Filter](#configure-filter))
+        description: Filters for entities to include/exclude from HomeKit. ([Configure Filter](#configure-filter))
         required: false
         type: map
         keys:
@@ -69,16 +89,31 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: map
         keys:
-          alarm_control_panel:
-            description: Additional options for `alarm_control_panel` entities.
+          '`<ENTITY_ID>`':
+            description: Entity specific configuration for HomeKit.
             required: false
             type: map
             keys:
-              code:
-                description: Code to arm or disarm the alarm in the frontend.
+              name:
+                description: Name of entity to show in HomeKit.
                 required: false
                 type: string
-                default: ''
+              manufacturer:
+                description: Manufacturer of entity to show in HomeKit.
+                required: false
+                type: string
+              model:
+                description: Model of entity to show in HomeKit.
+                required: false
+                type: string
+              serial_number:
+                description: Serial number of entity to show in HomeKit.
+                required: false
+                type: string
+              code:
+                description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
+                required: false
+                type: string
 {% endconfiguration %}
 
 <p class='note'>
