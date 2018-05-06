@@ -163,7 +163,7 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-In the above example, the slots are plain strings. However, when more complex types are used, such as dates or time ranges, they will be transformed to rich Python objects, for example:
+In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
 
 {% raw %}
 ```yaml
@@ -176,9 +176,6 @@ SetTimer:
     data_template:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
-      seconds: "{{ slots.timer_duration.value.seconds }}"
-      minutes: "{{ slots.timer_duration.value.minutes }}"
-      hours: "{{ slots.timer_duration.value.hours }}"
 ```
 {% endraw %}
 
