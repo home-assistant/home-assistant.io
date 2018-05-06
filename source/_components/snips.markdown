@@ -163,6 +163,8 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
+Two special values for slots are populated with the siteId the intent originated from and the probability value for the intent.
+
 In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
 
 {% raw %}
@@ -175,9 +177,13 @@ SetTimer:
     service: script.set_timer
     data_template:
       name: "{{ timer_name }}"
-      duration: "{{ timer_duration }}"
+      duration: "{{ timer_duration }}",
+      siteId: "{{ siteId }}",
+      probability: "{{ probability }}"
 ```
 {% endraw %}
+
+
 
 ### {% linkable_title Sending TTS Notifications %}
 
