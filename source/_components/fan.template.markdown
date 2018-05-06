@@ -61,7 +61,7 @@ fan:
         required: false
         type: string
       value_template:
-        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'
+        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'"
         required: true
         type: template
       speed_template:
