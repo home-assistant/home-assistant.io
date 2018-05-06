@@ -105,6 +105,22 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 
 ## {% linkable_title Home Assistant configuration %}
 
+{% configuration %}
+feedback_sounds:
+  description: Turn on feedbacks sounds for Snips
+  required: false
+  type: str
+  default: false
+site_ids:
+  description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites
+  required: false
+  type: str
+probability_threshhold:
+  description: Threshhold for intent probability. Intents under this level are discarded
+  require: false
+  type: int
+{% endconfiguration %}
+
 ### {% linkable_title Specifying the MQTT broker %}
 
 Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
