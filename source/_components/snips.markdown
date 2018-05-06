@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: snips.png
 ha_category: Voice
-ha_release: 0.66
+ha_release: 0.48
 ---
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
@@ -106,10 +106,21 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 ## {% linkable_title Home Assistant configuration %}
 
 Configuration variables:
-
-- **feedback_sounds** (*Optional*): Turn on feedbacks sounds for Snips (true/false)
-- **site_ids** (*Optional*): A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites
-- **probability_threshhold** (*Optional*): Threshhold for intent probability. Intents under this are discarded
+{% configuration %}
+feedback_sounds:
+  description: Turn on feedbacks sounds for Snips
+  required: false
+  type: str
+  default: false
+site_ids:
+  description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites
+  required: false
+  type: str
+probability_threshhold:
+  description: Threshhold for intent probability. Intents under this level are discarded
+  require: false
+  type: int
+{% endconfiguration %}
 
 ### {% linkable_title Specifying the MQTT broker %}
 
