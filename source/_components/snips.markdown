@@ -221,7 +221,7 @@ intent_script:
   turn_on_light:
     speech:
       type: plain
-      text: 'OK, closing the garage door'
+      text: 'OK, turning on the light'
     action:
       service: light.turn_on
 ```
