@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: sabnzbd.png
 ha_category: Downloading
-ha_release: 0.68
+ha_release: 0.69
 ha_iot_class: "Local Polling"
 ---
 
@@ -53,11 +53,6 @@ port:
   required: false
   default: 8080
   type: integer
-scan_interval:
-  description: How often (in seconds) to poll SABnzbd for updates.
-  required: false
-  default: 30
-  type: integer
 sensors:
   description: List of variables for which to create sensor entities.
   required: false
@@ -92,7 +87,6 @@ sabnzbd:
   host: 192.168.1.32
   name: sab
   port: 9090
-  scan_interval: 60 
   ssl: true
   sensors:
     - current_status
