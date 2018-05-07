@@ -47,11 +47,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
+## {% linkable_title Beta Fixes %}
+
+- Add missing 'sensor' to ABODE_PLATFORMS ([@jloutsenhizer] - [#14313]) ([abode docs]) (beta fix)
+- Add debounce to move_cover ([@cdce8p] - [#14314]) ([homekit docs]) (beta fix)
+- Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
+- Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
+- fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
+- Fix Yeelight naming ([@syssi])
+
 ## {% linkable_title All changes %}
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
 - Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
-- upgrade rfxtrx lib, dimming support for Lighting3 ([@danielhiversen] - [#14026]) ([rfxtrx docs])
+- upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
 - device_tracker.ubus: catch ConnectionError ([@stintel] - [#14045]) ([device_tracker docs])
@@ -157,6 +166,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.demo docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
 - Onkyo: SUPPORT_VOLUME_STEP ([@rsmeral] - [#14299]) ([media_player.onkyo docs])
 - Add All-Linking capabilities ([@teharris1] - [#14065]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs])
+- Add missing 'sensor' to ABODE_PLATFORMS ([@jloutsenhizer] - [#14313]) ([abode docs]) (beta fix)
+- Add debounce to move_cover ([@cdce8p] - [#14314]) ([homekit docs]) (beta fix)
+- Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
+- Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
+- fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
 
 [#12027]: https://github.com/home-assistant/home-assistant/pull/12027
 [#12060]: https://github.com/home-assistant/home-assistant/pull/12060
@@ -266,7 +280,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14296]: https://github.com/home-assistant/home-assistant/pull/14296
 [#14297]: https://github.com/home-assistant/home-assistant/pull/14297
 [#14299]: https://github.com/home-assistant/home-assistant/pull/14299
+[#14313]: https://github.com/home-assistant/home-assistant/pull/14313
+[#14314]: https://github.com/home-assistant/home-assistant/pull/14314
+[#14317]: https://github.com/home-assistant/home-assistant/pull/14317
+[#14327]: https://github.com/home-assistant/home-assistant/pull/14327
+[#14329]: https://github.com/home-assistant/home-assistant/pull/14329
 [@CM000n]: https://github.com/CM000n
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@Hate-Usernames]: https://github.com/Hate-Usernames
 [@Kane610]: https://github.com/Kane610
 [@MatMaul]: https://github.com/MatMaul
@@ -284,7 +304,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@colinodell]: https://github.com/colinodell
 [@corneyl]: https://github.com/corneyl
-[@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84
 [@dgomes]: https://github.com/dgomes
 [@dgraye]: https://github.com/dgraye
@@ -296,8 +315,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fanthos]: https://github.com/fanthos
 [@giangvo]: https://github.com/giangvo
 [@gives1976]: https://github.com/gives1976
+[@graffic]: https://github.com/graffic
 [@iMicknl]: https://github.com/iMicknl
 [@ileler]: https://github.com/ileler
+[@jloutsenhizer]: https://github.com/jloutsenhizer
 [@jnewland]: https://github.com/jnewland
 [@maddox]: https://github.com/maddox
 [@marthoc]: https://github.com/marthoc
@@ -329,6 +350,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@teharris1]: https://github.com/teharris1
 [@thelittlefireman]: https://github.com/thelittlefireman
 [@tinloaf]: https://github.com/tinloaf
+[abode docs]: /components/abode/
 [alarm_control_panel.alarmdotcom docs]: /components/alarm_control_panel.alarmdotcom/
 [auth docs]: /components/auth/
 [binary_sensor docs]: /components/binary_sensor/
