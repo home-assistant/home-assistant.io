@@ -127,7 +127,7 @@ The following table shows the units of measurement for each attribute:
 <p class='note'>
 As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
 
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
 
@@ -203,7 +203,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 6. Download the 'ADB Backup Extractor' from [here](https://sourceforge.net/projects/adbextractor/files/latest/download)
 7. Extract the data from the backup: `java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar` (enter the password, if prompted)
 8. Untar the unpacked data: `tar -xvf unpacked.tar`
-9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name = "Mi Robot Vacuum";'` returns the token for your Xiaomi vacuum bot.
+9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name like "%Vacuum%";'` returns the token for your Xiaomi vacuum bot.
 
 
 #### {% linkable_title Linux and Android (rooted!) %}
@@ -245,7 +245,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME = "Mi Robot Vacuum"`
+11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME LIKE "%Vacuum%"`
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
