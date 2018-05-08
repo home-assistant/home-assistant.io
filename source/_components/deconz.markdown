@@ -17,24 +17,19 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
 
-### {% linkable_title Supported device types %}
+### {% linkable_title Recommended way of running deCONZ %}
 
-- [Zigbee Lights](/components/light.deconz/)
-- [Consumption Sensors](/components/sensor.deconz/)
-- [Humidity Sensors](/components/sensor.deconz/)
-- [Light Level Sensors](/components/sensor.deconz/)
-- [OpenClose Detectors](/components/binary_sensor.deconz/)
-- [Power Sensors](/components/sensor.deconz/)
-- [Presence Detectors](/components/binary_sensor.deconz/)
-- [Pressure Sensors](/components/sensor.deconz/)
-- [Switches (Remote Controls)](/components/sensor.deconz/)
-- [Temperature Sensors](/components/sensor.deconz/)
+Use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs. It works both as a standalone container as well as with HASS.io.
+
+### {% linkable_title Supported devices %}
+
+See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
 ## {% linkable_title Configuration %}
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in `.config_entries.json` inside the `.homeassistant` folder.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
 You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
 
@@ -125,6 +120,8 @@ For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is le
 
 ### {% linkable_title Step up and step down input number with wireless dimmer %}
 
+#### YAML
+
 {% raw %}
 ```yaml
 automation:
@@ -171,5 +168,39 @@ automation:
           brightness: >
             {% set bri = states.light.lamp.attributes.brightness | int %}
             {{ [bri-30, 0] | max }}
+```
+{% endraw %}
+
+#### Appdaemon
+
+{% raw %}
+```yaml
+remote_control_living_room:
+  module: remote_control
+  class: RemoteControl
+  event: deconz_event
+  id: dimmer_switch_3
+```
+
+```python
+import appdaemon.plugins.hass.hassapi as hass
+
+class RemoteControl(hass.Hass):
+
+    def initialize(self):
+        if 'event' in self.args:
+            self.listen_event(self.handle_event, self.args['event'])
+
+    def handle_event(self, event_name, data, kwargs):
+        if data['id'] == self.args['id']:
+            self.log(data['event'])
+            if data['event'] == 1002:
+                self.log('Button on')
+            elif data['event'] == 2002:
+                self.log('Button dim up')
+            elif data['event'] == 3002:
+                self.log('Button dim down')
+            elif data['event'] == 4002:
+                self.log('Button off')
 ```
 {% endraw %}
