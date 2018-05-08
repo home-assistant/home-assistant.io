@@ -35,21 +35,21 @@ fritzbox:
 ```
 
 {% configuration %}
-  devices:
-    description: A list of Fritzbox devices.
-    required: true
-    type: map
-    keys:
-      host:
-        description: The hostname or IP address of the Fritzbox.
-        required: true
-        type: optional
-      username:
-        description: The username for Smart Home access.
-        required: true
-        type: string
-      password:
-        description: The password of the user.
-        required: true
-        type: string
+devices:
+  description: A list of Fritzbox devices.
+  required: true
+  type: map
+  keys:
+    host:
+      description: The hostname or IP address of the Fritzbox.
+      required: true
+      type: optional
+    username:
+      description: The username for Smart Home access.
+      required: true
+      type: string
+    password:
+      description: The password of the user.
+      required: true
+      type: string
 {% endconfiguration %}
