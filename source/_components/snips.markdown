@@ -105,6 +105,22 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 
 ## {% linkable_title Home Assistant configuration %}
 
+{% configuration %}
+feedback_sounds:
+  description: Turn on feedbacks sounds for Snips
+  required: false
+  type: str
+  default: false
+site_ids:
+  description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites
+  required: false
+  type: str
+probability_threshhold:
+  description: Threshhold for intent probability. Intents under this level are discarded
+  require: false
+  type: int
+{% endconfiguration %}
+
 ### {% linkable_title Specifying the MQTT broker %}
 
 Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
@@ -147,7 +163,9 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-In the above example, the slots are plain strings. However, when more complex types are used, such as dates or time ranges, they will be transformed to rich Python objects, for example:
+Two special values for slots are populated with the siteId the intent originated from and the probability value for the intent.
+
+In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
 
 {% raw %}
 ```yaml
@@ -159,12 +177,13 @@ SetTimer:
     service: script.set_timer
     data_template:
       name: "{{ timer_name }}"
-      duration: "{{ timer_duration }}"
-      seconds: "{{ slots.timer_duration.value.seconds }}"
-      minutes: "{{ slots.timer_duration.value.minutes }}"
-      hours: "{{ slots.timer_duration.value.hours }}"
+      duration: "{{ timer_duration }}",
+      siteId: "{{ siteId }}",
+      probability: "{{ probability }}"
 ```
 {% endraw %}
+
+
 
 ### {% linkable_title Sending TTS Notifications %}
 
@@ -202,7 +221,7 @@ intent_script:
   turn_on_light:
     speech:
       type: plain
-      text: 'OK, closing the garage door'
+      text: 'OK, turning on the light'
     action:
       service: light.turn_on
 ```
@@ -256,7 +275,7 @@ intent_script:
 
 ##### {% linkable_title Weather %}
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example (Dark Sky)[/components/sensor.darksky/] and the `api_key` in the `secrets.yaml` file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/components/sensor.darksky/) and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky
@@ -272,7 +291,7 @@ So now you can open and close your garage door, let's check the weather. Add the
     - temperature_min
 ```
 
-Then create this `intent_script.yaml` file in your configuration directory.
+Then add this to your configuration file.
 
 {% raw %}
 ```yaml
