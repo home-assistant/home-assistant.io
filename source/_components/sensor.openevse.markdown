@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `openevse` sensor platform pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based wifi connection.
 
+## {% linkable_title Configuration %}
+
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: openevse
     host: IP_ADDRESS
