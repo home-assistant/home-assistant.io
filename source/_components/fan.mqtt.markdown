@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
 When a `state_topic` is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from `state_topic`).
@@ -24,7 +26,7 @@ Optimistic mode can be forced even if a `state_topic` is available. Try to enabl
 To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     command_topic: "bedroom_fan/on/set"
@@ -155,7 +157,7 @@ In this section you find some real life examples of how to use this fan.
 The example below shows a full configuration for a MQTT fan.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     name: "Bedroom Fan"

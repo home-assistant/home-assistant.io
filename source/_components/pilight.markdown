@@ -19,6 +19,8 @@ This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/pro
 
 The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g., automation). Additionally a send service is provided to send RF codes.
 
+## {% linkable_title Configuration %}
+
 To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml

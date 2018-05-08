@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` switch platform lets you control your MQTT enabled switches.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
 When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from the device (message from `state_topic`).
@@ -24,7 +26,7 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: mqtt
     command_topic: "home/bedroom/switch1/set"
@@ -106,7 +108,7 @@ In this section you will find some real life examples of how to use this sensor.
 The example below shows a full configuration for a switch.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: mqtt
     name: "Bedroom Switch"
@@ -140,7 +142,7 @@ The configuration will look like the example below:
 
 {% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: mqtt
     name: bathroom

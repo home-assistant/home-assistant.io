@@ -23,7 +23,7 @@ for state in hass.states():
 To enable `discovery` in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 discoverable:
   expose_password: yes
 ```
