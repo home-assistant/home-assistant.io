@@ -17,7 +17,7 @@ You need to have a [supported Z-Wave USB stick or module](https://github.com/Ope
 |-------------------------|----------------|------------------|--------------|
 | Aeotec Z-Stick          |   &#10003;     |                  |              |
 | Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 5 |   &#10003;     |                  |   &#10003;   |
+| Aeotec Z-Stick Series 5 |   &#10003;     |    &#10003;      |   &#10003;   |
 | Pine64 Z-Wave Module    |   &#10003;     |                  |              |
 | Razberry GPIO Module    |   &#10003;     |                  |              |
 | Seluxit ViaSens 100     |                |                  |              |
