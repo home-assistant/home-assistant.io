@@ -54,13 +54,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
 - Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
 - fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
-- Fix Yeelight naming ([@syssi])
+- Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
+- Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
 - Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
-- upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
+- upgrade rfxtrx lib, dimming support for Lighting3 ([@danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
 - device_tracker.ubus: catch ConnectionError ([@stintel] - [#14045]) ([device_tracker docs])
@@ -133,6 +134,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
 - UPnP code cleanup ([@dgomes] - [#14235]) ([upnp docs]) ([sensor.upnp docs])
 - Improve config schema of the blackbird component ([@syssi] - [#14007]) ([media_player.blackbird docs])
+- Fix Hue color state for missing xy ([@amelchio] - [#14230]) ([light.hue docs])
 - Add support for tracking devices on Netgear access points ([@MatMaul] - [#13331]) ([device_tracker docs])
 - WUnderground unique ids ([@OttoWinter] - [#13311]) ([sensor.wunderground docs])
 - Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
@@ -147,6 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add fetching camera thumbnails over websocket ([@balloob] - [#14231]) ([camera docs]) ([frontend docs]) ([image_processing docs]) ([microsoft_face docs]) ([websocket_api docs])
 - Allow fetching media player covers via websocket connection ([@balloob] - [#14233]) ([media_player docs])
 - Fix ZWave light brightness ([@cdce8p] - [#14261]) ([light.zwave docs])
+- Color fixes for Wink lights ([@amelchio] - [#14263]) ([light.wink docs])
 - fix check config not working after #14211 ([@fanthos] - [#14259])
 - Issue Template Fix CRLF ([@OttoWinter] - [#14283])
 - Upgrade attrs to 18.1.0 ([@fabaff] - [#14281])
@@ -154,6 +157,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade holidays to 0.9.5 ([@fabaff] - [#14274]) ([binary_sensor.workday docs])
 - Homekit: Changed device_class requirement Humidity Sensor ([@cdce8p] - [#14277]) ([homekit docs]) (breaking change)
 - HomeKit: Support triggered state for alarm_control_panel ([@schmittx] - [#14285]) ([homekit docs])
+- Fix filter sensor missing window_size argument ([@dgomes] - [#14252]) ([sensor.filter docs])
 - Upgrade astral to 1.6.1 ([@fabaff] - [#14297])
 - BOM Weather throttle fix ([@nickw444] - [#14234]) ([sensor.bom docs])
 - Publish attributes unconditionally ([@blackwind] - [#14179]) ([mqtt_statestream docs])
@@ -171,6 +175,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
 - Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
 - fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
+- Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
+- Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
 
 [#12027]: https://github.com/home-assistant/home-assistant/pull/12027
 [#12060]: https://github.com/home-assistant/home-assistant/pull/12060
@@ -260,14 +266,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14220]: https://github.com/home-assistant/home-assistant/pull/14220
 [#14221]: https://github.com/home-assistant/home-assistant/pull/14221
 [#14225]: https://github.com/home-assistant/home-assistant/pull/14225
+[#14230]: https://github.com/home-assistant/home-assistant/pull/14230
 [#14231]: https://github.com/home-assistant/home-assistant/pull/14231
 [#14233]: https://github.com/home-assistant/home-assistant/pull/14233
 [#14234]: https://github.com/home-assistant/home-assistant/pull/14234
 [#14235]: https://github.com/home-assistant/home-assistant/pull/14235
+[#14252]: https://github.com/home-assistant/home-assistant/pull/14252
 [#14253]: https://github.com/home-assistant/home-assistant/pull/14253
 [#14254]: https://github.com/home-assistant/home-assistant/pull/14254
 [#14259]: https://github.com/home-assistant/home-assistant/pull/14259
 [#14261]: https://github.com/home-assistant/home-assistant/pull/14261
+[#14263]: https://github.com/home-assistant/home-assistant/pull/14263
 [#14265]: https://github.com/home-assistant/home-assistant/pull/14265
 [#14269]: https://github.com/home-assistant/home-assistant/pull/14269
 [#14274]: https://github.com/home-assistant/home-assistant/pull/14274
@@ -285,8 +294,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14317]: https://github.com/home-assistant/home-assistant/pull/14317
 [#14327]: https://github.com/home-assistant/home-assistant/pull/14327
 [#14329]: https://github.com/home-assistant/home-assistant/pull/14329
+[#14331]: https://github.com/home-assistant/home-assistant/pull/14331
+[#14347]: https://github.com/home-assistant/home-assistant/pull/14347
 [@CM000n]: https://github.com/CM000n
-[@Danielhiversen]: https://github.com/Danielhiversen
 [@Hate-Usernames]: https://github.com/Hate-Usernames
 [@Kane610]: https://github.com/Kane610
 [@MatMaul]: https://github.com/MatMaul
@@ -304,6 +314,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@colinodell]: https://github.com/colinodell
 [@corneyl]: https://github.com/corneyl
+[@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84
 [@dgomes]: https://github.com/dgomes
 [@dgraye]: https://github.com/dgraye
@@ -383,11 +394,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
 [image_processing.microsoft_face_identify docs]: /components/image_processing.microsoft_face_identify/
 [image_processing.opencv docs]: /components/image_processing.opencv/
+[influxdb docs]: /components/influxdb/
 [insteon_plm docs]: /components/insteon_plm/
 [light.deconz docs]: /components/light.deconz/
 [light.flux_led docs]: /components/light.flux_led/
+[light.hue docs]: /components/light.hue/
 [light.insteon_plm docs]: /components/light.insteon_plm/
 [light.mqtt_json docs]: /components/light.mqtt_json/
+[light.wink docs]: /components/light.wink/
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
 [light.yeelight docs]: /components/light.yeelight/
 [light.zwave docs]: /components/light.zwave/
@@ -422,6 +436,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.domain_expiry docs]: /components/sensor.domain_expiry/
 [sensor.dsmr docs]: /components/sensor.dsmr/
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
+[sensor.filter docs]: /components/sensor.filter/
 [sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
 [sensor.insteon_plm docs]: /components/sensor.insteon_plm/
 [sensor.lastfm docs]: /components/sensor.lastfm/
