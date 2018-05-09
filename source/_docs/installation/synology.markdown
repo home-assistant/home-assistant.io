@@ -15,7 +15,26 @@ Synology only provide Python 3.5.1, which is not compatible with Home Assistant 
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
-1. using Docker
+1. using Docker app throught Package Center
+
+. Install “Docker” package on your Synology NAS
+. Connect to the Synology in SSH (with Putty or other programs) and then issue the command "sudo -i" (and put the admin password)
+
+Do this commands in sequence:
+
+sudo docker pull homeassistant/home-assistant:latest
+sudo docker run -d --name="home-assistant" -v /volume1/docker/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro --net=host --restart=always homeassistant/home-assistant
+
+. Ensure the folder /docker/homeassistant/config is present on your Synology Volume1 or just create a Shared folder with sub-folder as you prefer and replace it on the command line.
+
+If you want to upgrade/update the docker image do this steps:
+
+sudo docker stop home-assistant
+sudo docker rm "home-assistant"
+sudo docker pull homeassistant/home-assistant:latest
+sudo docker run -d --name="home-assistant" -v /volume1/docker/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro --net=host --restart=always homeassistant/home-assistant
+
+
 2. directly running on DSM
 
 Option 1 is described on the [Docker installation page](/docs/installation/docker/), whereas Option 2 is described below.
