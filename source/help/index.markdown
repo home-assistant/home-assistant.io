@@ -50,6 +50,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
 - [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
