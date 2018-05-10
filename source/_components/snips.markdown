@@ -177,8 +177,8 @@ SetTimer:
     service: script.set_timer
     data_template:
       name: "{{ timer_name }}"
-      duration: "{{ timer_duration }}",
-      siteId: "{{ siteId }}",
+      duration: "{{ timer_duration }}"
+      siteId: "{{ site_id }}"
       probability: "{{ probability }}"
 ```
 {% endraw %}
