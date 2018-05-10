@@ -62,6 +62,7 @@ This component is tested to work with the following models. If you have a differ
 | `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
 | `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
+| `color2`   | YLDP05YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
