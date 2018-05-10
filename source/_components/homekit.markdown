@@ -38,9 +38,6 @@ homekit:
       code: 1234
     light.kitchen_light:
       name: Custom name for HomeKit
-      manufacturer: Acme Inc.
-      model: A19 Bulb
-      serial_number: 012345
 ```
 
 {% configuration %}
@@ -96,18 +93,6 @@ homekit:
             keys:
               name:
                 description: Name of entity to show in HomeKit.
-                required: false
-                type: string
-              manufacturer:
-                description: Manufacturer of entity to show in HomeKit.
-                required: false
-                type: string
-              model:
-                description: Model of entity to show in HomeKit.
-                required: false
-                type: string
-              serial_number:
-                description: Serial number of entity to show in HomeKit.
                 required: false
                 type: string
               code:
