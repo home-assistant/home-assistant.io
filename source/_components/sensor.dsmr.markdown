@@ -15,8 +15,9 @@ ha_iot_class: "Local Push"
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
-- Currently support DSMR V2.2 and V4 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
-- For official information about DSMR refer to: [DSMR Document](http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&title=Slimme%20meter&onderdeel=Documenten)
+- Currently support DSMR V2.2, V3, V4 and V5 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
+- For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
+- For official information about the P1 port refer to: https://www.wijhebbenzon.nl/media/kunena/attachments/3055/DSMRv5.0FinalP1.pdf
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 <p class='img'>
@@ -26,6 +27,7 @@ A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter
 This component is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
+- ISKRA AM550 (DSMR 5.0)
 - Landis+Gyr E350 (DMSR 4)
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
@@ -36,6 +38,7 @@ USB serial converters:
 - Cheap (Banggood/ebay) Generic PL2303
 - https://sites.google.com/site/nta8130p1smartmeter/webshop
 - https://www.sossolutions.nl/slimme-meter-kabel
+- https://tweakers.net/gallery/269738/aanbod/
 
 Serial to network proxies:
 
@@ -57,7 +60,7 @@ sensor:
     required: false
     type: string
   name:
-    description: "Version of DSMR used by meter. Choices: 2.2, 4, 5. Defaults to 2.2."
+    description: "Version of DSMR used by meter. Choices: 2.2, 3, 4, 5. Defaults to 2.2."
     required: false
     type: string
 {% endconfiguration %}
@@ -69,7 +72,7 @@ Full configuration examples can be found below:
 sensor:
   - platform: dsmr
     port: /dev/ttyUSB1
-    dsmr_version: 4
+    dsmr_version: 5
 
 group:
   meter_readings:
@@ -88,7 +91,7 @@ sensor:
   - platform: dsmr
     host: 192.168.1.13
     port: 2001
-    dsmr_version: 4
+    dsmr_version: 5
 
 group:
   meter_readings:
@@ -127,7 +130,7 @@ $ sudo reboot
 
 ### {% linkable_title Technical overview %}
 
-DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds over a serial port.
+DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds (every second for DSMR 5.0 devices) over a serial port.
 
 The contents of this telegram differ between version but they generally consist of lines with 'obis' (Object Identification System, a numerical ID for a value) followed with the value and unit.
 
