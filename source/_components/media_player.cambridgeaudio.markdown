@@ -2,7 +2,7 @@
 layout: page
 title: "Cambridge Audio (StreamMagic)"
 description: "Instructions on how to integrate Cambridge Audio network audio players (using their StreamMagic platform) into Home Assistant."
-date: 2018-05-06 09:00
+date: 2018-05-10 09:00
 sidebar: true
 comments: false
 sharing: true
