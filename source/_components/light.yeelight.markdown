@@ -53,6 +53,8 @@ Determine your bulb IP (using router, software, ping ...).
 Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
 </p>
 
+### {% linkable_title Supported models %}
+
 <p class='note warning'>
 This component is tested to work with the following models. If you have a different model and it is working please let us know.
 </p>
