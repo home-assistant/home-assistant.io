@@ -20,7 +20,7 @@ The `postnl` platform allows one to track deliveries by [PostNL](https://www.pos
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-sensors:
+sensor:
   - platform: postnl
     username: POSTNL_USERNAME
     password: POSTNL_PASSWORD
