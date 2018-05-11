@@ -183,7 +183,6 @@ rainmachine:
 - fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
 - Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
 - Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
-- Remove domain expiry sensor ([@balloob] - [#14381]) ([sensor.domain_expiry docs]) (beta fix)
 
 [#12027]: https://github.com/home-assistant/home-assistant/pull/12027
 [#12060]: https://github.com/home-assistant/home-assistant/pull/12060
