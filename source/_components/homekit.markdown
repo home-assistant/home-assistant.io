@@ -74,6 +74,10 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
             required: false
             type: map
             keys:
+              name:
+                description: Name of entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
               code:
                 description: Code to arm or disarm the alarm in the frontend.
                 required: false
