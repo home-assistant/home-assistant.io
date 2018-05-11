@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Facebox Face Detect"
-description: "Count the number of faces in an image with Facebox."
+title: "Facebox"
+description: "Detect and recognise faces with Facebox."
 date: 2018-05-03 00:00
 sidebar: true
 comments: false
@@ -10,14 +10,14 @@ footer: true
 logo: machine-box-alpha.png
 ha_category: Image Processing
 featured: false
-ha_release: 0.69
+ha_release: 0.70
 ---
 
-The `facebox_face_detect` image processing component allows you to detect (i.e. count the number of) faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected. Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. To minimise the time for Facebox to detect faces in an image using this component, on your machine with Docker run Facebox with:
+The `facebox` image processing component allows you to detect and recognise faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected. Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. To minimise the time for Facebox to detect faces in an image using this component, on your machine with Docker run Facebox with:
 ```
 MB_KEY="INSERT-YOUR-KEY-HERE"
 
-sudo docker run --name=facebox --restart=always 8080:8080 -e "MB_KEY=$MB_KEY" -e "MB_FACEBOX_DISABLE_RECOGNITION=true" machinebox/facebox
+sudo docker run --name=facebox --restart=always 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
 
 To enable this component in your installation, add the following to your `configuration.yaml` file:
@@ -26,7 +26,7 @@ To enable this component in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 image_processing:
-  - platform: facebox_face_detect
+  - platform: facebox
     ip_address: 192.168.0.1
     port: 8080
     source:
@@ -57,3 +57,5 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+If you only require face detection (number of faces) you can disable face recognition by adding ```-e "MB_FACEBOX_DISABLE_RECOGNITION=true"``` to the `docker run` command.
