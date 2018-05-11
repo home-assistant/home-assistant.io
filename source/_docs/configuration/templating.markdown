@@ -140,7 +140,7 @@ With strings
 
 ```text
 {% raw %}{% set tracker_name = "paulus"%}
- 
+
 {% if states("device_tracker." + tracker_name) != "unknown" %}
   {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}

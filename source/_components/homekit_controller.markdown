@@ -15,12 +15,17 @@ ha_iot_class: "Local Polling"
 
 [HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
 
+<p class="note warning">
+ You may need additional packages to support the HomeKit Python module:
+ `$ sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev`
+</p>
+
 There is currently support for the following device types within Home Assistant:
 
 - [Light](/components/light.homekit_controller/)
 - [Switch](/components/switch.homekit_controller/)
 
-The component will be automatically configured if the [`discovery:`](components/discovery/) component is enabled and an enable entry added for HomeKit:
+The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
 
 ```yaml
 discovery:
@@ -28,4 +33,4 @@ discovery:
     - homekit
 ```
 
-For each detected HomeKit accessory, a configuration prompt will appear in the web front end. Use this to provide the HomeKit PIN.
+For each detected HomeKit accessory, a configuration prompt will appear in the web front end. Use this to provide the HomeKit PIN. Note that HomeKit accessories can only be paired to one device at once. If your device is currently paired with Siri, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri with the [`HomeKit`](/components/homekit/) component.
