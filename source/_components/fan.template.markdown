@@ -66,7 +66,7 @@ fan:
         required: false
         type: string
       value_template:
-        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'
+        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'"
         required: true
         type: template
       speed_template:
@@ -74,11 +74,11 @@ fan:
         required: false
         type: template
       oscillating_template:
-        description: Defines a template to get the osc state of the fan. Valid value: True/False
+        description: "Defines a template to get the osc state of the fan. Valid value: True/False"
         required: false
         type: template
       direction_template:
-        description: Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'
+        description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
         required: false
         type: template
       turn_on:
