@@ -92,7 +92,7 @@ homekit:
             type: map
             keys:
               name:
-                description: Name of entity to show in HomeKit.
+                description: Name of entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
               code:
