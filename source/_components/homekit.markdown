@@ -86,6 +86,10 @@ homekit:
             required: false
             type: map
             keys:
+              name:
+                description: Name of entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
               code:
                 description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
                 required: false
