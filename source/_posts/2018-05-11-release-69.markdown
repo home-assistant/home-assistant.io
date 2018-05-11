@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.69: TBD - Update date"
-description: "TBD."
-date: 2018-05-05 00:01:00
+title: "0.69: Matrix Chatbot, PostNL, Social Blade, Xiaomi Mijia sensors"
+description: "Great release mainly focused on bug fixes."
+date: 2018-05-11 00:01:00
 date_formatted: "May 11, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -13,12 +13,12 @@ og_image: /images/blog/2018-05-0.69/components.png
 
 <a href='/components/#version/0.69'><img src='/images/blog/2018-05-0.69/components.png' style='border: 0;box-shadow: none;'></a>
 
+Not much time to write a great into this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
+
 ## {% linkable_title New Platforms %}
 
-- New sensor domain expiry ([@masarliev] - [#14067]) ([sensor.domain_expiry docs]) (new-platform)
 - Support Xiaomi Mijia Bluetooth Wireless Temperature and Humidity Sensor ([@ratcashdev] - [#13955]) ([sensor.mitemp_bt docs]) (new-platform)
 - Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
-- Foundation for users ([@balloob] - [#13968]) ([auth docs]) ([http docs]) (new-platform)
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
 - Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
@@ -35,17 +35,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Add Sonos device attribute with grouping information ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
-- Re-implement HomematicIP cloud to async ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
-- Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
+- Pollen.com: Added attributes on top 3 allergens. This caused attribute names `primary_allergen_genus`, `primary_allergen_name` and `primary_allergen_type` to be suffixed with `_1` ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
+- Add Sonos device attribute with grouping information. The `media_player.sonos` attribute `is_coordinator` has been removed; the new attribute `sonos_group` (listing all group members, coordinator first) can be used instead. ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
+- Re-implement HomematicIP cloud to async. Change of configuration schema: `name` is optional and cannot be empty. Remove of state attributes for sensors. Remove of additional sensor to show state of all found components ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
 - System log: make firing event optional ([@balloob] - [#14102]) ([system_log docs]) (breaking change)
-- Disable eliqonline requirement ([@balloob] - [#14156]) ([sensor.eliqonline docs]) (breaking change)
-- Custom component loading cleanup ([@balloob] - [#14211]) (breaking change)
 - Converts RainMachine to hub model (part 2) ([@bachya] - [#14225]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change)
 - Homekit: Changed device_class requirement Humidity Sensor ([@cdce8p] - [#14277]) ([homekit docs]) (breaking change)
-- Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
-- Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
+- The sensor unit `lux` has been replaced with `lx` for consistency. That covers the following sensor platforms: homematic, isy994, miflora, mysensors, tahoma, vera and template sensors. To add light sensors for the HomeKit component the device_class changed to illuminance. ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
+- The Matrix notification platform now depends on the the new Matrix component. Please see the documentation for how to configure the Matrix component. ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
+- Move RainMachine to component/hub model and remove Remote API. ([@bachya] - [#14085] - [#14225]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
+
+```yaml
+# New rainmachine config
+rainmachine:
+  ip_address: 192.168.1.100
+  password: abc123
+  switches:
+    zone_run_time: 240
+```
 
 ## {% linkable_title Beta Fixes %}
 
@@ -54,7 +61,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
 - Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
 - fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
-- Fix Yeelight naming ([@syssi])
+- Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
+- Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -71,7 +79,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove excessive debugging in webostv module ([@stephanerosi] - [#14056]) ([media_player.webostv docs])
 - Support new Xiaomi Aqara device model names and LAN protocol 2.0 ([@ileler] - [#13540]) ([xiaomi_aqara docs]) ([binary_sensor.xiaomi_aqara docs]) ([light.xiaomi_aqara docs]) ([sensor.xiaomi_aqara docs]) ([switch.xiaomi_aqara docs])
 - Add devices to Tahoma ([@bakedraccoon] - [#14075]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs])
-- New sensor domain expiry ([@masarliev] - [#14067]) ([sensor.domain_expiry docs]) (new-platform)
 - Modify weather components for "new" frontend card ([@c727] - [#14076]) ([weather.buienradar docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
 - Add Sonos device attribute with grouping information ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
 - Re-implement HomematicIP cloud to async ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
@@ -115,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fixes #14169 (Upgrade pyupnp-async to 0.1.0.2) ([@dgomes] - [#14210]) ([upnp docs])
 - zha: Clean up binary_sensor listener registration/state updates ([@rcloran] - [#14197])
 - HomematicIP cloud: Add logic to check accesspoint connection state ([@sander76] - [#14203]) ([homematicip_cloud docs])
-- Foundation for users ([@balloob] - [#13968]) ([auth docs]) ([http docs]) (new-platform)
+- Foundation for users ([@balloob] - [#13968]) ([http docs]) (new-platform)
 - Allow easy extension of websocket API ([@balloob] - [#14186]) ([frontend docs]) ([websocket_api docs])
 - Change the divisor for total consumption output ([@CM000n] - [#14215]) ([switch.fritzbox docs])
 - Upgrade mypy to 0.590 ([@fabaff] - [#14207])
@@ -133,6 +140,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
 - UPnP code cleanup ([@dgomes] - [#14235]) ([upnp docs]) ([sensor.upnp docs])
 - Improve config schema of the blackbird component ([@syssi] - [#14007]) ([media_player.blackbird docs])
+- Fix Hue color state for missing xy ([@amelchio] - [#14230]) ([light.hue docs])
 - Add support for tracking devices on Netgear access points ([@MatMaul] - [#13331]) ([device_tracker docs])
 - WUnderground unique ids ([@OttoWinter] - [#13311]) ([sensor.wunderground docs])
 - Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
@@ -142,11 +150,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Restores switch state, case the switch is optimistic ([@dgomes] - [#14151]) ([switch.mqtt docs])
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - HomeKit - Climate: power state on/off support ([@roiff] - [#14082]) ([homekit docs])
-- Demo Sensor - Added device_class support ([@cdce8p] - [#14269]) ([sensor.demo docs])
+- Demo Sensor - Added device_class support ([@cdce8p] - [#14269])
 - Re-enable eliqonline requirement ([@molobrakos] - [#14265]) ([sensor.eliqonline docs])
 - Add fetching camera thumbnails over websocket ([@balloob] - [#14231]) ([camera docs]) ([frontend docs]) ([image_processing docs]) ([microsoft_face docs]) ([websocket_api docs])
 - Allow fetching media player covers via websocket connection ([@balloob] - [#14233]) ([media_player docs])
 - Fix ZWave light brightness ([@cdce8p] - [#14261]) ([light.zwave docs])
+- Color fixes for Wink lights ([@amelchio] - [#14263]) ([light.wink docs])
 - fix check config not working after #14211 ([@fanthos] - [#14259])
 - Issue Template Fix CRLF ([@OttoWinter] - [#14283])
 - Upgrade attrs to 18.1.0 ([@fabaff] - [#14281])
@@ -154,6 +163,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade holidays to 0.9.5 ([@fabaff] - [#14274]) ([binary_sensor.workday docs])
 - Homekit: Changed device_class requirement Humidity Sensor ([@cdce8p] - [#14277]) ([homekit docs]) (breaking change)
 - HomeKit: Support triggered state for alarm_control_panel ([@schmittx] - [#14285]) ([homekit docs])
+- Fix filter sensor missing window_size argument ([@dgomes] - [#14252]) ([sensor.filter docs])
 - Upgrade astral to 1.6.1 ([@fabaff] - [#14297])
 - BOM Weather throttle fix ([@nickw444] - [#14234]) ([sensor.bom docs])
 - Publish attributes unconditionally ([@blackwind] - [#14179]) ([mqtt_statestream docs])
@@ -163,7 +173,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add alarmdotcom sensor status ([@jnewland] - [#14254]) ([alarm_control_panel.alarmdotcom docs])
 - Add domain to labels and count state changes to Prometheus ([@jnewland] - [#14253]) ([prometheus docs])
 - Add support for max_volume ([@relvacode] - [#13822]) ([media_player.onkyo docs])
-- Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.demo docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
+- Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
 - Onkyo: SUPPORT_VOLUME_STEP ([@rsmeral] - [#14299]) ([media_player.onkyo docs])
 - Add All-Linking capabilities ([@teharris1] - [#14065]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs])
 - Add missing 'sensor' to ABODE_PLATFORMS ([@jloutsenhizer] - [#14313]) ([abode docs]) (beta fix)
@@ -171,6 +181,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix module names for custom components ([@balloob] - [#14317]) (beta fix)
 - Revert custom component loading logic ([@balloob] - [#14327]) (beta fix)
 - fix(hbmqtt): partial packets breaking hbmqtt ([@graffic] - [#14329]) ([mqtt docs]) (beta fix)
+- Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
+- Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
 
 [#12027]: https://github.com/home-assistant/home-assistant/pull/12027
 [#12060]: https://github.com/home-assistant/home-assistant/pull/12060
@@ -260,14 +272,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14220]: https://github.com/home-assistant/home-assistant/pull/14220
 [#14221]: https://github.com/home-assistant/home-assistant/pull/14221
 [#14225]: https://github.com/home-assistant/home-assistant/pull/14225
+[#14230]: https://github.com/home-assistant/home-assistant/pull/14230
 [#14231]: https://github.com/home-assistant/home-assistant/pull/14231
 [#14233]: https://github.com/home-assistant/home-assistant/pull/14233
 [#14234]: https://github.com/home-assistant/home-assistant/pull/14234
 [#14235]: https://github.com/home-assistant/home-assistant/pull/14235
+[#14252]: https://github.com/home-assistant/home-assistant/pull/14252
 [#14253]: https://github.com/home-assistant/home-assistant/pull/14253
 [#14254]: https://github.com/home-assistant/home-assistant/pull/14254
 [#14259]: https://github.com/home-assistant/home-assistant/pull/14259
 [#14261]: https://github.com/home-assistant/home-assistant/pull/14261
+[#14263]: https://github.com/home-assistant/home-assistant/pull/14263
 [#14265]: https://github.com/home-assistant/home-assistant/pull/14265
 [#14269]: https://github.com/home-assistant/home-assistant/pull/14269
 [#14274]: https://github.com/home-assistant/home-assistant/pull/14274
@@ -285,6 +300,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14317]: https://github.com/home-assistant/home-assistant/pull/14317
 [#14327]: https://github.com/home-assistant/home-assistant/pull/14327
 [#14329]: https://github.com/home-assistant/home-assistant/pull/14329
+[#14331]: https://github.com/home-assistant/home-assistant/pull/14331
+[#14347]: https://github.com/home-assistant/home-assistant/pull/14347
+[#14381]: https://github.com/home-assistant/home-assistant/pull/14381
 [@CM000n]: https://github.com/CM000n
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Hate-Usernames]: https://github.com/Hate-Usernames
@@ -383,11 +401,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
 [image_processing.microsoft_face_identify docs]: /components/image_processing.microsoft_face_identify/
 [image_processing.opencv docs]: /components/image_processing.opencv/
+[influxdb docs]: /components/influxdb/
 [insteon_plm docs]: /components/insteon_plm/
 [light.deconz docs]: /components/light.deconz/
 [light.flux_led docs]: /components/light.flux_led/
+[light.hue docs]: /components/light.hue/
 [light.insteon_plm docs]: /components/light.insteon_plm/
 [light.mqtt_json docs]: /components/light.mqtt_json/
+[light.wink docs]: /components/light.wink/
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
 [light.yeelight docs]: /components/light.yeelight/
 [light.zwave docs]: /components/light.zwave/
@@ -422,6 +443,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.domain_expiry docs]: /components/sensor.domain_expiry/
 [sensor.dsmr docs]: /components/sensor.dsmr/
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
+[sensor.filter docs]: /components/sensor.filter/
 [sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
 [sensor.insteon_plm docs]: /components/sensor.insteon_plm/
 [sensor.lastfm docs]: /components/sensor.lastfm/

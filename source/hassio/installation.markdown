@@ -22,6 +22,16 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
   - [Intel NUC][nuc]
 
 - Flash the downloaded image to an SD card using [Etcher].
+
+<p class='note warning'>
+  There is an [issue in the Etcher flashing process on Mac OS High Sierra](https://github.com/resin-io/etcher/issues/1908).
+  There is an easy workaround, just uncompress the image first.
+  
+  ```bash
+  bunzip2 -c resinos-hassio-1.1-raspberrypi3.img.bz2 > image.img
+  ```
+</p>
+
 - Optional - Setup the WiFi or static IP: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
 - Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
