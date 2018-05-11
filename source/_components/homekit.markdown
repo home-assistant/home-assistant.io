@@ -23,12 +23,10 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
   If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
 </p>
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
 homekit:
-  auto_start: true
-  port: 51827
-  ip_address: 192.168.0.100
   filter:
     include_domains:
       - alarm_control_panel
@@ -37,8 +35,9 @@ homekit:
     alarm_control_panel.home:
       code: 1234
     light.kitchen_light:
-      name: Custom name for HomeKit
+      name: "Custom name for HomeKit"
 ```
+{% endraw %}
 
 {% configuration %}
   homekit:
@@ -61,7 +60,7 @@ homekit:
         required: false
         type: string
       filter:
-        description: Filters for entities to include/exclude from HomeKit. ([Configure Filter](#configure-filter))
+        description: Filters for entities to be included / excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
         type: map
         keys:
