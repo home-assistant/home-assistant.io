@@ -63,18 +63,19 @@ Automations can be triggered on filesystem event data using a `data_template`. T
 {% raw %}
 ```yaml
 #Send notification for new image (including the image itself)
-alias: New file alert
-trigger:
-  platform: event
-  event_type: folder_watcher
-  event_data:
-    event_type: created
-action:
-  service: notify.notify
-  data_template:
-    title: New image captured!
-    message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
-    data:
-      file: "{{ trigger.event.data.path }}"
+automation:
+  alias: New file alert
+  trigger:
+    platform: event
+    event_type: folder_watcher
+    event_data:
+      event_type: created
+  action:
+    service: notify.notify
+    data_template:
+      title: New image captured!
+      message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
+      data:
+        file: "{{ trigger.event.data.path }}"
 ```
 {% endraw %}
