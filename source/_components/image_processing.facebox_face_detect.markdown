@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.70
 ---
 
-The `facebox` image processing component allows you to detect and recognise faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected. Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. To minimise the time for Facebox to detect faces in an image using this component, on your machine with Docker run Facebox with:
+The `facebox` image processing component allows you to detect and recognise faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognised faces are listed in the `matched_faces` attribute. Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. To minimise the time for Facebox to detect faces in an image using this component, on your machine with Docker run Facebox with:
 ```
 MB_KEY="INSERT-YOUR-KEY-HERE"
 
