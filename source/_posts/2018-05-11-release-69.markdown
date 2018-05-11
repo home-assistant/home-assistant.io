@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.69: TBD - Update date"
-description: "TBD."
-date: 2018-05-05 00:01:00
+title: "0.69: Matrix Chatbot, PostNL, Social Blade, Xiaomi Mijia sensors"
+description: "Great release mainly focused on bug fixes."
+date: 2018-05-11 00:01:00
 date_formatted: "May 11, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
