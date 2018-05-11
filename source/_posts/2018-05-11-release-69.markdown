@@ -35,16 +35,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Add Sonos device attribute with grouping information ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
-- Re-implement HomematicIP cloud to async ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
-- Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
+- Pollen.com: Added attributes on top 3 allergens. This caused attribute names `primary_allergen_genus`, `primary_allergen_name` and `primary_allergen_type` to be suffixed with `_1` ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
+- Add Sonos device attribute with grouping information. The `media_player.sonos` attribute `is_coordinator` has been removed; the new attribute `sonos_group` (listing all group members, coordinator first) can be used instead. ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
+- Re-implement HomematicIP cloud to async. Change of configuration schema: `name` is optional and cannot be empty. Remove of state attributes for sensors. Remove of additional sensor to show state of all found components ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
 - System log: make firing event optional ([@balloob] - [#14102]) ([system_log docs]) (breaking change)
-- Custom component loading cleanup ([@balloob] - [#14211]) (breaking change)
 - Converts RainMachine to hub model (part 2) ([@bachya] - [#14225]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change)
 - Homekit: Changed device_class requirement Humidity Sensor ([@cdce8p] - [#14277]) ([homekit docs]) (breaking change)
-- Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
-- Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
+- The sensor unit `lux` has been replaced with `lx` for consistency. That covers the following sensor platforms: homematic, isy994, miflora, mysensors, tahoma, vera and template sensors. To add light sensors for the HomeKit component the device_class changed to illuminance. ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
+- The Matrix notification platform now depends on the the new Matrix component. Please see the documentation for how to configure the Matrix component. ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
+- Move RainMachine to component/hub model and remove Remote API. ([@bachya] - [#14085] - [#14225]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
+
+```yaml
+# New rainmachine config
+rainmachine:
+  ip_address: 192.168.1.100
+  password: abc123
+  switches:
+    zone_run_time: 240
+```
 
 ## {% linkable_title Beta Fixes %}
 
