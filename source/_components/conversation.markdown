@@ -87,3 +87,9 @@ intent_script:
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
 {% endraw %}
 ```
+
+#### {% linkable_title Service `conversation.process` %}
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| `text`                 |      yes | Transcribed text                                 |

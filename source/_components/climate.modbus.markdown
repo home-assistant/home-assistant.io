@@ -14,20 +14,20 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `modbus` thermostat allows you to use a sensor value (current temperature)
-and target value (target temperature) from [Modbus](http://www.modbus.org/)
-registers.
+The `modbus` thermostat allows you to use a sensor value (current temperature) and target value (target temperature) from [Modbus](http://www.modbus.org/) registers.
+
+## {% linkable_title Configuration %}
 
 To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 climate:
   - platform: modbus
     name: Watlow F4T
     slave: 1
     target_temp_register: 2782
     current_temp_register: 27586
-
 ```
 
 {% configuration %}
@@ -49,17 +49,18 @@ current_temp_register:
   type: int
 data_type:
   description: Response representation (int, uint, float, custom). If float selected, value will converted to IEEE 754 floating point format.
-    Default float.
   required: false
   type: string
+  default: float
 count:
   description: Number of registers to read.
   required: false
   type: int
 precision:
-  description: Number of valid decimals, default 0.
+  description: Number of valid decimals.
   required: false
   type: int
+  default: 0
 {% endconfiguration %}
 
 

@@ -133,7 +133,7 @@ The configuration will look like the example below:
 
 {% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: mqtt
     name: Bathroom
