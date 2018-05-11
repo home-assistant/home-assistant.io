@@ -52,7 +52,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 - [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
 - [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018
+- [SmartThings vs Home Assistant](https://smarthome.university/smartthings-vs-home-assistant/) - April 2018
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
+- [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
 - [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
