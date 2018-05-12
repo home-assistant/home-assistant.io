@@ -54,6 +54,36 @@ initial:
   required: false
   type: number
   default: 21
+initial_fan_mode:
+  description: Set the initial fan mode.
+  required: false
+  type: string
+  default: low
+initial_mode:
+  description: Set the initial operation.
+  required: false
+  type: string
+  default: off
+initial_swing_mode:
+  description: Set the initial swing mode.
+  required: false
+  type: string
+  default: off
+min_temp:
+  description: Set the minimum target temperature.
+  required: false
+  type: number
+  default: 7
+max_temp:
+  description: Set the maximum target temperature.
+  required: false
+  type: number
+  default: 30
+target_temp_step:
+  description: Set the target temperature step.
+  required: false
+  type: number
+  default: 1
 payload_on:
   description: The payload that represents enabled state.
   required: false
@@ -195,6 +225,7 @@ climate:
       - off
       - on
       - auto
+    initial_mode: auto
     mode_command_topic: "study/ac/mode/set"
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
