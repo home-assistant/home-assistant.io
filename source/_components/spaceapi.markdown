@@ -82,12 +82,12 @@ issue_report_channels:
   required: true
   type: List
 state:
-  description: Contact information of the Hackerspace.
+  description: The current state of the Hackerspace.
   required: true
   type: list
   keys:
     entity_id:
-      description: The Twitter account of the Hackerspace.
+      description: "The `entity_id` of a binary sensor that represents the current state."
       required: true
       type: entity_id
     icon_open:
