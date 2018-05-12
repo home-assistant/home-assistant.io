@@ -23,6 +23,18 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
   If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
 </p>
 
+```yaml
+# Example configuration.yaml entry configuring HomeKit
+homekit:
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+  entity_config:
+    alarm_control_panel.home:
+      code: 1234
+```
+
 {% configuration %}
   homekit:
     description: HomeKit configuration.
@@ -44,7 +56,7 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: string
       filter:
-        description: Filter entities to available in the `Home` app. ([Configure Filter](#configure-filter))
+        description: Filters for entities to be included / excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
         type: map
         keys:
@@ -69,13 +81,13 @@ The `HomeKit` component allows you to forward entities from Home Assistant to Ap
         required: false
         type: map
         keys:
-          alarm_control_panel:
-            description: Additional options for `alarm_control_panel` entities.
+          '`<ENTITY_ID>`':
+            description: Additional options for specific entities.
             required: false
             type: map
             keys:
               code:
-                description: Code to arm or disarm the alarm in the frontend.
+                description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
                 required: false
                 type: string
                 default: ''
