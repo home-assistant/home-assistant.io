@@ -13,7 +13,7 @@ og_image: /images/blog/2018-05-0.69/components.png
 
 <a href='/components/#version/0.69'><img src='/images/blog/2018-05-0.69/components.png' style='border: 0;box-shadow: none;'></a>
 
-Not much time to write a great into this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
+Not much time to write a great intro this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
 
 ## {% linkable_title New Platforms %}
 
