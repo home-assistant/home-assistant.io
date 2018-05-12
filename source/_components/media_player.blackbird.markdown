@@ -32,11 +32,11 @@ media_player:
 
 {% configuration %}
 port: 
-  description: "The serial port to which Blackbird matrix switch is connected. This is exclusive to `host`".
+  description: The serial port to which Blackbird matrix switch is connected. [`port`](#port) and [`host`](#host) cannot be specified concurrently.
   required: exclusive
   type: string
 host:
-  description: "The IP address of the Blackbird matrix switch. This is exclusive to `port`".
+  description: The IP address of the Blackbird matrix switch. [`port`](#port) and [`host`](#host) cannot be specified concurrently.
   required: exclusive
   type: string
 zones:
@@ -53,9 +53,9 @@ sources:
   keys:
     name:
       description: The name of the source.
-{% endconfiguration%}
+{% endconfiguration %}
 
-### {% linkable_title Service `BLACKBIRD_SETALLZONES` %}
+### {% linkable_title Service `media_player.blackbird_set_all_zones` %}
 
 Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated. 
 
