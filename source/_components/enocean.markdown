@@ -27,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 However, only a few devices have been confirmed to work. These are:
 
 - Eltako FUD61 dimmer
+- Eltako FSR61 switch
 - Eltako FT55 battery-less wall switch
 - Jung ENOA590WW battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
