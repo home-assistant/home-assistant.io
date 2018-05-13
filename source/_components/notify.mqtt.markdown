@@ -30,7 +30,7 @@ The same will work for automations.
   <img src='/images/screenshots/mqtt-notify-action.png' />
 </p>
 
-Using the [REST API](/developers/rest_api/#post-apiservicesltdomainltservice) to send a message to a given topic.
+Using the [REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) to send a message to a given topic.
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
