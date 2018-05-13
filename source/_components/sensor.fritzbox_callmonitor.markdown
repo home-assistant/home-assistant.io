@@ -14,9 +14,10 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers
-on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing`, or `talking` with the phone numbers involved contained in the state attributes.
+The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
+
+## {% linkable_title Configuration %}
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
 
@@ -44,7 +45,7 @@ Configuration variables:
 The example below shows a full configuration for a call monitor with phone book support.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: fritzbox_callmonitor
     name: Phone
@@ -61,8 +62,9 @@ sensor:
 
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry.
+# Example configuration.yaml entry.
 automation:
   - alias: "Notify about phone state"
     trigger:
@@ -73,7 +75,7 @@ automation:
         data:
           title: "Phone"
           message: >-
-            {% raw %}{% if is_state("sensor.phone", "idle") %}
+            {% if is_state("sensor.phone", "idle") %}
               Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
               Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
@@ -81,5 +83,6 @@ automation:
               Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
             {% else %}
               Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
-            {% endif %}{% endraw %}
+            {% endif %}
 ```
+{% endraw %}

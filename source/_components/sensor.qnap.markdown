@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
+## {% linkable_title Configuration %}
+
 To use the `qnap` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: qnap
     host: IP_ADDRESS_OF_QNAP_NAS

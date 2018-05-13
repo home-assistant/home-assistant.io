@@ -15,6 +15,10 @@ ha_release: 0.41
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
+## {% linkable_title Configuration %}
+
+Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province. 
+
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -22,14 +26,14 @@ To enable the `workday` sensor in your installation, add the following to your `
 binary_sensor:
   - platform: workday
     country: DE
-    workdays: [ mon, wed, fri ]
+    workdays: [mon, wed, fri]
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): A name for this sensor. Defaults to *Workday Sensor*
-- **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.3) notation.
-- **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.3) notation. Defaults to None.
+- **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+- **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation. Defaults to None.
 - **workdays** (*Optional*): List of workdays. Defaults to `mon`, `tue`, `wed`, `thu`, `fri`.
 - **excludes** (*Optional*): List of workday excludes. Defaults to `sat`, `sun`, `holiday`.
 - **days_offset** (*Optional*): Set days offset. Defaults to `0`.

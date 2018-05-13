@@ -11,7 +11,7 @@ footer: true
 
 If you have an installation, a setup or a configuration issue please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can. 
 
-If you found a bug then please report it in one of our [trackers](help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markddown](https://guides.github.com/features/mastering-markdown/). 
+If you found a bug then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markddown](https://guides.github.com/features/mastering-markdown/). 
 
 Use the command below to get the Home Assistant release you are running from a command-line.
 

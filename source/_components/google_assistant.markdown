@@ -13,6 +13,10 @@ featured: true
 ha_release: 0.56
 ---
 
+<p class='note'>
+  Use [Home Assistant Cloud](/cloud/) to integrate with Google Assistant without any effort.
+</p>
+
 The `google_assistant` component allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
 
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
@@ -20,6 +24,8 @@ The Google Assistant component requires a bit more setup than most due to the wa
 <p class='note'>
 To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
+
+## {% linkable_title Configuration %}
 
 To enable this, add the following lines to your `configuration.yaml` file:
 
@@ -102,7 +108,7 @@ entity_config:
           required: false
           type: list
         room:
-          description: Allows for associating this device to a Room in Google Assistant.  This is currently non-functional, but will be enabled in the near future.
+          description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
 {% endconfiguration %}
@@ -134,7 +140,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 1. Create a new project in the [developer console](https://console.actions.google.com/).
   a. Add/Import project
   b. Click on `BUILD` on the `Smart home` card
-  c. Type in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable. 
+  c. Type in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.
   d. Click `Done`. Then click on `Overview`, which will lead you to the app details screen.
 2. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 3. The final item on that page `Account linking` is required for your app to interact with Home Assistant.

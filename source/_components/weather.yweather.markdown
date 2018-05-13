@@ -19,6 +19,8 @@ The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
 </p>
 
+## {% linkable_title Configuration %}
+
 The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID, it will be generated from Home Assistant's latitude and longitude.
 
 To add Yahoo Weather to your installation, add the following to your `configuration.yaml` file:

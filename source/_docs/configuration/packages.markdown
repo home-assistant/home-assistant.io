@@ -10,9 +10,9 @@ footer: true
 redirect_from: /topics/packages/
 ---
 
-Packages in Home Assistant provides a way to bundle different component's configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or parts of configuration using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
+Packages in Home Assistant provides a way to bundle different component's configuration together. We already learned about the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or different configuration parts using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
 
-Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a packages name (no spaces, all lower case) followed by a dictionary with the package config. For example, package `pack_1` would be created as:
+Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lower case) followed by a dictionary with the package config. For example, package `pack_1` would be created as:
 
 ```yaml
 homeassistant:
@@ -22,7 +22,7 @@ homeassistant:
       ...package configuration here...
 ```
 
-The package configuration can include: `switch`, `light`, `automation`, `groups` or the majority of the Home Assistant components. 
+The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant components. 
 
 It can be specified inline or in a separate YAML file using `!include`.
 
@@ -81,7 +81,7 @@ Components inside packages can only specify platform entries using configuration
 
 ### {% linkable_title Create a packages folder %}
 
-One way to organize packages would be to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
 
 ```yaml
 homeassistant:

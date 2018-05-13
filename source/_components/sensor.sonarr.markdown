@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
+## {% linkable_title Configuration %}
+
 To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY

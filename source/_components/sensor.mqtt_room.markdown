@@ -16,6 +16,8 @@ ha_iot_class: depends
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
 
+## {% linkable_title Configuration %}
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

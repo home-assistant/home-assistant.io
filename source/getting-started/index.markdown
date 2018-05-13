@@ -18,14 +18,14 @@ Follow this guide if you want to easily get started with Home Assistant, or if y
 We will need a few things to get started with installing Home Assistant. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
 - [Raspberry Pi 3 model B](http://a.co/gEfMqL4) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
-- [Micro SD Card](http://a.co/gslOydD). Get one that is Class 10 as they are more reliable. Size 32GB or bigger recommended.
+- [Micro SD Card](http://a.co/gslOydD). Get one that is Class 10 as they are more reliable. Size 32 GB or bigger recommended.
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](http://a.co/5FCyb0N) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi too)
 
 <p class='note warning'>
   Support for the Raspberry Pi 3 model B+ is available in the alternative installation method [Hassbian](/docs/hassbian/installation/).
 
-  The recently released Raspberry Pi 3 model B+ is not yet supported by Hass.io
+  The recently released Raspberry Pi 3 model B+ is not yet supported by Hass.io.
 </p>
 
 ### {% linkable_title Software requirements %}
@@ -41,7 +41,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.
-1. WiFi setup only: open the file `system-connections/resin-sample` (from the `resin-boot` volume on the SD card) with a text editor. Change `ssid` to be your network name and `psk` to be your password. Note that the Raspberry Pi 3 is a 2.4GHz WiFi device, so do not try to connect it to a 5GHz network.
+1. WiFi setup only: open the file `system-connections/resin-sample` (from the `resin-boot` volume on the SD card) with a text editor. Change `ssid` to be your network name and `psk` to be your password. Note: When connecting to a 5 GHz-only network, make sure your device supports that. If you don't know what that means, then you probably have nothing to worry about.
 1. Unmount the SD card and remove it from your SD card reader.
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply so it turns on.

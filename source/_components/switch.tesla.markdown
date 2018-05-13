@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Push"
 ha_release: 0.54
 ---
 
-The `Tesla` platform allows you to control your [Tesla](https://www.tesla.com/) charger (enable/disable charging) from within Home Assistant.
+The `Tesla` platform allows you to control your [Tesla](https://www.tesla.com/) charger (enable/disable charging, max range switch) from within Home Assistant.
 
 The switch platform will be automatically configured if Tesla component is configured.
 

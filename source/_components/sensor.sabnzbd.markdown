@@ -68,7 +68,7 @@ Note that this will create the following sensors:
  - sensor.sabnzbd_left
  - sensor.sabnzbd_disk
  - sensor.sabnzbd_disk_free
- - sensor.sabnzdb_queue_count
+ - sensor.sabnzbd_queue_count
 ```
 
 As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.

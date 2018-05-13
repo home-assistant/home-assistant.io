@@ -61,12 +61,12 @@ __MQTT Sensors and Switches__
 [mqtt-switch]: /components/switch.mqtt/
 
 ```yaml
-# Example configuration.yml entr
+# Example configuration.yaml entry
 sensor:
   platform: mqtt
   name: "MQTT Sensor"
   state_topic: "home/bedroom/temperature"
-  unit_of_measurement: "ºC"
+  unit_of_measurement: "°C"
 
 switch:
   platform: mqtt

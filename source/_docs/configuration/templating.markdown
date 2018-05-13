@@ -68,6 +68,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states.sensor.temperature` returns the state object for `sensor.temperature`.
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
@@ -79,12 +80,23 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `float` will format the output as float.
 - `strptime(string, format)` will parse a string to a datetime based on a [format][strp-format].
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
+- `sin(value)` will return the sine of the input. Can be used as a filter.
+- `cos(value)` will return the cosine of the input. Can be used as a filter.
+- `tan(value)` will return the tangent of the input. Can be used as a filter.
+- `sqrt(value)` will return the square root of the input. Can be used as a filter.
+- `e` mathematical constant, approximately 2.71828.
+- `pi` mathematical constant, approximately 3.14159.
+- `tau` mathematical constant, approximately 6.28318.
 - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
+- Filter `regex_match(string, find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
+- Filter `regex_search(string, find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
+- Filter `regex_replace(string, find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `regex_findall_index(string, find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
 [strp-format]: https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior
 
@@ -114,11 +126,23 @@ The next two statements result in same value if state exists. The second one wil
 
 ### {% linkable_title Attributes %}
 
-Print an attribute if state is defined
+Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
 ```text
 {% raw %}{% if states.device_tracker.paulus %}
   {{ states.device_tracker.paulus.attributes.battery }}
+{% else %}
+  ??
+{% endif %}{% endraw %}
+```
+
+With strings
+
+```text
+{% raw %}{% set tracker_name = "paulus"%}
+
+{% if states("device_tracker." + tracker_name) != "unknown" %}
+  {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
   ??
 {% endif %}{% endraw %}
@@ -257,6 +281,10 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ float(value_json) * (2**10) }}{% endraw %}
 {% raw %}{{ value_json | log }}{% endraw %}
 {% raw %}{{ log(1000, 10) }}{% endraw %}
+{% raw %}{{ sin(pi / 2) }}{% endraw %}
+{% raw %}{{ cos(tau) }}{% endraw %}
+{% raw %}{{ tan(pi) }}{% endraw %}
+{% raw %}{{ sqrt(e) }}{% endraw %}
 
 # Timestamps
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}

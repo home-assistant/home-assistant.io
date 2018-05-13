@@ -94,7 +94,8 @@ For more information about jinja2, visit [jinja2 documentation](http://jinja.poc
 
 {% linkable_title mqtt %}
 
-This section is only visible if the MQTT is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to [mqtt](/components/mqtt/)
+This section is only visible if the MQTT component is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/components/mqtt/) component.
+
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 
 {% linkable_title Info %}

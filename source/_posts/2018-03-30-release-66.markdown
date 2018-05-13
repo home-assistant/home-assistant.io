@@ -566,6 +566,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@armills]: https://github.com/armills
 [@cdce8p]: https://github.com/cdce8p
-[homekit docs]: https://www.home-assistant.io/components/homekit/
-[light.mqtt_json docs]: https://www.home-assistant.io/components/light.mqtt_json/
-[sensor.mysensors docs]: https://www.home-assistant.io/components/sensor.mysensors/
+[homekit docs]: /components/homekit/
+[light.mqtt_json docs]: /components/light.mqtt_json/
+[sensor.mysensors docs]: /components/sensor.mysensors/

@@ -29,7 +29,6 @@ Please follow the instructions on [Retrieving the Access Token](/components/vacu
 To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-sensor:
 # Example configuration.yaml entry
 sensor:
   - platform: xiaomi_miio

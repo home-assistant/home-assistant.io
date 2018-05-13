@@ -7,9 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: asterisk.png
 ha_category: Mailbox
 ha_version: 0.51
 ---
 
-The Asterisk Voicemail Mailbox provides visual and audio access to voicemail on the Asterisk PBX server.  This mailbox is enabled automatically through the [Asterisk Voicemail component](/components/asterisk_mbox) configuration.
+The Asterisk Voicemail Mailbox provides visual and audio access to voicemail on the Asterisk PBX server. This mailbox is enabled automatically through the [Asterisk Voicemail component](/components/asterisk_mbox/) configuration.
 

@@ -26,8 +26,10 @@ There is currently support for the following device types within Home Assistant:
 
 Known working ZigBee radios:
 
-- Nortek/GoControl Z-Wave & Zigbee USB Adaptor - Model HUSBZB-1
+- Nortek/GoControl Z-Wave & Zigbee USB Adapter - Model HUSBZB-1
 - XBee Series 2C
+- [Elelabs ZigBee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
+- [Elelabs ZigBee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
 
 To configure the component, a `zha` section must be present in the `configuration.yaml`,
 and the path to the serial device for the radio and path to the database which will persist your network data is required.

@@ -80,7 +80,7 @@ The Unifi controller allows you to create multiple users on it besides the main 
 
 The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
 
-It is recommended that you run the Unifi controller in a dedicate virtual machine to avoid that situation.
+It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
 
 ### {% linkable_title Troubleshooting and Time Synchronization %}
 
