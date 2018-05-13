@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 The `homematicip_cloud` switch platform allows you to control
-[HomematicIP](http://www.homematicip.de) switches through Home Assistant.
+[HomematicIP](http://www.homematic-ip.com) switches through Home Assistant.
 
 Devices will be configured automatically. Please refer to the
 [component](/components/homematicip_cloud/) configuration on how to setup
