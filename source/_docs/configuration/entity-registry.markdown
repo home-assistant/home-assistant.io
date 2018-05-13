@@ -42,9 +42,9 @@ light.study_ceiling:
 
 As a user, you can change the `entity_id` and add the `name` and `disabled_by`
 value to each entry.
+ - Changing the _first line_ of each entry will change the `entity_id` of the entity throughout Home Assistant.
 
- - The value of `name` will override the name of the entity as given by the
-   integration.
+ - The value of `name` will override the _friendly name_ of the entity as given by the integration.
 
    _Added in Home Assistant 0.64._
  - The key `disabled_by` can either be `hass` or `user`. This functionality
