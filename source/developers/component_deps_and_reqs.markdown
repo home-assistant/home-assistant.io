@@ -51,7 +51,8 @@ For testing and development purposes you can also to point to a hosted package i
 Components and platforms included in Home Assistant should point to published PyPI packages. This ensures that the unit tests  will not be slowed down as they can be cached. 
 </p>
 
-For example, the Neato robot vacuum components specifies the v.0.0.5 release on GitHub as a requirement that gets installed as pybotvac version 0.0.5 (`pybotvac==0.0.5`)
+For example, the Neato robot vacuum components specifies the v.0.0.5 release on GitHub as a requirement that gets installed as pybotvac version 0.0.5 (`pybotvac==0.0.5`).
+
 ```python
 REQUIREMENTS = ['https://github.com/jabesq/pybotvac/archive/v0.0.5.zip#pybotvac==0.0.5']
 ```
