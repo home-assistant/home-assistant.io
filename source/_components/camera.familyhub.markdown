@@ -23,9 +23,9 @@ To enable your Family Hub camera in your installation, add the following to your
 # Example configuration.yaml entry
 camera:
   - platform: familyhub
-    address: 'IP_ADDRESS'
+    ip_address: 'IP_ADDRESS'
 ```
 
 Configuration variables:
 
-- **address** (*Required*): The IP address of your refrigerator.
+- **ip_address** (*Required*): The IP address of your refrigerator.
