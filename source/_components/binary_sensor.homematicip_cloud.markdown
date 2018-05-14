@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Binary Sensor
-ha_release: 0.66
+ha_release: 0.70
 ha_iot_class: "Local Push"
 ---
 
