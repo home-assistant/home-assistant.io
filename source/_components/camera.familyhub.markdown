@@ -23,7 +23,7 @@ To enable your Family Hub camera in your installation, add the following to your
 # Example configuration.yaml entry
 camera:
   - platform: familyhub
-    address: IP_ADDRESS
+    address: 'IP_ADDRESS'
 ```
 
 Configuration variables:
