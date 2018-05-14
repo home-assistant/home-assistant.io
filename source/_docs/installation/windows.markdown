@@ -30,7 +30,7 @@ Check this [video](https://www.youtube.com/watch?v=X27eVvuqwnY) for the installa
 The Microsoft Windows platform is not a primary target to install Home Assistant. Also, not all tools and third-party modules will work.
 </p>
 
-{% linkable_title Updating %}
+## {% linkable_title Updating %}
 
 To update Home Assistant, stop it and then run:
 
