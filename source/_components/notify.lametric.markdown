@@ -80,3 +80,18 @@ To add a notification sound or an icon override, it has to be done via service d
         sound: 'notification'
         icon: 'i51'
  ```
+
+If you have more than one La Metric device, you can specify which will recieve the message by adding the "target" parameter to the service data:
+
+```yaml
+  action:
+    service: notify.lametric
+    data:
+      message: "Son has arrived at school!"
+      target: "Office LaMetric"
+      data:
+        sound: 'notification'
+        icon: 'i51'
+ ```
+ 
+ If target is not specified, all la metric devices will be notified
