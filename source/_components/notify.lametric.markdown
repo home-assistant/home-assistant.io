@@ -43,6 +43,11 @@ cycles:
   required: false
   type: int
   default: 1
+priority:
+  description: Defines the priority of the notification.
+  required: False
+  type: string
+  default: warning
 {% endconfiguration %}
 
 Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
@@ -59,11 +64,12 @@ notify:
   lifetime: 20
   icon: a7956
   cycles: 3
+  priority: info
 ```
 
 ### {% linkable_title Changing sounds and icons %}
 
-To add a notification sound or an icon override, it has to be done via service data.
+To add a notification sound, icon, cycles, or priority override, it has to be done via service data.
 
 ```yaml
 - alias: "Send notification on arrival at school"
@@ -79,4 +85,6 @@ To add a notification sound or an icon override, it has to be done via service d
       data:
         sound: 'notification'
         icon: 'i51'
+        cycles: 0
+        priority: 'critical'
  ```
