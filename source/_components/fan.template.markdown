@@ -14,8 +14,8 @@ logo: home-assistant.png
 ---
 
 The `template` platform creates fans that combine components and provides the
-ability to run scripts or invoke services for each of the turn_on, turn_off, set_speed, and
-set_oscillating commands of a fan.
+ability to run scripts or invoke services for each of the turn_on, turn_off, set_speed,
+set_oscillating, and set_direction commands of a fan.
 
 To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
@@ -31,6 +31,7 @@ fan:
         value_template: "{{ states('input_boolean.state') }}"
         speed_template: "{{ states('input_select.speed') }}"
         oscillating_template: "{{ states('input_select.osc') }}"
+        direction_template: "{{ states('input_select.direction') }}"
         turn_on:
           service: script.fan_on
         turn_off:
@@ -43,6 +44,10 @@ fan:
           service: script.fan_oscillating
           data_template:
             oscillating: "{{ oscillating }}"
+        set_direction:
+          service: script.fan_direction
+          data_template:
+            direction: "{{ direction }}"
         speeds:
           - '1'
           - '2'
@@ -72,6 +77,10 @@ fan:
         description: "Defines a template to get the osc state of the fan. Valid value: True/False"
         required: false
         type: template
+      direction_template:
+        description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
+        required: false
+        type: template
       turn_on:
         description: Defines an action to run when the fan is turned on.
         required: true
@@ -86,6 +95,10 @@ fan:
         type: action
       set_oscillating:
         description: Defines an action to run when the fan is given a osc state command.
+        required: false
+        type: action
+      set_direction:
+        description: Defines an action to run when the fan is given a direction command.
         required: false
         type: action
       speeds:
