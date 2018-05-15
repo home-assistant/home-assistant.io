@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: konnected.png
 ha_category: Switch
-ha_release: 0.69
+ha_release: "0.70"
 ha_iot_class: "Local Push"
 ---
 
