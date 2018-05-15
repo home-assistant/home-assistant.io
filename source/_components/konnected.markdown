@@ -32,7 +32,7 @@ and the sensors or actuators attached to them:
 ```yaml
 # Example configuration.yaml entry
 konnected:
-  auth_token: REPLACE_ME_WITH_A_RANDOM_STRING
+  access_token: REPLACE_ME_WITH_A_RANDOM_STRING
   devices:
     - id: 8bcd53
       binary_sensors:
@@ -61,7 +61,7 @@ konnected:
               
 {% configuration %}
 
-auth_token:
+access_token:
   description: Any random string. This is used to ensure that only those devices which you have configured can authenticate to Home Assistant to change a device state. For security, we recommend using `secrets.yml` to specify this.
   required: true
   type: string
