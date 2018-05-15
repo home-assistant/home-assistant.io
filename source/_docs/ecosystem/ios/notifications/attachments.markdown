@@ -26,8 +26,8 @@ To expand a notification on 3D Touch devices simply force touch any notification
         message: "Something happened at home!""
         data:
           attachment:
-            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png"
-            content-type: gif
+            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+            content-type: png
             hide-thumbnail: false
 ```
 
