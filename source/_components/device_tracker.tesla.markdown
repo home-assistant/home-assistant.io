@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tesla"
+title: "Tesla Device Tracker"
 description: "Instructions on for how to integrate Tesla into Home Assistant."
 date: 2017-08-02 12:20
 sidebar: true
