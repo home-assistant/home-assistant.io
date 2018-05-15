@@ -83,7 +83,7 @@ Valid values for ignore are:
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
- * `tellduslive`: Telldus Live
+ * `tellstick`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
