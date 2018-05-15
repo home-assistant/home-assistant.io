@@ -36,6 +36,7 @@ Configuration variables:
 - **authentication** (*Optional*): Type of the HTTP authentication. Either `basic` or `digest`.
 - **username** (*Optional*): The username for accessing the website.
 - **password** (*Optional*): The password for accessing the website.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
 
 ## {% linkable_title Examples %}
 
