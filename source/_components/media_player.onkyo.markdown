@@ -51,6 +51,10 @@ zone2:
   description: Enables control for the receiver's second zone.
   required: false
   type: bool
+zone3:
+  description: Enables control for the receiver's third zone.
+  required: false
+  type: bool
 {% endconfiguration %}
 
 List of source names:
