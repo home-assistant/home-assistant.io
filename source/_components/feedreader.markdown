@@ -23,8 +23,6 @@ feedreader:
     - https://www.home-assistant.io/atom.xml
     - https://github.com/blog.atom
     - https://hasspodcast.io/feed/podcast
-  scan_interval:
-    minutes: 30
 ```
 
 {% configuration %}
@@ -43,6 +41,20 @@ feedreader:
     default: 20
     type: int
 {% endconfiguration %}
+
+The following configuration example shows how to configure update interval and maximum number of entries:
+
+```yaml
+# Example configuration.yaml entry with optional parameters
+feedreader:
+  urls:
+    - https://www.home-assistant.io/atom.xml
+    - https://github.com/blog.atom
+    - https://hasspodcast.io/feed/podcast
+  scan_interval:
+    minutes: 30
+  max_entries: 5
+```
 
 Feedreader events can be used out of the box to trigger automation actions, e.g.:
 
