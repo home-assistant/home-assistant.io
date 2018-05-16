@@ -9,12 +9,11 @@ sharing: true
 footer: true
 logo: phicomm.png
 ha_category: Sensor
-ha_release: 0.68
+ha_release: 0.70
 ha_iot_class: "Cloud Polling"
 ---
 
-
-The `phicomm` sensor platform let you monitor data from an Phicomm M1 air sensor.
+The `phicomm` sensor platform lets you monitor data from a Phicomm M1 air sensor.
 
 To configure the `phicomm` component add to you `configuration.yaml` file:
 
