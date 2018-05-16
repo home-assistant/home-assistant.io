@@ -64,3 +64,23 @@ You may need to adjust the country code depending upon where you are. A list of 
 [etcher]: https://etcher.io/
 [http://hassbian.local:8123]: http://hassbian.local:8123
 [wifi-setup]: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+
+## {% linkable_title Updating %}
+
+The [Hassbian Scripts](https://github.com/home-assistant/hassbian-scripts) are the easiest way of updating both the host operating system, and Home Assistant.
+
+### {% linkable_title Updating Home Assistant %}
+
+SSH to your system as the user `pi` and run:
+
+```bash
+$ sudo hassbian-config upgrade homeassistant
+```
+
+### {% linkable_title Updating the host operating system %}
+
+SSH to your system as the user `pi` and run:
+
+```bash
+$ sudo hassbian-config upgrade hassbian
+```
