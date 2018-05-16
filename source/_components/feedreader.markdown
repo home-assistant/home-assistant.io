@@ -23,11 +23,26 @@ feedreader:
     - https://www.home-assistant.io/atom.xml
     - https://github.com/blog.atom
     - https://hasspodcast.io/feed/podcast
+  scan_interval:
+    minutes: 30
 ```
 
-Configuration variables:
-
-- **urls** (*Required*): List of URLS for your feeds.
+{% configuration %}
+  urls:
+    description: List of URLS for your feeds.
+    required: true
+    type: list
+  scan_interval:
+    description: Defines the update interval of the feeds.
+    required: false
+    default: 1 hour
+    type: interval
+  max_entries:
+    description: The maximum number of entries to extract from each feed.
+    required: false
+    default: 20
+    type: int
+{% endconfiguration %}
 
 Feedreader events can be used out of the box to trigger automation actions, e.g.:
 
