@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: sabnzbd.png
 ha_category: Downloading
-ha_release: 0.69
+ha_release: 0.70
 ha_iot_class: "Local Polling"
 ---
 
