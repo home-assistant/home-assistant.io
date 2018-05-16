@@ -35,6 +35,29 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |
 | Cube | cube | MFKZQ01LM | off (always) | `cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| Aqara Intelligent Door Lock | lock.aq1 | ZNMS11LM | unsecu (Unlock failure), unlocked (Unlock success: fingerprint, password, card) | `motion` | | |
+
+
+To use an Aqara Intelligent Door Lock in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+# aqara
+xiaomi_aqara:
+  gateways:
+    - mac: xxxxxxxxxxxxxx
+      key: xxxxxxxxxxxxxxxxxx
+  lockuids:
+    - uid: 65536
+    - uid: 65537
+    - uid: 196608
+```
+
+Configuration variables:
+
+- **uid** (*Optional*): Your door lock user ID, eg. `65536`.  
+The user ID contains the ID type. The integer value obtained by dividing the user ID by 65536 is the ID type. The ID type value is: 1 fingerprint, 2 password, 3 proximity card, 5 check-in password.
+uid can find in mihome app. so, can be configured through the user ID list in the mihome app.
 
 ### {% linkable_title Automation examples %}
 
