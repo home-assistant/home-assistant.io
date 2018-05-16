@@ -22,7 +22,6 @@ For each account you have with the bank, a separate sensor is created. If you ha
 # Example configuration.yaml entry
 sensor:
  - platform: fints
-    name: <give the bank a name> 
     bank_identification_number: <for your bank>
     username: <your FinTS user name>
     pin: <your FinTS pin>
