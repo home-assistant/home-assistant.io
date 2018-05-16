@@ -39,7 +39,7 @@ alert:
 ```
 Configuration variables:
 
-- **name** (*Required*): The friendly name of the alert.
+- **name** (*Optional*): The friendly name of the alert.
 - **done_message** (*Optional*): A message sent after an alert transitions from `on` to `off`.  Is only sent if an alert notification was sent for transitioning from `off` to `on`.
 - **entity_id** (*Required*): The ID of the entity to watch.
 - **state** (*Optional*): The problem condition for the entity. Defaults to `on`.
