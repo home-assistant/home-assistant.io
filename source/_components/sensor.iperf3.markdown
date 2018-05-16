@@ -28,7 +28,7 @@ Once per hour, on the hour (default):
 # Example configuration.yaml entry
 sensor:
   - platform: iperf3
-    server: iperf.he.net
+    host: iperf.he.net
     monitored_conditions:
       - download
       - upload
@@ -44,7 +44,7 @@ sensor:
         description: Download speed (Mbit/s)
       upload:
         description: Upload speed (Mbit/s)
-  server:
+  host:
     description: Specify the Iperf3 test to perform the test against.
     required: true
     type: string
@@ -53,55 +53,16 @@ sensor:
     required: false
     default: 3
     type: int
-  day:
-    description: Specify the day(s) of the month to schedule the speed test. Use a list for multiple entries.
+  scan_interval:
+    description: Specify the frequency in seconds which the test will be perfomed. Default value is 30 minutes.
     required: false
-    type: [int, list]
-  hour:
-    description: Specify the hour(s) of the day to schedule the speed test. Use a list for multiple entries.
-    required: false
-    type: [int, list]
-  minute:
-    description: Specify the minute(s) of the hour to schedule the speed test. Use a list for multiple entries.
-    required: false
-    type: [int, list]
-    default: 0
-  second:
-    description: Specify the second(s) of the minute to schedule the speed test. Use a list for multiple entries.
-    required: false
-    type: [int, list]
-    default: 0
-  manual:
-    description: True or False to turn manual mode on or off. Manual mode will disable scheduled speed tests.
-    required: false
-    type: bool
-    default: false
+    default: 1800
+    type: int
 {% endconfiguration %}
 
 You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
 
-When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `sensor.<server_name>_update_iperf3` to run a manual speed test and populate the data or just wait for the next regularly scheduled test.  You can turn on manual mode to disable the scheduled speed tests.
-
-## {% linkable_title Examples %}
-
-In this section, you find some real-life examples of how to use this sensor.
-
-### {% linkable_title Run periodically %}
-
-Every half hour of every day:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: iperf3
-    server: iperf.he.net    
-    minute:
-      - 0
-      - 30
-    monitored_conditions:
-      - download
-      - upload
-```
+You can use the service `sensor.update_iperf3_<server_name>` to run a manual speed test and populate the data or just wait its frequency by setting the value `scan_interval` in seconds.
 
 ## {% linkable_title Notes %}
 
