@@ -33,6 +33,8 @@ The commands can be dynamic, using templates to insert values for arguments. Whe
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
+`stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/components/logger/) to debug.
+
 ```yaml
 
 # Apply value of a GUI slider to the shell_command
