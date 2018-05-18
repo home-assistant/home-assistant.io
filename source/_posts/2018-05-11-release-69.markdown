@@ -26,9 +26,7 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 
 ## {% linkable_title Release 0.69.1 - May 12 %}
 
-- Fix loading of Matrix chatbot ([@tinloaf] - [#14346] - @tinloaf)
-
-- Fix color setting of tplink lights ([@amelchio] - [#14108]) ([matrix docs])
+- Fix loading of Matrix chatbot ([@tinloaf] - [#14346]) ([matrix docs])
 
 ## {% linkable_title If you need help... %}
 
