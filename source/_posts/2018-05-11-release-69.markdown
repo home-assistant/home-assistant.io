@@ -24,6 +24,12 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
+## {% linkable_title Release 0.69.1 - May 12 %}
+
+- Fix loading of Matrix chatbot ([@tinloaf] - [#14346] - @tinloaf)
+
+- Fix color setting of tplink lights ([@amelchio] - [#14108]) ([matrix docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -303,6 +309,7 @@ rainmachine:
 [#14331]: https://github.com/home-assistant/home-assistant/pull/14331
 [#14347]: https://github.com/home-assistant/home-assistant/pull/14347
 [#14381]: https://github.com/home-assistant/home-assistant/pull/14381
+[#14108]: https://github.com/home-assistant/home-assistant/pull/14108
 [@CM000n]: https://github.com/CM000n
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Hate-Usernames]: https://github.com/Hate-Usernames
