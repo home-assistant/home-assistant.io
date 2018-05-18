@@ -18,7 +18,7 @@ The `mitemp_bt` sensor platform allows one to monitor room temperature and humid
 # Installation
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
-- On [Hass.io](/hassio/installation/): Not yet supported.
+- On [Hass.io](/hassio/installation/): mitemp_bt will work out of the box.
 - On other Linux systems:
     - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
     - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
