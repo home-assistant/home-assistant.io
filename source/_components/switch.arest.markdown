@@ -53,7 +53,7 @@ name:
   type: string
 pins:
   description: An array with all used pins.
-  required: optional
+  required: false
   type: map
   keys:
     name:
@@ -62,12 +62,12 @@ pins:
       type: string
     invert:
       description: If the logic for on/off should be inverted.
-      required: optional
+      required: false
       type: boolean
       default: false
 functions:
   description: An array with all used functions.
-  required: optional
+  required: false
   type: map
   keys:
     name:
