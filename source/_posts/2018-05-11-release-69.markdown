@@ -13,7 +13,7 @@ og_image: /images/blog/2018-05-0.69/components.png
 
 <a href='/components/#version/0.69'><img src='/images/blog/2018-05-0.69/components.png' style='border: 0;box-shadow: none;'></a>
 
-Not much time to write a great into this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
+Not much time to write a great intro this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
 
 ## {% linkable_title New Platforms %}
 
@@ -23,6 +23,10 @@ Not much time to write a great into this time as we're hanging out at PyCon! Som
 - Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
+
+## {% linkable_title Release 0.69.1 - May 12 %}
+
+- Fix loading of Matrix chatbot ([@tinloaf] - [#14346]) ([matrix docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -303,6 +307,7 @@ rainmachine:
 [#14331]: https://github.com/home-assistant/home-assistant/pull/14331
 [#14347]: https://github.com/home-assistant/home-assistant/pull/14347
 [#14381]: https://github.com/home-assistant/home-assistant/pull/14381
+[#14108]: https://github.com/home-assistant/home-assistant/pull/14108
 [@CM000n]: https://github.com/CM000n
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Hate-Usernames]: https://github.com/Hate-Usernames

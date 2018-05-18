@@ -87,4 +87,21 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
         icon: 'i51'
         cycles: 0
         priority: 'critical'
+```
+
+### {% linkable_title Only notify specific device %}
+
+If you have more than one La Metric device, you can specify which will recieve the message by adding `target:` to the service data:
+
+```yaml
+  action:
+    service: notify.lametric
+    data:
+      message: "Son has arrived at school!"
+      target: "Office LaMetric"
+      data:
+        sound: 'notification'
+        icon: 'i51'
  ```
+
+ If target is not specified, all LaMetric devices will be notified.

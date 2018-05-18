@@ -66,8 +66,6 @@ homematic:
       resolvenames: json
       username: Admin
       password: secret
-      primary: true
-      variables: true
     wired:
       host: 127.0.0.1
       port: 2000
