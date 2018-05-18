@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: homematic.png
+logo: homematicip_cloud.png
 ha_category: Sensor
 ha_release: 0.69
 ha_iot_class: "Cloud Push"
