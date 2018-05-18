@@ -21,7 +21,6 @@ To add a Blackbird device to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: blackbird
-    type: serial
     port: /dev/ttyUSB0
     zones:
       1:
@@ -32,35 +31,31 @@ media_player:
 ```
 
 {% configuration %}
-type:
-  description: The type of device connection - serial or socket
-  required: true
-  type: string
 port: 
-  description: The serial port to which Blackbird matrix switch is connected. Either port or host must be defined.
-  required: optional
+  description: The serial port to which Blackbird matrix switch is connected. [`port`](#port) and [`host`](#host) cannot be specified concurrently.
+  required: exclusive
   type: string
 host:
-  description: The IP address of the Blackbird matrix switch. Either port or host must be defined.
-  required: optional
+  description: The IP address of the Blackbird matrix switch. [`port`](#port) and [`host`](#host) cannot be specified concurrently.
+  required: exclusive
   type: string
 zones:
-  description: This is the list of zones available. Valid zones are 1,2,3,4,5,6,7,8. Each zone must have a name assigned to it.
+  description: This is the list of zones available. Valid zones are 1, 2, 3, 4, 5, 6, 7, 8. Each zone must have a name assigned to it.
   required: true
   type: int
   keys:
     name:
       description: The name of the zone.
 sources:
-  description: The list of sources available. Valid source numbers are 1,2,3,4,5,6,7,8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
+  description: The list of sources available. Valid source numbers are 1, 2, 3, 4, 5, 6, 7, 8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
   required: true
   type: int
   keys:
     name:
       description: The name of the source.
-{% endconfiguration%}
+{% endconfiguration %}
 
-### {% linkable_title Service `BLACKBIRD_SETALLZONES` %}
+### {% linkable_title Service `media_player.blackbird_set_all_zones` %}
 
 Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated. 
 
