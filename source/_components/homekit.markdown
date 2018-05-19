@@ -91,10 +91,10 @@ homekit:
                 required: false
                 type: string
               code:
-                description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
+                description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
                 type: string
-                default: ''
+                default: '`<No code>`'
 {% endconfiguration %}
 
 <p class='note'>
