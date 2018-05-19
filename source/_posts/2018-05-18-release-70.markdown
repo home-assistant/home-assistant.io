@@ -11,6 +11,8 @@ categories: Release-Notes
 og_image: /images/blog/2018-05-0.70/components.png
 ---
 
+<p class='note'>Instructions on how to upgrade to the RC release can be found [here](https://www.home-assistant.io/blog/2018/03/24/new-release-schedule/).</p>
+
 <a href='/components/#version/0.70'><img src='/images/blog/2018-05-0.70/components.png' style='border: 0;box-shadow: none;'></a>
 
 This release includes a major overhaul of how our frontend is build (technical blog with more details coming soon). Please test in various browsers and let us know if you see any issues (that's why this is a beta release after all).
