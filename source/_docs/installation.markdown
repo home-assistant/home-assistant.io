@@ -17,7 +17,7 @@ Beginners should check our [Getting started guide](/getting-started/) first. Thi
 Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5.3 or later](https://www.python.org/downloads/) installed.
 
 <p class='note warning'>
-  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the install.
+  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation.
 </p>
 
 <div class="text-center hass-option-cards" markdown="0">
