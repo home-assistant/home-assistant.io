@@ -30,9 +30,16 @@ homekit:
     include_domains:
       - alarm_control_panel
       - light
+      - media_player
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    media_player.living_room:
+      mode:
+        - on_off
+        - play_pause
+        - play_stop
+        - toggle_mute
 ```
 
 {% configuration %}
