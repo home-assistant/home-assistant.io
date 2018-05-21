@@ -34,7 +34,7 @@ port:
   required: false
   default: 9999
   type: int
-gw_addr:
+gateway_address:
   description: The gateway address for the gateway (Settings in the controller itself).
   required: false
   default: 1
