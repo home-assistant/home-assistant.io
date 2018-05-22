@@ -35,12 +35,12 @@ password:
   required: true
   type: string
 is_tou:
-description: Set to `True` if you are using a "Time-Of-Use" rate plan. Most people aren't.
+  description: Set to `True` if you are using a "Time-Of-Use" rate plan. Most people aren't.
   required: false
   type: boolean
   default: false
 scan_interval:
-description: How frequently to check the API for updated information. The API can only get Yesterday's data, so don't set this much higher than a few hours.
+  description: How frequently to check the API for updated information. The API can only get Yesterday's data, so don't set this much higher than a few hours.
   required: false
   type: interval
   default: 6 hours
