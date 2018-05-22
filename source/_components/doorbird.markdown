@@ -23,27 +23,45 @@ doorbird:
   host: DOORBIRD_IP_OR_HOSTNAME
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  hass_url_override: HASS_IP
+  hass_url_override: HASS_LAN_IP
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
-- **username** (*Required*): The username of a non-administrator user account on the device.
-- **password** (*Required*): The password for the user specified.
-- **doorbell_events** (*Optional*): Setting this to `true` will register a callback URL with the device so that doorbird_doorbell events can be published to the event bus when the doorbell rings.
-- **motion_events** (*Optional*): Setting this to `true` will register a callback URL with the device so that doorbird_motionsensor events can be published to the event bus when motion is detected.
-- **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP and port of the machine here to force a LAN connection (e.g., https://IP:PORT).
+{% configuration %}
+host:
+  description: The LAN IP address or hostname of your Doorbird device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+  required: true
+  type: string
+username:
+  description: The username of a non-administrator user account on the device.
+  required: true
+  type: string
+password:
+  description: The password for the user specified.
+  required: true
+  type: string
+doorbell_events:
+  description: Setting this to `true` will register a callback URL with the device so that doorbird_doorbell events can be published to the event bus when the doorbell rings.
+  required: false
+  type: string
+motion_events:
+  description: Setting this to `true` will register a callback URL with the device so that doorbird_motionsensor events can be published to the event bus when motion is detected.
+  required: false
+  type: string
+hass_url_override:
+  description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the HASS_LAN_IP and port of the machine here to force a LAN connection (e.g., https://HASS_LAN_IP:PORT).
+  required: false
+  type: string
+{% endconfiguration %} 
 
 <p class="note warning">
 Enabling `doorbell_events` or `motion_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
 
-### Doorbell Sound Examples
+### {% linkable_title % Doorbell Sound Examples} 
 
 You can create an automation that triggers on event `doorbird_doorbell` to play a doorbell sound when the Doorbird button is pressed. This should work with any media player.
 
-#### Example using SONOS
+### {% linkable_title % Example using SONOS}  
 
 [`SONOS`](http://www.sonos.com) players have features allowing for "snapshotting" the current state of some or all players so those state(s) can be "restored" at a later time. This feature is perfect for implementing a doorbell sound (from Doorbird or any other Doorbell setup for that matter). The [`media_player.sonos`](/components/media_player.sonos/) platform includes the [`SONOS_SNAPSHOT`](/components/media_player.sonos/#service-sonos_snapshot) and [`SONOS_RESTORE`](/components/media_player.sonos/#service-sonos_restore) features. The result of not using these features is any currently playing songs or media will not continue playing after the doorbell sound has played and you will be left with the doorbell sound queued as the last played song. This setup allows for seamless ringing of the doorbell and all SONOS devices continuing nicely on as if nothing had happened.
 
