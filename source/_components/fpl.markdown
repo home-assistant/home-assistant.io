@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: fpl.png
+ha_category: Energy
 ha_release: 0.70
 ha_iot_class: "Cloud Polling"
 ---
@@ -37,7 +38,7 @@ is_tou:
 description: Set to `True` if you are using a "Time-Of-Use" rate plan. Most people aren't.
   required: false
   type: boolean
-  default: `False`
+  default: false
 scan_interval:
 description: How frequently to check the API for updated information. The API can only get Yesterday's data, so don't set this much higher than a few hours.
   required: false
