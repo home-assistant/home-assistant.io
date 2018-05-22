@@ -24,13 +24,15 @@ doorbird:
     - host: DOORBIRD_IP_OR_HOSTNAME
       username: YOUR_USERNAME
       password: YOUR_PASSWORD
-      hass_url_override: HASS_IP
+      hass_url_override: HASS_URL
       name: Front Door
     - host: DOORBIRD_IP_OR_HOSTNAME
       username: YOUR_USERNAME
       password: YOUR_PASSWORD
-      hass_url_override: HASS_IP
       name: Driveway Gate
+      monitored_conditions:
+        - doorbell
+        - motion
 ```
 
 Device Configuration Variables:
@@ -40,8 +42,27 @@ Device Configuration Variables:
 - **password** (*Required*): The password for the user specified.
 - **name** (*Optional*): Custom name for this device.
 - **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
+- **monitored_conditions** (*Optional*): Monitor motion and/or doorbell events for this device.
 
-The configuration above is used by the other components and does nothing on its own.  You must also enable one of the following DoorBird components:
-- [Binary Sensor](../binary_sensor.doorbird) - Track motion and doorbell events
+The configuration above is also used by the following components:
 - [Camera](../camera.doorbird) - View live and historical event based images
 - [Switch](../switch.doorbird) - Enable control of relays and camera night vision
+
+## Motion and Doorbell Events
+
+Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
+
+<p class="note warning">
+Enabling any monitored condition will delete all registered notification services on the doorstation every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
+</p>
+
+### Automation Example
+```yaml
+- alias: Doorbird Ring
+  trigger:
+    platform: event
+    event_type: doorbird_side_entry_button
+  action:
+    service: light.turn_on
+      entity_id: light.side_entry_porch
+```
