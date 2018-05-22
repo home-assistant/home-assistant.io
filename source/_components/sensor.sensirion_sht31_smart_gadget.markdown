@@ -23,7 +23,7 @@ To use your Sensirion SHT31 Smart-Gadget sensor in your installation, add the fo
 # Example configuration.yaml entry
 sensor:
   - platform: sensirion_sht31_smart_gadget
-    mac: 'DEVICE_MAC'
+    mac: DEVICE_MAC
     name: SHT31 Smart-Gadget
     monitored_conditions:
       - battery
