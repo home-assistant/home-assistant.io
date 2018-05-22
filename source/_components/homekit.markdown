@@ -52,12 +52,12 @@ homekit:
         description: Flag if the HomeKit Server should start automatically after the Home Assistant Core Setup is done. ([Disable Auto Start](#disable-auto-start))
         required: false
         type: boolean
-        default: true
+        default: `true`
       port:
         description: Port for the HomeKit extension.
         required: false
         type: int
-        default: 51827
+        default: `51827`
       ip_address:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
@@ -103,10 +103,10 @@ homekit:
                 type: string
                 default: ''
               mode:
-                description: Operation mode of switches within HomeKit. Valid modes are `on_off`, `play_pause`, `play_stop`, and `toggle_mute`. The entity will ignore any `mode` which is not supported. If not specified, all supported modes will be added. Only applicable for `media_player` entities.
+                description: Operation modes of switches within HomeKit. Valid modes are `on_off`, `play_pause`, `play_stop`, and `toggle_mute`. Only applicable for `media_player` entities.
                 required: false
                 type: list
-                default: `on_off`, `play_pause`, `play_stop`, `toggle_mute`
+                default: All supported modes
 {% endconfiguration %}
 
 <p class='note'>
