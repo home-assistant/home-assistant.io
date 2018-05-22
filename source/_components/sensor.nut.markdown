@@ -122,9 +122,9 @@ sensor:
       - battery.runtime
 ```
 
-### {% linkable_title UPS Status - human-readable form %}
+### {% linkable_title UPS Status - human-readable version %}
 
-An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrived from `ups.status` into a human-readable form.
+An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
 
 ```yaml
 sensor:
