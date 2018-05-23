@@ -21,4 +21,4 @@ You have first to setup the [Dyson component](/components/dyson/)
 ### {% linkable_title Supported fan devices %}
 
 - Pure Cool link (desk and tower)
-- Pure Hot+cool link (but heating is not yet supported)
+- Pure Hot+cool link (see [climate](/components/climate.dyson/) for thermal control)
