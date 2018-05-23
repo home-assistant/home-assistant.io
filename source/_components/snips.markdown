@@ -116,9 +116,9 @@ site_ids:
   required: false
   type: str
 probability_threshhold:
-  description: Threshhold for intent probability. Intents under this level are discarded
+  description: Threshhold for intent probability. Range is from 0.00 to 1.00, 1 being highest match. Intents under this level are discarded
   require: false
-  type: int
+  type: float
 {% endconfiguration %}
 
 ### {% linkable_title Specifying the MQTT broker %}
