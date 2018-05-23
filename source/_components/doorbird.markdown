@@ -36,30 +36,41 @@ doorbird:
 ```
 
 {% configuration %}
-host:
-  description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+devices:
+  description: List of doorbird devices.
   required: true
-  type: string
-username:
-  description: The username of a non-administrator user account on the device.
-  required: true
-  type: string
-password:
-  description: The password for the user specified.
-  required: true
-  type: string
-name:
-  description: Custom name for this device.
-  required: false
-  type: string
-hass_url_override:
-  description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
-  required: false
-  type: string
-monitored_conditions:
-  description: Monitor motion and/or doorbell events for this device.
-  required: false
-  type: string
+  type: list
+  keys:
+    host:
+      description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+      required: true
+      type: string
+    username:
+      description: The username of a non-administrator user account on the device.
+      required: true
+      type: string
+    password:
+      description: The password for the user specified.
+      required: true
+      type: string
+    name:
+      description: Custom name for this device.
+      required: false
+      type: string
+    hass_url_override:
+      description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
+      required: false
+      type: string
+    monitored_conditions:
+      description: Monitor motion and/or doorbell events for this device.
+      required: false
+      type: string
+      keys:
+        doorbell:
+          description: Monitor doorbell events
+        motion:
+          description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app)
+
 {% endconfiguration % }
 
 The configuration above is also used by the following components:
