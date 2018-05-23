@@ -15,6 +15,11 @@ ha_iot_class: "Local Polling"
 
 
 The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+The user who starts Home Assistant needs the rights to access GPIOs. This can be done by adding it the GPIO group.
+
+```
+sudo adduser homeassistant gpio
+```
 
 To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
 
