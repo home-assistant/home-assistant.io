@@ -35,20 +35,38 @@ doorbird:
         - motion
 ```
 
-Device Configuration Variables:
-
-- **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
-- **username** (*Required*): The username of a non-administrator user account on the device.
-- **password** (*Required*): The password for the user specified.
-- **name** (*Optional*): Custom name for this device.
-- **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
-- **monitored_conditions** (*Optional*): Monitor motion and/or doorbell events for this device.
+{% configuration %}
+host:
+  description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+  required: true
+  type: string
+username:
+  description: The username of a non-administrator user account on the device.
+  required: true
+  type: string
+password:
+  description: The password for the user specified.
+  required: true
+  type: string
+name:
+  description: Custom name for this device.
+  required: false
+  type: string
+hass_url_override:
+  description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
+  required: false
+  type: string
+monitored_conditions:
+  description: Monitor motion and/or doorbell events for this device.
+  required: false
+  type: string
+{% endconfiguration % }
 
 The configuration above is also used by the following components:
 - [Camera](../camera.doorbird) - View live and historical event based images
 - [Switch](../switch.doorbird) - Enable control of relays and camera night vision
 
-## Motion and Doorbell Events
+## {% linkable_title % Motion and Doorbell Events}
 
 Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
 
@@ -56,7 +74,7 @@ Home Assistant will fire an event any time a `monitored_condition` happens on a 
 Enabling any monitored condition will delete all registered notification services on the doorstation every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
 
-### Automation Example
+### {% linkable_title % Automation Example}
 ```yaml
 - alias: Doorbird Ring
   trigger:
