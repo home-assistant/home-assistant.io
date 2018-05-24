@@ -39,6 +39,8 @@ Configuration variables:
 
 The following conditions are available by device:
 
+- Nest Home:
+  - away
 - Nest Thermostat:
   - online
   - fan

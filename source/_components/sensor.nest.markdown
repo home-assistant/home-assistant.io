@@ -38,6 +38,8 @@ Configuration variables:
 
 The following conditions are available by device:
 
+- Nest Home:
+  - eta: Estimated time of arrival.
 - Nest Thermostat:
   - humidity
   - operation\_mode
