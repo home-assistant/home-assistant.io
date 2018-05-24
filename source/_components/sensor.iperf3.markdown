@@ -10,7 +10,7 @@ footer: true
 logo: iperf3.png
 ha_category: System Monitor
 featured: false
-ha_release: 0.69
+ha_release: 0.71
 ha_iot_class: "Local Polling"
 ---
 
@@ -62,7 +62,15 @@ sensor:
 
 You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
 
-You can use the service `sensor.update_iperf3_<server_name>` to run a manual speed test and populate the data or just wait its frequency by setting the value `scan_interval` in seconds.
+The frequency when the test will be automatically triggered can be adjusted by setting the value `scan_interval` in seconds.
+
+You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
+
+### {% linkable_title Service `sensor.iperf3_update` %}
+
+| Service data attribute | Description |
+| `entity_id` | String that point at `entity_id`s of the Iperf3 sensor. Else targets all.
+
 
 ## {% linkable_title Notes %}
 
