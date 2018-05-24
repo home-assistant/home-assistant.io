@@ -39,7 +39,7 @@ Configuration variables:
 The following conditions are available by device:
 
 - Nest Home:
-  - eta: It is readonly currently, change service will be provided in the future version.
+  - eta: Estimated time of arrival.
 - Nest Thermostat:
   - humidity
   - operation\_mode
