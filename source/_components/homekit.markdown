@@ -231,6 +231,7 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
+| automation / input_boolean / remote / script / switch | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
@@ -247,7 +248,6 @@ The following components are currently supported:
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
-| switch / remote / input_boolean / script | Switch | All represented as switches. |
 
 
 ## {% linkable_title Error reporting %}
