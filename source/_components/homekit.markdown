@@ -248,6 +248,7 @@ The following components are currently supported:
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
+| vacuum | Switch | All vacuums that support `turn_on` and `turn_off`. |
 
 
 ## {% linkable_title Error reporting %}
