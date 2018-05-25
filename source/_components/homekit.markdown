@@ -30,9 +30,16 @@ homekit:
     include_domains:
       - alarm_control_panel
       - light
+      - media_player
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    media_player.living_room:
+      mode:
+        - on_off
+        - play_pause
+        - play_stop
+        - toggle_mute
 ```
 
 {% configuration %}
@@ -95,6 +102,11 @@ homekit:
                 required: false
                 type: string
                 default: ''
+              mode:
+                description: Operation modes of switches within HomeKit. Valid modes are `on_off`, `play_pause`, `play_stop`, and `toggle_mute`. Only applicable for `media_player` entities.
+                required: false
+                type: list
+                default: '`<All supported modes>`'
 {% endconfiguration %}
 
 <p class='note'>
@@ -229,6 +241,7 @@ The following components are currently supported:
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. | 
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
+| media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
