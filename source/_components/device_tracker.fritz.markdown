@@ -18,8 +18,8 @@ The `fritz` platform offers presence detection by looking at connected devices t
 ## {% linkable_title Configuration %}
 
 <p class='note warning'>
-It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip install lxml</code>; be patient this will take a while.</p>
+It might be necessary to install additional packages: <code>$ sudo apt-get install python3-lxml</code>
+If you installed home assistant in a virtualenv, run the following commands inside it: <code>$ sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev; pip install lxml</code>; be patient this will take a while.</p>
 
 To use an Fritz!Box router in your installation, add the following to your `configuration.yaml` file:
 
