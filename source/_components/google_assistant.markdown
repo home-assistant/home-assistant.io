@@ -140,13 +140,13 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 1. Create a new project in the [developer console](https://console.actions.google.com/).  
   a. Add/Import project, give it a name    
   b. Click on `Home Control` card, select the `Smart home` recommendation  
-  c. Create an Action, under the build section. Add in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  If you have set `api_password:` add this password to the URL - eg `https://[YOUR HOME ASSISTANT URL]/api/google_assistant?api_password=[YOUR API PASSWORD]`)  
+  c. Create an Action, under the build section. Add in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  If you have set `api_password:` add this password to the URL - eg `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant?api_password=[YOUR API PASSWORD]`)  
   d. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.  
 2. `Account linking` is required for your app to interact with Home Assistant.  Set this up under the `Quick Setup` section
 	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next  
 	b. For the `Linking type` select `OAuth` and `Implicit`  
 	c. Client ID: The `client_id` from your Home Assistant configuration above  
-	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)  
+	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)  
 	e. Configure your client. Add scopes for `email` and `name`.  
 	f. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 3. Back on the overview page. Click `Simulator` under `TEST` - you don't have to actually test .
