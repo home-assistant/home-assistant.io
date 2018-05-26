@@ -140,7 +140,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 1. Create a new project in the [developer console](https://console.actions.google.com/).  
   a. Add/Import project, give it a name    
   b. Click on `Home Control` card, select the `Smart home` recommendation  
-  c. Create an Action, under the build section. Add in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  If you have set `api_password:` add this password to the URL - eg `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant?api_password=[YOUR API PASSWORD]`)  
+  c. Create an Action, under the build section. Add in your home assistant url: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  If you have set `api_password:` add this password to the URL - eg `https://[YOUR HOME ASSISTANT URL]/api/google_assistant?api_password=[YOUR API PASSWORD]`)  
   d. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.  
 2. `Account linking` is required for your app to interact with Home Assistant.  Set this up under the `Quick Setup` section
 	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next  
