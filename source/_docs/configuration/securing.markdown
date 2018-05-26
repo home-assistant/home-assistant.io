@@ -26,6 +26,8 @@ If you want to allow remote access, consider these additional points:
 - Protect your communication with [Tor](/cookbook/tor_configuration/).
 - Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/).
 - Use a [proxy](/cookbook/apache_configuration/).
+- Set up a VPN
+- Use a [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/) to connect to your frontend.
 
 <p class='note warning'>
   If you've forwarded any ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system - potentially as little as a few hours.
