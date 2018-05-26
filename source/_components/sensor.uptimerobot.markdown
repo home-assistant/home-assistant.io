@@ -1,0 +1,35 @@
+---
+layout: page
+title: Uptime Robot
+description: "Instructions on how to set up Uptime Robot within Home Assistant."
+date: 2018-05-26 13:00
+sidebar: false
+comments: false
+sharing: true
+footer: true
+logo: uptimerobot.png
+ha_category: Sensor
+ha_release: 0.71
+ha_iot_class: "Cloud Polling"
+---
+
+The `uptimerobot` sensor component allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com)
+
+## Example for `configuration.yaml` :
+
+```yaml
+sensor:
+  - platform: uptimerobot
+    api_key: u432898-d2507e493b31217e6c64fd35
+```
+
+{% configuration %}
+api_key:
+  description: Your Uptime Robot API key.
+  required: true
+  type: string
+{% endconfiguration %}
+
+All the data will be fetch from [Uptime Robot](https://uptimerobot.com).
+
+To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the Uptime Robot website, at the bottom you will find your "Main API Key".
