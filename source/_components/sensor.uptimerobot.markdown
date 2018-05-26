@@ -3,13 +3,13 @@ layout: page
 title: Uptime Robot
 description: "Instructions on how to set up Uptime Robot within Home Assistant."
 date: 2018-05-26 13:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: uptimerobot.png
 ha_category: Sensor
-ha_release: 0.71
+ha_release: "0.71"
 ha_iot_class: "Cloud Polling"
 ---
 
