@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: flock.png
 ha_category: Notifications
-ha_release: "0.70"
+ha_release: 0.71
 ---
 
 
@@ -17,7 +17,7 @@ The `flock` platform uses [Flock.com](https://flock.com) to deliver notification
 
 ## {% linkable_title Setup %}
 
-Go to the [Flock.io Admin website](https://admin.flock.com/#!/webhooks) and create a new "Incoming Webhooks". Choose a channel to send the notifications from Home Assistant to, specifiy a name and press *Save and Generate URL*.
+Go to the [Flock.com Admin website](https://admin.flock.com/#!/webhooks) and create a new "Incoming Webhooks". Choose a channel to send the notifications from Home Assistant to, specifiy a name and press *Save and Generate URL*.
 
 <p class='img'>
   <img src='{{site_root}}/images/components/flock/flock-webhook.png' />
@@ -31,7 +31,7 @@ You will need the last part of the URL which is the `access_token` for your room
 
 ## {% linkable_title Configuration %}
 
-To add Prowl notifications to your installation, add the following to your `configuration.yaml` file:
+To add Flock notifications to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
