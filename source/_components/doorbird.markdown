@@ -71,7 +71,7 @@ devices:
         motion:
           description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app)
 
-{% endconfiguration % }
+{% endconfiguration %}
 
 The configuration above is also used by the following components:
 - [Camera](../camera.doorbird) - View live and historical event based images
