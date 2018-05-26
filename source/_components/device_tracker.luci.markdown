@@ -33,9 +33,7 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: luci
     host: ROUTER_IP_ADDRESS
-    ssl: False
     username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
     password: YOUR_ADMIN_PASSWORD
 ```
 
