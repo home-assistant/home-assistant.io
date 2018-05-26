@@ -175,3 +175,9 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
   5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
+
+### {% linkable_title Troubleshooting with NGINX %}
+
+When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
+
+    proxy_pass http://localhost:8123;
