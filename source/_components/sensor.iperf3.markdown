@@ -49,20 +49,31 @@ sensor:
     required: true
     type: string
   duration:
-    description: Specify the test duration in seconds. Default is 10 and valid range is from 5 to 10.
+    description: Specify the test duration in seconds. Default is 10 and the valid range is from 5 to 10.
     required: false
     default: 3
     type: int
-  scan_interval:
-    description: Specify the frequency in seconds which the test will be perfomed. Default value is 30 minutes.
+  parallel:
+    description: Specify the number of concurrent streams to connect to the server. Default is 1 and the valid range is from 1 to 20.
+    default: 1
+    type: int
+  protocol:
+    description: Specify the protocol to be used on the test. Default is TCP and the valid values are TCP or UDP. If your Iperf3 server is located in the Internet, consider to use TCP instead of UDP. If the protocol is set to use UDP, the sensor may not get updated due to package retransmission issues due to its nature.
     required: false
-    default: 1800
+    default: tcp
+    type: string
+  scan_interval:
+    description: Specify the frequency in seconds which the test will be perfomed. Default value is 1 hour.
+    required: false
+    default: 3600
     type: int
 {% endconfiguration %}
 
 You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
 
 The frequency when the test will be automatically triggered can be adjusted by setting the value `scan_interval` in seconds.
+
+Parallel streams can help in some situations. As TCP attempts to be fair and conservative, you may consider increasing the `parallel` attribute. Use this value with careful and refer to Iperf3 man page for more information.
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
