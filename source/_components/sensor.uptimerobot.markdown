@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Uptime Robot
+title: "Uptime Robot"
 description: "Instructions on how to set up Uptime Robot within Home Assistant."
 date: 2018-05-26 13:00
 sidebar: true
