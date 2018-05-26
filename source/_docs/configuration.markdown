@@ -20,6 +20,7 @@ The location of the folder differs between operating systems:
 | macOS | `~/.homeassistant` |
 | Linux | `~/.homeassistant` |
 | Windows | `%APPDATA%/.homeassistant` |
+| Hass.io | `/config` |
 
 If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
 
