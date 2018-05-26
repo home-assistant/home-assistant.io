@@ -146,7 +146,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next  
 	b. For the `Linking type` select `OAuth` and `Implicit`  
 	c. Client ID: The `client_id` from your Home Assistant configuration above  
-	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)  
+	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)  
 	e. Configure your client. Add scopes for `email` and `name`.  
 	f. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 3. Back on the overview page. Click `Simulator` under `TEST` - you don't have to actually test .
