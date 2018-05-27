@@ -7,7 +7,7 @@ date_formatted: "April 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Announcement
+categories: Announcements
 og_image: /images/blog/2018-04-developer-website/screenshot.png
 ---
 
