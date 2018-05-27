@@ -70,6 +70,11 @@ mysensors:
             description: The name the node will be renamed to. This node name becomes part of the entity_id. Default entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
             required: true
             type: string
+          force_update:
+            description: Enable or disable forced updates for the node.
+            required: false
+            type: bool
+            default: false
   persistence:
     description: Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts.
     required: false
