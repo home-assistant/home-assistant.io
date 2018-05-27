@@ -61,7 +61,7 @@ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/in
 ```
 
 <p class='note'>
-When you use this installation method, some add-ons will not be available, and the documentation might not work for your installation.
+When you use this installation method, the core SSH add-on may not function correctly. If that happens use the community SSH add on. Some of the documentation might not work for your installation either.
 </p>
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
