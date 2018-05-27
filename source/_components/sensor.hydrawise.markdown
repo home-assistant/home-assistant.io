@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hydrawise_logo.png
 ha_category: Sensor
-ha_release: 0.68
+ha_release: 0.71
 ha_iot_class: Cloud Polling
 ---
 
