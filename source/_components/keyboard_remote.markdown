@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 Receive signals from a keyboard and use it as a remote control.
 
-This component allows you to use a keyboard as remote control. It will fire `keyboard_remote_command_received` events which can then be used in automation rules. 
+This component allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
 
@@ -37,15 +37,17 @@ In case of presence of multiple devices of the same model, `device_descriptor` m
 
 A list of possible device descriptors and names is reported in the debug log at startup when the device indicated in the configuration entry could not be found.
 
-A full configuration for Keyboard Remote could look like the one below:
+A full configuration for two Keyboard Remotes could look like the one below:
 
 ```yaml
 keyboard_remote:
-  device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
+- device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
+  type: 'key_up'
+- device_descriptor: '/dev/input/event0'
   type: 'key_up'
 ```
 
-or like the following:
+or like the following for one keyboard:
 
 ```yaml
 keyboard_remote:
@@ -62,11 +64,13 @@ automation:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
+      device_descriptor: "/dev/input/event0"
       key_code: 107 # inspect log to obtain desired keycode
   action:
     service: light.turn_on
     entity_id: light.all
 ```
+`device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
 ## {% linkable_title Disconnections %}
 This component manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
