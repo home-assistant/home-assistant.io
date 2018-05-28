@@ -35,11 +35,11 @@ homekit:
     alarm_control_panel.home:
       code: 1234
     media_player.living_room:
-      mode:
-        - on_off
-        - play_pause
-        - play_stop
-        - toggle_mute
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
 ```
 
 {% configuration %}
@@ -102,11 +102,15 @@ homekit:
                 required: false
                 type: string
                 default: ''
-              mode:
-                description: Operation modes of switches within HomeKit. Valid modes are `on_off`, `play_pause`, `play_stop`, and `toggle_mute`. Only applicable for `media_player` entities.
+              feature_list:
+                description: Only for `media_player` entities. List of feature dictionaries to add for a given entity. Comparable to the platform schema.
                 required: false
                 type: list
-                default: '`<All supported modes>`'
+                keys:
+                  feature:
+                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
+                    required: true
+                    type: string  
 {% endconfiguration %}
 
 <p class='note'>
