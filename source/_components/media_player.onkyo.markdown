@@ -30,6 +30,8 @@ media_player:
       pc: 'HTPC'
 ```
 
+ If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.
+
 {% configuration %}
 host:
   description: IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
@@ -39,14 +41,14 @@ name:
   description: Name of the device. (*Required if host is specified*)
   required: false
   type: string
+max_volume:
+  description: Maximum volume. Defaults to 80.
+  required: false
+  type: number
 sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
   required: false
   type: list
-zone2:
-  description: Enables control for the receiver's second zone.
-  required: false
-  type: bool
 {% endconfiguration %}
 
 List of source names:

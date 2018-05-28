@@ -86,11 +86,15 @@ homekit:
             required: false
             type: map
             keys:
-              code:
-                description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
+              name:
+                description: Name of entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
-                default: ''
+              code:
+                description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
+                required: false
+                type: string
+                default: '`<No code>`'
 {% endconfiguration %}
 
 <p class='note'>
@@ -222,6 +226,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker | Sensor | Support for `occupancy` device class. |
+| fan | Fan | Support for `on / off`, `direction` and `oscillating`. | 
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |

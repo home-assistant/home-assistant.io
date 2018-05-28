@@ -58,4 +58,9 @@ maxcube:
     required: false
     type: int
     default: 62910
+  scan_interval:
+    description: The update interval in seconds
+    required: false
+    type: int
+    default: 300
 {% endconfiguration %}
