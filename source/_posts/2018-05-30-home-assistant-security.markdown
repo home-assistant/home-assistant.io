@@ -219,7 +219,7 @@ But without username and password you can't get access to the configuration file
 
 Home Assistant is NOT able to change the configuration of your router or firewall. This means that you need to setup port-forwarding and adjusting firewall rules if you want to allow access from the internet. By default your frontend, Mosquitto, SSH and your Samba shares are only accessible from your local network.
 
-Beside the recommandation in the [Securing checklist](/docs/configuration/securing/) for remote access also check those points:
+Beside the recommendation in the [Securing checklist](/docs/configuration/securing/) for remote access also check those points:
 
 - Don't use forward the ports used by the Samba add-on.
 - Use `ip_ban_enabled` and `login_attempts_threshold`. A brute force attack on the frontend or SSH is a treat.
@@ -233,7 +233,7 @@ Beside the recommandation in the [Securing checklist](/docs/configuration/securi
 
 As you can see in the results of the scans only the ports which are needed by a running services are open. If you stop an add-on then the port is no longer accessible and the porosity of your Hass.io machine will decrease.
 
-We don't have an unique server banner but in combination with the HTML title `Home Assistant`, is it simple to identiy Home Assistant instances.
+We don't have an unique server banner but in combination with the HTML title `Home Assistant`, is it simple to identify Home Assistant instances.
 
 ```bash
 $ nc 192.168.0.215 8123
