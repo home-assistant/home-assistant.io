@@ -18,7 +18,7 @@ Just to be clear: We, the Home Assistant Developer, take security, privacy and i
 
 As a large amount of users are running [Hass.io](/hassio/), I'm going to use a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview to give you some closure.
 
-The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network. Internet access is provided by a Opnsense firewll which is connected to the cable modem of my ISP.
+The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network. Internet access is provided by a Opnsense firewall which is connected to the cable modem of my ISP.
 
 There is an `api_password` set but otherwise Hass.io is running with a default configuration that is created on the first launch.
 
