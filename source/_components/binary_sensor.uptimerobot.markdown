@@ -2,13 +2,13 @@
 layout: page
 title: "Uptime Robot"
 description: "Instructions on how to set up Uptime Robot within Home Assistant."
-date: 2018-05-26 13:00
+date: 2018-05-29 21:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: uptimerobot.png
-ha_category: Sensor
+ha_category: Binary Sensor
 ha_release: "0.71"
 ha_iot_class: "Cloud Polling"
 ---
@@ -18,7 +18,7 @@ The `uptimerobot` sensor component allows you get the status for all of your mon
 ## Example for `configuration.yaml` :
 
 ```yaml
-sensor:
+binary_sensor:
   - platform: uptimerobot
     api_key: u432898-d2507e493b31217e6c64fd35
 ```
