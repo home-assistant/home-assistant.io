@@ -17,7 +17,7 @@ The `facebox` image processing platform allows you to detect and recognise faces
 ```
 MB_KEY="INSERT-YOUR-KEY-HERE"
 
-sudo docker run --name=facebox --restart=always 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
+sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
 
 If you only require face detection (number of faces) you can disable face recognition by adding ```-e "MB_FACEBOX_DISABLE_RECOGNITION=true"``` to the `docker run` command.
