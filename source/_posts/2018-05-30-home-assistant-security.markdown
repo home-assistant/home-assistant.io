@@ -12,17 +12,17 @@ og_image: /images/blog/2018-05-security/social.png
 ---
 
 
-There were a couple of threads in our forum with scary titles like "[I have been Hacked](https://community.home-assistant.io/t/i-have-been-hacked/53723)", "[HA security and hacking](https://community.home-assistant.io/t/ha-security-and-hacking/54322)" or "[I got hacked](https://community.home-assistant.io/t/i-got-hacked/54083)". Of course, do those long discussions contain some rumors, speculations and assumptions. 
+There were a couple of threads in our forum with scary titles like "[I have been Hacked](https://community.home-assistant.io/t/i-have-been-hacked/53723)", "[HA security and hacking](https://community.home-assistant.io/t/ha-security-and-hacking/54322)" or "[I got hacked](https://community.home-assistant.io/t/i-got-hacked/54083)". Of course, these long discussions contain some rumors, speculations and assumptions. 
 
-Just to be clear: We, the Home Assistant Developer, take security, privacy and integrity very serious. 
+Just to be clear: We, the Home Assistant Developers, take security, privacy and integrity very serious. 
 
-As a large amount of users are running [Hass.io](/hassio/), I'm going to use a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview to give you some closure.
+As a large number of users are running [Hass.io](/hassio/), I'm going to use a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview to give you some closure.
 
-The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network. Internet access is provided by a Opnsense firewall which is connected to the cable modem of my ISP.
+The IP address of the Home Assistant machine is 192.168.0.215. The system which is the source of the scans is a machine running Fedora 27 and Nmap 7.60 is used to preform the port scans. Both systems are in the same network. Internet access is provided by a OPNsense firewall which is connected to the cable modem of my ISP.
 
 There is an `api_password` set but otherwise Hass.io is running with a default configuration that is created on the first launch.
 
-The default port of Home Assistant is 8123. This is the port where the [`frontend`](/components/frontend/) and the [`API`](/components/api/) is served. Both are depending on the [`http`](/components/http/) component which contains the capability to adjust the settings like `server_host` or `server_port`.
+The default port of Home Assistant is 8123. This is the port where the [`frontend`](/components/frontend/) and the [`API`](/components/api/) are served. Both are depending on the [`http`](/components/http/) component which contains the capability to adjust the settings like `server_host` or `server_port`.
 
 In the next section we are going to test Hass.io with the three most popular add-ons.
 
@@ -67,11 +67,11 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 726.23 seconds
 ```
 
-That port 22 and 8123 are open was expected. On port 22222 is an additional SSH server running. This port is for [debugging](https://developers.home-assistant.io/docs/en/hassio_debugging.html) and supports only a login with a key. This means that you would need to remove the SD card from your Raspberry Pi, create an `authorized_keys` with your SSH public key in it and put the SD Card back in your Pi to get access.
+That port 22 and 8123 are open was expected. On port 22222 is an additional SSH server running. This port is for [debugging](https://developers.home-assistant.io/docs/en/hassio_debugging.html) and only supports login with a key. This means that you would need to remove the SD card from your Raspberry Pi, create an `authorized_keys` file with your SSH public key in it and put the SD Card back in your Pi to get access.
 
 ## {% linkable_title Hass.io 0.70.0 with Mosquitto MQTT broker Add-on %}
 
-While setting up the [Mosquitto MQTT broker add-on](/addons/mosquitto/) no settings very modified. The add-on will run with the default settings.
+While setting up the [Mosquitto MQTT broker add-on](/addons/mosquitto/) no settings were modified. The add-on will run with the default settings.
 
 ```bash
 $ sudo nmap -A -n --reason -Pn -T5 -p1-65535 192.168.0.215
@@ -112,7 +112,7 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 223.76 seconds
 ```
 
-Instead of port 22 is now port 1883 open. To secure MQTT to consider to use certificates and to specify users with password under `logins:` at least.
+Instead of port 22 now port 1883 is open. To secure MQTT consider using certificates and specifying users with password under `logins:` at least.
 
 ## {% linkable_title Hass.io 0.70.0 with Samba Add-on %}
 
@@ -217,21 +217,21 @@ But without username and password you can't get access to the configuration file
 
 ## {% linkable_title Allowing remote access %}
 
-Home Assistant is NOT able to change the configuration of your router or firewall. This means that you need to setup port-forwarding and adjusting firewall rules if you want to allow access from the internet. By default your frontend, Mosquitto, SSH and your Samba shares are only accessible from your local network.
+Home Assistant is NOT able to change the configuration of your router or firewall. This means that you need to setup port-forwarding and adjust firewall rules if you want to allow access from the internet. By default your frontend, Mosquitto, SSH and your Samba shares are only accessible from your local network.
 
 Beside the recommendation in the [Securing checklist](/docs/configuration/securing/) for remote access also check those points:
 
-- Don't use forward the ports used by the Samba add-on.
-- Use `ip_ban_enabled` and `login_attempts_threshold`. A brute force attack on the frontend or SSH is a treat.
+- Don't forward the ports used by the Samba add-on.
+- Use `ip_ban_enabled` and `login_attempts_threshold`. A brute force attack on the frontend or SSH is a threat.
 - Disable `trusted_networks`.
 - Limit the access to the Home Assistant frontend. Don't allow access to the [Configurator add-on](/addons/configurator/) for the internet.
 - Check the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) settings of your router/firewall and disable it when not needed.
-- Review your router/firewall logs on a regular base.
+- Review your router/firewall logs on a regular basis.
 - If possible, use the VPN feature of your router or firewall to get access to your home network and Home Assistant. 
 
 ## {% linkable_title Summary %}
 
-As you can see in the results of the scans only the ports which are needed by a running services are open. If you stop an add-on then the port is no longer accessible and the porosity of your Hass.io machine will decrease.
+As you can see in the results of the scans, only the ports which are needed by a running services are open. If you stop an add-on then the port is no longer accessible and the porosity of your Hass.io machine will decrease.
 
 We don't have an unique server banner but in combination with the HTML title `Home Assistant`, is it simple to identify Home Assistant instances.
 
