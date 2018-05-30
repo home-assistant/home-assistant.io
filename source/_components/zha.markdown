@@ -45,7 +45,7 @@ Configuration variables:
 
  - **radio_type** (*Optional*): One of `ezsp` (default) or `xbee`
  - **usb_path** (*Required*): Path to the serial device for the radio.
- - **baud_rate** (*Optional*): Baud rate of the serial device.
+ - **baudrate** (*Optional*): Baud rate of the serial device.
  - **database_path** (*Required*): Path to the database which will keep persistent network data.
 
 To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
