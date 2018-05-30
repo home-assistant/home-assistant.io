@@ -11,9 +11,9 @@ logo: home-assistant.png
 ha_category: "Utility"
 ---
 
-The logger component lets you define the level of logging activities in Home Assistant.
+The `logger` component lets you define the level of logging activities in Home Assistant.
 
-To enable the logger in your installation, add the following to your `configuration.yaml` file:
+To enable the `logger` component in your installation, add the following to your `configuration.yaml` file:
 
 To have a full log and log everything only this entry is needed (without any qualifier):
 ```yaml
@@ -54,10 +54,23 @@ Possible log severities are:
 - debug
 - notset
  
+### {% linkable_title Service `set_default_level` %}
+
+You can alter the default log level (for components without a specified log
+level) using the service `logger.set_default_level`.
+
+An example call might look like this:
+
+```yaml
+service: logger.set_default_level
+data:
+  level: info
+```
+
 ### {% linkable_title Service `set_level` %}
 
 You can alter log level for one or several components using the service
-``logger.set_level``. It accepts the same format as ``logs`` in the configuration.
+`logger.set_level`. It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:
 
@@ -68,7 +81,9 @@ data:
   homeassistant.components.media_player.yamaha: debug
 ```
 
-The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
+The log information are stored in the [configuration directory](/docs/configuration/)
+as `home-assistant.log` and you can read it with the command-line tool `cat` or
+follow it dynamically with `tail -f`. 
 
 If you are a Hassbian user you can use the example below:
 
@@ -76,7 +91,8 @@ If you are a Hassbian user you can use the example below:
 $ tail -f /home/homeassistant/.homeassistant/home-assistant.log
 ```
 
-If you are a Hass.io user you can use the example below, whenlogged in through the ssh addon:
+If you are a Hass.io user you can use the example below, when logged in through
+the [SSH add-on](/addons/ssh/):
 
 ```bash
 $ tail -f /config/home-assistant.log
