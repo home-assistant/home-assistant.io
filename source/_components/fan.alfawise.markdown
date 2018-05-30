@@ -10,7 +10,7 @@ footer: true
 logo: alfawise.png
 ha_category: Fan
 ha_iot_class: "Local Push"
-ha_release: "0.68"
+ha_release: "0.71"
 ---
 
 The `alfawise` fan allows you to control [Alfawise Humidifier](https://www.alfawise.com/copy-of-kitchen-shrter-1) 
@@ -33,13 +33,21 @@ fan:
         mac: GGHHIIJJKKLL
 ```
 
-Configuration variables:
-
-- **ip** (*Required*): IP(s) of your device
-- **name** (*Required*): A friendly name for the device.
-- **mac** (*Required*): The mac addres of your device (you can find it in 
-your router interface or in the Alfawise smartphone app).
+{% configuration %}
+ip:
+  description: IP(s) of your device.
+  required: true
+  type: string
+name:
+  description: A friendly name for the device.
+  required: true
+  type: string
+mac:
+  description: The mac address of your device (you can find it in your router interface or in the Alfawise smartphone app).
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
-Note : the python library that handel the device is still in beta development, and have only been tested with the SJ-07A model..
+Note: the python library that handles the device is still in beta development, and have only been tested with the SJ-07A model.
 </p>
