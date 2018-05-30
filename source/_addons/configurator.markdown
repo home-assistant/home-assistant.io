@@ -11,7 +11,7 @@ featured: true
 og_image: /images/hassio/screenshots/addon-hass-configurator.png
 ---
 
-As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser-based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.
+As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser-based file-editor to your Hass.io installation. By default it will listen on port `3218` of the host Hass.IO is running on.
 
 More information and a standalone version for regular Home Assistant installations can be found in the [GitHub repository][code].
 
@@ -63,7 +63,7 @@ Screenshot of the HASS Configurator.
 - **dirsfirst** (*Optional*): List directories before files in the file browser.
 - **sesame** (*Optional*): Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and boom! Open Sesame! You can use the _Network status_ menu to revoke IP addresses for which access has been granted.
 
-### {% linkable_title Embedding into Home-Assistant %}
+### {% linkable_title Embedding into Home Assistant %}
 
 Using the Home Assistant component [panel_iframe](/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration from within the Home Assistant frontend.
 
