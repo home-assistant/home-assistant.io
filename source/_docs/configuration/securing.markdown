@@ -37,8 +37,8 @@ As well as the above we advise that you consider the following to improve securi
 
 - For systems that use SSH set `PermitRootLogin no` in your sshd config (usually `/etc/ssh/sshd_config`) and to use SSH keys for authentication instead of passwords 
 - Lock down the host following good practice guidance, for example:
+  * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html) (this also applies to Raspbian)
   * [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf)
-  * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html)
 
 ## {% linkable_title Remote access %}
 
@@ -64,4 +64,5 @@ For remote access for a component, for example a device tracker, you have to ena
 2. Forwarding a port and protect your communication with one of:
   * A [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate (you can use one from Let's Encrypt, or any commercial SSL certificate vendor)
   * A [self-signed certificate](/cookbook/tls_self_signed_certificate/) - be warned though, some services will refuse to work with self-signed certificates
-3. Optionally use a [proxy](/cookbook/apache_configuration/), which allows you to provide finer grained access. You could use this to limit access to specific parts of the API (for example, only `/api/owntracks/`)
+3. Optionally use a proxy like [nginx](/docs/ecosystem/nginx/), [apache](/cookbook/apache_configuration/), or another. These allow you to provide finer grained access. You could use this to limit access to specific parts of the API (for example, only `/api/owntracks/`)
+4. Install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to monitor your Home Assistant or proxy logs for failed authentication
