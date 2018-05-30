@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /details/webserver/
+redirect_from: /docs/frontend/webserver/
 ---
 
 It was only a matter of time until the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.
@@ -36,6 +36,19 @@ PORT     STATE SERVICE VERSION
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 12.13 seconds
-
 ```
+
+We don't have an unique server banner but in combination with the HTML title `Home Assistant`, is it simple to identify Home Assistant instances.
+
+```bash
+$ nc 192.168.0.3 8123
+GET / HTTP/1.1
+host: localhost
+
+HTTP/1.1 200 OK
+Server: Python/3.6 aiohttp/3.1.3
+[...]
+```
+
+One option to avoid this exposure is using a [reverse proxy](/docs/ecosystem/nginx/).
 
