@@ -11,10 +11,10 @@ footer: true
 
 A component will be loaded on start if a section (ie. `light:`) for it exists in the `configuration.yaml` file. A component can also be loaded if another component is loaded that depends on it. When loading a component Home Assistant will check the following paths:
 
- * `.homeassistant/custom_components/<component name>`
+ * `<config directory>/custom_components/<component name>`
  * `homeassistant/components/<component name>` (built-in components)
     
-If Home Assistant is installed in an [`venv`](/docs/installation/virtualenv/) you find the components folder under the following subfolder: `lib/python3.5/site-packages/homeassistant/components/<component name>`
+If Home Assistant is installed in an [`venv`](/docs/installation/virtualenv/) your `<config directory>` is located at: `lib/python3.x/site-packages/homeassistant/`. You need to replace 3.x with your Python version.
 
 Once loaded, a component will only be setup if all dependencies can be loaded and are able to setup. Keep an eye on the logs to see if your component could be loaded and initialized.
 
