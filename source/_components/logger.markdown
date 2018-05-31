@@ -16,9 +16,11 @@ The `logger` component lets you define the level of logging activities in Home A
 To enable the `logger` component in your installation, add the following to your `configuration.yaml` file:
 
 To have a full log and log everything only this entry is needed (without any qualifier):
+
 ```yaml
 logger:
 ```
+
 To log all messages and ignore events lower than critical for specified components.
 
 ```yaml
@@ -91,7 +93,7 @@ If you are a Hassbian user you can use the example below:
 $ tail -f /home/homeassistant/.homeassistant/home-assistant.log
 ```
 
-If you are a Hass.io user you can use the example below, when logged in through
+If you are a Hass.io user, you can use the example below, when logged in through
 the [SSH add-on](/addons/ssh/):
 
 ```bash
