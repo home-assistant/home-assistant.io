@@ -28,8 +28,6 @@ lock:
     password: mySecretPassword
 ```
 
-Configuration variables:
-
 {% configuration %}
 username:
   required: true
