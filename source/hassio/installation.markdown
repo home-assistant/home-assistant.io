@@ -21,6 +21,10 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
   - [Raspberry Pi 3][pi3]
   - [Intel NUC][nuc]
 
+<p class='note'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
+</p>
+
 - Flash the downloaded image to an SD card using [Etcher].
 
 <p class='note warning'>
@@ -42,10 +46,6 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
 
 <p class='note'>
 If your router doesn't support mDNS then you'll have to use the IP address of your Pi, instead of `hassio.local`, for example `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
-</p>
-
-<p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
 </p>
 
 <p class='note'>
