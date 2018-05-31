@@ -35,6 +35,15 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 - Allow HomeKit name to be customized ([@schmittx] - [#14159]) ([homekit docs]) (new-feature)
 - Add HomeKit support for fans ([@schmittx] - [#14351]) ([homekit docs]) (new-feature)
 
+## {% linkable_title Release 0.70.1 - May 31 %}
+
+- Update Hue platform to aiohue 1.5.0, and re-implement logic for duplicate scene names. ([@MizterB] - [#14653]) ([hue docs])
+- Ignore unsupported Sonos favorite lists ([@amelchio] - [#14665]) ([media_player.sonos docs])
+- MQTT Cover Fix Assumed State ([@OttoWinter] - [#14672]) ([cover.mqtt docs])
+- Fix Eco mode display on Nest ([@ciotlosm] - [#14706]) ([climate.nest docs])
+- Frontend: bug fixes for date time more info, cover icons, slider overflow issue (@c727, @cdce8p, @balloob)
+- Add Simplepush back (#14728)
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -433,3 +442,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
+[#14653]: https://github.com/home-assistant/home-assistant/pull/14653
+[#14665]: https://github.com/home-assistant/home-assistant/pull/14665
+[#14672]: https://github.com/home-assistant/home-assistant/pull/14672
+[#14706]: https://github.com/home-assistant/home-assistant/pull/14706
+[@MizterB]: https://github.com/MizterB
+[@OttoWinter]: https://github.com/OttoWinter
+[@amelchio]: https://github.com/amelchio
+[@ciotlosm]: https://github.com/ciotlosm
+[climate.nest docs]: /components/climate.nest/
+[cover.mqtt docs]: /components/cover.mqtt/
+[hue docs]: /components/hue/
+[media_player.sonos docs]: /components/media_player.sonos/
