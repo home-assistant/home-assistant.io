@@ -11,7 +11,7 @@ logo: kiwi.png
 ha_category: Lock
 featured: false
 
-ha_release: 0.69.1 
+ha_release: 0.70 
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -30,5 +30,13 @@ lock:
 
 Configuration variables:
 
-- **username** (*Required*): The username of your KIWI account.
-- **password** (*Required*): The password of your KIWI account.
+{% configuration %}
+username:
+  required: true
+  description: The username of your KIWI account.
+  type: string
+password:
+  required: true
+  description: The password of your KIWI account.
+  type: string
+{% endconfiguration %}
