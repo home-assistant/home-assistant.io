@@ -40,6 +40,8 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
+    switch.bedroom_outlet:
+      type: outlet
 ```
 
 {% configuration %}
@@ -111,6 +113,11 @@ homekit:
                     description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string  
+              type:
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`.
+                required: false
+                type: string
+                default: switch
 {% endconfiguration %}
 
 <p class='note'>
@@ -235,7 +242,7 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
-| automation / input_boolean / remote / script / switch | Switch | All represented as switches. |
+| automation / input_boolean / remote / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
@@ -252,6 +259,7 @@ The following components are currently supported:
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
+| switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 
 
 ## {% linkable_title Error reporting %}
