@@ -117,7 +117,7 @@ homekit:
                 description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`.
                 required: false
                 type: string
-                default: `switch`
+                default: switch
 {% endconfiguration %}
 
 <p class='note'>
