@@ -114,10 +114,10 @@ homekit:
                     required: true
                     type: string  
               type:
-                description: Type of accessory to be created within HomeKit. The only valid type is `outlet`. Only applicable for `switch` entities.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`.
                 required: false
                 type: string
-                default: ''
+                default: `switch`
 {% endconfiguration %}
 
 <p class='note'>
