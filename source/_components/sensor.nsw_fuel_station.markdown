@@ -19,14 +19,17 @@ To add the NSW fuel station price sensor to your installation, add the following
 ```yaml
 sensor:
   - platform: nsw_fuel_station
-    station_name: 'Caltex Woolworths Blakehurst'
-    station_id: 530
+    station_name: BP Willoughby
+    station_id: 1152
     fuel_types:
+      - LPG
+      - P98
       - E10
+      - PDL
       - P95
   - platform: nsw_fuel_station
-    station_id: 675
-    station_name: Caltex Woolworths Peakhurst
+    station_id: 291
+    station_name: Coles Express Cremorne
     fuel_types:
       - E10
       - P95
