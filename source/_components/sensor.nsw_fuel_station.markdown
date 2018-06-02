@@ -32,14 +32,23 @@ sensor:
       - P95
 ``` 
 
+{% configuration %}
+station_name:
+  description: The name you would like to give to the fuel station
+  required: true
+  type: string
+station_id:
+  description: The ID of the station to track
+  required: true
+  type: string
+fuel_types:
+  description: A list of fuel types to track for the station. (i.e. `E10`, `P95`, `P98`, `PDL`, `LPG`, `U91`)
+  required: true
+  type: list
+{% endconfiguration %}
+
 To get the station ID for any NSW fuel station you will need to:
 - Visit the [Fuel Check App](https://www.fuelcheck.nsw.gov.au/app)
 - Open the developer console of your browser (for chrome, click View -> Developer -> Developer Tools). Click the "Network" tab in the developer console.
 - In the Fuel Check App, search for your postcode or click "Fuel Near Me"
 - In the developer console, you should see a request to `/FuelCheckApp/v1/fuel/prices/bylocation`. Open this request and preview the response. Find the station you wish to add, and copy down the `ServiceStationID` field.    
-
-Configuration variables:
-
-- **station_name** (*Required*): The name you would like to give to the fuel station
-- **station_id** (*Required*): The ID of the station to track
-- **fuel_types** (*Required*): A list of fuel types to track for the station. (i.e. `E10`, `P95`, `P98`, `PDL`, `LPG`, `U91`)
