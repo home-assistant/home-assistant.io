@@ -40,8 +40,9 @@ The first add-on we should install is the HASS Configurator. With the HASS Confi
 
 Go to the add-on store (see previous step), click on Configurator and click on "INSTALL". When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps bellow to setup the add-on.
 
- - Set a password on the Config box, don't forget to use quotes on your password 
- ```
+ - Set a password on the Config box, don't forget to use quotes on your password
+ 
+ ```json
 {
   "username": "admin",
   "password": "YOUR_PASSWORD_WITH_QUOTES",
@@ -61,6 +62,7 @@ Go to the add-on store (see previous step), click on Configurator and click on "
   "dirsfirst": false
 }
 ```
+
  - Click on "SAVE" to save your new password
  - "START" the add-on
  - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
