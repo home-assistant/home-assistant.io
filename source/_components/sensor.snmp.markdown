@@ -28,16 +28,96 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your host, eg. `192.168.1.32`.
-- **baseoid** (*Required*): The OID where the information is located. It's advised to use the numerical notation.
-- **port** (*Option*): The SNMP port of your host. Defaults to `161`.
-- **community** (*Optional*): The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
-- **version** (*Optional*) version of SNMP protocol, `1` or `2c`. Defaults to `1`. Version `2c` is needed to read data from 64-bit counters.
-- **name** (*Optional*): Name of the SNMP sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value.
-- **accept_errors** (*Optional*): Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to `false`.
-- **default_value** (*Optional*): Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors.
+{% configuration %}
+host:
+  description: The IP address of your host, eg. `192.168.1.32`.
+  required: true
+  type: string
+  default: 'localhost'
+baseoid:
+  description: The OID where the information is located. It's advised to use the numerical notation.
+  required: true
+  type: string
+port:
+  description: The SNMP port of your host.
+  required: Option
+  type: string
+  default: '161'
+community:
+  description: The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  required: false
+  type: string
+  default: 'public'
+username:
+  description: Username to use for authentication.
+  required: false
+  type: string
+  default: ''
+auth_key:
+  description: Authentication key to use for SNMP v3.
+  required: false
+  type: string
+  default: no key
+auth_protocol:
+  description: Authentication protocol to use for SNMP v3.
+  required: false
+  type: string
+  default: 'none'
+priv_key:
+  description: Privacy key to use for SNMP v3.
+  required: false
+  type: string
+  default: no key
+priv_protocol:
+  description: Privacy protocol to use for SNMP v3.
+  required: false
+  type: string
+  default: 'none'
+version:
+  description: Version of SNMP protocol, `1`, `2c` or `3`. Version `2c` or higher is needed to read data from 64-bit counters.
+  required: false
+  type: string
+  default: '1'
+name:
+  description: Name of the SNMP sensor.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the unit of measurement of the sensor, if any.
+  required: false
+  type: string
+value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value.
+  required: false
+  type: template
+accept_errors:
+  description: Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to `false`.
+  required: false
+  type: string
+default_value:
+  description: Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors.
+  required: false
+  type: string
+{% endconfiguration %}
+
+Valid values for auth_protocol:
+
+- **none**
+- **hmac-md5**
+- **hmac-sha**
+- **hmac128-sha224**
+- **hmac192-sha256**
+- **hmac256-sha384**
+- **hmac384-sha512**
+
+Valid values for priv_protocol:
+
+- **none**
+- **des**
+- **3des-ede**
+- **aes-cfb-128**
+- **aes-cfb-192**
+- **aes-cfb-256**
 
 ## {% linkable_title Finding OIDs %}
 
