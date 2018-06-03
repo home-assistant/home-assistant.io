@@ -2,7 +2,7 @@
 layout: page
 title: "Remote Access with TLS/SSL via Let's Encrypt"
 description: "A guide to remotely accessing Home Assistant and securing the connection with an SSL certificate from Let's Encrypt"
-date: 2017-03-16 17:00
+date: 2018-06-03 11:00
 sidebar: true
 comments: false
 sharing: true
@@ -245,17 +245,17 @@ In cases where your ISP blocks port 80 you will need to change the port forward 
 Now SSH in to the device your Home Assistant is running on.
 
 <p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' Pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' Pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
+If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' Pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' Pi setup, from your 'pi' user issue the following command (where `homeassistant` is the Home Assistant user):
 
 ```
-$ sudo adduser hass sudo
+$ sudo adduser homeassistant sudo
 ```
 </p>
 
-If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
+If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `homeassistant` or `hass` - you may have used a command similar to this in the past):
 
 ```bash
-$ sudo su -s /bin/bash hass
+$ sudo -u homeassistant -H -s
 ```
 
 Make sure you are in the home directory for the Home Assistant user:
@@ -449,10 +449,10 @@ Your certificate can be renewed as a 'cron job' - cron jobs are background tasks
 To set a cron job to run the script at regular intervals:
 
  * SSH in to your device running Home Assistant.
- * Change to your Home Assistant user (command similar to):
+ * Change to your Home Assistant user (where `homeassistant` is the name of the user):
 
 ```bash
-$ sudo su -s /bin/bash hass
+$ sudo -u homeassistant -H -s
 ```
 
  * Open the crontab:
@@ -506,10 +506,10 @@ You can manually update the certificate when your certificate is less than 30 da
 To manually update:
 
  * SSH in to your device running Home Assistant.
- * Change to your Home Assistant user (command similar to):
+ * Change to your Home Assistant user (where `homeassistant` is the name of the user):
 
 ```bash
-$ su - s /bin/bash hass
+$ sudo -u homeassistant -H -s
 ```
 
  * Change to your certbot folder

@@ -2,7 +2,7 @@
 layout: page
 title: "Xiaomi Mi Robot Vacuum"
 description: "Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
-date: 2017-05-05 18:11
+date: 2018-06-03 11:30
 sidebar: true
 comments: false
 sharing: true
@@ -189,7 +189,7 @@ $ sudo apt-get install libffi-dev libssl-dev
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 ```
 
@@ -219,7 +219,7 @@ $ sudo apt-get install libffi-dev libssl-dev
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 ```
 

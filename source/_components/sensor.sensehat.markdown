@@ -2,7 +2,7 @@
 layout: page
 title: "Sense HAT"
 description: "Instructions on how to integrate Sense HAT within Home Assistant."
-date: 2017-06-03 04:00
+date: 2018-06-03 11:30
 sidebar: true
 comments: false
 sharing: true
@@ -109,7 +109,7 @@ Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the vi
 #### Install SenseHAT package to _homeassistant_venv_
 ```bash
 # switch to the homeassistant_venv environment
-sudo su -s /bin/bash homeassistant
+sudo -u homeassistant -H -s
 source /srv/homeassistant/homeassistant_venv/bin/activate
 
 # install the sense-hat lib
