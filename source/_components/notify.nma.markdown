@@ -12,6 +12,9 @@ ha_category: Notifications
 ha_release: pre 0.7
 ---
 
+<p class='note warning'>
+As of May 24th 2018 [NMA has shut down](https://notifymyandroid.com/), this was due to the new GDPR european regulations. 
+</p>
 
 The `nma` platform uses [Notify My Android (NMA)](http://www.notifymyandroid.com/) to delivery notifications from Home Assistant to your Android device.
 

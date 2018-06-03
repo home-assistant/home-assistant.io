@@ -19,7 +19,7 @@ Unit system is set to metric system.
 
 ## {% linkable_title Configuration %}
 
-To use this sensor in your installation, add the following `abode` section to your `configuration.yaml` file:
+To use this sensor in your installation, add the following `sensor` section to your `configuration.yaml` file:
 
 ```yaml
 # Example entry for configuration.yaml

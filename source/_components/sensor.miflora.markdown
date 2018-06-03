@@ -19,6 +19,7 @@ The `miflora` sensor platform allows one to monitor plants. The [Mi Flora plant 
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
 - On [Hass.io](/hassio/installation/): Miflora will work out of the box.
+- On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
     - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
     - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
@@ -94,4 +95,3 @@ sensor:
       - conductivity
       - battery
 ```
-

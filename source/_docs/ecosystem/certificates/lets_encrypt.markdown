@@ -53,10 +53,10 @@ Now, to speak to the outside world your connection goes through a router. Your r
 
 So, when we want to connect to our Home Assistant instance from outside our network we will need to call the correct extension number, at the correct phone number, in the correct area code.
 
-We will be looking for a system to run like this (in this example I will pretend our external IP is 12.12.12.12):
+We will be looking for a system to run like this (in this example I will pretend our external IP is 203.0.113.12):
 
 ```text
-Outside world -> 12.12.12.12:8123 -> your router -> 192.168.0.200:8123
+Outside world -> 203.0.113.12:8123 -> your router -> 192.168.0.200:8123
 ```
 Sounds simple?  It really is except for two small, but easy to overcome, complications:
 
@@ -69,10 +69,10 @@ So, we can use a static IP to ensure that whenever our device running Home Assis
 
 We then have no control over our external IP, as our Service Provider will give us a new one at random intervals. To fix this we will use a service called DuckDNS which will give us a name for our connection (something like examplehome.duckdns.org) and behind the scenes will continue to update your external IP. So no matter how many times the IP address changes, typing examplehome.duckdns.org in to our browser will convert to the correct, up-to-date, IP address.  This is covered in step 3 below.
 
-To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we will be doing this later on. The end result being that when we have our TSL/SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
+To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 203.0.113.12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we will be doing this later on. The end result being that when we have our TLS/SSL certificate our incoming call will by default be requesting port 443 (because that is the default HTTPS port, like the default SSH port is 22), our port forwarding rule can forward this to our HA instance on port 8123 (or we can specify the port number in the URL). When this guide is completed we will run something like this:
 
 ```text
-Outside world -> https://examplehome.duckdns.org -> 12.12.12.12:443 -> your router -> 192.168.0.200:8123
+Outside world -> https://examplehome.duckdns.org -> 203.0.113.12:443 -> your router -> 192.168.0.200:8123
 ```
 So, let's make it happen...
 
@@ -171,10 +171,10 @@ https://whatismyipaddress.com/
 
 This will tell you your current external IP address
 
-Type the external IP address in to the URL bar with http:// in front and :8123 after like so (12.12.12.12 is my example!):
+Type the external IP address in to the URL bar with http:// in front and :8123 after like so (203.0.113.12 is my example!):
 
 ```text
-http://12.12.12.12:8123
+http://203.0.113.12:8123
 ```
 
 Can you see your Home Assistant instance? If not, your router may not support 'loopback' - try the next step anyway and if that works, and this one still doesn't, just remember that you cannot use loopback, so will have to use internal addresses when you're on your home network. More on this later on if it's relevant to you.

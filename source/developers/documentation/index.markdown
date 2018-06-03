@@ -12,11 +12,11 @@ redirect_from: /developers/website/
 
 The website you are reading now is the home of Home Assistant: [https://www.home-assistant.io](/). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
 
-home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [these available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/). To add a page, you don't need to know about HTML.
+The [home-assistant.io](/) website is built using [Jekyll](http://github.com/mojombo/jekyll) and [these dependencies](https://pages.github.com/versions/). The pages are written in [Markdown](http://daringfireball.net/projects/markdown/). To add a page, you don't need to know about HTML.
 
 You can use the "**Edit this page on GitHub**" link to edit pages without creating a fork. Keep in mind that you can't upload images while working this way.
 
-For larger changes, we suggest that you clone the website repository. This way, you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.
+For larger changes, we suggest that you clone the website repository. This way, you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a Pull Request (PR).
 
 To test your changes locally, you need to install **Ruby** and its dependencies (gems):
 
@@ -24,7 +24,7 @@ To test your changes locally, you need to install **Ruby** and its dependencies 
 - Install `bundler`, a dependency manager for Ruby: `$ gem install bundler`
 - In your home-assistant.github.io root directory, run `$ bundle` to install the gems you need.
 
-Short cut for Fedora: `$ sudo dnf -y install gcc-c++ ruby ruby-devel rubygem-bundler rubygem-json && bundle`
+Shortcut for Fedora: `$ sudo dnf -y install gcc-c++ ruby ruby-devel rubygem-bundler rubygem-json && bundle`
 
 Then you can work on the documentation:
 

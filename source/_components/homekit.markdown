@@ -100,9 +100,10 @@ homekit:
                 required: false
                 type: string
               code:
-                description: Code to arm or disarm the alarm in the frontend. Only applicable for `alarm_control_panel` entities.
+                description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
                 type: string
+<<<<<<< HEAD
                 default: ''
               feature_list:
                 description: Only for `media_player` entities. List of feature dictionaries to add for a given entity. Comparable to the platform schema.
@@ -118,6 +119,9 @@ homekit:
                 required: false
                 type: string
                 default: switch
+=======
+                default: '`<No code>`'
+>>>>>>> origin/current
 {% endconfiguration %}
 
 <p class='note'>

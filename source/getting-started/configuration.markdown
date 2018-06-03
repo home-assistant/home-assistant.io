@@ -38,11 +38,35 @@ From the Hass.io main panel open the add-on store.
 
 The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
 
-Go to the add-on store (see previous step), click on Configurator and click on INSTALL. When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on.
+Go to the add-on store (see previous step), click on Configurator and click on "INSTALL". When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps bellow to setup the add-on.
 
- - Change the settings to set a password and click on save
- - Start the add-on
- - You will be able to click the "WEB UI" link to open the Web UI
+ - Set a password on the Config box, don't forget to use quotes on your password
+ 
+ ```json
+{
+  "username": "admin",
+  "password": "YOUR_PASSWORD_WITH_QUOTES",
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "ssl": false,
+  "allowed_networks": [
+    "192.168.0.0/16"
+  ],
+  "banned_ips": [
+    "8.8.8.8"
+  ],
+  "banlimit": 0,
+  "ignore_pattern": [
+    "__pycache__"
+  ],
+  "dirsfirst": false
+}
+```
+
+ - Click on "SAVE" to save your new password
+ - "START" the add-on
+ - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
+ - Type your username and password that you recently save
 
 Time for the first practice with the configurator. Add the following to `configuration.yaml` file to add a link to the Configurator in the sidebar:
 
