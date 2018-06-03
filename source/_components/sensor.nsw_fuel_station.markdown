@@ -30,9 +30,6 @@ sensor:
   - platform: nsw_fuel_station
     station_id: 291
     station_name: Coles Express Cremorne
-    fuel_types:
-      - E10
-      - P95
 ``` 
 
 {% configuration %}
@@ -45,8 +42,9 @@ station_id:
   required: true
   type: string
 fuel_types:
-  description: A list of fuel types to track for the station. (i.e. `E10`, `P95`, `P98`, `PDL`, `LPG`, `U91`)
-  required: true
+  description: A list of fuel types to track for the station. You can find available fuel types at [https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes](https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes).
+  required: false
+  default: By default, will create sensors for all fuel types: `["E10", "U91", "E85", "P95", "P98", "DL", "PDL", "B20", "LPG", "CNG", "EV"]`
   type: list
 {% endconfiguration %}
 
