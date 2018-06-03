@@ -103,8 +103,7 @@ homekit:
                 description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
                 type: string
-<<<<<<< HEAD
-                default: ''
+                default: '`<No code>`'
               feature_list:
                 description: Only for `media_player` entities. List of feature dictionaries to add for a given entity. Comparable to the platform schema.
                 required: false
@@ -113,15 +112,12 @@ homekit:
                   feature:
                     description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
                     required: true
-                    type: string  
+                    type: string
               type:
                 description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`.
                 required: false
                 type: string
                 default: switch
-=======
-                default: '`<No code>`'
->>>>>>> origin/current
 {% endconfiguration %}
 
 <p class='note'>
@@ -254,7 +250,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker | Sensor | Support for `occupancy` device class. |
-| fan | Fan | Support for `on / off`, `direction` and `oscillating`. | 
+| fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
