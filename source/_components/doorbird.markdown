@@ -10,7 +10,7 @@ footer: true
 logo: doorbird.png
 ha_category: Hub
 ha_release: "0.54"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
@@ -23,7 +23,7 @@ doorbird:
   host: DOORBIRD_IP_OR_HOSTNAME
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  hass_url_override: HASS_IP
+  doorbell_events: true
 ```
 
 Configuration variables:
@@ -31,12 +31,10 @@ Configuration variables:
 - **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
 - **username** (*Required*): The username of a non-administrator user account on the device.
 - **password** (*Required*): The password for the user specified.
-- **doorbell_events** (*Optional*): Setting this to `true` this will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
+- **doorbell_events** (*Optional*): Setting this to `true` will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
+- **motion_events** (*Optional*): Setting this to `true` will register a callback URL with the device so that events can be published to the event bus when the device detects motion.
+- **doorbell_number** (*Optional*): If your DoorBird device is shared and/or has multiple doorbells, specify the number of the doorbell to monitor using this variable. Defaults to 1, which is the only doorbell on most units.
 - **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
-
-<p class="note warning">
-Enabling `doorbell_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
-</p>
 
 ### Doorbell Sound Examples
 
