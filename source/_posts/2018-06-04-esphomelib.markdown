@@ -14,11 +14,13 @@ The [ESP8266](https://www.espressif.com/en/products/hardware/esp8266ex/overview)
 
 Setting up these microcontrollers for some basic functionality has also gotten really easy over the years with popular projects like ESPEasy or Sonoff-Tasmota: You just download their firmware and flash it onto your chip. But if you’ve ever tried to go a bit beyond the basic set of functions of those frameworks and tried to do some customization, you will have probably noticed that it’s not that easy. Often times you’ll end up having to download some Arduino code project from the internet and customizing it to your needs.
 
-This is where esphomlib comes in: The [esphomelib suite](https://esphomelib.com/esphomeyaml/index.html) is set of tools that are designed with the goal of achieving the best possible user experience.  esphomelib a) allows for lots of customization without touching a single line of code and b) has complete Home Assistant integration. Inside the esphomelib ecosystem, you essentially just have to write a simple YAML configuration file. The rest like compiling, flashing, uploading etc. will then be taken care of automatically.
+This is where esphomlib comes in: The [esphomelib suite](https://esphomelib.com/esphomeyaml/index.html) is a set of tools that are designed with the goal of achieving the best possible user experience.  esphomelib a) allows for lots of customization without touching *a single line* of code and b) has complete Home Assistant integration. Inside the esphomelib ecosystem, you essentially just have to write a simple YAML configuration file. The rest like compiling, flashing, uploading etc. will then be taken care of automatically.
+
+<!--more-->
 
 ## {% linkable_title Installation %}
 
-An example probably illustrates this the best. To use esphomeyaml, there are two main ways: From a [HassIO add-on](https://esphomelib.com/esphomeyaml/guides/getting_started_hassio.html), or from the [command line](https://esphomelib.com/esphomeyaml/guides/getting_started_command_line.html). For the esphomeyaml add-on, you just have to add "https://github.com/ottowinter/esphomeyaml" as an add-on repository (see [Installing third party add-ons](https://www.home-assistant.io/hassio/installing_third_party_addons/)). Then select and install “esphomeyaml” and wait for the installation to complete. After that, you will be able to start the add-on and view the web interface.
+An example probably illustrates this the best. To use esphomeyaml, there are two main ways: From a [HassIO add-on](https://esphomelib.com/esphomeyaml/guides/getting_started_hassio.html), or from the [command line](https://esphomelib.com/esphomeyaml/guides/getting_started_command_line.html). For the esphomeyaml add-on, you just have to add "[https://github.com/ottowinter/esphomeyaml](https://github.com/ottowinter/esphomeyaml)" as an add-on repository (see [Installing third party add-ons](/hassio/installing_third_party_addons/)). Then select and install “esphomeyaml” and wait for the installation to complete. After that, you will be able to start the add-on and view the web interface.
 
 From the command line you just need to install the **Python 2** package using the pip command seen below. Then visit `localhost:6052` to view the dashboard.
 
@@ -69,14 +71,14 @@ switch:
     name: "Living Room Dehumidifer"
     pin: GPIO5
 ```
-If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphomelib.com/esphomeyaml/components/ota.html)), you will see a switch show up in Home Assisstant automatically (if you have [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) enabled).
+If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphomelib.com/esphomeyaml/components/ota.html)), you will see a switch show up in Home Assisstant automatically through [MQTT discovery](/docs/mqtt/discovery/).
 
 <p class='img'>
   <img
     src='/images/blog/2018-06-esphomelib/switch.png'
     alt='esphomeyamls setup wizard.'>
-  How the newly configured switch will show up in Home Assistant if <a href='https://www.home-assistant.io/docs/mqtt/discovery/'>MQTT
-  discovery</a> is enabled and a <a href='https://www.home-assistant.io/components/group/'>default view</a> is used.
+  How the newly configured switch will show up in Home Assistant if <a href='/docs/mqtt/discovery/'>MQTT
+  discovery</a> is enabled and a <a href='/components/group/'>default view</a> is used.
 </p>
 
 Granted, this functionality would have been pretty simple with other projects too. But once you start adding [lights](https://esphomelib.com/esphomeyaml/index.html#light-components), [covers](https://esphomelib.com/esphomeyaml/index.html#cover-components) and [other sensors](https://esphomelib.com/esphomeyaml/index.html#sensor-components), esphomelib’s modular design really starts to shine.
