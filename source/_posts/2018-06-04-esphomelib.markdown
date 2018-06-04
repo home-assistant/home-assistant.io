@@ -31,12 +31,9 @@ esphomeyaml config/ dashboard
 docker run --rm -p 6052:6052 -p 6123:6123 -v "$PWD":/config ottowinter/esphomeyaml /config dashboard
 ```
 
-<p class='img'>
-  <img
-    src='/images/blog/2018-06-esphomelib/dashboard.gif'
-    alt='esphomeyamls setup wizard.'>
-  esphomeyaml's setup wizard.
-</p>
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/uWZmc_MjSWs?rel=0&amp;showinfo=0loop=1&amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 Once in the dashboard interface, you will be greeted by a small setup wizard that will help you get started with esphomeyaml and create a basic configuration. You should end up with a configuration file like this.
 
