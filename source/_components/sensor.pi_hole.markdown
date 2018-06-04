@@ -28,7 +28,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: Name to use in the frontend.
+  description: IP address of the host where Pi-hole is running.
   required: false
   type: string
   default: localhost
