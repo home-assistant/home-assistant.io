@@ -77,6 +77,8 @@ curl -d "double=get://192.168.1.3:8123/api/mystrom?api_password%3Dapi_password%2
 
 The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a helper to configure myStrom buttons.
 
+If you have set [`login_attempts_threshold`](/components/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/components/http/#ip-filtering-and-banning) about how to revert the banning.
+
 ## {% linkable_title Configuration %}
 
 To use your myStrom WiFi Button in your installation, add the following to your `configuration.yaml` file:
