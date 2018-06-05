@@ -67,13 +67,19 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
 
+## {% linkable_title APIs %}
+
 On top of the `http` component is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
+## {% linkable_title HTTP sensors %}
+
 To use those kind of [sensors](/components/sensor.http/) or [binary sensors](components/binary_sensor.http/) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
+
+## {% linkable_title IP filtering and banning %}
 
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `True` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
