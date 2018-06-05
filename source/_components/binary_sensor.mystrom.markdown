@@ -30,9 +30,9 @@ The buttons will give you feedback with its built-in LED:
 
 ### {% linkable_title Setup of myStrom Buttons %}
 
-You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
+You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns if the button is not charging. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
 
-The endpoint that is receiving the data is `[IP address Home Assistant]:8123/api/mystrom`. If you have set an [`api_password`](/components/http/) then this needs to be included in the URL.
+The endpoint that is receiving the data is `http://[IP address Home Assistant]:8123/api/mystrom`. If you have set an [`api_password`](/components/http/) then this needs to be included in the URL.
 
 With `api_password:`
 
