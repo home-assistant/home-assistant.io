@@ -15,13 +15,12 @@ The `logger` component lets you define the level of logging activities in Home A
 
 To enable the `logger` component in your installation, add the following to your `configuration.yaml` file:
 
-To have a full log and log everything only this entry is needed (without any qualifier):
-
 ```yaml
+# Example configuration.yaml entry
 logger:
 ```
 
-To log all messages and ignore events lower than critical for specified components.
+To log all messages and ignore events lower than critical for specified components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +31,7 @@ logger:
     homeassistant.components.camera: critical
 ```
 
-To ignore all messages lower than critical and log event for specified components.
+To ignore all messages lower than critical and log event for specified components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,7 +44,25 @@ logger:
     homeassistant.components.camera: critical
 ```
 
-Possible log severities are:
+{% configuration %}
+  default:
+    description: Default log level.
+    required: false
+    type: '[log_level](#log-levels)'
+    default: debug
+  logs:
+    description: List of components and their log level.
+    required: false
+    type: map
+    keys:
+      '&lt;component_namespace&gt;':
+        description: Logger namespace of the component.
+        type: '[log_level](#log-levels)'
+{% endconfiguration %}
+
+### {% linkable_title Log Levels %}
+
+Possible log severity levels are:
 
 - critical
 - fatal
@@ -55,7 +72,9 @@ Possible log severities are:
 - info
 - debug
 - notset
- 
+
+## {% linkable_title Services %}
+
 ### {% linkable_title Service `set_default_level` %}
 
 You can alter the default log level (for components without a specified log
@@ -85,7 +104,7 @@ data:
 
 The log information are stored in the [configuration directory](/docs/configuration/)
 as `home-assistant.log` and you can read it with the command-line tool `cat` or
-follow it dynamically with `tail -f`. 
+follow it dynamically with `tail -f`.
 
 If you are a Hassbian user you can use the example below:
 
