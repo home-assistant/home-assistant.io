@@ -29,6 +29,8 @@ where:
 - **P** = the [phase](https://en.wikipedia.org/wiki/Phase_(waves)) offset to add to the periodic contribution, in units of degrees
 - **N(s)** = the random [Gaussian noise](https://en.wikipedia.org/wiki/Gaussian_noise) with spread **s**
 
+The output will be limited to 3 decimals.
+
 ## {% linkable_title Configuration %}
 
 To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
