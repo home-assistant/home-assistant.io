@@ -152,6 +152,8 @@ automation:
     trigger:
       - platform: event
         event_type: zwave.network_ready
+      - platform: event
+        event_type: zwave.network_complete
     action:
       - service: homekit.start
 ```
