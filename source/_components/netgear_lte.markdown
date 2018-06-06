@@ -29,7 +29,7 @@ netgear_lte:
 
 {% configuration %}
 host:
-    description: The IP address where the modem web interface resides.
+    description: The IP address of the modem web interface.
     required: true
     type: string
 password:
