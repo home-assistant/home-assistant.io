@@ -8,6 +8,7 @@ author: Otto Winter
 author_twitter: OttoWinter_
 comments: true
 categories: How-To ESP8266
+og_image: /images/blog/2018-06-esphomelib/social.png
 ---
 
 The [ESP8266](https://www.espressif.com/en/products/hardware/esp8266ex/overview) and [ESP32](https://www.espressif.com/en/products/hardware/esp32/overview) are dirt cheap WiFi-enabled microcontrollers that have established themselves as the base for many DIY home automation projects. Even quite a few manufacturers like iTead with their Sonoff devices have chosen these controllers because of their competitive price.
