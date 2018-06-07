@@ -14,13 +14,18 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `uvc` component allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/products/#unifivideo) into Home Assistant.
+The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/products/#unifivideo) into Home Assistant.
 
-The component connects to the Unifi NVR software and automatically discovers/adds any camera connected to the NVR.
+The platform connects to the Unifi NVR software and automatically discovers/adds any camera connected to the NVR.
 
-<p class='note warning'>
-This component uses an unsupported API, so it might break at any time.
-</p>
+### {% linkable_title Setup %}
+
+It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it need to operate.
+
+- The API key is found in the specific user's `API Access` tab in the NVR software.
+- The camera password is found in `Settings` -> `Camera Settings` -> `Camera Password` in the NVR software.
+
+### {% linkable_title Configuration %}
 
 To enable, add the following to your `configuration.yaml` file:
 
@@ -32,15 +37,24 @@ camera:
     key: API_KEY
 ```
 
-Configuration variables:
+{% configuration %}
+nvr:
+  description: The IP or hostname of the NVR (Network Video Recorder) server.
+  required: true
+  type: string
+key:
+  description: The API key available from the NVR web interface.
+  required: true
+  type: string
+port:
+  description: The port number to use for accessing the NVR.
+  required: false
+  type: int
+  default: 7080
+name:
+  description: The camera password.
+  required: false
+  type: string
+  default: ubnt
+{% endconfiguration %}
 
-- **nvr** (*Required*): The IP or hostname of the NVR (Network Video Recorder) server.
-- **key** (*Required*): The API key available from the NVR web interface.
-- **port** (*Optional*): The port number to use for accessing the NVR. Default is `7080`.
-- **password** (*Optional*): The camera password. Defaults to `ubnt` if not given.
-
-
-It is recommended that you create a new user for this component in the NVR software, and only give the user the permissions it need to operate.
-
-The API-key is found in the specific users `API Access` tab in the NVR software.
-The camera password is found in `Settings` -> `Camera Settings` -> `Camera Password` in the NVR software.
