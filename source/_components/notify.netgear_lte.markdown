@@ -27,7 +27,7 @@ notify:
 {% configuration %}
 target:
     description: The phone number of a default recipient or a list with multiple recipients.
-    required: false
+    required: true
     type: string, list
 name:
     description: Setting the optional parameter `name` allows multiple notifiers to be created.
