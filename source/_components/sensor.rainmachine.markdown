@@ -10,7 +10,7 @@ footer: true
 logo: rainmachine.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: 0.69
+ha_release: 0.71
 ---
 
 The `rainmachine` sensor platform allows you to view crucial sensor data within
