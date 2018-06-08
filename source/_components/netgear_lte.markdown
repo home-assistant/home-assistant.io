@@ -20,7 +20,7 @@ The integration provides:
 * a sensor with the number of unread SMS messages in the inbox
 * a sensor with data usage
 
-``yaml
+```yaml
 # Example configuration.yaml entry
 netgear_lte:
   - host: IP_ADDRESS
