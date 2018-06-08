@@ -27,14 +27,18 @@ rainmachine:
   password: YOUR_PASSWORD
 ```
 
-To configure switch-related functionality, add configuration options beneath
-a `switches` key within the `rainmachine` sections of `configuration.yaml`
-as below:
+To configure additional functionality, add configuration options beneath
+a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine`
+sections of `configuration.yaml` as below:
 
 ```yaml
 rainmachine:
   ip_address: 192.168.1.100
   password: YOUR_PASSWORD
+  binary_sensors:
+    # binary sensor configuration options...
+  sensors:
+    # sensor configuration options...
   switches:
     # switch configuration options...
 ```
@@ -58,6 +62,26 @@ ssl:
   required: false
   type: boolean
   default: true
+binary_sensors:
+  description: binary sensor-related configuration options
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: the conditions to create sensors from
+      required: false
+      type: list
+      default: all (`extra_water_on_hot_days`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
+sensors:
+  description: sensor-related configuration options
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: the conditions to create sensors from
+      required: false
+      type: list
+      default: all (`freeze_protect_temp`)
 switches:
   description: switch-related configuration options
   required: false
@@ -69,3 +93,43 @@ switches:
       type: int
       default: 600
 {% endconfiguration %}
+
+## {% linkable_title Services %}
+
+### {% linkable_title `rainmachine.start_program` %}
+
+Start a RainMachine program.
+
+| Service Data Attribute    | Optional | Description          |
+|---------------------------|----------|----------------------|
+| `program_id`              |      no  | The program to start |
+
+### {% linkable_title `rainmachine.start_zone` %}
+
+Start a RainMachine zone for a set number of seconds.
+
+| Service Data Attribute    | Optional | Description                                          |
+|---------------------------|----------|------------------------------------------------------|
+| `zone_id`                 |      no  | The zone to start                                    |
+| `zone_run_time`           |      yes | The number of seconds to run; defaults to 60 seconds |
+
+### {% linkable_title `rainmachine.stop_all` %}
+
+Stop all watering activities.
+
+### {% linkable_title `rainmachine.stop_program` %}
+
+Stop a RainMachine program.
+
+| Service Data Attribute    | Optional | Description          |
+|---------------------------|----------|----------------------|
+| `program_id`              |      no  | The program to stop  |
+
+### {% linkable_title `rainmachine.stop_zone` %}
+
+Stop a RainMachine zone.
+
+| Service Data Attribute    | Optional | Description          |
+|---------------------------|----------|----------------------|
+| `zone_id`                 |      no  | The zone to stop     |
+
