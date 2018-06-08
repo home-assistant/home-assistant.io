@@ -194,6 +194,49 @@ Triple tap on|1|4
 
 Tap and hold wakes up the Button.
 
+### {% linkable_title Fibaro Keyfob FGKF-601 %}
+
+
+For the Fibaro Keyfob, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="6">
+	<Instance index="1" />
+	<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="6" />
+	<Value type="int" genre="user" instance="1" index="1" label="Square" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="2" label="Circle" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="3" label="X" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="4" label="Triangle" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="5" label="Minus" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="6" label="Plus" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+</CommandClass>
+```
+
+Below is a table of the action/scenes for the Keyfob (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one (Square) single tap|1|7680
+Button one (Square) hold|1|7800
+Button one (Square) release|1|7740
+Button two (Circle) single tap|2|7680
+Button two (Circle) hold|2|7800
+Button two (Circle) release|2|7740
+Button three (X) single tap|3|7680
+Button three (X) hold|3|7800
+Button three (X) release|3|7740
+Button four (Triangle) single tap|4|7680
+Button four (Triangle) hold|4|7800
+Button four (Triangle) release|4|7740
+Button five (Triangle) single tap|5|7680
+Button five (Triangle) hold|5|7800
+Button five (Triangle) release|5|7740
+Button six (Triangle) single tap|6|7680
+Button six (Triangle) hold|6|7800
+Button six (Triangle) release|6|7740
+
+Press circle and plus simultaneously to wake up the device.
+
 ### {% linkable_title Aeotec Wallmote %}
 
 <!-- from https://hastebin.com/esodiweduq.cs -->

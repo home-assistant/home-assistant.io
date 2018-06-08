@@ -27,7 +27,7 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
   - Product name must be unique. We recommend [email] - Home Assistant.
   - The description, users, URLs can all be anything you want.
   - Leave the "Redirect URI" Field blank
-7. For permissions check every box and if it's an option select the read/write option.
+7. For permissions check every box and if it's an option select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" in order to give you access to features like away mode, ETA, structure read/write, and postal code.
   - The description requires a specific format to be accepted.
     - Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
