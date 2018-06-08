@@ -1,14 +1,29 @@
 ---
 layout: post
-title: "0.71: TBD"
-description: "TBD - UPDATE DATE."
-date: 2018-06-03 00:01:00
-date_formatted: "June 10, 2018"
+title: "0.71: Lagute LW-12, Iperf3, Hydrawise, Ryobi Garage Doors"
+description: "Enjoy the weekend with this shiny new release."
+date: 2018-06-08 00:01:00
+date_formatted: "June 8, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
+og_image: /images/blog/2018-06-0.71/components.png
 ---
+
+<a href='/components/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
+
+0.71 has arrived. My favorite feature in this release is the conversion of the Nest component from cloud poll to cloud push. Sure, it's still through the cloud but changes are now made available in Home Assistnat as soon as they happen. Thanks [@awarecan]!
+
+We've continued the frontend tweaks after the major overhaul in the last release. We've had some issues with the Hass.io panel on both Firefox and Safari. They have been addressed and all browsers should hopefully work again.
+
+On the frontend side, custom panels have gotten some new tricks, including support for building panels using React. So if you're a developer, [check it out](https://developers.home-assistant.io/blog/2018/06/01/071-custom-panels.html). And thanks to [@c727] a lot more strings can now be translated. More info on how to help with translating the frontend can be found [here](https://developers.home-assistant.io/docs/en/internationalization_translation.html).
+
+HomeKit support also keeps growing. This release includes support for media players, automations and outlets thanks to [@schmittx].
+
+And in case you missed it, [@OttoWinter] has created [esphomeyaml], which allows you to program and deploy ESP chips throughout your house by using a Home Assistant inspired `configuration.yaml`. [Check it out](/blog/2018/06/05/esphomelib/).
+
+Have a good weekend everyone!
 
 ## {% linkable_title New Platforms %}
 
@@ -40,14 +55,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Fix sensor name (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
+- BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)
-- Remove nma component ([@cgarwood] - [#14594]) ([notify docs]) (breaking change)
-- Add configurable decimal rounding of display value for CoinMarketCap sensor and upgrade to 5.0.3 (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
-- Give unknown zwave nodes a better name ([@andrey-git] - [#14353]) ([zwave docs]) (breaking change)
-- Allow user-defined sensors ([@fabaff] - [#14613]) ([sensor.netdata docs]) (breaking change)
-- Revert "Remove simplepush.io ([@balloob] - [#14358]) ([notify docs]) (breaking change)
-- Disallow automation.trigger without entity_id ([@amelchio] - [#14724]) ([automation docs]) (breaking change)
+- Remove Notify My Android component as it shut down on May 24 ([@cgarwood] - [#14594]) ([notify docs]) (breaking change)
+- CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e. bitcoin). The API instead uses IDs (integers) for these tickers (i.e. bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
+- Give unknown zwave nodes a better name and don't add them to entity registry ([@andrey-git] - [#14353]) ([zwave docs]) (breaking change)
+- The `netdata` sensor was re-worked to support all available details from [Netdata](https://my-netdata.io/). This requires you to adjust the your existing configuration if you use the `netdata` sensor.
+ ([@fabaff] - [#14613]) ([sensor.netdata docs]) (breaking change)
+- Disallow automation.trigger without entity_id. Triggering all automations at once is most likely a user mistake but if it is really needed, one can use `entity_id: group.all_automations`. ([@amelchio] - [#14724]) ([automation docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Use hass iconset ([@balloob] - [#14185]) ([config docs]) ([frontend docs]) ([hassio docs]) ([history docs]) ([logbook docs]) (beta fix)
+- Zone - Hass configuration name is optional ([@Kane610] - [#14449]) ([zone docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -152,11 +172,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Kodi OnResume event ([@quthla] - [#14790]) ([media_player.kodi docs])
 - Fix media_title empty when title is empty but label is set ([@quthla] - [#14791]) ([media_player.kodi docs])
 - Add homematicip_cloud illuminance sensor ([@mxworm] - [#14720]) ([sensor.homematicip_cloud docs])
+- Use hass iconset ([@balloob] - [#14185]) ([config docs]) ([frontend docs]) ([hassio docs]) ([history docs]) ([logbook docs]) (beta fix)
+- Zone - Hass configuration name is optional ([@Kane610] - [#14449]) ([zone docs]) (beta fix)
 
 [#13307]: https://github.com/home-assistant/home-assistant/pull/13307
 [#14055]: https://github.com/home-assistant/home-assistant/pull/14055
 [#14178]: https://github.com/home-assistant/home-assistant/pull/14178
 [#14183]: https://github.com/home-assistant/home-assistant/pull/14183
+[#14185]: https://github.com/home-assistant/home-assistant/pull/14185
 [#14213]: https://github.com/home-assistant/home-assistant/pull/14213
 [#14276]: https://github.com/home-assistant/home-assistant/pull/14276
 [#14301]: https://github.com/home-assistant/home-assistant/pull/14301
@@ -168,6 +191,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14419]: https://github.com/home-assistant/home-assistant/pull/14419
 [#14428]: https://github.com/home-assistant/home-assistant/pull/14428
 [#14446]: https://github.com/home-assistant/home-assistant/pull/14446
+[#14449]: https://github.com/home-assistant/home-assistant/pull/14449
 [#14470]: https://github.com/home-assistant/home-assistant/pull/14470
 [#14480]: https://github.com/home-assistant/home-assistant/pull/14480
 [#14517]: https://github.com/home-assistant/home-assistant/pull/14517
@@ -320,12 +344,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.nest docs]: /components/climate.nest/
 [climate.sensibo docs]: /components/climate.sensibo/
 [cloud docs]: /components/cloud/
+[config docs]: /components/config/
 [counter docs]: /components/counter/
 [cover.myq docs]: /components/cover.myq/
 [cover.ryobi_gdo docs]: /components/cover.ryobi_gdo/
 [device_tracker docs]: /components/device_tracker/
 [eufy docs]: /components/eufy/
+[frontend docs]: /components/frontend/
 [hassio docs]: /components/hassio/
+[history docs]: /components/history/
 [homekit docs]: /components/homekit/
 [homematic docs]: /components/homematic/
 [homematicip_cloud docs]: /components/homematicip_cloud/
@@ -337,6 +364,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.zha docs]: /components/light.zha/
 [linode docs]: /components/linode/
 [lock.xiaomi_aqara docs]: /components/lock.xiaomi_aqara/
+[logbook docs]: /components/logbook/
 [media_extractor docs]: /components/media_extractor/
 [media_player.denonavr docs]: /components/media_player.denonavr/
 [media_player.directv docs]: /components/media_player.directv/
@@ -383,4 +411,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vera docs]: /components/vera/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zha docs]: /components/zha/
+[zone docs]: /components/zone/
 [zwave docs]: /components/zwave/
+[@OttoWinter]: https://github.com/OttoWinter
+[esphomeyaml]: https://esphomelib.com/esphomeyaml/index.html
+[@c727]: https://github.com/c727
