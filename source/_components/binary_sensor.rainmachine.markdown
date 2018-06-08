@@ -10,7 +10,7 @@ footer: true
 logo: rainmachine.png
 ha_category: Binary Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: 0.69
+ha_release: 0.71
 ---
 
 The `rainmachine` binary sensor platform allows you to view crucial sensor data
