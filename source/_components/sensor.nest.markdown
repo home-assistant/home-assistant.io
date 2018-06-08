@@ -47,8 +47,9 @@ The following conditions are available by device:
   - target
   - hvac\_state: The currently active state of the HVAC system, `heating`, `cooling`, or `off`.
 - Nest Protect:
-  - co\_status
-  - smoke\_status
-  - battery\_health
+  - co\_status: `Ok`, `Warning`, or `Emergency`
+  - smoke\_status: `Ok`, `Warning`, or `Emergency`
+  - battery\_health: `Ok` or `Replace`
+  - color\_status: `gray`, `green`, `yellow`, or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
