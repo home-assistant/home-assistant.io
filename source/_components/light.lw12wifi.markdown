@@ -10,10 +10,10 @@ footer: true
 ha_category: Light
 ha_iot_class: "Local Polling"
 logo: lagute.png
-ha_release: 0.69
+ha_release: 0.71
 ---
 
-The `lw12wifi` light platofrm supports Lagute LW-12 Wifi LED controller.
+The `lw12wifi` light platform supports Lagute LW-12 Wifi LED controller.
 
 ## {% linkable_title Configuration %}
 
@@ -22,7 +22,7 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: decora
+  - platform: lw12wifi
     host: IP_ADDRESS_CONTROLLER
 ```
 
@@ -41,20 +41,5 @@ name:
   required: false
   type: string
   default: LW-12 FC
-transistion:
-  description: "Transition speed for effects (Value: 0-255)."
-  required: false
-  type: int
-  default: 128
-brightness:
-  description: "LED Brightness (Value: 0-255)."
-  required: false
-  type: string
-  default: 255
-rgb:
-  description: RGB value array as standard color to set.
-  required: false
-  type: list
-  default: [255, 255, 255]
 {% endconfiguration %}
 
