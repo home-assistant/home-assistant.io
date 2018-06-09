@@ -115,8 +115,8 @@ site_ids:
   description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites.
   required: false
   type: str
-probability_threshhold:
-  description: Threshhold for intent probability. Range is from 0.00 to 1.00, 1 being highest match. Intents under this level are discarded.
+probability_threshold:
+  description: Threshold for intent probability. Range is from 0.00 to 1.00, 1 being highest match. Intents under this level are discarded.
   require: false
   type: float
 {% endconfiguration %}
