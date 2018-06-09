@@ -64,6 +64,20 @@ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/in
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
 
+<p class='note'>
+  This is the list of packages that Hass.io would like to have / require:
+    apparmor-utils
+    apt-transport-https
+    avahi-daemon
+    ca-certificates
+    curl
+    dbus
+    jq
+    network-manager
+    socat
+    software-properties-common
+</p>
+
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
 
 [Etcher]: https://etcher.io/
