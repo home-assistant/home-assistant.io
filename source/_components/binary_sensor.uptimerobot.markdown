@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: uptimerobot.png
 ha_category: Binary Sensor
-ha_release: "0.71"
+ha_release: "0.72"
 ha_iot_class: "Cloud Polling"
 ---
 
