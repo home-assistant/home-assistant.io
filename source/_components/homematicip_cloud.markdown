@@ -24,12 +24,13 @@ generate_auth_token.py
 ```
 
 - add the information to your `configuration.yaml` file:
-
 ```yaml
 homematicip_cloud:
-  - name: NAME
-    accesspoint: IDENTIFIER
+  - accesspoint: IDENTIFIER
     authtoken: AUTHTOKEN
+  - name: Location2
+    accesspoint: IDENTIFIER2
+    authtoken: AUTHTOKEN2   
 ```
 
 Configuration variables (global):

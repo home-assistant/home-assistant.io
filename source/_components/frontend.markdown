@@ -69,7 +69,7 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.html](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
 
 There are 2 themes-related services:
 

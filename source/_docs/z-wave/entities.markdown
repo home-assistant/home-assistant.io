@@ -35,6 +35,22 @@ Devices (usually sensors) that support the Alarm command class will create entit
   - **4**: Heat sensor
   - **5**: Water leak sensor
   - **6**: Access control
+  - **9**: Lock jammed
+  - **18**: Lock locked with user code
+  - **19**: Lock unlocked with user code
+  - **21**: Manual lock
+  - **22**: Manual unlock
+  - **24**: Locked by RF
+  - **25**: Unlocked by RF
+  - **27**: Auto lock
+  - **33**: User deleted
+  - **112**: Master code changed, or user added
+  - **113**: Duplicate PIN code error
+  - **130**: RF Module power cycled
+  - **161**: Tamper alarm
+  - **167**: Low battery
+  - **168**: Critical battery level
+  - **169**: Battery too low to operate
 
 ### {% linkable_title Alarm Level Entity %}
 

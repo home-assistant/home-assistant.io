@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HomematicIP Cloud Sensor"
-description: "Instructions on how to integrate HomematIP sensors within Home Assistant."
+description: "Instructions on how to integrate HomematicIP sensors within Home Assistant."
 date: 2018-04-02 13:40
 sidebar: true
 comments: false

@@ -21,6 +21,10 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
   - [Raspberry Pi 3][pi3]
   - [Intel NUC][nuc]
 
+<p class='note'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
+</p>
+
 - Flash the downloaded image to an SD card using [Etcher].
 
 <p class='note warning'>
@@ -45,10 +49,6 @@ If your router doesn't support mDNS then you'll have to use the IP address of yo
 </p>
 
 <p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
-</p>
-
-<p class='note'>
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 </p>
 
@@ -61,7 +61,7 @@ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/in
 ```
 
 <p class='note'>
-When you use this installation method, some add-ons will not be available, and the documentation might not work for your installation.
+When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
