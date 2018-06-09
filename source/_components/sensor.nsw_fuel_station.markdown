@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Fuel
-ha_release: 0.71
+ha_release: 0.72
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -42,9 +42,9 @@ station_id:
   required: true
   type: string
 fuel_types:
-  description: A list of fuel types to track for the station. You can find available fuel types at [https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes](https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes).
+  description: A list of fuel types to track for the station. Must be one of `["E10", "U91", "E85", "P95", "P98", "DL", "PDL", "B20", "LPG", "CNG", "EV"]`. Descriptions of fuel types can be found [here](https://www.fuelcheck.nsw.gov.au/App/Home/FuelTypes).
   required: false
-  default: By default, will create sensors for all fuel types: `["E10", "U91", "E85", "P95", "P98", "DL", "PDL", "B20", "LPG", "CNG", "EV"]`
+  default: `["E10", "U91"]`
   type: list
 {% endconfiguration %}
 
