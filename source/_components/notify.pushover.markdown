@@ -47,13 +47,26 @@ Example Automation:
           url: "https://www.home-assistant.io/"
           sound: pianobar
           priority: 0
+          file:
+            url: !secret camera_still_image
+            auth: basic
+            username: !secret camera_username
+            password: !secret camera_password
 ```
 
 Component specific values in the nested `data` section are optional.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api).
+When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api). 
+
+The `attachment` parameter in the Pushover API gets populated via the `file` section as follows:
+
+- **url** (*Optional*): The URL of the image to be attached. Must supply either `url` or `path`.
+- **path** (*Optional*): The local filesystem path of the image to be attached *(ex. /local/alert.png)*. Must supply either `url` or `path`.
+- **auth** (*Optional*): Valid options are `auth` *(default)* or `digest`
+- **username** (*Optional*): Username for remote resource if authentication is required.
+- **password** (*Optional*): Password for remote resource if authentication is required.
 
 Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
