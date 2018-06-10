@@ -39,8 +39,6 @@ media_player:
     type: string
 {% endconfiguration %}
 
-The channel information (numbers and names) are currently hardcoded as Unitymedia currently does not provide a parseable list.
-
 #### {% linkable_title Preparation of the Horizon HD Recorder %}
 
 Makes sure to enable the Home Network ("Heimnetzwerk") service in the settings menu of the Horizon. Once you have set up the Media Library ("Medienbibliothek"), we can determine whether the device is turned on or off. Without this, the component will fail to start.
