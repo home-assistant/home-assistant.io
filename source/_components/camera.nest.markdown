@@ -20,4 +20,4 @@ You must have the [Nest component](/components/nest/) configured to use this cam
 </p>
 
 ### {% linkable_title Services %}
-`camera.turn_on` and `camera.turn_off` provided services to turn on/off Nest Camera.
+`camera.nest_turn_on` and `camera.nest_turn_off` provided services to turn on/off Nest Camera.
