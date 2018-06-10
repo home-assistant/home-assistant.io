@@ -34,12 +34,14 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Plex media server](/components/media_player.plex/)
  * [Roku media player](/components/media_player.roku/)
  * [SABnzbd downloader](/components/sensor.sabnzbd/)
+ * [Samsung SyncThru Printer](/components/sensor.syncthru/)
  * [Samsung TVs](/components/media_player.samsungtv/)
  * [Sonos speakers](/components/media_player.sonos/)
  * [Telldus Live](/components/tellduslive/)
  * [Wink](/components/wink/)
  * [Yamaha media player](/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
+ * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -80,6 +82,7 @@ Valid values for ignore are:
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
+ * `samsung_printer`: Samsung SyncThru Printer
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
