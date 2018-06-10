@@ -20,89 +20,78 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
-  host: DOORBIRD_IP_OR_HOSTNAME
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  hass_url_override: HASS_IP
+  devices:
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      hass_url_override: HASS_URL
+      name: Front Door
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      name: Driveway Gate
+      monitored_conditions:
+        - doorbell
+        - motion
 ```
 
-Configuration variables:
+{% configuration %}
+devices:
+  description: List of doorbird devices.
+  required: true
+  type: list
+  keys:
+    host:
+      description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+      required: true
+      type: string
+    username:
+      description: The username of a non-administrator user account on the device.
+      required: true
+      type: string
+    password:
+      description: The password for the user specified.
+      required: true
+      type: string
+    name:
+      description: Custom name for this device.
+      required: false
+      type: string
+    hass_url_override:
+      description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
+      required: false
+      type: string
+    monitored_conditions:
+      description: Monitor motion and/or doorbell events for this device.
+      required: false
+      type: string
+      keys:
+        doorbell:
+          description: Monitor doorbell events
+        motion:
+          description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app)
 
-- **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
-- **username** (*Required*): The username of a non-administrator user account on the device.
-- **password** (*Required*): The password for the user specified.
-- **doorbell_events** (*Optional*): Setting this to `true` this will register a callback URL with the device so that events can be published to the event bus when the doorbell rings.
-- **hass_url_override** (*Optional*): If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
+{% endconfiguration %}
+
+The configuration above is also used by the following components:
+- [Camera](../camera.doorbird) - View live and historical event based images
+- [Switch](../switch.doorbird) - Enable control of relays and camera night vision
+
+## {% linkable_title Motion and Doorbell Events %}
+
+Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
 
 <p class="note warning">
-Enabling `doorbell_events` will delete all other registered push notification services with the device every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
+Enabling any monitored condition will delete all registered notification services on the doorstation every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
 
-### Doorbell Sound Examples
-
-You can create an automation that triggers on event `doorbird_doorbell` to play a doorbell sound when the Doorbird button is pressed. This should work with any media player.
-
-#### Example using SONOS
-
-[`SONOS`](http://www.sonos.com) players have features allowing for "snapshotting" the current state of some or all players so those state(s) can be "restored" at a later time. This feature is perfect for implementing a doorbell sound (from Doorbird or any other Doorbell setup for that matter). The [`media_player.sonos`](/components/media_player.sonos/) platform includes the [`SONOS_SNAPSHOT`](/components/media_player.sonos/#service-sonos_snapshot) and [`SONOS_RESTORE`](/components/media_player.sonos/#service-sonos_restore) features. The result of not using these features is any currently playing songs or media will not continue playing after the doorbell sound has played and you will be left with the doorbell sound queued as the last played song. This setup allows for seamless ringing of the doorbell and all SONOS devices continuing nicely on as if nothing had happened.
-
-The example script below takes a snapshot of three SONOS players that are not currently grouped together, joins the three players in a group (so the sound plays at the same time on all players), plays the doorbell MP3 sound, unjoins the players from the group and finally restores the players to their original state. When the players are grouped they are controlled by referring to the `master`.
-
-Automation file:
-
+### {% linkable_title Automation Example %}
 ```yaml
-- alias: Doorbird ring
+- alias: Doorbird Ring
   trigger:
     platform: event
-    event_type: doorbird_doorbell
+    event_type: doorbird_side_entry_button
   action:
-    service: script.turn_on
-      entity_id: script.doorbell
-```
-
-Script file:
-
-```yaml
-doorbell:
-  alias: Ring Doorbell
-  sequence:
-    - service: media_player.sonos_snapshot
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
-    - service: media_player.sonos_join
-      data:
-        master: media_player.study
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.study   # the group master
-        media_content_id: http://10.1.1.10/sounds/doorbell.mp3   # this is on a NAS but could be HASS local
-        media_content_type: music
-    - service: media_player.volume_set
-      data:
-        entity_id:   # can still control the volume of grouped players indivdually
-          - media_player.study
-          - media_player.kitchen
-          - media_player.master_bedrom
-        volume_level: 0.50
-    - delay:
-        seconds: 4   # wait while the sound plays
-    - service: media_player.sonos_unjoin
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
-    - service: media_player.sonos_restore
-      data:
-        entity_id:
-          - media_player.kitchen
-          - media_player.master_bedroom
-          - media_player.study
+    service: light.turn_on
+      entity_id: light.side_entry_porch
 ```
