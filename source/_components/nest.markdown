@@ -72,7 +72,7 @@ can also be set with `eta`, `eta_window`, and `trip_id` parameters.
 - **structure**: Structure(s). Default apply to all structures connected with Homa Assistant.
 - **eta**: Estimated Arrival Time from now, in `HH:MM` or `HH:MM:SS` format.
 - **eta_window**: Optional ETA window, in `HH:MM` or `HH:MM:SS` format. Default is 1 minute.
-- **trip_id**: Optional identity for your estimation, use same `trip_id` to update previous esitmation.
+- **trip_id**: Optional identity for your estimation, useing same `trip_id` to update previous esitmation.
 
 
 ```yaml
