@@ -33,12 +33,12 @@ To enable RFLink in your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 rflink:
-  port: /dev/serial/by-id/usb-id01234
+  port: /dev/ttyUSBx (ls -la /dev/ttyUSB*)
 ```
 
 Configuration variables:
 
-- **port** (*Required*): The path to RFLink USB/serial device or TCP port in TCP mode.
+- **port** (*Required*): On Hassio please make sure, you select the right tty interface in TCP mode.
 - **host** (*Optional*): Switches to TCP mode, connects to host instead of to USB/serial.
 - **wait_for_ack** (*Optional*): Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
 - **ignore_devices** (*Optional*): List of device id's to ignore. Supports wildcards (*) at the end.
@@ -49,7 +49,7 @@ Complete example:
 ```yaml
 # Example configuration.yaml entry
 rflink:
-  port: /dev/serial/by-id/usb-id01234
+  port: /dev/ttyUSB0
   wait_for_ack: False
   ignore_devices:
     - newkaku_000001_01
@@ -111,7 +111,7 @@ For example:
 ```yaml
 # Example configuration.yaml entry
 rflink:
-  port: /dev/serial/by-id/usb-id01234
+  port: /dev/ttyUSB0
   wait_for_ack: False
   ignore_devices:
     - newkaku_000001_01
@@ -164,3 +164,4 @@ This will give you output looking like this:
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got event: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
 17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
 ```
+
