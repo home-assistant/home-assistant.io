@@ -30,5 +30,3 @@ Configuration variables:
 
 - **url** (*Required*): The URL to the device description, eg. `http://192.168.0.10:9197/dmr`.
 - **name** (*Optional*): The name you would like to give to the device, e.g., `TV living room`.
-- **max_volume** (*Optional*): Override the maximum volume, e.g., `20`.
-- **picky_device** (*Optional*): Some devices, such as Samsung TVs, can be rather picky about the source they play media from. Set this to `true` if the TTS service does not seem to work.
