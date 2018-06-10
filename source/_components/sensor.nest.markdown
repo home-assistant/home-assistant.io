@@ -40,6 +40,7 @@ The following conditions are available by device:
 
 - Nest Home:
   - eta: Estimated time of arrival.
+  - security\_state: `ok` or `deter`. If a Nest Cam detects the presence of a person (see `person_detected` in [binary_sensor.nest](/components/binary_sensor.nest/)) while the structure is in `away` mode (see `away` in [binary_sensor.nest](/components/binary_sensor.nest/)), the structure enters `deter` mode. A `deter` state is re-evaluated after several minutes and relaxed to `ok` if no further `person_detected` events have occurred. The `security_state` automatically switches to `ok` when the structure state is `home`.
 - Nest Thermostat:
   - humidity
   - operation\_mode
