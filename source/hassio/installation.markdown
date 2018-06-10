@@ -54,7 +54,22 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
-For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux]. To do so, run the following command as root:
+For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
+
+This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
+
+ - apparmor-utils
+ - apt-transport-https
+ - avahi-daemon
+ - ca-certificates
+ - curl
+ - dbus
+ - jq
+ - network-manager
+ - socat
+ - software-properties-common
+
+To perform the Hass.io installation, run the following command as root:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
