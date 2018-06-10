@@ -87,6 +87,7 @@ Valid values for ignore are:
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
+ * `xiaomi_gw`: Xiaomi Aqara gateway
 
 - **enable** (*Optional*): A list of platforms not enabled by default that `discovery` should discover.
 
