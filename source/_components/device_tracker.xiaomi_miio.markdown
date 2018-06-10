@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Sensor
+ha_category: Presence Detection
 ha_version: 0.67
 ha_iot_class: "Local Polling"
 ---

@@ -40,6 +40,10 @@ The following optional parameters can be used with any platform. However device 
 | `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
 | `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `True`), `hide_if_away` (default: `False`)                                                                                                                                                                                                                                                     |
 
+<p class='note'>
+  Note that setting `track_new_devices: False` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: no`).
+</p>
+
 The extended example from above would look like the following sample:
 
 ```yaml
@@ -84,3 +88,7 @@ devicename:
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
 | `hide_if_away` | False                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
+
+## {% linkable_title Device states %}
+
+The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (in lower case). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.

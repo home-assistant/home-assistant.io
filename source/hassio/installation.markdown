@@ -21,7 +21,21 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
   - [Raspberry Pi 3][pi3]
   - [Intel NUC][nuc]
 
+<p class='note'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
+</p>
+
 - Flash the downloaded image to an SD card using [Etcher].
+
+<p class='note warning'>
+  There is an [issue in the Etcher flashing process on Mac OS High Sierra](https://github.com/resin-io/etcher/issues/1908).
+  There is an easy workaround, just uncompress the image first.
+  
+  ```bash
+  bunzip2 -c resinos-hassio-1.1-raspberrypi3.img.bz2 > image.img
+  ```
+</p>
+
 - Optional - Setup the WiFi or static IP: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
 - Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
@@ -31,7 +45,7 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
 - Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
 <p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
+If your router doesn't support mDNS then you'll have to use the IP address of your Pi, instead of `hassio.local`, for example `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
 </p>
 
 <p class='note'>
@@ -40,14 +54,29 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
-For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux]. To do so, run the following command as root:
+For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
+
+This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
+
+ - apparmor-utils
+ - apt-transport-https
+ - avahi-daemon
+ - ca-certificates
+ - curl
+ - dbus
+ - jq
+ - network-manager
+ - socat
+ - software-properties-common
+
+To perform the Hass.io installation, run the following command as root:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
 ```
 
 <p class='note'>
-When you use this installation method, some add-ons will not be available, and the documentation might not work for your installation.
+When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).

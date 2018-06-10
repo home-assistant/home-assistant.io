@@ -75,11 +75,18 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `utcnow()` will be rendered as UTC time.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` will convert datetime object or string to UNIX timestamp
-- `distance()` will measure the distance in meters between home, entity, coordinates.
+- `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 - `float` will format the output as float.
 - `strptime(string, format)` will parse a string to a datetime based on a [format][strp-format].
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
+- `sin(value)` will return the sine of the input. Can be used as a filter.
+- `cos(value)` will return the cosine of the input. Can be used as a filter.
+- `tan(value)` will return the tangent of the input. Can be used as a filter.
+- `sqrt(value)` will return the square root of the input. Can be used as a filter.
+- `e` mathematical constant, approximately 2.71828.
+- `pi` mathematical constant, approximately 3.14159.
+- `tau` mathematical constant, approximately 6.28318.
 - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
@@ -133,7 +140,7 @@ With strings
 
 ```text
 {% raw %}{% set tracker_name = "paulus"%}
- 
+
 {% if states("device_tracker." + tracker_name) != "unknown" %}
   {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
@@ -206,7 +213,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endr
 Since closest returns a state, we can combine it with distance too.
 
 ```text
-{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
+{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.{% endraw %}
 ```
 
 ## {% linkable_title Processing incoming data %}
@@ -274,6 +281,10 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ float(value_json) * (2**10) }}{% endraw %}
 {% raw %}{{ value_json | log }}{% endraw %}
 {% raw %}{{ log(1000, 10) }}{% endraw %}
+{% raw %}{{ sin(pi / 2) }}{% endraw %}
+{% raw %}{{ cos(tau) }}{% endraw %}
+{% raw %}{{ tan(pi) }}{% endraw %}
+{% raw %}{{ sqrt(e) }}{% endraw %}
 
 # Timestamps
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}

@@ -27,6 +27,11 @@ max_entries:
   required: false
   type: int
   default: 50
+fire_event:
+  description: Whether events are fired (required when used for triggers).
+  required: false
+  type: string
+  default: false
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
@@ -55,7 +60,7 @@ The message ("Unable to find service..."), source (`core.py`) and level (`WARNIN
 
 ## {% linkable_title Examples  %}
 
-Here are some examples using the events posted by `system_log`.
+Here are some examples using the events posted by `system_log`. `fire_event` must be set to `true` for these to work.
 
 ### {% linkable_title Counting Number of Warnings %}
 

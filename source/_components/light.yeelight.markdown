@@ -59,6 +59,7 @@ This component is tested to work with the following models. If you have a differ
 - **YLDP01YL**: LED Bulb (White)
 - **YLDP02YL**: LED Bulb (Color)
 - **YLDP03YL**: LED Bulb (Color) - E26
+- **YLDP06YL**: LED Bulb (Color) II
 - **YLDD01YL**: Lightstrip (Color)
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
@@ -71,7 +72,7 @@ This component is tested to work with the following models. If you have a differ
 
 ### {% linkable_title Service `light.yeelight_set_mode` %}
 
-Set a operation mode.
+Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

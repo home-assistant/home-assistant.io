@@ -23,6 +23,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DirecTV receivers](/components/media_player.directv/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
+ * [HomeKit](/components/homekit_controller/)
  * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
@@ -33,12 +34,14 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Plex media server](/components/media_player.plex/)
  * [Roku media player](/components/media_player.roku/)
  * [SABnzbd downloader](/components/sensor.sabnzbd/)
+ * [Samsung SyncThru Printer](/components/sensor.syncthru/)
  * [Samsung TVs](/components/media_player.samsungtv/)
  * [Sonos speakers](/components/media_player.sonos/)
  * [Telldus Live](/components/tellduslive/)
  * [Wink](/components/wink/)
  * [Yamaha media player](/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
+ * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -50,6 +53,8 @@ discovery:
   ignore:
     - sonos
     - samsung_tv
+  enable:
+    - homekit
 ```
 
 Configuration variables:
@@ -77,6 +82,7 @@ Valid values for ignore are:
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
+ * `samsung_printer`: Samsung SyncThru Printer
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
@@ -84,6 +90,13 @@ Valid values for ignore are:
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
+ * `xiaomi_gw`: Xiaomi Aqara gateway
+
+- **enable** (*Optional*): A list of platforms not enabled by default that `discovery` should discover.
+
+Valid values for enable are:
+
+ * `homekit`: HomeKit accessories
 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.

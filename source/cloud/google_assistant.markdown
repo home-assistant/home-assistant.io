@@ -7,8 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-published: false
 ---
+
+
+<p class='note'>
+The minimum supported version of Home Assistant is 0.65.6.
+</p>
 
 The Google Assistant integration allows users to control the entities via the Home Assistant Smart Home skill for Google Assistant. This means that you can say things like "Ok Google, turn on the kitchen light" to control your local Home Assistant.
 
@@ -16,7 +20,7 @@ To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
  - A Google Assistant enabled device like the Google Home
- - Activated the [Home Assistant Smart Home skill for Google Assistant](https://assistant.google.com/services/a/uid/00000091fd5fb875)
+ - Activated the Home Assistant Smart Home skill for Google Assistant by using the Google Home app, select *Home control*, and then add *hass.io* using the *Add devices* option.
 
 You can use `configuration.yaml` to configure the entities that are being shown to Google Assistant and how they are exposed.
 
@@ -38,7 +42,7 @@ cloud:
         aliases:
          - bright lights
          - entry lights
-        type: 'action.devices.types.LIGHT'
+        room: living room
 ```
 
 {% configuration cloud %}
@@ -86,9 +90,8 @@ google_actions:
               description: Aliases that can also be used to refer to this entity
               required: false
               type: list
-            type:
-              description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+            room:
+              description: Hint for Google Assistant in which room this entity is.
               required: false
               type: string
 {% endconfiguration %}
-

@@ -4,8 +4,8 @@
     {% include asides/component_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'cookbook' %}
     {% include asides/cookbook_navigation.html | compact_newlines %}
-  {% elsif url_parts[1] == 'developers' %}
-    {% include asides/developers_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'developers' or url_parts[1] == 'help' %}
+    {% include asides/help_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'getting-started' %}
     {% include asides/getting_started_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'docs' %}

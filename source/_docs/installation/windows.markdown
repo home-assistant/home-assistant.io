@@ -29,3 +29,13 @@ Check this [video](https://www.youtube.com/watch?v=X27eVvuqwnY) for the installa
 <p class='note warning'>
 The Microsoft Windows platform is not a primary target to install Home Assistant. Also, not all tools and third-party modules will work.
 </p>
+
+## {% linkable_title Updating %}
+
+To update Home Assistant, stop it and then run:
+
+```bash
+C:\...\> pip3 install --upgrade homeassistant
+```
+
+Then start Home Assistant.

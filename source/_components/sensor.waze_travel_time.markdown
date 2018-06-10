@@ -19,7 +19,7 @@ Unit system is set to metric system.
 
 ## {% linkable_title Configuration %}
 
-To use this sensor in your installation, add the following `abode` section to your `configuration.yaml` file:
+To use this sensor in your installation, add the following `sensor` section to your `configuration.yaml` file:
 
 ```yaml
 # Example entry for configuration.yaml
@@ -47,5 +47,13 @@ name:
   description: A name to display on the sensor.
   required: false
   default: "Waze Travel Time"
+  type: string
+incl_filter:
+  description: A substring that has to be present in the description of the selected route (a simple case-insensitive matching).
+  required: false
+  type: string
+excl_filter:
+  description: A substring that has to be NOT present in the description of the selected route (a simple case-insensitive matching).
+  required: false
   type: string
 {% endconfiguration %}

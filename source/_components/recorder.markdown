@@ -2,7 +2,7 @@
 layout: page
 title: "Recorder"
 description: "Instructions on how to configure the data recorder for Home Assistant."
-date: 2017-09-24 09:00
+date: 2018-06-03 11:30
 sidebar: true
 comments: false
 sharing: true
@@ -26,51 +26,51 @@ recorder:
 ```
 
 {% configuration %}
-  recorder:
-    description: Enables the recorder component. Only allowed once.
-    required: true
-    type: map
-    keys:
-      db_url:
-        description: The URL which points to your database.
-        required: false
-        type: URL
-      purge_keep_days:
-        description: Specify the number of history days to keep in recorder database after a purge.
-        required: false
-        default: 10
-        type: int
-      purge_interval:
-        description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
-        required: false
-        default: 1
-        type: int
-      exclude:
-        description: Configure which components should be excluded
-        required: false
-        type: map
-        keys:
-          domains:
-            description: The list of domains to be excluded from recordings.
-            required: false
-            type: List
-          entities:
-            description: The list of entity ids to be excluded from recordings.
-            required: false
-            type: List
-      include:
-        description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
-        required: false
-        type: map
-        keys:
-          domains:
-            description: The list of domains to be included in the recordings.
-            required: false
-            type: List
-          entities:
-            description: The list of entity ids to be included in the recordings.
-            required: false
-            type: List
+recorder:
+  description: Enables the recorder component. Only allowed once.
+  required: true
+  type: map
+  keys:
+    db_url:
+      description: The URL which points to your database.
+      required: false
+      type: URL
+    purge_keep_days:
+      description: Specify the number of history days to keep in recorder database after a purge.
+      required: false
+      default: 10
+      type: int
+    purge_interval:
+      description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
+      required: false
+      default: 1
+      type: int
+    exclude:
+      description: Configure which components should be excluded
+      required: false
+      type: map
+      keys:
+        domains:
+          description: The list of domains to be excluded from recordings.
+          required: false
+          type: List
+        entities:
+          description: The list of entity ids to be excluded from recordings.
+          required: false
+          type: List
+    include:
+      description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+      required: false
+      type: map
+      keys:
+        domains:
+          description: The list of domains to be included in the recordings.
+          required: false
+          type: List
+        entities:
+          description: The list of entity ids to be included in the recordings.
+          required: false
+          type: List
 {% endconfiguration %}
 
 Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
@@ -79,7 +79,7 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 # Example configuration.yaml entry with exclude
 recorder:
   purge_keep_days: 5
-  db_url: sqlite:///home/user/.homeassistant/test
+  db_url: sqlite:////home/user/.homeassistant/test
   exclude:
     domains:
       - automation
@@ -145,7 +145,7 @@ If the `recorder` component is activated then some components support `restore_s
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
-| SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
+| SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
 | MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
 | MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
 | MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
@@ -189,7 +189,7 @@ Not all Python bindings for the chosen database engine can be installed directly
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
 ```bash
-pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+pi@homeassistant:~ $ sudo -u homeassistant -H -s
 homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
@@ -235,7 +235,7 @@ $ pip3 install pymssql
 If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install pymssql
 ```

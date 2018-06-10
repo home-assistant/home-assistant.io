@@ -24,7 +24,7 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 lock:
   - platform: mqtt
     command_topic: "home/frontdoor/set"
