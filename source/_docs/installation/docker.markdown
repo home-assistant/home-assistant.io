@@ -180,6 +180,12 @@ Then start the container with:
 $ docker-compose up -d
 ```
 
+If you run InfluxDB within the same docker-compose.yml file, you may run into issues whereby HA starts before InfluxDB is ready, and so erroneously reports that InfluxDB is unavailble. To address this, use script/wait-for-it.sh as your entrypoint, as illustrated below, and HA will wait (default 15 seconds) for InfluxDB to be ready, before starting:
+
+```bash
+      entrypoint: "script/wait-for-it.sh influxdb:8086 -- python -m homeassistant --config /config"
+```
+
 ### {% linkable_title Exposing Devices %}
 
 In order to use Z-Wave, ZigBbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
