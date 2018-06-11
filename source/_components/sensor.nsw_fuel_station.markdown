@@ -19,7 +19,6 @@ To add the NSW fuel station price sensor to your installation, add the following
 ```yaml
 sensor:
   - platform: nsw_fuel_station
-    station_name: BP Willoughby
     station_id: 1152
     fuel_types:
       - LPG
@@ -29,14 +28,9 @@ sensor:
       - P95
   - platform: nsw_fuel_station
     station_id: 291
-    station_name: Coles Express Cremorne
 ``` 
 
 {% configuration %}
-station_name:
-  description: The name you would like to give to the fuel station
-  required: true
-  type: string
 station_id:
   description: The ID of the station to track
   required: true
