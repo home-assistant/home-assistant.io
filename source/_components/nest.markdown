@@ -70,8 +70,8 @@ can also be set with `eta`, `eta_window`, and `trip_id` parameters.
 
 - **home_mode** (*Required*): `home` or `away`
 - **structure**: Structure(s). Default apply to all structures connected with Homa Assistant.
-- **eta**: Estimated Arrival Time from now, in `HH:MM` or `HH:MM:SS` format.
-- **eta_window**: Optional ETA window, in `HH:MM` or `HH:MM:SS` format. Default is 1 minute.
+- **eta**: Estimated Arrival Time from now.
+- **eta_window**: Optional ETA window. Default is 1 minute.
 - **trip_id**: Optional identity for your estimation, using same `trip_id` to update previous estimation.
 
 
