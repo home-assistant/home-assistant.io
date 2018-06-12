@@ -74,5 +74,5 @@ protocol mqtt
 4. Restart MQTT
 
 <p class='note warning'>
-It's recommened that you only open your firewall to the SSL/TLS port (8883) and only use the insecure port (1883) for local devices. Also, disable `anonymous:` and set `logins:`.
+It's recommended that you only open your firewall to the SSL/TLS port (8883) and only use the insecure port (1883) for local devices. Also, disable `anonymous:` and set `logins:`.
 </p>

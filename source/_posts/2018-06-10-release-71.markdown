@@ -13,7 +13,7 @@ og_image: /images/blog/2018-06-0.71/components.png
 
 <a href='/components/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
 
-0.71 has arrived. My favorite feature in this release is the conversion of the Nest component from cloud poll to cloud push. Sure, it's still through the cloud but changes are now made available in Home Assistnat as soon as they happen. Thanks [@awarecan]!
+0.71 has arrived. My favorite feature in this release is the conversion of the Nest component from cloud poll to cloud push. Sure, it's still through the cloud but changes are now made available in Home Assistant as soon as they happen. Thanks [@awarecan]!
 
 We've continued the frontend tweaks after the major overhaul in the last release. We've had some issues with the Hass.io panel on both Firefox and Safari. They have been addressed and all browsers should hopefully work again.
 
