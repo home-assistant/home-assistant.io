@@ -10,8 +10,7 @@ footer: true
 logo: kiwi.png
 ha_category: Lock
 featured: false
-
-ha_release: 0.70 
+ha_release: 0.72
 ha_iot_class: "Cloud Polling"
 ---
 
