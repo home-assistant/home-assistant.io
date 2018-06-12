@@ -69,10 +69,10 @@ optional `structure` param. While setting "away" mode, an estimated arrival time
 can also be set with `eta`, `eta_window`, and `trip_id` parameters.
 
 - **home_mode** (*Required*): `home` or `away`
-- **structure**: Structure(s). Default apply to all structures connected with Homa Assistant.
-- **eta**: Estimated Arrival Time from now.
-- **eta_window**: Optional ETA window. Default is 1 minute.
-- **trip_id**: Optional identity for your estimation, using same `trip_id` to update previous estimation.
+- **structure** (*Optional*): Structure(s). Default apply to all structures connected with Home Assistant.
+- **eta** (*Optional*): Estimated Time of Arrival from now.
+- **eta_window** (*Optional*): ETA window (default is 1 minute).
+- **trip_id** (*Optional*): Unique ID for the trip. Using an existing trip ID will update that trip's ETA.
 
 
 ```yaml
