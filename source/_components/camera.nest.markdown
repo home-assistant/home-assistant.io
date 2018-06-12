@@ -10,7 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Camera
 ha_release: 0.34
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Cloud Poll"
 ---
 
 The `nest` platform allows you to watch the live stream of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
