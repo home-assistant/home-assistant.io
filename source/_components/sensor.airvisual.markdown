@@ -28,7 +28,9 @@ continue to function, but actual results may vary (or not work at all).
 
 <p class='note warning'>
 The "Community" API key is limited to 10,000 calls per month. In order to leave
-a buffer, the `airvisual` platform queries the API every 10 minutes.
+a buffer, the `airvisual` platform queries the API every 10 minutes by default.
+Modification of this (via the `scan_interval` key) to a too-low value may
+result in your API key being deactivated.
 </p>
 
 ## {% linkable_title Configuring the Platform via Latitude/Longitude %}
@@ -44,6 +46,7 @@ sensor:
       - us
       - cn
     show_on_map: false
+    scan_interval: 30
     # Configure by latitude/longitude:
     latitude: 42.81212
     longitude: 108.12422
@@ -68,6 +71,11 @@ show_on_map:
   required: optional
   type: boolean
   default: true
+scan_interval:
+  description: the rate at which AirVisual should be polled for new data
+  required: optional
+  type: int
+  default: 600
 latitude:
   description: the latitude of the location to monitor
   required: optional
