@@ -13,7 +13,9 @@ featured: false
 ha_release: 0.70
 ---
 
-The `facebox` image processing platform allows you to detect and recognise faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognised faces are listed in the `matched_faces` attribute. Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. On your machine with Docker, run the Facebox container with:
+The `facebox` image processing platform allows you to detect and recognise faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognised faces are listed in the `matched_faces` attribute. An `image_processing.detect_face` event is fired for each recognised face, and the event `data` provides the `confidence` of recognition, the `name` of the person, the `id` of the image associated with the match, the rectangle `rect` that contains the face in the image, and the `entity_id` that processing was performed on.
+
+Facebox runs in a Docker container, and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. On your machine with Docker, run the Facebox container with:
 ```
 MB_KEY="INSERT-YOUR-KEY-HERE"
 
@@ -58,3 +60,25 @@ source:
       required: false
       type: string
 {% endconfiguration %}
+
+## Automations
+Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](https://www.home-assistant.io/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognised:
+
+```yaml
+- id: '1120092824666'
+  alias: Ringo Starr recognised
+  trigger:
+  - event_data:
+      name: 'Ringo_Starr'
+    event_type: image_processing.detect_face
+    platform: event
+  condition: []
+  action:
+  - data_template:
+      message: Ringo_Starr recognised with probability {{ trigger.event.data.confidence }}
+      title: Door-cam notification
+    service: notify.platform
+```
+
+#### Optimising resources
+[Image-classifier components](https://www.home-assistant.io/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing. 
