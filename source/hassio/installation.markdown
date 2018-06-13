@@ -32,8 +32,8 @@ Please remember to ensure you're using an [appropriate power supply](https://www
   There is an easy workaround, just uncompress the image first.
   
   ```bash
-  bunzip2 -c resinos-hassio-1.1-raspberrypi3.img.bz2 > image.img
-  ```
+  bunzip2 -c resinos-hassio-1.3-raspberrypi3.img.bz2 > image.img
+  ``` 
 </p>
 
 - Optional - Setup the WiFi or static IP: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
