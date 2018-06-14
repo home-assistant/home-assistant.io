@@ -83,10 +83,11 @@ It's recommended that you only open your firewall to the SSL/TLS port (8883) and
 It is possible to restrict access to topics based upon the user logged in to Mosquitto. In this scenario it is recommended to create individual users for each of your clients and create an appropriate ACL.
 
 See the following links for more information:
+
 * [Mosquitto topic restrictions](http://www.steves-internet-guide.com/topic-restriction-mosquitto-configuration/)
 * [Mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html)
 
-Add the following configuraiton to enable ACLs:
+Add the following configuration to enable ACLs:
 
 1. Set `customize` flag to `true` in your configuration.
 2. Create a file in `/share/mosquitto` named `acl.conf` with the following contents:
