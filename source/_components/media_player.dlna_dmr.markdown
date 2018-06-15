@@ -26,6 +26,8 @@ media_player:
     name: "TV living room"
 ```
 
+Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
+
 Configuration variables:
 
 - **url** (*Required*): The URL to the device description, eg. `http://192.168.0.10:9197/dmr`.
