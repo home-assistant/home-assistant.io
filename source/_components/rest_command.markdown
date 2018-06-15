@@ -18,7 +18,7 @@ This component can expose regular REST commands as services. Services can be cal
 [script]: /components/script/
 [automation]: /getting-started/automation/
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To use this component, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,4 +39,5 @@ Configuration variables:
   - **timeout** (*Optional*): Timeout for requests. Defaults to 10 seconds.
   - **content_type** (*Optional*): Content type for the request.
 
-The commands can be dynamic, using templates to insert values of other entities. Service call support variables for template stuff.
+The commands can be dynamic, using templates to insert values of other entities. 
+Service call support variables for template stuff.
