@@ -23,7 +23,7 @@ To use this sensor in your installation, add the following to your `configuratio
 # Example configuration.yaml entry
 sensor:
   - platform: pjm
-    monitored_feeds:
+    monitored_variables:
       - type: instantaneous_total_load
       - type: instantaneous_zone_load
         zone: 'COMED'
@@ -31,7 +31,7 @@ sensor:
 
 Configuration variables:
 
-- **monitored_feeds** array (*Required*): Feeds to monitor.
+- **monitored_variables** array (*Required*): Feeds to monitor.
   - **type** (*Required*): Name of the feed.
       - **instantaneous_total_load**: The instantaneous PJM RTO total load in megawatts.
       - **instantaneous_zone_load**: The instantaneous load for a given zone in megawatts.
