@@ -18,3 +18,6 @@ The `nest` platform allows you to watch the live stream of your [Nest](https://n
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use this camera.  The `nest` camera will automatically be setup when you do.
 </p>
+
+### {% linkable_title Services %}
+`camera.nest_turn_on` and `camera.nest_turn_off` provided services to turn on/off Nest Camera.
