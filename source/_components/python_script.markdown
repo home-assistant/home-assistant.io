@@ -60,5 +60,6 @@ The above `python_script` can be called using the following JSON as an input.
 ```json
 {"entity_id": "light.bedroom", "rgb_color": [255, 0, 0] }
 ```
+Note: Python Scripts are not currently exposed/available in Hass.io
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
