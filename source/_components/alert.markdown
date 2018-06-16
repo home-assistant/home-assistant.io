@@ -16,7 +16,9 @@ The `alert` component is designed to notify you when problematic issues arise. F
 
 Alerts will add an entity to the front end only when they are firing. This entity allows you to silence an alert until it is resolved.
 
+<p class='note warning'>
 When using the `alert` component, it is important that the time zone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` time zone but the operating system uses `UTC`).
+</p>
 
 ### {% linkable_title Basic Example %}
 
