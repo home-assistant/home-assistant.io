@@ -49,7 +49,7 @@ The Arlo component also provides a camera service to enable/disable the motion d
 
 ```yaml
 #automation.yaml
-- alias: Enable Arlo upton HA start'
+- alias: Enable Arlo upon HA start'
   initial_state: 'on'
   trigger:
     platform: homeassistant
