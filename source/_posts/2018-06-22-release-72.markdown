@@ -10,6 +10,8 @@ comments: true
 categories: Release-Notes
 ---
 
+Config entry support for Nest, Sonos, Cast.
+
 ## {% linkable_title New Platforms %}
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
