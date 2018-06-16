@@ -29,7 +29,7 @@ username:
   required: true
   type: string
 password:
-  description: v
+  description: Password for the Neato account.
   required: true
   type: string
 {% endconfiguration %}

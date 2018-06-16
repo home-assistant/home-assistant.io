@@ -73,6 +73,7 @@ Currently tested but not working models:
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
+- JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
 - MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
