@@ -9,10 +9,10 @@ sharing: true
 footer: true
 logo: ibm.png
 ha_category: History
-ha_release: 0.68
+ha_release: 0.72
 ---
 
-The `watson_iot` component enables you to link the devices in home-assistant
+The `watson_iot` component enables you to link the devices in Home Assistant
 with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace/internet-of-things-cloud).
 
 ## {% linkable_title Configuration %}
