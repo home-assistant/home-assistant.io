@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: bom.png
 ha_category: Weather
-ha_release: 0.71
+ha_release: 0.72
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -28,17 +28,17 @@ weather:
 {% configuration %}
 name:
   description:  The name you would like to give to the weather station.
-  required: optional
+  required: false 
   default: The name of the used station
   type: string
 latitude:
-  description: "Latitude of the location for which you want weather information"
-  required: optional
+  description: Latitude of the location for which you want weather information.
+  required: false 
   default: Home Assistant global latitude configuration 
   type: string
 longitude:
-  description: "Longitude of the location for which you want weather information"
-  required: optional
+  description: Longitude of the location for which you want weather information.
+  required: false 
   default: Home Assistant global longitude configuration 
   type: string
 {% endconfiguration %}
