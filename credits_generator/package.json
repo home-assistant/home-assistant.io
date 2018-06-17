@@ -1,6 +1,7 @@
 {
   "name": "credits_generator",
   "version": "1.0.0",
+  "private": true,
   "description": "A tool to generate the Home Assistant credits page",
   "main": "update_credits.js",
   "scripts": {
