@@ -95,7 +95,7 @@ The service `facebox_teach_face` can be used to teach Facebox faces.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Entity ID of facebox entity.
 | `name` | no | The name to associate with a face.
-| `file_path` | no | The path to the image file. Valid image types are those ending in `.jpg`, `.png`, `.jpeg`.
+| `file_path` | no | The path to the image file.
 
 Example valid service data is:
 
