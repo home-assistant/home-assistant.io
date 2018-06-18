@@ -2,18 +2,18 @@
 layout: page
 title: "Sensirion SHT31 Smart-Gadget"
 description: "Instructions on how to integrate Sensirion SHT31 Smart-Gadget within Home Assistant."
-date: 2018-05-17 17:30
+date: 2018-06-18 17:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: sensirion.png
 ha_category: Sensor
-ha_release: 0.70
+ha_release: 0.72
 ha_iot_class: "Local Polling"
 ---
 
-The `sensirion_sht31_smart_gadget` sensor platform allows you to get the current battery, temperature and humidity from a Sensirion SHT31 Smart-Gadget device.
+The `sensirion_sht31 ` sensor platform allows you to get the current battery, temperature and humidity from a Sensirion SHT31 Smart-Gadget device.
 
 ## {% linkable_title Configuration %}
 
@@ -22,7 +22,7 @@ To use your Sensirion SHT31 Smart-Gadget sensor in your installation, add the fo
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: sensirion_sht31_smart_gadget
+  - platform: sensirion_sht31
     mac: DEVICE_MAC
     name: SHT31 Smart-Gadget
     monitored_conditions:
