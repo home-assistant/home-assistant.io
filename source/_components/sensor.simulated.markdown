@@ -29,6 +29,8 @@ where:
 - **P** = the [phase](https://en.wikipedia.org/wiki/Phase_(waves)) offset to add to the periodic contribution, in units of degrees
 - **N(s)** = the random [Gaussian noise](https://en.wikipedia.org/wiki/Gaussian_noise) with spread **s**
 
+The output will be limited to 3 decimals.
+
 ## {% linkable_title Configuration %}
 
 To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
@@ -79,6 +81,11 @@ spread:
   required: false
   default: None
   type: float
+relative_to_epoch:
+  description: Whether to simulate from epoch time (00:00:00, 1970-01-01), or relative to when the sensor was started.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
@@ -94,4 +101,5 @@ sensor:
     mean: 50
     spread: 10
     seed: 999
+    relative_to_epoch: false
 ```
