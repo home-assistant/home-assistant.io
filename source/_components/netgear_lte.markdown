@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: netgear.jpg
+logo: netgear.png
 ha_release: 0.72
 ha_category: Other
 ha_iot_class: "Local Polling"
