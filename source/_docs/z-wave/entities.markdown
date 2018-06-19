@@ -137,7 +137,8 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
 
 If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
 
-```
+{% raw %}
+```yaml
 binary_sensor:
   - platform: template
     sensors: 
@@ -146,6 +147,7 @@ binary_sensor:
         device_class: door
         value_template: {{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') }}
 ```
+{% endraw %}
 
 ### {% linkable_title Burglar Entity %}
 
@@ -161,7 +163,8 @@ binary_sensor:
 
 If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class:
 
-```
+{% raw %}
+```yaml
 binary_sensor:
   - platform: template
     sensors: 
@@ -170,6 +173,7 @@ binary_sensor:
         device_class: motion
         value_template: {{ is_state('sensor.YOUR_SENSOR_burglar', '8') }}
 ```
+{% endraw %}
 
 ### {% linkable_title Source Node ID Entity %}
 
