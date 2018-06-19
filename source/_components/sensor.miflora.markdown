@@ -49,7 +49,9 @@ sensor:
 - **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
 - **adapter** (*Optional*): Define the Bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
 
+<p class='note warning'>
 NOTE By default the sensor is only polled once every 20 minutes. So, if you set `median: 3` it will take _at least_ 40 minutes before the sensor will report a value after a Home Assistant restart. Since the values usually change very slowly, this usually isn't a big problem. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
+</p>
 
 # Install Bluetooth Backend
 Depending on your operating system, you may have to configure the proper Bluetooth backend on your system:
