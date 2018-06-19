@@ -175,6 +175,11 @@ payload_not_available:
   required: false
   type: string
   default: offline
+scale_rgb_with_brightness:
+  description: Flag to specify if the RGB values published to MQTT should be scaled using the brightness. (legacy method)
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <p class='note warning'>
