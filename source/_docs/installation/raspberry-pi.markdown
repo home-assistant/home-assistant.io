@@ -26,7 +26,7 @@ Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ```bash
-$ ssh pi@ipadress
+$ ssh pi@ipaddress
 ```
 
 Changing the default password is encouraged.
