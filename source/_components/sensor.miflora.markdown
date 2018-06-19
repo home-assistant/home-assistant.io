@@ -23,15 +23,8 @@ To use your Mi Flora plant sensor in your installation, add the following to you
 sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
-    name: Flower 1
-    force_update: false
-    median: 3
     monitored_conditions:
       - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery
 ```
 
 - **mac** (*Required*): The MAC address of your sensor.
@@ -87,3 +80,20 @@ $ bluetoothctl
 
 You can identify your sensor by looking for `Flower care` or `Flower mate` entries.
 
+A full configuration example could look like the one below:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: miflora
+    mac: 'xx:xx:xx:xx:xx:xx'
+    name: Flower 1
+    force_update: false
+    median: 3
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
+```
