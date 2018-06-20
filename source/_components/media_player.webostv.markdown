@@ -90,7 +90,7 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: B4:E6:2A:1E:11:0F
+        mac: "B4-E6-2A-1E-11-0F"
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
@@ -128,4 +128,4 @@ data:
 The behaviour of the next and previsous buttons is different depending on the active source:
 
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
- - otherwise: next/previsous buttons act as next/previous track
+ - otherwise: next/previous buttons act as next/previous track
