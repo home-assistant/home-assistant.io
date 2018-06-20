@@ -46,10 +46,6 @@ sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 
 ### {% linkable_title Creating an assistant %}
 
-<div class='videoWrapper'>
-<iframe src="https://player.vimeo.com/video/223255884" width="700" height="380" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>
-
 Head over to the [Snips Console](https://console.snips.ai) to create your assistant. Launch the training and download by clicking on the "Download Assistant" button.
 
 The next step is to get the assistant to work on your device. Unzip and copy the assistant folder that you downloaded from the web console to the path. Assuming your downloaded assistant folder is on your desktop, just run:
