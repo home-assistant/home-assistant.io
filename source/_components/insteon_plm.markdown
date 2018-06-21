@@ -37,6 +37,14 @@ insteon_plm:
        subcat: SUBCATEGORY
        firmware: FIRMWARE
        product_key: PRODUCT_KEY
+  x10_devices:
+     - housecode: HOUSECODE
+       unitcode: UNITCODE
+       platform: PLATFORM
+       steps: STEPS
+  x10_all_units_off: HOUSECODE
+  x10_all_lights_on: HOUSECODE
+  x10_all_lights_off: HOUSECODE
 ```
 Configuration variables:
 - **port** (*Required*): The port for your device, e.g., `/dev/ttyUSB0`
@@ -48,6 +56,22 @@ Configuration variables:
     of 0x00 - 0xff
   - *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
     not be used.
+- **x10_devices** (*Optional*): Define X10 devices to control or respond to
+  - *HOUSECODE* is the X10 housecode values a - p
+  - *UNITCODE* is the X10 unit code values 1 - 16
+  - *PLATFORM* is the Home Assistant Platform to associate the device with. 
+    The following platforms are supported
+    - binary_sensor: Used for on/off devices or keypad buttons that are read only.
+    - light: Used for dimmable X10 devices
+    - switch: Used for On/Off X10 devices
+  - *STEPS* is the number of dim/bright steps the device supports. Used for
+    dimmable X10 devices only. Default value is 22.
+- **x10_all_units_off** (*Optional*): Creates an binary_sensor that responds
+  to the X10 standard command for All Units Off.
+- **x10_all_lights_on** (*Optional*):  Creates an binary_sensor that responds
+  to the X10 standard command for All Lights On
+- **x10_all_lights_off** (*Optional*): Creates an binary_sensor that responds
+  to the X10 standard command for All Lights Off
 
 ### {% linkable_title Autodiscovery %}
 
