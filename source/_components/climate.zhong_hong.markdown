@@ -2,14 +2,14 @@
 layout: page
 title: "ZhongHong Thermostats Controller"
 description: "Instructions on how to integrate ZhongHong Support thermostats within Home Assistant."
-date: 2018-05-20 08:30
+date: 2018-06-20 08:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: zhong_hong.png
 ha_category: Climate
-ha_release: "0.70"
+ha_release: "0.72"
 ha_iot_class: "Local Push"
 ---
 
