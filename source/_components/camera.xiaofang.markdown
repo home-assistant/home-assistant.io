@@ -2,14 +2,14 @@
 layout: page
 title: "Xiaomi Cameras"
 description: "Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant."
-date: 2018-05-02 13:00
+date: 2018-06-20 13:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Camera
-ha_release: 0.56
+ha_release: 0.72
 ha_iot_class: "Local Polling"
 ---
 
