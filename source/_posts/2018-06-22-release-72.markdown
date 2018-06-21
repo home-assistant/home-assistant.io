@@ -49,6 +49,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add missing mapping of RotaryHandleSensorIP states ([@hanzoh] - [#14885]) ([sensor.homematic docs]) (breaking change)
 - Add support for multiple Doorbird stations ([@oblogic7] - [#13994]) ([doorbird docs]) ([camera.doorbird docs]) ([switch.doorbird docs]) (breaking change)
 - Make AirVisual platform async + other adjustments ([@bachya] - [#14943]) ([sensor.airvisual docs]) (breaking change)
+- Add config entry for Sonos + Cast ([@balloob] - [#14955]) ([media_player docs]) ([sonos docs]) ([media_player.sonos docs]) (breaking change)
 - Eight Sleep add REM type, Update async syntax, Catch API quirks ([@mezz64] - [#14937]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (breaking change)
 - Bump pyhs100 version ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
 
@@ -63,6 +64,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade aiohttp to 3.3.2 ([@fabaff] - [#15025]) (beta fix)
 - Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
 - Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
+- Rename experimental UI to lovelace ([@balloob] - [#15065]) ([frontend docs]) (beta fix)
+- X10 ([@teharris1] - [#14741]) ([insteon_plm docs]) ([switch.insteon_plm docs]) (beta fix)
+- Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
+- Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -143,7 +148,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for ZhongHong HVAC Controllers ([@crhan] - [#14552]) ([climate.zhong_hong docs]) (new-platform)
 - Fix tests ([@balloob] - [#14959])
 - add relative time option to simulated sensors ([@Shou] - [#14038]) ([sensor.simulated docs])
-- Add config entry for Sonos + Cast ([@balloob] - [#14955]) ([media_player docs]) ([sonos docs]) ([media_player.sonos docs])
+- Add config entry for Sonos + Cast ([@balloob] - [#14955]) ([media_player docs]) ([sonos docs]) ([media_player.sonos docs]) (breaking change)
 - Fix smappee component - "Error on device update" ([@bachya] - [#14883]) ([sensor.smappee docs])
 - Adhere to scan_interval in platforms when setup via config entry ([@balloob] - [#14969])
 - Add Calendar API endpoint to get events ([@titilambert] - [#14702]) ([calendar docs]) ([calendar.caldav docs])
@@ -172,6 +177,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade aiohttp to 3.3.2 ([@fabaff] - [#15025]) (beta fix)
 - Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
 - Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
+- Rename experimental UI to lovelace ([@balloob] - [#15065]) ([frontend docs]) (beta fix)
+- X10 ([@teharris1] - [#14741]) ([insteon_plm docs]) ([switch.insteon_plm docs]) (beta fix)
+- Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
+- Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
 [#12727]: https://github.com/home-assistant/home-assistant/pull/12727
 [#13495]: https://github.com/home-assistant/home-assistant/pull/13495
@@ -193,6 +202,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14716]: https://github.com/home-assistant/home-assistant/pull/14716
 [#14729]: https://github.com/home-assistant/home-assistant/pull/14729
 [#14730]: https://github.com/home-assistant/home-assistant/pull/14730
+[#14741]: https://github.com/home-assistant/home-assistant/pull/14741
 [#14747]: https://github.com/home-assistant/home-assistant/pull/14747
 [#14748]: https://github.com/home-assistant/home-assistant/pull/14748
 [#14756]: https://github.com/home-assistant/home-assistant/pull/14756
@@ -279,6 +289,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15025]: https://github.com/home-assistant/home-assistant/pull/15025
 [#15032]: https://github.com/home-assistant/home-assistant/pull/15032
 [#15035]: https://github.com/home-assistant/home-assistant/pull/15035
+[#15053]: https://github.com/home-assistant/home-assistant/pull/15053
+[#15065]: https://github.com/home-assistant/home-assistant/pull/15065
+[#15072]: https://github.com/home-assistant/home-assistant/pull/15072
 [@Adminiuga]: https://github.com/Adminiuga
 [@GruberMischa]: https://github.com/GruberMischa
 [@Hate-Usernames]: https://github.com/Hate-Usernames
@@ -303,6 +316,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@crhan]: https://github.com/crhan
 [@dale3h]: https://github.com/dale3h
 [@dgomes]: https://github.com/dgomes
+[@dshokouhi]: https://github.com/dshokouhi
 [@ejel]: https://github.com/ejel
 [@exxamalte]: https://github.com/exxamalte
 [@fabaff]: https://github.com/fabaff
@@ -331,6 +345,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@stilllman]: https://github.com/stilllman
 [@syssi]: https://github.com/syssi
 [@tchellomello]: https://github.com/tchellomello
+[@teharris1]: https://github.com/teharris1
+[@thinkl33t]: https://github.com/thinkl33t
 [@thomaskr]: https://github.com/thomaskr
 [@titilambert]: https://github.com/titilambert
 [@trisk]: https://github.com/trisk
@@ -358,6 +374,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.arlo docs]: /components/camera.arlo/
 [camera.demo docs]: /components/camera.demo/
 [camera.doorbird docs]: /components/camera.doorbird/
+[camera.neato docs]: /components/camera.neato/
 [camera.netatmo docs]: /components/camera.netatmo/
 [camera.uvc docs]: /components/camera.uvc/
 [camera.xiaofang docs]: /components/camera.xiaofang/
@@ -381,9 +398,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /components/hassio/
 [hue docs]: /components/hue/
 [image_processing.facebox docs]: /components/image_processing.facebox/
+[insteon_plm docs]: /components/insteon_plm/
 [konnected docs]: /components/konnected/
 [light.deconz docs]: /components/light.deconz/
 [light.lifx docs]: /components/light.lifx/
+[light.mqtt docs]: /components/light.mqtt/
 [light.mystrom docs]: /components/light.mystrom/
 [light.tplink docs]: /components/light.tplink/
 [light.tradfri docs]: /components/light.tradfri/
@@ -403,6 +422,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.xiaomi_tv docs]: /components/media_player.xiaomi_tv/
 [media_player.yamaha docs]: /components/media_player.yamaha/
 [mqtt_eventstream docs]: /components/mqtt_eventstream/
+[neato docs]: /components/neato/
 [nest docs]: /components/nest/
 [netatmo docs]: /components/netatmo/
 [netgear_lte docs]: /components/netgear_lte/
@@ -437,13 +457,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
 [sonos docs]: /components/sonos/
 [switch.doorbird docs]: /components/switch.doorbird/
+[switch.insteon_plm docs]: /components/switch.insteon_plm/
 [switch.linode docs]: /components/switch.linode/
 [switch.mystrom docs]: /components/switch.mystrom/
+[switch.neato docs]: /components/switch.neato/
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.tplink docs]: /components/switch.tplink/
 [switch.wirelesstag docs]: /components/switch.wirelesstag/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tradfri docs]: /components/tradfri/
+[vacuum.neato docs]: /components/vacuum.neato/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [watson_iot docs]: /components/watson_iot/
 [weather.ecobee docs]: /components/weather.ecobee/
