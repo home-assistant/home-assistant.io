@@ -16,6 +16,8 @@ Lovelace
 
 Insteon support for X10
 
+Cloud extended again
+
 ## {% linkable_title New Platforms %}
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
@@ -23,7 +25,7 @@ Insteon support for X10
 - Add IBM Watson IoT Platform component ([@mtreinish] - [#13664]) ([watson_iot docs]) (new-platform)
 - Wireless tags platform ([@sergeymaysak] - [#13495]) ([wirelesstag docs]) ([binary_sensor.wirelesstag docs]) ([sensor.wirelesstag docs]) ([switch.wirelesstag docs]) (new-platform)
 - Add netgear_lte component ([@amelchio] - [#14687]) ([netgear_lte docs]) ([notify docs]) ([sensor.netgear_lte docs]) (new-platform)
-- Add Uptime Robot sensor ([@ludeeus] - [#14631]) ([sensor.uptimerobot docs]) (new-platform)
+- Add Uptime Robot sensor ([@ludeeus] - [#14631]) ([binary_sensor.uptimerobot docs]) (new-platform)
 - Add support for the Unitymedia Horizon HD Recorder ([@benleb] - [#14275]) ([media_player.horizon docs]) (new-platform)
 - Add support for KIWI Door Locks ([@c7h] - [#14485]) ([lock.kiwi docs]) (new-platform)
 - Epson projector support ([@pszafer] - [#14841]) ([media_player.epson docs]) (new-platform)
@@ -48,6 +50,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for multiple Doorbird stations ([@oblogic7] - [#13994]) ([doorbird docs]) ([camera.doorbird docs]) ([switch.doorbird docs]) (breaking change)
 - Make AirVisual platform async + other adjustments ([@bachya] - [#14943]) ([sensor.airvisual docs]) (breaking change)
 - Eight Sleep add REM type, Update async syntax, Catch API quirks ([@mezz64] - [#14937]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (breaking change)
+- Bump pyhs100 version ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Remove load power attribute for channel USB ([@syssi] - [#14996]) ([switch.xiaomi_miio docs]) (beta fix)
+- Switch to own packaged version of spotipy ([@andrey-git] - [#14997]) ([media_player.spotify docs]) (beta fix)
+- Bump pyhs100 version ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
+- Add experimental UI backend ([@balloob] - [#15002]) ([frontend docs]) (beta fix)
+- Fix panel URL authentication for Hass.io ([@pvizeli] - [#15024]) ([hassio docs]) (beta fix)
+- Fix linode I/O in state property ([@MartinHjelmare] - [#15010]) ([binary_sensor.linode docs]) ([switch.linode docs]) (beta fix)
+- Upgrade aiohttp to 3.3.2 ([@fabaff] - [#15025]) (beta fix)
+- Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
+- Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -95,7 +110,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add entity registry support to media_player.snapcast ([@jedi7] - [#14895]) ([media_player.snapcast docs])
 - Allow different identifiers for the CPU temperature (fixes #10104) ([@fabaff] - [#14898]) ([sensor.glances docs])
 - Make RainMachine async ([@bachya] - [#14879]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs])
-- Add Uptime Robot sensor ([@ludeeus] - [#14631]) ([sensor.uptimerobot docs]) (new-platform)
+- Add Uptime Robot sensor ([@ludeeus] - [#14631]) ([binary_sensor.uptimerobot docs]) (new-platform)
 - Upgrade python_opendata_transport to 0.1.3 ([@fabaff] - [#14905]) ([sensor.swiss_public_transport docs])
 - Upgrade psutil to 5.4.6 ([@fabaff] - [#14892]) ([sensor.systemmonitor docs])
 - Upgrade sendgrid to 5.4.0 ([@fabaff] - [#14891]) ([notify docs])
@@ -148,6 +163,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgraded RainCloudy to version 0.0.5 ([@tchellomello] - [#14986]) ([raincloud docs])
 - Do not mount deps folder when running in virtual env ([@balloob] - [#14993])
 - Refactoring camera component to use async/await syntax. ([@awarecan] - [#14990]) ([camera docs]) ([camera.demo docs])
+- Remove load power attribute for channel USB ([@syssi] - [#14996]) ([switch.xiaomi_miio docs]) (beta fix)
+- Switch to own packaged version of spotipy ([@andrey-git] - [#14997]) ([media_player.spotify docs]) (beta fix)
+- Bump pyhs100 version ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
+- Add experimental UI backend ([@balloob] - [#15002]) ([frontend docs]) (beta fix)
+- Fix panel URL authentication for Hass.io ([@pvizeli] - [#15024]) ([hassio docs]) (beta fix)
+- Fix linode I/O in state property ([@MartinHjelmare] - [#15010]) ([binary_sensor.linode docs]) ([switch.linode docs]) (beta fix)
+- Upgrade aiohttp to 3.3.2 ([@fabaff] - [#15025]) (beta fix)
+- Make zone entries work without radius ([@balloob] - [#15032]) ([zone docs]) (beta fix)
+- Bugfix empty entity lists ([@pvizeli] - [#15035]) (beta fix)
 
 [#12727]: https://github.com/home-assistant/home-assistant/pull/12727
 [#13495]: https://github.com/home-assistant/home-assistant/pull/13495
@@ -246,16 +270,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#14988]: https://github.com/home-assistant/home-assistant/pull/14988
 [#14990]: https://github.com/home-assistant/home-assistant/pull/14990
 [#14993]: https://github.com/home-assistant/home-assistant/pull/14993
+[#14996]: https://github.com/home-assistant/home-assistant/pull/14996
+[#14997]: https://github.com/home-assistant/home-assistant/pull/14997
+[#15001]: https://github.com/home-assistant/home-assistant/pull/15001
+[#15002]: https://github.com/home-assistant/home-assistant/pull/15002
+[#15010]: https://github.com/home-assistant/home-assistant/pull/15010
+[#15024]: https://github.com/home-assistant/home-assistant/pull/15024
+[#15025]: https://github.com/home-assistant/home-assistant/pull/15025
+[#15032]: https://github.com/home-assistant/home-assistant/pull/15032
+[#15035]: https://github.com/home-assistant/home-assistant/pull/15035
 [@Adminiuga]: https://github.com/Adminiuga
 [@GruberMischa]: https://github.com/GruberMischa
 [@Hate-Usernames]: https://github.com/Hate-Usernames
 [@HerrHofrat]: https://github.com/HerrHofrat
 [@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@PhilRW]: https://github.com/PhilRW
 [@Shou]: https://github.com/Shou
 [@SteveEdson]: https://github.com/SteveEdson
 [@aequitas]: https://github.com/aequitas
 [@amelchio]: https://github.com/amelchio
+[@andrey-git]: https://github.com/andrey-git
 [@arraylabs]: https://github.com/arraylabs
 [@awarecan]: https://github.com/awarecan
 [@bachya]: https://github.com/bachya
@@ -283,8 +318,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@nickw444]: https://github.com/nickw444
 [@oblogic7]: https://github.com/oblogic7
 [@pszafer]: https://github.com/pszafer
+[@pvizeli]: https://github.com/pvizeli
 [@quthla]: https://github.com/quthla
 [@robmarkcole]: https://github.com/robmarkcole
+[@rytilahti]: https://github.com/rytilahti
 [@scop]: https://github.com/scop
 [@sergeymaysak]: https://github.com/sergeymaysak
 [@sgttrs]: https://github.com/sgttrs
@@ -304,11 +341,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [amcrest docs]: /components/amcrest/
 [arlo docs]: /components/arlo/
 [binary_sensor.eight_sleep docs]: /components/binary_sensor.eight_sleep/
+[binary_sensor.linode docs]: /components/binary_sensor.linode/
 [binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
 [binary_sensor.mystrom docs]: /components/binary_sensor.mystrom/
 [binary_sensor.netatmo docs]: /components/binary_sensor.netatmo/
 [binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
 [binary_sensor.skybell docs]: /components/binary_sensor.skybell/
+[binary_sensor.uptimerobot docs]: /components/binary_sensor.uptimerobot/
 [binary_sensor.wirelesstag docs]: /components/binary_sensor.wirelesstag/
 [binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
 [binary_sensor.zha docs]: /components/binary_sensor.zha/
@@ -346,6 +385,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.deconz docs]: /components/light.deconz/
 [light.lifx docs]: /components/light.lifx/
 [light.mystrom docs]: /components/light.mystrom/
+[light.tplink docs]: /components/light.tplink/
 [light.tradfri docs]: /components/light.tradfri/
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/
 [lock.kiwi docs]: /components/lock.kiwi/
@@ -359,6 +399,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.samsungtv docs]: /components/media_player.samsungtv/
 [media_player.snapcast docs]: /components/media_player.snapcast/
 [media_player.sonos docs]: /components/media_player.sonos/
+[media_player.spotify docs]: /components/media_player.spotify/
 [media_player.xiaomi_tv docs]: /components/media_player.xiaomi_tv/
 [media_player.yamaha docs]: /components/media_player.yamaha/
 [mqtt_eventstream docs]: /components/mqtt_eventstream/
@@ -392,13 +433,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.smappee docs]: /components/sensor.smappee/
 [sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.uptimerobot docs]: /components/sensor.uptimerobot/
 [sensor.wirelesstag docs]: /components/sensor.wirelesstag/
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
 [sonos docs]: /components/sonos/
 [switch.doorbird docs]: /components/switch.doorbird/
+[switch.linode docs]: /components/switch.linode/
 [switch.mystrom docs]: /components/switch.mystrom/
 [switch.rainmachine docs]: /components/switch.rainmachine/
+[switch.tplink docs]: /components/switch.tplink/
 [switch.wirelesstag docs]: /components/switch.wirelesstag/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tradfri docs]: /components/tradfri/
@@ -411,4 +453,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: /components/wink/
 [wirelesstag docs]: /components/wirelesstag/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
+[zone docs]: /components/zone/
 [zwave docs]: /components/zwave/
