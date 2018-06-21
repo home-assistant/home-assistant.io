@@ -12,6 +12,10 @@ categories: Release-Notes
 
 Config entry support for Nest, Sonos, Cast.
 
+Lovelace
+
+Insteon support for X10
+
 ## {% linkable_title New Platforms %}
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
