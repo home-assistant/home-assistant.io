@@ -118,7 +118,7 @@ custom_calendars:
       type: positive integer
     offset:
       required: false
-      description: A offset can be defined in the calendar event title. This setting describes the separation characters, defaulting to `!!`. A title `Very important meeting #Important !!-10` would trigger the attribute offset_reached to be on 10 minutes before the event starts.
+      description: A offset can be defined in the calendar event title. This setting describes the separation characters, defaulting to !!. A title Very important meeting #Important !!-10 would trigger the attribute offset_reached to be on 10 minutes before the event starts.
       type: string (HH:MM or MM)
     cal_offset:
       required: false
