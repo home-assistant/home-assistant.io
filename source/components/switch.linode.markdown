@@ -25,7 +25,7 @@ switch:
       - 'myvpsname'
 ```
 
-{% configuration %}
+{% configuration linode %}
   nodes:
     description:  List of VPSs you want to control.
     required: true
