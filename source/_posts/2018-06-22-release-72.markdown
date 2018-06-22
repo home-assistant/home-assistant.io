@@ -10,6 +10,8 @@ comments: true
 categories: Release-Notes
 ---
 
+
+
 Config entry support for Nest, Sonos, Cast.
 
 Lovelace
@@ -31,7 +33,7 @@ Cloud extended again
 - Epson projector support ([@pszafer] - [#14841]) ([media_player.epson docs]) (new-platform)
 - Add sensor.nsw_fuel_station component ([@nickw444] - [#14757]) ([sensor.nsw_fuel_station docs]) (new-platform)
 - Add support for ZhongHong HVAC Controllers ([@crhan] - [#14552]) ([climate.zhong_hong docs]) (new-platform)
-- Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaofang docs]) (new-platform)
+- Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaomi docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -152,8 +154,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix smappee component - "Error on device update" ([@bachya] - [#14883]) ([sensor.smappee docs])
 - Adhere to scan_interval in platforms when setup via config entry ([@balloob] - [#14969])
 - Add Calendar API endpoint to get events ([@titilambert] - [#14702]) ([calendar docs]) ([calendar.caldav docs])
-- Add calendar panel, add tests ([@balloob] - [#14973]) ([calendar docs]) ([calendar.demo docs])
-- Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaofang docs]) (new-platform)
+- Add calendar panel, add tests ([@balloob] - [#14973]) ([calendar docs])
+- Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaomi docs]) (new-platform)
 - Fix binary_sensor.skybell state update when there are no events ([@trisk] - [#14927]) ([binary_sensor.skybell docs]) ([sensor.skybell docs])
 - Deconz make groups configurable ([@Kane610] - [#14704]) ([deconz docs]) ([light.deconz docs])
 - Show notification when user configures Nest client_id/secret ([@balloob] - [#14970]) ([hue docs]) ([nest docs])
@@ -167,7 +169,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgraded python-amcrest to 1.2.3 ([@tchellomello] - [#14988]) ([amcrest docs])
 - Upgraded RainCloudy to version 0.0.5 ([@tchellomello] - [#14986]) ([raincloud docs])
 - Do not mount deps folder when running in virtual env ([@balloob] - [#14993])
-- Refactoring camera component to use async/await syntax. ([@awarecan] - [#14990]) ([camera docs]) ([camera.demo docs])
+- Refactoring camera component to use async/await syntax. ([@awarecan] - [#14990]) ([camera docs])
 - Remove load power attribute for channel USB ([@syssi] - [#14996]) ([switch.xiaomi_miio docs]) (beta fix)
 - Switch to own packaged version of spotipy ([@andrey-git] - [#14997]) ([media_player.spotify docs]) (beta fix)
 - Bump pyhs100 version ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
@@ -369,15 +371,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.zha docs]: /components/binary_sensor.zha/
 [calendar docs]: /components/calendar/
 [calendar.caldav docs]: /components/calendar.caldav/
-[calendar.demo docs]: /components/calendar.demo/
 [camera docs]: /components/camera/
 [camera.arlo docs]: /components/camera.arlo/
-[camera.demo docs]: /components/camera.demo/
 [camera.doorbird docs]: /components/camera.doorbird/
 [camera.neato docs]: /components/camera.neato/
 [camera.netatmo docs]: /components/camera.netatmo/
 [camera.uvc docs]: /components/camera.uvc/
-[camera.xiaofang docs]: /components/camera.xiaofang/
+[camera.xiaomi docs]: /components/camera.xiaomi/
 [camera.yi docs]: /components/camera.yi/
 [climate.fritzbox docs]: /components/climate.fritzbox/
 [climate.generic_thermostat docs]: /components/climate.generic_thermostat/
