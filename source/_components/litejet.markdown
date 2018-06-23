@@ -18,9 +18,15 @@ Home Assistant integrates the LiteJet 3rd party protocol and allows you to get t
 
 After connecting the LiteJet's RS232-2 port to your computer, add the following to your `configuration.yaml`:
 
+None Hassio installations should use:
 ```yaml
 litejet:
   port: /dev/serial/by-id/THE-PATH-OF-YOUR-SERIAL-PORT
+```
+Hassio installations should use:
+```yaml
+litejet:
+  port: `/dev/ttyUSBx (ls -la /dev/ttyUSB*)`
 ```
 
 Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, no parity, and to transmit a 'CR' after each response. These settings can be configured using the [LiteJet programming software](https://www.centralite.com/helpdesk/knowledgebase.php?article=735).
