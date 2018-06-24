@@ -64,7 +64,7 @@ Configuration variables:
     - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
     - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
     - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
-    - **fade** (*Optional*): Fade behavior. Defaults to `off`. If turned on, the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability, since the light will turn back on at the lowest brightness if it is power cycled.
+    - **fade** (*Optional*): Fade behavior. Defaults to `off`. If turned on, the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability since the light will turn back on at the lowest brightness if it is power cycled.
 
 ### {% linkable_title Night Effect %}
 
@@ -89,11 +89,11 @@ automation:
 Refer to the [light]({{site_root}}/components/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
 
 - **RGBWW** (Only supported on v6 bridges)
-  - *Color*: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode the temperature can be set.
+  - *Color*: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode, the temperature can be set.
   - *Temperature*: There are 101 temperature steps.
   - *Brightness*: There are 101 brightness steps.
 - **RGBW**
-  - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness can not be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
+  - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness cannot be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
   - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 25.
 - **White**
   - When using a legacy WiFi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
@@ -109,7 +109,7 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
 
 When starting Home Assistant, the last recorded state will be shown. This might no longer match the actual state of the bulbs.
 
-If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe obsolete information.
+If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant cannot track those changes and you may observe obsolete information.
 
 This lack of synchronization is due to a LimitlessLED limitation.
 
