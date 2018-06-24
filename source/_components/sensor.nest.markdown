@@ -42,7 +42,7 @@ The following conditions are available by device:
 
 - Nest Home:
   - eta: Estimated time of arrival.
-  - security\_state: `ok` or `deter`. [Security State](#security-state)
+  - security\_state: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
 - Nest Thermostat:
   - humidity
   - operation\_mode
