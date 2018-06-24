@@ -93,11 +93,11 @@ The service `facebox_teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Entity ID of facebox entity.
+| `entity_id` | no | Entity ID of Facebox entity.
 | `name` | no | The name to associate with a face.
 | `file_path` | no | The path to the image file.
 
-Example valid service data is:
+A valid service data example:
 
 {% raw %}
 ```yaml
@@ -109,7 +109,7 @@ Example valid service data is:
 ```
 {% endraw %}
 
-An `image_processing.teach_classifier` event is fired for each service call, providing feedback on whether teaching has been successful or unsuccessful. In the unsuccessful case, the `message` field of the `event_data` will contain information on the cause of failure, and a warning is also published in the logs. An automation can be used to receive alerts on teaching, for example the following automation will send a notification with the teaching image and a message describing the status of the teaching:
+An `image_processing.teach_classifier` event is fired for each service call, providing feedback on whether teaching has been successful or unsuccessful. In the unsuccessful case, the `message` field of the `event_data` will contain information on the cause of failure, and a warning is also published in the logs. An automation can be used to receive alerts on teaching, for example, the following automation will send a notification with the teaching image and a message describing the status of the teaching:
 
 ```yaml
 - id: '11200961111'
