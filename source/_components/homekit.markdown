@@ -34,6 +34,10 @@ homekit:
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    light.kitchen_table:
+      name: Kitchen Table Light
+    lock.front_door:
+      code: 1234
     media_player.living_room:
       feature_list:
         - feature: on_off
@@ -114,10 +118,10 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
-                default: switch
+                default: '`switch`'
 {% endconfiguration %}
 
 <p class='note'>
@@ -150,6 +154,10 @@ After the setup is completed you should be able to control your Home Assistant c
 ### {% linkable_title Accessory ID %}
 
 Currently this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This however means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+
+### {% linkable_title Device Limit %}
+
+The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
 
 ### {% linkable_title Persistence Storage %}
 
