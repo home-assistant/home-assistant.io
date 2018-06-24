@@ -157,7 +157,7 @@ Currently this component uses the `entity_id` to generate a unique `accessory id
 
 ### {% linkable_title Device Limit %}
 
-The HomeKit guidelines only allow a maximum of 100 unique acessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
 
 ### {% linkable_title Persistence Storage %}
 
