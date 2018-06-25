@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Binary Sensor
-ha_release: 0.72
+ha_release: 0.73
 ---
 
 The `tahoma` binary sensor platform lets you see binary sensors added to your Tahoma Box in Home Assistant. For example smoke detectors.
