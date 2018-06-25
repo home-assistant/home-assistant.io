@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 redirect_from: /components/media_player.sonos/
 ---
 
-The `sonos` component allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
+The `sonos` component allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
 
 If you don't have the discovery component enabled, you can configure the Sonos component by going to the integrations page inside the config panel.
 
@@ -103,7 +103,7 @@ Night Sound and Speech Enhancement modes are only supported on Sonos PLAYBAR and
 
 ## {% linkable_title Advanced use %}
 
-For advancved uses, there are some manual configuration options available.
+For advanced uses, there are some manual configuration options available.
 
 If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
 
