@@ -56,6 +56,14 @@ Enjoy this release and have a good weekend all!
 - Add support for ZhongHong HVAC Controllers ([@crhan] - [#14552]) ([climate.zhong_hong docs]) (new-platform)
 - Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaomi docs]) (new-platform)
 
+## {% linkable_title Release 0.72.1 - June 25 %}
+
+- Prevent Nest component setup crash due insufficient permission. ([@awarecan] - [#14966]) ([nest docs])
+- Fix socket bug with Yi in 0.72 ([@bachya] - [#15109]) ([camera.yi docs])
+- Skip nest security state sensor if no Nest Cam exists ([@awarecan] - [#15112]) ([sensor.nest docs])
+- Fix cast config ([@balloob] - [#15143]) ([media_player.cast docs])
+- Bump python-nest to 4.0.3 ([@awarecan] - [#15098]) ([nest docs]) ([sensor.nest docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -500,3 +508,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zone docs]: /components/zone/
 [zwave docs]: /components/zwave/
+[#14966]: https://github.com/home-assistant/home-assistant/pull/14966
+[#15098]: https://github.com/home-assistant/home-assistant/pull/15098
+[#15109]: https://github.com/home-assistant/home-assistant/pull/15109
+[#15112]: https://github.com/home-assistant/home-assistant/pull/15112
+[#15143]: https://github.com/home-assistant/home-assistant/pull/15143
+[@awarecan]: https://github.com/awarecan
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[camera.yi docs]: /components/camera.yi/
+[media_player.cast docs]: /components/media_player.cast/
+[nest docs]: /components/nest/
+[sensor.nest docs]: /components/sensor.nest/
