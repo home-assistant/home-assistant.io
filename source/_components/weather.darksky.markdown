@@ -58,6 +58,11 @@ name:
   required: false
   type: string
   default: Open Sky
+language:
+  description: The desired language of the summary properties.
+  required: false
+  type: string
+  default: en
 {% endconfiguration %}
 
 <p class='note'>
