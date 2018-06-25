@@ -27,8 +27,6 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
 ```
 
-Configuration variables:
-
 {% configuration %}
 baseoid:
   description: The SNMP BaseOID which to poll for the state of the switch.
