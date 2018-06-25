@@ -109,7 +109,7 @@ Will add a light with rgb+white mode (default). White and RGB channels can be ad
       mode: "rgbw"
 ```
 
-Will add a light with white mode only. This is useful when only W channel is connected on an RGBW controller and allows white level to be controlled via brightness value.
+Will add a light with white mode only. This is useful when only W channel is connected to an RGBW controller and allows the white level to be controlled via brightness value.
 
 ```yaml
     192.168.1.10:
