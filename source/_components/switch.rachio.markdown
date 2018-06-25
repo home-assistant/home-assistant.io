@@ -40,7 +40,7 @@ Set `manual_run_mins` to a high maximum failsafe value when using scripts to con
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this switch.
+In this section, you find some real-life examples of how to use this switch.
 
 ### {% linkable_title `groups.yaml` example %}
 
