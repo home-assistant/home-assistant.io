@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: "0.22"
 ---
 
-
 The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems, and printers.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
@@ -25,8 +24,6 @@ sensor:
     host: 192.168.1.32
     baseoid: 1.3.6.1.4.1.2021.10.1.3.1
 ```
-
-Configuration variables:
 
 {% configuration %}
 host:
@@ -121,13 +118,13 @@ Valid values for priv_protocol:
 
 ## {% linkable_title Finding OIDs %}
 
-OIDs may vary on different systems because they are vendor-specific. Beside the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux systems.
+OIDs may vary on different systems because they are vendor-specific. Besides the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux system.
 
 - 1 minute Load: `1.3.6.1.4.1.2021.10.1.3.1`
 - 5 minute Load: `1.3.6.1.4.1.2021.10.1.3.2`
 - 15 minute Load: `1.3.6.1.4.1.2021.10.1.3.3`
 
-There is a large amount of tools available to work with SNMP. `snmpwalk` let you easily retrieve the value of a OID.
+There is a large amount of tools available to work with SNMP. `snmpwalk` let you easily retrieve the value of an OID.
 
 ```bash
 $ snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
@@ -138,7 +135,7 @@ laLoad.1 = STRING: 0.19
 
 ### {% linkable_title Printer uptime minutes %}
 
-According to the most common SNMP standard, the uptime of a device is accessible under OID `1.3.6.1.2.1.1.3.0`. The value represented using a format called `TimeTicks`, in units of hundredth of a second.
+According to the most common SNMP standard, the uptime of a device is accessible under OID `1.3.6.1.2.1.1.3.0`. The value represented using a format called `TimeTicks`, in units of hundredths of a second.
 
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
