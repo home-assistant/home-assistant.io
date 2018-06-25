@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: pjlink.png
 ha_category: Media Player
-ha_release: TBD
+ha_release: 0.73
 ha_iot_class: "Local Polling"
 ---
 
@@ -23,10 +24,6 @@ To add a PJLink projector  to your installation, add the following to your `conf
 media_player:
   - platform: pjlink
     host: 192.168.1.2
-    port: 4352
-    name: projector
-    encoding: utf-8
-    password: pw
 ```
 
 {% configuration %}
