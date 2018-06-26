@@ -10,7 +10,7 @@ footer: true
 logo: magicseaweed.png
 ha_category: Sensor
 featured: false
-ha_release: "0.72"
+ha_release: "0.73"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -24,43 +24,76 @@ To add Magicseaweed forecasts to your installation, add the following to your `c
 # Example configuration.yaml entry
 sensor:
   - platform: magicseaweed
-    name: Hurricane Spot
     api_key: YOUR_API_KEY
     spot_id: 1092
-    hours:
-      - 6AM
-      - 9AM
-      - 12PM
-      - 3PM
-      - 6PM
     monitored_conditions:
-      - swell_forecast
-      - min_breaking_swell
       - max_breaking_swell
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: The API key to access the service.
+  required: true
+  type: string
+name:
+  description: Spot nickname for the sensors.
+  required: false
+  default: Platform name: MSW.
+  type: string
+hour:
+  description: List of hours you would like to receive data for.
+  required: false
+  default: Defaults to current forecast.
+  type: list
+  keys:
+    3AM:
+    6AM:
+    9AM:
+    12PM:
+    3PM:
+    6PM:
+    9PM:
+    12AM:
+spot_id:
+  description: Surf spot ID to monitor surf forecast of.Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
+  required: true
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    swell_forecast:
+      description: List of forecast summaries as attributes with current summary as state.
+    min_breaking_swell:
+      description: The minimum wave height as the state with a detailed list of forecast attributes.
+    max_breaking_swell:
+      description: The maximum wave height as the state with a detailed list of forecast attributes.
+units:
+  description: Specify the unit system.
+  required: false
+  default: Default to `uk` or `us` based on the temperature preference in Home Assistant.
+  type: string
+  keys:
+    uk:
+    eu:
+    us:
+update_interval:
+  description: Minimum time interval between updates.
+  required: false
+  default: Default is 30 minutes.
+  type: list
+  keys:
+    update_interval:
+      description: `update_interval: 'HH:MM:SS'` or `update_interval: 'HH:MM'`
+    days:
+    hours:
+    minutes:
+    seconds:
+    milliseconds:
 
-- **api_key** (*Required*): Your API key.
-- **name** (*Optional*): Spot nickname for the sensors. Default to platform name.
-- **hours** array (*Optional*): List of hours you would like to receive data for. Defaults to the current forecast.
-- **spot_id** (*Required*): Surf spot ID to monitor surf forecast of. Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **swell_forecast**: List of forecast summaries as attributes with current summary as state.
-  - **min_breaking_swell**: The minimum wave height as the state with a detailed list of forecast attributes.
-  - **max_breaking_swell**: The maximum wave height as the state with a detailed list of forecast attributes.
-- **units** (*Optional*): Specify the unit system. Default to `uk` or `us` based on the temperature preference in Home Assistant. Other options are `uk`, `eu`, `us`.
-- **update_interval** (*Optional*): Minimum time interval between updates. Default is 30 minutes. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
-  - Time period dictionary, e.g.:
-    <pre>update_interval:
-        # At least one of these must be specified:
-        days: 0
-        hours: 0
-        minutes: 3
-        seconds: 30
-        milliseconds: 0
-    </pre>
+
+{% endconfiguration %}
+
 
 Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/developer/forecast-api).
