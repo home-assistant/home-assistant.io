@@ -35,6 +35,7 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
+    password: PASSWORD
 ```
 
 {% configuration %}
@@ -42,18 +43,18 @@ nvr:
   description: The IP or hostname of the NVR (Network Video Recorder) server.
   required: true
   type: string
-key:
-  description: The API key available from the NVR web interface.
-  required: true
-  type: string
 port:
   description: The port number to use for accessing the NVR.
   required: false
   type: int
   default: 7080
-name:
+key:
+  description: The API key available from the NVR web interface.
+  required: true
+  type: string
+password:
   description: The camera password.
-  required: false
+  required: true
   type: string
   default: ubnt
 {% endconfiguration %}
