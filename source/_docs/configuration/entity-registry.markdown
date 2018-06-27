@@ -55,4 +55,5 @@ value to each entry.
    
 {% linkable_title Supported Components %}
    
-At the moment, only the following components are supported: Z-Wave, Hue, Nest, LIFX, Sonos, Apple TV
+At the moment, only the following components are supported: Z-Wave, Hue, Nest, LIFX, Sonos, Apple TV, Weather Underground 
+Note that for Weather Underground, second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number. 
