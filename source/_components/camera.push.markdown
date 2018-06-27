@@ -15,13 +15,13 @@ ha_release: 0.73
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
 
-Optionally the Push Camera is able to **cache** a given number of images, creating an animation of the detected motion, after the event has been recorded.
+Optionally the Push Camera can **cache** a given number of images, creating an animation of the detected motion after the event has been recorded.
 
 Images are cleared on new events, and events are separated by a soft (configurable) **timeout**.
 
 ## Integration with motionEye
 
-The `push` camera can as an example be used with [motionEye](https://github.com/ccrisan/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as showed in this example:
+The `push` camera can as an example be used with [motionEye](https://github.com/ccrisan/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as shown in this example:
 
 In motionEye, under **File Storage -> Run A Command** type in:
 ```bash
@@ -30,7 +30,7 @@ curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/camera_push/camer
 
 Please take note that you might need to add `-H "x-ha-access: YOUR_PASSWORD"` if you have API authentication enabled.
 
-Optionally configure motionEye to save only motion triggered images by going into **Still Images -> Capture Mode** and setting **Motion Triggered**. And tune  to your preferences under **Motion Detection**.
+Optionally configure motionEye to save only motion triggered images by going into **Still Images -> Capture Mode** and setting **Motion Triggered**. Tune your preferences under **Motion Detection**.
 
 In this setup, you can configure the push camera to continuously replay the last motion triggered event using a configuration such as:
 
