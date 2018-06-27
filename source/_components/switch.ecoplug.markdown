@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: ecoplug.png
 ha_category: Switch
-ha_release: 0.71
+ha_release: 0.73
 ha_iot_class: "Local Polling"
 ---
 
@@ -16,12 +17,11 @@ This allows you to control and monitor EcoPlugs on your network. Devices are aut
 
 To enable this switch, you first have to set up your devices in the EcoPlug App, and add the following lines to your `configuration.yaml` file:
 
-```yaml
-# Example configuration.yaml entry
+{% configuration %}
 switch:
   - platform: ecoplug
- ```
+ {% endconfiguration %}
+
 
 Configuration variables:
-
 - **scan_interval** (*Optional*): Amount of time (in seconds) before checking device's state on the network. Default is 5.
