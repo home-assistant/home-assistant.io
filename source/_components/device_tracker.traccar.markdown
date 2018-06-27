@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: traccar.png
 ha_category: Presence Detection
-ha_release: 0.70
+ha_release: 0.73
 ---
-
 
 This platform allows you to integrate [Traccar](https://www.traccar.org/) GPS Tracking Platform into Home Assistant.
 
@@ -28,7 +27,7 @@ device_tracker:
 
 {% configuration %}
 url:
-  description: Your Traccar server url including port. ( ex. http://yourtraccarserver.com:8082 )
+  description: Your Traccar server url including port. ( ex. http://example.com:8082 )
   required: true
   type: url
 username:
@@ -41,4 +40,4 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions on how to configure device tracking.
