@@ -91,7 +91,7 @@ Note that this basic configuration will only enable you to read the armed/armed 
 You can change this, however, using the following procedure. This is a more advanced (and more useful) configuration.
 
 <p class='note'>
-There seem to be multiple versions of software running on GATE-02 devices; we have received reports from GATE-02 users who succesfully run this package in GATE-02 mode. Others have reported they needed to specify GATE-03 as their version to integrate their GATE-02.
+There seem to be multiple versions of software running on GATE-02 devices; we have received reports from GATE-02 users who successfully run this package in GATE-02 mode. Others have reported they needed to specify GATE-03 as their version to integrate their GATE-02.
 </p>
 
 ## {% linkable_title Advanced configuration %}
