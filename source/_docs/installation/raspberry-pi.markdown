@@ -107,3 +107,11 @@ $ pip3 install --upgrade homeassistant
 ```
 
 Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+
+### {% linkable_title Activating the virtual environment %}
+
+When instructions tell you to activate the virtual environment, the following commands will do this:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate```
