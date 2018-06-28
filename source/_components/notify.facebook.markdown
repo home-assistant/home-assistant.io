@@ -29,7 +29,7 @@ notify:
 {% configuration %}
 page_access_token:
   required: true
-  description: Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information.
+  description: Access token for your Facebook page. Check out [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information.
   type: string
 name:
   required: false
@@ -44,7 +44,7 @@ allowed_chat_ids:
 ### {% linkable_title Usage %}
 
 With Facebook notify service, you can send your notifications to your Facebook messenger with help of your Facebook page. You have to create a [Facebook Page and App](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) for this service. You can control it by calling the notify service [as described here](/components/notify/). It will send a message on messenger to user specified by **target** on behalf of your page. See the [quick start](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) guide for more information.
-The phone number used in **target** should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If your app is not approved by Facebook then the recipient should by either admin, developer or tester for your Facebook app. [More information](https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number) about the phone number.
+The phone number used in **target** should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If Facebook does not approve your app, then the recipient should be either admin, developer or tester for your Facebook app. [More information](https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number) about the phone number.
 
 ```yaml
 # Example automation notification entry
@@ -62,11 +62,11 @@ automation:
           - '+919784516314'
 ```
 
-If you have your Home Assistant installation exposed to the internet you can also retrieve a page-specific user ID. This user ID can be used as a target for users who do not have their phone number stored on facebook. This user ID is also required if you'd like to trigger events within Home Assistant by sending messages through facebook, or to create actionable notifications with quick reply buttons.
+If you have your Home Assistant installation exposed to the internet, you can also retrieve a page-specific user ID. This user ID can be used as a target for users who do not have their phone number stored on Facebook. This user ID is also required if you'd like to trigger events within Home Assistant by sending messages through Facebook, or to create actionable notifications with quick reply buttons.
 
-To enable this functionality, enable a webhook for the "messages" event in Facebook's developer console-- the callback URL for this will be https://{your homeassistant base url}/api/facebook_webhooks and the verify token will be your page_access_token.
+To enable this functionality, enable a webhook for the "messages" event in Facebook's developer console-- the callback URL for this will be `https://{your homeassistant base url}/api/facebook_webhooks` and the verification token will be your page_access_token.
 
-Once this is enabled, a user can find their page specific user ID by sending a message to your page with the text `get my id`
+Once this is enabled, a user can find their page-specific user ID by sending a message to your page with the text `get my id`
 
 ### {% linkable_title Rich messages %}
 You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types of messages and how to build them.
@@ -93,9 +93,9 @@ script:
 
 If a users page specific id is in your allowed_chat_ids list, their messages to your page will trigger a `facebook_message` event. This can be used as the basis for automations. This event will have the following event_data:
 
-- **sender_id**: The page specific user ID of the user who sent the message
+- **sender_id**: The page-specific user ID of the user who sent the message
 - **message**: The text body of the message
-- **payload**: In the case of quick replies, the developer defined payload.
+- **payload**: In the case of quick replies, the developer-defined payload.
 
 An automation that reacts to the quick reply message from above might look like this:
 
@@ -120,7 +120,7 @@ automation:
 
 You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice. 
 
-To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
+To enable broadcast use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
 
 ```yaml
 - alias: Facebook Broadcast
