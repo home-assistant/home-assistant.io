@@ -13,7 +13,6 @@ ha_release: 0.13
 ha_iot_class: "Local Polling"
 ---
 
-
 The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/products/#unifivideo) into Home Assistant.
 
 The platform connects to the Unifi NVR software and automatically discovers/adds any camera connected to the NVR.
@@ -35,7 +34,6 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
-    password: PASSWORD
 ```
 
 {% configuration %}
@@ -54,7 +52,7 @@ key:
   type: string
 password:
   description: The camera password.
-  required: true
+  required: false
   type: string
   default: ubnt
 {% endconfiguration %}
