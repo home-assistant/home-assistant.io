@@ -110,7 +110,7 @@ Once the last command executes restart the Home Assistant service to apply the l
 
 ### {% linkable_title Activating the virtual environment %}
 
-When instructions tell you to activate the virtual environment, you will use the following commands:
+When instructions tell you to activate the virtual environment, the following commands will do this:
 
 ```bash
 $ sudo -u homeassistant -H -s
