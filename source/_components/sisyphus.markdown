@@ -10,9 +10,10 @@ footer: true
 logo: sisyphus.png
 ha_category: Hub
 featured: false
-ha_release: 0.69
+ha_release: 0.73
 ha_iot_class: "Local Push"
 ---
+
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.
 
 Each table appears in Home Assistant as a Light and a Media Player.
@@ -21,7 +22,7 @@ The light can be used to sleep/wake the table or adjust the brightness of the ta
 
 The media player can be used to sleep/wake the table, play/pause, move between tracks, or toggle shuffle on and off. The "volume" control adjusts the table's speed.
 
-There are two ways to configure this component. For automatic discovery of your table(s), simply add the following to your `configuration.yaml`:
+There are two ways to configure this component. For the automatic discovery of your table(s), simply add the following to your `configuration.yaml`:
 
 ```yaml
 # This will auto-detect all Sisyphus tables on your local network.
