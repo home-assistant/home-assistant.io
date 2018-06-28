@@ -106,7 +106,7 @@ emulated_hue:
 The following are attributes that can be applied in the `entities` section:
 
 - **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
-- **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
+- **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. If you set `expose_by_default` on false, you need to set `hidden: false` to expose the entity. The default value for this attribute is controlled by the `expose_by_default` option.
 
 <p class='note'>
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
