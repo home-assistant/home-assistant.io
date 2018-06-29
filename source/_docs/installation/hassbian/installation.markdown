@@ -64,7 +64,7 @@ Soft blocked: yes
 Hard blocked: no
 ```
 
-To unblock it, exceute `$ sudo rfkill unblock wifi`.
+To unblock it, execute `$ sudo rfkill unblock wifi`.
 
 ### {% linkable_title Technical Details %}
 
