@@ -253,3 +253,59 @@ action:
   service: lock.unlock
   entity_id: lock.leq1234567
 ```
+
+#### {% linkable_title Detecting lost connections %}
+
+When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
+
+* If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
+
+  ```yaml
+  automation:
+    - alias: Homematic Reconnect
+      trigger:
+        platform: state
+          entity_id: sensor.outdoor_light_level
+        for:
+          hours: 3
+      action:
+        # Reconnect, if sensor has not been updated for over 3 hours
+        service: homematic.reconnect
+  ```
+* If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+
+  1. Create a string variable **V_Last_Reboot** on the CCU
+
+  2. Creata a new programm on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds:
+
+     ```javascript
+     var obj = dom.GetObject("V_Last_Reboot");
+     string now = system.Date("%d.%m.%Y %H:%M:%S");
+     obj.State(now);
+     ```
+  
+     The HomeMatic CCU will execute all active programs which meet their conditions (none in this case) on every reboot.
+
+  3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
+
+     ```yaml
+     - platform: template
+       sensors:
+         v_last_reboot:
+           value_template: "{% raw %}{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}{% endraw %}"
+           icon_template: "mdi:clock"
+           entity_id: homematic.ccu2
+     ```
+
+  4. Set up an automation which calls *homematic.reconnect* whenever the sensor variable changes:
+
+     ```yaml
+     automation:
+       - alias: Homematic CCU Reboot
+         trigger:
+           platform: state
+           entity_id: sensor.v_last_reboot
+         action:
+           service: homematic.reconnect
+     ```
+
