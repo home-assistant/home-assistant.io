@@ -19,18 +19,18 @@ Verified to work with:
 
 - Azur 851N
 
-If your non-listed device works with this this platform, if you encounter any bugs, or want to request a specific feature, please feel free to [report them upstream](https://github.com/sebk-666/stream_magic)
+If your non-listed device works with this platform, if you encounter any bugs, or want to request a specific feature, please feel free to [report them upstream](https://github.com/sebk-666/stream_magic)
 
 A few notes:
 
-- The platform currently does not support the pre-amp features of the player, i.e. no controls for volume, muting, balance and such are currently available.
+- The platform currently does not support the pre-amp features of the player, i.e., no controls for volume, muting, balance and such are currently available.
 - The sources menu lets you choose between the (Internet radio) presets you set your player up with. It's currently not possible to switch the actual digital inputs with this platform.
 
 
 ## {% linkable_title Configuration %}
 
 The platform will be loaded automatically by the discovery component.
-In that case no further configuration is required.
+In that case, no further configuration is required.
 
 To configure it manually, add the following to your `configuration.yaml` file:
 
@@ -51,7 +51,7 @@ host:
   required: false
   type: string
 poweroff_command:
-  description: Lets you choose what happens when you power off the player using the platform. OFF turns the player off completely, IDLE sends it into network standby mode. With IDLE the player consumes more power in standby, but can be turned on remotely.
+  description: Lets you choose what happens when you power off the player using the platform. OFF turns the player off completely, IDLE sends it into network standby mode. With IDLE the player consumes more power in standby but can be turned on remotely.
   required: false
   type: string
   default: OFF
