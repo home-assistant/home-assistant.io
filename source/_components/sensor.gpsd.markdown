@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GPSD"
-description: "Instructions how to integrate GPSD into Home Assistant."
+description: "Instructions on how to integrate GPSD into Home Assistant."
 date: 2016-07-18 07:00
 sidebar: true
 comments: false

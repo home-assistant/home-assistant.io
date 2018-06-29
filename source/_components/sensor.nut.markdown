@@ -28,19 +28,46 @@ sensor:
       - battery.runtime
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name prefix for defined sensors. Defaults to 'NUT UPS'.
-- **host** (*Optional*): The host name or address of the device that is running NUT. Defaults to localhost.
-- **port** (*Optional*): The port number. Defaults to 3493.
-- **alias** (*Optional*): Name of the ups on the NUT server. Will default to the first UPS name listed.
-- **username** (*Optional*): Username to login to the NUT server. Default is none.
-- **password** (*Optional*): Password to login to the NUT server. Default is none.
-- **resources** array (*Required*): Contains all entries to display.
+{% configuration %}
+  name:
+    description: Name prefix for defined sensors.
+    required: false
+    default: 'NUT UPS'
+    type: string
+  host:
+    description: The host name or IP address of the device that is running NUT.
+    required: false
+    default: localhost
+    type: string
+  port:
+    description: The port number.
+    required: false
+    default: 3493
+    type: int
+  alias:
+    description: Name of the ups on the NUT server.
+    required: false
+    default: Will default to the first UPS name listed.
+    type: string
+  username:
+    description: Username to login to the NUT server.
+    required: false
+    default: none
+    type: string
+  password:
+    description: Password to login to the NUT server.
+    required: false
+    default: none
+    type: string
+  resources:
+    description: Contains all entries to display.
+    required: true
+    type: list
+{% endconfiguration %}
 
 ### {% linkable_title Example  %}
 
-Given the following example output from NUT (Your variables may differ):
+Given the following example output from NUT (your variables may differ):
 
 ```yaml
 $ upsc ups_name@192.168.11.5
@@ -98,4 +125,15 @@ sensor:
       - ups.realpower.nominal
       - input.voltage
       - battery.runtime
+```
+
+### {% linkable_title UPS Status - human-readable version %}
+
+An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
+
+```yaml
+sensor:
+  - platform: nut
+    resources:
+      - ups.status.display
 ```

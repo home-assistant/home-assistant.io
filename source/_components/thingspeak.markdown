@@ -12,12 +12,12 @@ ha_category: "History"
 ha_release: 0.32
 ---
 
-The `thingspeak` components makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/). 
-For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB component](https://home-assistant.io/components/influxdb/).
+The `thingspeak` components makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).
+For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB component](/components/influxdb/).
 
 You will have to create a [new channel](https://thingspeak.com/channels/new) on ThingSpeak and grab your Write API Key from the "API Keys" tab of the channel you want to use.
 
-To setup the ThinkSpeak component in your installation, add the following to your `configuration.yaml` file:
+To setup the ThingSpeak component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -39,6 +39,6 @@ zoneminder:
   path: ZM_PATH
   path_zms: ZM_PATH_ZMS
   ssl: False
-  username: USERNAME
-  password: PASSWORD
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```

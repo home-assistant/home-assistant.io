@@ -10,20 +10,14 @@ footer: true
 redirect_from: /cookbook/tor_configuration/
 ---
 
-This is an example about how you can configure Tor to provide secure remote access to your Home Assistant instance as an Onion site, through [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en) feature. With this enabled, you do not need to open your firewall ports or setup HTTPS to enable secure remote access.
+This article guides your through the configuration of Tor to provide a secure access to your Home Assistant instance as an Onion site, through [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en) feature, from remote. With this enabled, you do not need to open your firewall ports or setup HTTPS to enable secure remote access.
 
 This is useful if you want to have:
 
- * Access your Home Assistant instance remotely without opening a firewall port or setting up a VPN
- * Don't want to or know how to get an SSL/TLS certificate and HTTPS configuration setup
- * Want to block attackers from even being able to access/scan your port and server at all
- * Want to block anyone from knowing your home IP address and seeing your traffic to your Home Assistant
-
-## {% linkable_title Background and Contact %}
-
-This configuration is part of an effort to apply strong cryptography technologies (like Onion Routing and End-to-End Encryption) to technology we increasingly depend on in our day to day lives. Just like when WhatsApp enabled end-to-end encryption messaging for everyone, every home automation and IoT platform should do the same, because A) the technology is all there, freely licensed and open-source and B) up to this point, all the commercial manufacturers have been doing a horrific job with security.
-
-You can learn more about how Tor can be used to secure home automation and IoT platforms through this short set of slides on the [Internet of Onion Things](https://github.com/n8fr8/talks/blob/master/onion_things/Internet%20of%20Onion%20Things.pdf)
+ * Access your Home Assistant instance remotely without opening a firewall port or setting up a VPN.
+ * Don't want to or know how to get an SSL/TLS certificate and HTTPS configuration setup.
+ * Want to block attackers from even being able to access/scan your port and server at all.
+ * Want to block anyone from knowing your home IP address and seeing your traffic to your Home Assistant.
 
 ## {% linkable_title Hidden Services and Onion Sites %}
 
@@ -61,7 +55,7 @@ The "stealth" entry above ensures traffic to and from your Home Assistant instan
 Then, restart Tor:
 
 ```bash
-$ sudo /etc/init.d/tor restart
+$ sudo systemctl restart tor
 ```
 
 Then read the new generated authentication cookie from the Tor-generated hostname file:
@@ -88,7 +82,7 @@ Add the authentication cookie to your `torrc` client configuration on your lapto
 HidServAuth abcdef1234567890.onion ABCDEF1122334455667789
 ```
 
-For Tor Browser on Windows, Mac or Linux, you can find the torrc file here: `<tor browser install directory>/Browser/TorBrowser/Data/Tor/torrc-defaults`
+For Tor Browser on Windows, Mac or Linux, you can find the torrc file here: `<tor browser install directory>/Browser/TorBrowser/Data/Tor/torrc`
 
 Once you have added the entry, restart the browser, and then browse to the "dot onion" site address to connect to your Home Assistant instance.
 
@@ -105,6 +99,4 @@ If you always access your Home Assistant instance via Tor, you can easily run th
 You could also use Tor as a means to connect your Home Assistant instance to a remote device, sensor or other service that you do not want to or connect provide a direct, open IP connection to. Again, Tor provides authenticated and confidential routing (aka "privacy and encryption") by default, without having to setup TLS/SSL or VPN. It is just important to secure IoT nodes within your network, as it is to secure remote access!
 
 As mentioned, with Orbot on Android, you can enable a "full device" VPN mode, that allows any app you have to tunnel through Tor, even if it is not Tor or proxy aware. This means you should be able to enter your "dot onion" Onion site address into any app you want to access to your Home Assistant instance, and it should work.
-
-This configuration was provided by @n8fr8 ([github](https://github.com/n8fr8), [twitter](https://twitter.com/n8fr8)) of the [Guardian Project](https://guardianproject.info) and [Tor Project](https://torproject.org). You can send questions, feedback and ideas to [support@guardianproject.info](mailto:support@guardianproject.info).
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera Switch"
-description: "Instructions how to integrate Vera switches into Home Assistant."
+description: "Instructions on how to integrate Vera switches into Home Assistant."
 date: 2015-10-20 21:00
 sidebar: true
 comments: false

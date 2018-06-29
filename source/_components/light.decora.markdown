@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Decora"
+title: "Leviton Decora"
 description: "Instructions on how to setup Leviton Decora Bluetooth dimmers within Home Assistant."
 date: 2017-01-18 22:45
 sidebar: true
@@ -33,7 +33,7 @@ Configuration variables:
 - **devices** array (*Required*): A list of lights to use.
   - **[mac address]** (*Required*): The bluetooth address of the switch.
     - **name** (*Optional*): The custom name to use in the frontend.
-    - **api_key** (*Required*): The API key to acces the device.
+    - **api_key** (*Required*): The API key to access the device.
 
 <p class='note'>
 If you get an error looking like this:
@@ -52,5 +52,5 @@ Jun 20 19:41:18 androlapin hass[29588]: OSError: [Errno 8] Exec format error
 1. Go to your `.homeassistant` folder
 2. Then go to `deps/bluepy` subfolder.
 3. Then run `make all`
-4. Restart home assistant
+4. Restart Home Assistant
 </p>

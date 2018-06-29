@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Eventstream"
-description: "Instructions how to setup MQTT eventstream within Home Assistant."
+description: "Instructions on how to setup MQTT eventstream within Home Assistant."
 date: 2016-01-13 08:00
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt_eventstream` component connects two Home Assistant instances via MQTT.
 
+## {% linkable_title Configuration %}
+
 To integrate MQTT Eventstream into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -24,12 +26,22 @@ mqtt_eventstream:
   subscribe_topic: OtherHaServerName
 ```
 
-Configuration variables:
+{% configuration %}
+publish_topic:
+  description: Topic for publishing local events.
+  required: false
+  type: string
+subscribe_topic:
+  description: Topic to receive events from the remote server.
+  required: false
+  type: string
+ignore_event:
+  description: Ignore sending these [events](/docs/configuration/events/) over mqtt.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **publish_topic** (*Optional*): Topic for publishing local events
-- **subscribe_topic** (*Optional*): Topic to receive events from the remote server.
-
-## Multiple Instances
+## {% linkable_title Multiple Instances %}
 
 Events from multiple instances can be aggregated to a single master instance by subscribing to a wildcard topic from the master instance.
 
@@ -38,6 +50,9 @@ Events from multiple instances can be aggregated to a single master instance by 
 mqtt_eventstream:
   publish_topic: master/topic
   subscribe_topic: slaves/#
+  ignore_event:
+    - call_service
+    - state_changed
 ```
 
 For a multiple instance setup, each slave would publish to their own topic.

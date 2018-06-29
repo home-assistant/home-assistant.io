@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Locative"
-description: "Instructions how to use Locative to track devices in Home Assistant."
+description: "Instructions on how to use Locative to track devices in Home Assistant."
 date: 2015-10-13 19:00
 sidebar: true
 comments: false
@@ -10,6 +10,10 @@ footer: true
 logo: locative.png
 ha_category: Presence Detection
 ---
+
+<p class='note'>
+Locative is no longer under active development. See https://blog.locative.io/bye-everyone-df01871fe949
+</p>
 
 This platform allows you to detect presence using [Locative](https://my.locative.io/). Locative is an open source app for [iOS](https://github.com/LocativeHQ/ios-app) and [Android](https://github.com/LocativeHQ/Locative-Android) that allows users to set up a `GET` or `POST` request when a geofence is entered or exited. This can be configured with Home Assistant to update your location.
 

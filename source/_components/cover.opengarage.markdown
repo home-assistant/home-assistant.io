@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenGarage Cover"
-description: "Instructions how to integrate OpenGarage.io covers within Home Assistant."
+description: "Instructions on how to integrate OpenGarage.io covers within Home Assistant."
 date: 2017-04-07 14:25
 sidebar: true
 comments: false

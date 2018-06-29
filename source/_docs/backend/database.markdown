@@ -10,8 +10,8 @@ footer: true
 redirect_from: /details/database/
 ---
 
-The default database that is used for Home Assistant is [SQLite](https://www.sqlite.org/) and is stored in your [configuration directory](/getting-started/configuration/), eg. `<path to config dir>/.homeassistant/home-assistant_v2.db`. You will need an installation of `sqlite3`, the command-line for SQLite database, or [DB Browser for SQLite](http://sqlitebrowser.org/) which provide an editor for executing SQL commands.
-First load your database with `sqlite3`.
+The default database that is used for Home Assistant is [SQLite](https://www.sqlite.org/) and is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/.homeassistant/home-assistant_v2.db`). You will need an installation of `sqlite3`, the command-line for SQLite database, or [DB Browser for SQLite](http://sqlitebrowser.org/), which provides an editor for executing SQL commands.
+First load your database with `sqlite3`:
 
 ```bash
 $ sqlite3 home-assistant_v2.db 
@@ -20,7 +20,7 @@ Enter ".help" for usage hints.
 sqlite> 
 ```
 
-It helps to set some options to make the output better readable.
+It helps to set some options to make the output more readable:
 
 ```bash
 sqlite> .header on
@@ -38,7 +38,7 @@ seq  name             file
 
 ### {% linkable_title Schema %}
 
-Get all available tables from your current Home Assistant database.
+Get all available tables from your current Home Assistant database:
 
 ```bash
 sqlite> SELECT sql FROM sqlite_master;
@@ -81,7 +81,7 @@ CREATE INDEX states__state_changes ON states (last_changed, last_updated, entity
 CREATE TABLE sqlite_stat1(tbl,idx,stat) 
 ```
 
-To only show the details about the `states` table as we are using that one in the next examples.
+To only show the details about the `states` table (since we are using that one in the next examples):
 
 ```bash
 sqlite> SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'states';
@@ -89,7 +89,7 @@ sqlite> SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'state
 
 ### {% linkable_title Query %}
 
-The identification of the available columns in the table is done and we are now able to create a query. Let's list of your Top 10 entities.
+The identification of the available columns in the table is done and we are now able to create a query. Let's list your Top 10 entities:
 
 ```bash
 sqlite> .width 30, 10,
@@ -110,7 +110,7 @@ group.all_switches              8018
 
 ### {% linkable_title Delete %}
 
-If you don't want to keep certain entities, you can delete them permanently.
+If you don't want to keep certain entities, you can delete them permanently:
 
 ```bash
 sqlite> DELETE FROM states WHERE entity_id="sensor.cpu";
@@ -123,4 +123,3 @@ sqlite> VACUUM;
 ```
 
 For a more interactive way to work with the database or the create statistics, checkout our [Jupyter notebooks](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/tree/master/).
-

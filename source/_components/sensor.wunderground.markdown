@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Weather Underground (WUnderground)"
-description: "Instructions how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
+description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
 date: 2016-08-18
 sidebar: true
 comments: false
@@ -17,7 +17,7 @@ ha_iot_class: "Cloud Polling"
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information. 
 
 <p class='note warning'>
-Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). A free account allows 500 requests per day and also a maximum of 10 per minute. See details [here](https://www.wunderground.com/weather/api/d/pricing.html).
+Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for, at this time existing free keys will continue to work, but may be disabled in the future.
 </p>
 
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:
@@ -37,7 +37,7 @@ Configuration variables:
 - **api_key** (*Required*): The API key for Weather Underground. See above for details.
 - **pws_id** (*Optional*): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
 - **lang** (*Optional*): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://www.wunderground.com/weather/api/d/docs?d=language-support). If not specified, it defaults to English (EN).
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specificed). Defaults to coordinates defined in your `configuration.yaml`.
+- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml`.
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml`.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **alerts**: Current severe weather advisories
@@ -56,22 +56,22 @@ Configuration variables:
   - **precip_today_in**: Total precipitation in inches
   - **precip_today_metric**: Total precipitation in metric units
   - **precip_today_string**: Text summary of precipitation today
-  - **precip_1d_mm** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in milimeters
+  - **precip_1d_mm** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in millimeters
   - **precip_1d_in** [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in inches
   - **precip_1d** [<sup>[1d]</sup>](#1d): Forecasted precipitation probability in %
   - **pressure_in**: Atmospheric air pressure in inches
   - **pressure_mb**: Atmospheric air pressure in millibars
-  - **pressure_trend**: Atmospheric air presure trend signal (+/-)
+  - **pressure_trend**: Atmospheric air pressure trend signal (+/-)
   - **relative_humidity**: Relative humidity
   - **station_id**: Your personal weather station (PWS) ID
   - **solarradiation**: Current levels of solar radiation
-  - **temperature_string**: Temperature text combinding Fahrenheit and Celsius
+  - **temperature_string**: Temperature text combining Fahrenheit and Celsius
   - **temp_c**: Current temperature in Celsius
   - **temp_f**: Current temperature in Fahrenheit
-  - **temp_high_record_c**: Maximum temperature meassured in Celsius
-  - **temp_high_record_f**: Maximum temperature meassured in Fahrenheit
-  - **temp_low_record_c**: Minimal temperature meassured in Celsius
-  - **temp_low_record_f**: Minimal temperature meassured in Fahrenheit
+  - **temp_high_record_c**: Maximum temperature measured in Celsius
+  - **temp_high_record_f**: Maximum temperature measured in Fahrenheit
+  - **temp_low_record_c**: Minimal temperature measured in Celsius
+  - **temp_low_record_f**: Minimal temperature measured in Fahrenheit
   - **temp_high_avg_c**: Average high for today in Celsius
   - **temp_high_avg_f**: Average high for today in Fahrenheit
   - **temp_low_avg_c**: Average low for today in Celsius
@@ -86,7 +86,7 @@ Configuration variables:
   - **weather**: A human-readable text summary with picture from Wunderground.
   - **weather_1d** [<sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units.
   - **weather_1d_metric** [<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units.
-  - **weather_1h** [<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g. "Thunderstorm" etc.)
+  - **weather_1h** [<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)
   - **wind_degrees**: Wind degrees
   - **wind_dir**: Wind direction
   - **wind_gust_kph**: Wind gusts speed in kph
@@ -105,7 +105,7 @@ All the conditions listed above will be updated every 5 minutes.
 
 _12 hour forecasts_
 
-Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g. `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
+Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g., `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
 
 _Daily forecasts_
 
@@ -115,7 +115,7 @@ in `_1d_` part of the sensor name. Valid values are from `1` to `4`.
 _Hourly forecasts_
 
 Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
-in the `_1h_` part of the sensor name with `1` to `36`. E.g. `weather_24h` will give you weather in 24 hours.
+in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will give you weather in 24 hours.
 
 ### {% linkable_title Additional examples %}
 
@@ -158,7 +158,7 @@ group:
 ```yaml
 sensor:
   - platform: wunderground
-  - api_key: your_api_key
+    api_key: your_api_key
     monitored_conditions:
       - temp_high_record_c
       - temp_high_1d_c

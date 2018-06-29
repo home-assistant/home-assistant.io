@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ping (ICMP)"
-description: "Instructions how to integrate Ping (ICMP)-based presence detection into Home Assistant."
+description: "Instructions on how to integrate Ping (ICMP)-based presence detection into Home Assistant."
 date: 2017-01-06 08:00
 sidebar: true
 comments: false

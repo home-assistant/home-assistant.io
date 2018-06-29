@@ -10,6 +10,7 @@ footer: true
 logo: ring.png
 ha_category: Binary Sensor
 ha_release: 0.42
+ha_iot_class: "Cloud Polling"
 ---
 
 To get your [Ring.com](https://ring.com/) binary sensors working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring).
@@ -20,15 +21,12 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 binary_sensor:
   - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
 ```
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
   - **ding**: Return a boolean value when the doorbell button was pressed.
-  - **motion**: Return a boolean value when a moviment was detected by the Ring doorbell.
+  - **motion**: Return a boolean value when a movement was detected by the Ring doorbell.
 
-Currently only doorbells are supported by this sensor.
+Currently it supports doorbell, external chimes and stickup cameras.

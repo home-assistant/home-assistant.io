@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "File Sensor"
-description: "Instructions how to integrate sensors which read from files into Home Assistant."
+description: "Instructions on how to integrate sensors which read from files into Home Assistant."
 date: 2017-05-13 12:10
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.45
 ---
 
 
-The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line.
+The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
 To enable the `file` sensor, add the following lines to your `configuration.yaml`:
 

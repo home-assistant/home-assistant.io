@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on lights with a resettable off timer %}
+#### {% linkable_title Turn on lights with a resetable off timer %}
 
 This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.
 

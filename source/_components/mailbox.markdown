@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mailbox"
-description: "Instructions how to setup your mailboxes with Home Assistant."
+description: "Instructions on how to setup your mailboxes with Home Assistant."
 date: 2017-06-30 18:30
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ ha_version: 0.51
 footer: true
 ---
 
-Mailboxes provide an list of messages with short information about each.  Mailbox messages appear on a separate panel in the frontend.
+Mailboxes provide a list of messages with short information about each.  Mailbox messages appear on a separate panel in the frontend.
 
 Home Assistant currently supports only the [Asterisk Voicemail](/component/mailbox.asterisk_mbox) mailbox.
 

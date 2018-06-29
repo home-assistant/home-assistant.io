@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MySensors Sensor"
-description: "Instructions how to integrate MySensors sensors into Home Assistant."
+description: "Instructions on how to integrate MySensors sensors into Home Assistant."
 date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
@@ -64,7 +64,7 @@ S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC
 
 Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
 
-By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a standalone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
+By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
 
 For more information, visit the [serial api] of MySensors.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Device Tracker"
-description: "Instructions how to use MQTT to track devices in Home Assistant."
+description: "Instructions on how to use MQTT to track devices in Home Assistant."
 date: 2015-09-19 20:41
 sidebar: true
 comments: false
@@ -22,8 +22,8 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: /location/paulus
-      annetherese_n4: /location/annetherese
+      paulus_oneplus: 'location/paulus'
+      annetherese_n4: 'location/annetherese'
 ```
 
 Configuration variables:
@@ -32,7 +32,7 @@ Configuration variables:
 - **qos** (*Optional*): The QoS level of the topic.
 
 
-Example JSON you can publish to the topic (e.g. via mqtt.publish service):
+Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 
 ```json
 {

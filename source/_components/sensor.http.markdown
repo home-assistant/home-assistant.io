@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HTTP Sensor"
-description: "Instructions how to integrate HTTP sensors within Home Assistant."
+description: "Instructions on how to integrate HTTP sensors within Home Assistant."
 date: 2016-02-05 12:15
 sidebar: true
 comments: false
@@ -12,6 +12,11 @@ ha_category: Sensor
 ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
+
+
+The HTTP sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
+ 
+The sensor will then exist as long as Home Assistant is running. After a restart of Home Assistant the sensor will be gone until it is triggered again.
 
 The URL for a sensor looks like the example below:
 

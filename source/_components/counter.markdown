@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Counter"
-description: "Instructions how to integrate counters into Home Assistant."
+description: "Instructions on how to integrate counters into Home Assistant."
 date: 2017-08-26 06:00
 sidebar: true
 comments: false
@@ -19,27 +19,26 @@ To add a counter to your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 counter:
-  counter:
+  my_custom_counter:
     initial: 30
     step: 1
 ```
 
 Configuration variables:
 
-- **[alias]** (*Required*): Alias for the slider input. Multiple entries are allowed.
-  - **name** (*Optional*): Friendly name of the slider input.
+- **[alias]** (*Required*): Alias for the counter. Multiple entries are allowed.
+  - **name** (*Optional*): Friendly name of the counter.
   - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
-  - **step** (*Optional*): Step value for the slider. Defaults to 1.
+  - **step** (*Optional*): Incremental/step value for the counter. Defaults to 1 (increments by 1).
   - **icon** (*Optional*): Icon for entry.
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Media control services %}
 Available services: `increment`, `decrement`, and `reset`.
 
-#### {% linkable_title Service `counter/increment` %}
+#### {% linkable_title Service `counter.increment` %}
 
 Increments the counter with 1 or the given value for the steps.
 
@@ -47,7 +46,7 @@ Increments the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter/decrement` %}
+#### {% linkable_title Service `counter.decrement` %}
 
 Decrements the counter with 1 or the given value for the steps.
 
@@ -55,7 +54,7 @@ Decrements the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter/reset` %}
+#### {% linkable_title Service `counter.reset` %}
 
 With this service the counter is reset to its initial value.
 
@@ -70,7 +69,7 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 
 ```json
 {
-  "entitiy": "counter.count0"
+  "entity_id": "counter.count0"
 }
 ```
 

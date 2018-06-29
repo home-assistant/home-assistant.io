@@ -22,7 +22,7 @@ The voting is now open. To keep things simple are we using the voting feature of
 
 End of the voting period: April, 30 2017 - 23.59 UTC
 
-[hardware]: https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/
+[hardware]: /blog/2017/04/01/thomas-krenn-award/
 [award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
 [forum]: https://community.home-assistant.io/c/contest-2017
 [twitter]: https://twitter.com/home_assistant

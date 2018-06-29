@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Shell command"
-description: "Instructions how to integrate Shell commands into Home Assistant."
+description: "Instructions on how to integrate Shell commands into Home Assistant."
 date: 2015-10-13 19:10
 sidebar: true
 comments: false
@@ -12,6 +12,7 @@ logo: home-assistant.png
 ---
 
 This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].
+Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 [script]: /components/script/
 [automation]: /getting-started/automation/
@@ -32,6 +33,8 @@ The commands can be dynamic, using templates to insert values for arguments. Whe
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
+`stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/components/logger/) to debug.
+
 ```yaml
 
 # Apply value of a GUI slider to the shell_command
@@ -39,11 +42,11 @@ automation:
   - alias: run_set_ac
     trigger:
       platform: state
-      entity_id: input_slider.ac_temperature
+      entity_id: input_number.ac_temperature
     action:
       service: shell_command.set_ac_to_slider
 
-input_slider:
+input_number:
   ac_temperature:
     name: A/C Setting
     initial: 24
@@ -53,6 +56,6 @@ input_slider:
     
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state }}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_number.ac_temperature.state }}_AUTO'
 {% endraw %}
 ```

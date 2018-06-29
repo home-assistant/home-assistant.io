@@ -14,4 +14,4 @@ After upgrading to a new version, you may notice your browser gets stuck at the 
 
 Android Chrome 
 
-chrome -> settings -> site settings -> storage -> search for your URL for home assistant-> "clear & reset"
+chrome -> settings -> site settings -> storage -> search for your URL for Home Assistant-> "clear & reset"

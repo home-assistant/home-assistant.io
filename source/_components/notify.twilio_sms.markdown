@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Twilio SMS"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2016-05-14 14:14
 sidebar: true
 comments: false
@@ -47,6 +47,6 @@ automation:
       data:
         message: 'The sun has set'
         target:
-          - +14151234567
-          - +15105555555
+          - '+14151234567'
+          - '+15105555555'
 ```

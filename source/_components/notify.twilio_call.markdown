@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Twilio Call"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2017-01-27 00:09
 sidebar: true
 comments: false

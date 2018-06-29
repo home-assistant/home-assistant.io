@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Proliphix Thermostat"
-description: "Instructions how to integrate Proliphix thermostats within Home Assistant."
+description: "Instructions on how to integrate Proliphix thermostats within Home Assistant."
 date: 2016-01-15 08:00
 sidebar: true
 comments: false
@@ -36,6 +36,6 @@ Configuration variables:
 - **username** (*Required*): Username for the thermostat.
 - **password** (*Required*): Password for the thermostat.
 
-The Proliphix NT Thermostat series are ethernet connected thermostats. They have a local HTTP interface that is based on get/set
+The Proliphix NT Thermostat series are Ethernet connected thermostats. They have a local HTTP interface that is based on get/set
 of OID values. A complete collection of the API is available in this [API documentation](https://github.com/sdague/thermostat.rb/blob/master/docs/PDP_API_R1_11.pdf).
 

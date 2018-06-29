@@ -17,8 +17,8 @@ The `lifx_cloud` scene platform allows you to activate the scenes that LIFX smar
 ```yaml
 # Example configuration.yaml entry
 scene:
-  platform: lifx_cloud
-  token: YOUR_LIFX_TOKEN
+  - platform: lifx_cloud
+    token: YOUR_LIFX_TOKEN
 ```
 
 Configuration variables:

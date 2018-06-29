@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kodi"
-description: "Instructions how to integrate Kodi into Home Assistant."
+description: "Instructions on how to integrate Kodi into Home Assistant."
 date: 2015-06-22 11:00
 sidebar: true
 comments: false
@@ -17,7 +17,9 @@ ha_iot_class: "Local Push"
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
-To add Kodi to your installation, add the following to your `configuration.yaml` file:
+The preferred way to set up the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+
+In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -164,7 +166,7 @@ media_player:
         method: System.Shutdown
 ```
 
-#### Turn on and off the TV with the Kodi JSON-CEC Addon
+#### Turn on and off the TV with the Kodi JSON-CEC Add-on
 
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 
@@ -246,4 +248,4 @@ script:
           method: VideoLibrary.Scan
 ```
 
-For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/kodi_dynamic_input_select/)
+For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/automation_kodi_dynamic_input_select/)

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NZBGet"
-description: "Instructions how to integrate NZBGet within Home Assistant."
+description: "Instructions on how to integrate NZBGet within Home Assistant."
 date: 2016-04-08 19:59
 sidebar: true
 comments: false
@@ -36,7 +36,7 @@ Configuration variables:
 - **name** (*Optional*): The prefix to use for your sensor. Defaults to NZBGet.
 - **username** (*Optional*): The username to access your NZBGet installation.
 - **password** (*Optional*): The password to access your NZBGet installation.
-- **monitored_variables** arrary (*Required*): List of monitored details.
+- **monitored_variables** array (*Required*): List of monitored details.
   - **article_cache**: Number of cached articles.
   - **average_download_rate**: Average download rate
   - **download_paused**: Paused downloads

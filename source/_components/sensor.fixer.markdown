@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fixer.io"
-description: "Instructions how to integrate exchange rates from Fixer.io within Home Assistant."
+description: "Instructions on how to integrate exchange rates from Fixer.io within Home Assistant."
 date: 2016-06-20 10:00
 sidebar: true
 comments: false
@@ -27,9 +27,19 @@ sensor:
     target: CHF
 ```
 
-Configuration variables:
-
-- **target** (*Required*): The symbol of the target currency.
-- **name** (*Optional*): Name to use in the frontend.
-- **base** (*Optional*): The symbol of the base currency. Default to USD 
-
+{% configuration %}
+target:
+  description: The symbol of the target currency.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: Exchange rate
+base:
+  description: The symbol of the base currency.
+  required: false
+  type: string
+  default: USD
+{% endconfiguration %}

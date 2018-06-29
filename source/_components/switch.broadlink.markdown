@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Broadlink RM Switch"
-description: "Instructions how to have Broadlink RM switches."
+description: "Instructions on how to have Broadlink RM switches."
 date: 2016-11-22 22:41
 sidebar: true
 comments: false
@@ -31,19 +31,24 @@ Configuration variables:
 - **mac** (*Required*):  Device MAC address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device.
 - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` or `spminiplus`.
+- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`.
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
     - **command_on** (*Required*): Base64 encoded packet from RM device to take for on.
     - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
+- **slots** (*Optional*): Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
+  - **slot_1** (*Optional*)
+  - **slot_2** (*Optional*)
+  - **slot_3** (*Optional*)
+  - **slot_4** (*Optional*)
 
-Information about how to install on Windows can be found [here](https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation)
+Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
 
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
-Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -85,8 +90,8 @@ switch:
         friendly_name: "Phillips Tv"
         command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
         command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
-``` 
- 
+```
+
 Example config for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` and `spminiplus` devices:
 
 ```yaml
@@ -101,11 +106,29 @@ switch:
     mac: 'MAC_ADDRESS'
     type:  sp2
     friendly_name: 'Humidifier'
-``` 
+```
 
-### {% linkable_title Service `send_packet` %}
+Example config for `mp1` device:
 
-You can use the service broadlink/send_packet to directly send IR packets without the need to assign a switch entity for each command. 
+```yaml
+switch:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+    type: mp1
+    friendly_name: 'MP1'
+    slots:
+      # friendly name of slots - optional
+      # if not set, slot name will be switch's friendly_name + 'slot {slot_index}'. e.g 'MP1 slot 1'
+      slot_1: 'TV slot'
+      slot_2: 'Xbox slot'
+      slot_3: 'Fan slot'
+      slot_4: 'Speaker slot'
+```
+
+### {% linkable_title Service `broadlink_send_packet` %}
+
+You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -117,12 +140,12 @@ Example:
 script:
   tv_select_source:
     sequence:
-      - service: broadlink.send_packet_192_168_0_107
+      - service: switch.broadlink_send_packet_192_168_0_107
         data:
-          packet: 
+          packet:
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
-``` 
+```
 
 ### {% linkable_title Using E-Control Remotes %}
 
@@ -145,7 +168,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     jsonSubIr
     jsonButton
     jsonIrCode
-  
+
 4. Install Requirements
 
     Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
@@ -161,7 +184,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
   3. `sudo python setup.py install`
 
 7. Test the codes
-Use the `sendcode` script you have already downloded to test the codes you got from the device.
+Use the `sendcode` script you have already downloaded to test the codes you got from the device.
 You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
 When run the script, you know the code works when get message .
 Code sent...

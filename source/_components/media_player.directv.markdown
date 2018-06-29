@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DirecTV"
-description: "Instructions how to integrate DirecTV receivers into Home Assistant."
+description: "Instructions on how to integrate DirecTV receivers into Home Assistant."
 date: 2016-07-19 01:0+0000
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.25
 ha_iot_class: "Local Polling"
 ---
 
-Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
+Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
 
 To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
 

@@ -15,7 +15,7 @@ ha_release: 0.31
 
 The `telstra` notification platform allows you to deliver Home Assistant notifications to Australian phone numbers over the [Telstra SMS API](https://dev.telstra.com/content/sms-api-0).
 
-To enable the Telstra notifications in your installation, you must first create an account and API app over at [dev.telstra.com](https://dev.telstra.com/). The free tier allows for 1000 notifications to be sent per month.
+To enable the Telstra notifications in your installation, you must first create an account and API app over at [dev.telstra.com](https://dev.telstra.com/). The free tier allows for a maximum of 1000 free messages.
 
 After your API app is approved, add the following to your `configuration.yaml` file:
 

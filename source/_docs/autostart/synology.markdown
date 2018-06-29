@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart on Synology NAS boot"
-description: "Instructions how to setup Home Assistant to launch on boot on Synology NAS."
+description: "Instructions on how to setup Home Assistant to launch on boot on Synology NAS."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false
@@ -38,13 +38,13 @@ exec /bin/sh /volume1/homeassistant/hass-daemon start
 Register the autostart
 
 ```bash
-$ ln -s homeassistant-conf /etc/init/homeassistant-conf
+$ ln -s homeassistant.conf /etc/init/homeassistant.conf
 ```
 
 Make the relevant files executable:
 
 ```bash
-$ chmod -r 777 /etc/init/homeassistant-conf
+$ chmod -r 777 /etc/init/homeassistant.conf
 ```
 
 That's it - reboot your NAS and Home Assistant should automatically start

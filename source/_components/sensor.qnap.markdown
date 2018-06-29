@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "QNAP Sensor"
-description: "Instructions how to integrate the QNAP sensor within Home Assistant."
+description: "Instructions on how to integrate the QNAP sensor within Home Assistant."
 date: 2017-02-02 06:39
 sidebar: true
 comments: false
@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
+## {% linkable_title Configuration %}
+
 To use the `qnap` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: qnap
     host: IP_ADDRESS_OF_QNAP_NAS
@@ -70,6 +72,7 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 
 This component has been tested on the following devices:
 
+ - TS-259 Pro+ (QTS 4.2.6)
  - TS-410 (QTS 4.2.3)
  - TS-419 (QTS 4.2.3)
  - TS-451 (QTS 4.2.2)

@@ -13,7 +13,7 @@ This example demonstrates how you can configure NGINX to act as a proxy for Home
 
 This is useful if you want to have:
 
- * a subdomain redirecting to your home assistant instance
+ * a subdomain redirecting to your Home Assistant instance
  * several subdomain for several instance
  * HTTPS redirection
 
@@ -63,8 +63,8 @@ You already have Home Assistant running on http://localhost:8123 and available a
 You want another instance available at https://countryside.example.org
 
 You can either :
- * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run home assistant as this new user
- * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run home assistant using `hass --config /home/alice/.homeassistant2/`
+ * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run Home Assistant as this new user
+ * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
 
 In both solution, change port number used by modifying `configuration.yaml` file.
 

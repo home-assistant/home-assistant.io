@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart using Upstart"
-description: "Instructions how to setup Home Assistant to launch on boot using Upstart."
+description: "Instructions on how to setup Home Assistant to launch on boot using Upstart."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false
@@ -35,7 +35,7 @@ Upstart will launch init scripts that are located in the directory `/etc/init.d/
 #
 # Installation:
 #   1) If any commands need to run before executing hass (like loading a
-#      virutal environment), put them in PRE_EXEC. This command must end with
+#      virtual environment), put them in PRE_EXEC. This command must end with
 #      a semicolon.
 #   2) Set RUN_AS to the username that should be used to execute hass.
 #   3) Copy this script to /etc/init.d/

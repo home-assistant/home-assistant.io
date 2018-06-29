@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Facebook Messenger"
-description: "Instructions how to add Facebook user notifications to Home Assistant."
+description: "Instructions on how to add Facebook user notifications to Home Assistant."
 date: 2016-12-31 14:14
 sidebar: true
 comments: false
@@ -46,15 +46,60 @@ automation:
       data:
         message: 'Good Evening'
         target:
-          - +919413017584
-          - +919784516314
+          - '+919413017584'
+          - '+919784516314'
+```
+
+You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
+
+```php
+<?php
+
+$access_token = "";
+$verify_token = "";
+
+if (isset($_REQUEST['hub_challenge'])) {
+    $challenge        = $_REQUEST['hub_challenge'];
+    $hub_verify_token = $_REQUEST['hub_verify_token'];
+
+    if ($hub_verify_token === $verify_token) {
+        echo $challenge;
+    }
+}
+
+$input   = json_decode(file_get_contents('php://input'), true);
+$sender  = $input['entry'][0]['messaging'][0]['sender']['id'];
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
+
+if (preg_match('/get my id/', strtolower($message))) {
+    $url      = 'https://graph.facebook.com/v2.10/me/messages?access_token=' . $access_token;
+    $ch       = curl_init($url);
+    $jsonData = '{
+        "recipient":{
+            "id":"' . $sender . '"
+        },
+        "message":{
+            "text":"Your ID: ' . $sender . '"
+        }
+      }';
+
+    $jsonDataEncoded = $jsonData;
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+    if (!empty($input['entry'][0]['messaging'][0]['message'])) {
+        $result = curl_exec($ch);
+    }
+}
+
 ```
 
 ### {% linkable_title Rich messages %}
-You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types or messages and how to build them.
+You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types of messages and how to build them.
 
 ```yaml
-# Example script with a notification entry with rich message
+# Example script with a notification entry with a rich message
 
 script:
   test_fb_notification:
@@ -72,3 +117,21 @@ script:
                 title: Blue
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
 ```
+
+You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice. 
+
+To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
+
+```yaml
+- alias: Facebook Broadcast
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: notify.facebook
+    data:
+      message: Some text you want to send
+      target:
+        - BROADCAST
+```
+

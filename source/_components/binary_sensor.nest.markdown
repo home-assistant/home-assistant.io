@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nest Binary Sensor"
-description: "Instructions how to integrate Nest binary sensors within Home Assistant."
+description: "Instructions on how to integrate Nest binary sensors within Home Assistant."
 date: 2016-01-26 08:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 
@@ -39,6 +39,8 @@ Configuration variables:
 
 The following conditions are available by device:
 
+- Nest Home:
+  - away
 - Nest Thermostat:
   - online
   - fan

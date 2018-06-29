@@ -14,61 +14,37 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network. 
+The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-For this to work, you need to install a modified lib-coap library.
-
-<p class='note warning'>
-This component does **not** work on Windows, as the modified lib-coap doesn't exists for Windows.
-</p>
-<p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
-</p>
-
-Linux:
-
-```bash
-$ sudo apt-get install libtool
-$ sudo apt-get install autoconf
-
-$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-$ cd libcoap
-$ ./autogen.sh
-$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
-$ make
-$ sudo make install
-```
-
-macOS:
-
-```bash
-$ brew install libtool
-$ brew install autoconf
-$ brew install automake
-$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-$ cd libcoap
-$ ./autogen.sh
-$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
-$ make
-$ make install
-```
-You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
+You will be prompted to configure the gateway through the Home Assistant interface. Enter the security key when prompted and click configure.
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again.
+If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your Trådfri gateway.
 </p>
 
-The gateway can also be manually configured by adding the following lines to your `configuration.yaml` file:
+<p class='note'>
+  The Python version 3.4.4 or greater is required for this component. The component will not initialize without this and will report a `Could not install all requirements` error in the logs.
+</p>
+
+You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/components/discovery/) component:
 
 ```yaml
 # Example configuration.yaml entry
 tradfri:
   host: IP_ADDRESS
-  api_key: API_KEY
 ```
 
 Configuration variables:
 
  - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
- - **api_key** (*Required*): Can be found listed as Security Key on the back of the Trådfri gateway.
- - **allow_tradfri_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Tradfri bridge.
+ - **allow_tradfri_groups** (*Optional*): Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge. Defaults to `true`.
+
+<p class='note'>
+Do not use the `api_key` variable. The key is only needed once at initial setup.
+</p>
+
+<p class='note'>
+
+Please make sure you have `autoconf` installed (`apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1h) on slow devices. You might have to use `sudo` when installing `autoconf`.
+
+</p>

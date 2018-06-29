@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wake on LAN"
-description: "Instructions how to setup the Wake on LAN component in Home Assistant."
+description: "Instructions on how to setup the Wake on LAN component in Home Assistant."
 date: 2017-07-8 15:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: "0.49"
 ha_iot_class: "Local Push"
 ---
 
-The `wake_on_lan` component enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to them on.
+The `wake_on_lan` component enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to turn them on.
 
 To use this component in your installation, add the following to your `configuration.yaml` file:
 

@@ -30,7 +30,7 @@ By making a contribution to this project, I certify that:
 (d) I understand and agree that this project and the contribution
     are public and that a record of the contribution (including all
     personal information I submit with it) is maintained indefinitely
-    and may be redistributed consistent with this project or the open 
+    and may be redistributed consistent with this project or the open
     source license(s) involved.
 ```
 
@@ -47,4 +47,4 @@ If you have not signed the CLA and you submit a pull request to a repository und
 
 This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
 
-[cla-blog]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/
+[cla-blog]: /blog/2017/01/21/home-assistant-governance/

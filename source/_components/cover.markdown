@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Covers"
-description: "Instructions how to integrate covers into Home Assistant."
+description: "Instructions on how to integrate covers into Home Assistant."
 date: 2016-06-28 17:30
 sidebar: true
 comments: false

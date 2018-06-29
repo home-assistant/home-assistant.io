@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Alarm"
-description: "Instructions how to setup the Wink alarms within Home Assistant."
+description: "Instructions on how to setup the Wink alarms within Home Assistant."
 date: 2017-01-14 12:00
 sidebar: true
 comments: false

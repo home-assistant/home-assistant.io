@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Rachio Switch"
-description: "Instructions how to use Rachio switches with Home Assistant."
+description: "Instructions on how to use Rachio switches with Home Assistant."
 date: 2017-05-29 09:00
 sidebar: true
 comments: false

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tesla.png
 ha_category: Lock
-ha_iot_class: "Coud Push"
+ha_iot_class: "Cloud Push"
 ha_release: 0.53
 ---
 

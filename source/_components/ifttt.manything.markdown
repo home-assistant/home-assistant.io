@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ManyThing"
-description: "Instructions how to setup ManyThing support with IFTTT."
+description: "Instructions on how to setup ManyThing support with IFTTT."
 date: 2015-09-07 18:00
 sidebar: true
 comments: false
@@ -11,7 +11,7 @@ logo: manything.png
 ha_category: Camera
 ---
 
-[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a wifi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
+[Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a WiFi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
 To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/components/ifttt/) to activate the IFTTT Platform.
 

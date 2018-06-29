@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Switch"
-description: "Instructions how to setup the Wink switches within Home Assistant."
+description: "Instructions on how to setup the Wink switches within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -27,5 +27,4 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Rachio sprinkler controller (No Wink hub required)
 - iHome smart plug (No Wink hub required)
 - Wink switch groups (User created groups of switches)
-
 

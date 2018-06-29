@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OpenWRT (ubus)"
-description: "Instructions how to integrate OpenWRT routers into Home Assistant."
+description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: 0.7.6
 ---
 
-_This is one of the two ways we support OpenWRT. If you encounter problems, try [luci](/components/device_tracker.luci/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
 
 This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
@@ -68,6 +68,8 @@ Configuration variables:
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **username** (*Required*): The username of an user with administrative privileges, usually *root*.
 - **password** (*Required*): The password for your given account.
+- **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`. Defaults to `dnsmasq`.
+
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 

@@ -11,6 +11,10 @@ categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 ---
 
+<p class='note'>
+The instructions in this blog post are outdated. Please have a look at the <a href='/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/'>new instructions</a>.
+</p>
+
 Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.
 
 This tutorial will take you through the steps to setup a dynamic DNS for your IP and allow trusted encrypted connection to it - for free using [DuckDNS] and [Let's Encrypt].

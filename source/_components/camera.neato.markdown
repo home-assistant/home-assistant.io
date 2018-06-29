@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Camera"
-description: "Instructions how to setup the Neato cleaning maps within Home Assistant."
+description: "Instructions on how to setup the Neato cleaning maps within Home Assistant."
 date: 2017-04-05 13:10
 sidebar: true
 comments: false
@@ -14,8 +14,6 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected]
-(https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
+The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 
-The requirement is that you have setup your [Neato hub](/components/neato/).
-
+To add `neato` camera to your installation, follow instructions in [Neato component](/components/neato/).

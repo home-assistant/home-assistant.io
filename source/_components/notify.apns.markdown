@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "APNS"
-description: "Instructions how to add APNS notifications to Home Assistant."
+description: "Instructions on how to add APNS notifications to Home Assistant."
 date: 2016-09-05 23:00
 sidebar: true
 comments: false

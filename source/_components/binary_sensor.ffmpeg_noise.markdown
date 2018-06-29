@@ -39,7 +39,7 @@ Configuration variables:
 - **duration** (*Optional*): Default 1 second. How long the noise needs to be over the peak to trigger the state.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new noise is over the peak.
 - **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, like audio frequency filtering.
-- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g. to stream with Sonos after a state is triggered.
+- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
 
 To experiment with values:
 

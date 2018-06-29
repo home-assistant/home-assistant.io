@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Wifi"
-description: "Instructions how to integrate Google Wifi/OnHub routers into Home Assistant."
+description: "Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant."
 date: 2017-07-15 21:22
 sidebar: true
 comments: false
@@ -28,11 +28,11 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Optional*): The address to retreive status from the router. Defaults to `testwifi.here` (other options include `onhub.here` and your router's IP such as `192.168.86.1`).
+- **host** (*Optional*): The address to retrieve status from the router. Defaults to `testwifi.here` (other options include `onhub.here` and your router's IP such as `192.168.86.1`).
 - **name** (*Optional*): Name to give the Google Wifi sensor. Defaults to `google_wifi`.
 - **monitored_conditions** array (*Optional*): Defines the data to monitor as sensors. Defaults to all of the listed options below.
   - **current_version**: Current firmware version of the router.
-  - **new_version**: Latest availiable firmware version. If router is up-to-date, this value defaults to `Latest`.
+  - **new_version**: Latest available firmware version. If router is up-to-date, this value defaults to `Latest`.
   - **uptime**: Days since router has been turned on.
   - **last_restart**: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
   - **local_ip**: Local public IP address.

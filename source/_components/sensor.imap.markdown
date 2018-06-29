@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IMAP Unread E-mail"
-description: "Instructions how to integrate IMAP unread email into Home Assistant."
+description: "Instructions on how to integrate IMAP unread email into Home Assistant."
 date: 2016-07-11 06:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 logo: smtp.png
 ha_category: Sensor
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 
@@ -24,15 +24,15 @@ sensor:
   - platform: imap
     server: imap.gmail.com
     port: 993
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:
 
 - **server** (*Required*): The IP address or hostname of the IMAP server.
-- **port** (*Required*): The port where the server is accessible.
+- **port** (*Optional*): The port where the server is accessible.
 - **name** (*Optional*): Name of the IMAP sensor.
 - **username** (*Required*): Username for the IMAP server.
 - **password** (*Required*): Password for the IMAP server.
-
+- **folder** (*Optional*): The IMAP folder to watch.

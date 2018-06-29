@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ANEL PwrCtrl Switch"
-description: "Instructions how to integrate ANEL PwrCtrl switches within Home Assistant."
+description: "Instructions on how to integrate ANEL PwrCtrl switches within Home Assistant."
 date: 2016-10-02 19:04
 sidebar: true
 comments: false
@@ -40,4 +40,4 @@ Configuration variables:
 - **username** (*Required*): The username for your device.
 - **password** (*Required*): The password for your device.
 
-<p class="note">If no **host** is given the platform will try to autodiscover all devices on the network, that are listening on the given **port_recv**.</p>
+<p class="note">If no **host** is given the platform will try to auto-discover all devices on the network, that are listening on the given **port_recv**.</p>

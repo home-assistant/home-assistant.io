@@ -149,7 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade sendgrid to 4.0.0 ([@fabaff] - [#7038]) ([notify.sendgrid docs])
 - Missing line name restriction added (fixes #7039) ([@DavidMStraub] - [#7040]) ([sensor.mvglive docs])
 - Plug file leak on LIFX unregister ([@amelchio] - [#7031]) ([light.lifx docs])
-- Make core to look avilable state of device on servicecall ([@pvizeli] - [#7045])
+- Make core to look available state of device on servicecall ([@pvizeli] - [#7045])
 - Remove configuration sample ([@fabaff] - [#7048])
 - Bugfix wait on start event ([@pvizeli] - [#7013])
 - Bugfix slider ([@pvizeli] - [#7047]) ([input_slider docs])
@@ -212,7 +212,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Value of 0 should not be considered `unknown`. ([@aequitas] - [#7139])
 - Upgrade netdisco ([@balloob] - [#7171])
 - Added new services to platform kodi ([@alexmogavero] - [#6426]) ([media_player docs]) ([media_player.kodi docs])
-- Supress trackback and upgrade PyMata to 2.14 ([@fabaff] - [#7176]) ([arduino docs])
+- Suppress trackback and upgrade PyMata to 2.14 ([@fabaff] - [#7176]) ([arduino docs])
 - Disable invalid-sequence-index ([@fabaff] - [#7177])
 - Upgrade mypy to 0.501 (was renamed from mypy-lang) ([@fabaff] - [#7117])
 - Add condition for API failure ([@sytone] - [#7181])
@@ -495,14 +495,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7267]: https://github.com/home-assistant/home-assistant/pull/7267
 [#7287]: https://github.com/home-assistant/home-assistant/pull/7287
 [@KlaasH]: https://github.com/KlaasH
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[switch.hook docs]: https://home-assistant.io/components/switch.hook/
-[switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[wemo docs]: https://home-assistant.io/components/wemo/
-[zwave.workaround docs]: https://home-assistant.io/components/zwave.workaround/
+[cover.zwave docs]: /components/cover.zwave/
+[recorder docs]: /components/recorder/
+[switch.hook docs]: /components/switch.hook/
+[switch.wemo docs]: /components/switch.wemo/
+[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[wemo docs]: /components/wemo/
+[zwave.workaround docs]: /components/zwave.workaround/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290
@@ -513,9 +513,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[hassio docs]: /components/hassio/
+[notify.html5 docs]: /components/notify.html5/
+[notify.telegram docs]: /components/notify.telegram/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
 [discord]: https://discord.gg/c5DvZ4e

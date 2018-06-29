@@ -14,7 +14,7 @@ ha_release: 0.32
 ---
 
 
-The `currencylayer` sensor will show you the current exchange rate from [Currencylayer](https://currencylayer.com/) that provides realtime exchange rates for [170 currencies](https://currencylayer.com/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.
+The `currencylayer` sensor will show you the current exchange rate from [Currencylayer](https://currencylayer.com/) that provides real-time exchange rates for [170 currencies](https://currencylayer.com/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.
 
 Obtain your API key [here](https://currencylayer.com/product)
 
@@ -31,8 +31,20 @@ sensor:
       - INR
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: "The API Key from [Currencylayer](https://currencylayer.com/)."
+  required: true
+  type: string
+quote:
+  description: The symbol(s) of the quote or target currencies.
+  required: false
+  type: string, list
+  default: Exchange rate
+base:
+  description: The symbol of the base currency.
+  required: false
+  type: string
+  default: USD
+{% endconfiguration %}
 
-- **api_key** (*Required*): API Key from [Currencylayer](https://currencylayer.com/).
-- **base** (*Optional*): The symbol of the base currency. Defaults to USD.
-- **quote** (*Required*): The symbol(s) of the quote or target currencies.

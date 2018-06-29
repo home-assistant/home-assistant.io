@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Alarm.com Alarm Control Panel"
-description: "Instructions how to integrate Alarm.com into Home Assistant."
+description: "Instructions on how to integrate Alarm.com into Home Assistant."
 date: 2016-01-14 22:00
 sidebar: true
 comments: false
@@ -30,4 +30,3 @@ Configuration variables:
 - **password** (*Required*): Password for Alarm.com account.
 - **name** (*Optional*): The name of the alarm. Default is 'Alarm.com'.
 - **code** (*Optional*): Specifies a code to enable or disable the alarm in the frontend.
-

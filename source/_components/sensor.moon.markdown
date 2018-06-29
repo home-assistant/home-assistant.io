@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Moon Sensor"
-description: "Instructions how to integrate the moon sensor into Home Assistant."
+description: "Instructions on how to integrate the moon sensor into Home Assistant."
 date: 2017-02-03 07:10
 sidebar: true
 comments: false

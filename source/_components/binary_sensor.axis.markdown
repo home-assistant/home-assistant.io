@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Axis Binary Sensor"
-description: "Instructions how to integrate Axis binary sensors into Home Assistant."
+description: "Instructions on how to integrate Axis binary sensors into Home Assistant."
 date: 2017-04-01 19:00
 sidebar: true
 comments: false

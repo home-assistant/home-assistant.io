@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "World Air Quality Index"
-description: "Instructions how to setup World Air Quality Index sensor in Home Assistant."
+description: "Instructions on how to setup World Air Quality Index sensor in Home Assistant."
 date: 2016-11-17 06:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fido"
-description: "Instructions how to integrate Fido data usage within Home Assistant."
+description: "Instructions on how to integrate Fido data usage within Home Assistant."
 date: 2017-01-01 17:17
 sidebar: true
 comments: false
@@ -53,6 +53,6 @@ Configuration variables:
   - **talk_used**: Talk time used
   - **talk_limit**: Talk time limit
   - **talt_remaining**: Talk time remaining
-  - **other_talk_used**: Other talk time used (It could be internation calls)
+  - **other_talk_used**: Other talk time used (It could be international calls)
   - **other_talk_limit**: Other talk time limit
   - **other_talt_remaining**: Other talk time remaining
