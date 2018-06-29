@@ -65,4 +65,4 @@ For remote access for a component, for example a device tracker, you have to ena
   * A [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate (you can use one from Let's Encrypt, or any commercial SSL certificate vendor)
   * A [self-signed certificate](/cookbook/tls_self_signed_certificate/) - be warned though, some services will refuse to work with self-signed certificates
 3. Optionally use a proxy like [nginx](/docs/ecosystem/nginx/), [apache](/cookbook/apache_configuration/), or another. These allow you to provide finer grained access. You could use this to limit access to specific parts of the API (for example, only `/api/owntracks/`)
-4. Install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to monitor your Home Assistant or proxy logs for failed authentication
+4. Install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to [monitor your Home Assistant](https://www.home-assistant.io/cookbook/fail2ban/) or proxy logs for failed authentication
