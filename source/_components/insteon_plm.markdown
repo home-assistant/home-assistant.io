@@ -186,3 +186,31 @@ light:
   - platform: insteon_plm
     address: 1a2b3c
 ```
+
+### {% linkable_title Events %}
+
+Some `binary_sensor` devices have an 'on only' mode where the device only
+sends an 'on' command, never an 'off' command. Examples of these devices are:
+- Motion Sensor
+- Mini Remote
+To include these devices in an automation when they are configured to this mode
+use the `insteon_plm.binary_sensor_on` event. 
+
+Here is an example of how to use these events for automations:
+
+```
+automation:
+  trigger:
+    platform: event
+    event_type: insteon_plm.binary_sensor_on
+    event_data:
+      entity_id: binary_sensor.1a2b3c_3
+  condition:
+    - condition: state
+      entity_id: light.some_light
+      state: 'off'
+  action:
+    service: light.turn_on
+    entity_id: light.some_light
+
+```
