@@ -2,7 +2,7 @@
 layout: page
 title: "Manual installation on a Raspberry Pi"
 description: "Instructions to install Home Assistant on a Raspberry Pi running Raspbian Lite."
-date: 2016-09-05 16:00
+date: 2018-06-03 11:00
 sidebar: true
 comments: false
 sharing: true
@@ -66,7 +66,7 @@ $ sudo chown homeassistant:homeassistant homeassistant
 Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ cd /srv/homeassistant
 $ python3 -m venv .
 $ source bin/activate
@@ -101,7 +101,7 @@ If you want setup `hass` as a daemon and autostart it on boot please refer to [A
 To update to the latest version of Home Assistant follow these simple steps:
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 ```

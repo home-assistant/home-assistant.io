@@ -31,6 +31,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
@@ -53,7 +54,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 - [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
 - [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018
+- [SmartThings vs Home Assistant](https://smarthome.university/smartthings-vs-home-assistant/) - April 2018
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
+- [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
 - [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017

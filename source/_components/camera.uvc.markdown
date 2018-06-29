@@ -14,9 +14,20 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `uvc` component allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/unifi-video/unifi-video-camera/) into Home Assistant.
+The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/products/#unifivideo) into Home Assistant.
 
-To enable a UVC camera in your installation, add the following to your `configuration.yaml` file:
+The platform connects to the Unifi NVR software and automatically discovers/adds any camera connected to the NVR.
+
+### {% linkable_title Setup %}
+
+It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it need to operate.
+
+- The API key is found in the specific user's `API Access` tab in the NVR software.
+- The camera password is found in `Settings` -> `Camera Settings` -> `Camera Password` in the NVR software.
+
+### {% linkable_title Configuration %}
+
+To enable, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,9 +37,24 @@ camera:
     key: API_KEY
 ```
 
-Configuration variables:
+{% configuration %}
+nvr:
+  description: The IP or hostname of the NVR (Network Video Recorder) server.
+  required: true
+  type: string
+key:
+  description: The API key available from the NVR web interface.
+  required: true
+  type: string
+port:
+  description: The port number to use for accessing the NVR.
+  required: false
+  type: int
+  default: 7080
+name:
+  description: The camera password.
+  required: false
+  type: string
+  default: ubnt
+{% endconfiguration %}
 
-- **nvr** (*Required*): The IP or hostname of the NVR (Network Video Recorder) server.
-- **key** (*Required*): The API key available from the NVR web interface.
-- **port** (*Optional*): The port number to use for accessing the NVR.
-- **password** (*Optional*): The camera password. Defaults to `ubnt` if not given.

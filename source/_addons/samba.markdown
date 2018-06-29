@@ -39,3 +39,7 @@ Configuration variables:
 - **username** (*Optional*): Username for logging in if guest login is not used.
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
 - **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+
+<p class='note warning'>
+Be careful when setting up port forwarding to the remote access. If you don't restrict access by requiring authentication and guest access is enabled, your configuration could be exposed to the internet!
+</p>

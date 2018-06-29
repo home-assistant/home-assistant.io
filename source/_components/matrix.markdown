@@ -39,7 +39,7 @@ password:
   required: true
   type: string
 homeserver:
-  description: "The full URL for your homeserver. If you use the defauls matrix.org homeserver, this is 'https://matrix.org'."
+  description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
   required: true
   type: string
 verify_ssl:

@@ -73,6 +73,7 @@ Currently tested but not working models:
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
+- JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
 - MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
@@ -83,6 +84,14 @@ If your model is not on the list then give it a test, if everything works correc
 The first letter (U, P, L, H & K) represent the screen type, e.g., LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these before adding them to the list.
 
-Currently the ability to select a source is not implemented.
+Changing channels can be done by calling the `media_player.play_media` service with the following payload:
 
-There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TVs receiving a *Key press UP* that can interrupt certain applications. This should be fixed as of March 2017.
+```javascript
+{
+  "entity_id": "media_player.office_tv",
+  "media_content_id": "590",
+  "media_content_type": "channel"
+}
+```
+
+Currently the ability to select a source is not implemented.

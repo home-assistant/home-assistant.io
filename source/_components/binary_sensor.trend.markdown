@@ -22,7 +22,7 @@ To enable Trend binary sensors in your installation, add the following to your `
 binary_sensor:
   - platform: trend
     sensors:
-      solar_angle:
+      cpu_speed:
         entity_id: sensor.cpu_speed
 ```
 
@@ -59,7 +59,8 @@ binary_sensor:
   - platform: trend
     sensors:
       sun_rising:
-        entity_id: sensor.cpu_speed
+        entity_id: sun.sun
+        attribute: elevation
 ```
 
 This example creates two sensors to indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:

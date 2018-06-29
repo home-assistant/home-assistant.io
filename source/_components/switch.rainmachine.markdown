@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RainMachine Switch"
-description: "Instructions on how to use RainMachine units with Home Assistant."
+description: "Instructions on how to use RainMachine switches with Home Assistant."
 date: 2017-08-14 13:30
 sidebar: true
 comments: false
@@ -18,7 +18,7 @@ within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.c
 
 <p class='note'>
 You must have the [RainMachine component](https://www.home-assistant.io/components/rainmachine/)
-configured to use this switch. After configuring that component, switches will
+configured to use this platform. After configuring that component, switches will
 automatically appear.
 </p>
 

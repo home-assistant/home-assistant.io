@@ -19,7 +19,7 @@ Unit system is set to metric system.
 
 ## {% linkable_title Configuration %}
 
-To use this sensor in your installation, add the following `abode` section to your `configuration.yaml` file:
+To use this sensor in your installation, add the following `sensor` section to your `configuration.yaml` file:
 
 ```yaml
 # Example entry for configuration.yaml
@@ -32,11 +32,11 @@ sensor:
 
 {% configuration %}
 origin:
-  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma).
+  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker or zone, which provides this information in its state.
   required: true
   type: string
 destination:
-  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma).
+  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker or zone, which provides this information in its state.
   required: true
   type: string
 region:

@@ -75,7 +75,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-- delay: "00:{{ states('input_number.minute_delay')|int }}:00"
+- delay: "00:{{ '%02d' % (states('input_number.minute_delay')|int) }}:00"
 ```
 {% endraw %}
 

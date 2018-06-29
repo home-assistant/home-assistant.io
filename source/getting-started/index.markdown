@@ -13,6 +13,10 @@ The goal of this getting started guide is to install [Hass.io](/hassio/) on a Ra
 
 Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/). The [FAQ](/faq/#home-assistant-vs-hassio) explains more about the differences.
 
+<p class='note warning'>
+  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
+</p>
+
 ### {% linkable_title Hardware requirements %}
 
 We will need a few things to get started with installing Home Assistant. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
@@ -49,5 +53,9 @@ We will need a few things to get started with installing Home Assistant. Links b
 1. Home Assistant will be available at [http://hassio.local:8123][local]. Shortly after the download has started, a simple preparation status page will be available at this URL. Point your browser there. The page refreshes automatically, and Home Assistant will be shown when the download is complete.
 
 [local]: http://hassio.local:8123
+
+<p class='note warning'>
+When you're done, remember to set up regular backups of your configuration. This will protect you from hardware failure and mistakes. On Hass.io you have snapshots, but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_usb/) and many other ways. All that matters is that you set them up and test them regularly.
+</p>
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
