@@ -10,7 +10,7 @@ footer: true
 logo: cambridgeaudio.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: 0.68
+ha_release: 0.73
 ---
 
 The `cambridgeaudio` platform allows you to control Cambridge Audio [network audio players](https://www.cambridgeaudio.com/usa/en/products/hi-fi/network-players) that are based on their _StreamMagic_ platform.
@@ -29,29 +29,30 @@ A few notes:
 
 ## {% linkable_title Configuration %}
 
-The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
+The platform will be loaded automatically by the discovery component.
+In that case no further configuration is required.
+
+To configure it manually, add the following to your `configuration.yaml` file:
 
 ```yaml
 media_player:
   - platform: cambridgeaudio
-    name: CA851N
     host: 192.168.1.31
-    poweroff_command: OFF
 ```
 
 {% configuration %}
 name:
-  description: The name to display for this device.
+  description: The name to display for the device. When using manual configuration and this is not specified, a default name is set. When the device is added through discovery, the network name of the device is used.
   required: false
   type: string
+  default: Cambridge Audio Streamer
 host:
-  description: The IP address of this device.
+  description: The IP address of the device.
   required: false
   type: string
 poweroff_command:
-  description: Lets you choose what happens when you power off the player using the platform. OFF turns the player off completely, IDLE sends it into network standby mode. With IDLE the player consumes more power in standby, but can be turned on again remotely.
+  description: Lets you choose what happens when you power off the player using the platform. OFF turns the player off completely, IDLE sends it into network standby mode. With IDLE the player consumes more power in standby, but can be turned on remotely.
   required: false
   type: string
   default: OFF
 {% endconfiguration %}
-
