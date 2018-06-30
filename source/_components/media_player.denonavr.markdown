@@ -60,7 +60,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the device. If not set, friendlyName of the receiver is used.
 - **show_all_sources** (*Optional*): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
 - **timeout** (*Optional*): Timeout for HTTP requests to the receiver. Defaults to 2 seconds if not provided.
-- **sound_mode** (*Optional*)(*boolean*): Flag that defines if sound mode is supported. Default value: True.
+- **sound_mode** (*Optional*)(*boolean*): Flag that defines if a sound mode is supported. Default value: True.
 - **sound_mode_dict** (*Optional*): Dictionary containing the sound modes that are supported, the key needs to be identical with the command to set a specific sound mode and the corresponding value needs to be the sound mode as reported by the AVR. For instance: {'MUSIC':['PLII MUSIC'], 'MOVIE':['PLII MOVIE'], 'GAME':['PLII GAME'], 'PURE DIRECT':['DIRECT'], 'AUTO':['None'], 'DOLBY DIGITAL':['DOLBY DIGITAL'], 'MCH STEREO':['MULTI CH STEREO'], 'STEREO':['STEREO']}
 - **zones** (*Optional*): List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports
   - **zone**: Zone which should be activated. Valid options are Zone2 and Zone3
@@ -68,9 +68,9 @@ Configuration variables:
 
 A few notes:
 
-- Additional option for the control of Denon AVR receivers with a built-in web server is using the HTTP interface with `denonavr` platform.
+- An additional option for the control of Denon AVR receivers with a built-in web server is using the HTTP interface with `denonavr` platform.
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
-- Marantz receivers seem to a have quite similar interface. Thus if you own one, give it a try.
+- Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - The key-value structure in the sound_mode_dict is needed because the commands to set a sound mode and the reported sound mode are different. This structure matches the reported sound mode with the commands to set a sound mode.
 
 [Denon]: /components/media_player.denon/
