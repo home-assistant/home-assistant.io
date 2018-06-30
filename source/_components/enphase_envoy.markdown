@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: dte_energy.png
+logo: enphase.svg
 ha_category: Energy
 ha_release: 0.73
 ha_iot_class: "Local Polling"
@@ -28,4 +28,14 @@ Configuration variables:
 
 - **ip** (*Required*): The IP address of your bridge.
 - **name** (*Optional*): Name to use in the frontend.
-- **monitored_conditions** (*Optional*): List of conditions to monitor in Home Assistant. Leave blank to monitor them all.
+- **monitored_conditions** (*Optional*): List of conditions to monitor. By default all are monitored.
+
+The following are the available conditions:
+- production
+- daily_production
+- 7_days_production
+- lifetime_production
+- consumption
+- daily_consumption
+- 7_days_consumption
+- lifetime_consumption"
