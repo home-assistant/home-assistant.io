@@ -27,7 +27,7 @@ sensor:
 ```
 
 Configuration variables:
-{% configuration %} ... 
+{% configuration %}
 
 ip:
   description: The local IP Address of your Envoy
