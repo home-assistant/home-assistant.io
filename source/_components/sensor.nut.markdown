@@ -65,7 +65,7 @@ sensor:
     type: list
 {% endconfiguration %}
 
-### {% linkable_title Example  %}
+### {% linkable_title Example %}
 
 Given the following example output from NUT (your variables may differ):
 
@@ -109,7 +109,7 @@ output.voltage: 121.50
 output.voltage.nominal: 120
 ```
 
-Use the values from the left hand column.  Support is included for most values with 'ups', 'battery', 'input', and 'output' prefixes.
+Use the values from the left hand column. Support is included for most values with 'ups', 'battery', 'input' and 'output' prefixes.
 
 ```yaml
 sensor:
