@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: enphase_envoy
-    ip: 192.168.1.11
+    ip: [Local IP of Envoy]
 ```
 
 Configuration variables:
@@ -39,3 +39,16 @@ The following are the available conditions:
 - daily_consumption
 - 7_days_consumption
 - lifetime_consumption"
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: enphase_envoy
+    ip: [Local IP of Envoy]
+    name: Power Monitor
+    monitored_conditions:
+    - production
+    - consumption
+    - daily_production
+    - daily_consumption
+```
