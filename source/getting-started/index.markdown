@@ -26,7 +26,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](http://a.co/5FCyb0N) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi too)
 
-<p class='note warning'>
+<p class='note'>
   Support for the Raspberry Pi 3 model B+ is available in the alternative installation method [Hassbian](/docs/hassbian/installation/).
 
   The recently released Raspberry Pi 3 model B+ is not yet supported by Hass.io.
@@ -54,7 +54,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 [local]: http://hassio.local:8123
 
-<p class='note warning'>
+<p class='note'>
 When you're done, remember to set up regular backups of your configuration. This will protect you from hardware failure and mistakes. On Hass.io you have snapshots, but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_usb/) and many other ways. All that matters is that you set them up and test them regularly.
 </p>
 

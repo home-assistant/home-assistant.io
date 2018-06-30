@@ -95,3 +95,7 @@ google_actions:
               required: false
               type: string
 {% endconfiguration %}
+
+<p class='note'>
+After setting up the cloud, if you make any device changes such as changing the name or adding a new device simply say "Ok Google, sync my devices" to get the changes to show up.
+</p>

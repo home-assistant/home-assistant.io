@@ -13,20 +13,20 @@ ha_release: 0.29
 ha_iot_class: "Local Polling"
 ---
 
-The `miflora` sensor platform allows one to monitor plants. The [Mi Flora plant sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/) is a small Bluetooth Low Energy device that monitors not only the moisture but also light, temperature, and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
+The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
 
-# Installation
-Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
+# Install Bluetooth Backend
+Before configuring Home Assistant you need a Bluetooth backend and the MAC address of your sensor. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
 - On [Hass.io](/hassio/installation/): Miflora will work out of the box.
 - On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
     - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
     - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
-- Windows and MacOS are currently not supported by the [miflora library](https://github.com/open-homeautomation/miflora/).
+- On Windows and MacOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
 
-# Configuration
-Start a scan to determine the MAC addresses of the sensor:
+# Scan for MAC address
+Start a scan to determine the MAC addresses of the sensor (you can identify your sensor by looking for `Flower care` or `Flower mate` entries) using this command:
 
 ```bash
 $ sudo hcitool lescan
@@ -36,7 +36,7 @@ C4:D3:8C:12:4C:57 Flower mate
 [...]
 ```
 
-Or if your distribution is using bluetoothctl:
+Or, if your distribution is using bluetoothctl use the following commands:
 
 ```bash
 $ bluetoothctl
@@ -46,9 +46,7 @@ $ bluetoothctl
 [NEW] C4:D3:8C:12:4C:57 Flower mate
 ```
 
-
-Check for `Flower care` or `Flower mate` entries, those are your sensor.
-
+# Configure
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -57,7 +55,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     monitored_conditions:
-      - temperature
+      - moisture
 ```
 
 - **mac** (*Required*): The MAC address of your sensor.
@@ -75,8 +73,9 @@ sensor:
 - **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
 - **adapter** (*Optional*): Define the Bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
 
-Note that by default the sensor is only polled once every 20 minutes. This means with the `median: 3` setting will take as least 40 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn't a big problem.
-Reducing polling intervals will have a negative effect on the battery life.
+<p class='note warning'>
+By default the sensor is only polled once every 20 minutes. So, if you set `median: 3` it will take _at least_ 40 minutes   before the sensor will report a value after a Home Assistant restart. Since the values usually change very slowly, this usually isn't a big problem. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
+</p>
 
 A full configuration example could look like the one below:
 

@@ -26,7 +26,7 @@ Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ```bash
-$ ssh pi@ipadress
+$ ssh pi@ipaddress
 ```
 
 Changing the default password is encouraged.
@@ -107,3 +107,11 @@ $ pip3 install --upgrade homeassistant
 ```
 
 Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+
+### {% linkable_title Activating the virtual environment %}
+
+When instructions tell you to activate the virtual environment, the following commands will do this:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate```

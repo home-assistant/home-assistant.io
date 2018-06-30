@@ -63,7 +63,7 @@ http:
     - 127.0.0.1
     - ::1
     - 192.168.0.0/24
-    - 2001:DB8:ABCD::/48
+    - fd00::/8
   ip_ban_enabled: True
   login_attempts_threshold: 5
 ```

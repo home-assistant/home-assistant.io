@@ -66,7 +66,7 @@ Go to the add-on store (see previous step), click on Configurator and click on "
  - Click on "SAVE" to save your new password
  - "START" the add-on
  - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
- - Type your username and password that you recently save
+ - Type your username and password that you recently saved
 
 Time for the first practice with the configurator. Add the following to `configuration.yaml` file to add a link to the Configurator in the sidebar:
 
