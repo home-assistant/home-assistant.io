@@ -1,0 +1,31 @@
+---
+layout: page
+title: "Enphase Envoy"
+description: "Instructions on how to setup Enphase Envoy with Home Assistant."
+date: 2018-06-30 12:30
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: dte_energy.png
+ha_category: Energy
+ha_release: 0.73
+ha_iot_class: "Local Polling"
+---
+
+A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy monitor.
+
+To enable this sensor, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: enphase_envoy
+    ip: 192.168.1.11
+```
+
+Configuration variables:
+
+- **ip** (*Required*): The IP address of your bridge.
+- **name** (*Optional*): Name to use in the frontend.
+- **monitored_conditions** (*Optional*): List of conditions to monitor in Home Assistant. Leave blank to monitor them all.
