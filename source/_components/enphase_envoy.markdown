@@ -27,34 +27,36 @@ sensor:
 ```
 
 Configuration variables:
+{% configuration %} ... 
 
-- **ip** (*Required*): The IP address of your Envoy.
-- **name** (*Optional*): Name to use in the frontend.
-- **monitored_conditions** (*Optional*): List of conditions to monitor. By default all are monitored.
+ip:
+  description: The local IP Address of your Envoy
+  required: true
+  type: string
+name:
+  description: Name to use in the front end
+  required: false
+  type: string
+monitored_conditions:
+  description: The list of conditions to display in the front end
+  required: false
+  type: list
+  keys:
+    production:
+      description: The power in W being produced by the solar panels
+    daily_production:
+      description: The energy in Wh produced that day
+    7_days_production:
+      description: The energy in Wh produced the last 7 days
+    lifetime_production:
+      description: The energy in Wh produced in the lifetime of the Envoy
+    consumption:
+      description: The power in W being consumed in the whole house
+    daily_consumption:
+      description: The energy in Wh consumed that day
+    7_days_consumption:
+      description: The energy in Wh consumed the last 7 days
+    lifetime_consumption:
+      description: The energy in Wh consumed in the lifetime of the Envoy
 
-The following are the available conditions:
-- production
-- daily_production
-- 7_days_production
-- lifetime_production
-- consumption
-- daily_consumption
-- 7_days_consumption
-- lifetime_consumption
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: enphase_envoy
-    ip: [Local IP of Envoy]
-    name: Power Monitor
-    monitored_conditions:
-    - production
-    - daily_production
-    - 7_days_production
-    - lifetime_production
-    - consumption
-    - daily_consumption
-    - 7_days_consumption
-    - lifetime_consumption
-```
+{% endconfiguration %}
