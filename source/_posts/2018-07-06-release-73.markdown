@@ -18,6 +18,7 @@ Lots of Lovelace changes.
 ## {% linkable_title New Platforms %}
 
 - Support for Homekit Controller climate devices ([@armills] - [#15057]) ([homekit_controller docs]) ([climate.homekit_controller docs]) ([light.homekit_controller docs]) ([switch.homekit_controller docs]) (new-platform)
+- Rachio webhooks ([@Klikini] - [#15111]) ([rachio docs]) ([binary_sensor.rachio docs]) ([switch.rachio docs]) (beta fix) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -37,6 +38,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix zwave climate operation mode mappings ([@cdce8p] - [#15162]) ([climate.zwave docs]) (breaking change)
 - X-Forwarded-For improvements and bug fixes ([@colinodell] - [#15204]) ([emulated_hue docs]) ([http docs]) (breaking change)
 - Stop supporting deprecated TLS ciphers ([@hmmbob] - [#15217]) ([http docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Rachio webhooks ([@Klikini] - [#15111]) ([rachio docs]) ([binary_sensor.rachio docs]) ([switch.rachio docs]) (beta fix) (new-platform)
+- Only create front-end client_id once ([@awarecan] - [#15214]) ([frontend docs]) (beta fix)
+- Make LIFX color/temperature attributes mutually exclusive ([@amelchio] - [#15234]) ([light.lifx docs]) (beta fix)
+- Fix an issue when user's nest developer account don't have permission ([@awarecan] - [#15237]) ([binary_sensor.nest docs]) (beta fix)
+- Revert some changes to setup.py ([@cdce8p] - [#15248]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -113,6 +122,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update python-wink to 1.9.1 ([@vickyg3] - [#15215]) ([wink docs])
 - Fix 'AirQualityMonitorStatus' object has no attribute ‘time_state’ ([@syssi] - [#15216]) ([sensor.xiaomi_miio docs])
 - Use cached states for neato when possible ([@dshokouhi] - [#15218]) ([switch.neato docs]) ([vacuum.neato docs])
+- Rachio webhooks ([@Klikini] - [#15111]) ([rachio docs]) ([binary_sensor.rachio docs]) ([switch.rachio docs]) (beta fix) (new-platform)
+- Only create front-end client_id once ([@awarecan] - [#15214]) ([frontend docs]) (beta fix)
+- Make LIFX color/temperature attributes mutually exclusive ([@amelchio] - [#15234]) ([light.lifx docs]) (beta fix)
+- Fix an issue when user's nest developer account don't have permission ([@awarecan] - [#15237]) ([binary_sensor.nest docs]) (beta fix)
+- Revert some changes to setup.py ([@cdce8p] - [#15248]) (beta fix)
 
 [#13738]: https://github.com/home-assistant/home-assistant/pull/13738
 [#14288]: https://github.com/home-assistant/home-assistant/pull/14288
@@ -156,6 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15104]: https://github.com/home-assistant/home-assistant/pull/15104
 [#15107]: https://github.com/home-assistant/home-assistant/pull/15107
 [#15110]: https://github.com/home-assistant/home-assistant/pull/15110
+[#15111]: https://github.com/home-assistant/home-assistant/pull/15111
 [#15114]: https://github.com/home-assistant/home-assistant/pull/15114
 [#15115]: https://github.com/home-assistant/home-assistant/pull/15115
 [#15120]: https://github.com/home-assistant/home-assistant/pull/15120
@@ -183,13 +198,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15204]: https://github.com/home-assistant/home-assistant/pull/15204
 [#15207]: https://github.com/home-assistant/home-assistant/pull/15207
 [#15210]: https://github.com/home-assistant/home-assistant/pull/15210
+[#15214]: https://github.com/home-assistant/home-assistant/pull/15214
 [#15215]: https://github.com/home-assistant/home-assistant/pull/15215
 [#15216]: https://github.com/home-assistant/home-assistant/pull/15216
 [#15217]: https://github.com/home-assistant/home-assistant/pull/15217
 [#15218]: https://github.com/home-assistant/home-assistant/pull/15218
+[#15234]: https://github.com/home-assistant/home-assistant/pull/15234
+[#15237]: https://github.com/home-assistant/home-assistant/pull/15237
+[#15248]: https://github.com/home-assistant/home-assistant/pull/15248
 [@Hate-Usernames]: https://github.com/Hate-Usernames
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
+[@Klikini]: https://github.com/Klikini
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MizterB]: https://github.com/MizterB
 [@Petro31]: https://github.com/Petro31
@@ -231,6 +251,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arlo docs]: /components/arlo/
 [binary_sensor.digital_ocean docs]: /components/binary_sensor.digital_ocean/
 [binary_sensor.flic docs]: /components/binary_sensor.flic/
+[binary_sensor.nest docs]: /components/binary_sensor.nest/
+[binary_sensor.rachio docs]: /components/binary_sensor.rachio/
 [binary_sensor.trend docs]: /components/binary_sensor.trend/
 [camera docs]: /components/camera/
 [camera.neato docs]: /components/camera.neato/
@@ -256,6 +278,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.deconz docs]: /components/light.deconz/
 [light.flux_led docs]: /components/light.flux_led/
 [light.homekit_controller docs]: /components/light.homekit_controller/
+[light.lifx docs]: /components/light.lifx/
 [light.tplink docs]: /components/light.tplink/
 [light.wemo docs]: /components/light.wemo/
 [media_extractor docs]: /components/media_extractor/
@@ -269,6 +292,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify docs]: /components/notify/
 [nuimo_controller docs]: /components/nuimo_controller/
 [prometheus docs]: /components/prometheus/
+[rachio docs]: /components/rachio/
 [sensor.dht docs]: /components/sensor.dht/
 [sensor.fitbit docs]: /components/sensor.fitbit/
 [sensor.loopenergy docs]: /components/sensor.loopenergy/
@@ -281,6 +305,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.digital_ocean docs]: /components/switch.digital_ocean/
 [switch.homekit_controller docs]: /components/switch.homekit_controller/
 [switch.neato docs]: /components/switch.neato/
+[switch.rachio docs]: /components/switch.rachio/
 [vacuum.neato docs]: /components/vacuum.neato/
 [weather.darksky docs]: /components/weather.darksky/
 [wemo docs]: /components/wemo/
