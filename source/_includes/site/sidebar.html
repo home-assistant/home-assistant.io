@@ -2,8 +2,10 @@
   {% assign url_parts = page.url | split: '/' %}
   {% if url_parts[1] == 'components' %}
     {% include asides/component_navigation.html | compact_newlines %}
-  {% elsif url_parts[1] == 'cookbook' %}
+    {% elsif url_parts[1] == 'cookbook' %}
     {% include asides/cookbook_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'lovelace' %}
+    {% include asides/lovelace_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'developers' or url_parts[1] == 'help' %}
     {% include asides/help_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'getting-started' %}
