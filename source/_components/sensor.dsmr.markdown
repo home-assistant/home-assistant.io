@@ -32,6 +32,7 @@ This component is known to work for:
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
+- Sagemcom XS210 ESMR5
 
 USB serial converters:
 
