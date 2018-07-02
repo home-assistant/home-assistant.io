@@ -10,7 +10,7 @@ footer: true
 logo: rachio.png
 ha_category: Hub
 ha_iot_class: "Cloud Push"
-ha_release: 0.72
+ha_release: 0.73
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](http://rachio.com/).
