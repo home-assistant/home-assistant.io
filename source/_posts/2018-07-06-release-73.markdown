@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-07-0.73/components.png
+og_image: /images/blog/2018-07-0.73/lovelace-elements.png
 ---
 
 Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's not good enough to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](https://www.home-assistant.io/docs/configuration/securing/) and follow them.
@@ -17,7 +17,7 @@ In the meanwhile, we're also working hard on the new authentication system. A pr
 
 This release also includes a TON of love for the new Lovelace UI. Yes, it's still experimental but daaang, it's already so awesome that you should probably just go ahead and try it out. Thanks to all the devs who have jumped on this: [@c727], [@ciotlosm] and [@jeradM].
 
-We don't have time to go through all the changes in this release, but [@ciotlosm] has been keeping [a very detailed changelog](https://github.com/ciotlosm/docs-lovelace/blob/0.73.0/changelog.md). I'll just leave this screenshot by [@arsaboo] of the new picture-elements card:
+We don't have time to go through all the changes in this release, but [@ciotlosm] has been keeping [a very detailed changelog](https://github.com/ciotlosm/docs-lovelace/blob/0.73.0/changelog.md). I'll just leave this screenshot by [@arsaboo] of the new picture-elements card and [the Lovelace configuration](https://github.com/arsaboo/homeassistant-config/blob/master/ui-lovelace.yaml#L15-L158):
 
 <p class='img'>
 <img src='/images/blog/2018-07-0.73/lovelace-elements.png' alt='Screenshot of a floorplan with sensor info and light/camera controls overlayed.'>
