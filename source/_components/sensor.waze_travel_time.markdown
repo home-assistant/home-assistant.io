@@ -57,7 +57,7 @@ excl_filter:
   required: false
   type: string
 realtime:
-  description: If this is set to False, Waze returns the time estimate not including current conditions, but rather the average travel time for the current time of day. The parameter defaults to True, meaning Waze will return real time travel time.
+  description: If this is set to false, Waze returns the time estimate, not including current conditions, but rather the average travel time for the current time of day. The parameter defaults to true, meaning Waze will return real-time travel time.
   required: false
   type: boolean
 {% endconfiguration %}
