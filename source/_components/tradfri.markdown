@@ -32,11 +32,12 @@ You can add the following to your `configuration.yaml` file if you are not using
 # Example configuration.yaml entry
 tradfri:
   host: IP_ADDRESS
+  host: IP_ADDRESS_SECOND_GATEWAY_IF_THERE_IS_ONE
 ```
 
 Configuration variables:
 
- - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
+ - **host** (*Required*): The IP address or hostname of your Trådfri gateway. Add additional gateways by adding an additional "host: IP" key/value pair on an additional line.
  - **allow_tradfri_groups** (*Optional*): Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge. Defaults to `true`.
 
 <p class='note'>
