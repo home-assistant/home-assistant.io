@@ -11,9 +11,20 @@ categories: Release-Notes
 og_image: /images/blog/2018-07-0.73/components.png
 ---
 
-<a href='/components/#version/0.73'><img src='/images/blog/2018-07-0.73/components.png' style='border: 0;box-shadow: none;'></a>
+Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's not good enough to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](https://www.home-assistant.io/docs/configuration/securing/) and follow them.
 
-Lots of Lovelace changes.
+In the meanwhile, we're also working hard on the new authentication system. A preview version is included in this release, more info on [our developer blog](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html).
+
+This release also includes a TON of love for the new Lovelace UI. Yes, it's still experimental but daaang, it's already so awesome that you should probably just go ahead and try it out. Thanks to all the devs who have jumped on this: [@c727], [@ciotlosm] and [@jeradM].
+
+We don't have time to go through all the changes in this release, but [@ciotlosm] has been keeping [a very detailed changelog](https://github.com/ciotlosm/docs-lovelace/blob/0.73.0/changelog.md). I'll just leave this screenshot by [@arsaboo] of the new picture-elements card:
+
+<p class='img'>
+<img src='/images/blog/2018-07-0.73/lovelace-elements.png' alt='Screenshot of a floorplan with sensor info and light/camera controls overlayed.'>
+The new picture elements card.
+</p>
+
+And last but not least, [@Klikini] has upgraded Rachio support from cloud polling to cloud push! Now you'll be able to get instantly notified of changes to your sprinklers. NICE!
 
 ## {% linkable_title New Platforms %}
 
@@ -206,6 +217,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15234]: https://github.com/home-assistant/home-assistant/pull/15234
 [#15237]: https://github.com/home-assistant/home-assistant/pull/15237
 [#15248]: https://github.com/home-assistant/home-assistant/pull/15248
+[@ciotlosm]: https://github.com/ciotlosm
+[@jeradM]: https://github.com/jeradM
+[@c727]: https://github.com/c727
+[@arsaboo]: https://github.com/arsaboo
 [@Hate-Usernames]: https://github.com/Hate-Usernames
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
