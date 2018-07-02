@@ -26,9 +26,7 @@ sensor:
     ip: ENVOY_LOCAL_IP_ADDRESS
 ```
 
-Configuration variables:
 {% configuration %}
-
 ip:
   description: The local IP Address of your Envoy
   required: true
@@ -58,5 +56,4 @@ monitored_conditions:
       description: The energy in Wh consumed the last 7 days
     lifetime_consumption:
       description: The energy in Wh consumed in the lifetime of the Envoy
-
 {% endconfiguration %}
