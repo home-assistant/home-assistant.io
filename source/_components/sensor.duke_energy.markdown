@@ -17,7 +17,7 @@ The `duke_energy` sensor platform allows you get the previous days usage for all
 
 You will only have access to meters listed in your account at [Duke Energy Usage](https://www.duke-energy.com/my-account/usage-analysis).
 
-This supports both electric and gas meters. Along with previous days usage each sensor will have attributes for the previous bills total usage and average usage.
+This supports both electric and gas meters. Along with previous days usage, each sensor will have attributes for the previous bills total usage and average usage.
 
 ## {% linkable_title Configuration %}
 
@@ -44,5 +44,5 @@ password:
 
 
 <p class='note'>
-Meter usage isn't updated until mid morning. Prior to updating your meter will report 0 for usage starting at midnight. The API is only called to update every 2 hours from startup time.
+Meter usage isn't updated until mid-morning. Prior to updating your meter will report 0 for usage starting at midnight. The API is only called to update every 2 hours from startup time.
 </p>
