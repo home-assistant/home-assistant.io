@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ---
 
-
 <p class='note'>
 The minimum supported version of Home Assistant is 0.65.6.
 </p>
@@ -19,8 +18,10 @@ The Google Assistant integration allows users to control the entities via the Ho
 To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
- - A Google Assistant enabled device like the Google Home
- - Activated the Home Assistant Smart Home skill for Google Assistant by using the Google Home app, select *Home control*, and then add *hass.io* using the *Add devices* option.
+ - A Google Assistant enabled device like the Google Home or a mobile phone running Google Assistant.
+ - Activated the Home Assistant Smart Home skill for Google Assistant.
+   - If you have a Google Home device, use the Google Home app, select *Home control*, and then add *hass.io* using the *Add devices* option.
+   - If you only have a mobile phone, launch Google Assistant, select the three dots menu. Under *Settings* you'll find *Home Control*. There you can add *hass.io* using the *Add devices* option.
 
 You can use `configuration.yaml` to configure the entities that are being shown to Google Assistant and how they are exposed.
 
@@ -73,7 +74,7 @@ google_actions:
           required: false
           type: list
     entity_config:
-      description: Entity specific configuration for Google Assistant
+      description: Entity specific configuration for Google Assistant.
       required: false
       type: map
       keys:
@@ -83,11 +84,11 @@ google_actions:
           type: map
           keys:
             name:
-              description: Name of entity to show in Google Assistant
+              description: Name of entity to show in Google Assistant.
               required: false
               type: string
             aliases:
-              description: Aliases that can also be used to refer to this entity
+              description: Aliases that can also be used to refer to this entity.
               required: false
               type: list
             room:
