@@ -15,7 +15,7 @@ To run Home Assistant on Microsoft Windows installation you need to install Pyth
 There may be alpha or beta releases of Python listed on that download page (marked by the letters `a` or `b` in the version number. Do not use these versions.
 </p>
 
-If you use you machine for something other than Home Assistant you should install it in a [python virtual environment](#Installing_in_a_python_virtual_environment)
+If you use you machine for something other than Home Assistant you should install it in a [Python virtual environment](#Installing_in_a_Python_virtual_environment).
 
 Start 
 
@@ -42,19 +42,19 @@ C:\...\> pip3 install --upgrade homeassistant
 
 Then start Home Assistant.
 
-## {% linkable_title Installing in a python virtual environment %}
-Open CMD.exe and paste the folowing commands (one at the time):
+## {% linkable_title Installing in a Python virtual environment %}
+Open cmd.exe and paste the folowing commands (one at the time):
 ```bash
 C:\...\> py -m venv homeassistant
 C:\...\> cd homeassistant
 C:\...\> Scripts\activate.bat
 C:\...\> py -m pip install wheel setuptools pip
 C:\...\> py -m pip install homeassistant
-C:\...\> hass --open-ui
+C:\...\> hass
 ```
 
-## {% linkable_title Upgrading in a python virtual environment %}
-To update Home Assistant, stop it and then open CMD.exe and paste the folowing commands (one at the time):
+## {% linkable_title Upgrading in a Python virtual environment %}
+To update Home Assistant, stop it and then open cmd.exe and paste the folowing commands (one at the time):
 ```bash
 C:\...\> cd homeassistant
 C:\...\> Scripts\activate.bat
