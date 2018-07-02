@@ -39,6 +39,7 @@ Configuration variables:
 - **port** (*Optional*): The port number on which the Synology NAS is reachable. Defaults to `5000`.
 - **username** (*Required*): An user to connect to the Synology NAS (a separate account is advised, see the Separate User Configuration section below for details).
 - **password** (*Required*): The password of the user to connect to the Synology NAS.
+- **ssl** (*Optional*): Determine if HTTPS should be used. Defaults to `False` which means standard HTTP.
 - **volumes** (*Optional*): Array of volumes to monitor. Defaults to all volumes.
 - **disks** (*Optional*): Array of disks to monitor. Defaults to all disks.
 - **monitored_conditions** (*Required*): Defines a [template](/topics/templating/) to extract a value from the payload.
