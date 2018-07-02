@@ -21,7 +21,7 @@ This supports both electric and gas meters. Along with previous days usage each 
 
 ## {% linkable_title Configuration %}
 
-To enable the random sensor, add the following lines to your `configuration.yaml`:
+To enable the sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
