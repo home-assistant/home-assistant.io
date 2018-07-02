@@ -46,7 +46,7 @@ client_id:
   description: Use the value you generated in the Prerequisites stage.
   required: true
   type: string
-minimum:
+client_secret:
   description: Use the value you generated in the Prerequisites stage.
   required: true
   type: string
@@ -95,7 +95,7 @@ Variables:
   - **track**: (*Required*): Should we create a sensor `True` or ignore it `False`?
   - **search**: (*Optional*): If set will only trigger for matched events.
   - **offset**: (*Optional*): A set of characters that precede a number in the event title for designating a pre-trigger state change on the sensor. (Default: `!!`)
-  - **ignore_availablilty**: (*Optional*): Should we respect `free`/`busy` flags? (Defaults to `true`)
+  - **ignore_availability**: (*Optional*): Should we respect `free`/`busy` flags? (Defaults to `true`)
   
 From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available.
 
