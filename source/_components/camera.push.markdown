@@ -74,9 +74,4 @@ field:
   required: false
   default: image
   type: string
-force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have event triggers for every single image pushed.
-  required: false
-  type: boolean
-  default: False
 {% endconfiguration %}
