@@ -43,7 +43,9 @@ C:\...\> pip3 install --upgrade homeassistant
 Then start Home Assistant.
 
 ## {% linkable_title Installing in a Python virtual environment %}
-Open cmd.exe and paste the folowing commands (one at the time):
+
+Open `cmd.exe` and paste the following commands (one at the time):
+
 ```bash
 C:\...\> py -m venv homeassistant
 C:\...\> cd homeassistant
@@ -54,7 +56,9 @@ C:\...\> hass
 ```
 
 ## {% linkable_title Upgrading in a Python virtual environment %}
-To update Home Assistant, stop it and then open cmd.exe and paste the folowing commands (one at the time):
+
+To update Home Assistant, stop it and then open `cmd.exe` and paste the following commands (one at the time):
+
 ```bash
 C:\...\> cd homeassistant
 C:\...\> Scripts\activate.bat
