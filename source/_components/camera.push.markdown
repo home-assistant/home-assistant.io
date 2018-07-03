@@ -15,7 +15,7 @@ ha_release: 0.73
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
 
-Optionally the Push Camera can **cache** a given number of images, creating an animation of the detected motion after the event has been recorded.
+Optionally the Push Camera can **buffer** a given number of images, creating an animation of the detected motion after the event has been recorded.
 
 Images are cleared on new events, and events are separated by a soft (configurable) **timeout**.
 
@@ -38,7 +38,7 @@ In this setup, you can configure the push camera to continuously replay the last
 camera:
   - platform: push
     name: MotionEye Outdoor
-    cache: 3
+    buffer: 3
     timeout: 5
 ```
 
@@ -59,8 +59,8 @@ name:
   required: false
   default: Push Camera
   type: string
-cache:
-  description: Number of images to cache per event. Be conservative, large caches will starve your system memory.
+buffer:
+  description: Number of images to buffer per event. Be conservative, large buffers will starve your system memory.
   required: false
   default: 1
   type: string
