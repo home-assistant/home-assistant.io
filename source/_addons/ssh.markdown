@@ -10,7 +10,7 @@ footer: true
 featured: true
 ---
 
-Setting up an [SSH](https://openssh.org/) server allows access to your Hass.io folders with any SSH client. It also includes a command-line tool to access the [Hass.io API](https://github.com/home-assistant/hassio/blob/dev/API.md). Try it out:
+Setting up an [SSH](https://openssh.com/) server allows access to your Hass.io folders with any SSH client. It also includes a command-line tool to access the [Hass.io API](https://github.com/home-assistant/hassio/blob/dev/API.md). Try it out:
 
 ```bash
 hassio help
