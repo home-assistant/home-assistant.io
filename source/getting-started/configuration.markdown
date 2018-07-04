@@ -36,9 +36,9 @@ From the Hass.io main panel open the add-on store.
 
 ### {% linkable_title Editing config via HASS Configurator %}
 
-The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
+The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface. You will need to add the repository https://github.com/home-assistant/hassio-addons 
 
-Go to the add-on store (see previous step), click on Configurator and click on "INSTALL". When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps bellow to setup the add-on.
+Go to the add-on store (see previous step), In "Add new repository by URL" paste in https://github.com/danielperna84/hassio-addons and select ADD. Shortly you'll see "Hass.IO add-on repository by danielperna84" and under it you can click on Configurator and then click on "INSTALL". When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps bellow to setup the add-on.
 
  - Set a password on the Config box, don't forget to use quotes on your password
  
@@ -82,9 +82,9 @@ Now restart Home Assistant for the changes to the configuration to take effect. 
 
 ### {% linkable_title Editing config via Samba/Windows Networking %}
 
-Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can be installed from the Hass.io add-on store.
+Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can be installed from the Hass.io add-on store in repository URL In respository https://github.com/hassio-addons/repository. (Working SAMBA share unknown)
 
-After you have installed it, click on START. Hass.io should now be available in the networking tab on your computer. Use a text editor like the free [Visual Studio Code](https://code.visualstudio.com/) to edit `configuration.yaml`.
+After you have installed it, click on START. Hass.io should now be available in the networking tab on your computer. Use a text editor like the free [Visual Studio Code](https://code.visualstudio.com/) to edit `configuration.yaml` int he config folder.
 
 ## {% linkable_title Configuring integrations %}
 
