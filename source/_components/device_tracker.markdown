@@ -86,7 +86,7 @@ devicename:
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
-| `hide_if_away` | False                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
+| `hide_if_away` | False                         | If `no`/`off`/`false` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
 
 ## {% linkable_title Device states %}
