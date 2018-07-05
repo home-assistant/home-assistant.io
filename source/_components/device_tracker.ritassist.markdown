@@ -13,8 +13,12 @@ ha_release: 0.59
 ---
 
 
-This platform allows you to integrate your vehicles equiped with [RitAssist](https://ritassist.nl/) into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+This platform allows you to integrate your vehicles equiped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
+## API key
+To use this component, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
+
+## Configuration
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -54,3 +58,25 @@ include:
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
+## Available Attributes
+
+| Attribute | Description |
+|---|---|
+| latitude | The latitude of your vehicle |
+| longitude | The longitude of your vehicle |
+| altitude | Altitude of your vehicle |
+| id | Identifier used to identify your vehicle |
+| make | The make of the vehicle |
+| model | Model of your vehicle |
+| license_plate | License plate number |
+| active | If the engine is currently active or not |
+| odo | The odometer in kilometers |
+| speed | The current speed of your vehicle, in KM/h |
+| last_seen | The date and time when your vehicle last communicated with the API |
+| fuel_level | Fuel level of the vehicle [1] |
+| malfunction_light | Are any malfunction lights burning [1] |
+| coolant_temperature | Temperature of the coolant [1] |
+| power_voltage | Power voltage measured by the hardware [1] |
+| distance_from_home |  How far is your vehicle located from your Home Assistant Home location |
+
+[1] Only available on certain cars and hardware revisions.
