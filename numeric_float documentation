@@ -1,0 +1,103 @@
+---
+layout: page
+title: "Numeric Float"
+description: "Instructions on how to integrate the Numeric Float component into Home Assistant."
+date: 2018-07-05 04:30
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: home-assistant.png
+ha_category: Automation
+ha_release: ??
+redirect_from: /components/numeric_float/
+---
+
+The `numeric_float` component allows the user to store and update values that can be controlled within conditions of automation. Changes the values generate state events. These state events can be utilized as `automation` triggers as well. 
+
+To enable this numeric_float in your installation, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+numeric_float:
+  outside_low_temperature:
+    name: Outside Low Temperature
+    icon: mdi:thermometer
+    unit_of_measurement: °F
+  outside_high_temperature:
+    name: Outside High Temperature
+    icon: mdi:thermometer
+    unit_of_measurement: °F
+```
+
+{% configuration %}
+  numeric_float:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: string
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: float
+        default: none
+      unit_of_measurement:
+        description: Unit of measurement in which the value of the slider is expressed in.
+        required: false
+        type: string
+      icon:
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        required: false
+        type: icon
+{% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+
+## {% linkable_title Automation Examples %}
+
+Here's an example of `numeric_float` being used as a trigger in an automation.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry using a sensor as a trigger in an automation
+automation:
+  - trigger:
+  - entity_id: sensor.temp_f
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{states.sensor.temp_f.state | float > states.numeric_float.outside_high_temperature.state | float}}'
+  action:
+  - service: numeric_float.set_value
+    data_template:
+      entity_id: numeric_float.outside_high_temperature
+      value: '{{states.sensor.temp_f.state | float}}'
+  alias: Set Outside High Temperature
+  id: set_outside_high_temperature
+```
+{% endraw %}
+
+Another example using 'time' to reset value
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+  - at: 00:00:00
+    platform: time
+  action:
+  - service: numeric_float.set_value
+    data_template:
+      entity_id: numeric_float.outside_high_temperature
+      value: '{{states.sensor.temp_f.state | float}}'
+  alias: Reset Outside High Temperature
+  id: reset_outside_high_temperature
+
+```
+{% endraw %}
