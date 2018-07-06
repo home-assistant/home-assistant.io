@@ -1,0 +1,76 @@
+---
+layout: page
+title: "Numeric Integer"
+description: "Instructions on how to integrate the Numeric Integer component into Home Assistant."
+date: 2018-07-05 04:30
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: home-assistant.png
+ha_category: Automation
+ha_release: ??
+redirect_from: /components/numeric_integer/
+---
+
+The `numeric_integer` component allows the user to store and update values that can be controlled within conditions of automation. Changes the values generate state events. These state events can be utilized as `automation` triggers as well. 
+
+To enable this numeric_integer in your installation, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+numeric_integer:
+  days_value:
+    name: Days Value
+	icon: mdi:calendar-today
+```
+
+{% configuration %}
+  numeric_integer:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: string
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: integer
+        default: none
+      unit_of_measurement:
+        description: Unit of measurement in which the value of the slider is expressed in.
+        required: false
+        type: string
+      icon:
+        description: Icon to display in front of value in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        required: false
+        type: icon
+{% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+
+## {% linkable_title Automation Examples %}
+
+Here's an example of `numeric_float` being used as a trigger in an automation.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry using 'time as a trigger in an automation to add one day to 'numeric_integer' value
+automation:
+  - trigger:
+  - at: 00:00:00
+    platform: time
+  action:
+  - service: numeric_integer.set_value
+    data_template:
+      entity_id: numeric_integer.days_value
+      value: '{{states.numeric_integer.days_value.state | int + 1}}'
+  alias: Add Day
+  id: add_day
+```
+{% endraw %}
