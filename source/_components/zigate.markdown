@@ -38,10 +38,3 @@ To integrate the ZiGate component in Home Assistant, add the following section t
 To pair a new device, go in developer/services and call the 'zigate.permit\_join' service.
 You have 30 seconds to pair your device.
 Entities (sensor, switch, light, etc) will be auto-generated.
-
-{% configuration %}
-  port:
-    description: USB port
-    required: false
-    type: string
-{% endconfiguration %}
