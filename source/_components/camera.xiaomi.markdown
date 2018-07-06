@@ -19,8 +19,6 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ## {% linkable_title Preparing the Device %}
 
-### {% linkable_title Installing Alternative Firmware %}
-
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
 * [Yi 720p](https://github.com/fritz-smh/yi-hack)
@@ -29,16 +27,16 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 
 Once installed, please ensure that you have enabled FTP.
 
- <p class='note warning'>
+<p class='note warning'>
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
 </p>
 
 <p class='note warning'>
-Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
+Hassbian users: Don't forget to install `ffmpeg` support on your platform, otherwise, you'll not see video.
 </p>
 
 <p class='note warning'>
-The live stream writing by the camera is not an supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this component retrives the video which was saved 1 minute earlier.
+The live stream writing by the camera is not an supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrives the video which was saved 1 minute earlier.
 </p>
 
 <p class='note warning'>
@@ -67,6 +65,10 @@ Configuration variables:
 - **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
 - **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+
+<p class='note'>
+The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
+</p>
 
 ## {% linkable_title Image quality %}
 

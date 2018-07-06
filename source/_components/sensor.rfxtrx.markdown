@@ -55,7 +55,9 @@ sensor:
        - Humidity
        - Temperature
 ```
+
 Only these data_type are valid :
+
 - *Temperature*
 - *Humidity*
 - *Barometer*
@@ -93,4 +95,7 @@ Configuration variables:
 - **data_type**  (*Optional*): Which data type the sensor should show
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
 
-
+<p class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes. 
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</p>
