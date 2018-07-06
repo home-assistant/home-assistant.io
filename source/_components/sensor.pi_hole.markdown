@@ -51,7 +51,7 @@ monitored_conditions:
   description: Defines the stats to monitor as sensors.
   required: false
   type: string
-  default: all
+  default: ads_blocked_today
   keys:
     ads_blocked_today:
       description: Total number of blocked ads today.
@@ -73,5 +73,5 @@ monitored_conditions:
       description: Total number of seen clients.
 {% endconfiguration %}
 
-This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They didn't provide support, feedback, testing or helped in any way while it was created. This is third party, may not if Pi-hole is breaking their API with the latest release, not official, not developed, not supported and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform and only to describe. `Pi-hole` is a registered trademark of Pi-hole LLC. 
+This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They didn't provide support, feedback, testing or helped in any way while it was created. This is third party, may not work if Pi-hole is breaking their API with the latest release, not official, not developed, not supported and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform and only to describe. `Pi-hole` is a registered trademark of Pi-hole LLC. 
 

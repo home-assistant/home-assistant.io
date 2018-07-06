@@ -85,6 +85,14 @@ If your model is not on the list then give it a test, if everything works correc
 The first letter (U, P, L, H & K) represent the screen type, e.g., LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these before adding them to the list.
 
-Currently the ability to select a source is not implemented.
+Changing channels can be done by calling the `media_player.play_media` service with the following payload:
 
-There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TVs receiving a *Key press UP* that can interrupt certain applications. This should be fixed as of March 2017.
+```javascript
+{
+  "entity_id": "media_player.office_tv",
+  "media_content_id": "590",
+  "media_content_type": "channel"
+}
+```
+
+Currently the ability to select a source is not implemented.

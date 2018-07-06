@@ -35,7 +35,7 @@ sensor:
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored.
   - **captured_today**: Return the number of videos captured on the current day.
   - **last_capture**: Return the timestamp from the last video captured by your Arlo camera.
   - **total_cameras**: Return the number of recognized and active cameras linked on your Arlo account.

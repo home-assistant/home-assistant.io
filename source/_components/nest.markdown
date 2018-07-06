@@ -65,7 +65,15 @@ Configuration variables:
 
 Currently there is a single `nest.set_mode` service available to switch between
 "away" and "home" modes. This service requires a `home_mode` param and has an
-optional `structure` param.
+optional `structure` param. While setting "away" mode, an estimated arrival time
+can also be set with `eta`, `eta_window`, and `trip_id` parameters.
+
+- **home_mode** (*Required*): `home` or `away`
+- **structure** (*Optional*): Structure(s). Default apply to all structures connected with Home Assistant.
+- **eta** (*Optional*): Estimated Time of Arrival from now.
+- **eta_window** (*Optional*): ETA window (default is 1 minute).
+- **trip_id** (*Optional*): Unique ID for the trip. Using an existing trip ID will update that trip's ETA.
+
 
 ```yaml
 # Example script to set away, no structure specified so will execute for all
@@ -85,4 +93,17 @@ set_nest_home:
         home_mode: home
         structure:
           - Building
+```
+
+```yaml
+# Example script to set eta, structure specified
+set_nest_eta:
+  sequence:
+    - service: nest.set_mode
+      data:
+        home_mode: away
+        structure:
+          - Building
+        eta: 00:10:30
+        eta_window: 00:05
 ```

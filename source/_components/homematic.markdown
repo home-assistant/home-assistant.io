@@ -46,6 +46,7 @@ Configuration variables (interface):
 - **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
 - **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
+- **jsonport** (*Optional*): Port of CCU JSON-RPC Server. The default is 80, but it may be different when running CCU virtually via Docker.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 - **path** (*Optional*): Set to `/groups` when using port 9292.

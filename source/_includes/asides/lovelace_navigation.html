@@ -1,0 +1,22 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <!-- {% include edit_github.html %} -->
+  {% assign cards = site.lovelace | sort: 'title' %}
+
+  <div class='section'>
+    <h1 class="title delta">Lovelace UI</h1>
+    <ul class='divided'>
+      <li><a href='/lovelace/'>Introduction</a></li>
+    </ul>
+  </div>
+
+  <div class='section'>
+    <h1 class="title delta">Cards</h1>
+    <ul class='divided'>
+      {% for card in cards %}
+        <li>
+          <a href='{{card.url}}'>{{ card.sidebar_label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
