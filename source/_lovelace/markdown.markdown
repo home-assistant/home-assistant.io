@@ -31,7 +31,4 @@ Markdown card is used to render [markdown](http://commonmark.org/help/)
     ## Lovelace
 
     Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the **Lovelace UI**.
-```
-
-### Feedback
-- ~Support templating [#55](https://github.com/home-assistant/ui-schema/issues/55)~
+``
