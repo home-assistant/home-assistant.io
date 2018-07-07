@@ -2,7 +2,7 @@
 layout: page
 title: "Entities Card"
 sidebar_label: Entities
-description: "TBD"
+description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
