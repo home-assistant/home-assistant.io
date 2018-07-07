@@ -16,7 +16,10 @@ This card allows you to define a list of entities that you want to track only wh
 
 This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](card-glance.md) or [picture-glance](card-picture-glance.md). By default it uses [entities](card-entities.md) card model.
 
-![entity-filter-entity](https://user-images.githubusercontent.com/7738048/41776696-686e976e-7631-11e8-95bb-bb69a9494c7d.png)
+<p class='img'>
+<img src='/images/lovelace/lovelace_entity_filter.png' alt='Screenshot of the entity filter card'>
+Screenshot of the entity filter card.
+</p>
 
 **Options**
 
@@ -58,4 +61,7 @@ Show only people that are at home using [glance](card-glance.md):
     title: People at home
 ```
 
-![entity-filter](https://user-images.githubusercontent.com/7738048/41775896-71d42556-762e-11e8-8b02-d75c7824300a.png)
+<p class='img'>
+<img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Screenshot of the entity filter used on a Glance card'>
+Screenshot of the entity filter used on a Glance card.
+</p>
