@@ -13,7 +13,10 @@ footer: true
 
 History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
 
-![history-graph](https://user-images.githubusercontent.com/7738048/41775899-72444f02-762e-11e8-8ccc-cdaf401bd4ea.png)
+<p class='img'>
+<img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card'>
+Screenshot of the history graph card.
+</p>
 
 **Options**
 
