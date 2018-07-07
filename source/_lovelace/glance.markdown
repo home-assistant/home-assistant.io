@@ -23,4 +23,4 @@ Each entry in the list of entities is either an entity ID or an entity option ob
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | entity | entity id | **Required** | The ID of the entity to show.
-| title | string | Optional | The title to use instead of the entity name.
+| name | string | Optional | The name to use instead of the entity name.
