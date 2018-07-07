@@ -12,7 +12,7 @@ footer: true
 
 ### Media controller
 
-The media controller card is used to display [Media Player](https://www.home-assistant.io/components/#search/media-player) entities on an interface with easy to use controls. 
+The media controller card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls. 
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>
