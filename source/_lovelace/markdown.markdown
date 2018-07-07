@@ -13,7 +13,10 @@ footer: true
 ### Markdown
 Markdown card is used to render [markdown](http://commonmark.org/help/)
 
-![markdown](https://user-images.githubusercontent.com/7738048/41775900-7269b8c8-762e-11e8-90f9-5634783d283e.png)
+<p class='img'>
+<img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
+Screenshot of the markdown card.
+</p>
 
 **Options**
 
