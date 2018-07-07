@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other.  Keep in mind this can be used with any cards, and even used alongside a [horizontal-stack](horizontal-stack.markdown).
+Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other.  Keep in mind this can be used with any cards, and even used alongside a [horizontal-stack](/lovelace/horizontal-stack/).
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -31,7 +31,10 @@ Basic example
         - binary_sensor.movement_backyard
 ```
 
-![vertical stack](https://user-images.githubusercontent.com/32000001/42230976-341c8a02-7ee2-11e8-925f-6770b86166ab.PNG)
+<p class='img'>
+<img src='/images/lovelace/lovelace_vertical-stack.png' alt='Screenshot of the vertical stack card'>
+Screenshot of the vertical stack card.
+</p>
 
 Example using both a Vertical and Horizontal Stack Card
 ```yaml
@@ -49,4 +52,7 @@ Example using both a Vertical and Horizontal Stack Card
           image: https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
           entity: light.bed_light
   ```
-![vertical stack 2](https://user-images.githubusercontent.com/32000001/42231285-116cd8e4-7ee3-11e8-8ae8-aa4cdee606d2.PNG)
+<p class='img'>
+<img src='/images/lovelace/lovelace_vertical-horizontal-stack.png' alt='Screenshot of the vertical stack and horizontal stack combined in a card'>
+Screenshot of the vertical stack and horizontal stack combined in a card.
+</p>
