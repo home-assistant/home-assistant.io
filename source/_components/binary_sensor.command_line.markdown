@@ -81,3 +81,27 @@ binary_sensor:
 ```
 
 Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
+
+### {% linkable_title Check if a system service is running %}
+
+The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
+
+```
+$ systemctl is-active home-assistant@rock64.service 
+active
+$ sudo service home-assistant@rock64.service stop
+$ systemctl is-active home-assistant@rock64.service 
+inactive
+```
+
+A binary command line sensor can check this:
+
+```yaml
+binary_sensor:
+  - platform: command_line
+    command: '/bin/systemctl is-active home-assistant@rock64.service'
+    payload_on: 'active'
+    payload_off: 'inactive'
+```
+
+Note: Use single quotes! 
