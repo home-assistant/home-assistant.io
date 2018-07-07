@@ -12,7 +12,10 @@ footer: true
 
 Weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall. 
 
-![weather-forecast](https://user-images.githubusercontent.com/7738048/41775906-731ad130-762e-11e8-854f-d156a0ff56ef.png)
+<p class='img'>
+<img src='/images/lovelace/lovelace_weather.png' alt='Screenshot of the weather card'>
+Screenshot of the weather card.
+</p>
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
