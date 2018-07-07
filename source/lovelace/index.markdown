@@ -37,7 +37,7 @@ Visual comparison of old configuration versus new configuration
 
 ## Trying it out
 
-Create a new file `<config>/ui-lovelace.yaml` and add the following content:
+Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
 ```yaml
 title: My Awesome Home
@@ -46,62 +46,53 @@ views:
   - title: Example
     # Optional unique id for direct access /lovelace/${id}
     id: example
-    # Each view can have a different theme applied. Theme should be defined in the frontend.
+    # Each view can have a different theme applied.
     theme: dark-mode
     # The cards to show on this view.
     cards:
-        # The entities card will take a list of entities and show their state.
-      - type: entities
-        # Title of the entities card
-        title: Example
-        # The entities here will be shown in the same order as specified.
-        entities:
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_livingroom
-          - input_boolean.switch_tv
-
-        # The filter card will filter available entities for certain criteria
-        # and render it as type 'entities'.
+        # The filter card will filter entities for their state
       - type: entity-filter
-        # Filter criteria. They are all optional.
-        filter:
-          - domain: input_boolean
-            state: 'on'
-        # This config will be passed to the card rendering the filter results
+        entities:
+          - device_tracker.paulus
+          - device_tracker.anne_there
+        state_filter:
+          - 'home'
         card_config:
-          title: Input booleans that are on
+          type: glance
+          title: People that are home
+
+        # The picture entity card will represent an entity with a picture
+      - type: picture-entity
+        image: https://www.home-assistant.io/images/default-social.png
+        entity: light.bed_light
 
     # Specify a tab icon if you want the view tab to be an icon.
   - icon: mdi:home-assistant
     # Title of the view. Will be used as the tooltip for tab icon
     title: Second view
     cards:
+        # Entities card will take list of entities and show their state.
       - type: entities
-        title: Lots of Kitchen AC
+        # Title of the entities card
+        title: Example
+        # The entities here will be shown in the same order as specified.
+        # Each entriy is an entity ID or a map with extra options.
         entities:
-            # It is totally possible to render duplicates.
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-```
+          - light.kitchen
+          - switch.ac
+          - entity: light.living_room
+            # Override the name to use
+            name: LR Lights
 
-Add to your `configuration.yaml`:
-
-```yaml
-input_boolean:
-  switch_ac_kitchen:
-    name: AC kitchen
-  switch_ac_livingroom:
-    name: AC living room
-  switch_tv:
-    name: TV
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
 ```
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
 ## Current limitations
 
-This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema).
+This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
