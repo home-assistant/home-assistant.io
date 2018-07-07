@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ---
 
-## Views
 These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep links like `/lovelace/0`. You can also assign your own [custom ids](/lovelace/views/#custom-id).
 
 - Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs
