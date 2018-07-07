@@ -23,6 +23,7 @@ Horizontal stack card will allow you to stack together multiple cards so they al
 **Example**
 
 Basic example
+
 ```yaml
 - type: horizontal-stack
   cards:
