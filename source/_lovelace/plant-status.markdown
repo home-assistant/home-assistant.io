@@ -2,7 +2,7 @@
 layout: page
 title: "Plant Status Card"
 sidebar_label: Plant Status
-description: "A card for all the lovely botanists out there."
+description: "The Plant card gives you an easy way of viewing the status of your plants"
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
