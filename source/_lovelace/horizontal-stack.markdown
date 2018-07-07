@@ -34,4 +34,7 @@ Basic example
       entity: light.bed_light
 ```
 
-![horizontal stacking](https://user-images.githubusercontent.com/32000001/42229254-f02b8284-7edd-11e8-9ea6-f6689e8450f5.PNG)
+<p class='img'>
+<img src='/images/lovelace/lovelace_horizontal_stack.PNG' alt='Screenshot of the 2 cards in a horizontal stack card>
+Screenshot of the 2 cards in a horizontal stack card.
+</p>
