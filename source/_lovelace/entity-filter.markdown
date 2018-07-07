@@ -47,7 +47,8 @@ Show only active switches or lights in the house
     title: Eating power
 ```
 
-Show only people that are at home using [glance](card-glance.md):
+Show only people that are at home using [glance](/lovelace/glance/):
+
 ```yaml
 - type: entity-filter
   entities:
