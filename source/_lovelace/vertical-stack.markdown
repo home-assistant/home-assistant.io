@@ -37,6 +37,7 @@ Screenshot of the vertical stack card.
 </p>
 
 Example using both a Vertical and Horizontal Stack Card
+
 ```yaml
 - type: vertical-stack
   cards:
@@ -51,7 +52,8 @@ Example using both a Vertical and Horizontal Stack Card
         - type: picture-entity
           image: https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
           entity: light.bed_light
-  ```
+```
+
 <p class='img'>
 <img src='/images/lovelace/lovelace_vertical-horizontal-stack.png' alt='Screenshot of the vertical stack and horizontal stack combined in a card'>
 Screenshot of the vertical stack and horizontal stack combined in a card.
