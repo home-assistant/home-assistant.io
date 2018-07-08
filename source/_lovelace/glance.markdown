@@ -40,7 +40,7 @@ title:
 {% configuration %}
 entity:
   required: true
-  description: An entity_id. Example: 'device_tracker.demo_paulus'.
+  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
   type: string
 name:
   required: true
