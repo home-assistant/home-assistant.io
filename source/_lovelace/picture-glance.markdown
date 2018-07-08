@@ -69,12 +69,12 @@ title:
 `state_image` object structure
 
 {% configuration %}
-on:
+"on":
   required: true
   description: URL of an image used for on state.
   type: string
   default: None
-off:
+"off":
   required: true
   description: URL of an image used for off state.
   type: string
@@ -89,7 +89,7 @@ not_home:
   description: URL of an image used for not_home state.
   type: string
   default: None
-...:
+any:
   required: false
   description: Any state that is supported by the entity works
   type: object
