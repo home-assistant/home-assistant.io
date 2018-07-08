@@ -28,7 +28,7 @@ Screenshot of the picture glance card.
 {% configuration %}
 type:
   required: true
-  description: `picture-glance`
+  description: picture-glance
   type: string
 image:
   required: true
@@ -46,12 +46,12 @@ navigation_path:
   default: None
 camera_image:
   required: false
-  description: Camera domain entity_id 'camera.demo_camera'
+  description: "Camera domain entity_id 'camera.demo_camera'"
   type: string
   default: None  
 state_image:
   required: false
-  description: See `state_image` object structure.
+  description: "See `state_image` object structure."
   type: object
   default: None
 entity:
