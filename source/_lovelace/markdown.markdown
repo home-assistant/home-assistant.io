@@ -17,7 +17,7 @@ Markdown card is used to render [markdown](http://commonmark.org/help/)
 Screenshot of the markdown card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -25,7 +25,7 @@ Screenshot of the markdown card.
 | content | string | **Required** | Content to render as [markdown](http://commonmark.org/help/).
 | title | string | Optional | Card title
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: markdown
