@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Picture glance
-
 A very useful type of card that can display sensors, switches, lights and other entities grouped on top of a custom image. Use this card for easy visual recognition inside a large dashboard. You also can add `navigation_path` to take the user to a specific view and use these cards in an overview dashboard.
 
 What really sets this card apart is the ability to **control** entities directly from the card without the need to open the details of that entity.
