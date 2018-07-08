@@ -23,62 +23,150 @@ Screenshot of the picture elements card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `picture-elements`
-| image | string | **Required** | URL of an image
-| elements | list | **Required** | List of elements
-| title | string | Optional | Card title
+{% configuration %}
+type:
+  required: true
+  description: `picture-elements`
+  type: string
+image:
+  required: true
+  description: URL of an image
+  type: string
+elements:
+  required: true
+  description: List of elements
+  type: list
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
 Element types:
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `navigation`
-| navigation_path | string | **Required** | navigation_path of URL to navigate to
-| icon | string | Optional | Icon
+{% configuration %}
+type:
+  required: true
+  description: `navigation`
+  type: string
+navigation_path:
+  required: true
+  description: navigation_path of URL to navigate to
+  type: string
+icon:
+  required: false
+  description: Icon
+  type: string
+  default: none
+{% endconfiguration %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `state-badge`
-| entity | string | **Required** | Entity id
-| style | object | **Required** | See "Style options"
+{% configuration %}
+type:
+  required: true
+  description: `state-badge`
+  type: string
+entity:
+  required: true
+  description: Entity id
+  type: string
+style:
+  required: true
+  description: See "Style options"
+  type: object
+{% endconfiguration %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `state-icon`
-| entity | string | **Required** | Entity id
-| style | object | **Required** | See "Style options"
-| tap_action | string | more-info | Set to `toggle` to change state
+{% configuration %}
+type:
+  required: true
+  description: `state-icon`
+  type: string
+entity:
+  required: true
+  description: Entity id
+  type: string
+style:
+  required: true
+  description: See "Style options"
+  type: object
+tap_action:
+  required: true
+  description: Set to `toggle` to change state
+  type: string
+  default: more-info
+{% endconfiguration %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `state-label`
-| entity | string | **Required** | Entity id
-| style | object | **Required** | See "Style options"
+{% configuration %}
+type:
+  required: true
+  description: `state-label`
+  type: string
+entity:
+  required: true
+  description: Entity id
+  type: string
+style:
+  required: true
+  description: See "Style options"
+  type: object
+{% endconfiguration %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `service-button`
-| service | string | **Required** | `light.turn_on`
-| service_data | object | Optional | See `service_data` object structure.
-| style | object | **Required** | See "Style options"
-| title | string | Optional | Button label
+{% configuration %}
+type:
+  required: true
+  description: `service-button`
+  type: string
+service:
+  required: true
+  description: `light.turn_on`
+  type: string
+service_data:
+  required: false
+  description: See `service_data` object structure.
+  type: object
+  default: none
+style:
+  required: true
+  description: See "Style options"
+  type: object
+title:
+  required: false
+  description: Button label
+  type: string
+  default: none
+{% endconfiguration %}
 
 `service_data` object structure
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| entity_id | string | **Required** | 'light.floor'
+{% configuration %}
+entity_id:
+  required: true
+  description: 'light.floor'
+  type: string
+{% endconfiguration %}
 
 Style options (CSS):
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| left | string | **Required** | Position from left, `25%`
-| top | string | **Required** | Position from top, `50%`
-| ... | string | inherit | ...
-| "--paper-item-icon-color" | string | inherit | Badge-icon off-color, `green`
+{% configuration %}
+left:
+  required: true
+  description: Position from left, `25%`
+  type: string
+top:
+  required: true
+  description: Position from top, `50%`
+  type: string
+...:
+  required: inherit
+  description: ...
+  type: string
+  default: none
+"--paper-item-icon-color":
+  required: inherit
+  description: Badge-icon off-color, `green`
+  type: string
+  default: none
+{% endconfiguration %}
 
 {% linkable_title Example %}
 
