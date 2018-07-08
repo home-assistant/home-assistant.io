@@ -10,7 +10,7 @@ footer: true
 logo: dlna.png
 ha_category: Media Player
 featured: false
-ha_release: 0.71
+ha_release: 0.74
 ha_iot_class: "Local Push"
 ---
 
