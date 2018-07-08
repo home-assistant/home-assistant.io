@@ -19,13 +19,31 @@ Screenshot of the history graph card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `history-graph`
-| entities | list | **Required** | List of entities to graph.
-| hours_to_show | integer | 24 | Hours to show
-| refresh_interval | integer | 0 | Refresh interval in seconds
-| title | string | Optional | `My Graphs`
+{% configuration %}
+type:
+  required: true
+  description: `history-graph`
+  type: string
+entities:
+  required: true
+  description: List of entities to graph.
+  type: list
+hours_to_show:
+  required: false
+  description: Hours to show
+  type: integer
+  default: 24
+refresh_interval:
+  required: false
+  description: Refresh interval in seconds
+  type: integer
+  default: 0
+title:
+  required: false
+  description: `My Graphs`
+  type: string
+  default: none
+{% endconfiguration %}
 
 {% linkable_title Example %}
 
