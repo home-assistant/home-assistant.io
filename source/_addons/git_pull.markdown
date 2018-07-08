@@ -35,9 +35,9 @@ Load and update configuration files for Home Assistant from a GIT repository.
 }
 ```
 
-- **repository** (*Required*): Git url to your repository (make sure to use double quotes). You have to add .git to your GITHub-Repository-URL (see example Config)
+- **repository** (*Required*): Git URL to your repository (make sure to use double quotes). You have to add .git to your GitHub repository URL (see example config)
 - **git_branch** (*Required*): Branch name of the git repo, leave this as 'master' if you are unsure.
-- **git_remote** (*Requried*): Name of the tracked repository, leave this as 'origin' if you are unsure.
+- **git_remote** (*Required*): Name of the tracked repository, leave this as 'origin' if you are unsure.
 - **git_command** (*Required*): Must be either 'pull' or 'reset', leave this as 'pull' if you are unsure.
 
   * **pull**: Incorporates changes from a remote repository into the current branch. Will preserve any local changes to tracked files.
@@ -47,7 +47,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
   Using the <b>reset</b> option will overwrite changes to tracked files.  Tracked files are those visible in the Github repository or those given by the output on this command: ```git ls-tree -r master --name-only```
 </p>
   
-- **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
+- **auto_restart** (*Optional*): Restart Home Assistant when the configuration has changed (and is valid).
 - **repeat/active** (*Optional*): Pull periodic for git updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
 - **deployment_user** (*Optional*): Username to use when authenticating to a repo with a username and password.
