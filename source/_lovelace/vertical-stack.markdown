@@ -14,10 +14,16 @@ Stack card will allow you to stack together multiple cards so they always sit to
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `vertical-stack`
-| cards | list | **Required** | List of cards
+{% configuration %}
+type:
+  required: true
+  description: `vertical-stack`
+  type: string
+cards:
+  required: true
+  description: List of cards
+  type: list
+{% endconfiguration %}
 
 {% linkable_title Example %}
 
