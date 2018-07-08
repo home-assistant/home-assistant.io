@@ -19,7 +19,7 @@ This type of card can also be used together with rest of cards that allow multip
 Screenshot of the entity filter card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -29,7 +29,7 @@ Screenshot of the entity filter card.
 | card | object | `entities` type | Extra options to pass down to the card rendering the result.
 | show_empty | boolean | true | Allows hiding of card when no entities returned by filter.
 
-**Examples**
+{% linkable_title Examples %}
 
 Show only active switches or lights in the house
 ```yaml
