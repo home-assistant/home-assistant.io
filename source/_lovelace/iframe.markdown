@@ -19,7 +19,7 @@ Screenshot of the iframe card.
 
 > Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses https you won't be able to embed http URLs
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -28,7 +28,7 @@ Screenshot of the iframe card.
 | aspect_ratio | string | `"50%"` | Iframe height-width-ratio
 | title | string | Optional | Card title
 
-**Examples**
+{% linkable_title Examples %}
 
 ```yaml
       - type: iframe
