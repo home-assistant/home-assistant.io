@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: ritassist.png
 ha_category: Presence Detection
-ha_release: 0.73
+ha_release: 0.74
 ---
-
 
 This platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
