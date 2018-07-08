@@ -9,7 +9,6 @@ comments: false
 sharing: true
 footer: true
 ---
-### History graph
 
 History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
 
