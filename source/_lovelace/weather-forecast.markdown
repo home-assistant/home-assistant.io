@@ -22,11 +22,11 @@ Screenshot of the weather card.
 {% configuration %}
 type:
   required: true
-  description: `weather-forecast`
+  description: weather-forecast
   type: string
 entity:
   required: true
-  description: Entity id of `weather` domain
+  description: "Entity id of `weather` domain"
   type: string
 {% endconfiguration %}
 
