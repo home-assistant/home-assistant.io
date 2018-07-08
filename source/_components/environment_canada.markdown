@@ -20,14 +20,11 @@ The `environment_canada` component uses [Environment Canada](https://weather.gc.
   - `sensor.environment_canada`
   - `camera.environment_canada` (radar imagery)
 
-To add Environment Canada platforms to your installation, add following to your `configuration.yaml` file:
+To add Environment Canada platforms to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 environment_canada:
 ```
 
-Configuration variables:
-
-* None.
-To apply non-default settings to the platforms, they should be configured individually.
+This component has no configuration variables. To apply non-default settings to the platforms, they should be configured individually.
