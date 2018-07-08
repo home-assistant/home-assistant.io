@@ -42,7 +42,7 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content:
 ```yaml
 title: My Awesome Home
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-backround: center / cover no-repeat url("/background.png") fixed
+background: center / cover no-repeat url("/background.png") fixed
 views:
     # View tab title.
   - title: Example
