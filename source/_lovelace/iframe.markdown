@@ -21,12 +21,26 @@ Screenshot of the iframe card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `iframe`
-| url | string | **Required** | iframe source url
-| aspect_ratio | string | `"50%"` | Iframe height-width-ratio
-| title | string | Optional | Card title
+{% configuration %}
+type:
+  required: true
+  description: `iframe`
+  type: string
+url:
+  required: true
+  description: iframe source url
+  type: string
+aspect_ratio:
+  required: false
+  description: Iframe height-width-ratio
+  type: string
+  default: `"50%"`
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
 {% linkable_title Examples %}
 
