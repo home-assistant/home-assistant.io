@@ -17,13 +17,15 @@ Weather forecast is a card to display the weather. Very useful to include on int
 Screenshot of the weather card.
 </p>
 
+{% linkable_title Options %}
+
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | type | string | **Required** | `weather-forecast`
 | entity | string | **Required** | Entity id of `weather` domain
 
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: weather-forecast
