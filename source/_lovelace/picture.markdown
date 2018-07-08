@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Picture
-
 A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
@@ -19,24 +17,45 @@ A very simple card that allows you to set an image to use for navigation to vari
 Screenshot of the picture card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `picture`
-| image | string | **Required**| URL of an image.
-| navigation_path | string | Optional | Path of URL to navigate to
-| service | string | Optional | `light.toggle`
-| service_data | object | optional | See service_data object
+{% configuration %}
+type:
+  required: true
+  description: picture
+  type: string
+image:
+  required: true
+  description: URL of an image
+  type: string
+navigation_path:
+  required: false
+  description: Path of URL to navigate to
+  type: string
+  default: None
+service:
+  required: false
+  description: "`light.toggle`"
+  type: string
+  default: None
+service_data:
+  required: false
+  description: See service_data object
+  type: object
+  default: None
+{% endconfiguration %}
 
 `service_data` object structure
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| entity_id | string | **Required** | 'light.floor'
+{% configuration %}
+entity_id:
+  required: true
+  description: light.floor
+  type: string
+{% endconfiguration %}
 
 
-**Examples**
+{% linkable_title Examples %}
 
 Basic navigation example:
 
