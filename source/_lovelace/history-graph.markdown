@@ -22,7 +22,7 @@ Screenshot of the history graph card.
 {% configuration %}
 type:
   required: true
-  description: `history-graph`
+  description: history-graph
   type: string
 entities:
   required: true
@@ -40,7 +40,7 @@ refresh_interval:
   default: 0
 title:
   required: false
-  description: `My Graphs`
+  description: Card title
   type: string
   default: none
 {% endconfiguration %}
