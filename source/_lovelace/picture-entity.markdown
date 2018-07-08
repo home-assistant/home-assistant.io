@@ -87,10 +87,10 @@ not_home:
   description: URL of an image used for not_home state.
   type: string
   default: None
-OTHER:
+any:
   required: false
   description: Any state that is supported by the entity works
-  type: object
+  type: 'object'
   default: None
 {% endconfiguration %}
 
