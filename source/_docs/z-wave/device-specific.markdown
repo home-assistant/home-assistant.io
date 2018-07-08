@@ -321,3 +321,36 @@ Below is a table of the action/scenes for the Button (as a reference for other s
 Button single tap|1|0
 Button hold|1|2
 Button release|1|1
+
+### {% linkable_title HANK Four-key Scene Controller HKZN-SCN04 %}
+
+For the HANK Four-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="5" label="Other" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Buttons and associated Pictogram:
+
+**Action**|**Pictogram**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:|:-----:
+Button one tap|Moon and Star|1|0
+Button one hold|Moon and Star|1|2
+Button one release|Moon and Star|1|1
+Button two tap|People|2|0
+Button two hold|People|2|2
+Button two release|People|2|1
+Button three tap|Circle|3|0
+Button three hold|Circle|3|2
+Button three release|Circle|3|1
+Button four tap|Circle with Line|4|0
+Button four hold|Circle with Line|4|2
+Button four release|Circle with Line|4|1
