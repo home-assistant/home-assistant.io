@@ -49,5 +49,5 @@ Please make sure you have `autoconf` installed (`apt-get install autoconf`) if y
 
 </p>
 
-## Troubleshooting
+## {% linkable_title Troubleshooting %}
 - Firmware updates: After updating the firmware of your Trådfri gateway it might be necessary to repeat the configuration process. If you encounter problems, delete `.tradfri_psk.conf`, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. (Possible errors: ```Fatal DTLS error: code 115```)
