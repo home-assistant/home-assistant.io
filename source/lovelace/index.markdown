@@ -107,42 +107,7 @@ This is the very very early version aimed at gathering feedback. Discussion and 
 
 {% linkable_title Make Lovelace default %}
 
-To make the Lovelace UI the default dashboard view use one of the methods below.
-
-{% linkable_title Using UI %}
-
 Click the `>> Set lovelace as default page page on this device <<` in `dev-info` panel to make Lovelace the default interface when visiting `/`. 
-
-{% linkable_title Overview binding %}
-
-This is a **hack** that will bind `/lovelace` to **Overview** option in the menu instead of `/states` using javascript. It will also set default dashboard for `/` using the same mechanic as **Using UI** method. 
-
-1. Create a new file under your `config/www` folder and name it `lovelace.html`
-
-Content of `lovelace.html`
-
-```html
-<script>
-    var hack_element = document.querySelector('home-assistant').shadowRoot.querySelector('home-assistant-main').shadowRoot.querySelector('ha-sidebar').shadowRoot.querySelector('paper-icon-item[data-panel="states"]');
-    if (hack_element) {
-        hack_element.setAttribute("data-panel", "lovelace");
-        localStorage.defaultPage = 'lovelace';
-    }
-</script>
-```
-
-2. Tell Home Assistant to load this file by referencing it inside your `configuration.yaml`
-
-Example configuration:
-
-```yaml
-frontend:
-  extra_html_url:
-    - /local/lovelace.html
-```
-
-3. Restart your Home Assistant and force a clear cache on your browser and a few force reloads on IOS app
-4. [Optional] To view the old dashboard just navigate to `/states`
 
 {% linkable_title Debugging %}
 
