@@ -12,12 +12,20 @@ footer: true
 
 Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other.  Keep in mind this can be used with any cards, and even used alongside a [horizontal-stack](/lovelace/horizontal-stack/).
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `vertical-stack`
-| cards | list | **Required** | List of cards
+{% linkable_title Options %}
 
-**Example**
+{% configuration %}
+type:
+  required: true
+  description: vertical-stack
+  type: string
+cards:
+  required: true
+  description: List of cards
+  type: list
+{% endconfiguration %}
+
+{% linkable_title Example %}
 
 Basic example
 ```yaml

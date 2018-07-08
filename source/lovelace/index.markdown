@@ -19,14 +19,14 @@ The Lovelace UI is:
 
  - **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
  - **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
- - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](lovelace_custom_card.md)
+ - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
  - **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6FX9_leiikw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## How it works
+{% linkable_title How it works %}
 
 The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a seperate file, controlled by the user.
 
@@ -39,7 +39,7 @@ Visual comparison of old configuration versus new configuration
 
 <!-- source: https://docs.google.com/drawings/d/1O1o7-wRlnsU1lLgfdtn3s46P5StJjSL5to5RU9SV8zs/edit?usp=sharing -->
 
-## Trying it out
+{% linkable_title Trying it out %}
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
@@ -100,10 +100,31 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
-## Custom Cards
+{% linkable_title Custom cards %}
 
 It is possible to add your own custom cards to show up in the Lovelace UI. For more information, check [the developer docs](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html).
 
-## Current limitations
+{% linkable_title Current limitations %}
 
 This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
+
+{% linkable_title Make Lovelace default %}
+
+Click the `>> Set lovelace as default page page on this device <<` in `dev-info` panel to make Lovelace the default interface when visiting `/`. 
+
+{% linkable_title Debugging %}
+
+To see what entities you left out, you can now use the menu `Unused entities` in the header of Lovelace,  the top right corner.
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_unused_entites.png' alt='Screenshot of unused entities menu option'>
+Screenshot of unused entities menu option.
+</p>
+
+{% linkable_title Examples %}
+
+To get you started you can use the `demo` platfrom in your `configuration.yaml` and experiment with the various examples inside card docs.
+
+Other examples:
+- [ui-schema](https://github.com/home-assistant/ui-schema/blob/master/dev_repo_test_config) repo used by devs
+- [arsaboo](https://github.com/arsaboo/homeassistant-config/blob/master/ui-lovelace.yaml) own setup
