@@ -22,11 +22,11 @@ Screenshot of the plant status card.
 {% configuration %}
 type:
   required: true
-  description: `picture-status`
+  description: picture-status
   type: string
 entity:
   required: true
-  description: Entity id of `plant` domain
+  description: "Entity id of `plant` domain"
   type: string
 {% endconfiguration %}
 
