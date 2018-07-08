@@ -32,6 +32,7 @@ title:
   required: false
   description: Card title
   type: string
+  default: none
 {% endconfiguration %}
 
 `entity` object type
