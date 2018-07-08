@@ -40,8 +40,7 @@ longitude:
   required: inclusive
   type: float
 station: 
-  description: The station code of a specific radar station to use. If provided, this station will be used and any lat/lon coordinates provided will be ignored. 
-Station codes must be in the form of "ABC".
+  description: The station code of a specific radar station to use. If provided, this station will be used and any lat/lon coordinates provided will be ignored. Station codes must be in the form of "ABC".
   required: false
   type: string
 name:
