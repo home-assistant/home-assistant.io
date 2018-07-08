@@ -47,6 +47,9 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 title: My Awesome Home
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
+# Exclude entites from "Unused entities" view
+excluded_entities:
+  - weblink.router
 views:
     # View tab title.
   - title: Example
