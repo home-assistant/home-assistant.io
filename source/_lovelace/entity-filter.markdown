@@ -24,7 +24,7 @@ Screenshot of the entity filter card.
 {% configuration %}
 type:
   required: true
-  description: `entity-filter`
+  description: entity-filter
   type: string
 entities:
   required: true
@@ -38,7 +38,7 @@ card:
   required: false
   description: Extra options to pass down to the card rendering the result.
   type: object
-  default: `entities` type
+  default: entities type
 show_empty:
   required: false
   description: Allows hiding of card when no entities returned by filter.
