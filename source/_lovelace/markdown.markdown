@@ -10,7 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Markdown
 Markdown card is used to render [markdown](http://commonmark.org/help/)
 
 <p class='img'>
