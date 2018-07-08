@@ -19,10 +19,16 @@ Screenshot of the media player control card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `media-control`
-| entity | string | **Required** | Entity id of `media_player` domain
+{% configuration %}
+type:
+  required: true
+  description: `media-control`
+  type: string
+entity:
+  required: true
+  description: Entity id of `media_player` domain
+  type: string
+{% endconfiguration %}
 
 {% linkable_title Example %}
 
