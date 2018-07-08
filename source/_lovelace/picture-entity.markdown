@@ -53,7 +53,7 @@ name:
   type: string
   default: None
 show_info:
-  required: false
+  required: 'false'
   description: Set to false to hide infobar
   type: boolean
   default: None
