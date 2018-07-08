@@ -23,26 +23,76 @@ Screenshot of the picture entity card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `picture-entity`
-| entity | string | **Required** | Entity id to control via picture.
-| camera_image | string | Optional | camera domain entity_id 'camera.demo_camera'
-| image | string | Optional| URL of an image.
-| state_image | object | Optional | See `state_image` object structure.
-| name | string | Optional | Custom name for entity
-| show_info | boolean | Optional | Set to false to hide infobar
-| tap_action | string | dialog | Set to `toggle` for turning entity on/off without opening a dialog
+{% configuration %}
+type:
+  required: true
+  description: `picture-entity`
+  type: string
+entity:
+  required: true
+  description: Entity id to control via picture.
+  type: string
+camera_image:
+  required: false
+  description: camera domain entity_id 'camera.demo_camera'
+  type: string
+  default: None
+image:
+  required: false
+  description: URL of an image.
+  type: string
+  default: None
+state_image:
+  required: false
+  description: See `state_image` object structure.
+  type: object
+  default: None
+name:
+  required: false
+  description: Custom name for entity
+  type: string
+  default: None
+show_info:
+  required: false
+  description: Set to false to hide infobar
+  type: boolean
+  default: None
+tap_action:
+  required: false
+  description: Set to `toggle` for turning entity on/off without opening a dialog
+  type: string
+  default: dialog
+{% endconfiguration %}
 
 `state_image` object structure
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| on | string | Optional | URL of an image used for on state.
-| off | string | Optional | URL of an image used for off state.
-| home | string | Optional | URL of an image used for home state.
-| not_home | string | Optional | URL of an image used for not_home state.
-| ... | string | Optional | Any state that is supported by the entity works
+{% configuration %}
+on:
+  required: true
+  description: URL of an image used for on state.
+  type: string
+  default: None
+off:
+  required: true
+  description: URL of an image used for off state.
+  type: string
+  default: None
+home:
+  required: false
+  description: URL of an image used for home state.
+  type: string
+  default: None
+not_home:
+  required: false
+  description: URL of an image used for not_home state.
+  type: string
+  default: None
+...:
+  required: false
+  description: Any state that is supported by the entity works
+  type: object
+  default: None
+{% endconfiguration %}
 
 {% linkable_title Examples %}
 
