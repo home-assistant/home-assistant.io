@@ -35,6 +35,6 @@ Basic example
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_horizontal_stack.PNG' alt='Screenshot of the 2 cards in a horizontal stack card>
+<img src='/images/lovelace/lovelace_horizontal_stack.PNG' alt='Screenshot of the 2 cards in a horizontal stack card'>
 Screenshot of the 2 cards in a horizontal stack card.
 </p>
