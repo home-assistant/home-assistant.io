@@ -9,7 +9,7 @@ comments: false
 sharing: true
 footer: true
 ---
-### Entities
+
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
 
 **Options**
