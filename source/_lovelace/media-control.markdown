@@ -10,23 +10,27 @@ sharing: true
 footer: true
 ---
 
-### Media controller
-
-The media controller card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls. 
+The media control card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls. 
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>
 Screenshot of the media player control card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `media-control`
-| entity | string | **Required** | Entity id of `media_player` domain
+{% configuration %}
+type:
+  required: true
+  description: media-control
+  type: string
+entity:
+  required: true
+  description: "Entity id of `media_player` domain"
+  type: string
+{% endconfiguration %}
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: media-control
