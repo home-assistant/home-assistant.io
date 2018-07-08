@@ -22,7 +22,7 @@ Screenshot of the markdown card.
 {% configuration %}
 type:
   required: true
-  description: `markdown`
+  description: markdown
   type: string
 content:
   required: true
