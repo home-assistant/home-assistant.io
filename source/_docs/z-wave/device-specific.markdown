@@ -301,3 +301,23 @@ Button four release|4|1
 ### {% linkable_title WallC-S Switch %}
 
 Use the same configuration as for the Aeotec Wallmote.
+
+### {% linkable_title HANK One-key Scene Controller HKZN-SCN01 %}
+
+For the HANK One-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="1" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Button (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button single tap|1|0
+Button hold|1|2
+Button release|1|1
