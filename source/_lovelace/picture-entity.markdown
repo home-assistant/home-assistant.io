@@ -67,12 +67,12 @@ tap_action:
 `state_image` object structure
 
 {% configuration %}
-on:
+"on":
   required: true
   description: URL of an image used for on state.
   type: string
   default: None
-off:
+"off":
   required: true
   description: URL of an image used for off state.
   type: string
@@ -90,7 +90,7 @@ not_home:
 any:
   required: false
   description: Any state that is supported by the entity works
-  type: 'object'
+  type: object
   default: None
 {% endconfiguration %}
 
