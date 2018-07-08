@@ -25,13 +25,11 @@ The `environment_canada` weather platform uses [Environment Canada](https://weat
 
 To add Environment Canada weather to your installation, add the desired lines from the following example to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 weather:
   - platform: environment_canada
 ```
-{% endraw %}
 
 {% configuration %}
 latitude:

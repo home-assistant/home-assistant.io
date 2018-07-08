@@ -26,13 +26,11 @@ The `environment_canada` sensor platform uses [Environment Canada](https://weath
 
 To add Environment Canada sensors to your installation, add the desired lines from the following example to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: environment_canada
 ```
-{% endraw %}
 
 {% configuration %}
 latitude:

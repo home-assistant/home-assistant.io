@@ -24,13 +24,11 @@ The `environment_canada` camera platform uses [Environment Canada](https://weath
 
 To add Environment Canada radar imagery to your installation, add the desired lines from the following example to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 camera:
   - platform: environment_canada
 ```
-{% endraw %}
 
 {% configuration %}
 latitude:
