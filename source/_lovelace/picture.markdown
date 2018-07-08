@@ -17,7 +17,7 @@ A very simple card that allows you to set an image to use for navigation to vari
 Screenshot of the picture card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -34,7 +34,7 @@ Screenshot of the picture card.
 | entity_id | string | **Required** | 'light.floor'
 
 
-**Examples**
+{% linkable_title Examples %}
 
 Basic navigation example:
 
