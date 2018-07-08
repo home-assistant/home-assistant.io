@@ -10,7 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Plant status
 A card for all the lovely botanists out there.
 
 <p class='img'>
@@ -18,14 +17,20 @@ A card for all the lovely botanists out there.
 Screenshot of the plant status card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `plant-status`
-| entity | string | **Required** | Entity id of `plant` domain
+{% configuration %}
+type:
+  required: true
+  description: picture-status
+  type: string
+entity:
+  required: true
+  description: "Entity id of `plant` domain"
+  type: string
+{% endconfiguration %}
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: plant-status
