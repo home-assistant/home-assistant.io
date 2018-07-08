@@ -32,11 +32,11 @@ Please note that some devices, such as Samsung TVs, are rather picky about the s
 
 {% configuration %}
 url:
-  description: The URL to the device description, e.g. `http://192.168.0.10:9197/dmr`.
+  description: The URL to the device description, e.g., `http://192.168.0.10:9197/dmr`.
   required: true
   type: string
 udn:
-  description: The UDN of the device, e.g. `uuid:4d672690-9e27-4f2a-8426-3e8334427885`, found in the device description (**url**).
+  description: The UDN of the device, e.g., `uuid:4d672690-9e27-4f2a-8426-3e8334427885`, found in the device description (**url**).
   required: true
   type: string
 name:
