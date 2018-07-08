@@ -22,11 +22,11 @@ Screenshot of the media player control card.
 {% configuration %}
 type:
   required: true
-  description: `media-control`
+  description: media-control
   type: string
 entity:
   required: true
-  description: Entity id of `media_player` domain
+  description: "Entity id of `media_player` domain"
   type: string
 {% endconfiguration %}
 
