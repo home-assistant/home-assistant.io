@@ -17,27 +17,43 @@ A card that allows you to display entities on a map
 Screenshot of the map card.
 </p>
 
-**Options**
+### {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `map`
-| entities | list | **Required** | A list of entities to display on the map. Can be entity_ids or entity objects (see structure below).
-| title | string | Optional | Card title
-| aspect_ratio | string | `"100%"` | Map height:width ratio
+{% configuration %}
+type:
+  required: true
+  description: "`map`"
+  type: string
+entities:
+  required: true
+  description: "Entity id's or an `entity` object (see structure below)."
+  type: list
+title:
+  required: false
+  description: Card title
+  type: string
+aspect_ratio: 
+  required: false
+  description: "Map height:width ratio"
+  type: string
+  default: 100%
+{% endconfiguration %}
 
-`entity` object
+`entity` object:
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| entity | string | **Required** | An entity_id. Example: 'device_tracker.demo_paulus'.
+{% configuration %}
+entity:
+  required: true
+  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
   Only entities that have latitude and longitude attributes will be displayed on the map
 </p>
 
 
-**Examples**
+### {% linkable_title Examples %}
 
 Basic map example:
 
