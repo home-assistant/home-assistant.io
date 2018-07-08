@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Entity picture
-
 A very useful card for controling entities. By default you will get `more-info-dialog` but using `tap_action` you can directly control entities that have `on`/`off` states. It allows you to generate a very nice looking card with a big touch area, highly recommended for mobile dashboards on small screens.
 
 You can use different image combination to get a more realistic view for images with lights. The image setup also allows enough flexibility to get your garage picture with the door opened and closed.
