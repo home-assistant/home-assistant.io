@@ -24,7 +24,7 @@ Screenshot of the iframe card.
 {% configuration %}
 type:
   required: true
-  description: `iframe`
+  description: iframe
   type: string
 url:
   required: true
@@ -34,7 +34,7 @@ aspect_ratio:
   required: false
   description: Iframe height-width-ratio
   type: string
-  default: `"50%"`
+  default: "50%"
 title:
   required: false
   description: Card title
