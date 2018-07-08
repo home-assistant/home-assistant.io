@@ -126,7 +126,7 @@ condition:
   condition: sun
   after: sunset
   # Optional offset value - in this case it must from -1 hours relative to sunset, or after
-  after_offset: "-1:00:00"
+  after_offset: "-01:00:00"
 ```
 
 ```yaml
