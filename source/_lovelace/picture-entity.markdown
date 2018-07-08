@@ -56,7 +56,7 @@ show_info:
   required: 'false'
   description: Set to false to hide infobar
   type: boolean
-  default: None
+  default: 'true'
 tap_action:
   required: false
   description: "Set to `toggle` for turning entity on/off without opening a dialog"
