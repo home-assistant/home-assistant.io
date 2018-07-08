@@ -13,7 +13,7 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234, Nod On SIN-2-1-01
+An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
