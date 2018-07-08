@@ -17,7 +17,7 @@ Glance cards are a very compact. Very useful to group together multiple sensors 
 Screenshot of the glance card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -32,7 +32,7 @@ Screenshot of the glance card.
 | entity | string | **Required** | An entity_id. Example: 'device_tracker.demo_paulus'.
 | name | string | **Required** | A new name for the entity_id
 
-**Examples**
+{% linkable_title Examples %}
 
 Basic example
 
