@@ -10,7 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Plant status
 A card for all the lovely botanists out there.
 
 <p class='img'>
