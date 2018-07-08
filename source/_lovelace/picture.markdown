@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Picture
-
 A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
