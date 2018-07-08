@@ -12,14 +12,14 @@ footer: true
 
 Horizontal stack card will allow you to stack together multiple cards so they always sit next to each other in the space of one column.
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | type | string | **Required** | `horizontal-stack`
 | cards | list | **Required** | List of cards
 
-**Example**
+{% linkable_title Example %}
 
 Basic example
 
