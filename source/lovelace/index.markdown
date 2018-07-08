@@ -125,12 +125,3 @@ To get you started you can use the `demo` platfrom in your `configuration.yaml` 
 Other examples:
 - [ui-schema](https://github.com/home-assistant/ui-schema/blob/master/dev_repo_test_config) repo used by devs
 - [arsaboo](https://github.com/arsaboo/homeassistant-config/blob/master/ui-lovelace.yaml) own setup
-
-{% linkable_title Migration scripts %}
-
-Thare are two migration scripts:
-
-> The scripts might not be up to date with 0.73.0 on release day. Please be patient.
-
-- Thanks to [@OttoWinter](https://github.com/OttoWinter) for the [migration script](https://gist.github.com/OttoWinter/730383148041824bc47786ea292572f8)
-- Thanks to [@dale3h](https://github.com/dale3h) for the [migration script that works also for packages](https://github.com/dale3h/python-lovelace)
