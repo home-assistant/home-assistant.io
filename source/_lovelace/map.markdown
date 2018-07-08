@@ -46,5 +46,5 @@ Basic map example:
   aspect_ratio: 100%
   entities:
     - entity: device_tracker.demo_paulus
-    - group.home
+    - zone.home
 ```
