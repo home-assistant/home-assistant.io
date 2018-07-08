@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Iframe
-
 Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a grafana view. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
 
 <p class='img'>
