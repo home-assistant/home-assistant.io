@@ -10,7 +10,7 @@ footer: true
 ---
 
 ## Changes in 0.73.1
-- Setting Lovelace as default updated Overview button to point to lovelace
+- Setting Lovelace as default now updates `Overview` button to point to `/lovelace`
 - Allow setting background style on all levels (global, view, card)
 
 ### Cards
@@ -20,7 +20,7 @@ footer: true
 ## Changes in 0.73.0
 
 ### Views
-- 📣 New button to show unused entities in lovelace
+- 📣 New button to show unused entities in Lovelace
 
 ## Changes in 0.73.0b5
 - 🏁 Only minor fixes in this release
