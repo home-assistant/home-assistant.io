@@ -10,13 +10,15 @@ sharing: true
 footer: true
 ---
 
+### Plant status
 A card for all the lovely botanists out there.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_plant.png' alt='Screenshot of the plant card'>
-Screenshot of the plant card.
+<img src='/images/lovelace/lovelace_plant_card.png' alt='Screenshot of the plant status card'>
+Screenshot of the plant status card.
 </p>
 
+**Options**
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
