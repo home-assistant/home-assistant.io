@@ -10,7 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Markdown
 Markdown card is used to render [markdown](http://commonmark.org/help/)
 
 <p class='img'>
@@ -18,15 +17,25 @@ Markdown card is used to render [markdown](http://commonmark.org/help/)
 Screenshot of the markdown card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `markdown`
-| content | string | **Required** | Content to render as [markdown](http://commonmark.org/help/).
-| title | string | Optional | Card title
+{% configuration %}
+type:
+  required: true
+  description: markdown
+  type: string
+content:
+  required: true
+  description: Content to render as [markdown](http://commonmark.org/help/).
+  type: string
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: markdown
