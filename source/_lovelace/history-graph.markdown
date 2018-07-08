@@ -9,7 +9,6 @@ comments: false
 sharing: true
 footer: true
 ---
-### History graph
 
 History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
 
@@ -18,17 +17,35 @@ History graph is a basic card, allowing you to display a graph for each of the e
 Screenshot of the history graph card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `history-graph`
-| entities | list | **Required** | List of entities to graph.
-| hours_to_show | integer | 24 | Hours to show
-| refresh_interval | integer | 0 | Refresh interval in seconds
-| title | string | Optional | `My Graphs`
+{% configuration %}
+type:
+  required: true
+  description: history-graph
+  type: string
+entities:
+  required: true
+  description: List of entities to graph.
+  type: list
+hours_to_show:
+  required: false
+  description: Hours to show
+  type: integer
+  default: 24
+refresh_interval:
+  required: false
+  description: Refresh interval in seconds
+  type: integer
+  default: 0
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: history-graph
