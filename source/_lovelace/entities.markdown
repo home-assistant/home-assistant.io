@@ -12,7 +12,7 @@ footer: true
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -28,7 +28,7 @@ Entities will be the most common type of card that will also be the most familia
 | entity | string | **Required** | An entity_id. Example: 'device_tracker.demo_paulus'.
 | name | string | **Required** | A new name for the entity_id
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: entities
