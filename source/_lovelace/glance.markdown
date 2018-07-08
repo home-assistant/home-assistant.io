@@ -22,11 +22,11 @@ Screenshot of the glance card.
 {% configuration %}
 type:
   required: true
-  description: `glance`
+  description: glance
   type: string
 entities:
   required: true
-  description: Entity id's or an `entity` object (see structure below).
+  description: "Entity id's or an `entity` object (see structure below)."
   type: list
 title:
   required: false
