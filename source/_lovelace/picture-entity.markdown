@@ -21,7 +21,7 @@ You can also use `camera` domain entities to use that as `camera_image`.
 Screenshot of the picture entity card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -44,7 +44,7 @@ Screenshot of the picture entity card.
 | not_home | string | Optional | URL of an image used for not_home state.
 | ... | string | Optional | Any state that is supported by the entity works
 
-**Examples**
+{% linkable_title Examples %}
 
 Basic example:
 
