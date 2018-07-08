@@ -2,7 +2,7 @@
 layout: page
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
-description: "TBD"
+description: "Picture elements card is one of the most versatile type of cards"
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
@@ -10,15 +10,16 @@ sharing: true
 footer: true
 ---
 
-### Picture elements
+Picture elements card is one of the most versatile type of cards. 
 
-Picture elements card is one of the most versatile type of cards. I am almost sure that those that like to customize a lot in their home assistant interface will **love** this card. 
-
-The cards allows you to position icons or text and even services! on an image based on coordinates. Imagine floor plan, imagine [picture-glance](card-picture-glance.md) with no restrictions!
+The cards allows you to position icons or text and even services! on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
 You can customize tap action and even icon color.
 
-![floor-plan](https://user-images.githubusercontent.com/7738048/42103244-26bec55a-7bd1-11e8-8bc9-6a130c513f9e.gif)
+<p class='img'>
+<img src='/images/lovelace/lovelace_picture_elements.gif' alt='Screenshot of the picture elements card'>
+Screenshot of the picture elements card.
+</p>
 
 **Options**
 
