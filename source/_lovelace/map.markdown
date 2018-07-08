@@ -10,8 +10,6 @@ sharing: true
 footer: true
 ---
 
-### Map
-
 A card that allows you to display entities on a map
 
 <p class='img'>
