@@ -17,14 +17,14 @@ The media control card is used to display [Media Player](/components/#search/med
 Screenshot of the media player control card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | type | string | **Required** | `media-control`
 | entity | string | **Required** | Entity id of `media_player` domain
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: media-control
