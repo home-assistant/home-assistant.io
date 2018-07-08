@@ -17,11 +17,11 @@ Entities will be the most common type of card that will also be the most familia
 {% configuration %}
 type:
   required: true
-  description: `entities`
+  description: entities
   type: string
 entities:
   required: true
-  description: Entity id's or an `entity` object (see structure below).
+  description: "Entity id's or an `entity` object (see structure below)."
   type: list
 title:
   required: false
@@ -39,7 +39,7 @@ show_header_toggle:
 {% configuration %}
 entity:
   required: true
-  description: An entity_id. Example: 'device_tracker.demo_paulus'.
+  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
   type: string
 name:
   required: true
