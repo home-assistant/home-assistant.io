@@ -26,7 +26,7 @@ Screenshot of the picture entity card.
 {% configuration %}
 type:
   required: true
-  description: `picture-entity`
+  description: picture-entity
   type: string
 entity:
   required: true
@@ -34,7 +34,7 @@ entity:
   type: string
 camera_image:
   required: false
-  description: camera domain entity_id 'camera.demo_camera'
+  description: "Camera domain entity_id 'camera.demo_camera'"
   type: string
   default: None
 image:
@@ -44,7 +44,7 @@ image:
   default: None
 state_image:
   required: false
-  description: See `state_image` object structure.
+  description: "See `state_image` object structure."
   type: object
   default: None
 name:
@@ -59,7 +59,7 @@ show_info:
   default: None
 tap_action:
   required: false
-  description: Set to `toggle` for turning entity on/off without opening a dialog
+  description: "Set to `toggle` for turning entity on/off without opening a dialog"
   type: string
   default: dialog
 {% endconfiguration %}
