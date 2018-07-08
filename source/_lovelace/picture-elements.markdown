@@ -26,7 +26,7 @@ Screenshot of the picture elements card.
 {% configuration %}
 type:
   required: true
-  description: `picture-elements`
+  description: picture-elements
   type: string
 image:
   required: true
@@ -48,7 +48,7 @@ Element types:
 {% configuration %}
 type:
   required: true
-  description: `navigation`
+  description: navigation
   type: string
 navigation_path:
   required: true
@@ -64,7 +64,7 @@ icon:
 {% configuration %}
 type:
   required: true
-  description: `state-badge`
+  description: state-badge
   type: string
 entity:
   required: true
@@ -79,7 +79,7 @@ style:
 {% configuration %}
 type:
   required: true
-  description: `state-icon`
+  description: state-icon
   type: string
 entity:
   required: true
@@ -91,7 +91,7 @@ style:
   type: object
 tap_action:
   required: true
-  description: Set to `toggle` to change state
+  description: "Set to `toggle` to change state"
   type: string
   default: more-info
 {% endconfiguration %}
@@ -99,7 +99,7 @@ tap_action:
 {% configuration %}
 type:
   required: true
-  description: `state-label`
+  description: state-label
   type: string
 entity:
   required: true
@@ -114,15 +114,15 @@ style:
 {% configuration %}
 type:
   required: true
-  description: `service-button`
+  description: service-button
   type: string
 service:
   required: true
-  description: `light.turn_on`
+  description: light.turn_on
   type: string
 service_data:
   required: false
-  description: See `service_data` object structure.
+  description: "See `service_data` object structure."
   type: object
   default: none
 style:
@@ -141,7 +141,7 @@ title:
 {% configuration %}
 entity_id:
   required: true
-  description: 'light.floor'
+  description: light.floor
   type: string
 {% endconfiguration %}
 
@@ -150,11 +150,11 @@ Style options (CSS):
 {% configuration %}
 left:
   required: true
-  description: Position from left, `25%`
+  description: Position from left, "25%"
   type: string
 top:
   required: true
-  description: Position from top, `50%`
+  description: Position from top, "50%"
   type: string
 ...:
   required: inherit
@@ -163,7 +163,7 @@ top:
   default: none
 "--paper-item-icon-color":
   required: inherit
-  description: Badge-icon off-color, `green`
+  description: "Badge-icon off-color, `green`"
   type: string
   default: none
 {% endconfiguration %}
