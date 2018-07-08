@@ -19,10 +19,16 @@ Screenshot of the weather card.
 
 {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `weather-forecast`
-| entity | string | **Required** | Entity id of `weather` domain
+{% configuration %}
+type:
+  required: true
+  description: `weather-forecast`
+  type: string
+entity:
+  required: true
+  description: Entity id of `weather` domain
+  type: string
+{% endconfiguration %}
 
 
 {% linkable_title Example %}
