@@ -22,7 +22,7 @@ Screenshot of the picture card.
 {% configuration %}
 type:
   required: true
-  description: `picture`
+  description: picture
   type: string
 image:
   required: true
@@ -35,7 +35,7 @@ navigation_path:
   default: None
 service:
   required: false
-  description: `light.toggle`
+  description: "`light.toggle`"
   type: string
   default: None
 service_data:
@@ -50,7 +50,7 @@ service_data:
 {% configuration %}
 entity_id:
   required: true
-  description: 'light.floor'
+  description: light.floor
   type: string
 {% endconfiguration %}
 
