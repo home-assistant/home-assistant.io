@@ -21,7 +21,7 @@ You can customize tap action and even icon color.
 Screenshot of the picture elements card.
 </p>
 
-**Options**
+{% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -80,7 +80,7 @@ Style options (CSS):
 | ... | string | inherit | ...
 | "--paper-item-icon-color" | string | inherit | Badge-icon off-color, `green`
 
-**Example**
+{% linkable_title Example %}
 
 ```yaml
 - type: picture-elements
