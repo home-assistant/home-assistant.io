@@ -43,7 +43,7 @@ cloudflare:
     required: true
     type: string
   records:
-    description: A list of records you want to update if no list is defined if will update every A record in that zone.
+    description: A list of records you want to update. If no list is defined it will update every A record in that zone.
     required: false
     type: list
 {% endconfiguration %}
