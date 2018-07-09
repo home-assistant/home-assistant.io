@@ -17,7 +17,7 @@ A card that allows you to display entities on a map
 Screenshot of the map card.
 </p>
 
-### {% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -53,9 +53,7 @@ entity:
 </p>
 
 
-### {% linkable_title Examples %}
-
-Basic map example:
+## {% linkable_title Examples %}
 
 ```yaml
 - type: map

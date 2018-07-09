@@ -17,7 +17,7 @@ Glance cards are a very compact. Very useful to group together multiple sensors 
 Screenshot of the glance card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -48,7 +48,7 @@ name:
   type: string
 {% endconfiguration %}
 
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 Basic example
 

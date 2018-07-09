@@ -19,7 +19,7 @@ This type of card can also be used together with rest of cards that allow multip
 Screenshot of the entity filter card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -46,7 +46,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 Show only active switches or lights in the house
 ```yaml

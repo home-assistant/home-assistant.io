@@ -17,7 +17,7 @@ History graph is a basic card, allowing you to display a graph for each of the e
 Screenshot of the history graph card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -45,7 +45,7 @@ title:
   default: none
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: history-graph

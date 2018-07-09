@@ -21,7 +21,7 @@ You can customize tap action and even icon color.
 Screenshot of the picture elements card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -168,7 +168,7 @@ top:
   default: none
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: picture-elements

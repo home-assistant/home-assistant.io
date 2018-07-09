@@ -10,16 +10,16 @@ sharing: true
 footer: true
 ---
 
-Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a grafana view. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
+Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a Grafana view. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
 
 <p class='img'>
 <img width="500" src='/images/lovelace/lovelace_iframe.png' alt='Screenshot of the iframe card'>
 Screenshot of the iframe card.
 </p>
 
-> Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses https you won't be able to embed http URLs
+Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses HTTPS you won't be able to embed HTTP URLs.
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -42,7 +42,7 @@ title:
   default: none
 {% endconfiguration %}
 
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 ```yaml
       - type: iframe
@@ -51,6 +51,7 @@ title:
 ```
 
 Local html for custom content. Place `example.html` in your `config/www` folder and reference it as below:
+
 ```yaml
       - type: iframe
         url: /local/example.html

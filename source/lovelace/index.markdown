@@ -26,7 +26,7 @@ The Lovelace UI is:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6FX9_leiikw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## How it works
+## {% linkable_title How it works %}
 
 The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a seperate file, controlled by the user.
 
@@ -39,7 +39,7 @@ Visual comparison of old configuration versus new configuration
 
 <!-- source: https://docs.google.com/drawings/d/1O1o7-wRlnsU1lLgfdtn3s46P5StJjSL5to5RU9SV8zs/edit?usp=sharing -->
 
-## Trying it out
+## {% linkable_title Trying it out %}
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
@@ -100,10 +100,10 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
-## Custom Cards
+## {% linkable_title Custom Cards %}
 
 It is possible to add your own custom cards to show up in the Lovelace UI. For more information, check [the developer docs](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html).
 
-## Current limitations
+## {% linkable_title Current limitations %}
 
 This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.

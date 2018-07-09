@@ -10,22 +10,20 @@ sharing: true
 footer: true
 ---
 
-### Picture glance
-
 A very useful type of card that can display sensors, switches, lights and other entities grouped on top of a custom image. Use this card for easy visual recognition inside a large dashboard. You also can add `navigation_path` to take the user to a specific view and use these cards in an overview dashboard.
 
 What really sets this card apart is the ability to **control** entities directly from the card without the need to open the details of that entity.
 
 You can also use `camera` domain entities to use that as image. You can also use `state_image` just like in [picture-entity](/lovelace/picture-entity/) together with an `entity` entry to change the image in a dynamic way.
 
-> Picture glance supports a display of maximum 10 items.
+Picture glance supports a display of maximum 10 items.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Screenshot of the picture glance card'>
 Screenshot of the picture glance card.
 </p>
 
-**Options**
+## {% linkable_title Options %}
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
@@ -48,7 +46,7 @@ Screenshot of the picture glance card.
 | not_home | string | Optional | URL of an image used for not_home state.
 | ... | string | Optional | Any state that is supported by the entity works
 
-**Examples**
+## {% linkable_title Examples %}
 
 ```yaml
 - type: picture-glance
@@ -62,7 +60,8 @@ Screenshot of the picture glance card.
     - binary_sensor.basement_floor_wet
 ```
 
-Picture glance used together with 'camera_image'
+Picture glance used together with 'camera_image'.
+
 ```yaml
 - type: picture-glance
   image:
@@ -76,7 +75,8 @@ Picture glance used together with 'camera_image'
     - binary_sensor.basement_floor_wet
 ```
 
-Picture glance used together with 'entity-filter'
+Picture glance used together with 'entity-filter'.
+
 ```yaml
 - type: entity-filter
   entities:

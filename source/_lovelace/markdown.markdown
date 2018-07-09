@@ -17,7 +17,7 @@ Markdown card is used to render [markdown](http://commonmark.org/help/)
 Screenshot of the markdown card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -35,7 +35,7 @@ title:
   default: none
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: markdown

@@ -17,7 +17,7 @@ The media control card is used to display [Media Player](/components/#search/med
 Screenshot of the media player control card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -30,7 +30,7 @@ entity:
   type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: media-control

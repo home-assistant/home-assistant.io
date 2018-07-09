@@ -17,7 +17,7 @@ A card for all the lovely botanists out there.
 Screenshot of the plant status card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -30,7 +30,7 @@ entity:
   type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: plant-status
