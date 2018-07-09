@@ -13,8 +13,15 @@ featured: false
 ha_release: 0.75
 ---
 
-With the Cloudflare component, you can keep your Cloudflare records up to date.
-Cloudflare offers free Dynamic DNS service among other services.
+With the `cloudflare` component can you keep your Cloudflare records up to date.
+
+The component will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
+
+## {% linkable_title Setup %}
+
+You will find your global API key in your Cloudflare account settings.
+
+## {% linkable_title Configuration %}
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,24 +37,22 @@ cloudflare:
 ```
 
 {% configuration cloudflare %}
-  email:
-    description: The email address for your Cloudflare account.
-    required: true
-    type: string
-  api_key:
-    description: The global API key for your Cloudflare account.
-    required: true
-    type: string
-  zone:
-    description: The DNS zone you want to update.
-    required: true
-    type: string
-  records:
-    description: A list of records you want to update.
-    required: true
-    type: list
+email:
+  description: The email address for your Cloudflare account.
+  required: true
+  type: string
+api_key:
+  description: The global API key for your Cloudflare account.
+  required: true
+  type: string
+zone:
+  description: The DNS zone you want to update.
+  required: true
+  type: string
+records:
+  description: A list of records you want to update.
+  required: true
+  type: list
 {% endconfiguration %}
 
-You will find your global API `key` in your Cloudflare account settings.
-The component will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.  
 This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
