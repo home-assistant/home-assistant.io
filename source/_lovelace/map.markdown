@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-A card that allows you to display entities on a map
+A card that allows you to display entities on a map.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_map_card.png' alt='Screenshot of the map card'>

@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall. 
+The weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_weather.png' alt='Screenshot of the weather card'>
@@ -27,7 +27,6 @@ entity:
   description: "The `entity_id` of the `weather` platform to use."
   type: string
 {% endconfiguration %}
-
 
 {% linkable_title Example %}
 

@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Picture elements card is one of the most versatile type of cards. 
+Picture elements card is one of the most versatile type of cards.
 
 The cards allows you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
@@ -118,10 +118,11 @@ elements:
           description: "Badge-icon off-color, `green`"
           type: string
     tap_action:
-      required: true
+      required: false
       description: "Set to `toggle` to change state"
       type: string
       default: more-info
+      tap_action:
 {% endconfiguration %}
 
 {% configuration %}
