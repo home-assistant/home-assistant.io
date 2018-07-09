@@ -10,14 +10,12 @@ sharing: true
 footer: true
 ---
 
-Glance cards are a very compact. Very useful to group together multiple sensors for a quick and easy to use view. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
+Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
 Screenshot of the glance card.
 </p>
-
-{% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -26,8 +24,17 @@ type:
   type: string
 entities:
   required: true
-  description: "Entity id's or an `entity` object (see structure below)."
+  description: "A list of entity IDs or an `entity` object."
   type: list
+  keys:
+    entity:
+      required: true
+      description: "The `entity_id` to show."
+      type: string
+    name:
+      required: true
+      description: "A name for `the entity_id`."
+      type: string
 title:
   required: false
   description: Card title
@@ -35,22 +42,9 @@ title:
   default: none
 {% endconfiguration %}
 
-`entity` object type
+## {% linkable_title Examples %}
 
-{% configuration %}
-entity:
-  required: true
-  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
-  type: string
-name:
-  required: true
-  description: A new name for the entity_id
-  type: string
-{% endconfiguration %}
-
-{% linkable_title Examples %}
-
-Basic example
+Basic example:
 
 ```yaml
 - type: glance
@@ -70,7 +64,7 @@ Basic example
 Screenshot of the glance card with custom title.
 </p>
 
-Example with custom name
+Example with a custom name:
 
 ```yaml
 - type: glance

@@ -12,8 +12,6 @@ footer: true
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -21,33 +19,29 @@ type:
   type: string
 entities:
   required: true
-  description: "Entity id's or an `entity` object (see structure below)."
+  description: "A list of entity IDs or an `entity` object."
   type: list
+  keys:
+    entity:
+      required: true
+      description: "An `entity_id` to use in the frontend."
+      type: string
+    name:
+      required: true
+      description: "The name for the `entity_id` to use in the frontend."
+      type: string
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
 show_header_toggle:
   required: false
-  description: Button to turn on/off all entities
+  description: Button to turn on/off all entities.
   type: boolean
   default: true
 {% endconfiguration %}
 
-`entity` object
-
-{% configuration %}
-entity:
-  required: true
-  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
-  type: string
-name:
-  required: true
-  description: A new name for the entity_id
-  type: string
-{% endconfiguration %}
-
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: entities

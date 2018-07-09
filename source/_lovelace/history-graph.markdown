@@ -17,8 +17,6 @@ History graph is a basic card, allowing you to display a graph for each of the e
 Screenshot of the history graph card.
 </p>
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -30,22 +28,21 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show
+  description: Hours to show.
   type: integer
   default: 24
 refresh_interval:
   required: false
-  description: Refresh interval in seconds
+  description: Refresh interval in seconds.
   type: integer
   default: 0
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
-  default: none
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: history-graph

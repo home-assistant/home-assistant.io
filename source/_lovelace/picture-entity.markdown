@@ -2,7 +2,7 @@
 layout: page
 title: "Picture Entity Card"
 sidebar_label: Picture Entity
-description: "A very useful card for controling entities. By default you will get `more-info-dialog` but using `tap_action` you can directly control entities that have `on`/`off` states."
+description: "A very useful card for controlling entities. By default, you will get `more-info-dialog` but using `tap_action` you can directly control entities that have `on`/`off` states."
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-A very useful card for controling entities. By default you will get `more-info-dialog` but using `tap_action` you can directly control entities that have `on`/`off` states. It allows you to generate a very nice looking card with a big touch area, highly recommended for mobile dashboards on small screens.
+A very useful card for controlling entities. By default, you will get `more-info-dialog` but using `tap_action` you can directly control entities that have `on`/`off` states. It allows you to generate a very nice looking card with a big touch area, highly recommended for mobile dashboards on small screens.
 
 You can use different image combination to get a more realistic view for images with lights. The image setup also allows enough flexibility to get your garage picture with the door opened and closed.
 
@@ -21,8 +21,6 @@ You can also use `camera` domain entities to use that as `camera_image`.
 Screenshot of the picture entity card.
 </p>
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -30,11 +28,11 @@ type:
   type: string
 entity:
   required: true
-  description: Entity id to control via picture.
+  description: "An `entity_id` to control via picture."
   type: string
 camera_image:
   required: false
-  description: "Camera domain entity_id 'camera.demo_camera'"
+  description: "Camera `entity_id` to use."
   type: string
   default: None
 image:
@@ -46,55 +44,47 @@ state_image:
   required: false
   description: "See `state_image` object structure."
   type: object
-  default: None
+  keys:
+    "on":
+      required: true
+      description: URL of an image used for on state.
+      type: string
+    "off":
+      required: true
+      description: URL of an image used for off state.
+      type: string
+      default: None
+    home:
+      required: false
+      description: URL of an image used for home state.
+      type: string
+    not_home:
+      required: false
+      description: URL of an image used for not_home state.
+      type: string
+      default: None
+    any:
+      required: false
+      description: Any state that is supported by the entity works.
+      type: object
 name:
   required: false
-  description: Custom name for entity
+  description: Custom name for entity.
   type: string
   default: None
 show_info:
   required: false
-  description: Set to false to hide infobar
+  description: Set to false to hide infobar.
   type: boolean
-  default: True
+  default: true
 tap_action:
   required: false
-  description: "Set to `toggle` for turning entity on/off without opening a dialog"
+  description: "Set to `toggle` for turning entity on/off without opening a dialog."
   type: string
   default: dialog
 {% endconfiguration %}
 
-`state_image` object structure
-
-{% configuration %}
-"on":
-  required: true
-  description: URL of an image used for on state.
-  type: string
-  default: None
-"off":
-  required: true
-  description: URL of an image used for off state.
-  type: string
-  default: None
-home:
-  required: false
-  description: URL of an image used for home state.
-  type: string
-  default: None
-not_home:
-  required: false
-  description: URL of an image used for not_home state.
-  type: string
-  default: None
-any:
-  required: false
-  description: Any state that is supported by the entity works
-  type: object
-  default: None
-{% endconfiguration %}
-
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 Basic example:
 

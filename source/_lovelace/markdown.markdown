@@ -10,14 +10,12 @@ sharing: true
 footer: true
 ---
 
-Markdown card is used to render [markdown](http://commonmark.org/help/)
+Markdown card is used to render [markdown](http://commonmark.org/help/).
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
 Screenshot of the markdown card.
 </p>
-
-{% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -26,16 +24,16 @@ type:
   type: string
 content:
   required: true
-  description: Content to render as [markdown](http://commonmark.org/help/).
+  description: "Content to render as [markdown](http://commonmark.org/help/)."
   type: string
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
   default: none
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: markdown

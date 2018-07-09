@@ -10,14 +10,12 @@ sharing: true
 footer: true
 ---
 
-The media control card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls. 
+The media control card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>
 Screenshot of the media player control card.
 </p>
-
-{% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -26,11 +24,11 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity id of `media_player` domain"
+  description: "A media player `entity_id`."
   type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
 ```yaml
 - type: media-control

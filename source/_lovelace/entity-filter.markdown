@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-This card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home. 
+This card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
 
 This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/lovelace/glance/) or [picture-glance](/lovelace/picture-glance/). By default it uses [entities](/lovelace/entities/) card model.
 
@@ -19,8 +19,6 @@ This type of card can also be used together with rest of cards that allow multip
 Screenshot of the entity filter card.
 </p>
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -28,11 +26,20 @@ type:
   type: string
 entities:
   required: true
-  description: Array of entity_ids
-  type: array
+  description: "List of entities to show."
+  type: list
+  keys:
+    name:
+      required: false
+      description: The name to use in the front for the entity.
+      type: string
+    entity:
+      required: false
+      description: "The `entity_id` to show in the frontend."
+      type: string
 state_filter:
   required: true
-  description: Array of strings representing states
+  description: Array of strings representing states.
   type: array
 card:
   required: false
@@ -46,7 +53,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 Show only active switches or lights in the house
 ```yaml

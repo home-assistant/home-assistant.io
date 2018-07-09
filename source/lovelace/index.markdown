@@ -17,18 +17,18 @@ Starting with Home Assistant 0.72, we're experimenting with a new way of definin
 
 The Lovelace UI is:
 
- - **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
- - **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
- - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
- - **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
+- **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
+- **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
+- **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+- **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6FX9_leiikw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## How it works
+## {% linkable_title How it works %}
 
-The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a seperate file, controlled by the user.
+The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a separate file, controlled by the user.
 
 <p class='img'>
 <img
@@ -39,7 +39,7 @@ Visual comparison of old configuration versus new configuration
 
 <!-- source: https://docs.google.com/drawings/d/1O1o7-wRlnsU1lLgfdtn3s46P5StJjSL5to5RU9SV8zs/edit?usp=sharing -->
 
-## Trying it out
+## {% linkable_title Trying it out %}
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
@@ -82,12 +82,12 @@ views:
     # Title of the view. Will be used as the tooltip for tab icon
     title: Second view
     cards:
-        # Entities card will take list of entities and show their state.
+        # Entities card will take a list of entities and show their state.
       - type: entities
         # Title of the entities card
         title: Example
         # The entities here will be shown in the same order as specified.
-        # Each entriy is an entity ID or a map with extra options.
+        # Each entry is an entity ID or a map with extra options.
         entities:
           - light.kitchen
           - switch.ac
@@ -104,10 +104,22 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
-## Custom Cards
+## {% linkable_title Custom Cards %}
 
 It is possible to add your own custom cards to show up in the Lovelace UI. For more information, check [the developer docs](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html).
 
-## Current limitations
+## {% linkable_title Current limitations %}
 
 This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
+
+## {% linkable_title FAQ %}
+
+### I am running Firefox but, custom cards like gauge-card look bad or don't load at all. How do I fix this?
+
+This is probably because your version of Firefox doesn't have custom components supported or enabled. Please set to `true` in your `about:config` the following settings: `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled`
+
+### Custom components don't load on my IOS device?
+
+This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript: latest` in your `configuration.yaml` under `frontend:`. 
+
+> Note: Enabling `latest` on IOS could cause automation and script editor to crash.

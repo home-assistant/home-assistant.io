@@ -10,52 +10,43 @@ sharing: true
 footer: true
 ---
 
-A card that allows you to display entities on a map
+A card that allows you to display entities on a map.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-### {% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
-  description: "`map`"
+  description: map
   type: string
 entities:
   required: true
-  description: "Entity id's or an `entity` object (see structure below)."
+  description: List of entity IDs.
   type: list
+  keys:
+    entity:
+      required: true
+      description: "An `entity_id` to use."
+      type: string
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
 aspect_ratio: 
   required: false
-  description: "Map height:width ratio"
+  description: "The map's height:width ratio."
   type: string
-  default: 100%
-{% endconfiguration %}
-
-`entity` object:
-
-{% configuration %}
-entity:
-  required: true
-  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
-  type: string
+  default: "100%"
 {% endconfiguration %}
 
 <p class='note'>
-  Only entities that have latitude and longitude attributes will be displayed on the map
+  Only entities that have latitude and longitude attributes will be displayed on the map.
 </p>
 
-
-### {% linkable_title Examples %}
-
-Basic map example:
+## {% linkable_title Examples %}
 
 ```yaml
 - type: map

@@ -10,9 +10,7 @@ sharing: true
 footer: true
 ---
 
-Horizontal stack card will allow you to stack together multiple cards so they always sit next to each other in the space of one column.
-
-{% linkable_title Options %}
+Horizontal stack card will allow you to stack together multiple cards, so they always sit next to each other in the space of one column.
 
 {% configuration %}
 type:
@@ -21,13 +19,24 @@ type:
   type: string
 cards:
   required: true
-  description: List of cards
+  description: List of cards.
   type: list
+  keys:
+    type:
+      required: true
+      description: The type of the card to stack.
+      type: string
+    entity:
+      required: true
+      description: "An `entity_id` to use in the frontend."
+      type: string
+    image:
+      required: true
+      description: The URL to an image.
+      type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
-
-Basic example
+## {% linkable_title Example %}
 
 ```yaml
 - type: horizontal-stack

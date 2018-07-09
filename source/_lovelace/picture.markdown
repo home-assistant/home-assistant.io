@@ -17,8 +17,6 @@ A very simple card that allows you to set an image to use for navigation to vari
 Screenshot of the picture card.
 </p>
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -26,36 +24,28 @@ type:
   type: string
 image:
   required: true
-  description: URL of an image
+  description: The URL of an image.
   type: string
 navigation_path:
   required: false
-  description: Path of URL to navigate to
+  description: Path of URL to navigate to.
   type: string
-  default: None
 service:
   required: false
-  description: "`light.toggle`"
+  description: The service to call.
   type: string
-  default: None
 service_data:
   required: false
-  description: See service_data object
+  description: The service data.
   type: object
-  default: None
+  keys:
+    entity_id:
+      required: true
+      description: The ID of the entity to use.
+      type: string
 {% endconfiguration %}
 
-`service_data` object structure
-
-{% configuration %}
-entity_id:
-  required: true
-  description: light.floor
-  type: string
-{% endconfiguration %}
-
-
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 Basic navigation example:
 
@@ -65,7 +55,7 @@ Basic navigation example:
   navigation_path: /lovelace/arsaboo
 ```
 
-> Check the [views](/lovelace/views/) setup on how to setup custom ids
+Check the [views](/lovelace/views/) setup on how to setup custom IDs.
 
 Basic navigation example:
 

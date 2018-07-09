@@ -10,9 +10,9 @@ sharing: true
 footer: true
 ---
 
-Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other.  Keep in mind this can be used with any cards, and even used alongside a [horizontal-stack](/lovelace/horizontal-stack/).
+Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other. Keep in mind this can be used with any cards and even used alongside a [horizontal-stack](/lovelace/horizontal-stack/).
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -23,11 +23,25 @@ cards:
   required: true
   description: List of cards
   type: list
+  keys:
+    type:
+      required: true
+      description: The type of the card to stack.
+      type: string
+    entity:
+      required: true
+      description: "An `entity_id` to use in the frontend."
+      type: string
+    image:
+      required: true
+      description: The URL to an image.
+      type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
+## {% linkable_title Example %}
 
-Basic example
+Basic example:
+
 ```yaml
 - type: vertical-stack
   cards:
@@ -44,7 +58,7 @@ Basic example
 Screenshot of the vertical stack card.
 </p>
 
-Example using both a Vertical and Horizontal Stack Card
+Example using both a vertical and horizontal stack card:
 
 ```yaml
 - type: vertical-stack
