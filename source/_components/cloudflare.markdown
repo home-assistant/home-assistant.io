@@ -10,7 +10,7 @@ footer: true
 logo: cloudflare.png
 ha_category: Utility
 featured: false
-ha_release: 0.75
+ha_release: 0.74
 ---
 
 With the `cloudflare` component can you keep your Cloudflare records up to date.
