@@ -16,14 +16,14 @@ What really sets this card apart is the ability to **control** entities directly
 
 You can also use `camera` domain entities to use that as image. You can also use `state_image` just like in [picture-entity](/lovelace/picture-entity/) together with an `entity` entry to change the image in a dynamic way.
 
-> Picture glance supports a display of maximum 10 items.
+Picture glance supports a display of maximum 10 items.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Screenshot of the picture glance card'>
 Screenshot of the picture glance card.
 </p>
 
-{% linkable_title Options %}
+## {% linkable_title Options %}
 
 {% configuration %}
 type:
@@ -91,7 +91,8 @@ any:
   type: object
 {% endconfiguration %}
 
-{% linkable_title Examples %}
+## {% linkable_title Examples %}
+
 
 ```yaml
 - type: picture-glance
@@ -105,7 +106,8 @@ any:
     - binary_sensor.basement_floor_wet
 ```
 
-Picture glance used together with 'camera_image'
+Picture glance used together with 'camera_image'.
+
 ```yaml
 - type: picture-glance
   image:
@@ -119,7 +121,8 @@ Picture glance used together with 'camera_image'
     - binary_sensor.basement_floor_wet
 ```
 
-Picture glance used together with 'entity-filter'
+Picture glance used together with 'entity-filter'.
+
 ```yaml
 - type: entity-filter
   entities:

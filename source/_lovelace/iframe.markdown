@@ -10,27 +10,39 @@ sharing: true
 footer: true
 ---
 
-### Iframe
-
-Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a grafana view. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
+Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a Grafana view. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
 
 <p class='img'>
 <img width="500" src='/images/lovelace/lovelace_iframe.png' alt='Screenshot of the iframe card'>
 Screenshot of the iframe card.
 </p>
 
-> Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses https you won't be able to embed http URLs
+Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses HTTPS you won't be able to embed HTTP URLs.
 
-**Options**
+## {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `iframe`
-| url | string | **Required** | iframe source url
-| aspect_ratio | string | `"50%"` | Iframe height-width-ratio
-| title | string | Optional | Card title
+{% configuration %}
+type:
+  required: true
+  description: iframe
+  type: string
+url:
+  required: true
+  description: iframe source url
+  type: string
+aspect_ratio:
+  required: false
+  description: Iframe height-width-ratio
+  type: string
+  default: "50%"
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
-**Examples**
+## {% linkable_title Examples %}
 
 ```yaml
       - type: iframe
@@ -39,6 +51,7 @@ Screenshot of the iframe card.
 ```
 
 Local html for custom content. Place `example.html` in your `config/www` folder and reference it as below:
+
 ```yaml
       - type: iframe
         url: /local/example.html
