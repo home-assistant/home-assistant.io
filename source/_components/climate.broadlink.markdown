@@ -7,14 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: heat-control.png
+logo: broadlink.png
 ha_category: Climate
-ha_release: 0.73
+ha_release: 0.74
 ha_iot_class: "Local Polling"
 ---
 
 
-The `broadlink_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter then the target temperature, the air conditioning will be turned on and turned off when required temperature is reached.
+The `broadlink_thermostat` climate platform is a thermostat implemented in Home Assistant. 
+It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...)
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,15 +28,45 @@ climate:
 
 Configuration variables:
 
-- **name** (*Required*): Name of thermostat
-- **mac** (*Required*): Mac address of the thermostat
-- **host** (*Required*): address of the thermostat
-- **max_temp** (*Optional*): Set maximum set point available (default: 35)
-- **min_temp** (*Optional*): Set minimum set point available (default: 5)
-- **advanced_config** (*Optional*): Set the advanced configuration for braodlink thermostat.
-- **schedule_week_day** (*Optional*): Set the schedule for weekday
-- **schedule_week_end** (*Optional*): Set the schedule for weekend
-
+{% configuration %}
+name:
+  description: Name of thermostat.
+  required: true
+  type: string
+mac:
+  description: Mac address of the thermostat.
+  required: true
+  type: string
+host:
+  description: Ip address of the thermostat.
+  required: true
+  type: string
+max_temp:
+  description:Set maximum set point available
+  required: false
+  default: 35
+  type: int
+min_temp:
+  description:Set minimum set point available
+  required: false
+  default: 5
+  type: int
+advanced_config:
+  description:Set the advanced configuration for braodlink thermostat.
+  required: false
+  default: '{"loop_mode": "0", "sen": "2", "osv": "42", "dif": "2", "svh": "35", "svl": "5", "adj": "0.5", "fre": "01", "pon": "00"}'
+  type: string
+schedule_week_day:
+  description:Set the schedule for weekday
+  required: false
+  default: '[{"start_hour":"06", "start_minute":"30", "temp":"20"}, {"start_hour":"09", "start_minute":"00", "temp":"17"}, {"start_hour":"12", "start_minute":"00", "temp":"20" }, {"start_hour":"14", "start_minute":"00", "temp":"17"}, {"start_hour":"18", "start_minute":"00", "temp":"20" }, {"start_hour":22, "start_minute":30, "temp":17}]'
+  type: string
+schedule_week_end:
+  description:Set the schedule for weekend
+  required: false
+  default: '[{"start_hour":"08", "start_minute":"30", "temp":"20"}, {"start_hour":"23", "start_minute":"00", "temp":"17"}]'
+  type: string
+{% endconfiguration  %}
 
 A full configuration example looks like the one below. 
 
