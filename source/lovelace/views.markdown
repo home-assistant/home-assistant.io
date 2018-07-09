@@ -16,15 +16,12 @@ These are exactly as before, tab views with icons or text that help you manage l
 - Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels
 - Using [themes](/lovelace/views/#themes) in views
 
-
-{% configuration %}
-title:
-  description: Text title of the view.
-  required: false
-  type: string
-
-{% endconfiguration %}
-
+| Name | Type | Default | Description
+| ---- | ---- | ------- | -----------
+| title | string | Optional | Text title of the view
+| id | string | number | The id to use in URL path of this view
+| icon | string | Optional | The material design icon for the view, uses this instead of title
+| panel | boolean | false | Marks view as a panel reusing the first card in the list
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
