@@ -17,8 +17,6 @@ Weather forecast is a card to display the weather. Very useful to include on int
 Screenshot of the weather card.
 </p>
 
-{% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -26,7 +24,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity id of `weather` domain"
+  description: "The `entity_id` of the `weather` platform to use."
   type: string
 {% endconfiguration %}
 

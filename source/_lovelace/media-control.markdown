@@ -17,8 +17,6 @@ The media control card is used to display [Media Player](/components/#search/med
 Screenshot of the media player control card.
 </p>
 
-## {% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -26,7 +24,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity id of `media_player` domain"
+  description: "A media player `entity_id`."
   type: string
 {% endconfiguration %}
 

@@ -17,8 +17,6 @@ Glance cards are a very compact. Very useful to group together multiple sensors 
 Screenshot of the glance card.
 </p>
 
-## {% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -26,26 +24,22 @@ type:
   type: string
 entities:
   required: true
-  description: "Entity id's or an `entity` object (see structure below)."
+  description: "A list of entity IDs or an `entity` object."
   type: list
+  keys:
+    entity:
+      required: true
+      description: "The `entity_id` to show."
+      type: string
+    name:
+      required: true
+      description: "A name for `the entity_id`."
+      type: string
 title:
   required: false
   description: Card title
   type: string
   default: none
-{% endconfiguration %}
-
-`entity` object type
-
-{% configuration %}
-entity:
-  required: true
-  description: "An entity_id. Example: 'device_tracker.demo_paulus'."
-  type: string
-name:
-  required: true
-  description: A new name for the entity_id
-  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -70,7 +64,7 @@ Basic example
 Screenshot of the glance card with custom title.
 </p>
 
-Example with custom name
+Example with custom name.
 
 ```yaml
 - type: glance
