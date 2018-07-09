@@ -29,7 +29,7 @@ cloudflare:
     - 'www'
 ```
 
-{% configuration duckdns %}
+{% configuration cloudflare %}
   email:
     description: The email address for your Cloudflare account.
     required: true
