@@ -28,7 +28,7 @@ entities:
       type: string
     name:
       required: true
-      description: "A new name for the `entity_id`."
+      description: "The name for the `entity_id` to use in the frontend."
       type: string
 title:
   required: false

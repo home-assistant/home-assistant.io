@@ -9,32 +9,14 @@ sharing: true
 footer: true
 ---
 
-These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep links like `/lovelace/0`. You can also assign your own [custom ids](/lovelace/views/#custom-id).
+These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep-links like `/lovelace/0`. You can also assign your own [custom IDs](/lovelace/views/#custom-id).
 
 - Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs
 - Using [icons](/lovelace/views/#icons) instead of text
 - Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels
 - Using [themes](/lovelace/views/#themes) in views
 
-{% configuration %}
-title:
-  required: false
-  description: Text title of the view.
-  type: string
-id:
-  required: false
-  description: The ID to use in URL path of this view.
-  type: int
-icon:
-  required: false
-  description: The material design icon for the view, uses this instead of title.
-  type: string
-panel:
-  required: false
-  description: Marks view as a panel reusing the first card in list.
-  type: boolean
-  default: false
-{% endconfiguration %}
+
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
@@ -55,7 +37,7 @@ views:
 
 ## {% linkable_title Panel view %}
 
-This type of view uses the first card in the `cards` array to expand it to ocuppy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
+This type of view uses the first card in the `cards` list to expand it to ocuppy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
 
 ### {% linkable_title Example %}
 
