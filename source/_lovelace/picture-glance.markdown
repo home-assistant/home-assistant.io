@@ -35,7 +35,7 @@ image:
   description: URL of an image
   type: string
 entities:
-  required: false
+  required: true
   description: Entity id's
   type: list
   default: None
@@ -57,7 +57,7 @@ state_image:
 entity:
   required: false
   description: An entity to use for state_image state
-  type: list
+  type: string
   default: None
 title:
   required: false
@@ -70,30 +70,25 @@ title:
 
 {% configuration %}
 "on":
-  required: true
+  required: false
   description: URL of an image used for on state.
   type: string
-  default: None
 "off":
-  required: true
+  required: false
   description: URL of an image used for off state.
   type: string
-  default: None
 home:
   required: false
   description: URL of an image used for home state.
   type: string
-  default: None
 not_home:
   required: false
   description: URL of an image used for not_home state.
   type: string
-  default: None
 any:
   required: false
   description: Any state that is supported by the entity works
   type: object
-  default: None
 {% endconfiguration %}
 
 {% linkable_title Examples %}
