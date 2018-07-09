@@ -44,7 +44,7 @@ Screenshot of views.
 
 ## {% linkable_title Icons %}
 
-You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip. 
+You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip.
 
 ### {% linkable_title Example %}
 
