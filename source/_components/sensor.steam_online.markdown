@@ -40,7 +40,7 @@ api_key:
 accounts:
   required: true
   description: Array of accounts.
-  type: list
+  type: array
 account_id:
   required: true
   description:  64-bit SteamID.
