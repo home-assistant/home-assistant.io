@@ -25,26 +25,71 @@ Screenshot of the picture glance card.
 
 ## {% linkable_title Options %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `picture-glance`
-| image | string | **Required** | URL of an image
-| entities | list | **Required** | Entity id's
-| navigation_path | string | Optional | Path of URL to use in navigation
-| camera_image | string | Optional | camera domain entity_id 'camera.demo_camera'
-| state_image | object | Optional| See `state_image` object structure.
-| entity | list | Optional | An entity to use for state_image state.
-| title | string | Optional | Card title.
+{% configuration %}
+type:
+  required: true
+  description: picture-glance
+  type: string
+image:
+  required: true
+  description: "URL of an image. (Note: Is not required if using camera_image or state_image instead.)"
+  type: string
+entities:
+  required: true
+  description: Entity id's
+  type: list
+  default: None
+navigation_path:
+  required: false
+  description: Path of URL to use in navigation.
+  type: string
+  default: None
+camera_image:
+  required: true
+  description: "Camera domain entity_id 'camera.demo_camera' (Note: Is not required if using camera_image or state_image instead.)"
+  type: string
+  default: None  
+state_image:
+  required: true
+  description: "See `state_image` object structure. (Note: Is not required if using image or camera_image instead.)"
+  type: object
+  default: None
+entity:
+  required: false
+  description: An entity to use for state_image state.
+  type: string
+  default: None
+title:
+  required: false
+  description: Card title.
+  type: string
+  default: None
+{% endconfiguration %}
 
 `state_image` object structure
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| on | string | Optional | URL of an image used for on state.
-| off | string | Optional | URL of an image used for off state.
-| home | string | Optional | URL of an image used for home state.
-| not_home | string | Optional | URL of an image used for not_home state.
-| ... | string | Optional | Any state that is supported by the entity works.
+{% configuration %}
+"on":
+  required: false
+  description: URL of an image used for on state.
+  type: string
+"off":
+  required: false
+  description: URL of an image used for off state.
+  type: string
+home:
+  required: false
+  description: URL of an image used for home state.
+  type: string
+not_home:
+  required: false
+  description: URL of an image used for not_home state.
+  type: string
+any:
+  required: false
+  description: Any state that is supported by the entity works.
+  type: object
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
