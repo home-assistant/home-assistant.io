@@ -15,27 +15,48 @@ ha_release: "0.50"
 
 The `velbus` fan allows you to control [Velbus](http://www.velbus.eu) connected fans.
 
+## {% linkable_title Configuration %}
+
 To use your Velbus fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-
 fan:
   - platform: velbus
     devices:
-       - name: Fan 1
-         module: 0xda
-         channel_low: 4
-         channel_medium: 3
-         channel_high: 2
+      - name: Fan 1
+        module: 0xda
+        channel_low: 4
+        channel_medium: 3
+        channel_high: 2
 ```
 
-Configuration variables:
-- **devices** array (*Required*): The array contains the fans to configure
-  - **name** (*Required*): Name of the fan.
-  - **module** (*Required*): The hexadecimal module address
-  - **channel_low** (*Required*): The channel number in the module for low-speed.
-  - **channel_medium** (*Required*): The channel number in the module for medium-speed.
-  - **channel_high** (*Required*): The channel number in the module for high-speed.
+{% configuration %}
+devices:
+  description: The list contains the fans to configure.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Name to use in the frontend.
+      required: true
+      type: string
+    module:
+      description: The hexadecimal module address.
+      required: true
+      type: string
+    channel_low:
+      description: The channel number in the module for low-speed.
+      required: true
+      type: string
+    channel_medium:
+      description: The channel number in the module for medium-speed.
+      required: true
+      type: string
+    channel_high:
+      description: The channel number in the module for high-speed.
+      required: true
+      type: string
+{% endconfiguration %}
 
 For hub configuration, see [the Velbus component](/components/velbus/).
