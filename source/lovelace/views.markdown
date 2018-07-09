@@ -11,10 +11,10 @@ footer: true
 
 These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep-links like `/lovelace/0`. You can also assign your own [custom IDs](/lovelace/views/#custom-id).
 
-- Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs
-- Using [icons](/lovelace/views/#icons) instead of text
-- Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels
-- Using [themes](/lovelace/views/#themes) in views
+- Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs.
+- Using [icons](/lovelace/views/#icons) instead of text.
+- Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels.
+- Using [themes](/lovelace/views/#themes) in views.
 
 
 {% configuration %}
@@ -44,7 +44,7 @@ Screenshot of views.
 
 ## {% linkable_title Icons %}
 
-You can use icons instead of text for your view tabs. The title in the example will be used as tooltip. 
+You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip. 
 
 ### {% linkable_title Example %}
 
