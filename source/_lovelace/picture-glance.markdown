@@ -32,7 +32,7 @@ type:
   type: string
 image:
   required: true
-  description: URL of an image
+  description: URL of an image (Note: Is not required if using camera_image or state_image instead.)
   type: string
 entities:
   required: true
@@ -45,13 +45,13 @@ navigation_path:
   type: string
   default: None
 camera_image:
-  required: false
-  description: "Camera domain entity_id 'camera.demo_camera'"
+  required: true
+  description: "Camera domain entity_id 'camera.demo_camera'" (Note: Is not required if using camera_image or state_image instead.)
   type: string
   default: None  
 state_image:
-  required: false
-  description: "See `state_image` object structure."
+  required: true
+  description: "See `state_image` object structure." (Note: Is not required if using image or camera_image instead.)
   type: object
   default: None
 entity:
