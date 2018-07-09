@@ -12,9 +12,9 @@ footer: true
 
 A very useful type of card that can display sensors, switches, lights and other entities grouped on top of a custom image. Use this card for easy visual recognition inside a large dashboard. You also can add `navigation_path` to take the user to a specific view and use these cards in an overview dashboard.
 
-What really sets this card apart is the ability to **control** entities directly from the card without the need to open the details of that entity.
+What sets this card apart is the ability to **control** entities directly from the card without the need to open the details of that entity.
 
-You can also use `camera` domain entities to use that as image. You can also use `state_image` just like in [picture-entity](/lovelace/picture-entity/) together with an `entity` entry to change the image in a dynamic way.
+You can also use `camera` domain entities to use that as the image. You can also use `state_image` just like in [picture-entity](/lovelace/picture-entity/) together with an `entity` entry to change the image in a dynamic way.
 
 Picture glance supports a display of maximum 10 items.
 
@@ -33,8 +33,8 @@ Screenshot of the picture glance card.
 | navigation_path | string | Optional | Path of URL to use in navigation
 | camera_image | string | Optional | camera domain entity_id 'camera.demo_camera'
 | state_image | object | Optional| See `state_image` object structure.
-| entity | list | Optional | An entity to use for state_image state
-| title | string | Optional | Card title
+| entity | list | Optional | An entity to use for state_image state.
+| title | string | Optional | Card title.
 
 `state_image` object structure
 
@@ -44,7 +44,7 @@ Screenshot of the picture glance card.
 | off | string | Optional | URL of an image used for off state.
 | home | string | Optional | URL of an image used for home state.
 | not_home | string | Optional | URL of an image used for not_home state.
-| ... | string | Optional | Any state that is supported by the entity works
+| ... | string | Optional | Any state that is supported by the entity works.
 
 ## {% linkable_title Examples %}
 
