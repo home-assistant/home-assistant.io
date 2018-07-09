@@ -45,7 +45,7 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 
 ```yaml
 title: My Awesome Home
-# Exclude entites from "Unused entities" view
+# Exclude entities from "Unused entities" view
 excluded_entities:
   - weblink.router
 views:
