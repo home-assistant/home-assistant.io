@@ -72,16 +72,11 @@ views:
             - type: state-icon
               tap_action: toggle
               entity: light.ceiling_lights
-              style:
-                top: 47%
-                left: 42%
 ```
 
 ## {% linkable_title Themes %}
 
-You can also set a [theme](/frontend/#themes) per view. 
-
-> Theme is currently only partially usable (font color works)
+You can also set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
 
 ```yaml
 views:
