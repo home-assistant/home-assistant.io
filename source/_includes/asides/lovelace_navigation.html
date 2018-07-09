@@ -1,11 +1,13 @@
 <section class="aside-module grid__item one-whole lap-one-half">
   <!-- {% include edit_github.html %} -->
-  {% assign cards = site.lovelace | sort: 'title' %}
+  {% assign cards = site.lovelace | sort_natural: 'title' %}
 
   <div class='section'>
     <h1 class="title delta">Lovelace UI</h1>
     <ul class='divided'>
       <li><a href='/lovelace/'>Introduction</a></li>
+      <li><a href='/lovelace/changelog/'>Changelog</a></li>
+      <li><a href='/lovelace/views/'>Views</a></li>
     </ul>
   </div>
 
@@ -19,4 +21,5 @@
       {% endfor %}
     </ul>
   </div>
+  
 </section>
