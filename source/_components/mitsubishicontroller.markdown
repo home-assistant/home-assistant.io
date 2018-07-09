@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: daikin.png
+logo: mitsubishi-logo.svg
 ha_category: Hub
 ha_release: 0.74
 ha_iot_class: "Local Polling"
