@@ -19,7 +19,7 @@ The Lovelace UI is:
 
  - **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
  - **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
- - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](lovelace_custom_card.md)
+ - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
  - **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
 
 <div class='videoWrapper'>
@@ -45,7 +45,7 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 
 ```yaml
 title: My Awesome Home
-# Exclude entites from "Unused entities" view
+# Exclude entities from "Unused entities" view
 excluded_entities:
   - weblink.router
 views:
