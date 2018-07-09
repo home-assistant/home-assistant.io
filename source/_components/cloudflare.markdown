@@ -25,8 +25,8 @@ cloudflare:
   api_key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41
   zone: example.com
   records:
-    - 'bin'
-    - 'www'
+    - bin
+    - www
 ```
 
 {% configuration cloudflare %}
@@ -44,7 +44,7 @@ cloudflare:
     type: string
   records:
     description: A list of records you want to update. If no list is defined it will update every A record in that zone.
-    required: false
+    required: true
     type: list
 {% endconfiguration %}
 
