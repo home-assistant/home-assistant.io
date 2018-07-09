@@ -90,7 +90,7 @@ style:
   description: See "Style options"
   type: object
 tap_action:
-  required: true
+  required: false
   description: "Set to `toggle` to change state"
   type: string
   default: more-info
