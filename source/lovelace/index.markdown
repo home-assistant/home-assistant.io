@@ -112,7 +112,7 @@ It is possible to add your own custom cards to show up in the Lovelace UI. For m
 
 This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
 
-## FAQ
+{% linkable_title FAQ %}
 
 ### I am running Firefox but custom cards like gauge-card look bad or don't load at all. How do I fix this?
 
