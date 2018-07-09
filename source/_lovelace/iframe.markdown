@@ -2,7 +2,7 @@
 layout: page
 title: "iFrame Card"
 sidebar_label: iFrame
-description: "Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a grafana view."
+description: "Iframe cards are useful to embed outside websites in your dashboard with little effort. One such example is a Grafana view."
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
@@ -17,7 +17,7 @@ Iframe cards are useful to embed outside websites in your dashboard with little 
 Screenshot of the iframe card.
 </p>
 
-Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example if your Home Assistant setup uses HTTPS you won't be able to embed HTTP URLs.
+Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example, if your Home Assistant setup uses HTTPS, you won't be able to embed HTTP URLs.
 
 ## {% linkable_title Options %}
 
@@ -50,7 +50,7 @@ title:
         aspect_ratio: 100%
 ```
 
-Local html for custom content. Place `example.html` in your `config/www` folder and reference it as below:
+Local HTML for custom content. Place `example.html` in your `config/www` folder and reference it as below:
 
 ```yaml
       - type: iframe

@@ -54,7 +54,6 @@ entity_id:
   type: string
 {% endconfiguration %}
 
-
 ## {% linkable_title Examples %}
 
 Basic navigation example:

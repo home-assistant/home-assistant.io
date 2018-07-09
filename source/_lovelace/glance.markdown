@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Glance cards are a very compact. Very useful to group together multiple sensors for a quick and easy to use view. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
+Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
@@ -50,7 +50,7 @@ name:
 
 ## {% linkable_title Examples %}
 
-Basic example
+Basic example:
 
 ```yaml
 - type: glance
@@ -70,7 +70,7 @@ Basic example
 Screenshot of the glance card with custom title.
 </p>
 
-Example with custom name
+Example with a custom name:
 
 ```yaml
 - type: glance

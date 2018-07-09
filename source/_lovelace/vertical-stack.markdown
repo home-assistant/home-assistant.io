@@ -27,7 +27,7 @@ cards:
 
 ## {% linkable_title Example %}
 
-Basic example
+Basic example:
 
 ```yaml
 - type: vertical-stack
@@ -45,7 +45,7 @@ Basic example
 Screenshot of the vertical stack card.
 </p>
 
-Example using both a vertical and horizontal stack card.
+Example using both a vertical and horizontal stack card:
 
 ```yaml
 - type: vertical-stack

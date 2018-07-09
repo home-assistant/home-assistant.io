@@ -11,17 +11,17 @@ footer: true
 
 These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep links like `/lovelace/0`. You can also assign your own [custom ids](/lovelace/views/#custom-id).
 
-- Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs
-- Using [icons](/lovelace/views/#icons) instead of text
-- Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels
-- Using [themes](/lovelace/views/#themes) in views
+- Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs.
+- Using [icons](/lovelace/views/#icons) instead of text.
+- Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels.
+- Using [themes](/lovelace/views/#themes) in views.
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | title | string | Optional | Text title of the view
 | id | string | number | The id to use in URL path of this view
 | icon | string | Optional | The material design icon for the view, uses this instead of title
-| panel | boolean | false | Marks view as a panel reusing the first card in list
+| panel | boolean | false | Marks view as a panel reusing the first card in the list
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
@@ -30,7 +30,7 @@ Screenshot of views.
 
 ## {% linkable_title Icons %}
 
-You can use icons instead of text for your view tabs. The title in the example will be used as tooltip. 
+You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip.
 
 ### {% linkable_title Example %}
 
@@ -42,7 +42,7 @@ views:
 
 ## {% linkable_title Panel view %}
 
-This type of view uses the first card in the `cards` array to expand it to ocuppy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
+This type of view uses the first card in the `cards` array to expand it to occupy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
 
 ### {% linkable_title Example %}
 
@@ -66,7 +66,7 @@ views:
 
 ## {% linkable_title Themes %}
 
-You can also set a [theme](/frontend/#themes) per view. 
+You can also set a [theme](/frontend/#themes) per view.
 
 > Theme is currently only partially usable (font color works)
 
@@ -80,7 +80,7 @@ views:
 
 ## {% linkable_title Custom ID %}
 
-You can now assign a custom id to a view, for nicer navigation paths in URLs. This id allows you to deep-link navigation to this view from cards that allow `navigation_path`. 
+You can now assign a custom id to a view, for nicer navigation paths in URLs. This id allows you to deep-link navigation to this view from cards that allow `navigation_path`.
 
 ### {% linkable_title Example %}
 
