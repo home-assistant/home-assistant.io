@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Picture elements card is one of the most versatile type of cards. 
+Picture elements card is one of the most versatile type of cards.
 
 The cards allows you to position icons or text and even services! on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 

@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Markdown card is used to render [markdown](http://commonmark.org/help/)
+Markdown card is used to render [markdown](http://commonmark.org/help/).
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
