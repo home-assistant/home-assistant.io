@@ -17,6 +17,25 @@ These are exactly as before, tab views with icons or text that help you manage l
 - Using [themes](/lovelace/views/#themes) in views
 
 
+{% configuration %}
+title:
+  description: Text title of the view.
+  required: false
+  type: string
+id:
+  description: The ID to use in URL path of this view.
+  required: false
+  type: string
+icon:
+  description: The material design icon for the view, uses this instead of title.
+  required: false
+  type: string
+panel:
+  description: Marks view as a panel reusing the first card in list.
+  required: false
+  type: boolean
+{% endconfiguration %}
+
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
