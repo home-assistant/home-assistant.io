@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mitsubishi-hvac-logo.svg
-ha_category: Climate
+ha_category: climate
 ha_release: 0.74
 ha_iot_class: "Local Polling"
 ---
