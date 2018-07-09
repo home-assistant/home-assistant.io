@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: mitsubishi-logo.svg
+logo: mitsubishi-hvac-logo.svg
 ha_category: Hub
 ha_release: 0.74
 ha_iot_class: "Local Polling"
