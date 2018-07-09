@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: environment_canada.jpg
+logo: environment_canada.png
 ha_category: Weather
 ha_release: 0.74
 ha_iot_class: "Cloud Polling"
