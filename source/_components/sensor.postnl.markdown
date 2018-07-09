@@ -20,14 +20,22 @@ The letters sensor value shows the number of letters to be deliverd.
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable the packege sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 sensor:
   - platform: postnl
     username: POSTNL_USERNAME
     password: POSTNL_PASSWORD
-    letter:
+```
+To enable the packege and letter sensor, add the following lines to your `configuration.yaml`:
+
+```yaml
+sensor:
+  - platform: postnl
+    username: POSTNL_USERNAME
+    password: POSTNL_PASSWORD
+    letter: true
 ```
 
 {% configuration %}
