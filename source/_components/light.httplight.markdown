@@ -26,8 +26,6 @@ light:
     type: color
 ```
 
-Configuration variables:
-
 {% configuration %}
 name:
   description: Name of the light.
@@ -66,6 +64,7 @@ light:
   host: IP_ADDRESS
   type: color
 ```
+
 ### {% linkable_title Dimmable %}
 
 If you have an HTTP Light that supports brightness but not color use the dimmable type.
@@ -80,6 +79,7 @@ light:
   host: IP_ADDRESS
   type: color
 ```
+
 ### {% linkable_title Simple %}
 
 If you have an HTTP Light that only supports `ON/OFF` commands, use the simple type.
