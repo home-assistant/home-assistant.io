@@ -11,7 +11,7 @@ footer: true
 
 ## Changes in 0.73.1
 - Setting Lovelace as default now updates `Overview` button to point to `/lovelace`
-- Allow setting background style on all levels (global, view, card)
+- Allow setting background styles (global and per view)
 
 ### Cards
 - 📣 New card: `map` that allows showing `device_tracker` entities on a map card
