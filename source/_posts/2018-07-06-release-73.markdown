@@ -11,13 +11,13 @@ categories: Release-Notes
 og_image: /images/blog/2018-07-0.73/lovelace-elements.png
 ---
 
-Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's not good enough to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](https://www.home-assistant.io/docs/configuration/securing/) and follow them.
+Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's absolutely wrong to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](https://www.home-assistant.io/docs/configuration/securing/) and follow them.
 
 In the meanwhile, we're also working hard on the new authentication system. A preview version is included in this release, more info on [our developer blog](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html).
 
 This release also includes a TON of love for the new Lovelace UI. Yes, it's still experimental but daaang, it's already so awesome that you should probably just go ahead and try it out. Thanks to all the devs who have jumped on this: [@c727], [@ciotlosm] and [@jeradM].
 
-We don't have time to go through all the changes in this release, but [@ciotlosm] has been keeping [a very detailed changelog](https://github.com/ciotlosm/docs-lovelace/blob/0.73.0/changelog.md). I'll just leave this screenshot by [@arsaboo] of the new picture-elements card and [the Lovelace configuration](https://github.com/arsaboo/homeassistant-config/blob/master/ui-lovelace.yaml#L15-L158):
+We don't have time to go through all the changes in this release, but [@ciotlosm] has been keeping [a very detailed changelog](/lovelace/changelog/). I'll just leave this screenshot by [@arsaboo] of the new picture-elements card and [the Lovelace configuration](https://github.com/arsaboo/homeassistant-config/blob/master/ui-lovelace.yaml#L15-L158):
 
 <p class='img'>
 <img src='/images/blog/2018-07-0.73/lovelace-elements.png' alt='Screenshot of a floorplan with sensor info and light/camera controls overlayed.'>
@@ -42,13 +42,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Update to hole to 0.3.0 ([@fabaff] - [#15014]) ([sensor.pi_hole docs]) (breaking change)
-- Update PostNL unit of measure to align with UPS ([@keesschollaart81] - [#15023]) ([sensor.postnl docs]) (breaking change)
-- Make Pollen.com platform async ([@bachya] - [#14963]) ([sensor.pollen docs]) (breaking change)
-- Adding 'namespace' for prometheus metrics ([@alexbarcelo] - [#13738]) ([prometheus docs]) (breaking change)
-- Fix zwave climate operation mode mappings ([@cdce8p] - [#15162]) ([climate.zwave docs]) (breaking change)
-- X-Forwarded-For improvements and bug fixes ([@colinodell] - [#15204]) ([emulated_hue docs]) ([http docs]) (breaking change)
+- The `pi_hole` sensor is now limited to `ads_blocked_today` by default and will no longer show all available data. Use [`monitored_conditions`](/components/sensor.pi_hole/#monitored_conditions) to list the sensors you want. ([@fabaff] - [#15014]) ([sensor.pi_hole docs]) (breaking change)
+- Update PostNL unit of measure to `packages` to align with UPS ([@keesschollaart81] - [#15023]) ([sensor.postnl docs]) (breaking change)
+- Various attributes have been relocated to sensors that make more sense; additionally, some names are corrected. More info in [#14963] ([@bachya] - [#14963]) ([sensor.pollen docs]) (breaking change)
+- The filter option for prometheus was aligned with other components ([@alexbarcelo] - [#13738]) ([prometheus docs]) (breaking change)
+- Change some operation_modes for Z-Wave climate devices to comply with Home Assistant standards and compatibility with Google Home, Alexa and HomeKit. ([@cdce8p] - [#15162]) ([climate.zwave docs]) (breaking change)
+- HTTP component: Anyone who has enabled `use_x_forwarded_for` will need to explicitly whitelist their proxy/proxies using the new `trusted_proxies` setting. ([@colinodell] - [#15204]) ([emulated_hue docs]) ([http docs]) (breaking change)
 - Stop supporting deprecated TLS ciphers ([@hmmbob] - [#15217]) ([http docs]) (breaking change)
+- LIFX will no longer report `hs_color`/`rgb_color` and `color_temp` simultaneously. ([@amelchio] - [#15234]) ([light.lifx docs]) (breaking change) (beta fix)
 
 ## {% linkable_title Beta Fixes %}
 
