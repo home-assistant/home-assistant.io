@@ -32,12 +32,20 @@ sensor:
       - account2
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your API key from [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey).
-- **accounts** array (*Required*): Array of accounts.
-  - **account_id** (*Required*): 64-bit SteamID.
-
+{% configuration %}
+api_key:
+  required: true
+  description: Your API key from [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey).
+  type: string
+accounts:
+  required: true
+  description: Array of accounts.
+  type: list
+account_id:
+  required: true
+  description:  64-bit SteamID.
+  type: string
+{% endconfiguration %}
 
 If you want to add the accounts to a group for example you will have to use:
 
