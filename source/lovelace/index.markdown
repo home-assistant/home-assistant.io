@@ -17,10 +17,10 @@ Starting with Home Assistant 0.72, we're experimenting with a new way of definin
 
 The Lovelace UI is:
 
- - **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
- - **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
- - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
- - **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
+- **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
+- **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
+- **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+- **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6FX9_leiikw" frameborder="0" allowfullscreen></iframe>
@@ -28,7 +28,7 @@ The Lovelace UI is:
 
 ## {% linkable_title How it works %}
 
-The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a seperate file, controlled by the user.
+The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a separate file, controlled by the user.
 
 <p class='img'>
 <img
@@ -78,12 +78,12 @@ views:
     # Title of the view. Will be used as the tooltip for tab icon
     title: Second view
     cards:
-        # Entities card will take list of entities and show their state.
+        # Entities card will take a list of entities and show their state.
       - type: entities
         # Title of the entities card
         title: Example
         # The entities here will be shown in the same order as specified.
-        # Each entriy is an entity ID or a map with extra options.
+        # Each entry is an entity ID or a map with extra options.
         entities:
           - light.kitchen
           - switch.ac
