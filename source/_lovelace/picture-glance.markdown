@@ -38,7 +38,7 @@ navigation_path:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs."
+  description: A list of entity IDs.
   type: list
 navigation_path:
   required: false
@@ -53,19 +53,19 @@ state_image:
   description: Path of URL to use in navigation.
   type: list
   keys:
-    on:
+    "on":
       type: string
       required: false
       description: URL of an image used for on state.
-    off
+    "off":
       type: string
       required: false
       description: URL of an image used for off state.
-    home 
+    home:
       type: string
       required: false
       description: URL of an image used for home state.
-    not_home
+    not_home:
       type: string
       required: false
       description: URL of an image used for not_home state.
