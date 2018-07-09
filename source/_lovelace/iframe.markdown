@@ -21,6 +21,8 @@ Make sure the URL you're embedding has the right protocol and allows to be embed
 
 ## {% linkable_title Options %}
 
+Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
+
 {% configuration %}
 type:
   required: true
@@ -28,16 +30,16 @@ type:
   type: string
 url:
   required: true
-  description: iframe source url
+  description: The iframe source URL.
   type: string
 aspect_ratio:
   required: false
-  description: Iframe height-width-ratio
+  description: The iframe height-width-ratio.
   type: string
   default: "50%"
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
   default: none
 {% endconfiguration %}
@@ -45,15 +47,15 @@ title:
 ## {% linkable_title Examples %}
 
 ```yaml
-      - type: iframe
-        url: https://worldpingdemo.grafana.net/d/000000027/worldping-endpoint-summary?var-endpoint=www_amazon_com&var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
-        aspect_ratio: 100%
+  - type: iframe
+    url: https://worldpingdemo.grafana.net/d/000000027/worldping-endpoint-summary?var-endpoint=www_amazon_com&var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
+    aspect_ratio: 100%
 ```
 
 Local HTML for custom content. Place `example.html` in your `config/www` folder and reference it as below:
 
 ```yaml
-      - type: iframe
-        url: /local/example.html
-        title: Sample local file
+- type: iframe
+  url: /local/example.html
+  title: Sample local file
 ```

@@ -17,8 +17,6 @@ Markdown card is used to render [markdown](http://commonmark.org/help/).
 Screenshot of the markdown card.
 </p>
 
-## {% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -26,11 +24,11 @@ type:
   type: string
 content:
   required: true
-  description: Content to render as [markdown](http://commonmark.org/help/).
+  description: "Content to render as [markdown](http://commonmark.org/help/)."
   type: string
 title:
   required: false
-  description: Card title
+  description: The card title.
   type: string
   default: none
 {% endconfiguration %}

@@ -23,6 +23,19 @@ cards:
   required: true
   description: List of cards
   type: list
+  keys:
+    type:
+      required: true
+      description: The type of the card to stack.
+      type: string
+    entity:
+      required: true
+      description: "An `entity_id` to use in the frontend."
+      type: string
+    image:
+      required: true
+      description: The URL to an image.
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

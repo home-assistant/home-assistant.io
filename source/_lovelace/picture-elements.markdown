@@ -12,7 +12,7 @@ footer: true
 
 Picture elements card is one of the most versatile type of cards.
 
-The cards allows you to position icons or text and even services! on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
+The cards allows you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
 You can customize tap action and even icon color.
 
@@ -21,8 +21,6 @@ You can customize tap action and even icon color.
 Screenshot of the picture elements card.
 </p>
 
-## {% linkable_title Options %}
-
 {% configuration %}
 type:
   required: true
@@ -30,7 +28,7 @@ type:
   type: string
 image:
   required: true
-  description: URL of an image
+  description: The URL of an image.
   type: string
 elements:
   required: true
@@ -40,132 +38,178 @@ title:
   required: false
   description: Card title
   type: string
-  default: none
 {% endconfiguration %}
 
-Element types:
+Different `elements` types:
 
 {% configuration %}
-type:
+elements:
   required: true
-  description: navigation
-  type: string
-navigation_path:
-  required: true
-  description: navigation_path of URL to navigate to
-  type: string
-icon:
-  required: false
-  description: Icon
-  type: string
-  default: none
-{% endconfiguration %}
-
-{% configuration %}
-type:
-  required: true
-  description: state-badge
-  type: string
-entity:
-  required: true
-  description: Entity id
-  type: string
-style:
-  required: true
-  description: See "Style options"
-  type: object
+  description: List of elements
+  type: list
+  keys:
+    type:
+      required: true
+      description: navigation
+      type: string
+    navigation_path:
+      required: true
+      description: "The `navigation_path` of URL to navigate to."
+      type: string
+    icon:
+      required: false
+      description: Icon
+      type: string
 {% endconfiguration %}
 
 {% configuration %}
-type:
+elements:
   required: true
-  description: state-icon
-  type: string
-entity:
-  required: true
-  description: Entity id
-  type: string
-style:
-  required: true
-  description: See "Style options"
-  type: object
-tap_action:
-  required: false
-  description: "Set to `toggle` to change state"
-  type: string
-  default: more-info
+  description: List of elements
+  type: list
+  keys:
+    type:
+      required: true
+      description: state-badge
+      type: string
+    entity:
+      required: true
+      description: Entity id
+      type: string
+    style:
+      required: true
+      description: See "Style options"
+      type: object
 {% endconfiguration %}
 
 {% configuration %}
-type:
+elements:
   required: true
-  description: state-label
-  type: string
-entity:
-  required: true
-  description: Entity id
-  type: string
-style:
-  required: true
-  description: See "Style options"
-  type: object
+  description: List of elements
+  type: list
+  keys:
+    type:
+      required: true
+      description: state-icon
+      type: string
+    entity:
+      required: true
+      description: The entity id to use.
+      type: string
+    style:
+      required: true
+      description: Additional style options to use.
+      type: list
+      keys:
+        left:
+          required: true
+          description: Position from left, "25%".
+          type: string
+        top:
+          required: true
+          description: Position from top, "50%".
+          type: string
+        ...:
+          required: inherit
+          description: ...
+          type: string
+        "--paper-item-icon-color":
+          required: inherit
+          description: "Badge-icon off-color, `green`"
+          type: string
+    tap_action:
+      required: false
+      description: "Set to `toggle` to change state"
+      type: string
+      default: more-info
+      tap_action:
 {% endconfiguration %}
 
 {% configuration %}
-type:
+elements:
   required: true
-  description: service-button
-  type: string
-service:
-  required: true
-  description: light.turn_on
-  type: string
-service_data:
-  required: false
-  description: "See `service_data` object structure."
-  type: object
-  default: none
-style:
-  required: true
-  description: See "Style options"
-  type: object
-title:
-  required: false
-  description: Button label
-  type: string
-  default: none
+  description: List of elements
+  type: list
+  keys:
+    type:
+      required: true
+      description: state-label
+      type: string
+    entity:
+      required: true
+      description: Entity id
+      type: string
+    style:
+      required: true
+      description: Additional style options to use.
+      type: list
+      keys:
+        left:
+          required: true
+          description: Position from left, "25%".
+          type: string
+        top:
+          required: true
+          description: Position from top, "50%".
+          type: string
+        ...:
+          required: inherit
+          description: ...
+          type: string
+        "--paper-item-icon-color":
+          required: inherit
+          description: "Badge-icon off-color, `green`"
+          type: string
 {% endconfiguration %}
 
-`service_data` object structure
-
 {% configuration %}
-entity_id:
+elements:
   required: true
-  description: light.floor
-  type: string
-{% endconfiguration %}
-
-Style options (CSS):
-
-{% configuration %}
-left:
-  required: true
-  description: Position from left, "25%"
-  type: string
-top:
-  required: true
-  description: Position from top, "50%"
-  type: string
-...:
-  required: inherit
-  description: ...
-  type: string
-  default: none
-"--paper-item-icon-color":
-  required: inherit
-  description: "Badge-icon off-color, `green`"
-  type: string
-  default: none
+  description: List of elements
+  type: list
+  keys:
+    type:
+      required: true
+      description: service-button
+      type: string
+    service:
+      required: true
+      description: light.turn_on
+      type: string
+    service_data:
+      required: false
+      description: The service data to use."
+      type: list
+      keys:
+        entity_id:
+          required: true
+          description: light.floor
+          type: string
+    style:
+      required: true
+      description: Additional style options to use.
+      type: object
+      keys:
+        left:
+          required: true
+          description: Position from left, "25%".
+          type: string
+        top:
+          required: true
+          description: Position from top, "50%".
+          type: string
+        ...:
+          required: inherit
+          description: ...
+          type: string
+        "--paper-item-icon-color":
+          required: inherit
+          description: "Badge-icon off-color, `green`"
+          type: string
+    title:
+      required: false
+      description: Button label
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
