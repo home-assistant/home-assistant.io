@@ -107,3 +107,14 @@ It is possible to add your own custom cards to show up in the Lovelace UI. For m
 ## {% linkable_title Current limitations %}
 
 This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
+
+## {% linkable_title FAQ %}
+
+### I am running Firefox but custom cards like gauge-card look bad or don't load at all. How do I fix this?
+
+This is probably because your version of Firefox doesn't have custom components supported or enabled. Please set to `true` in your `about:config` the following settings: `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled`
+
+### Custom components don't load on my IOS device?
+This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript: latest` in your `configuration.yaml` under `frontend:`. 
+
+> Note: Enabling `latest` on IOS could cause automation and script editor to crash.
