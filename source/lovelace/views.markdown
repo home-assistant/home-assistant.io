@@ -52,13 +52,13 @@ views:
     id: debug
     title: Floorplan
     panel: true
-      cards:
-        - type: picture-elements
-          image: /local/floorplans/main.jpg
-          elements:
-            - type: state-icon
-              tap_action: toggle
-              entity: light.ceiling_lights
+    cards:
+      - type: picture-elements
+        image: /local/floorplans/main.jpg
+        elements:
+          - type: state-icon
+            tap_action: toggle
+            entity: light.ceiling_lights
 ```
 
 ## {% linkable_title Themes %}
