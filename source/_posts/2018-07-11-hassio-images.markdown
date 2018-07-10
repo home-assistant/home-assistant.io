@@ -28,7 +28,17 @@ The design of HassOS is diferent to ResinOS. That is the reason why we can't pro
 3. Flash the images with [Etcher] to SD card.
 5. On Raspberry: if you modify the `config.txt`, you need applay this also on boot partition of HassOS, but __don't__ copy this file!
 4. If you used custom network configuration or ssh development access, we can use a [USB stick]. You can simple copy the resin-sample into `network` folder on USB stick.
-5. Take SD card into device slot and boot your system like before. 
+5. Take SD card into device slot and boot your system like before.
+6. Copy the snapshot into host with SSH or samba add-on.
+7. Restore it over the Hass.io panel
+
+## {% linkable_title Future %}
+
+We have now a wounderful base system and can now work to integrate all this features into Hass.io and to UI. So we plan to integrate the Network configuration and bluetooth into UI. The goal is a full featured hub system they allow anybody to use Home Assistant.
+
+We would also adapt more Hass.io API function into Home Assistant i.e. to monitor the system usage of a Add-on or Home Assistant container.
+
+Feel free to jump into project and help us to improve the documentation or other task around that all.
 
 [USB stick]: https://github.com/home-assistant/hassos/blob/rel-1/Documentation/configuration.md#automatic
 [HassOS stable]: https://www.home-assistant.io/hassio/installation/
