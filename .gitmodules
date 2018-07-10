@@ -1,3 +1,0 @@
-[submodule "_deploy"]
-	path = _deploy
-	url = https://github.com/home-assistant/home-assistant.github.io.git
