@@ -9,88 +9,107 @@ sharing: true
 footer: true
 ---
 
-These are exactly as before, tab views with icons or text that help you manage large dashboards with many entities. The views have now deep-links like `/lovelace/0`. You can also assign your own [custom IDs](/lovelace/views/#custom-id).
-
-- Using custom id in view, for [nicer navigation paths](/lovelace/views/#custom-id) in URLs.
-- Using [icons](/lovelace/views/#icons) instead of text.
-- Using a card to [fill a complete view](/lovelace/views/#panel-view), just like panels.
-- Using [themes](/lovelace/views/#themes) in views.
-
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| title | string | Optional | Text title of the view
-| id | string | number | The id to use in URL path of this view
-| icon | string | Optional | The material design icon for the view, uses this instead of title
-| panel | boolean | false | Marks view as a panel reusing the first card in the list
+{% configuration %}
+views:
+  required: true
+  description: A list of view configurations.
+  type: list
+  keys:
+    title:
+      required: true
+      description: A title for this view.
+      type: string
+    cards:
+      required: true
+      description: List of cards to render in this view.
+      type: list
+    id:
+      required: false
+      description: The id to use in URL path of this view.
+      type: string
+      default: view index
+    icon:
+      required: false
+      description: The icon for the view.
+      type: string
+    panel:
+      required: false
+      description: Renders the view in panel mode.
+      type: boolean
+      default: "false"
+{% endconfiguration %}
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
-Screenshot of views.
+  <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
+  Use titles or icons for views in the toolbar.
 </p>
+
+## {% linkable_title IDs %}
+
+The ID is used link to this view from other cards, on a different views, that support navigation (`navigation_path`). Do not use special characters here.
+
+### {% linkable_title Example %}
+
+View config:
+
+```yaml
+- title: Living room
+  id: living_room
+```
+
+Picture card config:
+
+```yaml
+- type: picture
+  image: /local/living_room.png
+  navigation_path: /lovelace/living_room
+```
 
 ## {% linkable_title Icons %}
 
-You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip.
+You can use icons instead of text-titels for your view. The title will be used as a tooltip in this case.
 
 ### {% linkable_title Example %}
 
 ```yaml
-views:
-  - icon: mdi:settings
-    title: Debugging
+- title: Garden
+  icon: mdi:flower
 ```
 
-## {% linkable_title Panel view %}
+## {% linkable_title Panel mode %}
 
-This type of view uses the first card in the `cards` list to expand it to ocuppy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
+This renders the first card on full view size, other cards in this view will not be rendered. Good for cards like map, stack or picture-elements.
 
 ### {% linkable_title Example %}
 
 ```yaml
-views:
-  - icon: mdi:settings
-    id: debug
-    title: Floorplan
-    panel: true
-      cards:
-        - type: picture-elements
-          image: /local/floorplans/main.jpg
-          elements:
-            - type: state-icon
-              tap_action: toggle
-              entity: light.ceiling_lights
+- title: Map
+  panel: true
+    cards:
+      - type: map
+        entities:
+          - device_tracker.demo_paulus
+          - zone.home
 ```
 
 ## {% linkable_title Themes %}
 
-You can also set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
-
-```yaml
-views:
-  - icon: mdi:heart
-    id: debug
-    title: Home
-    theme: dark-mode
-```
-
-## {% linkable_title Custom ID %}
-
-You can now assign a custom ID to a view, for nicer navigation paths in URLs. This id allows you to deep-link navigation to this view from cards that allow `navigation_path`. 
+You can set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
 
 ### {% linkable_title Example %}
 
-View:
-
 ```yaml
-views:
-  - icon: mdi:settings
-    id: debugging
+- title: Home
+  theme: dark-mode
 ```
 
-Picture card:
+## {% linkable_title Backround %}
+
+You can style the background of views using CSS. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+
+### {% linkable_title Example %}
 
 ```yaml
-- type: picture
-  image: /local/debug.jpg
-  navigation_path: /lovelace/debugging
+- title: Living room
+  background: center / cover no-repeat url("/local/background.png") fixed
 ```
