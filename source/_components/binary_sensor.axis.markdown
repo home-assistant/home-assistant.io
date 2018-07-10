@@ -19,10 +19,9 @@ See the [Axis main component](/components/axis/) for configuration instructions.
 
 The following sensor types are supported:
 
-
- * Motion detection
- * Passive IR motion detection
- * Sound detection
- * Day/night mode
- * Tampering detection
- * Input port
+- Motion detection
+- Passive IR motion detection
+- Sound detection
+- Day/night mode
+- Tampering detection
+- Input port
