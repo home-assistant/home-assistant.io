@@ -19,7 +19,7 @@ The advantages of using Hass.io:
 - Free and open source
 - Optimized for embedded devices like Raspberry Pi
 - 100% local home automation
-- Easy installation and updates (powered by [ResinOS] and [Docker])
+- Easy installation and updates (powered by [HassOS] and [Docker])
 - Management user interface integrated into Home Assistant
 - Easily create and restore full backups of your whole configuration.
 - Easily install many popular add-ons including [Google Assistant], encryption via [Let's Encrypt] and dynamic DNS via [Duck DNS].<br><br>[Browse available add-ons &raquo;][all]<br><br>
@@ -51,7 +51,7 @@ Hass.io upgrade process from the SSH command line
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[ResinOS]: https://resinos.io/
+[HassOS]: https://github.com/home-assistant/hassos
 [Docker]: https://www.docker.com/
 [install]: /hassio/installation/
 
