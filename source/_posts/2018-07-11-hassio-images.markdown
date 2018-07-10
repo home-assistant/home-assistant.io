@@ -21,6 +21,12 @@ We build HassOS on top of the [Buildroot] framework. The focus of the system is 
 
 Key features:
 - Safe and Secure updating with [Rauc] over USB or internet (OTA)
+- Use LZ4 compressed root files and parts of Memory
+- Read-Only root file system, designed to run on embedded systems
+- Dbus connected hosts services
+- Latest LT linux Kernel
+- Latest Docker-CE version
+- Full supported NetworkManager and Bluez
 
 ## {% linkable_title Migration %}
 
@@ -29,7 +35,7 @@ The design of HassOS is diferent to ResinOS. That is the reason why we can't pro
 1. Make a snapshot of current system. You should remove the bluetooth add-on before, that is not need anymore.
 2. Download the latest [HassOS stable] version.
 3. Flash the images with [Etcher] to SD card.
-5. On Raspberry: if you modify the `config.txt`, you need applay this also on boot partition of HassOS, but __don't__ copy this file!
+5. On Raspberry: if you modify the `config.txt`, you need apply this also on boot partition of HassOS, but __don't__ copy this file!
 4. If you used custom network configuration or ssh development access, we can use a [USB stick]. You can simple copy the resin-sample into `network` folder on USB stick.
 5. Take SD card into device slot and boot your system like before.
 6. Copy the snapshot into host with SSH or samba add-on.
