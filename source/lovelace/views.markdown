@@ -37,6 +37,14 @@ views:
       description: Renders the view in panel mode.
       type: boolean
       default: "false"
+    background:
+      required: false
+      description: Style the background using CSS.
+      type: string
+    theme:
+      required: false
+      description: Define a frontend-theme only for this view.
+      type: string
 {% endconfiguration %}
 
 <p class='img'>
@@ -92,17 +100,6 @@ This renders the first card on full view size, other cards in this view will not
           - zone.home
 ```
 
-## {% linkable_title Themes %}
-
-You can set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
-
-### {% linkable_title Example %}
-
-```yaml
-- title: Home
-  theme: dark-mode
-```
-
 ## {% linkable_title Backround %}
 
 You can style the background of views using CSS. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
@@ -112,4 +109,15 @@ You can style the background of views using CSS. For wallpapers you probably wan
 ```yaml
 - title: Living room
   background: center / cover no-repeat url("/local/background.png") fixed
+```
+
+## {% linkable_title Themes %}
+
+You can set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
+
+### {% linkable_title Example %}
+
+```yaml
+- title: Home
+  theme: dark-mode
 ```
