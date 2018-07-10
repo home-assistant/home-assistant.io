@@ -17,7 +17,10 @@ Note that the descriptions of new System can be get quite technical. Feel free t
 
 ## {% linkable_title What is new %}
 
-This will be a bit technical. 
+We build HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and high efficent operating system to run Docker like a hypervisor. It have exactly that software installed is need to run a supervisor. We have the focus also on security, there are no default passwords and we use [AppArmor] to protect application and containers on HassOS.
+
+Key features:
+- Safe and Secure updating with [Rauc] over USB or internet (OTA)
 
 ## {% linkable_title Migration %}
 
@@ -38,8 +41,13 @@ We have now a wounderful base system and can now work to integrate all this feat
 
 We would also adapt more Hass.io API function into Home Assistant i.e. to monitor the system usage of a Add-on or Home Assistant container.
 
+Thanks a lot for all the hardware donations. We start now to porting HassOS to all this hardware and try to support an new device ever 7-14 days until we support all IoT devices they we reached.
+
 Feel free to jump into project and help us to improve the documentation or other task around that all.
 
+[Rauc]: Safe and Secure Updating
+[Buildroot]: https://buildroot.org/
+[AppArmor]: https://gitlab.com/apparmor/apparmor/wikis/home/
 [USB stick]: https://github.com/home-assistant/hassos/blob/rel-1/Documentation/configuration.md#automatic
 [HassOS stable]: https://www.home-assistant.io/hassio/installation/
 [migration steps]: #migration
