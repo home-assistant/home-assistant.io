@@ -1,22 +1,23 @@
 ; This file is for unifying the coding style for different editors and IDEs.
 ; More information at http://EditorConfig.org
-
 root = true
 
-; Use 2 spaces for indentation in all Ruby files
-
-[*.rb]
+[*]
+charset = utf-8
 indent_style = space
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{md,markdown}]
+trim_trailing_whitespace = false
 indent_size = 2
 
-[Rakefile]
-indent_style = space
+[*.sh]
 indent_size = 2
 
-[Gemfile*]
-indent_style = space
+[*.{yaml,yml,json,toml}]
 indent_size = 2
 
-[config.ru]
-indent_style = space
+[*.{html,css,js}]
 indent_size = 2
