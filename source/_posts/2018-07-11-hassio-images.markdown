@@ -27,6 +27,7 @@ Key features:
 - Latest LT linux Kernel
 - Latest Docker-CE version
 - Full supported NetworkManager and Bluez
+- Support a lot of diferent Hardware
 
 ## {% linkable_title Migration %}
 
