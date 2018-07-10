@@ -20,7 +20,7 @@ The `tuya` component is the main component to integrate all [Tuya Smart](https:/
 To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-wink:
+tuya:
   username: YOUR_TUYA_USERNAME
   password: YOUR_TUYA_PASSWORD
   country_code: YOUR_ACCOUNT_COUNTRYCODE
@@ -36,12 +36,10 @@ password:
   required: true
   type: string
 country_code:
-  description: Your account country code (i.e.,"1" for USA and "86" for China).
+  description: Your account country code (i.e.,1 for USA and 86 for China).
   required: true
   type: string
 {% endconfiguration %}
-
-Configuration variables:
 
 ## {% linkable_title Service %}
 
