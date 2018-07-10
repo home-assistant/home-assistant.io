@@ -9,17 +9,16 @@ sharing: true
 footer: true
 ---
 
-Hass.io images are available for all available Raspberry Pi and Intel NUC platforms.
+Hass.io images are available for:
 
-<p class='note warning'>
-  The recently released Raspberry Pi 3 model B+ is not yet supported.
-</p>
-
-- Download the appropriate image for your Raspberry Pi / Intel NUC:
+- Download the appropriate image for your IoT:
   - [Raspberry Pi / Zero][pi1]
+  - [Raspberry Pi / Zero][pi0-w]
   - [Raspberry Pi 2][pi2]
-  - [Raspberry Pi 3][pi3]
-  - [Intel NUC][nuc]
+  - [Raspberry Pi 3 32bit][pi3-32]
+  - [Raspberry Pi 3 63bit][pi3-64]
+- As [Virtual Appliance]:
+  - [VMDK][vmdk]
 
 <p class='note'>
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
@@ -27,16 +26,7 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 - Flash the downloaded image to an SD card using [Etcher].
 
-<p class='note warning'>
-  There is an [issue in the Etcher flashing process on Mac OS High Sierra](https://github.com/resin-io/etcher/issues/1908).
-  There is an easy workaround, just uncompress the image first.
-  
-  ```bash
-  $ bunzip2 -c resinos-hassio-1.3-raspberrypi3.img.bz2 > image.img
-  ``` 
-</p>
-
-- Optional - Setup the WiFi or static IP: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
+- Optional - Setup the WiFi or static IP: On the SD-card, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 - Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
 <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
@@ -82,11 +72,14 @@ When you use this installation method, the core SSH add-on may not function corr
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
 
 [Etcher]: https://etcher.io/
-[resinos-network]: https://docs.resin.io/deployment/network/2.0.0/
-[pi1]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi.img.bz2
-[pi2]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi2.img.bz2
-[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi3.img.bz2
-[nuc]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-intel-nuc.img.bz2
+[Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
+[hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi0-w-1.5.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi-1.5.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi2-1.5.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-1.5.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-1.5.img.gz
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_ova-1.5.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
