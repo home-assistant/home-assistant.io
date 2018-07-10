@@ -11,46 +11,52 @@ categories: Announcements
 og_image: /images/blog/2018-07-hassio-images/blogpost.png
 ---
 
-After 4 month we are happy to announce our new images for Hass.io, based on HassOS.
+After 4 months we are happy to announce our new images for Hass.io, based on HassOS.
 
-Note that the descriptions of new System can be get quite technical. Feel free to jump to the [migration steps].
+Note that the descriptions of the new system can get quite technical. Feel free to jump to the [migration steps].
 
 ## {% linkable_title What is new %}
 
-We build HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and high efficent operating system to run Docker like a hypervisor. It have exactly that software installed is need to run a supervisor. We have the focus also on security, there are no default passwords and we use [AppArmor] to protect application and containers on HassOS.
+We have build HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and high efficient operating system to run Docker like a hypervisor. It has installed just enough software to run a supervisor. We have also focussed on security, there are, for example, no default passwords and we use [AppArmor] to protect the applications and containers on HassOS.
 
 Key features:
-- Safe and Secure updating with [Rauc] over USB or internet (OTA)
-- Use LZ4 compressed root files and parts of Memory
-- Read-Only root file system, designed to run on embedded systems
+
+- Safe and secure updating with [Rauc] over USB or internet (OTA)
+- Uses an LZ4 compressed root filesystem and parts of the memory
+- Read-only root filesystem, designed to run on embedded systems
 - Dbus connected hosts services
-- Latest LT linux Kernel
-- Latest Docker-CE version
-- Full supported NetworkManager and Bluez
-- Support a lot of diferent Hardware
+- Latest LT Linux kernel
+- Latest Docker-ce version
+- Fully supported NetworkManager
+- Bluetooth support using Bluez
+- Supports lots different Hardware
 
 ## {% linkable_title Migration %}
 
-The design of HassOS is diferent to ResinOS. That is the reason why we can't provide a OTA update from old too new System.
+The design of HassOS is different from ResinOS. Because of this, we can't provide an OTA update from the old (ResinOS) too new system (HassOS).
 
-1. Make a snapshot of current system. You should remove the bluetooth add-on before, that is not need anymore.
-2. Download the latest [HassOS stable] version.
-3. Flash the images with [Etcher] to SD card.
-5. On Raspberry: if you modify the `config.txt`, you need apply this also on boot partition of HassOS, but __don't__ copy this file!
-4. If you used custom network configuration or ssh development access, we can use a [USB stick]. You can simple copy the resin-sample into `network` folder on USB stick.
-5. Take SD card into device slot and boot your system like before.
-6. Copy the snapshot into host with SSH or samba add-on.
-7. Restore it over the Hass.io panel
+You need to perform the following steps to upgrade:
+
+1. If you have installed the Bluetooth add-on, please remove it, since it is not required anymore.
+2. Make a Hass.io snapshot of your current system and download it to your computer.
+3. Download the latest [HassOS stable] version.
+4. Flash the downloaded HassOS image with [Etcher] to your SD card.
+5. Raspberry Pi: In case you have modified the `config.txt` (in the boot partition), you will also need to apply these changes to HassOS. Do **NOT** simply copy from the file from your old setup into HassOS! Apply those changes manually!
+6. If you used custom network configuration or had configured SSH development access, you need to use a [USB stick]. Copy the resin-sample into `network` folder on a USB stick and insert it into your device.
+7. Take the freshly flashed SD card with HassOS and place it into your device, and boot it by turning it on.
+8. Copy the snapshot into host with the SSH or Samba add-on.
+9. Restore your snapshot via the Hass.io panel.
+10. Done!
 
 ## {% linkable_title Future %}
 
-We have now a wounderful base system and can now work to integrate all this features into Hass.io and to UI. So we plan to integrate the Network configuration and bluetooth into UI. The goal is a full featured hub system they allow anybody to use Home Assistant.
+We now have a wonderful base system and can start working on integrating all kinds of amazing features into Hass.io (and bring them to the UI as well). For example, we are planning on bringing network and Bluetooth configuration possibilities into UI. The goal is a full featured hub system that allows anybody to use Home Assistant.
 
-We would also adapt more Hass.io API function into Home Assistant i.e. to monitor the system usage of a Add-on or Home Assistant container.
+The Hass.io API is extensive, and we are going to adopt more of its features into Home Assistant as well. For example, sensors that allows you to monitor the system usage of an add-on or even Home Assistant itself.
 
-Thanks a lot for all the hardware donations. We start now to porting HassOS to all this hardware and try to support an new device ever 7-14 days until we support all IoT devices they we reached.
+A big shout out to all people who donated money for us to buy hardware! Thank you! We already started on making HassOS compatible with all kinds of hardware and are currently aiming to release support for new devices every 7-14 days and keeping this up until we support all major IoT boards.
 
-Feel free to jump into project and help us to improve the documentation or other task around that all.
+Feel free to jump into the project and help us to improve the documentation or other tasks that is going to help us moving forward.
 
 [Rauc]: Safe and Secure Updating
 [Buildroot]: https://buildroot.org/
