@@ -38,8 +38,8 @@ sensor:
     letter: true
 ```
 <p class='note'>
-  If you want to receve data from the letter sensor you first need to enable it in the PostNL Android ore IOS APP.
-  see [this](https://www.postnl.nl/campagnes/mijn-post-in-de-app/) for more detaild instructions.
+  If you want to receve data from the letter sensor you need to enable it in the PostNL-app for Android ore IOS.
+  See [this](https://www.postnl.nl/campagnes/mijn-post-in-de-app/) for more detaild instructions.
 </p>
 
 {% configuration %}
@@ -59,6 +59,7 @@ password:
 letter:
   description: Enable ore disable letters
   required: false
+  default: "false"
   type: boolean
 {% endconfiguration %}
 
