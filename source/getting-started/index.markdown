@@ -52,7 +52,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 
 <p class='note'>
-When you're done, remember to set up regular backups of your configuration. These backups will protect you from hardware failure and mistakes. On Hass.io you have snapshots, but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_usb/) and many other ways. All that matters is that you set them up and test them regularly.
+When you're done, remember to set up regular backups of your configuration. These backups will protect you from hardware failure and mistakes. On Hass.io you have snapshots, but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_dropbox/) and many other ways. All that matters is that you set them up and test them regularly.
 </p>
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
