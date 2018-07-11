@@ -11,13 +11,11 @@ categories: Announcements
 og_image: /images/blog/2018-07-hassio-images/blogpost.png
 ---
 
-After 4 months of hard work, we are happy to announce our new images for Hass.io, based on HassOS.
-
-Note that following part of this article of the new system can get quite technical. Feel free to jump to the [migration steps].
+After 4 months of hard work, we are happy to announce our new images for Hass.io, based on HassOS. HassOS is a brand new operating system that we have created specifically for the purpose of running Hass.io.
 
 ## {% linkable_title What is new %}
 
-We have built HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and highly efficient operating system to run Docker like a hypervisor. It has installed just enough software to run a supervisor. We have also focussed on security, there are, for example, no default passwords and we use [AppArmor] to protect the applications and containers on HassOS.
+We have built HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and highly efficient operating system to run Docker like a hypervisor. It has just enough software installed, to run a supervisor. We have also focused on security, there are, for example, no default passwords and we use [AppArmor] to protect the applications and containers on HassOS.
 
 Key features:
 
@@ -33,7 +31,7 @@ Key features:
 
 ## {% linkable_title Migration %}
 
-The design of HassOS is different from ResinOS. Because of this, we can't provide an OTA update from the old (ResinOS) to the new HassOS system.
+The design of HassOS is different from ResinOS. Because of this, we can't provide an OTA update from the old ResinOS system to the new HassOS based system.
 
 You need to perform the following steps to upgrade:
 
@@ -63,5 +61,4 @@ Feel free to jump into the project and help us to improve the documentation or o
 [AppArmor]: https://gitlab.com/apparmor/apparmor/wikis/home/
 [USB stick]: https://github.com/home-assistant/hassos/blob/rel-1/Documentation/configuration.md#automatic
 [HassOS stable]: https://www.home-assistant.io/hassio/installation/
-[migration steps]: #migration
 [Etcher]: https://etcher.io/
