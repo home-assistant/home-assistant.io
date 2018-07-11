@@ -33,7 +33,9 @@ title:
   default: none
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## {% linkable_title Examples %}
+
+### {% linkable_title Text with formating %}
 
 ```yaml
 - type: markdown
@@ -42,3 +44,15 @@ title:
 
     Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the **Lovelace UI**.
 ```
+
+### {% linkable_title Links %}
+
+```yaml
+- type: markdown
+  content: >
+    - [Home-Assistant website](https://www.home-assistant.io/)
+    
+    - [Home-Assistant GitHbub](https://github.com/home-assistant/home-assistant/)
+```
+
+_For multiple links in a list, add a blank line between them_
