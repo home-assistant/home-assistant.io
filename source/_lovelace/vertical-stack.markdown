@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Vertical stack allows you to group multiple cards to use the same column.
+Vertical stack allows you to group multiple cards so they always sit in the same column.
 
 {% configuration %}
 type:
