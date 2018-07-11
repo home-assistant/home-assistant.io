@@ -3,7 +3,7 @@ layout: post
 title: "New Hass.io images, based on HassOS"
 description: "We have released HassOS, a brand new operating system for the purpose of running Hass.io"
 date: 2018-07-11 00:00:00
-date_formatted: "April 22, 2018"
+date_formatted: "July 11, 2018"
 author: Pascal Vizeli
 author_twitter: pvizeli
 comments: true
