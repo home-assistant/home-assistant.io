@@ -13,7 +13,6 @@ ha_release: 0.27
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information. 
 
 <p class='note warning'>
@@ -119,8 +118,7 @@ in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will
 
 ### {% linkable_title Additional examples %}
 
-#### Daily forecast
-
+#### {% linkable_title Daily forecast %}
 
 ```yaml
 sensor:
@@ -152,8 +150,7 @@ group:
 
 ![Daily Forecast](/images/screenshots/wunderground_daily_forecast.png)
 
-#### Weather overview
-
+#### {% linkable_title Weather overview %}
 
 ```yaml
 sensor:
@@ -190,13 +187,12 @@ group:
 
 ![Weather overview](/images/screenshots/wunderground_weather_overview.png)
 
-
 <p class='note warning'>
 Note: While the platform is called “wunderground” the sensors will show up in Home Assistant as “PWS” (eg: sensor.pws_weather).
 </p>
 
 Note that the Weather Underground sensor is added to the entity_registry, so second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number e.g.
 
-      - sensor.pws_weather_1d_metric_2
+- sensor.pws_weather_1d_metric_2
 
 Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
