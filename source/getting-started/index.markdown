@@ -27,10 +27,6 @@ We will need a few things to get started with installing Home Assistant. Links b
 - Ethernet cable (optional, Hass.io can work with WiFi as well)
 - A USB-Stick (optional, allows for unattended configuration)
 
-<p class='note'>
-  Support for alternative installation method [Hassbian](/docs/hassbian/installation/).
-</p>
-
 ### {% linkable_title Software requirements %}
 
 - Download Hass.io image for Raspberry Pi 3 as [32bit][pi3-32] or [64bit][pi3-64] variant
