@@ -11,7 +11,7 @@ categories: Announcements
 og_image: /images/blog/2018-07-hassio-images/blogpost.png
 ---
 
-After 4 months of hard work, we are happy to announce our new images for Hass.io, based on HassOS. HassOS is a brand new operating system that we have created specifically for the purpose of running Hass.io.
+After 4 months of hard work, we are happy to announce our new images for Hass.io, based on HassOS. HassOS is a brand new operating system that we have created specifically for the purpose of running Hass.io. And yes, this supports the Raspberry Pi 3 B+!
 
 ## {% linkable_title What is new %}
 
@@ -27,7 +27,7 @@ Key features:
 - Latest Docker-ce version
 - Fully supported NetworkManager
 - Bluetooth support using Bluez
-- Supports lots different hardware
+- Supports lot different hardware
 
 ## {% linkable_title Migration %}
 
