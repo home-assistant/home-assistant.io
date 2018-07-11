@@ -96,11 +96,11 @@ This renders the first card on full width, other cards in this view will not be 
 ```yaml
 - title: Map
   panel: true
-    cards:
-      - type: map
-        entities:
-          - device_tracker.demo_paulus
-          - zone.home
+  cards:
+    - type: map
+      entities:
+        - device_tracker.demo_paulus
+        - zone.home
 ```
 
 ## {% linkable_title Backround %}
