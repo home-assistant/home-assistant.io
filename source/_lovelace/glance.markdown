@@ -24,22 +24,12 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or an `entity` object."
+  description: "A list of entity IDs or a `entity` objects."
   type: list
-  keys:
-    entity:
-      required: true
-      description: "The `entity_id` to show."
-      type: string
-    name:
-      required: true
-      description: "A name for `the entity_id`."
-      type: string
 title:
   required: false
   description: Card title
   type: string
-  default: none
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
