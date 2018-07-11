@@ -1,0 +1,44 @@
+{{ if gt (len .Site.Data.awards) 0 }}
+<section class="bar background-pentagon no-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading text-center">
+                    <h2>{{ .Site.Params.awards.title }}</h2>
+                </div>
+
+                <p class="lead">
+                  {{ .Site.Params.awards.subtitle | markdownify }}
+                </p>
+
+                <!-- *** AWARDS CAROUSEL *** -->
+
+                <ul class="owl-carousel awards same-height-row">
+                    {{ range sort .Site.Data.awards "date" "desc" }}
+                    <li class="item">
+                        <div class="award same-height-always">
+                            <div class="text">
+                              <h5>{{ .title }}</h5>
+                              <h6>{{ .venue }}</h6>
+                              {{ with .text }}<p>{{ . | markdownify }}</p>{{ end }}
+                            </div>
+                            <div class="bottom">
+                                <div class="icon"><i class="fa fa-trophy"></i></div>
+                                <div class="venue">
+                                  <img class="" alt="" src="{{ .logo | absURL }}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{ end }}
+                </ul>
+                <!-- /.owl-carousel -->
+
+                <!-- *** AWARDS CAROUSEL END *** -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- /.bar -->
+{{ end }}

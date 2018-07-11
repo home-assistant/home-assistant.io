@@ -1,0 +1,20 @@
+{{ $idbase := (.Get "key") }}
+{{ $config := (index $.Page.Params (default "carousel" (.Get "key"))) }}
+<div id="{{ $idbase }}-carousel" class="carousel slide" data-ride="carousel" data-interval="{{ $config.interval | default "5000" }}">
+  <!-- Indicators -->
+  <ol class="carousel-indicators{{ with $config.indicator_cssclass }} {{ . }}{{ end }}">
+{{   range $index, $item := $config.items }}
+    <li data-target="#{{ $idbase }}-carousel" data-slide-to="{{ $index }}" {{ if eq $index 0 }} class="active"{{ end}}></li>
+{{   end }}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+{{   range $index, $item := $config.items }}
+    <div class="item{{ if eq $index 0 }} active{{ end }}">
+      <img src="{{ "/img/" | relURL }}{{ $item.image }}" alt="{{ with $item.caption }}{{ . | markdownify | emojify }}{{ end }}">
+      {{ with  $item.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+    </div>
+{{   end }}
+  </div>
+</div>

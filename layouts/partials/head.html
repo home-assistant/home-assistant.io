@@ -1,0 +1,67 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <meta name="author" content="{{ .Site.Author.name }}" />
+
+  {{ if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords ", " }}">
+  {{ else if .Site.Params.DefaultKeywords }}
+  <meta name="keywords" content="{{ delimit .Site.Params.DefaultKeywords ", " }}">	
+  {{ end }}
+
+  {{ if .Description }}
+  <meta name="description" content="{{ .Description }}">
+  {{ else if .Site.Params.DefaultDescription }}
+  <meta name="description" content="{{ .Site.Params.DefaultDescription }}">	
+  {{ end }}
+
+  {{ .Hugo.Generator }}
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap and Font Awesome css -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Css animations  -->
+  <link href="{{ .Site.BaseURL }}css/animate.css" rel="stylesheet">
+
+  <!-- Theme stylesheet, if possible do not edit this stylesheet -->
+  {{ if and (isset .Site.Params "style") .Site.Params.style }}
+    <link href="{{ .Site.BaseURL }}css/style.{{ .Site.Params.style }}.css" rel="stylesheet" id="theme-stylesheet">
+  {{ else }}
+    <link href="{{ .Site.BaseURL }}css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+  {{ end }}
+
+
+  <!-- Custom stylesheet - for your changes -->
+  <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet">
+
+  <!-- Responsivity for older IE -->
+  {{ `
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  ` | safeHTML }}
+
+  <!-- Favicon and apple touch icons-->
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}img/apple-touch-icon.png" />
+  <!-- owl carousel css -->
+
+  <link href="{{ .Site.BaseURL }}css/owl.carousel.css" rel="stylesheet">
+  <link href="{{ .Site.BaseURL }}css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ .URL }}/" />
+  <meta property="og:image" content="{{ .Site.Params.logo }}" />
+
+</head>

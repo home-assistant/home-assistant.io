@@ -1,0 +1,92 @@
+<footer id="footer">
+    <div class="container">
+
+        {{ if isset .Site.Params "about_us" }}
+        <div class="col-md-4 col-sm-6">
+            <h4>{{ i18n "aboutUs" }}</h4>
+
+            {{ .Site.Params.about_us | markdownify }}
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        <!-- /.col-md-4 -->
+        {{ end }}
+
+        <div class="col-md-4 col-sm-6">
+
+            {{ if isset .Site.Params "recent_posts" }} {{ if .Site.Params.recent_posts.enable }}
+            <h4>{{ i18n "recentPosts" }}</h4>
+
+            <div class="blog-entries">
+                {{ range first 3 (where .Site.Pages "Type" "blog") }}
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="{{ .Permalink }}">
+                          {{ if isset .Params "banner" }}
+                            <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-responsive" alt="{{ .Title }}">
+                          {{ else }}
+                            <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-responsive" alt="{{ .Title }}">
+                          {{ end }}
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+            {{ end }} {{ end }}
+
+        </div>
+        <!-- /.col-md-4 -->
+
+        {{ if isset .Site.Params "address" }}
+        <div class="col-md-4 col-sm-6 address">
+
+          <h4>{{ i18n "contactTitle" }}</h4>
+
+          {{ .Site.Params.address | markdownify }}
+
+					{{ if not .Site.Params.address_disable_contact_button -}}
+          <a href="/contact" class="btn btn-small btn-template-main">{{ i18n "contactGoTo" }}</a>
+					{{ end -}}
+
+          <hr class="hidden-md hidden-lg hidden-sm">
+        </div>
+        <!-- /.col-md-4 -->
+        {{ end }}
+
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+<!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            {{ if isset .Site.Params "copyright" }}
+            <p class="pull-left">{{ .Site.Params.copyright | safeHTML }}</p>
+            {{ end }}
+            <p class="pull-right">
+							{{ if not .Site.Params.disable_theme_advertisement }}
+              {{ i18n "templateBy" }} <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              <!-- Not removing this link is part of the licence conditions of the template. Thanks for understanding :) -->
+
+              {{ i18n "portedBy" }} <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+							{{ end }}
+            </p>
+        </div>
+    </div>
+</div>
+<!-- /#copyright -->
+
+<!-- *** COPYRIGHT END *** -->

@@ -1,0 +1,73 @@
+{{ if isset .Site.Params "recent_posts" }}
+{{ if .Site.Params.recent_posts.enable }}
+<section class="bar background-white no-mb">
+    <div class="container">
+
+        <div class="col-md-12">
+            <div class="heading text-center">
+                <h2>{{ T "recentPostsTitle" }}</h2>
+            </div>
+
+            <p class="lead">
+              {{ T "recentPostsSubTitle" | markdownify }}
+            </p>
+
+            <!-- *** BLOG HOMEPAGE *** -->
+
+            <div class="row">
+
+                {{ $posts := .Paginate (where .Data.Pages "Type" "blog") }}
+                {{ range first 4 $posts.Pages }}
+                <div class="col-md-3 col-sm-6">
+                    <div class="box-image-text blog">
+                        <div class="top">
+                            <div class="image" style="overflow:hidden">
+                                {{ if isset .Params "banner" }}
+                                <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-responsive" alt="" >
+                                {{ else }}
+                                <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-responsive" alt="">
+                                {{ end }}
+                            </div>
+                            <div class="bg"></div>
+                            <div class="text">
+                                <p class="buttons">
+                                    <a href="{{ .Permalink }}" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> {{ i18n "readMore" }}</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                            <p class="author-category">
+                            {{ with .Params.author }}
+                            {{ i18n "authorBy" }} <a href="#">{{ . }}</a>
+                            {{ end }}
+                            {{ i18n "publishedOn" }} {{ .Date.Format (.Site.Params.date_format | default "January 2, 2006") }}
+                            </p>
+                            <p class="intro">{{ .Summary }}</p>
+                            <p class="read-more">
+                              <a href="{{ .Permalink }}" class="btn btn-template-main">{{ i18n "continueReading" }}</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /.box-image-text -->
+
+                </div>
+                {{ end }}
+
+            </div>
+            <!-- /.row -->
+
+            {{ if gt (len $posts.Pages) 4 }}
+            <a href="/blog" class="btn btn-small btn-template-main pull-right">{{ i18n "readMore" }}</a>
+            {{ end }}
+
+            <!-- *** BLOG HOMEPAGE END *** -->
+
+        </div>
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.bar -->
+{{ end }}
+{{ end }}

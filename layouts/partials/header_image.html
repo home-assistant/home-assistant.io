@@ -1,0 +1,25 @@
+{{ if .Params.header.image }}
+<div class="article-header">
+  <img src="{{ "/img/" | relURL }}{{ .Params.header.image }}" class="article-banner" itemprop="image">
+  {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+</div>
+{{ else if .Params.header.carousel }}
+<div id="article-header-carousel" class="carousel slide" data-ride="carousel" data-interval="{{ index .Params.header.carousel "interval" | default "5000" }}">
+  <!-- Indicators -->
+  <ol class="carousel-indicators carousel-indicators-botleft">
+{{   range $index, $item := .Params.header.carousel.items }}
+    <li data-target="#article-header-carousel" data-slide-to="{{ $index }}" {{ if eq $index 0 }} class="active"{{ end}}></li>
+{{   end }}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+{{   range $index, $item := .Params.header.carousel.items }}
+    <div class="item{{ if eq $index 0 }} active{{ end }}">
+      <img src="{{ "/img/" | relURL }}{{ $item.image }}" alt="{{ with $item.caption }}{{ . | markdownify | emojify }}{{ end }}">
+      {{ with  $item.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+    </div>
+{{   end }}
+  </div>
+</div>
+{{ end }}

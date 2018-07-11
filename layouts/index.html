@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          {{ partial "top.html" . }}
+
+          {{ partial "nav.html" . }}
+
+        </header>
+
+        {{ partial "carousel.html" . }}
+
+        {{ partial "features.html" . }}
+
+				{{ if and (isset .Site.Params "testimonials") .Site.Params.testimonials.enable }}
+        {{ partial "testimonials.html" . }}
+				{{ else if and (isset .Site.Params "awards") .Site.Params.awards.enable }}
+        {{ partial "awards.html" . }}
+				{{ end }}
+
+        {{ partial "see_more.html" . }}
+
+        {{ partial "recent_posts.html" . }}
+
+        {{ partial "clients.html" . }}
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

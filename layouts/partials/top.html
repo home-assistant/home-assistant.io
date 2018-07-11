@@ -1,0 +1,22 @@
+{{ if .Site.Params.topbar.enable }}
+<div id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-5">
+        <p class="hidden-sm hidden-xs">
+          {{ T "contactUsOn" }} {{ .Site.Params.email }} {{ T "or" }} {{ .Site.Params.phone }}</p>
+        <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone">{{ .Site.Params.phone }}</i></a>
+          <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope">{{ .Site.Params.email }}</i></a>
+        </p>
+      </div>
+      <div class="col-xs-7">
+        <div class="social">
+          {{ range .Site.Menus.topbar.ByWeight }}
+          <a href="{{ .URL }}" target="_blank" style="opacity: 1;">{{ .Pre }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

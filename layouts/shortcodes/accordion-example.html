@@ -1,0 +1,3 @@
+{{ $contentIndex := .Get "data" }}
+{{ $content := index .Site.Data $contentIndex }}
+{{ partial "accordion.html" (dict "context" . "accordionid" (.Get "id") "content" $content) }}

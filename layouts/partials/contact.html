@@ -1,0 +1,74 @@
+<div class="container" id="contact">
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <section>
+
+                {{ .Content }}
+
+                {{ if isset .Site.Params "email" }}
+
+                <div class="heading">
+                  <h3>{{ i18n "contactForm" }}</h3>
+                </div>
+
+                <div id="contact-message" style="display: none;">
+                    <div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">{{ T "close" }}</span></button>{{ T "contactThankYou" }}</div>
+                </div>
+
+                <form class="contact-form" method="post" action="https://formspree.io/{{ .Site.Params.email }}">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="name">{{ i18n "contactName" }}</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">{{ i18n "contactMail" }}</label>
+                                <input type="text" class="form-control" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              <label for="message">{{ i18n "contactMessage" }}</label>
+                                <textarea id="message" class="form-control" name="message" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 text-center">
+                          <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i>{{ i18n "contactSend" }}</button>
+
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </form>
+
+                {{ end }}
+
+            </section>
+
+        </div>
+
+        <div class="col-md-4">
+
+            {{ if isset .Site.Params "address" }}
+            <section>
+
+              <h3 class="text-uppercase"> {{ i18n "contactAddrTitle" }}</h3>
+
+                {{ .Site.Params.address | safeHTML }}
+
+            </section>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+</div>
+
+{{ partial "map.html" . }}

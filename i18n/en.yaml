@@ -1,0 +1,71 @@
+- id: home
+  translation: "Home"
+
+- id: templateBy
+  translation: "Template by"
+
+- id: portedBy
+  translation: "Ported to Hugo by"
+
+- id: contactGoTo
+  translation: "Go to contact page"
+
+- id: contactAddrTitle
+  translation: "Address"
+
+- id: contactTitle
+  translation: "Contact"
+
+- id: contactForm
+  translation: "Contact form"
+
+- id: contactName
+  translation: "Your Name"
+
+- id: contactMail
+  translation: "Your Email"
+
+- id: contactMessage
+  translation: "Your Message"
+
+- id: contactSend
+  translation: "Send Message"
+
+- id: navHome
+  translation: "go to homepage"
+
+- id: navToggle
+  translation: "Toggle Navigation"
+
+- id: categoriesTitle
+  translation: "Categories"
+
+- id: searchTitle
+  translation: "Search"
+
+- id: tagsTitle
+  translation: "Tags"
+
+- id: continueReading
+  translation: "Continue reading"
+
+- id: readMore
+  translation: "Read more"
+
+- id: authorBy
+  translation: "By"
+
+- id: recentPosts
+  translation: "Recent posts"
+
+- id: aboutUs
+  translation: "About us"
+
+- id: newer
+  translation: "Newer"
+
+- id: older
+  translation: "Older"
+
+- id: publishedOn
+  translation: "on"

@@ -1,0 +1,15 @@
+                    <li class="item">
+                        <div class="award same-height-always">
+                          <div class="text">
+                              <h5>{{ .title }}</h5>
+                              <h6>{{ .venue }}</h6>
+                              {{ with .text }}<p>{{ . | markdownify }}</p>{{ end }}
+                            </div>
+                            <div class="bottom">
+                                <div class="icon"><i class="fa fa-trophy"></i></div>
+                                <div class="venue">
+                                  <img class="" alt="" src="{{ .logo | absURL }}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
