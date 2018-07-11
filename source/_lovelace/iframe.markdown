@@ -44,7 +44,7 @@ title:
   default: none
 {% endconfiguration %}
 
-**Reminder**: you can't mix https and http content. So if your Home Assistant instance is accessed thru https, you won't be able to display http content in the iframe card.
+**Reminder**: You can't mix HTTPS and HTTP content. So if your Home Assistant instance is accessed through HTTPS, you won't be able to display HTTP content in the iframe card.
 
 ## {% linkable_title Examples %}
 
