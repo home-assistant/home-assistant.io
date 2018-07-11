@@ -1,0 +1,28 @@
+
+<div class="panel panel-default">
+    
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#{{ .accordionid }}" href="#{{.element.id}}">
+                {{ .element.title }}
+            </a>
+        </h4>
+    </div>
+    
+    <div id="{{ .element.id }}" class="panel-collapse collapse {{ if eq .index "1" }}in{{ end }}">
+        <div class="panel-body">
+            {{ with .element.img }}
+            <div class="row">
+                <div class="col-md-4">
+                <img src="{{.}}" alt="" class="img.responsive">
+                </div>
+                <div class="col-md-8">
+            {{end}}
+            {{- .element.content -}}
+            {{ with .element.img }}
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>

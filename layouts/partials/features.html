@@ -1,0 +1,42 @@
+{{ if isset .Site.Params "features" }}
+{{ if .Site.Params.features.enable }}
+{{ $myData := (index .Site.Data .Lang) }}
+{{ if $myData }}
+{{ if (isset $myData "features" ) }}
+{{ if gt (len $myData.features) 0 }}
+{{ $features_per_row := (default 3 .Site.Params.features.per_row) }}
+<section class="bar background-white">
+    <div class="container">
+        {{ range $index, $element := sort $myData.features "weight" }}
+		{{ if eq (mod $index $features_per_row) 0 }}
+		<div class="col-md-12">
+            <div class="row">
+		{{ end }}
+				<div class="col-md-{{ div 12 $features_per_row }}">
+						<div class="box-simple">
+							{{ if .icon -}}
+              <div class="icon">
+                {{ with .link }}<a href="{{ . }}">{{ end }}<i class="{{ .icon }}"></i>{{ if .link }}</a>{{ end }}
+              </div>
+							{{ end -}}
+              {{ if .img -}}
+              <div class="icon icon-img">
+								{{ with .link }}<a href="{{ . }}">{{ end }}<img src="{{ .img }}"{{ with .css_class }} class="{{ . }}"{{ end }}>{{ if .link }}</a>{{ end }}
+              </div>
+							{{ end -}}
+              <h3>{{ with .link }}<a href="{{ . }}">{{ end }}{{ $element.name }}{{ if .link }}</a>{{ end }}</h3>
+              <p>{{ $element.description | markdownify }}</p>
+            </div>
+        </div>
+		{{ if or (eq (mod $index $features_per_row) (sub $features_per_row 1)) (eq $index (sub (len $myData.features) 1 )) }}
+			</div>
+		</div>
+		{{ end }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

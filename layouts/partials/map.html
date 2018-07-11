@@ -1,0 +1,27 @@
+{{ if and (isset .Page.Params "latitude") (isset .Page.Params "longitude") }}
+      <div class="hidden">
+        <input id="gmap-lat" value="{{ .Page.Params.latitude }}" />
+        <input id="gmap-lng" value="{{ .Page.Params.longitude }}" />
+        <input id="gmap-zoom" value="{{ .Page.Params.map_zoom | default 16 }}" />
+        <input id="gmap-marker" value="{{ .Site.BaseURL }}img/marker.png" />
+        {{ if isset .Page.Params "direction" -}}
+          <input id="gmap-dir" value="{{ .Page.Params.direction }}" />
+        {{ else -}}
+          <input id="gmap-dir" value="{{ .Page.Params.latitude }},{{ .Page.Params.longitude }}" />
+        {{ end -}}
+      </div>
+      <div id="map" />
+{{ else if (and (isset .Site.Params "latitude") (isset .Site.Params "longitude")) }}
+      <div class="hidden">
+        <input id="gmap-lat" value="{{ .Site.Params.latitude }}" />
+        <input id="gmap-lng" value="{{ .Site.Params.longitude }}" />
+        <input id="gmap-zoom" value="{{ .Site.Params.map_zoom | default 16 }}" />
+        <input id="gmap-marker" value="{{ .Site.BaseURL }}img/marker.png" />
+        {{ if isset .Site.Params "direction" -}}
+        <input id="gmap-dir" value="{{ .Site.Params.direction }}" />
+        {{ else -}}
+        <input id="gmap-dir" value="{{ .Site.Params.latitude }},{{ .Site.Params.longitude }}" />
+        {{ end -}}
+      </div>
+      <div id="map" />
+{{ end }}

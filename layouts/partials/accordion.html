@@ -1,0 +1,6 @@
+<div class="panel-group accordion" id="{{ .accordionid }}">
+    {{ $accordionid := .accordionid }}
+    {{ range $index, $element := .content }}
+    {{ partial "accordion-item.html" (dict "context" . "element" $element "index" $index "accordionid" $accordionid ) }}
+    {{ end }}
+</div>

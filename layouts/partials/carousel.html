@@ -1,0 +1,34 @@
+{{ if isset .Site.Params "carousel" }}
+{{ if .Site.Params.carousel.enable }}
+{{ $myData := (index .Site.Data .Lang) }}
+{{ if $myData }}
+{{ if (isset $myData "carousel" ) }}
+{{ if gt (len $myData.carousel) 0 }}
+<section>
+    <div class="home-carousel">
+        <div class="dark-mask"></div>
+        <div class="container">
+            <div class="homepage owl-carousel">
+                {{ range sort $myData.carousel "weight" }}
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-5 right">
+                            <h1>{{ .title }}</h1>
+                            {{ .description | safeHTML }}
+                        </div>
+                        <div class="col-sm-7">
+                            <img class="img-responsive" src="{{ .image }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            <!-- /.project owl-slider -->
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

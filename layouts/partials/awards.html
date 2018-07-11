@@ -1,0 +1,47 @@
+{{ if isset .Site.Params "awards" }}
+{{ if .Site.Params.awards.enable }}
+{{ if gt (len .Site.Data.awards) 0 }}
+{{ $page := .Page }}
+<section class="bar background-pentagon no-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading text-center">
+                    <h2>{{ if $page.Params.awards.title }}{{ $page.Params.awards.title}}{{ else }}{{ .Site.Params.awards.title }}{{ end }}</h2>
+                </div>
+
+                <p class="lead">
+									{{ if $page.Params.awards.subtitle -}}
+                  {{ $page.Params.awards.subtitle | markdownify }}
+									{{ else -}}
+                  {{ .Site.Params.awards.subtitle | markdownify }}
+									{{ end -}}
+                </p>
+
+                <!-- *** AWARDS CAROUSEL *** -->
+
+                <ul class="owl-carousel awards same-height-row">
+                    {{ if $page.Params.awards.category -}}
+                    {{ range sort .Site.Data.awards "date" "desc" }}
+                    {{ if eq .category $page.Params.awards.category }}
+                    {{ partial "awards_item.html" . }}
+										{{ end -}}
+                    {{ end -}}
+                    {{ else -}}
+                    {{ range sort .Site.Data.awards "date" "desc" }}
+                    {{ partial "awards_item.html" . }}
+                    {{ end -}}
+                    {{ end }}
+                </ul>
+                <!-- /.owl-carousel -->
+
+                <!-- *** AWARDS CAROUSEL END *** -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- /.bar -->
+{{ end }}
+{{ end }}
+{{ end }}

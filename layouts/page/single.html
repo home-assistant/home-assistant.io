@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          {{ partial "nav.html" . }}
+
+        </header>
+
+        {{ partial "breadcrumbs.html" . }}
+        {{ if or .Params.header.image .Params.header.carousel }}
+        {{ partial "header_image.html" . }}
+        {{ else }}
+        <div class="article-no-header"></div>
+        {{ end }}
+
+        <div id="content">
+            {{ if isset .Params "id" }}
+
+              {{ partial .Params.id . }}
+
+            {{ else }}
+
+            {{ if .Params.custom_partials.begin }}
+            {{ partial .Params.custom_partials.begin . }}
+            {{ end }}
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div>
+                          {{ .Content }}
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            {{ if .Params.custom_partials.end }}
+            {{ partial .Params.custom_partials.end . }}
+            {{ end }}
+
+            {{ end }}
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>
