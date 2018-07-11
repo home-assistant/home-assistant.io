@@ -9,7 +9,14 @@ sharing: true
 footer: true
 ---
 
-{% configuration %}
+To display cards on the UI you have to define them in views. Views sort cards in columns based on their `card size`. If you want to group some cards you have to use `stack` cards.
+
+<p class="img">
+  <img src="/images/lovelace/lovelace_views.png" alt="Views toolbar">
+  Use titles and icons to describe the content of views.
+</p>
+
+{% configuration views %}
 views:
   required: true
   description: A list of view configurations.
@@ -17,44 +24,39 @@ views:
   keys:
     title:
       required: true
-      description: A title for this view.
+      description: The title or name.
       type: string
     cards:
       required: true
-      description: List of cards to render in this view.
+      description: Cards to display in this view.
       type: list
     id:
       required: false
-      description: The id to use in URL path of this view.
+      description: IDs are used in the URL, more info below.
       type: string
       default: view index
     icon:
       required: false
-      description: The icon for the view.
+      description: Icon-name from Material Design Icons.
       type: string
     panel:
       required: false
-      description: Renders the view in panel mode.
+      description: Renders the view in panel mode, more info below.
       type: boolean
       default: "false"
     background:
       required: false
-      description: Style the background using CSS.
+      description: Style the background using CSS, more info below.
       type: string
     theme:
       required: false
-      description: Define a frontend-theme only for this view.
+      description: Themes view and cards, more info below.
       type: string
 {% endconfiguration %}
 
-<p class='img'>
-  <img src='/images/lovelace/lovelace_views.gif' alt='Screenshot of views'>
-  Use titles or icons for views in the toolbar.
-</p>
-
 ## {% linkable_title IDs %}
 
-The ID is used link to this view from other cards, on a different views, that support navigation (`navigation_path`). Do not use special characters here.
+You can link to one view from another view by its ID. For this use cards that support navigation (`navigation_path`). Do not use special characters in IDs.
 
 ### {% linkable_title Example %}
 
@@ -62,6 +64,7 @@ View config:
 
 ```yaml
 - title: Living room
+  # the final path is /lovelace/living_room
   id: living_room
 ```
 
@@ -75,7 +78,7 @@ Picture card config:
 
 ## {% linkable_title Icons %}
 
-You can use icons instead of text-titels for your view. The title will be used as a tooltip in this case.
+If you define an icon the title will be used as a tooltip.
 
 ### {% linkable_title Example %}
 
@@ -86,7 +89,7 @@ You can use icons instead of text-titels for your view. The title will be used a
 
 ## {% linkable_title Panel mode %}
 
-This renders the first card on full view size, other cards in this view will not be rendered. Good for cards like map, stack or picture-elements.
+This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
 
 ### {% linkable_title Example %}
 
@@ -102,7 +105,7 @@ This renders the first card on full view size, other cards in this view will not
 
 ## {% linkable_title Backround %}
 
-You can style the background of views using CSS. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+Style the background of views using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
 ### {% linkable_title Example %}
 
@@ -113,11 +116,11 @@ You can style the background of views using CSS. For wallpapers you probably wan
 
 ## {% linkable_title Themes %}
 
-You can set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
+Set a separate [theme](/components/frontend/#themes) for the view and its cards.
 
 ### {% linkable_title Example %}
 
 ```yaml
 - title: Home
-  theme: dark-mode
+  theme: happy
 ```
