@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Embed data from other webservices in your dashboard. You can also embed files stored in your `config/www` folder and reference them using `/local/<file>`.
+Embed data from other webservices in your dashboard. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
 
 You can't embedd sites using HTTP you your Home Assistant is using HTTPS
 
