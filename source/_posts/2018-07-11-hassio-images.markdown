@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "New Hass.io images"
-description: "We release our new images."
+title: "New Hass.io images, based on HassOS"
+description: "We have released HassOS, a brand new operating system for the purpose of running Hass.io"
 date: 2018-07-11 00:00:00
 date_formatted: "April 22, 2018"
 author: Pascal Vizeli
