@@ -20,9 +20,9 @@ The advantages of using Hass.io:
 - Optimized for embedded devices like Raspberry Pi
 - 100% local home automation
 - Easy installation and updates (powered by [HassOS] and [Docker])
-- Management user interface integrated into Home Assistant
-- Easily create and restore full backups of your whole configuration.
-- Easily install many popular add-ons including [Google Assistant], encryption via [Let's Encrypt] and dynamic DNS via [Duck DNS].<br><br>[Browse available add-ons &raquo;][all]<br><br>
+- Management web interface integrated into Home Assistant
+- Create and restore full backups of your whole configuration with ease
+- Install many popular add-ons with a single click! For example [Google Assistant], encryption via [Let's Encrypt] and dynamic DNS via [Duck DNS].<br><br>[Browse available add-ons &raquo;][all]<br><br>
 - Active community that is helpful and sharing add-ons including AppDaemon, Homebridge and InfluxDB.<br><br>[Browse the forums &raquo;][forums]<br>[Join the Hass.io chat &raquo;][chat]<br>[Browse community add-on repositories &raquo;][comm-add-ons]<br><br>
 
 <div class='videoWrapper'>
@@ -31,7 +31,7 @@ The advantages of using Hass.io:
 
 ### {% linkable_title Upgrading %}
 
-Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. However please note that Home Assistant updates take time to roll into the Hass.io builds. Therefore there is often a slight delay between the availability of a Home Assistant update and an update being available in Hass.io, be patient. When a Hass.io update is available, it will be shown as available on the ‘Hass.io' page in your UI.
+Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. However, please note that a Home Assistant updates take time to roll into the Hass.io builds. Therefore there is often a slight delay between the availability of a Home Assistant update and the update being available in Hass.io, so be patient. When a Hass.io update is available, it will be shown as a notification in the ‘Hass.io' page in the web interface.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
@@ -57,7 +57,7 @@ Hass.io upgrade process from the SSH command line
 
 ## {% linkable_title hassio command %}
 
-On the SSH command line you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
+On the SSH command line, you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
 
 Home Assistant:
 
@@ -92,7 +92,7 @@ You can get a better description of the CLI capabilities by typing `hassio help`
 
 ```bash
 NAME:
-   hassio - Commandline tool to allow interation with hass.io
+   hassio - Commandline tool to allow interaction with hass.io
 
 USAGE:
    hassio [global options] command [command options] [arguments...]
