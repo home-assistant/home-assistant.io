@@ -103,7 +103,7 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## {% linkable_title Backround %}
+## {% linkable_title Background %}
 
 Style the background of views using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
