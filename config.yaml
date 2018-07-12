@@ -28,6 +28,13 @@ contentDir: content/en
 permalinks:
   blog: /blog/:year/:month/:day/:slug/
 
+# Highlighting config.
+pygmentsCodeFences: true
+pygmentsUseClasses: false
+pygmentsCodefencesGuessSyntax: true
+# See https://help.farbox.com/pygments.html
+pygmentsStyle: monokai
+
 # Some other settings
 enableEmoji: true
 enableGitInfo: true
