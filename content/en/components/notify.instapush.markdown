@@ -43,7 +43,7 @@ To retrieve the needed values for existing settings, log into your account at [h
 Assuming that your setup looks look in the image below...
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/instapush.png' />
+  <img src='/images/screenshots/instapush.png' />
 </p>
 
 ...then your entry for the `configuration.yaml` file needs to be like this sample.

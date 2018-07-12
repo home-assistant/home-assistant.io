@@ -24,7 +24,7 @@ The preferred way to setup the Plex platform is by enabling the [discovery compo
 If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-configure.png' />
+  <img src='/images/screenshots/plex-configure.png' />
 </p>
 
 If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
@@ -32,7 +32,7 @@ If you don't know your token, see [Finding your account token / X-Plex-Token](ht
 If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/plex-token.png' />
+  <img src='/images/screenshots/plex-token.png' />
 </p>
 
 You can also enable the plex platform directly by adding the following lines to your `configuration.yaml`:

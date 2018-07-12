@@ -43,5 +43,5 @@ Configuration variables:
 - **max_age** (*Optional*): Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+  <img src='/images/screenshots/stats-sensor.png' />
 </p>

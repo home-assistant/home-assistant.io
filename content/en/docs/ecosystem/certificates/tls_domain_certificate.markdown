@@ -14,7 +14,7 @@ If your Home Assistant instance is only accessible from your local network you c
 
 ### Prerequirement for this guide
 
-* Your Home Assistant instance is not exposed to the internet. If it is - use [this guide]({{site_root}}/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
+* Your Home Assistant instance is not exposed to the internet. If it is - use [this guide](/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 * You control a public domain name. The domain doesn't have to point to a site. A domain controlled by a *trusted* friend will do. (A friend you trust not to MITM you)
 * Your home router supports custom DNS entries.
 

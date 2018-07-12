@@ -20,6 +20,6 @@ You must have the [Nest component](/components/nest/) configured to use these se
 </p>
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
+  <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 

@@ -12,7 +12,7 @@ logo: home-assistant.png
 ha_release: "0.55"
 ---
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/history_graph.png' />
+  <img src='/images/screenshots/history_graph.png' />
 </p>
 
 The `history_graph` component will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel.

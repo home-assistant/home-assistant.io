@@ -42,7 +42,7 @@ Configuration variables:
 
 **Example with more detail:**
 <p class='img'>
-  <img src='{{site_root}}/images/components/opengarage/cover_opengarage_details.jpg' />
+  <img src='/images/components/opengarage/cover_opengarage_details.jpg' />
 </p>
 
 ```yaml

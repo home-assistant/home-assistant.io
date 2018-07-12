@@ -57,5 +57,5 @@ ssl:
 If everything is setup correctly, the download speed will show up in the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/components/pyload/pyload_speed.png' />
+  <img src='/images/components/pyload/pyload_speed.png' />
 </p>

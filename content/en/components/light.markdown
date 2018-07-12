@@ -17,7 +17,7 @@ The light component supports multiple entries in <code>configuration.yaml</code>
 
 ### Service `light.turn_on`
 
-Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).
+Turns one light on or multiple lights on using [groups](/components/group/).
 
 Most lights do not support all attributes. You can check the platform documentation of your particular light for hints, but in general, you will have to try things out and see what works.
 
@@ -70,7 +70,7 @@ Turns one or multiple lights off.
 
 ### Service `light.toggle`
 
-Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/).
+Toggles the state of one or multiple lights using [groups](/components/group/).
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
 

@@ -88,7 +88,7 @@ image_processing:
 ```
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/ssocr.png' />
+  <img src='/images/screenshots/ssocr.png' />
 </p>
 
 With the help of a [template sensor](/components/sensor.template/), the value can be shown as badge.

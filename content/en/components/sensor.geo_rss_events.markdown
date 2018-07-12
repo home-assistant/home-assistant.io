@@ -23,7 +23,7 @@ representing distant unrelated entries. Typical examples are bush fires
 alerts or earthquakes.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
+  <img src='/images/screenshots/geo-rss-incidents-group-screenshot.png' />
 </p>
 
 The reference point for comparing the distance is defined by `latitude`

@@ -16,7 +16,7 @@ Please see the [docs section](/docs/automation/) for in-depth documentation on h
 Starting with 0.28 your automation rules can be controlled with the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/automation-switches.png' />
+  <img src='/images/screenshots/automation-switches.png' />
 </p>
 
 This allows one to reload the automation without restarting Home Assistant itself. If you don't want to see the automation rule in your frontend use `hide_entity: True` to hide it. You can also use `initial_state: 'off'` so that the automation is not automatically turned on after a Home Assistant reboot.

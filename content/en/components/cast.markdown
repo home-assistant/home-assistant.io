@@ -16,7 +16,7 @@ redirect_from: /components/media_player.cast/
 ---
 
 
-Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/). If you don't have the discovery component enabled, you can enable the Cast component by going to the Integrations page inside the config panel.
+Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable [the discovery component](/components/discovery/). If you don't have the discovery component enabled, you can enable the Cast component by going to the Integrations page inside the config panel.
 
 ## Advanced use
 

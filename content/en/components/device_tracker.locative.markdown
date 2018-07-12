@@ -33,7 +33,7 @@ Install on your smartphone:
 To configure Locative, you must set up the app to send a `GET` request to your Home Assistant server at `http://<ha_server>/api/locative`. Make sure to include the API password if you have configured a password in Home Assistant (add `?api_password=<password>` to the end of the URL). When you enter or exit a geofence, Locative will send a `GET` request to that URL, updating Home Assistant.  You are not able to specify a device name in Locative.  Instead, you will need to look in your known_devices.yaml file for a new device that Locative will have created on it's first `GET`.  If you had been or are using Owntracks as well, you will need to update the device name used in the Owntracks setup with the name that Locative generated.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/locative.png'/>
+  <img src='/images/screenshots/locative.png'/>
 </p>
 
 When you enter a geofence, your location name in Home Assistant will be set to the name of the geofence in Locative. When you exit a geofence, your location name in Home Assistant will be set to "not home".

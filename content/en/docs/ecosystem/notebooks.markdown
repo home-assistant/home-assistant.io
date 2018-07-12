@@ -15,7 +15,7 @@ The [Jupyter Notebooks](http://jupyter.org/) allows you to create and share docu
 Visit [https://try.jupyter.org/](https://try.jupyter.org/) to get a preview before you install it locally.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
+  <img src='/images/screenshots/jupyter-new.png' />
 </p>
 
 [nbviewer](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/tree/master/) is rendering our notebooks online. GitHub is creating a preview as well.

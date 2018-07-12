@@ -26,7 +26,7 @@ config:
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, and automation, and the Home Assistant process itself. With a single mouse click.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/server-management.png' />
+  <img src='/images/screenshots/server-management.png' />
 </p>
 
 ### Customization

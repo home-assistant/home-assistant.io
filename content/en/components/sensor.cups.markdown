@@ -19,7 +19,7 @@ The `cups` sensor platform is using the open source printing system [CUPS](https
 To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/cups-sensor.png' />
+  <img src='/images/screenshots/cups-sensor.png' />
 </p>
 
 To enable the CUPS sensor, add the following lines to your `configuration.yaml`:

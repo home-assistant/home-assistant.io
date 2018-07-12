@@ -34,13 +34,13 @@ $ jupyter notebook
 Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "New" -> "Python3" to open a new notebook.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
+  <img src='/images/screenshots/jupyter-new.png' />
 </p>
 
 You will get an empty notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the icon. 
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
+  <img src='/images/screenshots/jupyter-notebook.png' />
 </p>
 
 The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/first-notebook.ipynb).

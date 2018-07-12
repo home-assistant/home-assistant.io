@@ -77,5 +77,5 @@ The `snap_picture` service takes the camera name as the payload and with take a 
 ```
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/blink_example_frontend.png' />
+  <img src='/images/screenshots/blink_example_frontend.png' />
 </p>
