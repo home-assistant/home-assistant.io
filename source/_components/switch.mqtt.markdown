@@ -46,6 +46,16 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+state_on:
+  description: The payload that represents the on state.
+  required: false
+  type: string
+  default: ON
+state_off:
+  description: The payload that represents the off state.
+  required: false
+  type: string
+  default: OFF
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: false
@@ -117,6 +127,8 @@ switch:
     availability_topic: "home/bedroom/switch1/available"
     payload_on: "ON"
     payload_off: "OFF"
+    state_on: "ON"
+    state_off: "OFF"
     optimistic: false
     qos: 0
     retain: true
