@@ -61,7 +61,8 @@ sensor:
     type: string
   resources:
     description: Contains all entries to display.
-    required: true
+    required: false
+    default: all supported entries
     type: list
 {% endconfiguration %}
 
