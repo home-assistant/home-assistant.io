@@ -46,7 +46,7 @@ mkdir data
 The big move:
 
 ```bash
-git mv source/images static/images
+git mv source/static/images static/images
 
 git mv source/_addons content/en/addons
 git mv source/addons/index.html content/en/addons/index.html
@@ -84,6 +84,8 @@ Rename some indexes:
 
 ```bash
 git mv content/en/getting-started/index.markdown content/en/getting-started/_index.markdown
+git mv content/en/components/index.html content/en/components/_index.html
+git mv content/en/docs/index.markdown content/en/docs/_index.markdown
 ```
 
 ## 4. Content fixes
@@ -107,7 +109,7 @@ Remove `{% raw %}` and `{% endraw %}`:
 ```bash
 find content -type f -exec sed -i "s/{\%.*raw.*\%}//"  {} +
 find content -type f -exec sed -i "s/{\%.*endraw.*\%}//"  {} +
-``
+```
 
 ## 5. Cleanup
 
