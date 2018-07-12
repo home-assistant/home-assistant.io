@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The `postnl` platform allows one to track packages and letters by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use this sensor, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
 
 The package sensor value shows the number of packages to be delivered. Each of the packages is available as an attribute.
-The letters sensor value shows the number of letters to be deliverd.
+The letters sensor value shows the number of letters to be delivered.
 
 ## {% linkable_title Configuration %}
 
@@ -38,8 +38,8 @@ sensor:
     letter: true
 ```
 <p class='note'>
-  If you want to receve data from the letter sensor you need to enable it in the PostNL-app for Android ore IOS.
-  See [this](https://www.postnl.nl/campagnes/mijn-post-in-de-app/) for more detaild instructions.
+  If you want to receive data from the letter sensor you need to enable it in the PostNL-app for Android or iOS.
+  See [this](https://www.postnl.nl/campagnes/mijn-post-in-de-app/) for more detailed instructions.
 </p>
 
 {% configuration %}
@@ -57,7 +57,7 @@ password:
   required: true
   type: string
 letter:
-  description: Enable ore disable letters
+  description: Enable or disable letters
   required: false
   default: "false"
   type: boolean
