@@ -79,7 +79,7 @@ light:
         type: action
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
 Template Light may get an `unknown` state during startup. This results
@@ -91,11 +91,11 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real life examples of how to use this light.
 
-### {% linkable_title Theater Volume Control %}
+### Theater Volume Control
 
 This example shows a light that is actually a home theater's volume. This
 component gives you the flexibility to provide whatever you'd like to send as
@@ -144,7 +144,7 @@ light:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Icon %}
+### Change The Icon
 
 This example shows how to change the icon based on the light state.
 
@@ -188,7 +188,7 @@ light:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Entity Picture %}
+### Change The Entity Picture
 
 This example shows how to change the entity picture based on the light state.
 

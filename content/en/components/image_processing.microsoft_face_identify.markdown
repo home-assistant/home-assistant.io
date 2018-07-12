@@ -19,7 +19,7 @@ Please refer to the [component](/components/microsoft_face/) configuration on ho
 
 For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 ```yaml
 # Example configuration.yaml entry

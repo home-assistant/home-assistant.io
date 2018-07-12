@@ -34,7 +34,7 @@ Configuration variables:
 - **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-### {% linkable_title Usage %}
+### Usage
 
 AWS SQS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html).
 

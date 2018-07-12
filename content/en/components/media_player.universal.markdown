@@ -78,9 +78,9 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
-## {% linkable_title Usage examples %}
+## Usage examples
 
-#### {% linkable_title Chromecast & Kodi control with switches %}
+#### Chromecast & Kodi control with switches
 
 In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
@@ -135,7 +135,7 @@ media_player:
 ```
 {% endraw %}
 
-#### {% linkable_title Kodi CEC-TV control %}
+#### Kodi CEC-TV control
 
 In this example, a [Kodi Media Player](/components/media_player.kodi/) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
 

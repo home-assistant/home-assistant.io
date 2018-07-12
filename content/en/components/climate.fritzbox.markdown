@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 To get AVM fritzbox thermostat follow the instructions for the general [Fritzbox](/components/fritzbox/).
 </p>
 
-### {% linkable_title Attributes %}
+### Attributes
 
 The are several attributes that can be useful for automations and templates.
 

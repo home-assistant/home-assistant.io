@@ -91,7 +91,7 @@ Configuration variables:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-### {% linkable_title Text message %}
+### Text message
 
 ```yaml
 ...
@@ -113,7 +113,7 @@ Configuration variables:
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
-### {% linkable_title Photo support %}
+### Photo support
 
 ```yaml
 ...
@@ -156,7 +156,7 @@ homeassistant:
 ```
 </p>
 
-### {% linkable_title Video support %}
+### Video support
 
 ```yaml
 ...
@@ -186,7 +186,7 @@ Configuration variables:
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
-### {% linkable_title Document support %}
+### Document support
 
 ```yaml
 ...
@@ -214,7 +214,7 @@ Configuration variables:
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
-### {% linkable_title Location support %}
+### Location support
 
 ```yaml
 ...

@@ -16,7 +16,7 @@ ha_release: 0.28
 
 The `pi_hole` sensor platform is displaying the statistical summary of a [Pi-hole](https://pi-hole.net/) system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 

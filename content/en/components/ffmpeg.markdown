@@ -32,7 +32,7 @@ Configuration variables:
 - **ffmpeg_bin** (*Optional*): Default `ffmpeg`. The name or path to the `ffmpeg` binary.
 - **run_test** (*Optional*): Default True. Check if `input` is usable by ffmpeg.
 
-### {% linkable_title Raspbian Debian Jessie Lite Installations %}
+### Raspbian Debian Jessie Lite Installations
 To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
 
 ```bash
@@ -48,7 +48,7 @@ ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 ```
 
-### {% linkable_title Troubleshooting %}
+### Troubleshooting
 
 In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help `ffmpeg` out.
 
@@ -63,7 +63,7 @@ Now you should be able to see what is going wrong. The following list contains s
 - `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set an RTSP transport in the configuration with: `input: -rtsp_transport tcp -i INPUT`
 - `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg needs more data or time for autodetection (the default is 5 seconds). You can set the `analyzeduration` and/or `probesize` options to experiment with giving FFmpeg more leeway. If you find the needed value, you can set it with: `input: -analyzeduration xy -probesize xy -i INPUT`. More information about this can be found [here](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
 
-#### {% linkable_title USB cameras %}
+#### USB cameras
 
 For `INPUT` a valid source is needed. A USB camera is an easy way to test your video setup. To get all available USB cameras connected to the system, e.g., use the v4l2 tools on a Linux machine.
 

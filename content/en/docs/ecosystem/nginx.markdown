@@ -12,12 +12,12 @@ redirect_from: /ecosystem/nginx/
 
 Using NGINX as a proxy for Home Assistant allows you to serve Home Assistant securely over standard ports. This configuration file and instructions will walk you through setting up Home Assistant over a secure connection.
 
-### {% linkable_title 1. Get a domain name forwarded to your IP %}
+### 1. Get a domain name forwarded to your IP
 
 Chances are, you have a dynamic IP address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.
 
 
-### {% linkable_title 2 Install nginx on your server %}
+### 2 Install nginx on your server
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
@@ -25,11 +25,11 @@ This will vary depending on your OS. Check out Google for this. After installing
 You will at least need nginx >= 1.3.13, as WebSocket support is required for the reverse proxy.
 </p>
 
-### {% linkable_title 3. Obtain an SSL certificate %}
+### 3. Obtain an SSL certificate
 
 There are two ways of obtaining an SSL certificate.
 
-#### {% linkable_title Using Let's Encrypt %}
+#### Using Let's Encrypt
 If you purchased your own domain, you can use https://letsencrypt.org/ to obtain a free, publicly trusted SSL certificate. This will allow you to work with services like IFTTT. Download and install per the instructions online and get a certificate using the following command.
 
 ```bash
@@ -38,7 +38,7 @@ $ sudo ./letsencrypt-auto certonly --standalone -d example.com -d www.example.co
 
 Instead of example.com, use your domain. You will need to renew this certificate every 90 days.
 
-#### {% linkable_title Using openssl %}
+#### Using openssl
 
 If you do not own your own domain, you may generate a self-signed certificate. This will not work with IFTTT, but it will encrypt all of your Home Assistant traffic.
 
@@ -50,7 +50,7 @@ $ sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 $ sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 ```
 
-### {% linkable_title 4. Create dhparams file %}
+### 4. Create dhparams file
 
 As a fair warning, this file will take a while to generate.
 
@@ -59,7 +59,7 @@ $ cd /etc/nginx/ssl
 $ sudo openssl dhparam -out dhparams.pem 2048
 ```
 
-### {% linkable_title 5. Install configuration file in nginx. %}
+### 5. Install configuration file in nginx.
 
 Create a new file `/etc/nginx/sites-available/hass` and copy the configuration file at the bottom of the page into it.
 
@@ -67,7 +67,7 @@ Create a new file `/etc/nginx/sites-available/hass` and copy the configuration f
 Some Linux distributions (including CentOS and Fedora) will not have the `/etc/nginx/sites-available/` directory. In this case, remove the default server {} block from the `/etc/nginx/nginx.conf` file and paste the contents from the bottom of the page in its place. If doing this, proceed to step 7.
 </p>
 
-### {% linkable_title 6. Enable the Home Assistant configuration. %}
+### 6. Enable the Home Assistant configuration.
 
 ```bash
 $ cd /etc/nginx/sites-enabled
@@ -75,15 +75,15 @@ $ sudo unlink default
 $ sudo ln ../sites-available/hass default
 ```
 
-### {% linkable_title 7. Start NGINX. %}
+### 7. Start NGINX.
 
 Double check this configuration to ensure all settings are correct and start nginx.
 
-### {% linkable_title 8. Port forwarding. %}
+### 8. Port forwarding.
 
 Forward ports 443 and 80 to your server on your router. Do not forward port 8123.
 
-### {% linkable_title NGINX Config %}
+### NGINX Config
 
 ```text
 map $http_upgrade $connection_upgrade {

@@ -18,7 +18,7 @@ $ sudo apt-get update
 $ sudo apt-get -y upgrade
 ```
 
-#### {% linkable_title Updating Home Assistant %}
+#### Updating Home Assistant
 <p class='note'>
 You can use `hassbian-config` to automate the process by running `sudo hassbian-config upgrade homeassistant`
 </p>

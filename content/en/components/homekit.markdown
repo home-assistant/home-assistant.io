@@ -128,7 +128,7 @@ homekit:
   If you use Z-Wave, or `discovery:` you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this. You'll then need to start the HomeKit component once Z-Wave is ready, or an appropriate delay to allow your entities to be discovered.
 </p>
 
-## {% linkable_title Setup %}
+## Setup
 
 To enable the `HomeKit` component in Home Assistant, add the following to your configuration file:
 
@@ -148,25 +148,25 @@ After Home Assistant has started, the entities specified by the filter are expos
 After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
 
 
-## {% linkable_title Considerations %}
+## Considerations
 
 
-### {% linkable_title Accessory ID %}
+### Accessory ID
 
 Currently this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This however means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
 
-### {% linkable_title Device Limit %}
+### Device Limit
 
 The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
 
-### {% linkable_title Persistence Storage %}
+### Persistence Storage
 
 Unfortunately `HomeKit` doesn't support any kind of persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
 
-## {% linkable_title Disable Auto Start %}
+## Disable Auto Start
 
 Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
 
@@ -210,7 +210,7 @@ automation:
 {% endraw %}
 
 
-## {% linkable_title Configure Filter %}
+## Configure Filter
 
 By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
@@ -245,7 +245,7 @@ Filters are applied as follows:
       - if entity include and exclude, the entity exclude is ignored
 
 
-## {% linkable_title Supported Components %}
+## Supported Components
 
 The following components are currently supported:
 
@@ -272,7 +272,7 @@ The following components are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 
 
-## {% linkable_title Error reporting %}
+## Error reporting
 
 If you encounter any issues or bug and want to report them on `GitHub`, please follow these steps to make it easier for others to help and get your issue solved.
 
@@ -292,7 +292,7 @@ logger:
    - The log / traceback you have generated before.
    - Screenshots of the failing entity in the `states` panel.
 
-## {% linkable_title Troubleshooting PIN not appearing %}
+## Troubleshooting PIN not appearing
 
 In some instances, the PIN will not appear as a persistent status or in the log files despite deleting `.homekit.state`, enabling logging, and reboot.  The log files will include the error ```Duplicate AID found when attempting to add accessory```.
 

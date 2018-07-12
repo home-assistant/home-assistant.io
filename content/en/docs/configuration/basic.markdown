@@ -35,7 +35,7 @@ Configuration variables:
 - **customize_glob** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities matching a pattern.
 - **whitelist_external_dirs** (*Optional*): List of folders that can be used as sources for sending files.
 
-### {% linkable_title Password protecting the web interface %}
+### Password protecting the web interface
 
 First, you'll want to add a password for the Home Assistant web interface. Use your favorite text editor to open `configuration.yaml` and edit the `http` section:
 

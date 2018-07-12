@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -37,9 +37,9 @@ Configuration variables:
   - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
   - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration with three sensors that showcase the various configuration options.
 

@@ -39,11 +39,11 @@ Configuration variables:
     - **value_template** (*optional - default: '{% raw %}{{ value }}{% endraw%}'*): if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
     - **friendly_name** (*Optional*): The name used to display the cover in the frontend.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry

@@ -14,7 +14,7 @@ featured: false
 ha_release: 0.67
 ---
 
-### {% linkable_title Configuration Sample %}
+### Configuration Sample
 
 The `nanoleaf_aurora` platform allows you to control [Nanoleaf Aurora Light Panels](https://nanoleaf.me) from Home Assistant.
 
@@ -46,7 +46,7 @@ name:
   default: Aurora
 {% endconfiguration %}
 
-### {% linkable_title Getting The Auth Token %}
+### Getting The Auth Token
 
 1. Make sure that your Nanoleaf Aurora Panel is fully patched (as of the time of writing the latest version was 2.2.0)
 2. Hold down the *ON* button on the Panel for 5 seconds; the LED will start flashing

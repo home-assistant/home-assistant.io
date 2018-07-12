@@ -14,7 +14,7 @@ ha_release: 0.47
 
 The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the platform in your installation, add the following to your `configuration.yaml` file:
 

@@ -47,7 +47,7 @@ Example of the light group "Kitchen Lights".
 
 The supported features of all lights will be added together. For example, if you have one RGB light in a group of otherwise brightness-only lights, the light group will be shown with a color picker.
 
-## {% linkable_title Script Example %}
+## Script Example
 
 Here's an example of a script using the above light group.
 

@@ -28,7 +28,7 @@ entity:
   type: string
 {% endconfiguration %}
 
-{% linkable_title Example %}
+Example
 
 ```yaml
 - type: weather-forecast

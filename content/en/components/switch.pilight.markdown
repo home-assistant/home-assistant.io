@@ -19,7 +19,7 @@ Additionally, RF commands can be defined that trigger this switch to turn on and
 
 To be really sure that Home Assistant knows the actual state of your device it is recommended to use the RF remote with codes unknown to any of your 433 MHz devices. Thus you use the remote to trigger this switch to send the correct RF code to the device.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To define a Pilight switch, add the following lines to your `configuration.yaml`:
 
@@ -65,7 +65,7 @@ Variables for the different receive codes (`on_code_receive` and `off_code_recei
 
 This is useful if you have paired your sender directly with the receiver to prevent sending the signal twice.
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 switch:

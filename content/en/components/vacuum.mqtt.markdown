@@ -181,7 +181,7 @@ payload_not_available:
   default: offline
 {% endconfiguration %}
 
-### {% linkable_title Default MQTT Protocol %}
+### Default MQTT Protocol
 
 The above configuration for this component expects an MQTT protocol like the following.
 
@@ -229,6 +229,6 @@ MQTT payload:
 }
 ```
 
-### {% linkable_title Retrofitting a non-wifi Roomba with an ESP8266 %}
+### Retrofitting a non-wifi Roomba with an ESP8266
 
 - [This repo](https://github.com/johnboiles/esp-roomba-mqtt) has MQTT client firmware for retrofitting your old Roomba.

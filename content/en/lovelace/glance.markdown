@@ -42,7 +42,7 @@ title:
   default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 

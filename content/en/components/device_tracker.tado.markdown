@@ -38,7 +38,7 @@ Polling Tado API for presence information will happen at most once every 30 seco
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked. Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
-### {% linkable_title Finding your `home_id` %}
+### Finding your `home_id`
 Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_USERNAME&password=YOUR_PASSWORD`. There you'll see something like the following:
 
 ```json

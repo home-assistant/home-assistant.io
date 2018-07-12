@@ -28,11 +28,11 @@ These are exactly as before, tab views with icons or text that help you manage l
 Screenshot of views.
 </p>
 
-## {% linkable_title Icons %}
+## Icons
 
 You can use icons instead of text for your view tabs. The title in the example will be used as a tooltip.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 views:
@@ -40,11 +40,11 @@ views:
     title: Debugging
 ```
 
-## {% linkable_title Panel view %}
+## Panel view
 
 This type of view uses the first card in the `cards` list to expand it to ocuppy the complete view space, similar to panels. One very good practical use will be for floor plan type of cards.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 views:
@@ -61,7 +61,7 @@ views:
               entity: light.ceiling_lights
 ```
 
-## {% linkable_title Themes %}
+## Themes
 
 You can also set a [theme](/frontend/#themes) per view. Theme is currently only partially usable (font color works).
 
@@ -73,11 +73,11 @@ views:
     theme: dark-mode
 ```
 
-## {% linkable_title Custom ID %}
+## Custom ID
 
 You can now assign a custom ID to a view, for nicer navigation paths in URLs. This id allows you to deep-link navigation to this view from cards that allow `navigation_path`. 
 
-### {% linkable_title Example %}
+### Example
 
 View:
 

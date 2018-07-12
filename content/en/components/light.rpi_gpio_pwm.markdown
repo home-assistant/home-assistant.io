@@ -41,11 +41,11 @@ Configuration variables:
   - **freq** (*Optional*): The PWM frequency. (Default: `200`)
   - **address** (*Optional*): The address of the PCA9685 driver. (Default: `0x40`)
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title RGB LED connected to PCA9685 controller %}
+### RGB LED connected to PCA9685 controller
 
 This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to control a RGB LED.
 
@@ -60,7 +60,7 @@ light:
         type: rgb
 ```
 
-### {% linkable_title RGBW LED connected to PCA9685 controller %}
+### RGBW LED connected to PCA9685 controller
 
 This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to interact with a RGBW LED.
 

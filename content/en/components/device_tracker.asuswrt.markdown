@@ -19,7 +19,7 @@ The `asuswrt` platform offers presence detection by looking at connected devices
 This platform is **NOT** available for [Microsoft Windows installations](http://pexpect.readthedocs.io/en/stable/overview.html#pexpect-on-windows).
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
 

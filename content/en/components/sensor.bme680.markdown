@@ -111,7 +111,7 @@ aq_humidity_bias:
   type: int
 {% endconfiguration %}
 
-## {% linkable_title Full Examples %}
+## Full Examples
 
 If you want to specify the working mode of the digital sensor or need to change the default I2C address (which is 0x77), add more details to the `configuration.yaml` file:
 
@@ -139,7 +139,7 @@ sensor:
     aq_humidity_bias: 25
 ```
 
-## {% linkable_title Customizing the sensor data %}
+## Customizing the sensor data
 
 Give the values friendly names and icons, add the following to your `customize:` section.
 
@@ -174,7 +174,7 @@ group:
       - sensor.bme680_sensor_air_quality
 ```
 
-## {% linkable_title Directions for installing SMBus support on Raspberry Pi %}
+## Directions for installing SMBus support on Raspberry Pi
 
 Enable I2C interface with the Raspberry Pi configuration utility:
 
@@ -198,7 +198,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the I2C address of the sensor %}
+### Check the I2C address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

@@ -25,7 +25,7 @@ Supported Devices:
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
-### {% linkable_title One Gateway %}
+### One Gateway
 
 A `maxcube` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -36,7 +36,7 @@ maxcube:
     - host: 192.168.0.20
 ```
 
-### {% linkable_title Multiple Gateways %}
+### Multiple Gateways
 
 ```yaml
 # Example configuration.yaml entry

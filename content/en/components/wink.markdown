@@ -24,7 +24,7 @@ Home Assistant integrates with the Wink API and automatically sets up any switch
 
 Check the related components pages for actual devices that are supported.
 
-### {% linkable_title Authenticate using [developer.wink.com](https://developer.wink.com) %}
+### Authenticate using [developer.wink.com](https://developer.wink.com)
 
 You need to setup a developer account with Wink. This process can take a few days to get approved.
 
@@ -44,7 +44,7 @@ When using the configurator make sure the initial setup is performed on the same
 wink:
 ```
 
-### {% linkable_title Full oauth authentication (legacy). %}
+### Full oauth authentication (legacy).
 
 This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
@@ -87,17 +87,17 @@ Error sending local control request. Sending request online
 
 </p>
 
-### {% linkable_title Service `refresh_state_from_wink` %}
+### Service `refresh_state_from_wink`
 
 The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
 You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `True` states will be pulled from the devices controlling hub, not the online API.
 
-### {% linkable_title Service `pull_newly_added_devices_from_wink` %}
+### Service `pull_newly_added_devices_from_wink`
 
 You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
 
-### {% linkable_title Service `delete_wink_device` %}
+### Service `delete_wink_device`
 
 You can use the service wink/delete_wink_device to remove/unpair a device from Wink.
 
@@ -105,7 +105,7 @@ You can use the service wink/delete_wink_device to remove/unpair a device from W
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at the `entity_id` of device to delete.
 
-### {% linkable_title Service `pair_new_device` %}
+### Service `pair_new_device`
 
 You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay
 
@@ -119,7 +119,7 @@ You can use the service wink/pair_new_device to pair a new device to your Wink h
 Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
 </p>
 
-### {% linkable_title Service `rename_wink_device` %}
+### Service `rename_wink_device`
 
 You can use the service wink/rename_wink_device to change the name of a device.
 
@@ -143,7 +143,7 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
 - Dome siren/chime/strobe
 
 
-### {% linkable_title Service `set_siren_auto_shutoff` %}
+### Service `set_siren_auto_shutoff`
 
 You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.
 
@@ -167,7 +167,7 @@ script:
 The following services only work with the Dome siren/chime.
 </p>
 
-### {% linkable_title Service `set_chime_volume` %}
+### Service `set_chime_volume`
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
@@ -187,7 +187,7 @@ script:
           volume: "low"
 ```
 
-### {% linkable_title Service `set_siren_volume` %}
+### Service `set_siren_volume`
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
@@ -207,7 +207,7 @@ script:
           volume: "low"
 ```
 
-### {% linkable_title Service `enable_chime` %}
+### Service `enable_chime`
 
 You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.
 
@@ -227,7 +227,7 @@ script:
           tone: "doorbell"
 ```
 
-### {% linkable_title Service `set_siren_tone` %}
+### Service `set_siren_tone`
 
 You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.
 
@@ -247,7 +247,7 @@ script:
           tone: "alert"
 ```
 
-### {% linkable_title Service `set_siren_strobe_enabled` %}
+### Service `set_siren_strobe_enabled`
 
 You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.
 
@@ -267,7 +267,7 @@ script:
           enabled: False
 ```
 
-### {% linkable_title Service `set_chime_strobe_enabled` %}
+### Service `set_chime_strobe_enabled`
 
 You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.
 

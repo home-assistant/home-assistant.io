@@ -33,7 +33,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **token** (*Required*): Your bot's token.
 
-### {% linkable_title Setting up the bot %}
+### Setting up the bot
 
 Bots can only send messages to servers. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
@@ -61,7 +61,7 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {
@@ -73,7 +73,7 @@ This channel ID has to be used as the target when calling the notification servi
 }
 ```
 
-### {% linkable_title Notes %}
+### Notes
 
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 

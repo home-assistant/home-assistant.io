@@ -34,13 +34,13 @@ Configuration variables:
 - **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-### {% linkable_title Usage %}
+### Usage
 
 AWS SNS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [boto3 docs](http://boto3.readthedocs.io/en/latest/reference/services/sns.html#SNS.Client.publish).
 
 If one exists, the SNS Subject will be set to the title. All attributes from the payload except message will be sent as stringified message attributes.
 
-#### {% linkable_title Setting up SNS within AWS %}
+#### Setting up SNS within AWS
 
 - Log into your AWS console and under "Security and Identity", select "Identity & Access Management".
 - On the left hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 

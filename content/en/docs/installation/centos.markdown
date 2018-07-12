@@ -13,7 +13,7 @@ To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL (Red Hat Enterpri
 
 You must install Python 3.5.3 or later. Software Collections version of Python 3.5 is 3.5.1 so this guide uses Python 3.6.
 
-### {% linkable_title Using Software Collections %}
+### Using Software Collections
 
 First of all install the software collection repository as root. For example, on CentOS:
 
@@ -44,7 +44,7 @@ You will be in a command shell set up with Python 3.6 as your default version. T
 
 You will need to enable the software collection each time you log on before you activate your virtual environment.
 
-### {% linkable_title Systemd with Software Collections %}
+### Systemd with Software Collections
 
 To autostart Home Assistant using systemd follow the main [instructions](/docs/autostart/systemd/) and adjust the template as follows:
 

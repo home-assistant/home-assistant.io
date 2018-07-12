@@ -77,13 +77,13 @@ commands:
       default: empty
 {% endconfiguration %}
 
-### {% linkable_title Event Data %}
+### Event Data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
 If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
-### {% linkable_title Comprehensive Configuration Example %}
+### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](/components/notify.matrix/).
 

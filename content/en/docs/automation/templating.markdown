@@ -38,7 +38,7 @@ automation 2:
       message: {% raw %}'{{ trigger.payload }}'{% endraw %}
 ```
 
-## {% linkable_title Important Template Rules %}
+## Important Template Rules
 
 There are a few very important rules to remember when writing automation templates:
 
@@ -51,7 +51,7 @@ There are a few very important rules to remember when writing automation templat
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-## {% linkable_title Trigger State Object %}
+## Trigger State Object
 
 Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity could be one of the more common questions. Here are a few ways for the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
 
@@ -59,11 +59,11 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
 * `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
 
-## {% linkable_title Available Trigger Data %}
+## Available Trigger Data
 
 The following tables show the available trigger data per platform.
 
-### {% linkable_title event %}
+### event
 
 | Template variable | Data |
 | ---- | ---- |
@@ -71,7 +71,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | Event object that matched.
 | `trigger.event.data` | Optional data
 
-### {% linkable_title mqtt %}
+### mqtt
 
 | Template variable | Data |
 | ---- | ---- |
@@ -81,7 +81,7 @@ The following tables show the available trigger data per platform.
 | `trigger.payload_json` | Dictonary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### {% linkable_title numeric_state %}
+### numeric_state
 
 | Template variable | Data |
 | ---- | ---- |
@@ -92,7 +92,7 @@ The following tables show the available trigger data per platform.
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 
-### {% linkable_title state %}
+### state
 
 | Template variable | Data |
 | ---- | ---- |
@@ -102,7 +102,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### {% linkable_title sun %}
+### sun
 
 | Template variable | Data |
 | ---- | ---- |
@@ -110,7 +110,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### {% linkable_title template %}
+### template
 
 | Template variable | Data |
 | ---- | ---- |
@@ -119,14 +119,14 @@ The following tables show the available trigger data per platform.
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 
-### {% linkable_title time %}
+### time
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### {% linkable_title zone %}
+### zone
 
 | Template variable | Data |
 | ---- | ---- |

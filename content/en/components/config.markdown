@@ -21,7 +21,7 @@ To enable the configuration panel, add the following to your `configuration.yaml
 config:
 ```
 
-### {% linkable_title General %}
+### General
 
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, and automation, and the Home Assistant process itself. With a single mouse click.
 
@@ -29,18 +29,18 @@ This section enables you to control Home Assistant from within Home Assistant. C
   <img src='{{site_root}}/images/screenshots/server-management.png' />
 </p>
 
-### {% linkable_title Customization %}
+### Customization
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
 
-### {% linkable_title Automation %}
+### Automation
 
 This section enables you to create and modify automations from within Home Assistant, without needing to write out the yaml code.
 
-### {% linkable_title Script %}
+### Script
 
 Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the yaml code.
 
-### {% linkable_title Z-Wave %}
+### Z-Wave
 
 This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.

@@ -12,13 +12,13 @@ redirect_from: /docs/hassbian/integrations/
 
 Some components that are specific for the Raspberry Pi can require some further configuration outside of Home Assistant. All commands below are assumed to be executed with the `pi` account. For full documentation of these components refer to the [components](/components) page.
 
-### {% linkable_title Bluetooth Tracker %}
+### Bluetooth Tracker
 
 The Bluetooth tracker will work on a Raspberry Pi 3 with the built-in Bluetooth module or with a USB Bluetooth device on any of the other Raspberry Pi's.
 
 Software needed for the tracker is pre-installed so just follow the [Bluetooth Tracker component](/components/device_tracker.bluetooth_tracker/) and [Device Tracker page](/components/device_tracker/) pages.
 
-### {% linkable_title Raspberry Pi GPIO %}
+### Raspberry Pi GPIO
 
 Each of the following devices are connected to the GPIO pins on the Raspberry Pi.
 For more details about the GPIO layout, visit the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) from the Raspberry Pi foundation.
@@ -32,7 +32,7 @@ Just follow the component pages for each on how to add them to your Home Assista
  - [Raspberry Pi GPIO Switch](/components/switch.rpi_gpio/)
  - [Raspberry Pi RF Switch](/components/switch.rpi_rf/)
 
-### {% linkable_title Raspberry Pi Camera %}
+### Raspberry Pi Camera
 
 The Raspberry Pi Camera is a specific camera for the Raspberry Pi boards. For more information about the camera I suggest reading the [documentation](https://www.raspberrypi.org/documentation/usage/camera/) from the Raspberry Pi foundation.
 
@@ -46,7 +46,7 @@ Go to `Interfacing Options`, select `Enable camera` choose `<Yes>` and hit `Ente
 
 After this follow the [Raspberry Pi Camera component](/components/camera.rpi_camera/) page.
 
-### {% linkable_title One wire Sensor %}
+### One wire Sensor
 
 The One wire sensor requires that support for it is enabled on the Raspberry Pi and that the One Wire device is connected to GPIO pin 4.
 To enable One Wire support add the following line to the end of `/boot/config.txt`

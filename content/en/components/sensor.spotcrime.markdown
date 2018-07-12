@@ -53,9 +53,9 @@ exclude:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Notes %}
+## Notes
 
-### {% linkable_title Incident Types %}
+### Incident Types
 
 You can explicitly include or exclude incident types. Specifying `include`s restricts the incidents to those types. Specifying `exclude`s will return all incident types except those specified.
 
@@ -71,6 +71,6 @@ These incident types are available:
 - Vandalism
 - Other
 
-### {% linkable_title Events %}
+### Events
 
 The `crimealerts` sensor fires a `crimealerts_incident` event when a new incident is detected, including the type, time, and location of the incident.

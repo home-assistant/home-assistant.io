@@ -42,7 +42,7 @@ and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual val
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
 After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
 
-### {% linkable_title Real-Time API %}
+### Real-Time API
 
 The component accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
 
@@ -59,7 +59,7 @@ automation:
       entity_id: script.my_action
 ```
 
-### {% linkable_title Check ins %}
+### Check ins
 
 To check a user in, use the `foursquare/checkin` service.
 

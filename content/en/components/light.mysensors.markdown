@@ -37,7 +37,7 @@ Sketch should acknowledge a command sent from controller with the same type.  If
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 1.x example sketch %}
+### MySensors 1.x example sketch
 
 ```cpp
 /*
@@ -112,7 +112,7 @@ void incomingMessage(const MyMessage &message) {
 }
 ```
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /*

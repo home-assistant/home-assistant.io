@@ -26,7 +26,7 @@ A few notes:
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
 
@@ -50,11 +50,11 @@ endpoint:
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
-## {% linkable_title Services %}
+## Services
 
 In addition to the general [media player services](/components/media_player/#services), the following services are provided:
 
-### {% linkable_title Service `media_player/songpal_set_sound_setting` %}
+### Service `media_player/songpal_set_sound_setting`
 
 For a list of available settings and their values use [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
 

@@ -22,13 +22,13 @@ shopping_list:
 ### Services
 You can add or remove items on your shopping list by using the following services.
 
-#### {% linkable_title Service `shopping_list.add_item` %}
+#### Service `shopping_list.add_item`
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to add. Example: "Beer"               |
 
-#### {% linkable_title Service `shopping_list.complete_item` %}
+#### Service `shopping_list.complete_item`
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|

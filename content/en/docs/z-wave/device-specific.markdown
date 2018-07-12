@@ -10,24 +10,24 @@ footer: true
 redirect_from: /getting-started/z-wave-device-specific/
 ---
 
-## {% linkable_title Device Categories %}
+## Device Categories
 
-### {% linkable_title Motion or alarm sensors %}
+### Motion or alarm sensors
 
 In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
 You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
-### {% linkable_title Locks and other secure devices %}
+### Locks and other secure devices
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
 Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
 
-### {% linkable_title Specific Devices %}
+### Specific Devices
 
-### {% linkable_title Aeotec Z-Stick %}
+### Aeotec Z-Stick
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
 
@@ -45,7 +45,7 @@ Turn on "Disco lights":
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
 ```
 
-### {% linkable_title Razberry Board %}
+### Razberry Board
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
@@ -65,7 +65,7 @@ Finally, reboot to make those changes active. It's been reported that this is al
   If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
 </p>
 
-### {% linkable_title Aeon Minimote %}
+### Aeon Minimote
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
 
@@ -136,15 +136,15 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           scene_id: 8
 ```
 
-### {% linkable_title Zooz Toggle Switches %}
+### Zooz Toggle Switches
 
 Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
 
-## {% linkable_title Central Scene configuration %}
+## Central Scene configuration
 
 To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
 
-### {% linkable_title Inovelli Scene Capable On/Off and Dimmer Wall Switches %}
+### Inovelli Scene Capable On/Off and Dimmer Wall Switches
 
 For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -170,7 +170,7 @@ Triple tap on|2|4
 5x tap off|1|6
 5x tap on|2|6
 
-### {% linkable_title HomeSeer Switches %}
+### HomeSeer Switches
 
 For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -196,7 +196,7 @@ Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
 
-### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
+### Fibaro Button FGPB-101-6 v3.2
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
 
@@ -220,7 +220,7 @@ Triple tap on|1|4
 
 Tap and hold wakes up the Button.
 
-### {% linkable_title Fibaro Keyfob FGKF-601 %}
+### Fibaro Keyfob FGKF-601
 
 
 For the Fibaro Keyfob, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
@@ -263,7 +263,7 @@ Button six (Triangle) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
-### {% linkable_title Aeotec Wallmote %}
+### Aeotec Wallmote
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
 
@@ -298,11 +298,11 @@ Button four single tap|4|0
 Button four hold|4|2
 Button four release|4|1
 
-### {% linkable_title WallC-S Switch %}
+### WallC-S Switch
 
 Use the same configuration as for the Aeotec Wallmote.
 
-### {% linkable_title HANK One-key Scene Controller HKZN-SCN01 %}
+### HANK One-key Scene Controller HKZN-SCN01
 
 For the HANK One-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
@@ -322,7 +322,7 @@ Button single tap|1|0
 Button hold|1|2
 Button release|1|1
 
-### {% linkable_title HANK Four-key Scene Controller HKZN-SCN04 %}
+### HANK Four-key Scene Controller HKZN-SCN04
 
 For the HANK Four-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 

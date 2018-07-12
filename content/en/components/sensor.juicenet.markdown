@@ -17,7 +17,7 @@ The `juicenet` sensor platform allows you to get data from your [JuiceNet](https
 
 The requirement is that you have setup [Juicenet](/components/juicenet/).
 
-### {% linkable_title Added sensors %}
+### Added sensors
 
 These sensors will be added for each juicenet device in your account:
 

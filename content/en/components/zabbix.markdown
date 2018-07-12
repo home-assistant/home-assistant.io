@@ -32,7 +32,7 @@ Configuration variables:
 - **username** (*Optional*): Your Zabbix username.
 - **password** (*Optional*): Your Zabbix password.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry

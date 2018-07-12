@@ -33,7 +33,7 @@ Only the "music" media type is supported for now.
 
 This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
 
-## {% linkable_title Full configuration %}
+## Full configuration
 
 A full configuration for VLC could look like the one below:
 
@@ -45,7 +45,7 @@ media_player:
     arguments: '--alsa-audio-device=hw:1,0'
 ```
 
-##### {% linkable_title Additional configuration on macOS %}
+##### Additional configuration on macOS
 
 On macOS `python-vlc` won’t find the VLC plugin directory unless you add this to the user’s `.bash_profile` that is running Home Assistant:
 
@@ -53,7 +53,7 @@ On macOS `python-vlc` won’t find the VLC plugin directory unless you add this 
 export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
 ```
 
-##### {% linkable_title Additional configuration for Rasperry Pi %}
+##### Additional configuration for Rasperry Pi
 
 You need to add the `homeassistant` user to the `audio` group:
 
@@ -61,6 +61,6 @@ You need to add the `homeassistant` user to the `audio` group:
 sudo usermod -a -G audio homeassistant
 ```
 
-##### {% linkable_title VLC currently not supported with Hass.io %}
+##### VLC currently not supported with Hass.io
 
 According to the forum topic ["How to add VLC into my Hassio"](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.

@@ -36,7 +36,7 @@ _TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
 
 <!--more-->
 
-### {% linkable_title Dependencies %}
+### Dependencies
 
 In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:
 
@@ -50,11 +50,11 @@ As a Windows user myself, I find the easiest, quickest and most hassle-free way 
 
 [WinPython]: https://winpython.github.io/
 
-#### {% linkable_title Why Jupyter? %}
+#### Why Jupyter?
 
 While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!
 
-#### {% linkable_title Where do I start? %}
+#### Where do I start?
 
 This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:
 
@@ -73,7 +73,7 @@ After just those few steps, you will be greeted with beautiful formatted data li
 One of the graphs created with this tutorial.
 </p>
 
-#### {% linkable_title What’s next? %}
+#### What’s next?
 
 Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!
 

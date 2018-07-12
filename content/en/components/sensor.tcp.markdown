@@ -37,11 +37,11 @@ Configuration options for the a TCP Sensor:
 - **unit_of_measurement** (*Optional*): The unit of measurement to use for the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to `1024`.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title EBUSd %}
+### EBUSd
 
 The [EBUSd](https://github.com/john30/ebusd/wiki) service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. In order to use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:
 
@@ -65,7 +65,7 @@ sensor:
     unit_of_measurement: Bar
 ```
 
-### {% linkable_title hddtemp %}
+### hddtemp
 
 The tool `hddtemp` collects the temperature of your hard disks. 
 

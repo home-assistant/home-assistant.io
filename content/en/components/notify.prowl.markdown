@@ -32,7 +32,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): The Prowl API key to use.
 
-### {% linkable_title Prowl service data %}
+### Prowl service data
 
 The following attributes can be placed `data` for extended functionality.
 

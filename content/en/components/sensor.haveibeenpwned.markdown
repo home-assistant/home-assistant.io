@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing
 the number of breaches on that email account.
@@ -36,7 +36,7 @@ email:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Breach meta data %}
+## Breach meta data
 
 If one of your email accounts is breached the sensor will display breach meta data. It will list the title of the site where your email
 account has been breached as well as the added date of the breach data. This data is displayed in descending order so that the state attribute

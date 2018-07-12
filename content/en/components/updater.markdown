@@ -40,7 +40,7 @@ It is possible to report the components that you are using to the Home Assistant
 ]
 ```
 
-### {% linkable_title Notification %}
+### Notification
 
 For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.
 

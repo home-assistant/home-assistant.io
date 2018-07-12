@@ -121,7 +121,7 @@ recorder:
 
 If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
-### {% linkable_title Service `purge` %}
+### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
@@ -130,7 +130,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space (only supported for SQLite)
 
-### {% linkable_title Restore State %}
+### Restore State
 
 If the `recorder` component is activated then some components support `restore_state` which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
 
@@ -141,7 +141,7 @@ If the `recorder` component is activated then some components support `restore_s
 * [`input_text`](/components/input_text/#restore-state)
 
 
-## {% linkable_title Custom database engines %}
+## Custom database engines
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
@@ -180,11 +180,11 @@ $ sudo systemctl daemon-reload
 ```
 </p>
 
-## {% linkable_title Installation notes %}
+## Installation notes
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MariaDB and MySQL %}
+### MariaDB and MySQL
 
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
@@ -214,7 +214,7 @@ After installing the dependencies, it is required to create the database manuall
 
 Once Home Assistant finds the database, with right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
-### {% linkable_title PostgreSQL %}
+### PostgreSQL
 
 For PostgreSQL you may have to install a few dependencies:
 
@@ -223,7 +223,7 @@ $ sudo apt-get install postgresql-server-dev-X.Y
 $ pip3 install psycopg2
 ```
 
-### {% linkable_title MS SQL Server %}
+### MS SQL Server
 
 For MS SQL Server you may have to install a few dependencies:
 

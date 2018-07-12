@@ -15,7 +15,7 @@ ha_release: "0.50"
 
 The `velbus` fan allows you to control [Velbus](http://www.velbus.eu) connected fans.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Velbus fans in your installation, add the following to your `configuration.yaml` file:
 

@@ -92,11 +92,11 @@ alarm_control_panel:
       delay_time: 0
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples) for some real life examples of how to use this panel.
 
-## {% linkable_title MQTT Control %}
+## MQTT Control
 
 The state of this alarm can be controlled using [MQTT](/components/mqtt/). Ensure you've configured that before adding this component.
 

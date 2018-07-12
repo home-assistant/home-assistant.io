@@ -16,13 +16,13 @@ Before we dive into common issues, make sure you know where your configuration d
 
 Whenever a component or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
 
-### {% linkable_title My component does not show up %}
+### My component does not show up
 
 When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your component you are trying to set up.
 
 If you have incorrect entries in your configuration files you can use the [`check_config`](/docs/tools/check_config/) script to assist in identifying them: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
 
-#### {% linkable_title Problems with the configuration %}
+#### Problems with the configuration
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
  
@@ -46,17 +46,17 @@ See the [logger](/components/logger/) component for instructions on how to defin
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 
-#### {% linkable_title Problems with dependencies %}
+#### Problems with dependencies
 
 Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in `home-assistant.log`.
 
 The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/home-assistant/issues) so we can investigate what is going on.
 
-#### {% linkable_title Problems with components %}
+#### Problems with components
 
 It can happen that some components either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/home-assistant/issues) so that we can have a look.
 
-#### {% linkable_title Multiple files %}
+#### Multiple files
 
 If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. 
 
@@ -88,7 +88,7 @@ Contents of `sensors.yaml`:
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
 </p>
 
-### {% linkable_title Entity names %}
+### Entity names
 
 The only characters valid in entity names are:
 

@@ -17,7 +17,7 @@ The `thethingsnetwork` sensor platform allows you to get data from a [The Things
 
 This platform requires that the [The Things Network component](/components/thethingsnetwork/) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications** and go to **Integrations**.
 
@@ -56,7 +56,7 @@ Select **Devices** to get the ID of your device that you want to use.
 Devices overview
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 

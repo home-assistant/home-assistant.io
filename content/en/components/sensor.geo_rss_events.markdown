@@ -34,7 +34,7 @@ or `polygon` in *georss.org* format or as *WGS84 latitude/longitude*.
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the GeoRSS events sensor, add the following lines to your
 `configuration.yaml`. This is an example configuration showing bush fire
@@ -61,7 +61,7 @@ Configuration variables:
 - **categories** (*Optional*): List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined. Default is to join events from all categories into an 'Any' category.
 - **unit_of_measurement** (*Optional*): The type of events found in the GeoRSS feed. Default is 'Events'.
 
-## {% linkable_title Example Feeds %}
+## Example Feeds
 
 **Bush Fire Alerts**
 

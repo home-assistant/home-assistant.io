@@ -29,7 +29,7 @@ Configuration variables:
 - **api_key** (*Required*): Enter the API key for Pushbullet. Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-### {% linkable_title Usage %}
+### Usage
 
 Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
@@ -41,7 +41,7 @@ Email | `email/` | Contact's email address | `email/email@example.com`
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {
@@ -56,7 +56,7 @@ If using targets, your own account's email address functions as 'send to all dev
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-### {% linkable_title URL support %}
+### URL support
 
 ```yaml
 action:
@@ -70,7 +70,7 @@ action:
 
 - **url** (*Required*): Page URL to send with Pushbullet.
 
-### {% linkable_title File support %}
+### File support
 
 ```yaml
 action:
@@ -85,7 +85,7 @@ action:
 - **file** (*Required*): File to send with Pushbullet.
 
 
-### {% linkable_title File URL support %}
+### File URL support
 
 ```yaml
 action:

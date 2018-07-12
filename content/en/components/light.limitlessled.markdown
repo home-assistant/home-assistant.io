@@ -22,7 +22,7 @@ Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same 
 
 An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
 
-### {% linkable_title Setup %}
+### Setup
 
 Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). 
 
@@ -68,7 +68,7 @@ Configuration variables:
     - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
     - **fade** (*Optional*): Fade behavior. Defaults to `off`. If turned on, the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability since the light will turn back on at the lowest brightness if it is power cycled.
 
-### {% linkable_title Night Effect %}
+### Night Effect
 
 LimitlessLED has a `night` effect that can be used to dim the lights below `brightness: 1`. This night mode is meant to temporarily turn the lights into a nightlight. This mode can be especially helpful when wall switches are also being used. For example, when a light is using the `night` effect one way to return it to its previous brightness level (other than using Home Assistant) is to switch the lights off and then back on from the wall switch.
 
@@ -86,7 +86,7 @@ automation:
           effect: night
 ```
 
-### {% linkable_title Properties %}
+### Properties
 
 Refer to the [light]({{site_root}}/components/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
 
@@ -107,7 +107,7 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
 - **Transitions**
   - If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible - the color will change immediately.
 
-### {% linkable_title Initialization & Synchronization %}
+### Initialization & Synchronization
 
 When starting Home Assistant, the last recorded state will be shown. This might no longer match the actual state of the bulbs.
 

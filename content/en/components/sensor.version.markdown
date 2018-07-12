@@ -28,7 +28,7 @@ Configuration variables:
 
 - **name** (*Optional*): Name of the sensor. Defaults to `Current Version`.
 
-## {% linkable_title Alternatives %}
+## Alternatives
 
 This sensor is an alternative to the existing solutions to achieve the same result through various platforms. Remember that you can easily get the installed version on the command line.
 

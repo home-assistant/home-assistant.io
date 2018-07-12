@@ -20,7 +20,7 @@ More information and a standalone version for regular Home Assistant installatio
 Screenshot of the HASS Configurator.
 </p>
 
-### {% linkable_title Feature list %}
+### Feature list
 
 - Web-based editor to modify your files with syntax highlighting.
 - Upload and download files.
@@ -33,7 +33,7 @@ Screenshot of the HASS Configurator.
 - Execute shell commands within the add-on container.
 - Editor settings are saved in your browser.
 
-### {% linkable_title Add-on Configuration %}
+### Add-on Configuration
 
 ```json
 {
@@ -65,7 +65,7 @@ Screenshot of the HASS Configurator.
 Be careful when setting up port forwarding to the configurator while embedding into Home Assistant. If you don't restrict access by requiring authentication and/or blocking based on client IP addresses, your configuration will be exposed to the internet!
 </p>
 
-### {% linkable_title Embedding into Home Assistant %}
+### Embedding into Home Assistant
 
 Using the Home Assistant component [panel_iframe](/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration from within the Home Assistant frontend.
 

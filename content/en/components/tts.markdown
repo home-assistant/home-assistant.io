@@ -12,7 +12,7 @@ ha_release: 0.35
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
-## {% linkable_title Configuring a `tts` platform %}
+## Configuring a `tts` platform
 
 To get started, add the following lines to your `configuration.yaml` (example for google):
 
@@ -45,7 +45,7 @@ tts:
     time_memory: 300
 ```
 
-## {% linkable_title Service say %}
+## Service say
 
 The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.
 
@@ -85,13 +85,13 @@ data_template:
   cache: false
 ```
 
-## {% linkable_title Cache %}
+## Cache
 
 The component has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
-## {% linkable_title REST Api %}
+## REST Api
 
-#### {% linkable_title POST /api/tts_get_url %}
+#### POST /api/tts_get_url
 
 Returns an URL to the generated TTS file. Platform and message are required.
 

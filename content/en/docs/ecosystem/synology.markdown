@@ -12,7 +12,7 @@ redirect_from: /ecosystem/synology/
 
 Synology NAS are the perfect companion to running Home Assistant. But by default, the DSM Reverse Proxy does not configure its NGINX settings to allow WebSocket, and some extra configuration will be required to get the Home Assistant frontend working with the DSM.
 
-### {% linkable_title Template change %}
+### Template change
 
 To allow WebSocket by default for all service exposed by NGINX, you can enable it in the template file located in `/usr/syno/share/nginx/Portal.mustache`. Please be really careful in editing this file since you may break access to the DSM UI. Please backup this file before any edition.
 
@@ -34,7 +34,7 @@ This will restart the running HTTP service, not only reverse proxy, as a single 
 
 You can find more information [here](https://github.com/orobardet/dsm-reverse-proxy-websocket).
 
-#### {% linkable_title HTTP Configuration %}
+#### HTTP Configuration
 
 - Copy the Home Assistant specific Reverse Proxy settings from the existing `/etc/nginx/app.d/server.ReverseProxy.conf` file to `/usr/local/etc/nginx/conf.d/http.HomeAssistant.conf`.
 - Include these lines in the location declaration:

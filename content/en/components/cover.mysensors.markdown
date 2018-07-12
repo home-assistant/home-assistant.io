@@ -33,7 +33,7 @@ All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the e
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /*

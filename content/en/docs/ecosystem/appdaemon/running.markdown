@@ -12,7 +12,7 @@ redirect_from: /ecosystem/appdaemon/running/
 
 As configured, `AppDaemon` comes with a single HelloWorld App that will send a greeting to the logfile to show that everything is working correctly.
 
-## {% linkable_title Docker %}
+## Docker
 
 Assuming you have set the config up as described above for Docker, you can run it with the command:
 
@@ -41,7 +41,7 @@ $ docker logs appdaemon
 
 Note that for Docker, the error and regular logs are combined.
 
-## {% linkable_title `pip3` %}
+## `pip3`
 
 You can then run AppDaemon from the command line as follows:
 
@@ -60,7 +60,7 @@ $ appdaemon -c conf/appdaemon.cfg
 2016-08-22 10:08:16,584 INFO You are now ready to run Apps!
 ```
 
-## {% linkable_title AppDaemon arguments %}
+## AppDaemon arguments
 
 ```
 usage: appdaemon [-h] [-c CONFIG] [-p PIDFILE] [-t TICK] [-s STARTTIME]

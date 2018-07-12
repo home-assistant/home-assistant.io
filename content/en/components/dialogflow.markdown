@@ -40,7 +40,7 @@ Using Dialogflow will be easy to create conversations like:
 
 To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
-### {% linkable_title Configuring your Dialogflow account %}
+### Configuring your Dialogflow account
 
 - [Login](https://console.dialogflow.com/) with your Google account
 - Click on "Create Agent"
@@ -61,11 +61,11 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 Take a look to "Integrations", in the left menu, to configure third parties.
 
 
-### {% linkable_title Configuring Home Assistant %}
+### Configuring Home Assistant
 
 When activated, the [`alexa` component](/components/alexa/) will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
-## {% linkable_title Examples %}
+## Examples
 
 Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
 

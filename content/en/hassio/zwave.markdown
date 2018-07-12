@@ -16,7 +16,7 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-### {% linkable_title RAZBERRY BOARD %}
+### RAZBERRY BOARD
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly; simply plug it into your PC and edit it there):
 
@@ -31,7 +31,7 @@ zwave:
   usb_path: /dev/ttyAMA0
 ```
 
-### {% linkable_title HUSBZB-1 %}
+### HUSBZB-1
 
 ```yaml
 zwave:
@@ -42,6 +42,6 @@ zha:
   database_path: /config/zigbee.db
 ```
 
-## {% linkable_title Further reading %}
+## Further reading
 
 For more information on using Z-Wave, see the [main documentation](/docs/z-wave/).

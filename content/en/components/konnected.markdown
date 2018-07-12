@@ -23,7 +23,7 @@ The component currently supports the following device types in Home Assistant:
 
 This component requires the [`discovery`](https://www.home-assistant.io/components/discovery) component to be enabled.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 A `konnected` section must be present in the `configuration.yml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
 
@@ -104,12 +104,12 @@ devices:
           required: false
 {% endconfiguration%}
 
-#### {% linkable_title Configuration Notes %}
+#### Configuration Notes
 
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 
-## {% linkable_title Full configuration  %}
+## Full configuration 
 
 ```yaml
 # Example configuration.yaml entry
@@ -141,7 +141,7 @@ konnected:
           activation: low
 ```
 
-### {% linkable_title Pin Mapping %}
+### Pin Mapping
 
 Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit WiFi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
 

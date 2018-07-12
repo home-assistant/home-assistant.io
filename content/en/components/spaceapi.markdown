@@ -14,7 +14,7 @@ ha_release: "0.70"
 
 The `spaceapi` component allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To setup the `spaceapi` component in your installation, add the following to your `configuration.yaml` file:
 
@@ -113,11 +113,11 @@ sensors:
       type: entity_id
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this component.
 
-### {% linkable_title Eastermundigen %}
+### Eastermundigen
 
 A possible configuration entry for [Eastermundigen](http://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
 

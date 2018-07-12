@@ -15,7 +15,7 @@ ha_release: 0.72
 The `watson_iot` component enables you to link the devices in Home Assistant
 with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace/internet-of-things-cloud).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this component, you first need to register a gateway device type and then
 a gateway device in your IoT platform instance. For instructions on how to do
@@ -84,9 +84,9 @@ include:
 {% endconfiguration %}
 
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 watson_iot:

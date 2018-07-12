@@ -31,7 +31,7 @@ Configuration variables:
 - **azure_region** (*Optional*): The region where you instantiated your Microsoft Cognitive services endpoint
 - **timeout** (*Optional)*: Set timeout for the API connection. Defaults to 10s.
 
-### {% linkable_title Person and Groups %}
+### Person and Groups
 
 For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistant creates an entity for all groups and allows you to show the state, person, and IDs directly on the frontend.
 

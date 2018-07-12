@@ -19,7 +19,7 @@ The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fa
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### {% linkable_title Supported fan devices %}
+### Supported fan devices
 
 - Home Decorator Wink-enabled Gardinier ceiling fan
 - Hampton Bay ceiling fan module 

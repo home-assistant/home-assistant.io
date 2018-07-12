@@ -13,7 +13,7 @@ ha_release: 0.32
 
 The `mochad` component is the main component to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component you will have to setup your X10 devices separately.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate your Mochad units with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -35,7 +35,7 @@ port:
   default: 1099
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 A full configuration sample could look like the one below:
 

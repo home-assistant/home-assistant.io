@@ -21,13 +21,13 @@ vacuum:
     host: 192.168.1.2
 ```
 
-### {% linkable_title Component services %}
+### Component services
 
 Available services: `turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
-#### {% linkable_title Service `vacuum.turn_on` %}
+#### Service `vacuum.turn_on`
 
 Start a new cleaning task.
 
@@ -35,7 +35,7 @@ Start a new cleaning task.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.turn_off` %}
+#### Service `vacuum.turn_off`
 
 Stop the current cleaning task and return to the dock.
 
@@ -43,7 +43,7 @@ Stop the current cleaning task and return to the dock.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.start_pause` %}
+#### Service `vacuum.start_pause`
 
 Start, pause or resume a cleaning task.
 
@@ -51,7 +51,7 @@ Start, pause or resume a cleaning task.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.stop` %}
+#### Service `vacuum.stop`
 
 Stop the current activity of the vacuum.
 
@@ -59,7 +59,7 @@ Stop the current activity of the vacuum.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.return_to_home` %}
+#### Service `vacuum.return_to_home`
 
 Tell the vacuum to return home.
 
@@ -67,7 +67,7 @@ Tell the vacuum to return home.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.locate` %}
+#### Service `vacuum.locate`
 
 Locate the vacuum cleaner robot.
 
@@ -75,7 +75,7 @@ Locate the vacuum cleaner robot.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.clean_spot` %}
+#### Service `vacuum.clean_spot`
 
 Tell the vacuum cleaner to do a spot clean-up.
 
@@ -83,7 +83,7 @@ Tell the vacuum cleaner to do a spot clean-up.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.set_fanspeed` %}
+#### Service `vacuum.set_fanspeed`
 
 Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
@@ -92,7 +92,7 @@ Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 | `fanspeed`                |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
-#### {% linkable_title Service `vacuum.send_command` %}
+#### Service `vacuum.send_command`
 
 Send a platform-specific command to the vacuum cleaner.
 

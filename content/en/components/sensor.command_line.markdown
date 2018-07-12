@@ -33,11 +33,11 @@ Configuration variables:
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 - **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Hard drive temperature %}
+### Hard drive temperature
 
 There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
 
@@ -57,7 +57,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title CPU temperature %}
+### CPU temperature
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
@@ -74,7 +74,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Monitoring failed login attempts on Home Assistant %}
+### Monitoring failed login attempts on Home Assistant
 
 If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your `configuration.yaml` file:
 
@@ -96,7 +96,7 @@ logger:
     homeassistant.components.http: warning
 ```
 
-### {% linkable_title Details about the upstream Home Assistant release %}
+### Details about the upstream Home Assistant release
 
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
@@ -107,7 +107,7 @@ sensor:
     name: HA release
 ```
 
-### {% linkable_title Read value out of a remote text file %}
+### Read value out of a remote text file
 
 If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
@@ -118,7 +118,7 @@ sensor:
     name: File value
 ```
 
-### {% linkable_title Use an external script %}
+### Use an external script
 
 The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
@@ -147,7 +147,7 @@ sensor:
     command: "python3 /path/to/script/arest-value.py"
 ```
 
-### {% linkable_title Usage of templating in `command:` %}
+### Usage of templating in `command:`
 
 [Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 

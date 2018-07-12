@@ -33,7 +33,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
 
@@ -112,7 +112,7 @@ The following are attributes that can be applied in the `entities` section:
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
 </p>
 
-### {% linkable_title Troubleshooting %}
+### Troubleshooting
 
 You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL:
 
@@ -128,6 +128,6 @@ sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin
 ```
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
 
-### {% linkable_title License %}
+### License
 
 Much of this code is based on work done by Bruce Locke on his [ha-local-echo](https://github.com/blocke/ha-local-echo) project, originally released under the MIT License. The license is located [here](https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE).

@@ -29,7 +29,7 @@ The advantages of using Hass.io:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Upgrading %}
+### Upgrading
 
 Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. However please note that Home Assistant updates take time to roll into the Hass.io builds. Therefore there is often a slight delay between the availability of a Home Assistant update and an update being available in Hass.io, be patient. When a Hass.io update is available, it will be shown as available on the ‘Hass.io' page in your UI.
 
@@ -55,7 +55,7 @@ Hass.io upgrade process from the SSH command line
 [Docker]: https://www.docker.com/
 [install]: /hassio/installation/
 
-## {% linkable_title hassio command %}
+## hassio command
 
 On the SSH command line you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
 

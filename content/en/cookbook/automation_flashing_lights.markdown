@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Flashing lights triggered by an alarm %}
+#### Flashing lights triggered by an alarm
 
 For flashing regular lights in case an alarm is triggered.
 

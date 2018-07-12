@@ -43,7 +43,7 @@ Configuration variables:
 - **timeout** (*Optional*): Set timeout for connections to Kodi. Defaults to 5 seconds.
 
 
-### {% linkable_title Service `kodi_add_to_playlist` %}
+### Service `kodi_add_to_playlist`
 
 Add music to the default playlist (i.e. playlistid=0).
 
@@ -56,7 +56,7 @@ Add music to the default playlist (i.e. playlistid=0).
 | `artist_name` | no | Optional artist name for filtering media.
 
 
-### {% linkable_title Service `kodi_call_method` %}
+### Service `kodi_call_method`
 
 Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
@@ -67,7 +67,7 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 | any other parameter | no | Optional parameters for the Kodi API call.
 
 
-### {% linkable_title Event triggering %}
+### Event triggering
 
 When calling the `kodi_call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
@@ -78,7 +78,7 @@ input: <input parameters of the service call>
 result: <data received from the Kodi API>
 ```
 
-### {% linkable_title Kodi turn on/off samples %}
+### Kodi turn on/off samples
 
 With the `turn_on_action` and `turn_off_action` parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the **migration instructions for the old `turn_off_action` list of options**.
 
@@ -199,7 +199,7 @@ media_player:
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
 </p>
 
-### {% linkable_title Kodi services samples %}
+### Kodi services samples
 
 #### Simple script to turn on the PVR in some channel as a time function
 

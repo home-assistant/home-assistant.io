@@ -38,7 +38,7 @@ Configuration variables:
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 - **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 # Example configuration.yaml entry specifying optional parameters
@@ -49,7 +49,7 @@ hue:
       allow_hue_groups: true
 ```
 
-### {% linkable_title Migrating from older configuration %}
+### Migrating from older configuration
 
 In previous versions of the `hue` component the configuration looked different:
 
@@ -62,7 +62,7 @@ light:
 
 You will need to convert each bridge into an entry in the new configuration style. See above for an example.
 
-### {% linkable_title Multiple Hue bridges %}
+### Multiple Hue bridges
 
 Multiple Hue bridges work transparently with discovery, you don't have to do anything. If you prefer to configure them manually and use multiple Hue bridges then it's needed that you provide a configuration file for every bridge. The bridges can't share a single configuration file.
 
@@ -78,7 +78,7 @@ hue:
       filename: phue2.conf
 ```
 
-### {% linkable_title Using Hue Groups in Home Assistant %}
+### Using Hue Groups in Home Assistant
 
 The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
 
@@ -111,7 +111,7 @@ Home Assistant will automatically detect your new `LightGroup` and add it to the
 More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
 
 
-### {% linkable_title Using Hue Scenes in Home Assistant %}
+### Using Hue Scenes in Home Assistant
 
 The Hue platform has its own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
@@ -137,7 +137,7 @@ script:
 
 *Note*: `group_name` is not linked to Home Assistant group name.
 
-### {% linkable_title Finding Group and Scene Names %}
+### Finding Group and Scene Names
 
 How do you find these names?
 
@@ -145,7 +145,7 @@ The easiest way to do this is only use the scenes from the 2nd generation Hue ap
 
 Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together but it's sufficient to get values that you can test in the `dev-service` console.
 
-### {% linkable_title Caveats %}
+### Caveats
 
 The Hue API doesn't activate scenes directly, only on a Hue Group (typically rooms, especially if using the 2nd gen app). But Hue Scenes don't actually reference their group. So heuristic matching is used.
 

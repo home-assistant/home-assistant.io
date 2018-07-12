@@ -15,7 +15,7 @@ For this release we put a lot of focus on finishing our async upgrade and fix a 
 
 But a new release wouldn't be awesome if it didn't had some new goodies and this release is no different. This release includes a new calendar component by [@mnestor]. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!
 
-### {% linkable_title Changes %}
+### Changes
 
 - New [calendar component][google] including Google support ([@mnestor])
 - Final core upgrade for async ([@pvizeli])
@@ -39,11 +39,11 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 - Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
 - Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
 
-### {% linkable_title Release 0.33.1 - November 20 %}
+### Release 0.33.1 - November 20
 
  - Fix Z-Wave lights ([@turbokongen])
 
-### {% linkable_title Release 0.33.2 - November 22 %}
+### Release 0.33.2 - November 22
 
  - Fix Device Tracker init ([@pvizeli])
  - Fix Discovery init ([@pvizeli])
@@ -52,24 +52,24 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Neato fixes ([@turbokongen])
  - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
 
-### {% linkable_title Release 0.33.3 - November 23 %}
+### Release 0.33.3 - November 23
 
  - Update Yr.no entities every hour ([@kellerza])
  - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
  - Fix discovery race condition (most obvious in Wemo) ([@balloob])
 
-### {% linkable_title Release 0.33.4 - November 24 %}
+### Release 0.33.4 - November 24
 
  - Set executor pool size to 10 (as intended) ([@pvizeli])
 
 This should fix occasional performance problems that some people have reported.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
 
-### {% linkable_title Reporting issues %}
+### Reporting issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker]. Make sure to fill in all fields of the issue template.
 

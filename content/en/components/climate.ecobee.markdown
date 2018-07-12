@@ -17,7 +17,7 @@ ha_iot_class: "Cloud Push"
 To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general [Ecobee component](/components/ecobee/).
 </p>
 
-## {% linkable_title Concepts %}
+## Concepts
 
 The Ecobee Thermostat supports the following key concepts.
 
@@ -54,7 +54,7 @@ modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
 auto, and off.
 
  
-## {% linkable_title Attributes %}
+## Attributes
 
 The following attributes are provided by the Ecobee Thermostat:
 `name`, `temperature_unit`, `current_temperature`, `target_temperature`, 
@@ -65,7 +65,7 @@ The following attributes are provided by the Ecobee Thermostat:
 The attributes `min_temp` and `max_temp` are meaningless constant values.
 
 
-### {% linkable_title Attribute `name` %}
+### Attribute `name`
 
 Returns the name of the Ecobee Thermostat.
 
@@ -73,7 +73,7 @@ Returns the name of the Ecobee Thermostat.
 | ---------------| ----------- |
 | String | Name of the Ecobee Thermostat
 
-### {% linkable_title Attribute `temperature_unit` %}
+### Attribute `temperature_unit`
 
 Returns the unit of measurement used for temperature by the thermostat.
 
@@ -81,7 +81,7 @@ Returns the unit of measurement used for temperature by the thermostat.
 | ---------------| ----------- |
 | String | Name of the temperature unit
 
-### {% linkable_title Attribute `current_temperature` %}
+### Attribute `current_temperature`
 
 Returns the current temperature measured by the thermostat.
 
@@ -89,7 +89,7 @@ Returns the current temperature measured by the thermostat.
 | ---------------| ----------- |
 | Integer | Currently measured temperature
 
-### {% linkable_title Attribute `target_temperature` %}
+### Attribute `target_temperature`
 
 Returns the target temperature of the thermostat, when the thermostat is
 not in auto operation mode.
@@ -98,7 +98,7 @@ not in auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `target_temperature_low` %}
+### Attribute `target_temperature_low`
 
 Returns the desired heating temperature set in the thermostat when in
 auto operation mode.
@@ -107,7 +107,7 @@ auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `target_temperature_high` %}
+### Attribute `target_temperature_high`
 
 Returns the desired cooling temperature set in the thermostat when in
 auto operation mode.
@@ -116,7 +116,7 @@ auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `desired_fan_mode` %}
+### Attribute `desired_fan_mode`
 
 Returns the desired fan mode of the current operation.
 
@@ -124,7 +124,7 @@ Returns the desired fan mode of the current operation.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-### {% linkable_title Attribute `fan` %}
+### Attribute `fan`
 
 Returns the current fan state.
 
@@ -132,7 +132,7 @@ Returns the current fan state.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-### {% linkable_title Attribute `current_hold_mode` %}
+### Attribute `current_hold_mode`
 
 Returns the current temperature hold, if any.
 
@@ -140,7 +140,7 @@ Returns the current temperature hold, if any.
 | ---------------| ----------- |
 | String | 'temp', 'vacation', 'home', 'away', etc., None
 
-### {% linkable_title Attribute `current_operation` %}
+### Attribute `current_operation`
 
 Returns the current operation of the thermostat.
 
@@ -148,7 +148,7 @@ Returns the current operation of the thermostat.
 | ---------------| ----------- |
 | String | 'auto', 'cool', 'heat', 'off'
 
-### {% linkable_title Attribute `operation_list` %}
+### Attribute `operation_list`
 
 Returns the list of available operation modes.
 
@@ -156,7 +156,7 @@ Returns the list of available operation modes.
 | ---------------| ----------- |
 | List of String | Available operation modes
 
-### {% linkable_title Attribute `operation_mode` %}
+### Attribute `operation_mode`
 
 Returns the current operation mode of the thermostat.
 
@@ -164,12 +164,12 @@ Returns the current operation mode of the thermostat.
 | ---------------| ----------- |
 | String | Currently active operation mode
 
-### {% linkable_title Attribute `mode` %}
+### Attribute `mode`
 
 Returns the climate currently active on the thermostat. The mode
 is returned as the user-visible name (rather than the internally used name).
 
-### {% linkable_title Attribute `fan_min_on_time` %}
+### Attribute `fan_min_on_time`
 
 Returns the current fan minimum on time.
 
@@ -177,12 +177,12 @@ Returns the current fan minimum on time.
 | ---------------| ----------- |
 | Integer | Current fan minimum on time in minutes
 
-### {% linkable_title Attribute `is_away_mode_on` %}
+### Attribute `is_away_mode_on`
 
 Returns whether the thermostat is in away mode (see the corresponding
 service for more detail).
 
-### {% linkable_title Attribute `actual humidity` %}
+### Attribute `actual humidity`
 
 Returns the humidity as measured by the thermostat.
 
@@ -190,7 +190,7 @@ Returns the humidity as measured by the thermostat.
 | ---------------| ----------- |
 | Integer | Current humidity
 
-### {% linkable_title Attribute `vacation` %}
+### Attribute `vacation`
 
 Returns the currently active vacation or `None`.
 
@@ -198,11 +198,11 @@ Returns the currently active vacation or `None`.
 | ---------------| ----------- |
 | String | Name of currently active vacation |
 
-### {% linkable_title Attribute `climate_list` %}
+### Attribute `climate_list`
 
 Returns the list of climates defined in the thermostat.
 
-### {% linkable_title Attribute `aux_heat` %}
+### Attribute `aux_heat`
 
 Returns the current auxiliary heat state.
 
@@ -210,7 +210,7 @@ Returns the current auxiliary heat state.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-## {% linkable_title Services %}
+## Services
 
 The following services are provided by the Ecobee Thermostat:
 `set_away_mode`, `set_hold_mode`, `set_temperature`, `set_operation_mode`, 
@@ -221,7 +221,7 @@ are not implemented for this thermostat.
 
 
 
-### {% linkable_title Service `set_away_mode` %}
+### Service `set_away_mode`
 
 Turns the away mode on or off for the thermostat.
 
@@ -231,7 +231,7 @@ Turns the away mode on or off for the thermostat.
 | `away_mode` | no | 'on' or 'off'
 
 
-### {% linkable_title Service `set_hold_mode` %}
+### Service `set_hold_mode`
 
 Puts the thermostat into the given hold mode. For 'home', 'away', 'sleep',
 and any other hold based on a reference climate, the
@@ -247,7 +247,7 @@ canceled.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `hold_mode` | no | 'temp', 'home', 'away', 'sleep', etc., None
 
-### {% linkable_title Service `set_temperature` %}
+### Service `set_temperature`
 
 Puts the thermostat into a temporary hold at the given temperature.
 
@@ -261,7 +261,7 @@ Puts the thermostat into a temporary hold at the given temperature.
 Only the target temperatures relevant for the current operation mode need to
 be provided.
 
-### {% linkable_title Service `set_operation_mode` %}
+### Service `set_operation_mode`
 
 Sets the current operation mode of the thermostat.
 
@@ -270,7 +270,7 @@ Sets the current operation mode of the thermostat.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `operation_mode` | no | 'auto', 'auxHeatOnly', 'cool', 'heat', 'off'
 
-### {% linkable_title Service `fan_min_on_time` %}
+### Service `fan_min_on_time`
 
 Sets the fan minimum on time.
 
@@ -279,7 +279,7 @@ Sets the fan minimum on time.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `fan_min_on_time` | no | Desired fan minimum on time
 
-### {% linkable_title Service `resume_program` %}
+### Service `resume_program`
 
 Resumes the currently active schedule.
 

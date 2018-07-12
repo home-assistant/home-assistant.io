@@ -18,7 +18,7 @@ For interval control, use `scan_interval` in platform.
 If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
 </p>
 
-## {% linkable_title ALPR %}
+## ALPR
 
 Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
 
@@ -39,7 +39,7 @@ automation:
 
 The following event attributes will be present (platform-dependent): `entity_id`, `plate`, `confidence`
 
-## {% linkable_title Face %}
+## Face
 
 Face entities attribute have a face counter `total_faces` and all face data as `faces`.
 

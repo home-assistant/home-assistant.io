@@ -79,7 +79,7 @@ There are some rules for packages that will be merged:
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the component name.
 </p>
 
-### {% linkable_title Create a packages folder %}
+### Create a packages folder
 
 One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
 

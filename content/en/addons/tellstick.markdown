@@ -44,7 +44,7 @@ To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tell
 
 The add-on will also enable you to interact with the `tdtool` via a Home Assistant services call, see example below for self-learning device.
 
-## {% linkable_title Examples %}
+## Examples
 
 Example for adding more devices in the add-on configuration (note the comma separator between devices):
 

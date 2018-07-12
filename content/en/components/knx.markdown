@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](/components/notify.knx)
 - [Scene](/components/scene.knx)
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -85,7 +85,7 @@ knx:
 - **fire_event_filter** (*Optional*): If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus. 
 - **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
 
-### {% linkable_title Services %}
+### Services
 
 In order to directly interact with the KNX bus, you can now use the following service:
 
@@ -98,7 +98,7 @@ Service Data: {"address": "1/0/15", "payload": 0}
 * **address**: KNX group address
 * **payload**: Payload, either an integer or an array of integers
 
-### {% linkable_title Exposing sensor values or time to knx bus %}
+### Exposing sensor values or time to knx bus
 
 KNX component is able to expose time or sensor values to KNX bus. The component will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 
@@ -120,7 +120,7 @@ knx:
 * **address**: KNX group address.
 
 
-### {% linkable_title Known issues %}
+### Known issues
 
 Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.
 

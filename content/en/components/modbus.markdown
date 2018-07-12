@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add modbus to your installation, add the following to your `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ Configuration variables:
 - **parity** (*Required*): The parity for the serial connection.
 - **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
-### {% linkable_title Services %}
+### Services
 
 
 | Service | Description |
@@ -73,7 +73,7 @@ Configuration variables:
 | write_register | Write register. Requires `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
 
-## {% linkable_title Building on top of Modbus %}
+## Building on top of Modbus
 
  - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
  - [Modbus Sensor](/components/sensor.modbus/)

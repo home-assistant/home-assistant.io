@@ -14,7 +14,7 @@ redirect_from: /getting-started/z-wave-panel/
   If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
 </p>
 
-## {% linkable_title Z-Wave Network Management %}
+## Z-Wave Network Management
 
 Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices from your network.
 
@@ -30,7 +30,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
 * **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
 
-## {% linkable_title Z-Wave Node Management %}
+## Z-Wave Node Management
 
 <p class='note warning'>
 Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change the default *friendly_name* attribute for all the entities). If you would like to update the entity id after renaming a z-wave device, you need to manually edit the [entity_registry.yaml](/docs/configuration/entity-registry/) file. See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
@@ -51,7 +51,7 @@ Since 0.63 and the new experimental [entity registry](/docs/configuration/entity
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
 
-#### {% linkable_title Entities of this node %}
+#### Entities of this node
 
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
@@ -64,7 +64,7 @@ The **Polling intensity** says how many poll intervals does is this device polle
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
-### {% linkable_title Node Information %}
+### Node Information
 
 This will display the Z-Wave related information about the node:
 
@@ -96,11 +96,11 @@ This will display the Z-Wave related information about the node:
 * **sentTS** The date and time the last message was sent to the ndoe
 * **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
 
-### {% linkable_title Node Values %}
+### Node Values
 
 Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
 
-### {% linkable_title Node group associations %}
+### Node group associations
 
 Where the device supports the *Association* command class, this will allow you to associate the device with another. OpenZWave will automatically associate the device with the controller, to provide instant updates when the device doesn't support the *Hail* command class.
 
@@ -108,7 +108,7 @@ You can use this to enable one device to directly control another. This is prima
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
 
-#### {% linkable_title Broadcast group %}
+#### Broadcast group
 
 Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
 
@@ -118,13 +118,13 @@ Some Z-Wave devices may associate themselves with the broadcast group (group 255
 
 That would remove the broadcast group from association group 1 of the device with node_id 3.
 
-### {% linkable_title Node config options %}
+### Node config options
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
-## {% linkable_title Node user codes %}
+## Node user codes
 
 If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
@@ -157,7 +157,7 @@ for c in sys.argv[1]:
     print(translations[c], end='')
 ```
 
-## {% linkable_title OZW Log %}
+## OZW Log
 
 If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Refresh** to display the log if you need it to check activities.

@@ -20,7 +20,7 @@ The `nest` sensor platform lets you monitor sensors connected to your [Nest](htt
 You must have the [Nest component](/components/nest/) configured to use these sensors. The sensors will be setup if the `nest` component is configured and the required configuration for the `nest sensor` is set.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 ```yaml
@@ -56,7 +56,7 @@ The following conditions are available by device:
   - color\_status: `gray`, `green`, `yellow`, or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
-## {% linkable_title Security State %}
+## Security State
 
 <p class='note warning'>
 This feature is not designed to transfer your Home Assitant to a secruity system, neither Home Assistant nor Nest be liable to You for damages,

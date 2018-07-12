@@ -57,7 +57,7 @@ script: 
           entity_id: group.living_room
 ```
 
-### {% linkable_title Passing variables to scripts %}
+### Passing variables to scripts
 
 As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
@@ -113,7 +113,7 @@ script:
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
 
-### {% linkable_title In the Overview %}
+### In the Overview
 
 Scripts in the Overview panel will be displayed with an **ACTIVATE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
 

@@ -32,7 +32,7 @@ Configuration variables:
 
 Currently it supports doorbell and stickup cameras.
 
-## {% linkable_title Saving the videos captured by your Ring Door Bell %}
+## Saving the videos captured by your Ring Door Bell
 
 You can save locally the latest video captured by your Ring Door Bell using the [downloader](/components/downloader) along with either an [automation](/components/automation) or [python_script](/components/python_script). First, enable the [downloader](/components/downloader) component in your configuration by adding the following to your `configuration.yaml`.
 

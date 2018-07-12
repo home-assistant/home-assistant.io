@@ -42,7 +42,7 @@ Configuration variables:
 - **delta_temperature** (*Optional*): Absolute delta for temperature correction.
 - **monitored_conditions** array  (*Optional*): Conditions to monitor. Available conditions are *temperature*, *humidity* and *pressure*. By default all three are displayed.
 
-## {% linkable_title Full Examples %}
+## Full Examples
 
 If you want to specify the working mode of the digital sensor or need to change the default I2c address (which is 0x76), add more details to the `configuration.yaml` file:
 
@@ -67,7 +67,7 @@ sensor:
 
 This sensor is somehow famous for generating relatively high temperature measurements compared to other sensors (it looks like self-heating does not feel good for some encapsulations). If you experience this problem, you can define an absolute delta of temperature correction using a negative number.
 
-## {% linkable_title Customizing the sensor data %}
+## Customizing the sensor data
 
 Give the values friendly names and icons, add the following to your `customize:` section.
 
@@ -98,7 +98,7 @@ group:
       - sensor.ambient_pressure
 ```
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -122,7 +122,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

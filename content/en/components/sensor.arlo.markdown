@@ -17,7 +17,7 @@ To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assist
 
 This platform does not support Arlo Q.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 

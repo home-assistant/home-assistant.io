@@ -17,7 +17,7 @@ The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a sourc
 
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the Buienradar weather to your installation, add the following to your `configuration.yaml` file:
 

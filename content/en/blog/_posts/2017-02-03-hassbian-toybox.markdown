@@ -14,7 +14,7 @@ Why Toy-box you wonder? Because it encompass the changes pretty well.
 
 Changes from previous image are big and small but lets start with the interesting things.
 
-### {% linkable_title Hassbian-scripts %}
+### Hassbian-scripts
 A set of script written to add extra functionality to your Raspberry Pi installation. 
 This scripts are run as the `pi` user and installs a set of tools or packages.
 Currently includes:
@@ -36,7 +36,7 @@ $ sudo ./hassbian-scripts/install_libcec.sh
 
 For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 
 
-### {% linkable_title Spring cleaning %}
+### Spring cleaning
 With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.
  - Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer. This image is basically a Raspbian lite image with Home Assistant, dependencies and a small set of changes to the base system.
  - Removed Mosquitto. Not as bad as it sounds since it's installation has been move to one of our new hassbian-scripts.
@@ -46,7 +46,7 @@ With this image there also quite a bit of cleaning of the base system and the sc
  - Added tmux. A great terminal multiplexer that makes working with the command line over ssh easier.
  - Added the `homeassistant` user to the `dialout` group. Simplifies use of hardware such as ZWave USB controllers that requires this permission.
  
-### {% linkable_title On the horizon %}
+### On the horizon
 There's of course more on the horizon and there's even more plans and wishes for how this image will function in the future.
 On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.
 

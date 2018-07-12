@@ -17,7 +17,7 @@ The `postnl` platform allows one to track deliveries by [PostNL](https://www.pos
 
 The sensor value shows the number of packages to be delivered. Each of the packages is available as an attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

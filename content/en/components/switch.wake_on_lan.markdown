@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 <p class='note warning'>
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
@@ -39,11 +39,11 @@ Configuration variables:
 - **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
 - **broadcast_address** (*Optional*): The IP address of the host to send the magic packet to (default 255.255.255.255).
 
-## {% linkable_title Examples %}
+## Examples
 
 Here are some real life examples of how to use the **turn_off** variable.
 
-### {% linkable_title Suspending Linux %}
+### Suspending Linux
 
 Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).

@@ -38,7 +38,7 @@ Configuration variables:
 
 - **resources** array (*Required*): Contains all entries to display.
 
-### {% linkable_title Example  %}
+### Example 
 
 Given the following output from `apcaccess`:
 

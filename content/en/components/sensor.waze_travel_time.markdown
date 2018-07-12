@@ -17,7 +17,7 @@ The `waze_travel_time` sensor provides travel time from the [Waze](https://www.w
 
 Unit system is set to metric system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor in your installation, add the following `sensor` section to your `configuration.yaml` file:
 

@@ -14,7 +14,7 @@ ha_iot_class: depends
 
 The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
@@ -185,7 +185,7 @@ payload_not_available:
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## Comparison of light MQTT platforms
 
 | Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
@@ -199,11 +199,11 @@ payload_not_available:
 | HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real life examples of how to use this sensor.
 
-### {% linkable_title Brightness and RGB support %}
+### Brightness and RGB support
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
@@ -229,7 +229,7 @@ light:
 ```
 {% endraw %}
 
-### {% linkable_title Brightness and no RGB support %}
+### Brightness and no RGB support
 
 To enable a light with brightness (no RGB version) in your installation, add the following to your `configuration.yaml` file:
 
@@ -248,7 +248,7 @@ light:
     optimistic: false
 ```
 
-### {% linkable_title Brightness without on commands %}
+### Brightness without on commands
 
 To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
 
@@ -265,7 +265,7 @@ light:
     on_command_type: 'brightness'
 ```
 
-### {% linkable_title Implementations %}
+### Implementations
 
 - A [basic example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light) using a nodeMCU board (ESP8266) to control its built-in LED (on/off).
 - Another [example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) to control a RGB LED (on/off, brightness, and colors).

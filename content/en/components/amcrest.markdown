@@ -15,7 +15,7 @@ ha_release: 0.49
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable your camera in your installation, add the following to your `configuration.yaml` file:
 

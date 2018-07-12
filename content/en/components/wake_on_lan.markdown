@@ -22,11 +22,11 @@ To use this component in your installation, add the following to your `configura
 wake_on_lan:
 ```
 
-### {% linkable_title Component services %}
+### Component services
 
 Available services: `send_magic_packet`.
 
-#### {% linkable_title Service `wake_on_lan/send_magic_packet` %}
+#### Service `wake_on_lan/send_magic_packet`
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 

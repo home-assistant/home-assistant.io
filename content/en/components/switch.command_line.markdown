@@ -42,11 +42,11 @@ A note on `friendly_name`:
 
 When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this switch.
 
-### {% linkable_title aREST device %}
+### aREST device
 
 The example below is doing the same as the [aREST switch](/components/switch.arest/). The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
 
@@ -65,7 +65,7 @@ switch:
 
 Given this example, in the UI one would see the `friendly_name` of "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the `entity_id` `switch.arest_pin_four`, which is what one would use in [`automation`](/components/automation/) or in [API calls](/developers/).
 
-### {% linkable_title Shutdown your local host %}
+### Shutdown your local host
 
 This switch will shutdown your system that is hosting Home Assistant.
 
@@ -83,7 +83,7 @@ switch:
       command_off: "/usr/sbin/poweroff"
 ```
 
-### {% linkable_title Control your VLC player %}
+### Control your VLC player
 
 This switch will control a local VLC media player ([Source](https://community.home-assistant.io/t/vlc-player/106)).
 
@@ -98,7 +98,7 @@ switch:
       command_off: "pkill vlc"
 ```
 
-### {% linkable_title Control Foscam Motion Sensor %}
+### Control Foscam Motion Sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). This switch supports statecmd, which checks the current state of motion detection.
 

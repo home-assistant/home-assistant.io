@@ -53,7 +53,7 @@ or change its state:
 $ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 ```
 
-### {% linkable_title Get the current power consumption %}
+### Get the current power consumption
 
 The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
 

@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The `rainmachine` component is the main component to integrate all platforms
 related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
 
-## {% linkable_title Base Configuration %}
+## Base Configuration
 
 To connect to your RainMachine device, add the following to your
 `configuration.yaml` file:
@@ -99,9 +99,9 @@ switches:
       default: 600
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title `rainmachine.start_program` %}
+### `rainmachine.start_program`
 
 Start a RainMachine program.
 
@@ -109,7 +109,7 @@ Start a RainMachine program.
 |---------------------------|----------|----------------------|
 | `program_id`              |      no  | The program to start |
 
-### {% linkable_title `rainmachine.start_zone` %}
+### `rainmachine.start_zone`
 
 Start a RainMachine zone for a set number of seconds.
 
@@ -118,11 +118,11 @@ Start a RainMachine zone for a set number of seconds.
 | `zone_id`                 |      no  | The zone to start                                    |
 | `zone_run_time`           |      yes | The number of seconds to run; defaults to 60 seconds |
 
-### {% linkable_title `rainmachine.stop_all` %}
+### `rainmachine.stop_all`
 
 Stop all watering activities.
 
-### {% linkable_title `rainmachine.stop_program` %}
+### `rainmachine.stop_program`
 
 Stop a RainMachine program.
 
@@ -130,7 +130,7 @@ Stop a RainMachine program.
 |---------------------------|----------|----------------------|
 | `program_id`              |      no  | The program to stop  |
 
-### {% linkable_title `rainmachine.stop_zone` %}
+### `rainmachine.stop_zone`
 
 Stop a RainMachine zone.
 

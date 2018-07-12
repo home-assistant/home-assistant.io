@@ -19,7 +19,7 @@ The `august` component allows you to integrate your [August](http://august.com) 
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will need your August login information (username (either phone# or email), and password) to use this module.
 

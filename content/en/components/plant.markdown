@@ -49,7 +49,7 @@ Configuration variables:
   - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
   - **check_days** (*Optional*): time interval (in days) used when checking **min_brightness**, if not set, the default value is 3
 
-## {% linkable_title Examples %}
+## Examples
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
 Another good source of this data would be the [Mi Flora](/components/sensor.miflora/) component. 

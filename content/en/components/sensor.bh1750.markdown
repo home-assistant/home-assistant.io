@@ -39,7 +39,7 @@ Configuration variables:
 - **multiplier** (*Optional*): Correction coefficient to multiply the measured light level. Value between 0.1 and 10. Default is 1.
 
 
-## {% linkable_title Full Examples %}
+## Full Examples
 
 If you want to specify the resolution mode of the digital sensor or need to change the default I2c address (which is 0x23), add more details to the `configuration.yaml` file.
 
@@ -56,7 +56,7 @@ sensor:
     scan_interval: 25
 ```
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -80,7 +80,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

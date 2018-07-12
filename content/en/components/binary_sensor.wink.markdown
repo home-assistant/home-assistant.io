@@ -19,7 +19,7 @@ The Wink binary sensor platform allows you to get data from your [Wink](http://w
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### {% linkable_title Supported Binary sensor devices %}
+### Supported Binary sensor devices
 
 - Smoke and CO detectors (No Wink hub required for Nest)
 - Window/Door sensors

@@ -66,7 +66,7 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### {% linkable_title Using Environment Variables %}
+### Using Environment Variables
 
 You can include values from your system's environment variables with `!env_var`.
 
@@ -84,7 +84,7 @@ http:
   api_password: !env_var PASSWORD default_password
 ```
 
-### {% linkable_title Including Separate Files %}
+### Including Separate Files
 
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
@@ -94,9 +94,9 @@ lights: !include lights.yaml
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
 
-## {% linkable_title Common Issues %}
+## Common Issues
 
-### {% linkable_title found character '\t' %}
+### found character '\t'
 
 If you see the following message:
 

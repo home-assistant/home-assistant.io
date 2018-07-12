@@ -72,7 +72,7 @@ automation:
 
 `device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
-## {% linkable_title Disconnections %}
+## Disconnections
 
 This component manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
 
@@ -105,7 +105,7 @@ automation:
           media_content_type: music
 ```
 
-## {% linkable_title Permissions %}
+## Permissions
 
 There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:
 

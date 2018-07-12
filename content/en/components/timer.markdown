@@ -38,16 +38,16 @@ Configuration variables:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
-## {% linkable_title Events %}
+## Events
 
 |           Event | Description |
 | --------------- | ----------- |
 | timer.cancelled | Fired when a timer has been canceled |
 |  timer.finished | Fired when a timer has completed |
 
-## {% linkable_title Services %}
+## Services
 
-#### {% linkable_title Service `timer.start` %}
+#### Service `timer.start`
 
 Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
 If no `entity_id` is given all active timers will be started.
@@ -57,7 +57,7 @@ If no `entity_id` is given all active timers will be started.
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
 
-#### {% linkable_title Service `timer.pause` %}
+#### Service `timer.pause`
 
 Pause a running timer. This will retain the remaining duration for later continuation. If no `entity_id` is given all active timers will be paused.
 
@@ -65,7 +65,7 @@ Pause a running timer. This will retain the remaining duration for later continu
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 
-#### {% linkable_title Service `timer.cancel` %}
+#### Service `timer.cancel`
 
 Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. If no `entity_id` is given all active timers will be canceled.
 
@@ -73,7 +73,7 @@ Cancel an active timer. This resets the duration to the last known initial value
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 
-#### {% linkable_title Service `timer.finish` %}
+#### Service `timer.finish`
 
 Manually finish a running timer earlier than scheduled. If no `entity_id` is given all active timers will be finished.
 
@@ -82,7 +82,7 @@ Manually finish a running timer earlier than scheduled. If no `entity_id` is giv
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **timer** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 
@@ -92,7 +92,7 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 Set a timer called `test` to a duration of 30 seconds. 
 
@@ -103,7 +103,7 @@ timer:
     duration: '00:00:30'
 ```
 
-### {% linkable_title Control a timer from the frontend %}
+### Control a timer from the frontend
 
 ```yaml
 # Example automations.yaml entry
@@ -132,7 +132,7 @@ timer:
       message: "Timer stop"
 ```
 
-### {% linkable_title Control a timer from the frontend %}
+### Control a timer from the frontend
 
 With the [`script`](/components/script/) component you would be able to control a timer (see above for a `timer` configuration sample) manually.
 

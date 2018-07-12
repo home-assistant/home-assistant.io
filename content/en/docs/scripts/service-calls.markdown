@@ -20,7 +20,7 @@ Examples on this page will be given as part of an automation component configura
 Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
 </p>
 
-### {% linkable_title The basics %}
+### The basics
 
 Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also omit `entity_id` and it will turn on all possible entities.
 
@@ -29,7 +29,7 @@ service: homeassistant.turn_on
 entity_id: group.living_room
 ```
 
-### {% linkable_title Passing data to the service call %}
+### Passing data to the service call
 
 You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.
 
@@ -41,7 +41,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-### {% linkable_title Use templates to decide which service to call %}
+### Use templates to decide which service to call
 
 You can use [templating] support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.
 
@@ -55,7 +55,7 @@ service_template: >
 entity_id: switch.ac
 ```
 
-### {% linkable_title Using the Services Developer Tool %}
+### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
 For example, you may test turning on or off a 'group' (See [groups] for more info)
@@ -66,7 +66,7 @@ Service: `turn_on`
 Service Data: `{ "entity_id": "group.kitchen" }`
 
 
-### {% linkable_title Use templates to determine the attributes %}
+### Use templates to determine the attributes
 
 Templates can also be used for the data that you pass to the service call.
 

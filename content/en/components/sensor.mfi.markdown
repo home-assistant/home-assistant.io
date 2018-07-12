@@ -16,7 +16,7 @@ ha_release: 0.32
 
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

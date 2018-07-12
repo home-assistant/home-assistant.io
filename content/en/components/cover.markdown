@@ -18,16 +18,16 @@ The display style of each entity can be modified in the [customize section](/get
 | `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
 | `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Cover control services %}
+### Cover control services
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 
-### {% linkable_title Service `cover.set_cover_position` %}
+### Service `cover.set_cover_position`
 
 Set cover position of one or multiple covers.
 
@@ -36,7 +36,7 @@ Set cover position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 | `position` | no | Integer between 0 and 100.
 
-#### {% linkable_title Automation example  %}
+#### Automation example 
 
 ```yaml
 automation:
@@ -50,7 +50,7 @@ automation:
         position: 50
 ```
 
-### {% linkable_title Service `cover.set_cover_tilt_position` %}
+### Service `cover.set_cover_tilt_position`
 
 Set cover tilt position of one or multiple covers.
 
@@ -59,7 +59,7 @@ Set cover tilt position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 | `position` | no | Integer between 0 and 100.
 
-#### {% linkable_title Automation example  %}
+#### Automation example 
 
 ```yaml
 automation:

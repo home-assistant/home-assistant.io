@@ -44,7 +44,7 @@ Configuration variables:
       - **invert_logic** (*Optional*): Inverts the input logic, default is `false`.
       - **device_class** (*Optional*): See device classes in [binary_sensor component](/components/binary_sensor/), default is `None`
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -65,7 +65,7 @@ $ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-de
 $ sudo usermod -a -G i2c homeassistant
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:
 

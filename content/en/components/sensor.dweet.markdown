@@ -32,7 +32,7 @@ Configuration variables:
 - **name** (*Optional*): Let you overwrite the name of the device in the frontend.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry could look like the sample below.
 
@@ -46,7 +46,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Interacting with Dweet.io %}
+### Interacting with Dweet.io
 
 You can easily send dweets from the command-line to test your sensor with `curl`.
 

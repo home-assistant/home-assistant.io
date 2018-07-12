@@ -28,7 +28,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Setup on your smartphone %}
+## Setup on your smartphone
 
 Install [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) on your device.
 

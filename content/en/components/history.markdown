@@ -102,7 +102,7 @@ history:
 ```
 
 
-#### {% linkable_title Implementation details %}
+#### Implementation details
 
 The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory unless the `recorder` component is set up differently.
 
@@ -118,7 +118,7 @@ The history is stored in a SQLite database `home-assistant_v2.db` within your co
 
 When the `history` component queries the states table it only selects states where the state has changed: `WHERE last_changed=last_updated`
 
-#### {% linkable_title On dates %} 
+#### On dates 
 
 SQLite databases do not support native dates. That's why all the dates are saved in seconds since the UNIX epoch. Convert them manually using [this site](https://www.epochconverter.com/) or in Python:
 
@@ -127,6 +127,6 @@ from datetime import datetime
 datetime.fromtimestamp(1422830502)
 ```
 
-#### {% linkable_title API %}
+#### API
 
 The history information is also available through the [RESTful API](/developers/rest_api/#get-apihistory).

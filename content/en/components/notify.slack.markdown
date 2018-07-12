@@ -40,7 +40,7 @@ Configuration variables:
 - **username** (*Optional*): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.
 - **icon** (*Optional*): Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
 
-### {% linkable_title Slack service data %}
+### Slack service data
 
 The following attributes can be placed inside `data` for extended functionality.
 

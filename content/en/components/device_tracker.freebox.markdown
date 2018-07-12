@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 The `freebox` platform offers presence detection by keeping track of the
 devices connected to a [Freebox](http://www.free.fr/) router.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 If you have enabled the [discovery component](/components/discovery/),
 your Freebox should be detected automatically. Otherwise, you can set it
@@ -45,13 +45,13 @@ You can find out your Freebox host and port by opening
 [this address](http://mafreebox.freebox.fr/api_version) in your browser. The
 returned json should contain an api_domain (`host`) and a https_port (`port`).
 
-### {% linkable_title Initial setup %}
+### Initial setup
 
 The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right button on the facade of the Freebox when
 prompted to do so.
 
-### {% linkable_title Notes %}
+### Notes
 
 Note that the Freebox waits for some time before marking a device as
 inactive, meaning that there will be a small delay (1 or 2 minutes)

@@ -19,7 +19,7 @@ The [MyQ Cover](/components/cover.myq/) does provide full functionality for open
 
 The requirement is that you have setup [Wink](/components/wink/).
 
-### {% linkable_title Supported cover devices %}
+### Supported cover devices
 
 - Bali window treatments
 - Lutron shades

@@ -45,7 +45,7 @@ Configuration variables:
   - **database** (*Require*): Database name on which to grant user rights.
   - **grant** (*Require*): SQL grant part for access too.
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the database above:
 

@@ -46,7 +46,7 @@ Configuration variables:
 Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
 
 
-### {% linkable_title How to obtain IR/RF packets? %}
+### How to obtain IR/RF packets?
 
 Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
@@ -126,7 +126,7 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-### {% linkable_title Service `broadlink_send_packet` %}
+### Service `broadlink_send_packet`
 
 You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
@@ -147,7 +147,7 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
-### {% linkable_title Using E-Control Remotes %}
+### Using E-Control Remotes
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
 

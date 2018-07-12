@@ -16,23 +16,23 @@ This is a big release as we've completely overhauled the internals of Home Assis
 
 This all changed when [@bbangert] came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.
 
-### {% linkable_title SleepIQ and OpenALPR %}
+### SleepIQ and OpenALPR
 
 There now is support for two new super cool things: Beds and license plates. [@technicalpickles] created a [SleepIQ] component that let you monitor the sensor data of your bed. [@pvizeli] has added license plate recognition based on [OpenALPR]! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to [@pvizeli] for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).
 
-### {% linkable_title Configuration validation %}
+### Configuration validation
 
 On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
 
-### {% linkable_title Delayed Release %}
+### Delayed Release
 
 As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: [@bbangert], [@turbokongen], [@lwis], [@kellerza], [@technicalpickles], [@pvizeli], [@persandstrom] and [@joyrider3774]. I am grateful to have all of you as part of the Home Assistant community.
 
-### {% linkable_title Hide automation rules %}
+### Hide automation rules
 
 Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: True`.
 
-### {% linkable_title All changes %}
+### All changes
 
 <img src='/images/supported_brands/emoncms.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/sleepiq.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/openalpr.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
@@ -68,39 +68,39 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
 
-### {% linkable_title Hotfix 0.29.1 - September 29 %}
+### Hotfix 0.29.1 - September 29
 
 - Fix typo in Nest climate platform. [We are still experiencing issues with Nest.][nest-issues] ([@tchellomello])
 
-### {% linkable_title Hotfix 0.29.2 - September 29 %}
+### Hotfix 0.29.2 - September 29
 
  - InfluxDB config fix ([@fabaff], reported by [@lwis])
  - Netatmo config fix ([@jabesq])
 
-### {% linkable_title Hotfix 0.29.3 - September 29 %}
+### Hotfix 0.29.3 - September 29
 
  - Hue config fix ([@pvizeli])
 
-### {% linkable_title Hotfix 0.29.4 - September 30 %}
+### Hotfix 0.29.4 - September 30
 
  - Alexa config fix ([@balloob], reported by [@lwis])
  - Envisalink discovery fix ([@cinntax])
  - Acer Projector config fix ([@pvizeli])
 
-### {% linkable_title Hotfix 0.29.5 - September 30 %}
+### Hotfix 0.29.5 - September 30
 
  - Fix Climate Nest platform ([@tchellomello], [@jawilson])
 
-### {% linkable_title Hotfix 0.29.6 - October 1 %}
+### Hotfix 0.29.6 - October 1
 
  - Fix segmentation fault ([@bbangert]) 🎉
  - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
 
-### {% linkable_title Hotfix 0.29.7 - October 5 %}
+### Hotfix 0.29.7 - October 5
 
  - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
@@ -109,7 +109,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
  - For Wink, make sure your config only contains the access token as in the [docs][Wink].
  - Nest sensor 'mode' has been renamed to 'operation_mode'
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 [nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574

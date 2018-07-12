@@ -33,7 +33,7 @@ Modification of this (via the `scan_interval` key) to a too-low value may
 result in your API key being deactivated.
 </p>
 
-## {% linkable_title Configuring the Platform via Latitude/Longitude %}
+## Configuring the Platform via Latitude/Longitude
 
 To enable the platform and gather data via latitude/longitude, add the
 following lines to your `configuration.yaml` file:
@@ -100,7 +100,7 @@ country:
   type: str
 {% endconfiguration %}
 
-## {% linkable_title Determining the City/State/Country %}
+## Determining the City/State/Country
 
 To easily determine the proper values for a particular location, use the
 [AirVisual region directory](https://airvisual.com/world). Once you browse to
@@ -124,7 +124,7 @@ sensor:
     country: brazil
 ```
 
-## {% linkable_title Sensor Types %}
+## Sensor Types
 
 When configured, the platform will create three sensors for each configured
 air quality standard:

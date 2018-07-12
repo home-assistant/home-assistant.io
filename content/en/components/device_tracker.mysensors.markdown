@@ -26,7 +26,7 @@ S_GPS             | V_POSITION
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /**

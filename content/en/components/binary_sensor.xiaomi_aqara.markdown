@@ -19,7 +19,7 @@ The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiao
 The requirement is that you have setup the [`xiaomi aqara` component](/components/xiaomi_aqara/).
 
 
-### {% linkable_title Type of sensors supported %}
+### Type of sensors supported
 
 | Name | ZigBee entity | Model no. | States | Event | Event key | Event values |
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
@@ -36,9 +36,9 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |
 | Cube | cube | MFKZQ01LM | off (always) | `cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
 
-### {% linkable_title Automation examples %}
+### Automation examples
 
-#### {% linkable_title Motion %}
+#### Motion
 
 ```yaml
 - alias: If there is motion and its dark turn on the gateway light
@@ -75,7 +75,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
         entity_id: automation.Motion_off
 ```
 
-#### {% linkable_title Door and/or Window %}
+#### Door and/or Window
 
 ```yaml
 - alias: If the window is open turn off the radiator
@@ -104,7 +104,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
       operation_mode: 'Smart schedule'
 ```
 
-#### {% linkable_title Smoke %}
+#### Smoke
 
 ```yaml
 - alias: Send notification on fire alarm
@@ -125,7 +125,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
         ringtone_vol: 100
 ```
 
-#### {% linkable_title Gas %}
+#### Gas
 
 ```yaml
 - alias: Send notification on gas alarm
@@ -141,7 +141,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
         message: 'Gas with a density of {% raw %}{{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }}{% endraw %} detected.'
 ```
 
-#### {% linkable_title Xiaomi Wireless Button %}
+#### Xiaomi Wireless Button
 
 Available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. For Square version (Aqara brand) only `single` and `double` events are supported. Furthermore the space between two clicks to generate a double click must be quite large now.
 
@@ -181,7 +181,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
       ringtone_vol: 8
 ```
 
-#### {% linkable_title Xiaomi Cube %}
+#### Xiaomi Cube
 
 Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The component stores the last action as the attribute `last_action`.
 
@@ -248,7 +248,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "blue"
 ```
 
-#### {% linkable_title Aqara Wireless Switch %}
+#### Aqara Wireless Switch
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 

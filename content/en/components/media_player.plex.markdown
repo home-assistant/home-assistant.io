@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 
 The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
 
-## {% linkable_title Setup %}
+## Setup
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server.
 
@@ -55,7 +55,7 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `False` if not present.
 - **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `False`. Defaults to `True` if not present.
 
-## {% linkable_title Customization %}
+## Customization
 
 You can customize the Plex component by adding any of the variables below to your configuration:
 
@@ -81,7 +81,7 @@ media_player:
 - **remove_unavailable_clients** (*Optional*): Remove stale plex clients from UI after interval. Defaults to `true`.
 - **client_remove_interval** (*Optional*): How long a client is to be unavailable for before it is cleaned up. Defaults to `600 seconds (10min)`.
 
-### {% linkable_title Service `play_media` %}
+### Service `play_media`
 
 Plays a song, playlist, TV episode, or video on a connected client.
 
@@ -130,7 +130,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Plex Web                         | None                                                                                                                                                            |
 | Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
-### {% linkable_title Notes %}
+### Notes
 
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.

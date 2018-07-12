@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Modbus switches in your installation, add the following to your `configuration.yaml` file:
 

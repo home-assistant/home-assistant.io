@@ -96,7 +96,7 @@ When you run the `hass` command for the first time, it will download, install an
 
 If you want setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
 
-### {% linkable_title Updating %}
+### Updating
 
 To update to the latest version of Home Assistant follow these simple steps:
 
@@ -108,7 +108,7 @@ $ pip3 install --upgrade homeassistant
 
 Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
-### {% linkable_title Activating the virtual environment %}
+### Activating the virtual environment
 
 When instructions tell you to activate the virtual environment, the following commands will do this:
 

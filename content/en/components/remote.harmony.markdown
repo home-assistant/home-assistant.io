@@ -60,7 +60,7 @@ Upon startup one file will be written to your Home Assistant configuration direc
 - List of all programmed device names and ID numbers
 - List of all available commands per programmed device
 
-### {% linkable_title Service `remote.turn_off` %}
+### Service `remote.turn_off`
 
 Turn off all devices that were switched on from the start of the current activity.
 
@@ -68,7 +68,7 @@ Turn off all devices that were switched on from the start of the current activit
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 
-### {% linkable_title Service `remote.turn_on` %}
+### Service `remote.turn_on`
 
 Start an activity. Will start the default `activity` from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
@@ -77,7 +77,7 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
-### {% linkable_title Service `remote.send_command` %}
+### Service `remote.send_command`
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 
@@ -103,7 +103,7 @@ data:
   delay_secs: 0.6
 ```
 
-### {% linkable_title Service `remote.harmony_sync` %}
+### Service `remote.harmony_sync`
 
 Synchronize the Harmony device with the Harmony web service if any changes are made from the web portal or app.
 
@@ -111,7 +111,7 @@ Synchronize the Harmony device with the Harmony web service if any changes are m
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 
-### {% linkable_title Examples %}
+### Examples
 
 Template sensors can be utilized to display current activity in the frontend.
 

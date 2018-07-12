@@ -14,7 +14,7 @@ ha_release: "0.40"
 
 This component provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
 
-## {% linkable_title Supported Models %}
+## Supported Models
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]

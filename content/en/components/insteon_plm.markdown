@@ -73,7 +73,7 @@ Configuration variables:
 - **x10_all_lights_off** (*Optional*): Creates an binary_sensor that responds
   to the X10 standard command for All Lights Off
 
-### {% linkable_title Autodiscovery %}
+### Autodiscovery
 
 The first time autodiscovery runs, the duration may require up to 20 seconds 
 per device. Subsequent startups will occur much quicker using cached device
@@ -83,7 +83,7 @@ the device to the **device_override** configuration.
 In order for a device to be discovered it must be linked to the PLM as either
 a responder or a controller. 
 
-### {% linkable_title Linking Devices to the PLM %}
+### Linking Devices to the PLM
 
 In order for any two Insteon devices to talk with one another, they must be 
 linked. For an overview of device linking please read the Insteon page on
@@ -125,7 +125,7 @@ carefully, they are important.
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteonplm_interactive]: https://github.com/nugget/python-insteonplm#command-line-interface
 
-### {% linkable_title Customization %} 
+### Customization 
 
 The only configuration item that is absolutely necessary is the port so that 
 Home Assistant can connect to the PLM. This will expose all the supported 
@@ -141,7 +141,7 @@ devices.
 
 [device customization]: /getting-started/customizing-devices/
 
-### {% linkable_title Device Overrides %} 
+### Device Overrides 
 
 INSTEON devices are added to Home Assistant using the platform(s) that make the
 most sense given the model and features of the hardware. The features of the 
@@ -174,7 +174,7 @@ insteon_plm:
       subcat: 0x11     
 ```
 
-### {% linkable_title What NOT to do %}
+### What NOT to do
 
 Insteon PLM is a top level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 

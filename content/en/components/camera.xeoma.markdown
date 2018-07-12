@@ -63,7 +63,7 @@ cameras:
       type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Full examples %}
+## Full examples
 
 ```yaml
 # Example configuration.yaml entry

@@ -25,7 +25,7 @@ device_tracker:
 
 For configuration options and usage instructions, read the documentation for the [OwnTracks platform](/components/device_tracker.owntracks/).
 
-## {% linkable_title Configuring OwnTracks to submit data via HTTP %}
+## Configuring OwnTracks to submit data via HTTP
 
 Open OwnTracks and go to Connection preferences:
 

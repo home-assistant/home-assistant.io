@@ -25,7 +25,7 @@ The most amazing part? It is super easy to set up!
 
 <!--more-->
 
-## {% linkable_title Setting up Tor %}
+## Setting up Tor
 
 Our [documentation](/docs/ecosystem/tor/) provides a detailed guide about setting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
 
@@ -51,7 +51,7 @@ Our [documentation](/docs/ecosystem/tor/) provides a detailed guide about settin
     abcdef1234567890.onion
     ```
 
-## {% linkable_title Tor add-on for Hass.io %}
+## Tor add-on for Hass.io
 
 [Franck Nijhof (@frenck)](https://github.com/frenck) created the [Tor add-on](https://github.com/hassio-addons/addon-tor) for [Hass.io](/hassio/). This add-on makes the installation and the setup extremely simple. Go to the **Hass.io** panel, then to the **Store**, copy `https://github.com/hassio-addons/repository` into the text box of **Add-On Repositories** and save it.
 
@@ -81,7 +81,7 @@ INFO: -----------------------------------------------------------
 
 Don't worry if you missed it, restarting the add-on will display it again. The details are also stored and available in the `/ssl/tor/hidden_service/hostname` file.
 
-## {% linkable_title Tor clients %}
+## Tor clients
 
 To access you Home Assistant via the Tor Hidden Service, you will need a Tor client. There are multiple clients, for different devices and platforms, available. The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is by far the simplest option, which is available for Windows, MacOS & Linux.
 
@@ -93,7 +93,7 @@ Some other clients:
 - [Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android
 - [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
 
-## {% linkable_title Cranking up security %}
+## Cranking up security
 
 The setup described in this blog post is easy and relatively secure, but anyone who knows your `.onion` address can still connect to your Home Assistant instance (Remember to use passwords!). With all of the [discussion](https://blog.torproject.org/quick-simple-guide-tor-and-internet-things-so-far) about putting your IoT on the Tor Network, maybe you want to add an extra layer of defense, especially if you’re going to be the only one that uses it. Tor offers an additional layer of security, called "Hidden Service Authentication", usually referred to as "Stealth"-mode.
 

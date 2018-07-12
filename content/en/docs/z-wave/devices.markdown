@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/z-wave-devices/
 ---
 
-## {% linkable_title Devices, Nodes, Entities, what? %}
+## Devices, Nodes, Entities, what?
 
 The *device* is the hardware, and also used when referring to the node and all its entities. There are 3 main types of devices:
 
@@ -24,11 +24,11 @@ The *node* is the presence of the device on the Z-Wave mesh. Once you've added a
 
 The *entity* is an individual component of the node. It may be a sensor that you read from, or a control that you operate. For any node, there will be at least one entity (for the node itself) and if it exposes any controls or sensors there will be at least one entity per control or sensor. The [entities](/docs/z-wave/entities) that are created depend on the Command Class the device supports.
 
-## {% linkable_title Z-Wave, Plus, Security 2 %}
+## Z-Wave, Plus, Security 2
 
 There have been 2 extensions to the Z-Wave protocol. Using these requires that your controller supports these extensions, but devices are backwards compatible.
 
-### {% linkable_title Z-Wave Plus %}
+### Z-Wave Plus
 
 The key improvements are:
 
@@ -37,11 +37,11 @@ The key improvements are:
 * Higher bandwidth and improved noise immunity if all your devices are Z-Wave Plus
 * Improved self-healing and fault tolerance
 
-### {% linkable_title Z-Wave Security 2 %}
+### Z-Wave Security 2
 
 From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (March 2018) OpenZWave does not support the S2 framework.
 
-## {% linkable_title Device power %}
+## Device power
 
 Your Z-Wave mesh network is built with the devices that are mains powered (whether directly, or via a USB adapter), these relay traffic for other nodes, building the network. These devices are always awake and you can query them, or send configuration changes, at any time.
 
@@ -51,23 +51,23 @@ Battery powered devices spend most of their time asleep, unable to relay traffic
 The Z-Wave capability *routing* doesn't mean the device routes traffic, it actually means that it's able to control other devices. You'll see this capability on most remotes and switches.
 </p>
 
-## {% linkable_title Instant Status %}
+## Instant Status
 
 Older designs of Z-Wave devices may not support *Instant Status* (the *Hail* command class), because of a patent that was held by Lutron Electronics. Some manufacturers paid to use it, others didn't and so those devices may not report on changes. That patent expired in 2016, so new designs should support this.
 
 As long as your device lists Hail or Association in its Controlled Command Classes, then you'll get instant status updates. Devices that list Central Scene in their Controlled Command Classes in theory will also work this way, once OpenZWave supports the Central Scene class. You can check your device on the [Z-Wave alliance](https://products.z-wavealliance.org/) site, looking at the **Command Classes** link, then at the **Controlled Command Classes** section.
 
-## {% linkable_title Polling %}
+## Polling
 
 Where a device doesn't send updates on status changes to the controller, you can work around this by using a thing called Polling. That causes the controller to ask the device to provide an update on all its sensors and states. This will cause a lot of traffic on the network, and if you poll too many devices too quickly, you can effectively break your Z-Wave network. Polling should only be used where there is no other choice, and you should use as large a polling interval as possible. Ideally you should replace the device.
 
 For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled, if a device can receive and acknowledge the poll within one second, then it will take 10 seconds to complete the polling list, which leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
 
-## {% linkable_title Central Scene support %}
+## Central Scene support
 
 The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/docs/z-wave/device-specific/#homeseer-switches).
 
-## {% linkable_title Is my device supported %}
+## Is my device supported
 
 You can check to see if OpenZWave supports your particular device by looking at the [OpenZWave github](https://github.com/OpenZWave/open-zwave/tree/master/config). Be aware that being listed here doesn't mean that it will be supported in Home Assistant, since the version of OpenZWave used by Home Assistant will often lag the github by a few months.
 

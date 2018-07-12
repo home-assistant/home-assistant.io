@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](http://www.foscam.com/) IP camera in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable your Foscam IP camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -40,6 +40,6 @@ Configuration variables:
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
 </p>
  
-### {% linkable_title Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away %}
+### Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away
 
  Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.

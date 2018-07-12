@@ -31,7 +31,7 @@ where:
 
 The output will be limited to 3 decimals.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -88,7 +88,7 @@ relative_to_epoch:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 To give an example of simulating real world data, a simulated relative humidity sensor (in %) can be added using the following configuration:
 

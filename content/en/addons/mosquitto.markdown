@@ -42,7 +42,7 @@ Configuration variables:
 - **logins** (*Optional*): A list of users that will be created with *username* and *password*.
 - **customize** (*Optional*): If you enable it, it reads additional configuration files (`*.conf`) from `/share/mosquitto`.
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), add the following entry to the `configuration.yaml` file.
 
@@ -61,7 +61,7 @@ mqtt:
   password: YOUR_PASSWORD
 ```
 
-### {% linkable_title Listening simultaneously on SSL/TLS (8883) and insecure (1883) ports %}
+### Listening simultaneously on SSL/TLS (8883) and insecure (1883) ports
 
 1. Configure SSL/TLS as normal.
 2. Set `customize` flag to `true` in your configuration.
@@ -78,7 +78,7 @@ protocol mqtt
 It's recommended that you only open your firewall to the SSL/TLS port (8883) and only use the insecure port (1883) for local devices. Also, disable `anonymous:` and set `logins:`.
 </p>
 
-### {% linkable_title Access Control Lists (ACLs) %}
+### Access Control Lists (ACLs)
 
 It is possible to restrict access to topics based upon the user logged in to Mosquitto. In this scenario it is recommended to create individual users for each of your clients and create an appropriate ACL.
 

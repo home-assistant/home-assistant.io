@@ -53,7 +53,7 @@ device_tracker:
       office: work
 ```
 
-### {% linkable_title Using Owntracks with other device trackers %}
+### Using Owntracks with other device trackers
 
 Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
 
@@ -69,7 +69,7 @@ USERNAME_DEVICE_ID:
   hide_if_away: no
 ```
 
-### {% linkable_title Using Owntracks regions %}
+### Using Owntracks regions
 
 Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
 
@@ -77,7 +77,7 @@ Home Assistant will use the enter and leave messages to set your zone location. 
 
 When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
 
-### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
+### Using Owntracks regions - forcing Owntracks to update using iBeacons
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
@@ -89,7 +89,7 @@ When you exit an iBeacon region HA will switch back to using GPS to determine yo
 
 Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognize it as `home`, but you will have a more stable iBeacon connection.
 
-### {% linkable_title Using Owntracks iBeacons to track devices %}
+### Using Owntracks iBeacons to track devices
 
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
@@ -99,11 +99,11 @@ To use mobile iBeacons with HA, you just set up a region that doesn't match your
 
 This allows you to write zone automations for devices that can't track themselves (for example *alert me if I leave the house and my keys are still at home*). Another example would be *open the gates if my car arrives home*.
 
-### {% linkable_title Using mobile and fixed iBeacons together %}
+### Using mobile and fixed iBeacons together
 
 You can use iBeacons of both types together, so if you have a Zone `drive` with an iBeacon region called `-drive` and you arrive home with a mobile iBeacon called `-car`, then `device_tracker.beacon_car` will be set to a state of `drive`.
 
-### {% linkable_title Importing Owntracks waypoints as zones %}
+### Importing Owntracks waypoints as zones
 
 By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the *Export - Export to Endpoint* menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named `<user>-<device> - <waypoint name>`. This functionality can be controlled in 2 ways:
 

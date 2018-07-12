@@ -13,22 +13,22 @@ categories: Release-Notes
 
 Another two weeks have passed and we are pleased to present Home Assistant 0.32.
 
-### {% linkable_title Hacktoberfest %}
+### Hacktoberfest
 The [Hacktoberfest] is over now. Home Assistant made the 2nd and the 3rd place out of almost 30'000 participating repositories with a total of 528 pull requests closed - that's an average of 17 pull requests a day! Thanks to all the contributors but also to the team of reviewers. This wouldn't been possible without you 👏 .
 
-### {% linkable_title Improved error reporting %}
+### Improved error reporting
 This release has improved the reporting when a config validation error occurs. Thanks to [@kellerza] you will now get a persistent notification added to your UI when this happens.
 
-### {% linkable_title Asynchronous %}
+### Asynchronous
 This release contains the first asynchronous sensor and camera platforms. [@pvizeli] and [@fabaff] ported most of the "internal" sensors to async programming. We hope that you will enjoy the new speed.
 
 [@balloob] and [@pvizeli] worked a lot on the improvement of the core itself.
 
-### {% linkable_title Weather component %}
+### Weather component
 
 For a long time we have had a bunch of [weather sensors][weather-sensors] but it's getting better: There is now a [Weather component][weather-component]. Sorry, not much more to tell right now. The plans are to create a weather UI element and to improve the initial implementation.
 
-### {% linkable_title All changes %}
+### All changes
 
 <img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/garadget_logo.jpg' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/nfandroidtv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
@@ -65,7 +65,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Device tracker: [iCloud][icloud] improvements ([@Bart274])
 - Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@armills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
 
-### {% linkable_title Release 0.32.1 - November 6 %}
+### Release 0.32.1 - November 6
 
 We've added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.
 
@@ -73,14 +73,14 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Fix Radiotherm doing I/O inside the event loop ([@balloob])
  - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
 
-### {% linkable_title Release 0.32.2 - November 7 %}
+### Release 0.32.2 - November 7
 
  - Move Honeywell I/O out of the event loop ([@balloob])
  - Use sequential updates for non-async entities to prevent race conditions ([@pvizeli])
  - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
  - Fix PiLight config validation ([@DavidLP])
 
-### {% linkable_title Release 0.32.3 - November 11 %}
+### Release 0.32.3 - November 11
 
  - Fix OpenWeather weather platform doing I/O in event loop ([@lwis])
  - Fix Alarm.com doing I/O in event loop ([@jnewland])
@@ -96,26 +96,26 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
  - Fix Rest switch default template ([@pvizeli])
 
-### {% linkable_title Release 0.32.4 - November 15 %}
+### Release 0.32.4 - November 15
 
  - Fix device tracker from crashing HASS when a new device was discovered ([@balloob])
  - HTTP: Fix X-Forwarded-For feature ([@mweinelt])
 
-### {% linkable_title Misc %}
+### Misc
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
 - [iOS](/ecosystem/ios/)
 - [SceneGen](/ecosystem/scenegen/)
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - The [Yahoo Finance][yahoo] platform supports now multiple stock. Please adjust your configuration.
 - Deprecated components `garage_door`, `rollershutter`, `thermostat`, and `hvac` have been removed.
 - The minimum Python version on Windows has been bumped to Python 3.5.
 - The Insteon Hub integration has been disabled due to a [request from Insteon][req-insteon].
 
-### {% linkable_title If you need help... %}
+### If you need help...
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 

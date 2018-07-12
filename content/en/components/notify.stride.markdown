@@ -51,7 +51,7 @@ panel:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Stride service data %}
+### Stride service data
 
 The following attributes can be placed `data` for extended functionality.
 

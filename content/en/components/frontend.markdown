@@ -53,7 +53,7 @@ frontend:
 {% endconfiguration %}
 
 
-## {% linkable_title Themes %}
+## Themes
 
 Starting with version 0.49 you can define themes:
 
@@ -108,7 +108,7 @@ automation:
           name: darkred
 ```
 
-### {% linkable_title Manual Theme Selection %}
+### Manual Theme Selection
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under **General**  called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
@@ -117,7 +117,7 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
   Set a theme
 </p>
 
-## {% linkable_title Loading extra HTML %}
+## Loading extra HTML
 
 Starting with version 0.53 you can specify extra HTML files to load.
 
@@ -133,7 +133,7 @@ frontend:
 
 Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels).
 
-### {% linkable_title Manual Language Selection %}
+### Manual Language Selection
 
 The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select one from "Choose a Language". It will be applied immediately.
 

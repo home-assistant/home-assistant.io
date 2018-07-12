@@ -22,7 +22,7 @@ configured to use this platform. After configuring that component, switches will
 automatically appear.
 </p>
 
-## {% linkable_title Controlling Your Device %}
+## Controlling Your Device
 
 After Home Assistant loads, new switches will be added for every enabled
 program and zone. These work as expected:

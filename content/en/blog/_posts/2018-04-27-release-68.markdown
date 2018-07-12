@@ -19,7 +19,7 @@ One of the coolest features this release is by [@mjg59]: you are now able to **c
 
 Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy is the Home Automation brand of Anker and they have been producing reasonably priced devices which can now be controlled by Home Assistant too. Thanks for all your contributions [@mjg59] ❤️.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add support for Eufy bulbs and switches ([@mjg59] - [#13773]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs]) (new-platform)
 - Add support for controlling homekit lights and switches ([@mjg59] - [#13346]) ([homekit_controller docs]) ([light.homekit_controller docs]) (new-platform)
@@ -31,7 +31,7 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Add support for Sensirion SHT31 temperature/humidity sensor ([@viorels] - [#12952]) ([sensor.sht31 docs]) (new-platform)
 - Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Support binary_sensor and device_tracker in HomeKit ([@Yonsm] - [#13735]) ([homekit docs]) (new-feature)
 - Add Homekit locks support ([@philk] - [#13625]) ([homekit docs]) (new-feature)
@@ -39,7 +39,7 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Support basic covers with open/close/stop services HomeKit ([@nickw444] - [#13819]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.68.1 - April 30 %}
+## Release 0.68.1 - April 30
 
 - Fix color setting of tplink lights ([@amelchio] - [#14108]) ([light.tplink docs])
 - Improve precision of Hue color state ([@amelchio] - [#14113]) ([light.hue docs])
@@ -51,22 +51,22 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Fix poorly formatted automations ([@balloob] - [#14196])
 - Disable eliqonline requirement ([@balloob] - [#14156])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Icons! Material Design Icons has implemented some naming guidelines and this caused 9 icons to change names, 3 of which are home automation icons: `roomba` -> `robot-vacuum`, `nest-protect` -> `smoke-detector`, `nest-thermostat` -> `thermostat` ([see all changes](http://templarian.com/2018/04/18/material-design-icons-v2-3-54/)).
 - Support for multiple MAX!Cube LAN gateways caused a slight change to the configuration schema. Make sure to check the docs for the new one. ([@syssi] - [#13517]) ([maxcube docs]) ([binary_sensor.maxcube docs]) ([climate.maxcube docs]) (breaking change)
 - Ebox sensor platform has been disabled because the dependency was not compatible with pip 10. ([@balloob] - [#14003]) ([sensor.ebox docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 - Order the output of the automation editor ([@balloob] - [#14019]) ([config docs]) (beta fix)
@@ -79,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated list of AWS regions for Amazon Polly ([@GotoCode] - [#14097]) ([tts docs]) (beta fix)
 - Change Eufy brightness handling ([@mjg59] - [#14111]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update Homekit to 1.1.9 ([@cdce8p] - [#13716]) ([homekit docs])
 - Update docstrings ([@fabaff] - [#13720]) ([ihc docs]) ([cover.opengarage docs]) ([cover.tahoma docs]) ([sensor.trafikverket_weatherstation docs])

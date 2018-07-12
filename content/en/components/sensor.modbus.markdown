@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -63,7 +63,7 @@ Configuration variables:
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
-### {% linkable_title Full example %}
+### Full example
 
 Example a temperature sensor with a 10 seconds scan interval:
 

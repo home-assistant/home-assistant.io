@@ -18,7 +18,7 @@ The `dyson` fan platform allows you to control your Dyson Purifier fans.
 
 You have first to setup the [Dyson component](/components/dyson/)
 
-### {% linkable_title Supported fan devices %}
+### Supported fan devices
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (but heating is not yet supported)

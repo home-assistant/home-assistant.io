@@ -30,7 +30,7 @@ Configuration variables:
 
 Only the `music` media type is supported.
 
-## {% linkable_title Setup %}
+## Setup
 
 And then install the following system dependencies:
 
@@ -64,9 +64,9 @@ On a Raspberry Pi, you may need to add the Home Assistant user to the `audio` gr
 sudo usermod -a -G audio <ha_user>
 ```
 
-## {% linkable_title Example Usage %}
+## Example Usage
  
-### {% linkable_title Using with TTS %}
+### Using with TTS
 
 To play TTS on your local computer (for example, if you have speakers attached to your Raspberry Pi:
 
@@ -83,7 +83,7 @@ script:
           message: "example text-to-speech message"
 ```
 
-### {% linkable_title Using with Snapcast %}
+### Using with Snapcast
 
 To play to a named pipe for consumption by Snapcast:
 

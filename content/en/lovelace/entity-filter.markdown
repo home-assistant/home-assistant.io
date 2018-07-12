@@ -53,7 +53,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Show only active switches or lights in the house
 ```yaml

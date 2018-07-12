@@ -16,9 +16,9 @@ The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that 
 
 First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 
-### {% linkable_title Configuration %}
+### Configuration
 
-##### {% linkable_title Siemens/LightwaveRF %}
+##### Siemens/LightwaveRF
 
 The easiest way to find your roller shutters is to add this to your `configuration.yaml`:
 
@@ -40,11 +40,11 @@ cover:
         name: device_name
 ```
 
-##### {% linkable_title RFY %}
+##### RFY
 
 The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr eg, id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
-##### {% linkable_title Common %}
+##### Common
 
 Example configuration:
 

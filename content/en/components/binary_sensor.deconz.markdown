@@ -24,7 +24,7 @@ The following sensor types are supported:
 
 Entity ids will be binary_sensor.device_name, where device_name is defined in deCONZ.
 
-#### {% linkable_title Verified to be supported binary sensors %}
+#### Verified to be supported binary sensors
 
 - Open/Close Detection
   - Xiaomi Smart Home Security Door & Window Contact Sensor

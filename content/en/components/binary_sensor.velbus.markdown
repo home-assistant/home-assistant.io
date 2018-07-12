@@ -15,7 +15,7 @@ ha_release: "0.50"
 
 The `velbus` binary_sensor allows you to control [Velbus](http://www.velbus.eu) connected wall switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Velbus wall switches in your installation, add the following to your `configuration.yaml` file:
 

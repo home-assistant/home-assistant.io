@@ -15,7 +15,7 @@ ha_release: 0.73
 
 The `rachio` platform allows you to control your [Rachio irrigation system](http://rachio.com/).
 
-## {% linkable_title Getting your Rachio API Key %}
+## Getting your Rachio API Key
 
 1. Log in at [https://app.rach.io/](https://app.rach.io/).
 1. Click the "Account Settings" menu item at the bottom of the left sidebar
@@ -30,7 +30,7 @@ rachio:
   api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### {% linkable_title iFrame %}
+### iFrame
 
 If you would like to see and control more detailed zone information, create an [iFrame](/components/panel_iframe/) that renders the Rachio web app.
 

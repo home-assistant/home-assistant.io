@@ -39,7 +39,7 @@ password:
 {% endconfiguration %}
 
 
-### {% linkable_title Service `econet_add_vacation` %}
+### Service `econet_add_vacation`
 
 You can use the service econet/add_vacation to create a new vacation for your EcoNet water heaters.
 
@@ -53,7 +53,7 @@ You can use the service econet/add_vacation to create a new vacation for your Ec
 The Unix timestamps can be obtained from the input_datetime component. This will allow you to graphically set the start and end date.
 </p>
 
-### {% linkable_title Service `econet_delete_vacation` %}
+### Service `econet_delete_vacation`
 
 You can use the service econet/delete_vacation to remove all vactions from an EcoNet water heater.
 

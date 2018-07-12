@@ -38,7 +38,7 @@ If you set `show_on_map` `True` then the location attributes are named `latitude
 </p>
 
 
-### {% linkable_title Show position on map with camera platform %}
+### Show position on map with camera platform
 
 The [generic camera platform](/components/camera.mjpeg/) offers the possibility to show the location of the ISS on Google Maps.
 

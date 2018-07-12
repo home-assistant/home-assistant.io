@@ -15,10 +15,10 @@ og_image: /images/blog/2017-12-0.59/components.png
 
 We are proud to announce the availability of Home Assistant 0.59. To keep you in the loop: This is the second last release in 2017. We have stuck to our bi-weekly release cycle for another year but we decided that we will take a little break between Christmas and New Year.
 
-## {% linkable_title Dominos Pizza platform %}
+## Dominos Pizza platform
 With the Dominos Pizza integration made by [@wardcraigj] your home is now taking care that you don't  starve. In combination with a [Skybell](/components/skybell/) or a [DoorBird](/components/doorbird/) you will know exactly when the pizza is in front of your door.
 
-## {% linkable_title Color picker %}
+## Color picker
 [@NovapaX] created a new color picker. While dragging the color badge with your finger, a badge will appear above your finger so you can see the current color.
 
 <p class='img'>
@@ -26,10 +26,10 @@ With the Dominos Pizza integration made by [@wardcraigj] your home is now taking
     Screenshot of the color wheel.
 </p>
 
-## {% linkable_title Shopping list tweaks %}
+## Shopping list tweaks
 [@balloob] has refreshed the shopping list UI to make it more usable. It's now possible to add items by typing, instead of just voice. Also editing has been made easier.
 
-## {% linkable_title Entity picker %}
+## Entity picker
 [@balloob] improved the way if you want to pick an entity. In the automation editor, the script editor and the service section of the Developer Tools it's much easier to identify the right one! The automation editor will only suggest relevant entities.
 
 <p class='img'>
@@ -37,14 +37,14 @@ With the Dominos Pizza integration made by [@wardcraigj] your home is now taking
     Screenshot of the of the Entity Picker.
 </p>
 
-## {% linkable_title Hass.io Add-ons %}
+## Hass.io Add-ons
 If you follow our [twitter feed](https://twitter.com/home_assistant) then you may already know that [@frenck](https://github.com/frenck) spent some time to bring new stuff to the [Community Hass.io Add-ons repository](https://github.com/hassio-addons/repository).
 
 - [Cloud9 IDE](https://github.com/hassio-addons/addon-ide)
 - [Terminal support](https://github.com/hassio-addons/addon-terminal)
 - New release of the [Tor add-on](https://github.com/hassio-addons/addon-tor)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Support for Unifi direct access device tracker (No unifi controller software) ([@w1ll1am23] - [#10097]) ([device_tracker.unifi_direct docs]) (new-platform)
 - Tahoma platform for Somfy Covers and Sensors ([@philklei] - [#10652]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs]) (new-platform)
@@ -53,14 +53,14 @@ If you follow our [twitter feed](https://twitter.com/home_assistant) then you ma
 - Add tts.baidu platform ([@zhujisheng] - [#10724]) ([tts.baidu docs]) (new-platform)
 - Create ecobee weather platform ([@PhracturedBlue] - [#10869]) ([ecobee docs]) ([weather.ecobee docs]) (new-platform)
 
-## {% linkable_title Release 0.59.1 - December 4 %}
+## Release 0.59.1 - December 4
 
 - Fix Notifications for Android TV ([@danielperna84] - [#10798]) ([notify.nfandroidtv docs])
 - fix iOS component config generation ([@wrboyce] - [#10923])
 - Fix color wheel in group more info dialogs ([@NovapaX] - [#10934])
 - Dominos no order fix ([@wardcraigj] - [#10935]) ([dominos docs])
 
-## {% linkable_title Release 0.59.2 - December 6 %}
+## Release 0.59.2 - December 6
 
 - Require FF43 for latest js ([@andrey-git] - [#10941])
 - Fix linksys_ap.py by inheriting DeviceScanner ([@mateuszdrab] - [#10947]) ([device_tracker.linksys_ap docs])
@@ -69,17 +69,17 @@ If you follow our [twitter feed](https://twitter.com/home_assistant) then you ma
 - Reload closest store on api menu request ([@wardcraigj] - [#10962]) ([dominos docs])
 - Revert pychromecast update ([@balloob] - [#10989]) ([media_player.cast docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Added cycles config option to LaMetric notifications ([@frittes] - [#10656]) ([notify.lametric docs]) (breaking change)
 - Fix name collision when using multiple Hue bridges ([@zBart] - [#10486]) ([light.hue docs]) (breaking change)
@@ -87,7 +87,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tellduslive update with support for auto config and Local api ([@fredrike] - [#10435]) ([tellduslive docs]) (breaking change)
 - Add useragent-based detection of JS version ([@andrey-git] - [#10776]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Added unit_of_measurement to Currencylayer ([@arsaboo] - [#10598]) ([sensor.currencylayer docs])
 - Change generic thermostat - any toggle device as heater switch ([@milanvo] - [#10597]) ([climate.generic_thermostat docs])

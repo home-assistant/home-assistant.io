@@ -50,7 +50,7 @@ For RF devices
 - **key** (*Require*): Encrypted key.
 - **ip** (*Require*): IP address of LAN gateway.
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use it:
 
@@ -62,7 +62,7 @@ homematic:
       port: 2001
 ```
 
-## {% linkable_title Raspberry Pi3 %}
+## Raspberry Pi3
 
 With HM-MOD-PRI-PCB you need to add follow into your `config.txt` on boot partition:
 ```

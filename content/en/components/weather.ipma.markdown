@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](http://www.ipma.pt) as a source for current and forecast meteorological data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the IPMA weather platform to your installation, add the following to your `configuration.yaml` file:
 

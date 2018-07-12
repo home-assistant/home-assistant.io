@@ -12,7 +12,7 @@ redirect_from: /getting-started/securing/
 
 One major advantage of Home Assistant is that it's not dependent on cloud services. Even if you're only using Home Assistant on a local network, you should take steps to secure your instance.
 
-### {% linkable_title Checklist %}
+### Checklist
 
 - [Protect your web interface with a password](/getting-started/basic/#password-protecting-the-web-interface)
 - Secure your host. Sources could be [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf), or the [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html).

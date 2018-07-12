@@ -66,11 +66,11 @@ queries:
       type: template
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Current state of an entity %}
+### Current state of an entity
 
 This example shows the previously *recorded* state of sensor *abc123*.
 
@@ -80,7 +80,7 @@ SELECT * FROM states WHERE entity_id = 'sensor.abc123' ORDER BY id DESC LIMIT 2
 
 Note that the SQL sensor state corresponds to the last row of the SQL resultset.
 
-### {% linkable_title Previous state of an entity %}
+### Previous state of an entity
 
 This example only works with *binary_sensors*:
 
@@ -88,7 +88,7 @@ This example only works with *binary_sensors*:
 SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1
 ```
 
-### {% linkable_title Database size in Postgres %}
+### Database size in Postgres
 
 ```yaml
 - platform: sql

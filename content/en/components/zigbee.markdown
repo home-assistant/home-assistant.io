@@ -44,7 +44,7 @@ $ ls /dev/ttyUSB*
 The port may also appear as /dev/ttyACM* if you're communicating with the ZigBee device through an Arduino.
 </p>
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 # Example configuration.yaml entry

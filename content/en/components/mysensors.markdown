@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Integrate your Serial, Ethernet or MQTT Client MySensors Gateway by adding the following to your `configuration.yaml` file:
 
@@ -113,7 +113,7 @@ mqtt:
 The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway is supported.
 </p>
 
-### {% linkable_title Extended configuration example %}
+### Extended configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -143,7 +143,7 @@ mysensors:
   version: '2.0'
 ```
 
-### {% linkable_title Presentation %}
+### Presentation
 
 Present a MySensors sensor or actuator, by following these steps:
 
@@ -236,13 +236,13 @@ void receive(const MyMessage &message) {
 }
 ```
 
-### {% linkable_title SmartSleep %}
+### SmartSleep
 
 Sending a heartbeat, `I_HEARTBEAT_RESPONSE`, from the MySensors device to Home Assistant, using MySensors version 2.0 - 2.1, activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands. See the MySensors library API for information on how to send heartbeats and sleep the device.
 
 In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE` to signal SmartSleep, to using `I_PRE_SLEEP_NOTIFICATION` and `I_POST_SLEEP_NOTIFICATION`. Home Assistant has been upgraded to support the new message types and will activate SmartSleep when receiving a message of type `I_PRE_SLEEP_NOTIFICATION`, if using MySensors version 2.2.x or higher. If Home Assistant is configured to use MySensors version 2.0 - 2.1 the old SmartSleep behavior is retained.
 
-### {% linkable_title Message validation %}
+### Message validation
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 

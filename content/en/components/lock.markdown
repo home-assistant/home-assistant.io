@@ -14,7 +14,7 @@ Keeps track which locks are in your environment, their state and allows you to c
  * Maintains a state per lock and a combined state `all_locks`.
  * Registers services `lock.lock` and `lock.unlock` to control locks.
 
-### {% linkable_title Use the services %}
+### Use the services
 
 Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock.lock` or `lock.unlock` from the list of available services (**Services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 

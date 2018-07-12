@@ -38,7 +38,7 @@ Configuration variables:
   - **min_gradient** (*Optional*): The minimum rate at which the observed value must be changing for this sensor to switch on. The gradient is measured in sensor units per second. Defaults to `0.0`
   - **sample_duration** (*Optional*): The duration **in seconds** to store samples for. Samples older than this value will be discarded. Defaults to `0`
 
-## {% linkable_title Using Multiple Samples %}
+## Using Multiple Samples
 
 If the optional `sample_duration` and `max_samples` parameters are specified then multiple samples can be stored and used to detect long-term trends.
 
@@ -48,7 +48,7 @@ A trend line is then fitted to the available samples, and the gradient of this l
 
 The current number of stored samples is displayed on the States page.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 

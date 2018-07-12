@@ -79,7 +79,7 @@ binary_sensor:
             type: time
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
 Template Binary Sensor may get an `unknown` state during startup. This results
@@ -91,11 +91,11 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Sensor Threshold %}
+### Sensor Threshold
 
 This example indicates true if a sensor is above a given threshold. Assuming a
 sensor of `furnace` that provides a current reading for the fan motor, we can
@@ -113,7 +113,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Switch as Sensor %}
+### Switch as Sensor
 
 Some movement sensors and door/window sensors will appear as a switch. By using
 a Template Binary Sensor, the switch can be displayed as a binary sensors. The
@@ -134,7 +134,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Combining Multiple Sensors %}
+### Combining Multiple Sensors
 
 This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
@@ -155,7 +155,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Washing Machine Running %}
+### Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy
@@ -178,7 +178,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Is Anyone Home? %}
+### Is Anyone Home?
 
 This example is determining if anyone is home based on the combination of device
 tracking and motion sensors. It's extremely useful if you have kids/baby sitter/

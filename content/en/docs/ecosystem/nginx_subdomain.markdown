@@ -17,7 +17,7 @@ This is useful if you want to have:
  * several subdomain for several instance
  * HTTPS redirection
 
-#### {% linkable_title Subdomain %}
+#### Subdomain
 
 So you already have a working NGINX server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
@@ -56,7 +56,7 @@ server {
 
 If you don't want HTTPS, you can change `listen 443 ssl` to `listen 80` or better, consider redirecting all HTTP to HTTPS. See further down.
 
-#### {% linkable_title Multiple Instance %}
+#### Multiple Instance
 
 You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`.
 
@@ -105,7 +105,7 @@ server {
 }
 ```
 
-#### {% linkable_title HTTP to HTTPS redirection %}
+#### HTTP to HTTPS redirection
 
 Add to your `/etc/nginx/sites-enabled/default`
 

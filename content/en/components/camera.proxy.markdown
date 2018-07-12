@@ -71,7 +71,7 @@ camera:
 {% endconfiguration %}
 
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of using a Camera proxy along with a Foscam camera:
 

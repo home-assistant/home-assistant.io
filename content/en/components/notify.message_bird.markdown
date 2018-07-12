@@ -30,11 +30,11 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **sender** (*Optional*): Setting the optional parameter `sender`. This will be the sender of the SMS. It may be either a telephone number (e.g., `+4915112345678`) or a text with a maximum length of 11 characters. Defaults to `HA`.
 
-### {% linkable_title Usage %}
+### Usage
 
 MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to the specified mobile phone number(s).
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {

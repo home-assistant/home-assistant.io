@@ -15,7 +15,7 @@ og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 
 Release 0.65 has arrived and oh boy, is it awesome. First off, in case you have missed the previous release notes and [announcements](/blog/2017/10/06/deprecating-python-3.4-support/): **Starting with this release, Home Assistant has dropped support for Python 3.4. The minimum supported version is now Python 3.5.3.** If you are on Hass.io or Docker, you'll automatically be running the latest and greatest. If you're on an older Hassbian installation or did your own Linux setup you'll need to upgrade to at least Python 3.5.3.
 
-## {% linkable_title Naming entities %}
+## Naming entities
 
 With the introduction of the entity registry in 0.63, Home Assistant is making sure that the same devices always receive the same entity IDs. This release is taking it a step further by allowing users to change the name of a device from the frontend. Changing the name will be instantly applied and overrides whatever name the device is given by the integration. If you want to switch back to the name from the integration, set the name to blank.
 
@@ -28,7 +28,7 @@ _This feature is, just like the entity registry, only available for integrations
   The new entity registry settings page in action.
 </p>
 
-## {% linkable_title Filter sensor %}
+## Filter sensor
 
 The [filter sensor][sensor.filter docs] is a new 2nd order sensor by [@dgomes]: it will consume data from a sensor entity and apply filters to it. For the initial implementation it comes with Low-pass, Outlier and Throttle filters. Expect more to be added in the future.
 
@@ -53,7 +53,7 @@ sensor:
   Graph showing both the input sensor and the output of the filter sensor.
 </p>
 
-## {% linkable_title Light Group %}
+## Light Group
 
 We have had some discussion lately and realized that our current group component is very limiting. Extending it would probably lead to more confusion so we've decided to take a new approach: groups that are designed to be part of a specific component. The first one in this series comes at the hand of [@OttoWinter]: the group light ([docs][light.group docs]).
 
@@ -69,11 +69,11 @@ light:
       - light.sun
 ```
 
-## {% linkable_title HomeKit %}
+## HomeKit
 
 HomeKit got some more upgrades. We've added support for temperature sensors in Fahrenheit, alarm systems, switches and thermostats. Just a few releases more and we should be able to cover it all.
 
-## {% linkable_title Optional words for the Conversation component %}
+## Optional words for the Conversation component
 
 The [conversation component](/components/conversation/) has always been a great introduction to controlling your house by voice. There is no hotword detection or powerful language engine behind it, but it gives a great intro to what is possible. Starting with this release, it will get a little bit more powerful with the introduction of optional words. To mark a word optional, wrap it in square brackets: `Change the light to [the color] {color}`.
 
@@ -98,7 +98,7 @@ intent_script:
   Have conversations with Home Assistant via the conversation component.
 </p>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Synology Chat as a notification platform ([@cmsimike] - [#12596]) ([notify.synology_chat docs]) (new-platform)
 - KNX Component: Scene support and expose sensor values ([@Julius2342] - [#11978]) ([knx docs]) ([scene docs]) ([binary_sensor.knx docs]) (new-platform)
@@ -114,7 +114,7 @@ intent_script:
 - Add support for alarm system, switch and thermostat to homekit ([@maxclaey] - [#12819]) ([homekit docs]) (new-platform)
 - Add camera proxy ([@PhracturedBlue] - [#12006]) ([camera.proxy docs]) (new-platform)
 
-## {% linkable_title Release 0.65.1 - March 10 %}
+## Release 0.65.1 - March 10
 
 - allow ios device tracker see calls to go through ([@balloob] - [#13020]) ([device_tracker docs])
 - Fix config component loading YAML ([@kellerza] - [#13024])
@@ -122,7 +122,7 @@ intent_script:
 - Add support for input boolean to Google Assistant ([@balloob] - [#13030]) ([google_assistant docs])
 - HomeKit Bugfix: names ([@cdce8p] - [#13031]) ([homekit docs])
 
-## {% linkable_title Release 0.65.2 - March 10 %}
+## Release 0.65.2 - March 10
 
 - Fix translations sometimes not loading in the frontend ([@armills])
 - Fix sensibo's min/max_temp properties ([@jra3] - [#12996]) ([climate.sensibo docs])
@@ -134,7 +134,7 @@ intent_script:
 - Don't call async from sync ([@balloob] - [#13057]) ([xiaomi_aqara docs])
 - Convert decimals from SQL results ([@balloob] - [#13059]) ([sensor.sql docs])
 
-## {% linkable_title Release 0.65.3 - March 11 %}
+## Release 0.65.3 - March 11
 
 - Implement Hue available property ([@balloob] - [#12939]) ([light.hue docs])
 - Catch async from sync context by running asyncio event loop in debug mode during tests ([@balloob] - [#13058]) ([camera.arlo docs]) ([climate.generic_thermostat docs])
@@ -146,14 +146,14 @@ intent_script:
 - Bump pyvera to 0.2.42. Improve event loop robustness. ([@pavoni] - [#13095]) ([vera docs])
 - Fix Kodi by updateding jsonrpc-websocket to 0.6 ([@Tadly] - [#13096]) ([media_player.kodi docs])
 
-## {% linkable_title Release 0.65.4 - March 12 %}
+## Release 0.65.4 - March 12
 
 - Fix unavailable property for wemo switch ([@balloob] - [#13106]) ([switch.wemo docs])
 - Hue: Catch if bridge goes unavailable ([@balloob] - [#13109]) ([hue docs]) ([light.hue docs])
 - Adding check for empty discovery info in alarm control panel Egardia. ([@jeroenterheerdt] - [#13114]) ([alarm_control_panel.egardia docs])
 - Throttle Arlo api calls ([@arsaboo] - [#13143]) ([arlo docs])
 
-## {% linkable_title Release 0.65.5 - March 14 %}
+## Release 0.65.5 - March 14
 
 - Bugfix HomeKit: Error string values for temperature ([@cdce8p] - [#13162]) ([homekit docs])
 - Revert throttle Arlo api calls ([@arsaboo] - [#13174]) ([arlo docs])
@@ -161,7 +161,7 @@ intent_script:
 - Avoid Sonos error when joining with self ([@amelchio] - [#13196]) ([media_player.sonos docs])
 - Fix input_boolean Google Assistant serialize error ([@balloob] - [#13220]) ([google_assistant docs])
 
-## {% linkable_title Release 0.65.6 - March 21 %}
+## Release 0.65.6 - March 21
 
 - More robust MJPEG parser. Fixes #13138. ([@PhracturedBlue] - [#13226]) ([camera.proxy docs])
 - Tado: don't reference unset hass var ([@balloob] - [#13237]) ([device_tracker docs])
@@ -169,16 +169,16 @@ intent_script:
 - Fix Sonos radio stations with ampersand ([@amelchio] - [#13293]) ([media_player.sonos docs])
 - Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light.demo docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/components/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
@@ -188,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Google Assistant integration: It is no longer possible to override the domain that Home Assistant uses for an entity. This was bound to go wrong when we would test supported features for different domains. Also removed support for disguising temperature sensors as thermostats. We should follow the traits that Google offer us and not offer things that will only work half. ([@balloob] - [#12959]) ([google_assistant docs]) ([light docs]) (breaking change)
 - The LimitlessLED white temperature range has been adjusted and should now match the Mi-Light smartphone app for identical Kelvin values. ([@amelchio] - [#12971]) ([light.limitlessled docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Hello Python 3.5 ([@balloob] - [#12610])
 - Fix CODEOWNERS permissions ([@OttoWinter] - [#12621])

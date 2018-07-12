@@ -15,7 +15,7 @@ ha_release: 0.47
 
 The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan/dyson/) and [Robot vacuum](/components/vacuum/dyson/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml`:
 

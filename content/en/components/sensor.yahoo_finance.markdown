@@ -41,11 +41,11 @@ symbols:
   default: YHOO
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Red Hat and Google %}
+### Red Hat and Google
 
 ```yaml
 sensor:

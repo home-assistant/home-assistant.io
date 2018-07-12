@@ -38,6 +38,6 @@ media_player:
 
 The channel information (numbers and names) are downloaded from ziggo.nl on startup.
 
-#### {% linkable_title Preparation of the Mediabox %}
+#### Preparation of the Mediabox
 
 Makes sure to enable the Home Network ("mijn thuisnetwerk") service in the settings menu of the media box. Once you have set up the Media Library ("mediabiblotheek"), we can determine whether the device is turned on or off. Without this, the component will fail to start.

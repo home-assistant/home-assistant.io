@@ -23,7 +23,7 @@ The Things network support various integrations to make the data available:
 | [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](/components/sensor.thethingsnetwork/) |
 | [HTTP](https://www.thethingsnetwork.org/docs/applications/http/) | |
 
-### {% linkable_title Setup %}
+### Setup
 
 Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
 

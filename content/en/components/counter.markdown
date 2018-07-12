@@ -34,11 +34,11 @@ Configuration variables:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
-## {% linkable_title Services %}
+## Services
 
 Available services: `increment`, `decrement`, and `reset`.
 
-#### {% linkable_title Service `counter.increment` %}
+#### Service `counter.increment`
 
 Increments the counter with 1 or the given value for the steps.
 
@@ -46,7 +46,7 @@ Increments the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter.decrement` %}
+#### Service `counter.decrement`
 
 Decrements the counter with 1 or the given value for the steps.
 
@@ -54,7 +54,7 @@ Decrements the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter.reset` %}
+#### Service `counter.reset`
 
 With this service the counter is reset to its initial value.
 
@@ -63,7 +63,7 @@ With this service the counter is reset to its initial value.
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 

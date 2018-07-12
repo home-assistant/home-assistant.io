@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Push"
 
 The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
-### {% linkable_title Setting up developer account %}
+### Setting up developer account
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
 2. Fill in account details:
@@ -36,7 +36,7 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,7 +61,7 @@ Configuration variables:
 - **client_secret** (*Required*): Your Nest developer client secret.
 - **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
 
-### {% linkable_title Services %}
+### Services
 
 Currently there is a single `nest.set_mode` service available to switch between
 "away" and "home" modes. This service requires a `home_mode` param and has an

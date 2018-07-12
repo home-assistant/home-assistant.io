@@ -65,7 +65,7 @@ sensor:
     type: list
 {% endconfiguration %}
 
-### {% linkable_title Example  %}
+### Example 
 
 Given the following example output from NUT (your variables may differ):
 
@@ -122,7 +122,7 @@ sensor:
       - battery.runtime
 ```
 
-### {% linkable_title UPS Status - human-readable version %}
+### UPS Status - human-readable version
 
 An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
 

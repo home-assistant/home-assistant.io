@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 If you have a Pandora account, you can control it from Home Assistant with this media player.
 
 
-### {% linkable_title Installation of Pianobar %}
+### Installation of Pianobar
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_
 
@@ -51,7 +51,7 @@ user = you@youraccount.com
 
 Test it out by running `pianobar` in the command line. You should be able to listen to your Pandora stations.
 
-### {% linkable_title Configuration in Home Assistant %}
+### Configuration in Home Assistant
 
 The Pandora player can be loaded by adding the following lines to your `configuration.yaml`:
 

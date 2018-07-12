@@ -72,17 +72,17 @@ ssid_filter:
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-### {% linkable_title Configuring Users %}
+### Configuring Users
 
 The Unifi controller allows you to create multiple users on it besides the main administrator. It is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker.
 
-### {% linkable_title Conflicts with MQTT %}
+### Conflicts with MQTT
 
 The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
 
 It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
 
-### {% linkable_title Troubleshooting and Time Synchronization %}
+### Troubleshooting and Time Synchronization
 
 Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
 

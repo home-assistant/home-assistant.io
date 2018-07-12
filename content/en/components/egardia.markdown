@@ -16,7 +16,7 @@ The `egardia` platform enables the ability to control an [Egardia](http://egardi
 
 You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in using your Egardia/Woonveilig account.
 
-## {% linkable_title Basic configuration %}
+## Basic configuration
 
 To enable the integration with your alarm panel, add the following lines to your `configuration.yaml` file:
  ```yaml
@@ -94,7 +94,7 @@ You can change this, however, using the following procedure. This is a more adva
 There seem to be multiple versions of software running on GATE-02 devices; we have received reports from GATE-02 users who successfully run this package in GATE-02 mode. Others have reported they needed to specify GATE-03 as their version to integrate their GATE-02.
 </p>
 
-## {% linkable_title Advanced configuration %}
+## Advanced configuration
 
 1. Log in to your alarm system's control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
 2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.

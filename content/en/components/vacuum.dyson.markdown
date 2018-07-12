@@ -17,7 +17,7 @@ The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuu
 
 You have first to setup the [Dyson component](/components/dyson/)
 
-### {% linkable_title Component services %}
+### Component services
 
 This component support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
 * [`turn_on`](/components/vacuum/#service-vacuumturn_on)

@@ -107,11 +107,11 @@ $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title External IP address %}
+### External IP address
 
 You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
@@ -123,7 +123,7 @@ sensor:
     value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
 ```
 
-### {% linkable_title Single value from a local Glances instance %}
+### Single value from a local Glances instance
 
 The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
 
@@ -136,7 +136,7 @@ sensor:
     unit_of_measurement: MB
 ```
 
-### {% linkable_title Value from another Home Assistant instance %}
+### Value from another Home Assistant instance
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
@@ -151,7 +151,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 
@@ -178,7 +178,7 @@ Content-Type: application/json
 User-Agent: Home Assistant
 ```
 
-### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
+### Use GitHub to get the latest release of Home Assistant
 
 This sample is very similar to the [`updater`](/components/updater/) component but the information is received from GitHub.
 
@@ -196,7 +196,7 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
-### {% linkable_title Fetch multiple JSON values and present them as attributes %}
+### Fetch multiple JSON values and present them as attributes
 
 [JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 

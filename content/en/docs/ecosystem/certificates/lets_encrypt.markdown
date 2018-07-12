@@ -43,7 +43,7 @@ Steps we will take:
  - 8 - Set up an automatic renewal of the TLS/SSL certificate
  - 9 - Set up an alert to warn us if something went wrong
 
-### {% linkable_title 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding %}
+### 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
 
 An IP address is a bit like a phone number. When you access your Home Assistant instance you type something similar to 192.168.0.200:8123 in to your address bar of your browser. The bit before the colon is the IP address (in this case 192.168.0.200) and the bit after is the port number (in this case 8123).  When you SSH in to the device running Home Assistant you will use the same IP address, and you will use port 22. You may not be aware that you are using port 22, but if you are using Putty look in the box next to where you type the IP address, you will see that it has already selected port 22 for you.
 
@@ -76,7 +76,7 @@ Outside world -> https://examplehome.duckdns.org -> 203.0.113.12:443 -> your rou
 ```
 So, let's make it happen...
 
-### {% linkable_title 1 - Set your device to have a static IP address %}
+### 1 - Set your device to have a static IP address
 
 Whenever a device is connected to a network it has an IP address. This IP address is often dynamically assigned to the device on connection. This means there are occasions where the IP address you use to access Home Assistant, or SSH in to the device running Home Assistant, may change. Setting a static IP address means that the device will always be on the same address.
 
@@ -143,7 +143,7 @@ http://192.168.0.200:8123.
 
 All working?  Hooray!  You now have a static IP. This will now always be your internal IP address for your Home Assistant device. This will be known as YOUR-HA-IP for the rest of this guide.
 
-### {% linkable_title 2 - Set up port forwarding without TLS/SSL and test connection %}
+### 2 - Set up port forwarding without TLS/SSL and test connection
 
 Log in to your router's configuration pages and find the port forwarding options. This bit is hard to write a guide for because each router has a different way of presenting these options. Searching google for "port forwarding" and the name of your router may help. When you find it you will likely have options similar to:
 
@@ -185,7 +185,7 @@ Can you see it now, from a device that is definitely not connected to your local
 
 But what if your external IP changes?  Plus, remembering all those numbers is pretty hard, isn't it?  Read on to get yourself set up with a word-based URL at DuckDNS that will track any changes to your IP address so you don't have to stress anymore.
 
-### {% linkable_title 3 - Set up a DuckDNS account %}
+### 3 - Set up a DuckDNS account
 
 Open your browser and go to https://duckdns.org.
 
@@ -224,7 +224,7 @@ Did it work? Super!
 
 You now have a remotely accesible Home Assistant instance that has a text-based URL and will not drop out if your service provider changes your IP. But, it is only as secure as the password you set, which can be snooped during your session by a malicious hacker with relative ease. So we need to set up some encryption with TLS/SSL, read on to find out how.
 
-### {% linkable_title 4 - Obtain a TLS/SSL certificate from Let's Encrypt %}
+### 4 - Obtain a TLS/SSL certificate from Let's Encrypt
 
 First we need to set up another port forward like we did in step 2.  Set your new rule to:
 
@@ -305,7 +305,7 @@ $ sudo chmod 755 /etc/letsencrypt/archive/
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
 
-### {% linkable_title 5 - Check the incoming connection %}
+### 5 - Check the incoming connection
 
 <p class='note'>
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
@@ -371,7 +371,7 @@ If you were previously using a webapp on your phone/tablet to access your Home A
 
 All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.
 
-### {% linkable_title 6 - Clean up port forwards %}
+### 6 - Clean up port forwards
 
 In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer necessary.
 
@@ -394,7 +394,7 @@ Let's Encrypt certificates only last for 90 days. When they have less than 30 da
 
 Move on to step 7 to see how to monitor your certificates expiry date, and be ready to renew your certificate when the time comes.
 
-### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
+### 7 - Set up a sensor to monitor the expiry date of the certificate
 
 Setting a sensor to read the number of days left on your TLS/SSL certificate before it expires is not required, but it has the following advantages:
 
@@ -433,7 +433,7 @@ On your default_view you should now see a sensor badge containing your number of
 
 Got your sensor up and running and where you want it? Top drawer! Nearly there, now move on to the final steps to ensure that you're never without a secure connection in the future.
 
-### {% linkable_title 8 - Set up an automatic renewal of the TLS/SSL certificate. %}
+### 8 - Set up an automatic renewal of the TLS/SSL certificate.
 
 The certbot program we downloaded in step 4 contains a script that will renew your certificate. The script will only obtain a new certificate if the current one has less than 30 days left on it, so running the script more often than is actually needed will not cause any harm.
 
@@ -528,7 +528,7 @@ $ ./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challe
 
 So, now were all set up. We have our secured, remotely accessible Home Assistant instance and we're on track for keeping our certificates up to date. But what if something goes wrong?  What if the automation didn't fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.
 
-### {% linkable_title 9 - Set up an alert to warn us if something went wrong. %}
+### 9 - Set up an alert to warn us if something went wrong.
 
 We set up our automatic renewal of our certificates and whatever method we used the certificate should be renewed on or around 30 days before it expires. But what if a week later it still hasn't been? This alert will go off if the expiry time on the certificate gets down to 21 days. This will give you 3 weeks to fix the problem, get your new certificate installed and get another 90 days of secure Home Assistant connections in play.
 

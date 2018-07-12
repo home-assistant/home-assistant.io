@@ -61,7 +61,7 @@ Query examples with explanations:
 
 More info about queries [here](https://github.com/rg3/youtube-dl#format-selection)
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose `media_extractor` from the dropdown menu **Domain** and `play_media` from **Service**, enter something like the JSON sample from above into the **Service Data** field, and hit **CALL SERVICE**.
 

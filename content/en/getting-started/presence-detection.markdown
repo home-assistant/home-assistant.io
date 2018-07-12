@@ -23,7 +23,7 @@ Presence detection detects if people are home, which is the most valuable input 
 Screenshot of Home Assistant showing a school, work and home zone and two people.
 </p>
 
-### {% linkable_title Setting it up %}
+### Setting it up
 
 The device tracker component offers presence detection for Home Assistant. It supports three different methods for presence detection: scan for connected devices on the local network, scan for Bluetooth devices within range, and connect to third-party service.
 
@@ -35,7 +35,7 @@ Home Assistant currently supports multiple third-party services for presence det
 
 There are a wide [range of options][ha-presence] available, both for scanning your local network and third-party services.
 
-### {% linkable_title Zones %}
+### Zones
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 

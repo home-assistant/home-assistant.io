@@ -53,7 +53,7 @@ homeassistant:
       homebridge_hidden: true
 ```
 
-### {% linkable_title Possible values %}
+### Possible values
 
 | Attribute | Description |
 | --------- | ----------- |
@@ -69,7 +69,7 @@ homeassistant:
 | `initial_state` | Sets the initial state for automations. `on` or `off`.
 | `unit_of_measurement` | Defines the units of measurement, if any.
 
-### {% linkable_title Device Class %}
+### Device Class
 
 Device class is currently supported by the following components:
 
@@ -77,7 +77,7 @@ Device class is currently supported by the following components:
 * [Sensor](/components/sensor/)
 * [Cover](/components/cover/)
 
-### {% linkable_title Reloading customize %}
+### Reloading customize
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant.reload_core_config` and click "CALL SERVICE".
 

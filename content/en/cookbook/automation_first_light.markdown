@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Create an input_boolean in your configuration.yaml  %}
+#### Create an input_boolean in your configuration.yaml 
 
 ```yaml
 input_boolean:
@@ -19,7 +19,7 @@ input_boolean:
     icon: mdi:kettle
 ```
 
-#### {% linkable_title The Main Automation  %}
+#### The Main Automation 
 
 ```yaml
 ## These first two control t input_boolean that allows the "first morning action" to occur
@@ -93,7 +93,7 @@ automation:
       
 ```
 
-#### {% linkable_title The Scene %}
+#### The Scene
 
 Here is the Scene that is called via the Automations above.
 

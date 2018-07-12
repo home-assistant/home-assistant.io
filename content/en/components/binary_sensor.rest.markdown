@@ -102,11 +102,11 @@ headers:
 Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title aREST sensor %}
+### aREST sensor
 
 Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor, you could retrieve the value of a device supporting aREST directly with a REST binary sensor.
 
@@ -120,7 +120,7 @@ binary_sensor:
     value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 

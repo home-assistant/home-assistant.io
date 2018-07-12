@@ -157,7 +157,7 @@ payload_not_available:
   RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## Comparison of light MQTT platforms
 
 | Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
@@ -171,11 +171,11 @@ payload_not_available:
 | HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Brightness and RGB support %}
+### Brightness and RGB support
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
@@ -190,7 +190,7 @@ light:
     rgb: true
 ```
 
-### {% linkable_title Brightness and no RGB support %}
+### Brightness and no RGB support
 
 To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
 
@@ -204,7 +204,7 @@ light:
     brightness: true
 ```
 
-### {% linkable_title Brightness Scaled %}
+### Brightness Scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 ```yaml
@@ -227,7 +227,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### {% linkable_title HS Color %}
+### HS Color
 
 To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
 
@@ -252,7 +252,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 }
 ```
 
-### {% linkable_title Implementations %}
+### Implementations
 
 - A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.
 

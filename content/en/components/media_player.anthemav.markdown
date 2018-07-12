@@ -15,7 +15,7 @@ ha_release: 0.37
 
 Both [Anthem]'s current and last generation of A/V Receivers and Processors support IP-based, network control. This Home Assistant platform adds proper "local push" support for any of these receivers on your network.
 
-## {% linkable_title Supported Models %}
+## Supported Models
 
 * MRX 520, MRX 720, MRX 1120, and AVM 60
 * MRX 310, MRX 510, MRX 710

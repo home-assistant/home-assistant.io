@@ -17,7 +17,7 @@ The `zamg` platform uses meteorological details published by the Austrian weathe
 
 Only observations for capital cities are publicly available. You can check the list of stations in [CSV format](http://www.zamg.ac.at/ogd).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add ZAMG to your installation, add the following to your `configuration.yaml` file:
 

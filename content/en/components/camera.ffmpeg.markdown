@@ -31,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Override the name of your camera.
 - **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
 
-### {% linkable_title Image quality %}
+### Image quality
 
 You can control the image quality with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
 

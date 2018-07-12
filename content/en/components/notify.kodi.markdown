@@ -32,7 +32,7 @@ notify:
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 
-### {% linkable_title script.yaml example %}
+### script.yaml example
 
 ```yaml
 kodi_notification:
@@ -46,7 +46,7 @@ kodi_notification:
         icon: "warning"
 ```
 
-#### {% linkable_title Message variables %}
+#### Message variables
 
 - **title** (*Optional*): Title that is displayed on the message.
 - **message** (*Required*): Message to be displayed.
@@ -56,23 +56,23 @@ kodi_notification:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Media control services %}
+### Media control services
 Available services: `kodi_add_to_playlist`, `kodi_set_shuffle`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
 
-#### {% linkable_title Service `media_player/kodi_set_shuffle` %}
+#### Service `media_player/kodi_set_shuffle`
 
 | Service data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. It must be of type kodi. |
 | `shuffle_on     `      |       no | True/false for shuffle on/off                            |
 
-#### {% linkable_title Service `media_player/kodi_add_to_playlist` %}
+#### Service `media_player/kodi_add_to_playlist`
 
 Add a song or an entire album to the default playlist (i.e. playlist id 0).
 

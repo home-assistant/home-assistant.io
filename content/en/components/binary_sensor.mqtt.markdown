@@ -17,7 +17,7 @@ The `mqtt` binary sensor platform uses an MQTT message payload to set the binary
 
 The binary sensor state will be updated only after a new message is published on `state_topic` matching `payload_on` or `payload_off`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The `mqtt` binary sensor platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT cover device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability_topic` is defined, Home Assistant will consider the MQTT device to be available.
 
@@ -89,11 +89,11 @@ force_update:
 {% endconfiguration %}
 
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. To set the state of the binary sensor manually:
 
@@ -121,7 +121,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Get the state of a device with ESPEasy %}
+### Get the state of a device with ESPEasy
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". Also, add a "Switch Input" in the "Devices" tap with the name "switch" and "button" as value.
 

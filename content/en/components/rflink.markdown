@@ -56,7 +56,7 @@ rflink:
     - digitech_*
 ```
 
-### {% linkable_title TCP mode %}
+### TCP mode
 
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
@@ -85,7 +85,7 @@ rflink:
   port: 1234
 ```
 
-### {% linkable_title Adding devices Automatically %}
+### Adding devices Automatically
 
 In order to have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
@@ -102,7 +102,7 @@ sensor:
     automatic_add: true
 ```
 
-### {% linkable_title Ignoring devices %}
+### Ignoring devices
 
 The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
@@ -125,22 +125,22 @@ This configuration will ignore the button `1` of the `newkaku` device with ID `0
 Wildcards only work at the end of the ID, not in the middle or front!
 </p>
 
-### {% linkable_title Device support %}
+### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
 
-### {% linkable_title Device Incorrectly Identified %}
+### Device Incorrectly Identified
 
 If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
 
-### {% linkable_title Technical Overview %}
+### Technical Overview
 
 - The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
-### {% linkable_title Debug Logging %}
+### Debug Logging
 
 For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
 

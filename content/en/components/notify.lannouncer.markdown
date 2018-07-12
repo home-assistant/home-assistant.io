@@ -31,7 +31,7 @@ Configuration variables:
 - **host** (*Required*): The hostname or IP-address of the Android device that is running Lannouncer.
 - **port** (*Optional*): The port on which Lannouncer is running. By default this is `1035`.
 
-### {% linkable_title Installation %}
+### Installation
 
 You need to install the Lannouncer app and enable the *Network (TCP) Listener* and *Auto-Start Network Listener*. You can disable the *GCM (Google Cloud) and WAN Messaging* and *SMS Listener* since this component doesn't use them.
 
@@ -39,7 +39,7 @@ Lannouncer uses the default Android TTS voice. You can tweak that in the Android
 
 More information can be found [here](http://www.keybounce.com/lannouncer/configuring-lannouncer/).
 
-### {% linkable_title Sending messages %}
+### Sending messages
 
 Lannouncer supports two types of messages.
 

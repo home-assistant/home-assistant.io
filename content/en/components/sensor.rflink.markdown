@@ -82,7 +82,7 @@ Sensor type values:
 - windspeed
 - windtemp
 
-### {% linkable_title Hiding/ignoring sensors %}
+### Hiding/ignoring sensors
 
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
@@ -90,7 +90,7 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 

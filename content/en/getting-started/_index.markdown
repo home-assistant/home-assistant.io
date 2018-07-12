@@ -17,7 +17,7 @@ Follow this guide if you want to easily get started with Home Assistant, or if y
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
-### {% linkable_title Hardware requirements %}
+### Hardware requirements
 
 We will need a few things to get started with installing Home Assistant. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
@@ -32,7 +32,7 @@ We will need a few things to get started with installing Home Assistant. Links b
   The recently released Raspberry Pi 3 model B+ is not yet supported by Hass.io.
 </p>
 
-### {% linkable_title Software requirements %}
+### Software requirements
 
 - Download [Hass.io image for Raspberry Pi 3][pi3]
 - Download [Etcher] to write the image to an SD card
@@ -41,7 +41,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 [Etcher]: https://etcher.io/
 [pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi3.img.bz2
 
-### {% linkable_title Installing Hass.io %}
+### Installing Hass.io
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.

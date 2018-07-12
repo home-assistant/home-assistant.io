@@ -37,7 +37,7 @@ Configuration variables:
 - **resolver_ipv6** (*Optional*): The IPv6 DNS server to target the query at. Default: `2620:0:ccc::2` (OpenDNS)
 - **scan_interval** (*Optional*): Defines number of seconds for polling interval. Default: `120` seconds.
 
-#### {% linkable_title Extended example %}
+#### Extended example
 
 ```yaml
 # Example configuration.yaml entry

@@ -49,7 +49,7 @@ Configuration variables:
 - **mac** (*Optional*): The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
 - **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used to open web pages and other media types (images, movies) in the TV web browser.
 

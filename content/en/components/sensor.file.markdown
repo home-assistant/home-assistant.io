@@ -32,11 +32,11 @@ Configuration variables:
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Entries as JSON %}
+### Entries as JSON
 
 Assuming that the log file contains multiple values formatted as JSON like shown below:
 

@@ -14,7 +14,7 @@ ha_release: 0.32
 
 The `mochad` switch platform lets you control an X10 enabled switch device.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, you first have to set up the [mochad component](/components/mochad/) and then add the following to your `configuration.yaml` file:
 

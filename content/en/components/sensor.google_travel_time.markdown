@@ -40,7 +40,7 @@ Configuration variables:
   - **arrival_time** (*Optional*): See notes above for `departure_time`. `arrival_time` can not be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
   - **units** (*Optional*): Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`.
 
-##### {% linkable_title Dynamic Configuration %}
+##### Dynamic Configuration
 
 Tracking can be setup to track entities of type device_tracker, zone, and sensor. If an entity is placed in the origin or destination then every 5 minutes when the component updates it will use the latest location of that entity.
 
@@ -70,7 +70,7 @@ sensor:
     
 ```
 
-#### {% linkable_title Entity Tracking %}
+#### Entity Tracking
 
 - **device_tracker**
   - If state is a zone then the zone location will be used

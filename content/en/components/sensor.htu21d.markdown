@@ -34,7 +34,7 @@ Configuration variables:
 - **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
 
 
-## {% linkable_title Customizing the sensor data %}
+## Customizing the sensor data
 
 Give the values friendly names and icons, add the following to your `customize:` section.
 
@@ -61,7 +61,7 @@ group:
       - sensor.htu21d_sensor_humidity
 ```
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -85,7 +85,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

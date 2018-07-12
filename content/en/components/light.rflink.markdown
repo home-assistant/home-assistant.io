@@ -58,7 +58,7 @@ Device configuration variables:
 - **group_aliases** (*Optional*): `aliases` which only respond to group commands.
 - **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
 
-### {% linkable_title Light state %}
+### Light state
 
 Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.
 
@@ -82,7 +82,7 @@ light:
 
 Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
-### {% linkable_title Light types %}
+### Light types
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink component support three types of lights to make things work in every situation:
 
@@ -93,7 +93,7 @@ Light devices can come in different forms. Some only switch on and off, other su
 
 By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
 
-### {% linkable_title Hiding/ignoring lights %}
+### Hiding/ignoring lights
 
 Lights are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
@@ -101,7 +101,7 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 

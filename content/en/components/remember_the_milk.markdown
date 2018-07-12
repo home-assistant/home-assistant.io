@@ -14,11 +14,11 @@ ha_release: 0.57
 
 The `Remember The Milk` (RTM) component allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The component allows you to have several RTM accounts in parallel.
 
-## {% linkable_title Setup %}
+## Setup
 
 The setup consists of two steps: getting an API key and registering your account
 
-### {% linkable_title Step 1: API key %}
+### Step 1: API key
 
 To be able to use this component, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal `shared secret`. Both of them need to be stored in your Home Assistant configuration:
 
@@ -49,7 +49,7 @@ Configuration variables:
     type: string
 {% endconfiguration %}
 
-### {% linkable_title Step 2: registering your account %}
+### Step 2: registering your account
 
 After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a new "Configuration" panel appearing on the Home Assistant page. After opening the configuration page, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
 
@@ -85,7 +85,7 @@ If you have created your task with an ```id```, calling ```<account>_complete_ta
 |-----------------------|----------|-------------|---------|
 | id | no | Identifier that was defined when creating the task | "myid" |
 
-## {% linkable_title Automation example %}
+## Automation example
 
 Here's an example for an automation that creates a new task whenever ```sensor.mysensor``` is ```on``` and completes it when the sensor reports ```off```. This way it reminds you to switch it off. By using the ```entity_id``` as id for the task, you can use the same rule also for multiple sensors.
 
@@ -115,5 +115,5 @@ Here's an example for an automation that creates a new task whenever ```sensor.m
 
 
 
-## {% linkable_title Disclaimer %}
+## Disclaimer
 This product uses the Remember The Milk API but is not endorsed or certified by Remember The Milk.

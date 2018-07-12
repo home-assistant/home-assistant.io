@@ -16,13 +16,13 @@ ha_release: 0.14
 
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
 
 To find an account's 64-bit SteamID on profiles without a custom URL you can check the URL of the profile page, the long string of numbers at the end is the 64-bit SteamID. If the profile has a custom URL you will have to copy the URL into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Steam in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ accounts:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 If you want to add the accounts to a group for example you will have to use:
 

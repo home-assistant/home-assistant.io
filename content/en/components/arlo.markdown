@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable device linked in your [Arlo](https://arlo.netgear.com/) account, add the following to your `configuration.yaml` file:
 

@@ -18,7 +18,7 @@ The IGD automatically creates port forwarding mappings on your router for Home A
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this component to work.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 

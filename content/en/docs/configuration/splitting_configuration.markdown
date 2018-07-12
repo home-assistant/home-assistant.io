@@ -154,7 +154,7 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
-### {% linkable_title Debugging multiple configuration files %}
+### Debugging multiple configuration files
 
 If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
 - Listing all loaded files: `hass --script check_config --files`
@@ -163,7 +163,7 @@ If you have many configuration files, the `check_config` script allows you to se
 
 You can get help from the command line using: `hass --script check_config --help`
 
-### {% linkable_title Advanced Usage %}
+### Advanced Usage
 
 We offer four advanced options to include whole directories at once.
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list.
@@ -188,7 +188,7 @@ These work recursively. As an example using `!include_dir_* automation`, will in
     └── configuration.yaml (not included)
 ```
 
-#### {% linkable_title Example: `!include_dir_list` %}
+#### Example: `!include_dir_list`
 
 `configuration.yaml`
 
@@ -250,7 +250,7 @@ It is important to note that each file must contain only **one** entry when usin
 It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
 the -id: line must be removed from each of the split files.
 
-#### {% linkable_title Example: `!include_dir_named` %}
+#### Example: `!include_dir_named`
 
 `configuration.yaml`
 
@@ -327,7 +327,7 @@ speech:
     {% endif %}{% endraw %}
 ```
 
-#### {% linkable_title Example: `!include_dir_merge_list` %}
+#### Example: `!include_dir_merge_list`
 
 `configuration.yaml`
 
@@ -382,7 +382,7 @@ automation: !include_dir_merge_list automation/
 
 It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
 
-#### {% linkable_title Example: `!include_dir_merge_named` %}
+#### Example: `!include_dir_merge_named`
 
 `configuration.yaml`
 

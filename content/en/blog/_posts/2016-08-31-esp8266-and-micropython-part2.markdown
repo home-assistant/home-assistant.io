@@ -21,7 +21,7 @@ You have to make a decision: Do you want to pull or to [poll](https://en.wikiped
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### {% linkable_title MQTT %}
+### MQTT
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 

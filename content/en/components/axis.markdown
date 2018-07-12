@@ -30,7 +30,7 @@ axis:
 
 Configuration variables:
 
-## {% linkable_title Configuration variables %}
+## Configuration variables
 
 - **device** (*Required*): Unique name 
 - **host** (*Required*): The IP address to your Axis device.
@@ -76,10 +76,10 @@ Any specific levels for triggers needs to be configured on the device.
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
 </p>
 
-## {% linkable_title Device services %}
+## Device services
 Available services: `vapix_call`.
 
-#### {% linkable_title Service `axis/vapix_call` %}
+#### Service `axis/vapix_call`
 Send a command using [Vapix](https://www.axis.com/support/developer-support/vapix). For details please read the API specifications.
 
 | Service data attribute    | Optional | Description                                      |

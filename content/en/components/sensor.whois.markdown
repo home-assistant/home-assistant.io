@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `whois` sensor platform allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 

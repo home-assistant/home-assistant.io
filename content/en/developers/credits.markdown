@@ -11,11 +11,11 @@ footer: true
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. Hover over a username to see their contributions.
 
-### {% linkable_title Author %}
+### Author
 
 - [Paulus Schoutsen (@balloob)](https://github.com/balloob "6888 total commits to the home-assistant organization, 3961 commits to home-assistant, 1476 commits to home-assistant.github.io, 854 commits to home-assistant-polymer, 244 commits to home-assistant-js, 124 commits to netdisco, 62 commits to developers.home-assistant, 52 commits to home-assistant-js-websocket, 35 commits to hass-release, 17 commits to LabelBot, 15 commits to home-assistant-assets, 8 commits to example-custom-config, 8 commits to hassio, 7 commits to micropython-home-assistant, 6 commits to custom-panel-starter-kit-react, 3 commits to hassio-addons, 3 commits to hassio-build, 2 commits to ui-schema, 2 commits to issue-bot, 2 commits to lambda-home-assistant-github, 2 commits to home-assistant-iOS, 2 commits to hassio-addons-example, 1 commit to home-assistant-notebooks, 1 commit to architecture, 1 commit to warrant")
 
-### {% linkable_title Contributors %}
+### Contributors
 
 (in alphabetical order)
 

@@ -100,7 +100,7 @@ Configuration variables:
 
 All the conditions listed above will be updated every 5 minutes.
 
-### {% linkable_title Forecasts %}
+### Forecasts
 
 _12 hour forecasts_
 
@@ -116,9 +116,9 @@ _Hourly forecasts_
 Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
 in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will give you weather in 24 hours.
 
-### {% linkable_title Additional examples %}
+### Additional examples
 
-#### {% linkable_title Daily forecast %}
+#### Daily forecast
 
 ```yaml
 sensor:
@@ -150,7 +150,7 @@ group:
 
 ![Daily Forecast](/images/screenshots/wunderground_daily_forecast.png)
 
-#### {% linkable_title Weather overview %}
+#### Weather overview
 
 ```yaml
 sensor:

@@ -37,7 +37,7 @@ away_mode_name:
   default: "`Armed` mode in Arlo"
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 These examples are based on an Arlo base station named `my_arlo_base_station`. Replace this with the name of your base station's `entity_id`.
 

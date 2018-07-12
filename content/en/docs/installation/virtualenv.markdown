@@ -20,7 +20,7 @@ _(If you're on a Debian based system, you will need to install Python virtual en
 It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user. The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 </p>
 
-### {% linkable_title Install %}
+### Install
 
  1. Create a virtual environment in your current directory:
     ```
@@ -48,7 +48,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     $ hass --open-ui
     ```
  
-### {% linkable_title Upgrade %}
+### Upgrade
 
  1. Stop Home Assistant
 
@@ -66,7 +66,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     ```
  5. Start Home Assistant
 
-### {% linkable_title Notes %}
+### Notes
 
 - In the future, if you want to start Home Assistant manually again, follow step 2, 3 and 5.
 - It's recommended to run Home Assistant as a dedicated user.
@@ -75,7 +75,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
 Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
 </p>
 
-### {% linkable_title After upgrading Python %}
+### After upgrading Python
 
 If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
 

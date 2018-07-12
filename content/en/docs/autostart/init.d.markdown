@@ -12,7 +12,7 @@ redirect_from: /getting-started/autostart-init.d/
 
 Home Assistant can run as a daemon within init.d with the script below.
 
-### {% linkable_title 1. Copy script %}
+### 1. Copy script
 
 Copy either the daemon script or the Python environment scrip at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
 
@@ -22,21 +22,21 @@ After that, set the script to be executable:
 $ sudo chmod +x /etc/init.d/hass-daemon
 ```
 
-### {% linkable_title 2. Select a user. %}
+### 2. Select a user.
 
 Create or pick a user that the Home Assistant daemon will run under. Update script to set `RUN_AS` to the username that should be used to execute hass.
 
-### {% linkable_title 3. Change hass executable and other variables if required. %}
+### 3. Change hass executable and other variables if required.
 
 Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path. Please also check the other variables for the appropriate value. In general the defaults should work
 
-### {% linkable_title 4. Install this service %}
+### 4. Install this service
 
 ```bash
 $ sudo service hass-daemon install
 ```
 
-### {% linkable_title 5. Create logrotate rule %}
+### 5. Create logrotate rule
 
 This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage of a few seconds every week at night. If you do not want this add `--log-rotate-days 7` to the `FLAGS` variable in the init script.
 
@@ -56,17 +56,17 @@ This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage 
 
 ```
 
-### {% linkable_title 6. Restart Machine %}
+### 6. Restart Machine
 
 That's it. Restart your machine and Home Assistant should start automatically.
 
 If HA does not start, check the log file output for errors at `/var/log/homeassistant/home-assistant.log`
 
-### {% linkable_title Extra: Running commands before hass executes %}
+### Extra: Running commands before hass executes
 
 If any commands need to run before executing hass (like loading a virtual environment), put them in PRE_EXEC. This command must end with a semicolon.
 
-### {% linkable_title Daemon script %}
+### Daemon script
 
 ```bash
 #!/bin/sh
@@ -187,7 +187,7 @@ case "$1" in
 esac
 ```
 
-### {% linkable_title Python virtual environment %}
+### Python virtual environment
 
 ```bash
 #!/bin/sh

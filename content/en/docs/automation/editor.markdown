@@ -41,7 +41,7 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 
 Don't forget to save your new automation rule. For your saved automation rule to come into effect, you will need to go to the **Configuration** page and click on **Reload Automation**.
 
-## {% linkable_title Updating your configuration to use the editor %}
+## Updating your configuration to use the editor
 
 First, check that you have activated the configuration editor.
 
@@ -77,7 +77,7 @@ automation old: !include_dir_merge_list automations
 ```
 
 
-## {% linkable_title Migrating your automations to `automations.yaml` %}
+## Migrating your automations to `automations.yaml`
 
 If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 

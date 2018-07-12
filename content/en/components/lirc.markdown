@@ -18,7 +18,7 @@ ha_iot_class: "Local Push"
 
 Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
 
-### {% linkable_title Installation %}
+### Installation
 
 To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:
 
@@ -37,7 +37,7 @@ The configuration is slightly different :
 For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
 </p>
 
-### {% linkable_title Configuring LIRC %}
+### Configuring LIRC
 
 Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g., for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
 
@@ -73,14 +73,14 @@ $ ircat home-assistant
 and pressing some buttons on the remote. You should see them register on the screen if LIRC is properly configured.
 
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 ```yaml
 # Example configuration.yaml entry
 lirc:
 ```
 
-#### {% linkable_title Events %}
+#### Events
 
 The LIRC component fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
 

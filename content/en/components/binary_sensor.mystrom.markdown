@@ -28,7 +28,7 @@ The buttons will give you feedback with its built-in LED:
 - white then green: Pattern was submitted successfully
 - white then red: There is a problem with the communication
 
-### {% linkable_title Setup of myStrom Buttons %}
+### Setup of myStrom Buttons
 
 You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns if the button is not charging. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
 
@@ -79,7 +79,7 @@ The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a
 
 If you have set [`login_attempts_threshold`](/components/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/components/http/#ip-filtering-and-banning) about how to revert the banning.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your myStrom WiFi Button in your installation, add the following to your `configuration.yaml` file:
 

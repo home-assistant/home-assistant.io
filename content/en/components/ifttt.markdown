@@ -35,7 +35,7 @@ Once you have added your key to your `configuration.yaml` file, restart your Hom
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
 
-### {% linkable_title Testing your trigger %}
+### Testing your trigger
 
 You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
 
@@ -50,7 +50,7 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 When your screen looks like this, click the 'call service' button.
 </p>
 
-### {% linkable_title Setting up a recipe %}
+### Setting up a recipe
 
 Press the *New applet* button and search for *Webhooks*.
 
@@ -107,7 +107,7 @@ ifttt_notify:
 ```
 {% endraw %}
 
-### {% linkable_title Sending events from IFTTT to Home Assistant %}
+### Sending events from IFTTT to Home Assistant
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using [DuckDNS](https://duckdns.org).
 
@@ -117,7 +117,7 @@ In the URL field, you can then put an [API URL](/developers/rest_api/). You prob
 <img src='/images/components/ifttt/IFTTT_to_HA.png' />
 </p>
 
-### {% linkable_title Additional Channel Examples %}
+### Additional Channel Examples
 
 Additional examples of using IFTTT channels can be found below.
 

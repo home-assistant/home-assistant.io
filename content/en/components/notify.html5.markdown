@@ -35,7 +35,7 @@ Configuration variables:
 - **gcm_api_key** (*Required if pushing to Chrome*): The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 - **gcm_sender_id** (*Required if pushing to Chrome*): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 
-### {% linkable_title Getting ready for Chrome %}
+### Getting ready for Chrome
 
 1. Make sure you can access your Home Assistant installation from outside your network over https ([see docs](/docs/configuration/remote/)).
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
@@ -44,7 +44,7 @@ Configuration variables:
 5. Then, click the cogwheel on top left and select "Project settings".
 6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
 
-#### {% linkable_title Verify your domain %}
+#### Verify your domain
 
 Follow these steps to verify domain ownership with Google Webmaster Central / Search Console:
 1. Enter your domain and add **'/local'** at the end, ie. https://example.com:8123/local
@@ -55,7 +55,7 @@ Follow these steps to verify domain ownership with Google Webmaster Central / Se
 5. Verify the file can be accessed in the browser, ie. **https://example.com:8123/local/google123456789.html** (change filename) - you should a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
 6. Go back to Google Webmaster Central / Search Console and proceed with the verification.
 
-### {% linkable_title Requirements %}
+### Requirements
 
 The `html5` platform can only function if all of the following requirements are met:
 
@@ -67,7 +67,7 @@ The `html5` platform can only function if all of the following requirements are 
 * You are willing to accept the notification permission in your browser.
 
 
-### {% linkable_title Setting up %}
+### Setting up
 
 Assuming you have already added the platform to your configuration:
 
@@ -79,13 +79,13 @@ Assuming you have already added the platform to your configuration:
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
 
-### {% linkable_title Usage %}
+### Usage
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
 
 Any JSON examples below can be [converted to YAML](https://www.json2yaml.com/) for automations.
 
-#### {% linkable_title Actions %}
+#### Actions
 
 Chrome supports notification actions, which are configurable buttons that arrive with the notification and can cause actions on Home Assistant to happen when pressed. You can send [up to 2 actions](https://cs.chromium.org/chromium/src/third_party/WebKit/public/platform/modules/notifications/WebNotificationConstants.h?q=maxActions&sq=package:chromium&dr=CSs&l=14).
 
@@ -108,7 +108,7 @@ Chrome supports notification actions, which are configurable buttons that arrive
 }
 ```
 
-#### {% linkable_title Data %}
+#### Data
 
 Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](#automating-notification-events).
 
@@ -122,7 +122,7 @@ Any parameters that you pass in the notify payload that aren't valid for use in 
 }
 ```
 
-#### {% linkable_title Tag %}
+#### Tag
 
 By default, every notification sent has a randomly generated UUID (v4) set as its _tag_ or unique identifier. The tag is unique to the notification, _not_ to a specific target. If you pass your own tag in the notify payload you can replace the notification by sending another notification with the same tag. You can provide a `tag` like so:
 
@@ -152,7 +152,7 @@ Example of adding a tag to your notification. This won't create new notification
           tag: 'notification-about-sensor'
 ```
 
-#### {% linkable_title Targets %}
+#### Targets
 
 If you do not provide a `target` parameter in the notify payload a notification will be sent to all registered targets as listed in `html5_push_registrations.conf`. You can provide a `target` parameter like so:
 
@@ -174,11 +174,11 @@ If you do not provide a `target` parameter in the notify payload a notification 
 }
 ```
 
-#### {% linkable_title Overrides %}
+#### Overrides
 
 You can pass any of the parameters listed [here](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, [Chrome specifies](https://cs.chromium.org/chromium/src/third_party/WebKit/public/platform/modules/notifications/WebNotificationConstants.h?q=maxActions&sq=package:chromium&dr=CSs&l=21) that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
 
-#### {% linkable_title URL %}
+#### URL
 
 You can provide a URL to open when the notification is clicked by putting `url` in the data dictionary like so:
 
@@ -194,7 +194,7 @@ You can provide a URL to open when the notification is clicked by putting `url` 
 
 If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
 
-### {% linkable_title Automating notification events %}
+### Automating notification events
 
 During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
 
@@ -210,7 +210,7 @@ Common event payload parameters are:
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
-#### {% linkable_title received event %}
+#### received event
 
 You will receive an event named `html5_notification.received` when the notification is received on the device.
 
@@ -221,7 +221,7 @@ You will receive an event named `html5_notification.received` when the notificat
     event_type: html5_notification.received
 ```
 
-#### {% linkable_title clicked event %}
+#### clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
@@ -243,7 +243,7 @@ or
       action: open_door
 ```
 
-#### {% linkable_title closed event %}
+#### closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
@@ -254,7 +254,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
     event_type: html5_notification.closed
 ```
 
-### {% linkable_title Making notifications work with NGINX proxy %}
+### Making notifications work with NGINX proxy
 
 If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
 

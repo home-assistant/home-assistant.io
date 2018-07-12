@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `ryobi_gdo` cover platform lets you control [Ryobi](https://www.ryobitools.com/gdo/) garage door opener through Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 In order to be able to use your Ryobi garage door opener, you will have to get the DEVICE_ID_OF_YOUR_COVER (one for each garage door).
 
@@ -28,7 +28,7 @@ $ curl -H "Content-Type: application/json" -X GET \
     https://tti.tiwiconnect.com/api/devices
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Ryobi covers in your installation, add the following to your `configuration.yaml` file:
 

@@ -39,7 +39,7 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 ```
 
-### {% linkable_title Python virtual environment %}
+### Python virtual environment
 
 If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately.
 
@@ -57,7 +57,7 @@ ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 WantedBy=multi-user.target
 ```
 
-### {% linkable_title Docker %}
+### Docker
 
 If you want to use Docker, the following template should work for you.
 

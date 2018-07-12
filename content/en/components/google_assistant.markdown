@@ -25,7 +25,7 @@ The Google Assistant component requires a bit more setup than most due to the wa
 To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 
@@ -113,7 +113,7 @@ entity_config:
           type: string
 {% endconfiguration %}
 
-### {% linkable_title Available domains %}
+### Available domains
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - group (on/off)
@@ -135,7 +135,7 @@ $ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' 
 
 If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
 
-### {% linkable_title Setup %}
+### Setup
 
 1. Create a new project in the [developer console](https://console.actions.google.com/).  
   a. Add/Import project, give it a name    
@@ -164,7 +164,7 @@ If you're not using Linux, you can use sites such as [this one](https://www.brow
 	c. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials  
 	d. Note down the generated API Key and use this in the configuration
 
-### {% linkable_title Troubleshooting the request_sync service %}
+### Troubleshooting the request_sync service
 
 The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink.
 
@@ -176,7 +176,7 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   4. Generate a new API key.
   5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
 
-### {% linkable_title Troubleshooting with NGINX %}
+### Troubleshooting with NGINX
 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 

@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 By default, it will run every hour. The user can change the update frequency in the configuration by defining the minute, hour, and day for a speed test to run. For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
 
@@ -79,11 +79,11 @@ This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to g
 
 When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test.  You can turn on manual mode to disable the scheduled speed tests.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Run periodically %}
+### Run periodically
 
 Every half hour of every day:
 
@@ -100,7 +100,7 @@ sensor:
       - upload
 ```
 
-### {% linkable_title Run at a specific time %}
+### Run at a specific time
 
 Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
 
@@ -120,7 +120,7 @@ sensor:
       - upload
 ```
 
-### {% linkable_title Using as a trigger in an automation %}
+### Using as a trigger in an automation
 
 {% raw %}
 ```yaml
@@ -142,7 +142,7 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Notes %}
+## Notes
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - Running this platform can have negative effects on the system's performance as it requires a fair amount of memory.

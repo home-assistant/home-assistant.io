@@ -69,6 +69,6 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
 This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.

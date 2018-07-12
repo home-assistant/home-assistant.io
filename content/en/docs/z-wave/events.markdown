@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title zwave.network_complete %}
+## zwave.network_complete
 
 Home Assistant will trigger an event when the Z-Wave network is complete, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.
 
@@ -20,7 +20,7 @@ Home Assistant will trigger an event when the Z-Wave network is complete, meanin
      event_type: zwave.network_complete
 ```
 
-## {% linkable_title zwave.network_ready %}
+## zwave.network_ready
 
 Home Assistant will trigger an event when the Z-Wave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered, all awake nodes have been queried and sleeping nodes will be queried when they awake.
 
@@ -31,7 +31,7 @@ Home Assistant will trigger an event when the Z-Wave network is ready for use. B
      event_type: zwave.network_ready
 ```
 
-## {% linkable_title zwave.network_start %}
+## zwave.network_start
 
 Home Assistant will trigger an event when the Z-Wave network is set up to be started.
 
@@ -42,7 +42,7 @@ Home Assistant will trigger an event when the Z-Wave network is set up to be sta
      event_type: zwave.network_start
 ```
 
-## {% linkable_title zwave.network_stop %}
+## zwave.network_stop
 
 Home Assistant will trigger an event when the Z-Wave network is stopping.
 
@@ -53,7 +53,7 @@ Home Assistant will trigger an event when the Z-Wave network is stopping.
      event_type: zwave.network_stop
 ```
 
-## {% linkable_title zwave.node_event %}
+## zwave.node_event
 Home Assistant will trigger an event when command_class_basic changes value on a node. This can be virtually anything, so tests have to be made to determine what value equals what. You can use this for automations.
 
 Example:
@@ -70,7 +70,7 @@ Example:
 
 The *entity_id* and *basic_level* of all triggered events can be seen in the console output.
 
-## {% linkable_title zwave.scene_activated %}
+## zwave.scene_activated
 
 Some devices can also trigger scene activation events, which can be used in automation scripts (for example, the press of a button on a wall switch):
 

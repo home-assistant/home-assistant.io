@@ -42,7 +42,7 @@ class = HelloWorld
 
 The `#Apps` section is the configuration for the Hello World program and should be left in place for initial testing but can be removed later if desired, as other Apps are added, App configuration is described in the [API doc](API.md).
 
-## {% linkable_title Docker %}
+## Docker
 
 For Docker Configuration you need to take a couple of extra things into consideration.
 

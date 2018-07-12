@@ -69,7 +69,7 @@ Configuration variables:
 - **mic**: This is the hardware address of your microphone. Look at the add-on output
 - **speaker**: This is the hardware address of your speakers. Look at the add-on output
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 

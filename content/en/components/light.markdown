@@ -15,7 +15,7 @@ This component allows you to track and control various light bulbs. Read the pla
 The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 
-### {% linkable_title Service `light.turn_on` %}
+### Service `light.turn_on`
 
 Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).
 
@@ -59,7 +59,7 @@ automation:
         kelvin: 2700
 ```
 
-### {% linkable_title Service `light.turn_off` %}
+### Service `light.turn_off`
 
 Turns one or multiple lights off.
 
@@ -68,7 +68,7 @@ Turns one or multiple lights off.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
 
-### {% linkable_title Service `light.toggle` %}
+### Service `light.toggle`
 
 Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/).
 

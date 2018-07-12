@@ -11,7 +11,7 @@ footer: true
 
 There are various ways to get in touch with the Home Assistant community. It doesn't matter if you have a question, need help, want to request a feature, or just say 'Hi'.
 
-### {% linkable_title Communication channels %}
+### Communication channels
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
@@ -19,7 +19,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - Join the [Google+ community][google-plus]
 - Join the Reddit in [/r/homeassistant][reddit]
 
-### {% linkable_title Bugs, Feature requests, and alike %}
+### Bugs, Feature requests, and alike
 
 Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
 
@@ -29,7 +29,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Hass.io](https://github.com/home-assistant/hassio/issues)
 - [Feature requests Home Assistant](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks.)
 
-### {% linkable_title Videos, talks, workshops and alike %}
+### Videos, talks, workshops and alike
 
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
@@ -48,7 +48,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
-### {% linkable_title Media coverage %}
+### Media coverage
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 

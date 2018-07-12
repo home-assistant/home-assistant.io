@@ -15,7 +15,7 @@ ha_release: 0.71
 
 The `lw12wifi` light platform supports Lagute LW-12 Wifi LED controller.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
 

@@ -14,7 +14,7 @@ Home Assistant has [a companion app for iOS](/docs/ecosystem/ios/).
 
 On both Android and iOS, you can add the Home Assistant "web app" to your homescreen as if it was native (Home Assistant leverages the W3C [manifest.json](https://w3c.github.io/manifest/) support).
 
-### {% linkable_title Android %}
+### Android
 
   1. Open Chrome
   2. Navigate to your Home Assistant instance
@@ -26,7 +26,7 @@ On both Android and iOS, you can add the Home Assistant "web app" to your homesc
 <img src='/images/screenshots/android-homescreen-guide.gif' />
 </p>
 
-### {% linkable_title iOS %}
+### iOS
 
   1. Open Safari
   2. Navigate to your Home Assistant instance

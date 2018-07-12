@@ -12,7 +12,7 @@ logo: mqtt.png
 
 The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
-### {% linkable_title Embedded broker %}
+### Embedded broker
 
 Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Assistant connects to it. Embedded broker default configuration:
 
@@ -37,7 +37,7 @@ To use Owntracks with the internal broker a small configuration change must be m
 
 In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
 
-### {% linkable_title Settings %}
+### Settings
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
 
@@ -49,7 +49,7 @@ mqtt:
     # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
 ```
 
-### {% linkable_title Run your own %}
+### Run your own
 
 Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
 
@@ -121,7 +121,7 @@ After=network.target mosquitto.service
 If you are running a Mosquitto instance on a different server with proper SSL encryption using a service like Let's Encrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of Ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
 </p>
 
-### {% linkable_title Public broker %}
+### Public broker
 
 The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
 
@@ -137,7 +137,7 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
-### {% linkable_title CloudMQTT %}
+### CloudMQTT
 
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 

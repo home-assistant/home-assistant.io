@@ -17,15 +17,15 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
 
-### {% linkable_title Recommended way of running deCONZ %}
+### Recommended way of running deCONZ
 
 Use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs. It works both as a standalone container as well as with HASS.io.
 
-### {% linkable_title Supported devices %}
+### Supported devices
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
@@ -65,7 +65,7 @@ deconz:
   port: 80
 ```
 
-## {% linkable_title Debugging component %}
+## Debugging component
 
 If you have problems with deCONZ or the component you can add debug prints to the log.
 
@@ -77,11 +77,11 @@ logger:
     homeassistant.components.deconz: debug
 ```
 
-## {% linkable_title Device services %}
+## Device services
 
 Available services: `configure`.
 
-#### {% linkable_title Service `deconz.configure` %}
+#### Service `deconz.configure`
 
 Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
@@ -99,7 +99,7 @@ Field and entity are exclusive, i.e you can only use one in a request.
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
-## {% linkable_title Remote control devices %}
+## Remote control devices
 
 Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
@@ -116,9 +116,9 @@ Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up butt
 
 For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Step up and step down input number with wireless dimmer %}
+### Step up and step down input number with wireless dimmer
 
 #### YAML
 

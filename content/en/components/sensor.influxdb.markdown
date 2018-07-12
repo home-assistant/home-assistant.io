@@ -46,9 +46,9 @@ Configuration variables for the server:
   - **group_function** (*Optional*): The group function to be used. Defaults to `mean`.
   - **field** (*Optional*): The field name to select. Defaults to value.
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 

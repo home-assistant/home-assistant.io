@@ -51,7 +51,7 @@ The payload will be checked like an entry in your `configuration.yaml` file if a
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
-### {% linkable_title Support by third-party tools %}
+### Support by third-party tools
 
 The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
 
@@ -60,7 +60,7 @@ The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support f
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 
-### {% linkable_title Examples %}
+### Examples
 
 A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
 

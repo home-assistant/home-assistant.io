@@ -16,7 +16,7 @@ If a browser is listed as working but you are still having problems, it is possi
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
-## {% linkable_title Microsoft Windows %}
+## Microsoft Windows
 
 | Browser                   | Release        | State      | Comments                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
@@ -27,13 +27,13 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
-## {% linkable_title macOS %}
+## macOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [Safari]              |                | works      | Map is fixed since 0.51. |
 
-## {% linkable_title Linux %}
+## Linux
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -51,7 +51,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Epiphany]            | 3.18.5         | works      |                          |
 | [surf]                | 0.7            | works      |                          |
 
-## {% linkable_title Android %}
+## Android
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -59,7 +59,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
 | [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
 
-## {% linkable_title iOS %}
+## iOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|

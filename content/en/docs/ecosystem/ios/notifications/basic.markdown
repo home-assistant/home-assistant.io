@@ -23,7 +23,7 @@ Notes:
   A push notification showing all of the basic options `title` and `message` as well as `subtitle` and [actions](/ecosystem/ios/notifications/actions/).
 </p>
 
-### {% linkable_title Enhancing basic notifications %}
+### Enhancing basic notifications
 
 #### Badge
 You can set the icon badge in the payload:
@@ -60,7 +60,7 @@ automation
           subtitle: "Subtitle goes here"
 ```
 
-### {% linkable_title Sending notifications to multiple phones %}
+### Sending notifications to multiple phones
 To send notifications to multiple phones, create a [notification group](/components/notify.group/):
 ```yaml
 notify:

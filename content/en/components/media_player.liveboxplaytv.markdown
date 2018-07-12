@@ -31,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): The name to use in the frontend. Defaults to `Livebox Play TV`.
 - **port** (*Optional*): The port on which the Livebox is listening on. Defaults to 8080.
 
-## {% linkable_title Full configuration %}
+## Full configuration
 
 A full configuration example for an Orange TV appliance can look like this:
 

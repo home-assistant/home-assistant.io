@@ -12,13 +12,13 @@ ha_category: Weather
 ha_iot_class: "Cloud Polling"
 ---
 
-### {% linkable_title Basic Configuration %}
+### Basic Configuration
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
 
-### {% linkable_title Advanced configuration %}
+### Advanced configuration
 
 If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
@@ -62,7 +62,7 @@ Configuration variables:
     - **wifi_status**: Wifi status per Base station
     - **battery_vp**: Current battery status per module.
 
-### {% linkable_title Find your modules name %}
+### Find your modules name
 
 You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
 

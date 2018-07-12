@@ -60,7 +60,7 @@ input_datetime:
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00
 {% endconfiguration %}
 
-### {% linkable_title Attributes %}
+### Attributes
 
 A datetime input entity's state exports several attributes that can be useful in automations and templates.
 
@@ -72,11 +72,11 @@ A datetime input entity's state exports several attributes that can be useful in
 | `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
 
-### {% linkable_title Restore State %}
+### Restore State
 
 This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
-### {% linkable_title Services %}
+### Services
 
 This component provides a service to modify the state of the `input_datetime`.
 
@@ -85,7 +85,7 @@ This component provides a service to modify the state of the `input_datetime`.
 | `set_datetime` | `time` | This can be used to dynamically set the time.
 | `set_datetime` | `date` | This can be used to dynamically set the date.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 The following example shows the usage of the `input_datetime` as a trigger in an automation (note that you will need a [time sensor](/components/sensor.time_date/) elsewhere in your configuration):
 

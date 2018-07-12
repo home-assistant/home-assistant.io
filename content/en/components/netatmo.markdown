@@ -35,7 +35,7 @@ Configuration variables:
 - **password** (*Required*): Password for the Netatmo account.
 - **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
-### {% linkable_title Get API and Secret Key %}
+### Get API and Secret Key
 
 To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
 Click on 'Create an App' at the top of the page.

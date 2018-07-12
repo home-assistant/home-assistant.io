@@ -14,35 +14,35 @@ og_image: /images/blog/2017-01-0.37/social.png
 
 No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are back on track with our bi-weekly release cycle. Beside some organizational changes is this release shipping again cool features and new integrations. Please keep an eye on the "Breaking changes" section because there are also massive improvements for some platforms and components.
 
-### {% linkable_title Governance %}
+### Governance
 As announced, the new [Governance][gov] requires for developers to sign the CLA. [Code of Conduct][coc], [Contributor License Agreement][cla], and proper [Licensing][license] will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors.
 
-### {% linkable_title Face recognition using the Microsoft Face API %}
+### Face recognition using the Microsoft Face API
 [@pvizeli] has been on a roll with the image processing integrations. This time it's the [Microsoft Face API][face]. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.
 
 Want to play a personalized tune when someone enters the house? It is now possible 😎
 
-### {% linkable_title Improved camera security %}
+### Improved camera security
 
 After a security audit by Stephen O'Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.
 
 Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.
 
-### {% linkable_title New customization options %}
+### New customization options
 [@Andrey-git] has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.
 
-### {% linkable_title Major Wink and HDMI CEC improvements %}
+### Major Wink and HDMI CEC improvements
 [@w1ll1am23] did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your `configuration.yaml` file, no `client_id` and `client_secret` are needed, and token which was generated with the generator located in the [Wink][wink] documentation.
 
 The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren't previously detected or supported in the older version.
 
 Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.
 
-### {% linkable_title First Coffee Maker supported %}
+### First Coffee Maker supported
 [@stu-gott] has added support for the first coffee maker in Home Assistant: [Mr. Coffee Smart Optimal Brew][coffee]. Happy brewing!
 
-### {% linkable_title All changes %}
-#### {% linkable_title New platforms/components %}
+### All changes
+#### New platforms/components
 
 - Netatmo: [Netatmo][netatmo] Presence support ([@gieljnssns])
 - Sensor: [Amcrest][amcrest] camera sensors ([@tchellomello])
@@ -63,7 +63,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
 - Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
-#### {% linkable_title Improvements %}
+#### Improvements
 
 - Script: Fix script release ([@balloob])
 - Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras ([@colinodell])
@@ -129,7 +129,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 
 Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 
-### {% linkable_title Release 0.37.1 - February 2 %}
+### Release 0.37.1 - February 2
 
 - Do not reject alphanumeric IDs for PiLight ([@DavidLP])
 - Fix broken Hue discovery ([@DanielHiversen])
@@ -144,7 +144,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Prevent infinite loop in crossconfigured mqtt event streams ([@aequitas])
 - Fix Hue lightgroups failing on startup ([@tboyce1])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 - A **major** breaking change in the [`emulated_hue`][emul-hue] component means that unless you set `type: alexa` before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.
 - The platform of the [ISS][iss] integration was change to `binary_sensor`. Please check the platform documentation.
 - The [Roku][roku] media uses now a new format for the entity IDs.
@@ -154,10 +154,10 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - The [Sonos][sonos] service `sonos_group_players` was removed. Use now `sonos_join` for this function.
 - TTS cache have change for the last time. Files use now also an option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### {% linkable_title Reporting Issues %}
+### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 [@DavidLP]: https://github.com/DavidLP

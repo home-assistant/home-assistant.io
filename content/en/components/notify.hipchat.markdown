@@ -38,7 +38,7 @@ Configuration variables:
 - **format** (*Optional*): Setting format will override the default message format. Default is 'text'. Valid options are 'text' and 'html'.
 - **host** (*Optional*): Setting the host will override the default HipChat server host. Default is 'https://api.hipchat.com/'.
 
-### {% linkable_title HipChat service data %}
+### HipChat service data
 
 The following attributes can be placed `data` for extended functionality.
 

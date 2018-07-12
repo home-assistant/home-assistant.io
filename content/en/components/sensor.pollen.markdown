@@ -21,7 +21,7 @@ information (based on a U.S. ZIP code) from [Pollen.com](https://www.pollen.com/
 * Current outlook
 * more!
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To integrate `pollen` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
@@ -56,7 +56,7 @@ It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
 ZIP codes that start with 0 will cause errors.
 </p>
 
-## {% linkable_title Available Metrics %}
+## Available Metrics
 
 The following metrics can be monitored:
 
@@ -72,7 +72,7 @@ yesterday
 * Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average
 forecasted cold/flu index over the next 5 days
 
-## {% linkable_title Understanding the Indices %}
+## Understanding the Indices
 
 Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following human-friendly ratings:

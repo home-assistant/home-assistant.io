@@ -26,7 +26,7 @@ Configuration variables:
 
 - **download_dir** (*Required*): If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`).
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Go to the "Developer Tools", then to "Call Service", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
 
@@ -43,7 +43,7 @@ This will download the file from the given URL.
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
-### {% linkable_title Download Status Events %}
+### Download Status Events
 
 When a download finished successfully, Home Assistant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
 In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successfully.

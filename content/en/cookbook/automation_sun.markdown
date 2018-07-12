@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone is at home  %}
+#### Turn on the living room lights 45 minutes before sunset if anyone is at home 
 
 ```yaml
 automation:
@@ -27,7 +27,7 @@ automation:
     entity_id: group.living_room_lights
 ```
 
-#### {% linkable_title Natural wake up light  %}
+#### Natural wake up light 
 
 _Note, Philips Hue and LIFX are currently the only light platforms that support transitions._
 
@@ -44,7 +44,7 @@ automation:
       transition: 900
 ```
 
-#### {% linkable_title Send sun rise/sun set notifications %}
+#### Send sun rise/sun set notifications
 
 Send notifications through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
 
@@ -70,7 +70,7 @@ automation:
         message: 'The sun is down.'
 ```
 
-#### {% linkable_title Automations for lights and blinds based on solar elevation %}
+#### Automations for lights and blinds based on solar elevation
 
 Solar elevation automations can cope with offsets from sunset / sunrise as the seasons change better than using a time based offsets.
 

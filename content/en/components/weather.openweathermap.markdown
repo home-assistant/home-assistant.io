@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
 

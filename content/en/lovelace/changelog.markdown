@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title Changes in 0.73.1 %}
+## Changes in 0.73.1
 
 - Setting Lovelace as default now updates `Overview` button to point to `/lovelace`
 - Allow setting background styles (global and per view)
@@ -19,7 +19,7 @@ footer: true
 - 📣 New card: `map` that allows showing `device_tracker` entities on a map card
 - 📣 `entities` card now support `type: custom:state-card-custom` for the entities list
 
-## {% linkable_title Changes in 0.73.0 %}
+## Changes in 0.73.0
 
 ### Views
 
@@ -29,7 +29,7 @@ footer: true
 
 - 🏁 Only minor fixes in this release
 
-## {% linkable_title Changes in 0.73.0b4 %}
+## Changes in 0.73.0b4
 
 ### Cards
 
@@ -40,7 +40,7 @@ footer: true
 - `picture-elements` renamed `path` to `navigation_path`
 - ‼️ `camera-preview` card removed, features added to `picture-entity` and `picture-glance`
 
-## {% linkable_title Changes in 0.73.0b3 %}
+## Changes in 0.73.0b3
 
 ### Views
 
@@ -60,11 +60,11 @@ footer: true
 - 🔧 Fix wrapping and padding for `service-button` in `picture-elements`
 - ‼️ `entity-filter` no longer allows to show all entities or a full domain
 
-## {% linkable_title Changes in 0.73.0b2 %}
+## Changes in 0.73.0b2
 
 - :zap: Went by too fast :zap:
 
-## {% linkable_title Changes in 0.73.0b1 %}
+## Changes in 0.73.0b1
 
 ### Cards
 
@@ -79,7 +79,7 @@ footer: true
 - 📣 `entity-filter` allow auto-hide if empty using `show_empty: false`
 - 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack` 
 
-## {% linkable_title Changes in 0.73.0b0 %}
+## Changes in 0.73.0b0
 
 - 📣 New feature to allow Lovelace to be default for `/`
 
@@ -101,13 +101,13 @@ footer: true
 - 🔧 Fix use of groups in `picture-entity`
 - 🔧 Fix the title in `glance` to avoid overlapping
 
-## {% linkable_title Changes in 0.72.1 %}
+## Changes in 0.72.1
 
 ### Cards
 
 - 🐞 Bug introduced in `glance` card - titles now overlap
 - 📣 New card: `iframe`
 
-## {% linkable_title Changes in 0.72 %}
+## Changes in 0.72
 
 - Initial release of the Lovelace UI

@@ -19,7 +19,7 @@ For example, if you have a garage door with a toggle switch that operates the mo
 
 This can simplify the GUI and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Template Switches in your installation, add the following to your `configuration.yaml` file:
 
@@ -78,15 +78,15 @@ switch:
         type: template
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the Template Switch may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this switch.
 
-### {% linkable_title Copy Switch %}
+### Copy Switch
 
 This example shows a switch that copies another switch.
 
@@ -108,7 +108,7 @@ switch:
 ```
 {% endraw %}
 
-### {% linkable_title Toggle Switch %}
+### Toggle Switch
 
 This example shows a switch that takes its state from a sensor and toggles a switch.
 
@@ -131,7 +131,7 @@ switch:
 ```
 {% endraw %}
 
-### {% linkable_title Sensor and Two Switches %}
+### Sensor and Two Switches
 
 This example shows a switch that takes its state from a sensor, and uses two
 momentary switches to control a device.
@@ -155,7 +155,7 @@ switch:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Icon %}
+### Change The Icon
 
 This example shows how to change the icon based on the day/night cycle.
 
@@ -183,7 +183,7 @@ switch:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Entity Picture %}
+### Change The Entity Picture
 
 This example shows how to change the entity picture based on the day/night cycle.
 

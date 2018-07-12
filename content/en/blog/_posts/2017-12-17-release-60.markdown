@@ -17,19 +17,19 @@ The biggest change for 0.60 will be covered in a separate [blog post](/blog/2017
 
 A big "Thank you" to all people who supported us to make this release possible.
 
-## {% linkable_title TwinCAT %}
+## TwinCAT
 With the brand-new [ADS (automation device specification)][ads docs] component by [@stlehmann] allows you to hook Home Assistant into this fieldbus independent interface which is often used between Beckhoff devices running with TwinCAT.
 
-## {% linkable_title WebDav calendar %}
+## WebDav calendar
 Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs].
 
-## {% linkable_title Tracking prices %}
+## Tracking prices
 With the new [`gearbest` sensor][sensor.gearbest docs] there is now an additional sensor available to track the price of a product.
 
-## {% linkable_title Financial details %}
+## Financial details
 Yahoo! has discontinued their financial service. To fill this gap we have now the [`alpha_vantage` sensor][sensor.alpha_vantage docs] which is intruded in this release and allows you to monitor the stock market.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
@@ -44,7 +44,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.60.1 - January 6 %}
+## Release 0.60.1 - January 6
 
 - Fix async IO in Sesame lock component. ([@veleek] - [#11054]) ([lock.sesame docs])
 - Fix webdav calendar schema ([@maxlaverse] - [#11185]) ([calendar.caldav docs])
@@ -61,17 +61,17 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Don't block on sevice call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
 - iOS 10 should be served javascript_version:es5 ([@mnoorenberghe] - [#11387])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Update snips to listen on new mqtt topic and utilize rawValue ([@tschmidty69] - [#11020]) ([snips docs]) (breaking change)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
@@ -79,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - ISY994 sensor improvements ([@OverloadUT] - [#10805]) ([isy994 docs]) ([binary_sensor.isy994 docs]) (breaking change)
 - Homematic next ([@pvizeli] - [#11156]) ([homematic docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update ecobee version to fix stack-trace issue ([@PhracturedBlue] - [#10894]) ([ecobee docs])
 - Pybotvac multi ([@raymccarthy] - [#10843]) ([neato docs])

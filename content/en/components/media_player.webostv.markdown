@@ -15,7 +15,7 @@ ha_release: 0.18
 
 The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Smart TV.
 
-### {% linkable_title Setup %}
+### Setup
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
@@ -24,7 +24,7 @@ Once basic configuration is added to your `configuration.yaml` *Configuration* c
 Pairing information will be saved to the `filename:` provided in configuration; this process is IP sensitive, in case the IP address of your TV would change in future.
 
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -46,7 +46,7 @@ Configuration variables:
 
 If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
 
-### {% linkable_title Example %}
+### Example
 
 A full configuration example will look like the sample below:
 
@@ -72,7 +72,7 @@ media_player:
 
 Avoid using `[ ]` in the `name:` of your device.
 
-### {% linkable_title Turn on action %}
+### Turn on action
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
@@ -95,11 +95,11 @@ media_player:
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
-### {% linkable_title Sources %}
+### Sources
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
 
-### {% linkable_title Change channel through play_media service %}
+### Change channel through play_media service
 
 The `play_media` service can be used in a script to switch to the specified tv channel.
 It selects the best matching cannel according to the `media_content_id` parameter:
@@ -123,7 +123,7 @@ data:
   media_content_type: "channel"
 ```
 
-### {% linkable_title Next/Previous buttons %}
+### Next/Previous buttons
 
 The behaviour of the next and previsous buttons is different depending on the active source:
 

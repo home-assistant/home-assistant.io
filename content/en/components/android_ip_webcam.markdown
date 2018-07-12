@@ -37,7 +37,7 @@ Configuration variables:
 - **switches** array (*Optional*): Conditions to display settings in the frontend. See the list of supported settings.
 - **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
 
-### {% linkable_title Supported features %}
+### Supported features
 
 Sensors:
 
@@ -64,7 +64,7 @@ Settings (Switches):
 - whitebalance_lock
 - video_recording
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry

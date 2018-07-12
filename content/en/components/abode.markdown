@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](/components/switch.abode/): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - [Sensor](/components/sensor.abode/): Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Abode devices in your installation, add the following `abode` section to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ Configuration variables:
 - **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id` or `automation_id`, found within the component attributes.
 - **lights** (*Optional*): A list of switch devices that Home Assistant should treat as lights by the switches Abode `device_id`, found within the component attributes.
 
-## {% linkable_title Events %}
+## Events
 
 There are a number of events that can be triggered from Abode. They are grouped into the below events:
 
@@ -82,9 +82,9 @@ Field | Description
 
 There is a unique list of known event_codes that can be found [here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `change_setting` %}
+### Service `change_setting`
 
 Change settings on your Abode system. For a full list of settings and valid values, consult the [AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
 
@@ -93,7 +93,7 @@ Change settings on your Abode system. For a full list of settings and valid valu
 | `setting` | No | The setting you wish to change.
 | `value` | No | The value you wish to change the setting to.
 
-### {% linkable_title Service `capture_image` %}
+### Service `capture_image`
 
 Request a new still image from your Abode IR camera.
 
@@ -101,7 +101,7 @@ Request a new still image from your Abode IR camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras.
 
-### {% linkable_title Service `trigger_quick_action` %}
+### Service `trigger_quick_action`
 
 Trigger a quick action automation on your Abode system.
 

@@ -58,11 +58,11 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 }
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor. Beside `curl`.
 
-### {% linkable_title Using Python request module %}
+### Using Python request module
 
 As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module for the interaction with Home Assistant.
 
@@ -74,7 +74,7 @@ response = requests.post(
 print(response.text)
 ```
 
-### {% linkable_title Using `httpie` %}
+### Using `httpie`
 
 [`httpie`](https://github.com/jkbrzt/httpie) is a user-friendly CLI HTTP client.
 

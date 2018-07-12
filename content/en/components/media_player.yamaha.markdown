@@ -40,7 +40,7 @@ Configuration variables:
 - **zone_ignore** (*Optional*): List of zones to hide in the front-end
 - **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g., `Main_Zone` to `Family Room`
 
-### {% linkable_title Discovery notes %}
+### Discovery notes
 
 - If the `discovery` component is enabled, all units on the network
   will be discovered using UPNP.
@@ -55,7 +55,7 @@ Configuration variables:
   receiver's IP address or via its hostname (if it is discoverable by
   your DNS) then.
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
 - Media players created by yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
@@ -64,7 +64,7 @@ Configuration variables:
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 A full configuration example will look like the sample below:
 ```yaml
@@ -84,7 +84,7 @@ media_player:
       Main_Zone: "Family Room"
 ```
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used in scripts easily to build media
 player presets. When done in scripts, the sequence will also allow you
@@ -114,7 +114,7 @@ script:
 
 ```
 
-### {% linkable_title Service `yamaha_enable_output` %}
+### Service `yamaha_enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 

@@ -45,7 +45,7 @@ service_data:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic navigation example:
 

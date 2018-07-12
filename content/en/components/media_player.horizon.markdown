@@ -40,6 +40,6 @@ media_player:
 {% endconfiguration %}
 
 
-#### {% linkable_title Preparation of the Horizon HD Recorder %}
+#### Preparation of the Horizon HD Recorder
 
 The Home Networking ("Heimnetzwerk") service needs to be enabled at the settings menu of the Horizon receiver. Once you have set up the Media Library ("Medienbibliothek"), we can determine whether the device is turned on or off. Without this, the component will fail to start.

@@ -75,7 +75,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic configuration with 3 devices:
 

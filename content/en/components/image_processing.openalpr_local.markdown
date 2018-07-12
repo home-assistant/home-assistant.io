@@ -18,7 +18,7 @@ redirect_from: /components/openalpr/
 
 For using inside automation look on [component](/components/image_processing) page.
 
-### {% linkable_title Local installation %}
+### Local installation
 
 If you want process all data locally, you need version 2.3.1 or higher of the `alpr` commandline tool.
 
@@ -39,7 +39,7 @@ Verify your `alpr` installation with:
 $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 
 ```yaml

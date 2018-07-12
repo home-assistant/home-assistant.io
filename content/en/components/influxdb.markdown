@@ -14,7 +14,7 @@ ha_release: 0.9
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your `configuration.yaml` file:
 
@@ -48,14 +48,14 @@ Configuration variables:
 - **tags** (*Optional*): Tags to mark the data.
 - **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
-## {% linkable_title Helper scripts %}
+## Helper scripts
 
 - [Helper script `influxdb_import`](/docs/tools/influxdb_import/)
 - [Helper script `db_migrator`](/docs/tools/db_migrator/) (only used for [Home Assistant 0.36](/blog/2017/01/14/iss-usps-images-packages/#influxdb-export))
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 influxdb:

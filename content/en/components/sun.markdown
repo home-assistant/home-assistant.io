@@ -28,7 +28,7 @@ Configuration variables:
 <img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
-### {% linkable_title Implementation Details %}
+### Implementation Details
 
 The sun's event listener will call the service when the sun rises or sets with an offset.
 
@@ -43,7 +43,7 @@ The sun event need to have the type 'sun', which service to call, which event (s
 }
 ```
 
-#### {% linkable_title Maintains entity `sun.sun` %}
+#### Maintains entity `sun.sun`
 
 | Possible state | Description |
 | --------- | ----------- |

@@ -33,14 +33,14 @@ Configuration variables:
 - **ignored_click_types**: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
 - **timeout** (*Optional*): Maximum time in seconds an event can be queued locally on a button before discarding the event. Defaults to 3.
 
-#### {% linkable_title Discovery %}
+#### Discovery
 
 If discovery is enabled, you can add a new button by pressing it for at least 7 seconds. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.
 
-#### {% linkable_title Timeout %}
+#### Timeout
  When the flic button is triggered while disconnected from flic service, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.
 
-#### {% linkable_title Events %}
+#### Events
 
 The flic component fires `flic_click` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
@@ -66,6 +66,6 @@ Event data:
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 
-##### {% linkable_title Ignoring Click Types %}
+##### Ignoring Click Types
 
 For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.

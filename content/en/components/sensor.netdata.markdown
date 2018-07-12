@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
 
-## {% linkable_title Setup %}
+## Setup
 
 Getting the details to configure the sensors is a bit tricky as Netdata uses different name for the `element:` value that is required. To get the value for the `data_group:` use Netdata's web interface. `1.` marks the name for the `data_group:`. `2.` are the names for the element to show in Home Assistant. The name that is shown can be different than the name under which the metrics are available.
 
@@ -42,7 +42,7 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 - `dimension_ids`: Names to use for `element`.
 
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

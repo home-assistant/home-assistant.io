@@ -15,7 +15,7 @@ ha_release: 0.37
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
 
@@ -69,7 +69,7 @@ sample_rate:
 {% endconfiguration %}
 
  
-## {% linkable_title Usage %}
+## Usage
 
 Say to all `media_player` device entities:
 

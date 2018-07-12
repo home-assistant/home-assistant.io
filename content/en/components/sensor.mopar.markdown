@@ -47,7 +47,7 @@ pin:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
 Call the `sensor.mopar_remote_command` service to perform a remote command on your vehicle.
 

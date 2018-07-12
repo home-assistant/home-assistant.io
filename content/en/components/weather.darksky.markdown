@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
 

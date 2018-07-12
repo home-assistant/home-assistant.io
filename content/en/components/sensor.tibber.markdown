@@ -31,11 +31,11 @@ sensor:
     type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### {% linkable_title Electricity price %}
+### Electricity price
 
 The electricity price can be used to make automations. The sensor has a `max_price` and `min_price` attribute, with max and min price for the current day. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
 

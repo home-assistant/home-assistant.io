@@ -16,7 +16,7 @@ redirect_from: /components/xiaomi/
 
 The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
-#### {% linkable_title Supported Devices %}
+#### Supported Devices
 
 - Xiaomi Aqara Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
@@ -41,7 +41,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Water Leak Sensor
 - Battery
 
-#### {% linkable_title Unsupported Devices %}
+#### Unsupported Devices
 
 - Gateway Radio
 - Gateway Button
@@ -50,13 +50,13 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-## {% linkable_title Setup %}
+## Setup
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
 To enable {{ page.title }} in your installation, add the following to your `configuration.yaml` file:
 
-### {% linkable_title One Gateway %}
+### One Gateway
 
 ```yaml
 # You can leave MAC empty if you only have one gateway.
@@ -66,7 +66,7 @@ xiaomi_aqara:
     - key: xxxxxxxxxxxxxxxx
 ```
 
-### {% linkable_title Multiple Gateways %}
+### Multiple Gateways
 
 ```yaml
 # 12 characters MAC can be obtained from the gateway.
@@ -78,7 +78,7 @@ xiaomi_aqara:
       key: xxxxxxxxxxxxxxxx
 ```
 
-### {% linkable_title Search for gateways on specific interface %}
+### Search for gateways on specific interface
 
 ```yaml
 # 12 characters MAC can be obtained from the gateway.
@@ -124,11 +124,11 @@ xiaomi_aqara:
     default: any
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
 The gateway provides the following services:
 
-#### {% linkable_title Service `xiaomi_aqara.play_ringtone` %}
+#### Service `xiaomi_aqara.play_ringtone`
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
@@ -168,7 +168,7 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### {% linkable_title Service `xiaomi_aqara.stop_ringtone` %}
+#### Service `xiaomi_aqara.stop_ringtone`
 
 Stops a playing ringtone immediately.
 
@@ -176,7 +176,7 @@ Stops a playing ringtone immediately.
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service `xiaomi_aqara.add_device` %}
+#### Service `xiaomi_aqara.add_device`
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
@@ -184,7 +184,7 @@ Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new de
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service `xiaomi_aqara.remove_device` %}
+#### Service `xiaomi_aqara.remove_device`
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
@@ -193,9 +193,9 @@ Removes a specific device. The removal is required if a device shall be paired w
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 | `device_id`               |       no | Hardware address of the device to remove              |
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Long Press on Smart Button %}
+### Long Press on Smart Button
 
 This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once.
 
@@ -229,7 +229,7 @@ This example plays the sound of a dog barking when the button is held down and s
       gw_mac: xxxxxxxxxxxx
 ```
 
-### {% linkable_title Double Click on Smart Button %}
+### Double Click on Smart Button
 
 This example toggles the living room lamp on a double click of the button.
 
@@ -248,13 +248,13 @@ This example toggles the living room lamp on a double click of the button.
 ```
 
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Initial setup problem %}
+### Initial setup problem
 
 If you run into trouble initializing the gateway with your app, try another smartphone. E.g., it didn't work on an OnePlus 3, but it worked with a Nexus 5.
 
-### {% linkable_title Connection problem %}
+### Connection problem
 
 ```bash
 2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered

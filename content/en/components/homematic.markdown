@@ -91,7 +91,7 @@ homematic:
 
 ```
 
-### {% linkable_title The `resolvenames` option %}
+### The `resolvenames` option
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
@@ -101,13 +101,13 @@ We use three approaches to fetch the names of devices. Each assumes you have pro
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
 
-### {% linkable_title Multiple hosts %}
+### Multiple hosts
 
 In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
-### {% linkable_title Reading attributes of entities %}
+### Reading attributes of entities
 
 Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/components/sensor.template/) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
 
@@ -121,20 +121,20 @@ sensor:
       friendly_name: 'Bedroom valve'
 ```
 
-### {% linkable_title Variables %}
+### Variables
 
 It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
 The states of the variables are available through the attributes of your hub entity (e.g., `homematic.ccu2`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
-### {% linkable_title Events %}
+### Events
 
 When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:
 
 - **homematic.keypress**: For devices with buttons, see information below
 - **homematic.impulse**: For impulse sensors
 
-#### {% linkable_title Devices with buttons %}
+#### Devices with buttons
 
 Devices with buttons (e.g., HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don't serve any value here and all they do is trigger events.
 As an example:
@@ -169,14 +169,14 @@ You can test whether your button works within Home Assistant if you look at the 
 
 It may happen that "your_nice_name" is not resolved correctly; the according message (#2 in the above example) will be missing. This might be due to secure communication between your HM interface and the HM device. You can change the communication from "secure" to "standard" within your HM-interface to solve that issue (in "Einstellungen" - "Geräte" find your device and change "Übertragungsmodus" from secure to standard) - not recommended for devices that should have secure communication.
 
-### {% linkable_title Services %}
+### Services
 
 - *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 - *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
 - *homematic.set_variable_value*: Set the value of a system variable.
 - *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
-#### {% linkable_title Examples %}
+#### Examples
 
 Simulate a button being pressed:
 
@@ -214,7 +214,7 @@ action:
     value: true
 ```
 
-#### {% linkable_title Advanced examples %}
+#### Advanced examples
 
 If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
@@ -263,7 +263,7 @@ action:
   entity_id: lock.leq1234567
 ```
 
-#### {% linkable_title Detecting lost connections %}
+#### Detecting lost connections
 
 When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 

@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 To get an app token:
 
@@ -24,7 +24,7 @@ To get an app token:
 3. Click on App tokens
 4. Click "Add token"
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 

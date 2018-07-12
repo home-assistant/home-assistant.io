@@ -22,7 +22,7 @@ Starting with 0.36 the [InfluxDB](omponents/influxdb/) component has a new schem
 - Fields named `value` will always be stored as float.
 - Fields named `state` will always be stored as string.
 
-## {% linkable_title Migration script %}
+## Migration script
 
 If you need to migrate your database, you may require to run the `influxdb_migrator` script. Run the script after upgrade to 0.36 but before the first regular start of `hass` version 0.36.
 

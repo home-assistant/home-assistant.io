@@ -34,7 +34,7 @@ Configuration variables:
 - **domain** (*Optional*): Domain which should be used for the request. Set this to `geizhals.at`, `geizhals.eu`, `geizhals.de`, `skinflint.co.uk` or `cenowarka.pl`. Defaults to `geizhals.de`.
 - **regex** (*Optional*): Regular expression to parse the price. Default: `\D\s(\d*)[\,|\.](\d*)`.
 
-#### {% linkable_title Extended example %}
+#### Extended example
 
 ```yaml
 # Example configuration.yaml entry

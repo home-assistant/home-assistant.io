@@ -18,7 +18,7 @@ The `android_ip_webcam` binary sensor platform lets you observe the motion state
 
 Devices will be configured automatically. Please refer to the [component](/components/android_ip_webcam/) configuration on how to setup.
 
-## {% linkable_title Examples %}
+## Examples
 
 You can also setup the binary motion sensor with the following script:
 

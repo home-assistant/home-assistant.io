@@ -37,7 +37,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Exposed Attributes %}
+### Exposed Attributes
 
 VeSync switches will expose the following details.
 

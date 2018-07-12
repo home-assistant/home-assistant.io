@@ -37,7 +37,7 @@ mqtt:
 The minimal setup uses the embedded MQTT broker, however a separate broker is advised for more stability.
 </p>
 
-## {% linkable_title Additional features %}
+## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)

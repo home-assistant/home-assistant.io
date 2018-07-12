@@ -46,7 +46,7 @@ aspect_ratio:
   Only entities that have latitude and longitude attributes will be displayed on the map.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 - type: map

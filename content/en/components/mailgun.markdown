@@ -18,7 +18,7 @@ To send messages, use the [Mailgun notify platform][notify].
 
 [notify]: /components/notify.mailgun/
 
-## {% linkable_title Sample configuration %}
+## Sample configuration
 
 ```yaml
 # Example configuration.yaml entry

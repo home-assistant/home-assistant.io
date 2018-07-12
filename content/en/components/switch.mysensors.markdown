@@ -50,7 +50,7 @@ All V_TYPES for each S_TYPE above are required to activate the actuator for the 
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Services %}
+### Services
 
 The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if `optimistic` is set to `true` in the [config](/components/mysensors/#configuration) for the MySensors component. This will simulate a push button on a remote. If `optimistic` is `false`, the MySensors device will have to report its updated state to reset the switch. See the [example sketch](#ir-switch-sketch) for the IR switch below.
 
@@ -84,9 +84,9 @@ automation:
         V_IR_SEND: '0xC288'  # the IR code to send
 ```
 
-### {% linkable_title Example sketches %}
+### Example sketches
 
-#### {% linkable_title Switch sketch %}
+#### Switch sketch
 ```cpp
 /*
  * Documentation: http://www.mysensors.org
@@ -131,7 +131,7 @@ void incomingMessage(const MyMessage &message)
 }
 ```
 
-#### {% linkable_title IR switch sketch %}
+#### IR switch sketch
 ```cpp
 /*
  * Documentation: http://www.mysensors.org

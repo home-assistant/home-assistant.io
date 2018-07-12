@@ -39,7 +39,7 @@ Configuration variables:
 - **accept_errors** (*Optional*): Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to `false`.
 - **default_value** (*Optional*): Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors.
 
-## {% linkable_title Finding OIDs %}
+## Finding OIDs
 
 OIDs may vary on different systems because they are vendor-specific. Beside the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux systems.
 
@@ -54,9 +54,9 @@ $ snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
 laLoad.1 = STRING: 0.19
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Printer uptime minutes %}
+### Printer uptime minutes
 
 According to the most common SNMP standard, the uptime of a device is accessible under OID `1.3.6.1.2.1.1.3.0`. The value represented using a format called `TimeTicks`, in units of hundredth of a second.
 

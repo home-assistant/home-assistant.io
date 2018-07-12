@@ -53,7 +53,7 @@ value to each entry.
 
    _Added in Home Assistant 0.64._
    
-{% linkable_title Supported Components %}
+Supported Components
    
 At the moment, only the following components are supported: Z-Wave, Hue, Nest, LIFX, Sonos, Apple TV, Weather Underground 
 Note that for Weather Underground, second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number. 

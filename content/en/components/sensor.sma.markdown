@@ -16,7 +16,7 @@ ha_release: 0.36
 
 The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](http://www.sma-america.com/) solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

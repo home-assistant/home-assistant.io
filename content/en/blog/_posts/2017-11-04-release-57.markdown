@@ -18,17 +18,17 @@ The Home Assistant sidebar in 12 different languages.
 
 Whaaaaaats up everyone?! 😁 It's been another crazy 2 weeks here at the virtual Home Assistant headquarters with a ton of great contributions from all over the world. New features, bug fixes, performance improvements. It's a lot so let's jump right in.
 
-## {% linkable_title Translations %}
+## Translations
 
 The first great feature, if you haven't guessed it yet from the screenshot above: we are now able to translate the UI! Currently the translations are limited to the sidebar menu items. Even without a translation tool available, our contributors have jumped in and submitted translations for these menu items in over twenty languages! Home Assistant will automatically pick an available translation based on your browser settings, or a translation can be manually selected in the configuration panel.
 
 We're currently working on an integration with the web based translation tool [lokalise.co](https://lokalise.co), to make the translation process accessible to anyone who would like to contribute. Stay tuned for a blog post with more documentation soon.
 
-## {% linkable_title Frontend improvements %}
+## Frontend improvements
 
 As part of getting translations to work, we did a lot of cleanup work on the frontend side. The re-organization should allow us to iterate faster on the frontend. We've already seen a lot of clean up as part of this thanks to @armills and @andrey-git for keep raising the quality!
 
-## {% linkable_title Hacktoberfest %}
+## Hacktoberfest
 
 [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2017 is over! FINALLY. Each year we're attracting more developers that want to contribute to Home Assistant. This is great but also very exhausting to our code reviewers. I want to give an enormous gigantic huge big shout out to our reviewers @pvizeli, @andrey-git, @armills, @MartinHjelmare, @fabaff. You have all done an amazing job and we couldn't run Home Assistant without any of you! ❤
 
@@ -42,7 +42,7 @@ Here are our Hacktoberfest 2017 stats. It's a miracle everyone is still alive:
 
 This means that we processed over 20 Pull requests per day. The result was already visible in 0.56. This release is almost the same. In those releases we were able to add over 40 new integrations.
 
-## {% linkable_title IKEA TRÅDFRI %}
+## IKEA TRÅDFRI
 
 Good news and bad news on this front. The bad news is that IKEA changed the internal API for TRÅDFRI with a firmware update, breaking the Home Assistant integration. The good news is that they were nice enough to [email us with instructions on the breaking changes][ikea email].
 
@@ -54,11 +54,11 @@ Long time contributor [@lwis] jumped on the case and managed to migrate our inte
 </p>
 
 
-## {% linkable_title Timer %}
+## Timer
 
 Okay, one more highlight before we'll let you check out the changelog. Contributor [@danielperna84] (famous for creating the [HASS Configurator](/addons/configurator/)), had another great component up his sleeve: the Timer component. With the timer component you'll be able to start countdown timers. A neat tool for your automation toolbox! More info in the [timer docs].
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 <a href='/components/#version/0.57'><img src='/images/blog/2017-11-0.57/components.png' style='border: 0;box-shadow: none;'></a>
 
@@ -83,31 +83,31 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 - integration with Remember The Milk. ([@ChristianKuehnel] - [#9803]) ([remember_the_milk docs]) (new-platform)
 - Luftdaten sensor ([@lichtteil] - [#10274]) ([sensor.luftdaten docs]) (new-platform)
 
-## {% linkable_title release 0.57.1 - november 4 %}
+## release 0.57.1 - november 4
 
  - Fix login screen not showing when no password stored ([@balloob])
 
-## {% linkable_title release 0.57.2 - november 5 %}
+## release 0.57.2 - november 5
 
 - Update frontend with fixes for setting temperature on climate card ([@balloob])
 - Fix setting max brightness for TRADFRI ([@ggravlingen] - [#10359])
 
-## {% linkable_title release 0.57.3 - november 11 %}
+## release 0.57.3 - november 11
 
 - Tellstick Duo acync callback fix ([@stefan-jonasson] - [#10384]) ([tellstick docs])
 - Fixed update() method and removed `ding` feature from stickupcams/floodlight ([@tchellomello] - [#10428]) ([binary_sensor.ring docs]) ([camera.ring docs]) ([sensor.ring docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - IKEA TRÅDFRI: We no longer support entering the key in the configuration. ([@lwis] - [#10282]) ([tradfri docs]) (breaking change)
 - API.AI was renamed to [Dialogflow](/components/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
@@ -124,7 +124,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Generic thermostat: the configuration option `tolerance` has been removed and has been replaced by `cold_tolerance` and `hot_tolerance`. This allows on and off states to have different error bands. ([@biggms] - [#9843]) ([climate.generic_thermostat docs]) (breaking change)
 - Developers only: frontend has been refactored. The method `register_panel` has been turned into a coroutine function called `async_register_panel`. The parameter `url_path` has been renamed to `frontend_url_path`. For frontend, development, you no longer pass `development: 1` to the http component but instead configure the frontend component to be in development mode by pointing it at a local checkout of the Polymer repo: ([@balloob] - [#9915]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update requests requirement ([@TopdRob] - [#9876])
 - Update `screenshot-components.png` file. ([@quamilek] - [#9987])

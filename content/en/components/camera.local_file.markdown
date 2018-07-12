@@ -31,7 +31,7 @@ Configuration variables:
  - **file_path** (*Required*): File to serve as the camera.
  - **name** (*Optional*): Name of the camera
 
-### {% linkable_title Service `camera.local_file_update_file_path` %}
+### Service `camera.local_file_update_file_path`
 
 Use this service to change the file displayed by the camera.
 

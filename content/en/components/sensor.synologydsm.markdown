@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -81,7 +81,7 @@ After booting Home Assistant it can take up to 15 minutes for the sensors to sho
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 </p>
 
-## {% linkable_title Separate User Configuration %}
+## Separate User Configuration
 
 Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 

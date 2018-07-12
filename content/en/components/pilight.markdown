@@ -19,7 +19,7 @@ This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/pro
 
 The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g., automation). Additionally a send service is provided to send RF codes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ pilight:
       - 42
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 - A list of tested RF transceiver hardware is available [here](https://manual.pilight.org/electronics/index.html). This might be useful before buying.
 - Sending commands is simple when the protocol is known by pilight, but receiving commands can be rather difficult. It can happen that the code is not correctly recognized due to different timings in the sending hardware or the RF receiver. If this happens follow these steps:

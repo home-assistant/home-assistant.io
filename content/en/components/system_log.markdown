@@ -34,13 +34,13 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `clear` %}
+### Service `clear`
 
 To manually clear the system log, call this service.
 
-## {% linkable_title Events %}
+## Events
 
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
@@ -58,11 +58,11 @@ Live examples of these events can be found in the Home Assistant log file or by 
 
 The message ("Unable to find service..."), source (`core.py`) and level (`WARNING`) can easily be extracted from the image. Exact timestamp and stack trace is shown if the entry is selected.
 
-## {% linkable_title Examples  %}
+## Examples 
 
 Here are some examples using the events posted by `system_log`. `fire_event` must be set to `true` for these to work.
 
-### {% linkable_title Counting Number of Warnings %}
+### Counting Number of Warnings
 
 This will create a `counter` that increases every time a warning is logged:
 
@@ -84,7 +84,7 @@ automation:
       entity_id: counter.warning_counter
 ```
 
-### {% linkable_title Conditional Messages %}
+### Conditional Messages
 
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 

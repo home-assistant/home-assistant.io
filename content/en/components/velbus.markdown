@@ -15,7 +15,7 @@ ha_release: "0.50"
 
 The `velbus` component supports the Velbus USB and serial gateways.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
 

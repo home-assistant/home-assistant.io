@@ -17,9 +17,9 @@ The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home As
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-## {% linkable_title Preparing the Device %}
+## Preparing the Device
 
-### {% linkable_title Installing Alternative Firmware %}
+### Installing Alternative Firmware
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
@@ -45,7 +45,7 @@ The live stream writing by the camera is not an supported format when the hass r
 If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 </p>
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To enable the platform, add the following lines to your`configuration.yaml` file:
 
@@ -68,7 +68,7 @@ Configuration variables:
 - **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
 
-## {% linkable_title Image quality %}
+## Image quality
 
 Any option supported by [`ffmpeg` camera](/components/camera.ffmpeg/) can be utilized via the `ffmpeg_arguments` configuration parameter.
 

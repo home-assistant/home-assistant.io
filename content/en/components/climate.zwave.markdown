@@ -34,7 +34,7 @@ Once enabled, any Z-Wave climate devices will be available to Home Assistant. Mu
 - **climate.remotec_zxt120_heating_1_id** Allows you to control the connected device. See below for examples.
 - **sensor.remotec_zxt120_temperature_38** A sensor which returns the current temperature set on the attached device.
 
-### {% linkable_title Automating Z-Wave Climate Devices %}
+### Automating Z-Wave Climate Devices
 
 The following examples will instruct a Remotec ZXT-120 to turn the attached device mode to Heating, and set the temperature at 24 degrees after 8pm. Add it to `automation.yaml`.
 
@@ -72,7 +72,7 @@ automation:
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.
 
-### {% linkable_title Test if it works %}
+### Test if it works
 
 A simple way to test if your Z-Wave climate device is working is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and then press **CALL SERVICE**.
 

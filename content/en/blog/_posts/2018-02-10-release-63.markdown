@@ -13,11 +13,11 @@ og_image: /images/blog/2018-02-0.63/components.png
 
 <a href='/components/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
 
-## {% linkable_title Date set for dropping Python 3.4 support %}
+## Date set for dropping Python 3.4 support
 
 As [announced in October](/blog/2017/10/06/deprecating-python-3.4-support/), we're going to drop Python 3.4 support in 2018. We've now decided that in two releases, 0.65, the minimum Python version that will be supported is bumped to 3.5.3. This won't impact most users. You are already fine if you're using Hass.io, the latest Debian stable (Stretch) or a derivative of that (Raspbian, Ubuntu).
 
-## {% linkable_title Entity Registry %}
+## Entity Registry
 
 This release introduces the entity registry. The entity registry allows integrations to reserve entity IDs. This means that we'll automatically grant an entity ID to a device. It's reserved so that no other device will ever get that entity ID. It also means that as a user, you will be able to customize the entity IDs for these devices.
 
@@ -31,7 +31,7 @@ The entity registry will assign an entity ID the first time that a device is see
 
 We're planning a lot of cool stuff around the entity registry. Stay tuned!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
 - Add Goalfeed platform ([@wardcraigj] - [#11098]) ([goalfeed docs]) (new-platform)
@@ -41,7 +41,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - SQL sensor ([@dgomes] - [#12142]) ([sensor.sql docs]) (new-platform)
 - Add Mercedes me component ([@ReneNulschDE] - [#11743]) (new-platform)
 
-## {% linkable_title Release 0.63.1 - February 12 %}
+## Release 0.63.1 - February 12
 
 - Fix Alexa Step Volume ([@lucasweb78] - [#12314]) ([alexa docs])
 - Remove unique ID from netatmo ([@balloob] - [#12317]) ([binary_sensor.netatmo docs]) ([camera.netatmo docs]) ([sensor.netatmo docs])
@@ -51,7 +51,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Always return lockState == LOCKED when handling Alexa.LockController ([@lucasweb78] - [#12328]) ([alexa docs])
 - Fix platform dependencies ([@balloob] - [#12330])
 
-## {% linkable_title Release 0.63.2 - February 14 %}
+## Release 0.63.2 - February 14
 
 - Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
 - Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
@@ -59,7 +59,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
 - Downgrade limitlessled to 1.0.8 ([@amelchio] - [#12403]) ([light.limitlessled docs])
 
-## {% linkable_title Release 0.63.3 - February 17 %}
+## Release 0.63.3 - February 17
 
 - python-miio version bumped. (Closes: #12389, Closes: #12298) ([@syssi] - [#12392]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - Fixed 3 small issues in isy994 component ([@OverloadUT] - [#12421]) ([isy994 docs])
@@ -69,17 +69,17 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Optimize recorder purge ([@amelchio] - [#12448])
 - [SQL Sensor] always close session ([@dgomes] - [#12452]) ([sensor.sql docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - updated sensor name ([@philklei] - [#12084]) ([sensor.tahoma docs]) (breaking change)
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
@@ -124,7 +124,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Developers only: Following EntityComponent methods have been removed: `extract_from_service`, `async_update_group`, `async_reset`, `prepare_reload` ([@balloob] - [#12237]) (breaking change)
 
 
-## {% linkable_title All changes %}
+## All changes
 
 - Map media_stop to idle state ([@akloeckner] - [#11819])
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)

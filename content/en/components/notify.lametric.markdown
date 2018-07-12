@@ -52,9 +52,9 @@ priority:
 
 Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration example %}
+### Full configuration example
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +67,7 @@ notify:
   priority: info
 ```
 
-### {% linkable_title Changing sounds and icons %}
+### Changing sounds and icons
 
 To add a notification sound, icon, cycles, or priority override, it has to be done via service data.
 
@@ -89,7 +89,7 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
         priority: 'critical'
 ```
 
-### {% linkable_title Only notify specific device %}
+### Only notify specific device
 
 If you have more than one La Metric device, you can specify which will receive the message by adding `target:` to the service data:
 

@@ -17,7 +17,7 @@ The `dominos` component allows you to order Dominos Pizza from within your Home 
 
 At present, this component only supports ordering within Canada and the US.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the component, you need to set up your customer information and define some orders.
 

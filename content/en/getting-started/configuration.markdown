@@ -19,7 +19,7 @@ Home Assistant stores its configuration in a file called `configuration.yaml`. A
 
 There are two common approaches to edit your configuration: via Samba/Windows Networking and via the HASS Configurator. Both of these are [official add-ons for Hass.io](/addons/).
 
-## {% linkable_title Installing Hass.io add-ons %}
+## Installing Hass.io add-ons
 
 Hass.io add-ons are installed from the add-on store embedded in the Hass.io panel:
 
@@ -34,7 +34,7 @@ Hass.io add-ons are installed from the add-on store embedded in the Hass.io pane
 From the Hass.io main panel open the add-on store.
 </p>
 
-### {% linkable_title Editing config via HASS Configurator %}
+### Editing config via HASS Configurator
 
 The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
 
@@ -80,13 +80,13 @@ panel_iframe:
 
 Now restart Home Assistant for the changes to the configuration to take effect. You can do this by going to the config panel (Configuration in the sidebar) -> General -> Restart Home Assistant.
 
-### {% linkable_title Editing config via Samba/Windows Networking %}
+### Editing config via Samba/Windows Networking
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can be installed from the Hass.io add-on store.
 
 After you have installed it, click on START. Hass.io should now be available in the networking tab on your computer. Use a text editor like the free [Visual Studio Code](https://code.visualstudio.com/) to edit `configuration.yaml`.
 
-## {% linkable_title Configuring integrations %}
+## Configuring integrations
 
 Now that you are able to edit the configuration, it's time to set up some of your devices and services. Each service and device will have its own instructions on how to be integrated. Find  your devices and services on the [components overview page](/components/).
 

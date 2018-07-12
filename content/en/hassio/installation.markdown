@@ -52,7 +52,7 @@ If your router doesn't support mDNS then you'll have to use the IP address of yo
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 </p>
 
-## {% linkable_title Alternative: install on generic Linux server %}
+## Alternative: install on generic Linux server
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
 

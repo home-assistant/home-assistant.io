@@ -13,7 +13,7 @@ The `weather` platforms are gathering meteorological information from web servic
 
 Home Assistant currently supports free web services and such which require a registration. Please check the sidebar for a full list of supported `weather` platforms.
 
-## {% linkable_title Condition mapping %}
+## Condition mapping
 
 The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available and mapped in the [frontend](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/cards/ha-weather-card.js#L170).
 

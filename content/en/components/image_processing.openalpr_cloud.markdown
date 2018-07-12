@@ -17,7 +17,7 @@ ha_release: 0.36
 
 For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 ```yaml
 # Example configuration.yaml entry

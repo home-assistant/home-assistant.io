@@ -15,7 +15,7 @@ ha_iot_class: depends
 
 The `mqtt` switch platform lets you control your MQTT enabled switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
@@ -99,11 +99,11 @@ value_template:
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a switch.
 
@@ -128,7 +128,7 @@ For a check you can use the command line tools `mosquitto_pub` shipped with `mos
 $ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
 
-### {% linkable_title Set the state of a device with ESPEasy %}
+### Set the state of a device with ESPEasy
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
 

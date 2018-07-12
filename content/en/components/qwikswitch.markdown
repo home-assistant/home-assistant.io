@@ -33,7 +33,7 @@ Configuration variables:
 - **switches** (*Optional*): A list of device QS_id's that should be switches, and not lights (i.e. `['@0dev01', '@0dev02']`)
 - **sensors** (*Optional*): A dictionary of sensors. In the format of {entity_id: QS_id}. (i.e. `{door_sensor: '@0dev03'}`)
 
-### {% linkable_title QwikSwitch Events %}
+### QwikSwitch Events
 
 QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
 
@@ -58,7 +58,7 @@ The list of recognized commands can be extended for Keyfobs, door sensors, and P
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
 
-### {% linkable_title Qwikswitch Sensors %}
+### Qwikswitch Sensors
 
 The sensor configuration is a list of sensors. Depending on the type, it will be a sensor or binary_sensor. Each sensor is configured with the following parameters:
 

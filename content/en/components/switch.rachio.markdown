@@ -38,11 +38,11 @@ Configuration variables:
 Set `manual_run_mins` to a high maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
 </p> 
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this switch.
 
-### {% linkable_title `groups.yaml` example %}
+### `groups.yaml` example
 
 ```yaml
 irrigation:

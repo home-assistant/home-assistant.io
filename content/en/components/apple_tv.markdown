@@ -52,9 +52,9 @@ Configuration variables:
 
 In order to connect to the device, you need a *login id*. The easiest way to obtain this identifier is to use the `apple_tv_scan` service (described below). Additional information about `start_off` and `credentials` can also be found under the guides section.
 
-## {% linkable_title Guides %}
+## Guides
 
-### {% linkable_title Scanning for devices %}
+### Scanning for devices
 
 Make sure Home Sharing is enabled on the Apple TV.
 
@@ -82,7 +82,7 @@ Note: You must use 'pair' with devices that have home sharing disabled
 
 Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
 
-### {% linkable_title Setting up device authentication %}
+### Setting up device authentication
 
 If you, when playing media with `play_url`, get the following error message:
 
@@ -112,7 +112,7 @@ apple_tv:
 
 Restart Home Assistant, and you should now be able to use `play_url` as before.
 
-### {% linkable_title My Apple TV turns on when I restart Home Assistant %}
+### My Apple TV turns on when I restart Home Assistant
 
 The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
 
@@ -130,9 +130,9 @@ To put a device into fake standby when starting Home Assistant, add `start_off: 
 Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
 </p>
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `apple_tv_authenticate` %}
+### Service `apple_tv_authenticate`
 
 To play media on an Apple TV with device authentication enabled (e.g., ATV4 with tvOS 10.2+), Home Assistant must be properly authenticated. This method starts the process and presents the credentials needed for playback as a persistent notification. Please see guide above for usage.
 
@@ -140,6 +140,6 @@ To play media on an Apple TV with device authentication enabled (e.g., ATV4 with
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Apple TVs.
 
-### {% linkable_title Service `apple_tv_scan` %}
+### Service `apple_tv_scan`
 
 Scans the local network for Apple TVs. All found devices are presented as a persistent notification.

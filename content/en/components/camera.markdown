@@ -12,13 +12,13 @@ footer: true
 
 The camera component allows you to use IP cameras with Home Assistant. With a little additional work you could use [USB cameras](/blog/2016/06/23/usb-webcams-and-home-assistant/) as well.
 
-### {% linkable_title Service %}
+### Service
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
 Available services: `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
 
-#### {% linkable_title Service `enable_motion_detection` %}
+#### Service `enable_motion_detection`
 
 Enable the motion detection in a camera.
 
@@ -26,7 +26,7 @@ Enable the motion detection in a camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
-#### {% linkable_title Service `disable_motion_detection` %}
+#### Service `disable_motion_detection`
 
 Disable the motion detection in a camera.
 
@@ -34,7 +34,7 @@ Disable the motion detection in a camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
-#### {% linkable_title Service `snapshot` %}
+#### Service `snapshot`
 
 Take a snapshot from a camera.
 
@@ -57,7 +57,7 @@ action:
 ```
 {% endraw %}
 
-### {% linkable_title Test if it works %}
+### Test if it works
 
 A simple way to test if you have set up your `camera` platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 

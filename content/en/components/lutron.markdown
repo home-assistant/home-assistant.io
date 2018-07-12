@@ -18,7 +18,7 @@ ha_iot_class: "Local Polling"
 
 Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches and dimmers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 When configured, the `lutron` component will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 

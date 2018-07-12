@@ -71,13 +71,13 @@ You can also play HTTP (not HTTPS) URLs:
     media_content_type: MUSIC
 ```
 
-### {% linkable_title Text-to-Speech services %}
+### Text-to-Speech services
 
 You can use TTS services like [Google Text-to-Speech](/components/tts.google/) or [Amazon Polly](/components/tts.amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
 
 A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy ([nginx](/docs/ecosystem/nginx/) for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.
 
-### {% linkable_title Service `soundtouch_play_everywhere` %}
+### Service `soundtouch_play_everywhere`
 
 Create a multi-room (zone) from a master and play same content on all other
  devices (slaves)
@@ -86,7 +86,7 @@ Create a multi-room (zone) from a master and play same content on all other
 | ---------------------- | -------- | ----------- |
 | `master` | no | `entity_id` of the master device
 
-### {% linkable_title Service `soundtouch_create_zone` %}
+### Service `soundtouch_create_zone`
 
 Create a multi-room (zone) from a master and play on selected slaves
 
@@ -95,7 +95,7 @@ Create a multi-room (zone) from a master and play on selected slaves
 | `master` | no | `entity_id` of the master device|
 | `slaves` | no | List of slaves `entity_id`      |
 
-### {% linkable_title Service `soundtouch_add_zone_slave` %}
+### Service `soundtouch_add_zone_slave`
 
 Add slave(s) to an existing zone
 
@@ -104,7 +104,7 @@ Add slave(s) to an existing zone
 | `master` | no | `entity_id` of the master device |
 | `slaves` | no | List of slaves `entity_id` to add|
 
-### {% linkable_title Service `soundtouch_remove_zone_slave` %}
+### Service `soundtouch_remove_zone_slave`
 
 Remove slave(s) from an existing zone.
 

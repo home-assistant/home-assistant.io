@@ -13,7 +13,7 @@ ha_release: 0.67
 
 With the `freedns` component you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You need to determine your update URL or your access token.
 

@@ -28,7 +28,7 @@ Templating is a powerful feature in Home Assistant that allows the user control 
 [command line sensor]: /components/sensor.command_line/
 [Automation Templating]: /docs/automation/templating/
 
-## {% linkable_title Building templates %}
+## Building templates
 
 Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their [Jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/).
 
@@ -59,7 +59,7 @@ script:
 - [Logic](http://jinja.pocoo.org/docs/dev/templates/#logic)
 
 
-## {% linkable_title Home Assistant template extensions %}
+## Home Assistant template extensions
 
 Home Assistant adds extensions to allow templates to access all of the current states:
 
@@ -108,15 +108,15 @@ If your template uses an `entity_id` that begins with a number (example: `states
 Rendering templates with time is dangerous as updates only trigger templates in sensors based on entity state changes.
 </p>
 
-## {% linkable_title Home Assistant template extensions %}
+## Home Assistant template extensions
 
 In templates, besides the normal [state object methods and properties](/topics/state_object/), there are also some extra things available:
 
 - `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title States %}
+### States
 The next two statements result in same value if state exists. The second one will result in an error if state does not exist.
 
 ```text
@@ -124,7 +124,7 @@ The next two statements result in same value if state exists. The second one wil
 {{ states.device_tracker.paulus.state }}{% endraw %}
 ```
 
-### {% linkable_title Attributes %}
+### Attributes
 
 Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
@@ -148,7 +148,7 @@ With strings
 {% endif %}{% endraw %}
 ```
 
-### {% linkable_title Sensor states %}
+### Sensor states
 
 Print out a list of all the sensor states.
 
@@ -176,7 +176,7 @@ Print out a list of all the sensor states.
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
 ```
 
-### {% linkable_title Distance examples %}
+### Distance examples
 
 If only 1 location is passed in, Home Assistant will measure the distance from home.
 
@@ -190,7 +190,7 @@ These can also be combined in any combination:
 {{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}{% endraw %}
 ```
 
-### {% linkable_title Closest examples %}
+### Closest examples
 
 Find entities closest to the Home Assistant location:
 
@@ -209,14 +209,14 @@ Closest to an entity: {{ closest('zone.school', 'group.children') }}
 Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endraw %}
 ```
 
-### {% linkable_title Combined %}
+### Combined
 Since closest returns a state, we can combine it with distance too.
 
 ```text
 {% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.{% endraw %}
 ```
 
-## {% linkable_title Processing incoming data %}
+## Processing incoming data
 
 The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data you care about. This will work only for platforms and components that mentioned support for this in their documentation.
 

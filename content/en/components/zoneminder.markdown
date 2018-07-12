@@ -30,7 +30,7 @@ Configuration variables:
 - **username** (*Optional*): Your ZoneMinder username.
 - **password** (*Optional*): Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry

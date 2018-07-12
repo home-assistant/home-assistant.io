@@ -39,7 +39,7 @@ ads:
     type: string
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
 The ADS component will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
 

@@ -100,7 +100,7 @@ cover:
         type: template
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
 Template Cover may get an `unknown` state during startup. This results
@@ -112,7 +112,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Optimistic Mode %}
+## Optimistic Mode
 
 In optimistic mode, the cover position state is maintained internally. This
 mode is automatically enabled if neither [`value_template`](#value_template) or
@@ -124,11 +124,11 @@ attribute. There is an equivalent mode for `tilt_position` that is enabled
 when [`tilt_template`](#tilt_template) is not specified or when the
 [`tilt_optimistic`](#tilt_optimistic) attribute is used.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real life examples of how to use this cover.
 
-### {% linkable_title Garage Door %}
+### Garage Door
 
 This example converts a garage door with a controllable switch and position
 sensor into a cover.
@@ -162,7 +162,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Multiple Covers %}
+### Multiple Covers
 
 This example allows you to control two or more covers at once.
 
@@ -249,7 +249,7 @@ automation:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Icon %}
+### Change The Icon
 
 This example shows how to change the icon based on the cover state.
 
@@ -282,7 +282,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Entity Picture %}
+### Change The Entity Picture
 
 This example shows how to change the entity picture based on the cover state.
 

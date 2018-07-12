@@ -35,7 +35,7 @@ Configuration variables:
   - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
   - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
 
-## {% linkable_title State machine %}
+## State machine
 
 The state machine of the manual alarm component is complex but powerful.  The
 transitions are timed according to three values, **delay_time**, **pending_time**
@@ -98,11 +98,11 @@ alarm_control_panel:
       delay_time: 0
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this panel.
 
-### {% linkable_title Sensors %}
+### Sensors
 
 Using sensors to trigger the alarm.
 

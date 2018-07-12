@@ -10,7 +10,7 @@ footer: true
 redirect_from: /docs/hassbian/common-tasks/
 ---
 
-### {% linkable_title Login to the Raspberry Pi %}
+### Login to the Raspberry Pi
 To login to your Raspberry Pi running Hassbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Max OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
 
 Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.
@@ -24,7 +24,7 @@ Windows users start [Putty][ssh-putty], enter the IP address of the Raspberry Pi
 
 Optionally, starting with Windows 10 anniversary update, you can use the built-in '[Bash on Windows][bash-windows]' to use SSH if you have enabled Developer mode and have installed the "Windows Subsystem for Linux (beta)" feature.
 
-### {% linkable_title Start/Stop/Restart Home Assistant %}
+### Start/Stop/Restart Home Assistant
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -34,7 +34,7 @@ $ sudo systemctl stop home-assistant@homeassistant.service
 Replace `stop` with `start` or `restart` to get the desired functionality.
 To get the current state of the `homeassistant.service` replace `stop` with `status`.
 
-### {% linkable_title Update Home Assistant %}
+### Update Home Assistant
 
 <p class='note'>
 You can use `hassbian-config` to automate the process by running `sudo hassbian-config upgrade homeassistant`
@@ -60,7 +60,7 @@ This will in order do the following:
 - Exit the shell and return to the `pi` user.
 - Start the Home Assistant service.
 
-### {% linkable_title Manually launch Home Assistant %}
+### Manually launch Home Assistant
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -71,7 +71,7 @@ $ hass
 
 This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don't forget to [stop][stop-homeassistant] it first. If you want the log output to be colored, execute `hass --script check_config` first. This will install the `colorlog` module.
 
-### {% linkable_title Check your configuration %}
+### Check your configuration
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -82,7 +82,7 @@ $ hass --script check_config
 
 This will output any errors in your configuration files to console.
 
-### {% linkable_title Read the Home Assistant log file %}
+### Read the Home Assistant log file
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -104,7 +104,7 @@ Log in as the `pi` account and execute the following commands:
 $ sudo journalctl -fu home-assistant@homeassistant.service
 ```
 
-### {% linkable_title Edit the Home Assistant configuration %}
+### Edit the Home Assistant configuration
 
 Log in as the `pi` account and execute the following commands:
 
@@ -122,7 +122,7 @@ This will in order do the following:
 
 It's generally recommended that you read the [Getting started][configuring-homeassistant] guide for how to configure Home Assistant.
 
-### {% linkable_title Change locale, timezone and keyboard layout %}
+### Change locale, timezone and keyboard layout
 
 ```bash
 $ sudo raspi-config

@@ -56,7 +56,7 @@ Device configuration variables:
 - **group_aliases** (*Optional*): `aliases` which only respond to group commands.
 - **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
 
-### {% linkable_title Switch state %}
+### Switch state
 
 Initially the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
@@ -77,7 +77,7 @@ switch:
 
 Any on/off command from any alias ID updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 

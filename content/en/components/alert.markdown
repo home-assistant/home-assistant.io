@@ -20,7 +20,7 @@ Alerts will add an entity to the front end only when they are firing. This entit
 When using the `alert` component, it is important that the time zone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` time zone but the operating system uses `UTC`).
 </P>
 
-### {% linkable_title Basic Example %}
+### Basic Example
 
 The `alert` component makes use of any of the `notifications` components. To setup the `alert` component, first, you must setup a `notification` component. Then, add the following to your configuration file:
 
@@ -75,7 +75,7 @@ freshwater_temp_alert:
     - john_phone_sms
 ```
 
-### {% linkable_title Complex Alert Criteria %}
+### Complex Alert Criteria
 
 By design, the `alert` component only handles very simple criteria for firing. That is, it only checks if a single entity's state is equal to a value. At some point, it may be desirable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
 
@@ -99,7 +99,7 @@ alert:
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery` attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.
 
-### {% linkable_title Dynamic Notification Delay Times %}
+### Dynamic Notification Delay Times
 
 It may be desirable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
 

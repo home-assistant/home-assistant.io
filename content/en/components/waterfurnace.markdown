@@ -27,7 +27,7 @@ The sensors provided include:
  - Total system power (in Watts)
  - Furnace Mode
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Waterfurnace in your installation, add the following to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ unit:
 {% endconfiguration %}
 
 
-#### {% linkable_title Limitations %}
+#### Limitations
 
 The WebSocket interface used by this module requires active polling, otherwise the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 

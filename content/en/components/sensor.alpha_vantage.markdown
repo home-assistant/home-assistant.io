@@ -76,11 +76,11 @@ foreign_exchange:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Google and the exchange rate for Bitcoin %}
+### Google and the exchange rate for Bitcoin
 
 ```yaml
 sensor:

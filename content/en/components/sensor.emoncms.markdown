@@ -27,7 +27,7 @@ sensor:
   id: 1
 ```
 
-## {% linkable_title Configuration variables %}
+## Configuration variables
 
 - **api_key** (*Required*): The read API key for your Emoncms user.
 - **url** (*Required*): The base URL of Emoncms, use "https://emoncms.org" for the cloud based version.
@@ -39,7 +39,7 @@ sensor:
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of for all the sensors. default is "W".
 
-## {% linkable_title Default naming scheme %}
+## Default naming scheme
 
 The names of the sensors created by this component will use the feed names defined in EmonCMS if available,
 or the feed ID otherwise, and will be prefixed with "EmonCMS", e.g., "EmonCMS Total Power" or "EmonCMS Feed 5".
@@ -47,7 +47,7 @@ If the `id` property is anything but `1`, the ID will be shown as well, e.g., "E
 
 If `sensor_names` is used, any feeds with defined names will get those names exactly, with no prefix.
 
-### {% linkable_title Examples %}
+### Examples
 
 In this section you find some more examples of how this sensor can be used.
 

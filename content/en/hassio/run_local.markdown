@@ -21,7 +21,7 @@ The third option is to create a local add-on for Hass.io that sends the data to 
 
 For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We're going to use MQTT for this using the [MQTT broker add-on][mqtt-addon].
 
-### {% linkable_title Sensors %}
+### Sensors
 
 We loop in our script to fetch data and push it to MQTT and wait until the next process is ready. Here is a basic example and structure for that process.
 
@@ -61,7 +61,7 @@ do
 done
 ```
 
-### {% linkable_title Commands %}
+### Commands
 
 We wait for incoming data from the MQTT broker. We can also use an `input_boolean` that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.
 

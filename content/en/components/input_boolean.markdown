@@ -45,11 +45,11 @@ input_boolean:
         type: icon
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
 This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 

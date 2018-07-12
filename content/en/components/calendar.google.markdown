@@ -16,7 +16,7 @@ ha_release: 0.33
 
 The `google` calendar platform allows you to connect to your [Google Calendars](https://calendar.google.com) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file `google_calendars.yaml` that will contain information about all of the calendars you can see.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 Generate a Client ID and Client Secret on [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
@@ -30,7 +30,7 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 1. Save the client ID and secret as you will need to put these in your `configuration.yaml` file.
 1. Click on "Library", search for "Google Calendar API" and enable it.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Google Calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -61,7 +61,7 @@ The next steps will require you to have Home Assistant running.
 
 After you have it running complete the Google authentication that pops up. It will give you a URL and a code to enter. This will grant your Home Assistant service access to all the Google Calendars that the account you authenticate with can read. This is a Read-Only view of these calendars.
 
-## {% linkable_title Calendar Configuration %}
+## Calendar Configuration
 
 Editing the `google_calendars.yaml` file.
 
@@ -105,7 +105,7 @@ But what if you only wanted it to toggle based on all events? Just leave out the
 If you use a `#` sign for `search` then wrap the whole search term in quotes. Otherwise everything following the hash sign would be considered a YAML comment.
 </p>
 
-### {% linkable_title Sensor attributes %}
+### Sensor attributes
 
  - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
  - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.

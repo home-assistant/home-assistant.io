@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -78,9 +78,9 @@ headers:
 Make sure that the URL matches exactly your endpoint or resource.
 </p>
 
-## {% linkable_title Example %}
+## Example
 
-### {% linkable_title Switch with templated value %}
+### Switch with templated value
 
 This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 

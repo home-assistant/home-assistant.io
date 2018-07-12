@@ -28,7 +28,7 @@ history_graph:
   
 ```
 
-### {% linkable_title Configuration variables %}
+### Configuration variables
 
 | Attribute                 | Optional | Default | Description                                 |
 |---------------------------|----------|-------------------------------------------------------|
@@ -37,7 +37,7 @@ history_graph:
 | `hours_to_show`           |   yes    |  24     | Number of hours to show. |
 | `refresh`                 |   yes    |   0     | Number of seconds between graph refreshes. 0 for no refreshes. |
 
-### {% linkable_title Full Example %}
+### Full Example
 
 ```yaml
 # Full configuration.yaml entry

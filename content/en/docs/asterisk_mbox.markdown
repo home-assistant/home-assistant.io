@@ -24,7 +24,7 @@ The server installation is documented below. The client is [integrated inside Ho
 Currently this module can only monitor a single Asterisk PBX mailbox.
 </p>
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 Before beginning make sure that you have the following:
 
@@ -34,7 +34,7 @@ Before beginning make sure that you have the following:
 - Administrator access on the Asterisk PBX (for python module installation).
 - Account access to the `asterisk` user that runs the Asterisk PBX software.
 
-### {% linkable_title Installation %}
+### Installation
 
 1. Apply for a Google API key to enable speech-transcription services
 

@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public Iperf3 server.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a iperf3 test to run.
 
@@ -77,13 +77,13 @@ Parallel streams can help in some situations. As TCP attempts to be fair and con
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
-### {% linkable_title Service `sensor.iperf3_update` %}
+### Service `sensor.iperf3_update`
 
 | Service data attribute | Description |
 | `entity_id` | String that point at `entity_id`s of the Iperf3 sensor. Else targets all.
 
 
-## {% linkable_title Notes %}
+## Notes
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.

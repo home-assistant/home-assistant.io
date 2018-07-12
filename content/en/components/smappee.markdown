@@ -18,7 +18,7 @@ Switches and Sensors are supported - and will be automatically added when you co
 
 The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/display/DEVAPI/API+Methods).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
 

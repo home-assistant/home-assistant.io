@@ -84,7 +84,7 @@ tap_action:
   default: dialog
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 

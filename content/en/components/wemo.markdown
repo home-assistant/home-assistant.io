@@ -37,7 +37,7 @@ Note that if you use this, you may want to set up your router (or whatever runs 
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming request on port 8989 since this is the address to which the WeMo devices send their update.
 
-## {% linkable_title Emulated devices %}
+## Emulated devices
 
 Various software that emulates WeMo devices often uses alternative ports. Static configuration should include the port value:
 

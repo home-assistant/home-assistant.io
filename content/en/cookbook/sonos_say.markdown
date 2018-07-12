@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Sonos say script to speak with text-to-speech %}
+#### Sonos say script to speak with text-to-speech
 
 This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
 

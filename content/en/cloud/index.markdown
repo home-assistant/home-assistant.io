@@ -20,7 +20,7 @@ The Home Assistant Cloud allows you to quickly integrate your local Home Assista
  - [Amazon Alexa (Amazon Echo)](/cloud/alexa/)
  - [Google Assistant (Google Home)](/cloud/google_assistant/)
 
-### {% linkable_title How does it work? %}
+### How does it work?
 
 The Home Assistant Cloud has been designed with security in mind. When you activate the Cloud component, your instance will create a secure connection to the Home Assistant Cloud. There is no need for any further configuration or to expose your instance to the internet.
 
@@ -28,7 +28,7 @@ Integrations like Alexa or Google will deliver messages to our cloud which we wi
 
 You can find a list of frequently asked questions (and their answers) in [this blog post](/blog/2017/12/17/introducing-home-assistant-cloud/#faq).
 
-### {% linkable_title Enabling the cloud %}
+### Enabling the cloud
 
 The Home Assistant Cloud is enabled by default. If not, add this to your configuration:
 

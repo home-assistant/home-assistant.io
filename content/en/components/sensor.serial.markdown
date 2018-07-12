@@ -51,9 +51,9 @@ value_template:
 {% endconfiguration %}
 
 
-## {% linkable_title `value_template` for Template sensor %}
+## `value_template` for Template sensor
 
-### {% linkable_title TMP36 %}
+### TMP36
 
 {% raw %}
 ```yaml
@@ -61,9 +61,9 @@ value_template:
 ```
 {% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Arduino %}
+### Arduino
 
 For controllers of the Arduino family a possible sketch to read the temperature and the humidity could look like the sample below.
 
@@ -90,6 +90,6 @@ JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
 }
 ```
 
-### {% linkable_title Digispark USB Development Board %}
+### Digispark USB Development Board
 
 This [blog post](/blog/2017/10/23/simple-analog-sensor/) describes the setup with a Digispark USB Development Board.

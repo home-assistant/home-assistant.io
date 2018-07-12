@@ -32,7 +32,7 @@ Configuration variables:
 - **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Required*): Seconds between updates to Duck DNS.
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the generated certificate:
 
@@ -45,7 +45,7 @@ http:
 
 If you use a port other than `8123` or an SSL proxy, change the port number accordingly.
 
-## {% linkable_title Router configuration %}
+## Router configuration
 
 You'll need to forward the port you listed in your configuration (8123 in the example above) on your router to your Home Assistant system. You can find guides on how to do this on [Port Forward](https://portforward.com/). Noting that you'll only need to forward the TCP port.
 

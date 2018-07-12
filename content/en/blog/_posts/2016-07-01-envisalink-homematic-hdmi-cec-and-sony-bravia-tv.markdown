@@ -44,17 +44,17 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Lock: [Vera] now supported ([@rhooper])
 - HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 
-### {% linkable_title Hotfix 0.23.1 - July 2 %}
+### Hotfix 0.23.1 - July 2
 
 - Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug ([@rhooper])
 - HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it ([@AlucardZero])
 - Wink: Downgraded pubnub to work around pycryptodome conflicts ([@w1ll1am23])
 
-### {% linkable_title FAQ %}
+### FAQ
 
 - `elevation: ` was introduced to the configuration for weather/sunrise data. For existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
 

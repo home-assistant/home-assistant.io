@@ -26,11 +26,11 @@ zwave:
   new_entity_ids: false
 ```
 
-## {% linkable_title Big speed up in querying the history %}
+## Big speed up in querying the history
 
 Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️
 
-## {% linkable_title Snips.ai component %}
+## Snips.ai component
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
@@ -38,7 +38,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
-## {% linkable_title Release 0.48.1 - July 5 %}
+## Release 0.48.1 - July 5
 
 - Fix arlo sensors. ([@bergemalm] - [#8333]) ([sensor.arlo docs])
 - API POST no longer marks the number zero as invalid ([@azogue] - [#8324]) ([api docs])
@@ -48,7 +48,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Fix Arlo startup crash (fixes #8288) ([@fabaff] - [#8290]) ([camera.arlo docs])
 - Temporary fix for the client_id generation (fixes #8315) ([@fabaff] - [#8336]) ([mqtt docs])
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Upnp properties ([@dgomes] - [#8067]) ([upnp docs]) ([sensor.upnp docs]) (new-platform)
@@ -67,15 +67,15 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
 - Snips ASR and NLU component ([@michaelfester] - [#8156]) ([snips docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 
@@ -120,7 +120,7 @@ light:
         fade: none
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
 - No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])

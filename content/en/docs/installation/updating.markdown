@@ -36,7 +36,7 @@ After updating, you must start/restart Home Assistant for the changes to take ef
 
 [BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
 
-#### {% linkable_title Run a specific version %}
+#### Run a specific version
 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release:
 
@@ -44,7 +44,7 @@ In the event that a Home Assistant version doesn't play well with your hardware 
 $ pip3 install homeassistant==0.XX.X
 ```
 
-#### {% linkable_title Run the development version %}
+#### Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 

@@ -16,7 +16,7 @@ The Mailgun notification service allows you to send emails via Mailgun's REST AP
 
 [Mailgun component]: /components/mailgun/
 
-## {% linkable_title Sample configuration %}
+## Sample configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,7 +39,7 @@ Configuration variables:
 - **recipient** (*Required*): The email address of the recipient.
 - **sender** (*Optional*): The sender's email address. Defaults to `hass@DOMAIN`, where `DOMAIN` is outgoint mail domain, as defined by the `domain` and `sanbox` configuration entries.
 
-## {% linkable_title Example automation %}
+## Example automation
 
 The following automation reacts to an event by sending out an email with two attachments.
 

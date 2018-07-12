@@ -212,7 +212,7 @@ elements:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 - type: picture-elements

@@ -15,7 +15,7 @@ logo: home-assistant.png
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Template Sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -76,16 +76,16 @@ sensor:
         default: None
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Sun Angle %}
+### Sun Angle
 
 This example shows the sun angle in the frontend.
 
@@ -101,7 +101,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Renaming Sensor Output %}
+### Renaming Sensor Output
 
 If you don't like the wording of a sensor output then the Template Sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as
 a simple example:
@@ -142,7 +142,7 @@ sensor:
 
 The [Template Binary Sensor](/components/binary_sensor.template/) is the one in similar cases if you prefer to see an icon instead of text.
 
-### {% linkable_title Multiline Example With an `if` Test %}
+### Multiline Example With an `if` Test
 
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
 
@@ -169,7 +169,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Unit of Measurement %}
+### Change The Unit of Measurement
 
 With a Template Sensor it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
@@ -190,7 +190,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Icon %}
+### Change The Icon
 
 This example shows how to change the icon based on the day/night cycle.
 
@@ -216,7 +216,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Change The Entity Picture %}
+### Change The Entity Picture
 
 This example shows how to change the entity picture based on the day/night cycle.
 
@@ -242,7 +242,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Change the Friendly Name Used in the Frontend %}
+### Change the Friendly Name Used in the Frontend
 
 This example shows how to change the `friendly_name` based on a date.
 Explanation: We add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
@@ -284,7 +284,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Working with dates %}
+### Working with dates
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 

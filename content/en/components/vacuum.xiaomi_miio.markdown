@@ -30,7 +30,7 @@ Currently supported features are:
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
 
@@ -47,7 +47,7 @@ Configuration variables:
 - **token** (*Required*): The API token of your robot.
 - **name** (*Optional*): The name of your robot.
 
-## {% linkable_title Platform Services %}
+## Platform Services
 
 In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
@@ -56,7 +56,7 @@ In addition to all of the services provided by the `vacuum` component (`turn_on`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
+### Service `vacuum.xiaomi_remote_control_start`
 
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
@@ -64,7 +64,7 @@ Start the remote control mode of the robot. You can then move it with `remote_co
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_stop` %}
+### Service `vacuum.xiaomi_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
@@ -72,7 +72,7 @@ Exit the remote control mode of the robot.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_move` %}
+### Service `vacuum.xiaomi_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
@@ -83,7 +83,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees        |
 | `duration`                |       no | The number of milliseconds that the robot should move for  |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_move_step` %}
+### Service `vacuum.xiaomi_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
@@ -94,7 +94,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees.       |
 | `duration`                |       no | The number of milliseconds that the robot should move for  |
 
-## {% linkable_title Attributes %}
+## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
 (`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
@@ -122,7 +122,7 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                   |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                        |
 
-## {% linkable_title Retrieving the Access Token %}
+## Retrieving the Access Token
 
 <p class='note'>
 As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
@@ -131,7 +131,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
 
-#### {% linkable_title Miio command line tool %}
+#### Miio command line tool
 
 You can install the command line tool with:
 
@@ -164,7 +164,7 @@ The information output is:
 - __Address__ - the IP that the device has on the network
 - __Token__ - the token of the device or ??? if it could not be automatically determined
 
-#### {% linkable_title Windows and Android %}
+#### Windows and Android
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
@@ -176,7 +176,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
 7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
 
-#### {% linkable_title Linux and Android (not rooted) %}
+#### Linux and Android (not rooted)
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
@@ -205,7 +205,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 8. Untar the unpacked data: `tar -xvf unpacked.tar`
 9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name like "%Vacuum%";'` returns the token for your Xiaomi vacuum bot.
 
-#### {% linkable_title Linux and Android (rooted!) %}
+#### Linux and Android (rooted!)
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
@@ -232,7 +232,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 6. `adb shell` (for those using Magisk based root the previous command won't work. After entering a shell, type `su` to enter the root shell)
 7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including IP address and token.
 
-#### {% linkable_title iOS %}
+#### iOS
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.

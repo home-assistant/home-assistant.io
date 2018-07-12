@@ -77,7 +77,7 @@ The configuration above is also used by the following components:
 - [Camera](../camera.doorbird) - View live and historical event based images
 - [Switch](../switch.doorbird) - Enable control of relays and camera night vision
 
-## {% linkable_title Motion and Doorbell Events %}
+## Motion and Doorbell Events
 
 Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
 
@@ -85,7 +85,7 @@ Home Assistant will fire an event any time a `monitored_condition` happens on a 
 Enabling any monitored condition will delete all registered notification services on the doorstation every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
 
-### {% linkable_title Automation Example %}
+### Automation Example
 ```yaml
 - alias: Doorbird Ring
   trigger:

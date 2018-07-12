@@ -17,7 +17,7 @@ The Wink lock platform allows you to control your [Wink](http://www.wink.com/) l
 
 The requirement is that you have setup [Wink](/components/wink/).
 
-### {% linkable_title Supported lock devices %}
+### Supported lock devices
 
 - Kwikset
 - Schlage
@@ -28,7 +28,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 The following services have only been confirmed on Schlage locks.
 </p>
 
-### {% linkable_title Service `wink_set_lock_alarm_mode` %}
+### Service `wink_set_lock_alarm_mode`
 
 You can use the service wink/wink_set_lock_alarm_mode to set the alarm mode of your lock.
 
@@ -48,7 +48,7 @@ script:
           mode: "tamper"
 ```
 
-### {% linkable_title Service `wink_set_lock_alarm_sensitivity` %}
+### Service `wink_set_lock_alarm_sensitivity`
 
 You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
 
@@ -68,7 +68,7 @@ script:
           sensitivity: "high"
 ```
 
-### {% linkable_title Service `wink_set_lock_alarm_state` %}
+### Service `wink_set_lock_alarm_state`
 
 You can use the service wink/wink_set_lock_alarm_state to set the alarm state of your lock.
 
@@ -88,7 +88,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_set_lock_beeper_state` %}
+### Service `wink_set_lock_beeper_state`
 
 You can use the service wink/wink_set_lock_beeper_state to set the beeper state of your lock.
 
@@ -108,7 +108,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_set_lock_vacation_mode` %}
+### Service `wink_set_lock_vacation_mode`
 
 You can use the service wink/wink_set_lock_vacation_mode to set the vacation mode of your lock.
 
@@ -128,7 +128,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_add_new_lock_key_code` %}
+### Service `wink_add_new_lock_key_code`
 
 You can use the service wink/wink_add_new_lock_key_code to add a new user code to your Wink lock.
 

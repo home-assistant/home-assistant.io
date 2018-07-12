@@ -121,7 +121,7 @@ payload_not_available:
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## Comparison of light MQTT platforms
 
 | Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
@@ -135,11 +135,11 @@ payload_not_available:
 | HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this light.
 
-### {% linkable_title Simple string payload %}
+### Simple string payload
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
@@ -158,7 +158,7 @@ light:
     blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
 ```
 
-### {% linkable_title JSON payload %}
+### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
 
@@ -192,7 +192,7 @@ light:
     effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
 ```
 
-### {% linkable_title No brightness or color support %}
+### No brightness or color support
 
 If you don't want brightness, color or effect support, just omit the corresponding configuration sections.
 

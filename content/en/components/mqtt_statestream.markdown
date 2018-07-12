@@ -15,7 +15,7 @@ ha_iot_class: depends
 
 The `mqtt_statestream` component publishes state changes in Home Assistant to individual MQTT topics.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable MQTT Statestream in Home Assistant, add the following section to your `configuration.yaml` file:
 

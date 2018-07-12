@@ -93,11 +93,11 @@ payload_not_available:
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real life examples of how to use this lock.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a MQTT lock.
 

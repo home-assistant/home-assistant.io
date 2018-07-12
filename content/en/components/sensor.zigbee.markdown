@@ -39,9 +39,9 @@ Configuration variables:
 - **max_volts** (*Optional*): The maximum voltage which the input pin is able to read. Defaults to `1.2`.
 
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Analog Input Pin %}
+### Analog Input Pin
 
 The analog input pins on an XBee (non-Pro) will read 0V to 1.2 V. This is translated by the [xbee-helper](https://github.com/flyte/xbee-helper) library into a percentage. The maximum voltage your ZigBee device will read is configurable using the `max_volts` configuration variable.
 
@@ -59,7 +59,7 @@ sensor:
 
 See the [Digi knowledge base](http://knowledge.digi.com/articles/Knowledge_Base_Article/Digital-and-analog-sampling-using-XBee-radios) for more XBee sampling details.
 
-## {% linkable_title Temperature Sensor %}
+## Temperature Sensor
 
 The XBee Pro (and perhaps other third party modules) contains a thermometer device which can be read by using the `TP` AT command.
 

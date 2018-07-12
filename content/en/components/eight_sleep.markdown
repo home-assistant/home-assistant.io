@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `eight_sleep` component allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 It's setup utilizing 'Sensor' components to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' component to indicate your presence in the bed.  A service is also provided to set the heating level and duration of the bed.
 
@@ -46,7 +46,7 @@ password:
   default: False
 {% endconfiguration %}
 
-### {% linkable_title Supported features %}
+### Supported features
 
 Sensors:
 
@@ -61,7 +61,7 @@ Binary Sensors:
 
 - eight_left/right_bed_presence
 
-### {% linkable_title Service `heat_set` %}
+### Service `heat_set`
 
 You can use the service eight_sleep/heat_set to adjust the target heating level and heating duration of your bed.
 

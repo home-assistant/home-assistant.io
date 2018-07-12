@@ -33,7 +33,7 @@ title:
   default: none
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 - type: markdown

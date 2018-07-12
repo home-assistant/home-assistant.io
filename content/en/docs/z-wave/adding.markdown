@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title Adding Non-Secure Devices %}
+## Adding Non-Secure Devices
 
 To add (include) a non-secure Z-Wave [device](/docs/z-wave/devices/) to your system:
 
@@ -26,7 +26,7 @@ Don't use the OpenZWave control panel (OZWCP), **or the physical button on a con
 
 When you add a device, it may initially appear without a specific entity ID (eg `zwave.__`) and without other identifying information. Running a *Heal* should help speed this process up, and you'll need to run a *Heal* anyway so that all the devices in your Z-Wave network learn about the new device. You *might* need to restart Home Assistant (not reboot the system) to have the entity ID fully visible.
 
-## {% linkable_title Network Key %}
+## Network Key
 
 Security Z-Wave devices require a network key. Some devices only expose their full capabilities when included this way. You should always read the manual for your device to find out the recommended inclusion method. Note, secure devices that had been connected to another hub/network in the past may have a "theft protection" feature which requires to first exclude the device successfully from the previous hub using the previous hub/Software setup before it can be enrolled in a new hub/network.
 
@@ -40,7 +40,7 @@ zwave:
 
 Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Define your own key by making changes to the above example key or for additional security try one of the two scripts mentioned below.
 
-### {% linkable_title Network Key %}
+### Network Key
 
 An easy script to generate a random key:
 ```bash
@@ -56,7 +56,7 @@ cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 </p>
 
-## {% linkable_title Adding Secure Devices %}
+## Adding Secure Devices
 
 After defining your network key, follow these steps to add (include) a secure Z-Wave device:
 
@@ -65,7 +65,7 @@ After defining your network key, follow these steps to add (include) a secure Z-
 3. Activate your device to be included by following the instructions provided with the device
 4. With the device in its final location, run a *Heal Network*
 
-## {% linkable_title Removing Devices %}
+## Removing Devices
 
 To remove (exclude) a Z-Wave device from your system:
 

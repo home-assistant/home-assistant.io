@@ -19,7 +19,7 @@ Screenshot of the iframe card.
 
 Make sure the URL you're embedding has the right protocol and allows to be embedded in an iframe on a different domain. For example, if your Home Assistant setup uses HTTPS, you won't be able to embed HTTP URLs.
 
-## {% linkable_title Options %}
+## Options
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
@@ -44,7 +44,7 @@ title:
   default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
   - type: iframe

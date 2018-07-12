@@ -60,7 +60,7 @@ Configuration variables:
   - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
 
 
-### {% linkable_title Setup process %}
+### Setup process
 
 It's suggested that the first attempt to determine the needed parameters is using `ssocr` directly. This may require a couple of iterations to get the result
 

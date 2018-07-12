@@ -62,11 +62,11 @@ input_select:
 Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 </p>
 
-### {% linkable_title Restore State %}
+### Restore State
 
 This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
-### {% linkable_title Services %}
+### Services
 
 This components provide three services to modify the state of the `input_select`.
 
@@ -77,7 +77,7 @@ This components provide three services to modify the state of the `input_select`
 | `select_previous` | | Select the previous option.
 | `select_next` | | Select the next option.
 
-### {% linkable_title Scenes %}
+### Scenes
 
 To specify a target option in a [Scene](/components/scene/) you have to specify the target as `option` attribute:
 
@@ -90,7 +90,7 @@ scene:
         option: Paulus
 ```
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 The following example shows the usage of the `input_select.select_option` service in an automation:
 

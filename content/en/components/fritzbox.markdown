@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
 
-#### {% linkable_title Tested Devices %}
+#### Tested Devices
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
@@ -23,7 +23,7 @@ The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to
 - [Eurotronic Comet DECT](https://www.eurotronic.org/en/products/comet-dect.html)
 
 
-## {% linkable_title Setup %}
+## Setup
 
 ```yaml
 # Example configuration.yaml entry

@@ -23,7 +23,7 @@ Examples of actionable notifications:
   Actionable notifications allow the user to send a command back to Home Assistant.
 </p>
 
-## {% linkable_title Overview of how actionable notifications work %}
+## Overview of how actionable notifications work
 
 In advance of sending a notification:
 
@@ -43,17 +43,17 @@ When sending a notification:
   How the iOS device and Home Assistant work together to enable actionable notifications.
 </p>
 
-## {% linkable_title Definitions %}
+## Definitions
 - Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
 - Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
-## {% linkable_title Category parameters %}
+## Category parameters
 
 - **name** (*Required*): A friendly name for this category.
 - **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
 - **actions** (*Required*): A list of actions.
 
-## {% linkable_title Actions parameters %}
+## Actions parameters
 
 - **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
@@ -89,7 +89,7 @@ ios:
             textInputPlaceholder: 'Placeholder'
 ```
 
-## {% linkable_title Building automations for notification actions %}
+## Building automations for notification actions
 Here is an example automation to send a notification with a category in the payload:
 
 ```yaml

@@ -41,7 +41,7 @@ show_header_toggle:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 - type: entities

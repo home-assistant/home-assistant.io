@@ -44,21 +44,21 @@ This release includes code contributed by 31 different people. The biggest chang
 - New [pilight] component to control 433 Mz devices ([@DavidLP])
 - Sensor: [GPSD] now supported ([@fabaff])
 
-### {% linkable_title Hotfix 0.26.1 - August 14 %}
+### Hotfix 0.26.1 - August 14
 
 - Fix serial_pm config validation ([@open-homeautomation])
 - Check for existence of system mode on Honeywell thermostats ([@mKeRix])
 - Fix unknown unit of measurement for hvac and thermostat component ([@turbokongen])
 
-### {% linkable_title Hotfix 0.26.2 - August 15 %}
+### Hotfix 0.26.2 - August 15
 
 - Fix Wemo: have PyWemo play nicely with the latest Requests ([@pavoni])
 
-### {% linkable_title Hotfix 0.26.3 - August 19 %}
+### Hotfix 0.26.3 - August 19
 
 - Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 

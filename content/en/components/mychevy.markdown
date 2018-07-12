@@ -20,7 +20,7 @@ This component provides the following platforms:
  - Binary sensors: if the car is plugged in
  - Sensors: Battery Level, Charge Mode, EST Range, Total Distance Traveled
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use MyChevy in your installation, add the following to your `configuration.yaml` file:
 
@@ -43,11 +43,11 @@ password:
 {% endconfiguration %}
 
 
-#### {% linkable_title Installation %}
+#### Installation
 
 Because this uses selenium behind the scenes, installation is more complicated than merely pip install. See the [installation instructions](https://github.com/sdague/mychevy).
 
-#### {% linkable_title Limitations %}
+#### Limitations
 
 The architecture of the GM automotive networking imposes some limitations on the functionality of the component.
 

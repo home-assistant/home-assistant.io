@@ -16,11 +16,11 @@ ha_release: 0.54
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) and generate binary sensors. A different sensor will be created for each individual project, or you can specify "custom" projects which match against criteria you set (more on that below). These sensors will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/Users/viewPrefs?page=authorizations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
 
-### {% linkable_title Basic Setup %}
+### Basic Setup
 
 To integrate Todoist in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -41,7 +41,7 @@ Configuration variables:
   - **include_projects** (*Optional*): Only include tasks in these projects. Tasks in all other projects will be ignored.
 
 
-### {% linkable_title Custom Projects %}
+### Custom Projects
 Creating custom projects is super-easy and quite powerful. All you need to run the basic Todoist projects is your API token, but if you wanted, you could go even deeper. Here's an example:
 
 ```yaml
@@ -79,7 +79,7 @@ You can mix-and-match these attributes to create all sorts of custom projects. Y
 
 Home Assistant does its best to determine what task in each project is "most" important, and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
 
-### {% linkable_title Sensor attributes %}
+### Sensor attributes
 
  - **offset_reached**: Not used.
 
@@ -107,7 +107,7 @@ Home Assistant does its best to determine what task in each project is "most" im
 
 - **due_today**: Whether the reported task is due today.
 
-### {% linkable_title Services %}
+### Services
 
 Todoist also comes with access to a service, `calendar.todoist_new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
 

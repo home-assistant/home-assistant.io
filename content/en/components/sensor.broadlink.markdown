@@ -72,7 +72,7 @@ sensor:
       - temperature
 ```
 
-### {% linkable_title Microsoft Windows installation %}
+### Microsoft Windows installation
 
 <p class='note'>
 The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.

@@ -15,7 +15,7 @@ ha_release: 0.47
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -43,11 +43,11 @@ Configuration variables:
 - **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
 - **ssl**:  boolean (*Optional*): Whether or not to use SSL for Radarr.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Get Episodes airing in next 2 days %}
+### Get Episodes airing in next 2 days
 
 ```yaml
 # Example configuration.yml entry
@@ -60,7 +60,7 @@ sensor:
     days: 2
 ```
 
-### {% linkable_title Enable SSL %}
+### Enable SSL
 
 SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the config here (unless it is changed to 7878).
 
@@ -77,7 +77,7 @@ sensor:
     ssl: true
 ```
 
-### {% linkable_title Get disk space for all storage locations %}
+### Get disk space for all storage locations
 
 ```yaml
 # Example configuration.yml entry
@@ -89,7 +89,7 @@ sensor:
       - diskspace
 ```
 
-### {% linkable_title Get disk space for listed storage locations %}
+### Get disk space for listed storage locations
 
 The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
@@ -105,7 +105,7 @@ sensor:
       - /tank/plex
 ```
 
-### {% linkable_title Get disk space in different unit %}
+### Get disk space in different unit
 
 The Radarr API returns available space in bytes, but this sensor will default to reporting it in GB to make the number more manageable. This can be overridden if your storage needs require a different unit. All units from bytes (B) to yottabytes (YB) are supported.
 

@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `modbus` thermostat allows you to use a sensor value (current temperature) and target value (target temperature) from [Modbus](http://www.modbus.org/) registers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file:
 
@@ -64,7 +64,7 @@ precision:
 {% endconfiguration %}
 
 
-### {% linkable_title Services %}
+### Services
 
 | Service | Description |
 | ------- | ----------- |

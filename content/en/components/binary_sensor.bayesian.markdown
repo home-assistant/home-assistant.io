@@ -45,7 +45,7 @@ Configuration variables:
   - **platform** (*Required*): The only supported observation platforms are `state` and `numeric_state`, which are modeled after their corresponding triggers for automations, requiring `below` and/or `above` instead of `to_state`.
   - **to_state** (*Required*): The target state.
 
-## {% linkable_title Full examples %}
+## Full examples
 
 ```yaml
 # Example configuration.yaml entry

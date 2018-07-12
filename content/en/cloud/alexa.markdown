@@ -91,11 +91,11 @@ alexa:
               type: string
 {% endconfiguration %}
 
-### {% linkable_title Possible values for customizing %}
+### Possible values for customizing
 
 _Configuration via `customize:` is no longer available. Use the entity config as described above._
 
-### {% linkable_title Available domains %}
+### Available domains
 Currently, the following domains are available to be used with Alexa:
 
 - alert

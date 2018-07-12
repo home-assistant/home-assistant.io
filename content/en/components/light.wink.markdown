@@ -19,7 +19,7 @@ The `wink` light platform allows you to use your [Wink](http://www.wink.com/) li
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### {% linkable_title Supported light devices %}
+### Supported light devices
 
 - Z-wave switches with dimming
 - Hue
