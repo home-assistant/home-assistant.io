@@ -358,10 +358,9 @@ params:
       variations of homepage.
     link_url: '#'
     link_text: Check other homepages
-  clients:
+  brands:
     enable: true
-    title: Our Clients
-    subtitle: ''
+    title: Some brands we support
   recent_posts:
     enable: true
     title: From our blog

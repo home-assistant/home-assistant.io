@@ -1,0 +1,3 @@
+name: "Uniquiti Unifi"
+image: "/images/supported_brands/ubiquiti.png"
+url: "/components/device_tracker.unifi/"
