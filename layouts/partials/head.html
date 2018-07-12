@@ -9,13 +9,13 @@
   {{ if .Keywords }}
   <meta name="keywords" content="{{ delimit .Keywords ", " }}">
   {{ else if .Site.Params.DefaultKeywords }}
-  <meta name="keywords" content="{{ delimit .Site.Params.DefaultKeywords ", " }}">	
+  <meta name="keywords" content="{{ delimit .Site.Params.DefaultKeywords ", " }}">
   {{ end }}
 
   {{ if .Description }}
   <meta name="description" content="{{ .Description }}">
   {{ else if .Site.Params.DefaultDescription }}
-  <meta name="description" content="{{ .Site.Params.DefaultDescription }}">	
+  <meta name="description" content="{{ .Site.Params.DefaultDescription }}">
   {{ end }}
 
   {{ .Hugo.Generator }}
@@ -26,19 +26,8 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- Css animations  -->
   <link href="{{ .Site.BaseURL }}css/animate.css" rel="stylesheet">
-
-  <!-- Theme stylesheet, if possible do not edit this stylesheet -->
-  {{ if and (isset .Site.Params "style") .Site.Params.style }}
-    <link href="{{ .Site.BaseURL }}css/style.{{ .Site.Params.style }}.css" rel="stylesheet" id="theme-stylesheet">
-  {{ else }}
-    <link href="{{ .Site.BaseURL }}css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-  {{ end }}
-
-
-  <!-- Custom stylesheet - for your changes -->
-  <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" id="theme-stylesheet">
 
   <!-- Responsivity for older IE -->
   {{ `
