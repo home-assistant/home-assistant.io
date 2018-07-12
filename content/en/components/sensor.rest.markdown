@@ -120,7 +120,7 @@ sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
+    value_template: ''
 ```
 
 ### Single value from a local Glances instance
@@ -132,7 +132,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
+    value_template: ''
     unit_of_measurement: MB
 ```
 
@@ -147,7 +147,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
-    value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
+    value_template: 
     unit_of_measurement: "°C"
 ```
 
@@ -189,7 +189,7 @@ sensor:
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: ''
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
@@ -200,7 +200,7 @@ sensor:
 
 [JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
-{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -219,11 +219,11 @@ sensor:
         friendly_name: 'milliseconds'
         value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
 ```
-{% endraw %}
+
 
 This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
 
-{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -255,4 +255,4 @@ sensor:
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
 ```
-{% endraw %}
+

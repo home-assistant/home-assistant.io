@@ -113,7 +113,7 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: ''
 ```
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.

@@ -69,7 +69,7 @@ When activated, the [`alexa` component](/components/alexa/) will have Home Assis
 
 Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 dialogflow:
@@ -116,5 +116,5 @@ intent_script:
         data_template:
           entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 ```
-{% endraw %}
+
 

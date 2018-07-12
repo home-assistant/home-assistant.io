@@ -20,7 +20,7 @@ brightness commands of a light.
 To enable Template Lights in your installation, add the following to your
 `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -39,7 +39,7 @@ light:
           data_template:
             brightness: "{{ brightness }}"
 ```
-{% endraw %}
+
 
 {% configuration %}
   lights:
@@ -86,10 +86,10 @@ Template Light may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
-{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
 
 ## Examples
 
@@ -103,7 +103,7 @@ the payload to the consumer including any scale conversions you may need to
 make; the [Media Player component](/components/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
 
-{% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -142,13 +142,13 @@ light:
             0
           {% endif %}
 ```
-{% endraw %}
+
 
 ### Change The Icon
 
 This example shows how to change the icon based on the light state.
 
-{% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -186,13 +186,13 @@ light:
             entity_id: media_player.receiver
             is_volume_muted: true
 ```
-{% endraw %}
+
 
 ### Change The Entity Picture
 
 This example shows how to change the entity picture based on the light state.
 
-{% raw %}
+
 ```yaml
 light:
   - platform: template
@@ -230,4 +230,4 @@ light:
             entity_id: media_player.receiver
             is_volume_muted: true
 ```
-{% endraw %}
+

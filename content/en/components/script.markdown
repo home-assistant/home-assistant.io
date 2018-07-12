@@ -23,7 +23,7 @@ script:
       # This is Home Assistant Script Syntax
       - service: notify.notify
         data_template:
-          message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
+          message: Current temperature is 
 ```
 <p class='note'>
 Script names (e.g., `message_temperature` in the example above) are not allowed to contain dash (minus) characters, i.e. `-`.
@@ -109,8 +109,8 @@ script:
         state: 'on'
       - service: notify.pushover
         data_template:
-          title: "{% raw %}{{ title }}{% endraw %}"
-          message: "{% raw %}{{ message }}{% endraw %}"
+          title: ""
+          message: ""
 ```
 
 ### In the Overview

@@ -172,7 +172,7 @@ Depending on your individual setup, it might be necessary to disable `Auto Start
 
 If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation:
 
-{% raw %}
+
 ```yaml
 # Example for Z-Wave
 homekit:
@@ -188,11 +188,11 @@ automation:
     action:
       - service: homekit.start
 ```
-{% endraw %}
+
 
 For a general delay where your component doesn't generate an event, you can also do:
 
-{% raw %}
+
 ```yaml
 # Example using a delay after start of Home Assistant
 homekit:
@@ -207,14 +207,14 @@ automation:
       - delay: 00:05  # Waits 5 minutes
       - service: homekit.start
 ```
-{% endraw %}
+
 
 
 ## Configure Filter
 
 By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
-{% raw %}
+
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 homekit:
@@ -225,7 +225,7 @@ homekit:
     exclude_entities:
       - light.kitchen_light
 ```
-{% endraw %}
+
 
 Filters are applied as follows:
 

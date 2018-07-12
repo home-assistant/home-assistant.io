@@ -90,7 +90,7 @@ This component will automatically restore the state it had prior to Home Assista
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
 input_number:
@@ -112,11 +112,11 @@ automation:
           entity_id: light.bedroom
           brightness: "{{ trigger.to_state.state | int }}"
 ```
-{% endraw %}
+
 
 Another code example using `input_number`, this time being used in an action in an automation.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
 input_select:
@@ -150,11 +150,11 @@ automation:
           entity_id: light.bedroom
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
-{% endraw %}
+
 
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
 input_number:
@@ -193,4 +193,4 @@ automation:
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
 ```
-{% endraw %}
+

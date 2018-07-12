@@ -28,7 +28,7 @@ switch:
       command_on: "PWR ON"
       command_off: "PWR OFF"
       command_state: "PWR?"
-      value_template: '{% raw %}{{ value == "PWR=01" }}{% endraw %}'
+      value_template: ''
 ```
 
 Configuration variables:

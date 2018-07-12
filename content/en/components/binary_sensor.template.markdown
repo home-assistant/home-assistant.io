@@ -20,7 +20,7 @@ can only be `on` or `off`.
 To enable Template Binary Sensors in your installation, add the following to
 your `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -31,7 +31,7 @@ binary_sensor:
         value_template: >-
           {{ states.sun.sun.attributes.elevation|float > 0 }}
 ```
-{% endraw %}
+
 
 {% configuration binary_sensor.template %}
   sensors:
@@ -86,10 +86,10 @@ Template Binary Sensor may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
-{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
 
 ## Examples
 
@@ -101,7 +101,7 @@ This example indicates true if a sensor is above a given threshold. Assuming a
 sensor of `furnace` that provides a current reading for the fan motor, we can
 determine if the furnace is running by checking that it is over some threshold:
 
-{% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -111,7 +111,7 @@ sensor:
         device_class: heat
         value_template: "{{ states('sensor.furnace')|float > 2.5 }}"
 ```
-{% endraw %}
+
 
 ### Switch as Sensor
 
@@ -120,7 +120,7 @@ a Template Binary Sensor, the switch can be displayed as a binary sensors. The
 original switch can then be hidden by
 [customizing](/getting-started/customizing-devices/).
 
-{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -132,7 +132,7 @@ binary_sensor:
         device_class: opening
         value_template: "{{ is_state('switch.door', 'on') }}"
 ```
-{% endraw %}
+
 
 ### Combining Multiple Sensors
 
@@ -140,7 +140,7 @@ This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
 `true` or `false` explicitly.
 
-{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -153,7 +153,7 @@ binary_sensor:
              and is_state('sensor.kitchen_co_status', 'Ok')
              and is_state('sensor.wardrobe_co_status', 'Ok') }}
 ```
-{% endraw %}
+
 
 ### Washing Machine Running
 
@@ -163,7 +163,7 @@ meter will fluctuate wildly, hitting zero frequently even before the load is
 finished. By utilizing `delay_off`, we can have this sensor only turn off if
 there has been no washer activity for 5 minutes.
 
-{% raw %}
+
 ```yaml
 # Determine when the washing machine has a load running.
 binary_sensor:
@@ -176,7 +176,7 @@ binary_sensor:
         value_template: >-
           {{ states('sensor.washing_machine_power')|float > 0 }}
 ```
-{% endraw %}
+
 
 ### Is Anyone Home?
 
@@ -186,7 +186,7 @@ grand parents who might still be in your house that aren't represented by a
 trackable device in Home Assistant. This is providing a composite of WiFi based
 device tracking and Z-Wave multisensor presence sensors.
 
-{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -201,4 +201,4 @@ binary_sensor:
              or is_state('binary_sensor.porch_ms6_1_129', 'on')
              or is_state('binary_sensor.family_room_144', 'on') }}
 ```
-{% endraw %}
+

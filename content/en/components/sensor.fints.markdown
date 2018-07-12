@@ -17,7 +17,7 @@ With the FinTS sensor, you can fetch your account information from your bank. Th
 
 For each account you have with the bank, a separate sensor is created. If you have several accounts with a bank, you can select which ones you want to have, and you can also give the accounts a name.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -27,7 +27,7 @@ sensor:
     pin: <your FinTS pin>
     url: <FinTS url of your bank>
 ```
-{% endraw %}
+
 
 To find out the configuration for your bank, check their website or call their hotline. Do not use random information you find on the Internet! As you're storing your bank account information in the Home Assistant configuration: make sure that this configuration is not accessible to anyone.
 

@@ -64,7 +64,7 @@ Choose "Webhooks" as service.
 You need to setup a unique trigger for each event you sent to IFTTT.
 </p>
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
@@ -76,11 +76,11 @@ automation:
     service: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
-{% endraw %}
+
 
 IFTTT can also be used in scripts and with `data_template`.  Here is the above automation broken into an automation and script using variables and data_templates.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
@@ -95,9 +95,9 @@ automation:
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
       value3: "{{ trigger.event.data.to_state.state }}"
 ```
-{% endraw %}
 
-{% raw %}
+
+
 ```yaml
 #Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
 ifttt_notify:
@@ -105,7 +105,7 @@ ifttt_notify:
     - service: ifttt.trigger
       data_template: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
-{% endraw %}
+
 
 ### Sending events from IFTTT to Home Assistant
 

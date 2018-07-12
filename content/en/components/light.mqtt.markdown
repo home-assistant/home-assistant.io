@@ -207,7 +207,7 @@ In this section you will find some real life examples of how to use this sensor.
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -227,7 +227,7 @@ light:
     payload_off: "OFF"
     optimistic: false
 ```
-{% endraw %}
+
 
 ### Brightness and no RGB support
 

@@ -117,7 +117,7 @@ binary_sensor:
     method: GET
     name: Light
     device_class: light
-    value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
+    value_template: 
 ```
 
 ### Accessing an HTTP authentication protected endpoint

@@ -45,7 +45,7 @@ In this section you find some real life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [https://www.home-assistant.io/](/)
 
-{% raw %}
+
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -55,13 +55,13 @@ sensor:
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
 ```
-{% endraw %}
+
 
 ### Available implementations
 
 Get the counter for all our implementations from the [Component overview](/components/) page.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -71,7 +71,7 @@ sensor:
     select: 'a[href="#all"]'
     value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-{% endraw %}
+
 
 ### Get a value out of a tag
 
@@ -118,7 +118,7 @@ sensor:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -129,4 +129,4 @@ sensor:
     value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "öre/kWh"
 ```
-{% endraw %}
+

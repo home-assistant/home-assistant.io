@@ -70,7 +70,7 @@ source:
 
 Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](https://www.home-assistant.io/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
-{% raw %}
+
 ```yaml
 - id: '12345'
   alias: Ringo Starr recognised
@@ -85,7 +85,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
       message: Ringo_Starr recognised with probability {{ trigger.event.data.confidence }}
       title: Door-cam notification
 ```
-{% endraw %}
+
 
 ## Optimising resources
 

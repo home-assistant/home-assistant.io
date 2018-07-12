@@ -20,7 +20,7 @@ It also leverages the `limit_refetch_to_url_change` option to ensure that we do 
 camera:
   name: Paulus
   platform: generic
-  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}{% endraw %}
+  still_image_url: 
   limit_refetch_to_url_change: true
 ```
 

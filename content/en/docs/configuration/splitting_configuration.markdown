@@ -118,7 +118,7 @@ This (large) sensor configuration gives us another example:
   host: 192.168.2.82
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
+  value_template: ""
   unit: C
 - platform: tcp
   name: 'Outdoor Humidity (Meteobridge)'
@@ -126,7 +126,7 @@ This (large) sensor configuration gives us another example:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
+  value_template: ""
   unit: Percent
 
 #### STEAM FRIENDS ##################################
@@ -255,7 +255,7 @@ the -id: line must be removed from each of the split files.
 `configuration.yaml`
 
 ```yaml
-{% raw %}
+
 alexa:
   intents:
     LocateIntent:
@@ -281,7 +281,7 @@ alexa:
             iPhone is home.
           {%- else -%}
             iPhone is not home.
-          {% endif %}{% endraw %}
+          
 ```
 
 can be turned into:
@@ -296,7 +296,7 @@ alexa:
 `alexa/LocateIntent.yaml`
 
 ```yaml
-{% raw %}
+
 action:
   service: notify.pushover
   data:
@@ -310,13 +310,13 @@ speech:
       {%- endif -%}
     {%- else -%}
       I am sorry. Pootie! I do not know where {{User}} is.
-    {%- endfor -%}{% endraw %}
+    
 ```
 
 `alexa/WhereAreWeIntent.yaml`
 
 ```yaml
-{% raw %}
+
 speech:
   type: plaintext
   text: >
@@ -324,7 +324,7 @@ speech:
       iPhone is home.
     {%- else -%}
       iPhone is not home.
-    {% endif %}{% endraw %}
+    
 ```
 
 #### Example: `!include_dir_merge_list`

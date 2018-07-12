@@ -116,8 +116,8 @@ script:
     sequence:
       - service: group.set_visibility
         data_template:
-          entity_id: '{% raw %}{{ entity_id }}{% endraw %}'
-          visible: '{% raw %}{{ is_state(cond, visible_state) }}{% endraw %}'
+          entity_id: ''
+          visible: ''
 ```
 
 The last part is writing an automation that hides or shows the group:
@@ -165,8 +165,8 @@ script:
     sequence:
       - service: group.set_visibility
         data_template:
-          entity_id: '{% raw %}{{ entity_id }}{% endraw %}'
-          visible: '{% raw %}{{ is_state(cond, visible_state) }}{% endraw %}'
+          entity_id: ''
+          visible: ''
 
 automation:
   - alias: Work morning

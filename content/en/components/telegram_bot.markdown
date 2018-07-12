@@ -265,7 +265,7 @@ action:
 
 An example to show the use of event_data in action:
 
-{% raw %}
+
 ```yaml
 - alias: 'Kitchen Telegram Speak'
   trigger:
@@ -279,7 +279,7 @@ An example to show the use of event_data in action:
         message: >
           Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
 ```
-{% endraw %}
+
 
 ### Sample automations with callback queries and inline keyboards
 
@@ -291,7 +291,7 @@ A quick example to show some of the callback capabilities of inline keyboards wi
 
 Text repeater:
 
-{% raw %}
+
 ```yaml
 - alias: 'Telegram bot that repeats text'
   hide_entity: true
@@ -309,11 +309,11 @@ Text repeater:
           - "Edit message:/edit_msg, Don't:/do_nothing"
           - "Remove this button:/remove button"
 ```
-{% endraw %}
+
 
 Message editor:
 
-{% raw %}
+
 ```yaml
 - alias: 'Telegram bot that edits the last sent message'
   hide_entity: true
@@ -341,11 +341,11 @@ Message editor:
           Message id: {{ trigger.event.data.message.message_id }}.
           Data: {{ trigger.event.data.data }}
 ```
-{% endraw %}
+
 
 Keyboard editor:
 
-{% raw %}
+
 ```yaml
 - alias: 'Telegram bot that edits the keyboard'
   hide_entity: true
@@ -366,11 +366,11 @@ Keyboard editor:
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
 ```
-{% endraw %}
+
 
 Only acknowledges the 'NO' answer:
 
-{% raw %}
+
 ```yaml
 - alias: 'Telegram bot that simply acknowledges'
   hide_entity: true
@@ -385,7 +385,7 @@ Only acknowledges the 'NO' answer:
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'OK, you said no!'
 ```
-{% endraw %}
+
 
 For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/docs/ecosystem/appdaemon/tutorial/) is advised.
 

@@ -115,20 +115,20 @@ script:
           data_template:
             entity_id: light.YOUR_LIGHT
             brightness: >-
-              {% raw %}{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}
+              
               {% set step = states('input_number.light_step')|int %}
               {% set next = current + step %}
               {% if next > states('input_number.light_maximum')|int %}
                 {% set next = states('input_number.light_maximum')|int %}
               {% endif %}
-              {{ next }}{% endraw %}
+              {{ next }}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_number.light_maximum')|int %}
+            
               script.turn_on
             {% else %}
               script.turn_off
-            {% endif %}{% endraw %}
+            
           data:
             entity_id: script.light_bright_pause
         
@@ -146,20 +146,20 @@ script:
           data_template:
             entity_id: light.YOUR_LIGHT
             brightness: >-
-              {% raw %}{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}
+              
               {% set step = states('input_number.light_step')|int %}
               {% set next = current - step %}
               {% if next < states('input_number.light_minimum')|int %}
                 {% set next = states('input_number.light_minimum')|int %}
               {% endif %}
-              {{ next }}{% endraw %}
+              {{ next }}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_number.light_minimum')|int %}
+            
               script.turn_on
             {% else %}
               script.turn_off
-            {% endif %}{% endraw %}
+            
           data:
             entity_id: script.light_dim_pause
         

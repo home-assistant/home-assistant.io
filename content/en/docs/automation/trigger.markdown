@@ -61,7 +61,7 @@ automation:
 
 Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
 
-{% raw %}
+
 ```yaml
 automation:
   trigger:
@@ -79,7 +79,7 @@ automation:
       minutes: 10
       seconds: 5
 ```
-{% endraw %}
+
 
 <p class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
@@ -127,7 +127,7 @@ automation:
 
 Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
 
-{% raw %}
+
 ```yaml
 automation:
   alias: "Exterior Lighting on when dark outside"
@@ -141,23 +141,23 @@ automation:
     service: switch.turn_on
     entity_id: switch.exterior_lighting
 ```
-}{% endraw %}
+}
 
 The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time.
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
-With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
+Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (``) or by having the template render 'true' (example below).
+With template triggers you can also evaluate attribute changes by using is_state_attr (``)
 
-{% raw %}
+
 ```yaml
 automation:
   trigger:
     platform: template
     value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
 ```
-{% endraw %}
+
 
 ### Time trigger
 

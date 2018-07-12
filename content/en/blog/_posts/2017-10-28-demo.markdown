@@ -70,7 +70,7 @@ binary_sensor:
 
 The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
 
-{% raw %}
+
 ```yaml
 input_boolean:
   on_off:
@@ -83,7 +83,7 @@ binary_sensor:
         friendly_name: 'Movement'
         device_class: motion
 ```
-{% endraw %}
+
 
 ## MQTT Discovery
 This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`

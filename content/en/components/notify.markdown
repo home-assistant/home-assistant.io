@@ -52,7 +52,7 @@ A simple way to test if you have set up your notify platform correctly, is to us
 
 ```json
 {
-  "message": "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+  "message": "The sun is !"
 }
 ```
 For services which have support for sending images.

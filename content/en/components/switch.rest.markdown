@@ -57,7 +57,7 @@ body_off:
   type: string
   default: OFF
 is_on_template:
-  description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
+  description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `''`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
   required: false
   type: string
 username:
@@ -88,7 +88,7 @@ This example shows a switch that uses a [template](/topics/templating/) to allow
 {"is_active": "true"}
 ```
 
-{% raw %}
+
 ```yaml
 switch:
   - platform: rest
@@ -99,6 +99,6 @@ switch:
     headers:
       Content-Type: application/json
 ```
-{% endraw %}
 
-`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'{% endraw %}`.
+
+`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template ``.

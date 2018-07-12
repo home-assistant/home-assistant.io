@@ -47,11 +47,11 @@ You can use [templating] support to dynamically choose which service to call. Fo
 
 ```yaml
 service_template: >
-  {% raw %}{% if states.sensor.temperature.state | float > 15 %}
+  
     switch.turn_on
   {% else %}
     switch.turn_off
-  {% endif %}{% endraw %}
+  
 entity_id: switch.ac
 ```
 
@@ -74,12 +74,12 @@ Templates can also be used for the data that you pass to the service call.
 service: thermostat.set_temperature
 data_template:
   entity_id: >
-    {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+    
       thermostat.upstairs
     {% else %}
       thermostat.downstairs
-    {% endif %}{% endraw %}
-  temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
+    
+  temperature: 
 ```
 
 [templating]: /topics/templating/

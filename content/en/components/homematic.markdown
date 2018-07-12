@@ -116,7 +116,7 @@ sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: '{% raw %}{{ states.climate.leq123456.attributes.Valve }}{% endraw %}'
+      value_template: ''
       entity_id: climate.leq123456
       friendly_name: 'Bedroom valve'
 ```
@@ -302,7 +302,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
      - platform: template
        sensors:
          v_last_reboot:
-           value_template: "{% raw %}{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}{% endraw %}"
+           value_template: ""
            icon_template: "mdi:clock"
            entity_id: homematic.ccu2
      ```

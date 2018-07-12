@@ -57,7 +57,7 @@ When sending a notification, optional parameters can also be set as per the push
 
 Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entries
 alexa:
@@ -74,4 +74,4 @@ alexa:
             device: pixel
             url: "https://www.home-assistant.io/"
 ```
-{% endraw %}
+

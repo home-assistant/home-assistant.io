@@ -23,19 +23,19 @@ automation:
   action:
     service: notify.notify
     data_template:
-      message: >{% raw %}
+      message: >
         Paulus just changed from {{ trigger.from_state.state }}
-        to {{ trigger.to_state.state }}{% endraw %}
+        to {{ trigger.to_state.state }}
 
 automation 2:
   trigger:
     platform: mqtt
     topic: /notify/+
   action:
-    service_template: >{% raw %}
-      notify.{{ trigger.topic.split('/')[-1] }}{% endraw %}
+    service_template: >
+      notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
-      message: {% raw %}'{{ trigger.payload }}'{% endraw %}
+      message: 
 ```
 
 ## Important Template Rules

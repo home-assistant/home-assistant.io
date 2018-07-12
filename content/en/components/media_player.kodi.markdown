@@ -219,7 +219,7 @@ script:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >
-            {% raw %}{% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
+            
               10
             {% elif (now().hour < 16) %}
               15
@@ -231,7 +231,7 @@ script:
               15
             {% else %}
               10
-            {% endif %}{% endraw %}
+            
 ```
 
 #### Trigger a Kodi video library update

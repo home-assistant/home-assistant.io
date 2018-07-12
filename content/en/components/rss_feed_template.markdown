@@ -23,10 +23,10 @@ rss_feed_template:
   # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: False
-    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
+    title: "Garden "
     items:
     - title: "Outside temperature"
-      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"
+      description: ""
 ```
 
 Configuration variables:

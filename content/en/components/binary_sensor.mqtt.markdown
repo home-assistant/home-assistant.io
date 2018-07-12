@@ -103,7 +103,7 @@ $  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
 
 The example below shows a full configuration for a binary sensor:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -119,7 +119,7 @@ binary_sensor:
     device_class: opening
     value_template: '{{ value.x }}'
 ```
-{% endraw %}
+
 
 ### Get the state of a device with ESPEasy
 
@@ -135,7 +135,7 @@ home/bathroom/switch/button 1
 
 The configuration will look like the example below:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -145,4 +145,4 @@ binary_sensor:
     payload_on: "1"
     payload_off: "0"
 ```
-{% endraw %}
+

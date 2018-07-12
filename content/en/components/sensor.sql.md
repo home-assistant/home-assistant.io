@@ -19,7 +19,7 @@ To configure this sensor, you need to define the sensor connection variables and
 
 To enable it, add the following lines to your `configuration.yaml`:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry to monitor hass database size in MySQL
 sensor:
@@ -31,7 +31,7 @@ sensor:
         column: 'value'
         unit_of_measurement: kB
 ```
-{% endraw %}
+
 
 {% configuration %}
 db_url:

@@ -22,7 +22,7 @@ To use Dweet.io in your installation, add the following to your `configuration.y
 sensor:
   - platform: dweet
     device: THING_NAME
-    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
+    value_template: ''
 ```
 
 Configuration variables:
@@ -42,7 +42,7 @@ sensor:
   - platform: dweet
     name: Temperature
     device: THING_NAME
-    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
+    value_template: ''
     unit_of_measurement: "°C"
 ```
 

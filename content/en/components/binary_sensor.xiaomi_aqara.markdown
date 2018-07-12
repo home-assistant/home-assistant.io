@@ -138,7 +138,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
     - service: notify.html5
       data_template:
         title: Gas alarm!
-        message: 'Gas with a density of {% raw %}{{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }}{% endraw %} detected.'
+        message: 'Gas with a density of  detected.'
 ```
 
 #### Xiaomi Wireless Button
@@ -264,7 +264,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
-      brightness: {% raw %}>-
+      brightness: >-
         {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
           {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
             {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
@@ -273,7 +273,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        
 
 - alias: Increase brightness of the gateway light
   trigger:
@@ -286,7 +286,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
-      brightness: {% raw %}>-
+      brightness: >-
         {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
           {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
             {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
@@ -295,7 +295,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        
 
 - alias: Turn off the gateway light
   trigger:

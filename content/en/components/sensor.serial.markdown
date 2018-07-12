@@ -55,11 +55,11 @@ value_template:
 
 ### TMP36
 
-{% raw %}
+
 ```yaml
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
-{% endraw %}
+
 
 ## Examples
 

@@ -112,22 +112,22 @@ automation:
     action:
       service: media_player.turn_off
       data_template:
-        entity_id: >{% raw %}
-            {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
-              media_player.bed_2{% raw %}
-            {%-elif is_state("input_select.radio_player", "Doccia") %}{% endraw %}
-              media_player.bed_3{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bed") %}{% endraw %}
-              media_player.bed{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bath") %}{% endraw %}
-              media_player.bath{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto") %}{% endraw %}
-              media_player.salotto{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto Video") %}{% endraw %}
-              media_player.salotto_video{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
+        entity_id: >
+            
+              media_player.bed_2
+            
+              media_player.bed_3
+            
+              media_player.bed
+            
+              media_player.bath
+            
+              media_player.salotto
+            
+              media_player.salotto_video
+            
+              none
+            
 
   - alias: Stream Radio - Template
     trigger:
@@ -136,35 +136,35 @@ automation:
     action:
       - service: media_player.play_media
         data_template:
-          entity_id: >{% raw %}
-            {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
-              media_player.bed_2{% raw %}
-            {%-elif is_state("input_select.radio_player", "Doccia") %}{% endraw %}
-              media_player.bed_3{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bed") %}{% endraw %}
-              media_player.bed{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bath") %}{% endraw %}
-              media_player.bath{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto") %}{% endraw %}
-              media_player.salotto{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto Video") %}{% endraw %}
-              media_player.salotto_video{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
-          media_content_id: >{% raw %}
-            {% if is_state("input_select.radio_station", "Z88.3") %}{% endraw %}
-              http://ice.zradio.org/z/high.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "Virgin") %}{% endraw %}
-              http://icecast.unitedradio.it/Virgin.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "RMC") %}{% endraw %}
-              http://icecast.unitedradio.it/RMC.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "rmcHQ") %}{% endraw %}
-              http://icecast.unitedradio.it/rmcHQ.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "105") %}{% endraw %}
-              http://icecast.unitedradio.it/Radio105.mp3{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
+          entity_id: >
+            
+              media_player.bed_2
+            
+              media_player.bed_3
+            
+              media_player.bed
+            
+              media_player.bath
+            
+              media_player.salotto
+            
+              media_player.salotto_video
+            
+              none
+            
+          media_content_id: >
+            
+              http://ice.zradio.org/z/high.mp3
+            
+              http://icecast.unitedradio.it/Virgin.mp3
+            
+              http://icecast.unitedradio.it/RMC.mp3
+            
+              http://icecast.unitedradio.it/rmcHQ.mp3
+            
+              http://icecast.unitedradio.it/Radio105.mp3
+            
+              none
+            
           media_content_type: 'audio/mp4'
 ```

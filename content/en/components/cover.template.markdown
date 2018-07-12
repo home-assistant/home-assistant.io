@@ -20,7 +20,7 @@ stop, position, and tilt commands of a cover.
 To enable Template Covers in your installation, add the following to your
 `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -36,7 +36,7 @@ cover:
         stop_cover:
           service: script.stop_garage_door
 ```
-{% endraw %}
+
 
 {% configuration %}
   covers:
@@ -107,10 +107,10 @@ Template Cover may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
-{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
 
 ## Optimistic Mode
 
@@ -133,7 +133,7 @@ In this section you will find some real life examples of how to use this cover.
 This example converts a garage door with a controllable switch and position
 sensor into a cover.
 
-{% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -160,13 +160,13 @@ cover:
             mdi:garage
           {% endif %}
 ```
-{% endraw %}
+
 
 ### Multiple Covers
 
 This example allows you to control two or more covers at once.
 
-{% raw %}
+
 ```yaml
 homeassistant:
   customize:
@@ -247,13 +247,13 @@ automation:
           entity_id: cover.cover_group
           position: 25
 ```
-{% endraw %}
+
 
 ### Change The Icon
 
 This example shows how to change the icon based on the cover state.
 
-{% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -280,13 +280,13 @@ cover:
             mdi:window-closed
           {% endif %}
 ```
-{% endraw %}
+
 
 ### Change The Entity Picture
 
 This example shows how to change the entity picture based on the cover state.
 
-{% raw %}
+
 ```yaml
 cover:
   - platform: template
@@ -313,4 +313,4 @@ cover:
             /local/cover-closed.png
           {% endif %}
 ```
-{% endraw %}
+

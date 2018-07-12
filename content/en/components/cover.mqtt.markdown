@@ -183,14 +183,14 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: ''
 ```
 
 ### Full configuration
 
 The example below shows a full configuration for a cover.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -217,7 +217,7 @@ cover:
     tilt_closed_value: 70
     tilt_opened_value: 180
 ```
-{% endraw %}
+
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 

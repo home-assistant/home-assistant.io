@@ -30,7 +30,7 @@ automation:
       - service: notify.notify
         data_template:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```

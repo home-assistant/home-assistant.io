@@ -54,19 +54,19 @@ A large amount of information about upcoming departures is available within the 
   sensors:
     next_train_status:
       friendly_name: 'Next train status'
-      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].status}}'{% endraw %}
+      value_template: 
     next_trains_origin:
       friendly_name: 'Next train origin'
-      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].origin_name}}'{% endraw %}
+      value_template: 
     next_trains_estimated:
       friendly_name: 'Next train estimated'
-      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].estimated}}'{% endraw %}
+      value_template: 
     next_trains_scheduled:
       friendly_name: 'Next train scheduled'
-      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].scheduled}}'{% endraw %}
+      value_template: 
     next_trains_platform:
       friendly_name: 'Next train platform'
-      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].platform}}'{% endraw %}
+      value_template: 
 ```
 
 Bus sensors require as their `origin` a bus stop ATCO code which can be found by browsing OpenStreetMap data as
@@ -102,16 +102,16 @@ And the template sensor for viewing the next bus attributes.
   sensors:
     next_bus_route:
       friendly_name: 'Next bus route'
-      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].route}}'{% endraw %}
+      value_template: 
     next_bus_direction:
       friendly_name: 'Next bus direction'
-      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].direction}}'{% endraw %}
+      value_template: 
     next_bus_scheduled:
       friendly_name: 'Next bus scheduled'
-      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].scheduled}}'{% endraw %}
+      value_template: 
     next_bus_estimated:
       friendly_name: 'Next bus estimated'
-      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].estimated}}'{% endraw %}
+      value_template: 
 ```
 
 Powered by [transportAPI](http://www.transportapi.com/)

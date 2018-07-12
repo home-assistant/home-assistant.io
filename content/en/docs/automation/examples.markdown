@@ -12,7 +12,7 @@ redirect_from: /getting-started/automation-examples/
 
 Just some sample automation rules to get you started.
 
-{% raw %}
+
 ```yaml
 # Example of entry in configuration.yaml
 automation:
@@ -82,4 +82,4 @@ automation:
         title: "Cube event detected"
         message: "Cube has triggered this event: {{ trigger.event }}"
 ```
-{% endraw %}
+

@@ -122,7 +122,7 @@ sensor:
 
 ### Using as a trigger in an automation
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -140,7 +140,7 @@ automation:
     action:
       - service: shell_command.red
 ```
-{% endraw %}
+
 
 ## Notes
 

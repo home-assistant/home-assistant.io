@@ -51,7 +51,7 @@ Using a combination of the available services and attributes, you can create swi
 
 #### Chime Status and Control
 
-{% raw %}
+
 ```yaml
 - platform: template
   switches:
@@ -73,4 +73,4 @@ Using a combination of the available services and attributes, you can create swi
             mdi:bell-off
           {% endif %}
 ```
-{% endraw %}
+

@@ -39,7 +39,7 @@ automation Nuimo_rotate_right:
       type: ROTATE
   condition:
     condition: template
-    value_template: {% raw %}'{{ trigger.event.data.value > 100 }}'{% endraw %}
+    value_template: 
   action:
     service: nuimo_controller.led_matrix
     data: 

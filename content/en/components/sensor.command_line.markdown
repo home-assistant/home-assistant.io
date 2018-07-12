@@ -61,7 +61,7 @@ sensor:
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -72,7 +72,7 @@ sensor:
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
 ```
-{% endraw %}
+
 
 ### Monitoring failed login attempts on Home Assistant
 
@@ -151,7 +151,7 @@ sensor:
 
 [Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -160,4 +160,4 @@ sensor:
     command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
 ```
-{% endraw %}
+

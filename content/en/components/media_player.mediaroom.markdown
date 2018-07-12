@@ -57,7 +57,7 @@ If the STB is on the same network segment as Home Assistant, it can determine wh
 
 The `play_media` function can be used in scripts to change channels and emulate button pressing from a remote control.
 
-{% raw %}
+
 ```yaml
 # Example play_media script
 #
@@ -69,7 +69,7 @@ press_button:
       media_content_id: "{{ value }}"
       media_content_type: "channel"
 ```
-{% endraw %}
+
 
 ### Example configuration with 2 STB
 

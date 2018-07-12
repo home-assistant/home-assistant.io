@@ -86,7 +86,7 @@ In this example, a switch is available to control the power of the television. S
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
-{% raw %}
+
 ```yaml
 media_player:
   platform: universal
@@ -133,7 +133,7 @@ media_player:
     source: media_player.receiver|source
     source_list: media_player.receiver|source_list
 ```
-{% endraw %}
+
 
 #### Kodi CEC-TV control
 
@@ -147,7 +147,7 @@ In an Apple HomeKit scene, we can now expose this universal media player as an o
 
 The complete configuration is:
 
-{% raw %}
+
 ```yaml
 homeassistant:
   customize:
@@ -240,4 +240,4 @@ automation:
   - service: media_player.turn_off
     entity_id: media_player.kodi_tv
 ```
-{% endraw %}
+

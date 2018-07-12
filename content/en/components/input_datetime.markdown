@@ -89,7 +89,7 @@ This component provides a service to modify the state of the `input_datetime`.
 
 The following example shows the usage of the `input_datetime` as a trigger in an automation (note that you will need a [time sensor](/components/sensor.time_date/) elsewhere in your configuration):
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 # Turns on bedroom light at the time specified.
@@ -101,7 +101,7 @@ automation:
     service: light.turn_on
     entity_id: light.bedroom
 ```
-{% endraw %}
+
 
 To dynamically set the `input_datetime` you can call `input_datetime.set_datetime`. The following example can be used in an automation rule:
 

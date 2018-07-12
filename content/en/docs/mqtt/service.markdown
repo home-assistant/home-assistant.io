@@ -22,7 +22,7 @@ The MQTT component will register the service `publish` which allows publishing m
 ```json
 {
   "topic": "home-assistant/light/1/state",
-  "payload_template": "{% raw %}{{ states('device_tracker.paulus') }}{% endraw %}"
+  "payload_template": ""
 }
 ```
 

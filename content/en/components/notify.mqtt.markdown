@@ -48,7 +48,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 
 Use as [`script`](/components/script/) in automations.
 
-{% raw %}
+
 ```yaml
 automation:
   alias: Send me a message when I get home 
@@ -71,4 +71,4 @@ script:
           topic: home/"{{ target }}"
           retain: true
 ```
-{% endraw %}
+

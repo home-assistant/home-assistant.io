@@ -36,13 +36,13 @@ automation:
         entity_id: switch.bathroom
     action:
       service_template: >
-        {% raw %}{% if is_state('switch.bathroom', 'on') %}
+        
           switch.turn_on
         {% else %}
           switch.turn_off
-        {% endif %}{% endraw %}
+        
       data_template:
-        entity_id: switch.{% raw %}{{ states('input_select.is') }}{% endraw %}
+        entity_id: switch.
 ```
 
 ### Breaking Changes

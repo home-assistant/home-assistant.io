@@ -54,8 +54,8 @@ input_number:
     max: 32
     step: 1
     
-{% raw %}
+
 shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_number.ac_temperature.state }}_AUTO'
-{% endraw %}
+
 ```

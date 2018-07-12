@@ -19,7 +19,7 @@ The intent_script component allows users to configure actions and responses to i
 intent_script:
   GetTemperature:  # Intent type
     speech:
-      text: We have {% raw %}{{ states.sensor.temperature }}{% endraw %} degrees
+      text: We have  degrees
     action:
       service: notify.notify
       data_template:

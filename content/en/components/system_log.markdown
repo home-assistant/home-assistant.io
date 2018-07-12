@@ -96,10 +96,10 @@ automation:
       event_type: system_log_event
     condition:
       condition: template
-      value_template: {% raw %}'{{ "service" in trigger.event.data.message }}'{% endraw %}
+      value_template: 
     action:
       service: persistent_notification.create
       data_template:
         title: Something bad happened
-        message: {% raw %}'{{ trigger.event.data.message }}'{% endraw %}
+        message: 
 ```

@@ -63,7 +63,7 @@ The main sources of the data will usually be a [MiFlora sensor](/components/sens
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 plant:
@@ -102,6 +102,6 @@ sensor:
     state_topic: my_plant_topic
     value_template: '{{ value_json.brightness }}'
 ```
-{% endraw %}
+
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.

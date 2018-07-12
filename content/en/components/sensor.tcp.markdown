@@ -61,7 +61,7 @@ sensor:
     port: 8888
     timeout: 5
     payload: "r WaterPressure\n"
-    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
+    value_template: ""
     unit_of_measurement: Bar
 ```
 
@@ -95,6 +95,6 @@ sensor:
     port: 7634
     timeout: 5
     payload: "\n"
-    value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
+    value_template: ""
     unit_of_measurement: "°C"
 ```

@@ -29,7 +29,7 @@ automation:
       service: notify.mypushbullet
       data_template:
         title: "Furnace fan is running"
-        message: "Fan running because current is {% raw %}{{ states.sensor.furnace.state }}{% endraw %} amps"
+        message: "Fan running because current is  amps"
 ```
 
 If you also want a notification when it drops back down below that limit, you could add this as well:
@@ -44,5 +44,5 @@ If you also want a notification when it drops back down below that limit, you co
       service: notify.mypushbullet
       data_template:
         title: "Furnace fan is stopped"
-        message: "Fan stopped because current is {% raw %}{{ states.sensor.furnace.state }}{% endraw %} amps"
+        message: "Fan stopped because current is  amps"
 ```

@@ -69,7 +69,7 @@ automation:
     to: 'home'
   condition:
     - condition: template
-      value_template: {% raw %}'{% if states.switch.wemo %}false{% else %}true{% endif %}'{% endraw %}
+      value_template: 
     - condition: state
       entity_id: script.restarthawemo
       state: 'off'
@@ -86,7 +86,7 @@ automation:
   - alias: 'Stop restarting HA is WeMo is found'
   trigger:
     platform: template
-    value_template: {% raw %}'{% if states.switch.wemo %}true{% else %}false{% endif %}'{% endraw %}
+    value_template: 
   condition:
     condition: state
     entity_id: script.restarthawemo

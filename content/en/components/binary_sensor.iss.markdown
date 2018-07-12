@@ -42,7 +42,7 @@ If you set `show_on_map` `True` then the location attributes are named `latitude
 
 The [generic camera platform](/components/camera.mjpeg/) offers the possibility to show the location of the ISS on Google Maps.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 camera:
@@ -51,4 +51,4 @@ camera:
     still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=4&size=865x512&maptype=mapnik&markers={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }},lightblue
      limit_refetch_to_url_change: true
 ```
-{% endraw %}
+

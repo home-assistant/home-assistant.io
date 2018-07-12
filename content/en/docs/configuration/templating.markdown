@@ -45,11 +45,11 @@ script:
       - service: notify.notify
         data_template:
           message: >
-            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+            
               Ha, Paulus is home!
             {% else %}
               Paulus is at {{ states('device_tracker.paulus') }}.
-            {% endif %}{% endraw %}
+            
 ```
 
 [Jinja2](http://jinja.pocoo.org/) supports a wide variety of operations:
@@ -120,8 +120,8 @@ In templates, besides the normal [state object methods and properties](/topics/s
 The next two statements result in same value if state exists. The second one will result in an error if state does not exist.
 
 ```text
-{% raw %}{{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus.state }}{% endraw %}
+{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus.state }}
 ```
 
 ### Attributes
@@ -129,23 +129,23 @@ The next two statements result in same value if state exists. The second one wil
 Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
 ```text
-{% raw %}{% if states.device_tracker.paulus %}
+
   {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
   ??
-{% endif %}{% endraw %}
+
 ```
 
 With strings
 
 ```text
-{% raw %}{% set tracker_name = "paulus"%}
+
 
 {% if states("device_tracker." + tracker_name) != "unknown" %}
   {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
   ??
-{% endif %}{% endraw %}
+
 ```
 
 ### Sensor states
@@ -153,7 +153,7 @@ With strings
 Print out a list of all the sensor states.
 
 ```text
-{% raw %}{% for state in states.sensor %}
+
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 
@@ -173,7 +173,7 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 ```
 
 ### Distance examples
@@ -181,13 +181,13 @@ Print out a list of all the sensor states.
 If only 1 location is passed in, Home Assistant will measure the distance from home.
 
 ```text
-{% raw %}Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
 Using State: {{ distance(states.device_tracker.paulus) }}
 
 These can also be combined in any combination:
 {{ distance(123.45, 123.45, 'device_tracker.paulus') }}
-{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}{% endraw %}
+{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}
 ```
 
 ### Closest examples
@@ -195,25 +195,25 @@ These can also be combined in any combination:
 Find entities closest to the Home Assistant location:
 
 ```text
-{% raw %}Query all entities: {{ closest(states) }}
+Query all entities: {{ closest(states) }}
 Query all entities of a specific domain: {{ closest('states.device_tracker') }}
 Query all entities in group.children: {{ closest('group.children') }}
-Query all entities in group.children: {{ closest(states.group.children) }}{% endraw %}
+Query all entities in group.children: {{ closest(states.group.children) }}
 ```
 
 Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.
 
 ```text
-{% raw %}Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
 Closest to an entity: {{ closest('zone.school', 'group.children') }}
-Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endraw %}
+Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 ```
 
 ### Combined
 Since closest returns a state, we can combine it with distance too.
 
 ```text
-{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.{% endraw %}
+
 ```
 
 ## Processing incoming data
@@ -239,7 +239,7 @@ This means that if the incoming values looks like the sample below:
 The template for `on` would be:
 
 ```yaml
-'{% raw %}{{value_json.on}}{% endraw %}'
+''
 ```
 
 Nested JSON in a response is supported as well
@@ -260,7 +260,7 @@ Nested JSON in a response is supported as well
 Just use the "Square bracket notation" to get the value.
 
 ```yaml
-'{% raw %}{{ value_json["values"]["temp"] }}{% endraw %}'
+''
 ```
 
 
@@ -271,31 +271,31 @@ The following overview contains a couple of options to get the needed values:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
 # Extract third prime number
-{% raw %}{{ value_json.primes[2] }}{% endraw %}
+
 
 # Format output
-{% raw %}{{ "%+.1f" | value_json }}{% endraw %}
+
 
 # Math
-{% raw %}{{ value_json | float * 1024 }}{% endraw %}
-{% raw %}{{ float(value_json) * (2**10) }}{% endraw %}
-{% raw %}{{ value_json | log }}{% endraw %}
-{% raw %}{{ log(1000, 10) }}{% endraw %}
-{% raw %}{{ sin(pi / 2) }}{% endraw %}
-{% raw %}{{ cos(tau) }}{% endraw %}
-{% raw %}{{ tan(pi) }}{% endraw %}
-{% raw %}{{ sqrt(e) }}{% endraw %}
+
+
+
+
+
+
+
+
 
 # Timestamps
-{% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
-{% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
-{% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
+
+
+
 ```
 
 To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output into "Template", and check the result.
 
 ```yaml
-{% raw %}
+
 {% set value_json=
     {"name":"Outside",
 	 "device":"weather-ha",
@@ -304,5 +304,5 @@ To evaluate a response, go to the <img src='/images/screenshots/developer-tool-t
 		 "hum":"35%"
 		 }	}%}
 
-{{value_json.data.hum[:-1]}}{% endraw %}
+{{value_json.data.hum[:-1]}}
 ```

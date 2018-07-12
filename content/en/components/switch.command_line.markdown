@@ -59,7 +59,7 @@ switch:
       command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
+      value_template: ''
       friendly_name: Kitchen Lightswitch
 ```
 
@@ -111,7 +111,7 @@ switch:
       command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
       command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
       command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-      value_template: {% raw %}'{{ value == "1" }}'{% endraw %}
+      value_template: 
 ```
 
 - Replace admin and password with an "Admin" privileged Foscam user

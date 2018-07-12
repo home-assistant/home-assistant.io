@@ -54,13 +54,13 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{% raw %}{{ states.sensor.temperature.state | round(1) }}{% endraw %}'
+        value_template: ''
         unit_of_measurement: '°C'
       sensehat_pressure:
-        value_template: '{% raw %}{{ states.sensor.pressure.state | round(1) }}{% endraw %}'
+        value_template: ''
         unit_of_measurement: 'mb'
       sensehat_humidity:
-        value_template: '{% raw %}{{ states.sensor.humidity.state | round(1) }}{% endraw %}'
+        value_template: ''
         unit_of_measurement: '%'
 ```
 

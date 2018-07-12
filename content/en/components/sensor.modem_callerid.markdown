@@ -41,7 +41,7 @@ When the sensor detects a new call, its state changes to 'ring' for each ring an
 
 Some example automations:
 ```yaml
-{% raw %}automation:
+automation:
   - alias: Notify CallerID
     trigger: 
       platform: state
@@ -69,6 +69,6 @@ Some example automations:
     action:
       service: tts.google_say
       data_template:
-        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} '{% endraw %}
+        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} '
 ```
 

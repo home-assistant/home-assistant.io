@@ -306,7 +306,7 @@ sensor 3:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"   
-  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
+  value_template: ""
   unit: C
 
 sensor 4:
@@ -316,7 +316,7 @@ sensor 4:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
+  value_template: ""
   unit: Percent
 
 sensor 5:
@@ -326,7 +326,7 @@ sensor 5:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[4] }}{% endraw %}"
+  value_template: ""
   unit: C
 
 sensor 6:
@@ -336,7 +336,7 @@ sensor 6:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[7]}}{% endraw %}"
+  value_template: ""
   unit: Degrees
 
 sensor 7:
@@ -346,7 +346,7 @@ sensor 7:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[8]}}{% endraw %}"
+  value_template: ""
   unit: m/s
 
 sensor 8:
@@ -356,7 +356,7 @@ sensor 8:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[9]}}{% endraw %}"
+  value_template: ""
   unit: m/s
 
 sensor 9:
@@ -366,7 +366,7 @@ sensor 9:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[10]}}{% endraw %}"
+  value_template: ""
   unit: C
 
 sensor 10:
@@ -376,7 +376,7 @@ sensor 10:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[13]}}{% endraw %}"
+  value_template: ""
   unit: mm/hr
 
 sensor 11:
@@ -386,7 +386,7 @@ sensor 11:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[14]}}{% endraw %}"
+  value_template: ""
   unit: mm
 
 sensor 12:
@@ -396,7 +396,7 @@ sensor 12:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[15]}}{% endraw %}"
+  value_template: ""
   unit: mm
 
 sensor 13:
@@ -406,7 +406,7 @@ sensor 13:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[18]}}{% endraw %}"
+  value_template: ""
   unit: C
 
 sensor 14:
@@ -416,7 +416,7 @@ sensor 14:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[19]}}{% endraw %}"
+  value_template: ""
   unit: percent
 
 sensor 15:
@@ -426,7 +426,7 @@ sensor 15:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[20]}}{% endraw %}"
+  value_template: ""
   unit: C
 
 sensor 16:
@@ -436,7 +436,7 @@ sensor 16:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[21]}}{% endraw %}"
+  value_template: ""
   unit: mb
 
 sensor 17:
@@ -446,7 +446,7 @@ sensor 17:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[22]}}{% endraw %}"
+  value_template: ""
   unit: mb
 
 sensor 18:

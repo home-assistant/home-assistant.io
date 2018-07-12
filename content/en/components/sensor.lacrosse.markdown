@@ -94,7 +94,7 @@ sensor:
 
 To setup a lacrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -115,5 +115,5 @@ sensor:
         type: battery
         id: 72
 ```
-{% endraw %}
+
 

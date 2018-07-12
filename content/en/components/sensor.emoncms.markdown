@@ -111,7 +111,7 @@ sensor:
     url: https://emoncms.org
     scan_interval: 15
     id: 1
-    value_template: {% raw %}"{{ value | float + 1500 }}"{% endraw %}
+    value_template: 
     include_only_feed_id:
       - 107
       - 106

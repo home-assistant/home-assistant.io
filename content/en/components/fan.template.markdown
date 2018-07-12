@@ -20,7 +20,7 @@ set_oscillating, and set_direction commands of a fan.
 To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 fan:
@@ -53,7 +53,7 @@ fan:
           - '2'
           - '3'
 ```
-{% endraw %}
+
 
 {% configuration %}
   fans:

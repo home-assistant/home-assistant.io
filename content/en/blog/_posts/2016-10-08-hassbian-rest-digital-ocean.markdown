@@ -51,7 +51,7 @@ sensor
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: ''
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json

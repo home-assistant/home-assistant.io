@@ -64,7 +64,7 @@ sensor:
   queries:
     - name: last value of foo
       unit_of_measurement: °C
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: ''
       group_function: last
       where: '"name" = ''foo'''
       measurement: '"°C"'
@@ -72,7 +72,7 @@ sensor:
       database: db1
     -  name: Min for last hour
       unit_of_measurement: '%'
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: ''
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'

@@ -79,8 +79,8 @@ automation:
       service: persistent_notification.create
       data_template:
         title: "New HA Podcast available"
-        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
-        notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}
+        message: 
+        notification_id: 
 ```
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.

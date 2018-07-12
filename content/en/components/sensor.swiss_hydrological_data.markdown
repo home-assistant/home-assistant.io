@@ -45,7 +45,7 @@ sensor:
   platform: template
   sensors:
     discharge:
-      value_template: '{% raw %}{{ states.sensor.aare.attributes.Discharge }}{% endraw %}'
+      value_template: ''
       friendly_name: 'Discharge'
 ```
 

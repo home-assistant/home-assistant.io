@@ -161,7 +161,7 @@ intent_script:
     action:
       service: scene.turn_on
       data_template:
-        entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
+        entity_id: scene.
     speech:
       type: plain
       text: OK
@@ -209,7 +209,7 @@ intent_script:
     action:
       service: script.turn_on
       data_template:
-        entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
+        entity_id: script.
     speech:
       type: plain
       text: OK
@@ -247,7 +247,7 @@ In the examples above, we told Alexa to say `OK` when she successfully completed
 First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
 
 ```text
-{% raw %}          >
+          >
           {{ [
           "OK",
           "Sure",
@@ -264,7 +264,7 @@ First create a file called `alexa_confirm.yaml` with something like the followin
           "I will",
           "As you decree, so shall it be",
           "No Problem"
-          ] | random }} {% endraw %}
+          ] | random }} 
 ```
 
 Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
@@ -292,7 +292,7 @@ You can use [templates] for the `title`, `audio`, `text` and `display_url` confi
 Here's an example configuration of a Flash briefing skill that will tell you who is at home:
 
 ```yaml
-{% raw %}# Example configuration.yaml entry
+# Example configuration.yaml entry
 alexa:
   flash_briefings:
     whoishome:
@@ -304,7 +304,7 @@ alexa:
           {%- else -%}
             Anne Therese is at {{ states("device_tracker.anne_therese") }}
             and Paulus is at {{ states("device_tracker.paulus") }}
-          {% endif %}{% endraw %}
+          
 ```
 
 You can add multiple items for a feed if you want. The Amazon required UID and timestamp will be randomly generated at startup and change at every restart of Home Assistant.

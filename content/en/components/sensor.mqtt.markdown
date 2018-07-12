@@ -99,9 +99,9 @@ In this section you find some real life examples of how to use this sensor.
 
 ### JSON attributes configuration
 
-The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: .
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -121,7 +121,7 @@ sensor:
       - HostName
       - ConnectedSSID  
 ```
-{% endraw %}
+
 
 ### Get battery level
 
@@ -133,7 +133,7 @@ owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":1
 
 Thus the trick is extracting the battery level from the payload.
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -143,7 +143,7 @@ sensor:
     unit_of_measurement: '%'
     value_template: "{{ value_json.batt }}"
 ```
-{% endraw %}
+
 
 ### Get temperature and humidity
 
@@ -159,7 +159,7 @@ office/sensor1
 
 Then use this configuration example to extract the data from the payload:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -174,7 +174,7 @@ sensor:
     unit_of_measurement: '%'
     value_template: "{{ value_json.humidity }}"
 ```
-{% endraw %}
+
 
 ### Get sensor value from a device with ESPEasy
 
@@ -195,7 +195,7 @@ home/bathroom/analog/brightness 290.00
 
 The configuration will look like the example below:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -203,4 +203,4 @@ sensor:
     name: "Brightness"
     state_topic: "home/bathroom/analog/brightness"
 ```
-{% endraw %}
+

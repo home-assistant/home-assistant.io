@@ -122,7 +122,7 @@ For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is le
 
 #### YAML
 
-{% raw %}
+
 ```yaml
 automation:
   - alias: 'Toggle lamp from dimmer'
@@ -169,11 +169,11 @@ automation:
             {% set bri = states.light.lamp.attributes.brightness | int %}
             {{ [bri-30, 0] | max }}
 ```
-{% endraw %}
+
 
 #### Appdaemon
 
-{% raw %}
+
 ```yaml
 remote_control_living_room:
   module: remote_control
@@ -203,4 +203,4 @@ class RemoteControl(hass.Hass):
             elif data['event'] == 4002:
                 self.log('Button off')
 ```
-{% endraw %}
+

@@ -143,7 +143,7 @@ In Home Assistant, we trigger actions based on intents produced by Snips using t
 
 Note: If your Snips action is prefixed with a username (e.g. `john:playmusic` or `john__playmusic`), the Snips component in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips component is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
-{% raw %}
+
 ```yaml
 snips:
 
@@ -155,7 +155,7 @@ intent_script:
           entity_id: light.{{ objectLocation | replace(" ","_") }}
           color_name: {{ objectColor }}
 ```
-{% endraw %}
+
 
 In the `data_template` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
 
@@ -165,7 +165,7 @@ Two special values for slots are populated with the siteId the intent originated
 
 In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
 
-{% raw %}
+
 ```yaml
 SetTimer:
   speech:
@@ -179,7 +179,7 @@ SetTimer:
       siteId: "{{ site_id }}"
       probability: "{{ probability }}"
 ```
-{% endraw %}
+
 
 
 
@@ -291,7 +291,7 @@ So now you can open and close your garage door, let's check the weather. Add the
 
 Then add this to your configuration file.
 
-{% raw %}
+
 ```yaml
 intent_script:
   searchWeatherForecast:
@@ -305,5 +305,5 @@ intent_script:
         {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
         and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
-{% endraw %}
+
 

@@ -97,7 +97,7 @@ For example, the below automation will be triggered when the sun goes from below
     entity_id: sensor.temperature
     above: 17
     below: 25
-    value_template: '{% raw %}{{ float(state.state) + 2 }}{% endraw %}'
+    value_template: ''
   action:
   - service: light.turn_on
 ```

@@ -77,7 +77,7 @@ sensor:
 
 The physical sensor reads the current voltage of the pin. A [template sensor](/components/sensor.template/) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations. 
 
-{% raw %}
+
 ```yaml
   - platform: template
     sensors:
@@ -86,7 +86,7 @@ The physical sensor reads the current voltage of the pin. A [template sensor](/c
         unit_of_measurement: "°C"
         value_template: "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
-{% endraw %}
+
 
 Hide the serial sensor if you don't want to see the raw data in the frontend and you are done. The whole setup with a Digispark is not very reliable because there is no hardware USB support. As a showcase and if you don't build your automation rules around it does the sensor what it should for a very small price. 
 

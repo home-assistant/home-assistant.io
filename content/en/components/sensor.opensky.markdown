@@ -45,7 +45,7 @@ Both events have two attributes:
 
 To receive notifications of the entering flights, add the following lines to your `configuration.yaml`.
 
-{% raw %}
+
 ```yaml
 automation:
   - alias: 'Flight entry notification'
@@ -57,4 +57,4 @@ automation:
       data_template:
         message : 'Flight entry of {{ trigger.event.data.callsign }} '
 ```
-{% endraw %}
+

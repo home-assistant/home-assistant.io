@@ -149,13 +149,13 @@ light:
   - platform: mqtt_template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
+    command_on_template: ""
     command_off_template: "off"
-    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
-    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
-    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
-    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
-    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
+    state_template: ""  # must return `on` or `off`
+    brightness_template: ""
+    red_template: ""
+    green_template: ""
+    blue_template: ""
 ```
 
 ### JSON payload
@@ -171,7 +171,7 @@ light:
       - colorloop
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >{% raw %}
+    command_on_template: >
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -182,14 +182,14 @@ light:
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
-      }{% endraw %}
+      }
     command_off_template: '{"state": "off"}'
-    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
-    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
-    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
-    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
-    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
-    effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
+    state_template: ''
+    brightness_template: ''
+    red_template: ''
+    green_template: ''
+    blue_template: ''
+    effect_template: ''
 ```
 
 ### No brightness or color support

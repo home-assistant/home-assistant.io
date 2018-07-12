@@ -71,44 +71,44 @@ Delays are useful for temporarily suspending your script and start it at a later
     minutes: 1
 ```
 
-{% raw %}
+
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
 - delay: "00:{{ '%02d' % (states('input_number.minute_delay')|int) }}:00"
 ```
-{% endraw %}
+
 
 ### Wait
 
 Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
-{% raw %}
+
 ```yaml
 # wait until media player have stop the playing
 - wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
-{% endraw %}
 
-{% raw %}
+
+
 ```yaml
 # wait until a valve is < 10 or abort after 1 minute.
 - wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
   timeout: '00:01:00'
 ```
-{% endraw %}
+
 
 When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
-{% raw %}
+
 ```yaml
 - wait_template: "{{ is_state('trigger.entity_id', 'on') }}"
 ```
-{% endraw %}
+
 
 It is also possible to use dummy variables, e.g., in scripts, when using `wait_template`.
 
-{% raw %}
+
 ```yaml
 # Service call, e.g., from an automation.
 - service: script.do_something
@@ -118,7 +118,7 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 # Inside the script
 - wait_template: "{{ is_state(dummy, 'off') }}"
 ```
-{% endraw %}
+
 
 ### Fire an Event
 
@@ -136,20 +136,20 @@ This action allows you to fire an event. Events can be used for many things. It 
 You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
 an event trigger.
 
-{% raw %}
+
 ```yaml
 - event: MY_EVENT
   event_data_template:
     name: myEvent
     customData: "{{ myCustomVariable }}"
 ```
-{% endraw %}
+
 
 ### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
-{% raw %}
+
 ```yaml
 - alias: Fire Event
   trigger:
@@ -161,11 +161,11 @@ The following automation shows how to raise a custom event called `event_light_s
       event_data:
         state: 'on'
 ```
-{% endraw %}
+
 
 The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
 
-{% raw %}
+
 ```yaml
 - alias: Capture Event
   trigger:
@@ -176,7 +176,7 @@ The following automation shows how to capture the custom event `event_light_stat
       data_template:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
-{% endraw %}
+
 
 [Script component]: /components/script/
 [automations]: /getting-started/automation-action/

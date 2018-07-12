@@ -71,7 +71,7 @@ sensor:
     baseoid: 1.3.6.1.2.1.1.3.0
     accept_errors: true
     unit_of_measurement: 'minutes'
-    value_template: {% raw %}'{{((value | int) / 6000) | int}}'{% endraw %}
+    value_template: 
 ```
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.

@@ -37,7 +37,7 @@ Host example: If I host my Home Assistant at `https://example.duckdns.org`, my n
 
 Since the battery data is available as an attribute of the device tracker entity, it can be tracked with a [`template` sensor](/components/sensor.template/).
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -49,4 +49,4 @@ sensor:
         value_template: '{{ states.device_tracker.paulus_pixel.attributes.battery|int }}'
         device_class: battery
 ```
-{% endraw %}
+

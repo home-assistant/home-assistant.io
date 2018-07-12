@@ -140,7 +140,7 @@ $ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 
 The configuration will look like the example below:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -151,5 +151,5 @@ switch:
     payload_on: "1"
     payload_off: "0"
 ```
-{% endraw %}
+
 
