@@ -46,24 +46,20 @@ mkdir data
 The big move:
 
 ```bash
-git mv source/static/images static/images
+git mv source/images static/images
 
 git mv source/_addons content/en/addons
-git mv source/addons/index.html content/en/addons/index.html
-
 git mv source/_components content/en/components
-git mv source/components/* content/en/components
-
 git mv source/_cookbook content/en/cookbook
-git mv source/cookbook/* content/en/cookbook
-
 git mv source/_docs content/en/docs
-git mv source/docs/* content/en/docs
-
 git mv source/_faq content/en/faq
-git mv source/faq/*   content/en/faq
-
 git mv source/_lovelace content/en/lovelace
+
+git mv source/addons/index.html content/en/addons/index.html
+git mv source/components/* content/en/components
+git mv source/cookbook/* content/en/cookbook
+git mv source/docs/* content/en/docs
+git mv source/faq/*   content/en/faq
 git mv source/lovelace/* content/en/lovelace
 
 git mv source/_posts content/en/blog
