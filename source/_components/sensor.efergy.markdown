@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Cloud Polling"
 ---
 
-
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
 
 ## {% linkable_title Setup %}
@@ -49,15 +48,13 @@ sensor:
 Configuration variables:
 
 - **app_token** (*Required*): The App Token for your account.
-- **utc_offset** (*Required*): Some variables (currently only the daily_cost) require that the
-negative number of minutes your timezone is ahead/behind UTC time.
+- **utc_offset** (*Required*): Some variables (currently only the daily_cost) require that the negative number of minutes your timezone is ahead/behind UTC time.
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **type** (*Required*): Name of the variable.
-      - **instant_readings**: Instant energy consumption.
-      - **budget**: Monthly budget.
-      - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
-      - **amount**: The amount of energy consumed over a given period.
-      - **current_values**: This returns the current energy usage of each device on your account, as `efergy_\<sid of device\>`. If you only have one device in your account, this is effectively the same as instant_readings.
+    - **instant_readings**: Instant energy consumption.
+    - **budget**: Monthly budget.
+    - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
+    - **amount**: The amount of energy consumed over a given period.
+    - **current_values**: This returns the current energy usage of each device on your account, as `efergy_\<sid of device\>`. If you only have one device in your account, this is effectively the same as instant_readings.
   - **period** (*Optional*): Some variables take a period argument. Valid options are "day", "week", "month", and "year".
   - **currency** (*Optional*): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
-

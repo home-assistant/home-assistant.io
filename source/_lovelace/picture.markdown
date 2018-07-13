@@ -38,30 +38,25 @@ service_data:
   required: false
   description: The service data.
   type: object
-  keys:
-    entity_id:
-      required: true
-      description: The ID of the entity to use.
-      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-Basic navigation example:
+Navigate to another view:
 
 ```yaml
 - type: picture
-  image: /local/exit.jpg
-  navigation_path: /lovelace/arsaboo
+  image: /local/home.jpg
+  navigation_path: /lovelace/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.
 
-Basic navigation example:
+Toggle entity using a service:
 
 ```yaml
 - type: picture
-  image: /local/exit.jpg
+  image: /local/light.png
   service: light.toggle
   service_data:
     entity_id: light.ceiling_lights

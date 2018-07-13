@@ -19,7 +19,6 @@ This component allows you to use one or more keyboards as remote controls. It wi
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
 
-
 ```yaml
 # Example configuration.yaml entry
 keyboard_remote:
@@ -47,7 +46,7 @@ keyboard_remote:
   type: 'key_up'
 ```
 
-or like the following for one keyboard:
+Or like the following for one keyboard:
 
 ```yaml
 keyboard_remote:
@@ -70,15 +69,18 @@ automation:
     service: light.turn_on
     entity_id: light.all
 ```
+
 `device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
 ## {% linkable_title Disconnections %}
+
 This component manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
 
 If the keyboard disconnects, the component will fire an event `keyboard_remote_disconnected`.
 When the keyboard reconnects, an event `keyboard_remote_connected` will be fired.
 
 Here's an automation example that plays a sound through a media player whenever the keyboard connects/disconnects:
+
 ```yaml
 automation:
   - alias: Keyboard Connected
@@ -104,13 +106,14 @@ automation:
 ```
 
 ## {% linkable_title Permissions %}
+
 There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:
 
 ```bash
-$ sudo setfacl -m u:HASS_USER:rw /dev/input/event*
+sudo setfacl -m u:HASS_USER:rw /dev/input/event*
 ```
 
-where `HASS_USER` is the user who runs Home Assistant.
+Where `HASS_USER` is the user who runs Home Assistant.
 
 If you want to make this permanent, you can use a udev rule that sets it for all event input devices. Add a file `/etc/udev/rules.d/99-userdev-input.rules` containing:
 
@@ -118,8 +121,8 @@ If you want to make this permanent, you can use a udev rule that sets it for all
 KERNEL=="event*", SUBSYSTEM=="input", RUN+="/usr/bin/setfacl -m u:HASS_USER:rw $env{DEVNAME}"
 ```
 
-You can check ACLs permissions with
+You can check ACLs permissions with:
 
 ```bash
-$ getfacl /dev/input/event*
+getfacl /dev/input/event*
 ```
