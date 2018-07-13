@@ -17,7 +17,7 @@ ha_iot_class: "Cloud Polling"
 The `honeywell` climate platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
 
 <p class='note'>
-This platform does NOT connect to MyTotalConnectComfort.com.  If you have a Honeywell WIFI thermostat that is connected through MyTotalConnectComfort.com, you may want to take a lookt at the IFTTT component which can bridge the gap between Home Assistant and MyTotalConnectComfort.com WIFI thermostats on a limited basis.
+This platform does NOT connect to MyTotalConnectComfort.com.  If you have a Honeywell WIFI thermostat that is connected through MyTotalConnectComfort.com, you may might to take a look at the IFTTT component which can bridge the gap between Home Assistant and MyTotalConnectComfort.com WIFI thermostats on a limited basis.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
