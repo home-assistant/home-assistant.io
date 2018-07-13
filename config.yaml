@@ -297,6 +297,7 @@ menu:
 
 
 params:
+  discourseurl: https://community.home-assistant.io/
   viewMorePostLink: /blog/
   author: DevCows
   defaultKeywords:

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          {{ partial "top.html" . }}
+          {{ partial "nav.html" . }}
+
+        </header>
+
+        {{ partial "breadcrumbs.html" . }}
+				{{ if or .Params.header.image .Params.header.carousel }}
+				{{ partial "header_image.html" . }}
+				{{ else }}
+				<div class="article-no-header"></div>
+				{{ end }}
+
+        <div id="content">
+				{{ if .Params.custom_partials.begin }}
+				{{ partial .Params.custom_partials.begin . }}
+				{{ end }}
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- *** LEFT COLUMN *** -->
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">{{ if .Params.author }}{{ i18n "authorBy" }} <a href="#">{{ .Params.author }}</a> | {{ end }}{{ .Date.Format (.Site.Params.date_format | default "January 2, 2006") }}</p>
+
+                        <div id="post-content">
+													{{ if .Params.show_banner_in_single }}
+                          {{ with .Params.banner }}
+                          <img src="{{ . | relURL }}" class="img-responsive center-block banner">
+                          {{ end }}
+                          {{ end }}
+                          {{ .Content }}
+                        </div>
+                        <!-- /#post-content -->
+                        {{ if .Site.Params.DiscourseUrl }}
+                        <div id="comments">
+                            {{ partial "discourse.html" . }}
+                        </div>
+                        {{ end }}
+
+                    </div>
+                    <!-- /#blog-post -->
+
+                    <!-- *** LEFT COLUMN END *** -->
+
+                    <!-- *** RIGHT COLUMN *** -->
+
+                    <div class="col-md-3">
+
+                        <!-- *** MENUS AND WIDGETS *** -->
+
+                        {{ partial "sidebar.html" . }}
+
+                        <!-- *** MENUS AND FILTERS END *** -->
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <!-- *** RIGHT COLUMN END *** -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+				{{ if .Params.custom_partials.end }}
+				{{ partial .Params.custom_partials.end . }}
+				{{ end }}
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>
