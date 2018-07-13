@@ -30,7 +30,7 @@ rachio:
   api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Follow the instructions on [Rachio Binary Sensor](https://www.home-assistant.io/components/binary_sensor.rachio/) or [Rachio Switch](https://www.home-assistant.io/components/switch.rachio/) to add Rachio components.
+Follow the instructions on [Rachio Binary Sensor](/components/binary_sensor.rachio/) or [Rachio Switch](/components/switch.rachio/) to add Rachio platforms.
 
 ### {% linkable_title iFrame %}
 
