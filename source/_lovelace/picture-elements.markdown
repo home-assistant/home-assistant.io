@@ -190,7 +190,7 @@ style:
   type: object
 {% endconfiguration %}
 
-## {% linkable_title How-to use the style object %}
+## {% linkable_title How to use the style object %}
 
 Position and style your elements using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). More/other keys are also possible.
 

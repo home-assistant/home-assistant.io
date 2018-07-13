@@ -2,7 +2,7 @@
 layout: page
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
-description: "A very useful type of card that can display sensors, switches, lights and other entities grouped on top of a custom image. Use this card for easy visual recognition inside a large dashboard."
+description: "Show an image card and corresponding entity states as icon"
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
@@ -10,17 +10,11 @@ sharing: true
 footer: true
 ---
 
-A very useful type of card that can display sensors, switches, lights and other entities grouped on top of a custom image. Use this card for easy visual recognition inside a large dashboard. You also can add `navigation_path` to take the user to a specific view and use these cards in an overview dashboard.
-
-What sets this card apart is the ability to **control** entities directly from the card without the need to open the details of that entity.
-
-You can also use `camera` domain entities to use that as the image. You can also use `state_image` just like in [picture-entity](/lovelace/picture-entity/) together with an `entity` entry to change the image in a dynamic way.
-
-Picture glance supports a display of maximum 10 items.
+Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_picture_glance.gif' alt='Screenshot of the picture glance card'>
-Screenshot of the picture glance card.
+  <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
+  Picture glance card for a living room.
 </p>
 
 {% configuration %}
@@ -28,58 +22,38 @@ type:
   required: true
   description: picture-glance
   type: string
-image:
-  required: true
-  description: The URL of an image.
-  type: string
-navigation_path:
-  required: false
-  description: Path of URL to use in navigation.
-  type: string
 entities:
   required: true
-  description: A list of entity IDs.
-  type: list
-navigation_path:
-  required: false
-  description: Path of URL to use in navigation.
-  type: string
-camera_image:
-  required: false
-  description: The entity ID of a camera.
-  type: string
-state_image:
-  required: false
-  description: Path of URL to use in navigation.
-  type: list
-  keys:
-    "on":
-      type: string
-      required: false
-      description: URL of an image used for on state.
-    "off":
-      type: string
-      required: false
-      description: URL of an image used for off state.
-    home:
-      type: string
-      required: false
-      description: URL of an image used for home state.
-    not_home:
-      type: string
-      required: false
-      description: URL of an image used for not_home state.
-    ANYTHING:
-      type: string
-      required: false
-      description: Any state that is supported by the entity works.
-entity:
-  required: false
-  description: "An entity to use for state_image state."
+  description: List of entities.
   type: list
 title:
   required: false
   description: The card title.
+  type: string
+navigation_path:
+  required: false
+  description: Navigate to path on tap action.
+  type: string
+image:
+  required: false
+  description: Background image URL.
+  type: string
+camera_image:
+  required: false
+  description: Camera entity as Background image.
+  type: string
+state_image:
+  required: false
+  description: Background image based on entity state.
+  type: object
+  keys:
+    state:
+      type: string
+      required: false
+      description: "`state: image-url`, check the example below."
+entity:
+  required: false
+  description: Entity to use for `state_image`.
   type: string
 {% endconfiguration %}
 
@@ -87,43 +61,37 @@ title:
 
 ```yaml
 - type: picture-glance
-  image: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
-  title: Living
+  title: Living room
   entities:
     - switch.decorative_lights
     - light.ceiling_lights
     - lock.front_door
     - binary_sensor.movement_backyard
     - binary_sensor.basement_floor_wet
+  image: /local/living_room.png
 ```
 
-Picture glance used together with 'camera_image'.
+Display a camera image as background:
 
 ```yaml
 - type: picture-glance
-  image:
-  camera_image: camera.demo_camera
-  title: Living
+  title: Living room
   entities:
     - switch.decorative_lights
     - light.ceiling_lights
-    - lock.front_door
-    - binary_sensor.movement_backyard
-    - binary_sensor.basement_floor_wet
+  camera_image: camera.demo_camera
 ```
 
-Picture glance used together with 'entity-filter'.
+Use different images based on entity state:
 
 ```yaml
-- type: entity-filter
+- type: picture-glance
+  title: Living room
   entities:
-    - light.bed_light
-    - light.kitchen_lights
+    - switch.decorative_lights
     - light.ceiling_lights
-  state_filter:
-    - 'on'
-  card: picture-glance
-  card_config:
-    title: Lights
-    image: https://images.pexels.com/photos/356048/pexels-photo-356048.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
+  state_image:
+    "on": /local/living_room_on.png
+    "off": /local/living_room_off.png
+  entity: group.living.room
 ```
