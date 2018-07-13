@@ -56,7 +56,7 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
 The relevant endpoint is: `/api/gpslogger`
 
 ```text
-https://[IP address Home Assistant]:[Port]/api/gpslogger?
+https://YOUR.DNS.HOSTNAME:PORT/api/gpslogger?
    latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
    &battery=%BATT&speed=%SPD&direction=%DIR
    &altitude=%ALT&provider=%PROV&activity=%ACT
@@ -65,11 +65,11 @@ https://[IP address Home Assistant]:[Port]/api/gpslogger?
 Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.
 
 - It's HIGHLY recommended to use SSL/TLS.
-- Use the domain that Home Assistant is available on the internet or the public IP address. This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
-- Only remove `[Port]` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
-- For Home Assistant only the above URL, as written, will work - do not add or remove any parameters.
-- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your password]` to the end of the URL. 
-- You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
+- Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
+- Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
+- For Home Assistant only the above URL, as written, will work - do not add, remove, or change the order of any of the parameters.
+- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=YOUR_PASSWORD` to the end of the URL. 
+- You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
 
 If your battery drains fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers** 
 

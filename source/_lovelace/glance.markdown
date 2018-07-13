@@ -10,17 +10,72 @@ sharing: true
 footer: true
 ---
 
-A card that allows you to see see a list of entities at a glance.
+Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `glance`
-| entities | list | **Required** | Entity id's
-| title | string | Optional | Card title
+<p class='img'>
+<img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
+Screenshot of the glance card.
+</p>
 
-Each entry in the list of entities is either an entity ID or an entity option object. The entity option object can have the following options:
+{% configuration %}
+type:
+  required: true
+  description: glance
+  type: string
+entities:
+  required: true
+  description: "A list of entity IDs or an `entity` object."
+  type: list
+  keys:
+    entity:
+      required: true
+      description: "The `entity_id` to show."
+      type: string
+    name:
+      required: true
+      description: "A name for `the entity_id`."
+      type: string
+title:
+  required: false
+  description: Card title
+  type: string
+  default: none
+{% endconfiguration %}
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| entity | entity id | **Required** | The ID of the entity to show.
-| title | string | Optional | The title to use instead of the entity name.
+## {% linkable_title Examples %}
+
+Basic example:
+
+```yaml
+- type: glance
+  title: Glance card sample
+  entities:
+    - binary_sensor.movement_backyard
+    - light.bed_light
+    - binary_sensor.basement_floor_wet
+    - sensor.outside_temperature
+    - light.ceiling_lights
+    - switch.ac
+    - lock.kitchen_door
+```
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card with custom title'>
+Screenshot of the glance card with custom title.
+</p>
+
+Example with a custom name:
+
+```yaml
+- type: glance
+  title: Better names
+  entities:
+    - entity: binary_sensor.movement_backyard
+      name: Movement?
+    - light.bed_light
+    - binary_sensor.basement_floor_wet
+    - sensor.outside_temperature
+    - light.ceiling_lights
+    - switch.ac
+    - lock.kitchen_door
+```
