@@ -26,26 +26,17 @@ type:
   type: string
 entities:
   required: true
-  description: "List of entities to show."
+  description: "List of entities to filter."
   type: list
-  keys:
-    name:
-      required: false
-      description: The name to use in the front for the entity.
-      type: string
-    entity:
-      required: false
-      description: "The `entity_id` to show in the frontend."
-      type: string
 state_filter:
   required: true
-  description: Array of strings representing states.
-  type: array
+  description: List of strings representing states.
+  type: list
 card:
   required: false
   description: Extra options to pass down to the card rendering the result.
   type: object
-  default: entities type
+  default: entities card
 show_empty:
   required: false
   description: Allows hiding of card when no entities returned by filter.
@@ -53,7 +44,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+### {% linkable_title Examples %}
 
 Show only active switches or lights in the house
 ```yaml
@@ -64,9 +55,7 @@ Show only active switches or lights in the house
     - light.kitchen_lights
     - light.ceiling_lights
   state_filter:
-    - 'on'
-  card:
-    title: Eating power
+    - "on"
 ```
 
 Show only people that are at home using [glance](/lovelace/glance/):
@@ -78,13 +67,13 @@ Show only people that are at home using [glance](/lovelace/glance/):
     - device_tracker.demo_anne_therese
     - device_tracker.demo_home_boy
   state_filter:
-    - 'home'
+    - home
   card: 
     type: glance
     title: People at home
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Screenshot of the entity filter used on a Glance card'>
-Screenshot of the entity filter used on a Glance card.
+  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  Entity filter combined with glance card.
 </p>

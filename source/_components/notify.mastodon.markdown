@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.67
 ---
 
-
 The `mastodon` platform uses [MAstodon](https://joinmastodon.org/) to delivery notifications from Home Assistant.
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.

@@ -31,7 +31,6 @@ entity:
 ## {% linkable_title Example %}
 
 ```yaml
-cards:
 - type: plant-status
   entity: plant.bonsai
 ```

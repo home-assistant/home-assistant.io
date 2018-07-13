@@ -13,7 +13,6 @@ ha_release: 0.41
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `tado` component platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website. It adds climate devices for every tado zone and sensors for some additional information of the zones.
 
 To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:

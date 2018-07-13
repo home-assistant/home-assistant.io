@@ -17,8 +17,8 @@ The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monito
 
 Currently, the supported features are:
 
-* Air Quality Index (AQI)
-* Attributes
+- Air Quality Index (AQI)
+- Attributes
   - power
   - charging
   - battery

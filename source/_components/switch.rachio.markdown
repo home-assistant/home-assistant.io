@@ -18,7 +18,7 @@ The `rachio` switch platform allows you to toggle zones connected to your [Rachi
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch to toggle each controller's standby mode. 
 
 <p class='note'>
-	You must have the [Rachio component](/components/rachio/) configured to use this switch.
+You must have the [Rachio component](/components/rachio/) configured to use this switch.
 </p>
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
@@ -43,7 +43,6 @@ Set `manual_run_mins` to a high maximum failsafe value when using scripts to con
 In this section, you find some real-life examples of how to use this switch.
 
 ### {% linkable_title `groups.yaml` example %}
-
 
 ```yaml
 irrigation:

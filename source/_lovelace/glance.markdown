@@ -26,15 +26,6 @@ entities:
   required: true
   description: "A list of entity IDs or an `entity` object."
   type: list
-  keys:
-    entity:
-      required: true
-      description: "The `entity_id` to show."
-      type: string
-    name:
-      required: true
-      description: "A name for `the entity_id`."
-      type: string
 title:
   required: false
   description: Card title
@@ -64,7 +55,7 @@ Basic example:
 Screenshot of the glance card with custom title.
 </p>
 
-Example with a custom name:
+Define entities as objects and apply a custom name:
 
 ```yaml
 - type: glance

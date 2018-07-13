@@ -14,8 +14,8 @@ Hassbian is our customized operating system for the Raspberry Pi Zero, 2,3 and 3
 
  - [Install Hassbian](/docs/hassbian/installation/)
  - [Customize your installation](/docs/hassbian/customization/)
- - [Pi specific integrations](/docs/hassbian/common-tasks/)
- - [Learn how to perform common tasks](/docs/hassbian/integrations/)
+ - [Pi specific integrations](/docs/hassbian/integrations/)
+ - [Learn how to perform common tasks](/docs/hassbian/common-tasks/)
 
 ### {% linkable_title Activating the virtual environment %}
 

@@ -51,7 +51,7 @@ Screenshot of the HASS Configurator.
 }
 ```
 
-- **username** (*Optional*): Set a username to access your configuration is protected.
+- **username** (*Required*): Set a username to access your configuration is protected.
 - **password** (*Required*): Set a password for access.
 - **ssl** (*Optional*): Enable or Disable SSL/TLS for the editor.
 - **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses/networks to the list.
