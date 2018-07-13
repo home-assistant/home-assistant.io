@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.74
 ---
 
-The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms.You will need your Tuya account information (username, password and account countrycode) to discover and control devices which related to your account.
+The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
 
 ## {% linkable_title Configuration %}
 
@@ -43,7 +43,7 @@ country_code:
 
 ## {% linkable_title Service %}
 
-This services are available for the `tuya` component:
+These services are available for the `tuya` component:
 
 - force_update
 - pull_devices
