@@ -129,6 +129,6 @@ If you see `Not initializing discovery because could not install dependency netd
 
 For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
 
-## {% linkable_titles New platforms %}
+## {% linkable_title New platforms %}
 
 If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.
