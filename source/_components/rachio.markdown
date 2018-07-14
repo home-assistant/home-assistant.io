@@ -30,6 +30,8 @@ rachio:
   api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
+Follow the instructions on [Rachio Binary Sensor](/components/binary_sensor.rachio/) or [Rachio Switch](/components/switch.rachio/) to add Rachio platforms.
+
 ### {% linkable_title iFrame %}
 
 If you would like to see and control more detailed zone information, create an [iFrame](/components/panel_iframe/) that renders the Rachio web app.
