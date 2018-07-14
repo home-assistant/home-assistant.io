@@ -25,7 +25,6 @@ Turn on camera. Not all camera models support this service, please consult indiv
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
-| `option`               |     yes  | Optional paramter, please consult individual camera platform for usage. |
 
 #### {% linkable_title Service `turn_off` %}
 
