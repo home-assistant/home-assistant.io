@@ -26,7 +26,7 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 - Flash the downloaded image to an SD card using [Etcher].
 
-- Optional - Setup the WiFi or static IP: On the SD-card, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+- Optional - Additional configuration is needed to setup the WiFi or static IP. Unlike the previous version of Hass.io which used Resin and required you to create the files directly on the SD-card, configuration is now done via an additional USB drive. See [HassOS configuration][hassos-configuration] for instructions on how to format and setup the USB drive. You can then create the `network/my-network` file on the USB drive and follow the [HassOS howto][hassos-network]. (if upgrading you can use your previous `resin-sample` file as is `network/resin-sample)
 - Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
 <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
@@ -74,6 +74,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [Etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+[hassos-configuration]: https://github.com/home-assistant/hassos/blob/dev/Documentation/configuration.md
 [pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi0-w-1.5.img.gz
 [pi1]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi-1.5.img.gz
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi2-1.5.img.gz
