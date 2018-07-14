@@ -74,12 +74,12 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [Etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi0-w-1.5.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi-1.5.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi2-1.5.img.gz
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.6/hassos_rpi0-w-1.6.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/1.6/hassos_rpi-1.6.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/1.6/hassos_rpi2-1.6.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-1.5.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-64-1.5.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_ova-1.5.vmdk
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.6/hassos_ova-1.6.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
