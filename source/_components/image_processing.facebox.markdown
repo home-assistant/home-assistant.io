@@ -102,11 +102,11 @@ The service `facebox_teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Entity ID of facebox entity.
+| `entity_id` | no | Entity ID of Facebox entity.
 | `name` | no | The name to associate with a face.
 | `file_path` | no | The path to the image file.
 
-Example valid service data is:
+A valid service data example:
 
 {% raw %}
 ```yaml
