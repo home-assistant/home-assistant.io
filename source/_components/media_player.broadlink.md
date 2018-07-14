@@ -16,23 +16,9 @@ ha_iot_class: "Local Polling"
 
 The `broadlink` media_player platform let you control a media system like a TV using RM2 broadlink devices.
 
-Configuration options:
-
-- **host** (*Required*): The IP address to connect to.
-- **mac** (*Required*):  Device mac address.
-- **name** (*Optional*): Default BL. name
-- **command_on** (*Optional*): Hex string for command to turn on tv
-- **command_off** (*Optional*): Hex string for command to turn off tv
-- **volume_up** (*Optional*): Hex string for command to turn the volume up
-- **volume_down** (*Optional*): Hex string for command to turn the volume down
-- **previous_track** (*Optional*): Hex string for command to switch track or channel
-- **next_track** (*Optional*): Hex string for command to switch track or channel
-- **digits** (*Optional*): Dictionary of hex strings for digits
-- **sources** (*Optional*): Dictionary of hex strings for different input sources
-
-To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example base configuration.yaml entry
 media_player:
   - platform: broadlink
     host: 192.168.0.2
@@ -65,3 +51,102 @@ media_player:
       dtv   : 'JgBGAJSTEjgSOBI4EhMSExITEhMSExI4EjgSNxMTEhQRFBEUERQRORE4EhQSExITEhMSOBITEhMSExI4EjgSOBI4EhMSOBIADQUAAA=='
 ```
 
+
+{% configuration %}
+port:
+  description: The port number to connect to.
+  required: false
+  type: int
+  default: 80
+host:
+  description: The IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: The MAC address of the RM2 device
+  required: true
+  type: string
+name:
+  description: Name of the entity
+  required: false
+  type: string
+  default: Broadlink IR Media Player
+command_on:
+  description: Command to turn device on
+  required: false
+  type: string
+command_off:
+  description: Command to turn device off
+  required: false
+  type: string
+volume_up:
+  description: Command to turn volume up
+  required: false
+  type: string
+volume_down:
+  description: Command to turn volume down
+  required: false
+  type: string
+previous_track:
+  description: Command to turn volume up
+  required: false
+  type: string
+next_track:
+  description: Command to turn volume down
+  required: false
+  type: string
+sources:
+  description: The list of sources available.
+  required: false
+  type: map
+  keys:
+    "[identifier]":
+      description: The command to trigger this source.
+      required: false
+      type: string
+digits:
+  description: Digits for remote control.
+  required: false
+  type: map
+  keys:
+    '1':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '2':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '3':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '4':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '5':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '6':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '7':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '8':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '9':
+      description: The command to trigger key.
+      required: true
+      type: string
+    '0':
+      description: The command to trigger key.
+      required: true
+      type: string
+{% endconfiguration %}
