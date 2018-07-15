@@ -14,6 +14,7 @@ footer: true
 
 ### Views
 - Add basic support for `badges` like in old view style
+- Custom cards now work with `panel: true`
 
 ### Cards
 - `glance` card supports now `toggle` and `turn_on` besides showing more-info dialog
