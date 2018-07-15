@@ -155,7 +155,7 @@ service:
   type: string
 service_data:
   required: false
-  description: The service data to use."
+  description: The service data to use.
   type: object
 style:
   required: true
