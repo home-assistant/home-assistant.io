@@ -167,15 +167,15 @@ camera_image:
 state_image:
   required: false
   description: '[State-based images](#how-to-use-state_image)'
-  type: list
+  type: object
 filter: 
   required: false
-  description: Default css filter
+  description: Default CSS filter
   type: string
 state_filter:
   required: false
-  description: '[State-based css filters](#how-to-use-state_filter)'
-  type: list
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: object
 service:
   required: false
   description: Service to call.
@@ -209,8 +209,8 @@ Specify a different image to display based on the state of the entity.
 
 ```yaml
 state_image:
-  'on': /local/living_room_on.jpg
-  'off': /local/living_room_off.jpg
+  "on": /local/living_room_on.jpg
+  "off": /local/living_room_off.jpg
 ```
 
 ## {% linkable_title How to use state_filter %}
