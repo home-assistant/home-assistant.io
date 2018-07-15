@@ -37,14 +37,28 @@ title:
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
 {% configuration %}
-entity:
+type:
   required: true
-  description: Home Assistant entity ID.
+  description: glance
   type: string
-name:
+entities:
+  required: true
+  description: "A list of entity IDs or `entity` objects, see below."
+  type: list
+title:
   required: false
-  description: Overwrites friendly name.
+  description: Card title
   type: string
+show_title:
+  required: false
+  description: Show entity titles.
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: "true"
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
