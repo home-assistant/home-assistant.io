@@ -73,3 +73,10 @@ To remove (exclude) a Z-Wave device from your system:
 2. Click the **Remove Node** button in the *Z-Wave Network Management* card - this will place the controller in exclusion mode
 3. Activate your device to be excluded by following the instructions provided with the device
 4. Run a *Heal Network* so all the other nodes learn about its removal
+
+## {% linkable_title Troubleshooting %}
+
+Sometimes devices won't add to Home Assistant. There are a couple of possible problems.
+
+1. You're not using all Z-Wave Plus devices, in which case the device can't use the mesh to be added, and must be in the same room as your controller.
+2. The device was previously added to another controller, and not removed. You'll need to follow the process above for removing devices first, then try adding it again.
