@@ -147,9 +147,7 @@ type:
   type: string
 entity:
   required: false
-  description: >-
-    Entity to use for state_image and state_filter and also target for actions. 
-    If camera entity, will display live camera view.
+  description: Entity to use for state_image and state_filter and also target for actions. 
   type: string
 tap_action:
   required: false
