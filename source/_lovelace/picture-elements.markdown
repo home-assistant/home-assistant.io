@@ -130,7 +130,32 @@ service:
   type: string
 service_data:
   required: false
-  description: The service data to use."
+  description: The service data to use.
+  type: object
+style:
+  required: true
+  description: Position and style the element using CSS.
+  type: object
+{% endconfiguration %}
+
+### {% linkable_title Service Call Icon %}
+
+{% configuration %}
+type:
+  required: true
+  description: service-icon
+  type: string
+title:
+  required: false
+  description: Icon tooltip.
+  type: string
+service:
+  required: true
+  description: "Service like `light.turn_on`."
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
   type: object
 style:
   required: true
