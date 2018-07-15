@@ -30,25 +30,6 @@ title:
   required: false
   description: Card title
   type: string
-{% endconfiguration %}
-
-## {% linkable_title Options For Entities %}
-
-If you define entities as objects instead of strings, you can add more customization and configuration:
-
-{% configuration %}
-type:
-  required: true
-  description: glance
-  type: string
-entities:
-  required: true
-  description: "A list of entity IDs or `entity` objects, see below."
-  type: list
-title:
-  required: false
-  description: Card title
-  type: string
 show_title:
   required: false
   description: Show entity titles.
@@ -59,6 +40,26 @@ show_state:
   description: Show entity state-text.
   type: boolean
   default: "true"
+{% endconfiguration %}
+
+## {% linkable_title Options For Entities %}
+
+If you define entities as objects instead of strings, you can add more customization and configuration:
+
+{% configuration %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+tap_action:
+  required: false
+  description: "Set to `toggle` or `turn-on` for direct actions."
+  type: string
+  default: more-info
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
