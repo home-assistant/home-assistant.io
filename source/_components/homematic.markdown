@@ -131,8 +131,8 @@ The values of variables are polled from the CCU/Homegear in an interval of 30 se
 
 When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:
 
-* **homematic.keypress**: For devices with buttons, see information below
-* **homematic.impulse**: For impulse sensors
+- **homematic.keypress**: For devices with buttons, see information below
+- **homematic.impulse**: For impulse sensors
 
 #### {% linkable_title Devices with buttons %}
 
@@ -171,13 +171,15 @@ It may happen that "your_nice_name" is not resolved correctly; the according mes
 
 ### {% linkable_title Services %}
 
-* *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
-* *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-* *homematic.set_variable_value*: Set the value of a system variable.
-* *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+- *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
+- *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
+- *homematic.set_variable_value*: Set the value of a system variable.
+- *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
 #### {% linkable_title Examples %}
-Simulate a button being pressed
+
+Simulate a button being pressed:
+
 ```yaml
 ...
 action:
@@ -188,7 +190,8 @@ action:
     param: PRESS_LONG
 ```
 
-Open KeyMatic
+Open KeyMatic:
+
 ```yaml
 ...
 action:
@@ -199,7 +202,8 @@ action:
     param: OPEN
 ```
 
-Set boolean variable to true
+Set boolean variable to true:
+
 ```yaml
 ...
 action:
@@ -215,7 +219,8 @@ action:
 If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
 
-Manually turn on a switch actor
+Manually turn on a switch actor:
+
 ```yaml
 ...
 action:
@@ -227,7 +232,8 @@ action:
     value: true
 ```
 
-Manually set temperature on thermostat
+Manually set temperature on thermostat:
+
 ```yaml
 ...
 action:
@@ -239,7 +245,8 @@ action:
     value: 23.0
 ```
 
-Manually set lock on KeyMatic devices
+Manually set lock on KeyMatic devices:
+
 ```yaml
 ...
 action:
@@ -247,7 +254,8 @@ action:
   entity_id: lock.leq1234567
 ```
 
-Manually set unlock on KeyMatic devices
+Manually set unlock on KeyMatic devices:
+
 ```yaml
 ...
 action:
@@ -259,7 +267,7 @@ action:
 
 When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
-* If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
+- If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
 
   ```yaml
   automation:
@@ -273,7 +281,8 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         # Reconnect, if sensor has not been updated for over 3 hours
         service: homematic.reconnect
   ```
-* If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+
+- If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 
@@ -309,4 +318,3 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
          action:
            service: homematic.reconnect
      ```
-

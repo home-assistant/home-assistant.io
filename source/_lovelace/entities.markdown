@@ -19,17 +19,8 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or an `entity` object."
+  description: "A list of entity IDs or `entity` objects, see below."
   type: list
-  keys:
-    entity:
-      required: true
-      description: "An `entity_id` to use in the frontend."
-      type: string
-    name:
-      required: true
-      description: "The name for the `entity_id` to use in the frontend."
-      type: string
 title:
   required: false
   description: The card title.
@@ -39,6 +30,25 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
+{% endconfiguration %}
+
+## {% linkable_title Options For Entities %}
+
+If you define entities as objects instead of strings, you can add more customization and configuration:
+
+{% configuration %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+type:
+  required: false
+  description: "Sets a custom card type: `custom:my-custom-card`"
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

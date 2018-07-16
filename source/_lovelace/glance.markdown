@@ -24,22 +24,42 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or an `entity` object."
+  description: "A list of entity IDs or `entity` objects, see below."
   type: list
-  keys:
-    entity:
-      required: true
-      description: "The `entity_id` to show."
-      type: string
-    name:
-      required: true
-      description: "A name for `the entity_id`."
-      type: string
 title:
   required: false
   description: Card title
   type: string
-  default: none
+show_title:
+  required: false
+  description: Show entity titles.
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: "true"
+{% endconfiguration %}
+
+## {% linkable_title Options For Entities %}
+
+If you define entities as objects instead of strings, you can add more customization and configuration:
+
+{% configuration %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+tap_action:
+  required: false
+  description: "Set to `toggle` or `turn-on` for direct actions."
+  type: string
+  default: more-info
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -64,7 +84,7 @@ Basic example:
 Screenshot of the glance card with custom title.
 </p>
 
-Example with a custom name:
+Define entities as objects and apply a custom name:
 
 ```yaml
 - type: glance

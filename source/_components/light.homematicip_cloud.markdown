@@ -7,10 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: homematic.png
+logo: homematicip_cloud.png
 ha_category: Switch
 ha_release: 0.70
-ha_iot_class: "Local Push"
+ha_iot_class: "Cloud Push"
 ---
 
 The `homematicip_cloud` light platform allows you to control

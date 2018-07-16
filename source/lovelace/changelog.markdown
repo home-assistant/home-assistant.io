@@ -25,7 +25,7 @@ footer: true
 
 - 📣 New button to show unused entities in Lovelace
 
-## Changes in 0.73.0b5 %}
+## {% linkable_title Changes in 0.73.0b5 %}
 
 - 🏁 Only minor fixes in this release
 

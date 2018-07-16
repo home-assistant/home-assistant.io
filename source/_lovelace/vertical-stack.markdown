@@ -10,9 +10,7 @@ sharing: true
 footer: true
 ---
 
-Stack card will allow you to stack together multiple cards so they always sit together in the same column one on top of the other. Keep in mind this can be used with any cards and even used alongside a [horizontal-stack](/lovelace/horizontal-stack/).
-
-## {% linkable_title Options %}
+Vertical stack allows you to group multiple cards so they always sit in the same column.
 
 {% configuration %}
 type:
@@ -21,24 +19,11 @@ type:
   type: string
 cards:
   required: true
-  description: List of cards
+  description: List of cards.
   type: list
-  keys:
-    type:
-      required: true
-      description: The type of the card to stack.
-      type: string
-    entity:
-      required: true
-      description: "An `entity_id` to use in the frontend."
-      type: string
-    image:
-      required: true
-      description: The URL to an image.
-      type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+### {% linkable_title Examples %}
 
 Basic example:
 
@@ -53,30 +38,30 @@ Basic example:
         - binary_sensor.movement_backyard
 ```
 
-<p class='img'>
-<img src='/images/lovelace/lovelace_vertical-stack.png' alt='Screenshot of the vertical stack card'>
-Screenshot of the vertical stack card.
+<p class="img">
+  <img src="/images/lovelace/lovelace_vertical-stack.png" alt="Picture- and entities-card in a stack">
+  Picture- and entities-card in a stack.
 </p>
 
-Example using both a vertical and horizontal stack card:
+Combination of vertical and horizontal stack card:
 
 ```yaml
 - type: vertical-stack
   cards:
     - type: picture-entity
       entity: group.all_lights
-      image:  https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+      image:  /local/house.png
     - type: horizontal-stack
       cards:
         - type: picture-entity
-          image: https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
           entity: light.ceiling_lights
+          image: /local/bed_1.png
         - type: picture-entity
-          image: https://images.pexels.com/photos/545012/pexels-photo-545012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
           entity: light.bed_light
+          image: /local/bed_2.png
 ```
 
-<p class='img'>
-<img src='/images/lovelace/lovelace_vertical-horizontal-stack.png' alt='Screenshot of the vertical stack and horizontal stack combined in a card'>
-Screenshot of the vertical stack and horizontal stack combined in a card.
+<p class="img">
+  <img src="/images/lovelace/lovelace_vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
+  Create a grid layout using vertical and horizontal stack.
 </p>

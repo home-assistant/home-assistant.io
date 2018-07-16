@@ -38,7 +38,7 @@ Configuration variables:
 - **map** (*Optional*): Control which folders will be exposed. `config` shares the Home Assistant configuration folder. `addons` shares the local custom repository. `share` shares a folder that can be accessed by add-ons and Home Assistant. `backup` shares access to snapshot files. `ssl` shares certificate storage. Be careful with the `ssl` option! Defaults are all set to `true`, except for `ssl`.
 - **username** (*Optional*): Username for logging in if guest login is not used.
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
-- **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
+- **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection. If you are running on an Intel NUC this could also be `enp3s0` for ethernet or `wlp5s0` for wireless connection.
 
 <p class='note warning'>
 Be careful when setting up port forwarding to the remote access. If you don't restrict access by requiring authentication and guest access is enabled, your configuration could be exposed to the internet!
