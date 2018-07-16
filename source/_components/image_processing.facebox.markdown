@@ -87,6 +87,47 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 ```
 {% endraw %}
 
+## {% linkable_title Service `facebox_teach_face` %}
+
+The service `facebox_teach_face` can be used to teach Facebox faces.  
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Entity ID of Facebox entity.
+| `name` | no | The name to associate with a face.
+| `file_path` | no | The path to the image file.
+
+A valid service data example:
+
+{% raw %}
+```yaml
+{
+  "entity_id": "image_processing.facebox_local_file",
+  "name": "superman",
+  "file_path": "/images/superman_1.jpeg"
+}
+```
+{% endraw %}
+
+An `image_processing.teach_classifier` event is fired for each service call, providing feedback on whether teaching has been successful or unsuccessful. In the unsuccessful case, the `message` field of the `event_data` will contain information on the cause of failure, and a warning is also published in the logs. An automation can be used to receive alerts on teaching, for example, the following automation will send a notification with the teaching image and a message describing the status of the teaching:
+
+```yaml
+- id: '11200961111'
+  alias: Send facebox teaching result
+  trigger:
+    platform: event
+    event_type: image_processing.teach_classifier
+    event_data:
+      classifier: facebox
+  action:
+    service: notify.platform
+    data_template:
+      title: Facebox teaching
+      message: Name {{ trigger.event.data.name }} teaching was successful? {{ trigger.event.data.success }}
+      data:
+        file: ' {{trigger.event.data.file_path}} '
+```
+
 ## {% linkable_title Optimising resources %}
 
-[Image processing components](https://www.home-assistant.io/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing. 
+[Image processing components](https://www.home-assistant.io/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.

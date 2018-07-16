@@ -45,6 +45,8 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 
 ```yaml
 title: My Awesome Home
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view
 excluded_entities:
   - weblink.router
@@ -53,7 +55,9 @@ views:
   - title: Example
     # Optional unique id for direct access /lovelace/${id}
     id: example
-    # Each view can have a different theme applied.
+    # Optional background (overwrites the global background).
+    background: radial-gradient(crimson, skyblue)
+    # Each view can have a different theme applied. Theme should be defined in the frontend.
     theme: dark-mode
     # The cards to show on this view.
     cards:

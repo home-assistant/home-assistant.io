@@ -30,6 +30,16 @@ title:
   required: false
   description: Card title
   type: string
+show_title:
+  required: false
+  description: Show entity titles.
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: "true"
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
@@ -45,6 +55,11 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
+tap_action:
+  required: false
+  description: "Set to `toggle` or `turn-on` for direct actions."
+  type: string
+  default: more-info
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

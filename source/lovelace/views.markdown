@@ -30,6 +30,10 @@ views:
       required: true
       description: Cards to display in this view.
       type: list
+    badges:
+      required: false
+      description: List of entities IDs to display as badge.
+      type: list
     id:
       required: false
       description: IDs are used in the URL, more info below.
