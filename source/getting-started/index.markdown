@@ -34,8 +34,8 @@ We will need a few things to get started with installing Home Assistant. Links b
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
 [Etcher]: https://etcher.io/
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-1.5.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.5/hassos_rpi3-64-1.5.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-1.7.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-64-1.7.img.gz
 
 ### {% linkable_title Installing Hass.io %}
 
