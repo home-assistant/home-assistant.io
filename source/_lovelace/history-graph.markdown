@@ -24,7 +24,7 @@ type:
   type: string
 entities:
   required: true
-  description: List of entities to graph.
+  description: "A list of entity IDs or `entity` objects, see below."
   type: list
 hours_to_show:
   required: false
@@ -42,6 +42,21 @@ title:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Options For Entities %}
+
+If you define entities as objects instead of strings, you can add more customization and configuration:
+
+{% configuration %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+{% endconfiguration %}
+
 ## {% linkable_title Example %}
 
 ```yaml
@@ -49,5 +64,6 @@ title:
   title: 'My Graph'
   entities:
     - sensor.outside_temperature
-    - media_player.lounge_room
+    - entity: media_player.lounge_room
+      name: Main player
 ```
