@@ -52,15 +52,18 @@ Configuration variables:
     - **rain**: Estimated rainfall for today in mm.
     - **sum_rain_1**: Rainfall in the last hour in mm.
     - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
-    - **windangle**: Wind angle
-    - **windstrength**: Wind strength
-    - **gustangle**: Wind gust angle
-    - **guststrength**: Wind gust strength
-    - **min_temp**: Min temperature for today
-    - **max_temp**: Max temperature for today
-    - **rf_status**: Current radio status per module. (90=low, 60=highest)
-    - **wifi_status**: Wifi status per Base station
+    - **windangle**: Wind angle.
+    - **windstrength**: Wind strength.
+    - **gustangle**: Wind gust angle.
+    - **guststrength**: Wind gust strength.
+    - **min_temp**: Min temperature for today.
+    - **max_temp**: Max temperature for today.
+    - **rf_status**: Current radio status per module (90=low, 60=highest).
+    - **wifi_status**: Wifi status per Base station.
     - **battery_vp**: Current battery status per module.
+    - **lastupdated**: Seconds since data was last updated in the NetAtmo cloud.
+
+If the **lastupdated** variable is declared, the platform will synchronize its updates with the NetAtmo cloud, so to have the freshest data available. This may be useful to improve the reactivity of your automations.
 
 ### {% linkable_title Find your modules name %}
 
