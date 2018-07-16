@@ -9,17 +9,16 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title Changes in 0.74.0b01 %}
-- 🔧 Fix language detection for country codes
+## {% linkable_title Changes in 0.74.0b0 %}
 
 ### Views
 - Add basic support for `badges` like in old view style
 - Custom cards now work with `panel: true`
 
 ### Cards
-- `glance` card supports now `toggle` and `turn_on` besides showing more-info dialog
+- `glance` card supports now `toggle` and `turn-on` besides showing more-info dialog
 - `glance` card supports now to hide `name` or `state`
-- `history-graph` supports override of history names
+- `history-graph` supports override of entity names
 - Allow `picture-glance` to open more info for camera 
 - Show more-info for `media_players` in `picture-glance`
 - `picture-elements` card now supports also `image` as element type
