@@ -64,7 +64,7 @@ views:
           - device_tracker.anne_there
         state_filter:
           - 'home'
-        card_config:
+        card:
           type: glance
           title: People that are home
 
