@@ -32,6 +32,7 @@ Configuration variables:
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 - **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
+- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
 
 ## {% linkable_title Examples %}
 

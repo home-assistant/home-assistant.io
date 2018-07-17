@@ -33,7 +33,8 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
+- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
 
 ## {% linkable_title Examples %}
 
@@ -87,10 +88,10 @@ Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alte
 The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
 
 ```
-$ systemctl is-active home-assistant@rock64.service 
+$ systemctl is-active home-assistant@rock64.service
 active
 $ sudo service home-assistant@rock64.service stop
-$ systemctl is-active home-assistant@rock64.service 
+$ systemctl is-active home-assistant@rock64.service
 inactive
 ```
 
@@ -104,4 +105,4 @@ binary_sensor:
     payload_off: 'inactive'
 ```
 
-Note: Use single quotes! 
+Note: Use single quotes!
