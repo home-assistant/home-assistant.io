@@ -187,24 +187,37 @@ light:
     address: 1a2b3c
 ```
 
-### {% linkable_title Events %}
+### {% linkable_title Events and Mini-Remotes %}
 
-Some `binary_sensor` devices have an 'on only' mode where the device only
-sends an 'on' command, never an 'off' command. Examples of these devices are:
-- Motion Sensor
-- Mini Remote
-To include these devices in an automation when they are configured to this mode
-use the `insteon_plm.binary_sensor_on` event. 
+Mini-Remote devices do not appear as Home Assistant entities. They generate 
+events. The following events are available:
+
+- **insteon_plm.button_on**
+  - **address**: (required) The Insteon device address in lower case without
+    dots (e.g. 1a2b3c)
+  - **button**: (Optional) The button id in lower case. For an 4 button remote
+    the values are a to d. For an 8 button remote the values are a to g. For
+    a one button remote this field is not used.
+- **insteon_plm.button_of**
+  - **address**: (required) The Insteon device address in lower case without
+    dots (e.g. 1a2b3c)
+  - **button**: (Optional) The button id in lower case. For an 4 button remote
+    the values are a to d. For an 8 button remote the values are a to g. For
+    a one button remote this field is not used.
+
+This allows the mini-remotes to be configured as 
 
 Here is an example of how to use these events for automations:
 
 ```
 automation:
+  # 4 or 8 button remote with button c pressed
   trigger:
     platform: event
-    event_type: insteon_plm.binary_sensor_on
+    event_type: insteon_plm.button_on
     event_data:
-      entity_id: binary_sensor.1a2b3c_3
+      address: 1a2b3c
+      button: c
   condition:
     - condition: state
       entity_id: light.some_light
@@ -213,4 +226,17 @@ automation:
     service: light.turn_on
     entity_id: light.some_light
 
+  # single button remote
+  trigger:
+    platform: event
+    event_type: insteon_plm.button_on
+    event_data:
+      address: 1a2b3c
+  condition:
+    - condition: state
+      entity_id: light.some_light
+      state: 'off'
+  action:
+    service: light.turn_on
+    entity_id: light.some_light
 ```
