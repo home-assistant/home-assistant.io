@@ -30,9 +30,9 @@ title:
   required: false
   description: Card title
   type: string
-show_title:
+show_name:
   required: false
-  description: Show entity titles.
+  description: Show entity names.
   type: boolean
   default: "true"
 show_state:
