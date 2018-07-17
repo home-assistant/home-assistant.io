@@ -23,7 +23,6 @@ To add a DLNA DMR device to your installation, add the following to your `config
 media_player:
   - platform: dlna_dmr
     url: http://192.168.0.10:9197/dmr
-    udn: uuid:4d672690-9e27-4f2a-8426-3e8334427885
 ```
 
 Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
@@ -35,10 +34,15 @@ url:
   description: The URL to the device description, e.g., `http://192.168.0.10:9197/dmr`.
   required: true
   type: string
-udn:
-  description: The UDN of the device, e.g., `uuid:4d672690-9e27-4f2a-8426-3e8334427885`, found in the device description (**url**).
-  required: true
+listen_ip:
+  description: IP to listen on for events from the device. Only set this when the IP is not detected properly.
+  required: false
   type: string
+listen_port:
+  description: Port to listen on for events from the device.
+  required: false
+  default: 8301
+  type: int
 name:
   description: The name you would like to give to the device, e.g., `TV living room`.
   required: false
