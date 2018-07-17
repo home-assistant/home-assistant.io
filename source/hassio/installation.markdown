@@ -11,7 +11,7 @@ footer: true
 
 Hass.io images are available for:
 
-- Download the appropriate image for your IoT:
+- Download the appropriate image for your device:
   - [Raspberry Pi / Zero][pi1]
   - [Raspberry Pi Zero W][pi0-w]
   - [Raspberry Pi 2][pi2]
