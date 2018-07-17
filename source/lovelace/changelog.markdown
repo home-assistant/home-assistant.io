@@ -16,15 +16,14 @@ footer: true
 - Custom cards now work with `panel: true`
 
 ### Cards
-- `glance` card supports now `toggle` and `turn-on` besides showing more-info dialog
-- `glance` card supports now to hide `name` or `state`
-- `history-graph` supports override of entity names
-- Allow `picture-glance` to open more info for camera 
-- Show more-info for `media_players` in `picture-glance`
-- `picture-elements` card now supports also `image` as element type
-- `picture-elements` card now supports also `service-icon` as element type
-- Make Lovelace `entity-filter` card more robust (new use case: https://github.com/home-assistant/ui-schema/issues/82)
-- 🔧 Fix `picture-glance` crash when state of entity was unavailable
+- 📣 [glance card]: Entity `tap_action` can now be `toggle` and `turn-on` besides the default of showing the more info dialog
+- 📣 [glance card]: Support added to hide `name` or `state`
+- 📣 [history graph card]: Support added to override entity names
+- 📣 [picture glance card]: Support added to open the more info dialog for cameras and media players.
+- 📣 [picture elements card]: Support new element type `image`
+- 📣 [picture elements card]: Support new element type `service-icon`
+- 🔧 [entity filter card]: Fix edge cases that could make it crash ([supports this new use case](https://github.com/home-assistant/ui-schema/issues/82))
+- 🔧 [picture glance card]: Fix crash when the state of entity was unavailable
 
 ## {% linkable_title Changes in 0.73.1 %}
 
@@ -128,3 +127,9 @@ footer: true
 ## {% linkable_title Changes in 0.72 %}
 
 - Initial release of the Lovelace UI
+
+[glance card]: /lovelace/glance/
+[history graph card]: /lovelace/history-graph/
+[picture glance card]: /lovelace/picture-glance/
+[picture elements card]: /lovelace/picture-elements/
+[entity filter card]: /lovelace/entity-filter/
