@@ -26,8 +26,8 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 - Flash the downloaded image to an SD card using [Etcher].
 
-- Optional - Setup the WiFi or static IP: On the SD-card, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
-- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
+- Optional - Setup the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+- Insert the SD card (and optional USB stick) into the Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
 <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
