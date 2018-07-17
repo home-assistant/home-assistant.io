@@ -2,7 +2,7 @@
 layout: page
 title: "Tuya Climate"
 description: "Instructions on how to setup the Tuya climate devices within Home Assistant."
-date: 2018-07-17 09:00
+date: 2018-07-16 09:00
 sidebar: true
 comments: false
 sharing: true
