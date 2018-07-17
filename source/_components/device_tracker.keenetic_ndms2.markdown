@@ -29,7 +29,8 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username to login into the router (user should have read access to web interface of the router).
+- **port** (*Optional*): The Telnet port of your router. Default is 23.
+- **username** (*Required*): The username to login into the router (user should have read access to telnet interface of the router).
 - **password** (*Required*): The password for the specified username.
 - **interface** (*Optional*): Ihe internal name of the interface to get devices connected to. Default is 'Home'. For expert users only. 
 
