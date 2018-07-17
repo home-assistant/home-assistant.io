@@ -30,9 +30,9 @@ title:
   required: false
   description: Card title
   type: string
-show_title:
+show_name:
   required: false
-  description: Show entity titles.
+  description: Show entity names.
   type: boolean
   default: "true"
 show_state:
@@ -40,6 +40,11 @@ show_state:
   description: Show entity state-text.
   type: boolean
   default: "true"
+column_width:
+  required: false
+  description: "Column width as CSS length like `100px` or `calc(100% / 7)`."
+  type: string
+  default: 20%
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
