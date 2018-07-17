@@ -51,6 +51,8 @@ Also impacted, but integrations are read only:
 - [sensor.tibber](https://www.home-assistant.io/components/sensor.tibber/)
 - [sensor.waqi](https://www.home-assistant.io/components/sensor.waqi/)
 
+If you are running Home Assistant on a system with Python 3.4, we've created a new release 0.64.4b0 with the patch applied. We have made it available as a beta. To install the pre-release run `python3 -m pip install homeassistant==0.64.4b0`.
+
 <!--more-->
 
 For complete transparency, the following two sets of integrations also used aiohttp to send or retrieve data. However, they either did not transmit authentication or only communicated with local devices and services.
