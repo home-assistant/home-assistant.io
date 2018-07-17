@@ -16,7 +16,7 @@ ha_release: 0.74
 
 The `tuya` light platform allows you to control your [Tuya Smart](https://www.tuya.com) lights.
 
-The platform supports most kind of Tuya light.
+The platform supports most kinds of Tuya light.
 
 <p class='note'>
 Full configuration details can be found on the main [Tuya component](/components/tuya/) page.
