@@ -19,4 +19,3 @@ USB or serial port.  To add support, set up the primary [insteon_plm]
 component.
 
 [insteon_plm]: /components/insteon_plm/
-
