@@ -104,6 +104,7 @@ Example with night/day:
 ```yaml
 - type: picture-entity
   entity: light.bed_light
+  tap_action: toggle
   image: http://farm7.static.flickr.com/6153/6220100622_88e64ec5d8_b.jpg
   state_image:
     "on": http://farm7.static.flickr.com/6220/6220100616_a877f41a66_b.jpg
