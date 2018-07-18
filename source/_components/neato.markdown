@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: 0.33
 ---
 
-The `neato` component allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
+The `neato` component allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 
 To enable `neato` in your installation, add the following to your `configuration.yaml` file:
 
