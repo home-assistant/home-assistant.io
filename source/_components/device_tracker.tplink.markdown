@@ -15,7 +15,7 @@ ha_release: pre 0.7
 
 The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device.
 
-Currently supported devices includes following:
+Currently supported devices includes the following:
 
 - Archer C7 firmware version 150427
 - Archer C9 firmware version 150811
@@ -39,7 +39,7 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username of an user with administrative privileges, usually *admin*. The ArcherD9 last firmware does not require a username
+- **username** (*Required*): The username of a user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
 - **password** (*Required*): The password for your given admin account.
 
 For Archer C9 models running firmware version 150811 or later please use the encrypted password you can retrieve like this:
@@ -53,7 +53,7 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank
+For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.
 
 
 
