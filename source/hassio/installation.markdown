@@ -79,7 +79,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi2-1.7.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-1.7.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-64-1.7.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_ova-1.7.vmdk
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.8/hassos_ova-1.8.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
