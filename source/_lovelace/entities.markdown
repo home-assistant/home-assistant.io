@@ -49,6 +49,10 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
+secondary_info:
+  required: false
+  description: "Show additional info. Values: `entity-id`, `last-changed`."
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
