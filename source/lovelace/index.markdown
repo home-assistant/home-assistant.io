@@ -100,6 +100,11 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
+## {% linkable_title Setting Lovelace as the Default UI %}
+Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the home assistant side-bar. Next, locate >>Set lovelace as default page on this device<< under the home assistant version information and click it. 
+
+Note that this is a per-device setting and will need to be changed on each device you access the UI from.
+
 ## {% linkable_title Custom Cards %}
 
 It is possible to add your own custom cards to show up in the Lovelace UI. For more information, check [the developer docs](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html).
