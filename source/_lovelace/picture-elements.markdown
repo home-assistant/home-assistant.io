@@ -40,23 +40,6 @@ title:
 
 ## {% linkable_title Elements %}
 
-### {% linkable_title Navigate to other views %}
-
-{% configuration %}
-type:
-  required: true
-  description: navigation
-  type: string
-navigation_path:
-  required: true
-  description: URL path to another view.
-  type: string
-icon:
-  required: false
-  description: Material Design Icon.
-  type: string
-{% endconfiguration %}
-
 ### {% linkable_title State Badge %}
 
 {% configuration %}
@@ -87,9 +70,21 @@ entity:
   type: string
 tap_action:
   required: false
-  description: "Set to `toggle` to change state"
+  description: more-info, toggle, navigate, call-service
   type: string
   default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 style:
   required: true
   description: Position and style the element using CSS.
@@ -107,6 +102,23 @@ entity:
   required: true
   description: Entity id
   type: string
+tap_action:
+  required: false
+  description: more-info, toggle, navigate, call-service
+  type: string
+  default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 style:
   required: true
   description: Position and style the element using CSS.
@@ -138,20 +150,37 @@ style:
   type: object
 {% endconfiguration %}
 
-### {% linkable_title Service Call Icon %}
+### {% linkable_title Icon Element %}
 
 {% configuration %}
 type:
   required: true
-  description: service-icon
+  description: icon
+  type: string
+icon:
+  required: true
+  description: Icon to display (e.g. `mdi:home`)
   type: string
 title:
   required: false
   description: Icon tooltip.
   type: string
+entity:
+  required: false
+  description: Entity to use for more-info/toggle
+  type: string
+tap_action:
+  required: false
+  description: more-info, toggle, navigate, call-service
+  type: string
+  default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
 service:
-  required: true
-  description: "Service like `light.turn_on`."
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
   type: string
 service_data:
   required: false
@@ -176,9 +205,21 @@ entity:
   type: string
 tap_action:
   required: false
-  description: none, more-info, toggle, call-service
+  description: none, more-info, toggle, navigate, call-service
   type: string
   default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 image:
   required: false
   description: The image to display.
@@ -198,14 +239,6 @@ filter:
 state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
-  type: object
-service:
-  required: false
-  description: Service to call.
-  type: string
-service_data:
-  required: false
-  description: The service data to use.
   type: object
 style:
   required: true
@@ -276,7 +309,16 @@ state_filter:
         left: 60%
       service: light.turn_off
       service_data:
-          entity_id: group.all_lights
+        entity_id: group.all_lights
+    - type: icon
+      icon: mdi:home
+      tap_action: navigate
+      navigation_path: /lovelace/0
+      style:
+        top: 10%
+        left: 10%
+      
+       
 ```
 
 ## {% linkable_title Images Example %}
@@ -302,6 +344,7 @@ state_filter:
     # Camera, red border, rounded-rectangle - show more-info on click
     - type: image
       entity: camera.driveway_camera
+      camera_image: camera.driveway_camera
       style: 
         top: 5%
         left: 10%
