@@ -26,13 +26,13 @@ views:
       required: true
       description: The title or name.
       type: string
-    cards:
-      required: true
-      description: Cards to display in this view.
-      type: list
     badges:
       required: false
       description: List of entities IDs to display as badge.
+      type: list
+    cards:
+      required: false
+      description: Cards to display in this view.
       type: list
     id:
       required: false
