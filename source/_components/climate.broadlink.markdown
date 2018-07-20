@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Climate
-ha_release: 0.74
+ha_release: 0.75
 ha_iot_class: "Local Polling"
 ---
 
@@ -26,19 +26,17 @@ climate:
     host: xxxx
 ```
 
-Configuration variables:
-
 {% configuration %}
 name:
-  description: Name of thermostat.
+  description: Name of thermostat
   required: true
   type: string
 mac:
-  description: Mac address of the thermostat.
+  description: Mac address of the thermostat
   required: true
   type: string
 host:
-  description: Ip address of the thermostat.
+  description: Ip address of the thermostat
   required: true
   type: string
 max_temp:
@@ -54,17 +52,17 @@ min_temp:
 advanced_config:
   description:Set the advanced configuration for braodlink thermostat.
   required: false
-  default: '{"loop_mode": "0", "sen": "2", "osv": "42", "dif": "2", "svh": "35", "svl": "5", "adj": "0.5", "fre": "01", "pon": "00"}'
+  default: '{"loop_mode": 0, "sen": 2, "osv": 42, "dif": 2, "svh": 35, "svl": 5, "adj": 0.5, "fre": 1, "pon": 0}'
   type: string
 schedule_week_day:
   description:Set the schedule for weekday
   required: false
-  default: '[{"start_hour":"06", "start_minute":"30", "temp":"20"}, {"start_hour":"09", "start_minute":"00", "temp":"17"}, {"start_hour":"12", "start_minute":"00", "temp":"20" }, {"start_hour":"14", "start_minute":"00", "temp":"17"}, {"start_hour":"18", "start_minute":"00", "temp":"20" }, {"start_hour":22, "start_minute":30, "temp":17}]'
+  default: '[{"start_hour":6, "start_minute":30, "temp":20}, {"start_hour":9, "start_minute":0, "temp":17}, {"start_hour":12, "start_minute":0, "temp":20 }, {"start_hour":14, "start_minute":0, "temp":17}, {"start_hour":18, "start_minute":0, "temp":20 }, {"start_hour":22, "start_minute":30, "temp":17}]'
   type: string
 schedule_week_end:
   description:Set the schedule for weekend
   required: false
-  default: '[{"start_hour":"08", "start_minute":"30", "temp":"20"}, {"start_hour":"23", "start_minute":"00", "temp":"17"}]'
+  default: '[{"start_hour":8, "start_minute":30, "temp":20}, {"start_hour":23, "start_minute":0, "temp":17}]'
   type: string
 {% endconfiguration  %}
 
@@ -77,9 +75,9 @@ climate:
     name: Thermostat
     mac: "xx:xx:xx:xx:xx"
     host: "xxx.xxx.xxx.xxx"
-    advanced_config: '{"loop_mode": "0", "sen": "2", "osv": "42", "dif": "2", "svh": "35", "svl": "5", "adj": "0.5", "fre": "01", "pon": "00"}'
-    schedule_week_day: '[{"start_hour":"06", "start_minute":"30", "temp":"20"}, {"start_hour":"09", "start_minute":"00", "temp":"17"}, {"start_hour":"12", "start_minute":"00", "temp":"20" }, {"start_hour":"14", "start_minute":"00", "temp":"17"}, {"start_hour":"18", "start_minute":"00", "temp":"20" }, {"start_hour":22, "start_minute":30, "temp":17}]'
-    schedule_week_end: '[{"start_hour":"08", "start_minute":"30", "temp":"20"}, {"start_hour":"23", "start_minute":"00", "temp":"17"}]'
+    advanced_config: '{"loop_mode": 0, "sen": 2, "osv": 42, "dif": 2, "svh": 35, "svl": 5, "adj": 0.5, "fre": 01, "pon": 0}'
+    schedule_week_day: '[{"start_hour":6, "start_minute":30, "temp":20}, {"start_hour":9, "start_minute":0, "temp":17}, {"start_hour":12, "start_minute":0, "temp":20 }, {"start_hour":14, "start_minute":0, "temp":17}, {"start_hour":18, "start_minute":0, "temp":20 }, {"start_hour":22, "start_minute":30, "temp":17}]'
+    schedule_week_end: '[{"start_hour":8, "start_minute":30, "temp":20}, {"start_hour":23, "start_minute":0, "temp":17}]'
 ```
 
 advanced_config description:
