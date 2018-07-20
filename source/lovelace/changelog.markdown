@@ -9,6 +9,22 @@ sharing: true
 footer: true
 ---
 
+## {% linkable_title Changes in 0.74.0b0 %}
+
+### Views
+- Add basic support for `badges` like in old view style
+- Custom cards now work with `panel: true`
+
+### Cards
+- 📣 [glance card]: Entity `tap_action` can now be `toggle` and `turn-on` besides the default of showing the more info dialog
+- 📣 [glance card]: Support added to hide `name` or `state`
+- 📣 [history graph card]: Support added to override entity names
+- 📣 [picture glance card]: Support added to open the more info dialog for cameras and media players.
+- 📣 [picture elements card]: Support new element type `image`
+- 📣 [picture elements card]: Support new element type `service-icon`
+- 🔧 [entity filter card]: Fix edge cases that could make it crash ([supports this new use case](https://github.com/home-assistant/ui-schema/issues/82))
+- 🔧 [picture glance card]: Fix crash when the state of entity was unavailable
+
 ## {% linkable_title Changes in 0.73.1 %}
 
 - Setting Lovelace as default now updates `Overview` button to point to `/lovelace`
@@ -111,3 +127,9 @@ footer: true
 ## {% linkable_title Changes in 0.72 %}
 
 - Initial release of the Lovelace UI
+
+[glance card]: /lovelace/glance/
+[history graph card]: /lovelace/history-graph/
+[picture glance card]: /lovelace/picture-glance/
+[picture elements card]: /lovelace/picture-elements/
+[entity filter card]: /lovelace/entity-filter/

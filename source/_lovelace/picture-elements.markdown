@@ -40,23 +40,6 @@ title:
 
 ## {% linkable_title Elements %}
 
-### {% linkable_title Navigate to other views %}
-
-{% configuration %}
-type:
-  required: true
-  description: navigation
-  type: string
-navigation_path:
-  required: true
-  description: URL path to another view.
-  type: string
-icon:
-  required: false
-  description: Material Design Icon.
-  type: string
-{% endconfiguration %}
-
 ### {% linkable_title State Badge %}
 
 {% configuration %}
@@ -87,9 +70,21 @@ entity:
   type: string
 tap_action:
   required: false
-  description: "Set to `toggle` to change state"
+  description: more-info, toggle, navigate, call-service
   type: string
   default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 style:
   required: true
   description: Position and style the element using CSS.
@@ -107,6 +102,23 @@ entity:
   required: true
   description: Entity id
   type: string
+tap_action:
+  required: false
+  description: more-info, toggle, navigate, call-service
+  type: string
+  default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 style:
   required: true
   description: Position and style the element using CSS.
@@ -130,7 +142,7 @@ service:
   type: string
 service_data:
   required: false
-  description: The service data to use."
+  description: The service data to use.
   type: object
 style:
   required: true
@@ -138,7 +150,103 @@ style:
   type: object
 {% endconfiguration %}
 
-## {% linkable_title How-to use the style object %}
+### {% linkable_title Icon Element %}
+
+{% configuration %}
+type:
+  required: true
+  description: icon
+  type: string
+icon:
+  required: true
+  description: Icon to display (e.g. `mdi:home`)
+  type: string
+title:
+  required: false
+  description: Icon tooltip.
+  type: string
+entity:
+  required: false
+  description: Entity to use for more-info/toggle
+  type: string
+tap_action:
+  required: false
+  description: more-info, toggle, navigate, call-service
+  type: string
+  default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
+style:
+  required: true
+  description: Position and style the element using CSS.
+  type: object
+{% endconfiguration %}
+
+### {% linkable_title Image Element %}
+
+{% configuration %}
+type:
+  required: true
+  description: image
+  type: string
+entity:
+  required: false
+  description: Entity to use for state_image and state_filter and also target for actions. 
+  type: string
+tap_action:
+  required: false
+  description: none, more-info, toggle, navigate, call-service
+  type: string
+  default: more-info
+navigation_path:
+  required: false
+  description: Url path to navigate to (e.g. `/lovelace/1`)
+  type: string
+service:
+  required: false
+  description: "Service to call (e.g. `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
+image:
+  required: false
+  description: The image to display.
+  type: string
+camera_image:
+  required: false
+  description: A camera entity.
+  type: string
+state_image:
+  required: false
+  description: '[State-based images](#how-to-use-state_image)'
+  type: object
+filter: 
+  required: false
+  description: Default CSS filter
+  type: string
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: object
+style:
+  required: true
+  description: Position and style the element using CSS.
+  type: object
+{% endconfiguration %}
+
+## {% linkable_title How to use the style object %}
 
 Position and style your elements using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). More/other keys are also possible.
 
@@ -149,6 +257,26 @@ style:
   top: 50%
   # Overwrite color for icons
   "--paper-item-icon-color": pink
+```
+
+## {% linkable_title How to use state_image %}
+
+Specify a different image to display based on the state of the entity.
+
+```yaml
+state_image:
+  "on": /local/living_room_on.jpg
+  "off": /local/living_room_off.jpg
+```
+
+## {% linkable_title How to use state_filter %}
+
+Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
+
+```yaml
+state_filter: 
+  'on': brightness(110%) saturate(1.2)
+  'off': brightness(50%) hue-rotate(45deg)
 ```
 
 ## {% linkable_title Example %}
@@ -181,5 +309,59 @@ style:
         left: 60%
       service: light.turn_off
       service_data:
-          entity_id: group.all_lights
+        entity_id: group.all_lights
+    - type: icon
+      icon: mdi:home
+      tap_action: navigate
+      navigation_path: /lovelace/0
+      style:
+        top: 10%
+        left: 10%
+      
+       
+```
+
+## {% linkable_title Images Example %}
+
+```yaml
+- type: picture-elements
+  image: /local/floorplan.png
+  elements:
+    # state_image & state_filter - toggle on click
+    - type: image
+      entity: light.living_room
+      tap_action: toggle
+      image: /local/living_room.png
+      state_image: 
+        'off': /local/living_room_off.png
+      filter: saturate(.8)
+      state_filter:
+        'on': brightness(120%) saturate(1.2)
+       style: 
+         top: 25%
+         left: 75%
+         width: 15%
+    # Camera, red border, rounded-rectangle - show more-info on click
+    - type: image
+      entity: camera.driveway_camera
+      camera_image: camera.driveway_camera
+      style: 
+        top: 5%
+        left: 10%
+        width: 10%
+        border: 2px solid red
+        border-radius: 10%
+    # Single image, state_filter - call-service on click
+    - type: image
+      entity: media_player.living_room
+      tap_action: call-service
+      service: media_player.media_play_pause
+      image: /local/television.jpg
+      filter: brightness(5%)
+      state_filter:
+        playing: brightness(100%)
+      style:
+        top: 40%
+        left: 75%
+        width: 5%
 ```
