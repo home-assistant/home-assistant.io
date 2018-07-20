@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.74: TBD - UPDATE DATE"
-description: "TBD"
-date: 2018-07-16 00:01:00
+title: "0.74: Tuya, Cloudflare DNS, Push Camera and Users UI"
+description: "This release builds on top of the previous release, as that is how releases work."
+date: 2018-07-20 00:01:00
 date_formatted: "July 21, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -11,16 +11,39 @@ categories: Release-Notes
 og_image: /images/blog/2018-07-0.74/components.png
 ---
 
+It's time for Home Assistant 0.74! 🎉
+
+This week we heard that Guido van Rossum, the founder of Python, is taking a permanent vacation as the leader of Python after being at the helm for almost 30 years. Guido has not been directly involved with Home Assistant, however he created Python and was part of the team that built asyncio, technologies that power the foundation of Home Assistant and what makes us so fast and robust. Under Guido's guidance the Python community has grown out to be very friendly and open. A great inspiration for us and other tech communities out there. Thanks for all you have done Guido!
+
+<p class='img'>
+<img src='/images/blog/2018-07-0.74/paulus_guido.jpg' alt='Photo of Paulus, founder of Home Assistant, and Guido, founder of Python.'>
+Paulus &amp; Guido at PyCon US 2018
+</p>
+
+Alright, back to Home Assistant. Last release we introduced a tech preview of the new user system. The initial preview still required creating users via the command line. In the last two weeks we've worked hard on adding support for an onboarding wizard and a user management interface. A walkthrough of the new features can be found below. Thanks to [@awarecan] and [@jeradM] for all their work!
+
+To try it out today, [read these instructions](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html). The user system is still in tech preview. We've moved fast to get were we are today. The next step is that we need to take a step back and look at the system as a whole to make sure it's robust and ready for prime time.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x0VzrizyEmM" frameborder="0" allowfullscreen></iframe>
+</div>
+
+We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant), [G+](https://plus.google.com/+HomeAssistantHomeAutomation)) where we will keep sharing great examples.
+
+For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/).
+
+Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
+
+I'm happy to announce that this release introduces support for Tuya thanks to [@huangyupeng]. Tuya produces cheap cloud-enabled devices that are sold under a wide variety of brand names across the globe. And now they work with Home Assistant too!
+
 ## {% linkable_title New Platforms %}
 
+- Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
+- Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
 - Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) ([sensor.duke_energy docs]) (new-platform)
 - Added Push Camera ([@dgomes] - [#15151]) ([camera.push docs]) (new-platform)
-- Use IndieAuth for client ID ([@balloob] - [#15369]) ([auth docs]) ([frontend docs]) (new-platform)
 - Add Cloudflare DNS component. ([@ludeeus] - [#15388]) ([cloudflare docs]) (new-platform)
-- Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
 - Add HomematicIP alarm control panel ([@mxworm] - [#15342]) ([alarm_control_panel docs]) ([homematicip_cloud docs]) ([alarm_control_panel.homematicip_cloud docs]) (new-platform)
-- User management ([@balloob] - [#15420]) ([auth docs]) ([config docs]) ([http docs]) ([websocket_api docs]) (new-platform)
-- Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -33,10 +56,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Add support for new API (fixes #14911) ([@fabaff] - [#15279]) ([sensor.fixer docs]) (breaking change)
-- Added support to HTTPS URLs on SynologyDSM ([@tchellomello] - [#15270]) ([sensor.synologydsm docs]) (breaking change)
-- Ignore some HomeKit devices ([@mjg59] - [#15316]) ([homekit_controller docs]) (breaking change)
-- Make LimitlessLED color/temperature attributes mutually exclusive ([@amelchio] - [#15298]) ([light.limitlessled docs]) (breaking change)
+- Fixer.io has changed their API and now requires an API key. (fixes #14911) ([@fabaff] - [#15279]) ([sensor.fixer docs]) (breaking change)
+- Add support to use HTTPS URLs to SynologyDSM and make it the default ([@tchellomello] - [#15270]) ([sensor.synologydsm docs]) (breaking change)
+- HomeKit Controller: Ignore discovering the HomeKit component and HomeKit devices which offer native local API ([@mjg59] - [#15316]) ([homekit_controller docs]) (breaking change)
+- LimitlessLED will no longer report `hs_color`/`rgb_color` and `color_temp` simultaneously. ([@amelchio] - [#15298]) ([light.limitlessled docs]) (breaking change)
+- IP Ban: Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Add current user WS command ([@balloob] - [#15485]) ([auth docs]) ([frontend docs]) (beta fix)
+- Add onboarding support ([@balloob] - [#15492]) ([frontend docs]) ([onboarding docs]) (beta fix)
+- Update HomeKit module code ([@mjg59] - [#15502]) ([homekit_controller docs]) (beta fix)
+- Disallow use insecure_example auth provider in configuration.yml ([@awarecan] - [#15504]) (beta fix)
+- Added WS endpoint for changing homeassistant password. ([@jeradM] - [#15527]) ([config docs]) (beta fix)
+- Don't be so strict client-side ([@balloob] - [#15546]) (beta fix)
+- Decouple emulated hue from http server ([@balloob] - [#15530]) ([emulated_hue docs]) (beta fix)
+- Allow CORS requests to token endpoint ([@balloob] - [#15519]) ([auth docs]) ([http docs]) (beta fix)
+- Upgrade pymysensors to 0.16.0 ([@MartinHjelmare] - [#15554]) ([mysensors docs]) (beta fix)
+- Allow auth providers to influence is_active ([@balloob] - [#15557]) (beta fix)
+- Remove relative time from state machine ([@balloob] - [#15560]) ([sensor.netatmo docs]) (beta fix)
+- Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -44,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add new RTS device ([@pepeEL] - [#15116]) ([tahoma docs])
 - Add additional parameters to NUT UPS sensor ([@carlchan] - [#15066]) ([sensor.nut docs])
 - Fix typos ([@fabaff] - [#15233]) ([watson_iot docs])
-- Use async syntax for cover platforms ([@cdce8p] - [#15230]) ([cover.lutron_caseta docs]) ([cover.mqtt docs]) ([cover.rflink docs]) ([cover.template docs]) ([cover.velbus docs]) ([cover.wink docs])
+- Use async syntax for cover platforms ([@cdce8p] - [#15230]) ([cover.lutron_caseta docs]) ([cover.mqtt docs]) ([cover.rflink docs]) ([cover.template docs]) ([cover.wink docs])
 - Upgrade pytest to 3.6.2 ([@scop] - [#15241])
 - Add precipitations to Openweathermap daily forecast mode ([@sgttrs] - [#15240]) ([weather.openweathermap docs])
 - deconz: proper fix light.turn_off with transition ([@lbschenkel] - [#15227]) ([light.deconz docs])
@@ -84,8 +123,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add sound mode support ([@starkillerOG] - [#14910]) ([media_player.denonavr docs])
 - Fixed issue 15340. alexa/smart_home module can now skip properties that aren't supported in the current state, eg lowerSetpoint in Heat mode or targetSetpoint in Eco mode for Nest devices. ([@iliketoprogram14] - [#15352]) ([alexa docs])
 - Efergy ([@fabaff] - [#15380]) ([sensor.efergy docs])
-- Use IndieAuth for client ID ([@balloob] - [#15369]) ([auth docs]) ([frontend docs]) (new-platform)
-- Add httplib2 to h.c.google requirements ([@scop] - [#15385]) ([google docs]) ([calendar.google docs])
+- Use IndieAuth for client ID ([@balloob] - [#15369]) ([auth docs]) ([frontend docs])
+- Add httplib2 to h.c.google requirements ([@scop] - [#15385]) ([calendar.google docs])
 - Remove some unneeded pylint import-error disables ([@scop] - [#15386]) ([device_tracker docs]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs])
 - Update ha-philipsjs to 0.0.5 ([@danielperna84] - [#15378]) ([media_player.philips_js docs])
 - Add new voices to Amazon Polly ([@hanzoh] - [#15320]) ([tts docs])
@@ -109,7 +148,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Make typing checks more strict ([@andrey-git] - [#14429])
 - upgrade-mypy ([@scop] - [#14904])
 - Fix comment formatting ([@balloob] - [#15447]) ([device_tracker docs])
-- User management ([@balloob] - [#15420]) ([auth docs]) ([config docs]) ([http docs]) ([websocket_api docs]) (new-platform)
+- User management ([@balloob] - [#15420]) ([auth docs]) ([config docs]) ([http docs]) ([websocket_api docs])
 - More typing ([@andrey-git] - [#15449])
 - Catch the ValueError if the bulb was in the wrong mode ([@fabaff] - [#15434]) ([light.mystrom docs])
 - Upgrade keyring to 13.2.1 ([@fabaff] - [#15453])
@@ -126,6 +165,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Aware comments ([@balloob] - [#15480]) ([auth docs])
 - Fix flux_led turning on with color or effect ([@amelchio] - [#15472]) ([light.flux_led docs])
 - Update limitlessled to 1.1.2 ([@amelchio] - [#15481]) ([light.limitlessled docs])
+- Add current user WS command ([@balloob] - [#15485]) ([auth docs]) ([frontend docs]) (beta fix)
+- Add onboarding support ([@balloob] - [#15492]) ([frontend docs]) ([onboarding docs]) (beta fix)
+- Update HomeKit module code ([@mjg59] - [#15502]) ([homekit_controller docs]) (beta fix)
+- Disallow use insecure_example auth provider in configuration.yml ([@awarecan] - [#15504]) (beta fix)
+- Added WS endpoint for changing homeassistant password. ([@jeradM] - [#15527]) ([config docs]) (beta fix)
+- Don't be so strict client-side ([@balloob] - [#15546]) (beta fix)
+- Decouple emulated hue from http server ([@balloob] - [#15530]) ([emulated_hue docs]) (beta fix)
+- Allow CORS requests to token endpoint ([@balloob] - [#15519]) ([auth docs]) ([http docs]) (beta fix)
+- Upgrade pymysensors to 0.16.0 ([@MartinHjelmare] - [#15554]) ([mysensors docs]) (beta fix)
+- Allow auth providers to influence is_active ([@balloob] - [#15557]) (beta fix)
+- Remove relative time from state machine ([@balloob] - [#15560]) ([sensor.netatmo docs]) (beta fix)
+- Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
 [#14429]: https://github.com/home-assistant/home-assistant/pull/14429
 [#14523]: https://github.com/home-assistant/home-assistant/pull/14523
@@ -213,7 +264,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15472]: https://github.com/home-assistant/home-assistant/pull/15472
 [#15480]: https://github.com/home-assistant/home-assistant/pull/15480
 [#15481]: https://github.com/home-assistant/home-assistant/pull/15481
+[#15485]: https://github.com/home-assistant/home-assistant/pull/15485
+[#15492]: https://github.com/home-assistant/home-assistant/pull/15492
+[#15502]: https://github.com/home-assistant/home-assistant/pull/15502
+[#15504]: https://github.com/home-assistant/home-assistant/pull/15504
+[#15519]: https://github.com/home-assistant/home-assistant/pull/15519
+[#15527]: https://github.com/home-assistant/home-assistant/pull/15527
+[#15530]: https://github.com/home-assistant/home-assistant/pull/15530
+[#15546]: https://github.com/home-assistant/home-assistant/pull/15546
+[#15554]: https://github.com/home-assistant/home-assistant/pull/15554
+[#15557]: https://github.com/home-assistant/home-assistant/pull/15557
+[#15560]: https://github.com/home-assistant/home-assistant/pull/15560
+[#15564]: https://github.com/home-assistant/home-assistant/pull/15564
 [@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@NoUsername]: https://github.com/NoUsername
 [@SConaway]: https://github.com/SConaway
 [@amelchio]: https://github.com/amelchio
@@ -232,6 +296,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@huangyupeng]: https://github.com/huangyupeng
 [@iliketoprogram14]: https://github.com/iliketoprogram14
 [@jantman]: https://github.com/jantman
+[@jeradM]: https://github.com/jeradM
+[@c727]: https://github.com/c727
+[@ciotlosm]: https://github.com/ciotlosm
 [@kstaniek]: https://github.com/kstaniek
 [@lbschenkel]: https://github.com/lbschenkel
 [@ludeeus]: https://github.com/ludeeus
@@ -275,6 +342,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [deconz docs]: /components/deconz/
 [device_tracker docs]: /components/device_tracker/
 [dialogflow docs]: /components/dialogflow/
+[emulated_hue docs]: /components/emulated_hue/
 [enocean docs]: /components/enocean/
 [eufy docs]: /components/eufy/
 [fritzbox docs]: /components/fritzbox/
@@ -301,6 +369,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.lg_netcast docs]: /components/media_player.lg_netcast/
 [media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
 [media_player.philips_js docs]: /components/media_player.philips_js/
+[mysensors docs]: /components/mysensors/
+[onboarding docs]: /components/onboarding/
 [prometheus docs]: /components/prometheus/
 [sensor.arlo docs]: /components/sensor.arlo/
 [sensor.deconz docs]: /components/sensor.deconz/
