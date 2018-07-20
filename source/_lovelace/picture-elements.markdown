@@ -246,6 +246,23 @@ style:
   type: object
 {% endconfiguration %}
 
+### {% linkable_title Custom Elements %}
+
+{% configuration %}
+type:
+  required: true
+  description: 'Card name with `custom:` prefix (e.g. `custom:my-custom-card`)'
+  type: string
+style:
+  required: true
+  description: Position and style the element using CSS.
+  type: object
+{% endconfiguration %} 
+
+The process for creating and referencing custom elements is the same as for custom cards. 
+Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html) 
+for more information.
+
 ## {% linkable_title How to use the style object %}
 
 Position and style your elements using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). More/other keys are also possible.
