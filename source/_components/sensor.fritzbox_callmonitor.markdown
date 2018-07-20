@@ -22,13 +22,16 @@ It can also access the internal phone book of the router to look up the names co
 To build the package you have to install some dependencies first.
 
 ```bash
-apt-get update
-apt-get install libxml2-dev libxslt-dev python3-setuptools zlib1g-dev build-essential
+$ sudo apt-get update
+$ sudo apt-get install libxml2-dev libxslt-dev \
+  python3-setuptools zlib1g-dev build-essential
 ```
 
-## {% linkable_title Configuration %}
+## {% linkable_title Setup%}
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
+
+## {% linkable_title Configuration %}
 
 To use the Fritz!Box call monitor in your installation, add the following to your `configuration.yaml` file:
 
