@@ -11,11 +11,11 @@ footer: true
 
 Hass.io images are available for:
 
-- Download the appropriate image for your IoT:
+- Download the appropriate image for your device:
   - [Raspberry Pi / Zero][pi1]
-  - [Raspberry Pi / Zero W][pi0-w]
+  - [Raspberry Pi Zero W][pi0-w]
   - [Raspberry Pi 2][pi2]
-  - [Raspberry Pi 3 32bit][pi3-32]
+  - [Raspberry Pi 3 32bit][pi3-32] (recommended)
   - [Raspberry Pi 3 64bit][pi3-64]
 - As [Virtual Appliance]:
   - [VMDK][vmdk]
@@ -26,8 +26,8 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 - Flash the downloaded image to an SD card using [Etcher].
 
-- Optional - Setup the WiFi or static IP: On the SD-card, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
-- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
+- Optional - Setup the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+- Insert the SD card (and optional USB stick) into the Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
 <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
@@ -79,7 +79,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi2-1.7.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-1.7.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-64-1.7.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_ova-1.7.vmdk
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.8/hassos_ova-1.8.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
