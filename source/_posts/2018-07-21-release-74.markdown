@@ -8,8 +8,10 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-07-0.74/components.png
+og_image: /images/blog/2018-07-0.74/paulus_guido.jpg
 ---
+
+<a href='/components/#version/0.74'><img src='/images/blog/2018-07-0.74/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.74! 🎉
 
