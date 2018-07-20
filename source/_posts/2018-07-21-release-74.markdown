@@ -3,7 +3,7 @@ layout: post
 title: "0.74: Tuya, Cloudflare DNS, Push Camera and Users UI"
 description: "This release builds on top of the previous release, as that is how releases work."
 date: 2018-07-20 00:01:00
-date_formatted: "July 21, 2018"
+date_formatted: "July 20, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
