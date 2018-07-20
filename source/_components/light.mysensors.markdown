@@ -51,14 +51,17 @@ For more information, visit the [serial api] of MySensors.
 #include <SPI.h>
 
 #define SN "DimmableRGBLED"
-#define SV "1.0"
+#define SV "1.1"
 #define CHILD_ID 1
 #define LED_PIN 5
 
 MySensor gw;
 
 char rgb[7] = "ffffff"; // RGB value.
-int currentLevel = 0;  // Current dimmer level.
+
+// currently or previously (if light is switched off right now) used dimmer level
+int lastLevel = 100;
+
 MyMessage dimmerMsg(CHILD_ID, V_PERCENTAGE);
 MyMessage lightMsg(CHILD_ID, V_STATUS);
 MyMessage rgbMsg(CHILD_ID, V_RGB);
@@ -69,8 +72,8 @@ void setup()
   gw.sendSketchInfo(SN, SV);
   gw.present(CHILD_ID, S_RGB_LIGHT);
   // Send initial values.
-  gw.send(lightMsg.set(currentLevel > 0 ? 1 : 0));
-  gw.send(dimmerMsg.set(currentLevel));
+  gw.send(lightMsg.set(lastLevel > 0 ? 1 : 0));
+  gw.send(dimmerMsg.set(lastLevel));
   gw.send(rgbMsg.set(rgb));
 }
 
@@ -95,7 +98,7 @@ void incomingMessage(const MyMessage &message) {
     int requestedLevel = atoi(message.data);
 
     // Adjust incoming level if this is a V_LIGHT update [0 == off, 1 == on].
-    requestedLevel *= (message.type == V_STATUS ? 100 : 1);
+    requestedLevel *= (message.type == V_STATUS ? lastLevel : 1);
 
     // Clip incoming level to valid range of 0 to 100
     requestedLevel = requestedLevel > 100 ? 100 : requestedLevel;
@@ -103,12 +106,14 @@ void incomingMessage(const MyMessage &message) {
 
     // Change level value of LED pin.
     analogWrite(LED_PIN, (int)(requestedLevel / 100. * 255));
-    currentLevel = requestedLevel;
 
     // Update the gateway with the current V_STATUS and V_PERCENTAGE.
-    gw.send(lightMsg.set(currentLevel > 0 ? 1 : 0));
-    gw.send(dimmerMsg.set(currentLevel));
-    }
+    gw.send(lightMsg.set(requestedLevel > 0 ? 1 : 0));
+    gw.send(dimmerMsg.set(requestedLevel));
+
+    lastLevel = requestedLevel;
+
+  }
 }
 ```
 
