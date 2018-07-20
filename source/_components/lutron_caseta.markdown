@@ -40,12 +40,24 @@ lutron_caseta:
     ca_certs: caseta-bridge.crt
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the Lutron Smart Bridge.
-- **keyfile** (*Required*): The private key that Home Assistant will use to authenticate to the bridge.
-- **certfile** (*Required*): The certificate chain that Home Assistant will use to authenticate to the bridge.
-- **ca_certs** (*Required*): The list of certificate authorities (usually only one) that Home Assistant will expect when connecting to the bridge.
+{% configuration %}
+  host:
+    required: true
+    description: The IP address of the Lutron Smart Bridge.
+    type: string
+  keyfile:
+    required: true
+    description: The private key that Home Assistant will use to authenticate to the bridge.
+    type: string
+  certfile:
+    required: true
+    description: The certificate chain that Home Assistant will use to authenticate to the bridge.
+    type: string
+  ca_certs:
+    required: true
+    description: The list of certificate authorities (usually only one) that Home Assistant will expect when connecting to the bridge.
+    type: string
+{% endconfiguration %}
 
 <p class='note'>
 It is recommended to assign a static IP address to your Lutron Smart Bridge. This ensures that it won't change IP address, so you won't have to change the `host` if it reboots and comes up with a different IP address.
