@@ -13,7 +13,6 @@ ha_release: 0.75
 ha_iot_class: "Local Polling"
 ---
 
-
 The `broadlink_thermostat` climate platform is a thermostat implemented in Home Assistant. 
 It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...)
 
