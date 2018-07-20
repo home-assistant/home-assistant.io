@@ -13,16 +13,16 @@ og_image: /images/blog/2018-07-0.74/components.png
 
 It's time for Home Assistant 0.74! 🎉
 
-This week we heard that Guido van Rossum, the founder of Python, is taking a permanent vacation as the leader of Python after being at the helm for almost 30 years. Guido has not been directly involved with Home Assistant, however he created Python and was part of the team that built asyncio, technologies that power the foundation of Home Assistant and what makes us so fast and robust. Under Guido's guidance the Python community has grown out to be very friendly and open. A great inspiration for us and other tech communities out there. Thanks for all you have done Guido!
+This week we heard that Guido van Rossum, the founder of Python, is taking a permanent vacation as the leader of Python after being at the helm for almost 30 years. Guido has not been directly involved with Home Assistant. However he created Python and was part of the team that built asyncio, technologies that power the foundation of Home Assistant and what makes us so fast and robust. Under Guido's guidance, the Python community has grown out to be very friendly and open. A great inspiration for us and other tech communities out there. Thanks for all you have done Guido!
 
 <p class='img'>
 <img src='/images/blog/2018-07-0.74/paulus_guido.jpg' alt='Photo of Paulus, founder of Home Assistant, and Guido, founder of Python.'>
 Paulus &amp; Guido at PyCon US 2018
 </p>
 
-Alright, back to Home Assistant. Last release we introduced a tech preview of the new user system. The initial preview still required creating users via the command line. In the last two weeks we've worked hard on adding support for an onboarding wizard and a user management interface. A walkthrough of the new features can be found below. Thanks to [@awarecan] and [@jeradM] for all their work!
+All right, back to Home Assistant. The last release introduced a tech preview of the new user system. The initial preview still required creating users via the command line. In the last two weeks, we've worked hard on adding support for an onboarding wizard and a user management interface. A walkthrough of the new features can be found below. Thanks to [@awarecan] and [@jeradM] for all their work!
 
-To try it out today, [read these instructions](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html). The user system is still in tech preview. We've moved fast to get were we are today. The next step is that we need to take a step back and look at the system as a whole to make sure it's robust and ready for prime time.
+To try it out today, [read these instructions](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html). The user system is still in tech preview. We've moved fast to get where we are today. The next step is that we need to take a step back and look at the system as a whole to make sure it's robust and ready for prime time.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x0VzrizyEmM" frameborder="0" allowfullscreen></iframe>
@@ -34,7 +34,7 @@ For the Lovelace changes in this release, check out the [changelog](/lovelace/ch
 
 Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
 
-I'm happy to announce that this release introduces support for Tuya thanks to [@huangyupeng]. Tuya produces cheap cloud-enabled devices that are sold under a wide variety of brand names across the globe. And now they work with Home Assistant too!
+I'm happy to announce that this release introduces support for Tuya thanks to [@huangyupeng]. Tuya produces cheap cloud-enabled devices that are sold under a wide variety of brand names across the globe, and now they work with Home Assistant too!
 
 ## {% linkable_title New Platforms %}
 
