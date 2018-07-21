@@ -125,8 +125,8 @@ This is because for IOS devices by default javascript served is `es5`. You can a
 
 > Note: Enabling `latest` on IOS could cause automation and script editor to crash.
 
-### I would like to add image to my card, but I do not know where to put them.
+### I would like to add an image to my card, but I do not know where to put them.
 
-Given examples refer to to `/locale/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. Image kept in `(...)/HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
+Given examples refer to `/locale/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. An image kept in `HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
 
-> Note: Remember to restart Home Assistant right after creating `www` directory. Otherwise HA will not know that you created this directory.
+> Note: Remember to restart Home Assistant right after creating `www` directory. Otherwise, HA will not know that you created this directory.
