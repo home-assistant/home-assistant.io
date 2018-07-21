@@ -40,3 +40,5 @@ exclude:
   required: false
   type: list
 {% endconfiguration %}
+
+This also works with the 'cheaper' Somfy Connexoon which uses the same back-end system ;) If you know what you want to control now and in the future you can decide to [choose](https://somfyhouse.freshdesk.com/nl/support/solutions/articles/14000058145-wat-is-het-verschil-tussen-de-tahoma-en-de-connexoon-) the right bridge for your situation. 
