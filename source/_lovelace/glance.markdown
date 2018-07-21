@@ -60,6 +60,10 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
+icon:
+  required: false
+  description: Overwrites icon or entity picture.
+  type: string
 tap_action:
   required: false
   description: "Set to `toggle` or `turn-on` for direct actions."
