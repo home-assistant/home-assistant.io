@@ -21,9 +21,8 @@ To add your Spider devices into your Home Assistant installation, add the follow
 
 ```yaml
 spider:
-  username: YOUR_TUYA_USERNAME
-  password: YOUR_TUYA_PASSWORD
-  country_code: YOUR_ACCOUNT_COUNTRYCODE
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
