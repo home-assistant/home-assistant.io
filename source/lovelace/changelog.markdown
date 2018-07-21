@@ -9,6 +9,21 @@ sharing: true
 footer: true
 ---
 
+## {% linkable_title Changes in 0.74.0 %}
+- ❤️ [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/)
+- 🔧 Async communication improvements
+
+### Views
+- 📣 Allow views with badges and no cards
+
+### Cards
+- 📣 [picture elements card]: Allow custom elements including custom cards
+- 📣 [entities card]: Separate row entity elements, and add `secondary_info` ❤️
+- 📣 [glance card]: Make column width configurable
+- 🔧 [picture glance card]: Use custom off states
+- 🔧 [picture glance card]: Fixed to work again with [entity filter card]
+- 🔧 Removed `text-transform: capitalize;` from card heading
+
 ## {% linkable_title Changes in 0.74.0b0 %}
 
 ### Views
