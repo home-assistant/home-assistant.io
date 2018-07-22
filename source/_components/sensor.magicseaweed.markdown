@@ -10,7 +10,7 @@ footer: true
 logo: magicseaweed.png
 ha_category: Sensor
 featured: false
-ha_release: "0.73"
+ha_release: "0.75"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -78,21 +78,6 @@ units:
     uk:
     eu:
     us:
-update_interval:
-  description: Minimum time interval between updates.
-  required: false
-  default: Default is 30 minutes.
-  type: list
-  keys:
-    update_interval:
-      description: `update_interval: 'HH:MM:SS'` or `update_interval: 'HH:MM'`
-    days:
-    hours:
-    minutes:
-    seconds:
-    milliseconds:
-
-
 {% endconfiguration %}
 
 
