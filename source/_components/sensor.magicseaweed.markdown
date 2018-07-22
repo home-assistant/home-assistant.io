@@ -38,7 +38,7 @@ api_key:
 name:
   description: Spot nickname for the sensors.
   required: false
-  default: Platform name: MSW.
+  default: MSW.
   type: string
 hour:
   description: List of hours you would like to receive data for.
