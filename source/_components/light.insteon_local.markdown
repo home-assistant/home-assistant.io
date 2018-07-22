@@ -15,4 +15,4 @@ ha_iot_class: "Local Push"
 
 The `insteon_local` light component lets you control your lights connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To get your insteon lights working with Home Assistant, follow the instructions for the general [Insteon local component](/components/insteon_local/). The lights will be automatically disovered and added to Home Assistant. The device names will be the Insteon address of the lights.
+To get your Insteon lights working with Home Assistant, follow the instructions for the general [Insteon local component](/components/insteon_local/). The lights will be automatically discovered and added to Home Assistant. The device names will be the Insteon address of the lights.
