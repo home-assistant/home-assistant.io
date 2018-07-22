@@ -47,13 +47,21 @@ hour:
   type: list
   keys:
     3AM:
+      description: Display forecast for 3AM.
     6AM:
+      description: Display forecast for 6AM.
     9AM:
+      description: Display forecast for 9AM.
     12PM:
+      description: Display forecast for 12PM.
     3PM:
+      description: Display forecast for 3PM.
     6PM:
+      description: Display forecast for 6PM.
     9PM:
+      description: Display forecast for 9PM.
     12AM:
+      description: Display forecast for 12AM.
 spot_id:
   description: Surf spot ID to monitor surf forecast of.Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
   required: true
@@ -76,8 +84,11 @@ units:
   type: string
   keys:
     uk:
+      description: Use UK units.
     eu:
+      description: Use EU units.
     us:
+      description: Use US units.
 {% endconfiguration %}
 
 
