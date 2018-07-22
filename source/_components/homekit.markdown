@@ -64,6 +64,11 @@ homekit:
         required: false
         type: int
         default: 51827
+      name:
+        description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
+        required: false
+        type: string
+        default: '`Home Assistant Bridge`'
       ip_address:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
