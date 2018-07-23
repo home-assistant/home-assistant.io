@@ -72,7 +72,7 @@ x10_devices:
     UNITCODE:
       description: is the X10 unit code values 1 - 16
     PLATFORM:
-      description: is the Home Assistant Platform to associate the device with. The following platforms are supported:
+      description: is the Home Assistant Platform to associate the device with. Choose one of the following supported platforms.
       type: string
       keys:
         binary_sensor:
