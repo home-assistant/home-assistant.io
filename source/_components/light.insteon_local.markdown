@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Light
-ha_version: 0.36
+ha_release: 0.36
 ha_iot_class: "Local Push"
 redirect_from: /components/light.insteon_hub/
 ---
