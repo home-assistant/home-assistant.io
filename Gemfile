@@ -21,6 +21,7 @@ group :jekyll_plugins do
   gem 'jekyll-time-to-read'
   gem 'octopress', '~> 3.0'
   gem 'octopress-include-tag'
+  gem 'octopress-filters'
 end
 
 gem 'sinatra', '~> 1.4.2'
