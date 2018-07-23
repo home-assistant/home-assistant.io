@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Fan
-ha_version: 0.48
+ha_release: 0.48
 redirect_from: /components/fan.insteon_hub/
 ---
 
