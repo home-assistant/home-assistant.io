@@ -28,8 +28,6 @@ insteon_local:
   password: YOUR_HUB_PASSWORD
 ```
 
-*Note: The username and password here are for the hub and are different than the ones used to access the app. You can usually find these on the bottom of your hub (unless you've changed them through the settings in the app)*
-
 {% configuration %}
 host:
   description: The IP address of your hub.
@@ -54,6 +52,8 @@ port:
   type: string
   default: 25105
 {% endconfiguration %}
+
+*Note: The username and password here are for the hub and are different than the ones used to access the app. You can usually find these on the bottom of your hub (unless you've changed them through the settings in the app)*
 
 The `insteon_local` component currently supports lights (dimmers), switches and fans.
 
