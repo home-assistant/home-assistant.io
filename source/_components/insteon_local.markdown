@@ -11,11 +11,16 @@ logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
 ha_version: 0.36
+redirect_from: /components/insteon_hub/
 ---
+
+<p class='note'>
+This component replaces the old `insteon_hub` component, which has been removed due to a complaint by Insteon.
+</p>
 
 The `insteon_local` component let you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To integrate your Insteon local setup with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Insteon Hub (local setup) with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml platform entry
