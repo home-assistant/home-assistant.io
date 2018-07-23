@@ -77,7 +77,7 @@ Note: if you already have an assistant installed and wish to replace it, start b
 
 ### {% linkable_title Running Snips %}
 
-Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Audio Configuration](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#configuring-the-audio).
+Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Audio Configuration](https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi#2-configuration).
 
 Start the Snips Voice Platform by starting the `snips-*` services:
 
@@ -97,7 +97,7 @@ As the Snips Platform parses this query into an intent, it will be published on 
 
 #### {% linkable_title Optional: specifying an external MQTT broker %}
 
-By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Using an external MQTT broker](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Miscellaneous#using-external-mqtt-broker) article.
+By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Using an external MQTT broker](https://snips.gitbook.io/documentation/advanced-configuration/platform-configuration) article.
 
 ## {% linkable_title Home Assistant configuration %}
 
