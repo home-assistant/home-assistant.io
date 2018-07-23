@@ -65,7 +65,7 @@ device_override:
 x10_devices:
   description: Define X10 devices to control or respond to
   required: false
-  type: map
+  type: list
   keys:
     HOUSECODE:
       description: is the X10 housecode values a - p
@@ -73,9 +73,14 @@ x10_devices:
       description: is the X10 unit code values 1 - 16
     PLATFORM:
       description: is the Home Assistant Platform to associate the device with. The following platforms are supported:
-                   - binary_sensor: Used for on/off devices or keypad buttons that are read only.
-                   - light: Used for dimmable X10 devices
-                   - switch: Used for On/Off X10 devices
+      type: string
+      keys:
+        binary_sensor:
+          description: Used for on/off devices or keypad buttons that are read only.
+        light:
+          description: Used for dimmable X10 devices
+        switch:
+          description: Used for On/Off X10 devices
     STEPS:
       description: is the number of dim/bright steps the device supports. Used for dimmable X10 devices only.
       default: 22
