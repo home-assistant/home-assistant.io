@@ -8,9 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: sense-hat.png
-ha_version: 0.44
 ha_category: Light
 ha_iot_class: "Assumed State"
+ha_release: 0.44
 ---
 
 The `sensehat` light platform lets you control the [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) board's 8x8 RGB LED matrix on your Raspberry Pi from within Home Assistant.
