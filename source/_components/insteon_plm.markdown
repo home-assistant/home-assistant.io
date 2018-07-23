@@ -10,22 +10,17 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Push"
-ha_version: 0.39
+ha_release: 0.39
 ---
 
-This component adds "local push" support for INSTEON PowerLinc Modems allowing
-linked INSTEON devices to be used within Home Assistant as lights, switches,
-and binary sensors.  Device support is provided by the underlying [insteonplm]
-package.  It is known to work with the [2413U] USB and [2412S] RS242 flavors
-of PLM and the [2448A7] USB stick.  This component does not work with the 
-IP-based hub products.  For that, you'll want the "Insteon (Local)" component 
-instead.
+This component adds "local push" support for INSTEON PowerLinc Modems allowing linked INSTEON devices to be used within Home Assistant as lights, switches, and binary sensors. Device support is provided by the underlying [insteonplm] package.  It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. This component does not work with the IP-based hub products. For that, you'll want the [Insteon local component](/components/insteon_local/) instead.
 
 [insteonplm]: https://github.com/nugget/python-insteonplm
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
 [2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
 
+## {% linkable_title Configuration %}
 
 ```yaml
 # insteon_plm supported configuration variables
@@ -46,78 +41,73 @@ insteon_plm:
   x10_all_lights_on: HOUSECODE
   x10_all_lights_off: HOUSECODE
 ```
-Configuration variables:
-- **port** (*Required*): The port for your device, e.g., `/dev/ttyUSB0`
-- **device_override** (*Optional*): Override the default device definition
-  - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
-  - *CATEGORY* is found in the back of the device's User Guide in the form of
-    0x00 - 0xff
-  - *SUBCATEGORY* is found in the back of the device's User Guide in the form 
-    of 0x00 - 0xff
-  - *FIRMWARE* and *PRODUCT_KEY* are more advanced options and will typically 
-    not be used.
-- **x10_devices** (*Optional*): Define X10 devices to control or respond to
-  - *HOUSECODE* is the X10 housecode values a - p
-  - *UNITCODE* is the X10 unit code values 1 - 16
-  - *PLATFORM* is the Home Assistant Platform to associate the device with. 
-    The following platforms are supported
-    - binary_sensor: Used for on/off devices or keypad buttons that are read only.
-    - light: Used for dimmable X10 devices
-    - switch: Used for On/Off X10 devices
-  - *STEPS* is the number of dim/bright steps the device supports. Used for
-    dimmable X10 devices only. Default value is 22.
-- **x10_all_units_off** (*Optional*): Creates an binary_sensor that responds
-  to the X10 standard command for All Units Off.
-- **x10_all_lights_on** (*Optional*):  Creates an binary_sensor that responds
-  to the X10 standard command for All Lights On
-- **x10_all_lights_off** (*Optional*): Creates an binary_sensor that responds
-  to the X10 standard command for All Lights Off
+
+{% configuration %}
+port:
+  description: The port for your device, e.g., `/dev/ttyUSB0`
+  required: true
+  type: string
+device_override:
+  description: Override the default device definition
+  required: false
+  type: list
+  keys:
+    ADDRESS:
+      description: is found on the device itself in the form 1A.2B.3C or 1a2b3c
+    CATEGORY:
+      description: is found in the back of the device's User Guide in the form of 0x00 - 0xff
+    SUBCATEGORY:
+      description: is found in the back of the device's User Guide in the form of 0x00 - 0xff
+    FIRMWARE:
+      description: is a more advanced option and will typically not be used.
+    PRODUCT_KEY:
+      description: is a more advanced option and will typically not be used.
+x10_devices:
+  description: Define X10 devices to control or respond to
+  required: false
+  type: map
+  keys:
+    HOUSECODE:
+      description: is the X10 housecode values a - p
+    UNITCODE:
+      description: is the X10 unit code values 1 - 16
+    PLATFORM:
+      description: is the Home Assistant Platform to associate the device with. The following platforms are supported:
+                   - binary_sensor: Used for on/off devices or keypad buttons that are read only.
+                   - light: Used for dimmable X10 devices
+                   - switch: Used for On/Off X10 devices
+    STEPS:
+      description: is the number of dim/bright steps the device supports. Used for dimmable X10 devices only.
+      default: 22
+x10_all_units_off:
+  description: Creates an binary_sensor that responds to the X10 standard command for All Units Off.
+  required: false
+x10_all_lights_on:
+  description: Creates an binary_sensor that responds to the X10 standard command for All Lights On
+  required: false
+x10_all_lights_off:
+  description: Creates an binary_sensor that responds to the X10 standard command for All Lights Off
+  required: false
+{% endconfiguration %}
 
 ### {% linkable_title Autodiscovery %}
 
-The first time autodiscovery runs, the duration may require up to 20 seconds 
-per device. Subsequent startups will occur much quicker using cached device
-information. If a device is not recognized during autodiscovery, you can add
-the device to the **device_override** configuration. 
+The first time autodiscovery runs, the duration may require up to 20 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, you can add the device to the **device_override** configuration.
 
-In order for a device to be discovered it must be linked to the PLM as either
-a responder or a controller. 
+In order for a device to be discovered it must be linked to the PLM as either a responder or a controller. 
 
 ### {% linkable_title Linking Devices to the PLM %}
 
-In order for any two Insteon devices to talk with one another, they must be 
-linked. For an overview of device linking please read the Insteon page on
-[understanding linking]. The Insteon PLM module supports All-Linking through 
-[Development Tools] service calls. The following services are available:
+In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon PLM module supports All-Linking through [Development Tools] service calls. The following services are available:
 
-In order for any two Insteon devices to talk with one another, they must be 
-linked. For an overview of device linking, please read the Insteon page on
-[understanding linking]. The Insteon PLM module supports All-Linking through 
-[Development Tools] service calls. The following services are available:
-- **insteon_plm.add_all_link**: Tells the Insteon Modem (IM) start All-Linking 
-mode. Once the IM is in All-Linking mode, press the link button on the device 
-to complete All-Linking.
-- **insteon_plm.delete_all_link**: Tells the Insteon Modem (IM) to remove an 
-All-Link record from the All-Link Database of the IM and a device. Once the IM 
-is set to delete the link, press the link button on the corresponding device 
-to complete the process.
-- **insteon_plm.load_all_link_database**: Load the All-Link Database for a 
-device. WARNING - Loading a device All-Link database is very time consuming 
-and inconsistent. This may take a LONG time and may need to be repeated to 
-obtain all records.
-- **insteon_plm.print_all_link_database**: Print the All-Link Database for a 
-device. Requires that the All-Link Database is loaded into memory.
-- **insteon_plm.print_im_all_link_database**: Print the All-Link Database for 
-the INSTEON Modem (IM).
+- **insteon_plm.add_all_link**: Tells the Insteon Modem (IM) start All-Linking mode. Once the IM is in All-Linking mode, press the link button on the device to complete All-Linking.
+- **insteon_plm.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the link button on the corresponding device to complete the process.
+- **insteon_plm.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database is very time consuming and inconsistent. This may take a LONG time and may need to be repeated to obtain all records.
+- **insteon_plm.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded into memory.
+- **insteon_plm.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
 
-If you are looking for more advanced options, you can use the 
-[insteonplm_interactive] command line tool that is distributed with the 
-[insteonplm] Python module. Please see the documentation on the [insteonplm] 
-GitHub site. Alternatively, you can download [HouseLinc] which runs on any 
-Windows PC, or you can use [Insteon Terminal] which is open source and runs 
-on most platforms. SmartHome no longer supports HouseLinc, but it still 
-works. Insteon Terminal is a very useful tool but please read the disclaimers 
-carefully, they are important.
+If you are looking for more advanced options, you can use the [insteonplm_interactive] command line tool that is distributed with the 
+[insteonplm] Python module. Please see the documentation on the [insteonplm] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: http://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 [Development Tools]: https://www.home-assistant.io/docs/tools/dev-tools/
@@ -127,31 +117,15 @@ carefully, they are important.
 
 ### {% linkable_title Customization %} 
 
-The only configuration item that is absolutely necessary is the port so that 
-Home Assistant can connect to the PLM. This will expose all the supported 
-INSTEON devices which exist in the modem’s ALL-Link database. However, devices 
-will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can 
-be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, 
-they’ll be added and removed from Home Assistant automatically.
+The only configuration item that is absolutely necessary is the port so that Home Assistant can connect to the PLM. This will expose all the supported INSTEON devices which exist in the modem’s ALL-Link database. However, devices will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, they’ll be added and removed from Home Assistant automatically.
 
-You can use the normal Home Assistant [device customization] section of your
-configuration to assign friendly names and special icons to your devices.  This
-is especially useful for setting device_class on your binary_sensor INSTEON
-devices.
-
-[device customization]: /getting-started/customizing-devices/
+You can use the normal Home Assistant [device customization](/getting-started/customizing-devices/) section of your configuration to assign friendly names and special icons to your devices. This is especially useful for setting device_class on your binary_sensor INSTEON devices.
 
 ### {% linkable_title Device Overrides %} 
 
-INSTEON devices are added to Home Assistant using the platform(s) that make the
-most sense given the model and features of the hardware. The features of the 
-INSTEON device are built into the Home Assistant platform. Changing the 
-platform is not recommended. There are two primary uses for the 
-**device_override** feature.
-- Devices that do not respond during autodiscovery. This is common for battery
-  operated devices.
-- Devices that have not been fully developed. This allows an unknown device to
-  be mapped to a device that operates similarly to another device.
+INSTEON devices are added to Home Assistant using the platform(s) that make the most sense given the model and features of the hardware. The features of the INSTEON device are built into the Home Assistant platform. Changing the platform is not recommended. There are two primary uses for the **device_override** feature.
+- Devices that do not respond during autodiscovery. This is common for battery operated devices.
+- Devices that have not been fully developed. This allows an unknown device to be mapped to a device that operates similarly to another device.
 
 ### {% linkable_title Example Configuration with Options%} 
 
@@ -176,10 +150,7 @@ insteon_plm:
 
 ### {% linkable_title What NOT to do %}
 
-Insteon PLM is a top level component and device discovery will identify 
-the Home Assistant platform the device belongs in. As such, do not 
-declare Insteon devices in other platforms. For example, this configuration
-will NOT work:
+Insteon PLM is a top level component and device discovery will identify the Home Assistant platform the device belongs in. As such, do not declare Insteon devices in other platforms. For example, this configuration will NOT work:
 
 ```yaml
 light:
