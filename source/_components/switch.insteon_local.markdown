@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Switch
-ha_version: 0.36
+ha_release: 0.36
 ---
 
 The `insteon_local` switch component lets you control your switches connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
