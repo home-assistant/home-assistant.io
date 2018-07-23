@@ -59,6 +59,43 @@ secondary_info:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Secial row Elements %}
+
+### {% linkable_title Weblink %}
+
+{% configuration %}
+type:
+  required: true
+  description: weblink
+  type: string
+name:
+  required: true
+  description: Link label.
+  type: string
+icon:
+  required: true
+  description: "Icon to display (e.g. `mdi:home`)"
+  type: string
+url:
+  required: true
+  description: "Website URL."
+  type: string
+{% endconfiguration %}
+
+### {% linkable_title Divider %}
+
+{% configuration %}
+type:
+  required: true
+  description: divider
+  type: string
+style:
+  required: false
+  description: Style the element using CSS.
+  type: object
+  default: "height: 1px, background-color: var(--secondary-text-color)"
+{% endconfiguration %}
+
 ## {% linkable_title Example %}
 
 ```yaml
@@ -72,4 +109,9 @@ secondary_info:
     - switch.decorative_lights
     - group.all_lights
     - group.all_locks
+    - type: divider
+    - type: weblink
+      name: Home Assistant
+      url: https://www.home-assistant.io/
+      icon: mdi:home-assistant
 ```
