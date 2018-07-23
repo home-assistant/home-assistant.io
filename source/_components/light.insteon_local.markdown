@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Insteon (Local) Light"
+title: "Insteon (local) Light"
 description: "Instructions on how to setup the Insteon Hub Lights locally within Home Assistant."
 date:  2016-12-18 08:00
 sidebar: true
@@ -11,6 +11,7 @@ logo: insteon.png
 ha_category: Light
 ha_version: 0.36
 ha_iot_class: "Local Push"
+redirect_from: /components/light.insteon_hub/
 ---
 
 The `insteon_local` light component lets you control your lights connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
