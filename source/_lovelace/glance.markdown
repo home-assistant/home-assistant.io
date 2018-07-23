@@ -60,10 +60,6 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
-icon:
-  required: false
-  description: Overwrites the entity's icon.
-  type: Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://materialdesignicons.com/cheatsheet)). Prefix name with `mdi:`, ie `mdi:home`.
 tap_action:
   required: false
   description: "Set to `toggle` or `turn-on` for direct actions."
