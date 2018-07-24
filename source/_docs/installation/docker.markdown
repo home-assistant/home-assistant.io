@@ -180,6 +180,12 @@ Then start the container with:
 $ docker-compose up -d
 ```
 
+To restart Home Assistant when you have changed configuration:
+
+```bash
+$ docker-compose restart
+```
+
 ### {% linkable_title Exposing Devices %}
 
 In order to use Z-Wave, ZigBbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
