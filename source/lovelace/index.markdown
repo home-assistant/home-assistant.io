@@ -45,6 +45,13 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 
 ```yaml
 title: My Awesome Home
+# Include external resources
+resources:
+  - url: /local/my-custom-card.js
+    type: js
+  - url: /local/my-webfont.css
+    type: css
+
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view
@@ -120,6 +127,6 @@ This is probably because your version of Firefox doesn't have custom components 
 
 ### Custom components don't load on my IOS device?
 
-This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript_version: latest` in your `configuration.yaml` under `frontend:`. 
+This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript_version: latest` in your `configuration.yaml` under `frontend:`.
 
 > Note: Enabling `latest` on IOS could cause automation and script editor to crash.
