@@ -61,6 +61,35 @@ secondary_info:
 
 ## {% linkable_title Secial Row Elements %}
 
+### {% linkable_title Call Service %}
+
+{% configuration %}
+type:
+  required: true
+  description: call-service
+  type: string
+name:
+  required: true
+  description: Main Label.
+  type: string
+icon:
+  required: true
+  description: "Icon to display (e.g. `mdi:home`)"
+  type: string
+action_name:
+  required: true
+  description: Button label.
+  type: string
+service:
+  required: true
+  description: "Service like `media_player.media_play_pause`"
+  type: string
+service_data:
+  required: true
+  description: The service data to use.
+  type: object
+{% endconfiguration %}
+
 ### {% linkable_title Weblink %}
 
 {% configuration %}
@@ -98,6 +127,8 @@ style:
 
 ## {% linkable_title Example %}
 
+Entity rows:
+
 ```yaml
 - type: entities
   title: Entities card sample
@@ -109,6 +140,22 @@ style:
     - switch.decorative_lights
     - group.all_lights
     - group.all_locks
+```
+
+Special rows:
+
+```yaml
+- type: entities
+  title: Entities card sample
+  show_header_toggle: true
+  entities:
+    - type: call-service
+      icon: mdi:power
+      name: Bed light
+      action_name: Toggle light
+      service: light.toggle
+      service_data:
+        entity_id: light.bed_light
     - type: divider
     - type: weblink
       name: Home Assistant
