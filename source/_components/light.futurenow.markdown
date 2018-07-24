@@ -11,9 +11,11 @@ logo: p5.png
 ha_category: Light
 ---
 
-Using [P5](http://www.p5.hu) FutureNow relay/dimmer units as Lights. Currently supports: 
+The `futurenow` light platform allows you to use [P5](http://www.p5.hu) FutureNow relay/dimmer units as lights. Currently supported units: 
 * [FutureNow FNIP-6x2AD](http://www.p5.hu/index.php/products/ethernet-modules/265-fnip-6x2ad) dimmer unit (outputs only)
 * [FutureNow FNIP-8x10A](http://www.p5.hu/index.php/products/ethernet-modules/263-fnip-8x10a) relay unit (outputs only)
+
+### {% linkable_title Configuration Sample %}
 
 To use your FutureNow units, add the following to your `configuration.yaml` file:
 
@@ -43,9 +45,35 @@ light:
         name: Relay Channel 2
 ```
 
-Configuration variables, all required:
-
-- **driver**: Type of the device. Currently `FNIP6x10ad` or `FNIP8x10a`.
-- **host**: Network host/ip of the device (static IP required).
-- **port**: TCP communication port (default is 7078).
-- **devices**: List of devices, organised by their channel number, specified by `name`. Optionally set `dimmable: 1` to channel to enable dimming (only FNIP6x10ad unit).
+{% configuration %}
+driver:
+  description: "Type of the device. Currently `FNIP6x10ad` or `FNIP8x10a`."
+  required: true
+  type: string
+host:
+  description: "The IP address or hostname of your unit, e.g., `192.168.1.101`."
+  required: true
+  type: string
+port:
+  description: "The TCP port, as set in the unit's settings. Default is `7078`."
+  required: true
+  type: string
+devices:
+  description: "List of output channels to set up as lights."
+  required: true
+  type: map
+  keys:
+    channel_number:
+      description: "Output's (light) properties."
+      required: true
+      type: map
+      keys:
+        name:
+          description: "The name of the light."
+          required: true
+          type: string
+        dimmable:
+          description: "Set to `1` to enable dimming (FNIP6x10ad only)."
+          required: false
+          type: int
+{% endconfiguration %}
