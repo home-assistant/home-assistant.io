@@ -292,8 +292,8 @@ Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS
 
 ```yaml
 state_filter: 
-  'on': brightness(110%) saturate(1.2)
-  'off': brightness(50%) hue-rotate(45deg)
+  "on": brightness(110%) saturate(1.2)
+  "off": brightness(50%) hue-rotate(45deg)
 ```
 
 ## {% linkable_title Example %}
@@ -324,7 +324,7 @@ state_filter:
       style:
         top: 95%
         left: 60%
-      service: light.turn_off
+      service: homeassistant.turn_off
       service_data:
         entity_id: group.all_lights
     - type: icon
@@ -333,9 +333,7 @@ state_filter:
       navigation_path: /lovelace/0
       style:
         top: 10%
-        left: 10%
-      
-       
+        left: 10%       
 ```
 
 ## {% linkable_title Images Example %}
@@ -350,10 +348,10 @@ state_filter:
       tap_action: toggle
       image: /local/living_room.png
       state_image: 
-        'off': /local/living_room_off.png
+        "off": /local/living_room_off.png
       filter: saturate(.8)
       state_filter:
-        'on': brightness(120%) saturate(1.2)
+        "on": brightness(120%) saturate(1.2)
        style: 
          top: 25%
          left: 75%
