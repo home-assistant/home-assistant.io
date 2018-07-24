@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: brunt.png
 ha_category: Cover
-ha_release: 0.74
+ha_release: 0.75
 ha_iot_class: "Cloud Polling"
 ---
 
