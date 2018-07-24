@@ -47,6 +47,13 @@ I'm happy to announce that this release introduces support for Tuya thanks to [@
 - Add Cloudflare DNS component. ([@ludeeus] - [#15388]) ([cloudflare docs]) (new-platform)
 - Add HomematicIP alarm control panel ([@mxworm] - [#15342]) ([alarm_control_panel docs]) ([homematicip_cloud docs]) ([alarm_control_panel.homematicip_cloud docs]) (new-platform)
 
+## {% linkable_title Release 0.74.1 - July 24 %}
+
+- Bugfix HomeKit name and serial_number ([@cdce8p] - [#15600]) ([homekit docs])
+- Use case insensitive comparison for Sonos model check ([@amelchio] - [#15604]) ([media_player.sonos docs])
+- Frontend component should auto load auth coomponent ([@awarecan] - [#15606]) ([frontend docs])
+- Cast/Sonos: create config entry if manually configured ([@balloob] - [#15630]) ([cast docs]) ([sonos docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -401,3 +408,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [watson_iot docs]: /components/watson_iot/
 [weather.openweathermap docs]: /components/weather.openweathermap/
 [websocket_api docs]: /components/websocket_api/
+[#15600]: https://github.com/home-assistant/home-assistant/pull/15600
+[#15604]: https://github.com/home-assistant/home-assistant/pull/15604
+[#15606]: https://github.com/home-assistant/home-assistant/pull/15606
+[#15630]: https://github.com/home-assistant/home-assistant/pull/15630
+[@amelchio]: https://github.com/amelchio
+[@awarecan]: https://github.com/awarecan
+[@balloob]: https://github.com/balloob
+[@cdce8p]: https://github.com/cdce8p
+[cast docs]: /components/cast/
+[frontend docs]: /components/frontend/
+[homekit docs]: /components/homekit/
+[media_player.sonos docs]: /components/media_player.sonos/
+[sonos docs]: /components/sonos/
