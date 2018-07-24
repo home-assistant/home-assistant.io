@@ -17,7 +17,7 @@ The `tuya` scene platform allows you to activate your [Tuya Smart](https://www.t
 
 The platform supports scenes.
 
-The devices state in panel will not change immediately after you activate scene.
+The device state in frontend panel will not change immediately after you activate a scene.
 
 <p class='note'>
 Full configuration details can be found on the main [Tuya component](/components/tuya/) page.
