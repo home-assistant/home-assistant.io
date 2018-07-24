@@ -57,4 +57,4 @@ units:
       description: Metric (Celsius, meters, cm/s) units.
     english:
       description: English (fahrenheit, feet, knots) units.
-{% endconfiguration %}sensor.noaa_tides.markdown
+{% endconfiguration %}
