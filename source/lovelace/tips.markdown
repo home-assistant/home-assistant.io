@@ -31,9 +31,11 @@ this tool is to help give you something to start playing with right away.
 The [Lovelace Config Generator][config-generator] by [@thomasloven] provides
 you with the ability to split your Lovelace configuration into multiple files.
 
-*Note: Split configuration is currently possible directly in Lovelace, but it
-is expected to be removed in the near future due to fact that Home Assistant
-will be writing directly to the `ui-lovelace.yaml` file.*
+<p class='note'>
+  Split configuration is currently possible directly in Lovelace, but it
+  is expected to be removed in the near future due to fact that Home Assistant
+  will be writing directly to the `ui-lovelace.yaml` file.
+</p>
 
 ## {% linkable_title Tips and Tricks %}
 
