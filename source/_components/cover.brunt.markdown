@@ -13,11 +13,11 @@ ha_release: 0.75
 ha_iot_class: "Cloud Polling"
 ---
 
-The `brunt` platform allows one to control Blind Engines by [Brunt](https://www.brunt.co). To use this sensor, you need a Brunt App Account. Automatically all Brunt devices registered to your account are added.
+The `brunt` platform allows one to control Blind Engines by [Brunt](https://www.brunt.co). To use this sensor, you need a Brunt App Account. All Brunt Blind devices registered to your account are automatically added to your Home Assistant with the names given them through the Brunt app.
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 cover:
