@@ -39,8 +39,7 @@ Verify your `alpr` installation with:
 $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
-### {% linkable_title Configuration Home Assistant %}
-
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,12 +49,33 @@ image_processing:
    source:
     - entity_id: camera.garage
 ```
-Configuration variables:
 
-- **region** (*Required*): Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
-- **alpr_bin** (*Optional*): The command line tool alpr from OpenALPR software for local processing. Defaults to `alpr`.
-- **confidence** (*Optional*):  The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
-- **source** array (*Required*): List of image sources.
-  - **entities** (*Required*): A list of devices to add in Home Assistant.
-  - **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
-
+{% configuration %}
+region:
+  description: Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
+  required: true
+  type: string
+alpr_bin:
+  description: The command line tool alpr from OpenALPR software for local processing.
+  required: false
+  type: string
+  default: `alpr`
+confidence:
+  description: The minimum of confidence in percent to process with Home Assistant.
+  required: false
+  type: int
+  default: 80
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your OpenALPR entity.
+      required: false
+      type: string
+{% endconfiguration %}
