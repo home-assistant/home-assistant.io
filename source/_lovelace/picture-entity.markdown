@@ -56,6 +56,8 @@ tap_action:
 
 ## {% linkable_title Examples %}
 
+Create a directory named www in the directory where you keep your yaml-files. Then store the pictures in this newly created directory and try the code below.
+
 Basic example:
 
 ```yaml
