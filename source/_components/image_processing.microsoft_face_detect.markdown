@@ -19,7 +19,7 @@ Please refer to the [component](/components/microsoft_face/) configuration on ho
 
 For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 
-### {% linkable_title Configuration Home Assistant %}
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,10 +29,28 @@ image_processing:
       - entity_id: camera.door
 ```
 
-Configuration variables:
-
-- **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
-- **source** array (*Required*): List of image sources.
-  - **entity_id** (*Required*): A camera entity id to get picture from.
-  - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
-- **attributes** array (*Optional*): The image search attributes. Supported: `age`, `gender`, `glasses`. Default `age`, `gender`.
+{% configuration %}
+confidence:
+  description: The minimum of confidence in percent to process with Home Assistant.
+  required: false
+  type: int
+  default: 80
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your `image_processing` entity.
+      required: false
+      type: string
+attributes:
+  description: The image search attributes. Supported: `age`, `gender`, `glasses`.
+  required: false
+  type: list
+  default:  `age`, `gender`
+{% endconfiguration %}
