@@ -25,11 +25,21 @@ microsoft_face:
   azure_region: eastus2
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): The API key for your Cognitive resource.
-- **azure_region** (*Optional*): The region where you instantiated your Microsoft Cognitive services endpoint
-- **timeout** (*Optional)*: Set timeout for the API connection. Defaults to 10s.
+{% configuration %}
+api_key:
+  description: The API key for your Cognitive resource.
+  required: true
+  type: string
+azure_region:
+  description: The region where you instantiated your Microsoft Cognitive services endpoint.
+  required: false
+  type: string
+timeout:
+  description: Set timeout for the API connection.
+  required: false
+  type: time
+  default: 10s
+{% endconfiguration %}
 
 ### {% linkable_title Person and Groups %}
 
