@@ -52,5 +52,5 @@ attributes:
   description: "The image search attributes. Supported: `age`, `gender`, `glasses`."
   required: false
   type: list
-  default: "`age`, `gender`"
+  default: [age, gender]
 {% endconfiguration %}
