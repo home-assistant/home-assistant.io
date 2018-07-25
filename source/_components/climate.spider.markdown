@@ -24,5 +24,5 @@ Although this component lets you change the operation mode to heating or cooling
 </p>
 
 <p class='note warning'>
-This component is not affiliated with Itho Daalderop Spider and retrieves date from the endpoints of the mobile application. Use at your own risk.
+This component is not affiliated with Itho Daalderop Spider and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </p>
