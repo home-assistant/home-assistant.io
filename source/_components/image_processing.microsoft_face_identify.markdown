@@ -30,10 +30,27 @@ image_processing:
       - entity_id: camera.door
 ```
 
-Configuration variables:
-
-- **group** (*Required*): Micrsoft face group to detect person from it.
-- **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
-- **source** array (*Required*): List of image sources.
-  - **entity_id** (*Required*): A camera entity id to get picture from.
-  - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
+{% configuration %}
+group:
+  description: Micrsoft face group to detect person from it.
+  required: true
+  type: string
+confidence:
+  description: The minimum of confidence in percent to process with Home Assistant.
+  required: false
+  type: int
+  default: 80
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your `image_processing` entity.
+      required: false
+      type: string
+{% endconfiguration %}
