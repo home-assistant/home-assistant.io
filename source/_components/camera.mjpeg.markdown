@@ -46,7 +46,7 @@ password:
   required: false
   type: string
 authentication:
-  description: `basic` or `digest` auth for requests.
+  description: "`basic` or `digest` auth for requests."
   required: false
   type: string
   default: basic
