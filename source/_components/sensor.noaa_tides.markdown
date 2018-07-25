@@ -26,7 +26,7 @@ sensor:
 ```
 
 {% configuration %}
-station_id
+station_id:
   description: ID of the station you'd like to track from https://tidesandcurrents.noaa.gov/tide_predictions.html.
   required: true
   type: string
