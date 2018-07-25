@@ -19,4 +19,4 @@ The `nest` platform allows you to watch still frames from a video stream (not li
 You must have the [Nest component](/components/nest/) configured to use this camera.  The `nest` camera will automatically be setup when you do.
 </p>
 
-Nest Camera support `camera.turn_on` and `camera.turn_off` service since 0.75 release
+Nest Camera supports `camera.turn_on` and `camera.turn_off` service since 0.75 release.
