@@ -58,10 +58,10 @@ network_key:
   type: string
   default: None
 config_path:
-  description: The path to the Python OpenZWave configuration files.
+  description: The path to the Python OpenZWave configuration files. NOTE: there is also the [update_config service](https://www.home-assistant.io/docs/z-wave/services/) to perform updating this within python-openzwave automatically.
   required: false
   type: string
-  default: the 'config' that is installed by python-openzwave, note there is also a [service](https://www.home-assistant.io/docs/z-wave/services/) to perform updating this config
+  default: the 'config' that is installed by python-openzwave
 autoheal:
   description: Allows disabling auto Z-Wave heal at midnight.
   required: false
