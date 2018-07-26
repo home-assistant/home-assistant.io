@@ -23,17 +23,27 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: html5
+  - platform: html5
+    name: NOTIFIER_NAME
     gcm_api_key: 'gcm-server-key'
     gcm_sender_id: 'gcm-sender-id'
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **gcm_api_key** (*Required if pushing to Chrome*): The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
-- **gcm_sender_id** (*Required if pushing to Chrome*): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  type: string
+  default: `notify`
+gcm_api_key:
+  description: The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+  required: true
+  type: string
+gcm_sender_id:
+  description: The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Getting ready for Chrome %}
 
