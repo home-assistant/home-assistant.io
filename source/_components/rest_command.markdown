@@ -39,10 +39,11 @@ Configuration variables:
   - **timeout** (*Optional*): Timeout for requests. Defaults to 10 seconds.
   - **content_type** (*Optional*): Content type for the request.
 
-The commands can be dynamic, using templates to insert values of other entities. 
-Service call support variables for template stuff.
+## {% linkable_title Examples %}
 
+The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 rest_command:
@@ -55,18 +56,17 @@ rest_command:
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
 ```
+{% endraw %}
 
-In this example entry, you can see some simple [templates] in use for dynamic parameters.
+In this example entry, you can see some simple [templates](/docs/configuration/templating/) in use for dynamic parameters.
 
-[templates]: /docs/configuration/templating/
-
-Call the new service from [developer tools] in the sidebar with some `data` like:
-
-[developer tools]: /docs/tools/dev-tools/
+Call the new service from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
 ```json
-{"status":"My Status Goes Here",
-"emoji":":plex:"}
+{
+  "status":"My Status Goes Here",
+  "emoji":":plex:"
+}
 ```
 Or in an example `automation`
 
