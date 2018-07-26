@@ -34,6 +34,10 @@ password:
   description: Account password of mijn.ithodaalderop.nl
   required: true
   type: string
+scan_interval:
+  description: How frequently to query for new data. Defaults to 120 seconds.
+  required: false
+  type: int
 {% endconfiguration %}
 
 <p class='note warning'>
