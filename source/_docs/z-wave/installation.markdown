@@ -61,7 +61,7 @@ config_path:
   description: The path to the Python OpenZWave configuration files.
   required: false
   type: string
-  default: the 'config' that is installed by python-openzwave
+  default: the 'config' that is installed by python-openzwave, note there is also a [service](https://www.home-assistant.io/docs/z-wave/services/) to perform updating this config
 autoheal:
   description: Allows disabling auto Z-Wave heal at midnight.
   required: false
