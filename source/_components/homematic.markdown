@@ -169,7 +169,7 @@ You can test whether your button works within Home Assistant if you look at the 
 
 It may happen that "your_nice_name" is not resolved correctly; the according message (#2 in the above example) will be missing. This might be due to secure communication between your HM interface and the HM device. You can change the communication from "secure" to "standard" within your HM-interface to solve that issue (in "Einstellungen" - "Geräte" find your device and change "Übertragungsmodus" from secure to standard) - not recommended for devices that should have secure communication.
 
-#### {% `homematic.keypress` events for HomeMatic IP devices %}
+#### {% linkable_title `homematic.keypress` events for HomeMatic IP devices %}
 
 To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / WRC6 (wall switch) or SPDR (passage sensor) you have to temporary create an empty program for each channel in the CCU:
 
