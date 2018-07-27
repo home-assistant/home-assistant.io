@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: p5.png
 ha_category: Light
+ha_release: 0.75
 ---
 
 The `futurenow` light platform allows you to use [P5](http://www.p5.hu) FutureNow relay/dimmer units as lights. Currently supported units: 
@@ -29,20 +30,7 @@ light:
     devices:
       5:
         name: Dimmer Channel 5
-        dimmable: 1
-      6:
-        name: Dimmer Channel 6
-        dimmable: 1
-
-  - platform: futurenow
-    driver: FNIP8x10a
-    host: 192.168.1.102
-    port: 7078
-    devices:
-      1:
-        name: Relay Channel 1
-      2:
-        name: Relay Channel 2
+        dimmable: true
 ```
 
 {% configuration %}
@@ -73,7 +61,37 @@ devices:
           required: true
           type: string
         dimmable:
-          description: "Set to `1` to enable dimming (FNIP6x10ad only)."
+          description: "Set to `true` to enable dimming (FNIP6x10ad only)."
           required: false
-          type: int
+          type: boolean
+          default: false
 {% endconfiguration %}
+
+### {% linkable_title Extended Configuration Sample %}
+
+The following example `configuration.yaml` has two different FutureNow units with multiple channels:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: futurenow
+    driver: FNIP6x10ad
+    host: 192.168.1.101
+    port: 7078
+    devices:
+      5:
+        name: Dimmer Channel 5
+      6:
+        name: Dimmer Channel 6
+        dimmable: true
+
+  - platform: futurenow
+    driver: FNIP8x10a
+    host: 192.168.1.102
+    port: 7078
+    devices:
+      1:
+        name: Relay Channel 1
+      2:
+        name: Relay Channel 2
+```
