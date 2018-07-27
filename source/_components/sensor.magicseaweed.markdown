@@ -63,11 +63,11 @@ hour:
     12AM:
       description: Display forecast for 12AM.
 spot_id:
-  description: Surf spot ID to monitor surf forecast of.Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
+  description: ID of the surf spot. Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
   required: true
   type: string
 monitored_conditions:
-  description: Conditions to display in the frontend.
+  description: Type of data to display.
   required: true
   type: list
   keys:
