@@ -74,7 +74,9 @@ sensor:
     type: [int, list]
     default: 0
   manual:
-    description: `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests.
+    description: >
+      "`true` or `false` to turn manual mode on or off.
+      Manual mode will disable scheduled speed tests."
     required: false
     type: boolean
     default: false
