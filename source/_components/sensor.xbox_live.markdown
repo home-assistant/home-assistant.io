@@ -31,7 +31,13 @@ sensor:
       - account2
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your API key from [XboxAPI.com](http://xboxapi.com).
-- **xuid** (*Required*): Array of profile XUIDs to be tracked.
+{% configuration %}
+api_key:
+  description: Your API key from [XboxAPI.com](http://xboxapi.com).
+  required: true
+  type: string
+xuid:
+  description: Array of profile XUIDs to be tracked.
+  required: true
+  type: list
+{% endconfiguration %}
