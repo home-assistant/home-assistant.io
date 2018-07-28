@@ -33,12 +33,24 @@ joaoapps_join:
     api_key: asd97823jb628a34fwsdfwefd5384345tf2d
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): The API key for Join.
-- **device_id** (*Optional*): The id of your device.
-- **device_ids** (*Optional*): Comma separated list of device ids.
-- **device_names** (*Optional*): Comma separated list of device names.
+{% configuration %}
+api_key:
+  description: The API key for Join.
+  required: true
+  type: string
+device_id:
+  description: The id of your device.
+  required: false
+  type: string
+device_ids:
+  description: Comma separated list of device ids.
+  required: false
+  type: list
+device_names:
+  description: Comma separated list of device names.
+  required: false
+  type: list
+{% endconfiguration %}
 
 The notify service has two optional parameters: `icon` and `vibration`. You can use them like so:
 
