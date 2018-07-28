@@ -13,12 +13,9 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform can create covers that combine components and provides
-the ability to run scripts or invoke services for each of the open, close,
-stop, position, and tilt commands of a cover.
+The `template` platform can create covers that combine components and provides the ability to run scripts or invoke services for each of the open, close, stop, position, and tilt commands of a cover.
 
-To enable Template Covers in your installation, add the following to your
-`configuration.yaml` file:
+To enable Template Covers in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -87,12 +84,12 @@ cover:
       optimistic:
         description: Force cover position to use [optimistic mode](#optimistic-mode).
         required: false
-        type: bool
+        type: boolean
         default: false
       tilt_optimistic:
         description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
         required: false
-        type: bool
+        type: boolean
         default: false
       tilt_template:
         description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
@@ -102,27 +99,16 @@ cover:
 
 ## {% linkable_title Considerations %}
 
-If you are using the state of a platform that takes extra time to load, the
-Template Cover may get an `unknown` state during startup. This results
-in error messages in your log file until that platform has completed loading.
+If you are using the state of a platform that takes extra time to load, the Template Cover may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
 {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
-with this equivalent that returns `true`/`false` and never gives an unknown
-result:
+with this equivalent that returns `true`/`false` and never gives an unknown result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
 ## {% linkable_title Optimistic Mode %}
 
-In optimistic mode, the cover position state is maintained internally. This
-mode is automatically enabled if neither [`value_template`](#value_template) or
-[`position_template`](#position_template) are specified. Note that this is
-unlikely to be very reliable without some feedback mechanism, since there is
-otherwise no way to know if the cover is moving properly. The cover can be
-forced into optimistic mode by using the [`optimistic`](#optimistic)
-attribute. There is an equivalent mode for `tilt_position` that is enabled
-when [`tilt_template`](#tilt_template) is not specified or when the
-[`tilt_optimistic`](#tilt_optimistic) attribute is used.
+In optimistic mode, the cover position state is maintained internally. This mode is automatically enabled if neither [`value_template`](#value_template) or [`position_template`](#position_template) are specified. Note that this is unlikely to be very reliable without some feedback mechanism, since there is otherwise no way to know if the cover is moving properly. The cover can be forced into optimistic mode by using the [`optimistic`](#optimistic) attribute. There is an equivalent mode for `tilt_position` that is enabled when [`tilt_template`](#tilt_template) is not specified or when the [`tilt_optimistic`](#tilt_optimistic) attribute is used.
 
 ## {% linkable_title Examples %}
 
@@ -130,8 +116,7 @@ In this section you will find some real life examples of how to use this cover.
 
 ### {% linkable_title Garage Door %}
 
-This example converts a garage door with a controllable switch and position
-sensor into a cover.
+This example converts a garage door with a controllable switch and position sensor into a cover.
 
 {% raw %}
 ```yaml
