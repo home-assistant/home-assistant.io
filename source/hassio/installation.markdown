@@ -24,7 +24,7 @@ Hass.io images are available for:
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer.
 </p>
 
-- Flash the downloaded image to an SD card using [Etcher].
+- Flash the downloaded image to an SD card using [Etcher]. We recommend at least a 16 GB SD card, and if you intend on using more than a few add-ons then at least 32 GB.
 
 - Optional - Setup the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 - Insert the SD card (and optional USB stick) into the Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
