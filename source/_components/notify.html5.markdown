@@ -34,7 +34,7 @@ name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
   type: string
-  default: "`notify`"
+  default: notify
 gcm_api_key:
   description: The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
   required: true
