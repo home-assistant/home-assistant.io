@@ -29,7 +29,7 @@ name:
   description: Additional name for the sensors.
   required: false
   type: string
-  default: "`yr`"
+  default: yr
 forecast:
   description: If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
   required: false
