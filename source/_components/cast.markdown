@@ -47,6 +47,7 @@ media_player:
 {% endconfiguration %}
 
 If you want to manually configure multiple Cast media players, you can define those as follows:
+
 ```yaml
 # Example configuration.yaml entry for multiple devices
 cast:
