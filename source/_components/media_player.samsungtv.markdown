@@ -27,13 +27,30 @@ media_player:
     host: 192.168.0.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the Samsung Smart TV, eg. `192.168.0.10`.
-- **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 55000. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).
-- **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
-- **timeout** (*Optional*): The time-out in seconds for the communication with the TV. Defaults to 0 (no timeout).
-- **mac** (*Optional*): The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan.
+{% configuration %}
+host:
+  description: The IP of the Samsung Smart TV, eg. `192.168.0.10`.
+  required: true
+  type: string
+port:
+  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).
+  required: false
+  type: int
+  default: 55000
+name:
+  description: The name you would like to give to the Samsung Smart TV.
+  required: false
+  type: string
+timeout:
+  description: The timeout for communication with the TV in seconds.
+  required: false
+  type: time
+  default: 0 (no timeout)
+mac:
+  description: The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Currently known supported models:
 
