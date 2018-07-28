@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "LG WebOS TV notifications"
-description: "Instructions on how to integrate a LG WebOS TV within Home Assistant."
+title: "LG webOS TV notifications"
+description: "Instructions on how to integrate a LG webOS TV within Home Assistant."
 date: 2016-04-18 23:24
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.18
 ---
 
-The `webostv` platform allows you to send notifications to a LG WebOS Smart TV.
+The `webostv` platform allows you to send notifications to a LG webOS Smart TV.
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
@@ -30,15 +30,15 @@ notify:
 
 {% configuration %}
 host:
-  description: The IP of the LG WebOS Smart TV, e.g., 192.168.0.10
+  description: The IP of the LG webOS Smart TV, e.g., 192.168.0.10
   required: true
   type: string
 name:
-  description: The name you would like to give to the LG WebOS Smart TV.
+  description: The name you would like to give to the LG webOS Smart TV.
   required: true
   type: string
 filename:
-  description: The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory.
+  description: The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file.
   required: false
   type: string
   default: webostv.conf
