@@ -24,7 +24,7 @@ Hass.io images are available for:
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer.
 </p>
 
-- Flash the downloaded image to an SD card using [Etcher] - we recommend at least a 32 GB SD card.
+- Flash the downloaded image to an SD card using [Etcher][etcher] - we recommend at least a 32 GB SD card.
 
 - Optional - Setup the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 - Insert the SD card (and optional USB stick) into the Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
@@ -38,9 +38,9 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
 </p>
 
-<p class='note'>
+### {% linkable_title Migrating from a non-Hass.io install %}
+
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
-</p>
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
@@ -65,13 +65,11 @@ To perform the Hass.io installation, run the following command as root:
 $ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
 ```
 
-<p class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
-</p>
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
 
-[Etcher]: https://etcher.io/
+[etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi0-w-1.7.img.gz
