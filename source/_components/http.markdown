@@ -46,7 +46,7 @@ base_url:
   description: "The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app."
   required: false
   type: string
-  default: *the local IP address*
+  default: "*the local IP address*"
 ssl_certificate:
   description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
   required: false
