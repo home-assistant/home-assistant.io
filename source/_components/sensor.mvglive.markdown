@@ -36,6 +36,7 @@ Configuration variables:
   - **lines** (*Optional*): One or more line numbers, e.g., 'U2' or ['U2','U8','N41']
   - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
+  - **number** (*Optional*): Store a list of departures in the attribute "departures", defaults to 1. If you set this parameter to 3, the next three departures will be stored. 
   - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
 ## {% linkable_title Examples %}
 
@@ -55,8 +56,11 @@ sensor:
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
+       number: 5
      - station: Scheidplatz
        products: ['U-Bahn']
        directions: '1'
 ```
-The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away. The second sensor returns U2 and U8 departures from Sendlinger Tor while the third sensor returns all south-bound U-Bahn trains from Scheidplatz.
+The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away. 
+The second sensor returns U2 and U8 departures from Sendlinger Tor and stores a total of 5 departures in attributes. To retrieve the time until the second departure, you would use states.sensor.entiy_name.attributes.departures[1].time.
+The third sensor returns all south-bound U-Bahn trains from Scheidplatz.
