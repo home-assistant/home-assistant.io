@@ -41,7 +41,7 @@ filename:
   description: The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory.
   required: false
   type: string
-  default: `webostv.conf`
+  default: "`webostv.conf`"
 icon:
   description: The path to an image file to use as the icon in notifications.
   required: false
