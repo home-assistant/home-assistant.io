@@ -33,6 +33,7 @@ auto_setup:
   description: True to have IHC products auto setup.
   required: false
   type: boolean
+  default: True
 info:
   description: If True additional IHC info will be shown on each component.
   required: false
@@ -64,11 +65,10 @@ There is currently support for the following device types within Home Assistant:
 ### Auto setup of IHC products
 
 If the auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant.
-To disable this set auto_setup to False. (Auto setup is on by default)
-See the individual device types for a list of IHC products to be recognized automatically.
+To disable this set auto_setup to False. See the individual device types for a list of IHC products to be recognized automatically.
 
 Components will get a default name that is a combination of the IHC group and IHC resource id.
-If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/)
+If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/).
 
 ### {% linkable_title Manual setup %}
 
