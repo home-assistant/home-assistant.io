@@ -165,9 +165,9 @@ sensor:
 {% endraw %}
 
 
-### {% linkable_title Usage of json_attributes in `command:` %}
+### {% linkable_title Usage of JSON attributes in command output %}
 
-The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using value_json and json_attributes.
+The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using `value_json` and `json_attributes`.
 
 {% raw %}
 ```yaml
