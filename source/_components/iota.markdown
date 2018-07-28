@@ -34,8 +34,8 @@ iri:
 testnet:
   description: Flag for indicating "testnet".
   required: false
+  type: boolean
   default: false
-  type: bool
 wallets:
   description: List of IOTA wallets.
   required: true
