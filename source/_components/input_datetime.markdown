@@ -46,13 +46,13 @@ input_datetime:
       has_time:
         description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
         required: false
-        type: Boolean
-        default: false
+        type: boolean
+        default: False
       has_date:
         description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
         required: false
-        type: Boolean
-        default: false
+        type: boolean
+        default: False
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
