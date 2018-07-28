@@ -47,7 +47,7 @@ verify_ssl:
   description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
   required: false
   type: [string, boolean]
-  default: true
+  default: True
 username:
   description: "The username of an user with administrative privileges, usually *admin*."
   required: true
