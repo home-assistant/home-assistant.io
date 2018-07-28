@@ -12,7 +12,6 @@ ha_category: Presence Detection
 ha_release: pre 0.7
 ---
 
-
 The `tomato` platform requires an extra config variable called `http_id`. The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
 
 Because of a limitation in Tomato's API, this platform will only track wireless devices. If tracking wired devices like a Philips Hue Hub is necessary, it is possible to use another platform like [NMAP](/components/device_tracker.nmap_tracker/).
@@ -42,12 +41,12 @@ port:
 ssl:
   description: "Whether to connect via `https`."
   required: false
-  type: bool
-  default: false
+  type: boolean
+  default: False
 verify_ssl:
   description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
   required: false
-  type: [string, bool]
+  type: [string, boolean]
   default: true
 username:
   description: "The username of an user with administrative privileges, usually *admin*."
