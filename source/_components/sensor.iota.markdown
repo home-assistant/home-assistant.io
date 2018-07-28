@@ -19,4 +19,3 @@ Available sensors:
 
 - Wallet balance
 - Node information
-
