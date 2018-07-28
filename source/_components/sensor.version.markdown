@@ -13,7 +13,6 @@ logo: home-assistant.png
 ha_release: 0.52
 ---
 
-
 The `version` sensor platform is displaying the current version of Home Assistant in the frontend.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
@@ -24,9 +23,13 @@ sensor:
   - platform: version
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name of the sensor. Defaults to `Current Version`.
+{% configuration %}
+name:
+  description: Name of the sensor.
+  required: false
+  type: string
+  default: Current Version
+{% endconfiguration %}
 
 ## {% linkable_title Alternatives %}
 
