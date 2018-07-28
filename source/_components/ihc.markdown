@@ -32,11 +32,11 @@ ihc:
 auto_setup:
   description: True to have IHC products auto setup.
   required: false
-  type: bool
+  type: boolean
 info:
   description: If True additional IHC info will be shown on each component.
   required: false
-  type: bool
+  type: boolean
 password:
   description: The password for the IHC Controller.
   required: true
