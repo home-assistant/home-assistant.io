@@ -34,15 +34,34 @@ media_player:
   - platform: webostv
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP of the LG webOS Smart TV, e.g., `192.168.0.10`.
-- **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
-- **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
-- **timeout** (*Optional*): The timeout for connections to the TV in seconds.
-- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`. **NOTE**: When using multiple TVs each TV will need its own unique file.
-- **customize** array (*Optional*): List of options to customize.
-  - **sources** array (*Optional*): List of hardware and webOS App inputs.
+{% configuration %}
+host:
+  description: "The IP of the LG webOS Smart TV, e.g., `192.168.0.10`."
+  required: false
+  type: string
+name:
+  description: The name you would like to give to the LG webOS Smart TV.
+  required: false
+  type: string
+filename:
+  description: The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file.
+  required: false
+  type: string
+  default: webostv.conf
+turn_on_action:
+  description: Defines an [action](/docs/automation/action/) to turn the TV on.
+  required: false
+  type: string
+customize:
+  description: List of options to customize.
+  required: false
+  type: map
+  keys:
+    sources:
+      description: List of hardware and webOS App inputs.
+      required: false
+      type: list
+{% endconfiguration %}
 
 If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
 
@@ -56,8 +75,8 @@ media_player:
   - platform: webostv
     host: 192.168.0.10
     name: Living Room TV
-    timeout: 5
     filename: webostv.conf
+    timeout: 5
     turn_on_action:
       service: persistent_notification.create
       data:
