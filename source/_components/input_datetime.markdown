@@ -48,17 +48,23 @@ input_datetime:
         required: false
         type: String
       has_time:
-        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        description: >
+          "Set to `true` if the input should have a time.
+          At least one `has_time` or `has_date` must be defined."
         required: false
         type: boolean
         default: false
       has_date:
-        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        description: >
+          "Set to `true` if the input should have a date.
+          At least one `has_time` or `has_date` must be defined."
         required: false
         type: boolean
         default: false
       initial:
-        description: Set the initial value of this input, depending on `has_time` and `has_date`.
+        description: >
+          "Set the initial value of this input,
+          depending on `has_time` and `has_date`."
         required: false
         type: datetime | time | date
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00

@@ -83,7 +83,7 @@ ip_ban_enabled:
   description: Flag indicating whether additional IP filtering is enabled.
   required: false
   type: boolean
-  default: False
+  default: false
 login_attempts_threshold:
   description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is true. By default it will not add new automatic bans."
   required: false

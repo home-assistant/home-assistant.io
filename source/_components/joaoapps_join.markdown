@@ -75,11 +75,11 @@ You can use them like so:
 The services exposed in the `joaoapps_join` component can be used with the
 service data described below:
 
-| Service                       | Data                                                              |
-|------------------------------ |------------------------------------------------------------------ |
-| joaoapps_join/ring            |                                                                   |
-| joaoapps_join/send_sms        | `{"number":"5553334444", "message":"Hello!"}`                       |
-| joaoapps_join/send_tasker     | `{"command":"test"}`                                                |
-| joaoapps_join/send_url        | `{"url":"http://google.com"}`                                       |
-| joaoapps_join/send_wallpaper  | `{"url":"http://www.planwallpaper.com/static/images/ZhGEqAP.jpg"}`  |
-| joaoapps_join/send_file       | `{"url":"http://download.thinkbroadband.com/5MB.zip"}`              |
+| Service                       | Data                                                               |
+|------------------------------ |--------------------------------------------------------------------|
+| joaoapps_join/ring            |                                                                    |
+| joaoapps_join/send_sms        | `{"number":"5553334444", "message":"Hello!"}`                      |
+| joaoapps_join/send_tasker     | `{"command":"test"}`                                               |
+| joaoapps_join/send_url        | `{"url":"http://google.com"}`                                      |
+| joaoapps_join/send_wallpaper  | `{"url":"http://www.planwallpaper.com/static/images/ZhGEqAP.jpg"}` |
+| joaoapps_join/send_file       | `{"url":"http://download.thinkbroadband.com/5MB.zip"}`             |

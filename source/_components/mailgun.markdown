@@ -31,4 +31,4 @@ Configuration variables:
 
 - **domain** (*Required*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
 - **api_key** (*Required*): This is the API token that has been generated in your Mailgun account.
-- **sandbox** (*Optional*): Whether to use the sandboxed domain for outgoing mail. The `domain` item takes precedence over this. Defaults to `False`.
+- **sandbox** (*Optional*): Whether to use the sandboxed domain for outgoing mail. The `domain` item takes precedence over this. Defaults to `false`.

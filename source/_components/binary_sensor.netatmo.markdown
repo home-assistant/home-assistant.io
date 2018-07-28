@@ -20,7 +20,7 @@ To enable the Netatmo binary sensor, you have to set up [netatmo](/components/ne
 
 ### {% linkable_title Advanced configuration %}
 
-If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+If you want to select a specific sensor, set discovery to `false` for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

@@ -237,7 +237,7 @@ light:
     name: mqtt_json_hs_light
     state_topic: "home/light"
     command_topic: "home/light/set"
-    hs: True
+    hs: true
 ```
 
 Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:

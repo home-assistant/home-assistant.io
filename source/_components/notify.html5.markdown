@@ -35,16 +35,22 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: >
+    Setting the optional parameter `name` allows multiple notifiers to be
+    created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
   type: string
   default: notify
 gcm_api_key:
-  description: The API Server key provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+  description: >
+    The API Server key provided to you by Google for Google Cloud Messaging
+    (GCM). Required to push to Chrome.
   required: true
   type: string
 gcm_sender_id:
-  description: The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
+  description: >
+    The sender ID provided to you by Google for Google Cloud Messaging (GCM).
+    Required to push to Chrome.
   required: true
   type: string
 {% endconfiguration %}
@@ -73,12 +79,12 @@ Follow these steps to verify domain ownership with Google Webmaster Central / Se
 
 The `html5` platform can only function if all of the following requirements are met:
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
-* Your Home Assistant instance is exposed to the world.
-* If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
-* If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
-* You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
-* You are willing to accept the notification permission in your browser.
+- You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
+- Your Home Assistant instance is exposed to the world.
+- If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
+- If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
+- You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
+- You are willing to accept the notification permission in your browser.
 
 
 ### {% linkable_title Setting up %}

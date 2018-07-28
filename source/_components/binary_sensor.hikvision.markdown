@@ -63,7 +63,7 @@ Configuration options for a Hikvision Sensor:
 - **password** (*Required*): The password to authenticate with.
 - **name** (*Optional*): The name you'd like to give the camera in Home Assistant, defaults to name defined in the camera.
 - **port** (*Optional*): The port to connect to the camera on, defaults to 80.
-- **ssl** (*Optional*): True if you want to connect with https. Be sure to set the port also.
+- **ssl** (*Optional*): `true` if you want to connect with https. Be sure to set the port also.
 - **customize** (*Optional*): This attribute contains sensor-specific override values. Only sensor name needs defined:
   - **ignored** (*Optional*): Ignore this sensor completely. It won't be shown in the Web Interface and no events are generated for it.
   - **delay** (*Optional*): Specify the delay to wait after a sensor event ends before notifying Home Assistant. This is useful to catch multiple quick trips in one window without the state toggling on and off.  The default delay is 5 seconds.
@@ -94,14 +94,14 @@ binary_sensor:
   - platform: hikvision
     host: 192.168.X.X
     port: 80
-    ssl: False
+    ssl: false
     username: user
     password: pass
     customize:
       motion:
         delay: 30
       line_crossing:
-        ignored: True
+        ignored: true
 ```
 
 Example of a configuration in your `configuration.yaml` that utilizes the customize options for a nvr:
@@ -111,12 +111,12 @@ binary_sensor:
   - platform: hikvision
     host: 192.168.X.X
     port: 80
-    ssl: False
+    ssl: false
     username: user
     password: pass
     customize:
       motion_1:
         delay: 30
       field_detection_2:
-        ignored: True
+        ignored: true
 ```

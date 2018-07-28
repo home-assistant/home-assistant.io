@@ -52,7 +52,7 @@ Configuration variables:
   - **register** (*Required*): Register number.
   - **command_on** (*Required*): Value to write to turn on the switch.
   - **command_off** (*Required*): Value to write to turn off the switch.
-  - **verify_state** (*Optional*): Define if is possible to readback the status of the switch. (default: True)
+  - **verify_state** (*Optional*): Define if is possible to readback the status of the switch. (default: `true`)
   - **verify_register** (*Optional*): Register to readback. (default: same as register)
   - **register_type** (*Optional*): Modbus register type: holding or input. (default: holding)
   - **state_on** (*Optional*): Register value when switch is on. (default: same as command_on)

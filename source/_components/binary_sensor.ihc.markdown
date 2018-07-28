@@ -37,7 +37,7 @@ binary_sensor:
       - id: 12345
         name: mysensor
         type: opening
-        inverting: True
+        inverting: true
       - id: 12346
            ...
 ```
@@ -53,7 +53,7 @@ binary_sensors:
       required: true
       type: int
     inverting:
-      description: If True the sensor will be inverted.
+      description: If `true` the sensor will be inverted.
       required: false
       type: boolean
       default: false

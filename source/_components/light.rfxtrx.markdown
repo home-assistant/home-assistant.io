@@ -22,7 +22,7 @@ The easiest way to find your lights is to add this to your `configuration.yaml`:
 ```yaml
 light:
   - platform: rfxtrx
-    automatic_add: True
+    automatic_add: true
 ```
 
 Launch your Home Assistant and go the website. Push your remote and your device should be added:
@@ -62,6 +62,6 @@ Configuration variables:
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>

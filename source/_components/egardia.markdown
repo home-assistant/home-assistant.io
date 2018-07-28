@@ -106,7 +106,7 @@ There seem to be multiple versions of software running on GATE-02 devices; we ha
       host: YOUR_HOST
       username: YOUR_USERNAME
       password: YOUR_PASSWORD
-      report_server_enabled: True
+      report_server_enabled: true
       report_server_port: PORT_OF_EGARDIASERVER (optional, defaults to 52010)
       report_server_codes:
         arm: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX

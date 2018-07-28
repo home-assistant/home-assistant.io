@@ -36,4 +36,4 @@ Configuration variables:
 - **password** (*Optional*): The password for your given account on the remote Plex server.
 - **server** (*Optional*): The name of your remote Plex server.
 - **token** (*Optional*): X-Plex-Token of your remote Plex server.
-- **ssl** (*Optional*): Use HTTPS to connect to Plex server, *NOTE* host *must not* be an IP when this option is enabled. Defaults to "False"
+- **ssl** (*Optional*): Use HTTPS to connect to Plex server, *NOTE* host *must not* be an IP when this option is enabled. Defaults to `false`.

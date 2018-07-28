@@ -79,7 +79,7 @@ verify_ssl:
   description: Verify the certification of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false
@@ -136,7 +136,7 @@ binary_sensor:
       Content-Type: application/json
 ```
 
-The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
+The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens.
 
 ```bash
 Content-Length: 1024

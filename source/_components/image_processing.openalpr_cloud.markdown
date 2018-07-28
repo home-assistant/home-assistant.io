@@ -34,7 +34,9 @@ image_processing:
 
 {% configuration %}
 region:
-  description: Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
+  description: >
+    Country or region. List of supported
+    [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
   required: true
   type: string
 api_key:

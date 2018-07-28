@@ -17,7 +17,7 @@ The `workday` binary sensor indicates, whether the current day is a workday or n
 
 ## {% linkable_title Configuration %}
 
-Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province. 
+Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
 
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -41,8 +41,8 @@ Configuration variables:
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`. The keyword `holiday` is used for public holidays identified by the holidays module.
 
 <p class='note warning'>
-If you use the sensor for Norway (`NO`) you need to wrap `NO`in quotes or write the name in full. Otherwise the value is evaluated as `False`.
-If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes. Otherwise the value is evaluated as `True` (check the YAML documentation for further details) and the sensor will not work.
+If you use the sensor for Norway (`NO`) you need to wrap `NO`in quotes or write the name in full. Otherwise the value is evaluated as `false`.
+If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes. Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 
 Example usage for automation:

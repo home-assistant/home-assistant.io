@@ -37,7 +37,9 @@ resources:
   type: list
   keys:
     type:
-      description: The type of the information to display, please check the table below for details.
+      description: >
+        The type of the information to display,
+        please check the table below for details.
       required: true
     arg:
       description: Argument to use, please check the table below for details.

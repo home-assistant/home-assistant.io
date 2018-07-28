@@ -36,7 +36,9 @@ host:
   required: true
   type: string
 port:
-  description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).
+  description: >
+    The port of the Samsung Smart TV. If set to 8001,
+    the new websocket connection will be used (required for 2016+ TVs).
   required: false
   type: int
   default: 55000
@@ -50,7 +52,9 @@ timeout:
   type: time
   default: 0 (no timeout)
 mac:
-  description: "The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
+  description: >
+    "The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`.
+    Required for power on support via wake on lan."
   required: false
   type: string
 {% endconfiguration %}

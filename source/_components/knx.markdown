@@ -23,7 +23,7 @@ The component requires a local KNX/IP interface like the [Weinzierl 730](http://
 </p>
 
 There is currently support for the following device types within Home Assistant:
- 
+
 - [Binary Sensor](/components/binary_sensor.knx)
 - [Cover](/components/cover.knx)
 - [Sensor](/components/sensor.knx)
@@ -52,7 +52,7 @@ knx:
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
 
-```yaml 
+```yaml
 knx:
   tunneling:
     host: '192.168.2.23'
@@ -77,13 +77,13 @@ knx:
 
 ```yaml
 knx:
-    fire_event: True
+    fire_event: true
     fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 
-- **fire_event** (*Optional*): If set to True, platform will write all received KNX messages to event bus
-- **fire_event_filter** (*Optional*): If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus. 
-- **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+- **fire_event** (*Optional*): If set to `true`, platform will write all received KNX messages to event bus
+- **fire_event_filter** (*Optional*): If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
+- **state_updater** (*Optional*): The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to `false` to prevent this behavior.
 
 ### {% linkable_title Services %}
 
@@ -91,7 +91,7 @@ In order to directly interact with the KNX bus, you can now use the following se
 
 ```
 Domain: knx
-Service: send 
+Service: send
 Service Data: {"address": "1/0/15", "payload": 0}
 ```
 
@@ -123,4 +123,3 @@ knx:
 ### {% linkable_title Known issues %}
 
 Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.
-

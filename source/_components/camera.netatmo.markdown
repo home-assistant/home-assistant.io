@@ -21,7 +21,7 @@ To enable the Netatmo camera, you have to set up [netatmo](/components/netatmo/)
 
 ### {% linkable_title Advanced configuration %}
 
-If you want to select a specific camera, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+If you want to select a specific camera, set discovery to `false` for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

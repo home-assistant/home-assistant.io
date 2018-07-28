@@ -56,7 +56,7 @@ RTS Record: 15 Address: FFFFFF RC: FFFF
 
 After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
-RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`. 
+RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
 
 Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group, hide it or set a nice name.
 
@@ -75,7 +75,7 @@ cover:
 
 Configuration variables:
 
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to Home Assistant if detected (default: True).
+- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to Home Assistant if detected (default: `true`).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **device_defaults**: (*Optional*)
   - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
@@ -85,7 +85,7 @@ Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: `false`).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
@@ -97,4 +97,3 @@ Device configuration variables:
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
-

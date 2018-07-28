@@ -35,7 +35,7 @@ light:
     lights:
       - id: 12345
         name: tablelight
-        dimmable: True
+        dimmable: true
       - id: 12346
         name: anotherlight
       ...
@@ -48,7 +48,7 @@ lights:
   type: map
   keys:
     dimmable:
-      description: Set to True if the IHC resource is a light level
+      description: Set to `true` if the IHC resource is a light level
       required: false
       type: boolean
       default: false

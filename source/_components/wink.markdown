@@ -63,10 +63,10 @@ Configuration variables:
 - **password** (*Required for legacy OAuth*): Your Wink login password.
 - **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
 - **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
-- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+- **local_control** (*Optional*): If set to `true` state changes for lights, locks, and switches will be issued to the local hub.
 
 Local control:
-- Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
+- Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `false`.
 
 - Using local control doesn't appear to make commands any quicker, but does function in an internet/Wink outage.
 
@@ -91,7 +91,7 @@ Error sending local control request. Sending request online
 
 The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
-You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `True` states will be pulled from the devices controlling hub, not the online API.
+You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `true` states will be pulled from the devices controlling hub, not the online API.
 
 ### {% linkable_title Service `pull_newly_added_devices_from_wink` %}
 
@@ -264,7 +264,7 @@ script:
     sequence:
       - service: wink.set_siren_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```
 
 ### {% linkable_title Service `set_chime_strobe_enabled` %}
@@ -284,5 +284,5 @@ script:
     sequence:
       - service: wink.set_chime_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```

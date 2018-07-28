@@ -59,7 +59,7 @@ input_select:
 {% endconfiguration %}
 
 <p class='note'>
-Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
+Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by `true` and `false` unless they are defined in quotation marks.
 </p>
 
 ### {% linkable_title Restore State %}
@@ -129,7 +129,7 @@ Example of `input_select` being used in a bidirectional manner, both being set b
 {% raw %}
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
-   
+
 # Define input_select
 input_select:
   thermostat_mode:

@@ -32,5 +32,4 @@ Inside an intent we can define these variables:
 - **intent** (*Required*): Name of the intent. Multiple entries are possible.
   - **speech** (*Optional*): Text or template to return.
   - **action** (*Optional*): [Script syntax](/docs/scripts/).
-  - **async_action** (*Optional*): Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
-
+  - **async_action** (*Optional*): Set to `true` to have Home Assistant not wait for the script to finish before returning the intent response.

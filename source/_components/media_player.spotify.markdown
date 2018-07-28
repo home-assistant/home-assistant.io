@@ -23,7 +23,8 @@ The `spotify` media player platform allows you to control
 - Spotify Application, properly configured
 
 <p class='note'>
-Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+Controlling the Spotify component (pause, play, next, etc) requires a Premium account.
+If you do not have a Premium account, the component in the frontend will not show the controls.
 </p>
 
 To create the required Spotify Application:
@@ -74,7 +75,10 @@ cache_path:
   required: false
   type: string
 aliases:
-  description: "Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing."
+  description: >
+    "Dictionary of device ids to be aliased, handy for devices that Spotify
+    cannot properly determine the device name of.
+    New devices will be logged to the `info` channel for ease of aliasing."
   required: false
   type: map
 {% endconfiguration %}

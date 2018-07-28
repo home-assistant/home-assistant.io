@@ -27,7 +27,7 @@ switch:
         name: Fan
       13:
         name: Switch
-        invert: True
+        invert: true
 ```
 
 If you want to use custom functions, then add the following to your `configuration.yaml` file:
@@ -81,4 +81,3 @@ You can still switch your pins with a web browser or a command line tool. Use th
 ```json
 {"message": "Pin D8 set to 1", "id": "sensor02", "name": "livingroom", "connected": true}
 ```
-

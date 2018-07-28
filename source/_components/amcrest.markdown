@@ -54,7 +54,7 @@ Configuration variables:
 - **authentication**: (*Optional*): Defines which authentication method to use only when **stream_source** is **mjpeg**. Currently, *aiohttp* only support *basic*. It defaults to *basic*.
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. The default is 10 seconds.
 - **sensors** array (*Optional*): Conditions to display in the frontend. By default, *none* of the conditions are enabled. The following conditions can be monitored.
-  - **motion_detector**: Return True/False when a motion is detected
+  - **motion_detector**: Return `true`/`false` when a motion is detected
   - **sdcard**: Return the SD card usage by reporting the total and used space
   - **ptz_preset**: Return the number of PTZ preset positions configured for the given camera
 - **switches** array (*Optional*): Switches to display in the frontend. By default, *none* of the switches are shown. The following switches can be monitored.

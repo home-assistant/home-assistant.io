@@ -91,7 +91,7 @@ Run a flash effect by changing to a color and then back.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
 | `mode` | The way to change between colors. Valid modes: `blink` (default), `breathe`, `ping`, `strobe`, `solid`.
-| `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
+| `power_on` | Set this to `False` to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_colorloop` %}
 
@@ -105,7 +105,7 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `transition` | Duration (in seconds) where lights are actively changing color.
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
-| `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
+| `power_on` | Set this to `False` to skip the effect on lights that are turned off (defaults to `true`).
 
 ### {% linkable_title Service `light.lifx_effect_stop` %}
 

@@ -85,7 +85,7 @@ force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
   type: boolean
-  default: False 
+  default: false 
 {% endconfiguration %}
 
 

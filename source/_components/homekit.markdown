@@ -168,7 +168,7 @@ A common situation might be if you decide to disable parts of the configuration 
 
 ## {% linkable_title Disable Auto Start %}
 
-Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
+Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
 
 If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation:
 
@@ -176,7 +176,7 @@ If you have Z-Wave entities you want exposed to HomeKit then you'll need to disa
 ```yaml
 # Example for Z-Wave
 homekit:
-  auto_start: False
+  auto_start: false
 
 automation:
   - alias: 'Start HomeKit'
@@ -196,7 +196,7 @@ For a general delay where your component doesn't generate an event, you can also
 ```yaml
 # Example using a delay after start of Home Assistant
 homekit:
-  auto_start: False
+  auto_start: false
 
 automation:
   - alias: 'Start HomeKit'

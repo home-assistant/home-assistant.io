@@ -50,7 +50,7 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
+  description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `false` or `true` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
   required: false
   type: [string, boolean]
   default: true

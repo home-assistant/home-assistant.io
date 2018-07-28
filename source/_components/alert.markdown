@@ -33,8 +33,8 @@ alert:
     entity_id: input_boolean.garage_door
     state: 'on'
     repeat: 30
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -114,8 +114,8 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: true  # Optional, defaults to true
+    skip_first: true  # Optional, defaults to false
     notifiers:
       - ryans_phone
       - kristens_phone

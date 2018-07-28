@@ -54,7 +54,7 @@ Configuration variables:
   - **register_type** (*Optional*): Modbus register type (holding, input), default holding.
   - **unit_of_measurement** (*Optional*): Unit to attach to value.
   - **count** (*Optional*): Number of registers to read.
-  - **reverse_order** (*Optional*): Reverse the order of registers when count >1, default False.
+  - **reverse_order** (*Optional*): Reverse the order of registers when count >1, default `false`.
   - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1.
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0.
   - **precision** (*Optional*): Number of valid decimals, default 0.

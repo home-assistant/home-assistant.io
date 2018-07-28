@@ -34,7 +34,7 @@ show_on_map:
 {% endconfiguration %}
 
 <p class='note warning'>
-If you set `show_on_map` `True` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
+If you set `show_on_map: true` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
 </p>
 
 

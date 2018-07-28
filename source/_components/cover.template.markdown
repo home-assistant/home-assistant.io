@@ -49,15 +49,26 @@ cover:
         required: false
         type: string
       entity_id:
-        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        description: >
+          A list of entity IDs so the cover only reacts to state changes of
+          these entities. This can be used if the automatic analysis fails to
+          find all relevant entities.
         required: false
         type: [string, list]
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: >
+          Defines a template to get the state of the cover.
+          Valid values are `open`/`true` or `closed`/`false`.
+          [`value_template`](#value_template) and
+          [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
         type: template
       position_template:
-        description: Defines a template to get the state of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: >
+          Defines a template to get the state of the cover.
+          Legal values are numbers between `0` (closed) and `100` (open).
+          [`value_template`](#value_template) and
+          [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
         type: template
       icon_template:
@@ -65,7 +76,12 @@ cover:
         required: false
         type: template
       open_cover:
-        description: Defines an action to run when the cover is opened. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
+        description: >
+          Defines an action to run when the cover is opened.
+          If [`open_cover`](#open_cover) is specified,
+          [`close_cover`](#close_cover) must also be specified.
+          At least one of [`open_cover`](#open_cover) and
+          [`set_cover_position`](#set_cover_position) must be specified.
         required: inclusive
         type: action
       close_cover:
@@ -77,11 +93,15 @@ cover:
         required: false
         type: action
       set_cover_position:
-        description: Defines an action to run when the cover is set to a specific value (between `0` and `100`).
+        description: >
+          Defines an action to run when the cover is set to a specific value
+          (between `0` and `100`).
         required: false
         type: action
       set_cover_tilt_position:
-        description: Defines an action to run when the cover tilt is set to a specific value (between `0` and `100`).
+        description: >
+          Defines an action to run when the cover tilt is set to a specific
+          value (between `0` and `100`).
         required: false
         type: action
       optimistic:
@@ -95,7 +115,9 @@ cover:
         type: boolean
         default: false
       tilt_template:
-        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        description: >
+          Defines a template to get the tilt state of the cover.
+          Legal values are numbers between `0` (closed) and `100` (open).
         required: false
         type: template
 {% endconfiguration %}

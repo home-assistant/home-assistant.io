@@ -50,7 +50,10 @@ name:
   required: false
   type: string
 filename:
-  description: "The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file."
+  description: >
+    "The filename where the pairing key with the TV should be stored.
+    This path is relative to Home Assistant's config directory. **NOTE**:
+    When using multiple TVs each TV will need its own unique file."
   required: false
   type: string
   default: webostv.conf

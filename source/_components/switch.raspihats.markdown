@@ -42,8 +42,8 @@ Configuration variables:
     - **channels** (*Required*): Array of used digital output channels.
       - **index** (*Required*): Digital output channel index.
       - **name** (*Required*): Friendly name to use for the frontend.
-      - **invert_logic** (*Optional*): Inverts the output logic, default is `False`.
-      - **initial_state** (*Optional*): Initial state, default is `None`, can also be `True` or `False`. `None` means no state is forced on the corresponding digital output when this switch is instantiated.
+      - **invert_logic** (*Optional*): Inverts the output logic, default is `false`.
+      - **initial_state** (*Optional*): Initial state, default is `None`, can also be `true` or `false`. `None` means no state is forced on the corresponding digital output when this switch is instantiated.
 
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}

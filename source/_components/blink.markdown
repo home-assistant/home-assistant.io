@@ -51,7 +51,7 @@ This services are available for the `blink` component:
 - snap_picture
 
 
-For `arm_system`, the value sent can be either `True` or `False` and will arm and disarm the whole Blink system. Arm system example:
+For `arm_system`, the value sent can be either `true` or `false` and will arm and disarm the whole Blink system. Arm system example:
 
 ```json
 {

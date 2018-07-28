@@ -18,7 +18,7 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 To enable the Netatmo thermostat, you first have to set up [netatmo](/components/netatmo/), this will use discovery to add your thermostat.
 
-If you want to select a specific thermostat, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+If you want to select a specific thermostat, set discovery to `false` for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

@@ -92,7 +92,7 @@ Variables:
 - **entities**: Yes, you can have multiple sensors for a calendar!
   - **device_id**: (*Required*): The name that all your automations/scripts will use to reference this device.
   - **name**: (*Required*): What is the name of your sensor that you'll see in the frontend.
-  - **track**: (*Required*): Should we create a sensor `True` or ignore it `False`?
+  - **track**: (*Required*): Should we create a sensor `true` or ignore it `false`?
   - **search**: (*Optional*): If set will only trigger for matched events.
   - **offset**: (*Optional*): A set of characters that precede a number in the event title for designating a pre-trigger state change on the sensor. (Default: `!!`)
   - **ignore_availability**: (*Optional*): Should we respect `free`/`busy` flags? (Defaults to `true`)
@@ -108,7 +108,7 @@ If you use a `#` sign for `search` then wrap the whole search term in quotes. Ot
 ### {% linkable_title Sensor attributes %}
 
  - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
- - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.
+ - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
  - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
  - **description**: The event description.
  - **location**: The event Location.

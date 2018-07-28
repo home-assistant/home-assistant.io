@@ -36,7 +36,7 @@ Configuration variables:
 - **password** (*Required*): The password for your device.
 - **name** (*Optional*): The name of the vacuum.
 - **certificate** (*Optional*): Path to your certificate store. Defaults to `/etc/ssl/certs/ca-certificates.crt`.
-- **continuous** (*Optional*): Whether to operate in continuous mode. Defaults to `True`.
+- **continuous** (*Optional*): Whether to operate in continuous mode. Defaults to `true`.
 
 <p class='note'>
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
