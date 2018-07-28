@@ -40,7 +40,6 @@ The URL is whatever you use to access Home Assistant from outside your network (
 
 - Click **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](/components/http/).
 
-
 ## {% linkable_title Configuration %}
 
 To add Spotify to your installation, add the following to your `configuration.yaml` file:
@@ -49,19 +48,31 @@ To add Spotify to your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 media_player:
   - platform: spotify
-    client_id: <your client id>
-    client_secret: <your client secret>
+    client_id: YOUR_CLIENT_ID
+    client_secret: YOUR_CLIENT_SECRET
     aliases:
         abc123def456: 'Living Room'
         9183abas000: 'Bed Room'
 ```
 
-Configuration variables:
-
-- **client_id** (*Required*): Client ID from your Spotify Application.
-- **client_secret** (*Required*): Client Secret from your Spotify Application.
-- **cache_path** (*Optional*): Path to cache authentication token (defaults to configuration directory).
-- **aliases** (*Optional*): Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing.
+{% configuration %}
+client_id:
+  description: Client ID from your Spotify Application.
+  required: true
+  type: string
+client_secret:
+  description: Client Secret from your Spotify Application.
+  required: true
+  type: string
+cache_path:
+  description: Path to cache authentication token (defaults to configuration directory).
+  required: false
+  type: string
+aliases:
+  description: "Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing."
+  required: false
+  type: map
+{% endconfiguration %}
 
 ## {% linkable_title Setup %}
 
@@ -74,4 +85,3 @@ The sources are based on if you have streamed to these devices before in Spotify
 You can send playlists to spotify via the "media_content_type": "playlist" and "media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF" which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant frontend.
 
 In this example this is a URI link to the Reggae Infusions playlist, [this support document from Spotify](https://support.spotify.com/us/using_spotify/share_music/why-do-you-have-two-different-link-formats/) explains how to get this URI value to use for playlists in the Spotify component.
-
