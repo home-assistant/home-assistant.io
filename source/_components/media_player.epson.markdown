@@ -42,7 +42,7 @@ name:
 ssl:
   description: Enable SSL. **Feature not tested.**
   required: false
-  type: bool
+  type: boolean
   default: false
 {% endconfiguration %}
 
