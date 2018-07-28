@@ -46,7 +46,7 @@ media_player:
       type: list
 {% endconfiguration %}
 
-If you want to manually configure multiple Case media players, you can define those as follow:
+If you want to manually configure multiple Cast media players, you can define those as follows:
 ```yaml
 # Example configuration.yaml entry for multiple devices
 cast:
