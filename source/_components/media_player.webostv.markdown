@@ -48,6 +48,10 @@ filename:
   required: false
   type: string
   default: webostv.conf
+timeout:
+  description: The timeout for communication with the TV in seconds.
+  required: false
+  type: time
 turn_on_action:
   description: Defines an [action](/docs/automation/action/) to turn the TV on.
   required: false
