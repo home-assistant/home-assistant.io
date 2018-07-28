@@ -59,7 +59,7 @@ alpr_bin:
   description: The command line tool alpr from OpenALPR software for local processing.
   required: false
   type: string
-  default: "`alpr`"
+  default: alpr
 confidence:
   description: The minimum of confidence in percent to process with Home Assistant.
   required: false
