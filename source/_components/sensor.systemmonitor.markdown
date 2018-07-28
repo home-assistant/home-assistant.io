@@ -27,11 +27,19 @@ sensor:
       - type: memory_free
 ```
 
-Configuration variables:
-
-- **resources** array (*Required*): Contains all entries to display.
-  - **type** (*Required*): The type of the information to display, please check the table below for details.
-  - **arg** (*Optional*): Argument to use, please check the table below for details.
+{% configuration %}
+resources:
+  description: Contains all entries to display.
+  required: true
+  type: list
+  keys:
+    type:
+      description: The type of the information to display, please check the table below for details.
+      required: true
+    arg:
+      description: Argument to use, please check the table below for details.
+      required: false
+{% endconfiguration %}
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
