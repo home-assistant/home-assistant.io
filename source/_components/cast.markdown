@@ -48,7 +48,9 @@ media_player:
       required: false
       type: string
     ignore_cec:
-      description: A list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
+      description: >
+        A list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
       required: false
       type: list
 {% endconfiguration %}
