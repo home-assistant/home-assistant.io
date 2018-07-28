@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
-
 The `command_line` switch platform issues specific commands when it is turned on and off. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
@@ -28,15 +27,38 @@ switch:
         command_off: switch_command off kitchen
 ```
 
-Configuration variables:
-
-- **switches** (*Required*): The array that contains all command switches.
-  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
-    - **command_on** (*Required*): The action to take for on.
-    - **command_off** (*Required*): The action to take for off.
-    - **command_state** (*Optional*): If given, this command will be run. Returning a result code `0` will indicate that the switch is on.
-    - **value_template** (*Optional*): If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
-    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
+{% configuration %}
+switches:
+  description: The array that contains all command switches.
+  required: true
+  type: map
+  keys:
+    identifier:
+      description: Name of the command switch as slug. Multiple entries are possible.
+      required: true
+      type: map
+      keys:
+        command_on:
+          description: The action to take for on.
+          required: true
+          type: string
+        command_off:
+          description: The action to take for off.
+          required: true
+          type: string
+        command_state:
+          description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
+          required: false
+          type: string
+        value_template:
+          description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
+          required: false
+          type: string
+        friendly_name:
+          description: The name used to display the switch in the frontend.
+          required: false
+          type: string
+{% endconfiguration %}
 
 A note on `friendly_name`:
 
