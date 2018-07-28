@@ -52,8 +52,8 @@ binary_sensors:
     inverting:
       description: If True the sensor will be inverted.
       required: false
-      type: bool
-      default: false
+      type: boolean
+      default: False
     name:
       description: The name of the component
       required: false
@@ -65,5 +65,4 @@ binary_sensors:
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource.
-For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)
-
+For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup).
