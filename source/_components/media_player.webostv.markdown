@@ -13,20 +13,26 @@ ha_iot_class: "Local Polling"
 ha_release: 0.18
 ---
 
-The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Smart TV.
+The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS
+Smart TV.
 
 ### {% linkable_title Setup %}
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV
+[instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
-Once basic configuration is added to your `configuration.yaml` *Configuration* card should prompt on your Home Assistants's states. Follow the instructions and accept pairing request on your TV.
+Once basic configuration is added to your `configuration.yaml` *Configuration*
+card should prompt on your Home Assistants's states.
+Follow the instructions and accept pairing request on your TV.
 
-Pairing information will be saved to the `filename:` provided in configuration; this process is IP sensitive, in case the IP address of your TV would change in future.
-
+Pairing information will be saved to the `filename:` provided in configuration;
+this process is IP sensitive,
+in case the IP address of your TV would change in future.
 
 ### {% linkable_title Configuration %}
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To add a TV to your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +73,8 @@ customize:
       type: list
 {% endconfiguration %}
 
-If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
+If you do not specify `host:`, all LG webOS Smart TVs within your network will
+be auto-discovered.
 
 ### {% linkable_title Example %}
 
@@ -97,10 +104,15 @@ Avoid using `[ ]` in the `name:` of your device.
 
 ### {% linkable_title Turn on action %}
 
-Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
+Home Assistant is able to turn on a LG webOS Smart TV if you specify an action,
+like HDMI-CEC or WakeOnLan.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature.
-To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models).
+Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this
+feature your TV should be connected to your network via Ethernet rather than
+Wireless and you should enable *LG Connect Apps* feature in *Network* settings
+of the TV
+[instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others)
+(or *Mobile App* in *General* settings for older models).
 
 ```yaml
 # Example configuration.yaml entry
@@ -116,16 +128,23 @@ media_player:
         mac: "B4-E6-2A-1E-11-0F"
 ```
 
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
+Any other [actions](/docs/automation/action/) to power on the device can be
+configured.
 
 ### {% linkable_title Sources %}
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+To obtain complete list of available sources currently configured on the TV,
+once the webOS TV is configured and linked, while its powered on head to the
+**Developer Tools** > **States**,
+find your `media_player.<name>` and use the sources listed in `source_list:`
+remembering to split them per line into your `sources:` configuration.
 
 ### {% linkable_title Change channel through play_media service %}
 
-The `play_media` service can be used in a script to switch to the specified tv channel.
-It selects the best matching cannel according to the `media_content_id` parameter:
+The `play_media` service can be used in a script to switch to the specified tv
+channel. It selects the best matching cannel according to the `media_content_id`
+parameter:
+
  1. Channel number *(i.e. '1' or '6')*
  2. Exact channel name *(i.e. 'France 2' or 'CNN')*
  3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
@@ -148,7 +167,8 @@ data:
 
 ### {% linkable_title Next/Previous buttons %}
 
-The behaviour of the next and previsous buttons is different depending on the active source:
+The behaviour of the next and previsous buttons is different depending on the
+active source:
 
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
  - otherwise: next/previous buttons act as next/previous track

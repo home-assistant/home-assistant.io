@@ -13,9 +13,11 @@ ha_release: pre 0.7
 ha_iot_class: "depends"
 ---
 
-The `mjpeg` camera platform allows you to integrate IP cameras which are capable to stream their video with MJPEG into Home Assistant.
+The `mjpeg` camera platform allows you to integrate IP cameras which are capable
+to stream their video with MJPEG into Home Assistant.
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,7 +55,7 @@ authentication:
 {% endconfiguration %}
 
 <p class='note'>
-There is a <a href="https://github.com/shazow/urllib3/issues/800" target="_blank">known issue in urllib3</a> that you will get error messages in your logs like <code>[StartBoundaryNotFoundDefect(), MultipartInvariantViolationDefect()], unparsed data: ''</code> but the component still works fine. You can ignore the messages. 
+There is a <a href="https://github.com/shazow/urllib3/issues/800" target="_blank">known issue in urllib3</a> that you will get error messages in your logs like <code>[StartBoundaryNotFoundDefect(), MultipartInvariantViolationDefect()], unparsed data: ''</code> but the component still works fine. You can ignore the messages.
 </p>
 
 ## {% linkable_title Examples %}

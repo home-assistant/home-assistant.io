@@ -15,9 +15,11 @@ ha_release: 0.18
 
 The `webostv` platform allows you to send notifications to a LG webOS Smart TV.
 
-When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+When the TV is first connected,
+you will need to accept Home Assistant on the TV to allow communication.
 
-To add a TV to your installation, add the following to your `configuration.yaml` file and follow the configurator instructions:
+To add a TV to your installation, add the following to your `configuration.yaml`
+file and follow the configurator instructions:
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,7 +66,8 @@ automation:
         message: "You should open a window! (Livingroom Co2: {{ states.sensor.netatmo_livingroom_co2.state }}ppm)"
 ```
 
-The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
+The icon can be overridden for individual notifications by providing a path to
+an alternative icon image to use:
 
 ```yaml
 automation:

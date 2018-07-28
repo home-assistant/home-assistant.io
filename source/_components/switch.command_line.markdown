@@ -13,7 +13,10 @@ ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
-The `command_line` switch platform issues specific commands when it is turned on and off. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+The `command_line` switch platform issues specific commands when it is turned on
+and off. This might very well become our most powerful platform as it allows
+anyone to integrate any type of switch into Home Assistant that can be
+controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -62,7 +65,17 @@ switches:
 
 A note on `friendly_name`:
 
-When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example.
+When set, the `friendly_name` had been previously used for API calls and backend
+configuration instead of the `object_id` ("identifier"), but
+[this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343)
+to make the `friendly_name` for display purposes only. This allows users to set
+an `identifier` that emphasizes uniqueness and predictability for API and config
+purposes but have a prettier `friendly_name` still show up in the UI. As an
+additional benefit, if a user wanted to change the `friendly_name` / display
+name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or
+"Living Room Light", or remove the `friendly_name` altogether), he or she could
+do so without needing to change existing automations or API calls.
+See aREST device below for an example.
 
 ## {% linkable_title Examples %}
 
@@ -70,7 +83,10 @@ In this section you find some real life examples of how to use this switch.
 
 ### {% linkable_title aREST device %}
 
-The example below is doing the same as the [aREST switch](/components/switch.arest/). The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
+The example below is doing the same as the
+[aREST switch](/components/switch.arest/).
+The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin
+which is controllable through REST.
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +101,10 @@ switch:
       friendly_name: Kitchen Lightswitch
 ```
 
-Given this example, in the UI one would see the `friendly_name` of "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the `entity_id` `switch.arest_pin_four`, which is what one would use in [`automation`](/components/automation/) or in [API calls](/developers/).
+Given this example, in the UI one would see the `friendly_name` of
+"Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
+`entity_id` `switch.arest_pin_four`, which is what one would use in
+[`automation`](/components/automation/) or in [API calls](/developers/).
 
 ### {% linkable_title Shutdown your local host %}
 
@@ -94,7 +113,6 @@ This switch will shutdown your system that is hosting Home Assistant.
 <p class='note warning'>
 This switch will shutdown your host immediately, there will be no confirmation.
 </p>
-
 
 ```yaml
 # Example configuration.yaml entry
@@ -107,8 +125,8 @@ switch:
 
 ### {% linkable_title Control your VLC player %}
 
-This switch will control a local VLC media player ([Source](https://community.home-assistant.io/t/vlc-player/106)).
-
+This switch will control a local VLC media player
+([Source](https://community.home-assistant.io/t/vlc-player/106)).
 
 ```yaml
 # Example configuration.yaml entry
@@ -122,7 +140,10 @@ switch:
 
 ### {% linkable_title Control Foscam Motion Sensor %}
 
-This switch will control the motion sensor of Foscam Webcams which Support CGI Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). This switch supports statecmd, which checks the current state of motion detection.
+This switch will control the motion sensor of Foscam Webcams which Support CGI
+Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)).
+This switch supports statecmd,
+which checks the current state of motion detection.
 
 ```yaml
 # Example configuration.yaml entry

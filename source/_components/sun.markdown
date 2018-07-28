@@ -11,7 +11,9 @@ logo: home-assistant.png
 ha_category: Weather
 ---
 
-The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk](/getting-started/automation-trigger/#sun-trigger).
+The sun component will use your current location to track if the sun is above or
+below the horizon. The sun can be used within automation as
+[a trigger with an optional offset to simulate dawn/dusk](/getting-started/automation-trigger/#sun-trigger).
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,9 +33,11 @@ elevation:
 
 ### {% linkable_title Implementation Details %}
 
-The sun's event listener will call the service when the sun rises or sets with an offset.
+The sun's event listener will call the service when the sun rises or sets with
+an offset.
 
-The sun event need to have the type 'sun', which service to call, which event (sunset or sunrise) and the offset.
+The sun event need to have the type 'sun', which service to call,
+which event (sunset or sunrise) and the offset.
 
 ```json
 {
