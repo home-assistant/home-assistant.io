@@ -43,7 +43,7 @@ ssl:
   description: Enable SSL. **Feature not tested.**
   required: false
   type: boolean
-  default: false
+  default: False
 {% endconfiguration %}
 
 Supported features of Epson projector:
