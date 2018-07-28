@@ -71,8 +71,8 @@ sensor:
   manual:
     description: True or False to turn manual mode on or off. Manual mode will disable scheduled speed tests.
     required: false
-    type: bool
-    default: false
+    type: boolean
+    default: False
 {% endconfiguration %}
 
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net. Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
