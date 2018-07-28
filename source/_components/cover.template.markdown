@@ -85,12 +85,12 @@ cover:
         description: Force cover position to use [optimistic mode](#optimistic-mode).
         required: false
         type: boolean
-        default: false
+        default: False
       tilt_optimistic:
         description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
         required: false
         type: boolean
-        default: false
+        default: False
       tilt_template:
         description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
         required: false
