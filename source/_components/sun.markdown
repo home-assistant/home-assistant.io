@@ -11,18 +11,19 @@ logo: home-assistant.png
 ha_category: Weather
 ---
 
-The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
-
-[automation-trigger]: /getting-started/automation-trigger/#sun-trigger
+The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk](/getting-started/automation-trigger/#sun-trigger).
 
 ```yaml
 # Example configuration.yaml entry
 sun:
 ```
 
-Configuration variables:
-
-- **elevation** (*Optional*): The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
+{% configuration %}
+elevation:
+  description: "The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set."
+  required: false
+  type: int
+{% endconfiguration %}
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
@@ -49,8 +50,6 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | --------- | ----------- |
 | `above_horizon` | When the sun is above the horizon.
 | `below_horizon` | When the sun is below the horizon.
-
-
 
 | State Attributes | Description |
 | --------- | ----------- |
