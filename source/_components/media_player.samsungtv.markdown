@@ -29,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP of the Samsung Smart TV, eg. `192.168.0.10`.
+  description: "The IP of the Samsung Smart TV, eg. `192.168.0.10`."
   required: true
   type: string
 port:
@@ -47,7 +47,7 @@ timeout:
   type: time
   default: 0 (no timeout)
 mac:
-  description: The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan.
+  description: "The MAC address of the Samsung Smart TV, eg. `00:11:22:33:44:55:66`. Required for power on support via wake on lan."
   required: false
   type: string
 {% endconfiguration %}
