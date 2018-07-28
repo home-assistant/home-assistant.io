@@ -12,7 +12,6 @@ ha_category: History
 ha_release: pre 0.7
 ---
 
-
 The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
@@ -32,15 +31,34 @@ history:
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
 
-
-Configuration variables:
-
-- **exclude** (*Optional*): Configure which components should **not** be displayed. 
-  - **entities** (*Optional*): The list of entity ids to be excluded from the history.
-  - **domains** (*Optional*): The list of domains to be excluded from the history.
-- **include** (*Optional*): Configure which components should be displayed. 
-  - **entities** (*Optional*): The list of entity ids to be included to the history.
-  - **domains** (*Optional*): The list of domains to be included to the history.
+{% configuration %}
+exclude:
+  description: Configure which components should **not** be displayed.
+  required: false
+  type: map
+  keys:
+    entities:
+      description: The list of entity ids to be excluded from the history.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be excluded from the history.
+      required: false
+      type: list
+include:
+  description: Configure which components should be displayed.
+  required: false
+  type: map
+  keys:
+    entities:
+      description: The list of entity ids to be included in the history.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be included in the history.
+      required: false
+      type: list
+{% endconfiguration %}
 
 Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you have several options:
 
@@ -100,7 +118,6 @@ history:
       - sun.sun
       - light.front_porch
 ```
-
 
 #### {% linkable_title Implementation details %}
 
