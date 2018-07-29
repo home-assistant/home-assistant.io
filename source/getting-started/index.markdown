@@ -13,6 +13,7 @@ The goal of this getting started guide is to install [Hass.io](/hassio/) on a Ra
 
 The following models are supported:
 - Raspberry Pi Zero and Zero W
+- Raspberry Pi 1 Model B
 - Raspberry Pi 2 Model B
 - Raspberry Pi 3 Model B and Model B+
 
