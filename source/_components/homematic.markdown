@@ -179,7 +179,7 @@ To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / 
 4. Select one of the device's channels you need (1-2 / 1-6 for WRC2 / WRC6 and 2-3 for SPDR)
 5. Save the program with the `OK` button
 6. When your channel is working now, you can edit it to select the other channels one by one
-7. At the end you can delete this program from the CCU
+7. At the end, you can delete this program from the CCU
 
 ### {% linkable_title Services %}
 
