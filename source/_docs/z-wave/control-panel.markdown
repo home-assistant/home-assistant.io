@@ -60,7 +60,7 @@ When you use *Rename Node* it, as mentioned above, only changes the `zwave.` ent
 3. Delete the relevant entries from `entity_registry.yaml`
 4. Start Home Assistant again
 
-Each block the you need to delete will look something like this, you need to delete all 4 lines for each entry. The first number of the `unique-id` is the Node ID of the Z-Wave node.
+Each block you need to delete will look something like this, you need to delete all 4 lines for each entry. The first number of the `unique-id` is the Node ID of the Z-Wave node.
 
 ```yaml
 sensor.fibaro_door_sensor_access_control:
