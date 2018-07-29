@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi 3B+. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub. 
+The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub. 
 
 The following models are supported:
 - Raspberry Pi Zero and Zero W
