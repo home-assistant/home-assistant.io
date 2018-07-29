@@ -10,7 +10,7 @@ footer: true
 logo: sisyphus.png
 ha_category: Hub
 featured: false
-ha_release: 0.74
+ha_release: 0.75
 ha_iot_class: "Local Push"
 ---
 
