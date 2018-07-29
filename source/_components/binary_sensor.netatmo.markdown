@@ -64,22 +64,17 @@ cameras:
   required: false
   type: list
 welcome_sensors:
-  description: List of monitored conditions.
+  description: >
+    "List of monitored conditions. Possible values are
+    'Someone known', 'Someone unknown' and 'Motion'."
   required: false
   type: list
-  keys:
-    'Someone known':
-    'Someone unknown':
-    Motion:
 presence_sensors:
-  description: List of monitored conditions.
+  description: >
+    "List of monitored conditions. Possible values are 'Outdoor motion',
+    'Outdoor human', 'Outdoor animal' and 'Outdoor vehicle'."
   required: false
   type: list
-  keys:
-    'Outdoor motion':
-    'Outdoor human':
-    'Outdoor animal':
-    'Outdoor vehicle':
 {% endconfiguration %}
 
 If **home** and **cameras** is not provided, all cameras will be used.
