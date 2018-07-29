@@ -104,6 +104,14 @@ entity:
   required: true
   description: Entity id
   type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
 tap_action:
   required: false
   description: more-info, toggle, navigate, call-service
@@ -252,20 +260,6 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Custom Elements %}
-
-{% configuration %}
-type:
-  required: true
-  description: 'Card name with `custom:` prefix (e.g. `custom:my-custom-card`)'
-  type: string
-style:
-  required: true
-  description: Position and style the element using CSS.
-  type: object
-  default: "position: absolute, transform: translate(-50%, -50%)"
-{% endconfiguration %}
-
 The process for creating and referencing custom elements is the same as for custom cards.
 Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
 for more information.
@@ -340,7 +334,8 @@ state_filter:
       navigation_path: /lovelace/0
       style:
         top: 10%
-        left: 10%
+        left: 10%      
+       
 ```
 
 ## {% linkable_title Images Example %}
@@ -358,16 +353,16 @@ state_filter:
         "off": /local/living_room_off.png
       filter: saturate(.8)
       state_filter:
-        "on": brightness(120%) saturate(1.2)
-       style:
-         top: 25%
-         left: 75%
-         width: 15%
+        'on': brightness(120%) saturate(1.2)
+      style: 
+        top: 25%
+        left: 75%
+        width: 15%
     # Camera, red border, rounded-rectangle - show more-info on click
     - type: image
       entity: camera.driveway_camera
       camera_image: camera.driveway_camera
-      style:
+      style: 
         top: 5%
         left: 10%
         width: 10%

@@ -24,7 +24,7 @@ type:
   type: string
 entities:
   required: true
-  description: List of entities.
+  description: List of entities or entity objects.
   type: list
 title:
   required: false
@@ -54,6 +54,21 @@ state_image:
 entity:
   required: false
   description: Entity to use for `state_image`.
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Options For Entities %}
+
+If you define entities as objects instead of strings, you can add more customization and configuration:
+
+{% configuration %}
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+icon:
+  required: false
+  description: Overwrites default icon.
   type: string
 {% endconfiguration %}
 
