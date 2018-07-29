@@ -46,8 +46,5 @@ Configuration variables:
   - **Time Remaining**: Time remaining on current print job, in seconds.
 
 <p class='note'>
-A template sensor can be used to convert the Time Elapsed/Remaining values to a more-friendly format.
-</p>
-<p class='note'>
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
 </p>
