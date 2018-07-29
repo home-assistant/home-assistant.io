@@ -132,7 +132,7 @@ entities:
         for designating a pre-trigger state change on the sensor."
       required: false
       type: string
-      default: !!
+      default: "!!"
     ignore_availability:
       description: "Should we respect `free`/`busy` flags?"
       required: false
