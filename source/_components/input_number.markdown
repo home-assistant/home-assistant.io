@@ -194,3 +194,38 @@ automation:
         payload: "{{ states('input_number.target_temp') | int }}"
 ```
 {% endraw %}
+
+Here's an example of `input_number` being used as a delay in an automation.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry using 'input_number' as a delay in an automation
+input_number:
+  minutes:
+    name: minutes
+    icon: mdi:clock-start
+    initial: 3
+    min: 0
+    max: 6
+    step: 1
+    
+  seconds:
+    name: seconds
+    icon: mdi:clock-start
+    initial: 30
+    min: 0
+    max: 60
+    step: 10
+    
+automation:
+ - alias: turn something off after x time after turning it on
+   trigger:
+     platform: state
+     entity_id: switch.something
+     to: 'on'
+   action:
+     - delay: '00:{{ states.input_number.minutes.state | int }}:{{ states.input_number.seconds.state | int }}'
+     - service: switch.turn_off
+       entity_id: switch.something
+```
+{% endraw %}

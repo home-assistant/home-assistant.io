@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Fan
-ha_version: 0.57
 ha_iot_class: "Local Polling"
+ha_release: 0.57
 ---
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Xiaomi Air Humidifier.
@@ -181,20 +181,20 @@ fan:
 
 {% configuration %}
 host:
-  description: The IP address of your fan.
+  description: The IP address of your miio fan.
   required: true
   type: string
 token:
-  description: The API token of your fan.
+  description: The API token of your miio fan.
   required: true
   type: string
 name:
-  description: The name of your fan.
+  description: The name of your miio fan.
   required: false
   type: string
   default: Xiaomi Air Purifier
 model:
-  description: The model of your device.
+  description: The model of your miio fan. Valid values are `zhimi.airpurifier.v6`, `zhimi.airpurifier.v3`, `zhimi.humidifier.v1` and `zhimi.humidifier.ca1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}

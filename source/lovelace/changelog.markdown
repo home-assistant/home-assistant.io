@@ -128,3 +128,9 @@ footer: true
 ## {% linkable_title Changes in 0.72 %}
 
 - Initial release of the Lovelace UI
+
+[glance card]: /lovelace/glance/
+[history graph card]: /lovelace/history-graph/
+[picture glance card]: /lovelace/picture-glance/
+[picture elements card]: /lovelace/picture-elements/
+[entity filter card]: /lovelace/entity-filter/

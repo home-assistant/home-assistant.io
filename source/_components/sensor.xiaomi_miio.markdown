@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Sensor
-ha_version: 0.66
 ha_iot_class: "Local Polling"
+ha_release: 0.66
 ---
 
 The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.

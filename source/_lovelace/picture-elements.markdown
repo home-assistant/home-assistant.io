@@ -55,6 +55,7 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
 ### {% linkable_title Icon representing an entity state %}
@@ -89,6 +90,7 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
 ### {% linkable_title Label with state text %}
@@ -131,6 +133,7 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
 ### {% linkable_title Service Call Button %}
@@ -156,6 +159,7 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
 ### {% linkable_title Icon Element %}
@@ -198,6 +202,7 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
 ### {% linkable_title Image Element %}
@@ -209,7 +214,7 @@ type:
   type: string
 entity:
   required: false
-  description: Entity to use for state_image and state_filter and also target for actions. 
+  description: Entity to use for state_image and state_filter and also target for actions.
   type: string
 tap_action:
   required: false
@@ -240,7 +245,7 @@ state_image:
   required: false
   description: '[State-based images](#how-to-use-state_image)'
   type: object
-filter: 
+filter:
   required: false
   description: Default CSS filter
   type: string
@@ -252,7 +257,12 @@ style:
   required: true
   description: Position and style the element using CSS.
   type: object
+  default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
+
+The process for creating and referencing custom elements is the same as for custom cards.
+Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+for more information.
 
 ## {% linkable_title How to use the style object %}
 
@@ -282,9 +292,9 @@ state_image:
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
 ```yaml
-state_filter: 
-  'on': brightness(110%) saturate(1.2)
-  'off': brightness(50%) hue-rotate(45deg)
+state_filter:
+  "on": brightness(110%) saturate(1.2)
+  "off": brightness(50%) hue-rotate(45deg)
 ```
 
 ## {% linkable_title Example %}
@@ -315,7 +325,7 @@ state_filter:
       style:
         top: 95%
         left: 60%
-      service: light.turn_off
+      service: homeassistant.turn_off
       service_data:
         entity_id: group.all_lights
     - type: icon
@@ -324,8 +334,7 @@ state_filter:
       navigation_path: /lovelace/0
       style:
         top: 10%
-        left: 10%
-      
+        left: 10%      
        
 ```
 
@@ -340,8 +349,8 @@ state_filter:
       entity: light.living_room
       tap_action: toggle
       image: /local/living_room.png
-      state_image: 
-        'off': /local/living_room_off.png
+      state_image:
+        "off": /local/living_room_off.png
       filter: saturate(.8)
       state_filter:
         'on': brightness(120%) saturate(1.2)

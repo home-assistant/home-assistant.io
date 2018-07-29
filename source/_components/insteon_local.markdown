@@ -10,38 +10,53 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
-ha_version: 0.36
+ha_release: 0.36
+redirect_from: /components/insteon_hub/
 ---
 
 The `insteon_local` component let you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To integrate your Insteon local setup with Home Assistant, add the following section to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+To integrate your Insteon Hub (local setup) with Home Assistant, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml platform entry
 insteon_local:
-  host: YOUR HUB IP
-  username: YOUR HUB USERNAME
-  password: YOUR HUB PASSWORD
+  host: YOUR_HUB_IP
+  username: YOUR_HUB_USERNAME
+  password: YOUR_HUB_PASSWORD
 ```
 
-Configuration variables:
-*Note: The username and password here are for the hub and are different than the ones used to access the app. You can usually find these on the bottom of your hub (unless you've changed them through the settings in the app)*
-- **host** (*Required*): The IP address of your hub.
-- **username** (*Required*): The username used to access the Insteon interface (find in your Insteon app).
-- **password** (*Required*): The password used to access the Insteon interface.
-- **timeout** (*Optional*): Timeout to wait for connections. Defaults to 10 seconds.
-- **port** (*Optional*): The port your hub is configured to listen to. Defaults to `25105`.
+{% configuration %}
+host:
+  description: The IP address of your hub.
+  required: true
+  type: string
+username:
+  description: The username used to access the Insteon interface (find in your Insteon app).
+  required: true
+  type: string
+password:
+  description: The password used to access the Insteon interface.
+  required: true
+  type: string
+timeout:
+  description: Timeout to wait for connections.
+  required: false
+  type: time
+  default: 10 seconds
+port:
+  description: The port your hub is configured to listen to.
+  required: false
+  type: string
+  default: 25105
+{% endconfiguration %}
 
-### {% linkable_title Full configuration %}
+*Note: The username and password here are for the hub and are different than the ones used to access the app. You can usually find these on the bottom of your hub (unless you've changed them through the settings in the app)*
 
 The `insteon_local` component currently supports lights (dimmers), switches and fans.
 
-```yaml
-insteon_local:
-  host: YOUR HUB IP
-  username: YOUR HUB USERNAME
-  password: YOUR HUB PASSWORD
-  timeout: 10
-  port: 25105
-```
+<p class='note'>
+This component replaces the old `insteon_hub` component, which has been removed due to a complaint by Insteon.
+</p>
