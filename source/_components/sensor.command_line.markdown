@@ -33,6 +33,7 @@ Configuration variables:
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 - **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
 - **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
+- **json_attributes** (*Optional*): Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
 
 ## {% linkable_title Examples %}
 
@@ -160,5 +161,24 @@ sensor:
     name: wind direction
     command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
+```
+{% endraw %}
+
+
+### {% linkable_title Usage of JSON attributes in command output %}
+
+The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using `value_json` and `json_attributes`.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
+    value_template: '{{ value_json.time }}'
 ```
 {% endraw %}
