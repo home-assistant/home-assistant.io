@@ -67,7 +67,6 @@ Screenshot of the HASS Configurator.
 - **ssl** (*Required*): Enable or Disable SSL/TLS for the editor.
 - **certfile** (*Required*): Set the path the your SSL certificate if the ssl-option is set to `true`.
 - **keyfile** (*Required*): Set the path the your SSL private key if the ssl-option is set to `true`.
-- **verify_hostname** (*Required*): When set to `example.yourdomain.com`, requests that do not contain the correct host header will be rejected.
 - **allowed_networks** (*Required*): Limit access to the configurator by adding allowed IP addresses/networks to the list.
 - **banned_ips** (*Required*): List of statically banned IP addresses.
 - **banlimit** (*Required*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
