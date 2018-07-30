@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Switch
-ha_version: 0.56
 ha_iot_class: "Local Polling"
+ha_release: 0.56
 ---
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
@@ -57,28 +57,22 @@ switch:
     model: chuangmi.plug.m1
 ```
 
-Configuration variables:
-- **host** (*Required*): The IP of your miio device.
-- **token** (*Required*): The API token of your miio device.
-- **name** (*Optional*): The name of your miio device.
-- **model** (*Optional*): The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1` and `chuangmi.plug.v2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-
 {% configuration %}
 host:
-  description: The IP address of your device.
+  description: The IP address of your miio device.
   required: true
   type: string
 token:
-  description: The API token of your device.
+  description: The API token of your miio device.
   required: true
   type: string
 name:
-  description: The name of your device.
+  description: The name of your miio device.
   required: false
   type: string
   default: Xiaomi Miio Switch
 model:
-  description: The model of your device.
+  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1` and `chuangmi.plug.v2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}

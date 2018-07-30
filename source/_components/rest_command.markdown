@@ -39,5 +39,48 @@ Configuration variables:
   - **timeout** (*Optional*): Timeout for requests. Defaults to 10 seconds.
   - **content_type** (*Optional*): Content type for the request.
 
-The commands can be dynamic, using templates to insert values of other entities. 
-Service call support variables for template stuff.
+## {% linkable_title Examples %}
+
+The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+rest_command:
+  my_request:
+    url: https://slack.com/api/users.profile.set
+    method: POST
+    headers: 
+      authorization: !secret rest_headers_secret
+      accept: 'application/json, text/html'
+    payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
+    content_type:  'application/json; charset=utf-8'
+```
+{% endraw %}
+
+In this example entry, you can see some simple [templates](/docs/configuration/templating/) in use for dynamic parameters.
+
+Call the new service from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
+
+```json
+{
+  "status":"My Status Goes Here",
+  "emoji":":plex:"
+}
+```
+Or in an example `automation`
+
+```yaml
+automation:
+- alias: 'Arrive at Work'
+  trigger:
+    platform: zone
+    entity_id: device_tracker.my_device
+    zone: zone.work
+    event: enter
+  action:
+    - service: rest_command.my_request
+      data:
+        status: "At Work"
+        emoji: ":calendar:"
+```

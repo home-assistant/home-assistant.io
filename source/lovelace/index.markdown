@@ -75,7 +75,7 @@ views:
           - device_tracker.anne_there
         state_filter:
           - 'home'
-        card_config:
+        card:
           type: glance
           title: People that are home
 
@@ -111,6 +111,11 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
+## {% linkable_title Setting Lovelace as the Default UI %}
+Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the home assistant side-bar. Next, locate >>Set lovelace as default page on this device<< under the home assistant version information and click it. 
+
+Note that this is a per-device setting and will need to be changed on each device you access the UI from.
+
 ## {% linkable_title Custom Cards %}
 
 It is possible to add your own custom cards to show up in the Lovelace UI. For more information, check [the developer docs](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html).
@@ -130,3 +135,9 @@ This is probably because your version of Firefox doesn't have custom components 
 This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript_version: latest` in your `configuration.yaml` under `frontend:`.
 
 > Note: Enabling `latest` on IOS could cause automation and script editor to crash.
+
+### I would like to add an image to my card, but I do not know where to put them.
+
+Given examples refer to `/local/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. An image kept in `HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
+
+> Note: Remember to restart Home Assistant right after creating `www` directory. Otherwise, HA will not know that you created this directory.

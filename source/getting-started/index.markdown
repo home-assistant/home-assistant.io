@@ -9,7 +9,13 @@ sharing: true
 footer: true
 ---
 
-The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.
+The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub. 
+
+The following models are supported:
+- Raspberry Pi Zero and Zero W
+- Raspberry Pi 1 Model B
+- Raspberry Pi 2 Model B
+- Raspberry Pi 3 Model B and Model B+
 
 Follow this guide if you want to get started with Home Assistant easily, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/). The [FAQ](/faq/#home-assistant-vs-hassio) explains more about the differences.
 
@@ -17,11 +23,11 @@ Follow this guide if you want to get started with Home Assistant easily, or if y
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
-### {% linkable_title Hardware requirements %}
+### {% linkable_title Suggested hardware%}
 
-We will need a few things to get started with installing Home Assistant. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. For best performance, we suggest the latest Raspberry Pi 3 Model B+. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 3 model B](http://a.co/gEfMqL4) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
+- [Raspberry Pi 3 Model B+](http://a.co/ak2SQor) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
 - [Micro SD Card](http://a.co/gslOydD). Get one that is Class 10 as they are more reliable. Size 32 GB or bigger recommended.
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](http://a.co/5FCyb0N) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi as well)
@@ -29,13 +35,11 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 ### {% linkable_title Software requirements %}
 
-- Download Hass.io image for Raspberry Pi 3 as [32bit][pi3-32] or [64bit][pi3-64] variant
+- Download the Hass.io image for [your device](https://www.home-assistant.io/hassio/installation/)
 - Download [Etcher] to write the image to an SD card
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
 [Etcher]: https://etcher.io/
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-1.7.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-64-1.7.img.gz
 
 ### {% linkable_title Installing Hass.io %}
 

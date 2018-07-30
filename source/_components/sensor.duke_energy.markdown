@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: duke_energy.png
 ha_category: Sensor
-ha_release: "0.73"
+ha_release: "0.74"
 ha_iot_class: "Cloud Polling"
 ---
 

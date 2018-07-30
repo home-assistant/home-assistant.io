@@ -11,12 +11,13 @@ footer: true
 
 Hass.io images are available for:
 
-- Download the appropriate image for your IoT:
-  - [Raspberry Pi / Zero][pi1]
-  - [Raspberry Pi / Zero W][pi0-w]
-  - [Raspberry Pi 2][pi2]
-  - [Raspberry Pi 3 32bit][pi3-32]
-  - [Raspberry Pi 3 64bit][pi3-64]
+- Download the appropriate image for your device:
+  - [Raspberry Pi Zero][pi1]
+  - [Raspberry Pi Zero W][pi0-w]
+  - [Raspberry Pi 1 Model B][pi1]
+  - [Raspberry Pi 2 Model B][pi2]
+  - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
+  - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
 - As [Virtual Appliance]:
   - [VMDK][vmdk]
 
@@ -24,10 +25,10 @@ Hass.io images are available for:
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer.
 </p>
 
-- Flash the downloaded image to an SD card using [Etcher].
+- Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
 
-- Optional - Setup the WiFi or static IP: On the SD-card, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
-- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
+- Optional - Setup the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+- Insert the SD card (and optional USB stick) into the Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 
 <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
@@ -38,9 +39,9 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
 </p>
 
-<p class='note'>
+### {% linkable_title Migrating from a non-Hass.io install %}
+
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
-</p>
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
@@ -71,7 +72,7 @@ When you use this installation method, the core SSH add-on may not function corr
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
 
-[Etcher]: https://etcher.io/
+[etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi0-w-1.7.img.gz
@@ -79,7 +80,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi2-1.7.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-1.7.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_rpi3-64-1.7.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.7/hassos_ova-1.7.vmdk
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.8/hassos_ova-1.8.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

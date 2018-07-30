@@ -40,7 +40,7 @@ Configuration variables:
 - **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
 - **timeout** (*Optional*): The timeout for connections to the TV in seconds.
-- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`. **NOTE**: When using multiple TVs each TV will need its own unique file.
 - **customize** array (*Optional*): List of options to customize.
   - **sources** array (*Optional*): List of hardware and webOS App inputs.
 

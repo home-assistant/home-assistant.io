@@ -9,6 +9,21 @@ sharing: true
 footer: true
 ---
 
+## {% linkable_title Changes in 0.74.0 %}
+- ❤️ [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/)
+- 🔧 Async communication improvements
+
+### Views
+- 📣 Allow views with badges and no cards
+
+### Cards
+- 📣 [picture elements card]: Allow custom elements including custom cards
+- 📣 [entities card]: Separate row entity elements, and add `secondary_info` ❤️
+- 📣 [glance card]: Make column width configurable
+- 🔧 [picture glance card]: Use custom off states
+- 🔧 [picture glance card]: Fixed to work again with [entity filter card]
+- 🔧 Removed `text-transform: capitalize;` from card heading
+
 ## {% linkable_title Changes in 0.74.0b0 %}
 
 ### Views
@@ -16,15 +31,14 @@ footer: true
 - Custom cards now work with `panel: true`
 
 ### Cards
-- `glance` card supports now `toggle` and `turn-on` besides showing more-info dialog
-- `glance` card supports now to hide `name` or `state`
-- `history-graph` supports override of entity names
-- Allow `picture-glance` to open more info for camera 
-- Show more-info for `media_players` in `picture-glance`
-- `picture-elements` card now supports also `image` as element type
-- `picture-elements` card now supports also `service-icon` as element type
-- Make Lovelace `entity-filter` card more robust (new use case: https://github.com/home-assistant/ui-schema/issues/82)
-- 🔧 Fix `picture-glance` crash when state of entity was unavailable
+- 📣 [glance card]: Entity `tap_action` can now be `toggle` and `turn-on` besides the default of showing the more info dialog
+- 📣 [glance card]: Support added to hide `name` or `state`
+- 📣 [history graph card]: Support added to override entity names
+- 📣 [picture glance card]: Support added to open the more info dialog for cameras and media players.
+- 📣 [picture elements card]: Support new element type `image`
+- 📣 [picture elements card]: Support new element type `service-icon`
+- 🔧 [entity filter card]: Fix edge cases that could make it crash ([supports this new use case](https://github.com/home-assistant/ui-schema/issues/82))
+- 🔧 [picture glance card]: Fix crash when the state of entity was unavailable
 
 ## {% linkable_title Changes in 0.73.1 %}
 
@@ -94,7 +108,7 @@ footer: true
 - `picture-elements` combined `service.domain` and `service.server` into `service`
 - 📣 `entities` allow custom title just like `glance`
 - 📣 `entity-filter` allow auto-hide if empty using `show_empty: false`
-- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack` 
+- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack`
 
 ## {% linkable_title Changes in 0.73.0b0 %}
 
@@ -128,3 +142,9 @@ footer: true
 ## {% linkable_title Changes in 0.72 %}
 
 - Initial release of the Lovelace UI
+
+[glance card]: /lovelace/glance/
+[history graph card]: /lovelace/history-graph/
+[picture glance card]: /lovelace/picture-glance/
+[picture elements card]: /lovelace/picture-elements/
+[entity filter card]: /lovelace/entity-filter/
