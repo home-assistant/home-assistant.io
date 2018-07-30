@@ -34,5 +34,5 @@ Configuration variables:
 - **port** (*Optional*): The port of your mFi controller. Defaults to 6443.
 - **username** (*Required*): The mFi admin username.
 - **password** (*Required*): The mFi admin user's password.
-- **ssl** (*Optional*): If `True`, use SSL/TLS to contact the mFi controller. Defaults to `True`.
-- **verify_ssl** (*Optional*): Set this to `False` if your mFi controller has a self-signed certificate. Defaults to `True`.
+- **ssl** (*Optional*): If `true`, use SSL/TLS to contact the mFi controller. Defaults to `true`.
+- **verify_ssl** (*Optional*): Set this to `false` if your mFi controller has a self-signed certificate. Defaults to `true`.

@@ -12,5 +12,5 @@ ha_category: Notifications
 ha_release: "0.24"
 ---
 
-See the [Joaoapps Join component page](/components/joaoapps_join/) for information how to get the join notify platform running.
-
+See the [Joaoapps Join component page](/components/joaoapps_join/) for
+information how to get the join notify platform running.

@@ -34,12 +34,12 @@ Configuration variables:
 - **username** (*Optional*): The username of the Sharp Aquos TV. Defaults to admin.
 - **password** (*Optional*): The password of the Sharp Aquos TV. Defaults to password.
 - **name** (*Optional*): The name you would like to give to the Sharp Aquos TV.
-- **power_on_enabled** (*Optional*): If you want to be able to turn on your TV. Defaults to False.
+- **power_on_enabled** (*Optional*): If you want to be able to turn on your TV. Defaults to `false`.
 
 <p class='note warning'>
-When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
+When you set **power_on_enabled** as `true`, you have to turn on your TV on the first time with the remote.
 Then you will be able to turn on with Home-Assistant.
-Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
+Also, with **power_on_enabled** as `true`, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
 </p>
 
 

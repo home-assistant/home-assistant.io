@@ -25,7 +25,7 @@ The easiest way to find your roller shutters is to add this to your `configurati
 ```yaml
 cover:
   - platform: rfxtrx
-    automatic_add: True
+    automatic_add: true
 ```
 
 Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.
@@ -52,7 +52,7 @@ Example configuration:
 # Example configuration.yaml entry
 cover:
   - platform: rfxtrx
-    automatic_add: False
+    automatic_add: false
     signal_repetitions: 2
     devices:
       0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
@@ -69,6 +69,6 @@ Configuration variables:
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>

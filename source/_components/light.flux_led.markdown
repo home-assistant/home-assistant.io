@@ -53,7 +53,7 @@ Configuration variables within devices list:
 
 
 <p class='note'>
-Depending on your controller or bulb type, there are two ways to configure brightness. 
+Depending on your controller or bulb type, there are two ways to configure brightness.
 The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 </p>
 
@@ -66,7 +66,7 @@ Will automatically search and add all lights on start up:
 # Example configuration.yaml entry
 light:
   - platform: flux_led
-    automatic_add: True
+    automatic_add: true
 ```
 
 Will add two lights with given name and create an automation rule to randomly set color each 45 seconds:

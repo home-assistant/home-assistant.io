@@ -34,7 +34,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
-- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+- **limit_refetch_to_url_change** (*Optional*): `true`/`false` value (defaults to `false`). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
 - **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
 - **framerate** (*Optional*): The number of frames-per-second (FPS) of the stream (setting this too high may cause too much traffic on the network or be heavy on the camera).
 

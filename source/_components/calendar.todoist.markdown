@@ -83,7 +83,7 @@ Home Assistant does its best to determine what task in each project is "most" im
 
  - **offset_reached**: Not used.
 
- - **all_day**: `True` if the reported task doesn't have a due date. `False` if there is a due date set.
+ - **all_day**: `true` if the reported task doesn't have a due date. `false` if there is a due date set.
 
  - **message**: The title of the "most important" task coming up in this project.
 
@@ -144,8 +144,8 @@ Here are two example JSON payloads resulting in the same task:
 
 - **due_date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
 
-- **due_date_lang** (*Optional*): When `due_date_string` is set, it is posisble to set the language. 
-  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl` 
+- **due_date_lang** (*Optional*): When `due_date_string` is set, it is posisble to set the language.
+  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
 - **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.
 

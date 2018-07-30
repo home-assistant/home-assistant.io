@@ -43,7 +43,7 @@ Configuration variables:
 - **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.
 - **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default.
-- **disable_brightness_adjust** (*Optional*): If true, brightness will not be adjusted besides color temperature. Defaults to False.
+- **disable_brightness_adjust** (*Optional*): If `true`, brightness will not be adjusted besides color temperature. Defaults to `false`.
 - **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`. Defaults to `xy`.
 - **transition** (*Optional*): Transition time for the light changes (high values may not be supported by all light models). Defaults to 30.
 - **interval** (*Optional*): Frequency at which the lights should be updated. Defaults to 30.
@@ -64,9 +64,8 @@ switch:
     sunset_colortemp: 3000
     stop_colortemp: 1900
     brightness: 200
-    disable_brightness_adjust: True
+    disable_brightness_adjust: true
     mode: xy
     transition: 30
     interval: 60
 ```
-

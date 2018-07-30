@@ -29,4 +29,4 @@ Configuration variables:
 
 - **host** (*Required*): The ip address or host name of the mower.
 - **pin** (*Required*): The pin code for the mower.
-- **allow_unreachable** (*Optional*): This will allow the mower to be outside of wifi range without raising an error (default: True).
+- **allow_unreachable** (*Optional*): This will allow the mower to be outside of wifi range without raising an error (default: `true`).

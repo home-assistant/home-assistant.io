@@ -34,7 +34,7 @@ Configuration variables:
   - 'temperature'
   - 'humidity'
   - 'pressure'
-  is_hat_attached (Optional): True|False boolean; Default value is True declaring that the SenseHAT _is_ physically on the Raspberry Pi
+  is_hat_attached (Optional): `true`/`false` boolean; Default value is `true` declaring that the SenseHAT _is_ physically on the Raspberry Pi
 
 
 #### Customizing the Sense HAT data

@@ -43,7 +43,7 @@ password:
   description: Defines if you'd like to fetch data for both sides of the bed.
   required: false
   type: string
-  default: False
+  default: false
 {% endconfiguration %}
 
 ### {% linkable_title Supported features %}
@@ -82,4 +82,4 @@ script:
           entity_id: "sensor.eight_left_bed_state"
           target: 35
           duration: 3600
-``` 
+```

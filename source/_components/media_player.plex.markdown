@@ -52,8 +52,8 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **IP_ADDRESS** (*Required*): IP address of the Plex Media Server.
 - **PORT** (*Required*): Port where Plex is listening. Default is 32400.
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
-- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `False` if not present.
-- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `False`. Defaults to `True` if not present.
+- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `false`.
+- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`. Defaults to `true`.
 
 ## {% linkable_title Customization %}
 

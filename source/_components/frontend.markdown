@@ -74,7 +74,7 @@ The example above defined two themes named `happy` and `sad`. For each theme you
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -93,12 +93,12 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: time
         at: '21:00'

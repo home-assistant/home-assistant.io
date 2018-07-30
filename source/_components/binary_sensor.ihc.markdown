@@ -13,19 +13,22 @@ ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-Before you can use the IHC Binary Sensor platform, you must setup the [IHC Component](/components/ihc/)
+Before you can use the IHC Binary Sensor platform, you must setup the
+[IHC Component](/components/ihc/).
 
-When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
+When auto setup is enabled the following products will be found in the IHC
+project and setup as binary sensors:
 
-* Dataline magnet contacts
-* Dataline Pir sensors
-* Dataline Pir sensors with twilight detection
-* Dataline Pir alarm sensor
-* Dataline smoke detector
-* Dataline gas detector
-* Dataline light sensor
+- Dataline magnet contacts
+- Dataline Pir sensors
+- Dataline Pir sensors with twilight detection
+- Dataline Pir alarm sensor
+- Dataline smoke detector
+- Dataline gas detector
+- Dataline light sensor
 
-To manually configure IHC Binary Sensors insert this section in your configuration:
+To manually configure IHC Binary Sensors insert this section in your
+configuration:
 
 ```yaml
 binary_sensor:
@@ -34,7 +37,7 @@ binary_sensor:
       - id: 12345
         name: mysensor
         type: opening
-        inverting: True
+        inverting: true
       - id: 12346
            ...
 ```
@@ -50,9 +53,9 @@ binary_sensors:
       required: true
       type: int
     inverting:
-      description: If True the sensor will be inverted.
+      description: If `true` the sensor will be inverted.
       required: false
-      type: bool
+      type: boolean
       default: false
     name:
       description: The name of the component
@@ -65,5 +68,5 @@ binary_sensors:
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource.
-For more information about IHC resource ids see [Manual Setup](/components/ihc/#manual-setup)
-
+For more information about IHC resource ids see
+[Manual Setup](/components/ihc/#manual-setup).

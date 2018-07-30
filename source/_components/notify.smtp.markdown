@@ -38,7 +38,7 @@ Configuration variables:
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **encryption** (*Optional*): Set mode for encryption, `starttls`, `tls` or `none`. Defaults to `starttls`.
 - **sender_name** (*Optional*): Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>).
-- **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
+- **debug** (*Optional*): Enables Debug, eg. `true` or `false`. Defaults to `false`.
 
 A sample configuration entry for Google Mail.
 

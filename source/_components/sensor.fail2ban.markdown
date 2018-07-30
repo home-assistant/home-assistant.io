@@ -162,7 +162,7 @@ Once that's added to the nginx configuration, we need to modify the Home Assista
 
 ```yaml
 http:
-  use_x_forwarded_for: True
+  use_x_forwarded_for: true
 ```
 
 At this point, once the Let's Encrypt and Home Assistant dockers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt.  Once that's done and verified, we can move onto the final step.

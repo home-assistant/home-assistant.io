@@ -20,7 +20,7 @@ To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/)
 
 ### {% linkable_title Advanced configuration %}
 
-If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+If you want to select a specific sensor, set discovery to `false` for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
 

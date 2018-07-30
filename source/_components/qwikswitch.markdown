@@ -71,7 +71,7 @@ The sensor configuration is a list of sensors. Depending on the type, it will be
 - **channel** (*Optional, default=1*): The channel of interest. Refer to type above.
 
 The following parameters are only applicabe to binary_sensors (i.e. door/imod).
-- **invert** (*Optional, default=False): Invert the open/close state. 
+- **invert** (*Optional, default=`false`): Invert the open/close state. 
 - **class** (*Optional, default=door): The [class](https://www.home-assistant.io/components/binary_sensor) or binary_sensor.
 
 Example sensor configuration:

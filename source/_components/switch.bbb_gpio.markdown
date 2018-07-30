@@ -33,8 +33,7 @@ Configuration variables:
 - **pins** array (*Required*): Array of used ports.
   - **pin_name** (*Required*): Port numbers and corresponding names.
     - **name** (*Optional*): Friendly name to use for the frontend.
-    - **initial** (*Optional*): Initial state of the pin. Defaults to `False`.
+    - **initial** (*Optional*): Initial state of the pin. Defaults to `false`.
     - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is `false` (ACTIVE HIGH).
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
-

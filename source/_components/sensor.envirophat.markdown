@@ -66,7 +66,7 @@ Configuration variables:
   - **voltage_1**: voltage reading on Analog In 1 in units of V
   - **voltage_2**: voltage reading on Analog In 2 in units of V
   - **voltage_3**: voltage reading on Analog In 3 in units of V
-- **use_led** (*Optional*) True / False boolean; Default value is False, declaring that the on-board LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the on-board LEDs will blink whenever a reading is taken.
+- **use_led** (*Optional*) `true`/`false` boolean; Defaults to `false`, declaring that the on-board LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to `true`, the on-board LEDs will blink whenever a reading is taken.
 
 ### Notes
 

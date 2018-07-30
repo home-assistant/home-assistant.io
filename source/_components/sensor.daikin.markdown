@@ -3,7 +3,7 @@ layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC(s) with Home Assistant."
 date: 2017-12-03 05:00
-sidebar: True
+sidebar: true
 comments: false
 sharing: true
 footer: true

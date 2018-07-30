@@ -34,7 +34,7 @@ Configuration variables:
 - **password** (*Required*): The password for accessing surveillance station.
 - **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.
 - **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
-- **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
+- **verify_ssl** (*Optional*): `true` to require a valid certificate, `false` to disable certificate checking. Defaults to `true`.
 
 A full sample configuration for the `synology` platform is shown below:
 
@@ -46,7 +46,7 @@ camera:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     timeout: 15
-    verify_ssl: False
+    verify_ssl: false
 ```
 
 <p class='note'>

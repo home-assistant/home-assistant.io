@@ -27,8 +27,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True #(defaults to False)
-        save_on_change: False #(defaults to True)
+        use_music_mode: true
+        save_on_change: false
       192.168.1.13:
         name: Front Door
 ```
@@ -38,8 +38,8 @@ Configuration variables:
 - **ip** (*Required*): IP(s) of your Wifi bulbs
 - **name** (*Optional*): A friendly name for the device.
 - **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
-- **use_music_mode** (*Optional*, default False): Enable music mode.
-- **save_on_change** (*Optional*, default True): Saves the bulb state when changed from Home Assistant.
+- **use_music_mode** (*Optional*, default `false`): Enable music mode.
+- **save_on_change** (*Optional*, default `true`): Saves the bulb state when changed from Home Assistant.
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.

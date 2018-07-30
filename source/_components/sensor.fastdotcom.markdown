@@ -28,7 +28,7 @@ Once per hour, on the hour (default):
 
 ```yaml
 sensor:
-  - platform: fastdotcom 
+  - platform: fastdotcom
 ```
 
 More examples:
@@ -47,7 +47,7 @@ Configuration variables:
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
-- **manual** (*Optional*): True or False to turn manual mode on or off.  Manual mode will disable scheduled speedtests.
+- **manual** (*Optional*): `true` or `false` to turn manual mode on or off.  Manual mode will disable scheduled speedtests.
 
 There is also a service named `sensor.update_fastdotcom` that you can use to run a fast.com speedtest on demand.  You can turn on manual mode to disable the scheduled speedtests.
 

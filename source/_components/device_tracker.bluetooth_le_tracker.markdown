@@ -43,7 +43,7 @@ device_tracker:
 Configuration variables:
 
 - **device_id** (*Optional*): The device ID for the Bluetooth device to be used for tracking. Defaults to `hci0`.
-- **track_new_devices** (*Optional*): If new discovered devices are tracked by default. Defaults to `True`.
+- **track_new_devices** (*Optional*): If new discovered devices are tracked by default. Defaults to `true`.
 - **scan_duration** (*Optional*): How long should the scanner be looking for BLE devices. Defaults to `10` seconds.
 - **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
 

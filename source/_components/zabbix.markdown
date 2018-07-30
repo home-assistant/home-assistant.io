@@ -28,7 +28,7 @@ Configuration variables:
 
 - **host** (*Required*): Your Zabbix server.
 - **path** (*Optional*): Path to your Zabbix install. Defaults to `/zabbix/`.
-- **ssl** (*Optional*): Set to `True` if your Zabbix installation is using SSL. Default to `False`.
+- **ssl** (*Optional*): Set to `true` if your Zabbix installation is using SSL. Default to `false`.
 - **username** (*Optional*): Your Zabbix username.
 - **password** (*Optional*): Your Zabbix password.
 
@@ -39,7 +39,7 @@ Configuration variables:
 zabbix:
   host: ZABBIX_HOST
   path: ZABBIX_PATH
-  ssl: False
+  ssl: false
   username: USERNAME
   password: PASSWORD
 ```

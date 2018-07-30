@@ -21,7 +21,7 @@ The easiest way to find your sensors is to add this to your `configuration.yaml`
 # Example configuration.yaml entry
 sensor:
   platform: rfxtrx
-  automatic_add: True
+  automatic_add: true
 ```
 
 Then when the sensor emits a signal it will be automatically added:
@@ -76,11 +76,11 @@ Example configuration:
 # Example configuration.yaml entry
 sensor:
   platform: rfxtrx
-  automatic_add: True
+  automatic_add: true
   devices:
     0a52080705020095220269:
       name: Lving
-      fire_event: True
+      fire_event: true
     0a520802060100ff0e0269:
       name: Bath
       data_type:
@@ -96,6 +96,6 @@ Configuration variables:
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>
