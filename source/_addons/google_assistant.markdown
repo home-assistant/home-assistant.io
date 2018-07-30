@@ -10,6 +10,10 @@ footer: true
 featured: true
 ---
 
+<p class='note warning'>
+ These instructions are outdated - the add-on has been updated and these are no longer accurate or complete
+</p>
+
 <p class='note'>
   If you want to integrate your Google Home, or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
 </p>

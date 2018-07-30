@@ -169,6 +169,18 @@ You can test whether your button works within Home Assistant if you look at the 
 
 It may happen that "your_nice_name" is not resolved correctly; the according message (#2 in the above example) will be missing. This might be due to secure communication between your HM interface and the HM device. You can change the communication from "secure" to "standard" within your HM-interface to solve that issue (in "Einstellungen" - "Geräte" find your device and change "Übertragungsmodus" from secure to standard) - not recommended for devices that should have secure communication.
 
+#### {% linkable_title `homematic.keypress` events for HomeMatic IP devices %}
+
+To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / WRC6 (wall switch) or SPDR (passage sensor) you have to temporary create an empty program for each channel in the CCU:
+
+1. In the menu of your CCU's admin panel go to `Programs and connections` > `Programs & CCU connection`
+2. Go to `New` in the footer menu
+3. Click the plus icon below `Condition: If...` and press the button `Device selection`
+4. Select one of the device's channels you need (1-2 / 1-6 for WRC2 / WRC6 and 2-3 for SPDR)
+5. Save the program with the `OK` button
+6. When your channel is working now, you can edit it to select the other channels one by one
+7. At the end, you can delete this program from the CCU
+
 ### {% linkable_title Services %}
 
 - *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
