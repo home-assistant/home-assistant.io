@@ -14,11 +14,23 @@ ha_release: 0.51
 
 The `roomba` component allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
 
-<p class='note'>
-This platform has only been tested with an iRobot Roomba 980 but should work find with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
-</p>
+Currently supported features are:
+- `start`
+- `pause`
+- `stop`    - `stop`
+- `return_to_home`  - `return_to_home`
+- `turn_off` (stop all activity and return to dock) 
+- `locate`  - `locate`
+- `clean_spot`  - `clean_spot`
+- `set_fan_speed`   - `set_fan_speed`
 
-To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
+ Please follow [Retrieving your credentials](/components/vacuum.roomba/#retrieving-your-credentials) to retrieve the API token used in
+ `configuration.yaml`.
+
+
+## {% linkable_title Configuring the Platform %}
+
+To add a Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,6 +53,29 @@ Configuration variables:
 <p class='note'>
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
 </p>
+
+## {% linkable_title Attributes %}
+In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `roomba` platform introduces specific attributes. These are:
+- `bin_full`
+- `bin_present`
+- `cleaned_area`
+- `cleaning_time`
+- `error`
+- `position`
+- `software_version`
+
+The following table shows the units of measurement for each attribute:
+
+| Attribute                 | Unit of measurement | Description                                           |
+|---------------------------|---------------------|-------------------------------------------------------|
+| `bin_full`                | boolean             | Debris bin full or not                                |
+| `bin_present`             | boolean             | Debris bin attached to the Roomba or not              |
+| `cleaned_area`            | square meter        | Last / actual cleaned area in square meters           |
+| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                |
+| `error`                   | string              | Detailed error message                                |
+| `position`                | (int,int)           | (x,y) position of the Roomba's location               |
+| `software_version`        | string              | Firmware version of the Roomba                        |
 
 ### {% linkable_title Retrieving your credentials %}
 
