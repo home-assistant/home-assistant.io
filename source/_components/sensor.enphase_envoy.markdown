@@ -31,10 +31,6 @@ ip_address:
   description: The local IP Address of your Envoy
   required: true
   type: string
-name:
-  description: Name to use in the front end
-  required: false
-  type: string
 monitored_conditions:
   description: The list of conditions to monitor
   required: false
