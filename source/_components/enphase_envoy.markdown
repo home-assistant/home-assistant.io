@@ -23,11 +23,11 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: enphase_envoy
-    ip: ENVOY_LOCAL_IP_ADDRESS
+    ip_address: ENVOY_LOCAL_IP_ADDRESS
 ```
 
 {% configuration %}
-ip:
+ip_address:
   description: The local IP Address of your Envoy
   required: true
   type: string
