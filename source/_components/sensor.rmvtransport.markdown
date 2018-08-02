@@ -29,7 +29,7 @@ sensor:
 
 Configuration variables:
 
-  - **stationId** (*Required*): ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list or valid IDs.
+  - **stationId** (*Required*): ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
   - **destinations** (*Optional*): One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel.
   - **lines** (*Optional*): One or more line numbers, e.g., 'S8' or ['S8', 'RB33', '41']
   - **products** (*Optional*): One or more modes of transport, defaults to all modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']. 
