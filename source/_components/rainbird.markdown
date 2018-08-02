@@ -26,7 +26,7 @@ rainbird:
 
 {% configuration %}
 host:
-  description: v
+  description: IP Address of the Module
   required: true
   type: string
 password:
