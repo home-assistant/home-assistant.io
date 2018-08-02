@@ -147,6 +147,19 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
+### {% linkable_title Using Pronto hex format for IR packets %}
+
+IR packets can also be described in the popular Pronto hex format. This component internally converts the packet to Broadlink format before sending to the device.
+
+For example, the following code in Pronto hex:
+```
+0000 0070 0000 0032 0080 0040 0010 0010 0010 0010 0010 0030 0010 0010 0010 0030 0010 0010 0010 0030 0010 0010 0010 0010 0010 0030 0010 0010 0010 0010 0010 0030 0010 0030 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0030 0010 0010 0010 0030 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0010 0030 0010 0030 0010 0010 0010 0010 0010 0030 0010 0010 0010 0010 0010 0010 0010 0010 0010 0030 0010 0010 0010 0010 0010 0030 0010 0010 0010 0030 0010 0010 0010 0ACE
+```
+is equivalent to the Broadlink code (in base64):
+```
+JgBmAHE4Dg4ODg4qDg4OKg4ODioODg4ODioODg4ODioOKg4ODg4ODg4ODg4ODg4ODg4OKg4ODioODg4ODg4ODg4ODg4ODg4qDioODg4ODioODg4ODg4ODg4qDg4ODg4qDg4OKg4ODgAJlg0F
+```
+
 ### {% linkable_title Using E-Control Remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
