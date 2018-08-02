@@ -31,10 +31,36 @@ sensor:
 
 Configuration variables:
 
-- **areas** (*Required*): Contains one or more areas to add as sensors.
-  - **lat_ne** (*Required*): Latitude of north-eastern corner of area.
-  - **lon_ne** (*Required*): Longitude of north-eastern corner of area.
-  - **lat_sw** (*Required*): Latitude of south-western corner of area.
-  - **lon_sw** (*Required*): Longitude of south-western corner of area.
-  - **name** (*Optional*): Name of the sensor.
-  - **type** (*Optional*): How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`. Defaults to `max`.
+{% configuration %}
+areas:
+  description: The list contains one or more areas to add as sensors.
+  required: true
+  type: map
+  keys:
+    lat_ne:
+      description: Latitude of north-eastern corner of area.
+      required: true
+      type: string
+    lon_ne:
+      description: Longitude of north-eastern corner of area.
+      required: true
+      type: string
+    lat_sw:
+      description: Latitude of south-western corner of area.
+      required: true
+      type: string
+    lon_sw:
+      description: Longitude of south-western corner of area.
+      required: true
+      type: string
+    name:
+      description: Name of the sensor.
+      required: false
+      type: string
+      default: 'Netatmo Public Data'
+    type:
+      description: How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`.
+      required: false
+      type: string
+      default: max
+{% endconfiguration %}
