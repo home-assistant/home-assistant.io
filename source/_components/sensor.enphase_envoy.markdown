@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: enphase.svg
+logo: enphase-logo.svg
 ha_category: Energy
-ha_release: 0.73
+ha_release: 0.76
 ha_iot_class: "Local Polling"
 ---
 
@@ -36,7 +36,7 @@ name:
   required: false
   type: string
 monitored_conditions:
-  description: The list of conditions to display in the front end
+  description: The list of conditions to monitor
   required: false
   type: list
   keys:
