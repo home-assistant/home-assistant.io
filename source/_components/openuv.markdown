@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: openuv.jpg
 ha_category: Hub
-ha_release: 0.75
+ha_release: 0.76
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -107,47 +107,17 @@ solar noon).
 
 ### {% linkable_title `safe_exposure_time_type_X` %}
 
-These sensors (up to six in quantity, depending on which conditions are
-monitored) display the approximate number of minutes a particular skin type
+These sensors display the approximate number of minutes a particular skin type
 can be exposed to the sun before burning/tanning starts. Each sensor depicts
 a skin type based on the
 [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale):
 
-#### {% linkable_title Skin Type I %}
-
-* Typical Features: Very fair skin, white; red or blond hair; light-colored eyes; freckles likely
-* Tanning Ability: Always burns, does not tan
-* Ethnicity: Scandinavian, Celtic
-
-#### {% linkable_title Skin Type II %}
-
-* Typical Features: Fair skin, white; light eyes; light hair
-* Tanning Ability: Burns easily, tans poorly
-* Ethnicity: Northern European (Caucasian)
-
-#### {% linkable_title Skin Type III %}
-
-* Typical Features: Fair skin, cream white; any eye or hair color (very common skin type)
-* Tanning Ability: Tans after initial burn
-* Ethnicity: Darker Caucasian (Central Europe)
-
-#### {% linkable_title Skin Type IV %}
-
-* Typical Features: Olive skin, typical Mediterranean Caucasian skin; dark brown hair; medium to heavy pigmentation
-* Tanning Ability: Burns minimally, tans easily
-* Ethnicity: Mediterranean, Asian, Hispanic
-
-#### {% linkable_title Skin Type V %}
-
-* Typical Features: Brown skin, typical Middle Eastern skin; dark hair; rarely sun sensitive
-* Tanning Ability: Rarely burns, tans darkly easily
-* Ethnicity: Middle eastern, Latin, light-skinned African-American, Indian
-
-#### {% linkable_title Skin Type VI %}
-
-* Typical Features: Black skin; rarely sun sensitive
-* Tanning Ability: Never burns, always tans darkly
-* Ethnicity: Dark-skinned African American
+* Skin Type I
+* Skin Type II
+* Skin Type III
+* Skin Type IV
+* Skin Type V
+* Skin Type VI
 
 <p class='note warning'>
 The above guidelines constitude estimates and are intended to help informed
