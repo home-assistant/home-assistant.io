@@ -142,6 +142,12 @@ You can set the *wakeup* interval (in seconds) of the device, this is shown for 
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
+### {% linkable_title Node protection %}
+
+If your node has the protection commandclass, you can change the protection level of the node.
+Check your device manual on how to use this setting, as it is different between manufacturers.
+Set the new selection by pressing the **Set Protection** button.
+
 ## {% linkable_title Node user codes %}
 
 If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
