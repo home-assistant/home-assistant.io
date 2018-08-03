@@ -104,6 +104,14 @@ entity:
   required: true
   description: Entity id
   type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
 tap_action:
   required: false
   description: more-info, toggle, navigate, call-service

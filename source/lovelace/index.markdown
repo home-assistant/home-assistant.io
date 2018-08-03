@@ -45,6 +45,13 @@ Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adj
 
 ```yaml
 title: My Awesome Home
+# Include external resources
+resources:
+  - url: /local/my-custom-card.js
+    type: js
+  - url: /local/my-webfont.css
+    type: css
+
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view

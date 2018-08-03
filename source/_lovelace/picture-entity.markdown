@@ -42,9 +42,14 @@ name:
   required: false
   description: Overwrite entity name.
   type: string
-show_info:
+show_name:
   required: false
-  description: Shows the footer box.
+  description: Shows name in footer.
+  type: boolean
+  default: true
+show_state:
+  required: false
+  description: Shows state in footer.
   type: boolean
   default: true
 tap_action:
