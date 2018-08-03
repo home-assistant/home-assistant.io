@@ -1,30 +1,41 @@
 ---
 layout: post
-title: "0.75: TBD - UPDATE DATE"
-description: "TBD"
+title: "0.75: Spider, Tuya, Brunt, Magicseaweed API"
+description: "You're now able to change entity IDs on the fly."
 date: 2018-07-31 00:01:00
 date_formatted: "August 3, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-08-0.75/paulus_guido.jpg
+og_image: /images/blog/2018-08-0.75/components.png
 ---
 
 <a href='/components/#version/0.75'><img src='/images/blog/2018-08-0.75/components.png' style='border: 0;box-shadow: none;'></a>
 
+And just like that, it's August. Time is flying by. People all over the world have been busy to create this release for you. This release again a ton of cool new stuff.
+
+First, let's talk entity IDs. Entity IDs are how we identify entities in automations and scripts. They start with the domain and end with an object id, for example: `light.kitchen`. Or, if you're unlucky `light.node_2_2_abc`. With this release, it will now be possible to manage entity IDs of entities via the UI! Just as with changing the name, it requires that the integration is able to supply a unique ID for each entity.
+
+<p class='img'>
+<img src='/images/blog/2018-08-0.75/change-entity.png' alt='Screenshot of the user interface to change entity identifiers.'>
+Screenshot of the new user interface to change entity IDs.
+</p>
+
+This release also includes a bunch more Tuya integrations thanks to [@huangyupeng]. And thanks to [@peternijssen] we're now also able to talk with Spider thermostats and plugs.
+
+
 ## {% linkable_title New Platforms %}
 
 - Add Tuya climate platform ([@huangyupeng] - [#15500]) ([tuya docs]) ([climate.tuya docs]) (new-platform)
-- Add support for Tahoma Soke Sensor ([@fucm] - [#15441]) ([tahoma docs]) ([binary_sensor.tahoma docs]) (new-platform)
 - Add Tuya fan support ([@huangyupeng] - [#15525]) ([tuya docs]) ([fan.tuya docs]) (new-platform)
 - Add Tuya cover and scene platform ([@huangyupeng] - [#15587]) ([tuya docs]) ([cover.tuya docs]) ([scene.tuya docs]) (new-platform)
-- Add spider thermostat ([@peternijssen] - [#15499]) ([climate.spider docs]) (new-platform)
+- Add support for Tahoma Smoke Sensor ([@fucm] - [#15441]) ([tahoma docs]) ([binary_sensor.tahoma docs]) (new-platform)
 - Add Brunt Cover Device ([@eavanvalkenburg] - [#15653]) ([cover.brunt docs]) (new-platform)
+- Add spider thermostat ([@peternijssen] - [#15499]) ([climate.spider docs]) (new-platform)
 - Add spider power plug component ([@peternijssen] - [#15682]) ([spider docs]) ([switch.spider docs]) (new-platform)
 - Add support for P5 FutureNow light platform ([@juhaniemi] - [#15662]) ([light.futurenow docs]) (new-platform)
 - Add Magicseaweed API support ([@jcconnell] - [#15132]) ([sensor.magicseaweed docs]) (new-platform)
-- Break up components/auth ([@awarecan] - [#15713]) ([auth docs]) (new-platform)
 - Add a component for Sisyphus Kinetic Art Tables ([@jkeljo] - [#14472]) ([sisyphus docs]) ([light.sisyphus docs]) ([media_player.sisyphus docs]) (new-platform)
 - Add Genie Aladdin Connect cover component ([@shoejosh] - [#15699]) ([cover.aladdin_connect docs]) (new-platform)
 
@@ -39,7 +50,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Moon translate ([@pvizeli] - [#15498]) ([sensor.moon docs]) ([sensor.strings.moon.json docs]) (breaking change)
+- Moon translate ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
 - Mini-Remote events ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - Upgrade to simplisafe-python v2 to use new SimpliSafe API ([@w1ll1am23] - [#15542]) ([alarm_control_panel.simplisafe docs]) (breaking change)
 - Update smappy library version ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
@@ -54,14 +65,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Customizable command timeout ([@mu4yu3] - [#15442]) ([sensor.command_line docs])
 - Add check_untyped_defs ([@andrey-git] - [#15510])
 - Remove some unused imports ([@scop] - [#15529])
-- Moon translate ([@pvizeli] - [#15498]) ([sensor.moon docs]) ([sensor.strings.moon.json docs]) (breaking change)
+- Moon translate ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
 - More pylint 2 fixes ([@scop] - [#15516])
 - Make sure that only pypi dependencies are used ([@andrey-git] - [#15490])
 - RFC: Only use supported light properties ([@amelchio] - [#15484]) ([light docs]) ([light.mqtt docs])
 - Cleanup of HomematicIP Cloud code ([@mxworm] - [#15475]) ([homematicip_cloud docs])
 - Implement locate service for neato ([@dshokouhi] - [#15467]) ([neato docs]) ([vacuum.neato docs])
 - Make RS room thermostat discoverable ([@turbokongen] - [#15451]) ([zwave docs])
-- Add support for Tahoma Soke Sensor ([@fucm] - [#15441]) ([tahoma docs]) ([binary_sensor.tahoma docs]) (new-platform)
+- Add support for Tahoma Smoke Sensor ([@fucm] - [#15441]) ([tahoma docs]) ([binary_sensor.tahoma docs]) (new-platform)
 - Mini-Remote events ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - Update pyatmo ([@gieljnssns] - [#15540]) ([netatmo docs])
 - Update reading when device is added ([@quthla] - [#15548]) ([sensor.bme280 docs])
@@ -94,7 +105,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update smappy library version ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
 - Allow changing entity ID ([@balloob] - [#15637])
 - Downgrade netatmo warning log to info ([@glpatcern] - [#15652]) ([sensor.netatmo docs])
-- Add turn_on/off service to camera ([@awarecan] - [#15051]) ([camera docs]) ([camera.demo docs])
+- Add turn_on/off service to camera ([@awarecan] - [#15051]) ([camera docs])
 - Allow defining default turn-on values for lights in the profiles file. ([@kalimaul] - [#15493]) ([light docs])
 - Added user credentials to current_user ws endpoint. ([@jeradM] - [#15558]) ([auth docs])
 - Import collections abstract base classes from collections.abc ([@scop] - [#15649]) ([google_assistant docs]) ([notify docs])
