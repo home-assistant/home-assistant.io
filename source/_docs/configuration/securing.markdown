@@ -20,16 +20,16 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 - Don't run Home Assistant as root – consider the Principle of Least Privilege.
 - Keep your [secrets](/topics/secrets/) safe.
 
-If you want to allow remote access, consider these additional points:
+If you want to allow remote access, consider taking the additional steps as listed below. They are listed from the most secure to the least secure. IT IS HIGHLY RECOMMENDED THAT IF YOU ARE GOING TO BE OPENING YOUR HOME ASSISTANT (HENCE THE CONTROL OF YOUR HOME) TO THE OUTSIDE WORLD THAT YOU SHOULD SECURE IT WITH A VPN AT THE MINIMUM:
 
-- Protect your communication with [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/).
-- Enable IP Filtering and configure a low [Login Attempts Threshold](/components/http/)
 - Protect your communication with [Tor](/cookbook/tor_configuration/).
-- Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/).
-- Use a [proxy](/cookbook/apache_configuration/).
 - Set up a VPN
 - Use a [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/) to connect to your frontend.
+- Protect your communication with [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/).
+- Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/).
+- Use a [proxy](/cookbook/apache_configuration/).
+- Enable IP Filtering and configure a low [Login Attempts Threshold](/components/http/)
 
 <p class='note warning'>
-  If you've forwarded any ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system - potentially as little as a few hours.
+  If you've forwarded any ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system - potentially as little as a few hours. Setting a password should be considered the bare minimum security precaution and, as such, shouldn't be relied upon as the sole security action taken to protect your home from outside hackers. PASSWORDS CAN BE BROKEN!
 </p>
