@@ -50,10 +50,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Moon translate ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
-- Mini-Remote events ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
-- Upgrade to simplisafe-python v2 to use new SimpliSafe API ([@w1ll1am23] - [#15542]) ([alarm_control_panel.simplisafe docs]) (breaking change)
-- Update smappy library version ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
+- Moon sensor states are now lowercase with underscores instead of spaces, allowing it to be translated in the frontend. ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
+- Insteon Mini-Remote now emit events instead of show as a binary sensor ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Simplisafe to use new API: co, fire, flood, and last_event are no longer part of the SimpliSafe alarm object in the new API and are not available in this upgrade, making this a breaking change for anyone using those. They will be added back in some fashion at a later date (probably exposed as individual sensors) ([@w1ll1am23] - [#15542]) ([alarm_control_panel.simplisafe docs]) (breaking change)
+- Smappee: The updated library shows the temperature as degrees Celsius instead of centi degrees Celsius. ([@visibilityspots] - [#15636]) ([smappee docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Fix Min/Max Kelvin color temp attribute for Google ([@bryanyork] - [#15697]) ([google_assistant docs]) (beta fix)
+- Only report color temp when in the correct color mode ([@Kane610] - [#15791]) ([light.deconz docs]) (beta fix)
+- Allow Nest to setup without configuration.yaml entry ([@balloob] - [#15797]) ([nest docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -112,7 +118,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Auth typing improvements ([@scop] - [#15640])
 - Add spider thermostat ([@peternijssen] - [#15499]) ([climate.spider docs]) (new-platform)
 - Add Brunt Cover Device ([@eavanvalkenburg] - [#15653]) ([cover.brunt docs]) (new-platform)
-- 0.74.2 ([@balloob] - [#15671]) ([http docs])
 - Pylint 2 useless-return fixes ([@scop] - [#15677]) ([cloud docs]) ([mailgun docs]) ([notify docs]) ([climate.heatmiser docs]) ([fan.comfoconnect docs]) ([sensor.fritzbox_callmonitor docs]) ([sensor.modem_callerid docs])
 - Allow Nest Cam turn on/off ([@awarecan] - [#15681]) ([camera.nest docs])
 - Upgrade pylint to 2.0.1 ([@scop] - [#15683]) ([apple_tv docs]) ([light docs]) ([calendar.todoist docs]) ([media_player.bluesound docs]) ([media_player.pandora docs]) ([sensor.citybikes docs]) ([sensor.nzbget docs]) ([sensor.pyload docs])
@@ -125,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade pyvera to 0.2.44 ([@alanfischer] - [#15708]) ([vera docs])
 - Remove IHC XML Element from discovery data ([@dingusdk] - [#15719]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([sensor.ihc docs]) ([switch.ihc docs])
 - Context ([@balloob] - [#15674]) ([api docs]) ([http docs]) ([light docs]) ([switch docs]) ([websocket_api docs])
-- Break up components/auth ([@awarecan] - [#15713]) ([auth docs]) (new-platform)
+- Break up components/auth ([@awarecan] - [#15713]) ([auth docs])
 - Add a component for Sisyphus Kinetic Art Tables ([@jkeljo] - [#14472]) ([sisyphus docs]) ([light.sisyphus docs]) ([media_player.sisyphus docs]) (new-platform)
 - Command Line Sensor - json_attributes ([@alexhardwicke] - [#15679]) ([sensor.command_line docs])
 - Upgrade youtube_dl to 2018.07.21 ([@fabaff] - [#15718]) ([media_extractor docs])
@@ -144,6 +149,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add mvglive option to store multiple departures in attributes ([@DavidMStraub] - [#15454]) ([sensor.mvglive docs])
 - Add other wemo motion sensor identifier ([@danielfaulknor] - [#15627]) ([wemo docs])
 - Remove self type hints ([@awarecan] - [#15732]) ([fan docs]) ([climate.honeywell docs]) ([fan.dyson docs]) ([fan.insteon_local docs]) ([fan.template docs]) ([fan.wink docs]) ([fan.zha docs])
+- Fix Min/Max Kelvin color temp attribute for Google ([@bryanyork] - [#15697]) ([google_assistant docs]) (beta fix)
+- Only report color temp when in the correct color mode ([@Kane610] - [#15791]) ([light.deconz docs]) (beta fix)
+- Return True from Nest setup ([@balloob] - [#15797]) ([nest docs]) (beta fix)
 
 [#14472]: https://github.com/home-assistant/home-assistant/pull/14472
 [#15051]: https://github.com/home-assistant/home-assistant/pull/15051
@@ -205,7 +213,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15652]: https://github.com/home-assistant/home-assistant/pull/15652
 [#15653]: https://github.com/home-assistant/home-assistant/pull/15653
 [#15662]: https://github.com/home-assistant/home-assistant/pull/15662
-[#15671]: https://github.com/home-assistant/home-assistant/pull/15671
 [#15674]: https://github.com/home-assistant/home-assistant/pull/15674
 [#15677]: https://github.com/home-assistant/home-assistant/pull/15677
 [#15679]: https://github.com/home-assistant/home-assistant/pull/15679
@@ -215,6 +222,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15689]: https://github.com/home-assistant/home-assistant/pull/15689
 [#15690]: https://github.com/home-assistant/home-assistant/pull/15690
 [#15694]: https://github.com/home-assistant/home-assistant/pull/15694
+[#15697]: https://github.com/home-assistant/home-assistant/pull/15697
 [#15699]: https://github.com/home-assistant/home-assistant/pull/15699
 [#15708]: https://github.com/home-assistant/home-assistant/pull/15708
 [#15713]: https://github.com/home-assistant/home-assistant/pull/15713
@@ -232,8 +240,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15738]: https://github.com/home-assistant/home-assistant/pull/15738
 [#15739]: https://github.com/home-assistant/home-assistant/pull/15739
 [#15743]: https://github.com/home-assistant/home-assistant/pull/15743
+[#15791]: https://github.com/home-assistant/home-assistant/pull/15791
+[#15797]: https://github.com/home-assistant/home-assistant/pull/15797
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@JackNova]: https://github.com/JackNova
+[@Kane610]: https://github.com/Kane610
 [@PrimusNZ]: https://github.com/PrimusNZ
 [@alanfischer]: https://github.com/alanfischer
 [@alexhardwicke]: https://github.com/alexhardwicke
@@ -243,6 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@azogue]: https://github.com/azogue
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
+[@bryanyork]: https://github.com/bryanyork
 [@danielfaulknor]: https://github.com/danielfaulknor
 [@danielperna84]: https://github.com/danielperna84
 [@digiblur]: https://github.com/digiblur
@@ -321,6 +333,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.opencv docs]: /components/image_processing.opencv/
 [insteon_plm docs]: /components/insteon_plm/
 [light docs]: /components/light/
+[light.deconz docs]: /components/light.deconz/
 [light.futurenow docs]: /components/light.futurenow/
 [light.ihc docs]: /components/light.ihc/
 [light.mqtt docs]: /components/light.mqtt/
@@ -336,6 +349,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.sonos docs]: /components/media_player.sonos/
 [mqtt docs]: /components/mqtt/
 [neato docs]: /components/neato/
+[nest docs]: /components/nest/
 [netatmo docs]: /components/netatmo/
 [netgear_lte docs]: /components/netgear_lte/
 [notify docs]: /components/notify/
