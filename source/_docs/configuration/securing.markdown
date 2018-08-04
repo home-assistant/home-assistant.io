@@ -20,7 +20,7 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 - Don't run Home Assistant as root – consider the Principle of Least Privilege.
 - Keep your [secrets](/topics/secrets/) safe.
 
-If you want to allow remote access, consider taking the additional steps as listed below. They are listed from the most secure to the least secure. IT IS HIGHLY RECOMMENDED THAT IF YOU ARE GOING TO BE OPENING YOUR HOME ASSISTANT (HENCE THE CONTROL OF YOUR HOME) TO THE OUTSIDE WORLD THAT YOU SHOULD SECURE IT WITH A VPN AT THE MINIMUM:
+If you want to allow remote access, consider taking the additional steps as listed below. They are listed from the most secure to the least secure. <b>It is highly recommended that if you are going to be opening your Home Assistant (hence, the control of your home) to the outside world that you should secure it with a VPN at the minimum</b>:
 
 - Protect your communication with [Tor](/cookbook/tor_configuration/).
 - Set up a VPN
@@ -31,5 +31,5 @@ If you want to allow remote access, consider taking the additional steps as list
 - Enable IP Filtering and configure a low [Login Attempts Threshold](/components/http/)
 
 <p class='note warning'>
-  If you've forwarded any ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system - potentially as little as a few hours. Setting a password should be considered the bare minimum security precaution and, as such, shouldn't be relied upon as the sole security action taken to protect your home from outside hackers. PASSWORDS CAN BE BROKEN!
+  If you've forwarded any ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system - potentially as little as a few hours. Setting a password should be considered the bare minimum security precaution and, as such, shouldn't be relied upon as the sole security action taken to protect your home from outside hackers. <b>Passwords can be broken!</b>
 </p>
