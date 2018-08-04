@@ -9,14 +9,14 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title Changes in 0.75.0b0 %}
+## {% linkable_title Changes in 0.75.0 %}
 
 ### Breaking changes 
 - 📣 [glance card]: `turn-on` replaced with `call-service`
 
 ### All changes
 - 📣 Add support for CSS imports ❤️
-- 📣 New card type: `conditional-card` ❤️ - Drop your [entities filter card] hacks
+- 📣 New card type: `conditional-card` ❤️ - Drop your [entity filter card] hacks
 - 📣 [picture glance card]: Add support for custom icons
 - 📣 [picture entity card]: Supports hiding name and/or state
 - 📣 [glance card]: `turn-on` replaced with `call-service`
