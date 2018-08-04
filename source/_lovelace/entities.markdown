@@ -59,7 +59,7 @@ secondary_info:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Secial Row Elements %}
+## {% linkable_title Special Row Elements %}
 
 ### {% linkable_title Call Service %}
 
