@@ -37,7 +37,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | test_node              | Tells the controller to send no-op command(s) to a specific node. Requires `node_id` field. You can specify amount of test_messages to send by specifying it with `messages` field. In theory, this could bring back nodes marked as "presumed dead"
 | update_config          | Attempt to update OZW configuration files from git to support newer devices. After you run this, wait a few minutes then stop Home Assistant. You can now back up your `zwcfg_*.xml` file, then delete the relevant entries from your `zwcfg_*.xml` (between and including `<Node id="?">` and `</Node>`), and finally start Home Assistant. |
 
-The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below. By default, Home Assistant will run a `heal_network` at midnight. This is a configuration option for the `zwave` component. The option defaults to `true` but can be disabled by setting `autoheal` to false. If you're having issues with your Z-Wave network, try disabling this automation.
+he `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below. By default, Home Assistant will run a `heal_network` at midnight. This is a configuration option for the `zwave` component. The option defaults to `true` but can be disabled by setting `autoheal` to false. If you're having issues with your Z-Wave network, try disabling this automation.
 
 <p class='note'>
 Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang.
