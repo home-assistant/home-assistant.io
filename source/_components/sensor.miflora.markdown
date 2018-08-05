@@ -46,6 +46,8 @@ $ bluetoothctl
 [NEW] C4:D3:8C:12:4C:57 Flower mate
 ```
 
+If you can't use `hcitool` or `bluetoothctl` but have access to an Android phone you can try `BLE Scanner` or similar scanner applications from the Play Store to easily find your sensor MAC address.
+
 # Configure
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
