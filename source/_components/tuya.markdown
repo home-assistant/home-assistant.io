@@ -28,7 +28,7 @@ tuya:
 
 {% configuration %}
 username:
-  description: Your username to login to Tuya. Note: This may be your phone number.
+  description: Your username to login to Tuya. This may be your phone number.
   required: true
   type: string
 password:
