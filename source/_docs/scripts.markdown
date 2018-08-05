@@ -124,7 +124,7 @@ You can also get the script to continue to execute after the timeout by using `p
 
 {% raw %}
 ```yaml
-# wait until a valve is < 10 or abort after 1 minute.
+# wait until a valve is < 10 or proceed after 1 minute.
 - wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
   timeout: '00:01:00'
   proceed: 'true'
