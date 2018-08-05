@@ -9,10 +9,10 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Sensor
-ha_release: 0.75
+ha_release: 0.76
 ---
 
-The Netatmo Public sensor allows you to expose data from [Netatmo](https://weathermap.netatmo.com/) to Home Assistant, even if you don't have a Netatmo device yourself.
+The Netatmo Public sensor allows you to expose data from [Netatmo](https://weathermap.netatmo.com/) to Home Assistant, even if you don't have a Netatmo device yourself. Currently only support live rain data.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/).
 
