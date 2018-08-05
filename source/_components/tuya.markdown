@@ -36,7 +36,7 @@ password:
   required: true
   type: string
 country_code:
-  description: Your account [country code](https://www.countrycode.org/) (i.e.,1 for USA and 86 for China).
+  description: "Your account [country code](https://www.countrycode.org/) (e.g., 1 for USA or 86 for China)."
   required: true
   type: string
 {% endconfiguration %}
