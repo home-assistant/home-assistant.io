@@ -21,6 +21,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
  * [Denon network receivers](/components/media_player.denonavr/)
  * [DirecTV receivers](/components/media_player.directv/)
+ * [DLNA DMR enabled devices](/components/media_player.dlna_dmr/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
  * [HomeKit](/components/homekit_controller/)
@@ -79,6 +80,7 @@ Valid values for ignore are:
  * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon network receivers
  * `directv`: DirecTV receivers
+ * `dlna`: DLNA DMR enabled devices
  * `frontier_silicon`: Frontier Silicon internet radios
  * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
