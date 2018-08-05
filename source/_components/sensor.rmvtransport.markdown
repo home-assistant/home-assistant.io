@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rmv.png
 ha_category: Transport
-ha_release: 0.75
+ha_release: 0.76
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -35,6 +35,7 @@ Configuration variables:
   - **products** (*Optional*): One or more modes of transport, defaults to all modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
   - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
+  - **max** (*Optional*): Specify the maximal number of journeys (defaults to 5). 
 
 ## {% linkable_title Examples %}
 
