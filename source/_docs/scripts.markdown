@@ -81,7 +81,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 
 ### {% linkable_title Wait %}
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
+Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will by default abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
 {% raw %}
 ```yaml
@@ -117,6 +117,17 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 
 # Inside the script
 - wait_template: "{{ is_state(dummy, 'off') }}"
+```
+{% endraw %}
+
+You can also get the script to continue to execute after the timeout by using `proceed`
+
+{% raw %}
+```yaml
+# wait until a valve is < 10 or abort after 1 minute.
+- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+  timeout: '00:01:00'
+  proceed: 'true'
 ```
 {% endraw %}
 
