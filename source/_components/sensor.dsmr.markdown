@@ -60,8 +60,8 @@ sensor:
     description: "Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13)."
     required: false
     type: string
-  name:
-    description: "Version of DSMR used by meter. Choices: 2.2, 3, 4, 5. Defaults to 2.2."
+  dsmr_version:
+    description: "Version of DSMR used by meter. Choices: 2.2, 4, 5. Defaults to 2.2."
     required: false
     type: string
 {% endconfiguration %}
