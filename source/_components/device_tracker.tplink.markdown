@@ -13,7 +13,14 @@ ha_release: pre 0.7
 ---
 
 
-The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
+The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device.
+
+Currently supported devices includes the following:
+
+- Archer C7 firmware version 150427
+- Archer C9 firmware version 150811
+- EAP-225 AP with latest firmware version
+- Archer D9 firmware version 0.9.1 0.1 v0041.0 Build 160224 Rel.59129n
 
 <p class='note'>
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
@@ -32,7 +39,7 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
+- **username** (*Required*): The username of a user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
 - **password** (*Required*): The password for your given admin account.
 
 For Archer C9 models running firmware version 150811 or later please use the encrypted password you can retrieve like this:
@@ -45,3 +52,8 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 6. Copy the returned value to your Home Assistant configuration as password.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.
+
+
+
