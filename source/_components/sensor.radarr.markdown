@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Radarr Sensor"
-description: "Instructions how to integrate Radarr sensors with Home Assistant"
+description: "Instructions on how to integrate Radarr sensors with Home Assistant"
 date: 2017-05-04 00:00
 sidebar: true
 comments: false
@@ -15,10 +15,12 @@ ha_release: 0.47
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
+## {% linkable_title Configuration %}
+
 To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY

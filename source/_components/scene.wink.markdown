@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Scene"
-description: "Instructions how to setup the Wink scenes(shortcuts) within Home Assistant."
+description: "Instructions on how to setup the Wink scenes(shortcuts) within Home Assistant."
 date: 2017-04-01 16:45
 sidebar: true
 comments: false

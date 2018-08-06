@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NZBGet"
-description: "Instructions how to integrate NZBGet within Home Assistant."
+description: "Instructions on how to integrate NZBGet within Home Assistant."
 date: 2016-04-08 19:59
 sidebar: true
 comments: false

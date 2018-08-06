@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sonarr Sensor"
-description: "Instructions how to integrate Sonarr sensors with Home Assistant"
+description: "Instructions on how to integrate Sonarr sensors with Home Assistant"
 date: 2016-11-19 13:35
 sidebar: true
 comments: false
@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
+## {% linkable_title Configuration %}
+
 To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY

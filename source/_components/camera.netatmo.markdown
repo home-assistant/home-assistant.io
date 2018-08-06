@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Camera"
-description: "Instructions how to integrate Netatmo cameras into Home Assistant."
+description: "Instructions on how to integrate Netatmo cameras into Home Assistant."
 date: 2016-06-02 08:10
 sidebar: true
 comments: false

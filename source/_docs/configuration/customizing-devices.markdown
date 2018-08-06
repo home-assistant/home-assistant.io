@@ -61,7 +61,7 @@ homeassistant:
 | `homebridge_name` | Name of the entity in `HomeBridge`.
 | `hidden`    | Set to `true` to hide the entity.
 | `homebridge_hidden` | Set to `true` to hide the entity from `HomeBridge`.
-| `emulated_hue_hidden` | Set to `true` to hide the entity from `emulated_hue`.
+| `emulated_hue_hidden` | Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/components/emulated_hue)).
 | `entity_picture` | Url to use as picture for entity.
 | `icon` | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://materialdesignicons.com/cheatsheet)). Prefix name with `mdi:`, ie `mdi:home`.
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
@@ -71,14 +71,15 @@ homeassistant:
 
 ### {% linkable_title Device Class %}
 
-Device class is currently supported by the following platforms:
+Device class is currently supported by the following components:
 
 * [Binary Sensor](/components/binary_sensor/)
+* [Sensor](/components/sensor/)
 * [Cover](/components/cover/)
 
 ### {% linkable_title Reloading customize %}
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant/reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/reload_core_config` and click "Call Service".
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant.reload_core_config` and click "CALL SERVICE".
 
 <p class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

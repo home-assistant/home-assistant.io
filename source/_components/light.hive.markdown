@@ -14,11 +14,13 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' light component integrates your Hive lights into Home Assistant, enabling control of various settings, depending on the model light.
+The `hive` light platform integrates your Hive lights into Home Assistant, enabling control of various settings, depending on the model light.
 
-The Hive light component supports the following Hive products:
-- **Hive Active Light Dimmable**
-- **Hive Active Light Cool to Warm White**
+The platform supports the following Hive products:
+
+- Hive Active Light Dimmable
+- Hive Active Light Cool to Warm White
+- Hive Active Light Color Changing
 
 
 <p class='note'>

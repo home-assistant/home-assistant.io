@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vanderbilt SPC Alarm"
-description: "Instructions how to setup the Vanderbilt SPC Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the Vanderbilt SPC Alarm control panel within Home Assistant."
 date: 2017-05-18 22:01
 sidebar: true
 comments: false

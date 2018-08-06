@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "System Monitor"
-description: "Instructions how to monitor the Home Assistant host."
+description: "Instructions on how to monitor the Home Assistant host."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -56,18 +56,9 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | ipv4_address        | Interface, eg. `eth0`     |
 | ipv6_address        | Interface, eg. `eth0`     |
 | processor_use       |                           |
-| process             | Binary, e.g. `octave-cli` |
+| process             | Binary, e.g., `octave-cli` |
 | last_boot           |                           |
 | since_last_boot     |                           |
-
-**Note**: Some `type:` names used in the `configuration.yaml` file differ from the entity names.
-
-| Sensor type         | Entity ID                |
-| :------------------ |:-------------------------|
-| memory_free         | sensor.ram_available     |
-| memory_use_percent  | sensor.ram_used          |
-| processor_use       | sensor.cpu_used          |
-| disk_use            | sensor.disk_used         |
 
 ## {% linkable_title Linux specific %}
 

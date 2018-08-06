@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telegram"
-description: "Instructions how to add Telegram notifications to Home Assistant."
+description: "Instructions on how to add Telegram notifications to Home Assistant."
 date: 2015-10-09 18:00
 sidebar: true
 comments: false
@@ -99,7 +99,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: '*Send a message*'
-    message: 'That's an example that _sends_ a *formatted* message with a custom inline keyboard.'
+    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
         - 'Task 1:/command1, Task 2:/command2'
@@ -121,7 +121,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send an images
-    message: That's an example that sends an image.
+    message: "That's an example that sends an image."
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -164,7 +164,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a video
-    message: That's an example that sends a video.
+    message: "That's an example that sends a video."
     data:
       video:
         - url: http://192.168.1.28/camera.mp4
@@ -194,7 +194,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's an example that sends a document and a custom keyboard.
+    message: "That's an example that sends a document and a custom keyboard."
     data:
       document:
         file: /tmp/whatever.odf

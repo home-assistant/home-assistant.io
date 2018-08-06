@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telnet Switch"
-description: "Instructions how to integrate telnet switches into Home Assistant."
+description: "Instructions on how to integrate telnet switches into Home Assistant."
 date: 2017-08-10 19:19
 sidebar: true
 comments: false
@@ -39,6 +39,6 @@ Configuration variables:
     - **port** (*Optional*): Port to connect to. Default is 23 if not defined.
     - **command_on** (*Required*): Command to turn device on.
     - **command_off** (*Required*): Command to turn device off.
-    - **command_state** (*Required*): Command to determine the state of the switch. If not defined the switch will assume successful state changes.
-    - **value_template** (*Required*): The template evaluating to `true` will indicate that the switch is on.
+    - **command_state** (*Optional*): Command to determine the state of the switch. If not defined the switch will assume successful state changes.
+    - **value_template** (*Optional*): The template evaluating to `true` will indicate that the switch is on.
     - **name** (*Optional*): The name used to display the switch in the frontend.

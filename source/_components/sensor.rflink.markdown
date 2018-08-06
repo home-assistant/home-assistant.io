@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFLink Sensor"
-description: "Instructions how to integrate RFLink sensors into Home Assistant."
+description: "Instructions on how to integrate RFLink sensors into Home Assistant."
 date: 2016-01-04
 sidebar: true
 comments: false

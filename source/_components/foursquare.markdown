@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Foursquare
-description: "Instructions how to the Foursquare API into Home Assistant."
+description: "Instructions on how to the Foursquare API into Home Assistant."
 date: 2016-08-08 17:20
 sidebar: true
 comments: false
@@ -31,7 +31,7 @@ Configuration variables:
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
-`REDIRECT_URL` which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
+`REDIRECT_URL` which can be any URL you like, but since it will get your access token via an HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
 Visit the following URL in your browser:
 
 ```
@@ -40,7 +40,7 @@ https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=tok
 
 and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values. 
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
-After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as a HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
+After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
 
 ### {% linkable_title Real-Time API %}
 

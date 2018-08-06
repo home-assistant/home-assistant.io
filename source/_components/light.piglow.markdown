@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Piglow"
-description: "Instructions how to setup Piglow LED's within Home Assistant."
+description: "Instructions on how to setup Piglow LED's within Home Assistant."
 date: 2017-01-13 18:00
 sidebar: true
 comments: false

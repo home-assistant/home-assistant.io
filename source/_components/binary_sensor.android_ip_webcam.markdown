@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Android IP Webcam Binary Sensor"
-description: "Instructions how to integrate binary motion sensors for Android IP webcam within Home Assistant."
+description: "Instructions on how to integrate binary motion sensors for Android IP webcam within Home Assistant."
 date: 2017-03-10 00:00
 sidebar: true
 comments: false

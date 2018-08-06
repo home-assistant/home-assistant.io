@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BloomSky"
-description: "Instructions how to integrate the BloomSky within Home Assistant."
+description: "Instructions on how to integrate the BloomSky within Home Assistant."
 date: 2016-02-03 20:00
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Hub
 ha_release: 0.14
 ha_iot_class: "Cloud Polling"
 ---
-
 
 The `bloomsky` component allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's [sensors](/components/sensor.bloomsky), [binary sensors](/components/binary_sensor.bloomsky), and [camera](/components/camera.bloomsky) from Home Assistant.
 

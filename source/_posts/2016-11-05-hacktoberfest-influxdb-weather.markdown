@@ -20,7 +20,7 @@ The [Hacktoberfest] is over now. Home Assistant made the 2nd and the 3rd place o
 This release has improved the reporting when a config validation error occurs. Thanks to [@kellerza] you will now get a persistent notification added to your UI when this happens.
 
 ### {% linkable_title Asynchronous %}
-This release contains the first asynchronous sensor and camera platforms. [@pvizeli] and [@fabaff] ported most of the "internal" sensors to async programming. We hope that you will enjoy the new speed. 
+This release contains the first asynchronous sensor and camera platforms. [@pvizeli] and [@fabaff] ported most of the "internal" sensors to async programming. We hope that you will enjoy the new speed.
 
 [@balloob] and [@pvizeli] worked a lot on the improvement of the core itself.
 
@@ -41,7 +41,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
 - Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](https://home-assistant.io/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Notify: Added support for [Android TV/FireTV](/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 ([@danielperna84])
@@ -105,8 +105,8 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
-- [iOS](https://home-assistant.io/ecosystem/ios/)
-- [SceneGen](https://home-assistant.io/ecosystem/scenegen/)
+- [iOS](/ecosystem/ios/)
+- [SceneGen](/ecosystem/scenegen/)
 
 ### {% linkable_title Breaking changes %}
 
@@ -162,30 +162,30 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@jnewland]: https://github.com/jnewland
 [@DanielHiversen]: https://github.com/DanielHiversen
 
-[currencylayer]: https://home-assistant.io/components/sensor.currencylayer/
-[yahoo]: https://home-assistant.io/components/sensor.yahoo_finance/
-[mochat]: https://home-assistant.io/components/mochat/
-[firetv]: https://home-assistant.io/components/notify.firetv/
-[Yamaha]: https://home-assistant.io/components/media_player.yamaha/
-[hddtemp-sensor]: https://home-assistant.io/components/sensor.hddtemp/
-[Sonos]: https://home-assistant.io/components/media_player.sonos/
-[weather-sensors]: https://home-assistant.io/components/#weather
-[rpi-camera]: https://home-assistant.io/components/camera.rpi_camera/
-[rest-switch]: https://home-assistant.io/components/switch.rest/
-[emby-media]: https://home-assistant.io/components/media_player.emby/
-[random-sensor]: https://home-assistant.io/components/sensor.random/
-[yeelight]: https://home-assistant.io/components/light.yeelight/
-[influx-sensor]: https://home-assistant.io/components/sensor.influxdb/
-[weather-component]: https://home-assistant.io/components/weather/
-[cups-sensor]: https://home-assistant.io/components/sensor.cups/
-[litejet]: https://home-assistant.io/components/litejet/
-[garadget]: https://home-assistant.io/components/garadget/
-[philips_player]: https://home-assistant.io/components/media_player.philips_js/
-[icloud]: https://home-assistant.io/components/device_tracker.icloud/
-[synologydsm]: https://home-assistant.io/components/sensor.synologydsm/
-[dovado-sensor]: https://home-assistant.io/components/sensor.dovado/ 
-[ios]: https://home-assistant.io/ecosystem/ios/
+[currencylayer]: /components/sensor.currencylayer/
+[yahoo]: /components/sensor.yahoo_finance/
+[mochat]: /components/mochat/
+[firetv]: /components/notify.firetv/
+[Yamaha]: /components/media_player.yamaha/
+[hddtemp-sensor]: /components/sensor.hddtemp/
+[Sonos]: /components/media_player.sonos/
+[weather-sensors]: /components/#weather
+[rpi-camera]: /components/camera.rpi_camera/
+[rest-switch]: /components/switch.rest/
+[emby-media]: /components/media_player.emby/
+[random-sensor]: /components/sensor.random/
+[yeelight]: /components/light.yeelight/
+[influx-sensor]: /components/sensor.influxdb/
+[weather-component]: /components/weather/
+[cups-sensor]: /components/sensor.cups/
+[litejet]: /components/litejet/
+[garadget]: /components/garadget/
+[philips_player]: /components/media_player.philips_js/
+[icloud]: /components/device_tracker.icloud/
+[synologydsm]: /components/sensor.synologydsm/
+[dovado-sensor]: /components/sensor.dovado/
+[ios]: /ecosystem/ios/
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811
-[updater]: https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-[thingspeak]: https://home-assistant.io/components/thingspeak/
+[updater]: /blog/2016/10/25/explaining-the-updater/
+[thingspeak]: /components/thingspeak/

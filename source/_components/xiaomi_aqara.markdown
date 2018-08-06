@@ -18,6 +18,9 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 #### {% linkable_title Supported Devices %}
 
+- Xiaomi Aqara Gateway (lumi.gateway.v2, lumi.gateway.v3)
+- Aqara Air Conditioning Companion (lumi.acpartner.v3)
+- Aqara Intelligent Door Lock (lock.aq1)
 - Temperature and Humidity Sensor (1st and 2nd generation)
 - Motion Sensor (1st and 2nd generation)
 - Door and Window Sensor (1st and 2nd generation)
@@ -42,8 +45,8 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 - Gateway Radio
 - Gateway Button
-- Aqara Air Conditioning Companion
-- Aqara Intelligent Air Conditioner Controller Hub
+- Xiaomi Mi Air Conditioning Companion (lumi.acpartner.v2)
+- Aqara Intelligent Air Conditioner Controller Hub (lumi.acpartner.v1)
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
@@ -56,7 +59,7 @@ To enable {{ page.title }} in your installation, add the following to your `conf
 ### {% linkable_title One Gateway %}
 
 ```yaml
-# You can leave mac empty if you only have one gateway.
+# You can leave MAC empty if you only have one gateway.
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
@@ -66,7 +69,7 @@ xiaomi_aqara:
 ### {% linkable_title Multiple Gateways %}
 
 ```yaml
-# 12 characters mac can be obtained from the gateway.
+# 12 characters MAC can be obtained from the gateway.
 xiaomi_aqara:
   gateways:
     - mac: xxxxxxxxxxxx
@@ -87,14 +90,28 @@ xiaomi_aqara:
 ```
 
 {% configuration %}
-  mac:
-    description: The MAC address of your gateway. *Optional if only using one gateway.*
-    required: false
-    type: string
-  key:
-    description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
-    required: false
-    type: string
+  gateways:
+    description: A list of gateways to set up.
+    required: true
+    type: map
+    keys:
+      mac:
+        description: The MAC address of your gateway. *Optional if only using one gateway.*
+        required: false
+        type: string
+      key:
+        description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
+        required: false
+        type: string
+      host:
+        description: The host/IP address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
+        required: false
+        type: string
+      disable:
+        description: Disable the gateway. This is only useful if you don't want to integrate a specific gateway.
+        required: false
+        type: boolean
+        default: false
   discovery_retry:
     description: Number of times that Home Assistant should try to reconnect to the gateway.
     required: false
@@ -105,17 +122,13 @@ xiaomi_aqara:
     required: false
     type: string
     default: any
-  host:
-    description: The host / ip address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
-    required: false
-    type: string
 {% endconfiguration %}
 
 ### {% linkable_title Services %}
 
 The gateway provides the following services:
 
-#### {% linkable_title Service xiaomi_aqara.play_ringtone %}
+#### {% linkable_title Service `xiaomi_aqara.play_ringtone` %}
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
@@ -155,7 +168,7 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### {% linkable_title Service xiaomi_aqara.stop_ringtone %}
+#### {% linkable_title Service `xiaomi_aqara.stop_ringtone` %}
 
 Stops a playing ringtone immediately.
 
@@ -163,13 +176,7 @@ Stops a playing ringtone immediately.
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service xiaomi_aqara.add_device %}
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-
-#### {% linkable_title Service xiaomi_aqara.add_device %}
+#### {% linkable_title Service `xiaomi_aqara.add_device` %}
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
@@ -177,7 +184,7 @@ Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new de
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### {% linkable_title Service xiaomi_aqara.remove_device %}
+#### {% linkable_title Service `xiaomi_aqara.remove_device` %}
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
@@ -190,7 +197,7 @@ Removes a specific device. The removal is required if a device shall be paired w
 
 ### {% linkable_title Long Press on Smart Button %}
 
-This example plays the sound of a dog barking when the button is held down, and stops the sound when the button is pressed once.
+This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once.
 
 *Note: The sound will stop playing automatically when it has ended.*
 
@@ -222,11 +229,30 @@ This example plays the sound of a dog barking when the button is held down, and 
       gw_mac: xxxxxxxxxxxx
 ```
 
+### {% linkable_title Double Click on Smart Button %}
+
+This example toggles the living room lamp on a double click of the button.
+
+```yaml
+- alias: Double Click to toggle living room lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000xxxxxc2
+      click_type: double
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
+```
+
+
 ## {% linkable_title Troubleshooting %}
 
 ### {% linkable_title Initial setup problem %}
 
-If you run into trouble initializing the gateway with your app, try another smartphone. I had trouble with the OnePlus 3, but it worked with a Nexus 5.
+If you run into trouble initializing the gateway with your app, try another smartphone. E.g., it didn't work on an OnePlus 3, but it worked with a Nexus 5.
 
 ### {% linkable_title Connection problem %}
 
@@ -238,11 +264,12 @@ If you run into trouble initializing the gateway with your app, try another smar
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
-- Ensure your router supports multicast as this is a requirement of the Xiaomi GW
+- Ensure your router supports multicast as this is a requirement of the Xiaomi Gateway.
 - Try to leave the MAC address `mac:` blank.
 - Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
-- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternativly an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
-- If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g. `sudo apt-get install python3-dev libssl-dev libffi-dev`).
+- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+- If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
+

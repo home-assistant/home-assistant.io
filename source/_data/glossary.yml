@@ -39,7 +39,7 @@
 - topic: Cookbook
   description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
 - topic: Packages
-  description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configuations together."
+  description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Customize
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
 - topic: Zone

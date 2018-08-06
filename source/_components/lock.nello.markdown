@@ -16,6 +16,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 The `nello` platform allows you to control [Nello](https://nello.io) intercoms.
+
 To get started you need to create a secondary Nello account and authorize it to access your lock(s).
 
 <p class="note warning">
@@ -24,18 +25,26 @@ Be aware that if you use your main account for Home Assistant you may not be abl
 
 ## {% linkable_title Configuration %}
 
+To add your Nello locks to your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 lock:
   - platform: nello
-    username: mail@example.com
-    password: mySecretPassword
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username of your Nello account.
-- **password** (*Required*): The password of your Nello account.
+{% configuration %}
+username:
+  description: The username of your Nello account.
+  required: true
+  type: string
+password:
+  description: The password of your Nello account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Events %}
 

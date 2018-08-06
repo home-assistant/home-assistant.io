@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yandex TTS"
-description: "Instructions how to setup Yandex SpeechKit TTS with Home Assistant."
+description: "Instructions on how to setup Yandex SpeechKit TTS with Home Assistant."
 date: 2017-01-17 03:04
 sidebar: true
 comments: false

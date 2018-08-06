@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Counter"
-description: "Instructions how to integrate counters into Home Assistant."
+description: "Instructions on how to integrate counters into Home Assistant."
 date: 2017-08-26 06:00
 sidebar: true
 comments: false
@@ -19,7 +19,7 @@ To add a counter to your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 counter:
-  counter:
+  my_custom_counter:
     initial: 30
     step: 1
 ```

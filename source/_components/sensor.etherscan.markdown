@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Etherscan"
-description: "Instructions how to integrate Etherscan.io data within Home Assistant."
+description: "Instructions on how to integrate Etherscan.io data within Home Assistant."
 date: 2017-06-01 16:20
 sidebar: true
 comments: false
@@ -13,16 +13,22 @@ ha_release: 0.47
 ha_iot_class: "Cloud Polling"
 ---
 
+The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).
 
-The `Etherscan` sensor platform displays Ethereum wallet balances from [Etherscan.io](https://etherscan.io).
-
-To add the Etherscan sensor to your installation, specify an ethereum address to watch in the `configuration.yaml` file:
+To add the Etherscan sensor to your installation, specify an Ethereum address to watch in the `configuration.yaml` file. You can also optionally provide a token name to retrieve and ERC-20 token balance. If no token is provided then the balance retrieved will be in ETH. You can also optionally provide the token contract address in case the token name is not found.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: etherscan
     address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
+  - platform: etherscan
+    address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+    token: OMG
+  - platform: etherscan
+    address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+    token_address: "0xef68e7c694f40c8202821edf525de3782458639f"
+    token: LRC
 ```
 
 {% configuration %}
@@ -34,6 +40,13 @@ name:
   description: The name of the sensor used in the frontend.
   required: false
   type: string
-  default: Ethereum Balance
+  default: ETH Balance
+token:
+  description: The ERC20 token symbol. i.e., OMG.
+  required: false
+  type: string
+token_address:
+  description: The ERC20 token contract address.
+  required: false
+  type: string
 {% endconfiguration %}
-

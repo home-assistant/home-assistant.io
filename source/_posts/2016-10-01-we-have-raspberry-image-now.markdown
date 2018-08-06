@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "We have a Raspberry Pi image now"
-description: "Release of the Rapsberry Pi Image for Home Assistant"
+description: "Release of the Raspberry Pi Image for Home Assistant"
 date: 2016-10-01 01:00:00 -0400
 date_formatted: "October 1, 2016"
 author: Fredrik Lindqvist

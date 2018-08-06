@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ISY994 Sensor"
-description: "Instructions how to integrate ISY994 sensors into Home Assistant."
+description: "Instructions on how to integrate ISY994 sensors into Home Assistant."
 date: 2016-09-03 23:00
 sidebar: true
 comments: false

@@ -42,3 +42,19 @@ Both events have two attributes:
 
 - **sensor**: Name of `opensky` sensor that fired the event
 - **callsign**: Callsign of the flight
+
+To receive notifications of the entering flights, add the following lines to your `configuration.yaml`.
+
+{% raw %}
+```yaml
+automation:
+  - alias: 'Flight entry notification'
+    trigger:
+      platform: event
+      event_type: opensky_entry
+    action:
+      service: notify.ios_YOURIPHONENAME
+      data_template:
+        message : 'Flight entry of {{ trigger.event.data.callsign }} '
+```
+{% endraw %}

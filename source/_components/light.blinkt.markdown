@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Blinkt!"
-description: "Instructions how to setup Blinkt! RGB LED lights within Home Assistant."
+description: "Instructions on how to setup Blinkt! RGB LED lights within Home Assistant."
 date: 2017-04-30 9:00
 sidebar: true
 comments: false

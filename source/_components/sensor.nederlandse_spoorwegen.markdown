@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nederlandse Spoorwegen"
-description: "Instructions how to integrate timetable data for travelling by train in the Netherlands within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling by train in the Netherlands within Home Assistant."
 date: 2017-10-25 13:35
 sidebar: true
 comments: false
@@ -24,26 +24,26 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
 - platform: nederlandse_spoorwegen
-    email: you@example.com
-    password: !secret ns_password
-    routes:
-      - name: Rotterdam-Amsterdam
-        from: Rtd
-        to: Asd
-      - name: Groningen-Zwolle-Maastricht
-        from: Gn
-        to: Mt
-        via: Zl
+  email: you@example.com
+  password: !secret ns_password
+  routes:
+    - name: Rotterdam-Amsterdam
+      from: Rtd
+      to: Asd
+    - name: Groningen-Zwolle-Maastricht
+      from: Gn
+      to: Mt
+      via: Zl
 ```
 
 Configuration variables:
 
 - **email** (*Required*): The email address you used to request the API password.
 - **password** (*Required*): The API password provided by the Nederlandse Spoorwegen.
-- **routes** array (*Required*): List of travelling routes.
+- **routes** array (*Required*): List of traveling routes.
   - **name** (*Required*): Name of the route.
   - **from** (*Required*): The start station.
-  - **to** (*Required*): Direction of the travelling.
+  - **to** (*Required*): Direction of the traveling.
   - **via** (*Optional*): Optional other station you wish to visit in between.
 
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).

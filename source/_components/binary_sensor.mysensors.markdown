@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MySensors Binary Sensor"
-description: "Instructions how to integrate MySensors binary sensors into Home Assistant."
+description: "Instructions on how to integrate MySensors binary sensors into Home Assistant."
 date: 2016-04-13 14:20 +0100
 sidebar: true
 comments: false

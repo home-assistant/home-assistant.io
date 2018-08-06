@@ -58,7 +58,12 @@ github.repos.getForOrg({
           cb(err);
           return;
         }
-        if(userInfo.login == 'RubenKelevra') userInfo.name = 'RubenKelevra'; // ugh, because his name is `@RubenKelevra`
+	if (userInfo.name) {
+	  userInfo.name = userInfo.name.replace(/^@/, '')
+	  .replace(/</g, '&lt;')
+	  .replace(/>/g, '&gt;')
+	  .replace(/[\\`*_{}[\]()#+-.!~|]/g, '\\$&');
+	}
         usersMap[login].info.name = userInfo.name || userInfo.login;
         usersMap[login].info.username = userInfo.login;
         cb();

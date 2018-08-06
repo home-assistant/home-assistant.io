@@ -28,13 +28,13 @@ zwave:
 
 ## {% linkable_title Big speed up in querying the history %}
 
-Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️ 
+Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️
 
 ## {% linkable_title Snips.ai component %}
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
-Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and once again reducing the file size 👍 
+Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and once again reducing the file size 👍
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
@@ -530,9 +530,9 @@ light:
 [#8336]: https://github.com/home-assistant/home-assistant/pull/8336
 [@adrienball]: https://github.com/adrienball
 [@bergemalm]: https://github.com/bergemalm
-[api docs]: https://home-assistant.io/components/api/
-[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
-[snips docs]: https://home-assistant.io/components/snips/
+[api docs]: /components/api/
+[camera.arlo docs]: /components/camera.arlo/
+[mqtt docs]: /components/mqtt/
+[remote.harmony docs]: /components/remote.harmony/
+[sensor.arlo docs]: /components/sensor.arlo/
+[snips docs]: /components/snips/

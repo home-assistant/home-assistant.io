@@ -42,6 +42,9 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     mercenary (0.3.6)
     method_source (0.8.2)
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
     octopress (3.0.11)
       jekyll (>= 2.0)
       mercenary (~> 0.3.2)
@@ -68,8 +71,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (3.0.0)
-    rack (1.6.8)
-    rack-protection (1.5.3)
+    rack (1.6.9)
+    rack-protection (1.5.5)
       rack
     rake (10.5.0)
     rb-fsevent (0.10.2)
@@ -100,6 +103,7 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-sitemap
   jekyll-time-to-read
+  nokogiri
   octopress (~> 3.0)
   octopress-include-tag
   pry
@@ -113,4 +117,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.4
+   1.16.1

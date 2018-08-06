@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink"
-description: "Instructions how to setup the Wink hub within Home Assistant."
+description: "Instructions on how to setup the Wink hub within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -46,7 +46,7 @@ wink:
 
 ### {% linkable_title Full oauth authentication (legacy). %}
 
-This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
+This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
 
 ```yaml

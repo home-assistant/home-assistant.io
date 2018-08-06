@@ -26,7 +26,7 @@ Next, we attach a `ffmpeg_noise` binary sensor to our IP camera. The sensor has 
 We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 </p>
 
-On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install a [icecast2](http://icecast.org/) server using:
+On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install an [icecast2](http://icecast.org/) server using:
 
 ```bash
 $ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
@@ -35,7 +35,7 @@ $ sudo apt-get -t jessie-backports install ffmpeg
 $ sudo apt-get install icecast2
 ```
 
-We setup a icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
+We setup an icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
 
 ```
 <mount>
@@ -93,7 +93,7 @@ automation:
      entity_id: binary_sensor.ffmpeg_noise
 ```
 
-### {% linkable_title Trigger a alarm %}
+### {% linkable_title Trigger an alarm %}
 
 Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
 

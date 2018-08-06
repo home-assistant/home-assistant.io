@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Camera"
-description: "Instructions how to integrate cameras within Home Assistant."
+description: "Instructions on how to integrate cameras within Home Assistant."
 date: 2015-11-09 08:36
 sidebar: true
 comments: false
@@ -16,7 +16,23 @@ The camera component allows you to use IP cameras with Home Assistant. With a li
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
-Available services: `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
+Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
+
+#### {% linkable_title Service `turn_on` %}
+
+Turn on camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
+
+#### {% linkable_title Service `turn_off` %}
+
+Turn off camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `enable_motion_detection` %}
 
@@ -24,7 +40,7 @@ Enable the motion detection in a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
+| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `disable_motion_detection` %}
 
@@ -32,7 +48,7 @@ Disable the motion detection in a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
+| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `snapshot` %}
 
@@ -40,10 +56,22 @@ Take a snapshot from a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snopshot from, e.g., `camera.living_room_camera`. |
+| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
 | `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
+
+{% raw %}
+```yaml
+action:
+  service: camera.snapshot
+  data:
+    entity_id: camera.yourcamera
+    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
 
 ### {% linkable_title Test if it works %}
 

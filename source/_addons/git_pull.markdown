@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "GIT pull"
+title: "Git pull"
 description: "Load and update configuration files for Home Assistant from a GIT repository."
 date: 2017-09-25 14:00
 sidebar: true
@@ -13,8 +13,11 @@ Load and update configuration files for Home Assistant from a GIT repository.
 
 ```json
 {
-  "repository": "https://example.com/my_configs",
+  "repository": "https://example.com/my_configs.git",
   "auto_restart": false,
+  "git_branch": "master",
+  "git_command": "pull",
+  "git_remote": "origin",
   "repeat": {
     "active": false,
     "interval": 300
@@ -32,10 +35,23 @@ Load and update configuration files for Home Assistant from a GIT repository.
 }
 ```
 
-- **repository** (*Required*): GIT url to your repository.
-- **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
-- **repeat/active** (*Optional*): Pull periodic for GIT updates.
+- **repository** (*Required*): Git URL to your repository (make sure to use double quotes). You have to add .git to your GitHub repository URL (see example config)
+- **git_branch** (*Required*): Branch name of the git repo, leave this as 'master' if you are unsure.
+- **git_remote** (*Required*): Name of the tracked repository, leave this as 'origin' if you are unsure.
+- **git_command** (*Required*): Must be either 'pull' or 'reset', leave this as 'pull' if you are unsure.
+
+  * **pull**: Incorporates changes from a remote repository into the current branch. Will preserve any local changes to tracked files.
+  * **reset**: Will execute ```git reset --hard``` and overwrite any local changes to tracked files and update from the remote repository.
+
+<p class='note warning'>
+  Using the <b>reset</b> option will overwrite changes to tracked files.  Tracked files are those visible in the Github repository or those given by the output on this command: ```git ls-tree -r master --name-only```
+</p>
+  
+- **auto_restart** (*Optional*): Restart Home Assistant when the configuration has changed (and is valid).
+- **repeat/active** (*Optional*): Pull periodic for git updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
+- **deployment_user** (*Optional*): Username to use when authenticating to a repo with a username and password.
+- **deployment_password** (*Optional*): Password to use when authenticating to a repo.  Ignored if deployment_user is not set.
 - **deployment_key** (*Optional*): A private SSH key that will be used for communication during git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: `<user>@<host>:<repository path>`.
 - **deployment_key_protocol** (*Optional*): The key protocol. Default is "rsa". Valid protocols are:
 
@@ -45,7 +61,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
   * **rsa**
   
 The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using "rsa" protocol.
-  
+
 <p class='note warning'>
 You should only use this add-on if you do not have an existing configuration or if your existing configuration is already in a git repository. If the script does not find the necessary git files in your configuration folder, it will delete anything that might be there. Please ensure that there is a `.git` folder before using this. You can verify this by listing the items in the configuration folder including hidden files. The command is `ls -a /config`.
 </p>

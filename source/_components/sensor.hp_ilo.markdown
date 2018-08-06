@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
 
-If the ILO or specified jsonpath query returns only a single value (e.g. a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
+If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
 Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://pythonhosted.org/python-hpilo/).
 
@@ -23,6 +23,7 @@ Some more details about what can be retrieved from these sensors is available in
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
 </p>
 
+## {% linkable_title Configuration %}
 
 To use this component in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,8 +32,8 @@ To use this component in your installation, add the following to your `configura
 sensor:
   - platform: hp_ilo
     host: IP_ADDRESS or HOSTNAME
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     monitored_variables:
       - name: SENSOR NAME
         sensor_type: SENSOR TYPE
@@ -63,7 +64,7 @@ Valid sensor_types:
 - **server_health**: Get server health information.
 - **network_settings**: Get the iLO network settings.
 
-### Example
+## {% linkable_title Example %}
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
 
@@ -71,8 +72,8 @@ In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperatur
 sensor:
   - platform: hp_ilo
     host: IP_ADDRESS or HOSTNAME
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     monitored_variables:
       - name: CPU fanspeed
         sensor_type: server_health

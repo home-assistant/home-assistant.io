@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kira"
-description: "Instructions how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
+description: "Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
 date: 2017-05-07 00:00
 sidebar: true
 comments: false
@@ -39,6 +39,7 @@ kira:
 ```
 
 Configuration variables:
+
 - **sensors** (*Optional*): Kira sensors to register
   - **name** (*Optional*): Name of this sensor.
   - **host** (*Optional*): Bind address for this sensor. 0.0.0.0 is default.
@@ -70,17 +71,19 @@ The first time the Kira component is loaded, `kira_codes.yaml` will be created i
 ```
 
 Configuration variables:
+
 - **name** (*Required*): The name of this code.
 - **code** (*Required*): The data for this code (see below).
 - **device** (*Optional*): The device this code is associated with. Default is "unknown".
 - **type** (*Optional*): The type of this code. If this field is omitted, the type will be autodetected if possible.
 - **repeat** (*Optional*): The number of times to repeat this code (on transmit). Default is 1.
 
-Some manufacturers (e.g. Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
+Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
 ### {% linkable_title Code Types %}
 
 When creating an entry in `kira_codes.yaml`, a few different kinds of codes can be used.
+
 - **kira**: This is the native wire protocol used by Kira modules. These can be captured using netcat.
 - **pronto**: Pronto codes are supported.
 - **nec**: If the device uses NEC IR codes and the manufacturer has published them, they can be used here.

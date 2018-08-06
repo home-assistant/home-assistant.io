@@ -86,5 +86,5 @@ Community Leader, Home Assistant
 [discord]: https://discord.gg/c5DvZ4e
 [discord-devs]: https://discord.gg/8X8DTH4
 [discord-general]: https://discord.gg/pywKZRT
-[FAQ]: https://home-assistant.io/faq/
-[docs]: https://home-assistant.io/docs/
+[FAQ]: /faq/
+[docs]: /docs/

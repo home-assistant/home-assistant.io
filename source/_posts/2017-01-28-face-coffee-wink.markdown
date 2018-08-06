@@ -15,7 +15,7 @@ og_image: /images/blog/2017-01-0.37/social.png
 No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are back on track with our bi-weekly release cycle. Beside some organizational changes is this release shipping again cool features and new integrations. Please keep an eye on the "Breaking changes" section because there are also massive improvements for some platforms and components.
 
 ### {% linkable_title Governance %}
-As announced, the new [Governance][gov] requires for developers to sign the CLA. [Code of Conduct][coc], [Contributor License Agreement][cla], and proper [Licensing][license] will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors. 
+As announced, the new [Governance][gov] requires for developers to sign the CLA. [Code of Conduct][coc], [Contributor License Agreement][cla], and proper [Licensing][license] will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors.
 
 ### {% linkable_title Face recognition using the Microsoft Face API %}
 [@pvizeli] has been on a roll with the image processing integrations. This time it's the [Microsoft Face API][face]. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.
@@ -34,7 +34,7 @@ Although the old method is not insecure, the new method is a lot more secure. Up
 ### {% linkable_title Major Wink and HDMI CEC improvements %}
 [@w1ll1am23] did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your `configuration.yaml` file, no `client_id` and `client_secret` are needed, and token which was generated with the generator located in the [Wink][wink] documentation.
 
-The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren't previously detected or supported in the older version. 
+The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren't previously detected or supported in the older version.
 
 Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.
 
@@ -120,7 +120,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Switch - Pilight: Implement echo config option ([@janLo])
 - Core: Support customize in packages ([@kellerza])
 - Switch - Flux: Allow disabling setting the brightness ([@rytilahti])
-- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no emtpy image ([@pvizeli], [@andrey-git], [@robbiet480])
+- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no empty image ([@pvizeli], [@andrey-git], [@robbiet480])
 - Climate: Hold mode ([@Duoxilian])
 - Switch - TPlink: No longer doing I/O in event bus ([@balloob])
 - Light - Insteon local: Improve Insteon configuration ([@wardcraigj])
@@ -152,7 +152,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Due to massive improvements of the [Wink][wink] integration, the names of your binary sensors will change and new devices can show up.
 - The [MySensors][mysensors] component now requires all persistence file paths to be set if any is set by the user. This is to avoid name conflicts for the paths. If no path is set Home Assistant will set all paths for you.
 - The [Sonos][sonos] service `sonos_group_players` was removed. Use now `sonos_join` for this function.
-- TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
+- TTS cache have change for the last time. Files use now also an option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_LANG_PLATFORM.xxx` -> `HASH_LANG_OPTIONS_PLATFORM.xxx`, replace *OPTIONS* with `-` on exiting platforms.
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -229,35 +229,35 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mKeRix]: https://github.com/mKeRix
 [@fakezeta]: https://github.com/fakezeta
 
-[amcrest]: https://home-assistant.io/components/binary_sensor.amcrest/
-[discord]: https://home-assistant.io/components/notify.discord/
-[tado]: https://home-assistant.io/components/device_tracker.tado/
-[sky]: https://home-assistant.io/components/device_tracker.sky_hub/
-[zabbix]: https://home-assistant.io/components/zabbix/
-[avion]: https://home-assistant.io/components/light.avion/
-[anthem]: https://home-assistant.io/components/media_player.anthemav/
-[bb-bin]: https://home-assistant.io/components/binary_sensor.bbb_gpio/
-[piglow]: https://home-assistant.io/components/light.piglow/
-[wsdot]:  https://home-assistant.io/components/sensor.wsdot/
-[skybeacon]: https://home-assistant.io/components/sensor.skybeacon/
-[lutron]: https://home-assistant.io/components/lutron/
-[polly]: https://home-assistant.io/components/tts.amazon_polly/
-[linksys]: https://home-assistant.io/components/device_tracker.linksys_ap/
-[emul-hue]: https://home-assistant.io/components/emulated_hue/
-[netatmo]: https://home-assistant.io/components/netatmo/
-[face]: https://home-assistant.io/components/microsoft_face/
-[iss]: https://home-assistant.io/components/binary_sensor.iss/
-[roku]: https://home-assistant.io/components/media_player.roku/
-[openalpr]: https://home-assistant.io/components/#image-processing
-[image]: https://home-assistant.io/components/image_processing/
+[amcrest]: /components/binary_sensor.amcrest/
+[discord]: /components/notify.discord/
+[tado]: /components/device_tracker.tado/
+[sky]: /components/device_tracker.sky_hub/
+[zabbix]: /components/zabbix/
+[avion]: /components/light.avion/
+[anthem]: /components/media_player.anthemav/
+[bb-bin]: /components/binary_sensor.bbb_gpio/
+[piglow]: /components/light.piglow/
+[wsdot]:  /components/sensor.wsdot/
+[skybeacon]: /components/sensor.skybeacon/
+[lutron]: /components/lutron/
+[polly]: /components/tts.amazon_polly/
+[linksys]: /components/device_tracker.linksys_ap/
+[emul-hue]: /components/emulated_hue/
+[netatmo]: /components/netatmo/
+[face]: /components/microsoft_face/
+[iss]: /components/binary_sensor.iss/
+[roku]: /components/media_player.roku/
+[openalpr]: /components/#image-processing
+[image]: /components/image_processing/
 [emul_hue]: https://github.com/home-assistant/home-assistant/pull/5549
-[coc]: https://home-assistant.io/developers/code_of_conduct/
-[cla]: https://home-assistant.io/developers/cla/
-[gov]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/
-[license]: https://home-assistant.io/developers/license/
-[wink]: https://home-assistant.io/components/wink/
-[coffee]: https://home-assistant.io/components/switch.wemo/
-[cec]: https://home-assistant.io/components/hdmi_cec/
-[mysensors]: https://home-assistant.io/components/mysensors/
-[sonos]: https://home-assistant.io/components/media_player.sonos/
-[twilio]: https://home-assistant.io/components/notify.twilio_call/
+[coc]: /developers/code_of_conduct/
+[cla]: /developers/cla/
+[gov]: /blog/2017/01/21/home-assistant-governance/
+[license]: /developers/license/
+[wink]: /components/wink/
+[coffee]: /components/switch.wemo/
+[cec]: /components/hdmi_cec/
+[mysensors]: /components/mysensors/
+[sonos]: /components/media_player.sonos/
+[twilio]: /components/notify.twilio_call/

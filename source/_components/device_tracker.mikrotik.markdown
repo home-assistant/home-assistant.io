@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mikrotik"
-description: "Instructions how to integrate Mikrotik/Routerboard based routers into Home Assistant."
+description: "Instructions on how to integrate Mikrotik/Routerboard based routers into Home Assistant."
 date: 2017-04-28 16:03
 sidebar: true
 comments: false

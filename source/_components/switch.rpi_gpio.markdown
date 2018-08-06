@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Raspberry PI GPIO Switch"
-description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch."
+title: "Raspberry Pi GPIO Switch"
+description: "Instructions on how to integrate the GPIO of a Raspberry Pi into Home Assistant as a switch."
 date: 2015-08-07 14:00
 sidebar: true
 comments: false
@@ -34,6 +34,10 @@ Configuration variables:
 - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+
+<p class='note warning'>
+Note that a pin managed by HASS is expected to be exclusive to HASS.
+</p>
 
 A common question is what does Port refer to, this number is the actual GPIO # not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

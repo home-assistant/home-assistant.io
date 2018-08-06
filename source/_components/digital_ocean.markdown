@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Digital Ocean"
-description: "Instructions how to integrate the Digital Ocean within Home Assistant."
+description: "Instructions on how to integrate the Digital Ocean within Home Assistant."
 date: 2016-09-24 20:00
 sidebar: true
 comments: false

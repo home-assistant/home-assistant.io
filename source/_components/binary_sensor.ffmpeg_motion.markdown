@@ -42,7 +42,7 @@ Configuration variables:
 - **reset** (*Optional*): The time to reset the state after no new motion is detected. Defaults to 20 seconds.
 - **repeat** (*Optional*): How many events need to be detected in *repeat_time* in order to trigger a motion. Defaults to 0 repeats (deactivated).
 - **repeat_time** (*Optional*): The span of time *repeat* events need to occur in before triggering a motion. Defaults to 0 seconds (deactivated).
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. video denoise filtering.
+- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., video denoise filtering.
 
 To experiment with values (changes/100 is the scene value in `ffmpeg`):
 

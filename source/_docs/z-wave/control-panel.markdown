@@ -32,14 +32,18 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 ## {% linkable_title Z-Wave Node Management %}
 
+<p class='note warning'>
+Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change the default *friendly_name* attribute for all the entities). If you would like to update the entity id after renaming a z-wave device, you need to manually edit the [entity_registry.yaml](/docs/configuration/entity-registry/) file. See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
+</p>
+
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
 * **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail.
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
+* **Rename Node** sets the name of the `zwave` entity - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name. Other entities of a device are renamed using the [entity registry](/docs/configuration/entity-registry/).
 
-* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+* **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
@@ -47,14 +51,34 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
 
+### {% linkable_title Renaming all entities of a node %}
+
+When you use *Rename Node* it, as mentioned above, only changes the `zwave.` entity. If you've just added a device then the other entities for that device will use that new entity name as the base. However existing entities won't be renamed, so you need to remove them from `entity_registry.yaml`, and the process is like this:
+
+1. Use *Rename Node* to rename the `zwave.` entity and set the base for all the other entities
+2. Shut down Home Assistant and wait for it to stop
+3. Delete the relevant entries from `entity_registry.yaml`
+4. Start Home Assistant again
+
+Each block you need to delete will look something like this, you need to delete all 4 lines for each entry. The first number of the `unique-id` is the Node ID of the Z-Wave node.
+
+```yaml
+sensor.fibaro_door_sensor_access_control:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126614528
+```
+
 #### {% linkable_title Entities of this node %}
 
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
 
-Here you can mark a device as requiring polling (before 0.55 this was displayed at the top), so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/polling/), since excessive polling can break your Z-Wave network.
+Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
+
+The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
@@ -76,10 +100,8 @@ This will display the Z-Wave related information about the node:
 * **lastResponseRTT** The Round Trip Time of the response to the last request
 * **manufacturer_name** The name of the manufacturer, as supplied by OpenZWave
 * **max_baud_rate** The maximum bandwidth the device supports, most modern devices will support 40,000 or higher
-* **new_entity_id** In 0.47, Home Assistant introduced a new naming convention for entities, this shows the new naming convention
 * **node_id** The unique node ID of this node
 * **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
-* **old_entity_id** If `new_entity_ids: false` has been configured, then this is the entity_id that will be used. Support for this will be removed in the future
 * **product_name** The product name of the device, as supplied by OpenZWave
 * **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
 * **receivedCnt** The number of messages received from the device
@@ -104,6 +126,16 @@ You can use this to enable one device to directly control another. This is prima
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
 
+#### {% linkable_title Broadcast group %}
+
+Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+
+```json
+{"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}
+```
+
+That would remove the broadcast group from association group 1 of the device with node_id 3.
+
 ### {% linkable_title Node config options %}
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
@@ -112,7 +144,7 @@ Underneath that you can select any supported configuration parameter to see the 
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1
@@ -128,6 +160,20 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 Some non compliant device like tag readers, have implemented to use raw hex code.
 Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
 
+Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
+
+```python
+#! /usr/bin/python3
+import sys
+
+translations = {}
+
+for x in range(0, 10):
+    translations["%s" % x] = "\\x3%s" % x
+
+for c in sys.argv[1]:
+    print(translations[c], end='')
+```
 
 ## {% linkable_title OZW Log %}
 

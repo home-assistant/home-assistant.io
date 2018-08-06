@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SimpliSafe Alarm Control Panel"
-description: "Instructions how to integrate SimpliSafe into Home Assistant."
+description: "Instructions on how to integrate SimpliSafe into Home Assistant."
 date: 2016-07-02 22:00
 sidebar: true
 comments: false

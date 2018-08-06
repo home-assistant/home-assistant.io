@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yahoo Finance"
-description: "Instructions how to setup Yahoo Finance within Home Assistant."
+description: "Instructions on how to setup Yahoo Finance within Home Assistant."
 date: 2016-09-18 21:00
 sidebar: true
 comments: false
@@ -13,6 +13,10 @@ ha_iot_class: "Cloud Polling"
 featured: false
 ha_release: 0.29
 ---
+
+<p class='note warning'>
+  This sensor doesn't work anymore as [Yahoo!](https://yahoo.uservoice.com/forums/382977-finance/suggestions/32103877-yahoo-stock-quote-api-please-bring-back) decommissioned the service in early November 2017. A repleacement is the [`alpha_vantage` sensor](/components/sensor.alpha_vantage/).
+</p>
 
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Uptime Sensor"
-description: "Instructions how to integrate an uptime sensor into Home Assistant."
+description: "Instructions on how to integrate an uptime sensor into Home Assistant."
 date: 2017-10-13 10:30
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Juicenet Sensor"
-description: "Instructions how to setup WiFi-equipped Juicenet charging stations with Home Assistant."
+description: "Instructions on how to setup WiFi-equipped Juicenet charging stations with Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false

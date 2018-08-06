@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron Caseta Scene"
-description: "Instructions how to setup Lutron Caseta Scenes within Home Assistant."
+description: "Instructions on how to setup Lutron Caseta Scenes within Home Assistant."
 date: 2017-07-28 16:00
 sidebar: true
 comments: false

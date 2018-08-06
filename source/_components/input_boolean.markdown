@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Boolean"
-description: "Instructions how to integrate the Input Boolean component into Home Assistant."
+description: "Instructions on how to integrate the Input Boolean component into Home Assistant."
 date: 2016-01-17 16:58
 sidebar: true
 comments: false
@@ -24,16 +24,34 @@ input_boolean:
     icon: mdi:car
 ```
 
-Configuration variables:
+{% configuration %}
+  input_boolean:
+    description: Alias for the input. Multiple entries are allowed.
+    required: true
+    type: map
+    keys:
+      name:
+        description: Friendly name of the input.
+        required: false
+        type: String
+      initial:
+        description: Initial value when Home Assistant starts.
+        required: false
+        type: boolean
+        default: false
+      icon:
+        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        required: false
+        type: icon
+{% endconfiguration %}
 
-- **[alias]** (*Required*): Alias for the input.
-  - **name** (*Optional*): Friendly name of the input.
-  - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to `False`.
-  - **icon** (*Optional*): Icon for entry.
+### {% linkable_title Restore State %}
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
-Here's an example of an automation using the above input_boolean. This action will only occur if the switch is on.
+## {% linkable_title Automation Examples %}
+
+Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 
 ```yaml
 automation:

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "World Tides"
-description: "Instructions how to add Tides information to Home Assistant."
+description: "Instructions on how to add Tides information to Home Assistant."
 date: 2017-08-23 08:00
 sidebar: true
 comments: false

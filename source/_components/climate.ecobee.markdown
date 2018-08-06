@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ecobee Thermostat"
-description: "Instructions how to setup the Ecobee thermostats within Home Assistant."
+description: "Instructions on how to setup the Ecobee thermostats within Home Assistant."
 date: 2016-08-26 18:00
 sidebar: true
 comments: false
@@ -240,7 +240,7 @@ For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
 It is not possible to set a vacation hold; such hold has to be 
 defined on the thermostat directly. However, a vacation hold can be
-cancelled.
+canceled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

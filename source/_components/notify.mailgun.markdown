@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mailgun Notify"
-description: "Instructions how to add Mailgun mail notifications to Home Assistant."
+description: "Instructions on how to add Mailgun mail notifications to Home Assistant."
 date: 2017-02-06 16:52
 sidebar: true
 comments: false

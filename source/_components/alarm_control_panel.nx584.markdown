@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NX584 Alarm Control Panel"
-description: "Instructions how to integrate NX584 into Home Assistant."
+description: "Instructions on how to integrate NX584 into Home Assistant."
 date: 2016-02-07 10:00
 sidebar: true
 comments: false

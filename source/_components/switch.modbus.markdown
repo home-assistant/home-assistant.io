@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Modbus Switch"
-description: "Instructions how to integrate Modbus switches into Home Assistant."
+description: "Instructions on how to integrate Modbus switches into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
 comments: false
@@ -16,10 +16,12 @@ ha_iot_class: "Local Push"
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
+## {% linkable_title Configuration %}
+
 To use your Modbus switches in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   platform: modbus
   slave: 1

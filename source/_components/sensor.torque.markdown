@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Torque (OBD2)"
-description: "Instructions how to integrate Torque sensors into Home Assistant."
+description: "Instructions on how to integrate Torque sensors into Home Assistant."
 date: 2015-12-20 18:00
 sidebar: true
 comments: false

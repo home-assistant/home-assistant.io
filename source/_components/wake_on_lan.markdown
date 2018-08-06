@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wake on LAN"
-description: "Instructions how to setup the Wake on LAN component in Home Assistant."
+description: "Instructions on how to setup the Wake on LAN component in Home Assistant."
 date: 2017-07-8 15:00
 sidebar: true
 comments: false

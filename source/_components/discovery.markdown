@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Discovery"
-description: "Instructions how to setup Home Assistant to discover new devices."
+description: "Instructions on how to setup Home Assistant to discover new devices."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -14,29 +14,34 @@ ha_category: Other
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
 
- * [Apple TV](https://home-assistant.io/components/apple_tv/)
- * [Axis Communications security devices](https://home-assistant.io/components/axis/)
- * [Belkin WeMo switches](https://home-assistant.io/components/wemo/)
- * [Bluesound speakers](https://home-assistant.io/components/media_player.bluesound/)
- * [Bose Soundtouch speakers](https://home-assistant.io/components/media_player.soundtouch/)
- * [Denon network receivers](https://home-assistant.io/components/media_player.denonavr/)
- * [DirecTV receivers](https://home-assistant.io/components/media_player.directv/)
- * [Frontier Silicon internet radios](https://home-assistant.io/components/media_player.frontier_silicon/)
- * [Google Cast](https://home-assistant.io/components/media_player.cast/)
- * [IKEA Trådfri (Tradfri)](https://home-assistant.io/components/tradfri/)
- * [Linn / Openhome](https://home-assistant.io/components/media_player.openhome/)
- * [Logitech Harmony Hub](https://home-assistant.io/components/remote.harmony/)
- * [Logitech media server (Squeezebox)](https://home-assistant.io/components/media_player.squeezebox/)
- * [Netgear routers](https://home-assistant.io/components/device_tracker.netgear/)
- * [Panasonic Viera](https://home-assistant.io/components/media_player.panasonic_viera/)
- * [Philips Hue](https://home-assistant.io/components/light.hue/)
- * [Plex media server](https://home-assistant.io/components/media_player.plex/)
- * [Roku media player](https://home-assistant.io/components/media_player.roku/)
- * [SABnzbd downloader](https://home-assistant.io/components/sensor.sabnzbd/)
- * [Samsung TVs](https://home-assistant.io/components/media_player.samsungtv/)
- * [Sonos speakers](https://home-assistant.io/components/media_player.sonos/)
- * [Yamaha media player](https://home-assistant.io/components/media_player.yamaha/)
- * [Yeelight Sunflower bulb](https://home-assistant.io/components/light.yeelightsunflower/)
+ * [Apple TV](/components/apple_tv/)
+ * [Axis Communications security devices](/components/axis/)
+ * [Belkin WeMo switches](/components/wemo/)
+ * [Bluesound speakers](/components/media_player.bluesound/)
+ * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
+ * [Denon network receivers](/components/media_player.denonavr/)
+ * [DirecTV receivers](/components/media_player.directv/)
+ * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
+ * [Google Cast](/components/media_player.cast/)
+ * [HomeKit](/components/homekit_controller/)
+ * [IKEA Trådfri (Tradfri)](/components/tradfri/)
+ * [Linn / Openhome](/components/media_player.openhome/)
+ * [Logitech Harmony Hub](/components/remote.harmony/)
+ * [Logitech media server (Squeezebox)](/components/media_player.squeezebox/)
+ * [Netgear routers](/components/device_tracker.netgear/)
+ * [Panasonic Viera](/components/media_player.panasonic_viera/)
+ * [Philips Hue](/components/light.hue/)
+ * [Plex media server](/components/media_player.plex/)
+ * [Roku media player](/components/media_player.roku/)
+ * [SABnzbd downloader](/components/sensor.sabnzbd/)
+ * [Samsung SyncThru Printer](/components/sensor.syncthru/)
+ * [Samsung TVs](/components/media_player.samsungtv/)
+ * [Sonos speakers](/components/media_player.sonos/)
+ * [Telldus Live](/components/tellduslive/)
+ * [Wink](/components/wink/)
+ * [Yamaha media player](/components/media_player.yamaha/)
+ * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
+ * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -48,11 +53,22 @@ discovery:
   ignore:
     - sonos
     - samsung_tv
+  enable:
+    - homekit
 ```
 
-Configuration variables:
+{% linkable_title Configuration variables: %}
 
-- **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
+{% configuration discovery %}
+ignore:
+  description: A list of platforms that never will be automatically configured by `discovery`.
+  required: false
+  type: string
+enable:
+  description: A list of platforms not enabled by default that `discovery` should discover.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Valid values for ignore are:
 
@@ -75,26 +91,44 @@ Valid values for ignore are:
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
+ * `samsung_printer`: Samsung SyncThru Printer
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
+ * `songpal` : Songpal
+ * `tellstick`: Telldus Live
+ * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
- 
-<p class='note'>
+ * `xiaomi_gw`: Xiaomi Aqara gateway
+
+Valid values for enable are:
+
+ * `homekit`: HomeKit accessories
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title UPnP %}
+
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
-</p>
 
-<p class='note warning'>
+### {% linkable_title Windows %}
+
+#### {% linkable_title 64-bit Python %}
 There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this component on a 64-bit version of Python and Windows.
-</p>
 
-<p class='note'>
+#### {% linkable_title Python 3.5 %}
+
 If you are on Windows and you're using Python 3.5, download the [Netifaces](http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces) dependency.
-</p>
 
-<p class='note'>
-If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
-</p>
+### {% linkable_title could not install dependency netdisco %}
+
+If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
+
+### {% linkable_title DSM and Synology %}
+
+For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
+
+## {% linkable_title New platforms %}
 
 If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.

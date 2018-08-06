@@ -69,6 +69,7 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `event`.
 | `trigger.event` | Event object that matched.
+| `trigger.event.data` | Optional data
 
 ### {% linkable_title mqtt %}
 

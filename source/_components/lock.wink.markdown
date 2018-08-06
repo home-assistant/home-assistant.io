@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Lock"
-description: "Instructions how to setup the Wink locks within Home Assistant."
+description: "Instructions on how to setup the Wink locks within Home Assistant."
 date: 2015-11-20 12:00
 sidebar: true
 comments: false
@@ -13,13 +13,11 @@ ha_release: 0.9
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
 
 The requirement is that you have setup [Wink](/components/wink/).
 
-
-### Supported lock devices
+### {% linkable_title Supported lock devices %}
 
 - Kwikset
 - Schlage
@@ -56,7 +54,7 @@ You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm se
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `sensitivity` | no | String one of low, medium_low, medium, medium_high, high
+| `sensitivity` | no | String one of low, medium_low, medium, medium_high, high.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
 
 Example:
@@ -139,7 +137,6 @@ You can use the service wink/wink_add_new_lock_key_code to add a new user code t
 | `entity_id` | no | String or list of strings that point at `entity_id`s of locks.
 | `name` | no | the name of the new key code
 | `code` | no | The new code. Must match length of existing codes.
-
 
 <p class='note'>
 Calling service wink/pull_newly_added_wink_devices will add the new key code to Home Assistant. The device will also show up on the next restart of Home Assistant.

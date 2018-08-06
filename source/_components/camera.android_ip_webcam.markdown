@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Android IP Webcam Camera"
-description: "Instructions how to integrate Android IP Webcam cameras within Home Assistant."
+description: "Instructions on how to integrate Android IP Webcam cameras within Home Assistant."
 date: 2015-07-11 0:36
 sidebar: true
 comments: false

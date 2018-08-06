@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installation of Home Assistant"
-description: "Instructions how to install Home Assistant to launch on start."
+description: "Instructions on how to install Home Assistant to launch on start."
 date: 2017-02-15 08:00
 sidebar: true
 comments: false
@@ -14,9 +14,25 @@ redirect_from: /getting-started/installation/
 Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require advanced installations.
 </p>
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows, we require at least **Python 3.5** and for other operating systems at least **Python 3.4.2**.
+Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5.3 or later](https://www.python.org/downloads/) installed.
+
+<p class='note warning'>
+  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
+</p>
 
 <div class="text-center hass-option-cards" markdown="0">
+  <a class='option-card' href='/getting-started/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/home-assistant.png' />
+    </div>
+    <div class='title'>Hass.io<br>(Beginner friendly)</div>
+  </a>
+  <a class='option-card' href='/docs/installation/virtualenv/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/python.svg' />
+    </div>
+    <div class='title'>On top of an existing Python 3.5+ installation</div>
+  </a>
   <a class='option-card' href='/docs/hassbian/installation/'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />

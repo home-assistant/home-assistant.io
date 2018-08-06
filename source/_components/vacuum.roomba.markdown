@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "iRobot Roomba"
-description: "Instructions how to integrate your Wi-Fi enabled Roomba within Home Assistant."
+description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
 date: 2017-08-04 20:43
 sidebar: true
 comments: false
@@ -32,7 +32,7 @@ vacuum:
 Configuration variables:
 
 - **host** (*Required*): Hostname or IP address of the Roomba.
-- **username** (*Required*): The username (BLID) fro your device.
+- **username** (*Required*): The username (BLID) for your device.
 - **password** (*Required*): The password for your device.
 - **name** (*Optional*): The name of the vacuum.
 - **certificate** (*Optional*): Path to your certificate store. Defaults to `/etc/ssl/certs/ca-certificates.crt`.

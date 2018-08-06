@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Twitch"
-description: "Instructions how to integrate Twitch sensors into Home Assistant."
+description: "Instructions on how to integrate Twitch sensors into Home Assistant."
 date: 2015-12-19 09:00
 sidebar: true
 comments: false
@@ -16,6 +16,8 @@ ha_iot_class: "Cloud Polling"
 
 The `twitch` platform will allow you to monitor [Twitch](http://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
+## {% linkable_title Configuration %}
+
 To use Twitch with your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -27,8 +29,13 @@ sensor:
     - channel2
 ```
 
-Configuration variables:
-
-- **channels** array (*Required*): Array of channels.
-  - **channel_name** (*Required*): Name of the channel.
+{% configuration %}
+channels:
+  description: List of channels.
+  required: true
+  type: map
+  keys:
+    channel_id:
+      description: Name of the channel.
+{% endconfiguration %}
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GPSLogger"
-description: "Instructions how to use GPSLogger to track devices in Home Assistant."
+description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
 date: 2016-11-25 15:00
 sidebar: true
 comments: false
@@ -19,7 +19,14 @@ To integrate GPSLogger in Home Assistant, add the following section to your `con
 # Example configuration.yaml entry
 device_tracker:
   - platform: gpslogger
+    password: !secret gpslogger_password
 ```
+{% configuration %}
+password:
+  description: Separate password for GPS Logger endpoint. If provided using regular API password to contact endpoint will result in 401 response.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Setup on your smartphone %}
 
@@ -32,7 +39,7 @@ After the launch, go to **General Options**. Enable **Start on bootup** and **St
   GPSLogger Settings
 </p>
 
-Go to **Logging details** and disable **Log to GPX**. **Log to KML**, and **Log to NMEA**. Enable **Log to custom URL**.
+Go to **Logging details** and disable **Log to GPX**, **Log to KML** and **Log to NMEA**. Enable **Log to custom URL**.
 
 <p class='img'>
   <img width='300' src='/images/components/gpslogger/logging-details.png' />
@@ -49,7 +56,7 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
 The relevant endpoint is: `/api/gpslogger`
 
 ```text
-http://[IP address Home Assistant]:[Port]/api/gpslogger?
+https://YOUR.DNS.HOSTNAME:PORT/api/gpslogger?
    latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
    &battery=%BATT&speed=%SPD&direction=%DIR
    &altitude=%ALT&provider=%PROV&activity=%ACT
@@ -58,17 +65,17 @@ http://[IP address Home Assistant]:[Port]/api/gpslogger?
 Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.
 
 - It's HIGHLY recommended to use SSL/TLS.
-- Use the domain that Home Assistant is available on the internet or the public IP address. Can be a local IP address if you are using a VPN setup.
-- Only remove `[Port]` if your Home Assistant instance is using port 80. Otherwise set it to 8123.
-- Click on **Parameters** in the app and you will see all available parameters for the URL. For Home Assistant only the above URL will work.
-- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=[Your pasword]` to the end of the URL. 
-- You can change the name of your device name by replacing `&device=%SER` with `&device=[Devicename]`.
+- Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
+- Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
+- For Home Assistant only the above URL, as written, will work - do not add, remove, or change the order of any of the parameters.
+- Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=YOUR_PASSWORD` to the end of the URL. 
+- You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
 
-If your battery drains fast then you can tune the performence of GPSLogger under **Performance** -> **Location providers** 
+If your battery drains fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers** 
 
 <p class='img'>
   <img width='300' src='/images/components/gpslogger/performance.png' />
   Performance
 </p>
 
-A request can be forced from the app to test if everything is working fine. A succesful request will update the `known_devices.yaml` file with the device's serial number.
+A request can be forced from the app to test if everything is working fine. A successful request will update the `known_devices.yaml` file with the device's serial number.

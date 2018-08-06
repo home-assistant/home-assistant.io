@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Enviro pHAT"
-description: "Instructions how to integrate the Enviro pHAT within Home Assistant."
+description: "Instructions on how to integrate the Enviro pHAT within Home Assistant."
 date: 2017-05-03 17:00
 sidebar: true
 comments: false
@@ -16,7 +16,7 @@ ha_release: 0.44
 The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board features a wide range of sensors, such as:
 
 - BMP280 temperature/pressure sensor
-- TCS3472 light and RGB colour sensor with two LEDs for illumination
+- TCS3472 light and RGB color sensor with two LEDs for illumination
 - LSM303D accelerometer/magnetometer sensor
 - ADS1015 4-channel 3.3v, analog to digital sensor (ADC)
 

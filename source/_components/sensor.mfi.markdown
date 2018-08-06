@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "mFi Sensor"
-description: "Instructions how to integrate mFi sensors within Home Assistant."
+description: "Instructions on how to integrate mFi sensors within Home Assistant."
 date: 2016-02-07 10:00
 sidebar: true
 comments: false
@@ -16,15 +16,17 @@ ha_release: 0.32
 
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
+## {% linkable_title Configuration %}
+
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: mfi
-    host: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
+    host: IP_ADDRESS_OF_SENSOR
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 Configuration variables:

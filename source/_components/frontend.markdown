@@ -23,7 +23,7 @@ frontend:
     description: "Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the config can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
     required: false
     type: string
-    default: es5
+    default: auto
   themes:
     description: Allow to define different themes. See below for further details.
     required: false
@@ -39,7 +39,11 @@ frontend:
             required: true
             type: [list, string]
   extra_html_url:
-    description: "List of addtional [resources](/developers/frontend_creating_custom_ui/) to load."
+    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
+    required: false
+    type: list
+  extra_html_url_es5:
+    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `es5` javascript mode."
     required: false
     type: list
   development_repo:
@@ -65,7 +69,7 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.html](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
 
 There are 2 themes-related services:
 
@@ -131,7 +135,7 @@ Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on a
 
 ### {% linkable_title Manual Language Selection %}
 
-The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select a one from "Choose a Language". It will be applied immediately.
+The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select one from "Choose a Language". It will be applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/choose-language.png' />

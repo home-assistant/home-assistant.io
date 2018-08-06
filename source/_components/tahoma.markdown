@@ -10,10 +10,11 @@ footer: true
 logo: tahoma.png
 ha_category: Hub
 ha_release: 0.59
+ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds actually covers and the sun sensor from tahoma platform.
+The `Tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
 
 To use your Tahoma devices in your installation, add the following to your `configuration.yaml` file:
 
@@ -39,3 +40,5 @@ exclude:
   required: false
   type: list
 {% endconfiguration %}
+
+This also works with the Somfy Connexoon. Check [here](https://somfyhouse.freshdesk.com/nl/support/solutions/articles/14000058145-wat-is-het-verschil-tussen-de-tahoma-en-de-connexoon-) for the differences between the bridges.
