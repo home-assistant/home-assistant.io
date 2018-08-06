@@ -24,7 +24,6 @@ Screenshot of the new user interface to change entity IDs.
 
 This release also includes a bunch more Tuya integrations thanks to [@huangyupeng]. And thanks to [@peternijssen] we're now also able to talk with Spider thermostats and plugs.
 
-
 ## {% linkable_title New Platforms %}
 
 - Add Tuya climate platform ([@huangyupeng] - [#15500]) ([tuya docs]) ([climate.tuya docs]) (new-platform)
@@ -38,6 +37,12 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 - Add Magicseaweed API support ([@jcconnell] - [#15132]) ([sensor.magicseaweed docs]) (new-platform)
 - Add a component for Sisyphus Kinetic Art Tables ([@jkeljo] - [#14472]) ([sisyphus docs]) ([light.sisyphus docs]) ([media_player.sisyphus docs]) (new-platform)
 - Add Genie Aladdin Connect cover component ([@shoejosh] - [#15699]) ([cover.aladdin_connect docs]) (new-platform)
+
+## {% linkable_title Release 0.75.1 - August 4 %}
+
+- Upgrade Adafruit-DHT to 1.3.3 ([@superpuffin] - [#15706]) ([sensor.dht docs])
+- Fix rfxtrx device id matching ([@Danielhiversen] - [#15819]) ([rfxtrx docs])
+- Fix custom panel and Hass.io panel ([@balloob])
 
 ## {% linkable_title If you need help... %}
 
@@ -395,3 +400,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: /components/websocket_api/
 [wemo docs]: /components/wemo/
 [zwave docs]: /components/zwave/
+[#15706]: https://github.com/home-assistant/home-assistant/pull/15706
+[#15819]: https://github.com/home-assistant/home-assistant/pull/15819
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@superpuffin]: https://github.com/superpuffin
+[rfxtrx docs]: /components/rfxtrx/
+[sensor.dht docs]: /components/sensor.dht/
