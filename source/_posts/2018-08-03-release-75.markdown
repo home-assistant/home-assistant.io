@@ -44,6 +44,12 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 - Fix rfxtrx device id matching ([@Danielhiversen] - [#15819]) ([rfxtrx docs])
 - Fix custom panel and Hass.io panel ([@balloob])
 
+## {% linkable_title Release 0.75.2 - August 6 %}
+
+- Upgrade voluptuous to 0.11.5 ([@fabaff] - [#15830])
+- Fix envisalink reconnect ([@Cinntax] - [#15832]) ([envisalink docs])
+
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -406,3 +412,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@superpuffin]: https://github.com/superpuffin
 [rfxtrx docs]: /components/rfxtrx/
 [sensor.dht docs]: /components/sensor.dht/
+[#15830]: https://github.com/home-assistant/home-assistant/pull/15830
+[#15832]: https://github.com/home-assistant/home-assistant/pull/15832
+[@Cinntax]: https://github.com/Cinntax
+[@fabaff]: https://github.com/fabaff
+[envisalink docs]: /components/envisalink/

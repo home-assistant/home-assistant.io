@@ -16,6 +16,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Join the [Facebook community][facebook]
 - Join the [Google+ community][google-plus]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -85,6 +86,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 [forum]: https://community.home-assistant.io/
 [twitter]: https://twitter.com/home_assistant
+[facebook]: https://www.facebook.com/homeassistantio
 [google-plus]: https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: https://discord.gg/c5DvZ4e
