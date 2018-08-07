@@ -24,7 +24,7 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
-You can run Facebox with a username and password by adding ` -e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password" ` but bare in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network. 
+You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bare in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network. 
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
