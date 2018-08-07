@@ -58,6 +58,10 @@ optional arguments:
                         Comma separated list of excluded domains
   -S, --simulate        Do not write points but simulate preprocessing
                         and print statistics
+  --retries retries     Number of retries for InfluxDB (default: 5)
+  --timeout timeont     Seconds to wait before timing out connection to
+                        InfluxDB (default: 300)
+  --sleep sleep         Seconds to wait in between retries (default: 30)
 ```
 
 
