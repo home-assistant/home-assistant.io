@@ -13,7 +13,9 @@ ha_release: 0.76
 ha_iot_class: "Local Polling"
 ---
 
-The `broadlink_thermostat` climate platform is a thermostat implemented in Home Assistant. It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
+### {% linkable_title Description %}
+
+The `broadlink thermostat` climate platform is a thermostat implemented in Home Assistant. It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
 
 
 ```yaml
@@ -65,6 +67,8 @@ The `broadlink_thermostat` climate platform is a thermostat implemented in Home 
 
 A full configuration example looks like the one below. 
 
+### {% linkable_title Exemple %}$
+
 {% raw %}
 # Full example configuration.yaml entry
 climate:
@@ -77,7 +81,7 @@ climate:
     schedule_week_end: '[{"start_hour":8, "start_minute":30, "temp":20}, {"start_hour":23, "start_minute":0, "temp":17}]'
 {% endraw %}
 
-advanced_config description:
+### {% linkable_title Configuration %}
 
 - **SEN** | Sensor control option | 0:internal sensor 1:external sensor 2:internal control temperature, external limit temperature | 0:internal sensor
 - **OSV** | Limit temperature value of external sensor | 5-99C | 42C
