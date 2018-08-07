@@ -120,14 +120,14 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 ```
 {% endraw %}
 
-You can also get the script to continue to execute after the timeout by using `proceed`
+You can also get the script to continue to execute after the timeout by using `continue_on_timeout`
 
 {% raw %}
 ```yaml
-# wait until a valve is < 10 or proceed after 1 minute.
-- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+# wait for sensor or 1 minute.
+- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
   timeout: '00:01:00'
-  proceed: 'true'
+  continue_on_timeout: 'true'
 ```
 {% endraw %}
 
