@@ -69,5 +69,5 @@ sensor:
 ```
 
 The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away. 
-The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time until the second departure, you would use states.sensor.ENTITY_NAME.attributes.departures[1].time.
+The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time of the second departure, you would use states.sensor.ENTITY_NAME.attributes.departures[1].time.
 The third sensor returns all S-Bahn trains from Mainz Hauptbahnhof for line S8.
