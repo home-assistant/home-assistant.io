@@ -118,6 +118,54 @@ A valid service data example:
 ```
 {% endraw %}
 
+You can use an automation to receive a notification when you train a face:
+
+{% raw %}
+```yaml
+- id: '1533703568569'
+  alias: Face taught
+  trigger:
+  - event_data:
+      service: facebox_teach_face
+    event_type: call_service
+    platform: event
+  condition: []
+  action:
+  - service: notify.pushbullet
+    data_template:
+      message: '{{ trigger.event.data.service_data.name }} taught 
+      with file {{ trigger.event.data.service_data.file_path }}'
+      title: Face taught notification
+```
+{% endraw %}
+
+Any errors on teaching will be reported in the logs. If you enable [system_log](https://www.home-assistant.io/components/system_log/) events:
+
+```yaml
+system_log:
+  fire_event: true
+```
+
+you can create an automation to receive notifications on Facebox errors:
+
+{% raw %}
+```yaml
+- id: '1533703568577'
+  alias: Facebox error
+  trigger:
+    platform: event
+    event_type: system_log_event
+  condition:
+    condition: template
+    value_template: '{{ "facebox" in trigger.event.data.message }}'
+  action:
+  - service: notify.pushbullet
+    data_template:
+      message: '{{ trigger.event.data.message }}'
+      title: Facebox error
+```
+{% endraw %}
+
 ## {% linkable_title Optimising resources %}
 
 [Image processing components](https://www.home-assistant.io/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
