@@ -60,11 +60,24 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
+icon:
+  required: false
+  description: Overwrites icon or entity picture.
+  type: string
 tap_action:
   required: false
-  description: "Set to `toggle` or `turn-on` for direct actions."
+  description: "Set to `toggle` or `call-service` for direct actions."
   type: string
   default: more-info
+service:
+  required: false
+  description: "For `call-service`, e.g. `media_player.media_play_pause`"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
+  default: "entity_id: entity_id"
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

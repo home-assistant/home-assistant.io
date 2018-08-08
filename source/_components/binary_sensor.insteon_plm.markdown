@@ -13,4 +13,9 @@ ha_iot_class: "Local Push"
 ha_release: 0.39
 ---
 
-The `insteon_plm` binary sensor platform lets you control your sensors through an INSTEON PowerLinc Modem (PLM) device connected directly to your system on a USB or serial port. To add support, set up the primary [insteon_plm](/components/insteon_plm/) component.
+The `insteon_plm` binary sensor platform lets you control your sensors through
+an INSTEON PowerLinc Modem (PLM) device connected directly to your system on a
+USB or serial port.  To add support, set up the primary [insteon_plm]
+component.
+
+[insteon_plm]: /components/insteon_plm/

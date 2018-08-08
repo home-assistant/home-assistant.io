@@ -19,31 +19,44 @@ On the SSH command line, you can use the `hassio` command to retrieve logs, chec
 Home Assistant:
 
 ```bash
+$ hassio homeassistant info
 $ hassio homeassistant logs
-$ hassio homeassistant restart
-$ hassio homeassistant stop
-$ hassio homeassistant start
-$ hassio homeassistant update
 $ hassio homeassistant check
+$ hassio homeassistant restart
+$ hassio homeassistant start
+$ hassio homeassistant stop
+$ hassio homeassistant update
+```
+
+Supervisor:
+
+```bash
+$ hassio supervisor info
+$ hassio supervisor logs
+$ hassio supervisor reload
+$ hassio supervisor update
 ```
 
 Host:
 
 ```bash
-$ hassio host hardware
 $ hassio host reboot
 $ hassio host shutdown
 $ hassio host update
 ```
 
-Supervisor
+Hardware:
 
 ```bash
-$ hassio supervisor logs
-$ hassio supervisor info
-$ hassio supervisor reload
-$ hassio supervisor update
+$ hassio hardware info
+$ hassio hardware audio
 ```
+
+To update Home Assistant to a specific version, use the command:
+```bash
+hassio homeassistant update --options version=x.y.z
+```
+Replace x.y.z with the desired version like `version=0.74.2`
 
 You can get a better description of the CLI capabilities by typing `hassio help`:
 
@@ -55,7 +68,7 @@ USAGE:
    hassio [global options] command [command options] [arguments...]
 
 VERSION:
-   1.2.1
+   1.3.1
 
 AUTHOR:
    Home-Assistant <hello@home-assistant.io>
@@ -63,7 +76,8 @@ AUTHOR:
 COMMANDS:
      homeassistant, ha  info, logs, check, restart, start, stop, update
      supervisor, su     info, logs, reload, update
-     host, ho           hardware, reboot, shutdown, update
+     host, ho           reboot, shutdown, update
+     hardware, hw       info, audio
      network, ne        info, options
      snapshots, sn      list, info, reload, new, restore, remove
      addons, ad         list, info, logo, changelog, logs, stats,

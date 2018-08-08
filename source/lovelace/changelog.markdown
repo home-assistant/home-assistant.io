@@ -108,7 +108,7 @@ footer: true
 - `picture-elements` combined `service.domain` and `service.server` into `service`
 - 📣 `entities` allow custom title just like `glance`
 - 📣 `entity-filter` allow auto-hide if empty using `show_empty: false`
-- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack` 
+- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack`
 
 ## {% linkable_title Changes in 0.73.0b0 %}
 

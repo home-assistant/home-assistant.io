@@ -139,7 +139,7 @@ entities:
       type: boolean
       default: true
 {% endconfiguration %}
-  
+
 From this we will end up with the binary sensors `calendar.test_unimportant` and
 `calendar.test_important` which will toggle themselves on/off based on events on
 the same calendar that match the search value set for each.
