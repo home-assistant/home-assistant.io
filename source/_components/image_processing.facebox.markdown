@@ -24,6 +24,7 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
+You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bare in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network. 
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
@@ -50,6 +51,14 @@ ip_address:
 port:
   description: The port which Facebox is exposed on.
   required: true
+  type: string
+username:
+  description: The Facebox username if you have set one.
+  required: false
+  type: string
+password:
+  description: The Facebox password if you have set one.
+  required: false
   type: string
 source:
   description: The list of image sources.
@@ -108,25 +117,6 @@ A valid service data example:
 }
 ```
 {% endraw %}
-
-An `image_processing.teach_classifier` event is fired for each service call, providing feedback on whether teaching has been successful or unsuccessful. In the unsuccessful case, the `message` field of the `event_data` will contain information on the cause of failure, and a warning is also published in the logs. An automation can be used to receive alerts on teaching, for example, the following automation will send a notification with the teaching image and a message describing the status of the teaching:
-
-```yaml
-- id: '11200961111'
-  alias: Send facebox teaching result
-  trigger:
-    platform: event
-    event_type: image_processing.teach_classifier
-    event_data:
-      classifier: facebox
-  action:
-    service: notify.platform
-    data_template:
-      title: Facebox teaching
-      message: Name {{ trigger.event.data.name }} teaching was successful? {{ trigger.event.data.success }}
-      data:
-        file: ' {{trigger.event.data.file_path}} '
-```
 
 ## {% linkable_title Optimising resources %}
 
