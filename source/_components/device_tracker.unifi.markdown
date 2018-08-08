@@ -23,6 +23,7 @@ device_tracker:
     host: unifi
     username: username
     password: password
+    extra_attributes: true
     ssid_filter:
       - 'HomeSSID'
       - 'IoTSSID'
@@ -62,6 +63,11 @@ detection_time:
     type: int
     required: false
     default: 300
+extra_attributes:
+    description: Whether to include additional attributes for tracked devices, such as rx/tx rates, access point, signal strength, etc.
+    type: boolean
+    required: false
+    default: false
 ssid_filter:
     description: Filter the SSIDs that tracking will occur on.
     type: list of strings
