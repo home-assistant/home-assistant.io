@@ -141,12 +141,10 @@ You can use an automation to receive a notification when you train a face:
 
 Any errors on teaching will be reported in the logs. If you enable [system_log](https://www.home-assistant.io/components/system_log/) events:
 
-{% raw %}
 ```yaml
 system_log:
   fire_event: true
 ```
-{% endraw %}
 
 you can create an automation to receive notifications on Facebox errors:
 
