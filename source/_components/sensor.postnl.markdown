@@ -13,13 +13,14 @@ ha_release: 0.69
 ha_iot_class: "Cloud Polling"
 ---
 
-The `postnl` platform allows one to track deliveries by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use this sensor, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
+The `postnl` platform allows one to track packages and letters by [PostNL](https://www.postnl.nl) (Dutch Postal Services). To use this sensor, you need a [PostNL Account](https://jouw.postnl.nl). It is possible to add multiple accounts to your Home Assistant configuration.
 
-The sensor value shows the number of packages to be delivered. Each of the packages is available as an attribute.
+The package sensor value shows the number of packages to be delivered. Each of the packages is available as an attribute.
+The letters sensor value shows the number of letters to be delivered.
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable the package sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 sensor:
@@ -27,6 +28,19 @@ sensor:
     username: POSTNL_USERNAME
     password: POSTNL_PASSWORD
 ```
+To enable the package and letter sensor, add the following lines to your `configuration.yaml`:
+
+```yaml
+sensor:
+  - platform: postnl
+    username: POSTNL_USERNAME
+    password: POSTNL_PASSWORD
+    letter: true
+```
+<p class='note'>
+  If you want to receive data from the letter sensor you need to enable it in the PostNL-app for Android or iOS.
+  See [this](https://www.postnl.nl/campagnes/mijn-post-in-de-app/) for more detailed instructions.
+</p>
 
 {% configuration %}
 name:
@@ -42,6 +56,11 @@ password:
   description: Account password of jouw.postnl.nl
   required: true
   type: string
+letter:
+  description: Enable or disable letters
+  required: false
+  default: "false"
+  type: boolean
 {% endconfiguration %}
 
 <p class='note warning'>
