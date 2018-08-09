@@ -33,9 +33,9 @@ Configuration variables:
   - **destinations** (*Optional*): One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel.
   - **lines** (*Optional*): One or more line numbers, e.g., 'S8' or ['S8', 'RB33', '41']
   - **products** (*Optional*): One or more modes of transport, defaults to all modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']. 
-  - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
+  - **time_offset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
   - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
-  - **max** (*Optional*): Specify the maximal number of journeys (defaults to 5). 
+  - **max_journeys** (*Optional*): Specify the maximal number of journeys (defaults to 5). 
 
 ## {% linkable_title Examples %}
 
@@ -49,7 +49,7 @@ sensor:
   - platform: rmvtransport
     nextdeparture:
     - station: 3000010
-      timeoffset: 5
+      time_offset: 5
       destinations:
         - 'Frankfurt (Main) Flughafen Regionalbahnhof'
         - 'Frankfurt (Main) Stadion'
@@ -64,7 +64,7 @@ sensor:
       name: Destination
     - station: 3006904
       lines: 'S8'
-      max: 5
+      max_journeys: 5
       products: 'S'
 ```
 
