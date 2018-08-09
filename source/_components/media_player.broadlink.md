@@ -9,13 +9,11 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Media Player
-ha_release: 0.74
+ha_release: 0.76
 ha_iot_class: "Local Polling"
 ---
 
-
-The `broadlink` media_player platform let you control a media system like a TV using RM2 broadlink devices.
-
+The `broadlink` media_player platform lets you control a media system like a TV using RM2 Broadlink devices.
 
 ```yaml
 # Example base configuration.yaml entry
@@ -50,7 +48,6 @@ media_player:
       hdmi  : 'JgBGAJGWETkRORI4ERQRFBAVERQRFBE5ETkROREUEBURFBEUERQQOxA6EBUPOw8WDxYQFRA6DxYQFRA6EBUPOxA6ETkRFBEADQUAAA=='
       dtv   : 'JgBGAJSTEjgSOBI4EhMSExITEhMSExI4EjgSNxMTEhQRFBEUERQRORE4EhQSExITEhMSOBITEhMSExI4EjgSOBI4EhMSOBIADQUAAA=='
 ```
-
 
 {% configuration %}
 port:
