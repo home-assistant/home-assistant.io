@@ -29,8 +29,6 @@ sensor:
         lon_sw: -74.105
 ```
 
-Configuration variables:
-
 {% configuration %}
 areas:
   description: The list contains one or more areas to add as sensors.
