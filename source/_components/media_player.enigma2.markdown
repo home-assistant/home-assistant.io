@@ -28,7 +28,13 @@ media_player:
     name: Vu Duo2
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP/Hostname of the Enigma2 set-top box, eg. `192.168.1.12`.
-- **name** (*Optional*): The name you would like to give to the device.
+{% configuration %}
+  host:
+    description:  The IP/Hostname of the Enigma2 set-top box on your home network.
+    required: true
+    type: string
+  name:
+    description: Name of device in Home Assistant.
+    required: false
+    type: string
+{% endconfiguration %}
