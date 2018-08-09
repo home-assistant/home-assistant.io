@@ -14,22 +14,20 @@ ha_release: 0.66
 featured: false
 ---
 
-## HomematicIP
-
 The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server.
-For for communication [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used. Since there is no official documentation about this API everything was done via reverse engineering. Use at your own risk.
+For for communication [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
-### Setup the component via interface 
+## {% linkable_title Setup the component via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
   
 Fill the form:
-* your **access point ID** (SGTIN)
+* Your **access point ID** (SGTIN)
 * Optional a **name** to identify your access point, this will be used to prefix your device names.
   
-The authentification token will be generated and stored internaly.
+The authentification token will be generated and stored internally.
 
-### Setup the component via `configuration.yaml`:
+## {% linkable_title Setup the component using the configuration files %}
   
 Generate the authentication token:
   
@@ -37,7 +35,7 @@ Generate the authentication token:
   
 Add the information to your `configuration.yaml` file:
 
-```    
+```yaml
 homematicip_cloud:
   - accesspoint: IDENTIFIER
     authtoken: AUTHTOKEN
@@ -46,35 +44,46 @@ homematicip_cloud:
     authtoken: AUTHTOKEN2
 ```
 
-Configuration variables (global):
-* **name**: (*Optional*): Name to identify your access point, this will be used to prefix your device names.
-* **accesspoint**: (*Required*): This is the access point id (SGTIN)
-* **authtoken**: (*Required*): Authentification token generated with `generate_auth_token.py`.
+{% configuration %}
+name:
+  required: false
+  description: Name to identify your access point, this will be used to prefix your device names.
+  type: string
+accesspoint:
+  required: true
+  description: This is the access point ID (SGTIN).
+  type: string
+authtoken:
+  required: true
+  description: "Authentication token generated with `generate_auth_token.py`."
+  type: string
+{% endconfiguration %}
 
-### Actual implemented and tested
-  * homematicip_cloud.alarm_control_panel
-    - [x] Security zones (*HmIP-SecurityZone*)
+## {% linkable_title Implemented and tested devices %}
+
+- homematicip_cloud.alarm_control_panel
+    - Security zones (*HmIP-SecurityZone*)
+
+- homematicip_cloud.binary_sensor  
+    - Window and door contact (*HmIP-SWDO*)
+    - Smoke sensor and alarm (*HmIP-SWSD*) 
+    - Motion detectors (*HmIP-SMI*)
+    - Motion detectors and push button (*HmIP-SMI55*)
   
-  * homematicip_cloud.binary_sensor  
-    - [x] Window and door contact (*HmIP-SWDO*)
-    - [x] Smoke sensor and alarm (*HmIP-SWSD*) 
-    - [x] Motion detectors (*HmIP-SMI*)
-    - [x] Motion detectors and push button (*HmIP-SMI55*)
+- homematicip_cloud.climate
+    - Radiator thermostat (*HmIP-eTRV,-2*)
+    - Climate group (*HmIP-HeatingGroup*)
   
-  * homematicip_cloud.climate
-    - [x] Radiator thermostat (*HmIP-eTRV,-2*)
-    - [x] Climate group (*HmIP-HeatingGroup*)
+- homematicip_cloud.light
+    - Switch actuator and meter for brand switches (*HmIP-BSM*)
+    - Dimming actuator for brand switches (*HmIP-BDT*)
   
-  * homematicip_cloud.light
-    - [x] Switch actuator and meter for brand switches (*HmIP-BSM*)
-    - [x] Dimming actuator for brand switches (*HmIP-BDT*)
+- homematicip_cloud.sensor
+    - Accesspoint duty-cycle (*HmIP-HAP*)
+    - Wall-mounted thermostat (*HmIP-WTH*)
+    - Temperature and humidity sensor (*HmIP-STH*)
+    - Temperature and humidity Sensor with display (*HmIP-STHD*)
+    - Illuminance sensor (*HmIP-SMI, 55*)
   
-  * homematicip_cloud.sensor
-    - [x] Accesspoint duty-cycle (*HmIP-HAP*)
-    - [x] Wall-mounted thermostat (*HmIP-WTH*)
-    - [x] Temperature and humidity sensor (*HmIP-STH*)
-    - [x] Temperature and humidity Sensor with display (*HmIP-STHD*)
-    - [x] Illuminance sensor (*HmIP-SMI, 55*)
-  
-  * homematicip_cloud.switch
-    - [x] Pluggable Switch and Meter (*HmIP-PSM*)
+- homematicip_cloud.switch
+    - Pluggable Switch and Meter (*HmIP-PSM*)
