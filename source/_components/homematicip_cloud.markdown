@@ -14,8 +14,7 @@ ha_release: 0.66
 featured: false
 ---
 
-The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server.
-For for communication [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
 
 ## {% linkable_title Setup the component via the frontend %}
 
