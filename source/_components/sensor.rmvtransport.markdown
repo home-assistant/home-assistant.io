@@ -26,16 +26,41 @@ sensor:
     nextdeparture:
      - station: STATION_OR_STOP_ID
 ```
-
-Configuration variables:
-
-  - **stationId** (*Required*): ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
-  - **destinations** (*Optional*): One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel.
-  - **lines** (*Optional*): One or more line numbers, e.g., 'S8' or ['S8', 'RB33', '41']
-  - **products** (*Optional*): One or more modes of transport, defaults to all modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']. 
-  - **time_offset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
-  - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
-  - **max_journeys** (*Optional*): Specify the maximal number of journeys (defaults to 5). 
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: false
+  default: The default is the station name.
+  type: string
+stationId:
+  description: ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
+  required: true
+  type: string
+destinations:
+  description: One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel.
+  required: false
+  type: [string]
+lines:
+  description: One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`
+  required: false
+  default: The default is the station name.
+  type: [string, int]
+products:
+  description: One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`. 
+  required: false
+  default: Defaults to all.
+  type: [string]
+time_offset:
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+  required: false
+  default: The defaults is 0.
+  type: int
+max_journeys:
+  description: Specify the maximal number of journeys.
+  required: false
+  default: The default is 5.
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
