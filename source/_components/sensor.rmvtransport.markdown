@@ -26,7 +26,7 @@ sensor:
     nextdeparture:
      - station: STATION_OR_STOP_ID
 ```
-{% configuration %}
+{% raw %}{% configuration %}
 name:
   description: Name to use in the frontend.
   required: false
@@ -60,7 +60,7 @@ max_journeys:
   required: false
   default: The default is 5.
   type: string
-{% endconfiguration %}
+{% endconfiguration %}{% endraw %}
 
 ## {% linkable_title Examples %}
 
