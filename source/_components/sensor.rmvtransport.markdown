@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: rmv.png
+logo: RMV.png
 ha_category: Transport
 ha_release: 0.76
 ha_iot_class: "Cloud Polling"
