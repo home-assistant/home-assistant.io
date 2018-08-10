@@ -32,8 +32,4 @@ media_player:
     description: The IP/hostname of the Enigma2 set-top box on your home network.
     required: true
     type: string
-  name:
-    description: Name of the device in Home Assistant.
-    required: false
-    type: string
 {% endconfiguration %}
