@@ -196,7 +196,7 @@ Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
 
-Some Installs will See this for a chart
+Some installations will see those details:
 
 **Top button ID: 1, Bottom ID: 2**
 
