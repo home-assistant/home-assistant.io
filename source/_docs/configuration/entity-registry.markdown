@@ -9,17 +9,14 @@ sharing: true
 footer: true
 ---
 
-<p class='note'>
-This is a new and experimental feature of Home Assistant.
-</p>
-
 Starting with version 0.63, Home Assistant keeps a registry of known entities.
 The entity registry makes sure that entities get unique identifiers and allow
 customizing the identifiers and names of these entities.
 
-As this is still a very new part of Home Assistant, changes will require a
-restart of Home Assistant to take effect. A config user interface will be added
-in a future version.
+Changes require that Home Assistant is shut down when you edit the file, otherwise
+Home Assistant may over-write your changes, and a restart of Home Assistant is
+required for your changes to take effect. Version 0.75 introduced a configuration
+user interface.
 
 <p class='note'>
 An entity needs to have a unique ID to be registered in the entity registry.
@@ -55,5 +52,6 @@ value to each entry.
    
 {% linkable_title Supported Components %}
    
-At the moment, only the following components are supported: Z-Wave, Hue, Nest, LIFX, Sonos, Apple TV, Weather Underground 
+Only components that provide a unique ID for entities will are supported.
+
 Note that for Weather Underground, second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number. 
