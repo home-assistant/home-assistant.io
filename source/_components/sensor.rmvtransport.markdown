@@ -23,7 +23,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: rmvtransport
-    nextdeparture:
+    next_departure:
      - station: STATION_OR_STOP_ID
 ```
 {% raw %}{% configuration %}
@@ -72,7 +72,7 @@ The example below shows a full configuration with three sensors that showcase th
 # Example configuration.yaml entry
 sensor:
   - platform: rmvtransport
-    nextdeparture:
+    next_departure:
     - station: 3000010
       time_offset: 5
       destinations:
