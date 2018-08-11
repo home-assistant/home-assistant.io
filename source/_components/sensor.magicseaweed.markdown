@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The 'magicseaweed' platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/developer/forecast-api) as a source for surf forecasting data for the surf spots of your choice.
 
-You need an API key which is free but requires [registration](https://magicseaweed.com/developer/sign-up). Magicseaweed is limiting users of the API to 2 spots for the free plan.
+You need an API key which is free but requires [registration](https://magicseaweed.com/developer/sign-up). Magicseaweed is limiting users of the API to 1 spot for the free plan.
 
 To add Magicseaweed forecasts to your installation, add the following to your `configuration.yaml` file:
 
