@@ -64,7 +64,7 @@ homematic:
 
 ## {% linkable_title Raspberry Pi3 %}
 
-With HM-MOD-PRI-PCB you need to add follow into your `config.txt` on boot partition:
+With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partition:
 ```
 dtoverlay=pi3-miniuart-bt
 ```
