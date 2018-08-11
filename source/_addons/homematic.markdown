@@ -14,6 +14,7 @@ Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. At the moment
 The logic layer will be Home Assistant. There is no ReGa or other logic layer installed. You can't import an existing configuration, you'll need re-learn it into Home Assistant.
 
 Follow devices will be supported and tested:
+
 - [HM-MOD-RPI-PCB](https://www.elv.ch/homematic-funkmodul-fuer-raspberry-pi-bausatz.html)
 
 ```json
@@ -41,11 +42,13 @@ Configuration variables:
 - **rf_enable** (*Require*): Boolean. Enable or disable BidCoS-RF.
 - **wired_enable** (*Require*): Boolean. Enable or disable BidCoS-Wired.
 
-For RF devices
+For RF devices:
+
 - **type** (*Require*): Device type for RFD service. Look into the manual of your device.
 - **device** (*Require*): Device on the host.
 
-For wired devices
+For wired devices:
+
 - **serial** (*Require*): Serial number of the device.
 - **key** (*Require*): Encrypted key.
 - **ip** (*Require*): IP address of LAN gateway.
@@ -65,6 +68,7 @@ homematic:
 ## {% linkable_title Raspberry Pi3 %}
 
 With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partition:
-```
+
+```text
 dtoverlay=pi3-miniuart-bt
 ```
