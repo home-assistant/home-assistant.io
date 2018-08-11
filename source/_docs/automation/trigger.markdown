@@ -159,6 +159,10 @@ automation:
 ```
 {% endraw %}
 
+<p class='note warning'>
+Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
+</p>
+
 ### {% linkable_title Time trigger %}
 
 Time can be triggered in many ways. The most common is to specify `at` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `at` together with hour, minute or second.
