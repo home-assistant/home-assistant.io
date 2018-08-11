@@ -11,7 +11,7 @@ footer: true
 
 Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. At the moment we don't support hmIP, but that is in progress. For learning and handling devices use our internal HomeMatic panel and services (in progress) or use [Homematic-Manager](https://github.com/hobbyquaker/homematic-manager) > 2.0.
 
-The logic layer will be Home-Assistant. There is no ReGa or other logic layer installed. You can't import an existing configuration, you'll need re-learn it into Home-Assistant.
+The logic layer will be Home Assistant. There is no ReGa or other logic layer installed. You can't import an existing configuration, you'll need re-learn it into Home Assistant.
 
 Follow devices will be supported and tested:
 - [HM-MOD-RPI-PCB](https://www.elv.ch/homematic-funkmodul-fuer-raspberry-pi-bausatz.html)
