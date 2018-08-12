@@ -38,6 +38,9 @@ Configuration variables:
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value.
 - **accept_errors** (*Optional*): Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to `false`.
 - **default_value** (*Optional*): Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors.
+- **scan_interval** (*Optional*): How frequently to query for new data (in seconds). Default value: 10. If you see reoccurring warnings for timeout of snmp data gathering, consider raising the scan_interval time to a reasonable value for your data type.
+
+
 
 ## {% linkable_title Finding OIDs %}
 
@@ -72,8 +75,12 @@ sensor:
     accept_errors: true
     unit_of_measurement: 'minutes'
     value_template: {% raw %}'{{((value | int) / 6000) | int}}'{% endraw %}
+    scan_interval: 60
 ```
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 
 The `value_template` option converts the original value to minutes.
+
+The `scan_interval` overrides the default polling interval from 10 seconds to every minute. 
+Optimize polling time for what you need. A more static value can have a higher poll interval for example.
