@@ -35,6 +35,7 @@ Configuration variables:
 
 The supported operation modes map to the ON/OFF period selection of your timeswitch / EphEmber app. These include:
 - **Auto** The timeswitch operates 3 on / off periods per day.
-- **All Day** The timeswitch operates 1 on / off period per day. This operates from the first on time to the third off time.
 - **On** The timeswitch is permanently on.
 - **Off** The timeswitch is permanently off.
+
+If **All Day** is selected in the EphEmber app it will show as **Auto** in home assistant.
