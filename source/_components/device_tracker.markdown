@@ -29,7 +29,6 @@ device_tracker:
     new_device_defaults:
       track_new_devices: True
       hide_if_away: False
-
 ```
 
 The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:
@@ -91,9 +90,9 @@ devicename:
 
 ## {% linkable_title Using GPS device trackers with local network device trackers %}
 
-GPS based device trackers (like [OwnTracks](/components/device_tracker.owntracks/), [GPSLogger](/components/device_tracker.gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
+GPS based device trackers (like [OwnTracks](/components/device_tracker.owntracks/), [GPSLogger](/components/device_tracker.gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in the app configuration.
 
-An example showing the inclusion of the `mac` field for multiple component tracking. The `mac` field was added to the GPS based device tracker entry, and will enable tracking by all components that track via the `mac` address.
+An example showing the inclusion of the `mac` field for multiple platform tracking. The `mac` field was added to the GPS based device tracker entry and will enable tracking by all platforms that track via the `mac` address.
 
 ```yaml
 USERNAME_DEVICE_ID:
@@ -105,7 +104,7 @@ USERNAME_DEVICE_ID:
   hide_if_away: no
 ```
 
-If you want to track whether either your GPS based tracker, or your local network tracker, identify you as being at home, use [a group](https://www.home-assistant.io/components/group/) instead.
+If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.
 
 ## {% linkable_title Device states %}
 
