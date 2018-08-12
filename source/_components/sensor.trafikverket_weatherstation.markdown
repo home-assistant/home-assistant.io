@@ -12,11 +12,12 @@ ha_category: Sensor
 ha_release: 0.66.0
 ---
 
-Showing weather information for air and road temperature provided by [Trafikverket](https://www.trafikverket.se/) in Sweden. 
+Showing weather information for air and road temperature as well as precipitation provided by [Trafikverket](https://www.trafikverket.se/) in Sweden. 
+Precipitation is returned as a string of text in Swedish.
 
 Potential use cases:
 -	Get weather data in general
--	You live near a weather station and want to know the current temperature at home
+-	You live near a weather station and want to know the current temperature or precipitation at home
 -	Setup automations for your car heating system. If the road is frozen along the way to work, you might want the car heating system to start earlier.
 
 ##### {% linkable_title Configuration %}
@@ -46,7 +47,7 @@ station:
   required: true
   type: string
 type:
-  description: Defines which temperature you want (`air` or `road`).
+  description: Defines which data you want (`air`, `road` or `precipitation`).
   required: true
   type: string
 scan_interval:
@@ -82,5 +83,11 @@ sensor:
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Lanna
     type: air
+    scan_interval: 600
+  - platform: trafikverket_weatherstation
+    name: Trafikverket Precipitation WeatherStation Nöbbele
+    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    station: Nöbbele
+    type: precipitation
     scan_interval: 600
 ```
