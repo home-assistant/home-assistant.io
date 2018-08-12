@@ -52,6 +52,6 @@ aspect_ratio:
 - type: map
   aspect_ratio: 100%
   entities:
-    - entity: device_tracker.demo_paulus
+    - device_tracker.demo_paulus
     - zone.home
 ```
