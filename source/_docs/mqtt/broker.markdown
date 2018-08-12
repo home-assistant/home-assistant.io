@@ -25,7 +25,7 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | Password       | no default value |
 | Websocket port | 8080 |
 
-> Since 0.77 release, embedded broker doesn't use your [API password](/components/http/) as default value. MQTT component will fail to setup if you have API passowrd configured, but don't have MQTT password confgiured likes following example.
+> Since 0.77 release, the embedded broker doesn't use your [API password](/components/http/) as default password. The MQTT component will fail to setup if you have API password configured, but don't have MQTT password configured as in the following example.
 
 ```yaml
 # Example configuration.yaml entry
