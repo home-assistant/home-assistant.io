@@ -26,7 +26,8 @@ sensor:
     next_departure:
      - station: STATION_OR_STOP_ID
 ```
-{% raw %}{% configuration %}
+
+{% configuration %}
 name:
   description: Name to use in the frontend.
   required: false
@@ -37,16 +38,16 @@ stationId:
   required: true
   type: string
 destinations:
-  description: One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel.
+  description: "One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel."
   required: false
   type: [string]
 lines:
-  description: One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`
+  description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
   required: false
   default: The default is the station name.
   type: [string, int]
 products:
-  description: One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`. 
+  description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
   required: false
   default: Defaults to all.
   type: [string]
@@ -60,7 +61,7 @@ max_journeys:
   required: false
   default: The default is 5.
   type: string
-{% endconfiguration %}{% endraw %}
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -73,26 +74,28 @@ The example below shows a full configuration with three sensors that showcase th
 sensor:
   - platform: rmvtransport
     next_departure:
-    - station: 3000010
-      time_offset: 5
-      destinations:
-        - 'Frankfurt (Main) Flughafen Regionalbahnhof'
-        - 'Frankfurt (Main) Stadion'
-      products:
-        - 'RB'
-        - 'RE'
-        - 'Bus'
-        - 'S'
-    - station: 3006907
-      products: 'Bus'
-      destinations: ['Wiesbaden Dernsches Gelände', 'Mainz Hauptbahnhof']
-      name: Destination
-    - station: 3006904
-      lines: 'S8'
-      max_journeys: 5
-      products: 'S'
+      - station: 3000010
+        time_offset: 5
+        destinations:
+          - 'Frankfurt (Main) Flughafen Regionalbahnhof'
+          - 'Frankfurt (Main) Stadion'
+        products:
+          - 'RB'
+          - 'RE'
+          - 'Bus'
+          - 'S'
+      - station: 3006907
+        products: 'Bus'
+        destinations: ['Wiesbaden Dernsches Gelände', 'Mainz Hauptbahnhof']
+        name: Destination
+      - station: 3006904
+        lines: 'S8'
+        max_journeys: 5
+        products: 'S'
 ```
 
-The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away. 
+The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away.
+
 The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time of the second departure, you would use states.sensor.ENTITY_NAME.attributes.departures[1].time.
+
 The third sensor returns all S-Bahn trains from Mainz Hauptbahnhof for line S8.
