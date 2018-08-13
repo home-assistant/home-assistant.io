@@ -32,10 +32,7 @@ mqtt:
 ```
 
 <p class='note warning'>
-There is an issue with the HBMQTT broker that can cause a memory leak (slowly increasing used memory). This causes an unstable system after the memory is full. You could measure/monitor this with a system monitor. The issue is from 2016 and could already be resolved with newer versions. Use another broker when you experience this issue, for example, Mosquitto. <br>
-<br>
-Issue with the HBMQTT broker: https://github.com/beerfactory/hbmqtt/issues/62  <br>
-System monitor: https://www.home-assistant.io/components/sensor.systemmonitor/
+There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
 </p>
 
 ### {% linkable_title Owntracks%}
