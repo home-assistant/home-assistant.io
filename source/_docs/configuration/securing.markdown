@@ -20,7 +20,7 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 - Don't run Home Assistant as root – consider the Principle of Least Privilege.
 - Keep your [secrets](/topics/secrets/) safe.
 
-If you want to allow remote access, consider taking the additional steps as listed below. They are listed from the most secure to the least secure. <b>It is highly recommended that if you are going to be opening your Home Assistant (hence, the control of your home) to the outside world that you should secure it with a VPN at the minimum</b>:
+If you want to allow remote access, consider taking the additional steps as listed below. They are generally listed with the more secure options first. <b>It is highly recommended that if you are going to be opening your Home Assistant (hence, the control of your home) to the outside world and you don't need remote access to the API (for example, for a device tracker) that you should secure it using one of the first three options</b>:
 
 - Protect your communication with [Tor](/cookbook/tor_configuration/).
 - Set up a VPN
