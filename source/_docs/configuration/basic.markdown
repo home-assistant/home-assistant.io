@@ -21,7 +21,7 @@ homeassistant:
   time_zone: America/Los_Angeles
   name: Home
   whitelist_external_dirs:
-    - /home/user/HASS/.homeassistant/dumping-ground
+    - /usr/var/dumping-ground
     - /tmp
 ```
 
