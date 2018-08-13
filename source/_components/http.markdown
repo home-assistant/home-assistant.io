@@ -18,7 +18,7 @@ It is HIGHLY recommended that you set the `api_password`, especially if you are 
 </p>
 
 <p class='note'>
-Don't use option `server_host` on a hass.io installation!
+Don't use option `server_host` on a Hass.io installation!
 </p>
 
 ```yaml
@@ -29,19 +29,65 @@ http:
 
 Configuration variables:
 
-- **api_password** (*Optional*): Protect Home Assistant with a password.
-- **server_host** (*Optional*): Only listen to incoming requests on specific IP/host (default: bind to `0.0.0.0` which means accept all IPv4 connections). Use `server_host: "::0"` if you want to listen to (and only) IPv6.
-- **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
-- **base_url** (*Optional*): The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to the local IP address. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app.
-- **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
-- **ssl_peer_certificate** (*Optional*): Path to the client/peer TLS/SSL certificate to accept secure connections from.
-- **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
-- **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`.
-- **use_x_forwarded_for** (*Optional*): Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You must also whitelist trusted proxies using the `trusted_proxies` setting below for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored. Defaults to False.
-- **trusted_proxies** (*Optional*): List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care.
-- **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` option enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP.
-- **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
-- **login_attempts_threshold** (*Optional*): Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
+{% configuration http %}
+api_password:
+  description: Protect Home Assistant with a password.
+  required: false
+  type: string
+server_host:
+  description: 'Only listen to incoming requests on specific IP/host (default: bind to `0.0.0.0` which means accept all IPv4 connections). Use `server_host: "::0"` if you want to listen to (and only) IPv6.'
+  required: false
+  type: string
+server_port:
+  description: Let you set a port to use.
+  required: false
+  type: integer
+  default: 8123
+base_url:
+  description: "The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to the local IP address. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app."
+  required: false
+  type: string
+  default: The local IP address
+ssl_certificate:
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
+  required: false
+  type: string
+ssl_peer_certificate:
+  description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
+  required: false
+  type: string
+ssl_key:
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection.
+  required: false
+  type: string
+cors_allowed_origins:
+  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
+  required: false
+  type: string, list
+trusted_proxies:
+  description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care."
+  required: false
+  type: string, list
+use_x_forwarded_for:
+  description: "Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You **must** also whitelist trusted proxies using the `trusted_proxies` setting below for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored."
+  required: false
+  type: boolean
+  default: false
+trusted_networks:
+  description: "List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
+  required: false
+  type: string, list
+ip_ban_enabled:
+  description: Flag indicating whether additional IP filtering is enabled.
+  required: false
+  type: boolean
+  default: false
+login_attempts_threshold:
+  description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. When set to -1 no new automatic bans will be added."
+  required: false
+  type: integer
+  default: -1
+{% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
 
