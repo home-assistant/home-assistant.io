@@ -58,7 +58,7 @@ network_key:
   type: string
   default: None
 config_path:
-  description: The path to the Python OpenZWave configuration files.
+  description: "The path to the Python OpenZWave configuration files. NOTE: there is also the [update_config service](https://www.home-assistant.io/docs/z-wave/services/) to perform updating the config within python-openzwave automatically."
   required: false
   type: string
   default: the 'config' that is installed by python-openzwave
