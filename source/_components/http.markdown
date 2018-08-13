@@ -35,7 +35,7 @@ api_password:
   required: false
   type: string
 server_host:
-  description: "Only listen to incoming requests on specific IP/host (default: bind to `0.0.0.0` which means accept all IPv4 connections). Use `server_host: "::0"` if you want to listen to (and only) IPv6."
+  description: 'Only listen to incoming requests on specific IP/host (default: bind to `0.0.0.0` which means accept all IPv4 connections). Use `server_host: "::0"` if you want to listen to (and only) IPv6.'
   required: false
   type: string
 server_port:
