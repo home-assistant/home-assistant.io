@@ -18,6 +18,7 @@ Hass.io images are available for:
   - [Raspberry Pi 2 Model B][pi2]
   - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
   - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
+  - [Tinkerboard (Beta)][tinker]
 - As [Virtual Appliance]:
   - [VMDK][vmdk]
 
@@ -80,6 +81,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.9/hassos_rpi2-1.9.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.9/hassos_rpi3-1.9.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.9/hassos_rpi3-64-1.9.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/2.1/hassos_tinker-2.1.img.gz
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/1.9/hassos_ova-1.9.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123

@@ -196,6 +196,20 @@ Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
 
+Some installations will see those details:
+
+**Top button ID: 1, Bottom ID: 2**
+
+**Action**|**scene\_data**
+:-----:|:-----:
+Single Press|7800
+Hold Button|7740
+2x Tap|7860
+3x Tap|7920
+4x Tap|7980
+5x Tap|8040
+
+
 ### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
