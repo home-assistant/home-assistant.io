@@ -17,6 +17,8 @@ og_image: /images/blog/2018-08-0.76/components.png
 
 Report 1: Migration took 15 minutes for 30 days history. (DB: Postgres; Raspberry Pi 3; Ubuntu 16.04; venv installation)
 
+Please report your migration time in the #beta channel on discord.
+
 ## {% linkable_title New Platforms %}
 
 - deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
