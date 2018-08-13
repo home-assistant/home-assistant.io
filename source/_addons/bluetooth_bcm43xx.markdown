@@ -12,7 +12,10 @@ footer: true
 Start this add-on to activate the BCM43xx Bluetooth chipset.
 
 <p class='note warning'>
- This is not required on HassOS based Hass.io installs and should not be installed
+ This is not required on HassOS based Hass.io installs and should not be installed.
 </p>
 
-Supported platforms: Raspberry Pi 3.
+Supported platforms:
+
+- Raspberry Pi 3
+
