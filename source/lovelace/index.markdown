@@ -26,6 +26,10 @@ The Lovelace UI is:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6FX9_leiikw" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<p class='note warning'>
+If you're not using Chrome, please be sure to [read the FAQ](/lovelace/#faq) below.
+</p>
+
 ## {% linkable_title How it works %}
 
 The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a separate file, controlled by the user.
