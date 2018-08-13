@@ -53,11 +53,9 @@ frontend:
 {% endconfiguration %}
 
 
-## {% linkable_title Themes %}
+## {% linkable_title Defining Themes %}
 
 Starting with version 0.49 you can define themes:
-
-Example:
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,6 +68,10 @@ frontend:
 ```
 
 The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
+
+Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+
+### {% linkable_title Theme automation %}
 
 There are 2 themes-related services:
 
