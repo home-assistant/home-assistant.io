@@ -17,11 +17,10 @@ The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaom
 
 Currently supported features are:
 
-- `turn_on`
+- `start`
 - `pause`
 - `stop`
 - `return_to_home`
-- `turn_off` (stop all activity and return to dock)
 - `locate`
 - `clean_spot`
 - `set_fan_speed`
@@ -49,7 +48,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
@@ -97,7 +96,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
 - `do_not_disturb`
