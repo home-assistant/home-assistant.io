@@ -17,16 +17,9 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify] and [alexa] components.
-- Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
-- [Automation Templating].
-
-[notify]: /components/notify/
-[alexa]: /components/alexa/
-[MQTT]: /components/mqtt/
-[REST sensor]: /components/sensor.rest/
-[command line sensor]: /components/sensor.command_line/
-[Automation Templating]: /docs/automation/templating/
+- Formatting outgoing messages in, for example, the [notify](/components/notify/) platforms and [alexa](/components/alexa/) component.
+- Process incoming data from sources that provide raw data, like [MQTT](/components/mqtt/), [`rest` sensor](/components/sensor.rest/) or the [`command_line` sensor](/components/sensor.command_line/).
+- [Automation Templating](/docs/automation/templating/).
 
 ## {% linkable_title Building templates %}
 
@@ -38,6 +31,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
+{% raw %}
 ```yaml
 script:
   msg_who_is_home:
@@ -45,12 +39,13 @@ script:
       - service: notify.notify
         data_template:
           message: >
-            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+            {% if is_state('device_tracker.paulus', 'home') %}
               Ha, Paulus is home!
             {% else %}
               Paulus is at {{ states('device_tracker.paulus') }}.
-            {% endif %}{% endraw %}
+            {% endif %}
 ```
+{% endraw %}
 
 [Jinja2](http://jinja.pocoo.org/) supports a wide variety of operations:
 
@@ -104,8 +99,10 @@ Home Assistant adds extensions to allow templates to access all of the current s
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
 </p>
 
+## {% linkable_title Templates using `now()` %}
+
 <p class='note warning'>
-Rendering templates with time is dangerous as updates only trigger templates in sensors based on entity state changes.
+Rendering templates with time (`now()`) is dangerous as updates only trigger templates in sensors based on entity state changes.
 </p>
 
 ## {% linkable_title Home Assistant template extensions %}
@@ -117,43 +114,51 @@ In templates, besides the normal [state object methods and properties](/topics/s
 ## {% linkable_title Examples %}
 
 ### {% linkable_title States %}
+
 The next two statements result in same value if state exists. The second one will result in an error if state does not exist.
 
+{% raw %}
 ```text
-{% raw %}{{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus.state }}{% endraw %}
+{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus.state }}
 ```
+{% endraw %}
 
 ### {% linkable_title Attributes %}
 
 Print an attribute if state is defined. Both will return the same thing but the last one you can specify entity_id from a variable.
 
+{% raw %}
 ```text
-{% raw %}{% if states.device_tracker.paulus %}
+{% if states.device_tracker.paulus %}
   {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
   ??
-{% endif %}{% endraw %}
+{% endif %}
 ```
+{% endraw %}
 
 With strings
 
+{% raw %}
 ```text
-{% raw %}{% set tracker_name = "paulus"%}
+{% set tracker_name = "paulus"%}
 
 {% if states("device_tracker." + tracker_name) != "unknown" %}
   {{ state_attr("device_tracker." + tracker_name, "battery")}}
 {% else %}
   ??
-{% endif %}{% endraw %}
+{% endif %}
 ```
+{% endraw %}
 
 ### {% linkable_title Sensor states %}
 
 Print out a list of all the sensor states.
 
+{% raw %}
 ```text
-{% raw %}{% for state in states.sensor %}
+{% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 
@@ -173,48 +178,58 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 ```
+{% endraw %}
 
 ### {% linkable_title Distance examples %}
 
 If only 1 location is passed in, Home Assistant will measure the distance from home.
 
+{% raw %}
 ```text
-{% raw %}Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
 Using State: {{ distance(states.device_tracker.paulus) }}
 
 These can also be combined in any combination:
 {{ distance(123.45, 123.45, 'device_tracker.paulus') }}
-{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}{% endraw %}
+{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}
 ```
+{% endraw %}
 
 ### {% linkable_title Closest examples %}
 
 Find entities closest to the Home Assistant location:
 
+{% raw %}
 ```text
-{% raw %}Query all entities: {{ closest(states) }}
+Query all entities: {{ closest(states) }}
 Query all entities of a specific domain: {{ closest('states.device_tracker') }}
 Query all entities in group.children: {{ closest('group.children') }}
-Query all entities in group.children: {{ closest(states.group.children) }}{% endraw %}
+Query all entities in group.children: {{ closest(states.group.children) }}
 ```
+{% endraw %}
 
 Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.
 
+{% raw %}
 ```text
-{% raw %}Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
 Closest to an entity: {{ closest('zone.school', 'group.children') }}
-Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endraw %}
+Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 ```
+{% endraw %}
 
 ### {% linkable_title Combined %}
+
 Since closest returns a state, we can combine it with distance too.
 
+{% raw %}
 ```text
-{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.{% endraw %}
+{{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.
 ```
+{% endraw %}
 
 ## {% linkable_title Processing incoming data %}
 
@@ -238,11 +253,13 @@ This means that if the incoming values looks like the sample below:
 
 The template for `on` would be:
 
+{% raw %}
 ```yaml
-'{% raw %}{{value_json.on}}{% endraw %}'
+'{{value_json.on}}'
 ```
+{% endraw %}
 
-Nested JSON in a response is supported as well
+Nested JSON in a response is supported as well:
 
 ```json
 {
@@ -259,10 +276,11 @@ Nested JSON in a response is supported as well
 
 Just use the "Square bracket notation" to get the value.
 
+{% raw %}
 ```yaml
-'{% raw %}{{ value_json["values"]["temp"] }}{% endraw %}'
+'{{ value_json["values"]["temp"] }}'
 ```
-
+{% endraw %}
 
 The following overview contains a couple of options to get the needed values:
 
@@ -294,8 +312,8 @@ The following overview contains a couple of options to get the needed values:
 
 To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output into "Template", and check the result.
 
-```yaml
 {% raw %}
+```yaml
 {% set value_json=
     {"name":"Outside",
 	 "device":"weather-ha",
@@ -304,5 +322,6 @@ To evaluate a response, go to the <img src='/images/screenshots/developer-tool-t
 		 "hum":"35%"
 		 }	}%}
 
-{{value_json.data.hum[:-1]}}{% endraw %}
+{{value_json.data.hum[:-1]}}
 ```
+{% endraw %}

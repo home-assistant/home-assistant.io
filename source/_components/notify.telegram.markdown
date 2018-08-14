@@ -25,7 +25,7 @@ To retrieve your `chat_id`, contact any of the Telegram bots created for this pu
 
 The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates`. Replace `YOUR_API_TOKEN` with your actual token.
 
-The result set will include your chat ID as `id` in the `from` section:
+The result set will include your chat ID as `id` in the `chat` section:
 
 ```json
 {
