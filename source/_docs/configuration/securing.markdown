@@ -19,7 +19,10 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
 &#9744; Configured [secrets](/topics/secrets/)  
 &#9744; Set [a password](/getting-started/basic/#password-protecting-the-web-interface)  
 &#9744; Regularly keep the system up to date  
-&#9744; For remote access to the UI, use a [VPN](http://www.pivpn.io/) or [Tor](/docs/ecosystem/tor/)  
+
+If you're only wanting to use components supported by [Home Assistant cloud](/cloud/) then you don't need to enable remote access. This is obviously the most secure option, but does mean that you're relying on a cloud service for that functionality.
+
+&#9744; For remote access to the UI, use a [VPN](http://www.pivpn.io/), [Tor](/docs/ecosystem/tor/), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/)  
 &#9744; For remote access for components, use a [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate  
 
 ## {% linkable_title All installs %}
@@ -31,7 +34,7 @@ Regardless of whether you plan on only accessing Home Assistant from inside your
 - If you're manually installing Home Assistant don't run Home Assistant as root – consider the Principle of Least Privilege
 - Keep your system regularly updated
 
-### {% You should %}
+### {% linkable_title You should %}
 
 As well as the above we advise that you consider the following to improve security:
 
@@ -65,4 +68,5 @@ For remote access for a component, for example a device tracker, you have to ena
   * A [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate (you can use one from Let's Encrypt, or any commercial SSL certificate vendor)
   * A [self-signed certificate](/cookbook/tls_self_signed_certificate/) - be warned though, some services will refuse to work with self-signed certificates
 3. Optionally use a proxy like [nginx](/docs/ecosystem/nginx/), [apache](/cookbook/apache_configuration/), or another. These allow you to provide finer grained access. You could use this to limit access to specific parts of the API (for example, only `/api/owntracks/`)
-4. Install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to [monitor your Home Assistant](https://www.home-assistant.io/cookbook/fail2ban/) or proxy logs for failed authentication
+4. Enable IP Filtering and configure a low [Login Attempts Threshold](/components/http/)
+4. If you use a proxy then install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to [monitor your proxy logs](https://www.home-assistant.io/cookbook/fail2ban/) (or Home Assistant logs) for failed authentication
