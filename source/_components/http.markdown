@@ -42,6 +42,7 @@ Configuration variables:
 - **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` option enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP.
 - **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
 - **login_attempts_threshold** (*Optional*): Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
+- **ssl_profile** (*Optional*): The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Either `modern` or `intermediate`. Default is `modern`. Only lower if you are experiencing integrations causing SSL handshake errors.
 
 The sample below shows a configuration entry with possible values:
 
