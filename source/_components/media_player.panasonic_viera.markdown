@@ -23,6 +23,7 @@ Currently known supported models:
 - TX-49DX650B
 - TX-50DX700B
 - TX-55CX700E
+- TX-55EXW584
 - TX-65EXW784
 - TX-L42ET50
 - TX-P42STW50

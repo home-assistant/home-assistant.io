@@ -22,7 +22,7 @@ On both Android and iOS, you can add the Home Assistant "web app" to your homesc
   4. Tap on Add to Homescreen
   5. A dialog will popup; tap on Add
 
-<p class='img' style='width:500px; margin-left: auto; margin-right: auto;'>
+<p class='img' style='max-width:500px; margin-left: auto; margin-right: auto;'>
 <img src='/images/screenshots/android-homescreen-guide.gif' />
 </p>
 

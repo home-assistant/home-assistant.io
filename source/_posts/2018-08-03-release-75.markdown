@@ -49,6 +49,13 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 - Upgrade voluptuous to 0.11.5 ([@fabaff] - [#15830])
 - Fix envisalink reconnect ([@Cinntax] - [#15832]) ([envisalink docs])
 
+## {% linkable_title Release 0.75.3 - August 9 %}
+
+- Fix downgrade hassio cannot get refresh_token issue ([@awarecan] - [#15874]) ([hassio docs])
+
+[#15874]: https://github.com/home-assistant/home-assistant/pull/15874
+[@awarecan]: https://github.com/awarecan
+[hassio docs]: /components/hassio/
 
 ## {% linkable_title If you need help... %}
 
