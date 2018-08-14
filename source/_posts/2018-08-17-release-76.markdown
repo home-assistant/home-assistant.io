@@ -54,14 +54,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Fixed NDMS for latest firmware ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
-- Convert wind speed to km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
-- This component API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
-- deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
+- Keenetic NDMS - Now using telnet instead of Web Interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
+- Openweathermap - Convert wind speed to km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
+- Telstra - This component API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- deCONZ - Power plugs that are of type "On/Off plug-in unit" and "Smart plug" (Osram and Innr among others) will now be switches instead of lights. Entities will be found as switch.entity_id instead of light.entity_id. ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
 - Make sure use_x_forward_for and trusted_proxies must config together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
-- Velbus auto-discovery ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([fan.velbus docs]) ([light.velbus docs]) ([switch.velbus docs]) (breaking change)
-- Add facebox auth ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
-- Fix for multiple camera switches naming of entity ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
+- Velbus - Breaking changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([fan.velbus docs]) ([light.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Facebox - Events are no longer fired when a face is taught, as these are unnecessary and the info they convey is already in the logs ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
+- Amcrest switch - Latest change may change switch entity_id. Please check your automation and update the identity-id if you have previously assigned a name to your camera as it appends the name of the camera to the switch id ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 
