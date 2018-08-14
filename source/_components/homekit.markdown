@@ -30,9 +30,22 @@ homekit:
     include_domains:
       - alarm_control_panel
       - light
+      - media_player
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    light.kitchen_table:
+      name: Kitchen Table Light
+    lock.front_door:
+      code: 1234
+    media_player.living_room:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+    switch.bedroom_outlet:
+      type: outlet
 ```
 
 {% configuration %}
@@ -51,6 +64,11 @@ homekit:
         required: false
         type: int
         default: 51827
+      name:
+        description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
+        required: false
+        type: string
+        default: '`Home Assistant Bridge`'
       ip_address:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
@@ -95,6 +113,20 @@ homekit:
                 required: false
                 type: string
                 default: '`<No code>`'
+              feature_list:
+                description: Only for `media_player` entities. List of feature dictionaries to add for a given entity. Comparable to the platform schema.
+                required: false
+                type: list
+                keys:
+                  feature:
+                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
+                    required: true
+                    type: string
+              type:
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
+                default: '`switch`'
 {% endconfiguration %}
 
 <p class='note'>
@@ -128,6 +160,10 @@ After the setup is completed you should be able to control your Home Assistant c
 
 Currently this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This however means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
 
+### {% linkable_title Device Limit %}
+
+The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+
 ### {% linkable_title Persistence Storage %}
 
 Unfortunately `HomeKit` doesn't support any kind of persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
@@ -152,6 +188,8 @@ automation:
     trigger:
       - platform: event
         event_type: zwave.network_ready
+      - platform: event
+        event_type: zwave.network_complete
     action:
       - service: homekit.start
 ```
@@ -219,6 +257,7 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
+| automation / input_boolean / remote / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
@@ -226,15 +265,16 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker | Sensor | Support for `occupancy` device class. |
-| fan | Fan | Support for `on / off`, `direction` and `oscillating`. | 
+| fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
+| media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
-| switch / remote / input_boolean / script | Switch | All represented as switches. |
+| switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 
 
 ## {% linkable_title Error reporting %}
@@ -256,3 +296,17 @@ logger:
    - The configuration entries for `homekit` and the `component` that is causing the issue.
    - The log / traceback you have generated before.
    - Screenshots of the failing entity in the `states` panel.
+
+## {% linkable_title Troubleshooting PIN not appearing %}
+
+In some instances, the PIN will not appear as a persistent status or in the log files despite deleting `.homekit.state`, enabling logging, and reboot.  The log files will include the error ```Duplicate AID found when attempting to add accessory```.
+
+In such cases, modifying your configuration.yaml to add a filter limiting the included entities similar to the following:
+
+```yaml
+filter:
+  include_domains:
+    - light
+```
+
+Restart Home-Assistant and re-attempt pairing - a persistent status should now correctly appear.

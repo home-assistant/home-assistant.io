@@ -13,11 +13,11 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform supports sensors which break out `state_attributes`
-from other entities.
+The `template` platform supports sensors which break out `state_attributes` from other entities.
 
-To enable Template Sensors in your installation, add the following to your
-`configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+To enable Template Sensors in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -78,13 +78,7 @@ sensor:
 
 ## {% linkable_title Considerations %}
 
-If you are using the state of a platform that takes extra time to load, the
-Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting
-error messages in your log file), you can use `is_state()` function in your template.
-For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
-with this equivalent that returns `true`/`false` and never gives an `unknown`
-result:
+If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
 ## {% linkable_title Examples %}
@@ -109,8 +103,7 @@ sensor:
 
 ### {% linkable_title Renaming Sensor Output %}
 
-If you don't like the wording of a sensor output then the Template Sensor can
-help too. Let's rename the output of the [Sun component](/components/sun/) as
+If you don't like the wording of a sensor output then the Template Sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as
 a simple example:
 
 {% raw %}
@@ -129,9 +122,7 @@ sensor:
 ```
 {% endraw %}
 
-Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/)
-show `on` or `off` if they are running or not. This example shows how the
-output of a monitored `glances` process can be renamed.
+Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
 
 {% raw %}
 ```yaml
@@ -149,13 +140,11 @@ sensor:
 ```
 {% endraw %}
 
-The [Template Binary Sensor](/components/binary_sensor.template/) is the one in
-similar cases if you prefer to see an icon instead of text.
+The [Template Binary Sensor](/components/binary_sensor.template/) is the one in similar cases if you prefer to see an icon instead of text.
 
 ### {% linkable_title Multiline Example With an `if` Test %}
 
-This example shows a multiple line template with an `if` test. It looks at a
-sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
 
 {% raw %}
 ```yaml
@@ -182,8 +171,7 @@ sensor:
 
 ### {% linkable_title Change The Unit of Measurement %}
 
-With a Template Sensor it's easy to convert given values into others if the
-unit of measurement doesn't fit your needs.
+With a Template Sensor it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
 {% raw %}
 ```yaml
@@ -257,7 +245,7 @@ sensor:
 ### {% linkable_title Change the Friendly Name Used in the Frontend %}
 
 This example shows how to change the `friendly_name` based on a date.
-Explanation: we add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
+Explanation: We add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
 
 {% raw %}
 ```yaml
@@ -293,5 +281,21 @@ sensor:
           {% end %}
         value_template: "{{ states('sensor.power_consumption') }}"
         unit_of_measurement: 'kW'
+```
+{% endraw %}
+
+### {% linkable_title Working with dates %}
+
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
+
+{% raw %}
+```yaml
+sensor:
+- platform: template
+  sensors:
+    nonsmoker:
+      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      friendly_name: 'Not smoking'
+      unit_of_measurement: "Days"
 ```
 {% endraw %}

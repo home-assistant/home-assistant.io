@@ -13,4 +13,4 @@ ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-For configuration instructions, see [main component config](/components/mychecvy/).
+For configuration instructions, see [main component config](/components/mychevy/).

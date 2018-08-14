@@ -75,7 +75,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-- delay: "00:{{ '%02d' % (states('input_number.minute_delay')|int) }}:00"
+- delay: "{{ states('input_number.minute_delay') | multiply(60) | timestamp_custom('%H:%M:%S',False) }}"
 ```
 {% endraw %}
 
@@ -102,7 +102,7 @@ When using `wait_template` within an automation `trigger.entity_id` is supported
 
 {% raw %}
 ```yaml
-- wait_template: "{{ is_state('trigger.entity_id', 'on') }}"
+- wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
 ```
 {% endraw %}
 

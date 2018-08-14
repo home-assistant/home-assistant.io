@@ -33,11 +33,9 @@ You will need to add internal communication details to `configuration.yaml` to e
 
 ```yaml
 # Example configuration.yaml entry
-
 tellstick:
     host: core-tellstick
     port: [50800, 50801]
-
 ```
 
 To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tellstick/) and [switches](/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](/components/tellstick/)
@@ -71,9 +69,9 @@ Example for adding more devices in the add-on configuration (note the comma sepa
 }
 ```
 
-## Service calls
+## {% linkable_title Service calls %}
 
-If you wish to teach a selflearning device in your TellStick configuration:
+If you wish to teach a self-learning device in your TellStick configuration:
 
 Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.
 - Service: `hassio.addon_stdin`
@@ -85,8 +83,7 @@ Replace `1` with the corresponding ID of the device in your TellStick configurat
 You can also use this to list devices or sensors and read the output in the add-on log:
 `{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
 
-
-#### Supported service commands
+### {% linkable_title Supported service commands %} 
 
 - `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
 

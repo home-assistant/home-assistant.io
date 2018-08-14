@@ -15,7 +15,7 @@ ha_release: 0.52
 ha_iot_class: "Cloud Polling"
 ---
 
-The `nello` platform allows you to control [Nello](https://nello.io) intercoms.
+The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.
 
 To get started you need to create a secondary Nello account and authorize it to access your lock(s).
 

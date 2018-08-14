@@ -29,6 +29,7 @@ isy994:
   username: ISY_USERNAME
   password: ISY_PASSWORD
 ```
+
 Configuration variables:
 
 - **host** (*Required*): The host entry should be in full URL format, eg. http://192.168.10.100:80
@@ -69,15 +70,15 @@ automation:
 
 All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
 
-- `DON`: On button
-- `DOF`: Off button
-- `DFON`: "Fast On", usually from double-tapping an On button
-- `DFOF`: "Fast Off", usually from double-tapping an Off button
-- `FDUP`: "Fade Up", usually while holding down an On button
-- `FDDOWN`: "Fade Down", usually while holding down an Off button
-- `FDSTOP`: "Fade Stop", when releasing a long-held button
-- `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light
-- `DIM`: "Dim", from controllers that issue a single command to slightly dim a light
+- `DON`: On button.
+- `DOF`: Off button.
+- `DFON`: "Fast On", usually from double-tapping an On button.
+- `DFOF`: "Fast Off", usually from double-tapping an Off button.
+- `FDUP`: "Fade Up", usually while holding down an On button.
+- `FDDOWN`: "Fade Down", usually while holding down an Off button.
+- `FDSTOP`: "Fade Stop", when releasing a long-held button.
+- `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light.
+- `DIM`: "Dim", from controllers that issue a single command to slightly dim a light.
 
 ### {% linkable_title Insteon Scenes %}
 
@@ -87,7 +88,7 @@ All Insteon scenes configured in the ISY994 will show up as switches in Home Ass
 
 Using the Programs tab in the controller's Administrative Console, custom devices can be created that will appear natively inside of Home Assistant. Home Assistant will scan the following folders and build the device to the associated domains:
 
-```
+```text
 My Programs
 ├── HA.binary_sensor
 |   ├── Movement In House
@@ -125,11 +126,12 @@ My Programs
 ```
 
 A device is created by creating a directory, with the name for the device, under any of the following root directories:
- * *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class)
- * *HA.cover* will create a cover
- * *HA.fan* will create a fan
- * *HA.lock* will create a lock
- * *HA.switch* will create a switch
+
+- *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class).
+- *HA.cover* will create a cover.
+- *HA.fan* will create a fan.
+- *HA.lock* will create a lock.
+- *HA.switch* will create a switch.
 
 A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
 
@@ -138,21 +140,23 @@ A program, named *status*, is required under the program device directory. A pro
 </p>
 
 The *status* program in this directory is what indicates the state of the device:
- * *binary_sensor* on if the clause returns true, otherwise off
- * *cover* closed if the clause returns true, otherwise open
- * *fan* on if the clause returns true, otherwise off
- * *lock* locked if the clause returns true, otherwise unlocked
- * *switch* on if the clause returns true, otherwise off
+
+- *binary_sensor* on if the clause returns true, otherwise off.
+- *cover* closed if the clause returns true, otherwise open.
+- *fan* on if the clause returns true, otherwise off.
+- *lock* locked if the clause returns true, otherwise unlocked.
+- *switch* on if the clause returns true, otherwise off.
 
 <p class='img'>
   <img src='{{site_root}}/images/isy994/isy994_SwitchStatusExample.png' />
 </p>
 
 The *actions* program indicates what should be performed for the following device services:
- * *cover* the THEN clause is evaluated for the open_cover service, the ELSE clause is evaluated for the close_cover service
- * *fan* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service
- * *lock* the THEN clause is evaluated for the lock service, the ELSE clause is evaluated for the unlock service
- * *switch* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service
+
+- *cover* the THEN clause is evaluated for the open_cover service, the ELSE clause is evaluated for the close_cover service.
+- *fan* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
+- *lock* the THEN clause is evaluated for the lock service, the ELSE clause is evaluated for the unlock service.
+- *switch* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
 
 <p class='img'>
   <img src='{{site_root}}/images/isy994/isy994_SwitchActionsExample.png' />

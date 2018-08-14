@@ -43,10 +43,6 @@ As well as the above we advise that you consider the following to improve securi
   * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html) (this also applies to Raspbian)
   * [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf)
 
-## {% linkable_title Remote access %}
-
-If you're only wanting to use components supported by [Home Assistant cloud](/cloud/) then you don't need to enable remote access. This is obviously the most secure option, but does mean that you're relying on a cloud service for that functionality.
-
 <p class='note warning'>
   If you've forwarded *any* ports to your Home Assistant system from the Internet then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system and starts abusing it - potentially as little as a few hours.
 </p>

@@ -43,7 +43,7 @@ Configuration variables:
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermstat` to avoid starting by setting Operation to 'off'. 
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermostat` to avoid starting by setting Operation to 'off'. 
 
 Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off. 
 

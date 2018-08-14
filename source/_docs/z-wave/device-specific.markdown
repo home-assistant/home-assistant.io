@@ -144,17 +144,43 @@ Some models of the Zooz Toggle switches ship with an instruction manual with inc
 
 To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
 
+### {% linkable_title Inovelli Scene Capable On/Off and Dimmer Wall Switches %}
+
+For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+			<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+				<Instance index="1" />
+				<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+				<Value type="int" genre="user" instance="1" index="1" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+				<Value type="int" genre="user" instance="1" index="2" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+			</CommandClass>
+```
+
+Once this is complete, you should see the follow `zwave.scene_activated` events:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Double tap off|1|3
+Double tap on|2|3
+Triple tap off|1|4
+Triple tap on|2|4
+4x tap off|1|5
+4x tap on|2|5
+5x tap off|1|6
+5x tap on|2|6
+
 ### {% linkable_title HomeSeer Switches %}
 
 For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
 ```xml
-			<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
-				<Instance index="1" />
-                <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
-        		<Value type="int" genre="user" instance="1" index="1" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
-        		<Value type="int" genre="user" instance="1" index="2" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
-			</CommandClass>
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+  <Instance index="1" />
+  <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false"   verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+  <Value type="int" genre="user" instance="1" index="1" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="user" instance="1" index="2" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+</CommandClass>
 ```
 
 Below is a table of the action/scenes for the HomeSeer devices (as a reference for other similar devices):
@@ -169,6 +195,20 @@ Triple tap on|1|4
 Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
+
+Some installations will see those details:
+
+**Top button ID: 1, Bottom ID: 2**
+
+**Action**|**scene\_data**
+:-----:|:-----:
+Single Press|7800
+Hold Button|7740
+2x Tap|7860
+3x Tap|7920
+4x Tap|7980
+5x Tap|8040
+
 
 ### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
 
@@ -193,6 +233,49 @@ Double tap on|1|3
 Triple tap on|1|4
 
 Tap and hold wakes up the Button.
+
+### {% linkable_title Fibaro Keyfob FGKF-601 %}
+
+
+For the Fibaro Keyfob, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="6">
+	<Instance index="1" />
+	<Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="6" />
+	<Value type="int" genre="user" instance="1" index="1" label="Square" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="2" label="Circle" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="3" label="X" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="4" label="Triangle" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="5" label="Minus" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	<Value type="int" genre="user" instance="1" index="6" label="Plus" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+</CommandClass>
+```
+
+Below is a table of the action/scenes for the Keyfob (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one (Square) single tap|1|7680
+Button one (Square) hold|1|7800
+Button one (Square) release|1|7740
+Button two (Circle) single tap|2|7680
+Button two (Circle) hold|2|7800
+Button two (Circle) release|2|7740
+Button three (X) single tap|3|7680
+Button three (X) hold|3|7800
+Button three (X) release|3|7740
+Button four (Triangle) single tap|4|7680
+Button four (Triangle) hold|4|7800
+Button four (Triangle) release|4|7740
+Button five (Triangle) single tap|5|7680
+Button five (Triangle) hold|5|7800
+Button five (Triangle) release|5|7740
+Button six (Triangle) single tap|6|7680
+Button six (Triangle) hold|6|7800
+Button six (Triangle) release|6|7740
+
+Press circle and plus simultaneously to wake up the device.
 
 ### {% linkable_title Aeotec Wallmote %}
 
@@ -232,3 +315,56 @@ Button four release|4|1
 ### {% linkable_title WallC-S Switch %}
 
 Use the same configuration as for the Aeotec Wallmote.
+
+### {% linkable_title HANK One-key Scene Controller HKZN-SCN01 %}
+
+For the HANK One-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="1" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Button (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button single tap|1|0
+Button hold|1|2
+Button release|1|1
+
+### {% linkable_title HANK Four-key Scene Controller HKZN-SCN04 %}
+
+For the HANK Four-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+      <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+        <Value type="int" genre="system" instance="1" index="5" label="Other" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      </CommandClass>
+```
+
+Below is a table of the action/scenes for the Buttons and associated Pictogram:
+
+**Action**|**Pictogram**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:|:-----:
+Button one tap|Moon and Star|1|0
+Button one hold|Moon and Star|1|2
+Button one release|Moon and Star|1|1
+Button two tap|People|2|0
+Button two hold|People|2|2
+Button two release|People|2|1
+Button three tap|Circle|3|0
+Button three hold|Circle|3|2
+Button three release|Circle|3|1
+Button four tap|Circle with Line|4|0
+Button four hold|Circle with Line|4|2
+Button four release|Circle with Line|4|1

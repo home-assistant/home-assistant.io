@@ -16,6 +16,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Join the [Facebook community][facebook]
 - Join the [Google+ community][google-plus]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -31,6 +32,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
@@ -51,9 +53,11 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [​Building a better thermostat with Home Assistant](https://opensource.com/article/18/8/build-thermostat-open-source-tools) - August 2018
 - [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
 - [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018
 - [SmartThings vs Home Assistant](https://smarthome.university/smartthings-vs-home-assistant/) - April 2018
+- [Feed the dog and close the door with an open source home automation system](https://opensource.com/article/18/3/smart-home-assistant) - March 2018
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
 - [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
@@ -84,6 +88,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 [forum]: https://community.home-assistant.io/
 [twitter]: https://twitter.com/home_assistant
+[facebook]: https://www.facebook.com/homeassistantio
 [google-plus]: https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: https://discord.gg/c5DvZ4e

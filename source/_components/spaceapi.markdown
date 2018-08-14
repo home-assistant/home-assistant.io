@@ -108,7 +108,7 @@ sensors:
       required: true
       type: entity_id
     humidity:
-      description: The Twitter account of the Hackerspace.
+      description: List of humidity sensors.
       required: true
       type: entity_id
 {% endconfiguration %}

@@ -31,6 +31,10 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 mqtt:
 ```
 
+<p class='note warning'>
+There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
+</p>
+
 ### {% linkable_title Owntracks%}
 
 To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).

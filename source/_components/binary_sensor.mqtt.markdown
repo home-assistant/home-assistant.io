@@ -69,6 +69,10 @@ qos:
   required: false
   type: integer
   default: 0
+unique_id:
+  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
+  required: false
+  type: string
 device_class:
   description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
   required: false
