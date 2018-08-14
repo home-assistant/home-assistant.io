@@ -13,9 +13,18 @@ og_image: /images/blog/2018-08-0.76/components.png
 
 <a href='/components/#version/0.76'><img src='/images/blog/2018-08-0.76/components.png' style='border: 0;box-shadow: none;'></a>
 
-### This release has a migration, initial startup will take some time.
+The auth system is entering release candidate status 🎉. It will be enabled by default starting the next release (0.76) but you can already easily enable it now:
 
-Report 1: Migration took 15 minutes for 30 days history. (DB: Postgres; Raspberry Pi 3; Ubuntu 16.04; venv installation)
+```yaml
+homeassistant:
+  # add this part
+  auth_providers:
+   - type: homeassistant
+   # uncomment this to enable API password
+   # - type: legacy_api_password
+```
+
+### This release has a migration, initial startup can take ~20 minutes (depends on size DB)
 
 Please report your migration time in the #beta channel on discord.
 
