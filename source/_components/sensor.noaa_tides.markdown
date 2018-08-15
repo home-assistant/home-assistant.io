@@ -47,7 +47,7 @@ timezone:
       description: Local Standard Time. The time local to the requested station.
     lst_ldt:
       description: Local Standard/Local Daylight Time. The time local to the requested station.
-units:
+unit_system:
   description: Specify the unit system.
   required: false
   default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
