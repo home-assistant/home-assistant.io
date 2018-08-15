@@ -67,14 +67,14 @@ name:
   type: string
   default: Glances
 version:
-  description: "The version of the Glances API. Supoorted version: `2` and `3`."
+  description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
   type: int
   default: 2
 resources:
   description: Entries to monitor.
   required: false
-  type: string
+  type: map
   default: disk_use
   keys:
     disk_use_percent:
@@ -106,7 +106,7 @@ resources:
     process_sleeping:
       description: The number of sleeping processes.
     cpu_temp:
-      description: The CPU temperature (may not available on all platforms).
+      description: The CPU temperature (may not be available on all platforms).
     docker_active:
       description: The count of active Docker containers.
     docker_cpu_use:
