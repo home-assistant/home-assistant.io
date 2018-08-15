@@ -50,6 +50,10 @@ bmw_connected_drive:
       description: "The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`"
       required: true
       type: string
+    services:
+      description: Enables or disables the services of the vehicles including the lock. Default true (Services enabled)
+      required: false
+      type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
