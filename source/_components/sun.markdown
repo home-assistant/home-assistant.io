@@ -20,9 +20,27 @@ The sun component will use your current location to track if the sun is above or
 sun:
 ```
 
+```yaml
+# Another example configuration.yaml entry
+# Only maintain a few attributes (along with basic state), and
+# update elevation every ten minutes instead of every minute.
+sun:
+  monitored_conditions:
+    - elevation
+    - next_rising
+    - next_setting
+    - sunrise
+    - sunset
+  scan_interval:
+    minutes: 10
+```
+
 Configuration variables:
 
 - **elevation** (*Optional*): The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
+
+- **monitored_conditions** (*Optional*): A list of attributes to include. Options are: `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `next_rising`, `next_setting`, `daylight`, `next_daylight`, `prev_daylight`, `sunrise` and `sunset`. The default is to include `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `next_rising` and `next_setting`.
+- **scan_interval** (*Optional*): If `azimuth` or `elevation` are included, then this controls how often they are updated. The default is to update them once a minute on the half minute.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
@@ -62,3 +80,12 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
+| `daylight` | The amount of time from today's sunrise to today's sunset (in seconds).
+| `next_daylight` | Same as daylight, except for tomorrow.
+| `prev_daylight` | Same as daylight, except for yesterday.
+| `sunrise` | Date and time of today's sun rising (in UTC).
+| `sunset` | Date and time of today's sun setting (in UTC).
+
+#### {% linkable_title Caveats %}
+
+The frontend component uses `next_rising`, `next_setting` and `elevation`. (See picture above.) If you choose to exclude any of these attributes obviously the corresponding information will not be displayed. (`sun.sun`'s state, however, will always be properly maintained.) If you do display `sun.sun` in the frontend, and you want all the information displayed, then if using `monitored_conditions` in sun's configuration make sure to include at least `next_rising`, `next_setting` and `elevation`.
