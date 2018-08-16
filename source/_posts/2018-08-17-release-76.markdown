@@ -54,20 +54,40 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Fixed NDMS for latest firmware ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
-- Convert wind speed to km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
-- This component API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
-- deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
-- Make sure use_x_forward_for and trusted_proxies must config together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
-- Velbus auto-discovery ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([fan.velbus docs]) ([light.velbus docs]) ([switch.velbus docs]) (breaking change)
-- Add facebox auth ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
-- Fix for multiple camera switches naming of entity ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
+- Keenetic NDMS: user needs to have access to the TelNet interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
+- openweathermap: wind speed is now correctly in km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
+- Remove Telstra notifiy component: This API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- deCONZ - support for power plugs. Power plugs that are of type "On/Off plug-in unit" and "Smart plug" (Osram and Innr among others) will now be switches instead of lights. Entities will be found as switch.entity_id instead of light.entity_id. ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
+- HTTP: Make sure use_x_forward_for and trusted_proxies must be configured together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
+- Velbus: Breaking changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Facebox: Events are no longer fired when a face is taught, as these are unnecessary and the info they convey is already in the logs. ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
+- AMCrest switch: Fix for multiple camera switches naming of entity. May change switch entity_id. Please check your automation and update the identity-id if you have previously assigned a name to your camera as it appends the name of the camera to the switch id. ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
+- MQTT embedded broker will no longer rely on HTTP API password to automatically configure itself. You need to set own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Remove remote.API from core.Config. Might break custom components if they rely on hass.config.api ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Upgrade pymysensors to 0.17.0 ([@MartinHjelmare] - [#15942]) ([mysensors docs]) (beta fix)
+- Deprecate remote.api ([@balloob] - [#15955]) (beta fix)
+- Added error handling for sense API timeouts ([@kbickar] - [#15789]) ([sensor.sense docs]) (beta fix)
+- Add context to login flow ([@awarecan] - [#15914]) ([auth docs]) (beta fix)
+- MQTT embedded broker has to set its own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
+- remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
+- Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+- Switch to intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
+- Pin crypto ([@balloob] - [#15978]) (beta fix)
+- Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
+- Fix 0.76 beta2 hassio token issue ([@awarecan] - [#15987]) ([hassio docs]) (beta fix)
+- Fix mysensors connection task blocking setup ([@MartinHjelmare] - [#15938]) ([mysensors docs]) (beta fix)
+- Fix Nest async from sync ([@balloob] - [#15997]) ([nest docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
 - Add kodi unique id based on discovery ([@rytilahti] - [#15093]) ([media_player.kodi docs])
 - Better handling of Yi camera being disconnected ([@bachya] - [#15754]) ([camera.yi docs])
-- Decouple login flow view and data entry flow view ([@awarecan] - [#15715]) ([auth docs]) (new-platform)
+- Decouple login flow view and data entry flow view ([@awarecan] - [#15715]) ([auth docs])
 - Fixed NDMS for latest firmware ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
 - Add disallow_untyped_calls to mypy check. ([@andrey-git] - [#15661]) ([persistent_notification docs])
 - Update pyozw to 0.4.9 ([@turbokongen] - [#15758]) ([zwave docs])
@@ -76,7 +96,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add a "Reviewed by Hound" badge ([@salbertson] - [#15767])
 - Upgrade Mastodon.py to 1.3.1 ([@fabaff] - [#15766]) ([notify docs])
 - This component API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
-- Fix docstrings ([@fabaff] - [#15770]) ([onboarding docs])
+- Fix docstrings ([@fabaff] - [#15770])
 - Update pynetgear to 0.4.1 (bugfixes) ([@MatMaul] - [#15768]) ([device_tracker docs])
 - Opensky altitude ([@ioangogo] - [#15273]) ([sensor.opensky docs])
 - Expose internal states and fixed on/off state of Dyson Fans ([@soraxas] - [#15716]) ([fan.dyson docs])
@@ -88,13 +108,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for OpenUV binary sensors and sensors ([@bachya] - [#15769]) ([openuv docs]) ([binary_sensor.openuv docs]) ([sensor.openuv docs]) (new-platform)
 - Update pymediaroom to 0.6.4 ([@dgomes] - [#15786]) ([media_player.mediaroom docs])
 - Add Enphase Envoy component ([@jesserizzo] - [#15081]) ([sensor.enphase_envoy docs]) (new-platform)
-- Vacuum component: start_pause to individual start and pause commands. ([@cnrd] - [#15751]) ([vacuum docs]) ([vacuum.demo docs])
+- Vacuum component: start_pause to individual start and pause commands. ([@cnrd] - [#15751]) ([vacuum docs])
 - Make sure use_x_forward_for and trusted_proxies must config together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
 - Upgrade voluptuous-serialize to 2.0.0 ([@awarecan] - [#15763]) ([config docs])
 - Upgrade pylint to 2.1.0 ([@scop] - [#15811]) ([binary_sensor.bayesian docs]) ([binary_sensor.threshold docs]) ([calendar.todoist docs]) ([light.group docs]) ([sensor.min_max docs]) ([sensor.statistics docs])
 - Upgrade pytest to 3.7.1 and pytest-timeout to 1.3.1 ([@scop] - [#15809])
 - Add support for 2 Tahoma IO awning covers ([@fucm] - [#15660]) ([tahoma docs]) ([cover.tahoma docs])
-- Velbus auto-discovery ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([fan.velbus docs]) ([light.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Velbus auto-discovery ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
 - Upgrade youtube_dl to 2018.08.04 ([@fabaff] - [#15837]) ([media_extractor docs])
 - Add media_player.dlna_dmr component ([@StevenLooman] - [#14749]) ([media_player.dlna_dmr docs]) (new-platform)
 - Remove 'volume' from return dict ([@mattwing] - [#15842]) ([sensor.alpha_vantage docs])
@@ -126,6 +146,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add realtime true/false switch for Waze ([@mountainsandcode] - [#15228]) ([sensor.waze_travel_time docs])
 - Add PJLink media player platform ([@benoitlouy] - [#15083]) ([media_player.pjlink docs]) (new-platform)
 - Some typing related fixes ([@scop] - [#15899])
+- Update August component to use py-august:0.6.0 ([@snjoetw] - [#15916]) ([august docs])
 - Misc cleanups ([@scop] - [#15907]) ([device_tracker docs]) ([sensor.irish_rail_transport docs])
 - Update radiotherm to 1.4.1 ([@craftyguy] - [#15910]) ([climate.radiotherm docs])
 - Fix bug in translations upload script ([@armills] - [#15922])
@@ -134,6 +155,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - deCONZ - Add support for sirens ([@Kane610] - [#15896]) ([deconz docs]) ([switch.deconz docs])
 - Add RMV public transport sensor ([@cgtobi] - [#15814]) ([sensor.rmvtransport docs]) (new-platform)
 - :pencil2: Corrects typo in code comments ([@frenck] - [#15923]) ([binary_sensor.homematicip_cloud docs])
+- Upgrade pymysensors to 0.17.0 ([@MartinHjelmare] - [#15942]) ([mysensors docs]) (beta fix)
+- Deprecate remote.api ([@balloob] - [#15955]) (beta fix)
+- Added error handling for sense API timeouts ([@kbickar] - [#15789]) ([sensor.sense docs]) (beta fix)
+- Add context to login flow ([@awarecan] - [#15914]) ([auth docs]) (beta fix)
+- MQTT embedded broker has to set its own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
+- remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
+- Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+- Switch to intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
+- Pin crypto ([@balloob] - [#15978]) (beta fix)
+- Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
+- Fix 0.76 beta2 hassio token issue ([@awarecan] - [#15987]) ([hassio docs]) (beta fix)
+- Fix mysensors connection task blocking setup ([@MartinHjelmare] - [#15938]) ([mysensors docs]) (beta fix)
+- Fix Nest async from sync ([@balloob] - [#15997]) ([nest docs]) (beta fix)
 
 [#13742]: https://github.com/home-assistant/home-assistant/pull/13742
 [#14028]: https://github.com/home-assistant/home-assistant/pull/14028
@@ -169,6 +205,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15780]: https://github.com/home-assistant/home-assistant/pull/15780
 [#15783]: https://github.com/home-assistant/home-assistant/pull/15783
 [#15786]: https://github.com/home-assistant/home-assistant/pull/15786
+[#15789]: https://github.com/home-assistant/home-assistant/pull/15789
 [#15800]: https://github.com/home-assistant/home-assistant/pull/15800
 [#15803]: https://github.com/home-assistant/home-assistant/pull/15803
 [#15804]: https://github.com/home-assistant/home-assistant/pull/15804
@@ -202,10 +239,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#15907]: https://github.com/home-assistant/home-assistant/pull/15907
 [#15910]: https://github.com/home-assistant/home-assistant/pull/15910
 [#15911]: https://github.com/home-assistant/home-assistant/pull/15911
+[#15914]: https://github.com/home-assistant/home-assistant/pull/15914
+[#15916]: https://github.com/home-assistant/home-assistant/pull/15916
 [#15922]: https://github.com/home-assistant/home-assistant/pull/15922
 [#15923]: https://github.com/home-assistant/home-assistant/pull/15923
+[#15929]: https://github.com/home-assistant/home-assistant/pull/15929
+[#15930]: https://github.com/home-assistant/home-assistant/pull/15930
+[#15936]: https://github.com/home-assistant/home-assistant/pull/15936
+[#15938]: https://github.com/home-assistant/home-assistant/pull/15938
+[#15942]: https://github.com/home-assistant/home-assistant/pull/15942
+[#15951]: https://github.com/home-assistant/home-assistant/pull/15951
+[#15955]: https://github.com/home-assistant/home-assistant/pull/15955
+[#15957]: https://github.com/home-assistant/home-assistant/pull/15957
+[#15972]: https://github.com/home-assistant/home-assistant/pull/15972
+[#15978]: https://github.com/home-assistant/home-assistant/pull/15978
+[#15983]: https://github.com/home-assistant/home-assistant/pull/15983
+[#15987]: https://github.com/home-assistant/home-assistant/pull/15987
+[#15997]: https://github.com/home-assistant/home-assistant/pull/15997
 [@DubhAd]: https://github.com/DubhAd
+[@GotoCode]: https://github.com/GotoCode
 [@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatMaul]: https://github.com/MatMaul
 [@PrimusNZ]: https://github.com/PrimusNZ
 [@StevenLooman]: https://github.com/StevenLooman
@@ -228,6 +282,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fucm]: https://github.com/fucm
 [@ioangogo]: https://github.com/ioangogo
 [@jesserizzo]: https://github.com/jesserizzo
+[@kbickar]: https://github.com/kbickar
 [@mattwing]: https://github.com/mattwing
 [@mountainsandcode]: https://github.com/mountainsandcode
 [@mxworm]: https://github.com/mxworm
@@ -239,9 +294,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@rytilahti]: https://github.com/rytilahti
 [@salbertson]: https://github.com/salbertson
 [@scop]: https://github.com/scop
+[@snjoetw]: https://github.com/snjoetw
 [@soraxas]: https://github.com/soraxas
 [@thomasdelaet]: https://github.com/thomasdelaet
 [@turbokongen]: https://github.com/turbokongen
+[@vrih]: https://github.com/vrih
+[august docs]: /components/august/
 [auth docs]: /components/auth/
 [binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
 [binary_sensor.homematicip_cloud docs]: /components/binary_sensor.homematicip_cloud/
@@ -259,6 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker docs]: /components/device_tracker/
 [fan.dyson docs]: /components/fan.dyson/
 [fan.velbus docs]: /components/fan.velbus/
+[hassio docs]: /components/hassio/
 [http docs]: /components/http/
 [image_processing.facebox docs]: /components/image_processing.facebox/
 [light.deconz docs]: /components/light.deconz/
@@ -269,6 +328,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.kodi docs]: /components/media_player.kodi/
 [media_player.mediaroom docs]: /components/media_player.mediaroom/
 [media_player.pjlink docs]: /components/media_player.pjlink/
+[mqtt docs]: /components/mqtt/
+[mysensors docs]: /components/mysensors/
+[nest docs]: /components/nest/
 [notify docs]: /components/notify/
 [onboarding docs]: /components/onboarding/
 [openuv docs]: /components/openuv/
@@ -281,11 +343,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.opensky docs]: /components/sensor.opensky/
 [sensor.openuv docs]: /components/sensor.openuv/
 [sensor.rmvtransport docs]: /components/sensor.rmvtransport/
+[sensor.sense docs]: /components/sensor.sense/
 [sensor.shodan docs]: /components/sensor.shodan/
 [sensor.snmp docs]: /components/sensor.snmp/
 [sensor.sonarr docs]: /components/sensor.sonarr/
 [sensor.statistics docs]: /components/sensor.statistics/
 [sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
+[sensor.worxlandroid docs]: /components/sensor.worxlandroid/
 [switch.amcrest docs]: /components/switch.amcrest/
 [switch.deconz docs]: /components/switch.deconz/
 [switch.snmp docs]: /components/switch.snmp/
@@ -296,4 +360,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [velbus docs]: /components/velbus/
 [weather.openweathermap docs]: /components/weather.openweathermap/
+[websocket_api docs]: /components/websocket_api/
 [zwave docs]: /components/zwave/
