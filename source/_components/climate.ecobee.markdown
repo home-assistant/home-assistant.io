@@ -245,7 +245,9 @@ canceled.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `hold_mode` | no | `temp`, `home`, `away`, `sleep`, `None`, etc. NOTE: If you create custom hold modes (also known as "Comfort Settings") on your ecobee.com dashboard, their hold_modes are 'smart1', 'smart2', 'smart3', etc. The number for each custom mode should match the mode's icon on your ecobee.com dashboard. Also note that the mode numbers/icons in the ecobee mobile app MAY NOT MATCH the numbers/icons from the ecobee.com web dashboard. The ones on the website are the ones you shoud use to determine the correct 'smartX' hold_mode IDs.
+| `hold_mode` | no | `temp`, `home`, `away`, `sleep`, `None`, `smart1`, `smart2`, etc.
+
+NOTE: If you create custom hold modes (also known as "Comfort Settings") on your ecobee.com dashboard, their hold_modes are `smart1`, `smart2`, `smart3`, etc. The number for each custom mode should match the mode's icon on your ecobee.com dashboard. Also note that the mode numbers/icons in the ecobee mobile app MAY NOT MATCH the numbers/icons from the ecobee.com web dashboard. The ones on the website are the ones you shoud use to determine the correct 'smartX' hold_mode IDs.
 
 ### {% linkable_title Service `set_temperature` %}
 
