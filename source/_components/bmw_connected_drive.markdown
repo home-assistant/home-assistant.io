@@ -51,9 +51,10 @@ bmw_connected_drive:
       required: true
       type: string
     read_only:
-      description: Enables or disables the services of the vehicles including the lock. Default false (Services enabled)
+      description: In read only mode, all services including the lock of the vehicle are disabled.
       required: false
       type: boolean
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
