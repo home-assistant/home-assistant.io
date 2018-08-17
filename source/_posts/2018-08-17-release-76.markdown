@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.76: TBD - UPDATE DATE"
-description: "TBD"
-date: 2018-08-11 00:01:00
+title: "0.76: Auth almost done, FleetGo, PJLink, RMV public transport"
+description: "The boys and girls in our virtual HQ have been working hard on creating yet another great release."
+date: 2018-08-17 00:01:00
 date_formatted: "August 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -11,22 +11,26 @@ categories: Release-Notes
 og_image: /images/blog/2018-08-0.76/components.png
 ---
 
+<p class='note'>
+This release has a migration, initial startup can take ~20 minutes (depends on size DB)
+</p>
+
+This release includes a database migration to allow us to store context in the database. This will make it possible in the future to introduce attribution. For example, we'll be able to say which user opened the garage door or which automation triggered the party mode at 3am.
+
 <a href='/components/#version/0.76'><img src='/images/blog/2018-08-0.76/components.png' style='border: 0;box-shadow: none;'></a>
 
-The auth system is entering release candidate status 🎉. It will be enabled by default starting the next release (0.76) but you can already easily enable it now:
+The auth system is entering release candidate status 🎉. If nothing major is found, it will be enabled by default starting the next release (0.77) with backwards compatability modus turned on. If you want to get ahead of the pack, you can already easily enable it now:
 
 ```yaml
 homeassistant:
   # add this part
   auth_providers:
    - type: homeassistant
-   # uncomment this to enable API password
+   # uncomment this to enable backwards compatible API password support
    # - type: legacy_api_password
 ```
 
-### This release has a migration, initial startup can take ~20 minutes (depends on size DB)
-
-Please report your migration time in the #beta channel on discord.
+For iOS users, your frontend should be a lot faster. We had an issue that forced us to serve the frontend in compatability mode, which is slower. We haven't been able to solve [the issue](https://bugs.webkit.org/show_bug.cgi?id=174629), but found a workaround. Race on 🏎.
 
 ## {% linkable_title New Platforms %}
 
@@ -75,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
 - remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
 - Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
-- Switch to intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Allow picking intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
 - Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
 - Pin crypto ([@balloob] - [#15978]) (beta fix)
 - Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
@@ -163,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
 - remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
 - Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
-- Switch to intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Allow picking intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
 - Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
 - Pin crypto ([@balloob] - [#15978]) (beta fix)
 - Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
