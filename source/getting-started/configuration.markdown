@@ -44,22 +44,28 @@ Go to the add-on store (see previous step), click on Configurator and click on "
  
  ```json
 {
-  "username": "admin",
-  "password": "YOUR_PASSWORD_WITH_QUOTES",
-  "certfile": "fullchain.pem",
-  "keyfile": "privkey.pem",
-  "ssl": false,
-  "allowed_networks": [
-    "192.168.0.0/16"
-  ],
-  "banned_ips": [
-    "8.8.8.8"
-  ],
-  "banlimit": 0,
-  "ignore_pattern": [
-    "__pycache__"
-  ],
-  "dirsfirst": false
+  "LISTENIP": "0.0.0.0",
+  "PORT": 3218,
+  "GIT": false,
+  "BASEPATH": null,
+  "ENFORCE_BASEPATH": false,
+  "SSL_CERTIFICATE": null,
+  "SSL_KEY": null,
+  "IGNORE_SSL": false,
+  "HASS_API": "http://127.0.0.1:8123/api/",
+  "HASS_API_PASSWORD": null,
+  "USERNAME": "admin",
+  "PASSWORD": "YOUR_PASSWORD_WITH_QUOTES",
+  "ALLOWED_NETWORKS": ["192.168.0.0/24", "172.30.0.0/16"],
+  "BANNED_IPS": [],
+  "BANLIMIT": 0,
+  "IGNORE_PATTERN": ["__pycache__"],
+  "DIRSFIRST": false,
+  "SESAME": null,
+  "SESAME_TOTP_SECRET": null,
+  "VERIFY_HOSTNAME": null,
+  "ENV_PREFIX": "HC_",
+  "NOTIFY_SERVICE": "persistent_notification.create"
 }
 ```
 
