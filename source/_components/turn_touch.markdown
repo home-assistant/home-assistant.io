@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: turn_touch.png
 ha_category: Hub
-ha_release: 0.73
+ha_release: 0.77
 ha_iot_class: "Local Push"
 ---
 
