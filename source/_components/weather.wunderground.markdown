@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: wunderground.png
 ha_category: Weather
-ha_release: 0.75
+ha_release: 0.77
 ha_iot_class: "Cloud Polling"
 ---
 
