@@ -26,3 +26,4 @@ Currently supported features are:
 - `stop`
 - `return_to_home`
 - `turn_off` (stop all activity and return to dock)
+- `locate`
