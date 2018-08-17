@@ -10,7 +10,7 @@ footer: true
 logo: dyson.png
 ha_category: Climate
 ha_iot_class: "Cloud Polling"
-ha_release: 0.73
+ha_release: 0.77
 ---
 
 The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan thermal control. For controlling the fan functionality, see the [dyson fan](/components/fan.dyson/) component.
