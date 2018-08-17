@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Media Player
-ha_release: 0.76
+ha_release: 0.77
 ha_iot_class: "Local Polling"
 ---
 
