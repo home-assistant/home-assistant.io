@@ -10,7 +10,7 @@ footer: true
 logo: alfawise.png
 ha_category: Fan
 ha_iot_class: "Local Push"
-ha_release: "0.71"
+ha_release: 0.77
 ---
 
 The `alfawise` fan allows you to control [Alfawise Humidifier](https://www.alfawise.com/copy-of-kitchen-shrter-1) 
