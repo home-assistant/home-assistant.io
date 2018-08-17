@@ -10,7 +10,7 @@ footer: true
 logo: turn_touch.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.73
+ha_release: 0.77
 ---
 
 The `Turn Touch` platform allows you to monitor your [Turn Touch](https://shop.turntouch.com/) battery level from within Home Assistant.
