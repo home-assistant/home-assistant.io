@@ -31,6 +31,7 @@ Configuration options for the OpenSky Network sensor:
 - **radius** (*Required*): Radius of region to monitor, in kilometers
 - **latitude** (*Optional*): Region latitude (defaults to home zone latitude)
 - **longitude** (*Optional*): Region longitude (defaults to home zone longitude)
+- **altitude** (*Optional*): The maximum altitude(in meters) for planes to be detected in, 0 sets it to unlimited (defaults to 0)
 - **name** (*Optional*): Sensor name (defaults to `opensky`)
 
 ## Events
@@ -42,6 +43,7 @@ Both events have two attributes:
 
 - **sensor**: Name of `opensky` sensor that fired the event
 - **callsign**: Callsign of the flight
+- **altitude**: Altitude of the flight in meters
 
 To receive notifications of the entering flights, add the following lines to your `configuration.yaml`.
 

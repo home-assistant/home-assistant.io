@@ -41,8 +41,6 @@ Since 0.63 and the new experimental [entity registry](/docs/configuration/entity
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets the name of the `zwave` entity - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name. Other entities of a device are renamed using the [entity registry](/docs/configuration/entity-registry/).
-
 * **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
@@ -116,7 +114,7 @@ This will display the Z-Wave related information about the node:
 
 ### {% linkable_title Node Values %}
 
-Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
+Contains a list of available values of the selected node, and it's instances.
 
 ### {% linkable_title Node group associations %}
 
@@ -141,6 +139,12 @@ That would remove the broadcast group from association group 1 of the device wit
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
+
+### {% linkable_title Node protection %}
+
+If your node has the protection commandclass, you can change the protection level of the node.
+Check your device manual on how to use this setting, as it is different between manufacturers.
+Set the new selection by pressing the **Set Protection** button.
 
 ## {% linkable_title Node user codes %}
 
