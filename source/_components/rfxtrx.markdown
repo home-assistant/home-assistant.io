@@ -12,7 +12,9 @@ ha_category: Hub
 ha_release: pre 0.7
 ---
 
-The `rfxtrx` component supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
+The `rfxtrx` component supports RFXtrx devices by [RFXcom](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
+
+## {% linkable_title Configuration %}
 
 To enable RFXtrx in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,12 +24,23 @@ rfxtrx:
   device: PATH_TO_DEVICE
 ```
 
-Configuration variables:
+{% configuration %}
+device:
+  description: The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+  required: true
+  type: string
+debug:
+  description: If you want to receive debug output.
+  required: false
+  type: boolean
+  default: false
+dummy:
+  description: Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
-- **device** (*Required*): The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
-- **debug** (*Optional*): If you want to receive debug output.
-- **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
-
-Supported protocols
+## {% linkable_title Supported protocols %}
 
 Not all protocols as advertised are enabled on initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) and enable the required protocol.

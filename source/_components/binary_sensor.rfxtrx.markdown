@@ -11,18 +11,19 @@ logo: rfxtrx.png
 ha_category: Binary Sensor
 ---
 
-The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. The rfxtrx binary sensor component provides support for them. 
+The `rfxtrx` platform supports binary sensors that communicate in the frequency range of 433.92 MHz. The rfxtrx binary sensor component provides support for them.
 
 Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol but most of them are recognized under the *Lighting4* protocol. The rfxtrx binary sensor component provides some special options for them, while other rfxtrx protocols should work too.
 
-# Setting up your devices
+## {% linkable_title Configuration %}
+
 Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way to find your binary sensors is to add this to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: rfxtrx
-  automatic_add: True
+  - platform: rfxtrx
+    automatic_add: true
 ```
 
 Open your local home-assistant web UI and go to the "states" page. Then make sure to trigger your sensor. You should see a new entity appear in the *Current entities* list, starting with "binary_sensor." and some hexadecimal digits. Those hexadecimal digits are your device id.
@@ -32,30 +33,55 @@ For example: "binary_sensor.0913000022670e013b70". Here your device id is `09130
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: rfxtrx
-  devices:
-    0913000022670e013b70:
-      name: device_name
+  - platform: rfxtrx
+    devices:
+      0913000022670e013b70:
+        name: device_name
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): To enable the automatic addition of new binary sensors.
-- **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
-- **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+{% configuration %}
+devices:
+  description: A list of devices to use.
+  required: false
+  type: list
+  keys:
+    name:
+      description: The name of the device to use in the frontend.
+      required: false
+      type: string
+    device_class:
+      description: The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
+      required: false
+      type: string
+      default: None
+    fire_event:
+      description: Fires an event even if the state is the same as before. Can be used for automations.
+      required: false
+      type: boolean
+      default: false
+    off_delay:
+      description: "For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'."
+      required: false
+      type: time
+automatic_add:
+  description: To enable the automatic addition of new binary sensors.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 <p class='note warning'>
 This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
 </p>
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
-- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep. 
+- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.
 - Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
 
 For those devices, use the *off_delay* parameter. It defines a delay after which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
@@ -65,25 +91,41 @@ Example configuration:
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: rfxtrx
-  automatic_add: True
-  devices:
-    091300006ca2c6001080:
-    name: motion_hall
-    device_class: motion
-    off_delay:
-      seconds: 5
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      091300006ca2c6001080:
+      name: motion_hall
+      device_class: motion
+      off_delay:
+        seconds: 5
 ```
 
-## Options for PT-2262 devices under the Lighting4 protocol
+## {% linkable_title Options for PT-2262 devices under the Lighting4 protocol %}
 
 When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
 
-- **data_bits** (*Optional*): Defines how many bits are used for commands inside the data packets sent by the device.
-- **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.
-- **command_off** (*Optional*): Defines the data bits value that is sent by the device upon an 'Off' command.
+{% configuration %}
+devices:
+  description: A list of devices to use, the following keys can added for to a PT-2262 device using the Lighting4 protocol.
+  required: false
+  type: list
+  keys:
+    data_bits:
+      description: Defines how many bits are used for commands inside the data packets sent by the device.
+      required: false
+      type: int
+    command_on:
+      description: "Defines the data bits value that is sent by the device upon an 'On' command."
+      required: false
+      type: string
+    command_off:
+      description: "Defines the data bits value that is sent by the device upon an 'Off' command."
+      required: false
+      type: string
+{% endconfiguration %}
 
-Let's try to add a new PT-2262 sensor using the "automatic_add" option and have a look at Home Assistant system log. 
+Let's try to add a new PT-2262 sensor using the "automatic_add" option and have a look at Home Assistant system log.
 
 Have your sensor trigger the "On" state for the first time. Some messages will appear:
 
@@ -99,22 +141,23 @@ Now have your sensor trigger the "Off" state and look for the following message 
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
 ```
 
-Here the device id is *226707*, which is almost similar to the *22670e* we had on the "On" event a few seconds ago. 
+Here the device id is *226707*, which is almost similar to the *22670e* we had on the "On" event a few seconds ago.
 
 From those two values, you can guess that the actual id of your device is *22670*, and that *e* and *7* are commands for "On" and "Off" states respectively. As one hexadecimal digit uses 4 bits, we can conclude that the device is using 4 data bits.
 
 So here is the actual configuration section for the binary sensor:
 
 ```yaml
-platform: rfxtrx
-automatic_add: True
-devices:
-  0913000022670e013b70:
-    name: window_room2
-    device_class: opening
-    data_bits: 4
-    command_on: 0xe
-    command_off: 0x7
+binary_sensor:
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      0913000022670e013b70:
+        name: window_room2
+        device_class: opening
+        data_bits: 4
+        command_on: 0xe
+        command_off: 0x7
 ```
 
 The *automatic_add* option makes the rfxtrx binary sensor component calculate and display the configuration options for you in the Home Assistant logs:
@@ -127,10 +170,11 @@ command_off=0x7
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
 ```
 
-This automatic guess should work most of the time but there is no guarantee on that. You should activate it only when you want 
+This automatic guess should work most of the time but there is no guarantee on that.
+You should activate it only when you want
 to configure your new devices and leave it off otherwise.
 
-## Known working devices
+## {% linkable_title Known working devices %}
 
 The following devices are known to work with the rfxtrx binary sensor component. There are too many other to list.
 
