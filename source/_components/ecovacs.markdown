@@ -66,4 +66,4 @@ logger:
     sucks: debug
 ```
 
-Warning: doing this will cause your authentication token to visibie in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
+Warning: doing this will cause your authentication token to visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.

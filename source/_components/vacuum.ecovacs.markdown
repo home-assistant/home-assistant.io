@@ -32,7 +32,7 @@ sensor:
       vacuum_filter:
         friendly_name: "Vacuum Filter Remaining Lifespan"
         unit_of_measurement: '%'
-        value_template: "{{ states.vacuum.my_vacuum_id.attributes.component_filter }}"
+        value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
 {% endraw %}
 
@@ -47,7 +47,7 @@ binary_sensor:
       vacuum_filter_replace:
         friendly_name: "Vacuum Filter"
         device_class: problem
-        value_template: "{{ states.vacuum.my_vacuum_id.attributes.component_main_brush <= 5 }}"
+        value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
 ```
 {% endraw %}
 
