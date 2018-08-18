@@ -48,7 +48,7 @@ url:
   type: string
   default: http://habitica.com
 sensors:
-  description: List of sensors to generate for this user. If you specify it empty the default (all sensors) will be generated
+  description: List of sensors to generate for this user. If you don't specify this entry then the default (all sensors) will be generated. If you specify this entry empty then no sensors will be generated.
   required: false
   type: list
   default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
@@ -82,7 +82,7 @@ So let's call the API on `habitica.api_call`.
 * The `path` key is trickier.
     * Remove 'https://habitica.com/api/v3/' at the beginning of the endpoint URL.
     * Split the remaining on slashes (/) and **append the lowercase method** at the end.
-    * You should get `["tasks", "user", "post"]`. To get a better idea of the API you can try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
+    * You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
 * The `args` key is more or less described in the [docs](https://habitica.com/apidoc/).
 
 Combining all together:
