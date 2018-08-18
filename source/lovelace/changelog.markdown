@@ -9,6 +9,30 @@ sharing: true
 footer: true
 ---
 
+## {% linkable_title Changes in 0.75.0 %}
+
+### Breaking changes 
+- 📣 [glance card]: `turn-on` replaced with `call-service`
+
+### All changes
+- 📣 Add support for CSS imports ❤️
+- 📣 New card type: `conditional-card` ❤️ - Drop your [entity filter card] hacks
+- 📣 [picture glance card]: Add support for custom icons
+- 📣 [picture entity card]: Supports hiding name and/or state
+- 📣 [glance card]: `turn-on` replaced with `call-service`
+- 📣 [glance card]: Allow selectively empty names
+- 📣 [picture elements card]: `state-label` now supports prefix and suffix
+- 📣 [entities card]: Row dividers
+- 📣 [entities card] and [glance card]: Custom icons support
+- 📣 [entities card]: Add call service support to the rows
+- 🔧 [entities card]: Climate entities row available again
+- 🔧 [entities card]: Automation and vacuum are again toggleable
+- 🔧 [entities card]: Weblinks now work
+- 🔧 [entities card]: Groups as toggleable entities fix
+- 🔧 [entities card]: Fixed toggleable state when entity unavailable
+- 🔧 [entities card]: Fix header toggle for entity objects
+- 🔧 [history graph card]: Fix cache of image between views
+
 ## {% linkable_title Changes in 0.74.0 %}
 - ❤️ [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/)
 - 🔧 Async communication improvements
@@ -48,7 +72,7 @@ footer: true
 ### Cards
 
 - 📣 New card: `map` that allows showing `device_tracker` entities on a map card
-- 📣 `entities` card now support `type: custom:state-card-custom` for the entities list
+- 📣 [entities card] card now support `type: custom:state-card-custom` for the entities list
 
 ## {% linkable_title Changes in 0.73.0 %}
 
@@ -64,12 +88,12 @@ footer: true
 
 ### Cards
 
-- 📣 `picture-entity` allow hiding of infobar using `show_info: false`
-- 📣 `picture-entity` now supports `tap_action` parameter allowing you to switch from `on`/`off` to `more-info-dialog`
-- 📣 `picture-glance` now supports `navigation_path`
-- `picture-entity` renamed `title` to `name`
-- `picture-elements` renamed `path` to `navigation_path`
-- ‼️ `camera-preview` card removed, features added to `picture-entity` and `picture-glance`
+- 📣 [picture entity card] allow hiding of infobar using `show_info: false`
+- 📣 [picture entity card] now supports `tap_action` parameter allowing you to switch from `on`/`off` to `more-info-dialog`
+- 📣 [picture glance card] now supports `navigation_path`
+- [picture entity card] renamed `title` to `name`
+- [picture elements card] renamed `path` to `navigation_path`
+- ‼️ `camera-preview` card removed, features added to [picture entity card] and [picture glance card]
 
 ## {% linkable_title Changes in 0.73.0b3 %}
 
@@ -80,16 +104,16 @@ footer: true
 ### Cards
 
 - 📣 New card: `picture` for triggering navigation and services
-- 📣 `picture-elements` now supports `navigation` type
-- 📣 `picture-entity` now supports `camera_image`
-- 📣 `picture-glance` now supports `camera_image`
-- 📣 `picture-glance` now supports `state_image` and `entity` like `picture-entity`
-- 📣 `entity-filter` now supports custom name for entities like `glance` and `entities`
-- `entities` and `glance` custom titles now use `name` not `title`
-- `entity-filter` now uses `entities` as a static list to filter state against
-- `entity-filter` uses `state_filter` array instead of `filter` object
-- 🔧 Fix wrapping and padding for `service-button` in `picture-elements`
-- ‼️ `entity-filter` no longer allows to show all entities or a full domain
+- 📣 [picture elements card] now supports `navigation` type
+- 📣 [picture entity card] now supports `camera_image`
+- 📣 [picture glance card] now supports `camera_image`
+- 📣 [picture glance card] now supports `state_image` and `entity` like [picture entity card]
+- 📣 [entity filter card] now supports custom name for entities like `glance` and [entities card]
+- [entities card] and `glance` custom titles now use `name` not `title`
+- [entity filter card] now uses [entities card] as a static list to filter state against
+- [entity filter card] uses `state_filter` array instead of `filter` object
+- 🔧 Fix wrapping and padding for `service-button` in [picture elements card]
+- ‼️ [entity filter card] no longer allows to show all entities or a full domain
 
 ## {% linkable_title Changes in 0.73.0b2 %}
 
@@ -101,14 +125,14 @@ footer: true
 
 - `column` renamed to `vertical-stack`
 - `row` renamed to `horizontal-stack`
-- `picture-elements` new `state-badge` using `ha-state-label-badge`
-- `picture-elements` renamed `state-badge` to `state-icon`
-- `picture-elements` renamed `state-text` to `state-label`
-- `picture-elements` moved/renamed `service.data` to `service_data`
-- `picture-elements` combined `service.domain` and `service.server` into `service`
-- 📣 `entities` allow custom title just like `glance`
-- 📣 `entity-filter` allow auto-hide if empty using `show_empty: false`
-- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack`
+- [picture elements card] new `state-badge` using `ha-state-label-badge`
+- [picture elements card] renamed `state-badge` to `state-icon`
+- [picture elements card] renamed `state-text` to `state-label`
+- [picture elements card] moved/renamed `service.data` to `service_data`
+- [picture elements card] combined `service.domain` and `service.server` into `service`
+- 📣 [entities card] allow custom title just like `glance`
+- 📣 [entity filter card] allow auto-hide if empty using `show_empty: false`
+- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack` 
 
 ## {% linkable_title Changes in 0.73.0b0 %}
 
@@ -122,14 +146,14 @@ footer: true
 
 ### Cards
 
-- 📣 New card: `picture-elements`
+- 📣 New card: [picture elements card]
 - 📣 New card: `column`
 - 📣 New card: `row`
 - 📣 `glance` allow custom title for entities - rename your entity only in this card
-- 📣 `entities` toggle button in a header can now be hidden using `show_header_toggle: false`
-- `entity-picture` renamed `picture-entity` to be consistent with `picture-glance`
-- `entity-filter` removed `card_config` and made `card` property an object
-- 🔧 Fix use of groups in `picture-entity`
+- 📣 [entities card] toggle button in a header can now be hidden using `show_header_toggle: false`
+- `entity-picture` renamed [picture entity card] to be consistent with [picture glance card]
+- [entity filter card] removed `card_config` and made `card` property an object
+- 🔧 Fix use of groups in [picture entity card]
 - 🔧 Fix the title in `glance` to avoid overlapping
 
 ## {% linkable_title Changes in 0.72.1 %}
@@ -147,4 +171,6 @@ footer: true
 [history graph card]: /lovelace/history-graph/
 [picture glance card]: /lovelace/picture-glance/
 [picture elements card]: /lovelace/picture-elements/
+[picture entity card]: /lovelace/picture-entity/
 [entity filter card]: /lovelace/entity-filter/
+[entities card]: /lovelace/entities/

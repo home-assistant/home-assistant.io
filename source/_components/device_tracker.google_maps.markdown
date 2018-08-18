@@ -13,7 +13,7 @@ ha_category: Presence Detection
 ha_iot_class: "Cloud Polling"
 ---
 
-The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing). 
+The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
 ## {% linkable_title Configuration %}
 
@@ -45,4 +45,8 @@ password:
   description: The password for your given username.
   required: true
   type: string
+max_gps_accuracy:
+   description: Sometimes Google Maps can report GPS locations with a very low accuracy (few kilometers). That can trigger false zoning. Using this parameter, you can filter these false GPS reports. The number has to be in meters. For example, if you put 200 only GPS reports with an accuracy under 200 will be taken into account - Defaults to 100km if not specified.
+   required: false
+   type: float
 {% endconfiguration %}

@@ -59,7 +59,9 @@ password:
   required: true
   type: string
 name:
-  description: This parameter allows you to override the name of your camera.
+  description: >
+    "This parameter allows you to override the name of your camera. In the case of multi-camera setups,
+    this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated."
   required: false
   type: string
   default: Amcrest Camera
@@ -105,8 +107,8 @@ scan_interval:
   default: 10
 sensors:
   description: >
-    Conditions to display in the frontend.
-    The following conditions can be monitored.
+    "Conditions to display in the frontend.
+    The following conditions can be monitored:"
   required: false
   type: list
   default: None
@@ -122,7 +124,7 @@ sensors:
 switches:
   description: >
     "Switches to display in the frontend.
-    The following switches can be monitored."
+    The following switches can be monitored:"
   required: false
   type: list
   default: None

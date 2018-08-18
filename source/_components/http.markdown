@@ -89,6 +89,11 @@ login_attempts_threshold:
   required: false
   type: int
   default: -1
+ssl_profile:
+  description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
+  required: false
+  type: string
+  default: modern
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:

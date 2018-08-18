@@ -20,6 +20,9 @@ homeassistant:
   unit_system: metric
   time_zone: America/Los_Angeles
   name: Home
+  whitelist_external_dirs:
+    - /usr/var/dumping-ground
+    - /tmp
 ```
 
 Configuration variables:

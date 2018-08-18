@@ -23,7 +23,7 @@ vacuum:
 
 ### {% linkable_title Component services %}
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
@@ -46,6 +46,22 @@ Stop the current cleaning task and return to the dock.
 #### {% linkable_title Service `vacuum.start_pause` %}
 
 Start, pause or resume a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+
+#### {% linkable_title Service `vacuum.start` %}
+
+Start or resume a cleaning task.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
+
+#### {% linkable_title Service `vacuum.pause` %}
+
+Pause a cleaning task.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|

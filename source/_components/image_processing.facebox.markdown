@@ -24,6 +24,7 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
+You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bare in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network. 
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
@@ -50,6 +51,14 @@ ip_address:
 port:
   description: The port which Facebox is exposed on.
   required: true
+  type: string
+username:
+  description: The Facebox username if you have set one.
+  required: false
+  type: string
+password:
+  description: The Facebox password if you have set one.
+  required: false
   type: string
 source:
   description: The list of image sources.
@@ -109,24 +118,53 @@ A valid service data example:
 ```
 {% endraw %}
 
-An `image_processing.teach_classifier` event is fired for each service call, providing feedback on whether teaching has been successful or unsuccessful. In the unsuccessful case, the `message` field of the `event_data` will contain information on the cause of failure, and a warning is also published in the logs. An automation can be used to receive alerts on teaching, for example, the following automation will send a notification with the teaching image and a message describing the status of the teaching:
+You can use an automation to receive a notification when you train a face:
+
+{% raw %}
+```yaml
+- id: '1533703568569'
+  alias: Face taught
+  trigger:
+  - event_data:
+      service: facebox_teach_face
+    event_type: call_service
+    platform: event
+  condition: []
+  action:
+  - service: notify.pushbullet
+    data_template:
+      message: '{{ trigger.event.data.service_data.name }} taught 
+      with file {{ trigger.event.data.service_data.file_path }}'
+      title: Face taught notification
+```
+{% endraw %}
+
+Any errors on teaching will be reported in the logs. If you enable [system_log](https://www.home-assistant.io/components/system_log/) events:
 
 ```yaml
-- id: '11200961111'
-  alias: Send facebox teaching result
+system_log:
+  fire_event: true
+```
+
+you can create an automation to receive notifications on Facebox errors:
+
+{% raw %}
+```yaml
+- id: '1533703568577'
+  alias: Facebox error
   trigger:
     platform: event
-    event_type: image_processing.teach_classifier
-    event_data:
-      classifier: facebox
+    event_type: system_log_event
+  condition:
+    condition: template
+    value_template: '{{ "facebox" in trigger.event.data.message }}'
   action:
-    service: notify.platform
+  - service: notify.pushbullet
     data_template:
-      title: Facebox teaching
-      message: Name {{ trigger.event.data.name }} teaching was successful? {{ trigger.event.data.success }}
-      data:
-        file: ' {{trigger.event.data.file_path}} '
+      message: '{{ trigger.event.data.message }}'
+      title: Facebox error
 ```
+{% endraw %}
 
 ## {% linkable_title Optimising resources %}
 
