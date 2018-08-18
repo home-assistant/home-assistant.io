@@ -23,19 +23,19 @@ To add your Ecovacs devices into your Home Assistant installation, add the follo
 
 ```yaml
 ecovacs:
-  username: YOUR_TUYA_USERNAME
-  password: YOUR_TUYA_PASSWORD
+  username: YOUR_ECOVACS_USERNAME
+  password: YOUR_ECOVACS_PASSWORD
   country: YOUR_TWO_LETTER_COUNTRY_CODE
   continent: YOUR_TWO_LETTER_CONTINENT_CODE
 ```
 
 {% configuration %}
 username:
-  description: Your username to login to Tuya.
+  description: Your username to login to your Ecovacs account.
   required: true
   type: string
 password:
-  description: Your password to login to Tuya.
+  description: Your password to login to your Ecovacs account.
   required: true
   type: string
 country:
