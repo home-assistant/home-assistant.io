@@ -21,10 +21,16 @@ To enable it, add the following lines to your `configuration.yaml`:
 switch:
   - platform: switchmate
     mac: 'cb:25:0b......'
-    name: "Name of the device"
 ```
 
-Configuration variables:
+{% configuration %}
 
-- **mac** (*Required*):  Device MAC address.
-- **name** (*Optional*): The name used to display the switch in the frontend.
+mac:
+  description: Device MAC address.
+  required: true
+  type: string
+ mac:
+  description: The name used to display the switch in the frontend.
+  required: false
+  type: string 
+
