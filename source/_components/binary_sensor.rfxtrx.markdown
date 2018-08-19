@@ -71,7 +71,7 @@ automatic_add:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
+This component and the [rfxtrx switch](/components/switch.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
 </p>
 
 <p class='note warning'>
