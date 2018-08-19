@@ -54,6 +54,10 @@ initial:
   required: false
   type: number
   default: 21
+power_state_topic:
+  description: The MQTT topic subscribed to receive power state (on/off) updates.
+  required: false
+  type: string
 payload_on:
   description: The payload that represents enabled state.
   required: false
