@@ -32,6 +32,13 @@ homeassistant:
 
 For iOS users, your frontend should be a lot faster. We had an issue that forced us to serve the frontend in compatability mode, which is slower. We haven't been able to solve [the issue](https://bugs.webkit.org/show_bug.cgi?id=174629), but found a workaround. Race on 🏎.
 
+Warning. If you are using the internal MQTT broker, we've had to make a change how the password is set. In the past it would automatically start the broker with the user `homeassistant` and a password equal to the API password. This is no longer the case and you need to configure it yourself now:
+
+```yaml
+mqtt:
+  password: mypass
+```
+
 ## {% linkable_title New Platforms %}
 
 - deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
