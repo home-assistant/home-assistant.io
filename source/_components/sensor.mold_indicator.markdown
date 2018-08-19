@@ -27,12 +27,28 @@ sensor:
     calibration_factor: 2.0
 ```
 
-Configuration variables:
-
-- **indoor_temp_sensor** (*Required*): The entity ID of the indoor temperature sensor.
-- **indoor_humidity_sensor** (*Required*): The entity ID of the indoor humidity sensor.
-- **outdoor_temp_sensor** (*Required*): The entity ID of the outdoor temperature sensor.
-- **calibration_factor** (*Required*): Needs to be calibrated to the critical point in the room.
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+indoor_temp_sensor:
+  description: The entity ID of the indoor temperature sensor.
+  required: true
+  type: string
+indoor_humidity_sensor: 
+  description: The entity ID of the indoor humidity sensor.
+  required: true
+  type: string
+outdoor_temp_sensor:
+  description: The entity ID of the outdoor temperature sensor.
+  required: true
+  type: string
+calibration_factor: 
+  description: Needs to be calibrated to the critical point in the room.
+  required: true
+  type: float
+{% endconfiguration %}
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.
 
