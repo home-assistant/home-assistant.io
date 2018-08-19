@@ -47,7 +47,7 @@ outdoor_temp_sensor:
 calibration_factor: 
   description: Needs to be calibrated to the critical point in the room.
   required: true
-  type: int
+  type: float
 {% endconfiguration %}
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.
