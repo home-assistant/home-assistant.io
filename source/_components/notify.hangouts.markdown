@@ -33,7 +33,7 @@ notify:
 {% configuration %}
 name: 
   description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
-  required: true
+  required: false
   type: string
 default_conversations:
   description: "The conversations all messages will be sent to, when no other target is given."
