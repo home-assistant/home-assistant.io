@@ -21,6 +21,7 @@ The sensor data may be used e.g., to signal bad air quality (too high air humidi
 # Example configuration.yaml entry
 sensor:
   - platform: mold_indicator
+    name: Mould Sensor
     indoor_temp_sensor: sensor.temp
     indoor_humidity_sensor: sensor.humidity
     outdoor_temp_sensor: sensor.weather_temperature
@@ -29,6 +30,7 @@ sensor:
 
 Configuration variables:
 
+- **name** (*Optional*): The name of the sensor.
 - **indoor_temp_sensor** (*Required*): The entity ID of the indoor temperature sensor.
 - **indoor_humidity_sensor** (*Required*): The entity ID of the indoor humidity sensor.
 - **outdoor_temp_sensor** (*Required*): The entity ID of the outdoor temperature sensor.
