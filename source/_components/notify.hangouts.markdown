@@ -30,10 +30,25 @@ notify:
       - name: CONVERSAION_NAME
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **default_conversations** (*Required*): The conversations all messages will be sent to, when no other target is given.
+{% configuration %}
+name: 
+  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  required: true
+  type: string
+default_conversations:
+  description: "The conversations all messages will be sent to, when no other target is given."
+  required: true
+  type: [map]
+  keys:
+    id:
+      description: "Specifies the id of the conversation."
+      required: false
+      type: string
+    name:
+      description: "Specifies the name of the conversation."
+      required: false
+      type: string
+{% endconfiguration %}
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
