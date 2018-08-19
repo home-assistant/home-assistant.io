@@ -53,6 +53,23 @@ mqtt:
 
 - Add and restore context in recorder ([@balloob] - [#15859]) (new-feature)
 
+## {% linkable_title Release 0.76.1 - August 19 %}
+
+- No longer show "Store login" on each login when using API password ([@balloob])
+- Add forgiving add column ([@balloob] - [#16057])
+- Tuya fix login problem and add login platform param ([@huangyupeng] - [#16058]) ([tuya docs])
+- Add notify platforms to loaded components ([@balloob] - [#16063]) ([notify docs])
+- Column syntax fix + Add a file if migration in progress ([@balloob] - [#16061])
+
+[#16057]: https://github.com/home-assistant/home-assistant/pull/16057
+[#16058]: https://github.com/home-assistant/home-assistant/pull/16058
+[#16061]: https://github.com/home-assistant/home-assistant/pull/16061
+[#16063]: https://github.com/home-assistant/home-assistant/pull/16063
+[@balloob]: https://github.com/balloob
+[@huangyupeng]: https://github.com/huangyupeng
+[notify docs]: /components/notify/
+[tuya docs]: /components/tuya/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
