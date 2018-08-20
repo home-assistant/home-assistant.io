@@ -24,7 +24,6 @@ switch:
 ```
 
 {% configuration %}
-
 mac:
   description: Device MAC address.
   required: true
@@ -33,4 +32,5 @@ mac:
   description: The name used to display the switch in the frontend.
   required: false
   type: string 
+{% endconfiguration %}
 
