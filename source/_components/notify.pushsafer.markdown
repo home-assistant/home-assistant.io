@@ -48,7 +48,11 @@ Message to two devices with formatted text.
     "vibration": "1",
     "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
-    "time2live": "0"
+    "time2live": "0",
+    "priority": "2",
+    "retry": "60",
+    "expire": "6000",
+    "answer": "1"
   }
 }
 ```
@@ -68,6 +72,10 @@ Message to one device with formatted text and image from an external URL.
     "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "60",
+    "priority": "2",
+    "retry": "60",
+    "expire": "6000",
+    "answer": "1",
     "picture1": {
        "url":"https://www.home-assistant.io/images/components/alexa/alexa-512x512.png"
      }
@@ -90,6 +98,10 @@ Message to two devices and one device group with formatted text and local image.
     "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "10",
+    "priority": "2",
+    "retry": "60",
+    "expire": "6000",
+    "answer": "1",
     "picture1": {
        "path":"C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
      }
