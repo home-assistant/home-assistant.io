@@ -24,6 +24,7 @@ tuya:
   username: YOUR_TUYA_USERNAME
   password: YOUR_TUYA_PASSWORD
   country_code: YOUR_ACCOUNT_COUNTRYCODE
+  platform: YOUR_ACCOUNT_TYPE
 ```
 
 {% configuration %}
@@ -38,6 +39,10 @@ password:
 country_code:
   description: "Your account [country code](https://www.countrycode.org/) (e.g., 1 for USA or 86 for China)."
   required: true
+  type: string
+platform:
+  description: "The app where your account register. 'tuya' for Tuya Smart and 'smart_life' for Smart Life. Default is tuya"
+  required: false
   type: string
 {% endconfiguration %}
 
