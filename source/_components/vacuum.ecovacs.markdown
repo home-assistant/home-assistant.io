@@ -10,7 +10,7 @@ footer: true
 logo: ecovacs.png
 ha_category: Vacuum
 ha_iot_class: "Cloud Push"
-ha_release: 0.75
+ha_release: 0.77
 ---
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
