@@ -10,7 +10,7 @@ footer: true
 logo: ecovacs.png
 ha_category: Hub
 ha_iot_class: "Cloud Push"
-ha_release: 0.75
+ha_release: 0.77
 ---
 
 The `ecovacs` component is the main component to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
