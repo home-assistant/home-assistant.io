@@ -42,26 +42,23 @@ $ sudo apt-get update
 $ sudo apt-get install git
 ```
 
-### {% linkable_title Step 2: Creating %} `.gitignore`
+### {% linkable_title Step 2: Creating `.gitignore` %}
 
 <p class='note warning'>
 Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the `secrets.yaml` best practice mentioned above and scrub your configuration for any passwords or sensitive information.
 </p>
 
-Creating a `.gitignore` file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your `secrets.yaml` file, device configuration files, and the Home Assistant database/directory structure.  The `.gitignore` file should be placed in your Home Assistant directory.
+Creating a `.gitignore` file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your `secrets.yaml` file, device configuration files, and the Home Assistant database/directory structure.  The `.gitignore` file should be placed in the root of your Home Assistant configuration directory: `<config dir/.gitignore`.
 
-Here is an example that will include your `.gitignore` file, a `scenes` directory, and all .yaml files except for `secrets.yaml` and `known_devices.yaml`. All other files will be excluded.
-
-`.gitignore`
+Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
+# Example .gitignore file for your config dir
 *
 !*.yaml
-!scenes
 !.gitignore
 secrets.yaml
 known_devices.yaml
-.storage
 ```
 
 <p class='note'>
