@@ -22,6 +22,12 @@ Before this scanner can be used you have to install the ubus RPC package on Open
 opkg install rpcd-mod-file
 ```
 
+For OpenWRT version 18.06.x the package uhttpd-mod-ubus should also be installed:
+
+```bash
+opkg install uhttpd-mod-ubus
+```
+
 And create a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
 
 ```json
