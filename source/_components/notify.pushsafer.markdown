@@ -2,7 +2,7 @@
 layout: page
 title: "Pushsafer"
 description: "Instructions how to add Pushsafer notifications to Home Assistant."
-date: 2018-01-05 11:15
+date: 2018-08-20 16:30
 sidebar: true
 comments: false
 sharing: true
@@ -75,7 +75,7 @@ Message to one device with formated text and image from an external URL.
 }
 ```
 
-Message to two devices and one device group with formated text and local image.
+Message to two devices and one device group with formated text, local image, priority, retry, expire and answer.
 
 ```json
 {
@@ -90,6 +90,10 @@ Message to two devices and one device group with formated text and local image.
     "url": "https://home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "10",
+    "priority": "2",
+    "retry": "60",
+    "expire": "600",
+    "answer": "1",
     "picture1": {
        "path":"C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
      }
