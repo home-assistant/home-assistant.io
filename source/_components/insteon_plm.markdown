@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Insteon PLM"
-description: "Instructions on how to setup an Insteon USB PLM locally within Home Assistant."
+title: "Insteon"
+description: "Instructions on how to setup an Insteon Modem (PLM or Hub) locally within Home Assistant."
 date:  2017-02-19 16:00
 sidebar: true
 comments: false
@@ -13,24 +13,47 @@ ha_iot_class: "Local Push"
 ha_version: 0.39
 ---
 
-This component adds "local push" support for INSTEON PowerLinc Modems allowing
-linked INSTEON devices to be used within Home Assistant as lights, switches,
-and binary sensors.  Device support is provided by the underlying [insteonplm]
-package.  It is known to work with the [2413U] USB and [2412S] RS242 flavors
-of PLM and the [2448A7] USB stick.  This component does not work with the 
-IP-based hub products.  For that, you'll want the "Insteon (Local)" component 
-instead.
+This component adds "local push" support for INSTEON Modems allowing
+linked INSTEON devices to be used within Home Assistant as binary sensors,
+lights, fans, sensors and switches.  Device support is provided by the
+underlying [insteonplm] package.  It is known to work with the [2413U] USB and
+[2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been
+tested to work with the [2245] Hub. 
 
 [insteonplm]: https://github.com/nugget/python-insteonplm
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
 [2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
+[2245]: https://www.insteon.com/insteon-hub/
 
+
+### {% linkable_title INSTEON Modem configuration %}
+
+To setup a Powerline Modem (PLM) device such as the [2413U], use the following
+configuration:
 
 ```yaml
-# insteon_plm supported configuration variables
+# PLM configuration variables
 insteon_plm:
   port: SERIAL_PORT
+```
+
+To setup an INSTEON Hub such as the [2245], use the following configuration:
+
+```yaml
+# Hub configuration variables
+insteon_plm:
+  host: SERIAL_PORT
+  ip_port: IP_PORT
+  username: USERNAME
+  password: PASSWORD
+```
+
+Addtional configuration items are available:
+
+```yaml
+insteon_plm:
+  <PLM or Hub configruation>
   device_override:
      - address: ADDRESS
        cat: CATEGORY
@@ -47,7 +70,15 @@ insteon_plm:
   x10_all_lights_off: HOUSECODE
 ```
 Configuration variables:
-- **port** (*Required*): The port for your device, e.g., `/dev/ttyUSB0`
+- **port** (*Required for PLM setup*): The port for your device, e.g.,
+  `/dev/ttyUSB0`
+- **host** (*Required for Hub setup*): The host name or IP address of the Hub
+- **ip_port** (**Optional for Hub setup*): The IP port number of the Hub.
+  (default value is 25105)
+- **username** (*Required for Hub setup*): The username to log into the local
+  Hub
+  **password** (*Required for Hub setup*): The password to log into the local
+  Hub
 - **device_override** (*Optional*): Override the default device definition
   - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
   - *CATEGORY* is found in the back of the device's User Guide in the form of
@@ -80,19 +111,19 @@ per device. Subsequent startups will occur much quicker using cached device
 information. If a device is not recognized during autodiscovery, you can add
 the device to the **device_override** configuration. 
 
-In order for a device to be discovered it must be linked to the PLM as either
-a responder or a controller. 
+In order for a device to be discovered it must be linked to the INSTEON Modem
+as either a responder or a controller. 
 
-### {% linkable_title Linking Devices to the PLM %}
+### {% linkable_title Linking Devices to the INSTEON Modem %}
 
 In order for any two Insteon devices to talk with one another, they must be 
 linked. For an overview of device linking please read the Insteon page on
-[understanding linking]. The Insteon PLM module supports All-Linking through 
+[understanding linking]. The Insteon Modem module supports All-Linking through 
 [Development Tools] service calls. The following services are available:
 
 In order for any two Insteon devices to talk with one another, they must be 
 linked. For an overview of device linking, please read the Insteon page on
-[understanding linking]. The Insteon PLM module supports All-Linking through 
+[understanding linking]. The Insteon Modem module supports All-Linking through 
 [Development Tools] service calls. The following services are available:
 - **insteon_plm.add_all_link**: Tells the Insteon Modem (IM) start All-Linking 
 mode. Once the IM is in All-Linking mode, press the link button on the device 
@@ -128,7 +159,7 @@ carefully, they are important.
 ### {% linkable_title Customization %} 
 
 The only configuration item that is absolutely necessary is the port so that 
-Home Assistant can connect to the PLM. This will expose all the supported 
+Home Assistant can connect to the INSTEON Modem. This will expose all the supported 
 INSTEON devices which exist in the modem’s ALL-Link database. However, devices 
 will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can 
 be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, 
@@ -176,7 +207,7 @@ insteon_plm:
 
 ### {% linkable_title What NOT to do %}
 
-Insteon PLM is a top level component and device discovery will identify 
+Insteon Modem is a top level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
 will NOT work:
@@ -240,3 +271,20 @@ automation:
     service: light.turn_on
     entity_id: light.some_light
 ```
+
+### {% linkable_title Known Issue with the INSTEON Hub %}
+
+The INSTEON Hub has three known issues that are inherent to the design of the 
+Hub:
+
+1. If you see multiple error messages in the log file stating the Hub
+connection is closed and reconnection has failed, this generally requires
+the Hub to be restarted in order to reconnect.
+
+2. You cannot use both Home Assistant and the INSTEON app. If you do, the
+changes made in the app will not appear in Home Assistant. Changes made in
+Home Assistant will appear in the app after a period of time, however.
+
+3. The Hub response time can be very slow. This is due to the Hub polling
+devices frequently. Since only one INSTEON message can be broadcast at a time,
+messages to and from Home Assistant can be delayed.
