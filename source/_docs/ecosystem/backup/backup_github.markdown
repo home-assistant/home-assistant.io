@@ -61,7 +61,12 @@ Here is an example that will include your `.gitignore` file, a `scenes` director
 !.gitignore
 secrets.yaml
 known_devices.yaml
+.storage
 ```
+
+<p class='note'>
+  You might read this guide too late and accidentally already have your secrets published. It is not enough to just remove them with a new commit. Git is a version control system and keeps history. You need to delete your repository and start a new one. Also change all passwords and revoke the API keys that were public.
+</p>
 
 More information on the layout of the file can be found in the [.gitignore manual](https://git-scm.com/docs/gitignore).
 
