@@ -14,7 +14,7 @@ The MQTT component needs you to run an MQTT broker for Home Assistant to connect
 
 ### {% linkable_title Embedded broker %}
 
-Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Assistant connects to it. Embedded broker default configuration:
+Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
 
 | Setting        | Value |
 | -------------- | ----- |
@@ -22,16 +22,18 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | Port           | 1883 |
 | Protocol       | 3.1.1 |
 | User           | homeassistant |
-| Password       | no default value |
+| Password       | _password set under mqtt settings_ |
 | Websocket port | 8080 |
-
-Since release 0.76, the embedded broker does not use your [API password](/components/http/) as the default password. The MQTT component will fail to set up if you have API password configured, but don't have MQTT password configured as in the following example.
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  password: YOUR_MQTT_PASSWORD
+  password: hello
 ```
+
+<p class='note'>
+Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
+</p>
 
 <p class='note warning'>
 There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.

@@ -29,6 +29,7 @@ Currently known supported models:
 - TX-P42STW50
 - TX-P50GT30Y
 - TX-P50GT60E
+- TH-32ES500
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_viera.markdown).
 

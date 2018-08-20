@@ -130,18 +130,23 @@ This is the very very early version aimed at gathering feedback. Discussion and 
 
 ## {% linkable_title FAQ %}
 
-### I am running Firefox but, custom cards like gauge-card look bad or don't load at all. How do I fix this?
+### {% linkable_title I am running Firefox but, custom cards like gauge-card look bad or don't load at all. How do I fix this? %}
 
 This is probably because your version of Firefox doesn't have custom components supported or enabled. Please set to `true` in your `about:config` the following settings: `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled`
 
-### Custom components don't load on my IOS device?
+### {% linkable_title Custom cards don't load on my iOS device? %}
 
-This is because for IOS devices by default javascript served is `es5`. You can allow custom components to load by forcing `javascript_version: latest` in your `configuration.yaml` under `frontend:`.
+Home Assistant comes with two versions of the frontend. A compatability mode for older devices and a modern mode. The custom cards need to target one mode and usually choose the modern mode. Before Home Assistant 0.76, we had an issue in the automation and script editor that prevented modern iOS and Mac devices running Safari from using the modern mode.
 
-> Note: Enabling `latest` on IOS could cause automation and script editor to crash.
+If you can, resolve this issue by upgrading to Home Assistant 0.76 or later. If you are on an older version and don't mind that the automation and script editor don't work on iOS devices, you can force the new version via the configuration:
 
-### I would like to add an image to my card, but I do not know where to put them.
+```yaml
+frontend:
+  javascript_version: latest
+```
+
+### {% linkable_title I would like to add an image to my card, but I do not know where to put them. %}
 
 Given examples refer to `/local/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. An image kept in `HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
 
-> Note: Remember to restart Home Assistant right after creating `www` directory. Otherwise, HA will not know that you created this directory.
+Restart Home Assistant after creating the `www` directory. Otherwise, HA will not know that you created this directory.
