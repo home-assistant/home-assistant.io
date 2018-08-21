@@ -70,6 +70,14 @@ mqtt:
 [notify docs]: /components/notify/
 [tuya docs]: /components/tuya/
 
+## {% linkable_title Release 0.76.2 - August 21 %}
+
+- Forgiving add index in migration ([@balloob] - [#16092])
+- Fix push notifications toggle ([@balloob])
+
+[#16092]: https://github.com/home-assistant/home-assistant/pull/16092
+[@balloob]: https://github.com/balloob
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
