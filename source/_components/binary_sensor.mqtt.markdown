@@ -50,6 +50,11 @@ payload_off:
   required: false
   type: string
   default: "OFF"
+expire_after:
+  description: Defines the number of seconds after which value expires if it's not updated and sensor is set to OFF.
+  required: false
+  type: int
+  default: 0
 availability_topic:
   description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
   required: false
