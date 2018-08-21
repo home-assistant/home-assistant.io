@@ -31,7 +31,7 @@ elevation:
   default: `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
   type: int
 monitored_conditions:
-  description: A list of attributes to include. Options are: `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `daylight`, `next_daylight`, `prev_daylight`, `sunrise` and `sunset`. __Note:__ `next_rising` and `next_setting` will always be included as well.
+  description: A list of attributes to include. Options are `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `daylight`, `next_daylight`, `prev_daylight`, `sunrise` and `sunset`. __Note__ `next_rising` and `next_setting` will always be included as well.
   required: false
   default: `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight` and `next_noon`.
   type: string
