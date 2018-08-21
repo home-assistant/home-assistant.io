@@ -26,19 +26,19 @@ sun:
 
 {% configuration %}
 elevation:
-  description: The (physical) elevation of your location, in meters above sea level.
+  description: "The (physical) elevation of your location, in meters above sea level."
   required: false
-  default: `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
+  default: "`elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set."
   type: int
 monitored_conditions:
-  description: A list of attributes to include. Options are `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `daylight`, `next_daylight`, `prev_daylight`, `sunrise` and `sunset`. __Note__ `next_rising` and `next_setting` will always be included as well.
+  description: "A list of attributes to include. Options are `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight`, `next_noon`, `daylight`, `next_daylight`, `prev_daylight`, `sunrise` and `sunset`. __Note:__ `next_rising` and `next_setting` will always be included as well."
   required: false
-  default: `azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight` and `next_noon`.
+  default: "`azimuth`, `elevation`, `next_dawn`, `next_dusk`, `next_midnight` and `next_noon`."
   type: string
 scan_interval:
-  description: If `azimuth` or `elevation` are included, then this controls how often they are updated.
+  description: "If `azimuth` or `elevation` are included, then this controls how often they are updated."
   required: false
-  default: Update`azimuth` and/or `elevation` once a minute on the half minute.
+  default: "Update`azimuth` and/or `elevation` once a minute on the half minute."
   type: time
 {% endconfiguration %}
 
