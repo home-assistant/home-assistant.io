@@ -113,8 +113,5 @@ DEPENDENCIES
   sinatra (~> 1.4.2)
   stringex (~> 1.4)
 
-RUBY VERSION
-   ruby 2.4.1p111
-
 BUNDLED WITH
    1.16.1
