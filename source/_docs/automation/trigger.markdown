@@ -59,7 +59,7 @@ automation:
 
 ### {% linkable_title Numeric state trigger %}
 
-Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
+Triggers when numeric value of an entity's state satisfies given condition(s.) On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below given threshold(s.)
 
 {% raw %}
 ```yaml
@@ -83,7 +83,7 @@ automation:
 
 <p class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
+In the example above, a numeric_state that is between 17 and 25 would fire this trigger.
 </p>
 
 ### {% linkable_title State trigger %}
