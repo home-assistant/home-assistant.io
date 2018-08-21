@@ -39,6 +39,11 @@ country_code:
   description: "Your account [country code](https://www.countrycode.org/) (e.g., 1 for USA or 86 for China)."
   required: true
   type: string
+platform:
+  description: "The app where your account register. `tuya` for Tuya Smart and `smart_life` for Smart Life."
+  required: false
+  type: string
+  default: tuya
 {% endconfiguration %}
 
 ## {% linkable_title Service %}
