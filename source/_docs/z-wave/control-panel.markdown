@@ -41,8 +41,6 @@ Since 0.63 and the new experimental [entity registry](/docs/configuration/entity
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets the name of the `zwave` entity - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name. Other entities of a device are renamed using the [entity registry](/docs/configuration/entity-registry/).
-
 * **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
@@ -50,6 +48,24 @@ Since 0.63 and the new experimental [entity registry](/docs/configuration/entity
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
+
+### {% linkable_title Renaming all entities of a node %}
+
+When you use *Rename Node* it, as mentioned above, only changes the `zwave.` entity. If you've just added a device then the other entities for that device will use that new entity name as the base. However existing entities won't be renamed, so you need to remove them from `entity_registry.yaml`, and the process is like this:
+
+1. Use *Rename Node* to rename the `zwave.` entity and set the base for all the other entities
+2. Shut down Home Assistant and wait for it to stop
+3. Delete the relevant entries from `entity_registry.yaml`
+4. Start Home Assistant again
+
+Each block you need to delete will look something like this, you need to delete all 4 lines for each entry. The first number of the `unique-id` is the Node ID of the Z-Wave node.
+
+```yaml
+sensor.fibaro_door_sensor_access_control:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126614528
+```
 
 #### {% linkable_title Entities of this node %}
 
@@ -98,7 +114,7 @@ This will display the Z-Wave related information about the node:
 
 ### {% linkable_title Node Values %}
 
-Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
+Contains a list of available values of the selected node, and it's instances.
 
 ### {% linkable_title Node group associations %}
 
@@ -123,6 +139,12 @@ That would remove the broadcast group from association group 1 of the device wit
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
+
+### {% linkable_title Node protection %}
+
+If your node has the protection commandclass, you can change the protection level of the node.
+Check your device manual on how to use this setting, as it is different between manufacturers.
+Set the new selection by pressing the **Set Protection** button.
 
 ## {% linkable_title Node user codes %}
 

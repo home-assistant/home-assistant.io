@@ -85,7 +85,7 @@ Forward ports 443 and 80 to your server on your router. Do not forward port 8123
 
 ### {% linkable_title NGINX Config %}
 
-```text
+```nginx
 map $http_upgrade $connection_upgrade {
     default upgrade;
     ''      close;

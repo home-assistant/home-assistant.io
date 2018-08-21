@@ -35,3 +35,15 @@ Configuration variables:
 <p class='note'>
 When using api_version: 5 changing sources switches tv channels. Additionally this allows setting the volume level.
 </p>
+
+
+```yaml
+# Example configuration.yaml with turn_on_action        
+media_player:
+  - platform: philips_js
+    host: 192.168.1.99
+    turn_on_action: 
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: aa:bb:cc:dd:ee:ff
+```

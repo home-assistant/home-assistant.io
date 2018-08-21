@@ -13,21 +13,24 @@ ha_release: 0.53
 ha_iot_class: "Cloud Polling"
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality
-data. Data can be collected via latitude/longitude or by city/state/country.
-The resulting information creates sensors for the Air Quality Index (AQI), the
-human-friendly air quality level, and the main pollutant of that area. Sensors
-that conform to either/both the [U.S. and Chinese air quality standards](http://www.clm.com/publication.cfm?ID=366) can be
-created.
+The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/)
+API for air quality data. Data can be collected via latitude/longitude or by
+city/state/country. The resulting information creates sensors for the Air
+Quality Index (AQI), the human-friendly air quality level, and the main
+pollutant of that area. Sensors that conform to either/both the
+[U.S. and Chinese air quality standards](http://www.clm.com/publication.cfm?ID=366)
+can be created.
 
-This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note
-that the platform was designed using the "Community" package; the "Startup"
-and "Enterprise" package keys should continue to function, but actual results
-may vary (or not work at all).
+This platform requires an AirVisual API key, which can be obtained
+[here](https://airvisual.com/api). Note that the platform was designed using
+the "Community" package; the "Startup" and "Enterprise" package keys should
+continue to function, but actual results may vary (or not work at all).
 
 <p class='note warning'>
 The "Community" API key is limited to 10,000 calls per month. In order to leave
-a buffer, the `airvisual` platform queries the API every 10 minutes.
+a buffer, the `airvisual` platform queries the API every 10 minutes by default.
+Modification of this (via the `scan_interval` key) to a too-low value may
+result in your API key being deactivated.
 </p>
 
 ## {% linkable_title Configuring the Platform via Latitude/Longitude %}
@@ -42,59 +45,67 @@ sensor:
     monitored_conditions:
       - us
       - cn
+    show_on_map: false
+    scan_interval: 30
+    # Configure by latitude/longitude:
     latitude: 42.81212
     longitude: 108.12422
-    radius: 500
-    show_on_map: false
+    # Or configure by location:
+    city: Los Angeles
+    state: California
+    country: USA
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: your AirVisual API key
+  required: required
+  type: string
+monitored_conditions:
+  description: the air quality standard(s) to use (`us` for U.S., `cn` for Chinese)
+  required: required
+  type: list
+  default: ['us', 'cn']
+show_on_map:
+  description: whether to show a marker on the map at the specified location
+  required: optional
+  type: boolean
+  default: true
+scan_interval:
+  description: the rate at which AirVisual should be polled for new data
+  required: optional
+  type: int
+  default: 600
+latitude:
+  description: the latitude of the location to monitor
+  required: optional
+  type: str
+  default: the latitude defined under the `homeassistant` key in `configuration.yaml`
+longitude:
+  description: the longitude of the location to monitor
+  required: optional
+  type: str
+  default: the longitude defined under the `homeassistant` key in `configuration.yaml`
+city:
+  description: the city to monitor
+  required: optional
+  type: str
+state:
+  description: the state the city belongs to
+  required: optional
+  type: str
+country:
+  description: the country the state belongs to
+  required: optional
+  type: str
+{% endconfiguration %}
 
-- **api_key** (*Required*): your AirVisual API key
-- **monitored_conditions** (*Required*): the air quality standard(s) to use
-(`us` for U.S., `cn` for Chinese)
-- **latitude** (*Optional*): the latitude to monitor; if excluded, the latitude
-defined under the `homeassistant` key in `configuration.yaml` will be used
-- **longitude** (*Optional*): the longitude to monitor; if excluded, the longitude
-defined under the `homeassistant` key in `configuration.yaml` will be used
-- **radius** (*Optional*): the radius (in meters) around the latitude/longitude to
-search for the nearest city; defaults to `1000`
-- **show_on_map** (*Optional*): whether to show a marker on the map at the specified
-location; defaults to `true`
-
-## {% linkable_title Configuring the Platform via City/State/Country %}
-
-To enable the platform and gather data via city/state/country, add the
-following lines to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: airvisual
-    api_key: abc123
-    monitored_conditions:
-      - us
-      - cn
-    city: southend-on-sea
-    state: essex
-    country: uk
-    show_on_map: false
-```
-
-Configuration variables:
-
-- **api_key** (*Required*): your AirVisual API key
-- **monitored_conditions** (*Required*): the air quality standard(s) to use
-(`us` for U.S., `cn` for Chinese)
-- **city** (*Optional*): the city to monitor
-- **state** (*Optional*): the state/region to monitor
-- **country** (*Optional*): the country to monitor
-- **show_on_map** (*Optional*): whether to show a marker on the map at the specified
-location; defaults to `true`
+## {% linkable_title Determining the City/State/Country %}
 
 To easily determine the proper values for a particular location, use the
-[AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want,
-take note of the breadcrumb title, which is of the form
-`country > state/region > city`. Use this information to fill out
+[AirVisual region directory](https://airvisual.com/world). Once you browse to
+the particular city you want, take note of the breadcrumb title, which is of
+the form `country > state/region > city`. Use this information to fill out
 `configuration.yaml`.
 
 For example, Sao Paulo, Brazil shows a breadcrumb title of
@@ -120,8 +131,8 @@ air quality standard:
 
 ### Air Quality Index
 
-**Description:** This sensor displays a numeric air quality index (AQI), a metric
-for the overall "health" of the air.
+**Description:** This sensor displays a numeric air quality index (AQI), a
+metric for the overall "health" of the air.
 
 **Example Sensor Name:** `sensor.chinese_air_quality_index`
 

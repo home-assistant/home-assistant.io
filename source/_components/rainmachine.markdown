@@ -62,6 +62,11 @@ ssl:
   required: false
   type: boolean
   default: true
+scan_interval:
+  description: the frequency (in seconds) between data updates
+  required: false
+  type: int
+  default: 60
 binary_sensors:
   description: binary sensor-related configuration options
   required: false

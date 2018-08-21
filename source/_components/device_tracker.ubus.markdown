@@ -70,14 +70,13 @@ Configuration variables:
 - **password** (*Required*): The password for your given account.
 - **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`. Defaults to `dnsmasq`.
 
-
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## Troubleshooting
+## {% linkable_title Troubleshooting %}
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what's happening.
 
-### Increase Log Level
+### {% linkable_title Increase Log Level %}
 
 1. On your Home Assistant device, stop Home Assistant
 2. Adjust `configuration.yaml` to log more detail for the `device_tracker` component
@@ -167,6 +166,6 @@ Connection: keep-alive
 ```
 11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this component for device tracking or presence.
 
-### Cleanup
+### {% linkable_title Cleanup %}
 
 When you're done troubleshooting, remember to reset your logging configuration and delete any capture files that contain sensitive information.

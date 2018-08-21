@@ -27,9 +27,9 @@ dyson:
   language: YOUR_DYSON_ACCOUNT_LANGUGAGE
   devices:
     - device_id: DEVICE_ID_1 # eg. Serial number: XXX-XX-XXXXXXXX
-      device_ip: DEVICE_ID_1
+      device_ip: DEVICE_IP_1
     - device_id: DEVICE_ID_2
-      device_ip: DEVICE_ID_2
+      device_ip: DEVICE_IP_2
 ```
 
 Configuration variables:

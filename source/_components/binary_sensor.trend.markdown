@@ -33,9 +33,9 @@ Configuration variables:
   - **attribute** (*Optional*): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.
   - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **invert** (*Optional*): Invert the result (so `true` means descending rather than ascending). Defaults to `False`
+  - **invert** (*Optional*): Invert the result. A `true` value would mean descending rather than ascending. Defaults to `False`
   - **max_samples** (*Optional*): Limit the maximum number of stored samples. Defaults to `2`.
-  - **min_gradient** (*Optional*): The minimum rate at which the observed value must be changing for this sensor to switch on. Defaults to `0.0`
+  - **min_gradient** (*Optional*): The minimum rate at which the observed value must be changing for this sensor to switch on. The gradient is measured in sensor units per second. Defaults to `0.0`
   - **sample_duration** (*Optional*): The duration **in seconds** to store samples for. Samples older than this value will be discarded. Defaults to `0`
 
 ## {% linkable_title Using Multiple Samples %}
@@ -62,6 +62,7 @@ binary_sensor:
         entity_id: sun.sun
         attribute: elevation
 ```
+
 
 This example creates two sensors to indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:
 

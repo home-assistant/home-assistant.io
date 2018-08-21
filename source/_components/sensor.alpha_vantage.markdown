@@ -24,12 +24,12 @@ sensor:
   - platform: alpha_vantage
     api_key: YOUR_API_KEY
     symbols:
-    - symbol: GOOGL
-      name: Google
+      - symbol: GOOGL
+        name: Google
     foreign_exchange:
-    - name: USD_EUR
-      from: USD
-      to: EUR
+      - name: USD_EUR
+        from: USD
+        to: EUR
 ```
 
 Either a symbol or a foreign exchange must be configured, otherwise you will not get any data.

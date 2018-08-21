@@ -17,11 +17,10 @@ The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaom
 
 Currently supported features are:
 
-- `turn_on`
+- `start`
 - `pause`
 - `stop`
 - `return_to_home`
-- `turn_off` (stop all activity and return to dock)
 - `locate`
 - `clean_spot`
 - `set_fan_speed`
@@ -49,7 +48,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
@@ -97,7 +96,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
 - `do_not_disturb`
@@ -125,7 +124,9 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
+As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
+  
+The iPhone app still stores the token in the sqlite db as of v4.7.18 (July 17, 2018).
 
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
@@ -136,13 +137,13 @@ easily via a hidden menu item at the Mi-Home app or using the `miio` command lin
 You can install the command line tool with:
 
 ```bash
-$ npm install -g miio
+npm install -g miio
 ```
 
 Discovering devices on current network
 
 ```bash
-$ miio discover
+miio discover
 ```
 
 This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
@@ -159,10 +160,10 @@ Support: At least basic
 
 The information output is:
 
-* __Device ID__ - the unique identifier of the device, does not change if the device is reset.
-* __Model ID__ - the model id if it could be determined, this indicates what type of device it is
-* __Address__ - the IP that the device has on the network
-* __Token__ - the token of the device or ??? if it could not be automatically determined
+- __Device ID__ - the unique identifier of the device, does not change if the device is reset.
+- __Model ID__ - the model id if it could be determined, this indicates what type of device it is
+- __Address__ - the IP that the device has on the network
+- __Token__ - the token of the device or ??? if it could not be automatically determined
 
 #### {% linkable_title Windows and Android %}
 
@@ -174,7 +175,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 4. Change the MiToolKit language to English if you need to.
 5. Click "Extract Token"
 6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
-8. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
+7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
 
 #### {% linkable_title Linux and Android (not rooted) %}
 
@@ -183,14 +184,14 @@ Follow the pairing process using your phone and Mi-Home app. You will be able to
 Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
 
 ```bash
-$ sudo apt-get install libffi-dev libssl-dev
+sudo apt-get install libffi-dev libssl-dev
 ```
 
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
 ```
 
 To fetch the token follow these instructions depending on your mobile phone platform.
@@ -205,7 +206,6 @@ To fetch the token follow these instructions depending on your mobile phone plat
 8. Untar the unpacked data: `tar -xvf unpacked.tar`
 9. `sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name like "%Vacuum%";'` returns the token for your Xiaomi vacuum bot.
 
-
 #### {% linkable_title Linux and Android (rooted!) %}
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
@@ -213,14 +213,14 @@ Follow the pairing process using your phone and Mi-Home app. You will be able to
 Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-miio` to be installed correctly.
 
 ```bash
-$ sudo apt-get install libffi-dev libssl-dev
+sudo apt-get install libffi-dev libssl-dev
 ```
 
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
 ```
 
 To fetch the token follow these instructions depending on your mobile phone platform.

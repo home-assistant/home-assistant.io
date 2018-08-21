@@ -31,7 +31,7 @@ Configuration variables:
 - **mac** (*Required*):  Device MAC address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device.
 - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`.
+- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`.
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.

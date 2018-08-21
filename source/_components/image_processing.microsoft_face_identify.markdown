@@ -24,10 +24,10 @@ For using the result inside an automation rule, take a look at the [component](/
 ```yaml
 # Example configuration.yaml entry
 image_processing:
- - platform: microsoft_face_identify
-   group: family
-   source:
-    - entity_id: camera.door
+  - platform: microsoft_face_identify
+    group: family
+    source:
+      - entity_id: camera.door
 ```
 
 Configuration variables:

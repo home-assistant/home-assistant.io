@@ -40,7 +40,7 @@ Configuration variables:
 - **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
 - **timeout** (*Optional*): The timeout for connections to the TV in seconds.
-- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`. **NOTE**: When using multiple TVs each TV will need its own unique file.
 - **customize** array (*Optional*): List of options to customize.
   - **sources** array (*Optional*): List of hardware and webOS App inputs.
 
@@ -76,8 +76,8 @@ Avoid using `[ ]` in the `name:` of your device.
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature.
-To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models).
+Common for webOS 3.0 and higher would be to use WakeOnLan feature. 
+To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version). On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
 ```yaml
 # Example configuration.yaml entry
@@ -90,7 +90,7 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: B4:E6:2A:1E:11:0F
+        mac: "B4-E6-2A-1E-11-0F"
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
@@ -128,4 +128,4 @@ data:
 The behaviour of the next and previsous buttons is different depending on the active source:
 
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
- - otherwise: next/previsous buttons act as next/previous track
+ - otherwise: next/previous buttons act as next/previous track
