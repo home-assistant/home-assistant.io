@@ -28,6 +28,6 @@ molohub:
 After Home Assistant has started, you need to authorize the component with a platform before access Home Assistant remotely:
 
 1. Open the Home Assistant frontend.  A new card will display the supported platform to connect
-2. Choose one platform, and input your user and password, if both of them are correct. The component card will display the simple information of your account,  But except wechat,  In this case,  you need use WeChat app's `Scan QR Code`  function
+2. Choose one platform, and input your user and password, if both of them are correct. The component card will display the simple information of your account,  But except WeChat,  In this case,  you need use WeChat app's `Scan QR Code`  function
 3. Visit `MoloHub` homepage [www.molo.cn](http://www.molo.cn/)
 4. Click on `Go to HomeAssistant Console` to access the HA homepage remotely 
