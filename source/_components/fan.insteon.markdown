@@ -11,14 +11,15 @@ logo: insteon.png
 ha_category: Fan
 ha_iot_class: "Local Push"
 ha_version: 0.77
+redirect_from:
+  - /components/fan.insteon_local/
+  - /components/fan.insteon_plm/
 ---
 
-The `insteon` fan platform lets you control your [FanLinc] through 
+The `insteon` fan platform lets you control your [FanLinc] through
 an INSTEON Modem (PLM and Hub) device connected directly to your system on a
 USB, serial port or TCPIP connection.  To add support, set up the primary
 [insteon] component.
 
 [insteon]: /components/insteon/
 [FanLinc]: https://www.smarthome.com/fanlinc-insteon-2475f-ceiling-fan-and-light-controller-fixture-module-dual-band.html
-
-

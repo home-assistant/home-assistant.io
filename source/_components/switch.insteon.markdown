@@ -11,9 +11,12 @@ logo: insteon.png
 ha_category: Switch
 ha_iot_class: "Local Push"
 ha_version: 0.77
+redirect_from:
+  - /components/switch.insteon_local/
+  - /components/switch.insteon_plm/
 ---
 
-The `insteon` switch platform lets you control your on/off switches through 
+The `insteon` switch platform lets you control your on/off switches through
 an INSTEON Modem (PLM and Hub) device connected directly to your system on a
 USB, serial port or TCPIP connection.  To add support, set up the primary
 [insteon] component.

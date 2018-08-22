@@ -11,9 +11,12 @@ logo: insteon.png
 ha_category: Light
 ha_iot_class: "Local Push"
 ha_version: 0.77
+redirect_from:
+  - /components/light.insteon_local/
+  - /components/light.insteon_plm/
 ---
 
-The `insteon` light platform lets you control your lights through 
+The `insteon` light platform lets you control your lights through
 an INSTEON Modem (PLM and Hub) device connected directly to your system on a
 USB, serial port or TCPIP connection.  To add support, set up the primary
 [insteon] component.
