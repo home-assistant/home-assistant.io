@@ -1,0 +1,127 @@
+---
+layout: page
+title: "Thermoworks Smoke Sensor"
+description: "Pulls temperature data for a Thermoworks Smoke Thermometer connected with Smoke Gateway."
+date: 2018-08-22 17:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: home-assistant.png
+ha_category: Sensor
+ha_release: 0.77.3
+ha_iot_class: "Remote Polling"
+---
+
+The `thermoworks_smoke` sensor platform pulls data for your Thermoworks Smoke Thermometer (https://www.thermoworks.com/Smoke).
+This requires a Smoke WiFi Gateway (https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
+
+You will need to have previously registered your smoke to your account via the mobile app and provide 
+the email and password you used to in the configuration for this sensor in order to connect and pull your data.
+
+## {% linkable_title Configuration %}
+
+To add the sensors to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thermoworks_smoke
+    email: "your email here"
+    password: !secret thermoworks_pass
+    monitored_variables:
+    - probe1
+    - probe2
+    - probe1Min
+    - probe1Max
+    - probe2Min
+    - probe2Max
+```
+
+{% configuration %}
+email:
+  description: The email address with the device registered in the thermoworks smoke mobile app.
+  required: true
+  type: string
+password:
+  description: The password registered in the thermoworks smoke mobile app.
+  required: true
+  type: string
+monitored_variables:
+  description: The sensors to add. Default is `probe1` and `probe2`.
+  required: false
+  type: list
+exclude:
+  description: Device serial numbers to ignore.
+  required: false
+  type: list
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Only Probe 1 %}
+This will show only Probe 1 with min and max data.
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thermoworks_smoke
+    email: "your email here"
+    password: !secret thermoworks_pass
+    monitored_variables:
+    - probe1
+    - probe1Min
+    - probe1Max
+```
+
+### {% linkable_title Ignore a Device %}
+This will exclude a device from creating sensors. You would replace `"00:00:00:00:00:00"` with your device's serial number.
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thermoworks_smoke
+    email: "your email here"
+    password: !secret thermoworks_pass
+    exclude:
+    - "00:00:00:00:00:00"
+```
+
+### {% linkable_title Notify when Probe 1 goes above a certain temperature %}
+This will use an automation to trigger a notification when Probe 1 goes above a temperature stored in an input_number variable.
+By default your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thermoworks_smoke
+    email: "your email here"
+    password: !secret thermoworks_pass
+
+input_number:
+  smoke_probe_1_threshold:
+    name: Smoke Probe 1 Threshold
+    min: -40
+    max: 500
+    step: 0.5
+    unit_of_measurement: '°F'
+    icon: mdi:thermometer
+    
+automation:
+  - alias: Alert when My Smoke Probe 1 is above threshold
+    trigger:
+      platform: template
+      value_template: >-
+        {% if (states("sensor.my_smoke_probe_1") | float) > (states("input_number.smoke_probe_1_threshold") | float) %}
+          True
+        {% else %}
+          False
+        {% endif %}
+    action:
+      - service: notify.all
+        data:
+          message: >
+            {{- states.sensor.my_smoke_probe_1.attributes.friendly_name }} is above
+            {{- ' '+states("input_number.smoke_probe_1_threshold") -}}
+            {{- states.sensor.my_smoke_probe_1.attributes.unit_of_measurement }} at
+            {{- ' '+states("sensor.my_smoke_probe_1") -}}
+            {{- states.sensor.my_smoke_probe_1.attributes.unit_of_measurement }}
+```
