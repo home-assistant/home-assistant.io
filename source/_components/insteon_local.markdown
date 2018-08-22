@@ -15,4 +15,4 @@ ha_version: 0.36
 
 The `insteon_local` component is depreciated and has been replaced by the [Insteon] component.
 
-[Insteon] /component/insteon
+[Insteon]: /component/insteon/

@@ -11,9 +11,10 @@ logo: insteon.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
 ha_version: 0.77
+redirect_from: /components/sensor.insteon_plm/
 ---
 
-The `insteon` sensor  platform lets you control your sensors through 
+The `insteon` sensor  platform lets you control your sensors through
 an INSTEON Modem (PLM and Hub) device connected directly to your system on a
 USB, serial port or TCPIP connection.  To add support, set up the primary
 [insteon] component.
