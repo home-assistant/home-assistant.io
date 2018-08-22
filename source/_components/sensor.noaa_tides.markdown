@@ -35,10 +35,10 @@ name:
   required: false
   default: NOAA Tides.
   type: string
-timezone:
+time_zone:
   description: User selected timezone.
   required: false
-  default: Defaults to local standard / local daylight time.
+  default: Local Standard Time/Local Daylight Time.
   type: list
   keys:
     gmt:
