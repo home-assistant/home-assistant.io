@@ -32,6 +32,7 @@ sensor:
     devices:
       alectov1_0334_temp:
         name: Temperature Outside
+        sensor_type: temperature
 ```
 
 Configuration variables:
@@ -68,7 +69,6 @@ Sensor type values:
 - meter_value
 - total_rain
 - rain_rate
-- total_rain
 - revision
 - noise_level
 - temperature
