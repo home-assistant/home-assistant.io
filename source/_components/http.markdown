@@ -69,7 +69,7 @@ trusted_proxies:
   required: false
   type: string, list
 use_x_forwarded_for:
-  description: "Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You **must** also whitelist trusted proxies using the `trusted_proxies` setting below for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored."
+  description: "Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You **must** also whitelist trusted proxies using the `trusted_proxies` setting above for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored."
   required: false
   type: boolean
   default: false

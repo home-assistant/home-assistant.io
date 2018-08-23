@@ -24,7 +24,8 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Temperature and Humidity Sensor (1st and 2nd generation)
 - Motion Sensor (1st and 2nd generation)
 - Door and Window Sensor (1st and 2nd generation)
-- Button (1st and 2nd generation)
+- Button 1st generation (Single, Double, long_click_press)
+- Button 2nd generation (Single, Double)
 - Plug aka Socket (Zigbee version, reports power consumed, power load, state and if device in use)
 - Wall Plug (reports power consumed, power load and state)
 - Aqara Wall Switch (Single)
@@ -195,9 +196,9 @@ Removes a specific device. The removal is required if a device shall be paired w
 
 ## {% linkable_title Examples %}
 
-### {% linkable_title Long Press on Smart Button %}
+### {% linkable_title Long Press on Smart Button 1st Generation %}
 
-This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once.
+This example plays the sound of a dog barking when the button is held down and stops the sound when the button is pressed once. Only works for the round button of the 1st generation.
 
 *Note: The sound will stop playing automatically when it has ended.*
 

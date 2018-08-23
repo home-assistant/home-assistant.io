@@ -28,7 +28,6 @@ Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.pyt
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  broker:
   password: hello
 ```
 
