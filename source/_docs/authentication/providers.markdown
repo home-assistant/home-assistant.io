@@ -14,9 +14,9 @@ footer: true
 This is an advanced feature. If misconfigured, you will not be able to access Home Assistant anymore!
 </p>
 
-When a user logs in, it needs to authenticate against an auth provider. An auth provider will check the users credentials, and if credentials are linked to a user in the system, allows the user to log in.
+When a user logs in, it needs to authenticate against an auth provider. An auth provider will check the users' credentials, and if credentials are linked to a user in the system, allows the user to log in.
 
-By default Home Assistant has enabled an auth provider that stores the users in the configuration directory. These users can be managed by an owner account from the frontend.
+By default, Home Assistant has enabled an auth provider that stores the users in the configuration directory. An owner account can manage these users from the frontend.
 
 To make the transition from API password to authentication system easier, we've added a legacy API password auth provider. This enables users to log in with the API password. This authentication provider is enabled by default if a user has an API password configured.
 
@@ -37,7 +37,7 @@ homeassistant:
 
 ## {% linkable_title Available auth providers %}
 
-Below are a list of currently available auth providers.
+Below is a list of currently available auth providers.
 
 ### {% linkable_title Home Assistant auth provider %}
 
@@ -83,4 +83,4 @@ http:
   api_password: !secret http_password
 ```
 
-Activating this auth provider will also allow you to use the API password as authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long lived access tokens.
+Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
