@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Access to Home Assistant is secured by our authentication system. Each member of your household will get their own user account to log in and acccess Home Assistant.
+Access to Home Assistant is secured by our authentication system. Each member of your household will get their own user account to log in and access Home Assistant.
 
 Home Assistant contains two different user types: the owner user account and normal users. The owner user account is created when you start Home Assitant for the first time. This account has some special privileges compared to the other users of the system:
 
@@ -28,7 +28,7 @@ When logging in, make sure that the URL in the URL bar is showing the address of
 
 ## {% linkable_title Profile %}
 
-Once you're logged in, you can access the profile page to change your user preferences. Here you can change your prefered language or  password. You can also log out. You can access the profile page by clicking on your user badge in the sidebar.
+Once you're logged in, you can access the profile page to change your user preferences. Here you can change your preferred language or password. You can also log out. You can access the profile page by clicking on your user badge in the sidebar.
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
