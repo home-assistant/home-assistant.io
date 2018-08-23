@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: thermoworks.png
 ha_category: Sensor
 ha_release: 0.77.3
 ha_iot_class: "Remote Polling"
