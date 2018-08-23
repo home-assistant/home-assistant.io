@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Access to Home Assistant is secured by our authentication system. Each member of your house hold will get their own user account to log in and acccess Home Assistant.
+Access to Home Assistant is secured by our authentication system. Each member of your household will get their own user account to log in and acccess Home Assistant.
 
 Home Assistant contains two different user types: the owner user account and normal users. The owner user account is created when you start Home Assitant for the first time. This account has some special privileges compared to the other users of the system:
 
