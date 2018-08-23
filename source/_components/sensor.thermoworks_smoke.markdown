@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: thermoworks.png
 ha_category: Sensor
-ha_release: 0.77.3
+ha_release: 0.78.0
 ha_iot_class: "Remote Polling"
 ---
 
