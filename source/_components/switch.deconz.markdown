@@ -19,9 +19,10 @@ Switches are devices like power plugs and sirens.
 
 Note that devices in the switch platform identify as lights, so there is a manually curated list that defines which "lights" are switches.
 
-The `Entity Id` names will be `switch.device_name`, where `device_name` is defined in deCONZ.
+The `entity_id` name will be `switch.device_name`, where `device_name` is defined in deCONZ.
 
 #### {% linkable_title Verified supported switches %}
 
 - Innr SP120
 - Osram Outdoor plug
+- Heiman siren
