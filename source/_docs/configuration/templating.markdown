@@ -82,6 +82,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
+- `closest_match(value, list)` will return the best string in the list that matches the string value given, using Levenstein   distance
 - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
