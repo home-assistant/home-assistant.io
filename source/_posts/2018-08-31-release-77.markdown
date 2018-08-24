@@ -1,0 +1,340 @@
+---
+layout: post
+title: "0.77: TODO - UPDATE DATE"
+description: ""
+date: 2018-08-24 00:01:00
+date_formatted: "August 31, 2018"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2018-08-0.77/components.png
+---
+
+<a href='/components/#version/0.77'><img src='/images/blog/2018-08-0.77/components.png' style='border: 0;box-shadow: none;'></a>
+
+Auth enabled by default ! If you had auth providers configured before, recommended to remove the configuration and start using the default config.
+
+Notification drawer for lovelace.
+
+Hangouts
+
+
+
+## {% linkable_title New Platforms %}
+
+- Netatmo public ([@colinfrei] - [#15684]) ([sensor.netatmo_public docs]) (new-platform)
+- Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
+- Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
+- Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
+
+## {% linkable_title New Features %}
+
+- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
+
+## {% linkable_title If you need help... %}
+
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## {% linkable_title Reporting Issues %}
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+<!--more-->
+
+## {% linkable_title Breaking Changes %}
+
+- Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
+- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
+- Update Xiaomi Vacuum to new StateVacuumDevice ([@cnrd] - [#15643]) (breaking change)
+- Update neato to support new StateVacuumDevice ([@dshokouhi] - [#16035]) ([vacuum.neato docs]) (breaking change)
+- Remove homeassistant.remote ([@balloob] - [#16099]) ([api docs]) ([http docs]) ([mqtt_eventstream docs]) ([mqtt_statestream docs]) ([notify docs]) ([splunk docs]) ([websocket_api docs]) (breaking change)
+- Merge insteon_plm and insteon_local to insteon component ([@teharris1] - [#16102]) (breaking change)
+- Remove unit_of_measurement from climate entities ([@jeradM] - [#16012]) ([climate docs]) ([climate.generic_thermostat docs]) ([climate.knx docs]) ([climate.maxcube docs]) ([climate.sensibo docs]) (breaking change)
+- Adds support for routers implementing IGDv2 ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
+- Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
+
+## {% linkable_title All changes %}
+
+- Eph ember support operation modes ([@ttroy50] - [#15820]) ([climate.ephember docs])
+- Fixed race condition in Generic Thermostat ([@aronsky] - [#15784]) ([climate.generic_thermostat docs])
+- Fix magic cube support of the Aqara LAN Protocol V2 ([@syssi] - [#15940]) ([binary_sensor.xiaomi_aqara docs])
+- Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
+- Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
+- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
+- Add monitored conditions for Unifi device_tracker ([@cgarwood] - [#15888]) ([device_tracker docs])
+- Netatmo public ([@colinfrei] - [#15684]) ([sensor.netatmo_public docs]) (new-platform)
+- Update Xiaomi Vacuum to new StateVacuumDevice ([@cnrd] - [#15643]) (breaking change)
+- HomeMatic: Enable entity registry ([@danielperna84] - [#15950]) ([homematic docs])
+- Fix google calendar documentation link. ([@cgtobi] - [#15968]) ([calendar.google docs])
+- Remove unnecessary log ([@colinfrei] - [#15966]) ([sensor.netatmo_public docs])
+- Make setup fail if location is not available ([@fabaff] - [#15967]) ([sensor.worldtidesinfo docs])
+- Remove warning ([@balloob] - [#15969])
+- Update waterfurnace library to 0.7, add reconnect logic ([@sdague] - [#15657]) ([waterfurnace docs])
+- adds support for momentary and beep/blink switches ([@heythisisnate] - [#15973]) ([konnected docs]) ([switch.konnected docs])
+- Add -j$(nproc) make option to speed up build time ([@vrih] - [#15928])
+- Update Glances sensor ([@fabaff] - [#15981]) ([sensor.glances docs])
+- Upgrade psutil to 5.4.7 ([@fabaff] - [#15982]) ([sensor.systemmonitor docs])
+- Upgrade aladdin_connect to 0.3 and provide Unique ID ([@shoejosh] - [#15986]) ([cover.aladdin_connect docs])
+- Entity service ([@balloob] - [#15991])
+- More entity service ([@balloob] - [#15998]) ([camera docs]) ([climate docs])
+- Wemo custom ports and network errors handling ([@mcspr] - [#14516]) ([wemo docs]) ([binary_sensor.wemo docs]) ([light.wemo docs]) ([switch.wemo docs])
+- Clean up input-datetime ([@balloob] - [#16000]) ([input_datetime docs])
+- BMW Connected drive: option to disable the services ([@Alexxander0] - [#15993]) ([bmw_connected_drive docs]) ([lock.bmw_connected_drive docs])
+- Add type hints to homeassistant.auth ([@scop] - [#15853])
+- Fix check config packages key error ([@MartinHjelmare] - [#15840])
+- Update SoCo to 0.16 ([@amelchio] - [#16007]) ([sonos docs]) ([media_player.sonos docs])
+- Upgrade sendgrid to 5.5.0 ([@fabaff] - [#16021]) ([notify docs])
+- Split out storage delay save ([@balloob] - [#16017]) ([hassio docs]) ([onboarding docs])
+- Disable assuming Optional type for values with None default ([@scop] - [#16029])
+- Update RitAssist to support maximum speed and current address ([@depl0y] - [#16037]) ([device_tracker docs])
+- Handle missing mpd capabilities ([@logic] - [#15945]) ([media_player.mpd docs])
+- Storage entity registry ([@balloob] - [#16018])
+- Attempt to fix flaky TTS test ([@balloob] - [#16025])
+- Update neato to support new StateVacuumDevice ([@dshokouhi] - [#16035]) ([vacuum.neato docs]) (breaking change)
+- vacuum/xiaomi_miio: Expose "sensor_dirty_left" attribute ([@klada] - [#16003]) ([vacuum.xiaomi_miio docs])
+- Grammar and spelling fixes ([@scop] - [#16065])
+- Use aiohttp web.AppRunner ([@balloob] - [#16020]) ([http docs])
+- Update pushsafer.py ([@appzer] - [#16060]) ([notify docs])
+- Alexa: context + log events ([@balloob] - [#16023]) ([alexa docs])
+- openuv: Add Current UV Level to list of conditions ([@leppa] - [#16042]) ([openuv docs]) ([sensor.openuv docs])
+- TpLink Device Tracker Error ([@TimBailey-pnk] - [#15918]) ([device_tracker docs])
+- Deprecated stuff ([@balloob] - [#16019]) ([device_tracker docs]) ([websocket_api docs]) ([camera.push docs])
+- Add recent context ([@balloob] - [#15989])
+- Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
+- Bumped NDMS2 client library to 0.0.4 to get compatible with python 3.5 ([@foxel] - [#16077]) ([device_tracker docs])
+- fritzdect change to current_power_w ([@Danielhiversen] - [#16079]) ([switch.fritzdect docs])
+- Update pyhomematic to 0.1.47 ([@danielperna84] - [#16083]) ([homematic docs])
+- Get user after login flow finished ([@awarecan] - [#16047]) ([auth docs])
+- Upgrade pytest to 3.7.2 ([@scop] - [#16091])
+- Add verify ssl to generic camera ([@fliphess] - [#15949]) ([camera.generic docs])
+- Upgrade afsapi to 0.0.4, prevents aiohttp session close message, Fixes #13099 ([@zhelev] - [#16098]) ([media_player.frontier_silicon docs])
+- Remove homeassistant.remote ([@balloob] - [#16099]) ([api docs]) ([http docs]) ([mqtt_eventstream docs]) ([mqtt_statestream docs]) ([notify docs]) ([splunk docs]) ([websocket_api docs]) (breaking change)
+- Use new session when fetching remote urls ([@balloob] - [#16093]) ([auth docs])
+- Allow finish_flow callback to change data entry result type ([@awarecan] - [#16100])
+- Add support for revoking refresh tokens ([@balloob] - [#16095]) ([auth docs])
+- Refactoring login flow ([@awarecan] - [#16104])
+- Minor updates ([@fabaff] - [#16106])
+- Bump python-miio version ([@syssi] - [#16110]) ([device_tracker docs]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([sensor.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
+- homematic: Add homematic.put_paramset service ([@klada] - [#16024]) ([homematic docs])
+- Upgrade shodan to 1.9.1 ([@fabaff] - [#16113]) ([sensor.shodan docs])
+- Upgrade sendgrid to 5.6.0 ([@fabaff] - [#16111]) ([notify docs])
+- Merge insteon_plm and insteon_local to insteon component ([@teharris1] - [#16102]) (breaking change)
+- Remove unit_of_measurement from climate entities ([@jeradM] - [#16012]) ([climate docs]) ([climate.generic_thermostat docs]) ([climate.knx docs]) ([climate.maxcube docs]) ([climate.sensibo docs]) (breaking change)
+- Add multi-factor authentication modules ([@awarecan] - [#15489]) ([config docs])
+- Device Registry ([@Kane610] - [#15980])
+- Check correctly if package is loadable ([@balloob] - [#16121])
+- Upgrade numpy to 1.15.1 ([@fabaff] - [#16126]) ([binary_sensor.trend docs]) ([image_processing.opencv docs])
+- Upgrade youtube_dl to 2018.08.22 ([@fabaff] - [#16125]) ([media_extractor docs])
+- Fix the protocol v2 data_key of several aqara devices ([@syssi] - [#16112]) ([binary_sensor.xiaomi_aqara docs])
+- Upgrade brunt package ([@eavanvalkenburg] - [#16130]) ([cover.brunt docs])
+- Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
+- Adds support for routers implementing IGDv2 ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
+- Add support for JS modules in custom panels ([@squidwardy] - [#16096]) ([panel_custom docs])
+- Prevent legacy api password with empty password ([@balloob] - [#16127])
+- Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
+- Remove commented out API password from default config ([@balloob] - [#16147])
+- Spelling fixes ([@scop] - [#16150]) ([insteon_local docs]) ([insteon_plm docs])
+- Update pydocstyle to 2.1.1 and flake8-docstrings to 1.3.0 ([@scop] - [#14557])
+- Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
+- Hangouts localization typo fix ([@armills] - [#16174]) ([hangouts docs])
+- deCONZ - Allow sub second light transitions ([@Kane610] - [#16170]) ([light.deconz docs])
+- add_devices -> add_entities ([@balloob] - [#16171])
+
+[#14516]: https://github.com/home-assistant/home-assistant/pull/14516
+[#14557]: https://github.com/home-assistant/home-assistant/pull/14557
+[#15489]: https://github.com/home-assistant/home-assistant/pull/15489
+[#15520]: https://github.com/home-assistant/home-assistant/pull/15520
+[#15643]: https://github.com/home-assistant/home-assistant/pull/15643
+[#15657]: https://github.com/home-assistant/home-assistant/pull/15657
+[#15684]: https://github.com/home-assistant/home-assistant/pull/15684
+[#15784]: https://github.com/home-assistant/home-assistant/pull/15784
+[#15812]: https://github.com/home-assistant/home-assistant/pull/15812
+[#15820]: https://github.com/home-assistant/home-assistant/pull/15820
+[#15836]: https://github.com/home-assistant/home-assistant/pull/15836
+[#15840]: https://github.com/home-assistant/home-assistant/pull/15840
+[#15853]: https://github.com/home-assistant/home-assistant/pull/15853
+[#15888]: https://github.com/home-assistant/home-assistant/pull/15888
+[#15918]: https://github.com/home-assistant/home-assistant/pull/15918
+[#15928]: https://github.com/home-assistant/home-assistant/pull/15928
+[#15940]: https://github.com/home-assistant/home-assistant/pull/15940
+[#15945]: https://github.com/home-assistant/home-assistant/pull/15945
+[#15946]: https://github.com/home-assistant/home-assistant/pull/15946
+[#15947]: https://github.com/home-assistant/home-assistant/pull/15947
+[#15949]: https://github.com/home-assistant/home-assistant/pull/15949
+[#15950]: https://github.com/home-assistant/home-assistant/pull/15950
+[#15966]: https://github.com/home-assistant/home-assistant/pull/15966
+[#15967]: https://github.com/home-assistant/home-assistant/pull/15967
+[#15968]: https://github.com/home-assistant/home-assistant/pull/15968
+[#15969]: https://github.com/home-assistant/home-assistant/pull/15969
+[#15973]: https://github.com/home-assistant/home-assistant/pull/15973
+[#15980]: https://github.com/home-assistant/home-assistant/pull/15980
+[#15981]: https://github.com/home-assistant/home-assistant/pull/15981
+[#15982]: https://github.com/home-assistant/home-assistant/pull/15982
+[#15986]: https://github.com/home-assistant/home-assistant/pull/15986
+[#15989]: https://github.com/home-assistant/home-assistant/pull/15989
+[#15991]: https://github.com/home-assistant/home-assistant/pull/15991
+[#15993]: https://github.com/home-assistant/home-assistant/pull/15993
+[#15998]: https://github.com/home-assistant/home-assistant/pull/15998
+[#16000]: https://github.com/home-assistant/home-assistant/pull/16000
+[#16003]: https://github.com/home-assistant/home-assistant/pull/16003
+[#16007]: https://github.com/home-assistant/home-assistant/pull/16007
+[#16012]: https://github.com/home-assistant/home-assistant/pull/16012
+[#16017]: https://github.com/home-assistant/home-assistant/pull/16017
+[#16018]: https://github.com/home-assistant/home-assistant/pull/16018
+[#16019]: https://github.com/home-assistant/home-assistant/pull/16019
+[#16020]: https://github.com/home-assistant/home-assistant/pull/16020
+[#16021]: https://github.com/home-assistant/home-assistant/pull/16021
+[#16023]: https://github.com/home-assistant/home-assistant/pull/16023
+[#16024]: https://github.com/home-assistant/home-assistant/pull/16024
+[#16025]: https://github.com/home-assistant/home-assistant/pull/16025
+[#16029]: https://github.com/home-assistant/home-assistant/pull/16029
+[#16035]: https://github.com/home-assistant/home-assistant/pull/16035
+[#16037]: https://github.com/home-assistant/home-assistant/pull/16037
+[#16042]: https://github.com/home-assistant/home-assistant/pull/16042
+[#16047]: https://github.com/home-assistant/home-assistant/pull/16047
+[#16049]: https://github.com/home-assistant/home-assistant/pull/16049
+[#16060]: https://github.com/home-assistant/home-assistant/pull/16060
+[#16065]: https://github.com/home-assistant/home-assistant/pull/16065
+[#16077]: https://github.com/home-assistant/home-assistant/pull/16077
+[#16079]: https://github.com/home-assistant/home-assistant/pull/16079
+[#16083]: https://github.com/home-assistant/home-assistant/pull/16083
+[#16091]: https://github.com/home-assistant/home-assistant/pull/16091
+[#16093]: https://github.com/home-assistant/home-assistant/pull/16093
+[#16095]: https://github.com/home-assistant/home-assistant/pull/16095
+[#16096]: https://github.com/home-assistant/home-assistant/pull/16096
+[#16098]: https://github.com/home-assistant/home-assistant/pull/16098
+[#16099]: https://github.com/home-assistant/home-assistant/pull/16099
+[#16100]: https://github.com/home-assistant/home-assistant/pull/16100
+[#16102]: https://github.com/home-assistant/home-assistant/pull/16102
+[#16104]: https://github.com/home-assistant/home-assistant/pull/16104
+[#16106]: https://github.com/home-assistant/home-assistant/pull/16106
+[#16107]: https://github.com/home-assistant/home-assistant/pull/16107
+[#16108]: https://github.com/home-assistant/home-assistant/pull/16108
+[#16110]: https://github.com/home-assistant/home-assistant/pull/16110
+[#16111]: https://github.com/home-assistant/home-assistant/pull/16111
+[#16112]: https://github.com/home-assistant/home-assistant/pull/16112
+[#16113]: https://github.com/home-assistant/home-assistant/pull/16113
+[#16121]: https://github.com/home-assistant/home-assistant/pull/16121
+[#16125]: https://github.com/home-assistant/home-assistant/pull/16125
+[#16126]: https://github.com/home-assistant/home-assistant/pull/16126
+[#16127]: https://github.com/home-assistant/home-assistant/pull/16127
+[#16130]: https://github.com/home-assistant/home-assistant/pull/16130
+[#16147]: https://github.com/home-assistant/home-assistant/pull/16147
+[#16150]: https://github.com/home-assistant/home-assistant/pull/16150
+[#16170]: https://github.com/home-assistant/home-assistant/pull/16170
+[#16171]: https://github.com/home-assistant/home-assistant/pull/16171
+[#16174]: https://github.com/home-assistant/home-assistant/pull/16174
+[@Alexxander0]: https://github.com/Alexxander0
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@OverloadUT]: https://github.com/OverloadUT
+[@TimBailey-pnk]: https://github.com/TimBailey-pnk
+[@amelchio]: https://github.com/amelchio
+[@appzer]: https://github.com/appzer
+[@armills]: https://github.com/armills
+[@aronsky]: https://github.com/aronsky
+[@awarecan]: https://github.com/awarecan
+[@balloob]: https://github.com/balloob
+[@cgarwood]: https://github.com/cgarwood
+[@cgtobi]: https://github.com/cgtobi
+[@cnrd]: https://github.com/cnrd
+[@colinfrei]: https://github.com/colinfrei
+[@danielperna84]: https://github.com/danielperna84
+[@depl0y]: https://github.com/depl0y
+[@dgomes]: https://github.com/dgomes
+[@dshokouhi]: https://github.com/dshokouhi
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@fabaff]: https://github.com/fabaff
+[@fliphess]: https://github.com/fliphess
+[@foxel]: https://github.com/foxel
+[@heythisisnate]: https://github.com/heythisisnate
+[@hobbypunk90]: https://github.com/hobbypunk90
+[@jcconnell]: https://github.com/jcconnell
+[@jeradM]: https://github.com/jeradM
+[@klada]: https://github.com/klada
+[@leppa]: https://github.com/leppa
+[@lhovo]: https://github.com/lhovo
+[@logic]: https://github.com/logic
+[@mcspr]: https://github.com/mcspr
+[@scop]: https://github.com/scop
+[@sdague]: https://github.com/sdague
+[@shoejosh]: https://github.com/shoejosh
+[@squidwardy]: https://github.com/squidwardy
+[@syssi]: https://github.com/syssi
+[@teharris1]: https://github.com/teharris1
+[@ttroy50]: https://github.com/ttroy50
+[@vrih]: https://github.com/vrih
+[@zhelev]: https://github.com/zhelev
+[alexa docs]: /components/alexa/
+[api docs]: /components/api/
+[auth docs]: /components/auth/
+[binary_sensor.trend docs]: /components/binary_sensor.trend/
+[binary_sensor.wemo docs]: /components/binary_sensor.wemo/
+[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
+[bmw_connected_drive docs]: /components/bmw_connected_drive/
+[calendar.google docs]: /components/calendar.google/
+[camera docs]: /components/camera/
+[camera.generic docs]: /components/camera.generic/
+[camera.push docs]: /components/camera.push/
+[climate docs]: /components/climate/
+[climate.ephember docs]: /components/climate.ephember/
+[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
+[climate.knx docs]: /components/climate.knx/
+[climate.maxcube docs]: /components/climate.maxcube/
+[climate.sensibo docs]: /components/climate.sensibo/
+[config docs]: /components/config/
+[cover.aladdin_connect docs]: /components/cover.aladdin_connect/
+[cover.brunt docs]: /components/cover.brunt/
+[device_tracker docs]: /components/device_tracker/
+[ecovacs docs]: /components/ecovacs/
+[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[hangouts docs]: /components/hangouts/
+[hassio docs]: /components/hassio/
+[homematic docs]: /components/homematic/
+[http docs]: /components/http/
+[image_processing.opencv docs]: /components/image_processing.opencv/
+[input_datetime docs]: /components/input_datetime/
+[insteon_local docs]: /components/insteon_local/
+[insteon_plm docs]: /components/insteon_plm/
+[konnected docs]: /components/konnected/
+[light.deconz docs]: /components/light.deconz/
+[light.wemo docs]: /components/light.wemo/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
+[lock.bmw_connected_drive docs]: /components/lock.bmw_connected_drive/
+[media_extractor docs]: /components/media_extractor/
+[media_player.frontier_silicon docs]: /components/media_player.frontier_silicon/
+[media_player.mpd docs]: /components/media_player.mpd/
+[media_player.sonos docs]: /components/media_player.sonos/
+[mqtt_eventstream docs]: /components/mqtt_eventstream/
+[mqtt_statestream docs]: /components/mqtt_statestream/
+[notify docs]: /components/notify/
+[onboarding docs]: /components/onboarding/
+[openuv docs]: /components/openuv/
+[panel_custom docs]: /components/panel_custom/
+[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[sensor.geizhals docs]: /components/sensor.geizhals/
+[sensor.glances docs]: /components/sensor.glances/
+[sensor.netatmo_public docs]: /components/sensor.netatmo_public/
+[sensor.noaa_tides docs]: /components/sensor.noaa_tides/
+[sensor.openuv docs]: /components/sensor.openuv/
+[sensor.scrape docs]: /components/sensor.scrape/
+[sensor.shodan docs]: /components/sensor.shodan/
+[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
+[sensor.sytadin docs]: /components/sensor.sytadin/
+[sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
+[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
+[sonos docs]: /components/sonos/
+[splunk docs]: /components/splunk/
+[switch.fritzdect docs]: /components/switch.fritzdect/
+[switch.konnected docs]: /components/switch.konnected/
+[switch.wemo docs]: /components/switch.wemo/
+[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[upnp docs]: /components/upnp/
+[vacuum.ecovacs docs]: /components/vacuum.ecovacs/
+[vacuum.neato docs]: /components/vacuum.neato/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[waterfurnace docs]: /components/waterfurnace/
+[websocket_api docs]: /components/websocket_api/
+[wemo docs]: /components/wemo/
