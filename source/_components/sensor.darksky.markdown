@@ -108,6 +108,7 @@ Configuration variables:
   - **apparent_temperature_low**: Today's overnight expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
   - **uv_index**: The current UV index.
+  - **moon_phase**: The fractional part of the lunation number during the given day.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
 - **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
