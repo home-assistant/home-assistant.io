@@ -161,22 +161,27 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-Two special values for slots are populated with the siteId the intent originated from and the probability value for the intent.
+Several special values for slots are populated with the siteId the intent originated from and the probability value for the intent,
+the sessionId generate by the dialogue manager, and slote_name raw which will contain the raw, uninterpreted text of the slot value
 
 In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
+
+In this example if we had an intent triggered with 'Set a timer for five minutes', duration would equal 300 and duration_raw would be set to 'five minutes'. The duration can be easily used to trigger HA events, and the duration_raw could be used to send a human readable response or alert.
 
 {% raw %}
 ```yaml
 SetTimer:
   speech:
     type: plain
-    text: weather
+    text: 'Set a timer'
   action:
     service: script.set_timer
     data_template:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
       siteId: "{{ site_id }}"
+      sessionId: "{{ session_id }}"
+      duration_raw: "{{ raw_value }}"
       probability: "{{ probability }}"
 ```
 {% endraw %}
