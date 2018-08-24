@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Switchmate"
-description: "Instructions on how to have Broadlink RM switches."
+description: "Instructions on how to have Switchmate switches."
 date: 2018-08-17 22:41
 sidebar: true
 comments: false
