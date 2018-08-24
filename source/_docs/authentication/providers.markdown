@@ -41,7 +41,7 @@ Below is a list of currently available auth providers.
 
 ### {% linkable_title Home Assistant auth provider %}
 
-This is the default auth provider which stores the users in your configuration directory. All passwords are stored hashed and with a salt, making it impossible for an attacker to figure out the password from the storage.
+This is the default auth provider which stores the users in your configuration directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password from the storage.
 
 Users for this auth provider can be managed via the UI by the owner. Navigate to the configuration panel and click on users.
 
