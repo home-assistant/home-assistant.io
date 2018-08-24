@@ -63,9 +63,8 @@ light:
 
 There are some rules for packages that will be merged:
 
-1. Component names may only use the basic form (e.g., `switch`, but not `switch 1` or `switch aa`).
-2. Platform based components (`light`, `switch`, etc) can always be merged.
-3. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file. 
+1. Platform based components (`light`, `switch`, etc) can always be merged.
+2. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file. 
 
     For example if we have the following in the main config. You are not allowed to re-use "my_input" again for `input_boolean` in a package:
     
@@ -73,7 +72,7 @@ There are some rules for packages that will be merged:
     input_boolean:
       my_input:
     ```
-4. Any component that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
+3. Any component that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
 
 <p class='note tip'>
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the component name.
