@@ -2,7 +2,7 @@
 layout: page
 title: "Pushsafer"
 description: "Instructions how to add Pushsafer notifications to Home Assistant."
-date: 2018-08-20 16:30
+date: 2018-01-05 11:15
 sidebar: true
 comments: false
 sharing: true
