@@ -26,7 +26,12 @@ This addon allows you to set up a [Samba](https://samba.org/) server to access H
   },
   "username": "",
   "password": "",
-  "interface": "eth0"
+  "interface": "eth0",
+  "allow_hosts": [
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16"
+  ]
 }
 ```
 
@@ -39,6 +44,7 @@ Configuration variables:
 - **username** (*Optional*): Username for logging in if guest login is not used.
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
 - **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection. If you are running on an Intel NUC this could also be `enp3s0` for ethernet or `wlp5s0` for wireless connection.
+- **allow_hosts** (*Optional*): The hosts that are allowed to connect to your Samba server. By default it is limited to people within the same local network.
 
 <p class='note warning'>
 Be careful when setting up port forwarding to the remote access. If you don't restrict access by requiring authentication and guest access is enabled, your configuration could be exposed to the internet!
