@@ -28,7 +28,7 @@ mac:
   description: Device MAC address.
   required: true
   type: string
- name:
+name:
   description: The name used to display the switch in the frontend.
   required: false
   type: string 
