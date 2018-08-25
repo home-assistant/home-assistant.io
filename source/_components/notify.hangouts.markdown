@@ -27,7 +27,7 @@ notify:
     platform: hangouts
     default_conversations:
       - id: CONVERSATION_ID
-      - name: CONVERSAION_NAME
+      - name: CONVERSATION_NAME
 ```
 
 {% configuration %}
