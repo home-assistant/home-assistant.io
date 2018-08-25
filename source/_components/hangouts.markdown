@@ -20,9 +20,9 @@ Menu: *Configuration* -> *Integrations*
   
 Fill the form:
 * Your **Google Mail Address** and **Password**
-* If needed you will asked for a 2 factor authorization token
+* If needed, you will be asked for a 2-factor authorization token
 
-**IMPORTANT:** If you secured your account with 2 factor authorization: Only verification by app or sms are support. There is no support for verification by promt on your phone.
+**IMPORTANT:** If you secured your account with 2 factor authorization: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.
 
 The authentification token will be generated and stored internally.
 
