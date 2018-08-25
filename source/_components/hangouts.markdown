@@ -32,8 +32,8 @@ hangouts:
   commands:
     - word: testword
       conversations:
-        - name: CONVERSATION_NAME
-        - id: CONVERSATION_ID
+        - id: CONVERSATION_ID1
+        - id: CONVERSATION_ID2
     - expression: "My name is (?P<name>.*)"
       name: introduction
 ```
@@ -45,7 +45,7 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with 'my_command'."
       required: false
       type: string
     expression:
@@ -63,14 +63,12 @@ commands:
       default: empty
       keys:
         id:
-          description: "Specifies the id of the conversation."
-          required: false
-          type: string
-        name:
-          description: "Specifies the name of the conversation."
-          required: false
+          description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+          required: true
           type: string
 {% endconfiguration %}
+
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
 ### {% linkable_title Event Data %}
 

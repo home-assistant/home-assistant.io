@@ -26,8 +26,8 @@ notify:
   - name: NOTIFIER_NAME
     platform: hangouts
     default_conversations:
-      - id: CONVERSATION_ID
-      - name: CONVERSATION_NAME
+      - id: CONVERSATION_ID1
+      - id: CONVERSATION_ID2
 ```
 
 {% configuration %}
@@ -41,12 +41,8 @@ default_conversations:
   type: [map]
   keys:
     id:
-      description: "Specifies the id of the conversation. (The conversation id can be obtained from the `hangouts.conversations` entity)"
-      required: false
-      type: string
-    name:
-      description: "Specifies the name of the conversation. (The conversation name can be obtained from the `hangouts.conversations` entity)"
-      required: false
+      description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+      required: true
       type: string
 {% endconfiguration %}
 
