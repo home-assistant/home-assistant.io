@@ -41,11 +41,11 @@ default_conversations:
   type: [map]
   keys:
     id:
-      description: "Specifies the id of the conversation."
+      description: "Specifies the id of the conversation. (The conversation id can be obtained from the `hangouts.conversations` entity)"
       required: false
       type: string
     name:
-      description: "Specifies the name of the conversation."
+      description: "Specifies the name of the conversation. (The conversation name can be obtained from the `hangouts.conversations` entity)"
       required: false
       type: string
 {% endconfiguration %}
