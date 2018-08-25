@@ -14,11 +14,19 @@ ha_release: 0.77
 
 This component allows you to send messages to [Google Hangouts](http://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
+## {% linkable_title Setup the component via the frontend %}
+
+Menu: *Configuration* -> *Integrations*
+  
+Fill the form:
+* Your **Google Mail Address** and **Password**
+* If needed you will asked for a 2 factor authorization token
+  
+The authentification token will be generated and stored internally.
+
 ```yaml
 # Example configuration.yaml entry
 hangouts:
-  email: my_google_user@gmail.com
-  password: supersecurepassword
   commands:
     - word: testword
       conversations:
@@ -28,14 +36,6 @@ hangouts:
       name: introduction
 ```
 {% configuration %}
-email:
-  description: "The Google email address that Home Assistant should use to log in. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
-  required: true
-  type: string
-password:
-  description: The password for your Google account.
-  required: true
-  type: string
 commands:
   description: "A list of commands that the bot should listen for. If a command is triggered (via its *word* or *expression*, see below), an event is fired that you can handle using automations. Every command consists of these possible configuration options:"
   required: false
@@ -83,8 +83,6 @@ There are these additional fields: `conversation_id`, `user_id` and `user_name`.
 ```yaml
 # The Hangouts component
 hangouts:
-  email: my_google_user@gmail.com
-  password: supersecurepassword
   commands:
     - word: testword
       conversations:
@@ -125,4 +123,4 @@ automation:
 This configuration will:
 - Listen for "testword" in the room "someothertest" (and only) there. 
   If such a message is encountered, it will answer with "It looks like you wrote testword" into the "hasstest" conversation.
-- Listen in all conversations for any message matching “My name is (any name)" and answer with "Hello (the given name)" into the same conversation.
+- Listen in all conversations for any message matching "My name is (any name)" and answer with "Hello (the given name)" into the same conversation.
