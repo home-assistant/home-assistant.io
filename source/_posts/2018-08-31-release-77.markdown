@@ -19,6 +19,7 @@ Notification drawer for lovelace.
 
 Hangouts
 
+Device registry!!
 
 
 ## {% linkable_title New Platforms %}
@@ -27,6 +28,7 @@ Hangouts
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
+- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -53,6 +55,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove unit_of_measurement from climate entities ([@jeradM] - [#16012]) ([climate docs]) ([climate.generic_thermostat docs]) ([climate.knx docs]) ([climate.maxcube docs]) ([climate.sensibo docs]) (breaking change)
 - Adds support for routers implementing IGDv2 ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
 - Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- deCONZ - Support device registry ([@Kane610] - [#16115]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs]) (beta fix)
+- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
+- Decouple Konnected entity setup from discovery ([@heythisisnate] - [#16146]) ([konnected docs]) ([switch.konnected docs]) (beta fix)
+- Device registry store config entry ([@Kane610] - [#16152]) (beta fix)
+- fix error message for cv.matches_regex ([@heythisisnate] - [#16175]) (beta fix)
+- Fix hangouts ([@balloob] - [#16180]) ([hangouts docs]) (beta fix)
+- Tweak log level for bearer token warning ([@awarecan] - [#16182]) ([http docs]) (beta fix)
+- Default load trusted_network auth provider if configured trusted networks ([@awarecan] - [#16184]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -140,6 +153,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Hangouts localization typo fix ([@armills] - [#16174]) ([hangouts docs])
 - deCONZ - Allow sub second light transitions ([@Kane610] - [#16170]) ([light.deconz docs])
 - add_devices -> add_entities ([@balloob] - [#16171])
+- deCONZ - Support device registry ([@Kane610] - [#16115]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs]) (beta fix)
+- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
+- Decouple Konnected entity setup from discovery ([@heythisisnate] - [#16146]) ([konnected docs]) ([switch.konnected docs]) (beta fix)
+- Device registry store config entry ([@Kane610] - [#16152]) (beta fix)
+- fix error message for cv.matches_regex ([@heythisisnate] - [#16175]) (beta fix)
+- Fix hangouts ([@balloob] - [#16180]) ([hangouts docs]) (beta fix)
+- Tweak log level for bearer token warning ([@awarecan] - [#16182]) ([http docs]) (beta fix)
+- Default load trusted_network auth provider if configured trusted networks ([@awarecan] - [#16184]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557
@@ -215,16 +236,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16111]: https://github.com/home-assistant/home-assistant/pull/16111
 [#16112]: https://github.com/home-assistant/home-assistant/pull/16112
 [#16113]: https://github.com/home-assistant/home-assistant/pull/16113
+[#16115]: https://github.com/home-assistant/home-assistant/pull/16115
 [#16121]: https://github.com/home-assistant/home-assistant/pull/16121
 [#16125]: https://github.com/home-assistant/home-assistant/pull/16125
 [#16126]: https://github.com/home-assistant/home-assistant/pull/16126
 [#16127]: https://github.com/home-assistant/home-assistant/pull/16127
 [#16130]: https://github.com/home-assistant/home-assistant/pull/16130
+[#16141]: https://github.com/home-assistant/home-assistant/pull/16141
+[#16146]: https://github.com/home-assistant/home-assistant/pull/16146
 [#16147]: https://github.com/home-assistant/home-assistant/pull/16147
 [#16150]: https://github.com/home-assistant/home-assistant/pull/16150
+[#16152]: https://github.com/home-assistant/home-assistant/pull/16152
 [#16170]: https://github.com/home-assistant/home-assistant/pull/16170
 [#16171]: https://github.com/home-assistant/home-assistant/pull/16171
 [#16174]: https://github.com/home-assistant/home-assistant/pull/16174
+[#16175]: https://github.com/home-assistant/home-assistant/pull/16175
+[#16180]: https://github.com/home-assistant/home-assistant/pull/16180
+[#16182]: https://github.com/home-assistant/home-assistant/pull/16182
+[#16184]: https://github.com/home-assistant/home-assistant/pull/16184
 [@Alexxander0]: https://github.com/Alexxander0
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Kane610]: https://github.com/Kane610
@@ -270,6 +299,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alexa docs]: /components/alexa/
 [api docs]: /components/api/
 [auth docs]: /components/auth/
+[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
 [binary_sensor.trend docs]: /components/binary_sensor.trend/
 [binary_sensor.wemo docs]: /components/binary_sensor.wemo/
 [binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
@@ -287,6 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [config docs]: /components/config/
 [cover.aladdin_connect docs]: /components/cover.aladdin_connect/
 [cover.brunt docs]: /components/cover.brunt/
+[deconz docs]: /components/deconz/
 [device_tracker docs]: /components/device_tracker/
 [ecovacs docs]: /components/ecovacs/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
@@ -314,6 +345,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [openuv docs]: /components/openuv/
 [panel_custom docs]: /components/panel_custom/
 [remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
+[sensor.deconz docs]: /components/sensor.deconz/
 [sensor.geizhals docs]: /components/sensor.geizhals/
 [sensor.glances docs]: /components/sensor.glances/
 [sensor.netatmo_public docs]: /components/sensor.netatmo_public/
@@ -327,6 +359,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
 [sonos docs]: /components/sonos/
 [splunk docs]: /components/splunk/
+[switch.deconz docs]: /components/switch.deconz/
 [switch.fritzdect docs]: /components/switch.fritzdect/
 [switch.konnected docs]: /components/switch.konnected/
 [switch.wemo docs]: /components/switch.wemo/
