@@ -47,9 +47,9 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 
 ### {% linkable_title Renaming all entities of a node %}
 
-When you change the entity_id of the `zwave.` entity, other entities of that node won't be changed. If you want to reset their entity_id too you need to remove them from `entity_registry.yaml`, and the process is like this:
+When you change the `entity_id` of the `zwave.` entity, other entities of that node won't be changed. If you want to reset their `entity_id` too you need to remove them from `entity_registry.yaml`, and the process is like this:
 
-1. Change the entity_id of the `zwave.` entity to set the base for all the other entities
+1. Change the `entity_id` of the `zwave.` entity to set the base for all the other entities
 2. Shut down Home Assistant and wait for it to stop
 3. Delete the relevant entries from `entity_registry.yaml`
 4. Start Home Assistant again
