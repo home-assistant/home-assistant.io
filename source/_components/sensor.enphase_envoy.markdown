@@ -23,13 +23,24 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: enphase_envoy
-    ip_address: ENVOY_LOCAL_IP_ADDRESS
+```
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: enphase_envoy
+    ip_address: LOCAL_IP_FOR_ENVOY
+    monitored_conditions:
+      - production
+      - consumption
+      - lifetime_production
+      - lifetime_consumption
 ```
 
 {% configuration %}
 ip_address:
-  description: The local IP Address of your Envoy
-  required: true
+  description: The local IP Address of your Envoy. Leave blank to search for it, but this may not always be reliable
+  required: false
   type: string
 monitored_conditions:
   description: The list of conditions to monitor
