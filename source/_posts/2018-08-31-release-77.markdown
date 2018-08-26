@@ -13,7 +13,7 @@ og_image: /images/blog/2018-08-0.77/components.png
 
 <a href='/components/#version/0.77'><img src='/images/blog/2018-08-0.77/components.png' style='border: 0;box-shadow: none;'></a>
 
-Auth enabled by default ! If you had auth providers configured before, recommended to remove the configuration and start using the default config.
+Auth enabled by default ! If you had auth providers configured before, recommended to remove the configuration and start using the default config. [Read the docs](/docs/authentication/)
 
 Notification drawer for lovelace.
 
