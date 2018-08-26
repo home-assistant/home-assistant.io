@@ -32,10 +32,6 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 ## {% linkable_title Z-Wave Node Management %}
 
-<p class='note warning'>
-Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change the default *friendly_name* attribute for all the entities). If you would like to update the entity id after renaming a z-wave device, you need to manually edit the [entity_registry.yaml](/docs/configuration/entity-registry/) file. See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
-</p>
-
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
 * **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail.
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
@@ -51,9 +47,9 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 
 ### {% linkable_title Renaming all entities of a node %}
 
-When you use *Rename Node* it, as mentioned above, only changes the `zwave.` entity. If you've just added a device then the other entities for that device will use that new entity name as the base. However existing entities won't be renamed, so you need to remove them from `entity_registry.yaml`, and the process is like this:
+When you change the `entity_id` of the `zwave.` entity, other entities of that node won't be changed. If you want to reset their `entity_id` too you need to remove them from `entity_registry.yaml`, and the process is like this:
 
-1. Use *Rename Node* to rename the `zwave.` entity and set the base for all the other entities
+1. Change the `entity_id` of the `zwave.` entity to set the base for all the other entities
 2. Shut down Home Assistant and wait for it to stop
 3. Delete the relevant entries from `entity_registry.yaml`
 4. Start Home Assistant again
