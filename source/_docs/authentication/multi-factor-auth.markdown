@@ -32,8 +32,6 @@ Multi-factor authentication modules are configured in your `configuration.yaml` 
 homeassistant:
   auth_mfa_modules:
     - type: totp
-      id: totp_google
-      name: Google Authenticator
 ```
 
 ## {% linkable_title Available mutli-factor authentication modules %}
