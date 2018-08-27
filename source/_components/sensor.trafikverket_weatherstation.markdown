@@ -54,7 +54,7 @@ station:
   required: true  
   type: string  
 monitored_conditions: 
-  description: Conditions to display in the frontend.  
+  description: Specify what measurement data to retreive from the weather station. 
   required: true  
   type: map  
   keys:
@@ -69,9 +69,9 @@ monitored_conditions:
     wind_direction:  
       description: Wind direction in degrees.  
     wind_direction_text:  
-      description: Rough direction in twelve variants (Swedish text).  
+      description: Rough wind direction in twelve variants (Swedish text).  
     wind_speed:  
-      description: Average wind force during the last 10 minutes.    
+      description: Average wind speed during the last 10 minutes.    
 {% endconfiguration %}
 
 ##### {% linkable_title Obtaining API key %}
