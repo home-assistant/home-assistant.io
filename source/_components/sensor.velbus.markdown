@@ -2,7 +2,7 @@
 layout: page
 title: "Velbus Sensor"
 description: "Instructions how to integrate Velbus sensors into Home Assistant."
-date: 2018-08-022 00:00
+date: 2018-08-22 06:00
 sidebar: true
 comments: false
 sharing: true
