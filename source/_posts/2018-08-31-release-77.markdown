@@ -21,6 +21,8 @@ If you were using auth before 0.77:
  - Please remove the auth providers from your configuration and switch to the default config
  - Due to changing how the home assistant auth provider hashes passwords, you cannot rollback to 76 with auth enabled unless you remove `.storage/auth*.*` and `.storage/hassio`
 
+The iOS app will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will require a second login when using the webview.
+
 
 Notification drawer for lovelace.
 
