@@ -15,9 +15,12 @@ og_image: /images/blog/2018-08-0.77/components.png
 
 Auth enabled by default ! If you had auth providers configured before, recommended to remove the configuration and start using the default config. [Read the docs](/docs/authentication/).
 
+You might still have applications that will reach Home Assistant using the API password. This will cause a warning to be printed. If possible, ask the applications developer to transition to use the [OAuth2](https://developers.home-assistant.io/docs/en/auth_api.html) to obtain a token to communicate with Home Assistant. For non-interactive scripts or other applications that are unable to update, we are planning to introduce a migration path for components to adopt url specific auth tokens and also introduce long lived access tokens to replace API passwords. A list of impacted components can be found [here](https://github.com/home-assistant/home-assistant/issues/15376#issuecomment-415890552).
+
 If you were using auth before 0.77:
  - Please remove the auth providers from your configuration and switch to the default config
  - Due to changing how the home assistant auth provider hashes passwords, you cannot rollback to 76 with auth enabled unless you remove `.storage/auth*.*` and `.storage/hassio`
+
 
 Notification drawer for lovelace.
 
