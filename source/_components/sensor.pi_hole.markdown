@@ -50,7 +50,7 @@ verify_ssl:
 monitored_conditions:
   description: Defines the stats to monitor as sensors.
   required: false
-  type: string
+  type: string|list
   default: ads_blocked_today
   keys:
     ads_blocked_today:
