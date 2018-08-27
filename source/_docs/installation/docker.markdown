@@ -21,11 +21,8 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 ### {% linkable_title Raspberry Pi 3 (Raspbian) %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant:0.XX.x
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
 ```
-
-The Docker container for Raspberry Pi 3 does not have a 'latest' tag so the version number must be specified explicitly, i.e. 0.68.0. This goes for both CLI and Docker Compose.
-
 
 ### {% linkable_title macOS %}
 
