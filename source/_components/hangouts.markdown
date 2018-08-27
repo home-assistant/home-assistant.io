@@ -42,7 +42,7 @@ hangouts:
 ```
 {% configuration %}
 intents:
-  description: "Intents that the hangouts component should unterstand."
+  description: "Intents that the hangouts component should understand."
   required: false
   type: map
   default: empty
@@ -100,7 +100,7 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversation
+      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
 
 ```
 
