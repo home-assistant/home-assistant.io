@@ -11,6 +11,10 @@ footer: true
 ---
 
 <p class='note warning'>
+This page only apply to release 0.77 and above.
+</p>
+
+<p class='note warning'>
 This is an advanced feature. If misconfigured, you will not be able to access Home Assistant anymore!
 </p>
 
