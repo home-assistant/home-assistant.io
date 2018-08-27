@@ -38,6 +38,7 @@ Device registry!!
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
 - Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
+- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -75,6 +76,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix hangouts ([@balloob] - [#16180]) ([hangouts docs]) (beta fix)
 - Tweak log level for bearer token warning ([@awarecan] - [#16182]) ([http docs]) (beta fix)
 - Default load trusted_network auth provider if configured trusted networks ([@awarecan] - [#16184]) (beta fix)
+- Replace pbkdf2 with bcrypt ([@Eriner] - [#16071]) (beta fix)
+- Add Time-based Onetime Password Multi-factor Authentication Module ([@awarecan] - [#16129]) (beta fix)
+- Handle exception from pillow ([@PhracturedBlue] - [#16190]) ([camera.proxy docs]) (beta fix)
+- remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
+- Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
+- Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
+- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
+- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
+- Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
+- Update trusted networks flow ([@balloob] - [#16227]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -170,6 +182,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix hangouts ([@balloob] - [#16180]) ([hangouts docs]) (beta fix)
 - Tweak log level for bearer token warning ([@awarecan] - [#16182]) ([http docs]) (beta fix)
 - Default load trusted_network auth provider if configured trusted networks ([@awarecan] - [#16184]) (beta fix)
+- Replace pbkdf2 with bcrypt ([@Eriner] - [#16071]) (beta fix)
+- Add Time-based Onetime Password Multi-factor Authentication Module ([@awarecan] - [#16129]) (beta fix)
+- Handle exception from pillow ([@PhracturedBlue] - [#16190]) ([camera.proxy docs]) (beta fix)
+- remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
+- Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
+- Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
+- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
+- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
+- Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
+- Update trusted networks flow ([@balloob] - [#16227]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557
@@ -226,6 +249,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16049]: https://github.com/home-assistant/home-assistant/pull/16049
 [#16060]: https://github.com/home-assistant/home-assistant/pull/16060
 [#16065]: https://github.com/home-assistant/home-assistant/pull/16065
+[#16071]: https://github.com/home-assistant/home-assistant/pull/16071
 [#16077]: https://github.com/home-assistant/home-assistant/pull/16077
 [#16079]: https://github.com/home-assistant/home-assistant/pull/16079
 [#16083]: https://github.com/home-assistant/home-assistant/pull/16083
@@ -250,6 +274,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16125]: https://github.com/home-assistant/home-assistant/pull/16125
 [#16126]: https://github.com/home-assistant/home-assistant/pull/16126
 [#16127]: https://github.com/home-assistant/home-assistant/pull/16127
+[#16129]: https://github.com/home-assistant/home-assistant/pull/16129
 [#16130]: https://github.com/home-assistant/home-assistant/pull/16130
 [#16141]: https://github.com/home-assistant/home-assistant/pull/16141
 [#16146]: https://github.com/home-assistant/home-assistant/pull/16146
@@ -263,11 +288,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16180]: https://github.com/home-assistant/home-assistant/pull/16180
 [#16182]: https://github.com/home-assistant/home-assistant/pull/16182
 [#16184]: https://github.com/home-assistant/home-assistant/pull/16184
+[#16190]: https://github.com/home-assistant/home-assistant/pull/16190
+[#16191]: https://github.com/home-assistant/home-assistant/pull/16191
+[#16198]: https://github.com/home-assistant/home-assistant/pull/16198
+[#16202]: https://github.com/home-assistant/home-assistant/pull/16202
+[#16209]: https://github.com/home-assistant/home-assistant/pull/16209
+[#16216]: https://github.com/home-assistant/home-assistant/pull/16216
+[#16220]: https://github.com/home-assistant/home-assistant/pull/16220
+[#16224]: https://github.com/home-assistant/home-assistant/pull/16224
+[#16227]: https://github.com/home-assistant/home-assistant/pull/16227
 [@Alexxander0]: https://github.com/Alexxander0
 [@Danielhiversen]: https://github.com/Danielhiversen
+[@Eriner]: https://github.com/Eriner
 [@Kane610]: https://github.com/Kane610
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@OverloadUT]: https://github.com/OverloadUT
+[@PhracturedBlue]: https://github.com/PhracturedBlue
+[@Swamp-Ig]: https://github.com/Swamp-Ig
 [@TimBailey-pnk]: https://github.com/TimBailey-pnk
 [@amelchio]: https://github.com/amelchio
 [@appzer]: https://github.com/appzer
@@ -316,6 +353,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [calendar.google docs]: /components/calendar.google/
 [camera docs]: /components/camera/
 [camera.generic docs]: /components/camera.generic/
+[camera.proxy docs]: /components/camera.proxy/
 [camera.push docs]: /components/camera.push/
 [climate docs]: /components/climate/
 [climate.ephember docs]: /components/climate.ephember/
@@ -324,6 +362,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.maxcube docs]: /components/climate.maxcube/
 [climate.sensibo docs]: /components/climate.sensibo/
 [config docs]: /components/config/
+[conversation docs]: /components/conversation/
 [cover.aladdin_connect docs]: /components/cover.aladdin_connect/
 [cover.brunt docs]: /components/cover.brunt/
 [deconz docs]: /components/deconz/
@@ -373,6 +412,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.konnected docs]: /components/switch.konnected/
 [switch.wemo docs]: /components/switch.wemo/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
+[tellduslive docs]: /components/tellduslive/
 [upnp docs]: /components/upnp/
 [vacuum.ecovacs docs]: /components/vacuum.ecovacs/
 [vacuum.neato docs]: /components/vacuum.neato/
