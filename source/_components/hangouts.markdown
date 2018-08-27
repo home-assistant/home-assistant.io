@@ -29,98 +29,137 @@ The authentication token will be generated and stored internally.
 ```yaml
 # Example configuration.yaml entry
 hangouts:
-  commands:
-    - word: testword
+  intents:
+    LivingRoomTemperature:
+      sentences:
+        - What is the temperature in the living room
       conversations:
         - id: CONVERSATION_ID1
         - id: CONVERSATION_ID2
-    - expression: "My name is (?P<name>.*)"
-      name: introduction
+  error_suppressed_conversations:
+    - id: CONVERSATION_ID2
+
 ```
 {% configuration %}
-commands:
-  description: "A list of commands that the bot should listen for. If a command is triggered (via its *word* or *expression*, see below), an event is fired that you can handle using automations. Every command consists of these possible configuration options:"
+intents:
+  description: "Intents that the hangouts component should understand."
   required: false
   type: map
   default: empty
   keys:
-    word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with 'my_command'."
-      required: false
-      type: string
-    expression:
-      description: "Specifies a regular expression (in python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
-      required: false
-      type: string
-    name:
-      description: "The name of the command. This will be an attribute of the event that is fired when this command triggers."
+    '`<INTENT NAME>`':
+      description: "Single intent entry."
+      required: true
+      type: map
+      keys:
+        sentences:
+          description: "Sentences that should trigger this intent."
+          required: true
+          type: list
+        conversations:
+          description: "A list of conversations that triggers this intent. If no conversation are given, every conversations triggers the intent."
+          required: false
+          type: [map]
+          default: empty
+          keys:
+            id:
+              description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+              required: true
+              type: string
+error_suppressed_conversations:
+  description: "A list of conversations that won't get a message if the intent is not known."
+  required: false
+  type: [map]
+  default: empty
+  keys:
+    id:
+      description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
       required: true
       type: string
-    conversations:
-      description: "A list of conversations that the bot should listen for this command in. If this is not given, all conversations are used."
-      required: false
-      type: [map]
-      default: empty
-      keys:
-        id:
-          description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
-          required: true
-          type: string
 {% endconfiguration %}
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
-### {% linkable_title Event Data %}
-
-If a command is triggered, a `hangouts_command` event is fired. The event contains the name of the command in the `command` field.
-
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
-
-There are these additional fields: `conversation_id`, `user_id` and `user_name`.
-
-### {% linkable_title Comprehensive Configuration Example %}
+## {% linkable_title Adding sentences %}
 
 ```yaml
 # The Hangouts component
 hangouts:
-  commands:
-    - word: testword
+  intents:
+    HassLightSet:
+      sentences:
+        - Toggle {name}.
       conversations:
-        - name: "someothertest"
-    - expression: "My name is (?P<name>.*)"
-      name: introduction
+        - id: CONVERSATION_ID1
+    Ping:
+      sentences:
+        - How many Conversation do you know
+  error_suppressed_conversations:
+    - id: CONVERSATION_ID2
 
-automation:
-  - alias: 'React to !testword'
-    trigger:
-      platform: event
-      event_type: hangouts_command
-      event_data:
-        command: testword
-    action:
-      service: hangouts.send_message
-      data_template:
-        target: 
-          - name: "hasstest"
-        message: 
-          - text: 'It looks like you wrote testword'
-  - alias: 'React to an introduction'
-    trigger:
-      platform: event
-      event_type: hangouts_command
-      event_data:
-        command: introduction
-    action:
-      service: hangouts.send_message
-      data_template:
-        target: 
-          - id: '{{ trigger.event.data.conversation_id}}'
-        message: 
-          - text: "Hello {{ trigger.event.data.data.name }}"
+intent_script:
+  Ping:
+    speech:
+      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
 
 ```
 
 This configuration will:
-- Listen for "testword" in the room "someothertest" (and only) there. 
-  If such a message is encountered, it will answer with "It looks like you wrote testword" into the "hasstest" conversation.
-- Listen in all conversations for any message matching "My name is (any name)" and answer with "Hello (the given name)" into the same conversation.
+- Toggle the light in the given location in a specific conversation.
+- Return the conversations the bot know.
+
+## {% linkable_title Adding advanced custom sentences %}
+
+Sentences can contain slots (marked with curly braces: `{name}`) and optional words (marked with square brackets: `[the]`). The values of slots will be passed on to the intent and are available inside the templates.
+
+The following configuration can handle the following sentences:
+
+ - Change the lights to red
+ - Change the lights to green
+ - Change the lights to blue
+ - Change the lights to the color red
+ - Change the lights to the color green
+ - Change the lights to the color blue
+
+```yaml
+# Example configuration.yaml entry
+hangouts:
+  intents:
+    ColorLight:
+      sentences:
+        - Change the lights to [the color] {color}
+{% raw %}
+intent_script:
+  ColorLight:
+    speech:
+      text: Changed the lights to {{ color }}.
+    action:
+      service: light.turn_on
+      data_template:
+        rgb_color:
+          - "{% if color == 'red' %}255{% else %}0{% endif %}"
+          - "{% if color == 'green' %}255{% else %}0{% endif %}"
+          - "{% if color == 'blue' %}255{% else %}0{% endif %}"
+{% endraw %}
+```
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `hangouts.update` %}
+
+Updates the list of conversations.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+|                        |          |                                                  |
+
+### {% linkable_title Service `hangouts.send_message` %}
+
+Sends a message to the given conversations.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| target                 | List of targets with id or name. [Required] | [{"id": "UgxrXzVrARmjx_C6AZx4AaABAagBo-6UCw"}, {"name": "Test Conversation"}] |
+| message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
+
+
