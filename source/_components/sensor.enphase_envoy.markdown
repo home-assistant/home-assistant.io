@@ -51,7 +51,7 @@ monitored_conditions:
       description: The power in W being produced by the solar panels
     daily_production:
       description: The energy in Wh produced that day
-    7_days_production:
+    seven_days_production:
       description: The energy in Wh produced the last 7 days
     lifetime_production:
       description: The energy in Wh produced in the lifetime of the Envoy
@@ -59,7 +59,7 @@ monitored_conditions:
       description: The power in W being consumed in the whole house
     daily_consumption:
       description: The energy in Wh consumed that day
-    7_days_consumption:
+    seven_days_consumption:
       description: The energy in Wh consumed the last 7 days
     lifetime_consumption:
       description: The energy in Wh consumed in the lifetime of the Envoy
