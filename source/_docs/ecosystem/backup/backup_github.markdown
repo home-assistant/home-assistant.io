@@ -50,6 +50,10 @@ Before creating and pushing your Home Assistant configuration to GitHub, please 
 
 Creating a `.gitignore` file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your `secrets.yaml` file, device configuration files, and the Home Assistant database/directory structure.  The `.gitignore` file should be placed in the root of your Home Assistant configuration directory: `<config dir/.gitignore`.
 
+<p class='note'>
+  If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e. by using an editor like Notepad++).
+</p>
+
 Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
@@ -79,7 +83,7 @@ $ git add .
 $ git commit
 ```
 
-After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit.  In this case, you can enter something like "Initial commit of my Home Assistant configuration."
+After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit.  In this case, you can enter something like "Initial commit of my Home Assistant configuration." To exit the editor, press `CTRL + C` and then `:wq` which will exit and save the changes. 
 
 ### {% linkable_title Step 4: Creating Repository on GitHub %}
 
