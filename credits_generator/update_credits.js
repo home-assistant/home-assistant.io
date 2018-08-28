@@ -4,8 +4,12 @@ var fs = require('fs')
   , mu = require('mu2')
   , moment = require('moment-timezone');
 
-if(!process.env.GITHUB_TOKEN) {
-  console.error('You must set the GITHUB_TOKEN environment variable to a GitHub personal access token.');
+let token;
+
+try {
+  token = fs.readFileSync('.token', 'utf-8').trim();
+} catch (err) {
+  console.error('You must create a .token file that contains a GitHub token.');
   return;
 }
 
@@ -17,7 +21,7 @@ var github = new GitHubApi({
   headers: { 'user-agent': 'Home Assistant Contributors List Updater <hello@home-assistant.io>' }
 });
 
-github.authenticate({ type: 'oauth', token: process.env.GITHUB_TOKEN });
+github.authenticate({ type: 'oauth', token: token });
 
 var usersMap = {};
 
