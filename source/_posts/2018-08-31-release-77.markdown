@@ -29,7 +29,9 @@ It will take some time before all of the Home Assistant ecosystem has been migra
 
 Our [iOS app](/ios) will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will however require a second login when using the webview.
 
-I want to say a biiiig thank you to all the people that have been involved in the development and testing of the new authentication system. It's been a big project and it's been great to see how we, as a community, have rallied together to tackle it. Especially a big shout out to [@awarecan].
+If you are using a proxy server (NGINX etc) in front of Home Assistant to provide authentication, check [this blogpost](https://blog.ceard.tech/2018/08/turbulence-ahead-fasten-your-seatbelt.html) by [@DubhAd] how to make it work.
+
+I want to say a biiiig thank you to all the people that have been involved in the development and testing of the new authentication system. It's been a big project and it's been great to see how we, as a community, have rallied together to tackle it. Especially a big shout out to [@awarecan] who has done an amazing job on this.
 
 #### {% linkable_title Hangouts %}
 
@@ -325,7 +327,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16254]: https://github.com/home-assistant/home-assistant/pull/16254
 [#16255]: https://github.com/home-assistant/home-assistant/pull/16255
 [@Alexxander0]: https://github.com/Alexxander0
-[@blackgold9]: https://github.com/blackgold9
+[@DubhAd]: https://github.com/DubhAd
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Eriner]: https://github.com/Eriner
 [@Kane610]: https://github.com/Kane610
