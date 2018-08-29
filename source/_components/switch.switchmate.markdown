@@ -1,15 +1,15 @@
 ---
 layout: page
 title: "Switchmate"
-description: "Instructions on how to have Switchmate switches."
+description: "Instructions on how to set up Switchmate switches."
 date: 2018-08-17 22:41
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: switchmate.png
+logo: switchmate-logo-rgb.png
 ha_category: Switch
-ha_release: 0.77
+ha_release: 0.78
 ha_iot_class: "Local Polling"
 ---
 
