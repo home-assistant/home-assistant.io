@@ -105,7 +105,7 @@ KNX component is able to expose time or sensor values to KNX bus. The component 
 ```yaml
 # Example configuration.yaml entry
 knx:
-    expose::
+    expose:
         - type: 'temperature'
           entity_id: 'sensor.owm_temperature'
           address: '0/0/2'
