@@ -48,6 +48,19 @@ You didn't think we would forget about Lovelace, did you? This release include a
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
 
+## {% linkable_title Release 0.77.1 - August 29 %}
+
+- Fix trusted networks login error ([@awarecan])
+- Fix data_key override by parent class ([@syssi] - [#16278]) ([binary_sensor.xiaomi_aqara docs])
+- Fix error when vacuum is idling ([@cnrd] - [#16282]) ([vacuum.xiaomi_miio docs])
+
+[#16278]: https://github.com/home-assistant/home-assistant/pull/16278
+[#16282]: https://github.com/home-assistant/home-assistant/pull/16282
+[@cnrd]: https://github.com/cnrd
+[@syssi]: https://github.com/syssi
+[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
