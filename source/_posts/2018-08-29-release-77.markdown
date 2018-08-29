@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.77: Authentication system + Hangouts bot"
+title: "0.77: Authentication system 👮‍♂️ + Hangouts bot 🤖"
 description: "The new authentication system is live! Chat on hangouts! "
 date: 2018-08-29 00:01:00
 date_formatted: "August 29, 2018"
