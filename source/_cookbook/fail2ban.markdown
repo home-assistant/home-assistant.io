@@ -15,6 +15,7 @@ ha_category: Infrastructure
 This is a quick guide on how to setup fail2ban for Home Assistant. Contains extracts from [Is there a log file for invalid logins? \(Blocking hackers\)](https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892).
 
 Installing fail2ban.
+
 Debian/Ubuntu:
 ```bash
 sudo apt-get install fail2ban
