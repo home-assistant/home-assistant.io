@@ -45,24 +45,6 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
 
-### {% linkable_title Renaming all entities of a node %}
-
-When you change the `entity_id` of the `zwave.` entity, other entities of that node won't be changed. If you want to reset their `entity_id` too you need to remove them from `entity_registry.yaml`, and the process is like this:
-
-1. Change the `entity_id` of the `zwave.` entity to set the base for all the other entities
-2. Shut down Home Assistant and wait for it to stop
-3. Delete the relevant entries from `entity_registry.yaml`
-4. Start Home Assistant again
-
-Each block you need to delete will look something like this, you need to delete all 4 lines for each entry. The first number of the `unique-id` is the Node ID of the Z-Wave node.
-
-```yaml
-sensor.fibaro_door_sensor_access_control:
-  name:
-  platform: zwave
-  unique_id: 5-72057594126614528
-```
-
 #### {% linkable_title Entities of this node %}
 
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:

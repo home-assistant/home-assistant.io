@@ -38,8 +38,9 @@ Configuration variables:
 - **sidebar_title** (*Optional*): Friendly title for the panel in the sidebar. Omitting it means no sidebar entry (but still accessible through the URL).
 - **sidebar_icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 - **url_path** (*Optional*): The URL your panel will be available on in the frontend. If omitted will default to the panel name.
-- **js_url** (*Required*): The URL that contains the JavaScript of your panel.
+- **js_url** (*Required*): The URL that contains the JavaScript of your panel. This is exclusive to `module_url` and `webcomponent_path`.
+- **module_url** (*Optional*): The URL that contains the JavaScript module of your panel. Loaded as a JavaScript module instead of a script. This is exclusive to `js_url` and `webcomponent_path`.
 - **config** (*Optional*): Configuration to be passed into your web component when being instantiated.
-- **embed_iframe** (*Optional*): Set to `true` to embed panel in iframe. This is necessary if the panel is panel is using the React framework or if it contains conflicting web components.
+- **embed_iframe** (*Optional*): Set to `true` to embed panel in iframe. This is necessary if the panel is using the React framework or if it contains conflicting web components.
 - **trust_external_script** (*Optional*): By default the user has to confirm before loading a script from an external source. Setting this to `true` will omit this confirmation.
-- **webcomponent_path** (*Optional* *DEPRECATED*): The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html`
+- **webcomponent_path** (*Optional* *DEPRECATED*): The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html`  This is exclusive to `js_url` and `module_url`.

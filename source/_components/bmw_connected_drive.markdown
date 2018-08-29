@@ -50,6 +50,11 @@ bmw_connected_drive:
       description: "The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`"
       required: true
       type: string
+    read_only:
+      description: In read only mode, all services including the lock of the vehicle are disabled.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Services %}

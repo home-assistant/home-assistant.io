@@ -21,8 +21,8 @@ To add `neato` vacuum to your installation, please follow instructions in [Neato
 
 Currently supported features are:
 
-- `turn_on`
+- `start`
 - `pause`
 - `stop`
 - `return_to_home`
-- `turn_off` (stop all activity and return to dock)
+- `locate`

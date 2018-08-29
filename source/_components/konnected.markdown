@@ -74,7 +74,7 @@ devices:
           description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 9.
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are 1, 2, 3, 4, 5 and 6.
+          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are `1`, `2`, `3`, `4`, `5` and `6`.
           required: exclusive
         type:
           description: Any [binary sensor](/components/binary_sensor/) class, typically `door`, `window`, `motion` or `smoke`.
@@ -92,16 +92,25 @@ devices:
           description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 8.
           required: exclusive
         zone:
-          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board or the word `out` to specify the dedicated ALARM/OUT terminal on the Konnected board. Valid values are 1, 2, 3, 4, 5 and out.
+          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board or the word `out` to specify the dedicated ALARM/OUT terminal on the Konnected board. Valid values are `1`, `2`, `3`, `4`, `5` and `out`.
           required: exclusive
         name:
           description: The name of the device used in the front end.
           required: false
           default: automatically generated
         activation:
-          description: Either "low" or "high" to specify the state when the switch is turned on.
+          description: Either `low` or `high` to specify the state when the switch is turned on.
           default: high
           required: false
+        momentary:
+          description: Duration of the momentary pulse in milliseconds. To make a half-second momentary contact using a relay for a garage door opener, set this value to `500`.
+          required: false
+        pause: 
+          description: Time of the pause between pulses in milliseconds when also used with _momentary_ and _repeat_. To make a door chime "beep" with piezo buzzer, set this value to `55`, set _momentary_ to `65`, and _repeat_ to `3` or `4`.
+          required: false
+        repeat:
+          description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
+          required: false       
 {% endconfiguration%}
 
 #### {% linkable_title Configuration Notes %}
@@ -109,7 +118,7 @@ devices:
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 
-## {% linkable_title Full configuration  %}
+## {% linkable_title Full Configuration  %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,12 +130,25 @@ konnected:
         - zone: 1
           type: door
           name: 'Front Door'
+        - zone: 2
+          type: smoke
+          name: 'Bedroom Smoke Detector'
         - zone: 3
           type: motion
           name: 'Test Motion'
       switches:
         - zone: out
           name: siren
+        - zone: 5
+          name: 'Beep Beep'
+          momentary: 65
+          pause: 55
+          repeat: 4  
+        - zone: 5
+          name: Warning
+          momentary: 65
+          pause: 55
+          repeat: -1
     - id: 438a38
       binary_sensors:
         - pin: 1
@@ -139,6 +161,9 @@ konnected:
         - pin: 5
           name: 'Garage Door'
           activation: low
+          momentary: 500
+        - pin: 8
+          name: LED Light
 ```
 
 ### {% linkable_title Pin Mapping %}

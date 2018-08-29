@@ -28,10 +28,12 @@ When logging in, make sure that the URL in the URL bar is showing the address of
 
 ## {% linkable_title Profile %}
 
-Once you're logged in, you can access the profile page to change your user preferences. Here you can change your preferred language or password. You can also log out. You can access the profile page by clicking on your user badge in the sidebar.
+Once you're logged in, you can access the profile page by clicking on the badge next to the Home Assistant title in the sidebar. Here you can change your preferred language or change your password. You can also log out.
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
-## {% linkable_title Multi-factor authentication  %} (soon)
+## {% linkable_title Multi-factor authentication  %}
 
-As a user, you can setup multi-factor authentication like time-based one-time passwords. This is an extra challenge that you have to solve after you finish your login. You will be able to set up these challenges from the profile page once you're logged in.
+As a user, you can setup multi-factor authentication with time-based one-time passwords. This is an extra challenge that you have to solve after you finish your login. You will be able to set up these challenges from the profile page once you're logged in.
+
+<img src='/images/docs/authentication/mfa.png' alt='Screenshot of setting up multi-factor authentication' style='border: 0;box-shadow: none;'>
