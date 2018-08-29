@@ -258,7 +258,7 @@ automation:
       service: snips.say_action
         data:
           text: 'Garage door has been open 10 minutes, would you like me to close it?'
-          intentFilter:
+          intent_filter:
             - closeGarageDoor
 
 # This intent is fired if the user responds with the appropriate intent after the above notification
