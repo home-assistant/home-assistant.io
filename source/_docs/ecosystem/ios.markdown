@@ -10,8 +10,6 @@ footer: true
 redirect_from: /ecosystem/ios/
 ---
 
-<link rel='redirect_uri' href='homeassistant://auth-callback'>
-
 The Home Assistant for iOS app offers a companion app for iOS which is deeply integrated into both Home Assistant and iOS. Its basic features include:
 
 * Advanced push notifications
