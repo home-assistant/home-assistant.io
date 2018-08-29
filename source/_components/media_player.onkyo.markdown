@@ -79,3 +79,26 @@ List of source names:
 - multi-ch
 - xm
 - sirius
+
+### {% linkable_title Example `play_media` script %}
+
+The `play_media` function can be used in script to play radio station by preset number.
+Not working for NET radio.
+
+```yaml
+# Example play_media script
+#
+script:
+ radio1:
+    alias: "Radio 1"
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.onkyo
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.onkyo
+          media_content_type: "radio"
+          media_content_id: "1"
+
+```
