@@ -1,35 +1,43 @@
 ---
 layout: post
-title: "0.77: TODO - UPDATE DATE"
-description: ""
-date: 2018-08-24 00:01:00
-date_formatted: "August 31, 2018"
+title: "0.77: Authentication system + Hangouts bot"
+description: "The new authentication system is live! Chat on hangouts! "
+date: 2018-08-29 00:01:00
+date_formatted: "August 29, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-08-0.77/components.png
+og_image: /images/blog/2018-08-0.77/social.png
 ---
 
-<a href='/components/#version/0.77'><img src='/images/blog/2018-08-0.77/components.png' style='border: 0;box-shadow: none;'></a>
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Xm6tsnXabcw" frameborder="0" allowfullscreen></iframe>
+</div>
 
-Auth enabled by default ! If you had auth providers configured before, recommended to remove the configuration and start using the default config. [Read the docs](/docs/authentication/).
+It's time for a great new release and it includes a big change: the new [authentication system](/docs/authentication/) has been activated! We've worked very hard on this for the last couple of months to make the transition as smooth as possible. Updating to this release is a non-breaking change (unless you had no API password configured). As can be seen in the video above, when you start Home Assistant after the update, you will be presented with our new onboarding flow. This will ask you to create a new account after which you will be able to log in to Home Assistant.
 
-You might still have applications that will reach Home Assistant using the API password. This will cause a warning to be printed. If possible, ask the applications developer to transition to use the [OAuth2](https://developers.home-assistant.io/docs/en/auth_api.html) to obtain a token to communicate with Home Assistant. For non-interactive scripts or other applications that are unable to update, we are planning to introduce a migration path for components to adopt url specific auth tokens and also introduce long lived access tokens to replace API passwords. A list of impacted components can be found [here](https://github.com/home-assistant/home-assistant/issues/15376#issuecomment-415890552).
+Once logged in, you will have access to the following new features:
 
-If you were using auth before 0.77:
- - Please remove the auth providers from your configuration and switch to the default config
- - Due to changing how the home assistant auth provider hashes passwords, you cannot rollback to 76 with auth enabled unless you remove `.storage/auth*.*` and `.storage/hassio`
+ - Change your password
+ - Configure multifactor authentication (TOTP)
+ - Manage other users (limited to account created during onboarding)
 
-The iOS app will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will require a second login when using the webview.
+Although it's possible to configure authentication, we stronlgy recommend to stick with the default authentication configuration.  If you had auth providers configured in a previous Home Assistant release, we recommend to remove the configuration and start using the default.
 
+It will take some time before all of the Home Assistant ecosystem has been migrated over to the new auth system. Home Assistant will print a warning whenever an application connects to Home Assistant with the legacy authentication. This will help users notify the application developers to transition to use the new [OAuth2](https://developers.home-assistant.io/docs/en/auth_api.html) authentication. For non-interactive scripts or other applications that are unable to update, we are planning to introduce a migration path for components to adopt url specific auth tokens and also introduce long lived access tokens to replace API passwords. A list of impacted components can be found [here](https://github.com/home-assistant/home-assistant/issues/15376#issuecomment-415890552).
 
-Notification drawer for lovelace.
+The iOS app will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will however require a second login when using the webview.
 
-Hangouts
+I want to say a biiiig thank you to all the people that have been involved in the development and testing of the new authentication system. It's been a big project and it's been great to see how we, as a community, have rallied together to tackle it. Especially a big shout out to [@awarecan].
 
-Device registry!!
+#### {% linkable_title Hangouts %}
 
+And that's not it ! [@hobbypunk90] has contributed a new integration for [Google Hangouts][hangouts docs]. You can send messages but can also configure intents to handle incoming messages from specific people. Very cool!
+
+#### {% linkable_title Lovelace %}
+
+You didn't think we would forget about Lovelace, did you? This release include a new notification drawer thanks to [@jeradM]. It will collect all persistent notifications and configurator entities and shows it in a new sidebar toggleable from the toolbar.
 
 ## {% linkable_title New Platforms %}
 
@@ -37,12 +45,6 @@ Device registry!!
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
-- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
-- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
-
-## {% linkable_title New Features %}
-
-- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
 
 ## {% linkable_title If you need help... %}
 
@@ -56,20 +58,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
-- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
-- Update Xiaomi Vacuum to new StateVacuumDevice ([@cnrd] - [#15643]) (breaking change)
-- Update neato to support new StateVacuumDevice ([@dshokouhi] - [#16035]) ([vacuum.neato docs]) (breaking change)
-- Remove homeassistant.remote ([@balloob] - [#16099]) ([api docs]) ([http docs]) ([mqtt_eventstream docs]) ([mqtt_statestream docs]) ([notify docs]) ([splunk docs]) ([websocket_api docs]) (breaking change)
-- Merge insteon_plm and insteon_local to insteon component ([@teharris1] - [#16102]) (breaking change)
+- Enable auth by default 🙈. It is no longer possible to access Home Assistant without authentication ([@balloob] - [#16107]) (breaking change)
+- It's no longer possible to use a trusted network to connect to the websocket API. You need to get a token and use that to connect.  ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)
+- Script Syntax: The wait template will now continue to run the remainder of the script on timeout, the original functionality can be gained by setting `continue_on_timeout: false`. Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
+- Update Xiaomi Vacuum to new StateVacuumDevice changed some services: `turn_on` -> `start`, `turn_off` -> `return_to_dock`, `toggle` has been removed. States 'on' and 'off' will also no longer be used. ([@cnrd] - [#15643]) (breaking change)
+- Update neato to support new StateVacuumDevice changed some services: `turn_on` -> `start`, `turn_off` -> `return_to_dock`, `toggle` has been removed. States 'on' and 'off' will also no longer be used. ([@dshokouhi] - [#16035]) ([vacuum.neato docs]) (breaking change)
+- The previously deprecated package `homeassistant.remote` has been removed. ([@balloob] - [#16099]) ([api docs]) ([http docs]) ([mqtt_eventstream docs]) ([mqtt_statestream docs]) ([notify docs]) ([splunk docs]) ([websocket_api docs]) (breaking change)
+- Merge `insteon_plm` and `insteon_local` components to insteon component ([@teharris1] - [#16102]) (breaking change)
 - Remove unit_of_measurement from climate entities ([@jeradM] - [#16012]) ([climate docs]) ([climate.generic_thermostat docs]) ([climate.knx docs]) ([climate.maxcube docs]) ([climate.sensibo docs]) (breaking change)
-- Adds support for routers implementing IGDv2 ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
-- Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
+- Upnp component no longer enables port mapping by default ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
+- The entity registry yaml file has been removed. It is now stored inside `.storage` and should only be managed via the UI ([@balloob] - [#16018])
 
 ## {% linkable_title Beta Fixes %}
 
 - deCONZ - Support device registry ([@Kane610] - [#16115]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs]) (beta fix)
-- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
+- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix)
 - Decouple Konnected entity setup from discovery ([@heythisisnate] - [#16146]) ([konnected docs]) ([switch.konnected docs]) (beta fix)
 - Device registry store config entry ([@Kane610] - [#16152]) (beta fix)
 - fix error message for cv.matches_regex ([@heythisisnate] - [#16175]) (beta fix)
@@ -84,9 +87,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
 - homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
-- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
+- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
 - Update trusted networks flow ([@balloob] - [#16227]) (beta fix)
+- Fix hangouts ([@balloob] - [#16232]) ([hangouts docs]) (beta fix)
+- Warning missed a space ([@balloob] - [#16233]) ([http docs]) (beta fix)
+- Package loadable: compare case insensitive ([@balloob] - [#16234]) (beta fix)
+- Avoid insecure pycryptodome ([@balloob] - [#16238]) (beta fix)
+- Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
+- Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
+- Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
+- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -95,7 +106,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix magic cube support of the Aqara LAN Protocol V2 ([@syssi] - [#15940]) ([binary_sensor.xiaomi_aqara docs])
 - Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
 - Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
-- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change) (new-feature)
+- Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)
 - Add monitored conditions for Unifi device_tracker ([@cgarwood] - [#15888]) ([device_tracker docs])
 - Netatmo public ([@colinfrei] - [#15684]) ([sensor.netatmo_public docs]) (new-platform)
 - Update Xiaomi Vacuum to new StateVacuumDevice ([@cnrd] - [#15643]) (breaking change)
@@ -119,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix check config packages key error ([@MartinHjelmare] - [#15840])
 - Update SoCo to 0.16 ([@amelchio] - [#16007]) ([sonos docs]) ([media_player.sonos docs])
 - Upgrade sendgrid to 5.5.0 ([@fabaff] - [#16021]) ([notify docs])
-- Split out storage delay save ([@balloob] - [#16017]) ([hassio docs]) ([onboarding docs])
+- Split out storage delay save ([@balloob] - [#16017]) ([hassio docs])
 - Disable assuming Optional type for values with None default ([@scop] - [#16029])
 - Update RitAssist to support maximum speed and current address ([@depl0y] - [#16037]) ([device_tracker docs])
 - Handle missing mpd capabilities ([@logic] - [#15945]) ([media_player.mpd docs])
@@ -175,7 +186,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - deCONZ - Allow sub second light transitions ([@Kane610] - [#16170]) ([light.deconz docs])
 - add_devices -> add_entities ([@balloob] - [#16171])
 - deCONZ - Support device registry ([@Kane610] - [#16115]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs]) (beta fix)
-- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix) (new-platform)
+- Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix)
 - Decouple Konnected entity setup from discovery ([@heythisisnate] - [#16146]) ([konnected docs]) ([switch.konnected docs]) (beta fix)
 - Device registry store config entry ([@Kane610] - [#16152]) (beta fix)
 - fix error message for cv.matches_regex ([@heythisisnate] - [#16175]) (beta fix)
@@ -190,9 +201,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
 - homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
-- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix) (new-platform)
+- rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
 - Update trusted networks flow ([@balloob] - [#16227]) (beta fix)
+- Fix hangouts ([@balloob] - [#16232]) ([hangouts docs]) (beta fix)
+- Warning missed a space ([@balloob] - [#16233]) ([http docs]) (beta fix)
+- Package loadable: compare case insensitive ([@balloob] - [#16234]) (beta fix)
+- Avoid insecure pycryptodome ([@balloob] - [#16238]) (beta fix)
+- Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
+- Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
+- Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
+- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557
@@ -297,7 +316,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16220]: https://github.com/home-assistant/home-assistant/pull/16220
 [#16224]: https://github.com/home-assistant/home-assistant/pull/16224
 [#16227]: https://github.com/home-assistant/home-assistant/pull/16227
+[#16232]: https://github.com/home-assistant/home-assistant/pull/16232
+[#16233]: https://github.com/home-assistant/home-assistant/pull/16233
+[#16234]: https://github.com/home-assistant/home-assistant/pull/16234
+[#16235]: https://github.com/home-assistant/home-assistant/pull/16235
+[#16238]: https://github.com/home-assistant/home-assistant/pull/16238
+[#16240]: https://github.com/home-assistant/home-assistant/pull/16240
+[#16254]: https://github.com/home-assistant/home-assistant/pull/16254
+[#16255]: https://github.com/home-assistant/home-assistant/pull/16255
 [@Alexxander0]: https://github.com/Alexxander0
+[@blackgold9]: https://github.com/blackgold9
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Eriner]: https://github.com/Eriner
 [@Kane610]: https://github.com/Kane610
@@ -385,11 +413,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_extractor docs]: /components/media_extractor/
 [media_player.frontier_silicon docs]: /components/media_player.frontier_silicon/
 [media_player.mpd docs]: /components/media_player.mpd/
+[media_player.plex docs]: /components/media_player.plex/
 [media_player.sonos docs]: /components/media_player.sonos/
 [mqtt_eventstream docs]: /components/mqtt_eventstream/
 [mqtt_statestream docs]: /components/mqtt_statestream/
 [notify docs]: /components/notify/
-[onboarding docs]: /components/onboarding/
 [openuv docs]: /components/openuv/
 [panel_custom docs]: /components/panel_custom/
 [remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
