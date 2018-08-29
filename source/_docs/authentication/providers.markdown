@@ -56,7 +56,7 @@ homeassistant:
 With the trusted networks auth provider you can whitelist an IP range for which no authentication will be required. The user will be prompted to pick a user to log in as.
 
 <p class='note info'>
-The [multi-factor autentication module](multi-factor-auth) will not participate in login process by using this auth provider.
+The [multi-factor autentication module](../multi-factor-auth) will not participate in login process by using this auth provider.
 </p>
 
 ```yaml
