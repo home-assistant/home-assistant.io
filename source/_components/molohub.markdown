@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: Hub
+logo: molohub.png
+ha_category: Utility
 ha_release: 0.12
 ---
 
