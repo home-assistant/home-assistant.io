@@ -40,12 +40,12 @@ logger:
     homeassistant.components.http.ban: warning
 ```
 
-Restart Home Assistant to activate the changes.
+Restart Home Assistant to activate the changes:
 ```bash
 sudo systemctl restart home-assistant
 ```
 
-Tail the Home Assistant log then log out of the Home Assistant web interface and attempt logging in with an incorrect password, look for a line like `Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx`
+Tail the Home Assistant log then log out of the Home Assistant web interface and attempt logging in with an incorrect password, look for a line like `Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx`:
 ```bash
 tail -f /home/homeassistant/.homeassistant/home-assistant.log | grep WARNING
 2018-08-29 14:28:15 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from xxx.xxx.xxx.xxx
@@ -66,7 +66,6 @@ ignoreregex =
 ```
 
 Contents of `/etc/fail2ban/jail.d/ha.conf` (Note that you'll need to change the `logpath` to match your logfile which will be different from the path listed.):
-
 ```ini
 [DEFAULT]
 # Email config
