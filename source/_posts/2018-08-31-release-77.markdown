@@ -27,7 +27,7 @@ Although it's possible to configure authentication, we stronlgy recommend to sti
 
 It will take some time before all of the Home Assistant ecosystem has been migrated over to the new auth system. Home Assistant will print a warning whenever an application connects to Home Assistant with the legacy authentication. This will help users notify the application developers to transition to use the new [OAuth2](https://developers.home-assistant.io/docs/en/auth_api.html) authentication. For non-interactive scripts or other applications that are unable to update, we are planning to introduce a migration path for components to adopt url specific auth tokens and also introduce long lived access tokens to replace API passwords. A list of impacted components can be found [here](https://github.com/home-assistant/home-assistant/issues/15376#issuecomment-415890552).
 
-The iOS app will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will however require a second login when using the webview.
+Our [iOS app](/ios) will soon be updated to work with the new auth. It's already in testing. The old app will continue to work with the legacy API password support. It will however require a second login when using the webview.
 
 I want to say a biiiig thank you to all the people that have been involved in the development and testing of the new authentication system. It's been a big project and it's been great to see how we, as a community, have rallied together to tackle it. Especially a big shout out to [@awarecan].
 
