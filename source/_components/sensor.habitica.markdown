@@ -10,7 +10,7 @@ footer: true
 logo: habitica.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_version: 0.76
+ha_version: 0.78
 ---
 
 The `habitica` sensor platform allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.

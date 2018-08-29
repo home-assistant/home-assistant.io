@@ -9,23 +9,24 @@ sharing: true
 footer: true
 logo: habitica.png
 ha_category: Hub
-ha_version: 0.76
+ha_version: 0.78
+ha_iot_class: "Cloud Polling"
 ---
 
-This component allows you to monitor and manage your Habitica profile. This component exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It support multple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
+This component allows you to monitor and manage your Habitica profile. This component exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 This component enables usage of [`sensor.habitica` platform.](/components/sensor.habitica/)
 To use the component you should use this example configuration:
 
 ```yaml
 # Minimum viable configuration.yaml entry
 habitica:
-   - api_user: 'REPLACE_ME_WITH_YOUR_USER_ID'
-     api_key: 'REPLACE_ME_WITH_YOUR_API_KEY'
+  - api_user: 'REPLACE_ME_WITH_YOUR_USER_ID'
+    api_key: 'REPLACE_ME_WITH_YOUR_API_KEY'
 ```
 
 You can specify several users, providing `api_user` and `api_key` for each.
-At runtime you will be able to use api for each respective user by their Habitica's username.
-You can override this by passing `name` key, this value will be used istead of the username.
+At runtime you will be able to use API for each respective user by their Habitica's username.
+You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
 
 {% configuration %}
@@ -64,18 +65,18 @@ The API is exposed to Home Assistant as a service called `habitica.api_call`. To
 | `path` | yes | [string] | Items from API URL in form of an array with method attached at the end. See the example below. |
 | `args` | no | map | Any additional json or url parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
 
-A successfull call to this service will fire an event `habitica_api_call_success`.
+A successful call to this service will fire an event `habitica_api_call_success`.
 
-| Service data attribute |  Type     |    Description  |
+| Event data attribute |  Type     |    Description  |
 |----------------------|--------|----------------|
 |  `name`                |   string   |  Copied from service data attribute. |
 | `path` | [string] | Copied from service data attribute. |
-| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in responce to api call. For more info see [docs](https://habitica.com/apidoc/). |
+| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to api call. For more info see [docs](https://habitica.com/apidoc/). |
 
 #### Let's consider some examples on how to call the service.
 
 For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
-Let's create a new task (a todo) for this user via Home Assitant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
+Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
 To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a json object with task properties.
 So let's call the API on `habitica.api_call`.
 * The `name` key becomes `xxxNotAValidNickxxx`.
