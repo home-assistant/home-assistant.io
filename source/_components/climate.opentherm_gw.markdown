@@ -16,6 +16,8 @@ ha_iot_class: "Local Push"
 
 The `opentherm_gw` climate platform is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
 
+# {% linkable_title Configuration %}
+
 ```yaml
 # Example configuration.yaml entry
 climate:
@@ -24,12 +26,26 @@ climate:
     name: Thermostat
 ```
 
-Configuration variables:
+{% configuration %}
+device:
+  description: Path to OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html).
+  required: true
+  type: string
+name:
+  description: The name for the device within Home Assistant.
+  required: false
+  type: string
+precision:
+  description: The desired precision for this component. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. Defaults to `0.5` for Celsius and `1.0` for Fahrenheit.
+  required: false
+  type: float
+floor_temperature:
+  description: Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
-- **device** (*Required*): Path to OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html).
-- **name** (*Optional*): The name for the device within Home Assistant.
-- **precision** (*Optional*): The desired precision for this component. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. Defaults to `0.5` for Celsius and `1.0` for Fahrenheit.
-- **floor_temperature** (*Optional*): Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`.
+# {% linkable_title Example %}
 
 A full configuration example with the OpenTherm Gateway connected to a remote host running ser2net looks like the one below.
 
