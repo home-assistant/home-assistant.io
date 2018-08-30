@@ -29,7 +29,7 @@ switch:
 ```
 
 Configuration variables:
-
+- **scan_interval** (*Optional*): The polling interval for the device status.
 - **switches** (*Required*): The array that contains all Shelly switches.
   - **identifier** (*Required*): Name of the Shelly switch as slug. Multiple entries are possible.
     - **host** (*Required*): Hostname or IP address of the switch on the local network.
