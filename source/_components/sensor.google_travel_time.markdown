@@ -17,7 +17,9 @@ Sensor to provide travel time from the [Google Distance Matrix API](https://deve
 
 You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
 
-A free API Key allows 2500 requests per day. The sensor will update the travel time every 5 minutes.
+[Google now require billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however a US$200 per month credit is applied (20,000 requests). The sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that more than 2 sensors will likley exceed the free credit amount.
+
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
 
 ```yaml
 # Example entry for configuration.yaml
