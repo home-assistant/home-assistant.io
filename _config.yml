@@ -142,13 +142,13 @@ social:
 # Home Assistant release details
 current_major_version: 0
 current_minor_version: 77
-current_patch_version: 1
-date_released: 2018-08-29
+current_patch_version: 2
+date_released: 2018-08-31
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#release-0771---august-29"
+patch_version_notes: "#release-0772---august-31"
 # Minor release (Example #release-0431---april-25):
 
 # Date we moved to Discourse for comments

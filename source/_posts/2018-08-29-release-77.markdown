@@ -61,6 +61,26 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 
+## {% linkable_title Release 0.77.2 - August 31 %}
+
+- Correct wemo static device discovery issue. ([@lamiskin] - [#16292]) ([wemo docs])
+- Fix LIFX effects ([@amelchio] - [#16309]) ([light.lifx docs])
+- avoid error in debug log mode and rss entry without title ([@exxamalte] - [#16316]) ([feedreader docs])
+- Fix charts for climate devices ([@jeradM])
+- Fix header in Lovelace Glance cards ([@balloob])
+- Fix Profile page on Safari ([@balloob])
+- Fix redirect to login page on offline server ([@balloob])
+
+[#16292]: https://github.com/home-assistant/home-assistant/pull/16292
+[#16309]: https://github.com/home-assistant/home-assistant/pull/16309
+[#16316]: https://github.com/home-assistant/home-assistant/pull/16316
+[@amelchio]: https://github.com/amelchio
+[@exxamalte]: https://github.com/exxamalte
+[@lamiskin]: https://github.com/lamiskin
+[feedreader docs]: /components/feedreader/
+[light.lifx docs]: /components/light.lifx/
+[wemo docs]: /components/wemo/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
