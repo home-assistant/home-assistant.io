@@ -108,6 +108,22 @@ custom_calendars:
       required: true
       description: Regular expression for filtering the events based on the content of their summary, description or location.
       type: string
+    include_all_day:
+      required: false
+      description: If you would like to exclude all-day events, set this to false (defaults to true).
+      type: boolean
+    daysforward:
+      required: false
+      description: The number of days forward you would like to be searched (defaults to 1 day).
+      type: positive integer
+    offset:
+      required: false
+      description: A offset can be defined in the calendar event title. This setting describes the separation characters, defaulting to !!. A title Very important meeting #Important !!-10 would trigger the attribute offset_reached to be on 10 minutes before the event starts.
+      type: string (HH:MM or MM)
+    cal_offset:
+      required: false
+      description: Time period to be applied as an offset to each event in the calendar. If you set hours: -4, the  offset_reached attribute will be triggered 4 hours ahead of the start of the event.
+      type: time_period (dictionary or string)
 {% endconfiguration %}
 
 
