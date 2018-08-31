@@ -50,6 +50,7 @@ Configuration variables within devices list:
 - **name**  (*Optional*): A friendly name for the device.
 - **mode**  (*Optional*): The chosen brightness mode; options are 'rgbw' and 'rgb', defaults to rgbw.
 - **protocol**  (*Optional*): Set this to 'ledenet' if you are using a ledenet bulb.
+- **delay_after_state_change**  (*Optional*): Set this to True if your bulb flickers when turning off, or sometimes turns on with the wrong brightness.
 
 
 <p class='note'>
