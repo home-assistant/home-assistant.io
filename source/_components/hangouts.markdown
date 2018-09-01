@@ -12,21 +12,21 @@ ha_category: Hub
 ha_release: 0.77
 ---
 
-This component allows you to send messages to [Google Hangouts](http://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This component allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 ## {% linkable_title Setup the component via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
   
-Fill the form:
-* Your **Google Mail Address** and **Password**
-* If needed, you will be asked for a 2-factor authorization token
+Configure the integration:
+* Enter your **Google Mail Address** and **Password**
+* If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
-**BEST PRACTICE:** You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a own google account for your hangouts bot.
+**BEST PRACTICE:** You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.
 
-**IMPORTANT:** If you secured your account with 2 factor authorization: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.
+**IMPORTANT:** If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.
 
-**IMPORTANT 2:** If you are sure your email and password is correct, but the component says the login is invalid. Wait a few hours and try it again, it might be, that google asks for a captcha which we can't support. Google official don't support bots at hangouts, that's why we have to work around this.
+**IMPORTANT 2:** If you are sure your email and password is correct, but the component says the login is invalid. Wait a few hours and try it again, it might be, that google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.
 
 The authentication token will be generated and stored internally.
 
