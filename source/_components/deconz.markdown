@@ -118,7 +118,7 @@ For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is le
 
 ## {% linkable_title Examples %}
 
-### YAML
+### {% linkable_title YAML %}
 
 ####  {% linkable_title Step up and step down input number with wireless dimmer %}
 
@@ -171,9 +171,9 @@ automation:
 ```
 {% endraw %}
 
-### Appdaemon
+### {% linkable_title Appdaemon %}
 
-####  {% linkable_title Appdaemon remote template %}
+#### {% linkable_title Appdaemon remote template %}
 
 {% raw %}
 ```yaml
@@ -207,7 +207,7 @@ class RemoteControl(hass.Hass):
 ```
 {% endraw %}
 
-####  {% linkable_title Appdaemon remote template %}
+#### {% linkable_title Appdaemon remote template %}
 
 Community app from Teachingbirds. This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
@@ -220,7 +220,9 @@ sonos_remote_control:
   id: sonos_remote
   sonos: media_player.sonos
 ```
+{% endraw %}
 
+{% raw %}
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 
