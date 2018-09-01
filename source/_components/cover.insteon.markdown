@@ -10,7 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Cover
 ha_iot_class: "Local Push"
-ha_version: 0.77
+ha_version: 0.78
 ---
 
 The `insteon` cover platform lets you control your [Open/Close Micro Module]
