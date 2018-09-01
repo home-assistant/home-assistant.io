@@ -88,7 +88,7 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
 | `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific HASS entity of a device in deCONZ. |
+| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
 Field and entity are exclusive, i.e you can only use one in a request.
@@ -102,6 +102,8 @@ Field and entity are exclusive, i.e you can only use one in a request.
 #### {% linkable_title Service `deconz.refresh_devices` %}
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
+
+Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
 ## {% linkable_title Remote control devices %}
 
