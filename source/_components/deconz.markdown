@@ -31,7 +31,7 @@ Home Assistant will automatically discover deCONZ presence on your network, if `
 
 If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
-You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
+You can add the following to your `configuration.yaml` file if you are not using the `discovery:` component:
 
 ```yaml
 # Example configuration.yaml entry
@@ -209,7 +209,7 @@ class RemoteControl(hass.Hass):
 
 #### {% linkable_title Appdaemon remote template %}
 
-Community app from Teachingbirds. This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
+Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
 
 {% raw %}
 ```yaml
