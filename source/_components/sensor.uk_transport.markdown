@@ -53,8 +53,8 @@ These attributes are available for each departing train:
 - `origin_name`
 - `destination_name`
 - `status`
-- `scheduled`
-- `estimated`
+- `scheduled`: (API attribute is `aimed_departure_time`)
+- `estimated`: (API attribute is `expected_departure_time`)
 - `platform`
 - `operator_name`
 
