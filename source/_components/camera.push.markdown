@@ -70,8 +70,8 @@ timeout:
   default: 5 seconds
   type: time
 token:
-  description: User provided token acting as access control, should be a large string (more then 8 chars)
-  required: true
+  description: User provided token acting as access control, should be a large string (more then 8 chars). Required if you can't use HA new auth system (0.77).
+  required: false 
   type: string
 field:
   description: HTTP POST field containing the image file
