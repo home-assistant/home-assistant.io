@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Azure Cloud"
-description: "Instructions on how to setup the Azure Cloud component."
+title: "Azure"
+description: "Instructions on how to setup the Azure component."
 date: 2018-08-28 10:00
 sidebar: true
 comments: false
@@ -16,13 +16,13 @@ ha_iot_class: "Hub"
 
 [Microsoft Azure](https://azure.microsoft.com) is fast becoming a popular choice as a cloud provider.
  
-The `azure_cloud` component is designed to let you interface your Home Assistant host with the Microsoft Azure cloud platform.
+The `azure` component is designed to let you interface your Home Assistant host with the Microsoft Azure cloud platform.
 
 To integrate a Microsoft Azure Subscription with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-azure_cloud:
+azure:
   client_id: 96b9XXXX-XXXX-XXXX-XXXX-XXXXcef0eff8
   client_secret: SECRET-PASSWORD
   tenant_id: 7912XXXX-XXXX-XXXX-XXXX-XXXX69bbace1

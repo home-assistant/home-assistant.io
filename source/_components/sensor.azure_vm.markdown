@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `azure_vm` sensor shows the current status of a virtual machine hosted in the Microsoft Azure cloud platform. The Microsoft Azure cloud platform can be used to host virtual machines that function as VPN gateways, Email servers etc. Knowing the status of these virtual machines in the Home Assistant dashboard is very useful.
 
-The `azure_vm` platform uses the [azure_cloud](../components/azure_cloud) component.
+The `azure_vm` platform uses the [azure](../components/azure) component.
 
 To add `azure_vm` sensors to your installation, add the following to your `configuration.yaml` file:
 
