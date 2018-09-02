@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: volvo.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
