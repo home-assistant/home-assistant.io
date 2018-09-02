@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Cover
+ha_category: DIY
 ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
@@ -21,6 +21,8 @@ It uses two pins on the Raspberry Pi.
 - the `relay_pin` will trigger the cover to open or close.
 
 Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
+
+## {% linkable_title Configuration %}
 
 To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
