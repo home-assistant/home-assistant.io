@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: bmw.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.64
 ---
 
-This component lets you retrieve data on your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
+The `bmw_connected_drive` component lets you retrieve data on your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
 
@@ -50,6 +50,11 @@ bmw_connected_drive:
       description: "The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`"
       required: true
       type: string
+    read_only:
+      description: In read only mode, all services including the lock of the vehicle are disabled.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Services %}

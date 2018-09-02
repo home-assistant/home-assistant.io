@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rainbird.png
-ha_category: Hub
+ha_category: Sensor
 ha_release: 0.61
 ha_iot_class: "Local Polling"
 ---

@@ -145,7 +145,7 @@ binary_sensor:
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
         device_class: door
-        value_template: {{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') }}
+        value_template: "{{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', 22) }}"
 ```
 {% endraw %}
 
@@ -171,7 +171,7 @@ binary_sensor:
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
         device_class: motion
-        value_template: {{ is_state('sensor.YOUR_SENSOR_burglar', '8') }}
+        value_template: "{{ is_state('sensor.YOUR_SENSOR_burglar', 8) }}"
 ```
 {% endraw %}
 

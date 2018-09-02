@@ -17,11 +17,10 @@ The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaom
 
 Currently supported features are:
 
-- `turn_on`
+- `start`
 - `pause`
 - `stop`
-- `return_to_home`
-- `turn_off` (stop all activity and return to dock)
+- `return_to_base`
 - `locate`
 - `clean_spot`
 - `set_fan_speed`
@@ -49,7 +48,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to all of the services provided by the `vacuum` component (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
@@ -97,7 +96,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
+(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
 
 - `cleaning_time`
 - `do_not_disturb`
@@ -246,7 +245,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME LIKE "%Vacuum%"`
+11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"`
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
