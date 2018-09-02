@@ -35,7 +35,7 @@ Configuration variables:
 
 ### {% linkable_title Setting up the bot %}
 
-Bots can only send messages to servers or attach images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
