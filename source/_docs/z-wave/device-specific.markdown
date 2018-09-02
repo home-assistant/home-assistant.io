@@ -49,7 +49,7 @@ $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
-```
+```text
 dtoverlay=pi3-disable-bt
 ```
 
@@ -61,19 +61,19 @@ $ sudo systemctl disable hciuart
 
 Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
 
-```
-sudo systemctl mask serial-getty@ttyAMA0.service
+```bash
+$ sudo systemctl mask serial-getty@ttyAMA0.service
 ```
 
 so that your serial interface looks like:
 
-```
+```text
 crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
 ```
 at this point simply add your user (homeassistant) to the dialout group:
 
-```
-sudo usermod -a -G dialout homeassistant 
+```bash
+$ sudo usermod -a -G dialout homeassistant 
 ```
 
 Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
