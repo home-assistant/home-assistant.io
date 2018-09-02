@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: trafikverket.png
-ha_category: Sensor
+ha_category: Weather
 ha_release: 0.66.0
 ---
 
