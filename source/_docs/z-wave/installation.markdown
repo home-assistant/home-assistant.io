@@ -44,6 +44,7 @@ On Raspberry Pi you will need to enable the serial interface in the `raspi-confi
 # Example configuration.yaml entry
 zwave:
   usb_path: /dev/ttyACM0
+  device_config: !include zwave_device_config.yaml
 ```
 
 {% configuration zwave %}
@@ -78,7 +79,7 @@ debug:
   type: boolean
   default: False
 device_config / device_config_domain / device_config_glob:
-  description: This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
+  description: This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the bellow options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
   required: false
   type: string, list
   keys:
