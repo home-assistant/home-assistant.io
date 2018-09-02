@@ -15,6 +15,6 @@ ha_release: 0.54
 
 The `tesla` platform allows you to control your [Tesla](https://www.tesla.com/) charger (enable/disable charging, max range switch) from within Home Assistant.
 
-The `switch` platform will be automatically configured if the `tesla` component is configured.
+The switch platform will be automatically configured if the `tesla` component is configured.
 
 For more configuration information see the [`tesla` component](/components/tesla/) documentation.

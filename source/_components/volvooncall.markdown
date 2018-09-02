@@ -14,7 +14,9 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `volvooncall` platform offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+The `volvooncall` component offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+
+## {% linkable_title Configuration %}
 
 To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
 
