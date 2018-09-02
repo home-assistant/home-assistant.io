@@ -8,23 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: openuv.jpg
-ha_category: Hub
+ha_category: Health
 ha_release: 0.76
 ha_iot_class: "Cloud Polling"
 ---
 
-The `openuv` component displays UV and Ozone data from
-[openuv.io](http://openuv.io).
+The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv.io).
 
 ## {% linkable_title Generating an API Key %}
 
 To generate an API key, [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
 <p class='note warning'>
-The "Limited" plan (which is what new users are given by default) is limited to
-500 API requests per day. In order to leave a buffer, the `openuv` component
-queries the API every 30 minutes by default. This value can be modifed (via the
-`scan_interval` key), but please note that over-running the API will require
+The "Limited" plan (which is what new users are given by default) is limited to 500 API requests per day. In order to leave a buffer, the `openuv` component queries the API every 30 minutes by default. This value can be modifed (via the `scan_interval` key), but please note that over-running the API will require
 you to upgrade to a paid plan (and may disable your access in the meantime).
 </p>
 
@@ -38,9 +34,7 @@ openuv:
   api_key: YOUR_OPENUV_API_KEY
 ```
 
-To configure additional functionality, add configuration options beneath
-a `binary_sensor` and/or `sensor` key within the `openuv` section of
-`configuration.yaml` as below:
+To configure additional functionality, add configuration options beneath a `binary_sensor` and/or `sensor` key within the `openuv` section of `configuration.yaml` as below:
 
 ```yaml
 openuv:
@@ -87,8 +81,7 @@ sensors:
 
 ### {% linkable_title `uv_protection_window` %}
 
-This sensor displays `true` if UV protection (sunscreen, etc.) is recommended
-at the current date and time; displays `false` otherwise.
+This sensor displays `true` if UV protection (sunscreen, etc.) is recommended at the current date and time; displays `false` otherwise.
 
 ## {% linkable_title Sensor Types %}
 
@@ -102,19 +95,15 @@ This sensor displays the current UV index.
 
 ### {% linkable_title `current_uv_level` %}
 
-This sensor displays the level of current UV index, which is calculated based
-on [UV Index Levels & Colors](https://www.openuv.io/kb/uv-index-levels-colors).
+This sensor displays the level of current UV index, which is calculated based on [UV Index Levels & Colors](https://www.openuv.io/kb/uv-index-levels-colors).
 
 ### {% linkable_title `max_uv_index` %}
 
-This sensor displays the maximum UV index that will be encountered that day (at
-solar noon).
+This sensor displays the maximum UV index that will be encountered that day (at solar noon).
 
 ### {% linkable_title `safe_exposure_time_type_X` %}
 
-These sensors display the approximate number of minutes a particular skin type
-can be exposed to the sun before burning/tanning starts. Each sensor depicts
-a skin type based on the
+These sensors display the approximate number of minutes a particular skin type can be exposed to the sun before burning/tanning starts. Each sensor depicts a skin type based on the
 [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale):
 
 * Skin Type I
@@ -125,7 +114,5 @@ a skin type based on the
 * Skin Type VI
 
 <p class='note warning'>
-The above guidelines constitude estimates and are intended to help informed
-decision making. They should not replace analysis, advice, or diagnosis from a
-trained medical professional.
+The above guidelines constitude estimates and are intended to help informed decision making. They should not replace analysis, advice, or diagnosis from a trained medical professional.
 </p>
