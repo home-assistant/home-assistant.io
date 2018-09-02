@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.
 
+## {% linkable_title Configuration %}
+
 To use this sensor platform, you first have to set up [apcupsd](/components/apcupsd/), and add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -24,14 +26,6 @@ sensor:
     resources:
       - bcharge
       - linev
-      - loadpct
-      - nominv
-      - nompower
-      - numxfers
-      - outputv
-      - status
-      - timeleft
-      - tonbatt
 ```
 
 Configuration variables:
@@ -64,37 +58,7 @@ MAXTIME  : 0 Seconds
 MAXLINEV : 249.6 Volts
 MINLINEV : 244.4 Volts
 OUTPUTV  : 218.4 Volts
-SENSE    : High
-DWAKE    : 0 Seconds
-DSHUTD   : 180 Seconds
-DLOWBATT : 2 Minutes
-LOTRANS  : 196.0 Volts
-HITRANS  : 253.0 Volts
-RETPCT   : 15.0 Percent
-ITEMP    : 30.6 C
-ALARMDEL : Low Battery
-BATTV    : 27.6 Volts
-LINEFREQ : 50.0 Hz
-LASTXFER : High line voltage
-NUMXFERS : 0
-TONBATT  : 0 Seconds
-CUMONBATT: 0 Seconds
-XOFFBATT : N/A
-SELFTEST : NO
-STESTI   : 336
-STATFLAG : 0x0500000A
-DIPSW    : 0x00
-REG1     : 0x00
-REG2     : 0x00
-REG3     : 0x00
-MANDATE  : 07/13/99
-SERIALNO : GS9888761008
-BATTDATE : 13/11/15
-NOMOUTV  : 230 Volts
-NOMBATTV : 24.0 Volts
-EXTBATTS : 0
-FIRMWARE : 70.11.I
-END APC  : 2016-02-09 17:13:46 +0000
+[...]
 ```
 
 Use the (case insensitive) values from the left hand column:
@@ -105,5 +69,5 @@ sensor:
     resources:
       - linev
       - loadpct
-      - itemp
+      - timeleft
 ```
