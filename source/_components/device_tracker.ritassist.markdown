@@ -78,5 +78,8 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 | coolant_temperature | Temperature of the coolant [1] |
 | power_voltage | Power voltage measured by the hardware [1] |
 | distance_from_home |  How far is your vehicle located from your Home Assistant Home location |
+| current_max_speed | The maximum speed on the road the device is currently on (if available) |
+| current_address | Object with address information the device is currently on. This resolves to the closest address to the coordinates of the device. |
+
 
 [1] Only available on certain cars and hardware revisions.
