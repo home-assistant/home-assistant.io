@@ -23,6 +23,7 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry
 mqtt:
+  password: mypass
 ```
 
 To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
