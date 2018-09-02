@@ -7,15 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: .png
 ha_category: Alarm
 ha_release: 0.78
 ---
 
-The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and smart hub through Yale's API.
+The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` (duplicate of home) and `alarm_disarm`.
 Currently only one alarm is supported.
+
 
 To enable, add the following lines to your `configuration.yaml`:
 
@@ -30,9 +30,9 @@ alarm_control_panel:
 Configuration variables:
 
 - **name** (*Optional*): Name of device in Home Assistant.
-- **username** (*Required*): Username used to sign into the TotalConnect app/web client.
-- **password** (*Required*): Password used to sign into the TotalConnect app/web client.
-- **area_id** (*Optional*): Area ID of the device when talking to Yale's API for this device.
+- **username** (*Required*): Username used to sign into the Yale app/web client.
+- **password** (*Required*): Password used to sign into the Yale app/web client.
+- **area_id** (*Optional*): Area ID of the device when talking to Yale's API if required ('1' by default).
 
 Automation example:
 
