@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
-ha_category: Hub
+ha_category: Notifications
 ha_release: 0.42
 ha_iot_class: "Cloud Push"
 ---
