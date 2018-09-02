@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: arest.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_iot_class: "Local Polling"
 ha_release: 0.9
 ---
 
 
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+
+## {% linkable_title Configuration %}
 
 To use your aREST binary sensor in your installation, add the following to your `configuration.yaml` file:
 
