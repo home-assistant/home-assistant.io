@@ -80,7 +80,7 @@ sensor:
         arg: 'Local Area Connection'
 ```
 
-If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ifconfig` might look like:
+If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:
 
 ```bash
 Wireless LAN adapter Wireless Network Connection:

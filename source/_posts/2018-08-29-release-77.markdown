@@ -23,7 +23,7 @@ Once logged in, you will have access to the following new features:
  - Configure multifactor authentication (TOTP)
  - Manage other users (limited to account created during onboarding)
 
-Although it's possible to configure authentication, we stronlgy recommend to stick with the default authentication configuration.  If you had auth providers configured in a previous Home Assistant release, we recommend to remove the configuration and start using the default.
+Although it's possible to configure authentication, we strongly recommend to stick with the default authentication configuration.  If you had auth providers configured in a previous Home Assistant release, we recommend to remove the configuration and start using the default.
 
 It will take some time before all of the Home Assistant ecosystem has been migrated over to the new auth system. Home Assistant will print a warning whenever an application connects to Home Assistant with the legacy authentication. This will help users notify the application developers to transition to use the new [OAuth2](https://developers.home-assistant.io/docs/en/auth_api.html) authentication. For non-interactive scripts or other applications that are unable to update, we are planning to introduce a migration path for components to adopt url specific auth tokens and also introduce long lived access tokens to replace API passwords. A list of impacted components can be found [here](https://github.com/home-assistant/home-assistant/issues/15376#issuecomment-415890552).
 
@@ -47,6 +47,39 @@ You didn't think we would forget about Lovelace, did you? This release include a
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
+
+## {% linkable_title Release 0.77.1 - August 29 %}
+
+- Fix trusted networks login error ([@awarecan])
+- Fix data_key override by parent class ([@syssi] - [#16278]) ([binary_sensor.xiaomi_aqara docs])
+- Fix error when vacuum is idling ([@cnrd] - [#16282]) ([vacuum.xiaomi_miio docs])
+
+[#16278]: https://github.com/home-assistant/home-assistant/pull/16278
+[#16282]: https://github.com/home-assistant/home-assistant/pull/16282
+[@cnrd]: https://github.com/cnrd
+[@syssi]: https://github.com/syssi
+[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
+[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+
+## {% linkable_title Release 0.77.2 - August 31 %}
+
+- Correct wemo static device discovery issue. ([@lamiskin] - [#16292]) ([wemo docs])
+- Fix LIFX effects ([@amelchio] - [#16309]) ([light.lifx docs])
+- avoid error in debug log mode and rss entry without title ([@exxamalte] - [#16316]) ([feedreader docs])
+- Fix charts for climate devices ([@jeradM])
+- Fix header in Lovelace Glance cards ([@balloob])
+- Fix Profile page on Safari ([@balloob])
+- Fix redirect to login page on offline server ([@balloob])
+
+[#16292]: https://github.com/home-assistant/home-assistant/pull/16292
+[#16309]: https://github.com/home-assistant/home-assistant/pull/16309
+[#16316]: https://github.com/home-assistant/home-assistant/pull/16316
+[@amelchio]: https://github.com/amelchio
+[@exxamalte]: https://github.com/exxamalte
+[@lamiskin]: https://github.com/lamiskin
+[feedreader docs]: /components/feedreader/
+[light.lifx docs]: /components/light.lifx/
+[wemo docs]: /components/wemo/
 
 ## {% linkable_title If you need help... %}
 

@@ -18,7 +18,7 @@ The `random` binary sensor platform is creating random states (`True`, 1, `on` o
 
 ## {% linkable_title Configuration %}
 
-To enable the random binary sensor, add the following lines to your `configuration.yaml`:
+To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

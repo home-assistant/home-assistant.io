@@ -46,7 +46,21 @@ Configuration variables:
 - **origin** (*Required*): Specify the three character long origin station code.
 - **destination** (*Required*): Specify the three character long destination station code.
 
-A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains. The status of the next departing train is accessed using the [template sensor](/components/sensor.template/) below, as are the train origin, estimated and scheduled departure times, and the departure platform.
+A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains.
+
+These attributes are available for each departing train:
+
+- `origin_name`
+- `destination_name`
+- `status`
+- `scheduled`: (API attribute is `aimed_departure_time`)
+- `estimated`: (API attribute is `expected_departure_time`)
+- `platform`
+- `operator_name`
+
+Refer to the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##request_uk_train_station_station_code_live_json) for definitions.
+
+Attributes can be accessed using the [template sensor](/components/sensor.template/) as per this example:
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.

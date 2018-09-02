@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 ### {% linkable_title iOS Devices %}
 
-If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/). You can also the `battery` [sensor device class](/components/sensor/#device-class) to dynamically change the icon with the battery level.
+If you have a device running iOS (iPhone, iPad, etc), The [iCloud](/components/device_tracker.icloud/) component is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/). You can also use the `battery` [sensor device class](/components/sensor/#device-class) to dynamically change the icon with the battery level.
 
 {% raw %}
 ```yaml
