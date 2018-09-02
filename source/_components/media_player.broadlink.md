@@ -101,6 +101,15 @@ sources:
       description: The command to trigger this source.
       required: false
       type: string
+sound_modes:
+  description: The list of sound modes available.
+  required: false
+  type: map
+  keys:
+    "[identifier]":
+      description: The command to trigger this sound mode.
+      required: false
+      type: string
 digits:
   description: Digits for remote control.
   required: false
