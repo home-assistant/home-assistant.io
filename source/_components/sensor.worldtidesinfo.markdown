@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: worldtidesinfo.png
-ha_category: Weather
+ha_category: Environment
 ha_release: 0.52
 ---
 

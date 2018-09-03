@@ -8,14 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.58
 ha_iot_class: "Local Polling"
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
-#### {% linkable_title Tested Devices %}
+### {% linkable_title Tested Devices %}
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
@@ -27,6 +27,9 @@ Since the sensor change their ID after each powercycle/battery change you can ch
 ```bash
 $ sudo pylacrosse -d /dev/ttyUSB0 scan
 ```
+
+## {% linkable_title Configuration %}
+
 To use your `lacrosse` compatible sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
