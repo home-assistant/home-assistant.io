@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: bloomsky.png
-ha_category: Binary Sensor
+ha_category: Environment
 ha_release: 0.14
 ha_iot_class: "Cloud Polling"
 ---
@@ -16,6 +16,8 @@ ha_iot_class: "Cloud Polling"
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 
 To get your BloomSky binary sensors working with Home Assistant, follow the instructions for the [BloomSky component](/components/bloomsky/) first.
+
+## {% linkable_title Configuration %}
 
 To use your BloomSky binary sensor in your installation, add the following to your `configuration.yaml` file:
 

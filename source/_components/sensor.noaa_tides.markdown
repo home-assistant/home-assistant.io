@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Weather
+ha_category: Environment
 ha_release: 0.75
 logo: noaa.png
 ---

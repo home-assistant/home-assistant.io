@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: spaceapi.png
-ha_category: Other
+ha_category: Social
 ha_release: "0.70"
 ---
 

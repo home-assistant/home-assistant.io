@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: digital_ocean.png
-ha_category: Switch
+ha_category: System Monitor
 ha_release: "0.30"
 ha_iot_class: "Local Polling"
 ---
 
 The `digital_ocean` switch platform allows you to control (start/stop) your Digital Ocean droplets.
+
+### {% linkable_title Configuration %}
 
 To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
 

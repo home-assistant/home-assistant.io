@@ -8,17 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: ritassist.png
-ha_category: Presence Detection
+ha_category: Car
 ha_iot_class: Cloud Polling
 ha_release: 0.76
 ---
 
-This platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+The `ritassist` device tracker platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
-## API key
+## {% linkable_title Setup %}
+
 To use this component, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
 
-## Configuration
+## {% linkable_title Configuration %}
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -58,7 +60,7 @@ include:
 
 See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
 
-## Available Attributes
+## {% linkable_title Available attributes %}
 
 | Attribute | Description |
 |---|---|

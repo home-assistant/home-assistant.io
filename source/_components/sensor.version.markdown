@@ -7,17 +7,17 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Pushing"
 logo: home-assistant.png
 ha_release: 0.52
 ---
 
-The `version` sensor platform is displaying the current version of Home
-Assistant in the frontend.
+The `version` sensor platform is displaying the current version of Home Assistant in the frontend.
 
-To enable this sensor,
-add the following lines to your `configuration.yaml` file for a GET request:
+## {% linkable_title Configuration %}
+
+To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +27,7 @@ sensor:
 
 {% configuration %}
 name:
-  description: Name of the sensor.
+  description: Name to use in the frontend.
   required: false
   type: string
   default: Current Version
@@ -69,6 +69,7 @@ You might think that a [`rest` sensor](/components/sensor.rest/) could work,
 too,
 but it will not as Home Assistant is not ready when the sensor get initialized.
 
+{% raw %}
 ```yaml
 sensor:
   - platform: rest
@@ -76,3 +77,4 @@ sensor:
     name: Current Version
     value_template: '{{ value_json.version }}'
 ```
+{% endraw %}

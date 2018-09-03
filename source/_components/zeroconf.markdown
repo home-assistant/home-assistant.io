@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: avahi.png
-ha_category: "Other"
+ha_category: Network
 ha_release: 0.18
 ---
 

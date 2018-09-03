@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: smtp.png
-ha_category: Sensor
+ha_category: Mailbox
 ha_release: 0.25
 ha_iot_class: "Cloud Push"
 ---
 
 
 The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

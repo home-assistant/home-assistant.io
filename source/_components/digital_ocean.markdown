@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category: System Monitor
 ha_release: "0.30"
 logo: digital_ocean.png
 ha_iot_class: "Local Polling"
@@ -16,7 +16,11 @@ ha_iot_class: "Local Polling"
 
 The `digital_ocean` component allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
 
+## {% linkable_title Setup %}
+
 Obtain your API key from your [Digital Ocean dashboard](https://cloud.digitalocean.com/settings/api/tokens).
+
+## {% linkable_title Configuration %}
 
 To integrate your Digital Ocean droplets with Home Assistant, add the following section to your `configuration.yaml` file:
 

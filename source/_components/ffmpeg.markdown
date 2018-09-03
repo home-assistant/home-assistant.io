@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Hub
+ha_category: Image Processing
 ---
 
 The `ffmpeg` component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
@@ -20,6 +20,8 @@ You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessi
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
+
+## {% linkable_title Configuration %}
 
 To set it up, add the following information to your `configuration.yaml` file:
 

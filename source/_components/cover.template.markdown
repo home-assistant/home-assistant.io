@@ -14,8 +14,10 @@ logo: home-assistant.png
 ---
 
 The `template` platform can create covers that combine components and provides
-the ability to run scripts or invoke services for each of the open, close, stop,
-position, and tilt commands of a cover.
+the ability to run scripts or invoke services for each of the open,
+close, stop, position and tilt commands of a cover.
+
+## {% linkable_title Configuration %}
 
 To enable Template Covers in your installation,
 add the following to your `configuration.yaml` file:

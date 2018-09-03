@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Weather
+ha_category: Environment
 ---
 
 The sun component will use your current location to track if the sun is above or

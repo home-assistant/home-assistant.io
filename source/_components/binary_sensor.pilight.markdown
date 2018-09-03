@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_release: 0.44
 ha_iot_class: "Local Polling"
 ---
@@ -18,6 +18,8 @@ The `pilight` binary sensor platform implement the
 Two type of Pilight binary sensor configuration available. A normal sensor which
 send the on and off state cyclical and a trigger sensor which send only a
 trigger when an event happened (for example lots of cheap PIR motion detector).
+
+## {% linkable_title Configuration %}
 
 To enable a Pilight binary sensor in your installation,
 add the following to your `configuration.yaml` file:

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Sensor
+ha_category: Environment
 ha_iot_class: "Cloud Polling"
 ha_release: 0.77
 ---
@@ -60,7 +60,7 @@ areas:
       type: string
       default: Netatmo Public Data
     type:
-      description: How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`.
+      description: "How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`."
       required: false
       type: string
       default: max

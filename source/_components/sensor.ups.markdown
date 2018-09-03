@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: ups.png
-ha_category: Sensor
+ha_category: Postal Service
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
 The `ups` platform allows one to track deliveries by the [UPS](https://www.ups.com/). To use this sensor, you need a [My UPS Account](https://www.ups.com/mychoice).
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
