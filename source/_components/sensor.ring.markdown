@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: ring.png
-ha_category: Sensor
+ha_category: Doorbell
 ha_release: "0.40"
 ha_iot_class: "Cloud Polling"
 ---
 
 To get your [Ring.com](https://ring.com/) binary sensors working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring).
+
+## {% linkable_title Configuration %}
 
 Once you have enabled the [Ring component](/components/ring), add the following to your `configuration.yaml` file:
 

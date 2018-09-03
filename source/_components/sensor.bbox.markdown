@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: bbox.png
-ha_category: Sensor
+ha_category: Network
 ha_release: 0.31
 ha_iot_class: "Local Push"
 ---
@@ -18,6 +18,8 @@ The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/B
 <p class='note warning'>
 Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to 192.168.1.254 with your web browser.
 </p>
+
+## {% linkable_title Configuration %}
 
 To add Bbox sensors to your installation, add the following to your `configuration.yaml` file:
 
