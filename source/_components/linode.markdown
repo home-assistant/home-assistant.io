@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Move to System Monitor category
+ha_category: System Monitor
 logo: linode.png
 ha_release: 0.57
 ha_iot_class: "Cloud Polling"
