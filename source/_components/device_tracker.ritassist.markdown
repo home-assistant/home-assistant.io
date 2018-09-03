@@ -13,7 +13,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.76
 ---
 
-The `ritassist` platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+The `ritassist` device tracker platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
 ## {% linkable_title Setup %}
 
