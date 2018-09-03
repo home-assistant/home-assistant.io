@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Sensor
+ha_category: Health
 ha_iot_class: "Local Polling"
 ha_release: 0.66
 ---
@@ -25,6 +25,8 @@ Currently, the supported features are:
   - time_stat
 
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
+
+## {% linkable_title Configuration %}
 
 To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
 
