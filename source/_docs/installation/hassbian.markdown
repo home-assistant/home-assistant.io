@@ -23,4 +23,5 @@ When instructions tell you to activate the virtual environment to install a Pyth
 
 ```bash
 $ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate```
+$ source /srv/homeassistant/bin/activate
+```

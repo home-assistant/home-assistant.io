@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.31
 ha_iot_class: depends
 ---

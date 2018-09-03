@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: hydrawise_logo.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ---
 
 The `hydrawise` component allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable it, add the following to your `configuration.yaml` file:
 

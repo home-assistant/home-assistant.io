@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: usps.png
-ha_category: Hub
+ha_category: Postal Service
 ha_release: 0.52
 ha_iot_class: "Cloud Polling"
 ---

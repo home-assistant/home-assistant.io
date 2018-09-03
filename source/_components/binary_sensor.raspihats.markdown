@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: raspihats.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_release: 0.44
 ha_iot_class: "Local Push"
 ---
 
 The `raspihats` binary sensor platform allows you to read sensor values ​​using the digital inputs of the [raspihats](http://www.raspihats.com/) boards.
+
+## {% linkable_title Configuration %}
 
 To use your `raspihats` boards in your installation, add the following to your `configuration.yaml` file:
 

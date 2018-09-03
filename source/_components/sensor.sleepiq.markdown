@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: sleepiq.png
-ha_category: Sensor
+ha_category: Health
 ha_release: 0.29
 ha_iot_class: "Local Polling"
 ---

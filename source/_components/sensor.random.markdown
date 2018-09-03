@@ -18,7 +18,7 @@ The `random` sensor platform is creating random sensor values (integers) out of 
 
 ## {% linkable_title Configuration %}
 
-To enable the random sensor, add the following lines to your `configuration.yaml`:
+To enable the random sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

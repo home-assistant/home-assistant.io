@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rachio.png
-ha_category: Hub
+ha_category: Sensor
 ha_iot_class: "Cloud Push"
 ha_release: 0.73
 ---
