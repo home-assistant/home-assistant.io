@@ -14,6 +14,26 @@ ha_iot_class: "Local Polling"
 
 The `modem_callerid` sensor platform uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
 
+When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
+
+## {% linkable_title Setup %}
+
+To find the path of your USB modem, run:
+
+```bash
+$ ls /dev/ttyACM*
+```
+
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
+
+```bash
+$ sudo usermod -a -G dialout homeassistant
+```
+
+Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
+
+## {% linkable_title Configuration %}
+
 To enable the sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -22,10 +42,19 @@ sensor:
   - platform: modem_callerid
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  type: string
+  default: "`modem_callerid`"
+device:
+  description: The port to use.
+  required: false
+  type: string
+  default: "`/dev/ttyACM0`"
+{% endconfiguration %}
 
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `modem_callerid`.
-- **device** (*Optional*): Device port name. Defaults to `/dev/ttyACM0`.
 
 To find the path of your USB modem, run:
 
@@ -37,11 +66,15 @@ If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hass
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 
-When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
+
+
+## {% linkable_title Examples %}
 
 Some example automations:
+
+{% raw %}
 ```yaml
-{% raw %}automation:
+automation:
   - alias: Notify CallerID
     trigger: 
       platform: state
@@ -69,6 +102,6 @@ Some example automations:
     action:
       service: tts.google_say
       data_template:
-        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} '{% endraw %}
+        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }}'
 ```
-
+{% endraw %}
