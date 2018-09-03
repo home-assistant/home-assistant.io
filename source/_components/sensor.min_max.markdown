@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: "0.31"
 ---
@@ -18,14 +18,18 @@ The `min_max` sensor platform consumes the state from other sensors to determine
 
 This sensor is an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
 
+{% raw %}
 ```yaml
-{% raw %}{{ ((float(states.sensor.kitchen_temperature.state) + 
+{{ ((float(states.sensor.kitchen_temperature.state) + 
      float(states.sensor.living_room_temperature.state) +
      float(states.sensor.office_temperature.state)) / 3) | round(2)
-}}{% endraw %}
+}}
 ```
+{% endraw %}
 
 Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
+
+## {% linkable_title Configuration %}
 
 To enable the `min_max` sensor, add the following lines to your `configuration.yaml`:
 

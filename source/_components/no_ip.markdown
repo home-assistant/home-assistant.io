@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: noip.png
-ha_category: Utility
+ha_category: Network
 ha_release: 0.57
 ---
 
 With the `no_ip` component you can keep your [NO-IP.com](https://www.noip.com) record up to date.
+
+
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 

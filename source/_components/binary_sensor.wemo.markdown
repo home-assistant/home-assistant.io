@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Belkin WeMo Binary Sensors"
+title: "Belkin WeMo Binary Sensor"
 description: "Instructions on how to integrate Belkin WeMo binary sensors into Home Assistant."
 date: 2016-02-20 00:45
 sidebar: true

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: canary.png
-ha_category: Sensor
+ha_category: Environment
 ha_release: "0.60"
 ha_iot_class: "Cloud Polling"
 ---
