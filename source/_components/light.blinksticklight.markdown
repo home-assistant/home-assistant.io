@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Blinkstick"
+title: "Blinkstick Light"
 description: "Instructions on how to setup Blinkstick lights within Home Assistant."
 date: 2015-10-08 10:00
 sidebar: true
