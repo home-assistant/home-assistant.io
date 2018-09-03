@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: "0.30"
 ---
@@ -18,6 +18,8 @@ The `statistics` sensor platform consumes the state from other sensors. Besides 
 
 If you are running the [recorder](/components/recorder/) component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you're using the [history](/components/history/) component, this will automatically also start the `recorder` component on startup.
 If you are *not* running the `recorder` component, it can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation. 
+
+## {% linkable_title Configuration %}
 
 To enable the statistics sensor, add the following lines to your `configuration.yaml`:
 

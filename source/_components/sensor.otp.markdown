@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.49
 ---
 
 The `otp` sensor generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
+
+## {% linkable_title Configuration %}
 
 To enable the OTP sensor, add the following lines to your `configuration.yaml`:
 

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: qnap.png
-ha_category: Sensor
+ha_category: System Monitor
 ha_release: 0.38
 ha_iot_class: "Local Polling"
 ---
