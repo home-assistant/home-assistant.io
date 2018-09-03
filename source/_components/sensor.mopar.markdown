@@ -46,7 +46,7 @@ password:
   required: true
   type: string
 pin:
-  description: v
+  description: The pin for your account.
   required: true
   type: string
 {% endconfiguration %}
