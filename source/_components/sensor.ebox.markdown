@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: ebox.png
-ha_category: Sensor
+ha_category: Network
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To use your EBox sensor in your installation, add the following to your `configuration.yaml` file:
 
