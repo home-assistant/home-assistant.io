@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: skybell.png
-ha_category: Hub
+ha_category: Doorbell
 ha_release: 0.56
 ha_iot_class: "Cloud Polling"
 ---

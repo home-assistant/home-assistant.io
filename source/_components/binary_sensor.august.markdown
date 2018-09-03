@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: august.png
-ha_category: Binary Sensor
+ha_category: Door bell
 ha_release: "0.64"
 ha_iot_class: "Cloud Polling"
 ---
