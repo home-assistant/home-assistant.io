@@ -16,6 +16,8 @@ ha_iot_class: "Cloud Polling"
 
 The `bloomsky` sensor component allows you to view the measurements made by sensors in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with the [BloomSky camera](/components/camera.bloomsky).
 
+## {% linkable_title Configuration %}
+
 To enable these sensors in your installation, set up the [BloomSky component](/components/bloomsky) with your API key add the following to your `configuration.yaml` file:
 
 ```yaml
