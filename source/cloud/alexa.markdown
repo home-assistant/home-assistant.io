@@ -10,13 +10,13 @@ footer: true
 redirect_from: /components/cloud.alexa/
 ---
 
-The Alexa integration allows users to control the entities via the [Home Assistant Smart Home skill for Alexa][alexa skill]. This means that you can say things like "Alexa, turn on the kitchen light" to control your local Home Assistant.
+The Alexa integration allows users to control the entities via the Home Assistant Smart Home skill for Alexa. This means that you can say things like "Alexa, turn on the kitchen light" to control your local Home Assistant.
 
 To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
  - An Alexa enabled device like the Amazon Echo
- - Activated the [Home Assistant Smart Home skill for Alexa][alexa skill]
+ - Activated the Home Assistant Smart Home skill via the Alexa app
 
 You can use `configuration.yaml` to configure the entities that are being shown to Alexa and how they are exposed.
 
@@ -110,5 +110,3 @@ Currently, the following domains are available to be used with Alexa:
 - scene
 - script (enables/disables)
 - switch
-
-[alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2
