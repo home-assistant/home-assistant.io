@@ -24,12 +24,16 @@ To use Twitch with your installation, add the following to your `configuration.y
 # Example configuration.yaml entry
 sensor:
   platform: twitch
+  clientid: "clientid"
   channels:
     - channel1
     - channel2
 ```
 
 {% configuration %}
+clientid:
+  description: A id twitch need to know what client is calling [follow this to get one](https://dev.twitch.tv/docs/v5/#getting-a-client-id)
+  required: true
 channels:
   description: List of channels.
   required: true
