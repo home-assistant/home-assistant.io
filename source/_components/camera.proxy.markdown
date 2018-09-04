@@ -70,12 +70,16 @@ camera:
     type: boolean
 {% endconfiguration %}
 
+**NOTE**: Home Assistant now uses authorization instead of a global password.  However, due to the camera-proxy implementation, it is currently required to either set ```http.api_password``` or to include ```127.0.0.1``` in ```http.trusted_networks```.
 
 ## {% linkable_title Examples %}
 
 Example of using a Camera proxy along with a Foscam camera:
 
 ```yaml
+http: 
+  api_password: <put any password you like here>
+
 camera:
   - platform: foscam
     ip: 192.168.1.10
