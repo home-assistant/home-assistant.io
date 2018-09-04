@@ -27,7 +27,7 @@ To make the transition from API password to authentication system easier, we've 
 ## {% linkable_title Configuring auth providers %}
 
 <p class='note warning'>
-By configuring your own instead of using the default configuration, you take full responsibility for the authentication of the system.
+Home Assistant automatically configures the standard auth providers and you **do not** need to specify `auth_providers` in your `configuration.yaml` file. Specifying `auth_providers` in your configuration will disable all auth providers that are not listed and can reduce your security or create difficulties logging in.
 </p>
 
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block:
