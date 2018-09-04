@@ -24,6 +24,7 @@ You need to have a [supported Z-Wave USB stick or module](https://github.com/Ope
 | Sigma Designs UZB Stick |                |                  |              |
 | Tricklestar             |                |                  |              |
 | Vision USB Stick        |                |                  |              |
+| ZWave.me Razberry Board |   &#10003;     |                  |              |
 | ZWave.me UZB1           |   &#10003;     |                  |              |
 
 <p class='note'>
