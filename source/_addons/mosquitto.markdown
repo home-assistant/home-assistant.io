@@ -89,10 +89,11 @@ See the following links for more information:
 
 Add the following configuration to enable ACLs:
 
-1. Set `customize` flag to `true` in your configuration.
+1. Set the `active` flag within the `customize` section to `true` in your configuration.
 2. Create a file in `/share/mosquitto` named `acl.conf` with the following contents:
-
 ```text
 acl_file /share/mosquitto/accesscontrollist
 ```
 3. Create a file in `/share/mosquitto` named `accesscontrollist` and add contents according to your requirements.
+
+The `/share` folder can be found on the host filesystem under `/usr/share/hassio/share`, or via the `Share` folder through SMB (Samba).
