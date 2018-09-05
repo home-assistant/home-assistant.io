@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hangouts.png
-ha_category: Hub
+ha_category: Social
 ha_release: 0.77
 ---
 
