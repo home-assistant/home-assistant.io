@@ -73,8 +73,6 @@ During the login process, a six digit one-time password will be sent again, user
 Notify MFA module would not verify the one-time password deliveried success, so that if user cannot received the message due any reason, he/she may not be login again. Edit or remove `[your_config_dir]/.storage/auth_module.notify` can disable nofiy MFA module to resolve the issue.
 </p>
 
-By default notify MFA module will be auto loaded if no `auth_mfa_modules` config section defined in `configuration.yaml`. However if you don't have any notify component configured, user cannot enable notify MFA module.
-
 Example of configuration
 
 ```yaml
