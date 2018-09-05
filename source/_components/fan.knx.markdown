@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: knx.png
 ha_category: Fan
-ha_release: ?
+ha_release: 0.78.0
 ha_iot_class: "Local Polling"
 ---
 
