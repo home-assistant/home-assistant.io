@@ -48,7 +48,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`

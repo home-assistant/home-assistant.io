@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: apcupsd.png
-ha_category: Hub
+ha_category: System Monitor
 ha_release: 0.13
 ---
 

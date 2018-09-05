@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: doorbird.png
-ha_category: Hub
+ha_category: Doorbell
 ha_release: "0.54"
 ha_iot_class: "Local Polling"
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To connect your device, add the following to your `configuration.yaml` file:
 
