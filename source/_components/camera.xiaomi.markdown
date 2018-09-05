@@ -62,7 +62,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of the camera.
 - **model** (*Required*): The model of Xiaomi Camera, currently supporting yi and xiaofang.
 - **password** (*Required*): The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
-- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
+- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/media/mmcblk0p1/record`.
 - **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
 

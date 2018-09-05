@@ -10,13 +10,15 @@ footer: true
 logo: trafikverket.png
 ha_category: Weather
 ha_release: 0.66.0
+ha_iot_class: "Cloud Polling"
 ---
 
-Showing weather information for air and road temperature provided by [Trafikverket](https://www.trafikverket.se/) in Sweden. 
+Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden. 
+
 
 Potential use cases:
--	Get weather data in general
--	You live near a weather station and want to know the current temperature at home
+-	Get weather data in general.
+-	You live near a weather station and want to know the current weather conditions at home.
 -	Setup automations for your car heating system. If the road is frozen along the way to work, you might want the car heating system to start earlier.
 
 ##### {% linkable_title Configuration %}
@@ -29,31 +31,48 @@ sensor:
     name: Trafikverket Road WeatherStation Kungälv
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
-    type: road
+    monitored_conditions:
+        - air_temp
+        - road_temp
+        - humidity
+        - precipitation
+        - wind_direction
+        - wind_direction_text
+        - wind_speed
 ```
 
 {% configuration %}
-name:
-  description: Unique name of the device in the frontend.
-  required: true
+name:  
+  description: Your unique name of the device in the frontend.  
+  required: true  
   type: string
-api_key:
-  description: API key from Trafikverket.
-  required: true
-  type: string
-station:
-  description: Name of the weather station.
-  required: true
-  type: string
-type:
-  description: Defines which temperature you want (`air` or `road`).
-  required: true
-  type: string
-scan_interval:
-  description: How frequently to query for new data (in seconds).
-  required: false
-  type: int
-  default: 300
+api_key:  
+  description: Your personal API key from Trafikverket.  
+  required: true  
+  type: string  
+station:  
+  description: Name of the weather station from Trafikverket.  
+  required: true  
+  type: string  
+monitored_conditions: 
+  description: Specify what measurement data to retreive from the weather station. 
+  required: true  
+  type: map  
+  keys:
+    air_temp:  
+      description: Air temperature.  
+    road_temp:  
+      description: The temperature in the road.  
+    humidity:  
+      description: Relative humidity.  
+    precipitation:  
+      description: Type of precipitation (Swedish text).  
+    wind_direction:  
+      description: Wind direction in degrees.  
+    wind_direction_text:  
+      description: Rough wind direction in twelve variants (Swedish text).  
+    wind_speed:  
+      description: Average wind speed during the last 10 minutes.    
 {% endconfiguration %}
 
 ##### {% linkable_title Obtaining API key %}
@@ -76,11 +95,31 @@ sensor:
     name: Trafikverket Road WeatherStation Kungälv
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Kungälv
-    type: road
+    monitored_conditions:
+        - air_temp
+        - road_temp
+        - humidity
+        - precipitation
+        - wind_direction
+        - wind_direction_text
+        - wind_speed
   - platform: trafikverket_weatherstation
     name: Trafikverket Air WeatherStation Lanna
     api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
     station: Lanna
-    type: air
+    monitored_conditions:
+        - air_temp
+        - road_temp
+        - humidity
+    scan_interval: 600
+  - platform: trafikverket_weatherstation
+    name: Trafikverket Precipitation WeatherStation Nöbbele
+    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    station: Nöbbele
+    monitored_conditions:
+        - air_temp
+        - road_temp
+        - humidity
+        - precipitation
     scan_interval: 600
 ```
