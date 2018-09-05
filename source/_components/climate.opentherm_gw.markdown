@@ -36,7 +36,7 @@ name:
   required: false
   type: string
 precision:
-  description: The desired precision for this component. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. Defaults to `0.5` for Celsius and `1.0` for Fahrenheit.
+  description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. Defaults to `0.5` for Celsius and `1.0` for Fahrenheit.
   required: false
   type: float
 floor_temperature:
