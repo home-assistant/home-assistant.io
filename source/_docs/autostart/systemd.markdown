@@ -78,7 +78,7 @@ ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 WantedBy=multi-user.target
 ```
 
-### Next Steps
+### {% linkable_title Next Steps %}
 
 You need to reload `systemd` to make the daemon aware of the new configuration.
 
