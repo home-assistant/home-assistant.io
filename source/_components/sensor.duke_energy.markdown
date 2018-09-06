@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: duke_energy.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: "0.74"
 ha_iot_class: "Cloud Polling"
 ---
 
 The `duke_energy` sensor platform allows you get the previous days usage for all of your Duke Energy smart meters.
+
+## {% linkable_title Setup %}
 
 You will only have access to meters listed in your account at [Duke Energy Usage](https://www.duke-energy.com/my-account/usage-analysis).
 

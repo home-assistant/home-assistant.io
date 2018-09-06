@@ -24,5 +24,5 @@ Currently supported features are:
 - `start`
 - `pause`
 - `stop`
-- `return_to_home`
+- `return_to_base`
 - `locate`

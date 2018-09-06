@@ -89,3 +89,7 @@ GLOBAL OPTIONS:
    --help, -h     show help
    --version, -v  print the version
 ```
+
+## {% linkable_title Console access %}
+
+You can also access HassOS via a directly connected keyboard and monitor, the console. To log in to the physical console the username is `root`, with no password.

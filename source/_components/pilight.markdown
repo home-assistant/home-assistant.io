@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Hub
+ha_category: DIY
 ha_release: 0.26
 ha_iot_class: "Local Push"
 ---

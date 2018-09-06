@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: sql.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.63
 ---
 

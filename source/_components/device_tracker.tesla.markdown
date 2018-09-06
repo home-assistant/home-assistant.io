@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: tesla.png
-ha_category: Presence Detection
+ha_category: Car
 ha_release: 0.53
 ---
 
-The `Tesla` platform allows you to get data about the location of your [Tesla](https://www.tesla.com/) car within Home Assistant.
+The `tesla` platform allows you to get data about the location of your [Tesla](https://www.tesla.com/) car within Home Assistant.
 
 The device tracker platform will be automatically configured if Tesla component is configured.
 

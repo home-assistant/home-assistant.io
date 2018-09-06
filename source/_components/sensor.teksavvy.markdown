@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: teksavvy.png
-ha_category: Sensor
+ha_category: Network
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
@@ -16,6 +16,8 @@ ha_iot_class: "Cloud Polling"
 Integrate your [TekSavvy](https://myaccount.teksavvy.com/) account information into Home Assistant.
 
 You can get your API key from [TekSavvy My Account](https://myaccount.teksavvy.com/ApiKey/ApiKeyManagement).
+
+## {% linkable_title Configuration %}
 
 To use your TekSavvy sensor in your installation, add the following to your `configuration.yaml` file:
 

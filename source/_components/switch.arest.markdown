@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: arest.png
-ha_category: Switch
+ha_category: DIY
 ha_iot_class: "Local Polling"
 ha_release: 0.16
 ---
 
 The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+
+## {% linkable_title Configuration %}
 
 To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
 

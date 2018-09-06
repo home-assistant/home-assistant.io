@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ubiquiti.png
-ha_category: Sensor
+ha_category: Network
 ha_iot_class: "Local Polling"
 ha_release: 0.32
 ---

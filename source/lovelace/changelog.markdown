@@ -2,12 +2,14 @@
 layout: page
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
-date: 2018-07-01 10:28 +00:00
+date: 2018-08-31 13:06 +02:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.77.0 %}
+- 📣 New notification drawer ❤️
 
 ## {% linkable_title Changes in 0.75.0 %}
 
