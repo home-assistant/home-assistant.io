@@ -70,13 +70,10 @@ sensor:
 - **name** (*Optional*): The name displayed in the frontend.
 - **force_update** (*Optional*): Sends update events even if the value hasn't changed.
 - **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine.
-- **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
-- **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
-- **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
 - **adapter** (*Optional*): Define the Bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
 
 <p class='note warning'>
-By default the sensor is only polled once every 20 minutes. So, if you set `median: 3` it will take _at least_ 40 minutes   before the sensor will report a value after a Home Assistant restart. Since the values usually change very slowly, this usually isn't a big problem. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
+By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
 </p>
 
 A full configuration example could look like the one below:
