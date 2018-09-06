@@ -66,9 +66,9 @@ homeassistant:
 
 Notify MFA module using [notify component](https://www.home-assistant.io/components/notify/) to delivery a [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) to user configured target.
 
-User need first set up the MFA module by select one of the aviliable notify service. A six digit one-time password will be sent by this notify service, user need to input it to verify the setup.
+User need first set up the MFA module by select one of the aviliable notify service. A 8 digit one-time password will be sent by this notify service, user need to input it to verify the setup.
 
-During the login process, a six digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
+During the login process, an 8 digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
 
 <p class='note'>
 Notify MFA module would not verify the one-time password deliveried success, so that if user cannot received the message due any reason, he/she may not be login again. Edit or remove `[your_config_dir]/.storage/auth_module.notify` can disable nofiy MFA module to resolve the issue.
