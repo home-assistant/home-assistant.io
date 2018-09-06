@@ -41,6 +41,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Intelligent Curtain
 - Water Leak Sensor
 - Battery
+- Vibration Sensor
 
 #### {% linkable_title Unsupported Devices %}
 
@@ -248,6 +249,39 @@ This example toggles the living room lamp on a double click of the button.
       entity_id: light.living_room_lamp
 ```
 
+### {% linkable_title Vibration from Vibration Sensor %}
+
+This example toggles the living room lamp when vibration is detected
+```yaml
+- alias: Vibration Turn on Living Room Lamp
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_xxxx000000
+      movement_type: vibrate
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
+```
+
+### {% linkable_title Tilt from Vibration Sensor %}
+
+This example toggles the living room lamp when a tile of the vibration sensor is detected
+```yaml
+- alias: Vibration Turn on Living Room Lamp
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_xxxx000000
+      movement_type: tilt
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
+```
 
 ## {% linkable_title Troubleshooting %}
 
