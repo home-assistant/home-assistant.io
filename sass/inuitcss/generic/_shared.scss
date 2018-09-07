@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/**
+ * Base elements
+ */
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dl,
+blockquote,p,address,
+table,
+fieldset,figure,
+pre,
+/**
+ * Objects and abstractions
+ */
+%sass-margin-bottom,
+.media,
+.island,
+.islet{
+    margin-bottom:$base-spacing-unit;
+    margin-bottom:($base-spacing-unit / $base-font-size)*1rem;
+
+    .islet &{
+        margin-bottom:$base-spacing-unit / 2;
+        margin-bottom:(($base-spacing-unit / $base-font-size) / 2)*1rem;
+    }
+}
+
+
+/**
+ * Doubled up `margin-bottom` helper class.
+ */
+.landmark{
+    margin-bottom:2 * $base-spacing-unit;
+    margin-bottom:(2 * $base-spacing-unit / $base-font-size)*1rem;
+}
+
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr{
+    margin-bottom:$base-spacing-unit - 2px;
+    margin-bottom:(($base-spacing-unit - 2px) / $base-font-size)*1rem;
+}
+
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once, here.
+ */
+ul,ol,dd{
+    margin-left:2 * $base-spacing-unit;
+    margin-left:(2 * $base-spacing-unit / $base-font-size)*1rem;
+}

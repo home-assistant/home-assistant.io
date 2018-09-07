@@ -1,0 +1,32 @@
+@if $use-link-complex == true{
+
+/*------------------------------------*\
+    $LINK-COMPLEX
+\*------------------------------------*/
+/**
+ * As inspired by @necolas:
+ * github.com/necolas/suit-utils/blob/master/link.css#L18
+ *
+ * Add hover behaviour to only selected items within links, e.g.:
+ *
+   <a href=log-in class=link-complex>
+       <i class="s  s--user"></i>
+       <span class=link-complex__target>Log in</span>
+   </a>
+ *
+ * Demo: jsfiddle.net/inuitcss/rt9M3
+ *
+ */
+.link-complex,
+.link-complex:hover,
+.link-complex:active,
+.link-complex:focus{
+    text-decoration:none;
+}
+    .link-complex:hover .link-complex__target,
+    .link-complex:active .link-complex__target,
+    .link-complex:focus .link-complex__target{
+        text-decoration:underline;
+    }
+
+}//endif

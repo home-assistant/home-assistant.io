@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@if $use-stats == true{
+
+ /*------------------------------------*\
+     $STATS
+ \*------------------------------------*/
+ /**
+  * Simple object to display key–value statistic-like information, e.g.:
+  *
+    <div class=stat-group>
+        <dl class=stat>
+            <dt class=stat__title>Tweets</dt>
+            <dd class=stat__value>27,740</dd>
+        </dl>
+
+        <dl class=stat>
+            <dt class=stat__title>Following</dt>
+            <dd class=stat__value>11,529</dd>
+        </dl>
+
+        <dl class=stat>
+            <dt class=stat__title>Followers</dt>
+            <dd class=stat__value>12,105</dd>
+        </dl>
+    </div>
+  *
+  * Demo: jsfiddle.net/inuitcss/Bpwu6
+  *
+  */
+ .stat-group{
+    @extend .cf;
+    margin-left:-$base-spacing-unit;
+}
+    .stat{
+        float:left;
+        margin-left:$base-spacing-unit;
+        display:-ms-flexbox;
+        display:-webkit-flex;
+        display:   -moz-flex;
+        display:        flex;
+        @include vendor(flex-direction, column);
+    }
+        .stat__title{
+            @include vendor(order, 2);
+            -ms-flex-order:2;
+        }
+        .stat__value{
+            margin-left:0;
+            @include vendor(order, 1);
+            -ms-flex-order:1;
+        }
+
+}//endif

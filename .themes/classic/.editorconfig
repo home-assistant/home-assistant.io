@@ -1,0 +1,44 @@
+; This file is for unifying the coding style for different editors and IDEs.
+; More information at http://EditorConfig.org
+
+
+; Use 2 spaces for indentation in SCSS, JavaScript, HTML, and XML
+
+[*.scss]
+indent_style = space
+indent_size = 2
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[*.html]
+indent_style = space
+indent_size = 2
+
+[*.xml]
+indent_style = space
+indent_size = 2
+
+
+; Use 4 spaces for indentation in Markdown files
+
+[*.md]
+indent_style = space
+indent_size = 4
+
+[*.markdown]
+indent_style = space
+indent_size = 4
+
+
+; Override default indentation for some library files
+
+[jwplayer/glow/glow.xml]
+indent_style = tab
+
+[libs/jXHR.js]
+indent_style = tab
+
+[libs/swfobject-dynamic.js]
+indent_style = tab

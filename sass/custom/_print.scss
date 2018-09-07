@@ -1,0 +1,39 @@
+@media print {
+
+	/* General Overrides */
+	header div.grid__item nav {
+		display: none;
+	}
+	aside#sidebar {
+		display: none;
+	}
+	.grid__item {
+		display: block;
+		width: 100%;
+	}
+	
+	/* Components List */
+	div.filter-button-group {
+		display: none;
+	}
+	.hass-option-cards.show-items {
+		display: block;
+	}
+	.hass-option-cards.show-items a.option-card {
+		display: block;
+		opacity: 1;
+		width: 100%;
+		height: auto;
+		min-height: 80px;
+		margin-bottom: 8px;
+	}
+	.hass-option-cards.show-items a.option-card .img-container {
+		float: left;
+		width: 33%;
+		text-align: center;
+	}
+	.hass-option-cards.show-items a.option-card div.title {
+		height: 1.5em;
+		margin-top: 8px;
+	}
+}

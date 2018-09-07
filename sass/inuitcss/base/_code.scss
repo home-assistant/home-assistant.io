@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $CODE
+\*------------------------------------*/
+/**
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre{
+    overflow:auto;
+}
+    pre mark{
+        background:none;
+        border-bottom:1px solid;
+        color:inherit;
+    }
+
+
+/**
+ * Add comments to your code examples, e.g.:
+ *
+   <code>&lt;/div&gt;<span class=code-comment>&lt;!-- /wrapper --&gt;</span></code>
+ *
+ */
+.code-comment{
+    /**
+     * Override this setting in your theme stylesheet
+     */
+    opacity:0.75;
+    filter:alpha(opacity=75);
+}
+
+
+/**
+ * You can add line numbers to your code examples but be warned, it requires
+ * some pretty funky looking markup, e.g.:
+ *
+   <ol class=line-numbers>
+       <li><code>.nav{</code></li>
+       <li><code>    list-style:none;</code></li>
+       <li><code>    margin-left:0;</code></li>
+       <li><code>}</code></li>
+       <li><code>    .nav > li,</code></li>
+       <li><code>        .nav > li > a{</code></li>
+       <li><code>            display:inline-block;</code></li>
+       <li><code>           *display:inline-block;</code></li>
+       <li><code>            zoom:1;</code></li>
+       <li><code>        }</code></li>
+   </ol>
+ *
+ * 1. Make the list look like code.
+ * 2. Give the list flush numbers with a leading zero.
+ * 3. Make sure lines of code don’t wrap.
+ * 4. Give the code form by forcing the `code` to honour white-space.
+ */
+.line-numbers{
+    font-family:monospace, sans-serif;           /* [1] */
+    list-style:decimal-leading-zero inside; /* [2] */
+    white-space:nowrap;                     /* [3] */
+    overflow:auto;                          /* [3] */
+    margin-left:0;
+}
+    .line-numbers code{
+        white-space:pre;                    /* [4] */
+    }

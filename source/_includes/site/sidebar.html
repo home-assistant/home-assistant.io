@@ -1,0 +1,31 @@
+<div class="grid">
+  {% assign url_parts = page.url | split: '/' %}
+  {% if url_parts[1] == 'components' %}
+    {% include asides/component_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'cookbook' %}
+    {% include asides/cookbook_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'lovelace' %}
+    {% include asides/lovelace_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'developers' or url_parts[1] == 'help' %}
+    {% include asides/help_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'getting-started' %}
+    {% include asides/getting_started_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'docs' %}
+    {% include asides/docs_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'faq' %}
+    {% include asides/faq_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'hassio' or url_parts[1] == 'addons' %}
+    {% include asides/hassio_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'cloud' %}
+    {% include asides/cloud_navigation.html | compact_newlines %}
+  {% else %}
+    {% include asides/about.html %}
+
+    {% if page.blog_index %}
+      {% include asides/categories.html %}
+    {% else %}
+      {% include post/sharing.html %}
+      {% include asides/recent_posts.html %}
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,38 @@
+@if $use-this-or-this == true{
+
+/*------------------------------------*\
+    $THIS-OR-THIS
+\*------------------------------------*/
+/**
+ * Simple options object to provide multiple choices, e.g.:
+ *
+   <h1 class=this-or-this>
+       <a href=# class="this-or-this__this  two-fifths">
+           Free
+       </a>
+       <span class="this-or-this__or  one-fifth">
+           or
+       </span>
+       <a href=# class="this-or-this__this  two-fifths">
+           Pro
+       </a>
+   </h1>
+ *
+ * The `.this-or-this__this` and `.this-or-this__or` objects can be sized using
+ * the grid-system classes.
+ *
+ * Demo: jsfiddle.net/inuitcss/R3sks
+ *
+ */
+.this-or-this{
+    display:table;
+    width:100%;
+    text-align:center;
+}
+    .this-or-this__this,
+    .this-or-this__or{
+        display:table-cell;
+        vertical-align:middle;
+    }
+
+}//endif

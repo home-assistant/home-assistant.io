@@ -1,0 +1,64 @@
+$use-grids:         true;
+$site-width:        1100px;
+$responsive:        true;
+$use-gridfix:       true;
+
+// Fonts & Font Families
+$serif: Georgia, 'Times New Roman', Times, serif !default;
+$sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+// Grays
+// -------------------------
+$black:             #000 !default;
+$grayDarker:        #222 !default;
+$grayDark:          #333 !default;
+$gray:              #555 !default;
+$grayLight:         #999 !default;
+$grayLighter:       #eee !default;
+$white:             #fff !default;
+
+// Accent colors
+// -------------------------
+$blue:              #049cdb !default;
+$blueDark:          #0064cd !default;
+$green:             #46a546 !default;
+$red:               #9d261d !default;
+$yellow:            #ffc40d !default;
+$orange:            #f89406 !default;
+$pink:              #c3325f !default;
+$purple:            #7a43b6 !default;
+
+// Social network colors
+// Organised in a key-value pair list for dynamic SASS
+// Can be infinitely extended by adding more as required
+// -------------------------
+$sites:
+  adn #4A484C,
+  dribbble #EA4C89,
+  facebook #3B5998,
+  github #333333,
+  gplus #db4a39,
+  linkedin #4875b4,
+  pinterest #CC2127,
+  stackoverflow #FE7A15,
+  twitter #00a0d1,
+  youtube #CC181E;
+
+// Site footer
+// -------------------------
+$footer-height: 100px;
+
+// Site colors
+// -------------------------
+$primary-color:     $blue;
+$secondary-color:   $green;
+// -------------------------
+$site-background:   #F5F5F5;
+$header-background: $white;
+$footer-background: $header-background;
+$text-color:        $grayDarker;
+$title-color:       $primary-color;
+$link-color:        $primary-color;
+$button-color:      $primary-color;
+$button-text:       $white;
+$navigation-color:  $link-color;

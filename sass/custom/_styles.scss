@@ -1,0 +1,142 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+html {
+  background:$page-bg;
+}
+body {
+  line-height: 1.8em;
+  font-size:1.1em;
+  max-width:1320px;
+  > div {
+    background: #fff !important;
+    border-bottom:2px solid #f2f2f2;
+    > div {
+      border-right:2px solid #f2f2f2;
+      background: #fff !important;
+    }
+  }
+  > nav {
+    border-bottom:2px solid #f2f2f2;
+    li+li {
+      border-left:2px solid #f2f2f2;
+    }
+    a {
+      font-family: $serif;
+    }
+  }
+  >header {
+    h1 a {
+    font-weight: bold;
+    }
+  }
+
+  #content .blog-index article {
+  table {
+    font-size: 90%;
+    margin-bottom: 1.5em;
+    thead tr {
+      border-bottom: 1px solid $sidebar-border;
+    }
+    th {
+      font-weight: bold;
+      padding-right: 20px;
+    }
+    td {
+      padding: 0 20px 10px 0;
+      vertical-align: top;
+    }
+  }
+
+  header {
+    h1 {
+      margin: 0;
+      a { text-decoration: none;
+        &:hover { 
+          text-decoration: none;
+          color:$link-color;
+          } 
+          }
+        }
+      }
+    }
+  #blog-archives {
+    h1 {
+      a { text-decoration: none;
+        &:hover { text-decoration:none; } }
+    }
+  }
+  aside.sidebar {
+    background:#fff;
+    border-left:2px solid #f2f2f2;
+    height:100%;
+    form .search {
+      padding: .3em .5em 0;
+      font-size: .85em;
+      font-family: $serif;
+      line-height: 1.1em;
+      width: 95%;
+      background-color: #fff;
+      border: 2px solid #f2f2f2;
+      color: #000;
+      }
+    input[type=text]:focus, textarea:focus {
+      box-shadow: 0 0 0 rgba(255,255,255,1);
+    }
+  }
+
+  .toggle-sidebar {
+    display:none;
+  }
+}
+@media only screen and (max-width: 749px) {
+  aside.sidebar {
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+}
+@media only screen and (min-width: 750px) {
+  aside.sidebar {
+    border-top:0px solid black;
+  }
+}
+@media only screen and (min-width:992px) {
+  body { 
+    font-size: 1.3em; 
+  }
+  .collapse-sidebar aside.sidebar {
+    background: #fff;
+  }
+}
+.meta {
+  font-family: $serif;
+}
+.sticky {  
+    position: fixed;  
+    width:100%;  
+    left: 0;  
+    top: 0;  
+    z-index: 100;  
+}
+::-webkit-input-placeholder {
+   color: $link-color;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: $link-color;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $link-color;  
+}
+:-ms-input-placeholder {  
+   color: $link-color;  
+}  
+
+.highlight, html .gist .gist-file .gist-syntax .gist-highlight {
+  table {
+    margin: 0;
+    td {
+      padding: 0;
+      &.code { width: 100%; }
+    }
+  }
+  border: 1px solid $pre-border !important;
+}

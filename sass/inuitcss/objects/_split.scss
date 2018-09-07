@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@if $use-split == true{
+
+/*------------------------------------*\
+    $SPLIT
+\*------------------------------------*/
+/**
+ * Simple split item for creating two elements floated away from one another,
+ * e.g.:
+ *
+   <dl class=split>
+       <dt class=split__title>Burger and fries</dt>
+       <dd>&pound;5.99</dd>
+       <dt class=split__title>Fillet steak</dt>
+       <dd>&pound;19.99</dd>
+       <dt class=split__title>Ice cream</dt>
+       <dd>&pound;2.99</dd>
+   </dl>
+ *
+   <ol class="split  results">
+       <li class=first><b class=split__title>1st place</b> Bob</li>
+       <li class=second><b class=split__title>2nd place</b> Lilly</li>
+       <li class=third><b class=split__title>3rd place</b> Ted</li>
+   </ol>​
+ *
+ * Demo: jsfiddle.net/inuitcss/9gZW7
+ *
+ */
+.split{
+    text-align:right;
+    list-style:none;
+    margin-left:0;
+}
+    .split__title{
+        text-align:left;
+        float:left;
+        clear:left;
+    }
+
+}//endif
