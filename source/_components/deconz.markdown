@@ -193,12 +193,12 @@ class DeconzHelper(hass.Hass):
         self.listen_event(self.event_received, "deconz_event")
 
     def event_received(self, event_name, data, kwargs):
-        self.event_data = data["event"]
-        self.id = data["id"]
-        self.event_received = datetime.now()
+        event_data = data["event"]
+        event_id = data["id"]
+        event_received = datetime.now()
 
-        self.log("Deconz event received from {}. Event was: {}".format(self.id, self.event_data))
-        self.set_state("sensor.deconz_event", state = self.id, attributes = {"event_data": self.event_data, "event_received": str(self.event_received)})
+        self.log("Deconz event received from {}. Event was: {}".format(event_id, event_data))
+        self.set_state("sensor.deconz_event", state = event_id, attributes = {"event_data": event_data, "event_received": str(event_received)})
 ```
 {% endraw %}
 
