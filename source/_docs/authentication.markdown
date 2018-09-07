@@ -40,6 +40,14 @@ As a user, you can setup multi-factor authentication with time-based one-time pa
 
 ## {% linkable_title Troubleshooting %}
 
+### {% linkable_title Bearer token warnings &}
+
+Under the new authentication system you'll see the following warning logged when the [legacy API password](/docs/authentication/providers/#legacy-api-password) is used. This information is aimed at developers, to remind them to update to the new authentication methods.
+
+    WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
+
+As an end user of Home Assistant you don't need to do anything at this time.
+
 ### {% linkable_title Lost owner password %}
 
 While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](https://www.home-assistant.io/docs/configuration/):
