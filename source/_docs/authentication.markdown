@@ -40,13 +40,19 @@ As a user, you can setup multi-factor authentication with time-based one-time pa
 
 ## {% linkable_title Troubleshooting %}
 
-### {% linkable_title Bearer token warnings &}
+### {% linkable_title Bearer token warnings %}
 
-Under the new authentication system you'll see the following warning logged when the [legacy API password](/docs/authentication/providers/#legacy-api-password) is used. This information is aimed at developers, to remind them to update to the new authentication methods.
+Under the new authentication system you'll see the following warning logged when the [legacy API password](/docs/authentication/providers/#legacy-api-password) is supplied, but not configured in Home Assistant:
 
     WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
 
-As an end user of Home Assistant you don't need to do anything at this time.
+If you see this, you need to add an [`api_password`](/components/http/#api_password) to your `http:` configuration.
+
+### {% linkable_title Bearer token informational messages %}
+
+If instead you see the following, then this is a message for component developers, to tell them that they need to update how they authenticate to Home Assistant. As an end user you don't need to do anything:
+
+    INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
 
 ### {% linkable_title Lost owner password %}
 
