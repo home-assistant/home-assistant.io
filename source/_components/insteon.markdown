@@ -18,19 +18,20 @@ linked INSTEON devices to be used within Home Assistant as binary sensors,
 lights, fans, sensors and switches.  Device support is provided by the
 underlying [insteonplm] package.  It is known to work with the [2413U] USB and
 [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been
-tested to work with the [2245] Hub. 
+tested to work with the [2242] and [2245] Hubs.
 
 [insteonplm]: https://github.com/nugget/python-insteonplm
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
 [2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
 [2245]: https://www.insteon.com/insteon-hub/
+[2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
 
 
 ### {% linkable_title INSTEON Modem configuration %}
 
-To setup a Powerline Modem (PLM) device such as the [2413U], use the following
-configuration:
+To setup an INSTON Powerline Modem (PLM) device such as the [2413U], use the
+following configuration:
 
 ```yaml
 # PLM configuration variables
@@ -38,15 +39,26 @@ insteon:
   port: SERIAL_PORT
 ```
 
-To setup an INSTEON Hub such as the [2245], use the following configuration:
+To setup an INSTEON Hub model [2245], use the following configuration:
 
 ```yaml
-# Hub configuration variables
+# Hub 2245 configuration variables
 insteon:
   host: HOST
   ip_port: IP_PORT
   username: USERNAME
   password: PASSWORD
+  hub_version: 2
+```
+
+To setup an INSTEON Hub model [2242], use the following configuration:
+
+```yaml
+# Hub 2242 configuration variables
+insteon:
+  host: HOST
+  ip_port: IP_PORT
+  hub_version: 1
 ```
 
 Addtional configuration items are available:
@@ -71,14 +83,23 @@ insteon:
 ```
 Configuration variables:
 - **port** (*Required for PLM setup*): The serial or USB port for your device,
-  e.g., `/dev/ttyUSB0`
-- **host** (*Required for Hub setup*): The host name or IP address of the Hub
-- **ip_port** (*Optional for Hub setup*): The IP port number of the Hub.
-  (default value is 25105)
-- **username** (*Required for Hub setup*): The username to login to the local
-  Hub
-- **password** (*Required for Hub setup*): The password to login to the local
-  Hub
+  e.g., `/dev/ttyUSB0` or `COM3`
+- **host** (*Required for Hub setup*): The host name or IP address of the Hub.
+- **ip_port** (*Optional for Hub setup*): The IP port number of the Hub. For
+  Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub
+  model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon
+  app to find the port number for your specific Hub.
+- **username** (*Required for Hub version 2 setup*): The username to login in
+  to the local Hub. This is required for Hub [2245] (i.e. Hub version 2) setup.
+  You can find your Hub username on the bottom of the Hub or you can use the
+  Insteon app.
+- **password** (*Required for Hub version 2 setup*): The password to login in
+  to the local Hub. This is required for Hub [2245] (i.e. Hub version 2) setup.
+  You can find your Hub password on the bottom of the Hub or you can use the
+  Insteon app.
+- **hub_version** (*Required for Hub version 1 setup*): The Hub version number
+  where model [2242] is Hub version 1 and model [2245] is Hub version 2.
+  (Default is 2)
 - **device_override** (*Optional*): Override the default device definition
   - *ADDRESS* is found on the device itself in the form 1A.2B.3C or 1a2b3c
   - *CATEGORY* is found in the back of the device's User Guide in the form of
@@ -234,9 +255,8 @@ events. The following events are available:
     the values are a to d. For an 8 button remote the values are a to g. For
     a one button remote this field is not used.
 
-This allows the mini-remotes to be configured as 
-
-Here is an example of how to use these events for automations:
+This allows the mini-remotes to be configured as triggers for automatoins. Here
+is an example of how to use these events for automations:
 
 ```
 automation:
