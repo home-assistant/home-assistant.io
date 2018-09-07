@@ -27,7 +27,7 @@ climate:
 
 {% configuration %}
 device:
-  description: Path to OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html).
+  description: "Path to OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html)."
   required: true
   type: string
 name:
@@ -36,7 +36,7 @@ name:
   type: string
   default: OpenTherm Gateway
 precision:
-  description:" The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
   required: false
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
