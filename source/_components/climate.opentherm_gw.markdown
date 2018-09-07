@@ -36,10 +36,10 @@ name:
   type: string
   default: OpenTherm Gateway
 precision:
-  description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
+  description:" The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
   required: false
   type: float
-  default: `0.5` for Celsius and `1.0` for Fahrenheit.
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 floor_temperature:
   description: Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`.
   required: false
