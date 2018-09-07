@@ -12,4 +12,4 @@ ha_category: Other
 ha_release: 0.73
 ---
 
-This component creates the endpoints for the authentication system that is built into Home Assistant. There are no configuration options for this component directly as it relies on the auth system in the core.
+This component creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant. There are no configuration options for this component directly as it relies on the auth system in the core.
