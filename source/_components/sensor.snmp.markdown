@@ -41,7 +41,7 @@ port:
   type: string
   default: '161'
 community:
-  description: The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
   required: false
   type: string
   default: 'public'
@@ -71,7 +71,7 @@ priv_protocol:
   type: string
   default: 'none'
 version:
-  description: Version of SNMP protocol, `1`, `2c` or `3`. Version `2c` or higher is needed to read data from 64-bit counters.
+  description: "Version of SNMP protocol, `1`, `2c` or `3`. Version `2c` or higher is needed to read data from 64-bit counters."
   required: false
   type: string
   default: '1'
@@ -84,15 +84,16 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
   required: false
   type: template
 accept_errors:
-  description: Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to `false`.
+  description: "Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant."
   required: false
   type: string
+  default: false
 default_value:
-  description: Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors.
+  description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
   required: false
   type: string
 {% endconfiguration %}
@@ -139,6 +140,7 @@ According to the most common SNMP standard, the uptime of a device is accessible
 
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -148,8 +150,9 @@ sensor:
     baseoid: 1.3.6.1.2.1.1.3.0
     accept_errors: true
     unit_of_measurement: 'minutes'
-    value_template: {% raw %}'{{((value | int) / 6000) | int}}'{% endraw %}
+    value_template: '{{((value | int) / 6000) | int}}'
 ```
+{% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 
