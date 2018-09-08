@@ -28,13 +28,28 @@ Depending on your setup, you might need to set a base URL (`base_url`) inside th
 
 The following optional parameters can be used with any platform. However, the TTS component will only look for global settings under the configuration of the first configured platform:
 
-| Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cache` | True    | Allow TTS to cache voice file to local storage. |
-| `cache_dir`  | tts      | Folder name or path to a folder for caching files. |
-| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours). |
-| `base_url` | '' | A base URL to use *instead* of the one set in the [http component](/components/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you. An empty string (the default) means that `tts` will use the one set in the [http component](/components/http/). |
-
+{% configuration %}
+cache:
+  description: Allow TTS to cache voice file to local storage.
+  required: false
+  type: boolean
+  default: True
+cache_dir:
+  description: Folder name or path to a folder for caching files.
+  required: false
+  type: string
+  default: tts
+time_memory:
+  description: Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours).
+  required: false
+  type: int
+  default: 300
+base_url:
+  description: A base URL to use *instead* of the one set in the [http component](/components/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
+  required: false
+  type: string
+  default: value of ``http.base_url``
+{% endconfiguration %}
 
 The extended example from above would look like the following sample:
 
