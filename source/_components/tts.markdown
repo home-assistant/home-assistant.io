@@ -23,7 +23,7 @@ tts:
 ```
 
 <p class='note'>
-Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/).
+Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/) or in the parameters of this component.
 </p>
 
 The following optional parameters can be used with any platform. However, the TTS component will only look for global settings under the configuration of the first configured platform:
