@@ -1,0 +1,41 @@
+---
+layout: page
+title: "Logi Sensor"
+description: "Instructions on how to integrate your Logi Circle cameras within Home Assistant."
+date: 2018-09-08 11:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: logi.png
+ha_category: Camera
+ha_release: 0.78
+ha_iot_class: "Cloud Polling"
+---
+
+The `logi` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.
+
+<p class='note'>
+You must have the [Logi component](/components/logi/) configured to use this sensor platform.
+</p>
+
+## {% linkable_title Configuration %}
+
+Once you have enabled the [Logi component](/components/logi), add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: logi
+```
+
+Configuration variables:
+
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions supported by your camera will be enabled.
+  - **battery_level**: Return the battery level percentage from the camera.
+  - **privacy_mode**: Return the privacy mode status from the camera. 
+  - **last_activity_time**: Returns the timestamp from the last time the Logi Circle camera detected any activity (motion or sound).
+  - **wifi_signal_category**: Return the WiFi signal level from the camera.
+  - **wifi_signal_percentage**: Return the WiFi signal percentage from the camera.
+
+Currently it supports all 1st and 2nd generation cameras. Cameras without an internal battery will not expose a `battery_level` sensor.
