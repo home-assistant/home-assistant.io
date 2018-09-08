@@ -73,6 +73,13 @@ Delays are useful for temporarily suspending your script and start it at a later
 
 {% raw %}
 ```yaml
+# Waits however many seconds input_number.second_delay is set to
+- delay:
+    # supports milliseconds, seconds, minutes, hours, days
+    seconds: "{{ states('input_number.second_delay') }}"
+```
+
+```yaml
 # Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
 - delay: "{{ states('input_number.minute_delay') | multiply(60) | timestamp_custom('%H:%M:%S',False) }}"
