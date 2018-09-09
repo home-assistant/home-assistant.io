@@ -22,6 +22,7 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
+  token: RANDOM_STRING
   devices:
     - host: DOORBIRD_IP_OR_HOSTNAME
       username: YOUR_USERNAME
@@ -38,6 +39,10 @@ doorbird:
 ```
 
 {% configuration %}
+token:
+  description: Token to be used to authenticate Doorbird calls to Home Assistant.
+  required: true
+  type: string
 devices:
   description: List of doorbird devices.
   required: true
@@ -86,6 +91,9 @@ Home Assistant will fire an event any time a `monitored_condition` happens on a 
 <p class="note warning">
 Enabling any monitored condition will delete all registered notification services on the doorstation every time Home Assistant starts. This will not affect notifications delivered by the DoorBird mobile app.
 </p>
+
+#### {% linkable_title Event Data %}
+Each event includes live image and live video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions.  For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.  NOTE: The URLs on the event will be based on the configuration used to connect to your Doorbird devices.  Connectivity will depend on your network configuration.
 
 ### {% linkable_title Automation Example %}
 ```yaml
