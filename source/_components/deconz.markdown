@@ -179,6 +179,36 @@ automation:
 
 ### {% linkable_title Appdaemon %}
 
+#### {% linkable_title Appdaemon event helper %}
+Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
+
+{% raw %}
+```yaml
+deconz_helper:
+  module: deconz_helper
+  class: DeconzHelper
+```
+
+```python
+import appdaemon.plugins.hass.hassapi as hass
+import datetime
+from datetime import datetime
+
+class DeconzHelper(hass.Hass):
+    def initialize(self) -> None:
+        self.listen_event(self.event_received, "deconz_event")
+
+    def event_received(self, event_name, data, kwargs):
+        event_data = data["event"]
+        event_id = data["id"]
+        event_received = datetime.now()
+
+        self.log("Deconz event received from {}. Event was: {}".format(event_id, event_data))
+        self.set_state("sensor.deconz_event", state = event_id, attributes = {"event_data": event_data, "event_received": str(event_received)})
+```
+{% endraw %}
+
+
 #### {% linkable_title Appdaemon remote template %}
 
 {% raw %}

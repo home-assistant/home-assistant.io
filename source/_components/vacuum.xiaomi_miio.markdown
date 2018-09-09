@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`
