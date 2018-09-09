@@ -46,6 +46,10 @@ floor_temperature:
   type: boolean
 {% endconfiguration %}
 
+<p class='note'>
+The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
+</p>
+
 # {% linkable_title Example %}
 
 A full configuration example with the OpenTherm Gateway connected to a remote host running `ser2net` looks like the one below.
