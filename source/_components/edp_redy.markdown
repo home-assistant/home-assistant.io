@@ -30,11 +30,11 @@ edp_redy:
 
 {% configuration %}
   username:
-    description: The username for accessing your Canary account.
+    description: The username for accessing your re:dy account.
     required: true
     type: string
   password:
-    description: The password for accessing your Canary account.
+    description: The password for accessing your re:dy account.
     required: true
     type: string
 {% endconfiguration %}
