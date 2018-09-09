@@ -49,3 +49,17 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `onboarding`
 
 When you start Home Assistant next you'll be required to set up authentication again.
+
+### {% linkable_title Error: invalid client id or redirect url%}
+
+<img src='/images/docs/authentication/error-invalid-client-id.png' alt='Screenshot of Error: invalid client id or redirect url' style='border: 0;box-shadow: none;'>
+
+When you want to remote access Home Assistant, you have to use domain name, otherwise you will get **Error: invalid client id or redirect url** error on login form. It because we only allow use IP address as client ID when your IP address is from one of internal network address (e.g. 192.168.0.1) or loopback address (e.g. 127.0.0.1).
+If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. For example, if you are on Windows, edit `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, add following entry 
+
+```
+12.34.56.78 hassbian.home
+```
+(Please replace `12.34.56.78` to your Home Assistant's public IP address)
+
+It will allow you open Home Assistant instance by access `http://hassbian.home:8123/`
