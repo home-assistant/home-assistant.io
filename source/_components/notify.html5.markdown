@@ -79,6 +79,17 @@ Assuming you have already added the platform to your configuration:
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
 
+### {% linkable_title Testing %}
+
+Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
+
+1. Open Home Assistant in Chrome or Firefox.
+2. Open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
+3. From the Services dropdown, search for your HTML5 notify service (E.G. notify.NOTIFIER_NAME) and select it.
+4. In the Service Data text box enter: {"message":"hello world"}, then press the CALL SERVICE button.
+5. If everything worked you should see a popup notification.
+
+
 ### {% linkable_title Usage %}
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
