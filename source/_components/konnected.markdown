@@ -25,7 +25,7 @@ This component requires the [`discovery`](https://www.home-assistant.io/componen
 
 ## {% linkable_title Configuration %}
 
-A `konnected` section must be present in the `configuration.yml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
+A `konnected` section must be present in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
 
 ```yaml
 # Example configuration.yaml entry
