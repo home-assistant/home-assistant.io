@@ -18,6 +18,7 @@ The `octoprint` binary sensor platform let you monitor if your 3D printer is pri
 
 <p class='note'>
 You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.
+If you have multiple printers defined, the **name** must match the one defined in the component.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -25,6 +26,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 binary_sensor:
   - platform: octoprint
+    name: Octoprint
     monitored_conditions:
       - Printing
       - Printing Error

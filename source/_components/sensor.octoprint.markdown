@@ -18,6 +18,7 @@ The `octoprint` sensor platform let you monitor various states of your 3D printe
 
 <p class='note'>
 You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.
+If you have multiple printers defined, the **name** must match the one defined in the component.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
