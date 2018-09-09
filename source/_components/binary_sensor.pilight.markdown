@@ -70,7 +70,7 @@ reset_delay_sec:
 A full configuration example could look like this:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
     name: 'Motion'

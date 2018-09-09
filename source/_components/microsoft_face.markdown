@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: microsoft.png
-ha_category: Hub
+ha_category: Image Processing
 ha_release: "0.37"
 ---
 
@@ -17,6 +17,8 @@ Azure Cognitive service
 [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/).
 All data are stored in your own private instance in the Azure cloud.
 
+## {% linkable_title Setup %}
+
 You need an API key, which is free, but requires an
 [Azure registration](https://azure.microsoft.com/en-us/free/) using your
 Microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and
@@ -24,6 +26,8 @@ Microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and
 get an API key by registering with
 [cognitive-services](https://azure.microsoft.com/en-us/try/cognitive-services/).
 Please note that all keys on cognitive services must be recreated every 90 days.
+
+## {% linkable_title Configuration %}
 
 To enable the Microsoft Face component,
 add the following to your `configuration.yaml` file:

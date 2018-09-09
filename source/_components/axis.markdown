@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: axis.png
-ha_category: Hub
+ha_category: Camera
 ha_release: "0.45"
 ha_iot_class: "Local Polling"
 ---
@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
 Home Assistant will automatically discover their presence on your network.
+
+## {% linkable_title Configuration %}
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
@@ -27,8 +29,6 @@ axis:
     include:
       - camera
 ```
-
-Configuration variables:
 
 ## {% linkable_title Configuration variables %}
 
