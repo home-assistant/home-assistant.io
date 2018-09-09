@@ -29,14 +29,14 @@ edp_redy:
 ```
 
 {% configuration %}
-  username:
-    description: The username for accessing your re:dy account.
-    required: true
-    type: string
-  password:
-    description: The password for accessing your re:dy account.
-    required: true
-    type: string
+username:
+  description: The username for accessing your re:dy account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your re:dy account.
+  required: true
+  type: string
 {% endconfiguration %}
 
 After configuring the component, it will automatically add to Home Assistant:
