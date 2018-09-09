@@ -48,4 +48,4 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `auth_provider.homeassistant`
 * `onboarding`
 
-When you start Home Assistant next you'll be required to set up authentication again.
+When you start Home Assistant next you'll be required to set up authentication again (clear your cookies if not).
