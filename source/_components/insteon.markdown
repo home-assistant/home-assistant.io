@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Insteon"
-description: "Instructions on how to setup an Insteon Modem (PLM or Hub) locally within Home Assistant."
+description: "Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant."
 date:  2018-08-20 16:00
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ tested to work with the [2242] and [2245] Hubs.
 
 ### {% linkable_title INSTEON Modem configuration %}
 
-To setup an INSTON Powerline Modem (PLM) device such as the [2413U], use the
+To set up an INSTEON Powerline Modem (PLM) device such as the [2413U], use the
 following configuration:
 
 ```yaml
@@ -39,8 +39,8 @@ insteon:
   port: SERIAL_PORT
 ```
 
-To setup an INSTEON Hub model [2245], use the following configuration:
-
+To set up an INSTEON Hub model [2245], use the following configuration:
+ 
 ```yaml
 # Hub 2245 configuration variables
 insteon:
@@ -51,7 +51,7 @@ insteon:
   hub_version: 2
 ```
 
-To setup an INSTEON Hub model [2242], use the following configuration:
+To set up an INSTEON Hub model [2242], use the following configuration:
 
 ```yaml
 # Hub 2242 configuration variables
@@ -113,7 +113,7 @@ Configuration variables:
   - *UNITCODE* is the X10 unit code values 1 - 16
   - *PLATFORM* is the Home Assistant Platform to associate the device with. 
     The following platforms are supported
-    - binary_sensor: Used for on/off devices or keypad buttons that are read only.
+    - binary_sensor: Used for on/off devices or keypad buttons that are read-only.
     - light: Used for dimmable X10 devices
     - switch: Used for On/Off X10 devices
   - *STEPS* is the number of dim/bright steps the device supports. Used for
@@ -132,13 +132,13 @@ per device. Subsequent startups will occur much quicker using cached device
 information. If a device is not recognized during autodiscovery, you can add
 the device to the **device_override** configuration. 
 
-In order for a device to be discovered it must be linked to the INSTEON Modem
+In order for a device to be discovered, it must be linked to the INSTEON Modem
 as either a responder or a controller. 
 
 ### {% linkable_title Linking Devices to the INSTEON Modem %}
 
 In order for any two Insteon devices to talk with one another, they must be 
-linked. For an overview of device linking please read the Insteon page on
+linked. For an overview of device linking, please read the Insteon page on
 [understanding linking]. The Insteon Modem module supports All-Linking through 
 [Development Tools] service calls. The following services are available:
 
@@ -195,7 +195,7 @@ devices.
 
 INSTEON devices are added to Home Assistant using the platform(s) that make the
 most sense given the model and features of the hardware. The features of the 
-INSTEON device are built into the Home Assistant platform. Changing the 
+INSTEON devices are built into the Home Assistant platform. Changing the 
 platform is not recommended. There are two primary uses for the 
 **device_override** feature.
 - Devices that do not respond during autodiscovery. This is common for battery
@@ -206,7 +206,7 @@ platform is not recommended. There are two primary uses for the
 ### {% linkable_title Example Configuration with Options%} 
 
 ```yaml
-# Full example of insteon configuration with customizations and overrides
+# Full example of Insteon configuration with customizations and overrides
 
 homeassistant:
   customize:
@@ -246,14 +246,14 @@ events. The following events are available:
   - **address**: (required) The Insteon device address in lower case without
     dots (e.g. 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote
-    the values are `a` to `d`. For an 8 button remote the values are a to g. For
-    a one button remote this field is not used.
+    the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For
+    a one-button remote this field is not used.
 - **insteon.button_of**
   - **address**: (required) The Insteon device address in lower case without
     dots (e.g. 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote
     the values are a to d. For an 8 button remote the values are `a` to `g`. For
-    a one button remote this field is not used.
+    a one-button remote this field is not used.
 
 This allows the mini-remotes to be configured as triggers for automations. Here
 is an example of how to use these events for automations:
