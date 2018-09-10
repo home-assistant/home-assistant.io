@@ -7,13 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Binary Sensor
+ha_category: Utility
 logo: home-assistant.png
 ha_release: 0.28
 ha_iot_class: "Local Push"
 ---
 
 The `trend` platform allows you to create sensors which show the trend of numeric `state` or`state_attributes` from other entities. This sensor requires at least two updates of the underlying sensor to establish a trend. Thus it can take some time to show an accurate state. It can be useful as part of automations, where you want to base an action on a trend.
+
+## {% linkable_title Configuration %}
 
 To enable Trend binary sensors in your installation, add the following to your `configuration.yaml` file:
 

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Binary Sensor
+ha_category: Image Processing
 ha_release: 0.27
 redirect_from: /components/binary_sensor.ffmpeg/
 ---
@@ -20,9 +20,11 @@ The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.
 If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
 </p>
 
-### {% linkable_title Motion %}
+## {% linkable_title Motion %}
 
 FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change in order to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
+
+## {% linkable_title Configuration %}
 
 To add FFmpeg with motion detection to your installation, add the following to your `configuration.yaml` file:
 

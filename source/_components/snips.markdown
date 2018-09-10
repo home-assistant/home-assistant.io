@@ -38,17 +38,17 @@ $ sudo apt-get update
 $ sudo apt-get install -y snips-platform-voice
 ```
 
-Note: if the keyserver pgp.mit.edu is down try to use another one in the 4th line , like pgp.surfnet.nl:
+Note that if the keyserver pgp.mit.edu is down then try to use another one in the 4th line, like pgp.surfnet.nl:
 
 ```bash
-sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
+$ sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 ```
 
 ### {% linkable_title Creating an assistant %}
 
 Head over to the [Snips Console](https://console.snips.ai) to create your assistant. Launch the training and download by clicking on the "Download Assistant" button.
 
-The next step is to get the assistant to work on your device. Unzip and copy the assistant folder that you downloaded from the web console to the path. Assuming your downloaded assistant folder is on your desktop, just run:
+The next step is to get the assistant to work on your device. Unzip and copy the `assistant` folder that you downloaded from the web console to the path. Assuming your downloaded `assistant` folder is on your desktop, just run:
 
 ```bash
 $ scp -r ~/Desktop/assistant pi@<raspi_hostname.local_or_IP>:/home/pi/.
@@ -68,7 +68,7 @@ Then, move the assistant to the right folder:
 (pi) $ sudo mv /home/pi/assistant /usr/share/snips/assistant
 ```
 
-Note: if you already have an assistant installed and wish to replace it, start by removing the previous one, and then move the new one in its place:
+Note that if you already have an assistant installed and wish to replace it then start by removing the previous one and then move the new one in its place:
 
 ```bash
 (pi) $ sudo rm -r /usr/share/snips/assistant
@@ -161,22 +161,28 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-Two special values for slots are populated with the siteId the intent originated from and the probability value for the intent.
+Several special values for slots are populated with the `siteId `the intent originated from and the probability value for the intent, the `sessionId` generate by the dialogue manager, and `slote_name` raw which will contain the raw, uninterpreted text of the slot value.
 
-In the above example, the slots are plain strings. However, snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
+In the above example, the slots are plain strings. However, Snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
+
+In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert. 
+
+In this example if we had an intent triggered with 'Set a timer for five minutes', duration would equal 300 and duration_raw would be set to 'five minutes'. The duration can be easily used to trigger HA events, and the duration_raw could be used to send a human readable response or alert.
 
 {% raw %}
 ```yaml
 SetTimer:
   speech:
     type: plain
-    text: weather
+    text: 'Set a timer'
   action:
     service: script.set_timer
     data_template:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
       siteId: "{{ site_id }}"
+      sessionId: "{{ session_id }}"
+      duration_raw: "{{ raw_value }}"
       probability: "{{ probability }}"
 ```
 {% endraw %}
@@ -185,7 +191,7 @@ SetTimer:
 
 ### {% linkable_title Sending TTS Notifications %}
 
-You can send TTS notifications to Snips using the snips.say and snips.say_action services. Say_action starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
+You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` services. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
 #### {% linkable_title Service `snips.say` %}
 
@@ -240,9 +246,7 @@ intent_script:
 
 ##### {% linkable_title Intiating a query %}
 
-Here is a more complex example. The automation is triggered if the garage door is open for more than 10 minutes.
-Snips will then ask you if you want to close it and if you respond with something like "Close the garage door" it
-will do so. Unfortunately there is no builtin support for yes and no responses.
+Here is a more complex example. The automation is triggered if the garage door is open for more than 10 minutes. Snips will then ask you if you want to close it and if you respond with something like "Close the garage door" it will do so. Unfortunately there is no builtin support for yes and no responses.
 
 ```yaml
 automation:
@@ -258,7 +262,7 @@ automation:
       service: snips.say_action
         data:
           text: 'Garage door has been open 10 minutes, would you like me to close it?'
-          intentFilter:
+          intent_filter:
             - closeGarageDoor
 
 # This intent is fired if the user responds with the appropriate intent after the above notification

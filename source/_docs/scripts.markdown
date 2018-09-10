@@ -67,9 +67,18 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Waits 1 minute
 - delay:
-    # supports milliseconds, seconds, minutes, hours, days
+    # Supports milliseconds, seconds, minutes, hours, days
     minutes: 1
 ```
+
+{% raw %}
+```yaml
+# Waits however many seconds input_number.second_delay is set to
+- delay:
+    # Supports milliseconds, seconds, minutes, hours, days
+    seconds: "{{ states('input_number.second_delay') }}"
+```
+{% endraw %}
 
 {% raw %}
 ```yaml
@@ -85,14 +94,14 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 
 {% raw %}
 ```yaml
-# wait until media player have stop the playing
+# Wait until media player have stop the playing
 - wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
 {% endraw %}
 
 {% raw %}
 ```yaml
-# wait for sensor to trigger or 1 minute before continuing to execute.
+# Wait for sensor to trigger or 1 minute before continuing to execute.
 - wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
   timeout: '00:01:00'
   continue_on_timeout: 'true'
@@ -125,7 +134,7 @@ You can also get the script to abort after the timeout by using `continue_on_tim
 
 {% raw %}
 ```yaml
-# wait until a valve is < 10 or continue after 1 minute.
+# Wait until a valve is < 10 or continue after 1 minute.
 - wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
   timeout: '00:01:00'
   continue_on_timeout: 'false'

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: coinbase.png
-ha_category: Sensor
+ha_category: Finance
 ha_release: 0.61
 ---
 

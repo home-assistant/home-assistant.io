@@ -20,6 +20,8 @@ ha_release: 0.29
 
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
 
+## {% linkable_title Configuration %}
+
 To enable the `yahoo_finance` platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml

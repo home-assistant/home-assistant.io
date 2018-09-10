@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: sql.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.63
 ---
 
-The `SQL` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
-This can be used to present statistics about Home Assistant sensors if used with the recorder component database. It can also be used with an external data source.
+The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+This can be used to present statistics about Home Assistant sensors if used with the `recorder` component database. It can also be used with an external data source.
+
+## {% linkable_title Configuration %}
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -21,15 +23,13 @@ To enable it, add the following lines to your `configuration.yaml`:
 
 {% raw %}
 ```yaml
-# Example configuration.yaml entry to monitor hass database size in MySQL
+# Example configuration.yaml
 sensor:
   - platform: sql
-    db_url: mysql://user:password@localhost/hass
     queries:
-      - name: HASS DB size
-        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
-        column: 'value'
-        unit_of_measurement: kB
+      - name: Sun state
+        query: "SELECT * FROM states WHERE entity_id = 'sun.sun' ORDER BY state_id DESC LIMIT 1;"
+        column: 'state'
 ```
 {% endraw %}
 
@@ -72,30 +72,71 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Current state of an entity %}
 
-This example shows the previously *recorded* state of sensor *abc123*.
+This example shows the previously *recorded* state of the sensor `sensor.temperature_in`.
 
-```sql
-SELECT * FROM states WHERE entity_id = 'sensor.abc123' ORDER BY id DESC LIMIT 2
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: '°C'
 ```
 
-Note that the SQL sensor state corresponds to the last row of the SQL resultset.
+The query will look like this: 
+
+```sql
+SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
+```
+
+{% raw %}
+```yaml
+# Example configuration.yaml
+sensor:
+  - platform: sql
+    queries:
+      - name: Temperature in
+        query: "SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;"
+        column: 'state'
+```
+{% endraw %}
+
+
+Note that the SQL sensor state corresponds to the last row of the SQL result set.
 
 ### {% linkable_title Previous state of an entity %}
 
 This example only works with *binary_sensors*:
 
 ```sql
-SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1
+SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
 ```
 
-### {% linkable_title Database size in Postgres %}
+### {% linkable_title Database size %}
 
+#### {% linkable_title Database size in Postgres %}
+
+{% raw %}
 ```yaml
 - platform: sql
     db_url: postgresql://user:password@host/dbname
     queries:
-    - name: db_size
-      query: "SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
-      column: "db_size"
-      unit_of_measurement: MB 
+      - name: DB size
+        query: "SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
+        column: "db_size"
+        unit_of_measurement: MB 
 ```
+{% endraw %}
+
+#### {% linkable_title MariaDB/MySQL %}
+
+{% raw %}
+```yaml
+sensor:
+- platform: sql
+  queries:
+    - name: DB size
+      db_url: mysql://user:password@localhost/hass
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: kB
+```
+{% endraw %}

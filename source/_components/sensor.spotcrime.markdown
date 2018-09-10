@@ -7,14 +7,18 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Social
 ha_release: 0.65
 ha_iot_class: "Cloud Polling"
 ---
 
 The `spotcrime` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Spot Crime](http://spotcrime.com). Your regional emergency services may or may not report data. The sensor defaults to counting incidents within one day, but can be customized via configuration.yaml.
 
+## {% linkable_title Setup %}
+
 You will need to request an API key from [Spotcrime](mailto:pyrrhus@spotcrime.com).
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`. Your `radius` should be of sufficient size to capture incidents in your area. 0.01 = 1 mile.
 

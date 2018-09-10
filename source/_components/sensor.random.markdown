@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.32
 ---
@@ -18,7 +18,7 @@ The `random` sensor platform is creating random sensor values (integers) out of 
 
 ## {% linkable_title Configuration %}
 
-To enable the random sensor, add the following lines to your `configuration.yaml`:
+To enable the random sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

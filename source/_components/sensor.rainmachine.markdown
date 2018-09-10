@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rainmachine.png
-ha_category: Sensor
+ha_category: Irrigation
 ha_iot_class: "Cloud Polling"
 ha_release: 0.71
 ---

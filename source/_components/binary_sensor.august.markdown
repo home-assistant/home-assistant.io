@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: august.png
-ha_category: Binary Sensor
+ha_category: Doorbell
 ha_release: "0.64"
 ha_iot_class: "Cloud Polling"
 ---
@@ -20,3 +20,4 @@ If you have August Doorbell, once you have enabled the [August component](/compo
 * Doorbell ding sensor
 * Doorbell motion sensor
 * Doorbell online sensor
+

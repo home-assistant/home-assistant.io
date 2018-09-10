@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: beaglebone-black.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_release: 0.37
 ha_iot_class: "Local Push"
 ---
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
+
+## {% linkable_title Configuration %}
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 

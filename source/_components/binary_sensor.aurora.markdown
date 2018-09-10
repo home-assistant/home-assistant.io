@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Binary Sensor
+ha_category: Environment
 ha_release: 0.39
 logo: noaa.png
 ---
@@ -17,6 +17,8 @@ The `aurora` platform uses the [NOAA aurora forecast](http://www.swpc.noaa.gov/p
 This service gives a number 0-100 representing the current likelihood of visible auroras at your latitude/longitude. By default this sensor is set up to trigger when the reported likelihood for your location is > 75. It updates every 5 minutes.
 
 You can check the attributes of the sensor to see your exact forecast.
+
+## {% linkable_title Configuration %}
 
 To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
 

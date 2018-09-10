@@ -20,7 +20,7 @@ Currently supported features are:
 - `start`
 - `pause`
 - `stop`
-- `return_to_home`
+- `return_to_base`
 - `locate`
 - `clean_spot`
 - `set_fan_speed`
@@ -48,7 +48,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_home`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
@@ -245,7 +245,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME LIKE "%Vacuum%"`
+11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"`
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
