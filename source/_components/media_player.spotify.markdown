@@ -77,4 +77,4 @@ In this example this is a URI link to the Reggae Infusions playlist, [this suppo
 
 ## {% linkable_title Unsupported devices %}
 
-- **Sonos**: Although its a spotify connect device, its not supported by the offcial spotify API
+- **Sonos**: Although its a Spotify Connect device, it is not supported by the official Spotify API.
