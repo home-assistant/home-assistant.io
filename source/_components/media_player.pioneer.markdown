@@ -29,7 +29,7 @@ Configuration variables:
 
 - **host** (*Required*): The IP of the Pioneer device,  eg. `192.168.0.10`
 - **name** (*Optional*): The name you would like to give to the receiver.
-- **port** (*Optional*): The port on which the Pioneer device listens, e.g. `23` (default) or `8102`
+- **port** (*Optional*): The port on which the Pioneer device listens, e.g., `23` (default) or `8102`
 - **timeout** (*Optional*): Number of seconds (float) to wait for blocking operations like connect, write, and read.
 
 Notes:

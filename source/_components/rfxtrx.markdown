@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx"
-description: "Instructions how to integrate RFXtrx into Home Assistant."
+description: "Instructions on how to integrate RFXtrx into Home Assistant."
 date: 2015-10-08 10:15
 sidebar: true
 comments: false
@@ -24,7 +24,7 @@ rfxtrx:
 
 Configuration variables:
 
-- **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+- **device** (*Required*): The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 - **debug** (*Optional*): If you want to receive debug output.
 - **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
 

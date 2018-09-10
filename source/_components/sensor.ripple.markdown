@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ripple"
-description: "Instructions how to integrate ripple.com data within Home Assistant."
+description: "Instructions on how to integrate ripple.com data within Home Assistant."
 date: 2017-06-06 16:20
 sidebar: true
 comments: false

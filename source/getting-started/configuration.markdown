@@ -30,7 +30,7 @@ Hass.io add-ons are installed from the add-on store embedded in the Hass.io pane
 [local]: http://hassio.local:8123
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 
@@ -38,11 +38,35 @@ From the Hass.io main panel open the add-on store.
 
 The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
 
-Go to the add-on store (see previous step), click on Configurator and click on INSTALL. When installation is complete the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on.
+Go to the add-on store (see previous step), click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps below to setup the add-on.
 
- - Change the settings to set a password and click on save
- - Start the add-on
- - You will be able to click the "WEB UI" link to open the Web UI
+ - Set a password on the Config box, don't forget to use quotes on your password
+ 
+ ```json
+{
+  "username": "admin",
+  "password": "YOUR_PASSWORD_WITH_QUOTES",
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem",
+  "ssl": false,
+  "allowed_networks": [
+    "192.168.0.0/16"
+  ],
+  "banned_ips": [
+    "8.8.8.8"
+  ],
+  "banlimit": 0,
+  "ignore_pattern": [
+    "__pycache__"
+  ],
+  "dirsfirst": false
+}
+```
+
+ - Click on "SAVE" to save your new password
+ - "START" the add-on
+ - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
+ - Type your username and password that you recently saved
 
 Time for the first practice with the configurator. Add the following to `configuration.yaml` file to add a link to the Configurator in the sidebar:
 
@@ -67,5 +91,12 @@ After you have installed it, click on START. Hass.io should now be available in 
 Now that you are able to edit the configuration, it's time to set up some of your devices and services. Each service and device will have its own instructions on how to be integrated. Find  your devices and services on the [components overview page](/components/).
 
 <p class='note'>YAML can be a little daunting at first. A lot is possible! [Here is some more info.](/docs/configuration/devices/)</p>
+
+For a sensor that is showing [random values](/components/sensor.random/), the entry would look like the sample below:
+
+```yaml
+sensor:
+  - platform: random
+```
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)

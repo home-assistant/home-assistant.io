@@ -1,20 +1,22 @@
 ---
 layout: page
 title: "Command line Binary Sensor"
-description: "Instructions how to integrate Command binary sensors within Home Assistant."
+description: "Instructions on how to integrate Command binary sensors within Home Assistant."
 date: 2016-01-13 12:15
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
 
 The `command_line` binary sensor platform issues specific commands to get data.
+
+## {% linkable_title Configuration %}
 
 To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -33,7 +35,8 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
+- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
 
 ## {% linkable_title Examples %}
 
@@ -81,3 +84,27 @@ binary_sensor:
 ```
 
 Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
+
+### {% linkable_title Check if a system service is running %}
+
+The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
+
+```
+$ systemctl is-active home-assistant@rock64.service
+active
+$ sudo service home-assistant@rock64.service stop
+$ systemctl is-active home-assistant@rock64.service
+inactive
+```
+
+A binary command line sensor can check this:
+
+```yaml
+binary_sensor:
+  - platform: command_line
+    command: '/bin/systemctl is-active home-assistant@rock64.service'
+    payload_on: 'active'
+    payload_off: 'inactive'
+```
+
+Note: Use single quotes!

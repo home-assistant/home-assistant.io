@@ -22,8 +22,8 @@ To add your UE Smart Radio player to your installation, add the following to you
 # Example configuration.yaml entry
 media_player:
   - platform: ue_smart_radio
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}

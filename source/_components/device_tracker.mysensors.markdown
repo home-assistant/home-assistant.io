@@ -1,15 +1,14 @@
 ---
 layout: page
 title: "MySensors Device Tracker"
-description: "Instructions how to use MySensors to track devices in Home Assistant."
+description: "Instructions on how to use MySensors to track devices in Home Assistant."
 date: 2017-02-06 15:00 +0100
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Presence Detection
-featured: false
+ha_category: DIY
 ha_release: "0.38"
 ha_iot_class: "Local Push"
 ---

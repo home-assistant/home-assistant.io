@@ -1,20 +1,22 @@
 ---
 layout: page
 title: "IMAP Email Content"
-description: "Instructions how to integrate IMAP email content sensor into Home Assistant."
+description: "Instructions on how to integrate IMAP email content sensor into Home Assistant."
 date: 2016-09-09 12:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: smtp.png
-ha_category: Sensor
+ha_category: Mailbox
 ha_iot_class: "Local Polling"
 ha_release: 0.25
 ---
 
 
 The `imap_email_content` sensor platform will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -38,7 +40,7 @@ Configuration variables:
 - **username** (*Required*): Username for the IMAP server.
 - **password** (*Required*): Password for the IMAP server.
 - **senders** (*Required*): A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
-- **value_template** (*Optional*): If specified this template will be used to render the state of sensor. If a template is not supplied the raw message body will be used for the sensor value. The following attributes will be supplied to the template:
+- **value_template** (*Optional*): If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template:
 
    * **from**: The from address of the email
    * **body**: The body of the email

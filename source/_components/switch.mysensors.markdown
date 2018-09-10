@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "MySensors Switch"
-description: "Instructions how to integrate MySensors switches into Home Assistant."
+description: "Instructions on how to integrate MySensors switches into Home Assistant."
 date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Switch
+ha_category: DIY
 featured: false
 ha_iot_class: "Local Push"
 ---

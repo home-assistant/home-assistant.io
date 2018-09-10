@@ -20,7 +20,7 @@ This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC]
 
 Download the source [here](https://github.com/home-assistant/example-custom-config/blob/master/panels/react.html). Copy the file to `<config dir>/panels/` (you might have to create the directory if it doesn't exist).
 
-Create a entry for the panel in your `configuration.yaml` file to enable it.
+Create an entry for the panel in your `configuration.yaml` file to enable it.
 
 ```yaml
 panel_custom:

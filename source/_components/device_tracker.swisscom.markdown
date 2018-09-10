@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Swisscom Internet-Box"
-description: "Instructions how to integrate Swisscom Internet-Box into Home Assistant."
+description: "Instructions on how to integrate Swisscom Internet-Box into Home Assistant."
 date: 2016-10-29 23:30
 sidebar: true
 comments: false

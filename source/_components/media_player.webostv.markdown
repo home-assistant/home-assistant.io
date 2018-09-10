@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LG webOS Smart TV"
-description: "Instructions how to integrate a LG webOS Smart TV within Home Assistant."
+description: "Instructions on how to integrate a LG webOS Smart TV within Home Assistant."
 date: 2016-04-18 23:24
 sidebar: true
 comments: false
@@ -19,7 +19,7 @@ The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Sm
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
-Once basic configuration is added to your `configuration.yaml` *Configuration* card should prompt on your HA's States. Follow the instructions and accept pairing request on your TV.
+Once basic configuration is added to your `configuration.yaml` *Configuration* card should prompt on your Home Assistants's states. Follow the instructions and accept pairing request on your TV.
 
 Pairing information will be saved to the `filename:` provided in configuration; this process is IP sensitive, in case the IP address of your TV would change in future.
 
@@ -36,15 +36,17 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP of the LG webOS Smart TV, e.g. `192.168.0.10`.
+- **host** (*Optional*): The IP of the LG webOS Smart TV, e.g., `192.168.0.10`.
 - **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
 - **timeout** (*Optional*): The timeout for connections to the TV in seconds.
-- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`. **NOTE**: When using multiple TVs each TV will need its own unique file.
 - **customize** array (*Optional*): List of options to customize.
-  - ***sources** array (*Optional*): List of hardware and webOS App inputs.
+  - **sources** array (*Optional*): List of hardware and webOS App inputs.
 
 If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
+
+### {% linkable_title Example %}
 
 A full configuration example will look like the sample below:
 
@@ -53,7 +55,7 @@ A full configuration example will look like the sample below:
 media_player:
   - platform: webostv
     host: 192.168.0.10
-    name: Living Room TV  
+    name: Living Room TV
     timeout: 5
     filename: webostv.conf
     turn_on_action:
@@ -67,15 +69,15 @@ media_player:
         - makotv
         - netflix
 ```
-** avoid using `[ ]` in the `name:` of your device.
 
+Avoid using `[ ]` in the `name:` of your device.
 
-*Turn On Action*
+### {% linkable_title Turn on action %}
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. 
-To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
+To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version). On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,11 +90,42 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: B4:E6:2A:1E:11:0F
+        mac: "B4-E6-2A-1E-11-0F"
 ```
-Any other [actions](/docs/automation/action/) to power on the device can be configured. 
 
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
-*Sources*
+### {% linkable_title Sources %}
 
 To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+
+### {% linkable_title Change channel through play_media service %}
+
+The `play_media` service can be used in a script to switch to the specified tv channel.
+It selects the best matching cannel according to the `media_content_id` parameter:
+ 1. Channel number *(i.e. '1' or '6')*
+ 2. Exact channel name *(i.e. 'France 2' or 'CNN')*
+ 3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
+
+```yaml
+# Example action entry in script to switch to channel number 1
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: 1
+  media_content_type: "channel"
+
+# Example action entry in script to switch to channel including 'TF1' in its name
+service: media_player.play_media
+data:
+  entity_id: media_player.lg_webos_smart_tv
+  media_content_id: "TF1"
+  media_content_type: "channel"
+```
+
+### {% linkable_title Next/Previous buttons %}
+
+The behaviour of the next and previsous buttons is different depending on the active source:
+
+ - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
+ - otherwise: next/previous buttons act as next/previous track

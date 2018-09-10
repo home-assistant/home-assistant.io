@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AlarmDecoder Alarm Control Panel"
-description: "Instructions how to setup the AlarmDecoder Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the AlarmDecoder Alarm control panel within Home Assistant."
 date: 2017-04-02 13:28
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Alarm
 ha_release: 0.43
 ha_iot_class: "Local Push"
 ---
-
 
 The `alarmdecoder` alarm control panel platform allows you to control your [AlarmDecoder](https://www.alarmdecoder.com) alarms.
 
@@ -28,7 +27,9 @@ The Alarm Decoder component gives you access to several services for you to cont
 - `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
 - `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
 
-**Note**: `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder component.
+<p class='note'>
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform. 
+</p>
 
 ### {% linkable_title Attributes %}
 

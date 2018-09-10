@@ -93,3 +93,15 @@ lights: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
+
+## {% linkable_title Common Issues %}
+
+### {% linkable_title found character '\t' %}
+
+If you see the following message:
+
+```
+found character '\t' that cannot start any token
+```
+
+This means that you've mistakenly entered a tab character, instead of spaces. 

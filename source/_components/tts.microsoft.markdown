@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Microsoft Text-to-Speech"
-description: "Instructions how to setup Microsoft Text-to-Speech with Home Assistant."
+description: "Instructions on how to setup Microsoft Text-to-Speech with Home Assistant."
 date: 2017-11-07 12:00
 sidebar: true
 comments: false

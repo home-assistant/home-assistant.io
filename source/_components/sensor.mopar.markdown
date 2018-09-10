@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mopar.png
-ha_category: Sensor
+ha_category: Car
 featured: false
 ha_release: 0.53
 ha_iot_class: "Cloud Polling"
@@ -19,27 +19,41 @@ The `mopar` sensor provides the following for owners of FCA vehicles with a uCon
 - Sensor per vehicle with vehicle health report and other meta-data
 - Service for remote commands: Lock/unlock, Engine on/off, Horn & lights
 
+## {% linkable_title Setup %}
+
 Be sure you have a [mopar.com](http://mopar.com) account with your vehicle(s) registered by VIN. You must also have a current uConnect subscription.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: mopar
-    username: <mopar.com username>
-    password: <mopar.com password>
-    pin: <uconnect pin>
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    pin: YOUR_UCONNECT_PIN
 ```
 
-Configuration options for the Mopar sensor:
-
-- **username** (*Required*): Your mopar.com username.
-- **password** (*Required*): Your mopar.com password.
-- **pin** (*Required*): Your uConnect pin.
+{% configuration %}
+username:
+  description: Your mopar.com username.
+  required: true
+  type: string
+password:
+  description: Your mopar.com password.
+  required: true
+  type: string
+pin:
+  description: The pin for your account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Service %}
 
-Call the `mopar.remote_command` service to perform a remote command on your vehicle.
+Call the `sensor.mopar_remote_command` service to perform a remote command on your vehicle.
 
 - **vehicle_index** (*Required*): `vehicle_index` attribute found on sensor.
 - **command** (*Required*): One of `lock/unlock/engineon/engineoff/horn`.

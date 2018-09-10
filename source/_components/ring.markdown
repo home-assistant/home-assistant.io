@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ring.png
-ha_category: Hub
+ha_category: Doorbell
 ha_release: 0.42
 ---
 
@@ -16,18 +16,26 @@ The `ring` implementation allows you to integrate your [Ring.com](https://ring.c
 
 Currently only doorbells are supported by this sensor.
 
+## {% linkable_title Configuration %}
+
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 ring:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Ring account.
-- **password** (*Required*): The password for accessing your Ring account.
+{% configuration %}
+username:
+  description: The username for accessing your Ring account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Ring account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Finish its configuration by visiting the [Ring binary sensor](/components/binary_sensor.ring/) or [Ring sensor](/components/sensor.ring/) documentation.

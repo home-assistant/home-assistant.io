@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera Lock"
-description: "Instructions how to integrate Vera locks into Home Assistant."
+description: "Instructions on how to integrate Vera locks into Home Assistant."
 date: 2016-06-29 15:00
 sidebar: true
 comments: false

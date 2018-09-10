@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dweet.io"
-description: "Instructions how to integrate Dweet.io sensors within Home Assistant."
+description: "Instructions on how to integrate Dweet.io sensors within Home Assistant."
 date: 2015-12-10 10:15
 sidebar: true
 comments: false

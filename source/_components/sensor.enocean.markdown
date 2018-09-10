@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "EnOcean Sensor"
-description: "Instructions how to integrate TellStick sensors into Home Assistant."
+description: "Instructions on how to integrate TellStick sensors into Home Assistant."
 date: 2016-05-26 01:00
 sidebar: true
 comments: false

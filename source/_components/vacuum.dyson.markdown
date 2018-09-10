@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dyson 360 Eye"
-description: "Instructions how to integrate your Dyson Eye 360 vacuum robot within Home Assistant."
+description: "Instructions on how to integrate your Dyson Eye 360 vacuum robot within Home Assistant."
 date: 2017-08-06 10:30
 sidebar: true
 comments: false

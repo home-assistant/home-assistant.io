@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Arduino"
-description: "Instructions how to setup an Arduino boards within Home Assistant."
+description: "Instructions on how to setup an Arduino boards within Home Assistant."
 date: 2015-06-27 10:28
 sidebar: true
 comments: false
@@ -43,7 +43,7 @@ The exact number can be determined with the command shown below.
 $ ls /dev/ttyACM*
 ```
 
-If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g. `/dev/ttyUSB*`).
+If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g., `/dev/ttyUSB*`).
 
 <p class='note warning'>
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.

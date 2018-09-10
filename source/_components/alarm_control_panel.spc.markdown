@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vanderbilt SPC Alarm"
-description: "Instructions how to setup the Vanderbilt SPC Alarm control panel within Home Assistant."
+description: "Instructions on how to setup the Vanderbilt SPC Alarm control panel within Home Assistant."
 date: 2017-05-18 22:01
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](http://www.spc-intruder-detection.com/ssp-spc/) alarms.
+The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](https://www.spcsupportinfo.com/) alarms.
 
 The requirement is that you have setup your [SPC hub](/components/spc/).
 

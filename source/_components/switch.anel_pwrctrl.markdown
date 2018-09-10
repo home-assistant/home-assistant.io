@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ANEL PwrCtrl Switch"
-description: "Instructions how to integrate ANEL PwrCtrl switches within Home Assistant."
+description: "Instructions on how to integrate ANEL PwrCtrl switches within Home Assistant."
 date: 2016-10-02 19:04
 sidebar: true
 comments: false

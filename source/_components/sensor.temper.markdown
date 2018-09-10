@@ -1,18 +1,20 @@
 ---
 layout: page
 title: "TEMPer Sensor"
-description: "Instructions how to integrate TEMPer sensors into Home Assistant."
+description: "Instructions on how to integrate TEMPer sensors into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: DIY
 ha_iot_class: "Local Push"
 ha_release: pre 0.7
 ---
 
 This `temper` sensor platform allows you to get the current temperature from a TEMPer device.
+
+## {% linkable_title Configuration %}
 
 To use your TEMPer sensor in your installation, add the following to your `configuration.yaml` file:
 

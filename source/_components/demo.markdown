@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Demo platforms"
-description: "Instructions how to use the Platform demos with Home Assistant."
+description: "Instructions on how to use the Platform demos with Home Assistant."
 date: 2016-02-24 07:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Other
 ---
 
 
-The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](https://home-assistant.io/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
+The `demo` platform allows you to use components which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) or `hass --demo-mode` but combined with your own real/functional platforms.
 
 Available demo platforms:
 
@@ -22,6 +22,7 @@ Available demo platforms:
 - [Climate](/components/climate/) (`climate`)
 - [Cover](/components/cover/) (`cover`)
 - [Fan](/components/fan/) (`fan`)
+- [Geo Location](/components/geo_location/) (`geo_location`)
 - [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)

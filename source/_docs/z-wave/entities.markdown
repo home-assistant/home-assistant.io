@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note'>
-This is a work in progress, based upon reports in the forum, the author's own devices, and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here, or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
+This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
 </p>
 
 ## {% linkable_title Binary Sensor %}
@@ -35,10 +35,26 @@ Devices (usually sensors) that support the Alarm command class will create entit
   - **4**: Heat sensor
   - **5**: Water leak sensor
   - **6**: Access control
+  - **9**: Lock jammed
+  - **18**: Lock locked with user code
+  - **19**: Lock unlocked with user code
+  - **21**: Manual lock
+  - **22**: Manual unlock
+  - **24**: Locked by RF
+  - **25**: Unlocked by RF
+  - **27**: Auto lock
+  - **33**: User deleted
+  - **112**: Master code changed, or user added
+  - **113**: Duplicate PIN code error
+  - **130**: RF Module power cycled
+  - **161**: Tamper alarm
+  - **167**: Low battery
+  - **168**: Critical battery level
+  - **169**: Battery too low to operate
 
 ### {% linkable_title Alarm Level Entity %}
 
-The meaning of the `alarm_level` entity depends on the nature of the alarm sensor
+The meaning of the `alarm_level` entity depends on the nature of the alarm sensor.
 
 #### {% linkable_title Smoke, CO, and CO2 %}
 
@@ -119,21 +135,19 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **254**: Deep sleep
   - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
 
-```
+{% raw %}
+```yaml
 binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
-        value_template: >- 
-          {% raw %}{%- if is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') -%}
-          true
-          {%- else -%}
-          false
-          {%- endif -%}{% endraw %}
+        device_class: door
+        value_template: "{{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', 22) }}"
 ```
+{% endraw %}
 
 ### {% linkable_title Burglar Entity %}
 
@@ -147,21 +161,19 @@ binary_sensor:
    - **254**: Deep sleep
    - **255**: Case open
 
-If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one:
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class:
 
-```
+{% raw %}
+```yaml
 binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
         friendly_name: "Friendly name here"
-        value_template: >-
-          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
-          true
-          {%- else -%}
-          false
-          {%- endif -%}{% endraw %}
+        device_class: motion
+        value_template: "{{ is_state('sensor.YOUR_SENSOR_burglar', 8) }}"
 ```
+{% endraw %}
 
 ### {% linkable_title Source Node ID Entity %}
 

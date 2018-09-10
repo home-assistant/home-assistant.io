@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 featured: false
-ha_category: Hub
+ha_category: System Monitor
 ha_release: "0.58"
 logo: vultr.png
 ha_iot_class: "Cloud Polling"

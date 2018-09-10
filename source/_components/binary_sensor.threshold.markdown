@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Threshold Binary Sensor"
-description: "Instructions how to integrate threshold binary sensors into Home Assistant."
+description: "Instructions on how to integrate threshold binary sensors into Home Assistant."
 date: 2016-11-26 12:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.34
 ---
@@ -25,6 +25,8 @@ It's an alternative to the template binary sensor's `value_template:` to get the
 {{ states.sensor.furnace.state > 2.5 }}
 ```
 {% endraw %}
+
+## {% linkable_title Configuration %}
 
 To enable the threshold sensor, add the following lines to your `configuration.yaml`:
 

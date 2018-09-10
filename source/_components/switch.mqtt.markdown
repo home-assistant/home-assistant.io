@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Switch"
-description: "Instructions how to integrate MQTT switches into Home Assistant."
+description: "Instructions on how to integrate MQTT switches into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` switch platform lets you control your MQTT enabled switches.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
 When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from the device (message from `state_topic`).
@@ -24,7 +26,7 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: mqtt
     command_topic: "home/bedroom/switch1/set"
@@ -36,10 +38,24 @@ name:
   required: false
   type: string
   default: MQTT Switch
+icon:
+  description: Icon for the switch (e.g. `mdi:radiator`).
+  required: false
+  type: string
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+state_on:
+  description: The payload that represents the on state.
+  required: false
+  type: string
+  default: ON
+state_off:
+  description: The payload that represents the off state.
+  required: false
+  type: string
+  default: OFF
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: false
@@ -102,7 +118,7 @@ In this section you will find some real life examples of how to use this sensor.
 The example below shows a full configuration for a switch.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: mqtt
     name: "Bedroom Switch"
@@ -111,6 +127,8 @@ switch:
     availability_topic: "home/bedroom/switch1/available"
     payload_on: "ON"
     payload_off: "OFF"
+    state_on: "ON"
+    state_off: "OFF"
     optimistic: false
     qos: 0
     retain: true
@@ -119,5 +137,31 @@ switch:
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
+$ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
+
+### {% linkable_title Set the state of a device with ESPEasy %}
+
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
+
+Manually you can set pin 13 to high with `mosquitto_pub` or another MQTT tool:
+
+```bash
+$ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
+```
+
+The configuration will look like the example below:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: mqtt
+    name: bathroom
+    state_topic: "home/bathroom/gpio/13"
+    command_topic: "home/bathroom/gpio/13"
+    payload_on: "1"
+    payload_off: "0"
+```
+{% endraw %}
+

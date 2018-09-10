@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Garadget Cover"
-description: "Instructions how to integrate Garadget covers within Home Assistant."
+description: "Instructions on how to integrate Garadget covers within Home Assistant."
 date: 2016-10-24 14:25
 sidebar: true
 comments: false
@@ -16,6 +16,8 @@ ha_iot_class: "Cloud Polling"
 
 The `garadget` cover platform lets you control [Garadget](http://www.garadget.com/) garage door futurizers through Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable Garadget Covers in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -24,8 +26,8 @@ cover:
   - platform: garadget
     covers:
         190028001947343412342341:
-          username: UseYourLogin@garadget.com
-          password: abc123
+          username: YOUR_USERNAME
+          password: YOUR_PASSWORD
       4c003f001151353432134214:
         access_token: df4cc785ff818f2b01396c44142342fccdef
 ```
@@ -44,12 +46,13 @@ Configuration variables:
 
 If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 
+## {% linkable_title Example %}
 
-**Example with more detail:**
 <p class='img'>
   <img src='{{site_root}}/images/components/garadget/cover_garadget_details.png' />
 </p>
 
+{% raw %}
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -64,13 +67,13 @@ sensor:
     sensors:
       garage_door_status:
         friendly_name: 'State of the door'
-        value_template: {% raw %}'{{ states.cover.garage_door.state }}'{% endraw %}
+        value_template: '{{ states.cover.garage_door.state }}'
       garage_door_time_in_state:
         friendly_name: 'Since'
-        value_template: {% raw %}'{{ states.cover.garage_door.attributes.time_in_state }}'{% endraw %}
+        value_template: '{{ states.cover.garage_door.attributes.time_in_state }}'
       garage_door_wifi_signal_strength:
         friendly_name: 'WiFi strength'
-        value_template: {% raw %}'{{ states.cover.garage_door.attributes.wifi_signal_strength }}'{% endraw %}
+        value_template: '{{ states.cover.garage_door.attributes.wifi_signal_strength }}'
         unit_of_measurement: 'dB'
 
 group:
@@ -88,6 +91,7 @@ customize:
   sensor.garage_door_wifi_signal_strength:
     icon: mdi:wifi
 ```
+{% endraw %}
 
 Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those entries.
 

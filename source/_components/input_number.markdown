@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Number"
-description: "Instructions how to integrate the Input Number component into Home Assistant."
+description: "Instructions on how to integrate the Input Number component into Home Assistant."
 date: 2017-09-19 03:30
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ redirect_from: /components/input_slider/
 ---
 
 <p class='note'>
-Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option.
+Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
 </p>
 
 The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
@@ -39,7 +39,6 @@ input_number:
     mode: box
 ```
 
-
 {% configuration %}
   input_number:
     description: Alias for the input. Multiple entries are allowed.
@@ -51,7 +50,7 @@ input_number:
         required: true
         type: float
       max:
-        description: Maxium value.
+        description: Maximum value.
         required: true
         type: float
       name:
@@ -78,10 +77,14 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](https://home-assistant.io/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
         required: false
         type: icon
 {% endconfiguration %}
+
+### {% linkable_title Restore State %}
+
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
 ## {% linkable_title Automation Examples %}
 
@@ -176,9 +179,8 @@ automation:
         entity_id: input_number.target_temp
         value: "{{ trigger.payload }}"
 
-# This automation script runs when the target temperature slider is moved.
+# This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-automation:
   - alias: Temp slider moved
     trigger:
       platform: state
@@ -189,5 +191,40 @@ automation:
         topic: 'setTemperature'
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
+```
+{% endraw %}
+
+Here's an example of `input_number` being used as a delay in an automation.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry using 'input_number' as a delay in an automation
+input_number:
+  minutes:
+    name: minutes
+    icon: mdi:clock-start
+    initial: 3
+    min: 0
+    max: 6
+    step: 1
+    
+  seconds:
+    name: seconds
+    icon: mdi:clock-start
+    initial: 30
+    min: 0
+    max: 60
+    step: 10
+    
+automation:
+ - alias: turn something off after x time after turning it on
+   trigger:
+     platform: state
+     entity_id: switch.something
+     to: 'on'
+   action:
+     - delay: '00:{{ states.input_number.minutes.state | int }}:{{ states.input_number.seconds.state | int }}'
+     - service: switch.turn_off
+       entity_id: switch.something
 ```
 {% endraw %}

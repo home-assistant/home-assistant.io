@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Xiaomi Binary Sensor"
-description: "Instructions how to setup the Xiaomi binary sensors within Home Assistant."
+description: "Instructions on how to setup the Xiaomi binary sensors within Home Assistant."
 date: 2017-07-21 16:34
 sidebar: true
 comments: false
@@ -30,7 +30,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (thru long_click_press), off | `click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
+| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
 | Button (2nd gen) | sensor_switch.aq2 | WXKG11LM | off (always) | `click` | `click_type` | `single`, `double` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Alarm Control Panel"
-description: "Instructions how to integrate MQTT capable Alarm Panels into Home Assistant."
+description: "Instructions on how to integrate MQTT capable Alarm Panels into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false

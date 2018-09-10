@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Notify Group"
-description: "Instructions how to setup the notify group platform."
+description: "Instructions on how to setup the notify group platform."
 date: 2016-08-18 00:12
 sidebar: true
 comments: false

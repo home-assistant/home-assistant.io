@@ -60,10 +60,12 @@ Each group consists of a name and a list of entity IDs. Entity IDs can be retrie
 ```yaml
 # Example configuration.yaml entry showing two styles
 group:
-  living_room: light.table_lamp, switch.ac
+  living_room:
+    entities: light.table_lamp, switch.ac
   bedroom:
-    - light.bedroom
-    - media_player.nexus_player
+    entities:
+      - light.bedroom
+      - media_player.nexus_player
 ```
 
 For more details please check the [Group](/components/group/) page.

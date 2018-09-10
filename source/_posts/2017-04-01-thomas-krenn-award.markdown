@@ -29,7 +29,7 @@ Create an entry in our [Forum][forum]. Be creative and use your imagination.
 - Dead line: April, 23 2017 - 23.59 UTC
 - Voting period: April, 24th till April, 30 2017 - 23.59 UTC
 
-The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the [Forum][forum] and on [Twitter][twitter].
+The decision of the jury will be final. If there will be a dispute then the Top-5 committer of the Home Assistant organization on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the [Forum][forum] and on [Twitter][twitter].
 
 Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.
 

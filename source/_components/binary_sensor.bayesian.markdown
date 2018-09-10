@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Bayesian Binary Sensor"
-description: "Instructions how to integrate threshold Bayesian sensors into Home Assistant."
+description: "Instructions on how to integrate threshold Bayesian sensors into Home Assistant."
 date: 2017-08-27 20:05
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.53
 ---
@@ -17,6 +17,8 @@ ha_release: 0.53
 The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
 
 This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
+
+## {% linkable_title Configuration %}
 
 To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
 

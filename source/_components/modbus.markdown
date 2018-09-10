@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Modbus"
-description: "Instructions how to integrate Modbus within Home Assistant."
+description: "Instructions on how to integrate Modbus within Home Assistant."
 date: 2015-04-25 9:16
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_iot_class: "Local Push"
 
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+
+## {% linkable_title Configuration %}
 
 To add modbus to your installation, add the following to your `configuration.yaml` file:
 

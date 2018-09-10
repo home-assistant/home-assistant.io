@@ -8,6 +8,6 @@ comments: false
 sharing: true
 footer: true
 ha_category: Example configuration.yaml
-ha_external_link: https://github.com/aneisch/home-assistant/
+ha_external_link: https://github.com/aneisch/home-assistant-config/
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "X10"
-description: "Instructions how to setup X10 devices within Home Assistant."
+description: "Instructions on how to setup X10 devices within Home Assistant."
 date: 2016-07-27
 sidebar: true
 comments: false

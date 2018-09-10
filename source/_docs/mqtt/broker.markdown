@@ -1,21 +1,20 @@
 ---
 layout: page
 title: "MQTT Brokers"
-description: "Instructions how to setup MQTT brokers for Home Assistant."
+description: "Instructions on how to setup MQTT brokers for Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-redirect_from: /components/mqtt/#picking-a-broker
 ---
 
 The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
 ### {% linkable_title Embedded broker %}
 
-Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Assistant connects to it. Embedded broker default configuration:
+Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
 
 | Setting        | Value |
 | -------------- | ----- |
@@ -23,14 +22,22 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | Port           | 1883 |
 | Protocol       | 3.1.1 |
 | User           | homeassistant |
-| Password       | Your API [password](/components/http/) |
+| Password       | _password set under mqtt settings_ |
 | Websocket port | 8080 |
-
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
+  password: hello
 ```
+
+<p class='note'>
+Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
+</p>
+
+<p class='note warning'>
+There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
+</p>
 
 ### {% linkable_title Owntracks%}
 
@@ -63,7 +70,7 @@ mqtt:
 {% configuration %}
 broker:
   required: false
-  description: The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.
+  description: The IP address or hostname of your MQTT broker, e.g., 192.168.1.32.
   type: string
 port:
   required: false
@@ -99,14 +106,23 @@ tls_insecure:
   type: boolean
 tls_version:
   required: false
-  description: "TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`."
+  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
   type: string
 {% endconfiguration %}
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
 
-If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'`  then you need to set `tls_version: 1.2`.
+If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'` then you need to set `tls_version: '1.2'`.
+</p>
+
+<p class='note'>
+If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g., sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
+```
+[Unit]
+Description=Home Assistant
+After=network.target mosquitto.service
+```
 </p>
 
 <p class='note'>

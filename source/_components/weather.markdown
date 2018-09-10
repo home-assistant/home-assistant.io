@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Weather"
-description: "Instructions how to setup your Weather platforms with Home Assistant."
+description: "Instructions on how to setup your Weather platforms with Home Assistant."
 date: 2016-09-28 14:00
 sidebar: true
 comments: false
@@ -13,4 +13,22 @@ The `weather` platforms are gathering meteorological information from web servic
 
 Home Assistant currently supports free web services and such which require a registration. Please check the sidebar for a full list of supported `weather` platforms.
 
+## {% linkable_title Condition mapping %}
+
+The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available and mapped in the [frontend](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/cards/ha-weather-card.js#L170).
+
+- 'cloudy'
+- 'fog'
+- 'hail'
+- 'lightning'
+- 'lightning-rainy'
+- 'partlycloudy'
+- 'pouring'
+- 'rainy'
+- 'snowy'
+- 'snowy-rainy'
+- 'sunny'
+- 'windy'
+- 'windy-variant'
+- 'exceptional':
 

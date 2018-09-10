@@ -18,3 +18,18 @@ The `shopping_list` component allows you to keep track of shopping list items. I
 # Example configuration.yaml entry
 shopping_list:
 ```
+
+### Services
+You can add or remove items on your shopping list by using the following services.
+
+#### {% linkable_title Service `shopping_list.add_item` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `name`                 |       no | Name of the item to add. Example: "Beer"               |
+
+#### {% linkable_title Service `shopping_list.complete_item` %}
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `name`                 |       no | Name of the item to mark as completed. Example: "Beer" |

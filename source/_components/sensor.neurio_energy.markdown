@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neurio"
-description: "Instructions how to integrate Neurio within Home Assistant."
+description: "Instructions on how to integrate Neurio within Home Assistant."
 date: 2016-02-15 21:50
 sidebar: true
 comments: false

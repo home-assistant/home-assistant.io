@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "REST"
-description: "Instructions how to add RESTful notifications to Home Assistant."
+description: "Instructions on how to add RESTful notifications to Home Assistant."
 date: 2016-02-12 07:00
 sidebar: true
 comments: false
@@ -29,7 +29,8 @@ Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **resource** (*Required*): The resource or endpoint that will receive the value.
-- **method** (*Optional*): The method of the request. Default is GET.
+- **method** (*Optional*): The method of the request. Default is `GET`. Other valid options are `POST` or `POST_JSON`.
+- **headers** (*Optional*): The headers for the request.
 - **message_param_name** (*Optional*): Parameter name for the message. Defaults to `message`.
 - **title_param_name** (*Optional*): Parameter name for the title. Defaults to none.
 - **target_param_name** (*Optional*): Parameter name for the target. Defaults to none.

@@ -29,7 +29,7 @@ Configuration variables:
 
 - **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
 - **name** (*Optional*): Override the name of your camera.
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options.
+- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
 
 ### {% linkable_title Image quality %}
 

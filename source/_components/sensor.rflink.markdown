@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFLink Sensor"
-description: "Instructions how to integrate RFLink sensors into Home Assistant."
+description: "Instructions on how to integrate RFLink sensors into Home Assistant."
 date: 2016-01-04
 sidebar: true
 comments: false
@@ -31,18 +31,18 @@ sensor:
   - platform: rflink
     devices:
       alectov1_0334_temp:
-        name: Temperature Outside
+        sensor_type: temperature
 ```
 
 Configuration variables:
 
 - **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
+- **devices** (*Optional*): A list of devices with their name to use in the frontend.
 
 Device configuration variables:
 
-- **name** (*Optional*): Name for the device, defaults to RFLink ID.
 - **sensor_type** (*Required*): Override automatically detected type of sensor. For list of values see below.
+- **name** (*Optional*): Name for the device, defaults to RFLink ID.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
 - **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
 
@@ -68,7 +68,6 @@ Sensor type values:
 - meter_value
 - total_rain
 - rain_rate
-- total_rain
 - revision
 - noise_level
 - temperature

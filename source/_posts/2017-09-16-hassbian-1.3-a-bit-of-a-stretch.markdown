@@ -18,9 +18,9 @@ To allow you to customize your installation further, we have made a few addition
 
 #### {% linkable_title Upgrade scripts %}
 
-[@Ludeeus][ludeeus] contributed the possibility to run upgrade scripts to the `hassbian-config` tool.  
+[@Ludeeus][ludeeus] contributed the possibility to run upgrade scripts to the `hassbian-config` tool.
 
- - Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by [@Landrash][landrash]. 
+ - Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by [@Landrash][landrash].
  - Upgrade Hassbian-script: Downloads and upgrades the latest release of Hassbian-scripts. Contributed by [@Ludeeus][ludeeus].
  - Upgrade Home-assistant: Upgrades the Home Assistant installation to the latest release. Contributed by [@Ludeeus][ludeeus].
 
@@ -28,9 +28,9 @@ To follow discussions about the development of the HASSbian image or to contribu
 
 To get started with the new image, check out the installation instructions on the [installing Hassbian page][install].
 
-[landrash]: http://github.com/landrash 
+[landrash]: http://github.com/landrash
 [ludeeus]: http://github.com/ludeeus
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[install]: https://home-assistant.io/docs/installation/hassbian/installation/
+[install]: /docs/installation/hassbian/installation/
 [discord-hassbian]: https://discord.gg/RkajcgS

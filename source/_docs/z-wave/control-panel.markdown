@@ -37,9 +37,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
-* **Rename Node** sets a node's name - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name
-
-* **Heal Node** starts healing of the node.(Update neighbour list and update return routes)
+* **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
@@ -52,7 +50,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
@@ -78,10 +76,8 @@ This will display the Z-Wave related information about the node:
 * **lastResponseRTT** The Round Trip Time of the response to the last request
 * **manufacturer_name** The name of the manufacturer, as supplied by OpenZWave
 * **max_baud_rate** The maximum bandwidth the device supports, most modern devices will support 40,000 or higher
-* **new_entity_id** In 0.47, Home Assistant introduced a new naming convention for entities, this shows the new naming convention
 * **node_id** The unique node ID of this node
 * **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
-* **old_entity_id** If `new_entity_ids: false` has been configured, then this is the entity_id that will be used. Support for this will be removed in the future
 * **product_name** The product name of the device, as supplied by OpenZWave
 * **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
 * **receivedCnt** The number of messages received from the device
@@ -96,7 +92,7 @@ This will display the Z-Wave related information about the node:
 
 ### {% linkable_title Node Values %}
 
-Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
+Contains a list of available values of the selected node, and it's instances.
 
 ### {% linkable_title Node group associations %}
 
@@ -106,15 +102,31 @@ You can use this to enable one device to directly control another. This is prima
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
 
+#### {% linkable_title Broadcast group %}
+
+Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+
+```json
+{"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}
+```
+
+That would remove the broadcast group from association group 1 of the device with node_id 3.
+
 ### {% linkable_title Node config options %}
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
+### {% linkable_title Node protection %}
+
+If your node has the protection commandclass, you can change the protection level of the node.
+Check your device manual on how to use this setting, as it is different between manufacturers.
+Set the new selection by pressing the **Set Protection** button.
+
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Bellow the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1
@@ -130,6 +142,20 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 Some non compliant device like tag readers, have implemented to use raw hex code.
 Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
 
+Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
+
+```python
+#! /usr/bin/python3
+import sys
+
+translations = {}
+
+for x in range(0, 10):
+    translations["%s" % x] = "\\x3%s" % x
+
+for c in sys.argv[1]:
+    print(translations[c], end='')
+```
 
 ## {% linkable_title OZW Log %}
 

@@ -1,20 +1,22 @@
 ---
 layout: page
 title: "Raspihats Switch"
-description: "Instructions how to integrate Raspihats add-on boards for Raspberry PI into Home Assistant as a switch."
+description: "Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant as a switch."
 date: 2017-05-15 04:20
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: raspihats.png
-ha_category: Switch
+ha_category: DIY
 ha_release: 0.45
 ha_iot_class: "Local Push"
 ---
 
 
 The `raspihats` switch platform allows you to control the digital outputs of your [raspihats](http://www.raspihats.com/) boards.
+
+## {% linkable_title Configuration %}
 
 To use your raspihats boards in your installation, add the following to your `configuration.yaml` file:
 
@@ -89,4 +91,4 @@ It will output a table like this:
 70: -- -- -- -- -- -- -- 77
 ```
 
-For more details about the Raspihats add-on boards for Raspberry PI, visit [raspihats.com](http://www.raspihats.com/).
+For more details about the Raspihats add-on boards for Raspberry Pi, visit [raspihats.com](http://www.raspihats.com/).

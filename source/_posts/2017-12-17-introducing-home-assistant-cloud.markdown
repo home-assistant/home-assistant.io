@@ -14,7 +14,9 @@ Today we’re introducing the next step in the Home Assistant saga: the Home Ass
 
 The first service that is supported via the Home Assistant Cloud is the Amazon Alexa Smart Home skill. This integration will allow you to control all your devices in Home Assistant via Amazon Alexa. You will be able to say _“Alexa, turn on the kitchen lights”_ and your local Home Assistant will turn on the lights. Because Alexa talks to Home Assistant, it doesn’t matter what kind of lights they are! Anything that is linked to Home Assistant will work. IKEA lights, a 10 year old X10 switch or something you’ve made yourself. As long as Home Assistant can control it, you can control it via Alexa.
 
-We have designed the Home Assistant Cloud with security in mind. When you activate the new Cloud component, your instance will setup a secure connection to the Home Assistant Cloud. Alexa will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back to Alexa. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
+We have designed the Home Assistant Cloud with security in mind. When you activate the new Cloud component, your instance will create a secure connection to the Home Assistant Cloud. There is no need for any further configuration or to expose your instance to the internet.
+
+Integrations like Alexa will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back to Alexa. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
 
 We are making the beta of the Home Assistant Cloud publicly available today. During the beta period the Home Assistant Cloud will be free to use. We are currently planning to run a beta till March 1, 2018 0:00 UTC. Once the beta ends, the Home Assistant Cloud will be part of our Community Support package which will run at $5 USD/month.
 
@@ -46,11 +48,11 @@ See the [Cloud component configuration](/components/cloud/) to learn how to filt
 
 ## {% linkable_title FAQ %}
 
-_Last updated: December 26, 2017_
+_Last updated: February 22, 2018_
 
 #### {% linkable_title I thought the Home Assistant crew didn't like the cloud? %}
 
-You are right, [we don't](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
+You are right, [we don't](/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
 
 Instead, the Home Assistant Cloud is an extension of your local instance. It allows to communicate with companies that force us to communicate via a public available cloud endpoint like Amazon Alexa and Google Assistant.
 
@@ -83,7 +85,7 @@ We have a lot of ideas! We are not going to make any promises but here are some 
 
 #### {% linkable_title What countries are supported at launch? %}
 
-Only US is currently supported. The reason for this limitation is that we need to do extra steps and certifications for each country's Alexa skill. This is in progress but the timeline depends on Amazon.
+As of February 2018, we are live in all countries that have Alexa except for Japan (which is under certification).
 
 #### {% linkable_title How is the connection made to the cloud? %}
 

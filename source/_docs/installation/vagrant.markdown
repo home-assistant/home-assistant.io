@@ -30,7 +30,7 @@ $ cd home-assistant/virtualization/vagrant
 ```
 
 <p class='note'>
-The following instructions will assume you changed your working directory to be `home-assistant/virtualization/vagrant`. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won't work otherwise
+The following instructions will assume you changed your working directory to be `home-assistant/virtualization/vagrant`. This is mandatory because Vagrant will look for information about the running VM inside that folder and won't work otherwise
 </p>
 
 <p class='note'>

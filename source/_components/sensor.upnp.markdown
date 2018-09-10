@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: upnp.png
-ha_category: "Other"
+ha_category: Network
 ha_release: 0.48
 ha_iot_class: "Local Polling"
 ---

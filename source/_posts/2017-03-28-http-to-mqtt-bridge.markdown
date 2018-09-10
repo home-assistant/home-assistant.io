@@ -20,7 +20,7 @@ The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Applicat
 
 ### {% linkable_title Bringing pieces together %}
 
-1. Configure the Home Assistant [MQTT trigger](https://home-assistant.io/docs/automation/trigger/#mqtt-trigger).
+1. Configure the Home Assistant [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 1. Configure [CloudMQTT](https://www.cloudmqtt.com/). Check this [video tutorial](https://www.youtube.com/watch?v=VaWdvVVYU3A) for details.
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/petkov/http_to_mqtt) HTTP to MQTT bridge app.
 1. Add the [Configuration Variables](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application) to your Heroku app mentioned here.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Sensor"
-description: "Instructions how to integrate REST sensors into Home Assistant."
+description: "Instructions on how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -151,7 +151,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing a HTTP authentication protected endpoint %}
+### {% linkable_title Accessing an HTTP authentication protected endpoint %}
 
 The REST sensor supports HTTP authentication and customized headers.
 
@@ -196,7 +196,7 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
-### {% linkable_title Fetch multiple JSON values and present them as attibutes %}
+### {% linkable_title Fetch multiple JSON values and present them as attributes %}
 
 [JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
@@ -237,7 +237,7 @@ sensor:
     sensors:
       owm_weather:
         value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
-        icon_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png" }}'
+        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: 'Outside temp'

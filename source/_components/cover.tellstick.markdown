@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "TellStick Cover"
-description: "Instructions how to integrate TellStick covers into Home Assistant."
+description: "Instructions on how to integrate TellStick covers into Home Assistant."
 date: 2017-11-29 16:23
 sidebar: true
 comments: false

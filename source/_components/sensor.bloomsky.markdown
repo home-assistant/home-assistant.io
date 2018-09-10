@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BloomSky Sensor"
-description: "Instructions how to integrate the BloomSky sensors within Home Assistant."
+description: "Instructions on how to integrate the BloomSky sensors within Home Assistant."
 date: 2016-02-03 20:00
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 
 The `bloomsky` sensor component allows you to view the measurements made by sensors in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with the [BloomSky camera](/components/camera.bloomsky).
+
+## {% linkable_title Configuration %}
 
 To enable these sensors in your installation, set up the [BloomSky component](/components/bloomsky) with your API key add the following to your `configuration.yaml` file:
 

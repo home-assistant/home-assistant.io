@@ -1,19 +1,21 @@
 ---
 layout: page
 title: "Wake on LAN Switch"
-description: "Instructions how to integrate a wake on lan switch."
+description: "Instructions on how to integrate a wake on lan switch."
 date: 2016-03-18 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: ethernet.png
-ha_category: Switch
+ha_category: Network
 ha_release: 0.16
 ha_iot_class: "Local Polling"
 ---
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+
+## {% linkable_title Configuration %}
 
 <p class='note warning'>
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
@@ -23,7 +25,7 @@ See below for suggestions on how to do this.
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: wake_on_lan
     mac_address: "00-01-02-03-04-05"
@@ -42,7 +44,8 @@ Configuration variables:
 Here are some real life examples of how to use the **turn_off** variable.
 
 ### {% linkable_title Suspending Linux %}
-Suggested recipe for letting the turn_off script suspend a Linux computer (the **target**)
+
+Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).
 
 1. On the **server**, log in as the user account Home Assistant is running under. (I'm using `hass` in this example)

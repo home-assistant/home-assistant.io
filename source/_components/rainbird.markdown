@@ -8,25 +8,34 @@ comments: false
 sharing: true
 footer: true
 logo: rainbird.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.61
 ha_iot_class: "Local Polling"
 ---
 
 This `rainbird` component allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable it, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 rainbird:
-  host: '1.1.1.1'
-  password: 'XXXXXXX'
+  host: IP_ADDRESS_OF_MODULE
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your LNK WiFi Module.
-- **password** (*Required*): The password for accessing the module.
+{% configuration %}
+host:
+  description: IP Address of the Module
+  required: true
+  type: string
+password:
+  description: The password for accessing the module.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Finish its configuration by visiting the [Rain Bird sensor](/components/sensor.rainbird/) and [Rain Bird switch](/components/switch.rainbird/) documentation.
 

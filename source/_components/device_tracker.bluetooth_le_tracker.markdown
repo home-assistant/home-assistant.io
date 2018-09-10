@@ -30,7 +30,7 @@ $ sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev lib
 Before you get started with this platform, please note that:
 
  - This platform is incompatible with Windows
- - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further infomation
+ - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -48,11 +48,11 @@ Configuration variables:
 - **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
-Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
+Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
 ## {% linkable_title Rootless Setup %}
 
-Normaly accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 $ sudo apt-get install libcap2-bin

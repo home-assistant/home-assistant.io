@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AlarmDecoder Binary Sensor"
-description: "Instructions how to integrate AlarmDecoder binary sensors into Home Assistant."
+description: "Instructions on how to integrate AlarmDecoder binary sensors into Home Assistant."
 date: 2017-04-02 13:28
 sidebar: true
 comments: false

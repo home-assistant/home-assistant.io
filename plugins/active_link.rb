@@ -10,7 +10,7 @@ module Jekyll
     def render(context)
       href = Liquid::Template.parse(@href).render context
       title = Liquid::Template.parse(@title).render context
-      cls = @href == context.registers[:page]["url"] ? "class='active'" : ''
+      cls = href == context.registers[:page]["url"] ? "class='active'" : ''
       "<a #{cls} href='#{href}'>#{title}</a>"
     end
   end

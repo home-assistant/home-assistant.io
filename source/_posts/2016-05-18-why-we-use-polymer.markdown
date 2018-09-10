@@ -40,5 +40,5 @@ So there it is, the reason why we use Polymer.
 [ha-rn]: https://github.com/balloob/home-assistant-react-native-ios
 [tools-js]: https://github.com/home-assistant/home-assistant-polymer#building-the-app
 [material design for free]: https://elements.polymer-project.org/browse?package=paper-elements
-[demo]: https://home-assistant.io/demo
+[demo]: /demo
 

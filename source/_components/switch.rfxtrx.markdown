@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Switch"
-description: "Instructions how to integrate RFXtrx switches into Home Assistant."
+description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
 date: 2015-10-08 10:15
 sidebar: true
 comments: false
@@ -54,6 +54,10 @@ Configuration variables:
 This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
 </p>
 
+<p class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes. 
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</p>
 
 Generate codes:
 
@@ -101,10 +105,10 @@ switch:
   devices:
     0710014c440f0160:
       name: Hall
-    0710010244080780:
+    "0710010244080780":
       name: Door
       fire_event: true
-      
+
 automation:
   - alias: Switch light on when door bell rings if sun is below horizon and light was off
     trigger:
@@ -145,7 +149,7 @@ scene:
   entities:
     switch.light1: on
     switch.light2: on
-    
+
 automation:
   - alias: Use remote to enable scene
     trigger:

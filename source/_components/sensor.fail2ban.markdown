@@ -1,24 +1,26 @@
 ---
 layout: page
 title: "Fail2Ban Sensor"
-description: "Instructions how to integrate a fail2ban sensor into Home Assistant."
+description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
 date: 2017-10-19 10:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Network
 ha_iot_class: "Local Polling"
 logo: fail2ban.png
 ha_release: 0.57
 ---
 
 
-The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.  
+The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
 <p class='note'>
 Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
 </p>
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -72,7 +74,7 @@ logger:
 
 #### {% linkable_title Edit the `jail.local` file %}
 
-Next, we need to edit the `jail.local` file that is included with the Let's Encrypt docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail from the [previously linked tutorial](https://home-assistant.io/cookbook/fail2ban/).
+Next, we need to edit the `jail.local` file that is included with the Let's Encrypt docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail from the [previously linked tutorial](/cookbook/fail2ban/).
 
 Edit `/mnt/user/appdata/letsencrypt/fail2ban/jail.local` and append the following to the end of the file:
 
@@ -123,7 +125,7 @@ Now do the same for the Home Assistant docker, but this time we'll be mapping th
 
 By default, the IP address that Home Assistant sees will be that of the container (something like `172.17.0.16`).  What this means is that for any failed login attempt, assuming you have correctly configured `fail2ban`, the Docker IP will be logged as banned, but the originating IP is still allowed to make attempts.  We need `fail2ban` to recognize the originating IP to properly ban it.
 
-First, we have to add the following to the nginx configuration file located in `/mnt/user/appdata/letsencrypt/nginx/site-confs/default`.  
+First, we have to add the following to the nginx configuration file located in `/mnt/user/appdata/letsencrypt/nginx/site-confs/default`.
 
 ```bash
 proxy_set_header X-Real-IP $remote_addr;
@@ -136,7 +138,7 @@ This snippet should be added within your Home Assistant server config, so you ha
 server {
     ...
     location / {
-        proxy_pass http://192.168.0.100:8123;	
+        proxy_pass http://192.168.0.100:8123;
         proxy_set_header Host $host;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
@@ -153,7 +155,7 @@ server {
         proxy_set_header Connection "upgrade";
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    } 
+    }
     ...
 }
 ```

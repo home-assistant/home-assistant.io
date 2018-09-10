@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Cover"
-description: "Instructions how to integrate Template Covers into Home Assistant."
+description: "Instructions on how to integrate Template Covers into Home Assistant."
 date: 2017-06-19 20:32
 sidebar: true
 comments: false
@@ -13,9 +13,9 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform can create covers that combine components and provides
-the ability to run scripts or invoke services for each of the open, close,
-stop, position, and tilt commands of a cover.
+The `template` platform can create covers that combine components and provides the ability to run scripts or invoke services for each of the open, close, stop, position and tilt commands of a cover.
+
+## {% linkable_title Configuration %}
 
 To enable Template Covers in your installation, add the following to your
 `configuration.yaml` file:
@@ -49,7 +49,7 @@ cover:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
+        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -217,9 +217,6 @@ sensor:
           {% else %}
             closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 script:
   cover_group:

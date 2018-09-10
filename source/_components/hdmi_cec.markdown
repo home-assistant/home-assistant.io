@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HDMI CEC"
-description: "Instructions how to interact with HDMI CEC via Home Assistant."
+description: "Instructions on how to interact with HDMI CEC via Home Assistant."
 date: 2016-06-24 19:59
 sidebar: true
 comments: false
@@ -31,31 +31,23 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 
 #### {% linkable_title Symlinking into virtual environment %}
 
-Create a symlink to the `cec` installation. Keep in mind different installation methods will result in different locations of cec.
+Create a symlink to the `cec` installation including the _cec.so file. Keep in mind different installation methods will result in different locations of cec.
  
 ```bash
-$ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python3.4/site-packages
+$ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python*/site-packages
+$ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
+
 ```
+
 ##### {% linkable_title Symlinking examples: %}
 
 For the default virtual environment of a [HASSbian Image for Raspberry Pi](/getting-started/installation-raspberry-pi-image/) the command would be as follows.
 
 ```bash
-$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/homeassistant/lib/python3.4/site-packages
+$ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages
+$ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
+
 ```
-
-For the default virtual environment of a [Raspberry Pi All-In-One installation](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
-
-```bash
-$ ln -s /usr/local/lib/python3.4/site-packages/cec /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
-```
-
-For the default virtual environment of a [Manual installation](/getting-started/installation-raspberry-pi/) the command would be as follows.
-
-```bash
-$ ln -s /usr/local/lib/python3.4/site-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
-```
-
 
 <p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
 `* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
@@ -74,6 +66,7 @@ ssh pi@your_raspberry_pi_ip
 ```bash
 echo scan | cec-client -s -d 1
 ```
+Note: to use this command you have to install cec-utils package. In Debian based should be: ```sudo apt install cec-utils```
 
 *  This will give you the list of devices that are on the bus
 
@@ -154,7 +147,7 @@ hdmi_cec:
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
+Call the `hdmi_cec.select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}
@@ -179,15 +172,29 @@ action:
       
 ### {% linkable_title Power On %}
 
-Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that support this function.
+Call the `hdmi_cec.power_on` service (no arguments) to power on any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.power_on
+```
 
 ### {% linkable_title Standby %}
 
-Call the `hdmi_cec/standby` service (no arguments) to place in standby any devices that support this function.
+Call the `hdmi_cec.standby` service (no arguments) to place in standby any devices that support this function.
+
+An Automation action using the example above would look something like this.
+
+```yaml
+action:
+  service: hdmi_cec.standby
+```
 
 ### {% linkable_title Change volume level %}
 
-Call the `hdmi_cec/volume` service with one of following commands:
+Call the `hdmi_cec.volume` service with one of following commands:
 
 #### {% linkable_title Volume up %}
 Increase volume three times:
@@ -207,7 +214,6 @@ Stop increasing volume:
 ```json
 {"up": "release"}
 ```
-
 
 #### {% linkable_title Volume down %}
 Decrease volume three times:

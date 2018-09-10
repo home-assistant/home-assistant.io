@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera Thermostat"
-description: "Instructions how to integrate Vera thermostats into Home Assistant."
+description: "Instructions on how to integrate Vera thermostats into Home Assistant."
 date: 2016-09-19 21:00
 sidebar: true
 comments: false

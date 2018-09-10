@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Cover"
-description: "Instructions how to integrate MQTT covers into Home Assistant."
+description: "Instructions on how to integrate MQTT covers into Home Assistant."
 date: 2016-09-28 17:30
 sidebar: true
 comments: false
@@ -14,6 +14,8 @@ ha_release: 0.18
 ---
 
 The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter, or a garage door).
+
+## {% linkable_title Configuration %}
 
 The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
@@ -134,7 +136,7 @@ tilt_max:
   type: integer
   default: 100
 tilt_closed_value:
-  description: The value that will be sent on an `close_cover_tilt` command.
+  description: The value that will be sent on a `close_cover_tilt` command.
   required: false
   type: integer
   default: 0
@@ -164,7 +166,7 @@ In this section you will find some real life examples of how to use this platfor
 The example below shows a full configuration for a cover without tilt.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 cover:
   - platform: mqtt
     name: "MQTT Cover"
@@ -188,8 +190,9 @@ cover:
 
 The example below shows a full configuration for a cover.
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 cover:
   - platform: mqtt
     name: "MQTT Cover"
@@ -206,7 +209,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
     tilt_min: 0
@@ -214,6 +217,7 @@ cover:
     tilt_closed_value: 70
     tilt_opened_value: 180
 ```
+{% endraw %}
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 

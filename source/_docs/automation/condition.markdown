@@ -17,6 +17,7 @@ The available conditions for an automation are the same as for the script syntax
 Example of using condition:
 
 ```yaml
+automation:
 - alias: 'Enciende Despacho'
   trigger:
     platform: state

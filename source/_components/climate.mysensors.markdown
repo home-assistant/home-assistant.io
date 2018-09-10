@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "MySensors HVAC"
-description: "Instructions how to integrate MySensors climate into Home Assistant."
+description: "Instructions on how to integrate MySensors climate into Home Assistant."
 date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Climate
+ha_category: DIY
 ha_release: 0.29
 ha_iot_class: "Local Push"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Flux Light Adjustment"
-description: "Instructions how to have switches call command line commands."
+description: "Instructions on how to have switches call command line commands."
 date: 2016-06-01 17:41
 sidebar: true
 comments: false
@@ -16,7 +16,9 @@ The `flux` switch platform will change the temperature of your lights similar to
 
 The component will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
-During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights every periodically.
+During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
+
+The color temperature is specified kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
 
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 
@@ -36,7 +38,7 @@ Configuration variables:
 - **lights** (*Required*) array: List of light entities.
 - **name** (*Optional*): The name to use when displaying this switch.
 - **start_time** (*Optional*): The start time. Default to sunrise.
-- **stop_time** (*Optional*): The stop time. Defaults to 22:00.
+- **stop_time** (*Optional*): The stop time. Defaults to dusk.
 - **start_colortemp** (*Optional*): The color temperature at the start. Defaults to `4000`.
 - **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.

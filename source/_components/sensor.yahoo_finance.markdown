@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yahoo Finance"
-description: "Instructions how to setup Yahoo Finance within Home Assistant."
+description: "Instructions on how to setup Yahoo Finance within Home Assistant."
 date: 2016-09-18 21:00
 sidebar: true
 comments: false
@@ -19,6 +19,8 @@ ha_release: 0.29
 </p>
 
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
+
+## {% linkable_title Configuration %}
 
 To enable the `yahoo_finance` platform, add the following lines to your `configuration.yaml` file:
 

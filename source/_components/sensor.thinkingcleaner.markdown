@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Thinking Cleaner sensor"
-description: "Instructions how to integrate a ThinkingCleaner sensor within Home Assistant."
+description: "Instructions on how to integrate a ThinkingCleaner sensor within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
 comments: false

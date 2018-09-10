@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `canary` component allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 You will need your Canary login information (username, usually your email address, and password) to use this module.
 
 To set it up, add the following to your `configuration.yaml` file:
@@ -22,8 +24,8 @@ To set it up, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 canary:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -41,8 +43,6 @@ canary:
     type: int
     default: 10
 {% endconfiguration %}
-
-
 
 Once loaded, your front end will have the following components:
 

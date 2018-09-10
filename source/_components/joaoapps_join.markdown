@@ -12,7 +12,6 @@ ha_category: Hub
 ha_release: "0.24"
 ---
 
-
 The `joaoapps_join` component exposes services from [Join](http://joaoapps.com/join). In Home Assistant, the Join features are divided up in two locations, the Join component, and the Join notify platform. The notify platform allows us to send messages to Join devices, the component allows us to access the other special features that Join offers.
 
 In the `configuration.yaml` file you need to provide the api key and device id or name of the target device.  You can find your device id and api key [here](https://joinjoaomgcd.appspot.com/).
@@ -57,4 +56,3 @@ The services exposed in the `joaoapps_join` component can be used with the servi
 | joaoapps_join/send_url        | `{"url":"http://google.com"}`                                       |
 | joaoapps_join/send_wallpaper  | `{"url":"http://www.planwallpaper.com/static/images/ZhGEqAP.jpg"}`  |
 | joaoapps_join/send_file       | `{"url":"http://download.thinkbroadband.com/5MB.zip"}`              |
-

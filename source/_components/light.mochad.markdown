@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mochad Light"
-description: "Instructions how to integrate X10 Mochad lights into Home Assistant."
+description: "Instructions on how to integrate X10 Mochad lights into Home Assistant."
 date: 2017-07-14 11:29
 sidebar: true
 comments: false
@@ -11,13 +11,14 @@ ha_category: Light
 ha_release: 0.51
 ---
 
-The `mochad` light platform lets you control an X10 enabled dimmer/light
-device.
+The `mochad` light platform lets you control an X10 enabled dimmer/light device.
+
+
 
 To enable this sensor, you first have to set up the [mochad component](/components/mochad/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mochad
     devices:

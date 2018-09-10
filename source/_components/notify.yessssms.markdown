@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Yesss SMS"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2017-10-27 16:00
 sidebar: true
 comments: false

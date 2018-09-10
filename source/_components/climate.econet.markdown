@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "EcoNet water heater"
-description: "Instructions how to integrate Rheem EcoNet water heaters into Home Assistant."
+description: "Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant."
 date: 2017-12-28 14:51
 sidebar: true
 comments: false

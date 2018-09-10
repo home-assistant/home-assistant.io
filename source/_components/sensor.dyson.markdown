@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Dyson Purifier Sensor"
-description: "Instructions how to setup the Dyson Purifier fans within Home Assistant."
+description: "Instructions on how to setup the Dyson Purifier fans within Home Assistant."
 date: 2017-05-27 10:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: dyson.png
-ha_category: Sensor
+ha_category: Environment
 ha_iot_class: "Cloud Polling"
 ha_release: 0.47
 ---

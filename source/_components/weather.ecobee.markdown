@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ecobee Weather"
-description: "Instructions how to setup the Ecobee weather within Home Assistant."
+description: "Instructions on how to setup the Ecobee weather within Home Assistant."
 date: 2017-11-29 21:00
 sidebar: true
 comments: false
