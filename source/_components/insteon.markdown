@@ -118,11 +118,11 @@ Configuration variables:
     - switch: Used for On/Off X10 devices
   - *STEPS* is the number of dim/bright steps the device supports. Used for
     dimmable X10 devices only. Default value is 22.
-- **x10_all_units_off** (*Optional*): Creates an binary_sensor that responds
+- **x10_all_units_off** (*Optional*): Creates a binary_sensor that responds
   to the X10 standard command for All Units Off.
-- **x10_all_lights_on** (*Optional*):  Creates an binary_sensor that responds
+- **x10_all_lights_on** (*Optional*):  Creates a binary_sensor that responds
   to the X10 standard command for All Lights On
-- **x10_all_lights_off** (*Optional*): Creates an binary_sensor that responds
+- **x10_all_lights_off** (*Optional*): Creates a binary_sensor that responds
   to the X10 standard command for All Lights Off
 
 ### {% linkable_title Autodiscovery %}
@@ -143,16 +143,16 @@ linked. For an overview of device linking please read the Insteon page on
 [Development Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking 
-mode. The IM can be set as as controller or a responder. If the IM is a
-controler, put the IM into linking mode then press the SET button on the
-device. If the IM is a responer, press the SET button on the device then
+mode. The IM can be set as a controller or a responder. If the IM is a
+controller, put the IM into linking mode then press the SET button on the
+device. If the IM is a responder, press the SET button on the device then
 put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an 
 All-Link record from the All-Link Database of the IM and a device. Once the IM 
 is set to delete the link, press the SET button on the corresponding device 
 to complete the process.
 - **insteon.load_all_link_database**: Load the All-Link Database for a 
-device. WARNING - Loading a device All-Link database  may take a LONG time and
+device. WARNING - Loading a device All-Link database may take a LONG time and
 may need to be repeated to obtain all records.
 - **insteon.print_all_link_database**: Print the All-Link Database for a 
 device. Requires that the All-Link Database is loaded first.
@@ -226,7 +226,7 @@ insteon:
 
 ### {% linkable_title What NOT to do %}
 
-Insteon Modem is a top level component and device discovery will identify 
+Insteon Modem is a top-level component and device discovery will identify 
 the Home Assistant platform the device belongs in. As such, do not 
 declare Insteon devices in other platforms. For example, this configuration
 will NOT work:
@@ -245,17 +245,17 @@ events. The following events are available:
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without
     dots (e.g. 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For an 4 button remote
-    the values are a to d. For an 8 button remote the values are a to g. For
+  - **button**: (Optional) The button id in lower case. For a 4-button remote
+    the values are `a` to `d`. For an 8 button remote the values are a to g. For
     a one button remote this field is not used.
 - **insteon.button_of**
   - **address**: (required) The Insteon device address in lower case without
     dots (e.g. 1a2b3c)
-  - **button**: (Optional) The button id in lower case. For an 4 button remote
-    the values are a to d. For an 8 button remote the values are a to g. For
+  - **button**: (Optional) The button id in lower case. For a 4-button remote
+    the values are a to d. For an 8 button remote the values are `a` to `g`. For
     a one button remote this field is not used.
 
-This allows the mini-remotes to be configured as triggers for automatoins. Here
+This allows the mini-remotes to be configured as triggers for automations. Here
 is an example of how to use these events for automations:
 
 ```
@@ -296,8 +296,8 @@ The INSTEON Hub has three known issues that are inherent to the design of the
 Hub:
 
 1. If you see multiple error messages in the log file stating the Hub
-connection is closed and reconnection has failed, this generally requires
-the Hub to be restarted in order to reconnect.
+connection is closed, and reconnection has failed, this generally requires
+the Hub to be restarted to reconnect.
 
 2. You cannot use both Home Assistant and the INSTEON app. If you do, the
 changes made in the app will not appear in Home Assistant. Changes made in
