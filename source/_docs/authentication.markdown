@@ -60,9 +60,13 @@ It because we only allow use IP address as client ID when your IP address is one
 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. For example, if you are on Windows, edit `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, add following entry 
 
-```
+```text
 12.34.56.78 hassbian.home
 ```
 (Please replace `12.34.56.78` to your Home Assistant's public IP address)
 
 It will allow you open Home Assistant instance by access `http://hassbian.home:8123/`
+
+### {% linkable_title Stuck on Loading data %}
+
+Some advert blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
