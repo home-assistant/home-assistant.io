@@ -49,3 +49,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `onboarding`
 
 When you start Home Assistant next you'll be required to set up authentication again.
+
+### {% linkable_title Stuck on Loading data %}
+
+Some advert blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
