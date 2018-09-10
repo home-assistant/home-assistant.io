@@ -18,7 +18,7 @@ Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relationa
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
-To setup the `recorder` component in your installation, add the following to your `configuration.yaml` file:
+To set up the `recorder` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +73,7 @@ recorder:
           type: List
 {% endconfiguration %}
 
-Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
+Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -103,7 +103,7 @@ recorder:
       - media_player
 ```
 
-Use the `include` list to define the domains/entities to record, and exclude some of them with in the `exclude` list. This makes sense if you for instance include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.
+Use the `include` list to define the domains/entities to record, and exclude some of them within the `exclude` list. This makes sense if you, for instance, include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.
 
 ```yaml
 # Example configuration.yaml entry with include and exclude
@@ -119,7 +119,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that way they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for the logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that way they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### {% linkable_title Service `purge` %}
 
@@ -158,14 +158,17 @@ If the `recorder` component is activated then some components support `restore_s
 
 <p class='note'>
 If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+</p>
 
-+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+### {% linkable_title Database startup %}
+
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
 
 ```bash
 $ sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 ```
 
-and add the service for PostgreSQL:
+and add the service for the database, for example, PostgreSQL:
 
 ```
 [Unit]
@@ -178,7 +181,6 @@ Save the file then reload `systemctl`:
 ```bash
 $ sudo systemctl daemon-reload
 ```
-</p>
 
 ## {% linkable_title Installation notes %}
 
@@ -212,7 +214,7 @@ $ pip3 install mysqlclient
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 
 
-Once Home Assistant finds the database, with right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
+Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
 ### {% linkable_title PostgreSQL %}
 
