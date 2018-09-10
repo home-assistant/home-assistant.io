@@ -106,3 +106,7 @@ control panel in the Home Assistant frontend.
 In this example this is a URI link to the Reggae Infusions playlist,
 [this support document from Spotify](https://support.spotify.com/us/article/sharing-music/)
 explains how to get this URI value to use for playlists in the Spotify component.
+
+## {% linkable_title Unsupported devices %}
+
+- **Sonos**: Although its a Spotify Connect device, it is not supported by the official Spotify API.

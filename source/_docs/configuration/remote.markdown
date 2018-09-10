@@ -15,6 +15,10 @@ If you're interested in logging in to Home Assistant while away, you'll have to 
 Remember to follow the [securing checklist](/docs/configuration/securing/) before doing this.
 </p>
 
+<p class='note'>
+Home Assistant no longer support remote access via IP address since release 0.77, you have to use domain name.
+</p>
+
 The most common approach is to set up port forwarding (for any port) from your router to port 8123 on the computer that is hosting Home Assistant. General instructions on how to do this can be found by searching `<router model> port forwarding instructions`. You can use any free port on your router and forward that to port 8123.
 
 A problem with making a port accessible is that some Internet Service Providers only offer dynamic IPs. This can cause you to lose access to Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
