@@ -54,18 +54,19 @@ When you start Home Assistant next you'll be required to set up authentication a
 
 <img src='/images/docs/authentication/error-invalid-client-id.png' alt='Screenshot of Error: invalid client id or redirect url'>
 
-You have to use domain name, not IP address to remote access Home Assistant, otherwise you will get **Error: invalid client id or redirect url** error on login form. However you can use IP address to access Home Assistant in your home network.
+You have to use a domain name, not IP address to remote access Home Assistant; otherwise you will get **Error: invalid client id or redirect url** error on the login form. However, you can use the IP address to access Home Assistant in your home network.
 
-It because we only allow use IP address as client ID when your IP address is one of internal network address (e.g. 192.168.0.1) or loopback address (e.g. 127.0.0.1).
+It because we only allow using IP address as client ID when your IP address is one of internal network address (e.g., 192.168.0.1) or loopback address (e.g., 127.0.0.1).
 
-If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. For example, if you are on Windows, edit `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, add following entry 
+If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. For example, if you are on Windows, edit `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, add following entry.
 
 ```text
 12.34.56.78 hassbian.home
 ```
-(Please replace `12.34.56.78` to your Home Assistant's public IP address)
 
-It will allow you open Home Assistant instance by access `http://hassbian.home:8123/`
+(Please replace `12.34.56.78` with your Home Assistant's public IP address)
+
+It will allow you to open Home Assistant instance by access `http://hassbian.home:8123/`
 
 ### {% linkable_title Stuck on Loading data %}
 
