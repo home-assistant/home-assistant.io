@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Honeywell evohome Controller"
+title: "Honeywell evohome CH/DHW Controller"
 description: "Instructions on how to integrate a Honeywell evohome controllers within Home Assistant."
 date: 2018-09-10 12:00
 sidebar: true
