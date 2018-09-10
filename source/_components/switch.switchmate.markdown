@@ -13,7 +13,7 @@ ha_release: 0.78
 ha_iot_class: "Local Polling"
 ---
 
-This `Switchmate` switch platform allow you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
+This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
