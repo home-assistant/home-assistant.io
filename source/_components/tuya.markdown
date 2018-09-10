@@ -21,9 +21,10 @@ To add your Tuya devices into your Home Assistant installation, add the followin
 
 ```yaml
 tuya:
-  username: YOUR_TUYA_USERNAME
-  password: YOUR_TUYA_PASSWORD
-  country_code: YOUR_ACCOUNT_COUNTRYCODE
+  username: 'YOUR_TUYA_USERNAME'
+  password: 'YOUR_TUYA_PASSWORD'
+  country_code: 'YOUR_ACCOUNT_COUNTRYCODE'
+  platform: 'YOUR_PLATFORM'
 ```
 
 {% configuration %}
@@ -40,8 +41,8 @@ country_code:
   required: true
   type: string
 platform:
-  description: "The app where your account register. `tuya` for Tuya Smart and `smart_life` for Smart Life."
-  required: false
+  description: "The app where your account register. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart."
+  required: true
   type: string
   default: tuya
 {% endconfiguration %}
