@@ -48,6 +48,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address or hostname of Octoprint host.
 - **api_key** (*Required*): The retrieved api key.
+- **port** (*Optional*): Default: 80, the port Octoprint is listening to.
 - **name** (*Optional*): Name of the printer, must be unique if you defined multiple ones.
 - **bed** (*Optional*): If the printer has a heated bed.
 - **number_of_tools** (*Optional*): Number of temperature adjustable tools. i.e. nozzle.
