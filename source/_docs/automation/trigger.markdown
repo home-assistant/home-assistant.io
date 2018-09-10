@@ -178,7 +178,7 @@ automation:
 automation 2:
   trigger:
     platform: time
-    # When 'at' is used, you cannot also match on hour, minute, seconds.
+    # When 'at' is used, you can also match on hour, minute, seconds.
     # Military time format.
     at: '15:32:00'
 
