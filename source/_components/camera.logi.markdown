@@ -13,11 +13,13 @@ ha_release: 0.78
 ha_iot_class: "Cloud Polling"
 ---
 
-The `logi` platform allows you to watch the still frames of your [Logi Circle](https://circle.logi.com/) camera's live stream in Home Assistant.
+The `logi` camera platform allows you to watch the still frames of your [Logi Circle](https://circle.logi.com/) camera's live stream in Home Assistant.
 
 <p class='note'>
 You must have the [Logi component](/components/logi/) configured to use this camera platform.
 </p>
+
+Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services. This will set the streaming mode property of your camera accordingly, controlling whether the live stream is available and automatic activity records are captured.
 
 ## {% linkable_title Configuration %}
 
@@ -56,12 +58,12 @@ Take a snapshot from a camera's live stream. This differs from the generic [snap
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-### {% linkable_title Service `camera.logi_set_mode` %}
+### {% linkable_title Service `camera.logi_set_config` %}
 
-Sets an operation mode for your camera.
+Sets an configuration property for your camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Name(s) of entities to set the operation mode for, e.g., `camera.living_room_camera`. If blank, targets all logi cameras. |
-| `mode`                 |      no  | Operation mode to set. Allowed values: `LED`, `PRIVACY_MODE` |
+| `mode`                 |      no  | Configuration property to set. Allowed values: `BATTERY_SAVING`, `LED`, `PRIVACY_MODE` |
 | `value`                |      no  | Mode value. Allowed values: `true`, `false` |
