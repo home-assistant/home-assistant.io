@@ -30,7 +30,7 @@ To enable this platform, please add the following to your `configuration.yaml` f
 sensor:
   - platform: gitlab_ci
     gitlab_id: '1234567'
-	token: 'aaaaaaaaaaAAAAAAAAAA'
+    token: 'aaaaaaaaaaAAAAAAAAAA'
 	
 ```
 
