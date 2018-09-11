@@ -46,6 +46,7 @@ sensor:
   - platform: starlingbank
     accounts:
       - name: "Spending Money"
+        sandbox: false
         access_token: YOUR_PERSONAL_ACCESS_TOKEN
         balance_types:
           - 'cleared_balance'
@@ -62,6 +63,11 @@ name:
   required: false
   type: string
   default: Starling
+sandbox:
+  description: For test purposes. Set to true if you are using an access token for a sandbox Starling account.
+  required: false
+  default: false
+  type: boolean
 access_token:
   description: Your personal access token.
   required: true
