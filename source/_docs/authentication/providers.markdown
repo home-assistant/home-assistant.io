@@ -30,6 +30,10 @@ To make the transition from API password to authentication system easier, we've 
 Home Assistant automatically configures the standard auth providers and you **do not** need to specify `auth_providers` in your `configuration.yaml` file. Specifying `auth_providers` in your configuration will disable all auth providers that are not listed and can reduce your security or create difficulties logging in.
 </p>
 
+<p class='note warning'>
+Legacy API password auth provider wouldn't be loaded if your API password located in separete package. This is because Home Assistant process `auth_provider` during the `core` section loading, it is earlier then do the `packages` processing.
+</p>
+
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block:
 
 ```yaml
