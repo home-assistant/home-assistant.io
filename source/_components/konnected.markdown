@@ -32,13 +32,13 @@ A `konnected` section must be present in the `configuration.yaml` file that spec
 konnected:
   access_token: REPLACE_ME_WITH_A_RANDOM_STRING
   devices:
-    - id: 8bcd53
+    - id: 438a388bcd53
       binary_sensors:
         - zone: 1
           type: door
       switches:
         - zone: out
-    - id: 438a38
+    - id: 8bcd53438a38
       binary_sensors:
         - pin: 2
           type: door
@@ -62,7 +62,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the WiFi module with colons/punctuation removed. You can either use the full 12-character MAC address or only the last 6 characters. This is visible in the device's WiFi SSID and hostname.
+      description: The MAC address of the WiFi module with colons/punctuation removed. You musst use the full 12-character MAC address with lower case letters. This is visible in the device's WiFi SSID and hostname.
       required: true
       type: string
     binary_sensors:
