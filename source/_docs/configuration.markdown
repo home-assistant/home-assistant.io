@@ -2,7 +2,7 @@
 layout: page
 title: "Configuring Home Assistant"
 description: "Configuring Home Assistant."
-date: 2018-09-18 16:15
+date: 2018-09-08 16:15
 sidebar: true
 comments: false
 sharing: true
