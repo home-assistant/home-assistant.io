@@ -14,7 +14,7 @@ If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [D
 </p>
 
 <p class='note warning'>
-Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](/docs/configuration/basic/) page.
+Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](/components/http/) page.
 </p>
 
 
