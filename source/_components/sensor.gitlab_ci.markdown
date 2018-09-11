@@ -31,7 +31,6 @@ sensor:
   - platform: gitlab_ci
     gitlab_id: '1234567'
     token: 'aaaaaaaaaaAAAAAAAAAA'
-	
 ```
 
 {% configuration %}
