@@ -15,6 +15,10 @@ featured: false
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
+<p class='note'>
+  Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
+</p>
+
 You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
 
 <p class='note'>
