@@ -24,7 +24,7 @@ On Linux platforms (other than Hass.io) there is one dependency you will need to
 $ sudo apt-get install libudev-dev
 ```
 
-On Python 3.6 you may also have to install libpython3.6-dev, and possibly python3.6-dev.
+On Python 3.6 you may also have to install `libpython3.6-dev`, and possibly `python3.6-dev`.
 
 ### {% linkable_title macOS %}
 
