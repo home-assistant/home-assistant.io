@@ -14,7 +14,9 @@ featured: false
 ha_release: "0.60"
 ---
 
-The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
+The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates. The free API for Alpha Vantage has a limit of 5 requests per minute. It is possible to get a premium account for higher request rates.
+
+## {% linkable_title Configuration %}
 
 To enable the `alpha_vantage` platform, add the following lines to your `configuration.yaml` file:
 
