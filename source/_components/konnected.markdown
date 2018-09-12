@@ -188,7 +188,7 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 ### {% linkable_title Revision History %}
 
-#### 0.78
+#### 0.79
 * Added `inverse` configuration option for binary sensors.
 
 #### 0.77
