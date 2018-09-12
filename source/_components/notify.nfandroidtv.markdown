@@ -10,7 +10,6 @@ footer: true
 logo: nfandroidtv.png
 ha_category: Notifications
 ha_release: 0.32
-ha_iot_class: "Local Push"
 ---
 
 
