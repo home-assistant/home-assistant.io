@@ -37,6 +37,10 @@ Configuration variables:
 - **switches** array (*Optional*): Conditions to display settings in the frontend. See the list of supported settings.
 - **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
 
+<p class='note'>
+  You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
+</p>
+
 ### {% linkable_title Supported features %}
 
 Sensors:
