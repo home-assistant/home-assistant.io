@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: gitlab.png
-ha_release: "0.78"
-ha_iot_class: "Cloud Polling"
 ha_category: Sensor
+ha_release: 0.78
+ha_iot_class: "Cloud Polling"
+
 ---
 
 The GitLab_CI sensor integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
@@ -18,6 +19,7 @@ The GitLab_CI sensor integrates results reported by CI/CD Pipeline Jobs in [GitL
 ## {% linkable_title Setup %}
 
 You will need a GitLab repository ID. On the "Details" page for your GitLab repo, just below the project name is "Project ID:"
+Alternatively, you can use "{GitLab_Username}/{GitLab_RepositoryName}", ex: "MyCoolUsername/MyCoolRepository"
 
 You will also need a GitLab API token with at least API permissions. To get a token, they are generated here: [GitLab API Token](https://gitlab.com/profile/personal_access_tokens)
 
@@ -34,9 +36,9 @@ sensor:
 ```
 
 {% configuration %}
-Configuration variables:
+
 gitlab_id:
-  description: GitLab repository ID.
+  description: GitLab repository ID or "username/repository"
   required: true
   type: string
 token:
@@ -45,6 +47,10 @@ token:
   type: string
 scan_interval:
   description: How frequently to query for new data. Defaults to 300 seconds.
-  required: true
+  required: false
   type: time
+url:
+  description: GitLab repository URL. Defaults to 'https://gitlab.com'. Used for self-hosted repositories.
+  required: false
+  type: string
 {% endconfiguration %}
