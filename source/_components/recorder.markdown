@@ -154,6 +154,7 @@ If the `recorder` component is activated then some components support `restore_s
 | MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
