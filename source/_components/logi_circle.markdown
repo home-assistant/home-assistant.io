@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Logi"
+title: "Logi Circle"
 description: "Instructions on how to integrate your Logi Circle cameras within Home Assistant."
 date: 2018-09-08 11:00
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: 0.78
 ha_iot_class: "Cloud Polling"
 ---
 
-The `logi` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant.
+The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -21,7 +21,7 @@ To integrate cameras linked with your [Logi Circle](https://circle.logi.com/) ac
 
 ```yaml
 # Example configuration.yaml entry
-logi:
+logi_circle:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
@@ -37,4 +37,4 @@ password:
   type: string
 {% endconfiguration %}
 
-Finish its configuration by visiting the [Logi camera](/components/camera.logi/) or [Logi sensor](/components/sensor.logi/) documentation.
+Finish its configuration by visiting the [Logi Circle camera](/components/camera.logi_circle/) or [Logi Circle sensor](/components/sensor.logi_circle/) documentation.

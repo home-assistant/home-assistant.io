@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Logi Sensor"
+title: "Logi Circle Sensor"
 description: "Instructions on how to integrate your Logi Circle cameras within Home Assistant."
 date: 2018-09-08 11:00
 sidebar: true
@@ -13,20 +13,20 @@ ha_release: 0.78
 ha_iot_class: "Cloud Polling"
 ---
 
-The `logi` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.
+The `logi_circle` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.
 
 <p class='note'>
-You must have the [Logi component](/components/logi/) configured to use this sensor platform.
+You must have the [Logi Circle component](/components/logi_circle/) configured to use this sensor platform.
 </p>
 
 ## {% linkable_title Configuration %}
 
-Once you have enabled the [Logi component](/components/logi), add the following to your `configuration.yaml` file:
+Once you have enabled the [Logi Circle component](/components/logi_circle), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: logi
+  - platform: logi_circle
 ```
 
 Configuration variables:
