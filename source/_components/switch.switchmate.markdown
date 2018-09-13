@@ -34,3 +34,5 @@ name:
   type: string 
 {% endconfiguration %}
 
+
+The component is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.
