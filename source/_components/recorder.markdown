@@ -161,6 +161,12 @@ If the `recorder` component is activated then some components support `restore_s
 If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
 </p>
 
+<p class='note'>
+Unix Socket connections always bring performance advantages over TCP, if the database on the same host as the `recorder` instance (i.e. `localhost`).</p>
+
+<p class='note warning'>
+If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
+
 ### {% linkable_title Database startup %}
 
 If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
@@ -225,6 +231,22 @@ For PostgreSQL you may have to install a few dependencies:
 $ sudo apt-get install postgresql-server-dev-X.Y
 $ pip3 install psycopg2
 ```
+
+For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+
+`local  DB_NAME USER_NAME peer`
+
+Where `DB_NAME` is the name of your database and `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Reload the PostgreSQL configuration after that:
+```bash
+$ sudo -i -u postgres psql -c "SELECT pg_reload_conf();"
+ pg_reload_conf 
+----------------
+ t
+(1 row)
+```
+A service restart will work as well.
 
 ### {% linkable_title MS SQL Server %}
 
