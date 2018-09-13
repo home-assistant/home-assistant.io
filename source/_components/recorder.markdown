@@ -162,7 +162,7 @@ If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql:/
 </p>
 
 <p class='note'>
-Unix Socket connections always bring performance advantages over TCP, if the database on the same host as the `recorder` instance (i.e. `localhost`).</p>
+Unix Socket connections always bring performance advantages over TCP, if the database resides on the same host as the `recorder` instance (i.e. `localhost`).</p>
 
 <p class='note warning'>
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
