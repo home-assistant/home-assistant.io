@@ -225,6 +225,10 @@ Once Home Assistant finds the database, with the right level of permissions, all
 
 ### {% linkable_title PostgreSQL %}
 
+<p class="note">
+On [Hassbian](/docs/installation/hassbian/) you can use the following command: `hassbian-config install postgresql`
+</p>
+
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
