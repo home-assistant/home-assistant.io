@@ -89,3 +89,7 @@ It will allow you to open Home Assistant instance by access `http://hassbian.hom
 ### {% linkable_title Stuck on Loading data %}
 
 Some advert blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
+
+### {% linkable_title Migrating from pre 0.77 %}
+
+If you were using the authentication system before 0.77, you'll likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers).
