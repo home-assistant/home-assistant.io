@@ -14,7 +14,7 @@ ha_release: 0.66
 
 The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
 
-This platform depends on the [IFTTT](https://home-assistant.io/components/ifttt/) Home Assistant component. See the component's documentation to set it up.
+This platform depends on the [IFTTT](/components/ifttt/) Home Assistant component. See the component's documentation to set it up.
 
 <p class='note'>
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
@@ -38,7 +38,7 @@ alarm_control_panel:
 ```
 
 <p class='note warning'>
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is adviced to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 </p>
 
 {% linkable_title Required IFTTT applets %}
@@ -86,7 +86,7 @@ For this system to operate correctly, the following IFTTT applets have to be set
     type: string
     default: alarm_disarm
   optimistic:
-    description: Specify if the state will be updated by a ifttt_push_alarm_state call (false) or can be set immediately (true).
+    description: Specify if the state will be updated by an ifttt_push_alarm_state call (false) or can be set immediately (true).
     required: false
     type: boolean
     default: false

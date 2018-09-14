@@ -37,7 +37,7 @@ Configuration variables:
 
 - **name** (*Optional*): A name for this device used within Home Assistant.
 - **move_long_address**: KNX group address for moving the cover full up or down.
-- **move_short_address** (*Optional*): KNX group address for moving the cover short time up or down.
+- **move_short_address** (*Optional*): KNX group address for moving the cover short time up or down. If the KNX device has a stop group address you can use that here.
 - **position_address** (*Optional*): KNX group address for moving the cover to the dedicated position.
 - **position_state_address** (*Optional*): Separate KNX group address for requesting the current position of the cover.
 - **angle_address** (*Optional*): KNX group address for moving the cover to the dedicated angle.

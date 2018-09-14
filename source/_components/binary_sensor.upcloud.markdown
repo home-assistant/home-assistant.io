@@ -15,6 +15,8 @@ ha_iot_class: Cloud Polling
 
 The `upcloud` binary sensor platform allows you to monitor your UpCloud servers.
 
+## {% linkable_title Configuration %}
+
 To use your UpCloud servers, you first have to set up your [UpCloud hub](/components/upcloud/) and then add the following to your `configuration.yaml` file:
 
 ```yaml

@@ -35,11 +35,21 @@ switch:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for your Fritz!Box.
-- **password** (*Required*): The password for your Fritz!Box.
-- **host** (*Optional*): The IP address/hostname of your Fritz!Box. Defaults to `fritz.box`.
+{% configuration %}
+username:
+  description: The username for your Fritz!Box.
+  required: true
+  type: string
+password:
+  description: The password for your Fritz!Box.
+  required: true
+  type: string
+host:
+  description:  The IP address/hostname of your Fritz!Box.
+  required: false
+  type: string
+  default: fritz.box
+{% endconfiguration %}
 
 It is recommended to create a dedicated user for Home Assistant and only allow access to "Smart Home".
 

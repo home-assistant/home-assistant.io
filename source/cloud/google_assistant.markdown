@@ -7,16 +7,21 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-published: false
 ---
+
+<p class='note'>
+The minimum supported version of Home Assistant is 0.65.6.
+</p>
 
 The Google Assistant integration allows users to control the entities via the Home Assistant Smart Home skill for Google Assistant. This means that you can say things like "Ok Google, turn on the kitchen light" to control your local Home Assistant.
 
 To use this integration, you need to have:
 
  - The cloud component set up. [Learn more](/components/cloud/)
- - A Google Assistant enabled device like the Google Home
- - Activated the [Home Assistant Smart Home skill for Google Assistant](https://assistant.google.com/services/a/uid/00000091fd5fb875)
+ - A Google Assistant enabled device like the Google Home or a mobile phone running Google Assistant.
+ - Activated the Home Assistant Smart Home skill for Google Assistant.
+   - If you have a Google Home device, use the Google Home app, select *Home control*, and then add *hass.io* using the *Add devices* option.
+   - If you only have a mobile phone, launch Google Assistant, select the three dots menu. Under *Settings* you'll find *Home Control*. There you can add *hass.io* using the *Add devices* option.
 
 You can use `configuration.yaml` to configure the entities that are being shown to Google Assistant and how they are exposed.
 
@@ -38,7 +43,7 @@ cloud:
         aliases:
          - bright lights
          - entry lights
-        type: 'action.devices.types.LIGHT'
+        room: living room
 ```
 
 {% configuration cloud %}
@@ -69,7 +74,7 @@ google_actions:
           required: false
           type: list
     entity_config:
-      description: Entity specific configuration for Google Assistant
+      description: Entity specific configuration for Google Assistant.
       required: false
       type: map
       keys:
@@ -79,16 +84,19 @@ google_actions:
           type: map
           keys:
             name:
-              description: Name of entity to show in Google Assistant
+              description: Name of entity to show in Google Assistant.
               required: false
               type: string
             aliases:
-              description: Aliases that can also be used to refer to this entity
+              description: Aliases that can also be used to refer to this entity.
               required: false
               type: list
-            type:
-              description: Override the type of the entity in Google Assistant. [List of available types](https://developers.google.com/actions/smarthome/guides/)
+            room:
+              description: Hint for Google Assistant in which room this entity is.
               required: false
               type: string
 {% endconfiguration %}
 
+<p class='note'>
+After setting up the cloud, if you make any device changes such as changing the name or adding a new device simply say "Ok Google, sync my devices" to get the changes to show up.
+</p>

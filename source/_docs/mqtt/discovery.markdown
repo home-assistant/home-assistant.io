@@ -43,8 +43,8 @@ The discovery topic need to follow a specific format:
 ```
 
 - `<component>`: One of the supported components, eg. `binary_sensor`.
-- `<node_id>`: (*Optional*) id of the node providing the topic.
-- `<object_id>`: "The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`."
+- `<node_id>` (*Optional*):  ID of the node providing the topic.
+- `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`.
 - `<>`: The topic `config` or `state` which defines the current action.
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
@@ -56,7 +56,7 @@ The `<node_id>` level can be used by clients to only subscribe to their own (com
 The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
-- [esphomelib](https://github.com/OttoWinter/esphomelib)
+- [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 
@@ -79,7 +79,7 @@ Update the state.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
 ```
 
-Setting up a switch is similar but requires a `command_topic` as mentionend in the [MQTT switch documentation](/components/switch.mqtt/).
+Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`

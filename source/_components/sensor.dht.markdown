@@ -14,7 +14,9 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22 or AM2302 device.
+
+## {% linkable_title Configuration %}
 
 To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
 

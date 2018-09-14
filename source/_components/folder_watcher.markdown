@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "folder watcher"
+title: "Folder Watcher"
 description: "Component for monitoring changes within the filesystem."
 date: 2018-03-11 14:00
 sidebar: true
@@ -13,16 +13,25 @@ ha_iot_class: "Local Polling"
 ha_release: 0.67
 ---
 
-This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home-Assistant bus on the creation/deletion/modification of files.
+This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
 
-To configure the `folder_watcher` component add to you `configuration.yaml` file:
+* `created`
+* `deleted`
+* `modified`
+* `moved`
 
-```yaml
+Configured folders must be added to [whitelist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+
+## {% linkable_title Configuration %}
+
+To enable the Folder Watcher component in your installation, add the following to your `configuration.yaml` file:
+
 {% raw %}
+```yaml
 folder_watcher:
   - folder: /config
-{% endraw %}
 ```
+{% endraw %}
 
 {% configuration %}
 folder:
@@ -32,7 +41,7 @@ folder:
 patterns:
   description: Pattern matching to apply
   required: false
-  default: "*" 
+  default: "*"
   type: string
 {% endconfiguration %}
 
@@ -40,36 +49,36 @@ patterns:
 
 Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns. The following example shows the configuration required to only monitor filetypes `.yaml` and `.txt`.
 
-```yaml
 {% raw %}
+```yaml
 folder_watcher:
   - folder: /config
     patterns:
       - '*.yaml'
       - '*.txt'
-{% raw %}
 ```
+{% endraw %}
 
 ## Automations
 
-Automations can be triggered on filesystem event data using a data_template. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on filesystem event data using a `data_template`. The following automation will send a notification with the name and folder of new files added to that folder:
 
-```yaml
 {% raw %}
-- action:
-  - data_template:
-      message: 'Created {{trigger.event.data.file}} in {{trigger.event.data.folder}}'
-      title: New image captured!
-      data:
-        file: "{{trigger.event.data.path}}"
-    service: notify.pushbullet
-  alias: New file alert
-  condition: []
-  id: '1520092824697'
+```yaml
+#Send notification for new image (including the image itself)
+automation:
+  alias: New file alert
   trigger:
-  - event_data: {"event_type":"created"}
-    event_type: folder_watcher
-    platform: event
-{% endraw %}
+    platform: event
+    event_type: folder_watcher
+    event_data:
+      event_type: created
+  action:
+    service: notify.notify
+    data_template:
+      title: New image captured!
+      message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
+      data:
+        file: "{{ trigger.event.data.path }}"
 ```
-
+{% endraw %}

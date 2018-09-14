@@ -15,6 +15,12 @@ This component allows you to track and control various light bulbs. Read the pla
 The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 
+### {% linkable_title Default turn-on values %}
+
+To set the default color and brightness values when the light is turned on, create a custom `light_profiles.csv` (as described below in the `profile` attribute of `light.turn_on`).
+
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g. for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+
 ### {% linkable_title Service `light.turn_on` %}
 
 Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).

@@ -25,7 +25,7 @@ tts:
 Configuration variables:
 
 - **language** (*Optional*): The language to use. Defaults to `en`.
-  - [Complete list of supported languages](https://cloud.google.com/speech/docs/languages).
+  - [Complete list of supported languages](https://cloud.google.com/speech-to-text/docs/languages).
 
 A full configuration sample:
 

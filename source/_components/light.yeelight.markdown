@@ -59,10 +59,12 @@ This component is tested to work with the following models. If you have a differ
 - **YLDP01YL**: LED Bulb (White)
 - **YLDP02YL**: LED Bulb (Color)
 - **YLDP03YL**: LED Bulb (Color) - E26
+- **YLDP06YL**: LED Bulb (Color) II
 - **YLDD01YL**: Lightstrip (Color)
 - **YLDD02YL**: Lightstrip (Color)
 - **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
 - **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
+- **YLXD02YL**: Yeelight Ceiling Light 4 (Jiaoyue 650)
 - **YLXD01YL**: Yeelight Smart LED Ceiling Light - Youth Version
 
 
@@ -70,7 +72,7 @@ This component is tested to work with the following models. If you have a differ
 
 ### {% linkable_title Service `light.yeelight_set_mode` %}
 
-Set a operation mode.
+Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

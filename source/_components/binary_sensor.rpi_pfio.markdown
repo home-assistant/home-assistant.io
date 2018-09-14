@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_release: 0.45
 ha_iot_class: "Local Push"
 ---
 
 The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) .
+
+## {% linkable_title Configuration %}
 
 To use your PiFace Digital I/O module in your installation, add the following to your `configuration.yaml` file:
 

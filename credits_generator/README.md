@@ -15,14 +15,10 @@ $ npm install
 Usage
 -----
 Go to https://github.com/settings/tokens/new and generate a new GitHub personal access token.
+
 Give the token any name and select the `public_repo` and `read:user` scopes.
 
-
-Set the environment variable `GITHUB_TOKEN` to the new token.
-
-```bash
-$ export GITHUB_TOKEN=<Your GitHub access token>
-```
+Put the token in this repo in a file named `.token`.
 
 Run the script.
 

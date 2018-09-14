@@ -2,19 +2,21 @@
 layout: page
 title: "Sense HAT"
 description: "Instructions on how to integrate Sense HAT within Home Assistant."
-date: 2017-06-03 04:00
+date: 2018-06-03 11:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: sense-hat.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.35
 ha_iot_class: "Local Push"
 ---
 
 
 The `sensehat` sensor platform allows you to display information collected by a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) add-on board for Raspberry Pi.
+
+## {% linkable_title Configuration %}
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -23,9 +25,9 @@ To add this platform to your installation, add the following to your `configurat
 sensor:
   - platform: sensehat
     display_options:
-        - temperature
-        - humidity
-        - pressure
+      - temperature
+      - humidity
+      - pressure
 ```
 
 Configuration variables:
@@ -109,7 +111,7 @@ Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the vi
 #### Install SenseHAT package to _homeassistant_venv_
 ```bash
 # switch to the homeassistant_venv environment
-sudo su -s /bin/bash homeassistant
+sudo -u homeassistant -H -s
 source /srv/homeassistant/homeassistant_venv/bin/activate
 
 # install the sense-hat lib

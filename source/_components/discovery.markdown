@@ -11,7 +11,6 @@ logo: home-assistant.png
 ha_category: Other
 ---
 
-
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
 
  * [Apple TV](/components/apple_tv/)
@@ -21,8 +20,10 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
  * [Denon network receivers](/components/media_player.denonavr/)
  * [DirecTV receivers](/components/media_player.directv/)
+ * [DLNA DMR enabled devices](/components/media_player.dlna_dmr/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
+ * [HomeKit](/components/homekit_controller/)
  * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
@@ -33,14 +34,17 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Plex media server](/components/media_player.plex/)
  * [Roku media player](/components/media_player.roku/)
  * [SABnzbd downloader](/components/sensor.sabnzbd/)
+ * [Samsung SyncThru Printer](/components/sensor.syncthru/)
  * [Samsung TVs](/components/media_player.samsungtv/)
  * [Sonos speakers](/components/media_player.sonos/)
  * [Telldus Live](/components/tellduslive/)
  * [Wink](/components/wink/)
  * [Yamaha media player](/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
+ * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
 
-It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
+It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
+for Philips Hue it will require some configuration from the user.
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -50,11 +54,22 @@ discovery:
   ignore:
     - sonos
     - samsung_tv
+  enable:
+    - homekit
 ```
 
-Configuration variables:
+{% linkable_title Configuration variables: %}
 
-- **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
+{% configuration discovery %}
+ignore:
+  description: A list of platforms that never will be automatically configured by `discovery`.
+  required: false
+  type: list
+enable:
+  description: A list of platforms not enabled by default that `discovery` should discover.
+  required: false
+  type: list
+{% endconfiguration %}
 
 Valid values for ignore are:
 
@@ -77,31 +92,45 @@ Valid values for ignore are:
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
+ * `samsung_printer`: Samsung SyncThru Printer
  * `samsung_tv`: Samsung TVs
  * `sonos`: Sonos speakers
  * `songpal` : Songpal
- * `tellduslive`: Telldus Live
+ * `tellstick`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower bulb
+ * `xiaomi_gw`: Xiaomi Aqara gateway
 
-<p class='note'>
+Valid values for enable are:
+
+ * `dlna_dmr`: DLNA DMR enabled devices
+ * `homekit`: HomeKit accessories
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title UPnP %}
+
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
-</p>
 
-<p class='note warning'>
+### {% linkable_title Windows %}
+
+#### {% linkable_title 64-bit Python %}
 There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this component on a 64-bit version of Python and Windows.
-</p>
 
-<p class='note'>
+#### {% linkable_title Python 3.5 %}
+
 If you are on Windows and you're using Python 3.5, download the [Netifaces](http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces) dependency.
-</p>
 
-<p class='note'>
+### {% linkable_title could not install dependency netdisco %}
+
 If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
 
+### {% linkable_title DSM and Synology %}
+
 For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
-</p>
+
+## {% linkable_title New platforms %}
 
 If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.

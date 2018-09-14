@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category: Environment
 ha_release: 0.44
 ---
 
 This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
+
+## {% linkable_title Configuration %}
 
 To use your `plant` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -59,7 +61,7 @@ If the sensor data is within the min/max values the status will be `ok`, if not 
 
 ## Data Source
 
-The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.miflora/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
+The main sources of the data will usually be a [MiFlora sensor](/components/sensor.miflora/) or a [MQTT sensor](/components/sensor.mqtt/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
 

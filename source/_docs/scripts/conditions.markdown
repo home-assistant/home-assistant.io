@@ -126,7 +126,7 @@ condition:
   condition: sun
   after: sunset
   # Optional offset value - in this case it must from -1 hours relative to sunset, or after
-  after_offset: "-1:00:00"
+  after_offset: "-01:00:00"
 ```
 
 ```yaml
@@ -163,7 +163,7 @@ The template condition will test if the [given template][template] renders a val
 ```yaml
 condition:
   condition: template
-  value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
+  value_template: "{% raw %}{{ state_attr('device_tracker.iphone', 'battery') > 50 }}{% endraw %}"
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].

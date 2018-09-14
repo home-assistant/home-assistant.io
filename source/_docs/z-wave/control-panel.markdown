@@ -32,16 +32,10 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 ## {% linkable_title Z-Wave Node Management %}
 
-<p class='note warning'>
-Since 0.63 and the new experimental [entity registry](/docs/configuration/entity-registry/) **Rename Node** no longer changes the entity id for anything other than the `zwave.` entity for the node (it does change, the default *friendly_name* and *old_entity_id* and *new_entity_id* attributes for all the entities). See [this issue](https://github.com/home-assistant/home-assistant/issues/12430).
-</p>
-
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
 * **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail.
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
-
-* **Rename Node** sets the name of the `zwave` entity - this won't happen immediately, and requires you to restart Home Assistant (not reboot) to set the new name. Other entities of a device are renamed using the [entity registry](/docs/configuration/entity-registry/).
 
 * **Heal Node** starts healing of the node.(Update neighbor list and update return routes)
 
@@ -98,7 +92,7 @@ This will display the Z-Wave related information about the node:
 
 ### {% linkable_title Node Values %}
 
-Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
+Contains a list of available values of the selected node, and it's instances.
 
 ### {% linkable_title Node group associations %}
 
@@ -108,11 +102,27 @@ You can use this to enable one device to directly control another. This is prima
 
 There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.
 
+#### {% linkable_title Broadcast group %}
+
+Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+
+```json
+{"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}
+```
+
+That would remove the broadcast group from association group 1 of the device with node_id 3.
+
 ### {% linkable_title Node config options %}
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
+
+### {% linkable_title Node protection %}
+
+If your node has the protection commandclass, you can change the protection level of the node.
+Check your device manual on how to use this setting, as it is different between manufacturers.
+Set the new selection by pressing the **Set Protection** button.
 
 ## {% linkable_title Node user codes %}
 

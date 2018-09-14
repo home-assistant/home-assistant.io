@@ -3,7 +3,7 @@ layout: page
 title: "Help"
 description: "If you need help or have a question..."
 date: 2015-06-25 12:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -16,8 +16,9 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Join the [Facebook community][facebook]
 - Join the [Google+ community][google-plus]
-- Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
+- Join the Reddit in [/r/homeassistant][reddit]
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
@@ -31,6 +32,8 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
+- [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
 - [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017
@@ -50,7 +53,13 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [​Building a better thermostat with Home Assistant](https://opensource.com/article/18/8/build-thermostat-open-source-tools) - August 2018
+- [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
+- [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018
+- [SmartThings vs Home Assistant](https://smarthome.university/smartthings-vs-home-assistant/) - April 2018
+- [Feed the dog and close the door with an open source home automation system](https://opensource.com/article/18/3/smart-home-assistant) - March 2018
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
+- [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
 - [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
@@ -77,12 +86,9 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016
 - [Home Assistant – Open Source Python Home Automation Platform](http://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
-### {% linkable_title Roadmap %}
-
-There is no explicit roadmap available, but the public [tracker](https://www.pivotaltracker.com/n/projects/1250084) can give you some insight into what is going on.
-
 [forum]: https://community.home-assistant.io/
 [twitter]: https://twitter.com/home_assistant
+[facebook]: https://www.facebook.com/homeassistantio
 [google-plus]: https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: https://discord.gg/c5DvZ4e

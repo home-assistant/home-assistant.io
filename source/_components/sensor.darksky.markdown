@@ -102,12 +102,13 @@ Configuration variables:
   - **minutely_summary**: A human-readable text summary for the next hour.
   - **hourly_summary**: A human-readable text summary for the next 24 hours.
   - **daily_summary**: A human-readable text summary for the next 7 days.
-  - **temperature_max**: Today's expected high temperature.
-  - **temperature_min**: Today's expected low temperature.
-  - **apparent_temperature_max**: Today's expected apparent high temperature.
-  - **apparent_temperature_min**: Today's expected apparent low temperature.
+  - **temperature_high**: Today's daytime expected high temperature.
+  - **temperature_low**: Today's overnight expected low temperature.
+  - **apparent_temperature_high**: Today's daytime expected apparent high temperature.
+  - **apparent_temperature_low**: Today's overnight expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
   - **uv_index**: The current UV index.
+  - **moon_phase**: The fractional part of the lunation number during the given day.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
 - **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:

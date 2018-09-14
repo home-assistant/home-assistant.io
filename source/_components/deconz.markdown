@@ -17,26 +17,21 @@ ha_iot_class: "Local Push"
 
 [deCONZ REST API](http://dresden-elektronik.github.io/deconz-rest-doc/).
 
-### {% linkable_title Supported device types %}
+### {% linkable_title Recommended way of running deCONZ %}
 
-- [Zigbee Lights](/components/light.deconz/)
-- [Consumption Sensors](/components/sensor.deconz/)
-- [Humidity Sensors](/components/sensor.deconz/)
-- [Light Level Sensors](/components/sensor.deconz/)
-- [OpenClose Detectors](/components/binary_sensor.deconz/)
-- [Power Sensors](/components/sensor.deconz/)
-- [Presence Detectors](/components/binary_sensor.deconz/)
-- [Pressure Sensors](/components/sensor.deconz/)
-- [Switches (Remote Controls)](/components/sensor.deconz/)
-- [Temperature Sensors](/components/sensor.deconz/)
+Use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs. It works both as a standalone container as well as with HASS.io.
+
+### {% linkable_title Supported devices %}
+
+See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
 ## {% linkable_title Configuration %}
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you've generated the API key from Home Assistant, the API key will be stored in `deconz.conf` inside the `.homeassistant` folder.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** -> **Gateway** -> **Advanced** -> **Authenticate app** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
-You can add the following to your configuration.yaml file if you are not using the `discovery:` component:
+You can add the following to your `configuration.yaml` file if you are not using the `discovery:` component:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,16 +79,16 @@ logger:
 
 ## {% linkable_title Device services %}
 
-Available services: `configure`.
+Available services: `configure` and `deconz.refresh_devices`.
 
 #### {% linkable_title Service `deconz.configure` %}
 
-Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
 | `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific HASS entity of a device in deCONZ. |
+| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
 Field and entity are exclusive, i.e you can only use one in a request.
@@ -104,9 +99,15 @@ Field and entity are exclusive, i.e you can only use one in a request.
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
+#### {% linkable_title Service `deconz.refresh_devices` %}
+
+Refresh with devices added to deCONZ after Home Assistants latest restart.
+
+Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+
 ## {% linkable_title Remote control devices %}
 
-Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will be not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -123,7 +124,9 @@ For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is le
 
 ## {% linkable_title Examples %}
 
-### {% linkable_title Step up and step down input number with wireless dimmer %}
+### {% linkable_title YAML %}
+
+####  {% linkable_title Step up and step down input number with wireless dimmer %}
 
 {% raw %}
 ```yaml
@@ -171,5 +174,91 @@ automation:
           brightness: >
             {% set bri = states.light.lamp.attributes.brightness | int %}
             {{ [bri-30, 0] | max }}
+```
+{% endraw %}
+
+### {% linkable_title Appdaemon %}
+
+#### {% linkable_title Appdaemon remote template %}
+
+{% raw %}
+```yaml
+remote_control:
+  module: remote_control
+  class: RemoteControl
+  event: deconz_event
+  id: dimmer_switch_1
+```
+
+```python
+import appdaemon.plugins.hass.hassapi as hass
+
+class RemoteControl(hass.Hass):
+
+    def initialize(self):
+        if 'event' in self.args:
+            self.listen_event(self.handle_event, self.args['event'])
+
+    def handle_event(self, event_name, data, kwargs):
+        if data['id'] == self.args['id']:
+            self.log(data['event'])
+            if data['event'] == 1002:
+                self.log('Button on')
+            elif data['event'] == 2002:
+                self.log('Button dim up')
+            elif data['event'] == 3002:
+                self.log('Button dim down')
+            elif data['event'] == 4002:
+                self.log('Button off')
+```
+{% endraw %}
+
+#### {% linkable_title Appdaemon remote template %}
+
+Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an Ikea Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
+
+{% raw %}
+```yaml
+sonos_remote_control:
+  module: sonos_remote
+  class: SonosRemote
+  event: deconz_event
+  id: sonos_remote
+  sonos: media_player.sonos
+```
+{% endraw %}
+
+{% raw %}
+```python
+import appdaemon.plugins.hass.hassapi as hass
+
+class SonosRemote(hass.Hass):
+
+    def initialize(self):
+        self.sonos = self.args['sonos']
+        if 'event' in self.args:
+            self.listen_event(self.handle_event, self.args['event'])
+
+    def handle_event(self, event_name, data, kwargs):
+        if data['id'] == self.args['id']:
+            if data['event'] == 1002:
+                self.log('Button toggle')
+                self.call_service("media_player/media_play_pause", entity_id = self.sonos)
+
+            elif data['event'] == 2002:
+                self.log('Button volume up')
+                self.call_service("media_player/volume_up", entity_id = self.sonos)
+
+            elif data['event'] == 3002:
+                self.log('Button volume down')
+                self.call_service("media_player/volume_down", entity_id = self.sonos)
+
+            elif data['event'] == 4002:
+                self.log('Button previous')
+                self.call_service("media_player/media_previous_track", entity_id = self.sonos)                    
+
+            elif data['event'] == 5002:
+                self.log('Button next')
+                self.call_service("media_player/media_next_track", entity_id = self.sonos)
 ```
 {% endraw %}

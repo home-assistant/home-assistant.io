@@ -16,7 +16,7 @@ ha_release: 0.33
 
 The `google` calendar platform allows you to connect to your [Google Calendars](https://calendar.google.com) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file `google_calendars.yaml` that will contain information about all of the calendars you can see.
 
-### {% linkable_title Prerequisites %}
+## {% linkable_title Prerequisites %}
 
 Generate a Client ID and Client Secret on [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
@@ -30,7 +30,7 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 1. Save the client ID and secret as you will need to put these in your `configuration.yaml` file.
 1. Click on "Library", search for "Google Calendar API" and enable it.
 
-### {% linkable_title Basic Setup %}
+## {% linkable_title Configuration %}
 
 To integrate Google Calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -46,7 +46,7 @@ client_id:
   description: Use the value you generated in the Prerequisites stage.
   required: true
   type: string
-minimum:
+client_secret:
   description: Use the value you generated in the Prerequisites stage.
   required: true
   type: string
@@ -61,7 +61,7 @@ The next steps will require you to have Home Assistant running.
 
 After you have it running complete the Google authentication that pops up. It will give you a URL and a code to enter. This will grant your Home Assistant service access to all the Google Calendars that the account you authenticate with can read. This is a Read-Only view of these calendars.
 
-### {% linkable_title Calendar Configuration %}
+## {% linkable_title Calendar Configuration %}
 
 Editing the `google_calendars.yaml` file.
 
@@ -95,7 +95,8 @@ Variables:
   - **track**: (*Required*): Should we create a sensor `True` or ignore it `False`?
   - **search**: (*Optional*): If set will only trigger for matched events.
   - **offset**: (*Optional*): A set of characters that precede a number in the event title for designating a pre-trigger state change on the sensor. (Default: `!!`)
-  
+  - **ignore_availability**: (*Optional*): Should we respect `free`/`busy` flags? (Defaults to `true`)
+
 From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available.
 
 But what if you only wanted it to toggle based on all events? Just leave out the *search* parameter.

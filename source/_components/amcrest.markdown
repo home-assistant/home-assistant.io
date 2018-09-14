@@ -46,7 +46,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of your camera. If using a hostname, make sure the DNS works as expected.
 - **username** (*Required*): The username for accessing your camera.
 - **password** (*Required*): The password for accessing your camera.
-- **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
+- **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera". In the case of multi-camera setups, this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated.
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
 - **resolution** (*Optional*): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option `high`. For VGA resolution (640x480p), specify the option `low`. If omitted, it defaults to *high*.
 - **stream_source** (*Optional*): The data source for the live stream. `mjpeg` will use the camera's native MJPEG stream, whereas `snapshot` will use the camera's snapshot API to create a stream from still images. You can also set the `rtsp` option to generate the streaming via RTSP protocol. If omitted, it defaults to *snapshot*.
@@ -58,7 +58,7 @@ Configuration variables:
   - **sdcard**: Return the SD card usage by reporting the total and used space
   - **ptz_preset**: Return the number of PTZ preset positions configured for the given camera
 - **switches** array (*Optional*): Switches to display in the frontend. By default, *none* of the switches are shown. The following switches can be monitored.
-  - **motion_detection**: Enable/disable motion detection setting 
+  - **motion_detection**: Enable/disable motion detection setting
   - **motion_recording**: Enable/disable recording on motion detection setting
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to stream `high` definition video with MJPEG encoding. You may need to use `low` resolution stream or the `snapshot` stream source instead.  If the quality seems too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in your camera's configuration manager. If you defined the *stream_source* to **mjpeg**, make sure your camera supports *Basic* HTTP authentication. Newer Amcrest firmware may not work, then **rtsp** is recommended instead.

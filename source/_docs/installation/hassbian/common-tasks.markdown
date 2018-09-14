@@ -2,7 +2,7 @@
 layout: page
 title: "Common tasks on Hassbian"
 description: "Instructions on how to do common tasks on Hassbian."
-date: 2016-09-26 21:00
+date: 2018-06-03 11:00
 sidebar: true
 comments: false
 sharing: true
@@ -44,7 +44,7 @@ Log in as the `pi` account and execute the following commands:
 
 ```bash
 $ sudo systemctl stop home-assistant@homeassistant.service
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 $ exit
@@ -64,7 +64,7 @@ This will in order do the following:
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ hass
 ```
@@ -75,7 +75,7 @@ This will start Home Assistant in your shell and output anything that ends up in
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ hass --script check_config
 ```
@@ -86,7 +86,7 @@ This will output any errors in your configuration files to console.
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ cd /home/homeassistant/.homeassistant
 $ nano home-assistant.log
 ```
@@ -109,7 +109,7 @@ $ sudo journalctl -fu home-assistant@homeassistant.service
 Log in as the `pi` account and execute the following commands:
 
 ```bash
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ cd /home/homeassistant/.homeassistant
 $ nano configuration.yaml
 ```

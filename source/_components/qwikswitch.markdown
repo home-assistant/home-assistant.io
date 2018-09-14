@@ -60,13 +60,35 @@ On some QS Mobile servers button events are only generated for switches added to
 
 ### {% linkable_title Qwikswitch Sensors %}
 
-Some Qwikswith devices might support more than one channel per device (i.e. ipmod). The channel can be specified by appending a number to the QS_id. Example sensors configuration:
+The sensor configuration is a list of sensors. Depending on the type, it will be a sensor or binary_sensor. Each sensor is configured with the following parameters:
+
+- **name** (*Required*): The sensor name from which the entity_id will be derived.
+- **id** (*Required*): A QS_Id
+- **type** (*Required*): The Qwikswitch sensor type. These could include:
+   - imod (binary_sensor, up to 6 channels)
+   - door (binary_sensor, single channel)
+   - qwikcord (Channel 1 = CTavg, Channel 2 = CTsum)
+- **channel** (*Optional, default=1*): The channel of interest. Refer to type above.
+
+The following parameters are only applicabe to binary_sensors (i.e. door/imod).
+- **invert** (*Optional, default=False): Invert the open/close state. 
+- **class** (*Optional, default=door): The [class](https://www.home-assistant.io/components/binary_sensor) or binary_sensor.
+
+Example sensor configuration:
 
 ```yaml
 qwikswitch:
   ...
   sensors:
-    door_sensor: '@0dev01'
-    door2_sensor: '@0dev02.1'
-    door3_sensor: '@0dev02.2'
+    - name: door sensor
+      id: "@id03"
+      type: door
+    - name: Imod 1 sensor
+      id: "@id02"
+      channel: 1
+      type: imod
+    - name: Imod 2 sensor
+      id: "@id02"
+      channel: 2
+      type: imod
 ```

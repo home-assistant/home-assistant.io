@@ -15,6 +15,9 @@ ha_release: 0.65
 
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant. 
+
+## {% linkable_title Configuration %}
+
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -31,9 +34,9 @@ sensor:
 ```
 
 Two types of sensors can be monitored and will be created with the following names:
+
 - **Active Usage/Production**: Current active power usage/production in Watts. Updated every 30 seconds.
 - **Daily Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
-- ...
 
 Weekly, Monthly and Yearly variants are also available.
 
@@ -52,23 +55,23 @@ monitored_conditions:
   type: list
   keys:
     active_usage:
-      description: The current power usage in W
+      description: The current power usage in W.
     active_production:
-      description: The current solar production in W
+      description: The current solar production in W.
     daily_usage:
-      description: Total power used for current day in kWh
+      description: Total power used for current day in kWh.
     daily_production:
-      description: Total power produced for current day in kWh
+      description: Total power produced for current day in kWh.
     weekly_usage:
-      description: Total power used for current week in kWh
+      description: Total power used for current week in kWh.
     weekly_production:
-      description: Total power produced for current week in kWh
+      description: Total power produced for current week in kWh.
     monthly_usage:
-      description: Total power used for current month in kWh
+      description: Total power used for current month in kWh.
     monthly_production:
-      description: Total power produced for current month in kWh
+      description: Total power produced for current month in kWh.
     yearly_usage:
-      description: Total power used for current year in kWh
+      description: Total power used for current year in kWh.
     yearly_production:
-      description: Total power produced for current year in kWh
+      description: Total power produced for current year in kWh.
 {% endconfiguration %}

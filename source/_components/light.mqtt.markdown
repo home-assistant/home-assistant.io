@@ -14,6 +14,8 @@ ha_iot_class: depends
 
 The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
@@ -21,7 +23,7 @@ When a state topic is not available, the light will work in optimistic mode. In 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mqtt
     command_topic: "office/rgb1/light/switch"
@@ -33,6 +35,10 @@ name:
   required: false
   type: string
   default: MQTT Light
+unique_id:
+  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
@@ -55,7 +61,7 @@ brightness_value_template:
   required: false
   type: string
 color_temp_command_topic:
-  description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 154 to 500 mireds (micro reciprocal degrees).
+  description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 153 to 500 mireds (micro reciprocal degrees).
   required: false
   type: string
 color_temp_state_topic:
@@ -194,6 +200,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
@@ -204,8 +211,9 @@ In this section you will find some real life examples of how to use this sensor.
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mqtt
     name: "Office Light RGB"
@@ -215,21 +223,22 @@ light:
     brightness_command_topic: "office/rgb1/brightness/set"
     rgb_state_topic: "office/rgb1/rgb/status"
     rgb_command_topic: "office/rgb1/rgb/set"
-    state_value_template: "{% raw %}{{ value_json.state }}{% endraw %}"
-    brightness_value_template: "{% raw %}{{ value_json.brightness }}{% endraw %}"
-    rgb_value_template: "{% raw %}{{ value_json.rgb | join(',') }}{% endraw %}"
+    state_value_template: "{{ value_json.state }}"
+    brightness_value_template: "{{ value_json.brightness }}"
+    rgb_value_template: "{{ value_json.rgb | join(',') }}"
     qos: 0
     payload_on: "ON"
     payload_off: "OFF"
     optimistic: false
 ```
+{% endraw %}
 
 ### {% linkable_title Brightness and no RGB support %}
 
 To enable a light with brightness (no RGB version) in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mqtt
     name: "Office light"
@@ -248,7 +257,7 @@ light:
 To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mqtt
     name: "Brightness light"
@@ -259,7 +268,6 @@ light:
     brightness_command_topic: 'office/light/brightness/set'
     on_command_type: 'brightness'
 ```
-
 
 ### {% linkable_title Implementations %}
 
