@@ -16,9 +16,29 @@ ha_iot_class: "Cloud Polling"
 
 The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
+## {% linkable_title Configuration %}
+
 To add Met to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 weather:
   - platform: met
 ```
+
+
+{% configuration %}
+latitude:
+  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: number
+  default: Provided by Home Assistant configuration
+longitude:
+  description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: number
+  default: Provided by Home Assistant configuration
+altitude:
+  description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: number
+  default: Provided by Home Assistant configuration
