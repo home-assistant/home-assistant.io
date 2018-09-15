@@ -99,7 +99,7 @@ Valid values for ignore are:
  * `tellstick`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
- * `yeelight`: Yeelight Sunflower bulb
+ * `yeelight`: Yeelight lamps and bulbs (not only Yeelight Sunflower bulb)
  * `xiaomi_gw`: Xiaomi Aqara gateway
 
 Valid values for enable are:
