@@ -385,3 +385,116 @@ Button three release|Circle|3|1
 Button four tap|Circle with Line|4|0
 Button four hold|Circle with Line|4|2
 Button four release|Circle with Line|4|1
+
+### {% linkable_title RFWDC Cooper 5-button Scene Control Keypad %}
+
+For the RFWDC Cooper 5-button Scene Control Keypad, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+  <Instance index="1" />
+  <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="5" label="Button Five" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+</CommandClass>
+```
+
+Below is a table of the action/scenes for the Buttons:
+
+**Action**|**scene\_id**
+:-----:|:-----:
+Button one tap|1
+Button two tap|2
+Button three tap|3
+Button four tap|4
+Button five tap|5
+
+When a button turns off, the controller sends `basic_set` in a generic `node_event` and does not specify which button was pressed. The status of the buttons is encoded into the `indicator` value, so in order to determine the status of each button, you need to refresh the indicator value. You can also control the LEDs for each button by setting the indicator value. For responsiveness, automations should be triggered with `zwave.scene_activated` events rather than the switch status.
+
+Here is an example configuration needed for the scene controller:
+
+{% raw %}
+```yaml
+automation:
+  - alias: Sync the indicator value on button events
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.scene_contrl
+      - platform: event
+        event_type: zwave.node_event
+        event_data:
+          entity_id: zwave.scene_contrl
+    action:
+      - service: zwave.refresh_indicator
+        data: 
+          node_id: 3
+switch:
+  - platform: template
+    switches:
+      button_1_led:
+        value_template: "{{ states.sensor.scene_contrl_indicator.state | int | bitwise_and(1) > 0 }}"
+        turn_on:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int + 1 }}"
+        turn_off:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int - 1 }}"
+      button_2_led:
+        value_template: "{{ states.sensor.scene_contrl_indicator.state | int | bitwise_and(2) > 0 }}"
+        turn_on:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int + 2 }}"
+        turn_off:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int - 2 }}"
+      button_3_led:
+        value_template: "{{ states.sensor.scene_contrl_indicator.state | int | bitwise_and(4) > 0 }}"
+        turn_on:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int + 4 }}"
+        turn_off:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int - 4 }}"
+      button_4_led:
+        value_template: "{{ states.sensor.scene_contrl_indicator.state | int | bitwise_and(8) > 0 }}"
+        turn_on:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int + 8 }}"
+        turn_off:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int - 8 }}"
+      button_5_led:
+        value_template: "{{ states.sensor.scene_contrl_indicator.state | int | bitwise_and(16) > 0 }}"
+        turn_on:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int + 16 }}"
+        turn_off:
+          service: zwave.set_indicator
+          data_template:
+            node_id: 3
+            value: "{{ states.sensor.scene_contrl_indicator.state | int - 16 }}"
+```
+{% endraw %}
