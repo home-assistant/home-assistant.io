@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: edp_redy.png
 ha_category: Hub
-ha_release: "0.78"
+ha_release: "0.79"
 ha_iot_class: "Cloud Polling"
 ---
 
