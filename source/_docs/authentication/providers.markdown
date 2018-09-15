@@ -31,7 +31,7 @@ Home Assistant automatically configures the standard auth providers and you **do
 </p>
 
 <p class='note warning'>
-Legacy API password auth provider wouldn't be loaded if your API password located in separete package. This is because Home Assistant process `auth_provider` during the `core` section loading, it is earlier then do the `packages` processing.
+The legacy API password auth provider won't be loaded if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
 </p>
 
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block:
