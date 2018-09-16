@@ -22,6 +22,10 @@ To use this integration, you need to have:
  - Activated the Home Assistant Smart Home skill for Google Assistant.
    - If you have a Google Home device, use the Google Home app, select *Home control*, and then add *hass.io* using the *Add devices* option.
    - If you only have a mobile phone, launch Google Assistant, select the three dots menu. Under *Settings* you'll find *Home Control*. There you can add *hass.io* using the *Add devices* option.
+Download and open the Google Assistant app.
+Make sure that youre phone language is English and the language of Google Voice Assistant is also English. 
+If you just changed the language for this guide reboot youre phone.
+After reboot is done open the Google Voice app and under Explore you will see Home Control. From there you should be able to choose hass.io
 
 You can use `configuration.yaml` to configure the entities that are being shown to Google Assistant and how they are exposed.
 
