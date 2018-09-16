@@ -51,6 +51,69 @@ The payload will be checked like an entry in your `configuration.yaml` file if a
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
+Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
+
+Supported abbreviations:
+```
+    'aft': 'after',
+    'attr': 'attributes',
+    'avty': 'availability',
+    'avail': 'available',
+    'bri': 'brightness',
+    'cla': 'class',
+    'cls': 'close',
+    'clsd': 'closed',
+    'clr': 'color',
+    'cmd': 'command',
+    'dev': 'device',
+    'fx': 'effect',
+    'exp': 'expire',
+    'frc': 'force',
+    'hi': 'high',
+    'ic': 'icon',
+    'id': 'id',
+    'inj': 'invert',
+    'json': 'json',
+    'list': 'list',
+    'lo': 'low',
+    'max': 'max',
+    'meas': 'measurement',
+    'med': 'medium',
+    'min': 'min',
+    'name': 'name',
+    'not': 'not',
+    'of': 'of',
+    'off': 'off',
+    'on': 'on',
+    'open': 'open',
+    'opnd': 'opened',
+    'opt': 'optimistic',
+    'osc': 'oscillation',
+    'pl': 'payload',
+    'pos': 'position',
+    'qos': 'qos',
+    'ret': 'retain',
+    'rgb': 'rgb',
+    'scl': 'scale',
+    'set': 'set',
+    'spd': 'speed',
+    'spds': 'speeds',
+    'stat': 'state',
+    'status': 'status',
+    'stop': 'stop',
+    'temp': 'temp',
+    'tmp': 'template',
+    'tilt': 'tilt',
+    't': 'topic',
+    'type': 'type',
+    'uniq': 'unique',
+    'unit': 'unit',
+    'upd': 'update',
+    'val': 'value',
+    'whit': 'white',
+    'xy': 'xy',
+```
+
 ### {% linkable_title Support by third-party tools %}
 
 The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
@@ -103,4 +166,8 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
+Setting up a switch with abbreviated configuration variable name.
 
+- Configuration topic: `homeassistant/switch/irrigation/config`
+- State topic: `homeassistant/switch/irrigation/state`
+- Payload:  `{"name": "garden", "cmd_t": "homeassistant/switch/irrigation/set"}`
