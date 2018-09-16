@@ -2,7 +2,7 @@
 layout: page
 title: "Upgrading Hassbian"
 description: "Instructions on how to upgrade Hassbian to the latest version."
-date: 2016-09-26 21:00
+date: 2018-06-03 11:00
 sidebar: true
 comments: false
 sharing: true
@@ -27,7 +27,7 @@ To update the Home Assistant installation execute the following command as the `
 
 ```bash
 $ sudo systemctl stop home-assistant@homeassistant.service
-$ sudo su -s /bin/bash homeassistant
+$ sudo -u homeassistant -H -s
 $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 $ exit

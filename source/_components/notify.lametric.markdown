@@ -91,7 +91,7 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
 
 ### {% linkable_title Only notify specific device %}
 
-If you have more than one La Metric device, you can specify which will recieve the message by adding `target:` to the service data:
+If you have more than one La Metric device, you can specify which will receive the message by adding `target:` to the service data:
 
 ```yaml
   action:

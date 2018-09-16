@@ -32,7 +32,7 @@ vacuum:
 Configuration variables:
 
 - **host** (*Required*): Hostname or IP address of the Roomba.
-- **username** (*Required*): The username (BLID) fro your device.
+- **username** (*Required*): The username (BLID) for your device.
 - **password** (*Required*): The password for your device.
 - **name** (*Optional*): The name of the vacuum.
 - **certificate** (*Optional*): Path to your certificate store. Defaults to `/etc/ssl/certs/ca-certificates.crt`.

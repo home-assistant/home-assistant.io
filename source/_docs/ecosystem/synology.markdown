@@ -19,9 +19,9 @@ To allow WebSocket by default for all service exposed by NGINX, you can enable i
 Open `/usr/syno/share/nginx/Portal.mustache` and add the followings in the `Location` section:
 
 ```
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-    proxy_read_timeout 86400;
+        proxy_set_header        Upgrade             $http_upgrade;
+        proxy_set_header        Connection          "upgrade";
+        proxy_read_timeout      86400;
 ```
 
 Then restart the NGINX daemon:

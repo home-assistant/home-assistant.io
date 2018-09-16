@@ -14,43 +14,6 @@ ha_release: 0.7.6
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
 
-This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
-
-<p class='note'>
-This component requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
-</p>
-
-Before this scanner can be used you have to install the luci RPC package on OpenWRT:
-
-```bash
-# opkg install luci-mod-rpc
-```
-
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: luci
-    host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
-```
-
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g. `192.168.1.1`.
-- **username** (*Required*): The username of an user with administrative privileges, usually `admin`.
-- **password** (*Required*): The password for your given admin account.
-
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-
-<p class='note warning'>
-Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
-</p>
-
-)._
-
 This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
 Before this scanner can be used you have to install the ubus RPC package on OpenWRT:
@@ -107,14 +70,13 @@ Configuration variables:
 - **password** (*Required*): The password for your given account.
 - **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`. Defaults to `dnsmasq`.
 
-
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## Troubleshooting
+## {% linkable_title Troubleshooting %}
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what's happening.
 
-### Increase Log Level
+### {% linkable_title Increase Log Level %}
 
 1. On your Home Assistant device, stop Home Assistant
 2. Adjust `configuration.yaml` to log more detail for the `device_tracker` component
@@ -204,6 +166,6 @@ Connection: keep-alive
 ```
 11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this component for device tracking or presence.
 
-### Cleanup
+### {% linkable_title Cleanup %}
 
 When you're done troubleshooting, remember to reset your logging configuration and delete any capture files that contain sensitive information.

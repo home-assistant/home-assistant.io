@@ -24,7 +24,6 @@ Info on how to get API access is described in the [smappy wiki](https://github.c
 
 To use the `smappee` component in your installation, add the following to your `configuration.yaml` file:
 
-
 ```yaml
 # Example configuration.yaml entry
 smappee:

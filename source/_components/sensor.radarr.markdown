@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: radarr.png
-ha_category: Sensor
+ha_category: Downloading
 ha_release: 0.47
 ---
 

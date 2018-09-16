@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "DNS IP"
+title: "DNS IP Sensor"
 description: "Instructions on how to integrate a DNS IP sensor into Home Assistant."
 date: 2017-02-25 11:05
 sidebar: true
@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Network
 ha_iot_class: "Cloud Polling"
 ha_release: "0.40"
 ---
@@ -20,6 +20,8 @@ The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its
 2. If you specify a `hostname`, a regular DNS lookup will be performed, providing you the IP the hostname resolves to.
 
 You may also override the nameserver that is being used by setting the `resolver` parameter to any nameserver you like.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

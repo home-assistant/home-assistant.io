@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Fan
-ha_version: 0.57
 ha_iot_class: "Local Polling"
+ha_release: 0.57
 ---
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Xiaomi Air Humidifier.
@@ -19,13 +19,13 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
 
 ### Air Purifier 2 et al.
 
-* Power (on, off)
-* Operation modes (auto, silent, favorite, idle)
-* Buzzer (on, off)
-* Child lock (on, off)
-* LED (on, off), LED brightness (bright, dim, off)
-* Favorite Level (0...16)
-* Attributes
+- Power (on, off)
+- Operation modes (auto, silent, favorite, idle)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off), LED brightness (bright, dim, off)
+- Favorite Level (0...16)
+- Attributes
   - model
   - temperature
   - humidity
@@ -53,12 +53,12 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
-* Power (on, off)
-* Operation modes (auto, silent, favorite)
-* Child lock (on, off)
-* LED (on, off)
-* Favorite Level (0...16)
-* Attributes
+- Power (on, off)
+- Operation modes (auto, silent, favorite)
+- Child lock (on, off)
+- LED (on, off)
+- Favorite Level (0...16)
+- Attributes
   - model
   - temperature
   - humidity
@@ -89,11 +89,11 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
-* Power (on, off)
-* Operation modes (auto, silent, favorite, idle, medium, high, strong)
-* Child lock (on, off)
-* LED (on, off)
-* Attributes
+- Power (on, off)
+- Operation modes (auto, silent, favorite, idle, medium, high, strong)
+- Child lock (on, off)
+- LED (on, off)
+- Attributes
   - model
   - aqi
   - mode
@@ -121,13 +121,13 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
-* On, Off
-* Operation modes (silent, medium, high)
-* Buzzer (on, off)
-* Child lock (on, off)
-* LED brightness (bright, dim, off)
-* Target humidity (30, 40, 50, 60, 70, 80)
-* Attributes
+- On, Off
+- Operation modes (silent, medium, high)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED brightness (bright, dim, off)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Attributes
   - model
   - temperature
   - humidity
@@ -143,14 +143,14 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
 
 ### Air Humidifier CA (zhimi.humidifier.ca1)
 
-* On, Off
-* Operation modes (silent, medium, high, auto)
-* Buzzer (on, off)
-* Child lock (on, off)
-* LED brightness (bright, dim, off)
-* Target humidity (30, 40, 50, 60, 70, 80)
-* Dry mode (on, off)
-* Attributes
+- On, Off
+- Operation modes (silent, medium, high, auto)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED brightness (bright, dim, off)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Dry mode (on, off)
+- Attributes
   - model
   - temperature
   - humidity
@@ -181,20 +181,20 @@ fan:
 
 {% configuration %}
 host:
-  description: The IP address of your fan.
+  description: The IP address of your miio fan.
   required: true
   type: string
 token:
-  description: The API token of your fan.
+  description: The API token of your miio fan.
   required: true
   type: string
 name:
-  description: The name of your fan.
+  description: The name of your miio fan.
   required: false
   type: string
   default: Xiaomi Air Purifier
 model:
-  description: The model of your device.
+  description: The model of your miio fan. Valid values are `zhimi.airpurifier.v6`, `zhimi.airpurifier.v3`, `zhimi.humidifier.v1` and `zhimi.humidifier.ca1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}

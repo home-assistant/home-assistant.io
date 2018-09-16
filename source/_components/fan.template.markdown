@@ -94,7 +94,7 @@ fan:
         required: false
         type: action
       set_oscillating:
-        description: Defines an action to run when the fan is given a osc state command.
+        description: Defines an action to run when the fan is given an osc state command.
         required: false
         type: action
       set_direction:

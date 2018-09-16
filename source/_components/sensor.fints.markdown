@@ -7,13 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
-ha_release: 0.70
+ha_category: Finance
+ha_release: "0.70"
 ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
 With the FinTS sensor, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
+
+## {% linkable_title Configuration %}
 
 For each account you have with the bank, a separate sensor is created. If you have several accounts with a bank, you can select which ones you want to have, and you can also give the accounts a name.
 
@@ -70,5 +72,4 @@ To find out the configuration for your bank, check their website or call their h
             description: (optional) Use this field to give the account a meaningful name.
             required: false
             type: string           
-
 {% endconfiguration %}

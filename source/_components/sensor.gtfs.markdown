@@ -21,7 +21,7 @@ You need to find a valid GTFS data set, which you can usually find just by searc
 Here are some examples:
 
 - [Bay Area Rapid Transit (BART)](http://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
-- [Metropolitan Transit Authority of New York City (MTA)](http://www.bart.gov/schedules/developers/gtfs) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
+- [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
 - [GBRail.info](http://www.gbrail.info/) - Provides data feeds for most if not all rail companies in Britain.
 - [Official Timetable Switzerland](http://www.fahrplanfelder.ch/en/timetable-data.html) - The official timetable data for Switzerland.
 - [Public Transport Victoria (Australia)](https://www.data.vic.gov.au/data/dataset/ptv-timetable-and-geographic-information-2015-gtfs) - Official PTV GTFS dataset.

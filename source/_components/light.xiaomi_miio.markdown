@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: philips.png
 ha_category: Light
-ha_version: 0.53
 ha_iot_class: "Local Polling"
+ha_release: 0.53
 ---
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips LED Ceiling Lamp and Xiaomi Philips Eyecare Lamp 2.
@@ -76,28 +76,22 @@ light:
     model: philips.light.bulb
 ```
 
-Configuration variables:
-- **host** (*Required*): The IP of your light.
-- **token** (*Required*): The API token of your light.
-- **name** (*Optional*): The name of your light.
-- **model** (*Optional*): The model of your light. Valid values are `philips.light.bulb`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling` and `philips.light.zyceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-
 {% configuration %}
 host:
-  description: The IP address of your device.
+  description: The IP address of your miio light.
   required: true
   type: string
 token:
-  description: The API token of your device.
+  description: The API token of your miio light.
   required: true
   type: string
 name:
-  description: The name of your device.
+  description: The name of your miio light.
   required: false
   type: string
   default: Xiaomi Philips Light
 model:
-  description: The model of your device.
+  description: The model of your miio light. Valid values are `philips.light.bulb`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling` and `philips.light.zyceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}

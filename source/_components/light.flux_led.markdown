@@ -109,6 +109,14 @@ Will add a light with rgb+white mode (default). White and RGB channels can be ad
       mode: "rgbw"
 ```
 
+Will add a light with white mode only. This is useful when only W channel is connected to an RGBW controller and allows the white level to be controlled via brightness value.
+
+```yaml
+    192.168.1.10:
+      name: NAME
+      mode: "w"
+```
+
 Some devices such as the Ledenet RGBW controller use a slightly different protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
 
 ```yaml

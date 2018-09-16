@@ -72,7 +72,7 @@ This component is tested to work with the following models. If you have a differ
 
 ### {% linkable_title Service `light.yeelight_set_mode` %}
 
-Set a operation mode.
+Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: matrix.png
 ha_category: Hub
-ha_version: 0.69
+ha_release: 0.69
 ---
 
 This component allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -31,7 +31,7 @@ Configuration variables:
 
 {% configuration %}
 username:
-  description: "The matrix username that home assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g. '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
+  description: "The matrix username that Home Assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g. '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
   required: true
   type: string
 password:
@@ -39,7 +39,7 @@ password:
   required: true
   type: string
 homeserver:
-  description: "The full URL for your homeserver. If you use the defauls matrix.org homeserver, this is 'https://matrix.org'."
+  description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
   required: true
   type: string
 verify_ssl:
@@ -79,7 +79,7 @@ commands:
 
 ### {% linkable_title Event Data %}
 
-If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field. If the command is a word command that has no name set, the `name` field contains the word instead.
+If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
 If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Binary Sensor
+ha_category: Image Processing
 ha_release: 0.27
 ---
 
@@ -19,7 +19,7 @@ The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](ht
 If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
 </p>
 
-### {% linkable_title Noise %}
+## {% linkable_title Configuration %}
 
 To add FFmpeg with noise detection to your installation, add the following to your `configuration.yaml` file:
 

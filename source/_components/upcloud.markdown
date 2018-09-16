@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category: System Monitor
 ha_release: 0.65
 logo: upcloud.png
 ha_iot_class: Cloud Polling
@@ -16,7 +16,11 @@ ha_iot_class: Cloud Polling
 
 The `upcloud` component allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
 
+## {% linkable_title Setup %}
+
 Set up your API user credentials in your [UpCloud control panel](https://my.upcloud.com/).
+
+## {% linkable_title Configuration %}
 
 To integrate your UpCloud servers with Home Assistant, add the following section to your `configuration.yaml` file:
 

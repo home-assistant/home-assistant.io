@@ -66,6 +66,7 @@ ssh pi@your_raspberry_pi_ip
 ```bash
 echo scan | cec-client -s -d 1
 ```
+Note: to use this command you have to install cec-utils package. In Debian based should be: ```sudo apt install cec-utils```
 
 *  This will give you the list of devices that are on the bus
 

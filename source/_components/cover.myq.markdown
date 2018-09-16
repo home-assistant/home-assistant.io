@@ -37,7 +37,7 @@ password:
   description: Your MyQ account password.
   required: true
   type: string
-password:
+type:
   description: "Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`."
   required: true
   type: string

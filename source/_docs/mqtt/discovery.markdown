@@ -79,7 +79,7 @@ Update the state.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
 ```
 
-Setting up a switch is similar but requires a `command_topic` as mentionend in the [MQTT switch documentation](/components/switch.mqtt/).
+Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`

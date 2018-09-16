@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: spaceapi.png
-ha_category: Other
+ha_category: Social
 ha_release: "0.70"
 ---
 
@@ -108,7 +108,7 @@ sensors:
       required: true
       type: entity_id
     humidity:
-      description: The Twitter account of the Hackerspace.
+      description: List of humidity sensors.
       required: true
       type: entity_id
 {% endconfiguration %}

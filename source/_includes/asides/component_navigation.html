@@ -1,4 +1,4 @@
-{% assign components = site.components | sort: 'title' %}
+{% assign components = site.components | sort_natural: 'title' %}
 {% assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/master/homeassistant' %}
 <section class="aside-module grid__item one-whole lap-one-half">
   {% include edit_github.html %}

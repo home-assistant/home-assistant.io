@@ -174,6 +174,14 @@ aux_state_template:
   description: A template to render the value received on the `aux_state_topic` with.
   required: false
   type: template
+min_temp:
+  description: Minimum set point available
+  type: number
+  required: false
+max_temp:
+  description: Maximum set point available
+  type: number
+  required: false
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}

@@ -38,7 +38,7 @@ alarm_control_panel:
 ```
 
 <p class='note warning'>
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is adviced to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 </p>
 
 {% linkable_title Required IFTTT applets %}
@@ -86,7 +86,7 @@ For this system to operate correctly, the following IFTTT applets have to be set
     type: string
     default: alarm_disarm
   optimistic:
-    description: Specify if the state will be updated by a ifttt_push_alarm_state call (false) or can be set immediately (true).
+    description: Specify if the state will be updated by an ifttt_push_alarm_state call (false) or can be set immediately (true).
     required: false
     type: boolean
     default: false

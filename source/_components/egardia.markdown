@@ -90,6 +90,10 @@ report_server_codes:
 Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will **not** update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
 You can change this, however, using the following procedure. This is a more advanced (and more useful) configuration.
 
+<p class='note'>
+There seem to be multiple versions of software running on GATE-02 devices; we have received reports from GATE-02 users who successfully run this package in GATE-02 mode. Others have reported they needed to specify GATE-03 as their version to integrate their GATE-02.
+</p>
+
 ## {% linkable_title Advanced configuration %}
 
 1. Log in to your alarm system's control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.

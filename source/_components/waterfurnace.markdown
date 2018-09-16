@@ -8,13 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: waterfurnace.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-The `waterfurnace` component communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your
-system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
+The `waterfurnace` component communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
 The sensors provided include:
 

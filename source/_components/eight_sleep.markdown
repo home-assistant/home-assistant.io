@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: eight_sleep.png
-ha_category: Hub
+ha_category: Health
 ha_release: "0.44"
 ha_iot_class: "Cloud Polling"
 ---
@@ -17,7 +17,7 @@ The `eight_sleep` component allows Home Assistant to fetch data from your [Eight
 
 ## {% linkable_title Configuration %}
 
-It's setup utilizing 'Sensor' components to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' component to indicate your presence in the bed.  A service is also provided to set the heating level and duration of the bed.
+It's setup utilizing 'Sensor' platform to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' platform to indicate your presence in the bed. A service is also provided to set the heating level and duration of the bed.
 
 You must have at least two sleep sessions recorded in the Eight Sleep app prior to setting up the Home Assistant component.
 

@@ -127,7 +127,7 @@ Wildcards only work at the end of the ID, not in the middle or front!
 
 ### {% linkable_title Device support %}
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
+Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
 
 ### {% linkable_title Device Incorrectly Identified %}
 

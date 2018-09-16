@@ -8,12 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: chevy.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-The `MyChevy` component communicates with the [my.chevrolet](https://my.chevrolet.com) website using selenium to log in as your user, and screen scrape the data provided. GM does not make it easy to sign up for any official development program, so this provides a workaround to get access to your data.
+The `mychevy` component communicates with the [my.chevrolet](https://my.chevrolet.com) website using selenium to log in as your user and screen scrape the data provided. GM does not make it easy to sign up for any official development program, so this provides a workaround to get access to your data.
 
 This component provides the following platforms:
 
@@ -33,21 +33,21 @@ mychevy:
 
 {% configuration %}
 username:
-    description: The email address associated with your my.chevrolet account.
-    required: true
-    type: string
+  description: The email address associated with your my.chevrolet account.
+  required: true
+  type: string
 password:
-    description: The password for your given my.chevrolet account.
-    required: true
-    type: string
+  description: The password for your given my.chevrolet account.
+  required: true
+  type: string
 {% endconfiguration %}
 
 
-#### {% linkable_title Installation %}
+### {% linkable_title Installation %}
 
-Because this uses selenium behind the scenes, installation is more complicated than merely pip install. See the [installation instructions](https://github.com/sdague/mychevy).
+Because this uses selenium behind the scenes, installation is more complicated than merely `pip` install. See the [installation instructions](https://github.com/sdague/mychevy).
 
-#### {% linkable_title Limitations %}
+### {% linkable_title Limitations %}
 
 The architecture of the GM automotive networking imposes some limitations on the functionality of the component.
 

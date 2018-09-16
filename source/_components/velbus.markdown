@@ -13,13 +13,21 @@ ha_iot_class: "Local Push"
 ha_release: "0.50"
 ---
 
-The `velbus` component supports the Velbus USB and Serial gateways.
+The `velbus` component supports the Velbus USB and serial gateways.
+
+## {% linkable_title Configuration %}
 
 The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-
 velbus:
   port: '/dev/ttyUSB00'
 ```
+
+{% configuration %}
+port:
+  description: The port where your board is connected to your Home Assistant host. The port will be most likely named `ttyUSB*`.
+  required: true
+  type: string
+{% endconfiguration %}
