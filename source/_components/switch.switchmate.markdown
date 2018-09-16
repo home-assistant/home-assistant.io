@@ -32,6 +32,11 @@ name:
   description: The name used to display the switch in the frontend.
   required: false
   type: string 
+flip_on_off:
+  description: Option to flip the on/off state.
+  required: false
+  type: boolean 
+  default: false
 {% endconfiguration %}
 
 
