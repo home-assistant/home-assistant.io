@@ -11,7 +11,7 @@ categories: Announcements
 og_image: /images/blog/2018-09-thinking-big/social.png
 ---
 
-Tomorrow marks the 5th anniversary of Home Assistant. I want to spend this post not only reflecting on the last 5 years, but also look at what is ahead of us, where we want to go, what we want Home Assistant to be.
+Today marks the 5th anniversary of Home Assistant. I want to spend this post not only reflecting on the last 5 years, but also look at what is ahead of us, where we want to go, what we want Home Assistant to be.
 
 Home Assistant wasn’t born out of ideology. I built it because I got some smart lights and wanted to script them. I made that script open source and it went from there. As Home Assistant has grown, so has the world around us, and so have I.
 
