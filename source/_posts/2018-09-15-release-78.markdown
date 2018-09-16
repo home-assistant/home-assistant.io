@@ -44,6 +44,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added Twitch v5 support to the twitch platform ([@ioangogo] - [#16428]) ([sensor.twitch docs]) (breaking change)
 - Update radiotherm ([@cpw] - [#15031]) ([climate.radiotherm docs]) (breaking change)
 
+## {% linkable_title Beta Fixes %}
+
+- Replace api_password in Camera.Push ([@dgomes] - [#16339]) ([camera.push docs]) (beta fix)
+- Fail fetch auth providers if onboarding required ([@balloob] - [#16454]) ([auth docs]) (beta fix)
+- Fix insteon Hub v1 support ([@teharris1] - [#16472]) ([insteon docs]) (beta fix)
+- bugfix - incorrect camera type and missing sensors when multiple netatmo cameras ([@vikramgorla] - [#16490]) ([netatmo docs]) (beta fix)
+- Fix arlo intilization when no base station available ([@zellux] - [#16529]) ([arlo docs]) (beta fix)
+- Long-lived access token ([@awarecan] - [#16453]) ([auth docs]) (beta fix)
+- Fix typo ([@balloob] - [#16556]) (beta fix)
+- Fix invalid state ([@balloob] - [#16558]) (beta fix)
+- Add websocket commands for refresh tokens ([@balloob] - [#16559]) ([auth docs]) (beta fix)
+- Return if refresh token is current used one in WS API ([@awarecan] - [#16575]) ([auth docs]) ([websocket_api docs]) (beta fix)
+- Track refresh token last usage information ([@awarecan] - [#16408]) ([auth docs]) (beta fix)
+- Increasing python-websockets' version number ([@zoe1337] - [#16578]) ([media_player.webostv docs]) (beta fix)
+- Add retry limit for chromecast connection ([@awarecan] - [#16471]) ([media_player.cast docs]) (beta fix)
+- Fix broken bluetooth tracker ([@awarecan] - [#16589]) ([device_tracker docs]) (beta fix)
+- Rewrite bluetooth le ([@pvizeli] - [#16592]) ([device_tracker docs]) (beta fix)
+
 ## {% linkable_title All changes %}
 
 - Add 'moon_phase' to Dark Sky sensor ([@fabaff] - [#16179]) ([sensor.darksky docs])
@@ -143,6 +161,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add a base_url configuration setting to tts. ([@lddubeau] - [#16478]) ([tts docs])
 - Upgrade youtube_dl to 2018.09.10 ([@fabaff] - [#16534]) ([media_extractor docs])
 - Upgrade keyring to 15.0.0 ([@fabaff] - [#16536])
+- Updates documentation repo URL in PR template ([@frenck] - [#16537])
+- Replace api_password in Camera.Push ([@dgomes] - [#16339]) ([camera.push docs]) (beta fix)
+- Fail fetch auth providers if onboarding required ([@balloob] - [#16454]) ([auth docs]) (beta fix)
+- Fix insteon Hub v1 support ([@teharris1] - [#16472]) ([insteon docs]) (beta fix)
+- bugfix - incorrect camera type and missing sensors when multiple netatmo cameras ([@vikramgorla] - [#16490]) ([netatmo docs]) (beta fix)
+- Fix arlo intilization when no base station available ([@zellux] - [#16529]) ([arlo docs]) (beta fix)
+- Long-lived access token ([@awarecan] - [#16453]) ([auth docs]) (beta fix)
+- Fix typo ([@balloob] - [#16556]) (beta fix)
+- Fix invalid state ([@balloob] - [#16558]) (beta fix)
+- Add websocket commands for refresh tokens ([@balloob] - [#16559]) ([auth docs]) (beta fix)
+- Return if refresh token is current used one in WS API ([@awarecan] - [#16575]) ([auth docs]) ([websocket_api docs]) (beta fix)
+- Track refresh token last usage information ([@awarecan] - [#16408]) ([auth docs]) (beta fix)
+- Increasing python-websockets' version number ([@zoe1337] - [#16578]) ([media_player.webostv docs]) (beta fix)
+- Add retry limit for chromecast connection ([@awarecan] - [#16471]) ([media_player.cast docs]) (beta fix)
+- Fix broken bluetooth tracker ([@awarecan] - [#16589]) ([device_tracker docs]) (beta fix)
+- Rewrite bluetooth le ([@pvizeli] - [#16592]) ([device_tracker docs]) (beta fix)
 
 [#14753]: https://github.com/home-assistant/home-assistant/pull/14753
 [#14754]: https://github.com/home-assistant/home-assistant/pull/14754
@@ -196,6 +230,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16323]: https://github.com/home-assistant/home-assistant/pull/16323
 [#16327]: https://github.com/home-assistant/home-assistant/pull/16327
 [#16337]: https://github.com/home-assistant/home-assistant/pull/16337
+[#16339]: https://github.com/home-assistant/home-assistant/pull/16339
 [#16340]: https://github.com/home-assistant/home-assistant/pull/16340
 [#16344]: https://github.com/home-assistant/home-assistant/pull/16344
 [#16346]: https://github.com/home-assistant/home-assistant/pull/16346
@@ -219,28 +254,43 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16397]: https://github.com/home-assistant/home-assistant/pull/16397
 [#16403]: https://github.com/home-assistant/home-assistant/pull/16403
 [#16404]: https://github.com/home-assistant/home-assistant/pull/16404
+[#16408]: https://github.com/home-assistant/home-assistant/pull/16408
 [#16415]: https://github.com/home-assistant/home-assistant/pull/16415
 [#16419]: https://github.com/home-assistant/home-assistant/pull/16419
 [#16428]: https://github.com/home-assistant/home-assistant/pull/16428
 [#16429]: https://github.com/home-assistant/home-assistant/pull/16429
 [#16450]: https://github.com/home-assistant/home-assistant/pull/16450
+[#16453]: https://github.com/home-assistant/home-assistant/pull/16453
+[#16454]: https://github.com/home-assistant/home-assistant/pull/16454
 [#16455]: https://github.com/home-assistant/home-assistant/pull/16455
 [#16459]: https://github.com/home-assistant/home-assistant/pull/16459
 [#16460]: https://github.com/home-assistant/home-assistant/pull/16460
 [#16463]: https://github.com/home-assistant/home-assistant/pull/16463
 [#16465]: https://github.com/home-assistant/home-assistant/pull/16465
 [#16470]: https://github.com/home-assistant/home-assistant/pull/16470
+[#16471]: https://github.com/home-assistant/home-assistant/pull/16471
+[#16472]: https://github.com/home-assistant/home-assistant/pull/16472
 [#16477]: https://github.com/home-assistant/home-assistant/pull/16477
 [#16478]: https://github.com/home-assistant/home-assistant/pull/16478
 [#16486]: https://github.com/home-assistant/home-assistant/pull/16486
+[#16490]: https://github.com/home-assistant/home-assistant/pull/16490
 [#16494]: https://github.com/home-assistant/home-assistant/pull/16494
 [#16495]: https://github.com/home-assistant/home-assistant/pull/16495
 [#16501]: https://github.com/home-assistant/home-assistant/pull/16501
 [#16502]: https://github.com/home-assistant/home-assistant/pull/16502
 [#16507]: https://github.com/home-assistant/home-assistant/pull/16507
 [#16515]: https://github.com/home-assistant/home-assistant/pull/16515
+[#16529]: https://github.com/home-assistant/home-assistant/pull/16529
 [#16534]: https://github.com/home-assistant/home-assistant/pull/16534
 [#16536]: https://github.com/home-assistant/home-assistant/pull/16536
+[#16537]: https://github.com/home-assistant/home-assistant/pull/16537
+[#16556]: https://github.com/home-assistant/home-assistant/pull/16556
+[#16558]: https://github.com/home-assistant/home-assistant/pull/16558
+[#16559]: https://github.com/home-assistant/home-assistant/pull/16559
+[#16575]: https://github.com/home-assistant/home-assistant/pull/16575
+[#16578]: https://github.com/home-assistant/home-assistant/pull/16578
+[#16589]: https://github.com/home-assistant/home-assistant/pull/16589
+[#16592]: https://github.com/home-assistant/home-assistant/pull/16592
 [@9R]: https://github.com/9R
 [@ASMfreaK]: https://github.com/ASMfreaK
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -269,6 +319,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@exxamalte]: https://github.com/exxamalte
 [@fabaff]: https://github.com/fabaff
 [@flo-wer]: https://github.com/flo-wer
+[@frenck]: https://github.com/frenck
 [@fucm]: https://github.com/fucm
 [@grea09]: https://github.com/grea09
 [@htotoo]: https://github.com/htotoo
@@ -283,6 +334,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@phil65]: https://github.com/phil65
 [@pnbruckner]: https://github.com/pnbruckner
 [@pszafer]: https://github.com/pszafer
+[@pvizeli]: https://github.com/pvizeli
 [@rcloran]: https://github.com/rcloran
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@rytilahti]: https://github.com/rytilahti
@@ -296,9 +348,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@thomaslian]: https://github.com/thomaslian
 [@tschmidty69]: https://github.com/tschmidty69
 [@tsvi]: https://github.com/tsvi
+[@vikramgorla]: https://github.com/vikramgorla
 [@vrih]: https://github.com/vrih
+[@zellux]: https://github.com/zellux
+[@zoe1337]: https://github.com/zoe1337
 [alarm_control_panel.yale_smart_alarm docs]: /components/alarm_control_panel.yale_smart_alarm/
+[arlo docs]: /components/arlo/
 [asterisk_mbox docs]: /components/asterisk_mbox/
+[auth docs]: /components/auth/
 [automation docs]: /components/automation/
 [automation.event docs]: /docs/automation/trigger/#event-trigger
 [automation.homeassistant docs]: /docs/automation/trigger/#home-assistant-trigger
@@ -310,6 +367,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.openuv docs]: /components/binary_sensor.openuv/
 [camera docs]: /components/camera/
 [camera.proxy docs]: /components/camera.proxy/
+[camera.push docs]: /components/camera.push/
 [climate.generic_thermostat docs]: /components/climate.generic_thermostat/
 [climate.nest docs]: /components/climate.nest/
 [climate.opentherm_gw docs]: /components/climate.opentherm_gw/
@@ -338,8 +396,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.onkyo docs]: /components/media_player.onkyo/
 [media_player.songpal docs]: /components/media_player.songpal/
 [media_player.sonos docs]: /components/media_player.sonos/
+[media_player.webostv docs]: /components/media_player.webostv/
 [media_player.yamaha docs]: /components/media_player.yamaha/
 [mqtt docs]: /components/mqtt/
+[netatmo docs]: /components/netatmo/
 [notify docs]: /components/notify/
 [openuv docs]: /components/openuv/
 [rfxtrx docs]: /components/rfxtrx/
@@ -389,5 +449,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum docs]: /components/vacuum/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [velbus docs]: /components/velbus/
+[websocket_api docs]: /components/websocket_api/
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
