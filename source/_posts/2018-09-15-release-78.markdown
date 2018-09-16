@@ -13,6 +13,12 @@ og_image: /images/blog/2018-09-0.78/social.png
 
 <a href='/components/#version/0.78'><img src='/images/blog/2018-09-0.78/components.png' style='border: 0;box-shadow: none;'></a>
 
+It's time for a new release and oh boy, what a time to be alive! Today marks our 5th (!!!) anniversary. That's 5 years we've been bringing privacy focused and locally controlled home automation to your home. Happy birthday to us.
+
+This release includes two new features for the auth system. The first one is long-lived access tokens. These are tokens that don't expire and can be used in your scripts instead of API password. Instructions on how to create and use them can be found on your profile.
+
+Also on your profile page is a new list of existing refresh tokens. These are all the tokens that are currently active for your account. If you ran into issues that the remember login dialog didn't show, you might have a lot. Don't worry, you can delete them all.
+
 ## {% linkable_title New Platforms %}
 
 - Add temperature sensors to the velbus component ([@Cereal2nd] - [#16203]) ([velbus docs]) ([sensor.velbus docs]) (new-platform)
@@ -37,12 +43,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Rewrite of Trafikverket weather - Multiple sensor types supported ([@endor-force] - [#15935]) ([sensor.trafikverket_weatherstation docs]) (breaking change)
-- Fix geizhals price parsing ([@JulianKahnert] - [#15990]) ([sensor.geizhals docs]) (breaking change)
-- Update to EnvoyReader 0.2, support for more hardware ([@jesserizzo] - [#16212]) ([sensor.enphase_envoy docs]) (breaking change)
-- Fix Mi Flora median calculation ([@PaulAnnekov] - [#16085]) ([sensor.miflora docs]) (breaking change)
-- Added Twitch v5 support to the twitch platform ([@ioangogo] - [#16428]) ([sensor.twitch docs]) (breaking change)
-- Update radiotherm ([@cpw] - [#15031]) ([climate.radiotherm docs]) (breaking change)
+- Trafikverket weather: Instead of having multiple sensor configurations per station, add only one configuration per station and select the type of measurement data to subscribe to using monitored_conditions.
+The configuration value type should no longer be used. ([@endor-force] - [#15935]) ([sensor.trafikverket_weatherstation docs]) (breaking change)
+- Geizhals: config has changed. Remove domain and regex, specify locale instead: `AT`, `EU`, `DE`, `UK` or `PL`. ([@JulianKahnert] - [#15990]) ([sensor.geizhals docs]) (breaking change)
+- Update to EnvoyReader 0.2, support for more hardware. Change keys in monitored_conditions from `7_days_production` and `7_days_consumption` to `seven_days_production` and `seven_days_consumption` ([@jesserizzo] - [#16212]) ([sensor.enphase_envoy docs]) (breaking change)
+- Fix Mi Flora median calculation. Removed `retries` and `timeout` config parameters, they were not used for several months. Replaced `cache_value` config with `scan_interval` to fix a bug in the PR. ([@PaulAnnekov] - [#16085]) ([sensor.miflora docs]) (breaking change)
+- Twitch now requires a `client_id` and so the platform got updated. ([@ioangogo] - [#16428]) ([sensor.twitch docs]) (breaking change)
+- The radiotherm `fan` and `mode` state attributes were updated to reflect the real-time fan and mode states of the thermostat, rather than the overall selected state (automatic, mostly). The mode attributes still contain the selected modes (fan on/auto, heat/cool/auto). ([@cpw] - [#15031]) ([climate.radiotherm docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
