@@ -62,7 +62,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the WiFi module with colons/punctuation removed. You musst use the full 12-character MAC address with lower case letters. This is visible in the device's WiFi SSID and hostname.
+      description: The MAC address of the WiFi module with colons/punctuation removed. You must use the full 12-character MAC address with lower case letters. This is visible in the device's WiFi SSID and hostname.
       required: true
       type: string
     binary_sensors:
