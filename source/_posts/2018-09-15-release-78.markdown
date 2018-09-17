@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "0.78: XXX - Update date"
-description: "XXX"
-date: 2018-09-10 00:01:00
-date_formatted: "September 15, 2018"
+title: "0.78: More auth, Switchmate, Yale Smart Alarm, OpenTherm"
+description: "We're 5! We got some great new auth stuff in this release and support for Switchmate, Yale Smart Alarm and OpenTherm."
+date: 2018-09-17 00:01:00
+date_formatted: "September 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
