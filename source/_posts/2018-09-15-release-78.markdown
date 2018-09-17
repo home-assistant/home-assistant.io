@@ -8,10 +8,10 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-09-0.78/social.png
+og_image: /images/blog/2018-09-release-0.78/components.png
 ---
 
-<a href='/components/#version/0.78'><img src='/images/blog/2018-09-0.78/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.78'><img src='/images/blog/2018-09-release-0.78/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for a new release and oh boy, what a time to be alive! Today marks our 5th (!!!) anniversary. That's 5 years we've been bringing privacy focused and locally controlled home automation to your home. Happy birthday to us.
 
