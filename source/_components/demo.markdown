@@ -22,6 +22,7 @@ Available demo platforms:
 - [Climate](/components/climate/) (`climate`)
 - [Cover](/components/cover/) (`cover`)
 - [Fan](/components/fan/) (`fan`)
+- [Geo Location](/components/geo_location/) (`geo_location`)
 - [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)

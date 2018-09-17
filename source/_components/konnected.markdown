@@ -23,7 +23,7 @@ The component currently supports the following device types in Home Assistant:
 
 This component requires the [`discovery`](https://www.home-assistant.io/components/discovery) component to be enabled.
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 A `konnected` section must be present in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
 
@@ -62,7 +62,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the WiFi module with colons/punctuation removed. You must use the full 12-character MAC address with lower case letters. This is visible in the device's WiFi SSID and hostname.
+      description: The MAC address of the NodeMCU WiFi module with colons/punctuation removed, for example `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the home-assistant.log for log messages from automatically discovered devices.
       required: true
       type: string
     binary_sensors:
@@ -105,12 +105,12 @@ devices:
         momentary:
           description: Duration of the momentary pulse in milliseconds. To make a half-second momentary contact using a relay for a garage door opener, set this value to `500`.
           required: false
-        pause: 
+        pause:
           description: Time of the pause between pulses in milliseconds when also used with _momentary_ and _repeat_. To make a door chime "beep" with piezo buzzer, set this value to `55`, set _momentary_ to `65`, and _repeat_ to `3` or `4`.
           required: false
         repeat:
           description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
-          required: false       
+          required: false
 {% endconfiguration%}
 
 #### {% linkable_title Configuration Notes %}
@@ -118,14 +118,14 @@ devices:
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 
-## {% linkable_title Full Configuration  %}
+### {% linkable_title Extended Configuration  %}
 
 ```yaml
 # Example configuration.yaml entry
 konnected:
   access_token: REPLACE_ME_WITH_A_RANDOM_STRING
   devices:
-    - id: 8bcd53
+    - id: 6001948bcd53
       binary_sensors:
         - zone: 1
           type: door
@@ -143,13 +143,13 @@ konnected:
           name: 'Beep Beep'
           momentary: 65
           pause: 55
-          repeat: 4  
+          repeat: 4
         - zone: 5
           name: Warning
           momentary: 65
           pause: 55
           repeat: -1
-    - id: 438a38
+    - id: 5ccf7f438a38
       binary_sensors:
         - pin: 1
           type: motion
@@ -179,3 +179,16 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | 5 | D7  | 7  | GPIO13 |
 | 6 | RX  | 9  | GPIO3  |
 | ALARM or OUT | D8 | 8 | GPIO15 |
+
+### {% linkable_title Revision History %}
+
+#### 0.77
+* Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
+* Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
+* **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
+
+#### 0.72
+* Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
+
+#### 0.70
+* Initial release
