@@ -23,10 +23,74 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: jewish_calendar
-    language: <hebrew or english>
-    latitude: <latitude for sensor>
-    longitude: <longitude for sensor>
-    disapora: <True or False>
+```
+
+{% configuration %}
+language:
+  required: false
+  default: hebrew
+  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishri 5779).
+  type: string
+latitude:
+  required: false
+  description: Latitude for time calculations of the sensor.
+  default: Home Assistant location
+  type: int
+longitude:
+  required: false
+  description: Longitude for time calculations of the sensor.
+  default: Home Assistant location
+  type: int
+disapora:
+  required: false
+  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
+  default: False
+  type: string
+sensors:
+  required: false
+  default: date
+  description: List of available sensors.
+  keys:
+    date:
+      description: Show the hebrew date for today.
+    weekly_portion:
+      description: Show the weekly portion (parshat hashavu'a) - _At the moment only shows up on Saturday's_.
+    holiday_name:
+      description: If it is a holiday, show the name of the holiday.
+    holyness:
+      description: On a scale of 1 to 9 show the level of holyness _(see below)_.
+    first_light:
+      description: First light of dawn (Alot Hashachar - עלות השחר).
+    gra_end_shma:
+      description: Last time for reading of the Shma according to the GR"A.
+    mga_end_shma:
+      description: Last time for reading of the Shma according to the MG"A.
+    plag_mincha:
+      description: Time of the Plag Hamincha.
+    first_stars:
+      description: Time at which the first stars are visible (Tset Hakochavim - צאת הכוכבים).
+{% endconfiguration %}
+
+### {% linkable_title Holyness levels %}
+
+1. Mido'rayta - by Torah ordination (Rosh Hashana, Yom Kippur, Pesach, Shavuot, Sukkot)
+2. Erev Yom Kippur
+3. Hol Hamo'ed
+4. Hanukka and Purim
+5. Fast days
+6. Yom Yerushalayim and Yom Haatsmaut
+7. Lag ba'omer and Tu bishvat
+8. Memorial days: yom hazikaron and yom hashoah
+9. Days mentioned by the Israeli parliament: Rabin memorial day, Ze'ev Zhabotinsky day, etc.
+
+## {% linkable_title Full configuration sample %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: jewish_calendar
+    language: english
+    disapora: True
     sensors:
       - date
       - weekly_portion
@@ -38,65 +102,3 @@ sensor:
       - plag_mincha
       - first_stars
 ```
-
-{% configuration %}
-language:
-  required: false
-  default: hebrew
-  description: Whether to represent the sesnsors in hebrew (א' תשרי תשע"ט) or english characters (1 Tishri 5779).
-  type: string
-latitude:
-  required: false
-  description: Latitude coordinates for time calculations of the sensor
-  default: your homeassistant coordinates
-  type: int
-longitude:
-  required: false
-  description: Longitude coordinates for time calculations of the sensor
-  default: your homeassistant coordinates
-  type: int
-disapora:
-  required: false
-  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
-  default: False
-  type: string
-sensors:
-  required: false
-  default: date
-  description: List of available sensors
-  keys:
-    date:
-      description: show the hebrew date for today
-    weekly_portion:
-      description: show the weekly portion (parshat hashavu'a) - _At the moment only shows up on Saturday's_
-    holiday_name:
-      description: if it is a holiday, show the name of the holiday
-    holyness:
-      description: On a scale of 1 to 9 show the level of holyness _(see below)_.
-    first_light:
-      description: First light of dawn (Alot Hashachar - עלות השחר)
-    gra_end_shma:
-      description: Last time for reading of the Shma according to the GR"A
-    mga_end_shma:
-      description: Last time for reading of the Shma according to the MG"A
-    plag_mincha:
-      description: Time of the Plag Hamincha
-    first_stars:
-      description: Time at which the first stars are visible (Tset Hakochavim - צאת הכוכבים)
-{% endconfiguration %}
-
-### Holyness levels
-  1. Mido'rayta - by Torah ordination (Rosh Hashana, Yom Kippur, Pesach, Shavuot, Sukkot)
-  2. Erev Yom Kippur
-  3. Hol Hamo'ed
-  4. Hanukka and Purim
-  5. Fast days
-  6. Yom Yerushalayim and Yom Haatsmaut
-  7. Lag ba'omer and Tu bishvat
-  8. Memorial days: yom hazikaron and yom hashoah
-  9. Days mentioned by the Israeli parliament: Rabin memorial day, Ze'ev Zhabotinsky day, ...
-
-
-
-
-
