@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Thinking Big"
-description: "The new authentication system is live! Chat on hangouts! "
-date: 2018-09-15 00:01:00
-date_formatted: "September 16, 2018"
+description: "Today we're turning 5 years old. It's time to set some goals."
+date: 2018-09-17 00:01:00
+date_formatted: "September 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
