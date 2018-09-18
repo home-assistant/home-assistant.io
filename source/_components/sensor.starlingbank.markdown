@@ -10,11 +10,11 @@ footer: true
 logo: starlingbank.png
 ha_category: Finance
 featured: false
-ha_release: "0.78"
+ha_release: "0.79"
 ha_iot_class: "Cloud Polling"
 ---
 
-The Starling Bank platform allows you to monitor your account balance data as sensors in Home Assistant.
+The Starling Bank sensor platform allows you to monitor your account balance data as sensors in Home Assistant.
 
 * Turn off the lights when money's tight?
 * Play a song when you reach a savings goal?
@@ -45,12 +45,7 @@ To add Starling account balance sensors to your installation, add the following 
 sensor:
   - platform: starlingbank
     accounts:
-      - name: "Spending Money"
-        sandbox: false
-        access_token: YOUR_PERSONAL_ACCESS_TOKEN
-        balance_types:
-          - 'cleared_balance'
-          - 'effective_balance'
+      - access_token: YOUR_PERSONAL_ACCESS_TOKEN
 ```
 
 {% configuration %}
