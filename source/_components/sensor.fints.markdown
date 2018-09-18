@@ -24,52 +24,59 @@ For each account you have with the bank, a separate sensor is created. If you ha
 ```yaml
 # Example configuration.yaml entry
 sensor:
- - platform: fints
-   sensors:
-    - bank_identification_number: ID_FOR_YOUR_BANK
-      username: YOUR_FINTS_USERNAME
-      pin: YOUR_PIN
-      url: URL_FOR_YOUR_BANK
+  - platform: fints
+    bank_identification_number: ID_FOR_YOUR_BANK
+    username: YOUR_FINTS_USERNAME
+    pin: YOUR_PIN
+    url: URL_FOR_YOUR_BANK
 ```
 {% endraw %}
 
 {% configuration %}
-sensors:
-  description: List of your sensors.
+name:
+  description: Name of the bank.
+  required: false
+  type: string
+bank_identification_number: 
+  description: Bank identification number, in most cases the "Bankleitzahl".
   required: true
-  type: map
-  keys:
+  type: string
+username: 
+  description: Your FinTS username.
+  required: true
+  type: string
+pin:
+  description: Your FinTS PIN or password.
+  required: true
+  type: string
+url: 
+  description: URL of your bank's FinTS server.
+  required: true
+  type: string
+accounts:
+  description: The balance accounts to show. If not set then all accounts will show up.  
+  required: false
+  type: list
+  keys: 
+    account:
+      description: The IBAN of the blance account.
+      required: true
+      type: string
     name:
-      description: (optional) name of the bank.
+      description: Use this field to give the account a meaningful name.
       required: false
       type: string
-    bank_identification_number: 
-      description: Bank identification number, in most cases the "Bankleitzahl".
+holdings:
+  description: The holding accounts of your bank. If not set then all accounts will show up.
+  required: false
+  type: list
+  keys: 
+    account:
+      description: The classic account number.
       required: true
       type: string
-    username: 
-      description: Your FinTS username.
-      required: true
-      type: string
-    pin:
-      description: Your FinTS PIN or password.
-      required: true
-      type: string
-    url: 
-      description: URL of your bank's FinTS server.
-      required: true
-      type: string
-    accounts:
-      description: (optional) You can configure with of the accounts of your bank shall be shown in Home Assistant. If this attribute is set, only the accounts listed here are shown. 
+    name:
+      description: Use this field to give the account a meaningful name.
       required: false
-      type: list
-      keys: 
-        account:
-          description: For balance accounts use the IBAN of the account for holdings accounts use the classic account number.
-          required: true
-          type: string
-        name:
-          description: (optional) Use this field to give the account a meaningful name.
-          required: false
-          type: string           
+      type: string 
 {% endconfiguration %}
