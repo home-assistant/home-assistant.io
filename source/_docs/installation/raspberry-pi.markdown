@@ -114,4 +114,5 @@ When instructions tell you to activate the virtual environment, the following co
 
 ```bash
 $ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate```
+$ source /srv/homeassistant/bin/activate
+```
