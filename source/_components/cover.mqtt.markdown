@@ -43,6 +43,10 @@ name:
   required: false
   type: string
   default: MQTT Cover
+unique_id:
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 command_topic:
   description: The MQTT topic to publish commands to control the cover.
   required: false
