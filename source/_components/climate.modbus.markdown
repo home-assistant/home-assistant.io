@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Modbus"
+title: "Climate Modbus"
 description: "Instructions how to integrate a Modbus thermostat within Home Assistant."
 date: 2018-01-29 9:35
 sidebar: true
