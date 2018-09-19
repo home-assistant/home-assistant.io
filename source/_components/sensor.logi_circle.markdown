@@ -33,7 +33,7 @@ Configuration variables:
 
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions supported by your camera will be enabled.
   - **battery_level**: Return the battery level percentage from the camera.
-  - **last_activity_time**: Return the timestamp from the last time the Logi Circle camera detected any activity (motion or sound).
+  - **last_activity_time**: Return the timestamp from the last time the Logi Circle camera detected any activity.
   - **privacy_mode**: Return the privacy mode status from the camera. 
   - **signal_strength_category**: Return the WiFi signal level from the camera.
   - **signal_strength_percentage**: Return the WiFi signal percentage from the camera.

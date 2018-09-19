@@ -19,7 +19,7 @@ The `logi_circle` camera platform allows you to watch the still frames of your [
 You must have the [Logi Circle component](/components/logi_circle/) configured to use this camera platform.
 </p>
 
-Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services. This will set the streaming mode property of your camera accordingly, controlling whether the live stream is available and automatic activity records are captured.
+Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services. This will set the streaming mode property of your camera accordingly, controlling whether the live stream is available and activity recordings are captured.
 
 ## {% linkable_title Configuration %}
 
