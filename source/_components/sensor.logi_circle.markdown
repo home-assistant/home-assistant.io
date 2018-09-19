@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: logi.png
+logo: logi_circle.png
 ha_category: Camera
-ha_release: 0.78
+ha_release: 0.79
 ha_iot_class: "Cloud Polling"
 ---
 
