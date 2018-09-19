@@ -75,3 +75,6 @@ You can send playlists to spotify via the "media_content_type": "playlist" and "
 
 In this example this is a URI link to the Reggae Infusions playlist, [this support document from Spotify](https://support.spotify.com/us/using_spotify/share_music/why-do-you-have-two-different-link-formats/) explains how to get this URI value to use for playlists in the Spotify component.
 
+## {% linkable_title Unsupported devices %}
+
+- **Sonos**: Although its a Spotify Connect device, it is not supported by the official Spotify API.

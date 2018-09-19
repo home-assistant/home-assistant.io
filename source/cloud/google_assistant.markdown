@@ -97,6 +97,21 @@ google_actions:
               type: string
 {% endconfiguration %}
 
+### {% linkable_title Available domains %}
+
+Currently, the following domains are available to be used with Google Assistant, listed with their default types:
+
+- `group` (on/off)
+- `input_boolean` (on/off)
+- `scene` (on)
+- `script` (on)
+- `switch` (on/off)
+- `fan` (on/off)
+- `light` (on/off/brightness/rgb color/color temp)
+- `cover` (on/off/set position (via set brightness))
+- `media_player` (on/off/set volume (via set brightness))
+- `climate` (temperature setting)
+
 <p class='note'>
 After setting up the cloud, if you make any device changes such as changing the name or adding a new device simply say "Ok Google, sync my devices" to get the changes to show up.
 </p>
