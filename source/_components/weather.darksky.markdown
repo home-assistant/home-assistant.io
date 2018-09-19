@@ -58,6 +58,11 @@ name:
   required: false
   type: string
   default: Open Sky
+mode:
+  description: Can specify `hourly` or `daily`.
+  required: false
+  type: string
+  default: `hourly`
 {% endconfiguration %}
 
 <p class='note'>
