@@ -10,7 +10,7 @@ footer: true
 logo: rainmachine.png
 ha_category: Irrigation
 ha_release: 0.69
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Local Polling"
 ---
 
 The `rainmachine` component is the main component to integrate all platforms

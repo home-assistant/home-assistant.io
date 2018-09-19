@@ -83,7 +83,7 @@ Once you have installed the required python package it is now time to install Ho
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation, create the `.homeassistant` configuration directory in the `/home/homeassistant` directory and install any basic dependencies.
+Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
 (homeassistant) $ hass
@@ -114,4 +114,5 @@ When instructions tell you to activate the virtual environment, the following co
 
 ```bash
 $ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate```
+$ source /srv/homeassistant/bin/activate
+```

@@ -43,6 +43,7 @@ Configuration variables:
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
+**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant**.
 
 ### {% linkable_title Initial setup %}
 <p class='note'>

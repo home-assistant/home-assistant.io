@@ -19,7 +19,7 @@ The status will contain attributes on the robots last clean session.
 
 To add `neato` vacuum to your installation, please follow instructions in [Neato component](/components/neato/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`
