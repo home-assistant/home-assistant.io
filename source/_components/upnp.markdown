@@ -12,7 +12,7 @@ ha_category: Network
 ha_release: 0.18
 ---
 
-The `upnp` component enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the Internet Gateway Device (IGD) Protocol if enabled on your router.
+The `upnp` component enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
 
 The IGD automatically creates port forwarding mappings on your router for Home Assistant, exposing your installation to the internet. The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.
 
@@ -31,7 +31,7 @@ upnp:
     8080: 8080
 ```
 
-The default adds only the sensors for statistics. If you wish have port mapping done through IGD, add the option **port_mapping**.
+With the default settings only the sensors are added for statistics. If you wish to have port mapping done through IGD, add the option **port_mapping** and **ports**.
 
 {% configuration binary_sensor.template %}
   ports:
