@@ -140,6 +140,9 @@ If the `recorder` component is activated then some components support `restore_s
 * [`input_datetime`](/components/input_datetime/#restore-state)
 * [`input_text`](/components/input_text/#restore-state)
 
+<p class='note warning'>
+This only works with the built in SQLite database. If you're using an external database then state restoration does not work.
+</p>
 
 ## {% linkable_title Custom database engines %}
 
