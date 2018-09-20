@@ -41,3 +41,4 @@ altitude:
   required: false
   type: number
   default: Provided by Home Assistant configuration
+{% endconfiguration %}
