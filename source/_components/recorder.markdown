@@ -128,7 +128,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
-| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space (only supported for SQLite)
+| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
 ### {% linkable_title Restore State %}
 
