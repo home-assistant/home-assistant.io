@@ -43,11 +43,6 @@ If you which to have the statistics without having port mapping done through IGD
     required: false
     type: boolean
     default: false
-  units:
-    description: Define the units used for the UPNP sensor. Possible values are Bytes, KBytes, MBytes, GBytes.
-    required: false
-    type: string
-    default: Mbytes
   local_ip:
     description: The local IP address of the computer running Home Assistant.
     required: false
