@@ -31,6 +31,23 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 - Add Yale Smart Alarm component ([@domwillcode] - [#16377]) ([alarm_control_panel.yale_smart_alarm docs]) (new-platform)
 - Add OpenTherm Gateway climate platform ([@mvn23] - [#16299]) ([climate.opentherm_gw docs]) (new-platform)
 
+## {% linkable_title Release 0.78.1 - September 20 %}
+
+- Updates documentation repo URL in PR template ([@frenck] - [#16537])
+- SnmpSensor: Fix async_update (#16679) ([@mtdcr] - [#16716]) ([sensor.snmp docs])
+- Handle chromecast CONNECTION_STATUS_DISCONNECTED event ([@awarecan] - [#16732]) ([media_player.cast docs])
+- Upgrade netdisco to 2.1.0 ([@awarecan] - [#16735])
+
+[#16537]: https://github.com/home-assistant/home-assistant/pull/16537
+[#16716]: https://github.com/home-assistant/home-assistant/pull/16716
+[#16732]: https://github.com/home-assistant/home-assistant/pull/16732
+[#16735]: https://github.com/home-assistant/home-assistant/pull/16735
+[@awarecan]: https://github.com/awarecan
+[@frenck]: https://github.com/frenck
+[@mtdcr]: https://github.com/mtdcr
+[media_player.cast docs]: /components/media_player.cast/
+[sensor.snmp docs]: /components/sensor.snmp/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
