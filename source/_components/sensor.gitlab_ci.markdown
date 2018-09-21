@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: gitlab.png
 ha_category: Sensor
-ha_release: 0.78
+ha_release: 0.79
 ha_iot_class: "Cloud Polling"
 
 ---
@@ -44,6 +44,10 @@ gitlab_id:
 token:
   description: GitLab API Token
   required: true
+  type: string
+name:
+  description: Sensor name as it appears in Home Assistant. Defaults to 'GitLab CI Status'.
+  required: false
   type: string
 scan_interval:
   description: How frequently to query for new data. Defaults to 300 seconds.
