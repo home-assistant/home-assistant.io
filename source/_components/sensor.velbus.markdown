@@ -13,6 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: 0.78
 ---
 
-The `velbus` sensor allows you to control [Velbus](http://www.velbus.eu) connected temperature sensors.
+The `velbus` sensor allows you to control [Velbus](http://www.velbus.eu) connected sensors.
 
 For hub configuration, see [the Velbus component](/components/velbus/).
