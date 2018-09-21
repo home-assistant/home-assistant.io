@@ -57,6 +57,10 @@ symbols:
       description: The stock market symbol for the given company.
       required: required
       type: string
+    convert_currency:
+      description: The name of an entry under foreign_exchange. It is used to convert the original value to the new value in *currency:*
+      required: false
+      type: string
 foreign_exchange:
   description: List of currencies.
   type: map
@@ -94,5 +98,22 @@ sensor:
       - from: BTC
         to: USD
         name: Bitcoin
+```
+
+### {% linkable_title Rambus with share price converted from USD to EUR %}
+
+```yaml
+sensor:
+  - platform: alpha_vantage
+    api_key: YOUR_API_KEY
+    symbols:
+    - symbol: RMBS
+      name: Rambus
+      currency: EUR
+      convert_currency: USD_EUR
+    foreign_exchange:
+    - name: USD_EUR
+      from: USD
+      to: EUR
 ```
 
