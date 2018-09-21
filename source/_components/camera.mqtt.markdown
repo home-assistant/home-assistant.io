@@ -30,4 +30,5 @@ Configuration variables:
 
  - **topic** (*Required*): MQTT topic to subscribe to.
  - **name** (*Optional*): Name of the camera
+ - **unique_id** (*Optional*): An ID that uniquely identifies this camera. If two cameras have the same unique ID, Home Assistant will raise an exception.
 
