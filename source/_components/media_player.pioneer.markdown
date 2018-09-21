@@ -32,6 +32,27 @@ Configuration variables:
 - **port** (*Optional*): The port on which the Pioneer device listens, e.g., `23` (default) or `8102`
 - **timeout** (*Optional*): Number of seconds (float) to wait for blocking operations like connect, write, and read.
 
+
+For older Pioneer receivers that do not work with the default configuration (due to not supporting input labels), you can fall back to a more basic mode using these additional configuration variables.  If the component works correctly with just the host/name/port then don't use this.
+
+- **mode** (*Required*): `basic`
+- **input** (*Optional*): A list of reciever input numbers and their associated name.  If this is left out you will still get automatic labels like "Input 06".  The numbers seem to vary between devices, so you will need to configure this yourself to match your receiver.
+To find the input numbers, either telnet to the receiver and watch the messages when changing inputs, or run this component without `input` configured and see what gets detected.
+
+```yaml
+media_player:
+  - platform: pioneer
+    host: 192.168.0.10
+    mode: basic
+    input:
+      02:
+        name: "Tuner"
+      06:
+        name: "PC"
+      15:
+        name: "FireTV"
+```
+
 Notes:
 
 - Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
