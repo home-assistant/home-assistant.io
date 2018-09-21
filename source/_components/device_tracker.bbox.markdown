@@ -26,10 +26,12 @@ To use an Bbox router in your installation, add the following to your `configura
 # Example configuration.yaml entry
 device_tracker:
   - platform: bbox
+    # Optional, if omitted uses default IP 192.168.1.254
+    host: 192.168.1.1
 ```
 
 <p class='note warning'>
-For now and due to third party limitation, the Bbox must be on the same local network as the Home Assistant installation. And with the default IP configuration (IP of the router must be 192.168.1.254).
+For now and due to third party limitation, the Bbox must be on the same local network as the Home Assistant installation.
 </p>
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
