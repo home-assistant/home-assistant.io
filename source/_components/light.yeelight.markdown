@@ -60,6 +60,7 @@ This component is tested to work with the following models. If you have a differ
 - **YLDP01YL**: LED Bulb (White)
 - **YLDP02YL**: LED Bulb (Color)
 - **YLDP03YL**: LED Bulb (Color) - E26
+- **YLDP05YL**: LED Bulb (White) II
 - **YLDP06YL**: LED Bulb (Color) II
 - **YLDD01YL**: Lightstrip (Color)
 - **YLDD02YL**: Lightstrip (Color)
