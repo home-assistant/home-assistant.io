@@ -48,6 +48,20 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 [media_player.cast docs]: /components/media_player.cast/
 [sensor.snmp docs]: /components/sensor.snmp/
 
+## {% linkable_title Release 0.78.2 - September 21 %}
+
+- Fix discovery
+
+## {% linkable_title Release 0.78.3 - September 22 %}
+
+- Bump gtts-token to 1.1.2 ([@edif30] - [#16775]) ([tts docs])
+
+[#16537]: https://github.com/home-assistant/home-assistant/pull/16537
+[#16775]: https://github.com/home-assistant/home-assistant/pull/16775
+[@edif30]: https://github.com/edif30
+[@frenck]: https://github.com/frenck
+[tts docs]: /components/tts/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
