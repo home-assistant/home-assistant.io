@@ -83,6 +83,11 @@ devices:
           description: The name of the device used in the front end.
           required: false
           default: automatically generated
+        inverse:
+          type: boolean
+          description: Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
+          required: false
+          default: false
     switches:
       description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
       required: false
@@ -133,6 +138,7 @@ konnected:
         - zone: 2
           type: smoke
           name: 'Bedroom Smoke Detector'
+          inverse: true
         - zone: 3
           type: motion
           name: 'Test Motion'
@@ -181,6 +187,9 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT | D8 | 8 | GPIO15 |
 
 ### {% linkable_title Revision History %}
+
+#### 0.79
+* Added `inverse` configuration option for binary sensors.
 
 #### 0.77
 * Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]

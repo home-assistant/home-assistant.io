@@ -65,9 +65,11 @@ authtoken:
 
 - homematicip_cloud.binary_sensor  
     - Window and door contact (*HmIP-SWDO*)
-    - Smoke sensor and alarm (*HmIP-SWSD*) 
+    - Rotary Handle Sensor (*HmIP-SRH*)
+    - Smoke sensor and alarm (*HmIP-SWSD*)
     - Motion detectors (*HmIP-SMI*)
     - Motion detectors and push button (*HmIP-SMI55*)
+    - Water detector (*HmIP-SWD*)
   
 - homematicip_cloud.climate
     - Radiator thermostat (*HmIP-eTRV,-2*)
@@ -82,6 +84,7 @@ authtoken:
     - Wall-mounted thermostat (*HmIP-WTH*)
     - Temperature and humidity sensor (*HmIP-STH*)
     - Temperature and humidity Sensor with display (*HmIP-STHD*)
+    - Outdoor temperature and humidity sensor (*HmIP-STHO*)
     - Illuminance sensor (*HmIP-SMI, 55*)
   
 - homematicip_cloud.switch

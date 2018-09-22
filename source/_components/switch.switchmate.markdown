@@ -32,5 +32,12 @@ name:
   description: The name used to display the switch in the frontend.
   required: false
   type: string 
+flip_on_off:
+  description: Option to flip the on/off state.
+  required: false
+  type: boolean 
+  default: false
 {% endconfiguration %}
 
+
+The component is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.
