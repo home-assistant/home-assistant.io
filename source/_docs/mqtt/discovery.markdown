@@ -51,35 +51,51 @@ The payload will be checked like an entry in your `configuration.yaml` file if a
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
+A topic prefix `~` may be defined in the payload to conserve memory when the same topic base is used multiple times.
+The value of configuration variables ending with `_topic` and where the value begins with `~` will be prefixed with the topic prefix.
+
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
 Supported abbreviations:
 ```
     'aft': 'after',
+    'arm': 'arm',
     'attr': 'attributes',
+    'aux': 'aux',
     'avty': 'availability',
     'avail': 'available',
+    'away': 'away',
     'bri': 'brightness',
     'cla': 'class',
     'cls': 'close',
     'clsd': 'closed',
+    'code': 'code',
     'clr': 'color',
     'cmd': 'command',
+    'curr': 'current',
     'dev': 'device',
+    'disarm': 'disarm',
     'fx': 'effect',
     'exp': 'expire',
+    'fan': 'fan',
     'frc': 'force',
     'hi': 'high',
+    'hold': 'hold',
+    'home': 'home',
     'ic': 'icon',
     'id': 'id',
-    'inj': 'invert',
+    'if': 'if',
+    'init': 'initial',
+    'inv': 'invert',
     'json': 'json',
     'list': 'list',
+    'lock': 'lock',
     'lo': 'low',
     'max': 'max',
     'meas': 'measurement',
     'med': 'medium',
     'min': 'min',
+    'mode': 'mode',
     'name': 'name',
     'not': 'not',
     'of': 'of',
@@ -91,23 +107,28 @@ Supported abbreviations:
     'osc': 'oscillation',
     'pl': 'payload',
     'pos': 'position',
+    'pow': 'power',
     'qos': 'qos',
     'ret': 'retain',
     'rgb': 'rgb',
     'scl': 'scale',
+    'send': 'send',
     'set': 'set',
     'spd': 'speed',
     'spds': 'speeds',
     'stat': 'state',
     'status': 'status',
     'stop': 'stop',
+    'swing': 'swing',
     'temp': 'temp',
-    'tmp': 'template',
+    'temperature': 'temperature',
+    'tpl': 'template',
     'tilt': 'tilt',
     't': 'topic',
     'type': 'type',
     'uniq': 'unique',
     'unit': 'unit',
+    'unlk': 'unlock',
     'upd': 'update',
     'val': 'value',
     'whit': 'white',
@@ -166,8 +187,9 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
-Setting up a switch with abbreviated configuration variable name.
+Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
+- Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"name": "garden", "cmd_t": "homeassistant/switch/irrigation/set"}`
+- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
