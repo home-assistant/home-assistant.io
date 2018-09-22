@@ -10,7 +10,7 @@ footer: true
 featured: true
 ---
 
-[Duck DNS](https://www.duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. This add-on includes support for Let's Encrypt and will automatically create and renew your certificates.
+[Duck DNS](https://www.duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. This add-on includes support for Let's Encrypt and will automatically create and renew your certificates. You will need to sign up for a Duck DNS account before using this add-on.
 
 ```json
 {
@@ -28,7 +28,7 @@ featured: true
 Configuration variables:
 
 - **lets_encrypt.accept_terms** (*Required*): If you accept the [Let's Encrypt Subscriber Agreement](https://letsencrypt.org/repository/), it will generate and update Let's Encrypt certificates for your DuckDNS domain.
-- **token** (*Required*): Your Duck DNS API key.
+- **token** (*Required*): Your Duck DNS API key, from your DuckDNS account page.
 - **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Required*): Seconds between updates to Duck DNS.
 
