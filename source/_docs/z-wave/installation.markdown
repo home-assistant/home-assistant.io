@@ -161,14 +161,20 @@ $ ls /dev/cu.usbmodem*
 
 ### {% linkable_title Hass.io %}
 
-To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add the following to your `configuration.yaml`:
+To enable Z-Wave, plug your Z-Wave USB stick into your system and add the following to your `configuration.yaml`:
 
 ```yaml
 zwave:
   usb_path: /dev/ttyACM0
 ```
 
-Depending on your Z-Wave device it may instead be `/dev/ttyAMA0` (eg Razberry board) or `/dev/ttyUSB0` (eg HUBUZB-1).
+If the above defaults don't work, you can check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
+
+```bash
+$ hassio hardware info
+```
+
+Or you can use the UI and look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
 ### {% linkable_title RancherOS %}
 
