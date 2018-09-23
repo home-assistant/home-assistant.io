@@ -61,13 +61,20 @@ This is the list of packages you need to have available on your system that will
  - network-manager
  - socat
  - software-properties-common
-
+ - docker*
+ 
+*As apt-get might install an old docker version, run the following command as root to install docker:
+```bash
+$ curl -sSL https://get.docker.com | sh
+```
 To perform the Hass.io installation, run the following command as root:
 
 ```bash
 $ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
 ```
 
+*note: if you experience DNS issues (check logs with $docker logs homeassistant) run the following commands: https://gist.github.com/frenck/32b4f74919ca6b95b30c66f85976ec58*
+ 
 <p class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
