@@ -116,6 +116,10 @@ That would remove the broadcast group from association group 1 of the device wit
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
+<p class='note'>
+The wakeup interval has no impact on the device's ability to report sensor changes. This is purely for how often the Z-Wave chip will check in with the controller. That activity consumes a lot of battery power compared to reporting sensor changes and if you reduce it you'll be reducing the battery life of your device.
+</p>
+
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
 ### {% linkable_title Node protection %}
