@@ -23,7 +23,7 @@ If you notice the robot stops responding to commands check the status attribute 
 
 To add `neato` vacuum to your installation, please follow instructions in [Neato component](/components/neato/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`

@@ -32,10 +32,10 @@ Security Z-Wave devices require a network key. Some devices only expose their fu
 
 A valid network key will be a 16 byte value, defined in the zwave section of your configuration, such as the following example:
 
-```
+```yaml
 zwave:
-   usb_path: /dev/ttyACM0
-   network_key: "0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
+  usb_path: /dev/ttyACM0
+  network_key: "0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"
 ```
 
 Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Define your own key by making changes to the above example key or for additional security try one of the two scripts mentioned below.
@@ -43,13 +43,21 @@ Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Defi
 ### {% linkable_title Network Key %}
 
 An easy script to generate a random key:
+
 ```bash
-cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 On macOS, this script will generate a random key:
+
 ```bash
-cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+$ cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+```
+
+If the above command doesn't work then replace `LC_CTYPE=C` with `LC_ALL=C`:
+
+```bash
+$ cat /dev/urandom | LC_ALL=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 <p class='note warning'>
