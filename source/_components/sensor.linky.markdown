@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: enedis.png
 ha_release: 0.79
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
