@@ -9,12 +9,11 @@ sharing: true
 footer: true
 logo: huawei.svg
 ha_category: Network
-ha_release: 0.78
+ha_release: 0.79
 ---
 
 The Huawei LTE router integration for Home Assistant allows you to observe
-and control
-[Huawei LTE routers](https://consumer.huawei.com/en/smart-home/).
+and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/).
 
 The integration provides:
 
