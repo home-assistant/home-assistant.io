@@ -9,16 +9,13 @@ sharing: true
 footer: true
 logo: huawei.svg
 ha_category: Presence Detection
-ha_release: 0.78
+ha_release: 0.79
 ---
 
 
-This platform offers presence detection by looking at connected
-devices to a
-[Huawei LTE router](https://consumer.huawei.com/en/smart-home/).
+This platform offers presence detection by looking at connected devices to a [Huawei LTE router](https://consumer.huawei.com/en/smart-home/).
 
-This requires you to have set up the
-[Huawei LTE component](/components/huawei_lte/).
+This requires you to have set up the [Huawei LTE component](/components/huawei_lte/).
 
 ## {% linkable_title Configuration %}
 
