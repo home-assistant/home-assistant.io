@@ -22,7 +22,6 @@ Supported by MQTT discovery:
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
 
-
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -82,6 +81,7 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/stat
 ```
 
 Delete the sensor by sending an empty message.
+
  ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ''
 ```
