@@ -38,17 +38,17 @@ device_tracker:
 
 Configuration variables:
 
-- **hosts** (*Required*): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.
-- **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
-- **exclude** (*Optional*): Hosts not to include in nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
-- **scan_options** (*Optional*): Configurable scan options for nmap. Default to `-F --host-timeout 5s`
+- **hosts** (*Required*): The network address to scan (in any supported Nmap format). Mixing subnets and IPs is possible.
+- **home_interval** (*Optional*): The number of minutes Nmap will not scan this device, assuming it is home, in order to preserve the device battery.
+- **exclude** (*Optional*): Hosts not to include in Nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
+- **scan_options** (*Optional*): Configurable scan options for Nmap. Default to `-F --host-timeout 5s`
 
 ## {% linkable_title Examples %}
 
 A full example for the `nmap` tracker could look like the following sample:
 
 ```yaml
-# Example configuration.yaml entry for nmap
+# Example configuration.yaml entry for Nmap
 # One whole subnet, and skipping two specific IPs.
 device_tracker:
   - platform: nmap_tracker
@@ -60,7 +60,7 @@ device_tracker:
 ```
 
 ```yaml
-# Example configuration.yaml for nmap
+# Example configuration.yaml for Nmap
 # One subnet, and two specific IPs in another subnet.
 device_tracker:
   - platform: nmap_tracker
