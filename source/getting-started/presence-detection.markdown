@@ -33,7 +33,7 @@ You can scan for [Bluetooth][ha-bluetooth] and [Bluetooth LE][ha-bluetooth-le] d
 
 Home Assistant currently supports multiple third-party services for presence detection, such as [OwnTracks over MQTT][ha-owntracks-mqtt], [OwnTracks over HTTP][ha-owntracks-http] [GPSLogger][ha-gpslogger] and [Locative][ha-locative].
 
-There are a wide [range of options][ha-presence] available, both for scanning your local network and third-party services.
+There is a wide [range of options][ha-presence] available, both for scanning your local network and third-party services.
 
 ### {% linkable_title Zones %}
 
