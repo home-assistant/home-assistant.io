@@ -13,6 +13,10 @@ og_image: /images/blog/2018-10-release-0.79/components.png
 
 <a href='/components/#version/0.79'><img src='/images/blog/2018-10-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
+Config entries for iOS, MQTT, Tradfri.
+
+Show devices in frontend (config -> integrations)
+
 ## {% linkable_title New Platforms %}
 
 - Hangouts help "page" and little bugfix ([@hobbypunk90] - [#16464]) ([hangouts docs]) (new-platform)
