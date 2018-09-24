@@ -59,15 +59,14 @@ name:
   type: string
   default: Open Sky
 mode:
-  description: Can specify `hourly` or `daily`.
+  description: "The forecast type. Can be `hourly` or `daily`."
   required: false
   type: string
-  default: `hourly`
+  default: hourly
 {% endconfiguration %}
 
 <p class='note'>
-This platform is an alternative to the [`darksky`](/components/sensor.darksky/)
-sensor.
+This platform is an alternative to the [`darksky`](/components/sensor.darksky/) sensor.
 </p>
 
 Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).
