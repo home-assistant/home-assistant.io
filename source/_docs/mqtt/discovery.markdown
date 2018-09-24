@@ -22,7 +22,6 @@ Supported by MQTT discovery:
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
 
-
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -48,6 +47,8 @@ The discovery topic need to follow a specific format:
 - `<>`: The topic `config` or `state` which defines the current action.
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+
+An empty payload will cause a previously discovered device to be deleted.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
@@ -77,6 +78,12 @@ Update the state.
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
+```
+
+Delete the sensor by sending an empty message.
+
+ ```bash
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ''
 ```
 
 Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
