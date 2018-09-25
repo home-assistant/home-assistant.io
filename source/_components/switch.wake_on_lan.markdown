@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ethernet.png
-ha_category: Switch
+ha_category: Network
 ha_release: 0.16
 ha_iot_class: "Local Polling"
 ---

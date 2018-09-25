@@ -81,6 +81,18 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [light.lifx docs]: /components/light.lifx/
 [wemo docs]: /components/wemo/
 
+## {% linkable_title Release 0.77.3 - September 3 %}
+
+Frontend changes only:
+
+- Ask "save login" after hass connected [PR](https://github.com/home-assistant/home-assistant-polymer/pull/1631) [@awarecan]
+- Show an error when invalid client id or redirect uri [PR](https://github.com/home-assistant/home-assistant-polymer/pull/1620) [@balloob]
+- Disable autocapitalization of username field [PR](https://github.com/home-assistant/home-assistant-polymer/pull/1627) [@timmo001]
+- Upgrade MDI icons [PR](https://github.com/home-assistant/home-assistant-polymer/pull/1630) [@balloob]
+- Update translations
+
+[@timmo001]: https://github.com/timmo001
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

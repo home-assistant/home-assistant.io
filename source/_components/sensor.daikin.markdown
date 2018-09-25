@@ -16,12 +16,8 @@ ha_iot_class: "Local Polling"
 
 The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
-- **inside temperature**
-- **outside temperature**
-
-<p class='note warning'>
-Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant.
-</p>
+- Inside temperature
+- Outside temperature
 
 ## {% linkable_title Configuration %}
 
@@ -54,6 +50,3 @@ monitored_conditions:
       description: The current temperature measured outside the house.
 {% endconfiguration %}
 
-<p class='note warning'>
-    Please note that some AC devices may report outside temperature only when they are turned on.
-</p>

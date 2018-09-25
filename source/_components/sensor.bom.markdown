@@ -39,6 +39,8 @@ sensor:
       - gust_kt
       - air_temp
       - dewpt
+      - local_date_time
+      - local_date_time_full
       - press
       - press_qnh
       - press_msl
