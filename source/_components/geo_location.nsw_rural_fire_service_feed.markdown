@@ -7,13 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: geo_location.png
+logo: nsw-rural-fire-service.png
 ha_category: Geo Location
 ha_iot_class: "Cloud Polling"
 ha_release: "0.80"
 ---
 
-The `nsw_rural_fire_service_feed` platform lets you integrate a GeoJSON feed provided by the [NSW Rural Fire Service](https://www.rfs.nsw.gov.au/fire-information/fires-near-me) with information about fires including bush fires. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.
+The `nsw_rural_fire_service_feed` platform lets you integrate a GeoJSON feed provided by the [NSW Rural Fire Service](https://www.rfs.nsw.gov.au/fire-information/fires-near-me) with information about bush fires, grass fires, hazard reductions and more. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/nsw-rural-fire-service-feed-entities.png' />
@@ -25,7 +25,7 @@ Entities are generated, updated and removed automatically with each update from 
   <img src='{{site_root}}/images/screenshots/nsw-rural-fire-service-feed-map.png' />
 </p>
 
-The entity's information can be used for example if a bush or grass fire that produces smoke or embers is reported close to your home, and you want to automatically close windows, turn on a sprinkler system or simply send yourself a reminder to clean the gutters.
+The entity's information can be used for example if a bush fire that produces smoke or embers is reported close to your home, and you want to automatically close windows, turn on a sprinkler system or simply send yourself a reminder to clean the gutters from dry leaves.
 
 The data is updated every 5 minutes.
 
@@ -41,36 +41,35 @@ geo_location:
 
 {% configuration %}
 radius:
-  description: The distance in kilometers around the Home Assistant's coordinates in which events are included.
+  description: The distance in kilometers around Home Assistant's coordinates in which incidents are included.
   required: false
   type: string
   default: 20km
 categories:
-  description: List of event category names found in the feed. Only events from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
+  description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
   required: false
   type: list
-  default: None. Any event regardless of its category will be included.
+  default: None. Any incident regardless of its category will be included.
 {% endconfiguration %}
 
 ## {% linkable_title State Attributes %}
 
-The following state attributes are available for each entity (in addition to the standard ones):
+The following state attributes are available for each entity in addition to the standard ones:
 
 | Attribute          | Description |
 |--------------------|-------------|
-| latitude           | Latitude value of the incident. |
-| longitude          | Longitude value of the incident. |
-| external_id        | The external ID used in the feed to identify the incident. |
+| latitude           | Latitude of the incident. |
+| longitude          | Longitude of the incident. |
+| external_id        | The external ID used in the feed to identify the incident in the feed. |
 | category           | One of 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'. |
-| location           | Location details where the incident takes place. |
-| publication date   | Date and time when this incident was last updated. |
+| location           | Location details of where the incident takes place. |
+| publication_date   | Date and time when this incident was last updated. |
 | council_area       | Council area in which this incident takes place. |
 | status             | One of 'Under Control', 'Being Controlled', 'Out of Control'. |
 | type               | Incident type, for example 'Bush Fire', 'Grass Fire' or 'Hazard Reduction'. |
 | fire               | `True` if this incident is a fire, `False` otherwise. |
-| size               | Size in ha |
+| size               | Size in hectare |
 | responsible_agency | Agency responsible for this incident. |
-
 
 ## {% linkable_title Advanced Configuration Example %}
 
