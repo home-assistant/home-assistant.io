@@ -1,21 +1,26 @@
 ---
 layout: page
-title: "Honeywell evohome Controller"
-description: "Instructions on how to setup the Honeywell evohome component in Home Assistant."
-date: 2018-09-10 12:00
+title: "Honeywell evohome"
+description: "Instructions on how to integrate Honeywell evohome devices with Home Assistant."
+date: 2018-09-25 12:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: honeywell.png
-ha_category: Climate
+ha_category: Hub
 ha_release: TBA (post 0.78)
 ha_iot_class: "Cloud Polling" 
 ---
 
-The `evohome` climate platform lets you control EU-based [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW controllers from Home Assistant.  
+The `evohome` platform is the main component to set up and integrate all supported evohome devices.
 
-It uses the [evohomeclient](https://pypi.org/project/evohomeclient/) client library. Currently, Heating zones and DHW controllers are not supported (they will be added at a later time).
+It uses the [evohomeclient](https://pypi.org/project/evohomeclient/) client library and so will let you control (only) _EU-based_ [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) systems.
+
+Currently, only Controllers are supported; support for Heating zones and DHW controllers will be added at a later time.
+
+It is related to the [honeywell](/components/climate.honeywell/) climate component, which allows limited integration with evohome Heating zones.  These two components should be usuable side-by-side, but YMMV.
+
 
 ## {% linkable_title Configuration %}
 
@@ -26,11 +31,10 @@ To use this component in your installation, add the following to your `configura
 evohome:
   - username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    scan_interval: 300
+    location_idx: 0
 ```
-<p class='note'>
-Having a scan_interval to short may result in too-frequent polling and cause you to rate-limited by Honeywell.
-</p>
+This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 3 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+
 
 ### {% linkable_title Configuration variables %}
 
@@ -43,9 +47,9 @@ password:
   description: The password corresponding to the above username.
   required: true
   type: string
-scan_interval:
-  description: How often the web site is polled for data, in seconds. It is rounded up to nearest minute, and the minimum value is 180.  The recommended value is 300.
+location_idx:
+  description: Used to select which location to use, if your login has access to more than one location.  Multiple locations are not supported.
   required: false
   type: int
-  default: 180
+  default: 0
 {% endconfiguration %}
