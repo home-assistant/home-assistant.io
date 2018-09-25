@@ -132,9 +132,9 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 ```yaml
 sensor:
 - platform: sql
+  db_url: mysql://user:password@localhost/hass
   queries:
     - name: DB size
-      db_url: mysql://user:password@localhost/hass
       query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
       column: 'value'
       unit_of_measurement: kB

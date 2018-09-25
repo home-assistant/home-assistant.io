@@ -56,6 +56,10 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
+unique_id:
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true

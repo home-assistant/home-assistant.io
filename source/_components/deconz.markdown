@@ -29,7 +29,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
 
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Menu** -> **Settings** -> **Unlock Gateway** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
+If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** -> **Gateway** -> **Advanced** -> **Authenticate app** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
 You can add the following to your `configuration.yaml` file if you are not using the `discovery:` component:
 
@@ -79,16 +79,16 @@ logger:
 
 ## {% linkable_title Device services %}
 
-Available services: `configure`.
+Available services: `configure` and `deconz.refresh_devices`.
 
 #### {% linkable_title Service `deconz.configure` %}
 
-Set attribute of device in Deconz using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
 | Service data attribute | Optional | Description |
 |-----------|----------|-------------|
 | `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific HASS entity of a device in deCONZ. |
+| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
 Field and entity are exclusive, i.e you can only use one in a request.
@@ -99,9 +99,15 @@ Field and entity are exclusive, i.e you can only use one in a request.
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
+#### {% linkable_title Service `deconz.refresh_devices` %}
+
+Refresh with devices added to deCONZ after Home Assistants latest restart.
+
+Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+
 ## {% linkable_title Remote control devices %}
 
-Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named 'deconz_event' with a payload of 'id' and 'event'. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will be not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -172,6 +178,36 @@ automation:
 {% endraw %}
 
 ### {% linkable_title Appdaemon %}
+
+#### {% linkable_title Appdaemon event helper %}
+Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
+
+{% raw %}
+```yaml
+deconz_helper:
+  module: deconz_helper
+  class: DeconzHelper
+```
+
+```python
+import appdaemon.plugins.hass.hassapi as hass
+import datetime
+from datetime import datetime
+
+class DeconzHelper(hass.Hass):
+    def initialize(self) -> None:
+        self.listen_event(self.event_received, "deconz_event")
+
+    def event_received(self, event_name, data, kwargs):
+        event_data = data["event"]
+        event_id = data["id"]
+        event_received = datetime.now()
+
+        self.log("Deconz event received from {}. Event was: {}".format(event_id, event_data))
+        self.set_state("sensor.deconz_event", state = event_id, attributes = {"event_data": event_data, "event_received": str(event_received)})
+```
+{% endraw %}
+
 
 #### {% linkable_title Appdaemon remote template %}
 

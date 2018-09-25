@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](/components/notify.knx)
 - [Scene](/components/scene.knx)
 
-### {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -77,8 +77,8 @@ knx:
 
 ```yaml
 knx:
-    fire_event: True
-    fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
+  fire_event: True
+  fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 
 - **fire_event** (*Optional*): If set to True, platform will write all received KNX messages to event bus
@@ -105,20 +105,19 @@ KNX component is able to expose time or sensor values to KNX bus. The component 
 ```yaml
 # Example configuration.yaml entry
 knx:
-    expose:
-        - type: 'temperature'
-          entity_id: 'sensor.owm_temperature'
-          address: '0/0/2'
-        - type: 'time'
-          address: '0/0/1'
-        - type: 'datetime'
-          address: '0/0/23'
+  expose:
+    - type: 'temperature'
+      entity_id: 'sensor.owm_temperature'
+      address: '0/0/2'
+    - type: 'time'
+      address: '0/0/1'
+    - type: 'datetime'
+      address: '0/0/23'
 ```
 
 * **type**: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
 * **entity_id**: Entity id of the HASS component to be exposed. Not necessary for types time and datetime.
 * **address**: KNX group address.
-
 
 ### {% linkable_title Known issues %}
 

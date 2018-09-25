@@ -13,7 +13,7 @@ ha_release: 0.7.5
 ---
 
 
-A lot WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks, and WiFi registrations.
+A lot of WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks, and WiFi registrations.
 
 <p class='note warning'>
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.

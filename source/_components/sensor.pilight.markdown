@@ -42,7 +42,7 @@ This section shows a real life example how to use values of a weather station.
 
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: pilight
     name: 'Temperature'

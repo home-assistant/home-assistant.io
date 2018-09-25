@@ -17,9 +17,13 @@ redirect_from: /components/sensor.neato/
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 The status will contain attributes on the robots last clean session.
 
+<p class='note'>
+If you notice the robot stops responding to commands check the status attribute to see if the robot is offline. If you see "Robot Offline" check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
+</p>
+
 To add `neato` vacuum to your installation, please follow instructions in [Neato component](/components/neato/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`
