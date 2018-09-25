@@ -196,7 +196,7 @@ media_player:
 ```
 
 <p class='note'>
-This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
 </p>
 
 ### {% linkable_title Kodi services samples %}
