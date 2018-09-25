@@ -440,62 +440,72 @@ switch:
       button_1_led:
         value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(1) > 0 }}"
         turn_on:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int + 1 }}"
         turn_off:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 1 }}"
       button_2_led:
         value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(2) > 0 }}"
         turn_on:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int + 2 }}"
         turn_off:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 2 }}"
       button_3_led:
         value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(4) > 0 }}"
         turn_on:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int + 4 }}"
         turn_off:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 4 }}"
       button_4_led:
         value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(8) > 0 }}"
         turn_on:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states(scene_contrl_indicator)|int + 8 }}"
         turn_off:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 8 }}"
       button_5_led:
         value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(16) > 0 }}"
         turn_on:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int + 16 }}"
         turn_off:
-          service: zwave.set_indicator
+          service: zwave.set_node_value
           data_template:
             node_id: 3
+            value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 16 }}"
 ```
 {% endraw %}
