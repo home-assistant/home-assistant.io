@@ -22,8 +22,8 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | print_config_parameter | Prints Z-Wave node's config parameter value to the (console) log.                                                                            |
 | print_node             | Print all states of Z-Wave node.                                                                                                             |
 | refresh_entity         | Refresh the Z-Wave entity by refreshing dependent values.                                                                                    |
-| refresh_indicator      | Refresh the indicator value of a Z-Wave node.                                                                                                |
 | refresh_node           | Refresh the Z-Wave node.                                                                                                                     |
+| refresh_node_value     | Refresh the specified value of a Z-Wave node.                                                                                                |
 | remove_node            | Put the Z-Wave controller in exclusion mode. Allows you to remove a device from the Z-Wave network.                                          |
 | rename_node            | Sets a node's name. Requires a `node_id` and `name` field.                                                                                   |
 | rename_value           | Sets a value's name. Requires a `node_id`, `value_id`, and `name` field.                                                                     |

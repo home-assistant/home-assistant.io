@@ -430,9 +430,10 @@ automation:
         event_data:
           entity_id: zwave.scene_contrl
     action:
-      - service: zwave.refresh_indicator
-        data: 
+      - service: zwave.refresh_node_value
+        data_template: 
           node_id: 3
+          value_id: "{{ states.sensor.scene_contrl_indicator.attributes.value_id }}"
 switch:
   - platform: template
     switches:
