@@ -29,21 +29,22 @@ To use Google Assistant, your Home Assistant configuration has to be externally 
 
 You need to create an API Key with the [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](/#troubleshooting-the-request_sync-service)). If you don't provided it the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have setup this component you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
 
-1. Create a new project in the [developer console](https://console.actions.google.com/).  
+1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).  
   a. Add/Import project, give it a name    
   b. Click on `Home Control` card, select the `Smart home` recommendation.
-  c. Create an Action, under the build section. Add in your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable. If you have set `api_password:` add this password to the URL. E.g., `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant?api_password=[YOUR API PASSWORD]`)  
+  c. Create an Action, under the build section. Add in your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  
   d. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.  
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section
 	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next  
 	b. For the `Linking type` select `OAuth` and `Implicit`  
 	c. Client ID: The `client_id` from your Home Assistant configuration above  
-	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth`. If you have set `api_password:` add this password to the URL `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth?api_password=[YOUR API PASSWORD]`)  
+	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth`.  
 	e. Configure your client. Add scopes for `email` and `name`.  
 	f. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 3. Back on the overview page. Click `Simulator` under `TEST`. You don't have to actually test .
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`
+5. Open the Google Assistant app and go into `Settings > Home Control`. Or on your Android phone or tablet, touch and hold the Home button or say "Ok Google.". At the top right, tap compass icon and then more icon and then `Settings > Home Control`.
+> If you have added the [Home Assistant "web app"](/docs/frontend/mobile/) to your phone's homescreen before, you need remove it before next step
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you the screen where you can set rooms for your devices or nicknames for your devices.
 7. If you want to allow other household users to control the devices:  
 	a. Go to the settings for the project you created in point 1 in the developer console.  
