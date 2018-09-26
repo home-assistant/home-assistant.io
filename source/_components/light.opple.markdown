@@ -9,14 +9,14 @@ sharing: true
 footer: true
 logo: opple.png
 ha_category: Light
-ha_release: 0.79
+ha_release: 0.80
 ha_iot_class: "Local Polling"
 ---
 
 
 The `opple` light platform allows you to control the state of your Opple smart light.
 
-Support all opple light with WIFI support or can be controlled by App.
+The platform supports all Opple lights with Wi-Fi support or lights that can be controlled by the App.
 
 e.g.
 
@@ -28,7 +28,7 @@ To use your Opple light in your installation, add the following to your `configu
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: tplink
+  - platform: opple
     name: LIGHT_NAME
     host: IP_ADDRESS
 ```
@@ -38,7 +38,7 @@ name:
   description: The name to use when displaying this light.
   required: false
   type: string
-  default: opple Light
+  default: opple light
 host:
   description: "The IP address of your Opple light, eg. `192.168.0.21`."
   required: true
