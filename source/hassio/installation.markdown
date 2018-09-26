@@ -23,8 +23,8 @@ Hass.io images are available for:
 - As [Virtual Appliance]:
   - [VMDK][vmdk]
 
-<p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer.
+<p class='note warning'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
 </p>
 
 - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
