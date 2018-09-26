@@ -11,7 +11,7 @@ logo: mystrom.png
 ha_category: Switch
 ha_release: 0.9
 ha_iot_class: "Local Polling"
-ha_qa_scale: gold
+ha_qa_scale: silver
 ---
 
 
