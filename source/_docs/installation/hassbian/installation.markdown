@@ -17,8 +17,8 @@ One of the easiest ways to install Home Assistant on your Raspberry Pi Zero, 2, 
  3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your [wireless network settings](#wireless-network) **before proceeding to step 4**.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 10 minutes.
 
-<p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets.
+<p class='note warning'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
 </p>
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  
