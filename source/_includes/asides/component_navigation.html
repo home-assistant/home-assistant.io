@@ -30,7 +30,14 @@
 
   {% if page.ha_qa_scale %}
     <div class='section'>
-      Quality Scale<sup><a href='https://developers.home-assistant.io/docs/en/next/integration_quality_scale_index.html'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_qa_scale }}
+      Quality Scale<sup><a href='https://developers.home-assistant.io/docs/en/next/integration_quality_scale_index.html'><i class="icon-info-sign"></i></a></sup>: 
+        {% if page.ha_qa_scale == 'platinum' %}
+          🏆
+        {% elsif page.ha_qa_scale == 'gold' %}
+          🥇
+        {% elsif page.ha_qa_scale == 'silver' %}
+          🥈
+        {% endif %}
     </div>
   {% endif %}
 
