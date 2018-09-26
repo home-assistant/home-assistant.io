@@ -80,7 +80,18 @@ To remove (exclude) a Z-Wave device from your system:
 1. Go to the Z-Wave control panel in the Home Assistant frontend
 2. Click the **Remove Node** button in the *Z-Wave Network Management* card - this will place the controller in exclusion mode
 3. Activate your device to be excluded by following the instructions provided with the device
-4. Run a *Heal Network* so all the other nodes learn about its removal
+4. The device will now be removed, but that won't show until you restart Home Assistant 
+5. Run a *Heal Network* so all the other nodes learn about its removal
+
+If your device isn't responding to this process, possibly because you've factory reset it or it has failed, you can remove it using **Remove Failed Node**. This only works for devices marked as `"is_failed": true`, but you can trick the system into thinking that this the case:
+
+1. Go to the *States* menu under *Developer tools* in the Home Assistant frontend
+2. Click on the name of the `zwave.` entity you want to remove
+3. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true,`
+4. Click **Set State**
+5. Go to the Z-Wave control panel in the Home Assistant frontend
+6. Click the **Remove Failed Node** button in the *Z-Wave Network Management* card
+7. The device will now be removed, but that won't show until you restart Home Assistant 
 
 ## {% linkable_title Troubleshooting %}
 
