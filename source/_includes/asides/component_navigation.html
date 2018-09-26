@@ -28,6 +28,12 @@
     </div>
   {% endif %}
 
+  {% if page.ha_qa_scale %}
+    <div class='section'>
+      Quality Scale<sup><a href='https://developers.home-assistant.io/docs/en/next/integration_quality_scale_index.html'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_qa_scale }}
+    </div>
+  {% endif %}
+
   {% if page.ha_release %}
     <div class='section'>
       Introduced in release: {{ page.ha_release }}
