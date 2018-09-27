@@ -14,9 +14,14 @@ Home Assistant will be able to automatically discover many devices and services 
 
 See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
+Classification for the available integrations:
+
+- [IoT class(/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
+- [Quality scale](/docs/quality_scale/): Representation of the integration's quality.
+
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
-#### {% linkable_title Style 1: Collect every entity under the "parent" %}
+## {% linkable_title Style 1: Collect every entity under the "parent" %}
 
 ```yaml
 sensor:
@@ -33,7 +38,7 @@ switch:
   - platform: vera
 ```
 
-#### {% linkable_title Style 2: List each device separately %}
+## {% linkable_title Style 2: List each device separately %}
 
 You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.
 
@@ -52,7 +57,7 @@ camera 2:
   platform: mjpeg
 ```
 
-### {% linkable_title Grouping devices %}
+## {% linkable_title Grouping devices %}
 
 Once you have several devices set up, it is time to organize them into groups.
 Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (<img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />).
