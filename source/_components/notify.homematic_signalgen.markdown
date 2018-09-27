@@ -12,7 +12,7 @@ ha_category: Notifications
 ha_release: 0.79
 ---
 
-The `homematic_signalge` notification platform enables invoking Homematic's signal generator.
+The `homematic_signalgen` notification platform enables invoking Homematic's signal generator.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
