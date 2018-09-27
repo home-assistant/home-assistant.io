@@ -23,7 +23,7 @@ This integration is able to cope when things go wrong. It will not print any exc
 
 ## {% linkable_title Gold 🥇 %}
 
-This is a solid integration that is able to survive poor conditions and can be configured via the user interface. It may contain translated states and is covered by unit tests.
+This is a solid integration that is able to survive poor conditions and can be configured via the user interface.
 
 ## {% linkable_title Platinum 🏆 %}
 
