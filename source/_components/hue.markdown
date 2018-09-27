@@ -10,7 +10,7 @@ footer: true
 logo: philips_hue.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
-ha_qa_scale = platinum
+ha_qa_scale: platinum
 featured: true
 ha_release: "0.60"
 ---
