@@ -9,27 +9,34 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Notifications
-ha_release: "0.78"
+ha_release: 0.79
 ---
 
 The `homematic_signalge` notification platform enables invoking Homematic's signal generator.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
-### Configuration
+## {% linkable_title Configuration %}
 
-{% configuration %}
+```yaml
+# Example configuration.yaml entry
 notify:
   - name: my_hm
     platform: homematic_signalgen
-    address: <NEQxxx>
+    address: NEQXXXXXXX
     value: "1,1,108000,8"
+```
+
+{% configuration %}
+address:
+  description: The address of your homematic signal generator. The address is the serial number of the device shown in the CCU in the `devices` section in the column `serial number`.
+  required: true
+  type: string
+value:
+  description: This string specifies which file to play. It has the form `<loudness>,<repetitions>,<length>,<track_1>,...,<track_n>`. `<loudness>` is a value between 0 and 1. The parameter `<repetitions>` defines how often the tracks should be played. `<length>` determines the lenght of the playback in seconds (108000 is the maximum). The value `1,1,108000,8,7` for example says that the track 8 and 7 should be played with their full length (maximum length) with no repetitions and full loudness.
+  required: true
+  type: string
 {% endconfiguration %}
-
-Configuration variables:
-
-- **address** (*Required*): The address of your homematic signal generator. The address is the serial number of the device shown in the CCU in the `devices` section in the column `serial number`.
-- **value** (*Optional*): This string specifies which file to play. It has the form `<loudness>,<repetitions>,<length>,<track_1>,...,<track_n>`. `<loudness>` is a value between 0 and 1. The parameter `<repetitions>` defines how often the tracks should be played. `<length>` determines the lenght of the playback in seconds (108000 is the maximum). The value `1,1,108000,8,7` for example says that the track 8 and 7 should be played with their full length (maximum length) with no repetitions and full loudness.
 
 ### {% linkable_title Usage %}
 
@@ -68,15 +75,16 @@ notify:
       - service: my_hm
         data:
           data:
-            value: "1,2,108000,4"
+            value: "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2"
 
 alert:
   temperature:
     name: Temperature too high
-    done_message: Temperature ok
-    entity_id: binary_sensor.temperature_too_low
+    done_message: Temperature OK
+    entity_id: binary_sensor.temperature_too_high
     can_acknowledge: True
     notifiers:
       - group_hm
 ```
 
+Please note that the first `data` element belongs to the `service` `my_hm` while the second one belongs to the event payload.
