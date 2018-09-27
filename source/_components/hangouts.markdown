@@ -165,5 +165,5 @@ Sends a message to the given conversations.
 |------------------------|----------|--------------------------------------------------|
 | target                 | List of targets with id or name. [Required] | [{"id": "UgxrXzVrARmjx_C6AZx4AaABAagBo-6UCw"}, {"name": "Test Conversation"}] |
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
-
+| data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
