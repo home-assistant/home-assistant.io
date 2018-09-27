@@ -57,7 +57,7 @@ It is possible to provide a template in order to compute the tracks to play:
 ```json
 {
   "data": {
-    "value": "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2"
+    "value": "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2{% endif %}"
   }
 }
 ```
@@ -75,7 +75,7 @@ notify:
       - service: my_hm
         data:
           data:
-            value: "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2"
+            value: "1,1,108000{% if is_state('binary_sensor.fensterkontakt1ogbad_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.fensterkontaktdachbad_state', 'on') %},2{% endif %}"
 
 alert:
   temperature:
