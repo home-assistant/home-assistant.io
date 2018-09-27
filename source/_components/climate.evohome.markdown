@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: honeywell.png
 ha_category: Climate
-ha_release: TBA (post 0.78)
-ha_iot_class: "Cloud Polling" 
+ha_release: 0.80
+ha_iot_class: "Cloud Polling"
 ---
 
 The `evohome` climate platform integrates your _EU-based_ [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW controller into Home Assistant, enabling control of its operating mode.

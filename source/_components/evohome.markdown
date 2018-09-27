@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: honeywell.png
 ha_category: Hub
-ha_release: TBA (post 0.78)
-ha_iot_class: "Cloud Polling" 
+ha_release: 0.80
+ha_iot_class: "Cloud Polling"
 ---
 
 The `evohome` platform is the main component to set up and integrate all supported evohome devices.
