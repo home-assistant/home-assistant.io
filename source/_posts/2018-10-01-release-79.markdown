@@ -1,23 +1,48 @@
 ---
 layout: post
-title: "0.79: TBD - UPDATE DATE"
-description: "TBD"
-date: 2018-09-24 00:01:00
-date_formatted: "October 1, 2018"
+title: "0.79: Device Registry, Logi Circle, Huawei LTE routers, GeoJSON"
+description: "Home Assistant is now able to show the devices and entities that belong to an integration."
+date: 2018-09-27 00:01:00
+date_formatted: "September 28, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-10-release-0.79/components.png
+og_image: /images/blog/2018-09-release-0.79/components.png
 ---
 
-<a href='/components/#version/0.79'><img src='/images/blog/2018-10-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
+<p class='note'>
+In case you missed it two weeks ago, check [our plans for the future](/blog/2018/09/17/thinking-big/).
+</p>
 
+<a href='/components/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
+It's time for another great release and we're introducing a brand new feature: device registry. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
 
-Config entries for iOS, MQTT, Tradfri.
+<p class='img'>
+<img src='/images/blog/2018-09-release-0.79/integrations.png' alt='Screenshot showing several configured integrations'>
+Screenshot showing several configured integrations in the configuration panel.
+</p>
 
-Show devices in frontend (config -> integrations)
+Adding devices to the mix allows us to do a lot of cool things. It allows us to group entities and show how they relate to one another. It will also allow us to inform the user if data leaves the home network and shows the firmware version that the device is running on.
+
+<p class='img'>
+<img src='/images/blog/2018-09-release-0.79/config_entry.png' alt='Screenshot showing the devices of a config entry'>
+Screenshot showing the devices of the iOS integration.
+</p>
+
+Devices can only be added by integrations that are configured via the integrations panel in the config panel. So we've also been expanding the integrations that support that. This release brings support to iOS, MQTT and Tradfri.
+
+<p class='img'>
+<img src='/images/blog/2018-09-release-0.79/mqtt.png' alt='Screenshot showing how to configure MQTT via UI'>
+Screenshot showing how to configure MQTT via UI
+</p>
+
+And this is not all! There is so much more. In an effort to make the quality of an integration more clear, we've added an [Integration Quality Scale](/docs/quality_scale/). With this scale we'll be able to clearly communicate to the user how good an integration is and it gives developers a list on how to improve it. Expect these levels to pop up in the integration list soon.
+
+And did you think we forgot about auth? We did not. [@awarecan] has added a new multi-factor auth module that will send you a one-time authentication code to finish your login, **with a notification service of your choice**. PushBullet, Hangouts, iOS app, some obscure custom notification service using a shell script? It's possible.
+
+Oh, and yes, there is also some cool new integrations. Support has been added for Logi Circle camera's, GeoJSON events and even a bank. More below 👇
 
 ## {% linkable_title New Platforms %}
 
