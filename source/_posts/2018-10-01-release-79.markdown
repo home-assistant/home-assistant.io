@@ -2,7 +2,7 @@
 layout: post
 title: "0.79: Device Registry, Logi Circle, Huawei LTE routers, GeoJSON"
 description: "Home Assistant is now able to show the devices and entities that belong to an integration."
-date: 2018-09-27 00:01:00
+date: 2018-09-28 00:01:00
 date_formatted: "September 28, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
