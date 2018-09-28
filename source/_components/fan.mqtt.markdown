@@ -143,9 +143,9 @@ payload_not_available:
   type: string
   default: offline
 unique_id:
-   description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
-   required: false
-   type: string
+  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='note warning'>
