@@ -7,10 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Calendar
-ha_iot_class: "Local Push"
-ha_release: "0.80"
+ha_iot_class: "Local Poll"
+ha_release: "0.79"
 ---
 
 The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.

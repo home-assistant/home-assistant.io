@@ -13,19 +13,18 @@ og_image: /images/blog/2018-10-release-0.79/components.png
 
 <a href='/components/#version/0.79'><img src='/images/blog/2018-10-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
+
+
 Config entries for iOS, MQTT, Tradfri.
 
 Show devices in frontend (config -> integrations)
 
 ## {% linkable_title New Platforms %}
 
-- Hangouts help "page" and little bugfix ([@hobbypunk90] - [#16464]) ([hangouts docs]) (new-platform)
 - Add Huawei LTE router platform, device tracker, and sensor ([@scop] - [#16498]) ([device_tracker docs]) ([huawei_lte docs]) ([sensor.huawei_lte docs]) (new-platform)
-- Add websocket list APIs for the registries ([@balloob] - [#16597]) ([config docs]) (new-platform)
 - New EDP re:dy component ([@abmantis] - [#16426]) ([edp_redy docs]) ([sensor.edp_redy docs]) ([switch.edp_redy docs]) (new-platform)
 - Jewish calendar sensor ([@tsvi] - [#16393]) ([sensor.jewish_calendar docs]) (new-platform)
 - Added support for Starling Bank ([@Dullage] - [#16522]) ([sensor.starlingbank docs]) (new-platform)
-- Upgrade youtube_dl to 2018.09.18 ([@fabaff] - [#16729]) ([media_extractor docs]) (new-platform)
 - Add Call Data Log platform. Mailboxes no longer require media ([@PhracturedBlue] - [#16579]) ([asterisk_mbox docs]) ([mailbox docs]) ([mailbox.asterisk_cdr docs]) ([mailbox.asterisk_mbox docs]) (new-platform)
 - Add Logi Circle component, camera and sensor platform ([@evanjd] - [#16540]) ([logi_circle docs]) ([camera.logi_circle docs]) ([sensor.logi_circle docs]) (new-platform)
 - deCONZ cover support ([@Kane610] - [#16759]) ([cover docs]) ([deconz docs]) ([cover.deconz docs]) (new-platform)
@@ -44,8 +43,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Netdata configuration change: Allows multiple elements per group ([@reefab] - [#16656]) ([sensor.netdata docs]) (breaking change)
-- Refactored units and icons for the Dyson sensors ([@glpatcern] - [#14550]) ([sensor.dyson docs]) (breaking change)
+- Netdata configuration change: Allows multiple elements per group. Specify the `data_group` as part of the sensor description. See docs for details. ([@reefab] - [#16656]) ([sensor.netdata docs]) (breaking change)
+- The Dyson sensor Air Quality Index is now named AQI following Dyson's mobile app ([@glpatcern] - [#14550]) ([sensor.dyson docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
@@ -75,7 +74,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade pytest to 3.8.0 and pytest-timeout to 1.3.2 ([@scop] - [#16489])
 - Refactor zha/async_device_initialized(). ([@Adminiuga] - [#16485]) ([zha docs])
 - Update fan.zha platform. ([@Adminiuga] - [#16551]) ([fan.zha docs])
-- Hangouts help "page" and little bugfix ([@hobbypunk90] - [#16464]) ([hangouts docs]) (new-platform)
+- Hangouts help "page" and little bugfix ([@hobbypunk90] - [#16464]) ([hangouts docs])
 - Konnected component feature updates ([@heythisisnate] - [#16479]) ([konnected docs])
 - Add config entry to iOS ([@balloob] - [#16580]) ([ios docs]) ([notify docs])
 - Switchmate ([@Danielhiversen] - [#16395]) ([switch.switchmate docs])
@@ -89,7 +88,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Huawei LTE router platform, device tracker, and sensor ([@scop] - [#16498]) ([device_tracker docs]) ([huawei_lte docs]) ([sensor.huawei_lte docs]) (new-platform)
 - Changing z-wave brightness calculation to respect 0x01 and 0x02 byte values ([@Harvtronix] - [#16420]) ([light.zwave docs])
 - Add myself to CODEOWNERS for upcloud ([@scop] - [#16599])
-- Add websocket list APIs for the registries ([@balloob] - [#16597]) ([config docs]) (new-platform)
+- Add websocket list APIs for the registries ([@balloob] - [#16597]) ([config docs])
 - MQTT config entry ([@balloob] - [#16594]) ([hangouts docs]) ([homematicip_cloud docs]) ([mqtt docs])
 - Upgrade python-twitch-client to 0.6.0 ([@fabaff] - [#16602]) ([sensor.twitch docs])
 - Improve precision of timer ticks ([@amelchio] - [#16598])
@@ -135,7 +134,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrading librouteros version ([@kunago] - [#16718]) ([device_tracker docs])
 - Add unique_id to mqtt_json light ([@nikolaykasyanov] - [#16721])
 - On-demand update of swiss public transport sensor ([@vikramgorla] - [#16723]) ([sensor.swiss_public_transport docs])
-- Upgrade youtube_dl to 2018.09.18 ([@fabaff] - [#16729]) ([media_extractor docs]) (new-platform)
+- Upgrade youtube_dl to 2018.09.18 ([@fabaff] - [#16729]) ([media_extractor docs])
 - Met.no weather platform ([@Danielhiversen] - [#16582])
 - Upgrade keyring to 15.1.0 ([@fabaff] - [#16734])
 - Avoid calling yr update every second for a minute ones every hour ([@Danielhiversen] - [#16731]) ([sensor.yr docs])
