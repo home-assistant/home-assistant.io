@@ -81,6 +81,7 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 - Fix Mi Flora median calculation. Removed `retries` and `timeout` config parameters, they were not used for several months. Replaced `cache_value` config with `scan_interval` to fix a bug in the PR. ([@PaulAnnekov] - [#16085]) ([sensor.miflora docs]) (breaking change)
 - Twitch now requires a `client_id` and so the platform got updated. ([@ioangogo] - [#16428]) ([sensor.twitch docs]) (breaking change)
 - The radiotherm `fan` and `mode` state attributes were updated to reflect the real-time fan and mode states of the thermostat, rather than the overall selected state (automatic, mostly). The mode attributes still contain the selected modes (fan on/auto, heat/cool/auto). ([@cpw] - [#15031]) ([climate.radiotherm docs]) (breaking change)
+- The `dnsip` sensor now uses `myip` as default name. ([@grea09] - [#16205]) ([sensor.dnsip docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
