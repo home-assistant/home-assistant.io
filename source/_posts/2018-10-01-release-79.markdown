@@ -17,7 +17,7 @@ In case you missed it two weeks ago, check [our plans for the future](/blog/2018
 
 <a href='/components/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
-It's time for another great release and we're introducing a brand new feature: device registry. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
+It's time for another great release and we're introducing a brand new feature: device registry. Thanks to [@Kane610] for driving this effort. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
 
 <p class='img'>
 <img src='/images/blog/2018-09-release-0.79/integrations.png' alt='Screenshot showing several configured integrations'>
