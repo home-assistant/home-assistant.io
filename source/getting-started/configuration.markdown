@@ -36,9 +36,9 @@ From the Hass.io main panel open the add-on store.
 
 ### {% linkable_title Editing config via HASS Configurator %}
 
-The first add-on we should install is the HASS Configurator. With the HASS Configurator you'll be able to edit your Home Assistant configuration from the web interface.
+The first add-on we should install is the HASS Configurator. With the HASS Configurator, you'll be able to edit your Home Assistant configuration from the web interface.
 
-Go to the add-on store (see previous step), click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps below to setup the add-on.
+Go to the add-on store (see the previous step), click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps below to setup the add-on.
 
  - Set a password on the Config box, don't forget to use quotes on your password
  

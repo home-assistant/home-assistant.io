@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_version: 0.39
 ---
 
-The `insteon_plm` component is depreciated and has been replaced by the [Insteon] component.
+The `insteon_plm` component is depreciated and has been replaced by the [insteon] component.
 
-[Insteon] /component/insteon
-
+[insteon]: /component/insteon

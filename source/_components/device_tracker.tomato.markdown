@@ -21,8 +21,12 @@ devices. If tracking wired devices like a Philips Hue Hub is necessary, it is
 possible to use another platform like
 [NMAP](/components/device_tracker.nmap_tracker/).
 
-To use this device tracker in your installation, add the following to your
-`configuration.yaml` file:
+Because of a limitation in Tomato's API, this platform will only track wireless devices.
+If tracking wired devices like a Philips Hue Hub is necessary,
+it is possible to use another platform like [Nmap](/components/device_tracker.nmap_tracker/).
+
+To use this device tracker in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

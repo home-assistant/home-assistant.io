@@ -1596,7 +1596,7 @@ for tracker in trackers:
 
 ### {% linkable_title get_tracker_state() %}
 
-Get the state of a tracker. The values returned depend in part on the configuration and type of device trackers in the system. Simpler tracker types like `Locative` or `NMAP` will return one of 2 states:
+Get the state of a tracker. The values returned depend in part on the configuration and type of device trackers in the system. Simpler tracker types like `Locative` or `Nmap` will return one of 2 states:
 
 - `home`
 - `not_home`

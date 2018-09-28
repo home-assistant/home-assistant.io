@@ -106,7 +106,7 @@ Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
-| `fanspeed`                |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
+| `fan_speed`               |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
 #### {% linkable_title Service `vacuum.send_command` %}
 

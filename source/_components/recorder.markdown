@@ -18,7 +18,7 @@ Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relationa
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
-To set up the `recorder` component in your installation, add the following to your `configuration.yaml` file:
+To change the defaults for `recorder` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -128,7 +128,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
-| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space (only supported for SQLite)
+| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
 ### {% linkable_title Restore State %}
 
@@ -154,11 +154,18 @@ If the `recorder` component is activated then some components support `restore_s
 | MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
 If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
 </p>
+
+<p class='note'>
+Unix Socket connections always bring performance advantages over TCP, if the database on the same host as the `recorder` instance (i.e. `localhost`).</p>
+
+<p class='note warning'>
+If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
 
 ### {% linkable_title Database startup %}
 
@@ -224,6 +231,22 @@ For PostgreSQL you may have to install a few dependencies:
 $ sudo apt-get install postgresql-server-dev-X.Y
 $ pip3 install psycopg2
 ```
+
+For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+
+`local  DB_NAME USER_NAME peer`
+
+Where `DB_NAME` is the name of your database and `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Reload the PostgreSQL configuration after that:
+```bash
+$ sudo -i -u postgres psql -c "SELECT pg_reload_conf();"
+ pg_reload_conf 
+----------------
+ t
+(1 row)
+```
+A service restart will work as well.
 
 ### {% linkable_title MS SQL Server %}
 

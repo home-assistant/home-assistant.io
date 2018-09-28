@@ -14,11 +14,14 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 
 Supported by MQTT discovery:
 
+- [Alarm control panels](/components/alarm_control_panel.mqtt/)
 - [Binary sensors](/components/binary_sensor.mqtt/)
 - [Cameras](/components/camera.mqtt/)
 - [Covers](/components/cover.mqtt/)
 - [Fans](/components/fan.mqtt/)
+- [HVACs](/components/climate.mqtt/)
 - [Lights](/components/light.mqtt/)
+- [Locks](/components/lock.mqtt/)
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
 

@@ -74,7 +74,7 @@ sensors:
       description: the conditions to create sensors from
       required: false
       type: list
-      default: all ( `current_ozone_index`, `current_uv_index`, `current_uv_level`, `max_uv_index`, `safe_exposure_time_type_1`, `safe_exposure_time_type_2`, `safe_exposure_time_type_3`, `safe_exposure_time_type_4`, `safe_exposure_time_type_5`, `safe_exposure_time_type_6` )
+      default: all ( `current_ozone_level`, `current_uv_index`, `current_uv_level`, `max_uv_index`, `safe_exposure_time_type_1`, `safe_exposure_time_type_2`, `safe_exposure_time_type_3`, `safe_exposure_time_type_4`, `safe_exposure_time_type_5`, `safe_exposure_time_type_6` )
 {% endconfiguration %}
 
 ## {% linkable_title Binary Sensor Types %}
