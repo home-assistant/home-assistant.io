@@ -26,7 +26,7 @@ If you have incorrect entries in your configuration files you can use the [`chec
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
  
- - You can test your configuration using the command line with: `hass --script check_config`
+ - You can test your configuration using the command line with: `hass --script check_config`. On Hass.io you can use the [hassio command](https://www.home-assistant.io/hassio/commandline/#home-assistant): `hassio homeassistant check`.
  - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 

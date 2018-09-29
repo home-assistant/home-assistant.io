@@ -13,6 +13,6 @@ ha_iot_class: "Local Polling"
 ha_version: 0.36
 ---
 
-The `insteon_local` component is depreciated and has been replaced by the [Insteon] component.
+The `insteon_local` component is depreciated and has been replaced by the [insteon] component.
 
-[Insteon] /component/insteon
+[insteon]: /component/insteon

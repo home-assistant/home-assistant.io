@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.48
 ha_iot_class: "Local Push"
 ---
@@ -19,6 +19,8 @@ The `bme280` sensor platform allows you to read temperature, humidity and pressu
 Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
+
+## {% linkable_title Configuration %}
 
 To use your BME280 sensor in your installation, add the following to your `configuration.yaml` file:
 

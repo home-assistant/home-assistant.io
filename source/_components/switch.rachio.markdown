@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rachio.png
-ha_category: Switch
+ha_category: Irrigation
 ha_iot_class: "Cloud Push"
 ha_release: 0.46
 ---
@@ -20,6 +20,8 @@ Once configured, a switch will be added for every zone that is enabled on every 
 <p class='note'>
 You must have the [Rachio component](/components/rachio/) configured to use this switch.
 </p>
+
+## {% linkable_title Configuration %}
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

@@ -179,9 +179,8 @@ automation:
         entity_id: input_number.target_temp
         value: "{{ trigger.payload }}"
 
-# This automation script runs when the target temperature slider is moved.
+# This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-automation:
   - alias: Temp slider moved
     trigger:
       platform: state

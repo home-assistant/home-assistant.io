@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Binary Sensor
+ha_category: Network
 ha_release: 0.43
 ---
 
 
 The `ping` binary sensor platform allows you to using `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
+
+## {% linkable_title Configuration %}
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 

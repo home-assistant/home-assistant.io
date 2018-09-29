@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: apcupsd.png
-ha_category: Hub
+ha_category: System Monitor
 ha_release: 0.13
 ---
 
 [APCUPSd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) is enabled on the APC device.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -21,8 +23,16 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 apcupsd:
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The hostname/IP address on which the APCUPSd NIS is being served. Defaults to `localhost`.
-- **port** (*Optional*): The port on which the APCUPSd NIS is listening. Defaults to `3551`.
+{% configuration %}
+host:
+  description: The hostname/IP address on which the APCUPSd NIS is being served.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port on which the APCUPSd NIS is listening.
+  required: false
+  type: int
+  default: 3551
+{% endconfiguration %}
 

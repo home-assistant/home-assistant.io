@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 
 The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
 
+## {% linkable_title Configuration %}
+
 To set the Zabbix component up, add the following information to your `configuration.yaml` file:
 
 ```yaml

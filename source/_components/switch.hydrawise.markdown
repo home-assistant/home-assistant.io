@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: hydrawise_logo.png
-ha_category: Switch
+ha_category: Irrigation
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ---
 
 Before setting up the [Hunter Hydrawise](https://hydrawise.com) switches please follow the instructions for setting up the [Hydrawise hub](/components/hydrawise) component.
+
+## {% linkable_title Configuration %}
 
 Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
 

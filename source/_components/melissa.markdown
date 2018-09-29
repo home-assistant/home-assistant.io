@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Melissa Climate"
+title: "Melissa"
 description: "Instructions on how to integrate Melissa Climate into Home Assistant."
 date: 2017-01-05 17:30
 sidebar: true
@@ -14,7 +14,7 @@ ha_release: 0.63
 ha_iot_class: "Cloud Polling"
 ---
 
-The `Melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
+The `melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
 
 ## {% linkable_title Configuration %}
 

@@ -51,7 +51,7 @@ sensor:
   duration:
     description: Specify the test duration in seconds. Default is 10 and the valid range is from 5 to 10.
     required: false
-    default: 3
+    default: 10
     type: int
   parallel:
     description: Specify the number of concurrent streams to connect to the server. Default is 1 and the valid range is from 1 to 20.

@@ -15,4 +15,4 @@ ha_iot_class: "Local Push"
 
 See the [deCONZ main component](/components/deconz/) for configuration instructions.
 
-Entity Ids will be scene.group_scene_name, where group is which group the scene belongs to and the name of the scene, both group and name are defined in deCONZ.
+The `entity_id` name will be `scene.group_scene_name`, where `group` is which group the scene belongs to and the name of the scene, both group and name are defined in deCONZ.

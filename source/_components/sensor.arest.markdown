@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: arest.png
-ha_category: Sensor
+ha_category: DIY
 ha_iot_class: "Local Polling"
 ha_release: pre 0.7
 ---
 
 
 The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+
+## {% linkable_title Configuration %}
 
 To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
 
