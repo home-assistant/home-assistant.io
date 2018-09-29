@@ -34,12 +34,17 @@ The authentication token will be generated and stored internally.
 # Example configuration.yaml entry
 hangouts:
   intents:
+    HangoutsHelp:
+      sentences:
+        - Help
     LivingRoomTemperature:
       sentences:
         - What is the temperature in the living room
       conversations:
         - id: CONVERSATION_ID1
         - id: CONVERSATION_ID2
+  default_conversations:
+    - id: CONVERSATION_ID1
   error_suppressed_conversations:
     - id: CONVERSATION_ID2
 
@@ -70,6 +75,16 @@ intents:
               description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
               required: true
               type: string
+default_conversations:
+  description: "A list of conversations that are used for intents if no `conversations` entry for an intent is given."
+  required: false
+  type: [map]
+  default: empty
+  keys:
+    id:
+      description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+      required: true
+      type: string
 error_suppressed_conversations:
   description: "A list of conversations that won't get a message if the intent is not known."
   required: false
@@ -83,6 +98,8 @@ error_suppressed_conversations:
 {% endconfiguration %}
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
+
+The intent `HangoutsHelp` is part of the component and return a list of all sentences the component unterstand in this conversation.
 
 ## {% linkable_title Adding sentences %}
 
