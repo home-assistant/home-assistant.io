@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 featured: true
-logo: home-assistant.png
+logo: smhi.png
 ha_category: Weather
 ha_release: 0.80
 ha_iot_class: "Cloud Polling"
