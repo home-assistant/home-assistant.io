@@ -13,8 +13,8 @@ ha_release: 0.78.0
 ha_iot_class: "Remote Polling"
 ---
 
-The `thermoworks_smoke` sensor platform pulls data for your Thermoworks Smoke Thermometer (https://www.thermoworks.com/Smoke).
-This requires a Smoke WiFi Gateway (https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
+The `thermoworks_smoke` sensor platform pulls data for your [Thermoworks Smoke Thermometer](https://www.thermoworks.com/Smoke).
+This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
 You will need to have previously registered your smoke to your account via the mobile app and provide 
 the email and password you used to in the configuration for this sensor in order to connect and pull your data.
@@ -29,13 +29,13 @@ sensor:
   - platform: thermoworks_smoke
     email: "your email here"
     password: !secret thermoworks_pass
-    monitored_variables:
+    monitored_conditions:
     - probe1
     - probe2
-    - probe1Min
-    - probe1Max
-    - probe2Min
-    - probe2Max
+    - probe1_min
+    - probe1_max
+    - probe2_min
+    - probe2_max
 ```
 
 {% configuration %}
@@ -47,7 +47,7 @@ password:
   description: The password registered in the thermoworks smoke mobile app.
   required: true
   type: string
-monitored_variables:
+monitored_conditions:
   description: The sensors to add. Default is `probe1` and `probe2`.
   required: false
   type: list
@@ -71,10 +71,10 @@ sensor:
   - platform: thermoworks_smoke
     email: "your email here"
     password: !secret thermoworks_pass
-    monitored_variables:
+    monitored_conditions:
     - probe1
-    - probe1Min
-    - probe1Max
+    - probe1_min
+    - probe1_max
 ```
 {% endraw %}
 
@@ -128,10 +128,10 @@ automation:
       - service: notify.all
         data:
           message: >
-            {{- states.sensor.my_smoke_probe_1.attributes.friendly_name }} is above
+            {{- state_attr('sensor.my_smoke_probe_1','friendly_name') }} is above
             {{- ' '+states("input_number.smoke_probe_1_threshold") -}}
-            {{- states.sensor.my_smoke_probe_1.attributes.unit_of_measurement }} at
+            {{- state_attr('sensor.my_smoke_probe_1','unit_of_measurement') }} at
             {{- ' '+states("sensor.my_smoke_probe_1") -}}
-            {{- states.sensor.my_smoke_probe_1.attributes.unit_of_measurement }}
+            {{- state_attr('sensor.my_smoke_probe_1','unit_of_measurement') }}
 ```
 {% endraw %}
