@@ -123,7 +123,7 @@ rgb_command_template:
   type: string
 rgb_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGB state."
-  note: The color value sent by home-assistant is normalized to full brightness if `brightness_command_topic`is set. Brightness information is in this case sent separately in the `brightness_command_topic`. This will cause a a light that expects an absolute color value (including brightness) to flicker.
+  note: The color value sent by home-assistant is normalized to full brightness if `brightness_command_topic` is set. Brightness information is in this case sent separately in the `brightness_command_topic`. This will cause a a light that expects an absolute color value (including brightness) to flicker.
   required: false
   type: string
 rgb_state_topic:
