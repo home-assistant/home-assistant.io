@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Thermoworks Smoke Sensor"
-description: "Pulls temperature data for a Thermoworks Smoke Thermometer connected with Smoke Gateway."
+title: "ThermoWorks Smoke Sensor"
+description: "Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway."
 date: 2018-08-22 17:00
 sidebar: true
 comments: false
@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: thermoworks.png
 ha_category: Sensor
-ha_release: 0.78.0
+ha_release: 0.80.0
 ha_iot_class: "Remote Polling"
 ---
 
-The `thermoworks_smoke` sensor platform pulls data for your [Thermoworks Smoke Thermometer](https://www.thermoworks.com/Smoke).
+The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
 This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
 You will need to have previously registered your smoke to your account via the mobile app and provide 
@@ -59,9 +59,10 @@ exclude:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+This section includes some examples of how to use this sensor.
 
 ### {% linkable_title Only Probe 1 %}
+
 This will show only Probe 1 with min and max data.
 
 {% raw %}
@@ -79,6 +80,7 @@ sensor:
 {% endraw %}
 
 ### {% linkable_title Ignore a Device %}
+
 This will exclude a device from creating sensors. You would replace `"00:00:00:00:00:00"` with your device's serial number.
 
 {% raw %}
@@ -94,8 +96,9 @@ sensor:
 {% endraw %}
 
 ### {% linkable_title Notify when Probe 1 goes above a certain temperature %}
+
 This will use an automation to trigger a notification when Probe 1 goes above a temperature stored in an input_number variable.
-By default your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.
+By default, your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.
 
 {% raw %}
 ```yaml
