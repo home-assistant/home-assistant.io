@@ -75,7 +75,7 @@ Talk to the owner or the maintainer of the code to make your contributions count
 
 It would also be a huge help if you review other Pull Requests. This means that there is a bigger chance that your Pull Request will be handled in a timely manner or that others are. We already have a backlog of Pull Requests in most repositories.
 
-If you think that you are not enough qualified to do it, don’t worry, there are people around who can and will assist you. There is nothing wrong to go for the low hanging fruits first, comment on the most obvious issues and take a deep-dive after  Multiple eyes always see more than one pair.
+If you think that you are not enough qualified to do it, don’t worry, there are people around who can and will assist you. There is nothing wrong to go for the low hanging fruits first, comment on the most obvious issues and take a deep-dive after that. Multiple eyes always see more than one pair.
 
 ## {% linkable_title Not a coder? Not a problem! %}
 
