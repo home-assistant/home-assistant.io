@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: gitlab.png
 ha_category: Sensor
-ha_release: 0.79
+ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
