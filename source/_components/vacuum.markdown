@@ -29,7 +29,7 @@ Before calling one of these services, make sure your vacuum platform supports it
 
 #### {% linkable_title Service `vacuum.turn_on` %}
 
-Start a new cleaning task.
+Start a new cleaning task. For the Xiaomi Vacuum and neato use `vacuum.start` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -37,7 +37,7 @@ Start a new cleaning task.
 
 #### {% linkable_title Service `vacuum.turn_off` %}
 
-Stop the current cleaning task and return to the dock.
+Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and neato use `vacuum.stop` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -106,7 +106,7 @@ Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
-| `fanspeed`                |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
+| `fan_speed`               |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
 #### {% linkable_title Service `vacuum.send_command` %}
 

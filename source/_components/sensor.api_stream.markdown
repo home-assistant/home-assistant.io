@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.33
 ha_iot_class: "Local Push"
 ---
 
 The `api_stream` sensor platform shows how many clients are connected to the stream API 
+
+## {% linkable_title Configuration %}
 
 To add the connected clients to your installation, add the following to your `configuration.yaml` file:
 

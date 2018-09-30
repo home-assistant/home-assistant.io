@@ -40,10 +40,21 @@ aspect_ratio:
   description: "The map's height:width ratio."
   type: string
   default: "100%"
+default_zoom:
+  required: false
+  description: The default zoom level of the map.
+  type: integer
+  default: 14 (or whatever zoom level is required to fit all visible markers)
 {% endconfiguration %}
 
 <p class='note'>
   Only entities that have latitude and longitude attributes will be displayed on the map.
+</p>
+
+<p class="note">
+  The `default_zoom` value will be ignored if it is set higher than the current zoom level
+  after fitting all visible entity markers in the map window. In other words, this can only 
+  be used to zoom the map _out_ by default.
 </p>
 
 ## {% linkable_title Examples %}
@@ -51,6 +62,7 @@ aspect_ratio:
 ```yaml
 - type: map
   aspect_ratio: 100%
+  default_zoom: 8
   entities:
     - device_tracker.demo_paulus
     - zone.home

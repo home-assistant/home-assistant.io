@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: smtp.png
-ha_category: Sensor
+ha_category: Mailbox
 ha_iot_class: "Local Polling"
 ha_release: 0.25
 ---
 
 
 The `imap_email_content` sensor platform will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

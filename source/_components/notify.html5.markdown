@@ -52,7 +52,7 @@ Follow these steps to verify domain ownership with Google Webmaster Central / Se
 2. Create a directory named "www" in your Home Assistant configuration directory (/config share from Samba add-on).
 3. Place the downloaded google*.html file in the "www" directory.
 4. RESTART Home Assistant - this is important!
-5. Verify the file can be accessed in the browser, ie. **https://example.com:8123/local/google123456789.html** (change filename) - you should a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
+5. Verify the file can be accessed in the browser, ie. **https://example.com:8123/local/google123456789.html** (change filename) - you should see a plain text message saying "google-site-verification: ..." - if you see "404: Not Found" or something else, retry the above steps.
 6. Go back to Google Webmaster Central / Search Console and proceed with the verification.
 
 ### {% linkable_title Requirements %}
@@ -72,11 +72,22 @@ The `html5` platform can only function if all of the following requirements are 
 Assuming you have already added the platform to your configuration:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Assuming you have met all the [requirements](#requirements) above, you should see a new slider for Push Notifications through the sidebar Configuration > General.
+2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
+
+### {% linkable_title Testing %}
+
+Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
+
+1. Open Home Assistant in Chrome or Firefox.
+2. Open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
+3. From the Services dropdown, search for your HTML5 notify service (E.G. notify.NOTIFIER_NAME) and select it.
+4. In the Service Data text box enter: {"message":"hello world"}, then press the CALL SERVICE button.
+5. If everything worked you should see a popup notification.
 
 
 ### {% linkable_title Usage %}

@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.65
 ha_iot_class: "Local Push"
 logo: home-assistant.png
@@ -21,8 +21,9 @@ The `filter` platform enables sensors that process the states of other entities.
   <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
 </p>
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
 
+To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

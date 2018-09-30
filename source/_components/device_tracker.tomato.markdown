@@ -15,7 +15,7 @@ ha_release: pre 0.7
 
 The `tomato` platform requires an extra config variable called `http_id`. The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
 
-Because of a limitation in Tomato's API, this platform will only track wireless devices. If tracking wired devices like a Philips Hue Hub is necessary, it is possible to use another platform like [NMAP](/components/device_tracker.nmap_tracker/).
+Because of a limitation in Tomato's API, this platform will only track wireless devices. If tracking wired devices like a Philips Hue Hub is necessary, it is possible to use another platform like [Nmap](/components/device_tracker.nmap_tracker/).
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

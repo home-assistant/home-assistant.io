@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: apple-homekit.png
-ha_category: Light
+ha_category: Switch
 ha_iot_class: "Local Polling"
 ha_release: 0.68
 ---

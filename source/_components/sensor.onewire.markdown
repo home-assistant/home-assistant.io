@@ -27,17 +27,22 @@ Supported devices:
 
 The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using dedicated interface adapter (e.g [DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf)).
 
-#### Raspberry Pi setup
+## {% linkable_title Raspberry Pi setup %}
+
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire). Don't use the `mount_dir` option.
 
-#### Interface adapter setup
+## {% linkable_title Interface adapter setup %}
+
+### {% linkable_title owfs %}
+
 When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](http://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
 
-<p class='note warning'>
-This component has been modified to work with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
+### {% linkable_title Units with multiple sensors %}
+
+This platform works with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
 If you wish to maintain continuity it can be resolved in the database by renaming the old devices to the new names.
 
-Connect to your database using the instructions from [home-assistant.io/docs/backend/database/](/docs/backend/database/). Check the names of sensors:
+Connect to your database using the instructions from [Database section](/docs/backend/database/). Check the names of sensors:
 
 ```sql
 SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
@@ -49,10 +54,10 @@ UPDATE states SET entity_id='sensor.<sensor_name>_temperature' WHERE entity_id L
 UPDATE states SET entity_id='sensor.<sensor_name>_pressure' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%mb%';
 UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%%%' ESCAPE '';
 ```
-Remember to replace `<sensor_name>` with the actual name of the sensor as seen in the `SELECT` query.
-</p>
 
-#### Home Assistant setup
+Remember to replace `<sensor_name>` with the actual name of the sensor as seen in the `SELECT` query.
+
+## {% linkable_title Configuration %}
 
 To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -64,8 +69,14 @@ sensor:
       some_id: your name
 ```
 
-Configuration variables:
-
-- **names** array (*Optional*): ID and friendly name of your sensors.
-- **mount_dir** (*Optional*): Location of device tree if owfs driver used.
+{% configuration %}
+names:
+  description: ID and friendly name of your sensors.
+  required: false
+  type: string
+mount_dir:
+  description: Location of device tree if owfs driver used.
+  required: false
+  type: string
+{% endconfiguration %}
 

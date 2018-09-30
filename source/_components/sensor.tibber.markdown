@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: tibber.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: 0.55
+ha_qa_scale: silver
 ha_iot_class: "Cloud Polling"
 ---
 
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
+If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
 To add Tibber to your installation, add the following to your `configuration.yaml` file:
 
