@@ -31,6 +31,8 @@ If you submit five (5) Pull Requests during October, you will have earned yourse
 
 Are you ready? [Sign up for Hacktoberfest](https://hacktoberfest.digitalocean.com/sign_up/register)!
 
+<!--more-->
+
 ## {% linkable_title Details %}
 
 Hacktoberfest will create a lot of work for us. In 2017 we processed 625 Pull Requests in our three main repositories and some more for other parts of Home Assistant during October. We still only have limited resources and for this edition of Hackoberfest we decided to set some rules. These rules will help us and keep your frustration level to a minimum.
