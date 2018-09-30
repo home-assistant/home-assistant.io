@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SMHI"
-description: "Instructions on how to integrate SMHI forecasts within Homeassistant."
+description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
 date: 2018-09-23 20:00
 sidebar: true
 comments: false
@@ -20,9 +20,9 @@ The `smhi` component adds support for the [SMHI.se](https://www.smhi.se/) web se
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
 
-To add SMHI weather forecast to your installation, go to the Integrations page inside the config panel and add a location by providing the longitude and altitude of your location.
+To add SMHI weather forecast to your installation, go to the Integrations page inside the config panel and add a location by providing the longitude and latitude of your location.
 
-If the location is configured in Home Assistant, it will be selected as default location. After that you can add additional locations.
+If the location is configured in Home Assistant, it will be selected as the default location. After that, you can add additional locations.
 
 <p class='note warning'>
 You can only add locations through the integrations page, not in configuration files.
