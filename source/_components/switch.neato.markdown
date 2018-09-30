@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Robotics Switch"
-description: "Instructions how to integrate a Neato Botvac Connected switch within Home Assistant."
+description: "Instructions on how to integrate a Neato Botvac Connected switch within Home Assistant."
 date: 2016-10-19 17:10
 sidebar: true
 comments: false

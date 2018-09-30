@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OctoPrint Sensor"
-description: "Instructions how to integrate OctoPrint sensors within Home Assistant."
+description: "Instructions on how to integrate OctoPrint sensors within Home Assistant."
 date: 2016-05-05 08:00
 sidebar: true
 comments: false
@@ -31,16 +31,19 @@ sensor:
       - Current State
       - Temperatures
       - Job Percentage
+      - Time Elapsed
+      - Time Remaining
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
 - **monitored_conditions** array (*Required*): States to monitor.
-  - **Current State**: Text of current state)
+  - **Current State**: Text of current state.
   - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
   - **Job Percentage**: Percentage of the job.
-
+  - **Time Elapsed**: Time elapsed on current print job, in seconds.
+  - **Time Remaining**: Time remaining on current print job, in seconds.
 
 <p class='note'>
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.

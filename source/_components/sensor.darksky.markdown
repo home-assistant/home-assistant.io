@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Dark Sky"
+title: "Dark Sky Sensor"
 description: "How to integrate Dark Sky within Home Assistant."
 date: 2016-09-26 08:00
 sidebar: true
@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: dark_sky.png
 ha_category: Weather
-featured: true
-ha_release: 0.30
+featured: false
+ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
 ha_iot_class: "Cloud Polling"
 ---
@@ -20,7 +20,7 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <p class='note warning'>
-[Dark Sky](https://darksky.net/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
+[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
@@ -41,6 +41,46 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
+- **language** (*Optional*): The desired language of the summary properties. Valid options are
+  - `ar`: Arabic
+  - `az`: Azerbaijani
+  - `be`: Belarusian
+  - `bg`: Bulgarian
+  - `bs`: Bosnian
+  - `ca`: Catalan
+  - `cs`: Czech
+  - `da`: Danish
+  - `de`: German
+  - `el`: Greek
+  - `en`: English (which is the default)
+  - `es`: Spanish
+  - `et`: Estonian
+  - `fi`: Finnish
+  - `fr`: French
+  - `hr`: Croatian
+  - `hu`: Hungarian
+  - `id`: Indonesian
+  - `is`: Icelandic
+  - `it`: Italian
+  - `ja`: Japanese
+  - `ka`: Georgian
+  - `kw`: Cornish
+  - `nb`: Norwegian Bokmål
+  - `nl`: Dutch
+  - `pl`: Polish
+  - `pt`: Portuguese
+  - `ro`: Romanian
+  - `ru`: Russian
+  - `sk`: Slovak
+  - `sl`: Slovenian
+  - `sr`: Serbian
+  - `sv`: Swedish
+  - `tet`: Tetum
+  - `tr`: Turkish
+  - `uk`: Ukrainian
+  - `x-pig-latin`: Igpay Atinlay
+  - `zh`: simplified Chinese
+  - `zh-tw`: traditional Chinese
 - **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
@@ -48,6 +88,7 @@ Configuration variables:
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
   - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
+  - **precip_accumulation**: Daily snow accumulation. Returns unknown if no snow accumulation available.
   - **temperature**: The current temperature.
   - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
   - **dew_point**: The dew point.
@@ -61,13 +102,14 @@ Configuration variables:
   - **minutely_summary**: A human-readable text summary for the next hour.
   - **hourly_summary**: A human-readable text summary for the next 24 hours.
   - **daily_summary**: A human-readable text summary for the next 7 days.
-  - **temperature_max**: Today's expected high temperature.
-  - **temperature_min**: Today's expected low temperature.
-  - **apparent_temperature_max**: Today's expected apparent high temperature.
-  - **apparent_temperature_min**: Today's expected apparent low temperature.
+  - **temperature_high**: Today's daytime expected high temperature.
+  - **temperature_low**: Today's overnight expected low temperature.
+  - **apparent_temperature_high**: Today's daytime expected apparent high temperature.
+  - **apparent_temperature_low**: Today's overnight expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
   - **uv_index**: The current UV index.
-- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
+  - **moon_phase**: The fractional part of the lunation number during the given day.
+- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
 - **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
   - `update_interval: 'HH:MM:SS'`

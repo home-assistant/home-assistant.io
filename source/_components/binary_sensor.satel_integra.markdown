@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Satel Integra Binary Sensor"
-description: "Instructions how to integrate Satel Integra binary sensors into Home Assistant."
+description: "Instructions on how to integrate Satel Integra binary sensors into Home Assistant."
 date: 2017-09-07 13:28
 sidebar: true
 comments: false

@@ -14,11 +14,15 @@ ha_release: 0.14
 ---
 
 
-The Steam component will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
+The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
-You need an API key	which is [free](https://steamcommunity.com/dev/apikey) to use the component
+## {% linkable_title Setup %}
 
-To find an account's 64-bit SteamID you can check the URL of the profile page, if it ends with a long string on numbers then that's the 64-bit SteamID. However, if the profile has a custom URL you will have to copy the it and enter it into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
+You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
+
+To find an account's 64-bit SteamID on profiles without a custom URL you can check the URL of the profile page, the long string of numbers at the end is the 64-bit SteamID. If the profile has a custom URL you will have to copy the URL into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
+
+## {% linkable_title Configuration %}
 
 To use Steam in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,12 +36,23 @@ sensor:
       - account2
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  required: true
+  description: Your API key from [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey).
+  type: string
+accounts:
+  required: true
+  description: List of accounts.
+  type: map
+  keys:
+    account_id:
+      required: true
+      description: The 64-bit SteamID.
+      type: string
+{% endconfiguration %}
 
-- **api_key** (*Required*): Your API key from [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey).
-- **accounts** array (*Required*): Array of accounts.
-  - **account_id** (*Required*): 64-bit SteamID.
-
+## {% linkable_title Examples %}
 
 If you want to add the accounts to a group for example you will have to use:
 

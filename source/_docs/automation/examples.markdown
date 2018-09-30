@@ -12,6 +12,7 @@ redirect_from: /getting-started/automation-examples/
 
 Just some sample automation rules to get you started.
 
+{% raw %}
 ```yaml
 # Example of entry in configuration.yaml
 automation:
@@ -37,6 +38,7 @@ automation:
         after: '16:00:00'
         before: '23:00:00'
     action:
+      # With a single service call, we don't need a '-' before service - though you can if you want to
       service: homeassistant.turn_on
       entity_id: group.living_room
 
@@ -64,4 +66,20 @@ automation:
       service: notify.notify
       data:
         message: 'Paulus left the house'
+
+# Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  - alias: 'Xiaomi Cube Action'
+    hide_entity: false
+    initial_state: false
+    trigger:
+      platform: event
+      event_type: cube_action
+      event_data:
+        entity_id: binary_sensor.cube_158d000103a3de
+    action:
+      service_template: notify.pushover
+      data_template: 
+        title: "Cube event detected"
+        message: "Cube has triggered this event: {{ trigger.event }}"
 ```
+{% endraw %}

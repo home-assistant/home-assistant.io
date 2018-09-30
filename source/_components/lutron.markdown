@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron"
-description: "Instructions how to use Lutron devices with Home Assistant."
+description: "Instructions on how to use Lutron devices with Home Assistant."
 date: 2017-01-28 13:00
 sidebar: true
 comments: false
@@ -17,6 +17,8 @@ ha_iot_class: "Local Polling"
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` component in Home Assistant is responsible for communicating with the main hub for these systems.
 
 Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches and dimmers.
+
+## {% linkable_title Configuration %}
 
 When configured, the `lutron` component will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 

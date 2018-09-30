@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "JSON MQTT Device Tracker"
-description: "Instructions how to use JSON MQTT to track devices in Home Assistant."
+description: "Instructions on how to use JSON MQTT to track devices in Home Assistant."
 date: 2017-04-12 20:41
 sidebar: true
 comments: false
@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Presence Detection
-ha_version: 0.44
 ha_iot_class: depends
+ha_release: 0.44
 ---
-
 
 The `mqtt_json` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
 
@@ -27,10 +26,16 @@ device_tracker:
       annetherese_n4: location/annetherese
 ```
 
-Configuration variables:
-
-- **devices** (*Required*): List of devices with their topic.
-- **qos** (*Optional*): The QoS level of the topic.
+{% configuration %}
+devices:
+  description: List of devices with their topic.
+  required: true
+  type: list
+qos:
+  description: The QoS level of the topic.
+  required: false
+  type: string
+{% endconfiguration %}
 
 This platform receives JSON formatted payloads containing GPS information, for example:
 

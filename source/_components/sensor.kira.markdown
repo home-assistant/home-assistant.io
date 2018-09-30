@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kira Sensor"
-description: "Instructions how to integrate Kira modules into Home Assistant."
+description: "Instructions on how to integrate Kira modules into Home Assistant."
 date: 2017-05-07 17:00
 sidebar: true
 comments: false

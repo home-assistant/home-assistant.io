@@ -10,7 +10,7 @@ comments: true
 categories: Release-Notes
 ---
 
-Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we've been hard at work to introduce config validation! Especially huge thanks to [@jaharkes] for his hard work on this. Config validation is still in it's early stages. More common platforms and components have been added but we didn't do everything yet.
+Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we've been hard at work to introduce config validation! Especially huge thanks to [@jaharkes] for his hard work on this. Config validation is still in its early stages. More common platforms and components have been added but we didn't do everything yet.
 
 When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We're looking into options to make it more clear - it is a work in progress.
 

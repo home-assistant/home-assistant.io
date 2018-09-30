@@ -1,18 +1,24 @@
 credits_generator
 =================
 
-This tool can be used to update the [Home Assistant's Credits page](https://home-assistant.io/developers/credits/).
+This tool can be used to update the [Credits page for Home Assistant](https://home-assistant.io/developers/credits/).
 
+Setup
+-----
+
+Fetch the dependencies with `npm`.
 ```bash
 $ cd credits_generator
 $ npm install
 ```
 
-Set your personal GitHub access token as environmental variable.
+Usage
+-----
+Go to https://github.com/settings/tokens/new and generate a new GitHub personal access token.
 
-```bash
-$ export GITHUB_TOKEN=<Your GitHub access token>
-```
+Give the token any name and select the `public_repo` and `read:user` scopes.
+
+Put the token in this repo in a file named `.token`.
 
 Run the script.
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HDDTemp"
-description: "Instructions how to integrate hard drive temperature information into Home Assistant."
+description: "Instructions on how to integrate hard drive temperature information into Home Assistant."
 date: 2016-10-28 07:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Service Calls"
-description: "Instructions how to call services in Home Assistant."
+description: "Instructions on how to call services in Home Assistant."
 date: 2016-03-12 12:00 -0800
 sidebar: true
 comments: false

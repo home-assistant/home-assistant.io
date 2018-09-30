@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "InfluxDB Sensor"
-description: "Instructions how to integrate InfluxDB sensors within Home Assistant."
+description: "Instructions on how to integrate InfluxDB sensors within Home Assistant."
 date: 2016-10-26 23:15
 sidebar: true
 comments: false
@@ -50,7 +50,7 @@ Configuration variables for the server:
 
 ### {% linkable_title Full configuration %}
 
-The example configuration entry bellow create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
+The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`

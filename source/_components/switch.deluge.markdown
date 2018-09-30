@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Deluge Switch"
-description: "Instructions how to integrate Deluge within Home Assistant."
+description: "Instructions on how to integrate Deluge within Home Assistant."
 date: 2017-10-19 09:00
 sidebar: true
 comments: false

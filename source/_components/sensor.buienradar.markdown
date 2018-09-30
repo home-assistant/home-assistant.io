@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Buienradar"
-description: "Instructions how to integrate buienradar.nl sensor within Home Assistant."
+title: "Buienradar Sensor"
+description: "Instructions on how to integrate buienradar.nl sensor within Home Assistant."
 date: 2017-05-15 14:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0). 
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0). 
 
 The selected weather station will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weather station).
 
@@ -56,7 +56,7 @@ Configuration variables:
   - **groundtemperature**: The current ground temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
   - **windspeed**: The wind speed in [m/s](https://en.wikipedia.org/wiki/M/s).
   - **windforce**: The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale).
-  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
+  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (North-East), etc.
   - **windazimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **pressure**: The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal).
   - **visibility**: Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre)).

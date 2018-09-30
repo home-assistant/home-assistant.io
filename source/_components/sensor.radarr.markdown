@@ -1,24 +1,26 @@
 ---
 layout: page
 title: "Radarr Sensor"
-description: "Instructions how to integrate Radarr sensors with Home Assistant"
+description: "Instructions on how to integrate Radarr sensors with Home Assistant"
 date: 2017-05-04 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: radarr.png
-ha_category: Sensor
+ha_category: Downloading
 ha_release: 0.47
 ---
 
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
+## {% linkable_title Configuration %}
+
 To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -48,7 +50,7 @@ In this section you find some real life examples of how to use this sensor.
 ### {% linkable_title Get Episodes airing in next 2 days %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -63,7 +65,7 @@ sensor:
 SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the config here (unless it is changed to 7878).
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -78,7 +80,7 @@ sensor:
 ### {% linkable_title Get disk space for all storage locations %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -92,7 +94,7 @@ sensor:
 The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -110,7 +112,7 @@ The Radarr API returns available space in bytes, but this sensor will default to
 *This calculation is done using base 2 math, and may differ from systems calculating using base 10 math.*
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart on macOS"
-description: "Instructions how to setup Home Assistant to launch on Apple macOS."
+description: "Instructions on how to setup Home Assistant to launch on Apple macOS."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false

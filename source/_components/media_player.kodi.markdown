@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Kodi"
-description: "Instructions how to integrate Kodi into Home Assistant."
+description: "Instructions on how to integrate Kodi into Home Assistant."
 date: 2015-06-22 11:00
 sidebar: true
 comments: false
@@ -17,7 +17,9 @@ ha_iot_class: "Local Push"
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
-To add Kodi to your installation, add the following to your `configuration.yaml` file:
+The preferred way to set up the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+
+In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -194,7 +196,7 @@ media_player:
 ```
 
 <p class='note'>
-This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
 </p>
 
 ### {% linkable_title Kodi services samples %}

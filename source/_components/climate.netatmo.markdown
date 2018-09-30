@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Thermostat"
-description: "Instructions how to integrate Netatmo thermostat into Home Assistant."
+description: "Instructions on how to integrate Netatmo thermostat into Home Assistant."
 date: 2016-10-11 08:10
 sidebar: true
 comments: false

@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Sonarr Sensor"
-description: "Instructions how to integrate Sonarr sensors with Home Assistant"
+description: "Instructions on how to integrate Sonarr sensors with Home Assistant"
 date: 2016-11-19 13:35
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: sonarr.png
-ha_category: Sensor
+ha_category: Downloading
 ha_release: 0.34
 ha_iot_class: "Local Polling"
 ---
@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 This `sonarr` sensor platform pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
+## {% linkable_title Configuration %}
+
 To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -51,7 +53,7 @@ In this section you find some real life examples of how to use this sensor.
 ### {% linkable_title Get Episodes airing in next 2 days %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -66,7 +68,7 @@ sensor:
 SSL may run on a different port than the default (8989). The SSL port can be bound to any port in Sonarr, so it should be set in the config here (unless it is changed to 8989). See the [Sonarr site](https://github.com/Sonarr/Sonarr/wiki/SSL) for details on SSL in Sonarr.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -81,7 +83,7 @@ sensor:
 ### {% linkable_title Get disk space for all storage locations %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -95,7 +97,7 @@ sensor:
 The storage locations Sonarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -113,7 +115,7 @@ The Sonarr API returns available space in bytes, but this sensor will default to
 *This calculation is done using base 2 math, and may differ from systems calculating using base 10 math.*
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY

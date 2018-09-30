@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ManyThing"
-description: "Instructions how to setup ManyThing support with IFTTT."
+description: "Instructions on how to setup ManyThing support with IFTTT."
 date: 2015-09-07 18:00
 sidebar: true
 comments: false

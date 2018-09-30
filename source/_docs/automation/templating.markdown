@@ -51,6 +51,14 @@ There are a few very important rules to remember when writing automation templat
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+## {% linkable_title Trigger State Object %}
+
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity could be one of the more common questions. Here are a few ways for the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+
+* `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
+* `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
+* `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
+
 ## {% linkable_title Available Trigger Data %}
 
 The following tables show the available trigger data per platform.
@@ -61,6 +69,7 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `event`.
 | `trigger.event` | Event object that matched.
+| `trigger.event.data` | Optional data
 
 ### {% linkable_title mqtt %}
 

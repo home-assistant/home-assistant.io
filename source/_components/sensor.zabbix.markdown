@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zabbix Sensor"
-description: "Instructions how to integrate Zabbix Triggers sensors within Home Assistant."
+description: "Instructions on how to integrate Zabbix Triggers sensors within Home Assistant."
 date: 2016-12-13 22:57
 sidebar: true
 comments: false
@@ -35,6 +35,6 @@ Configuration variables:
 
 - **triggers** array(*Required*): Specifies that this sensor is for Zabbix 'triggers'. In the future there will be other Zabbix sensors.
 - **name** (*Optional*): Allows you to specify the name for the Sensor, otherwise the host name, as stored in Zabbix, is used.  This is useful when you are specifying a list of hostids to monitor as a single count.
-- **hostids** (*Optional*): This is a list of Zabbis hostids that we want to filter our count on.
+- **hostids** (*Optional*): This is a list of Zabbix hostids that we want to filter our count on.
 - **individual** (*Optional*): A 'true'/'false' to specify whether we should show individual sensors when a list of hostids is provided.  If false, the sensor state will be the count of all triggers for the specified hosts (or all hosts within the Zabbix instance, if hostids isn't provided).
 

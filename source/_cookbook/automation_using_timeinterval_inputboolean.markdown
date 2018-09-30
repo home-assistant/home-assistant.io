@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Change Hue light on interval to random color based on state of a input boolean  %}
+#### {% linkable_title Change Hue light on interval to random color based on state of an input boolean  %}
 
 _Note, Philips Hue is currently the only light platform that support the random effect._
 

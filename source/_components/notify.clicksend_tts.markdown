@@ -38,5 +38,5 @@ Configuration variables:
 * **language** (Optional): The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](http://docs.clicksend.apiary.io/#reference/voice/voice-languages). Default value is `en-us`.
 * **voice** (Optional): The voice that needs to be used to play the message to the recipient. Allowed values are `female` or `male`. Default value is `female`.
 
-To use notifications, please see the [getting started with automation page](https://home-assistant.io/getting-started/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

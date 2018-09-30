@@ -27,6 +27,7 @@ Configuration variables:
 - **path** (*Optional*): Path to your ZoneMinder install. Defaults to `/zm/`.
 - **path_zms** (*Optional*): Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings. Defaults to `/zm/cgi-bin/nph-zms`.
 - **ssl** (*Optional*): Set to `True` if your ZoneMinder installation is using SSL. Default to `False`.
+- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
 - **username** (*Optional*): Your ZoneMinder username.
 - **password** (*Optional*): Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
 
@@ -38,7 +39,8 @@ zoneminder:
   host: ZM_HOST
   path: ZM_PATH
   path_zms: ZM_PATH_ZMS
-  ssl: False
-  username: USERNAME
-  password: PASSWORD
+  ssl: True
+  verify_ssl: True
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```

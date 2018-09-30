@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Linux Battery"
-description: "Instructions how to integrate Linux Battery information into Home Assistant."
+description: "Instructions on how to integrate Linux Battery information into Home Assistant."
 date: 2016-09-06 07:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.28
 ha_iot_class: "Local Polling"
 ---
 
-The `linux_battery` sensor platform is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery. 
+The `linux_battery` sensor platform is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.
 
 To setup a battery sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -23,8 +23,20 @@ sensor:
   - platform: linux_battery
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Friendly name to use for the frontend. Default to "Battery".
-- **battery** (*Optional*): Number of the battery. Default to `1`.
-
+{% configuration %}
+name:
+  description: Friendly name to use for the frontend.
+  required: false
+  default: Battery
+  type: string
+battery:
+  description: Number of the battery.
+  required: false
+  default: 1
+  type: integer
+system:
+  description: "The local system type. Support `linux` and `android`."
+  required: false
+  default: linux
+  type: string  
+{% endconfiguration %}

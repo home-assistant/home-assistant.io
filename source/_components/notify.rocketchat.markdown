@@ -13,7 +13,9 @@ ha_release: 0.56
 ---
 
 
-The `rocketchat` platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+The `rocketchat` notify platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To add Rocket.Chat to your installation, add the following to your `configuration.yaml` file:
 
@@ -23,9 +25,9 @@ notify:
   - platform: rocketchat
     name: NOTIFIER_NAME
     url: https://rocketchat.example.com
-    username: USERNAME
-    password: PASSWORD
-    room: my-awesome-room
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    room: YOUR_ROOM_NAME
 ```
 
 - **name** (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -49,8 +51,7 @@ rocketchat_notification:
 #### {% linkable_title Message variables %}
 
 - **message** (*Required*): Message to be displayed.
-- **data** (*Optional*): Dictionary containing any of the variables defined in the
-           [Rocket.Chat docs](https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage#message-object-example)
+- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat docs](https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage#message-object-example)
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

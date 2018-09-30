@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Locative"
-description: "Instructions how to use Locative to track devices in Home Assistant."
+description: "Instructions on how to use Locative to track devices in Home Assistant."
 date: 2015-10-13 19:00
 sidebar: true
 comments: false
@@ -38,4 +38,4 @@ To configure Locative, you must set up the app to send a `GET` request to your H
 
 When you enter a geofence, your location name in Home Assistant will be set to the name of the geofence in Locative. When you exit a geofence, your location name in Home Assistant will be set to "not home".
 
-To use Locative in combination with another device tracker, such as [nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/), fill in the `mac` field to the Locative entry in `known_devices.yaml` with the MAC address of the device you want to track. The state of the device will be determined by the source that reported last.
+To use Locative in combination with another device tracker, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/), fill in the `mac` field to the Locative entry in `known_devices.yaml` with the MAC address of the device you want to track. The state of the device will be determined by the source that reported last.

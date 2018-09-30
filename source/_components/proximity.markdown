@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Proximity"
-description: "Instructions how to setup Proximity monitoring within Home Assistant."
+description: "Instructions on how to setup Proximity monitoring within Home Assistant."
 date: 2016-02-07 10:00
 sidebar: true
 comments: false
@@ -50,7 +50,7 @@ proximity:
 Configuration variables:
 
 - **zone** (*Optional*): The zone to which this component is measuring the distance to. Default is the home zone.
-- **ignored_zones** array (*Optional*): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g. work or school).
+- **ignored_zones** array (*Optional*): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
 - **devices** array (*Optional*): A list of devices to compare location against to check closeness to the configured zone.
 - **tolerance** (*Optional*): The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
 - **unit_of_measurement** (*Optional*): The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively]. The default value is kilometers.

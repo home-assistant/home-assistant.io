@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NAD tcp"
-description: "Instructions how to integrate the NAD D 7050 or C338 digital amplifiers into Home Assistant."
+description: "Instructions on how to integrate the NAD D 7050 or C338 digital amplifiers into Home Assistant."
 date: 2017-06-07 20:00
 sidebar: true
 comments: false

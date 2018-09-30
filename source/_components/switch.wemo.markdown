@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Belkin WeMo Switch"
-description: "Instructions how to integrate Belkin WeMo switches into Home Assistant."
+description: "Instructions on how to integrate Belkin WeMo switches into Home Assistant."
 date: 2016-02-20 00:47
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DirecTV"
-description: "Instructions how to integrate DirecTV receivers into Home Assistant."
+description: "Instructions on how to integrate DirecTV receivers into Home Assistant."
 date: 2016-07-19 01:0+0000
 sidebar: true
 comments: false

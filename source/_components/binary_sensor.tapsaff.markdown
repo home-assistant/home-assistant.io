@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Taps Aff"
-description: "Instructions how to use the Taps Aff binary sensor in Home Assistant."
+description: "Instructions on how to use the Taps Aff binary sensor in Home Assistant."
 date: 2017-05-28 18:00
 sidebar: true
 comments: false

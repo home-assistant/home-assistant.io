@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HTTP Sensor"
-description: "Instructions how to integrate HTTP sensors within Home Assistant."
+description: "Instructions on how to integrate HTTP sensors within Home Assistant."
 date: 2016-02-05 12:15
 sidebar: true
 comments: false

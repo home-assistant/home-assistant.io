@@ -17,7 +17,7 @@ The `rss_feed_template` component can export any information from Home Assistant
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 rss_feed_template:
   # Accessible on <home assistant url>/api/rss_template/garden
   # Example: https://localhost:8123/api/rss_template/garden

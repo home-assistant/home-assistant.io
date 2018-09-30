@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "AWS SNS"
-description: "Instructions how to publish messages to AWS SNS from Home Assistant."
+description: "Instructions on how to publish messages to AWS SNS from Home Assistant."
 date: 2016-05-14 16:35
 sidebar: true
 comments: false

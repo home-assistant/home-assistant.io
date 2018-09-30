@@ -25,9 +25,13 @@ binary_sensor:
   - platform: iss
 ```
 
-Configuration variables:
-
-- **show_on_map** (*Optional*): Option to show the position of the ISS on the map. Defaults to `False`.
+{% configuration %}
+show_on_map:
+  description: Option to show the position of the ISS on the map.
+  required: optional
+  default: false
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 If you set `show_on_map` `True` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
@@ -38,11 +42,13 @@ If you set `show_on_map` `True` then the location attributes are named `latitude
 
 The [generic camera platform](/components/camera.mjpeg/) offers the possibility to show the location of the ISS on Google Maps.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 camera:
   - platform: generic
     name: ISS
-    still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=5&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}{% endraw %}
-    limit_refetch_to_url_change: true
+    still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=4&size=865x512&maptype=mapnik&markers={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }},lightblue
+     limit_refetch_to_url_change: true
 ```
+{% endraw %}

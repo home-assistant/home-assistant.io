@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Abode Cover"
-description: "Instructions how to integrate Abode covers into Home Assistant."
+description: "Instructions on how to integrate Abode covers into Home Assistant."
 date: 2017-08-26 13:28
 sidebar: true
 comments: false

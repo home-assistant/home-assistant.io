@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Raspberry Pi RF Switch"
-description: "Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch."
+description: "Instructions on how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch."
 date: 2016-05-10 09:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Switch
+ha_category: DIY
 ha_release: 0.19
 ha_iot_class: "Assumed state"
 ---
@@ -18,6 +18,8 @@ The `rpi_rf` switch platform allows you to control devices over 433/315MHz LPD/S
 
 Interoperable with codes sniffed via [the rpi-rf module](https://pypi.python.org/pypi/rpi-rf) or [rc-switch](https://github.com/sui77/rc-switch).
 For more info see the PyPi module description: [rpi-rf](https://pypi.python.org/pypi/rpi-rf).
+
+## {% linkable_title Configuration %}
 
 To enable, add the following to your `configuration.yaml`:
 

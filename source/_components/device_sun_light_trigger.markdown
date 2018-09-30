@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Presence based lights"
-description: "Instructions how to automate your lights with Home Assistant."
+description: "Instructions on how to automate your lights with Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false

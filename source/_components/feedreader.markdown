@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Feedreader
-description: "Instructions how to integrate RSS feeds into Home Assistant."
+description: "Instructions on how to integrate RSS feeds into Home Assistant."
 date: 2016-04-18 22:00
 sidebar: true
 comments: false
@@ -20,14 +20,41 @@ To use RSS feeds in your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 feedreader:
   urls:
-    - https://home-assistant.io/atom.xml
+    - https://www.home-assistant.io/atom.xml
     - https://github.com/blog.atom
     - https://hasspodcast.io/feed/podcast
 ```
 
-Configuration variables:
+{% configuration %}
+  urls:
+    description: List of URLS for your feeds.
+    required: true
+    type: list
+  scan_interval:
+    description: Defines the update interval of the feeds.
+    required: false
+    default: 1 hour
+    type: interval
+  max_entries:
+    description: The maximum number of entries to extract from each feed.
+    required: false
+    default: 20
+    type: int
+{% endconfiguration %}
 
-- **urls** (*Required*): List of URLS for your feeds.
+The following configuration example shows how to configure update interval and maximum number of entries:
+
+```yaml
+# Example configuration.yaml entry with optional parameters
+feedreader:
+  urls:
+    - https://www.home-assistant.io/atom.xml
+    - https://github.com/blog.atom
+    - https://hasspodcast.io/feed/podcast
+  scan_interval:
+    minutes: 30
+  max_entries: 5
+```
 
 Feedreader events can be used out of the box to trigger automation actions, e.g.:
 
@@ -67,4 +94,4 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 
 To get started developing custom components, please refer to the [developers](/developers) documentation
 
-For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml).
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

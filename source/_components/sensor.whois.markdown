@@ -8,20 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: icann.png
-ha_category: Sensor
+ha_category: Network
 ha_release: "0.57"
 ha_iot_class: "Cloud Polling"
 ---
 
 
-`whois` sensor allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers`, and `registrar` details.
+The `whois` sensor platform allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
+
+## {% linkable_title Configuration %}
+
+To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: whois
     domain: example.net
-    name: primary
 ```
 
 {% configuration %}

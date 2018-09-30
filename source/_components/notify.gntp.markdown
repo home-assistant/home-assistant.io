@@ -30,7 +30,7 @@ Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **app_name** (*Optional*): The application name that will be displayed on every notification and will be registered with the server.
-- **app_icon** (*Optional*): The icon that will be displayed on every notification. You can provide a HTTP URL or a `file://` URL. File URLs only work if Home Assistant and the GNTP server are running on the same machine. If no `app_icon` is set a local copy of the Home Assistant logo will be used. If you choose to use a HTTP URL please make the maximum image size 150 px by 150 px as Growl for Mac will sometimes timeout when registering.
+- **app_icon** (*Optional*): The icon that will be displayed on every notification. You can provide an HTTP URL or a `file://` URL. File URLs only work if Home Assistant and the GNTP server are running on the same machine. If no `app_icon` is set a local copy of the Home Assistant logo will be used. If you choose to use an HTTP URL please make the maximum image size 150 px by 150 px as Growl for Mac will sometimes timeout when registering.
 - **hostname** (*Optional*): The hostname or IP address of the GNTP server to contact.
 - **password** (*Optional*): The password to authenticate to the GNTP server with.
 - **port** (*Optional*): The port that the GNTP server runs on. The specification states that servers should not allow users to use any port other than 23053 but `port` is provided here just in case.

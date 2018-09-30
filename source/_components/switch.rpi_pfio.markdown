@@ -1,19 +1,21 @@
 ---
 layout: page
 title: "PiFace Digital I/O Switch"
-description: "Instructions how to integrate the PiFace Digital I/O module into Home Assistant as a switch."
+description: "Instructions on how to integrate the PiFace Digital I/O module into Home Assistant as a switch."
 date: 2016-05-08 15:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Switch
+ha_category: DIY
 ha_release: 0.45
 ha_iot_class: "Local Polling"
 ---
 
 The `rpi_pfio` switch platform allows you to control the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) module.
+
+## {% linkable_title Configuration %}
 
 To use your PiFace Digital I/O module in your installation, add the following to your `configuration.yaml` file:
 

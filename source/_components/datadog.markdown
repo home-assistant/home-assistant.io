@@ -35,7 +35,7 @@ datadog:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP address or hostname of your Datadog host, e.g. 192.168.1.23. Defaults to `localhost`.
+- **host** (*Optional*): The IP address or hostname of your Datadog host, e.g., 192.168.1.23. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8125.
 - **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
 - **rate** (*Optional*): The sample rate of UDP packets sent to Datadog. Defaults to 1.

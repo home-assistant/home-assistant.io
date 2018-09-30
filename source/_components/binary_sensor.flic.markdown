@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Flic Smart Button
-description: "Instructions how to integrate flic buttons within Home Assistant."
+description: "Instructions on how to integrate flic buttons within Home Assistant."
 date: 2016-12-02 22:03
 sidebar: true
 comments: false

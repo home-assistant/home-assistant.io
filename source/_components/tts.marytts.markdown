@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MaryTTS"
-description: "Instructions how to setup MaryTTS with Home Assistant."
+description: "Instructions on how to setup MaryTTS with Home Assistant."
 date: 2017-04-08 16:49
 sidebar: true
 comments: false

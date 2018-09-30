@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Onkyo"
-description: "Instructions how to integrate Onkyo and some Pioneer receivers into Home Assistant."
+description: "Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant."
 date: 2016-03-30 08:00
 sidebar: true
 comments: false
@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 
 The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/) and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this component to work in your Hardware.
 
+## {% linkable_title Configuration %}
+
 To add an Onkyo or Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -28,11 +30,26 @@ media_player:
       pc: 'HTPC'
 ```
 
-Configuration variables:
+ If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.
 
-- **host** (*Optional*): IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
-- **name** (*Required if host is specified*): Name of the device.
-- **sources** (*Optional*): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
+{% configuration %}
+host:
+  description: IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
+  required: false
+  type: string
+name:
+  description: Name of the device. (*Required if host is specified*)
+  required: false
+  type: string
+max_volume:
+  description: Maximum volume. Defaults to 80.
+  required: false
+  type: number
+sources:
+  description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
+  required: false
+  type: list
+{% endconfiguration %}
 
 List of source names:
 
@@ -62,3 +79,26 @@ List of source names:
 - multi-ch
 - xm
 - sirius
+
+### {% linkable_title Example `play_media` script %}
+
+The `play_media` function can be used in script to play radio station by preset number.
+Not working for NET radio.
+
+```yaml
+# Example play_media script
+#
+script:
+ radio1:
+    alias: "Radio 1"
+    sequence:
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.onkyo
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.onkyo
+          media_content_type: "radio"
+          media_content_id: "1"
+
+```

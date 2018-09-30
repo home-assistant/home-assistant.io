@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Emby"
-description: "Instructions how to integrate Emby into Home Assistant."
+description: "Instructions on how to integrate Emby into Home Assistant."
 date: 2016-10-13 22:00
 sidebar: true
 comments: false

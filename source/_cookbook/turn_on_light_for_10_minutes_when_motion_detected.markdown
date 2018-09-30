@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on lights with a resettable off timer %}
+#### {% linkable_title Turn on lights with a resetable off timer %}
 
 This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.
 
@@ -35,4 +35,41 @@ automation:
   action:
     service: homeassistant.turn_off
     entity_id: light.kitchen_light
+```
+
+Or in the case of multiple sensors/triggers:
+
+```yaml
+automation:
+- alias: Turn on hallway lights when the doorbell rings, the front door opens or if there is movement
+  trigger:
+  - platform: state
+    entity_id: sensor.motion_sensor, binary_sensor.front_door, binary_sensor.doorbell
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id:
+        - light.hallway_0
+        - light.hallway_1
+  - service: timer.start
+    data:
+      entity_id: timer.hallway
+
+- alias: Turn off hallway lights 10 minutes after trigger
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.hallway
+  action:
+    service: homeassistant.turn_off
+    data:
+      entity_id:
+        - light.hallway_0
+        - light.hallway_1
+
+timer:
+  hallway:
+    duration: '00:10:00'
 ```

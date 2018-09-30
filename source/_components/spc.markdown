@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SPC"
-description: "Instructions how to setup Vanderbilt SPC devices within Home Assistant."
+description: "Instructions on how to setup Vanderbilt SPC devices within Home Assistant."
 date: 2017-05-18 08:00
 sidebar: true
 comments: false
@@ -27,8 +27,8 @@ spc:
 
 Configuration variables:
 
-- **api_url** (*Required*): URL of the SPC Web Gateway command REST API, e.g. `http://<ip>:8088`.
-- **ws_url** (*Required*): URL of the SPC Web Gateway websocket, e.g. `ws://<ip>:8088`.
+- **api_url** (*Required*): URL of the SPC Web Gateway command REST API, e.g., `http://<ip>:8088`.
+- **ws_url** (*Required*): URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088`.
 
 Supported sensors will be automatically discovered and added, however they will be hidden by default.
 

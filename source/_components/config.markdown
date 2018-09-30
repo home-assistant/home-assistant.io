@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Config"
-description: "Instructions how to setup the configuration panel for Home Assistant."
+description: "Instructions on how to setup the configuration panel for Home Assistant."
 date: 2017-02-24 20:00
 sidebar: true
 comments: false

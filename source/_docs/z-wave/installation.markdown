@@ -10,45 +10,56 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
+The first time you enable the Z-Wave component it will install the Z-Wave drivers (python-openzwave). This can take up to half an hour on slow machines like Raspberry Pi.
+
+Installing the drivers might require some extra packages to be installed. Check your platform below.
+
+## {% linkable_title Platform specific installation instructions %}
+
+### {% linkable_title Linux (except Hass.io) %}
+
 On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
 ```
 
-On Python 3.6 you may also have to install libpython3.6-dev, and possibly python3.6-dev.
+On Python 3.6 you may also have to install `libpython3.6-dev`, and possibly `python3.6-dev`.
 
-When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed. 
+### {% linkable_title macOS %}
+
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
 
 ```bash
 $ sudo /Applications/Python\ x.x/Install\ Certificates.command
 ```
 
-<p class='note'>
-The installation of python-openzwave can take half an hour or more on a Raspbery Pi.
-</p>
+### {% linkable_title Raspberry Pi %}
+
+On Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
 
 ## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 zwave:
-  usb_path: /dev/ttyUSB0
+  usb_path: /dev/ttyACM0
+  device_config: !include zwave_device_config.yaml
 ```
 
 {% configuration zwave %}
-usb_path: 
+usb_path:
   description: The port where your device is connected to your Home Assistant host.
   required: false
   type: string
   default: /zwaveusbstick
 network_key:
-  description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices.
+  description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely.
   required: false
   type: string
   default: None
-config_path: 
-  description: The path to the Python OpenZWave configuration files.
+config_path:
+  description: "The path to the Python OpenZWave configuration files. NOTE: there is also the [update_config service](https://www.home-assistant.io/docs/z-wave/services/) to perform updating the config within python-openzwave automatically."
   required: false
   type: string
   default: the 'config' that is installed by python-openzwave
@@ -67,16 +78,11 @@ debug:
   required: false
   type: boolean
   default: False
-new_entity_ids:
-  description: Switch to new entity_id generation.
-  required: false
-  type: boolean
-  default: True
-device_config: 
-  description: This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format.
+device_config / device_config_domain / device_config_glob:
+  description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
   required: false
   type: string, list
-  keys: 
+  keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
       required: false
@@ -98,7 +104,7 @@ device_config:
       type: integer
       default: 2
     invert_openclose_buttons:
-      description: Inverts function of the open and close buttons for the cover domain.
+      description: Inverts function of the open and close buttons for the cover domain. This will not invert the positon and state reporting.
       required: false
       type: boolean
       default: False
@@ -130,7 +136,7 @@ Or, if there is no result, try to find detailed USB connection info with:
 $ dmesg | grep USB
 ```
 
-If Home Assistant (`hass`) runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g., *homeassistant* on Hassbian) give access to the stick with:
 
 ```bash
 $ sudo usermod -a -G dialout homeassistant
@@ -153,17 +159,98 @@ On macOS you can find the USB stick with:
 $ ls /dev/cu.usbmodem*
 ```
 
+### {% linkable_title Hass.io %}
+
+To enable Z-Wave, plug your Z-Wave USB stick into your system and add the following to your `configuration.yaml`:
+
+```yaml
+zwave:
+  usb_path: /dev/ttyACM0
+```
+
+If the above defaults don't work, you can check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
+
+```bash
+$ hassio hardware info
+```
+
+Or you can use the UI and look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
+
+### {% linkable_title RancherOS %}
+
+If you're using RancherOS for containers, you'll need to ensure you enable the kernel-extras service so that the `USB_ACM` module (also known as `cdc_acm`) is loaded:
+
+```bash
+$ sudo ros service enable kernel-extras
+$ sudo ros service up kernel-extras
+```
+
 ### {% linkable_title Network Key %}
 
 Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
 An easy script to generate a random key:
 ```bash
-cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+```
+
+```yaml
+# Example configuration.yaml entry for network_key
+zwave:
+  network_key: "0x2e, 0xcc, 0xab, 0x1c, 0xa3, 0x7f, 0x0e, 0xb5, 0x70, 0x71, 0x2d, 0x98, 0x25, 0x43, 0xee, 0x0c"
 ```
 
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 
 ## {% linkable_title First Run %}
 
-Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may speed up this process.
+The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+
+The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Component could not be set up %}
+
+Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path (here we're using `/dev/ttyAMA0` for our Razberry board):
+
+```bash
+$ ls -l /dev/ttyAMA0
+```
+
+You should then see something like this:
+
+```
+crw-rw---- 1 root dialout 204, 64 Apr  1 12:34 /dev/ttyAMA0
+```
+
+The important pieces are the first piece `crw-rw----` and the group `dialout`. If those are different then, for your device path, run:
+
+```bash
+$ sudo chgrp dialout /dev/ttyAMA0
+$ sudo chmod g+rw /dev/ttyAMA0
+```
+
+Check too that the account you're running Home Assistant as is in the `dialout` group. For instance, if you're using `homeassistant`:
+
+```bash
+$ groups homeassistant
+```
+
+That should include `dialout`, if it doesn't then:
+
+```bash
+$ sudo usermod -G dialout homeassistant
+```
+
+### {% linkable_title Device path changes %}
+
+If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
+
+### {% linkable_title Unable to install Python Openzwave %}
+
+If you're getting errors like:
+
+    openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
+
+Then the problem is that you're missing `libudev-dev`, please [install it](/docs/z-wave/installation/#linux-except-hassio).

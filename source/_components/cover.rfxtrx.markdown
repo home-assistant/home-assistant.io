@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Cover"
-description: "Instructions how to integrate RFXtrx covers into Home Assistant."
+description: "Instructions on how to integrate RFXtrx covers into Home Assistant."
 date: 2016-08-24 14:30
 sidebar: true
 comments: false
@@ -67,3 +67,8 @@ Configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of new covers (Siemens/LightwaveRF only).
 - **signal_repetitions** (*Optional*): Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the roller shutter to try to send each signal repeatedly.
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
+
+<p class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes. 
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</p>

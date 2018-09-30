@@ -31,8 +31,20 @@ sensor:
       - INR
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: "The API Key from [Currencylayer](https://currencylayer.com/)."
+  required: true
+  type: string
+quote:
+  description: The symbol(s) of the quote or target currencies.
+  required: false
+  type: string, list
+  default: Exchange rate
+base:
+  description: The symbol of the base currency.
+  required: false
+  type: string
+  default: USD
+{% endconfiguration %}
 
-- **api_key** (*Required*): API Key from [Currencylayer](https://currencylayer.com/).
-- **base** (*Optional*): The symbol of the base currency. Defaults to USD.
-- **quote** (*Required*): The symbol(s) of the quote or target currencies.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Text-to-Speech"
-description: "Instructions how to setup Google Text-to-Speech with Home Assistant."
+description: "Instructions on how to setup Google Text-to-Speech with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -24,7 +24,8 @@ tts:
 
 Configuration variables:
 
-- **language** (*Optional*): The language to use. Defaults to `en`. 
+- **language** (*Optional*): The language to use. Defaults to `en`.
+  - [Complete list of supported languages (Languages where "Talk" feature is enabled in Google Translate)](https://translate.google.com/intl/en_ALL/about/languages/), use 2 digit language code which you can find at the end of url when you click on Language name.
 
 A full configuration sample:
 
@@ -35,7 +36,7 @@ tts:
     language: 'de'
 ```
 
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `html` component as follows:
+If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` component as follows:
 
 ```yaml
 #Example configuration.yaml entry

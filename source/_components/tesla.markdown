@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: tesla.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.53
 ha_iot_class: "Cloud Polling"
 ---
@@ -18,19 +18,19 @@ The `Tesla` component offers integration with the [Tesla](https://auth.tesla.com
 
 This component provides the following platforms:
  - Binary sensors - such as parking and charger connection.
- - Sensors - such as Battery level, Inside/Outside temperature.
+ - Sensors - such as Battery level, Inside/Outside temperature, odometer, and estimated range.
  - Device tracker - to track location of your car
  - Lock - Door lock. Enables you to control Tesla's door lock
  - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
- - Switch - Charger switch. Allow you to start/stop charging.
+ - Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
 
 To use Tesla in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 tesla:
-  username: email
-  password: password
+  username: YOUR_E_MAIL_ADDRESS
+  password: YOUR_PASSWORD
 ```
 
 Configuration variables:

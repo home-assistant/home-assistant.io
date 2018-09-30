@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zengge"
-description: "Instructions how to integrate Zengge Bluetooth bulbs into Home Assistant."
+description: "Instructions on how to integrate Zengge Bluetooth bulbs into Home Assistant."
 date: 2017-01-14 08:00
 sidebar: true
 comments: false

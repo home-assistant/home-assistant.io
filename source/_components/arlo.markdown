@@ -15,29 +15,41 @@ ha_iot_class: "Cloud Polling"
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable device linked in your [Arlo](https://arlo.netgear.com/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 arlo:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Arlo account.
-- **password** (*Required*): The password for accessing your Arlo account.
+{% configuration %}
+username:
+  description: The username for accessing your Arlo account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Arlo account.
+  required: true
+  type: string
+scan_interval:
+  description: How frequently to query for new data. Defaults to 60 seconds.
+  required: false
+  type: int
+{% endconfiguration %}
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.
 
-Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/).
+Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
 
-The Arlo component also provides a service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
+The Arlo component also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
 ```yaml
 #automation.yaml
-- alias: Enable Arlo upton HA start'
+- alias: Enable Arlo upon HA start'
   initial_state: 'on'
   trigger:
     platform: homeassistant

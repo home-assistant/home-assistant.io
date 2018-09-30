@@ -103,7 +103,7 @@ plt.xlabel('Time line')
 plt.savefig('sensor.png')
 ```
 
-Creating a connection to the database and executing a query is similar to the ways already seen. The return values from the query are splitted into two lists. The time stamps must be converted in an value which is accepted by matplotlib and then the graph is generated and saved as image. 
+Creating a connection to the database and executing a query is similar to the ways already seen. The return values from the query are split into two lists. The time stamps must be converted in an value which is accepted by matplotlib and then the graph is generated and saved as image. 
 
 <p class='img'>
   <img src='/images/blog/2016-07-reporting/mpl-sensor.png' />

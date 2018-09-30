@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Apple TV Remote"
-description: "Instructions how to integrate Apple TV remote into Home Assistant."
+description: "Instructions on how to integrate Apple TV remote into Home Assistant."
 date: 2017-06-26 20:50
 sidebar: true
 comments: false
@@ -37,7 +37,4 @@ data:
     - left
     - menu
     - select
-  device: ''
 ```
-
-Please note that `device` must be specified (because of validation) but is not used by this platform. So you may specify any value.

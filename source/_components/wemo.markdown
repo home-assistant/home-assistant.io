@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Belkin WeMo"
-description: "Instructions how to integrate Belkin WeMo devices into Home Assistant."
+description: "Instructions on how to integrate Belkin WeMo devices into Home Assistant."
 date: 2016-02-20 00:41
 sidebar: true
 comments: false
@@ -36,3 +36,14 @@ Any WeMo devices that are not statically configured but reachable via discovery 
 Note that if you use this, you may want to set up your router (or whatever runs your DHCP server) to force your WeMo devices to use a static IP address. Check the DHCP section of your router configuration for this ability.
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming request on port 8989 since this is the address to which the WeMo devices send their update.
+
+## {% linkable_title Emulated devices %}
+
+Various software that emulates WeMo devices often uses alternative ports. Static configuration should include the port value:
+
+```yaml
+wemo:
+  static:
+    - 192.168.1.23:52001
+    - 192.168.52.172:52002
+```

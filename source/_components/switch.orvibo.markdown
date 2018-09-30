@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Orvibo Switch"
-description: "Instructions how to integrate Orvibo sockets within Home Assistant."
+description: "Instructions on how to integrate Orvibo sockets within Home Assistant."
 date: 2015-11-15 18:15
 sidebar: true
 comments: false

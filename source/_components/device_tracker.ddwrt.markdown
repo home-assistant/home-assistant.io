@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DD-WRT"
-description: "Instructions how to integrate DD-WRT based routers into Home Assistant."
+description: "Instructions on how to integrate DD-WRT based routers into Home Assistant."
 date: 2015-05-11 09:00
 sidebar: true
 comments: false
@@ -27,7 +27,7 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. `192.168.1.1`.
+- **host** (*Required*): The IP address of your router, e.g., `192.168.1.1`.
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 

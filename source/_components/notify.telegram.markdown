@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telegram"
-description: "Instructions how to add Telegram notifications to Home Assistant."
+description: "Instructions on how to add Telegram notifications to Home Assistant."
 date: 2015-10-09 18:00
 sidebar: true
 comments: false
@@ -25,7 +25,7 @@ To retrieve your `chat_id`, contact any of the Telegram bots created for this pu
 
 The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates`. Replace `YOUR_API_TOKEN` with your actual token.
 
-The result set will include your chat ID as `id` in the `from` section:
+The result set will include your chat ID as `id` in the `chat` section:
 
 ```json
 {
@@ -99,7 +99,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: '*Send a message*'
-    message: 'That's an example that _sends_ a *formatted* message with a custom inline keyboard.'
+    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
         - 'Task 1:/command1, Task 2:/command2'
@@ -121,7 +121,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send an images
-    message: That's an example that sends an image.
+    message: "That's an example that sends an image."
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -156,6 +156,35 @@ homeassistant:
 ```
 </p>
 
+### {% linkable_title Video support %}
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send a video
+    message: "That's an example that sends a video."
+    data:
+      video:
+        - url: http://192.168.1.28/camera.mp4
+          username: admin
+          password: secrete
+        - file: /tmp/video.mp4
+          caption: Video Title xy
+        - url: http://somebla.ie/video.mp4
+          caption: I.e. for a Title
+```
+
+Configuration variables:
+
+- **url** or **file** (*Required*): For local or remote path to a video.
+- **caption** (*Optional*): The title of the video.
+- **username** (*Optional*): Username for a URL which require HTTP authentication.
+- **password** (*Optional*): Username for a URL which require HTTP authentication.
+- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 ### {% linkable_title Document support %}
 
@@ -165,7 +194,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's an example that sends a document and a custom keyboard.
+    message: "That's an example that sends a document and a custom keyboard."
     data:
       document:
         file: /tmp/whatever.odf

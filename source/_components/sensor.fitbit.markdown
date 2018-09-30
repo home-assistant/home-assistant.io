@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Fitbit"
-description: "Instructions how to integrate Fitbit devices within Home Assistant."
+description: "Instructions on how to integrate Fitbit devices within Home Assistant."
 date: 2016-05-09 15:01
 sidebar: true
 comments: false
@@ -36,6 +36,7 @@ Configuration variables:
 
 - **monitored_resources** (*Optional*): Resource to monitor. Defaults to `activities/steps`.
 - **clock_format** (*Optional*): Format to use for `sleep/startTime` resource. Accepts `12H` or `24H`. Defaults to `24H`.
+- **unit_system** (*Optional*): Unit system to use for measurements. Accepts `default`, `metric`, `en_US` or `en_GB`. Defaults to `default`.
 
 Below is the list of resources that you can add to `monitored_resources`. One sensor is exposed for every resource.
 

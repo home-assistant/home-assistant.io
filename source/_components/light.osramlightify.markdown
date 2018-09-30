@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Osram Lightify"
-description: "Instructions how to integrate Osram Lightify into Home Assistant."
+description: "Instructions on how to integrate Osram Lightify into Home Assistant."
 date: 2016-05-29 08:00
 sidebar: true
 comments: false
@@ -23,5 +23,5 @@ light:
 Configuration variables:
 
 - **host** (*Required*): IP address of the Osram Lightify bridge, eg. `192.168.1.50`.
+- **allow_lightify_nodes** (*Optional*): (true/false) Edit this to stop homeassistant from importing the lightify lights.
 - **allow_lightify_groups** (*Optional*): (true/false) Edit this to stop homeassistant from importing the lightify groups.
-

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "UPC ConnectBox"
-description: "Instructions how to integrate UPC ConnectBox into Home Assistant."
+description: "Instructions on how to integrate UPC ConnectBox into Home Assistant."
 date: 2016-12-30 00:00
 sidebar: true
 comments: false
@@ -32,4 +32,5 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0
  - Ziggo Connectbox NL
+ - Unitymedia Connect Box (DE)
 

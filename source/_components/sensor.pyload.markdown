@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "pyLoad Sensor"
-description: "Instructions how to integrate pyLoad download sensor within Home Assistant."
+description: "Instructions on how to integrate pyLoad download sensor within Home Assistant."
 date: 2017-10-23 09:00
 sidebar: true
 comments: false
@@ -13,7 +13,6 @@ ha_release: 0.58
 ha_iot_class: "Local Polling"
 ---
 
-
 The `pyload` platform allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
@@ -24,13 +23,36 @@ sensor:
   - platform: pyload
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): This is the IP address of your pyLoad download manager, eg. 192.168.0.100. Defaults to `localhost`.
-- **port** (*Optional*): The port your pyLoad interface uses. Defaults to 8000.
-- **name** (*Optional*): The name to use when displaying this pyLoad instance.
-- **username** (*Optional*): Your pyLoad username.
-- **password** (*Optional*): Your pyLoad password.
+{% configuration %}
+host:
+  description: This is the IP address of your pyLoad download manager.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port your pyLoad interface uses.
+  required: false
+  type: int
+  default: 8000
+name:
+  description: The name to use when displaying this pyLoad instance.
+  required: false
+  type: string
+  default: 20
+username:
+  description: Your pyLoad username.
+  required: false
+  type: string
+password:
+  description: Your pyLoad password.
+  required: false
+  type: string
+ssl:
+  description: Enable SSL/TLS for the host.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 If everything is setup correctly, the download speed will show up in the frontend.
 

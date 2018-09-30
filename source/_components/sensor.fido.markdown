@@ -1,14 +1,14 @@
 ---
 layout: page
-title: "Fido"
-description: "Instructions how to integrate Fido data usage within Home Assistant."
+title: "Fido Sensor"
+description: "Instructions on how to integrate Fido data usage within Home Assistant."
 date: 2017-01-01 17:17
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: fido.png
-ha_category: Sensor
+ha_category: Network
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
@@ -16,7 +16,9 @@ ha_iot_class: "Cloud Polling"
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+## {% linkable_title Configuration %}
+
+To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

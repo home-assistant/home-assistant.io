@@ -21,8 +21,6 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: avion
-    username: testuser@fakedomain.com
-    password: foobar
 ```
 
 Configuration variables:

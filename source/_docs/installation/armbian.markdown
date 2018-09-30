@@ -11,6 +11,8 @@ footer: true
 
 [armbian](https://www.armbian.com) runs on a wide-variety of [ARM development boards](https://www.armbian.com/download/). Currently there are around 50 boards supported inclusive the OrangePi family, Cubieboard, Pine64, and Odroid.
 
+Python 3.5.3 or later is required.
+
 Setup Python and `pip`
 
 ```bash

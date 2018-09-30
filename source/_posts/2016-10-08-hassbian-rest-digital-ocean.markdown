@@ -36,7 +36,7 @@ With the [statistics sensor][stats-sensor] we would like to introduce a new sens
   <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
 </p>
 
-As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
+As the results are processed on-the-fly you still need to use the data from your database for an in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
 
 ### {% linkable_title REST! We don't... %}
 

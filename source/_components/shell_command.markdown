@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Shell command"
-description: "Instructions how to integrate Shell commands into Home Assistant."
+description: "Instructions on how to integrate Shell commands into Home Assistant."
 date: 2015-10-13 19:10
 sidebar: true
 comments: false
@@ -32,6 +32,8 @@ Configuration variables:
 The commands can be dynamic, using templates to insert values for arguments. When using templates, shell_command runs in a more secure environment which doesn't allow any shell helpers like automatically expanding the home dir `~` or using pipe symbols to run multiple commands.
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
+
+`stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/components/logger/) to debug.
 
 ```yaml
 

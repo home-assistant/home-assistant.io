@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LlamaLab Automate"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2016-08-21 13:00
 sidebar: true
 comments: false

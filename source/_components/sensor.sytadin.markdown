@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sytadin Sensor"
-description: "Instructions how to integrate Sytadin sensors into Home Assistant."
+description: "Instructions on how to integrate Sytadin sensors into Home Assistant."
 date: 2017-10-05 14:00
 sidebar: true
 comments: false
@@ -9,11 +9,13 @@ sharing: true
 footer: true
 logo: sytadin.png
 ha_release: 0.57
-ha_category: Sensor
+ha_category: Car
 ha_iot_class: "Clound Polling"
 ---
 
 The `sytadin` sensor platform allows you to monitor traffic details from [Sytadin](http://www.sytadin.fr).
+
+## {% linkable_title Configuration %}
 
 To add Sytadin to your installation, add the following to your `configuration.yaml` file:
 

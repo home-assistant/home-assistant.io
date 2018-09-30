@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LiteJet Switch"
-description: "Instructions how to setup the LiteJet switches within Home Assistant."
+description: "Instructions on how to setup the LiteJet switches within Home Assistant."
 date: 2016-10-26 13:00
 sidebar: true
 comments: false

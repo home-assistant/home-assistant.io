@@ -1,20 +1,22 @@
 ---
 layout: page
 title: "Command line Sensor"
-description: "Instructions how to integrate command line sensors into Home Assistant."
+description: "Instructions on how to integrate command line sensors into Home Assistant."
 date: 2015-09-13 10:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
 
 The `command_line` sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.
+
+## {% linkable_title Configuration %}
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -31,7 +33,9 @@ Configuration variables:
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
+- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
+- **json_attributes** (*Optional*): Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
 
 ## {% linkable_title Examples %}
 
@@ -61,6 +65,7 @@ sensor:
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -69,8 +74,9 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
-    value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Monitoring failed login attempts on Home Assistant %}
 
@@ -81,10 +87,10 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 sensor:
   - platform: command_line
     name: badlogin
-    command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+    command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
-Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
+Make sure to configure the [logger component](/components/logger) to monitor the [http component](/components/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works
@@ -143,13 +149,13 @@ sensor:
   - platform: command_line
     name: Brightness
     command: "python3 /path/to/script/arest-value.py"
-    unit_of_measurement: "°C"
 ```
 
 ### {% linkable_title Usage of templating in `command:` %}
 
 [Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -158,3 +164,23 @@ sensor:
     command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
 ```
+{% endraw %}
+
+
+### {% linkable_title Usage of JSON attributes in command output %}
+
+The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using `value_json` and `json_attributes`.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
+    value_template: '{{ value_json.time }}'
+```
+{% endraw %}

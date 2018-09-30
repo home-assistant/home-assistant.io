@@ -32,7 +32,7 @@ In advance of sending a notification:
 
 When sending a notification:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifer.
+1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
 2. Push notification delivered to device
 3. User opens notification.
 3. Action tapped
@@ -141,3 +141,4 @@ Notes:
 
 * `textInput` will only exist if `behavior` was set to `textInput`.
 * `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+* When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.

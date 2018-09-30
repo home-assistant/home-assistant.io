@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera"
-description: "Instructions how to setup Vera Z-Wave hubs and configure devices within Home Assistant."
+description: "Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant."
 date: 2015-03-23 20:04
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: pre 0.7
 
 The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Switches, Lights (inc Dimmers), Locks, Sensors and Binary sensors are supported - and will be automatically added when HA connects to your Vera controller.
+Switches, Lights (inc Dimmers), Locks, Sensors, Binary sensors, and Scenes are supported - and will be automatically added when HA connects to your Vera controller.
 
 To use Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:
 

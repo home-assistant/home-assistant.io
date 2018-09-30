@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mochad"
-description: "Instructions how to integrate Mochad into Home Assistant."
+description: "Instructions on how to integrate Mochad into Home Assistant."
 date: 2016-10-20 17:09
 sidebar: true
 comments: false
@@ -13,6 +13,8 @@ ha_release: 0.32
 
 The `mochad` component is the main component to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component you will have to setup your X10 devices separately.
 
+## {% linkable_title Configuration %}
+
 To integrate your Mochad units with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -20,10 +22,20 @@ To integrate your Mochad units with Home Assistant, add the following section to
 mochad:
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The host that mochad is running on.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port that mochad is running on.
+  required: false
+  type: int
+  default: 1099
+{% endconfiguration %}
 
-- **host** (*Optional*): The host that mochad is running on. Defaults to `localhost`.
-- **port** (*Optional*): The port that mochad is running on. Defaults to `1099`.
+## {% linkable_title Example %}
 
 A full configuration sample could look like the one below:
 

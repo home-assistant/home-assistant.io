@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Sensor"
-description: "Instructions how to integrate RFXtrx sensors into Home Assistant."
+description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
 date: 2015-08-06 17:15
 sidebar: true
 comments: false
@@ -55,7 +55,9 @@ sensor:
        - Humidity
        - Temperature
 ```
+
 Only these data_type are valid :
+
 - *Temperature*
 - *Humidity*
 - *Barometer*
@@ -66,6 +68,7 @@ Only these data_type are valid :
 - *Sound*
 - *Sensor Status*
 - *Counter value*
+- *UV*
 
 Example configuration:
 
@@ -92,4 +95,7 @@ Configuration variables:
 - **data_type**  (*Optional*): Which data type the sensor should show
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
 
-
+<p class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes. 
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</p>

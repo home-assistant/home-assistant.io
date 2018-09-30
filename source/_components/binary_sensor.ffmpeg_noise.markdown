@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Binary Sensor
+ha_category: Image Processing
 ha_release: 0.27
 ---
 
@@ -19,7 +19,7 @@ The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](ht
 If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
 </p>
 
-### {% linkable_title Noise %}
+## {% linkable_title Configuration %}
 
 To add FFmpeg with noise detection to your installation, add the following to your `configuration.yaml` file:
 
@@ -39,7 +39,7 @@ Configuration variables:
 - **duration** (*Optional*): Default 1 second. How long the noise needs to be over the peak to trigger the state.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new noise is over the peak.
 - **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, like audio frequency filtering.
-- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g. to stream with Sonos after a state is triggered.
+- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
 
 To experiment with values:
 

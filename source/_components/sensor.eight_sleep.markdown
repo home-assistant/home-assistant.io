@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Eight Sleep Sensor"
-description: "Instructions how to integrate sensors for Eight Sleep within Home Assistant."
+description: "Instructions on how to integrate sensors for Eight Sleep within Home Assistant."
 date: 2017-04-24 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: eight_sleep.png
-ha_category: Sensor
+ha_category: Health
 ha_release: "0.44"
 ha_iot_class: "Cloud Polling"
 ---

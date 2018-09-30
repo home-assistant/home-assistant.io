@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Simplepush"
-description: "Instructions how to add Simplepush notifications to Home Assistant."
+description: "Instructions on how to add Simplepush notifications to Home Assistant."
 date: 2016-09-11 18:00
 sidebar: true
 comments: false

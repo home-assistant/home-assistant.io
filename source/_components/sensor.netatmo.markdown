@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Sensor"
-description: "Instructions how to integrate Netatmo sensors into Home Assistant."
+description: "Instructions on how to integrate Netatmo sensors into Home Assistant."
 date: 2016-06-23 11:10
 sidebar: true
 comments: false

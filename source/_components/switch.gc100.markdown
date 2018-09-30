@@ -1,7 +1,7 @@
 ---
 layout: page
 title: gc100 Switch
-description: "Instructions on how to set up an gc100 switch within Home Assistant."
+description: "Instructions on how to set up a gc100 switch within Home Assistant."
 date: 2017-10-27 17:26
 sidebar: true
 comments: false

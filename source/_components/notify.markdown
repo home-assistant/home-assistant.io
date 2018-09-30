@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Notifications"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Instructions on how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -21,7 +21,7 @@ notify:
     api_key: ABCDEFG
 ```
 
-The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
+The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied.
 
 ### {% linkable_title Service %}
 
@@ -36,7 +36,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 The notification component supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:
@@ -59,8 +59,8 @@ For services which have support for sending images.
 
 ```json
 { "message": "Test plugin",
-  "data": { 
-    "photo": { 
+  "data": {
+    "photo": {
         "url": "http://www.gbsun.de/gbpics/berge/berge106.jpg"
     }
   }

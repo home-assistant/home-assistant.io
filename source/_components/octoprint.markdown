@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "OctoPrint"
-description: "Instructions how to setup the OctoPrint in Home Assistant."
+description: "Instructions on how to setup the OctoPrint in Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false

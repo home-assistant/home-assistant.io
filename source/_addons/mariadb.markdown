@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside home assistant use `core-mariadb` as the host address.
+Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
 
 ```json
 {
@@ -34,16 +34,16 @@ Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databa
 
 Configuration variables:
 
-- **databases** (*Require*): Listen of databases.
-- **logins** (*Require*): Listen of logindata they will create or update.
-  - **username** (*Require*): Username for login.
-  - **host** (*Require*): Host for login, if you need a login with multibe hosts, use '%'.
-  - **password** (*Require*): Password for login.
-- **rights** (*Require*): Listen of rights to be handle.
-  - **username** (*Require*): Username for grant rights.
-  - **host** (*Require*): Host is a part of username like above.
-  - **database** (*Require*): Database name to grant this user rights to.
-  - **grant** (*Require*): SQL grant part for access too.
+- **databases** (*Required*): List of databases.
+- **logins** (*Required*): List of SQL accounts to create or update.
+  - **username** (*Required*): Username for account.
+  - **host** (*Required*): Host for account. If you need an account on multiple hosts, use '%'.
+  - **password** (*Required*): Password for account.
+- **rights** (*Required*): List of rights to be granted.
+  - **username** (*Required*): Username for granted rights.
+  - **host** (*Required*): Host is a part of username like above.
+  - **database** (*Required*): Database name on which to grant user rights.
+  - **grant** (*Required*): SQL grant part for access too.
 
 ## {% linkable_title Home Assistant configuration %}
 

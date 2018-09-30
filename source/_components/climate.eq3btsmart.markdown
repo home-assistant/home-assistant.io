@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "EQ3 Bluetooth Smart Thermostats"
-description: "Instructions how to integrate EQ3 Bluetooth Smart Thermostats into Home Assistant."
+description: "Instructions on how to integrate EQ3 Bluetooth Smart Thermostats into Home Assistant."
 date: 2016-04-18 22:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nest"
-description: "Instructions how to integrate Nest into Home Assistant."
+description: "Instructions on how to integrate Nest into Home Assistant."
 date: 2016-01-29 21:57
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Hub
 featured: true
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
@@ -27,14 +27,14 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
   - Product name must be unique. We recommend [email] - Home Assistant.
   - The description, users, URLs can all be anything you want.
   - Leave the "Redirect URI" Field blank
-7. For permissions check every box and if it's an option select the read/write option.
+7. For permissions check every box and if it's an option select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" in order to give you access to features like away mode, ETA, structure read/write, and postal code.
   - The description requires a specific format to be accepted.
     - Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
 10. Once Home Assistant is started, a configurator will pop up asking you to log into your Nest account and copy a PIN code into Home Assistant.
 
-Connecting to the Nest Developer API requires outbound port 8553 on your firewall. The configuration will fail if this is not accessible.
+Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
 ### {% linkable_title Configuration %}
 
@@ -65,7 +65,15 @@ Configuration variables:
 
 Currently there is a single `nest.set_mode` service available to switch between
 "away" and "home" modes. This service requires a `home_mode` param and has an
-optional `structure` param.
+optional `structure` param. While setting "away" mode, an estimated arrival time
+can also be set with `eta`, `eta_window`, and `trip_id` parameters.
+
+- **home_mode** (*Required*): `home` or `away`
+- **structure** (*Optional*): Structure(s). Default apply to all structures connected with Home Assistant.
+- **eta** (*Optional*): Estimated Time of Arrival from now.
+- **eta_window** (*Optional*): ETA window (default is 1 minute).
+- **trip_id** (*Optional*): Unique ID for the trip. Using an existing trip ID will update that trip's ETA.
+
 
 ```yaml
 # Example script to set away, no structure specified so will execute for all
@@ -85,4 +93,17 @@ set_nest_home:
         home_mode: home
         structure:
           - Building
+```
+
+```yaml
+# Example script to set eta, structure specified
+set_nest_eta:
+  sequence:
+    - service: nest.set_mode
+      data:
+        home_mode: away
+        structure:
+          - Building
+        eta: 00:10:30
+        eta_window: 00:05
 ```

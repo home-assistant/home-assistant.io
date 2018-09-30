@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Logbook"
-description: "Instructions how to enable the logbook component for Home Assistant."
+description: "Instructions on how to enable the logbook component for Home Assistant."
 date: 2015-04-25 9:23
 sidebar: true
 comments: false
@@ -11,7 +11,7 @@ logo: logbook.png
 ha_category: "History"
 ---
 
-<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. [See the demo for a live example](/demo/). It depends on the `recorder` component for storing the data. This means that if the [`recorder`](/components/recorder/) component is set up to use e.g. MySQL or PostgreSQL as data store, the `logbook` component does not use the default SQLite database to store data.
+<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. [See the demo for a live example](/demo/). It depends on the `recorder` component for storing the data. This means that if the [`recorder`](/components/recorder/) component is set up to use e.g., MySQL or PostgreSQL as data store, the `logbook` component does not use the default SQLite database to store data.
 
 To enable the logbook in your installation, add the following to your `configuration.yaml` file:
 
@@ -26,8 +26,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
   - **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
 - **include** (*Optional*): Configure which components should create logbook entries. 
-  - **entities** (*Optional*): The list of entity ids to be included from creating logbook entries.
-  - **domains** (*Optional*): The list of domains to be included from creating logbook entries.
+  - **entities** (*Optional*): The list of entity ids to be included in creating logbook entries.
+  - **domains** (*Optional*): The list of domains to be included in creating logbook entries.
 
 If you want to exclude messages of some entities or domains from the logbook just add the `exclude` parameter like: 
 
@@ -73,7 +73,7 @@ logbook:
 
 ### {% linkable_title Exclude Events %}
 
-Entities customized as hidden are excluded from the logbook by default, but sometimes you want to show the entity in the UI and not in the logbook. For instance you use the `sensor.date`to show the current date in the UI, but you do not want an logbook entry for that sensor every day.
+Entities customized as hidden are excluded from the logbook by default, but sometimes you want to show the entity in the UI and not in the logbook. For instance you use the `sensor.date`to show the current date in the UI, but you do not want a logbook entry for that sensor every day.
 To exclude these entities just add them to the `exclude` > `entities` list in the configuration of the logbook.
 
 To exclude all events from a whole domain add it to the `exclude` > `domain` list. For instance you use the `sun` domain only to trigger automations on the `azimuth attribute, then you possible are not interested in the logbook entries for sun rise and sun set. 

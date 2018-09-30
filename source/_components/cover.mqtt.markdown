@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Cover"
-description: "Instructions how to integrate MQTT covers into Home Assistant."
+description: "Instructions on how to integrate MQTT covers into Home Assistant."
 date: 2016-09-28 17:30
 sidebar: true
 comments: false
@@ -14,6 +14,8 @@ ha_release: 0.18
 ---
 
 The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter, or a garage door).
+
+## {% linkable_title Configuration %}
 
 The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
@@ -35,33 +37,129 @@ cover:
     command_topic: "home-assistant/cover/set"
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor. Default is `MQTT Cover`.
-- **command_topic** (*Optional*): The MQTT topic to publish commands to control the cover.
-- **payload_open** (*Optional*): The payload that opens the cover. Default is `OPEN`.
-- **payload_close** (*Optional*): The payload that closes the cover. Default is `CLOSE`.
-- **payload_stop** (*Optional*):  The payload that stops the cover. default is `STOP`.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive cover state messages.
-- **state_open** (*Optional*): The payload that represents the open state. Default is `open`.
-- **state_closed** (*Optional*): The payload that represents the closed state. Default is `closed`.
-- **availability_topic** (*Optional*): The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If `availability_topic` is not defined, the cover availability state will always be "available". If `availability_topic` is defined, the cover availability state will be "unavailable" by default.
-- **payload_available** (*Optional*): The payload that represents the online state. Default is `online`.
-- **payload_not_available** (*Optional*): The payload that represents the offline state. Default is `offline`.
-- **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
-- **qos** (*Optional*): The maximum QoS level to be used when receiving and publishing messages. Default is `0`.
-- **retain** (*Optional*): Defines if published messages should have the retain flag set. Default is `false`.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
-- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic.
-- **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
-- **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
-- **tilt_min** (*Optional*): The minimum tilt value. Default is `0`
-- **tilt_max** (*Optional*): The maximum tilt value. Default is `100`
-- **tilt_closed_value** (*Optional*): The value that will be sent on a `close_cover_tilt` command. Default is `0`
-- **tilt_opened_value** (*Optional*): The value that will be sent on an `open_cover_tilt` command. Default is `100`
-- **tilt_status_optimistic** (*Optional*): Flag that determines if tilt works in optimistic mode. Default is `true` if `tilt_status_topic` is not defined, else `false`
-- **tilt_invert_state** (*Optional*): Flag that determines if open/close are flipped; higher values toward closed and lower values toward open. Default is `False`
+{% configuration %}
+name:
+  description: The name of the cover.
+  required: false
+  type: string
+  default: MQTT Cover
+command_topic:
+  description: The MQTT topic to publish commands to control the cover.
+  required: false
+  type: string
+payload_open:
+  description: The command payload that opens the cover.
+  required: false
+  type: string
+  default: OPEN
+payload_close:
+  description: The command payload that closes the cover.
+  required: false
+  type: string
+  default: CLOSE
+payload_stop:
+  description: The command payload that stops the cover.
+  required: false
+  type: string
+  default: STOP
+state_topic:
+  description: The MQTT topic subscribed to receive cover state messages.
+  required: false
+  type: string
+state_open:
+  description: The payload that represents the open state.
+  required: false
+  type: string
+  default: open
+state_closed:
+  description: The payload that represents the closed state.
+  required: false
+  type: string
+  default: closed
+availability_topic:
+  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If `availability_topic` is not defined, the cover availability state will always be `available`. If `availability_topic` is defined, the cover availability state will be `unavailable` by default."
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the online state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the offline state.
+  required: false
+  type: string
+  default: offline
+optimistic:
+  description: Flag that defines if switch works in optimistic mode.
+  required: false
+  type: string
+  default: "`true` if no state topic defined, else `false`."
+qos:
+  description: The maximum QoS level to be used when receiving and publishing messages.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: Defines if published messages should have the retain flag set.
+  required: false
+  type: boolean
+  default: false
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
+set_position_topic:
+  description: The MQTT topic to publish position commands to.
+  required: false
+  type: string
+set_position_template:
+  description: " Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic."
+  required: false
+  type: string
+tilt_command_topic:
+  description: The MQTT topic to publish commands to control the cover tilt.
+  required: false
+  type: string
+tilt_status_topic:
+  description: The MQTT topic subscribed to receive tilt status update values.
+  required: false
+  type: string
+tilt_min:
+  description: The minimum tilt value.
+  required: false
+  type: integer
+  default: 0
+tilt_max:
+  description: The maximum tilt value
+  required: false
+  type: integer
+  default: 100
+tilt_closed_value:
+  description: The value that will be sent on a `close_cover_tilt` command.
+  required: false
+  type: integer
+  default: 0
+tilt_opened_value:
+  description: The value that will be sent on an `open_cover_tilt` command.
+  required: false
+  type: integer
+  default: 0
+tilt_status_optimistic:
+  description: Flag that determines if tilt works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if `tilt_status_topic` is not defined, else `false`"
+tilt_invert_state:
+  description: Flag that determines if open/close are flipped; higher values toward closed and lower values toward open.
+  required: false
+  type: boolean
+  default: false
+unique_id:
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -72,32 +170,7 @@ In this section you will find some real life examples of how to use this platfor
 The example below shows a full configuration for a cover without tilt.
 
 ```yaml
-# Example configuration.yml entry
-cover:
-  - platform: mqtt
-    name: "MQTT Cover"
-    command_topic: "home-assistant/cover/set"
-    state_topic: "home-assistant/cover/state"
-    availability_topic: "home-assistant/cover/availability"    
-    qos: 0
-    retain: true
-    payload_open: "OPEN"
-    payload_close: "CLOSE"
-    payload_stop: "STOP"
-    state_open: "open"
-    state_closed: "closed"
-    payload_available: "online"
-    payload_not_available: "offline"
-    optimistic: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
-```
-
-### {% linkable_title Full configuration %}
-
-The example below shows a full configuration for a cover.
-
-```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 cover:
   - platform: mqtt
     name: "MQTT Cover"
@@ -115,6 +188,32 @@ cover:
     payload_not_available: "offline"
     optimistic: false
     value_template: '{% raw %}{{ value.x }}{% endraw %}'
+```
+
+### {% linkable_title Full configuration %}
+
+The example below shows a full configuration for a cover.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    availability_topic: "home-assistant/cover/availability"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_open: "open"
+    state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"
+    optimistic: false
+    value_template: '{{ value.x }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
     tilt_min: 0
@@ -122,6 +221,7 @@ cover:
     tilt_closed_value: 70
     tilt_opened_value: 180
 ```
+{% endraw %}
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 

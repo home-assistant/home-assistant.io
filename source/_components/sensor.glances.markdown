@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Glances"
-description: "Instructions how to integrate Glances sensors into Home Assistant."
+description: "Instructions on how to integrate Glances sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_release: 0.7.3
 
 
 The `glances` sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
+
+## {% linkable_title Setup %}
 
 This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
 To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:
@@ -35,6 +37,8 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
+## {% linkable_title Configuration %}
+
 To enable the Glances sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -44,42 +48,71 @@ sensor:
     host: IP_ADDRESS
     resources:
       - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'
-      - 'cpu_temp'
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your host, eg. `192.168.1.32`.
-- **port** (*Option*): The network port to connect to. Default is `61208`.
-- **name** (*Optional*): Name of the Glances sensor.
-- **resources** (*Required*): Entries to monitor.
-  - **disk_use_percent**: Used disk space in percent
-  - **disk_use**: Used disk space
-  - **disk_free**: Free disk space
-  - **memory_use_percent**: Used memory in percent
-  - **memory_use**: Used memory
-  - **memory_free**: Free memory
-  - **swap_use_percent**: Used swap space in percent
-  - **swap_use**: Used swap space
-  - **swap_free**: Free swap space
-  - **processor_load**: Load
-  - **process_running**: Number of running processes
-  - **process_total**: Total number of processes
-  - **process_thread**: Number of threads
-  - **process_sleeping**: Number of sleeping processes
-  - **cpu_temp**: CPU Temperature (may not available on all platforms)
+{% configuration %}
+host:
+  description: IP address of the host where Glances is running.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port where Glances is listening.
+  required: false
+  type: int
+  default: 61208
+name:
+  description: The prefix for the sensors.
+  required: false
+  type: string
+  default: Glances
+version:
+  description: "The version of the Glances API. Supported version: `2` and `3`."
+  required: false
+  type: int
+  default: 2
+resources:
+  description: Entries to monitor.
+  required: false
+  type: map
+  default: disk_use
+  keys:
+    disk_use_percent:
+      description: The used disk space in percent.
+    disk_use:
+      description: The used disk space.
+    disk_free:
+      description: The free disk space.
+    memory_use_percent:
+      description: The used memory in percent.
+    memory_use:
+      description: The used memory.
+    memory_free:
+      description: The free memory.
+    swap_use_percent:
+      description: The used swap space in percent.
+    swap_use:
+      description: The used swap space.
+    swap_free:
+      description: The free swap space.
+    processor_load:
+      description: The load.
+    process_running:
+      description: The number of running processes.
+    process_total:
+      description: The total number of processes.
+    process_thread:
+      description: The number of threads.
+    process_sleeping:
+      description: The number of sleeping processes.
+    cpu_temp:
+      description: The CPU temperature (may not be available on all platforms).
+    docker_active:
+      description: The count of active Docker containers.
+    docker_cpu_use:
+      description: The total CPU usage in percent of Docker containers.
+    docker_memory_use:
+      description: The total memory used by Docker containers.
+{% endconfiguration %}
 
 Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LIFX"
-description: "Instructions how to integrate LIFX into Home Assistant."
+description: "Instructions on how to integrate LIFX into Home Assistant."
 date: 2016-01-27 08:00
 sidebar: true
 comments: false

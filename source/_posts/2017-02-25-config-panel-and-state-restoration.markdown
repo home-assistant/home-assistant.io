@@ -71,9 +71,9 @@ So starting this release, we had to make some breaking changes to right the wron
 
 [**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
 
-#### Customize has been reverted to it's original config
+#### Customize has been reverted to its original config
 
-The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
+The old customize is back. The options to match by domain or using glob have been moved to its own options. It will now look like this:
 
 ```yaml
 homeassistant:
@@ -285,33 +285,33 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: https://home-assistant.io/componet/telegram_webhooks/
-[pushsafer]: https://home-assistant.io/components/notify.pushsafer/
-[openhome]: https://home-assistant.io/components/media_player.openhome/
-[ups]: https://home-assistant.io/components/sensor.ups/
-[fedex]: https://home-assistant.io/components/sensor.fedex/
-[fido]: https://home-assistant.io/components/sensor.fido/
-[gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
-[clementine]: https://home-assistant.io/components/media_player.clementine/
-[ebox]: https://home-assistant.io/components/sensor.ebox/
-[aurora]: https://home-assistant.io/components/binary_sensor.aurora/
-[netmonitor]: https://home-assistant.io/components/sensor.fritzbox_netmonitor/
-[itach]: https://home-assistant.io/components/remote.itach/
-[sunflowers]: https://home-assistant.io/components/light.yeelightsunflower/
-[kodi]: https://home-assistant.io/components/media_player.kodi/
-[myq]: https://home-assistant.io/components/cover.myq/
-[oemt]: https://home-assistant.io/components/climate.oem/
-[volvo]: https://home-assistant.io/components/volvooncall/
-[pocket]: https://home-assistant.io/components/sensor.pocketcasts/
-[config]: https://home-assistant.io/components/config/
-[history_stats]: https://home-assistant.io/components/sensor.history_stats/
+[telegram]: /componet/telegram_webhooks/
+[pushsafer]: /components/notify.pushsafer/
+[openhome]: /components/media_player.openhome/
+[ups]: /components/sensor.ups/
+[fedex]: /components/sensor.fedex/
+[fido]: /components/sensor.fido/
+[gstreamer]: /components/media_player.gstreamer/
+[clementine]: /components/media_player.clementine/
+[ebox]: /components/sensor.ebox/
+[aurora]: /components/binary_sensor.aurora/
+[netmonitor]: /components/sensor.fritzbox_netmonitor/
+[itach]: /components/remote.itach/
+[sunflowers]: /components/light.yeelightsunflower/
+[kodi]: /components/media_player.kodi/
+[myq]: /components/cover.myq/
+[oemt]: /components/climate.oem/
+[volvo]: /components/volvooncall/
+[pocket]: /components/sensor.pocketcasts/
+[config]: /components/config/
+[history_stats]: /components/sensor.history_stats/
 
 
-[docs]: https://home-assistant.io/docs/
-[getting-started]: https://home-assistant.io/getting-started/
+[docs]: /docs/
+[getting-started]: /getting-started/
 [docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[t-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[t-shirt]: /blog/2017/02/22/home-assistant-tshirts-have-arrived/
 [discord]: https://discord.gg/c5DvZ4e

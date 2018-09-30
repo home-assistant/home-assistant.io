@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ---
 
-
 ### {% linkable_title ResinOS / Generic %}
 
 Map the USB drive into add-on with `devices` options. If you need it on multiple add-ons, you can use the `/share` folder which is accessible from various add-ons.

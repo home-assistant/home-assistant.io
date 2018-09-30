@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Covers"
-description: "Instructions how to integrate covers into Home Assistant."
+description: "Instructions on how to integrate covers into Home Assistant."
 date: 2016-06-28 17:30
 sidebar: true
 comments: false
@@ -15,7 +15,7 @@ The display style of each entity can be modified in the [customize section](/get
  
 | Attribute | Default | Description |
 | --------- | ------- | ----------- |
-| `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
+| `device_class` | | `none` Generic cover device<br>`damper` Ventilation damper controller<br>`garage` Garage door controller<br>`window` Window controller
 | `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
 
 ## {% linkable_title Services %}

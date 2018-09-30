@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "QwikSwitch Switch"
-description: "Instructions how to integrate QwikSwitch relays into Home Assistant."
+description: "Instructions on how to integrate QwikSwitch relays into Home Assistant."
 date: 2016-05-04 00:00
 sidebar: true
 comments: false

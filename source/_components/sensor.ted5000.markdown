@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ted.png
-ha_category: Sensor
-ha_release: 0.30
+ha_category: Energy
+ha_release: "0.30"
 ha_iot_class: "Local Polling"
 ---
 

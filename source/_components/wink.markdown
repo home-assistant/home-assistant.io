@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink"
-description: "Instructions how to setup the Wink hub within Home Assistant."
+description: "Instructions on how to setup the Wink hub within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -46,7 +46,7 @@ wink:
 
 ### {% linkable_title Full oauth authentication (legacy). %}
 
-This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
+This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
 
 ```yaml
@@ -141,6 +141,7 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
 
 - GoControl siren and strobe
 - Dome siren/chime/strobe
+- Quirky Nimbus (Legacy device) These can no longer be officialy added to your Wink account
 
 
 ### {% linkable_title Service `set_siren_auto_shutoff` %}
@@ -285,4 +286,56 @@ script:
       - service: wink.set_chime_strobe_enabled
         data:
           enabled: False
+```
+
+### {% linkable_title Service `set_nimbus_dial_state` %}
+
+You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and it's labels
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of chime/chime.
+| `value` | no | A number, should be between the dials min and max value (See set_nimbus_dial_configuration below)
+| `labels` | yes | A list of strings the first being the value set on the dial's face and the second being the value on the dial face when the Nimbus is pressed
+
+Example:
+
+```yaml
+script:
+  set_dial_1_value:
+    sequence:
+      - service: wink.set_nimbus_dial_state
+        data:
+          entity_id: wink.nimbus_dial_1
+          value: 150
+          labels:
+            - "Dial 1"
+            - "150"
+```
+
+### {% linkable_title Service `set_nimbus_dial_configuration` %}
+
+You can use the service wink/set_nimbus_dial_configuration to update an individual dial's configuration.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of chime/chime.
+| `rotation` | yes | One of "cw" or "ccw" the direction the dial hand should rotate.
+| `ticks` | yes | A positive number, the number of times the hand should move.
+| `scale` | yes | One of "linear" or "log" How the dial should move in response to higher values.
+| `min_value` | yes | A number, the minimum value that the dial can have.
+| `max_value` | yes | A number, the maximum value that the dial can have.
+| `min_position` | yes | A number generally [0-360], the minimum position for the dial's hand.
+| `max_value` | yes | A number generally [0-360], the maximum position for the dial's hand.
+
+Example:
+
+```yaml
+script:
+  set_dial_1_value:
+    sequence:
+      - service: wink.set_nimbus_dial_state
+        data:
+          entity_id: wink.nimbus_dial_1
+          rotation: 'ccw'
 ```

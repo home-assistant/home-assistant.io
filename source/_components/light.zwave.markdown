@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Light"
-description: "Instructions how to setup the Z-Wave lights within Home Assistant."
+description: "Instructions on how to setup the Z-Wave lights within Home Assistant."
 date: 2015-11-11 13:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sensibo A/C controller"
-description: "Instructions how to integrate Sensibo A/C controller into Home Assistant."
+description: "Instructions on how to integrate Sensibo A/C controller into Home Assistant."
 date: 2017-04-01 15:00 +0200
 sidebar: true
 comments: false

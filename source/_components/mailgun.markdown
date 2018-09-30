@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mailgun"
-description: "Instructions how to add Mailgun mail notifications to Home Assistant."
+description: "Instructions on how to add Mailgun mail notifications to Home Assistant."
 date: 2017-02-06 16:52
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Notifications
 ha_release: 0.38
 ---
 
-The component supports push messages and generates events based on inbound data. To use, add a Route set to Store and Notify with a URL of the following form: `https://<domain>/api/mailgun?api_password=<password>`
+The component supports push messages and generates events based on inbound data. To generate inbound events, add a Route set to Store and Notify with a URL of the following form: `https://<home-assistant-domain>/api/mailgun?api_password=<password>`
 
 To send messages, use the [Mailgun notify platform][notify].
 
@@ -24,12 +24,11 @@ To send messages, use the [Mailgun notify platform][notify].
 # Example configuration.yaml entry
 mailgun:
   domain: mg.example.com
-  api_key: token-XXXXXXXXX
-  sandbox: False
+  api_key: XXXXXXXXXXXXX
 ```
 
 Configuration variables:
 
-- **domain** (*Optional*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
-- **sandbox** (*Optional*): Whether to use the sandboxed domain for outgoing mail. The `domain` item takes precedence over this. Defaults to `False`.
+- **domain** (*Required*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
 - **api_key** (*Required*): This is the API token that has been generated in your Mailgun account.
+- **sandbox** (*Deprecated*): Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed.  Defaults to `False`.

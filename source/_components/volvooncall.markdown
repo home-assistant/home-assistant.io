@@ -8,38 +8,43 @@ comments: false
 sharing: true
 footer: true
 logo: volvo.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
 
-The `volvooncall` platform offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+The `volvooncall` component offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+
+## {% linkable_title Configuration %}
 
 To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Users registered with Volvo in North America or China will need to specify a service URL:
+Users registered with Volvo in North America or China will need to specify a region:
 
 ```yaml
 # North America 
 volvooncall:
-  username: username
-  password: password
-  service_url: 'https://vocapi-na.wirelesscar.net/customerapi/rest/v3.0/'
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  region: na
 ```
+
+or
+
 ```yaml
 # China
 volvooncall:
-  username: username
-  password: password
-  service_url: 'https://vocapi-cn.wirelesscar.net/customerapi/rest/v3.0/'
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  region: cn
 ```
 
 A more advanced example for setting the vehicle name and selecting what resources to display:
@@ -47,8 +52,8 @@ A more advanced example for setting the vehicle name and selecting what resource
 ```yaml
 # Example configuration.yaml entry
 volvooncall:
-  username: username
-  password: password
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
   name:
     abc123: 'Batmobile'
   resources:
@@ -61,7 +66,9 @@ Configuration variables:
 
 - **username** (*Required*): The username associated with your Volvo On Call account.
 - **password** (*Required*): The password for your given Volvo On Call account.
-- **service_url** (*Optional*): The service URL to use for Volvo On Call (defaults to https://vocapi.wirelesscar.net/customerapi/rest/v3.0/).
+- **region** (*Optional*): The region where the Volvo is registered. Needs to be set for users in North America or China.
+- **service_url** (*Optional*): The service URL to use for Volvo On Call. Normally not necessary to specify.
 - **name** (*Optional*): Make it possible to provide a name for the vehicles.
 - **resources** (*Optional*): A list of resources to display (defaults to all available).
+- **scandinavian_miles** (*Optional*): If set to yes, Scandinavian miles ("mil") are used for distances and fuel range (defaults to no).
 

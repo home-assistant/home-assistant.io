@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Neato Camera"
-description: "Instructions how to setup the Neato cleaning maps within Home Assistant."
+description: "Instructions on how to setup the Neato cleaning maps within Home Assistant."
 date: 2017-04-05 13:10
 sidebar: true
 comments: false

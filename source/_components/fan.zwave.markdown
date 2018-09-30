@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Fan"
-description: "Instructions how to setup the Z-Wave Fans within Home Assistant."
+description: "Instructions on how to setup the Z-Wave Fans within Home Assistant."
 date: 2017-05-25 17:00
 sidebar: true
 comments: false

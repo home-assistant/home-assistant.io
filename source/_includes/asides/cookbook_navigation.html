@@ -1,6 +1,6 @@
 <section class="aside-module grid__item one-whole lap-one-half">
   {% include edit_github.html %}
-  {% assign cookbook = site.cookbook | sort: 'title' %}
+  {% assign cookbook = site.cookbook | sort_natural: 'title' %}
 
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>

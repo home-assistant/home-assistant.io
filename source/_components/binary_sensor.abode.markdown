@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Abode Binary Sensor"
-description: "Instructions how to integrate Abode binary sensors into Home Assistant."
+description: "Instructions on how to integrate Abode binary sensors into Home Assistant."
 date: 2017-08-26 0:28
 sidebar: true
 comments: false

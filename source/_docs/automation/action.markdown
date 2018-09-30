@@ -22,13 +22,12 @@ automation:
     event: sunset
   action:
     service: light.turn_on
-    entity_id:
-      - light.kitchen
-      - light.living_room
     data:
       brightness: 150
       rgb_color: [255, 0, 0]
-
+      entity_id:
+        - light.kitchen
+        - light.living_room
 automation 2:
   # Notify me on my mobile phone of an event
   trigger:

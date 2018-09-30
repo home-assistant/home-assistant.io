@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Proliphix Thermostat"
-description: "Instructions how to integrate Proliphix thermostats within Home Assistant."
+description: "Instructions on how to integrate Proliphix thermostats within Home Assistant."
 date: 2016-01-15 08:00
 sidebar: true
 comments: false

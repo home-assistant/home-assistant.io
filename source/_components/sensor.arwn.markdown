@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ARWN Sensor"
-description: "Instructions how to integrate ARWN within Home Assistant."
+description: "Instructions on how to integrate ARWN within Home Assistant."
 date: 2016-10-20 15:15
 sidebar: true
 comments: false

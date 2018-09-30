@@ -58,7 +58,7 @@ If you're running Home Assistant in a virtual environment, you'll need to symlin
 ln -s /path/to/your/installation/of/gi /path/to/your/venv/lib/python3.4/site-packages
 ``` 
 
-On a Raspberry PI, you may need to add the Home Assistant user to the `audio` group:
+On a Raspberry Pi, you may need to add the Home Assistant user to the `audio` group:
 
 ```bash
 sudo usermod -a -G audio <ha_user>
@@ -68,7 +68,7 @@ sudo usermod -a -G audio <ha_user>
  
 ### {% linkable_title Using with TTS %}
 
-To play TTS on your local computer (for example, if you have speakers attached to your Raspberry PI:
+To play TTS on your local computer (for example, if you have speakers attached to your Raspberry Pi:
 
 ```yaml
 media_player:

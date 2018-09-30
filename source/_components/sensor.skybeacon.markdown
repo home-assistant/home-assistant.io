@@ -14,6 +14,8 @@ ha_iot_class: "Local Polling"
 
 The `skybeacon` sensor platform supports [CR2477](http://cnsky9.en.alibaba.com)-powered [iBeacon](https://en.wikipedia.org/wiki/IBeacon)/eddystone sensors that come with temperature/sensor module.
 
+## {% linkable_title Configuration %}
+
 To use your Skybeacon sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,8 +28,24 @@ sensor:
       - humidity
 ```
 
-- **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
-- **monitored_conditions** array (*Required*): The parameters that should be monitored.
-  - **temperature**: Temperature at the sensor's location.
-  - **humidity**: Humidity at the sensor's location.
+{% configuration %}
+mac:
+  description: "The MAC address of your sensor. You can find this be running `hcitool lescan` from command line."
+  required: true
+  type: string
+name:
+  description: The name of the Skybeacon sensor.
+  required: false
+  type: string
+  default: Skybeacon
+monitored_conditions:
+  description: The parameters that should be monitored.
+  required: false
+  type: map
+  keys:
+    temperature:
+      description: Temperature at the sensor's location.
+    humidity:
+      description: Humidity at the sensor's location.
+{% endconfiguration %}
 

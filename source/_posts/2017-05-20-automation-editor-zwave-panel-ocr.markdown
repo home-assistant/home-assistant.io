@@ -15,19 +15,19 @@ og_image: /images/blog/2017-05-0.45/components.png
 
 Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!
 
-First thing for this release is a feature that has been requested a lot: an automation editor! It's still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you're all good to go. Otherwise check [these instructions](https://home-assistant.io/docs/automation/editor/) to get your automations ready for editing in the UI.
+First thing for this release is a feature that has been requested a lot: an automation editor! It's still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you're all good to go. Otherwise check [these instructions](/docs/automation/editor/) to get your automations ready for editing in the UI.
 
 <p class='img'>
   <img src='{{site_root}}/images/blog/2017-05-0.45/trigger.png' />
 </p>
 
-Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to see the new release in action. 
+Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to see the new release in action.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0j_hWdCTip4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don't support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help! 
+As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don't support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help!
 
 On the Z-Wave front a lot has happened. The biggest one is that we have a major extension of the Z-Wave panel thanks to [@turbokongen]! You will now be able to change config parameters and manage your devices.
 
@@ -37,8 +37,8 @@ On the Z-Wave front a lot has happened. The biggest one is that we have a major 
 Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.
 
 <p class='note warning'>
-If you have a security key set in your Open Z-Wave `options.xml`, copy `options.xml` to your Home Assistant configuration directory. This is the only place where options will get persisted. 
-</p> 
+If you have a security key set in your Open Z-Wave `options.xml`, copy `options.xml` to your Home Assistant configuration directory. This is the only place where options will get persisted.
+</p>
 
 Next to that [@armills] has lead the charge and managed to get full test coverage for Z-Wave! Thanks for all the hard work!
 
@@ -53,7 +53,7 @@ And last, but not least, our Docker image is now based off Python 3.6. This vers
 If you are using our [experimental Hass.io image][hass.io], we made a breaking change in how the panel is served. If you have an existing installation, make sure you update your supervisor to the latest version before updating Home Assistant. If you are going to flash a new Hass.io image, make sure to only flash the new 0.8 image as linked on [the installation page][hass.io-install].
 
 [hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296
-[hass.io-install]: https://home-assistant.io/hassio/installation/
+[hass.io-install]: /hassio/installation/
 
 ## {% linkable_title New integrations %}
 
@@ -335,93 +335,93 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tsvi]: https://github.com/tsvi
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alexa docs]: https://home-assistant.io/components/alexa/
-[axis docs]: https://home-assistant.io/components/axis/
-[config.automation docs]: https://home-assistant.io/docs/automation/editor/
-[automation.event docs]: https://home-assistant.io/docs/configuration/events/
-[automation.state docs]: https://home-assistant.io/docs/configuration/state_object/
-[binary_sensor.mystrom docs]: https://home-assistant.io/components/binary_sensor.mystrom/
-[binary_sensor.raspihats docs]: https://home-assistant.io/components/binary_sensor.raspihats/
-[binary_sensor.rpi_pfio docs]: https://home-assistant.io/components/binary_sensor.rpi_pfio/
-[blink docs]: https://home-assistant.io/components/blink/
-[camera.__init__ docs]: https://home-assistant.io/components/camera.__init__/
-[camera.uvc docs]: https://home-assistant.io/components/camera.uvc/
-[camera.zoneminder docs]: https://home-assistant.io/components/camera.zoneminder/
-[climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
-[config.__init__ docs]: https://home-assistant.io/components/config.__init__/
-[configurator docs]: https://home-assistant.io/components/configurator/
-[cover.lutron_caseta docs]: https://home-assistant.io/components/cover.lutron_caseta/
-[datadog docs]: https://home-assistant.io/components/datadog/
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[device_tracker.linksys_ap docs]: https://home-assistant.io/components/device_tracker.linksys_ap/
-[device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
-[dweet docs]: https://home-assistant.io/components/dweet/
-[eight_sleep docs]: https://home-assistant.io/components/eight_sleep/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[image_processing.__init__ docs]: https://home-assistant.io/components/image_processing.__init__/
-[image_processing.demo docs]: https://home-assistant.io/components/image_processing.demo/
-[image_processing.dlib_face_detect docs]: https://home-assistant.io/components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
-[image_processing.microsoft_face_detect docs]: https://home-assistant.io/components/image_processing.microsoft_face_detect/
-[image_processing.microsoft_face_identify docs]: https://home-assistant.io/components/image_processing.microsoft_face_identify/
-[image_processing.openalpr_cloud docs]: https://home-assistant.io/components/image_processing.openalpr_cloud/
-[image_processing.openalpr_local docs]: https://home-assistant.io/components/image_processing.openalpr_local/
-[image_processing.opencv docs]: https://home-assistant.io/components/image_processing.opencv/
-[image_processing.seven_segments docs]: https://home-assistant.io/components/image_processing.seven_segments/
-[kira docs]: https://home-assistant.io/components/kira/
-[light.__init__ docs]: https://home-assistant.io/components/light.__init__/
-[light.blinksticklight docs]: https://home-assistant.io/components/light.blinksticklight/
-[light.enocean docs]: https://home-assistant.io/components/light.enocean/
-[light.flux_led docs]: https://home-assistant.io/components/light.flux_led/
-[light.insteon_local docs]: https://home-assistant.io/components/light.insteon_local/
-[light.insteon_plm docs]: https://home-assistant.io/components/light.insteon_plm/
-[light.isy994 docs]: https://home-assistant.io/components/light.isy994/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.limitlessled docs]: https://home-assistant.io/components/light.limitlessled/
-[light.mystrom docs]: https://home-assistant.io/components/light.mystrom/
-[light.osramlightify docs]: https://home-assistant.io/components/light.osramlightify/
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[logbook docs]: https://home-assistant.io/components/logbook/
-[lutron_caseta docs]: https://home-assistant.io/components/lutron_caseta/
-[media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
-[media_player.kodi docs]: https://home-assistant.io/components/media_player.kodi/
-[media_player.onkyo docs]: https://home-assistant.io/components/media_player.onkyo/
-[media_player.roku docs]: https://home-assistant.io/components/media_player.roku/
-[media_player.sonos docs]: https://home-assistant.io/components/media_player.sonos/
-[media_player.spotify docs]: https://home-assistant.io/components/media_player.spotify/
-[microsoft_face docs]: https://home-assistant.io/components/microsoft_face/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.sendgrid docs]: https://home-assistant.io/components/notify.sendgrid/
-[notify.smtp docs]: https://home-assistant.io/components/notify.smtp/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[plant docs]: https://home-assistant.io/components/plant/
-[raspihats docs]: https://home-assistant.io/components/raspihats/
-[remote.kira docs]: https://home-assistant.io/components/remote.kira/
-[rflink docs]: https://home-assistant.io/components/rflink/
-[rpi_pfio docs]: https://home-assistant.io/components/rpi_pfio/
-[sensor.blink docs]: https://home-assistant.io/components/sensor.blink/
-[sensor.dweet docs]: https://home-assistant.io/components/sensor.dweet/
-[sensor.envirophat docs]: https://home-assistant.io/components/sensor.envirophat/
-[sensor.file docs]: https://home-assistant.io/components/sensor.file/
-[sensor.influxdb docs]: https://home-assistant.io/components/sensor.influxdb/
-[sensor.kira docs]: https://home-assistant.io/components/sensor.kira/
-[sensor.miflora docs]: https://home-assistant.io/components/sensor.miflora/
-[sensor.modem_callerid docs]: https://home-assistant.io/components/sensor.modem_callerid/
-[sensor.nzbget docs]: https://home-assistant.io/components/sensor.nzbget/
-[sensor.scrape docs]: https://home-assistant.io/components/sensor.scrape/
-[sensor.snmp docs]: https://home-assistant.io/components/sensor.snmp/
-[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
-[sun docs]: https://home-assistant.io/components/sun/
-[switch.rpi_pfio docs]: https://home-assistant.io/components/switch.rpi_pfio/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
-[telegram_bot.services.yaml docs]: https://home-assistant.io/components/telegram_bot.services.yaml/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[tradfri docs]: https://home-assistant.io/components/tradfri/
-[vera docs]: https://home-assistant.io/components/vera/
-[websocket_api docs]: https://home-assistant.io/components/websocket_api/
-[zwave docs]: https://home-assistant.io/components/zwave/
-[zwave.api docs]: https://home-assistant.io/components/zwave.api/
+[alexa docs]: /components/alexa/
+[axis docs]: /components/axis/
+[config.automation docs]: /docs/automation/editor/
+[automation.event docs]: /docs/configuration/events/
+[automation.state docs]: /docs/configuration/state_object/
+[binary_sensor.mystrom docs]: /components/binary_sensor.mystrom/
+[binary_sensor.raspihats docs]: /components/binary_sensor.raspihats/
+[binary_sensor.rpi_pfio docs]: /components/binary_sensor.rpi_pfio/
+[blink docs]: /components/blink/
+[camera.__init__ docs]: /components/camera.__init__/
+[camera.uvc docs]: /components/camera.uvc/
+[camera.zoneminder docs]: /components/camera.zoneminder/
+[climate.sensibo docs]: /components/climate.sensibo/
+[config.__init__ docs]: /components/config.__init__/
+[configurator docs]: /components/configurator/
+[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
+[datadog docs]: /components/datadog/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[device_tracker.linksys_ap docs]: /components/device_tracker.linksys_ap/
+[device_tracker.unifi docs]: /components/device_tracker.unifi/
+[dweet docs]: /components/dweet/
+[eight_sleep docs]: /components/eight_sleep/
+[homematic docs]: /components/homematic/
+[image_processing.__init__ docs]: /components/image_processing.__init__/
+[image_processing.demo docs]: /components/image_processing.demo/
+[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
+[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
+[image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
+[image_processing.microsoft_face_identify docs]: /components/image_processing.microsoft_face_identify/
+[image_processing.openalpr_cloud docs]: /components/image_processing.openalpr_cloud/
+[image_processing.openalpr_local docs]: /components/image_processing.openalpr_local/
+[image_processing.opencv docs]: /components/image_processing.opencv/
+[image_processing.seven_segments docs]: /components/image_processing.seven_segments/
+[kira docs]: /components/kira/
+[light.__init__ docs]: /components/light.__init__/
+[light.blinksticklight docs]: /components/light.blinksticklight/
+[light.enocean docs]: /components/light.enocean/
+[light.flux_led docs]: /components/light.flux_led/
+[light.insteon_local docs]: /components/light.insteon_local/
+[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.isy994 docs]: /components/light.isy994/
+[light.lifx docs]: /components/light.lifx/
+[light.limitlessled docs]: /components/light.limitlessled/
+[light.mystrom docs]: /components/light.mystrom/
+[light.osramlightify docs]: /components/light.osramlightify/
+[light.tradfri docs]: /components/light.tradfri/
+[logbook docs]: /components/logbook/
+[lutron_caseta docs]: /components/lutron_caseta/
+[media_player.denonavr docs]: /components/media_player.denonavr/
+[media_player.kodi docs]: /components/media_player.kodi/
+[media_player.onkyo docs]: /components/media_player.onkyo/
+[media_player.roku docs]: /components/media_player.roku/
+[media_player.sonos docs]: /components/media_player.sonos/
+[media_player.spotify docs]: /components/media_player.spotify/
+[microsoft_face docs]: /components/microsoft_face/
+[notify.html5 docs]: /components/notify.html5/
+[notify.sendgrid docs]: /components/notify.sendgrid/
+[notify.smtp docs]: /components/notify.smtp/
+[notify.telegram docs]: /components/notify.telegram/
+[plant docs]: /components/plant/
+[raspihats docs]: /components/raspihats/
+[remote.kira docs]: /components/remote.kira/
+[rflink docs]: /components/rflink/
+[rpi_pfio docs]: /components/rpi_pfio/
+[sensor.blink docs]: /components/sensor.blink/
+[sensor.dweet docs]: /components/sensor.dweet/
+[sensor.envirophat docs]: /components/sensor.envirophat/
+[sensor.file docs]: /components/sensor.file/
+[sensor.influxdb docs]: /components/sensor.influxdb/
+[sensor.kira docs]: /components/sensor.kira/
+[sensor.miflora docs]: /components/sensor.miflora/
+[sensor.modem_callerid docs]: /components/sensor.modem_callerid/
+[sensor.nzbget docs]: /components/sensor.nzbget/
+[sensor.scrape docs]: /components/sensor.scrape/
+[sensor.snmp docs]: /components/sensor.snmp/
+[sensor.wunderground docs]: /components/sensor.wunderground/
+[sun docs]: /components/sun/
+[switch.rpi_pfio docs]: /components/switch.rpi_pfio/
+[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[telegram_bot.services.yaml docs]: /components/telegram_bot.services.yaml/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[tradfri docs]: /components/tradfri/
+[vera docs]: /components/vera/
+[websocket_api docs]: /components/websocket_api/
+[zwave docs]: /components/zwave/
+[zwave.api docs]: /components/zwave.api/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7673]: https://github.com/home-assistant/home-assistant/pull/7673
@@ -430,8 +430,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7714]: https://github.com/home-assistant/home-assistant/pull/7714
 [@cgtobi]: https://github.com/cgtobi
 [@tobygray]: https://github.com/tobygray
-[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
-[telegram_bot.__init__ docs]: https://home-assistant.io/components/telegram_bot.__init__/
+[device_tracker.ubus docs]: /components/device_tracker.ubus/
+[hassio docs]: /components/hassio/
+[media_player.volumio docs]: /components/media_player.volumio/
+[telegram_bot.__init__ docs]: /components/telegram_bot.__init__/
 [discord]: https://discord.gg/c5DvZ4e

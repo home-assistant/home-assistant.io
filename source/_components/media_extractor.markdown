@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Media Extractor"
-description: "Instructions how to integrate the Media Extractor into Home Assistant."
+description: "Instructions on how to integrate the Media Extractor into Home Assistant."
 date: 2017-07-12 07:00
 sidebar: true
 comments: false

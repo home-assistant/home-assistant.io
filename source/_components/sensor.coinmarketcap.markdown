@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CoinMarketCap"
-description: "Instructions how to integrate CoinMarketCap data within Home Assistant."
+description: "Instructions on how to integrate CoinMarketCap data within Home Assistant."
 date: 2016-08-31 08:15
 sidebar: true
 comments: false
@@ -24,7 +24,23 @@ sensor:
   - platform: coinmarketcap
 ```
 
-Configuration variables:
+{% configuration %}
+currency_id:
+  description: The ID of the cryptocurrency to use, default is the ID of Bitcoin.
+  required: false
+  type: int
+  default: 1
+display_currency:
+  description: The currency to display.
+  required: false
+  type: string
+  default: USD
+display_currency_decimals:
+  description: The amount of decimals to round to.
+  required: false
+  type: int
+  default: 2
+{% endconfiguration %}
 
-- **currency** (*Optional*): The cryptocurrency to use, eg. `bitcoin`, `litecoin`, `steem`, etc. Default is `bitcoin`.
-- **display_currency** (*Optional*): The currency to display, eg. `USD`, `EUR`, `GBP`, etc. Default is `USD`. All supported currencies can be found [here](https://coinmarketcap.com/api/).
+All supported currencies can be found [here](https://coinmarketcap.com/api/), a list of currency IDs can be found [here](https://api.coinmarketcap.com/v2/ticker/).
+

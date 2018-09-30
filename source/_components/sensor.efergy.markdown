@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Efergy"
-description: "Instructions how to integrate Efergy devices within Home Assistant."
+description: "Instructions on how to integrate Efergy devices within Home Assistant."
 date: 2015-07-11 0:15
 sidebar: true
 comments: false
@@ -13,16 +13,20 @@ ha_release: pre 0.7
 ha_iot_class: "Cloud Polling"
 ---
 
+Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
 
-Integrate your [Efergy](https://efergy.com) meter information into Home Assistant. To get an app token:
+## {% linkable_title Setup %}
+
+To get an app token:
 
 1. Log in to your efergy account
-
 2. Go to the Settings page
-
 3. Click on App tokens
-
 4. Click "Add token"
+
+## {% linkable_title Configuration %}
+
+To enable the sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,15 +48,13 @@ sensor:
 Configuration variables:
 
 - **app_token** (*Required*): The App Token for your account.
-- **utc_offset** (*Required*): Some variables (currently only the daily_cost) require that the
-negative number of minutes your timezone is ahead/behind UTC time.
+- **utc_offset** (*Required*): Some variables (currently only the daily_cost) require that the negative number of minutes your timezone is ahead/behind UTC time.
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **type** (*Required*): Name of the variable.
-      - **instant_readings**: Instant energy consumption.
-      - **budget**: Monthly budget.
-      - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
-      - **amount**: The amount of energy consumed over a given period.
-      - **current_values**: This returns the current energy usage of each device on your account, as efergy_\<sid of device\>.  If you only have one device in your account, this is effectively the same as instant_readings.
+    - **instant_readings**: Instant energy consumption.
+    - **budget**: Monthly budget.
+    - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
+    - **amount**: The amount of energy consumed over a given period.
+    - **current_values**: This returns the current energy usage of each device on your account, as `efergy_\<sid of device\>`. If you only have one device in your account, this is effectively the same as instant_readings.
   - **period** (*Optional*): Some variables take a period argument. Valid options are "day", "week", "month", and "year".
   - **currency** (*Optional*): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
-

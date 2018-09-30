@@ -204,7 +204,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]
- - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how. 
+ - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how.
  - The Z-Wave entity ID change mentioned above
 
 ## {% linkable_title If you need help... %}
@@ -264,40 +264,40 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
-[Arduino]: https://home-assistant.io/components/arduino/
-[APNS]: https://home-assistant.io/components/notify.apns/
-[ARWN]: https://home-assistant.io/components/sensor.arwn/
-[Concord232]: https://home-assistant.io/components/alarm_control_panel.concord232/
-[HTTP]: https://home-assistant.io/components/http/
-[HaveIBeenPwned]: https://home-assistant.io/components/sensor.haveibeenpwned/
-[Matrix]: https://home-assistant.io//components/notify.matrix/
-[Neato]: https://home-assistant.io/components/switch.neato/
-[Pilight]: https://home-assistant.io/components/sensor.pilight/
-[Proximity]: https://home-assistant.io/components/proximity/
+[Arduino]: /components/arduino/
+[APNS]: /components/notify.apns/
+[ARWN]: /components/sensor.arwn/
+[Concord232]: /components/alarm_control_panel.concord232/
+[HTTP]: /components/http/
+[HaveIBeenPwned]: /components/sensor.haveibeenpwned/
+[Matrix]: //components/notify.matrix/
+[Neato]: /components/switch.neato/
+[Pilight]: /components/sensor.pilight/
+[Proximity]: /components/proximity/
 [PyPi]: https://pypi.python.org/pypi
-[Synology]: https://home-assistant.io/components/camera.synology/
-[Telstra]: https://home-assistant.io/components/notify.telstra/
+[Synology]: /components/camera.synology/
+[Telstra]: /components/notify.telstra/
 [UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
-[Verisure]: https://home-assistant.io/components/camera.verisure/
-[WUnderground]: https://home-assistant.io/components/sensor.wunderground/
-[Yamaha]: https://home-assistant.io/components/media_player.yamaha/
-[Zoneminder]: https://home-assistant.io/components/zoneminder/
-[emoncms]: https://home-assistant.io//components/emoncms_history/
-[filtering]: https://home-assistant.io/components/logbook/
-[flash-briefing-docs]: https://home-assistant.io/components/alexa/
+[Verisure]: /components/camera.verisure/
+[WUnderground]: /components/sensor.wunderground/
+[Yamaha]: /components/media_player.yamaha/
+[Zoneminder]: /components/zoneminder/
+[emoncms]: //components/emoncms_history/
+[filtering]: /components/logbook/
+[flash-briefing-docs]: /components/alexa/
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/
 [hacktoberfest-ha-prs]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
 [hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
 [hacktoberfest-website]: https://hacktoberfest.digitalocean.com/
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
-[min]: https://home-assistant.io/components/sensor.min_max/
-[netatmo-bin]: https://home-assistant.io/components/binary_sensor.netatmo/
-[netatmo-discovery]: https://home-assistant.io/components/netatmo/
-[nmap]: https://home-assistant.io/components/device_tracker.nmap_tracker/
-[pers-notify]: https://home-assistant.io/components/persistent_notification/
+[min]: /components/sensor.min_max/
+[netatmo-bin]: /components/binary_sensor.netatmo/
+[netatmo-discovery]: /components/netatmo/
+[nmap]: /components/device_tracker.nmap_tracker/
+[pers-notify]: /components/persistent_notification/
 [runway]: http://runway.is
-[scrape]: https://home-assistant.io/components/sensor.scrape/
-[updater]: https://home-assistant.io/components/updater/
+[scrape]: /components/sensor.scrape/
+[updater]: /components/updater/
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
 [zero-one-two-release]: /blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes
 [zero-two-seven-release]: /blog/2016/08/28/notifications-hue-fake-unification/

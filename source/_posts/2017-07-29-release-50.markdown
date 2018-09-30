@@ -13,7 +13,7 @@ og_image: /images/blog/2017-07-0.50/components.png
 
 <a href='/components/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
 
-Last Wednesday we released [Hass.io](https://home-assistant.io/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
+Last Wednesday we released [Hass.io](/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
 
 The launch has been crazy successful. The [20 minute introduction video][hassio-intro] by BRUHAutomation already has 12.5k views in just 4 days with no less than 150 comments.
 
@@ -333,76 +333,76 @@ conversation:
 [@titilambert]: https://github.com/titilambert
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alarm_control_panel.manual_mqtt docs]: https://home-assistant.io/components/alarm_control_panel.manual_mqtt/
-[alarm_control_panel.simplisafe docs]: https://home-assistant.io/components/alarm_control_panel.simplisafe/
-[alarmdecoder docs]: https://home-assistant.io/components/alarmdecoder/
-[alexa docs]: https://home-assistant.io/components/alexa/
-[automation.state docs]: https://home-assistant.io/docs/automation/trigger/#state-trigger
-[automation.time docs]: https://home-assistant.io/docs/automation/trigger/#time-trigger
-[binary_sensor.ping docs]: https://home-assistant.io/components/binary_sensor.ping/
-[binary_sensor.rest docs]: https://home-assistant.io/components/binary_sensor.rest/
-[binary_sensor.velbus docs]: https://home-assistant.io/components/binary_sensor.velbus/
-[binary_sensor.xiaomi docs]: https://home-assistant.io/components/binary_sensor.xiaomi/
-[camera.onvif docs]: https://home-assistant.io/components/camera.onvif/
-[climate.maxcube docs]: https://home-assistant.io/components/climate.maxcube/
-[conversation docs]: https://home-assistant.io/components/conversation/
-[cover docs]: https://home-assistant.io/components/cover/
-[cover.lutron_caseta docs]: https://home-assistant.io/components/cover.lutron_caseta/
-[cover.xiaomi docs]: https://home-assistant.io/components/cover.xiaomi/
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
-[device_tracker.snmp docs]: https://home-assistant.io/components/device_tracker.snmp/
-[emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
-[fan.wink docs]: https://home-assistant.io/components/fan.wink/
-[hassio docs]: https://home-assistant.io/hassio/
-[history docs]: https://home-assistant.io/components/history/
-[homematic docs]: https://home-assistant.io/components/homematic/
-[image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
-[intent docs]: https://home-assistant.io/developers/intent/
-[intent_script docs]: https://home-assistant.io/components/intent_script/
-[knx docs]: https://home-assistant.io/components/knx/
-[light docs]: https://home-assistant.io/components/light/
-[light.decora docs]: https://home-assistant.io/components/light.decora/
-[light.hue docs]: https://home-assistant.io/components/light.hue/
-[light.lifx docs]: https://home-assistant.io/components/light.lifx/
-[light.tplink docs]: https://home-assistant.io/components/light.tplink/
-[light.velbus docs]: https://home-assistant.io/components/light.velbus/
-[light.wink docs]: https://home-assistant.io/components/light.wink/
-[light.xiaomi docs]: https://home-assistant.io/components/light.xiaomi/
-[light.zha docs]: https://home-assistant.io/components/light.zha/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_player.cast docs]: https://home-assistant.io/components/media_player.cast/
-[media_player.kodi docs]: https://home-assistant.io/components/media_player.kodi/
-[mqtt docs]: https://home-assistant.io/components/mqtt/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.twitter docs]: https://home-assistant.io/components/notify.twitter/
-[python_script docs]: https://home-assistant.io/components/python_script/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
-[sensor.citybikes docs]: https://home-assistant.io/components/sensor.citybikes/
-[sensor.dht docs]: https://home-assistant.io/components/sensor.dht/
-[sensor.fitbit docs]: https://home-assistant.io/components/sensor.fitbit/
-[sensor.google_wifi docs]: https://home-assistant.io/components/sensor.google_wifi/
-[sensor.hydroquebec docs]: https://home-assistant.io/components/sensor.hydroquebec/
-[sensor.knx docs]: https://home-assistant.io/components/sensor.knx/
-[sensor.lyft docs]: https://home-assistant.io/components/sensor.lyft/
-[sensor.octoprint docs]: https://home-assistant.io/components/sensor.octoprint/
-[sensor.pi_hole docs]: https://home-assistant.io/components/sensor.pi_hole/
-[sensor.snmp docs]: https://home-assistant.io/components/sensor.snmp/
-[sensor.uk_transport docs]: https://home-assistant.io/components/sensor.uk_transport/
-[sensor.xiaomi docs]: https://home-assistant.io/components/sensor.xiaomi/
-[shopping_list docs]: https://home-assistant.io/components/shopping_list/
-[snips docs]: https://home-assistant.io/components/snips/
-[statsd docs]: https://home-assistant.io/components/statsd/
-[switch.fritzdect docs]: https://home-assistant.io/components/switch.fritzdect/
-[switch.mqtt docs]: https://home-assistant.io/components/switch.mqtt/
-[switch.wink docs]: https://home-assistant.io/components/switch.wink/
-[switch.xiaomi docs]: https://home-assistant.io/components/switch.xiaomi/
-[switch.xiaomi_vacuum docs]: https://home-assistant.io/components/switch.xiaomi_vacuum/
-[velbus docs]: https://home-assistant.io/components/velbus/
-[weather.yweather docs]: https://home-assistant.io/components/weather.yweather/
-[wink docs]: https://home-assistant.io/components/wink/
-[xiaomi docs]: https://home-assistant.io/components/xiaomi/
+[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
+[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
+[alarmdecoder docs]: /components/alarmdecoder/
+[alexa docs]: /components/alexa/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[binary_sensor.ping docs]: /components/binary_sensor.ping/
+[binary_sensor.rest docs]: /components/binary_sensor.rest/
+[binary_sensor.velbus docs]: /components/binary_sensor.velbus/
+[binary_sensor.xiaomi docs]: /components/binary_sensor.xiaomi/
+[camera.onvif docs]: /components/camera.onvif/
+[climate.maxcube docs]: /components/climate.maxcube/
+[conversation docs]: /components/conversation/
+[cover docs]: /components/cover/
+[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
+[cover.xiaomi docs]: /components/cover.xiaomi/
+[cover.zwave docs]: /components/cover.zwave/
+[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
+[device_tracker.snmp docs]: /components/device_tracker.snmp/
+[emulated_hue docs]: /components/emulated_hue/
+[fan.wink docs]: /components/fan.wink/
+[hassio docs]: /hassio/
+[history docs]: /components/history/
+[homematic docs]: /components/homematic/
+[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
+[intent docs]: /developers/intent/
+[intent_script docs]: /components/intent_script/
+[knx docs]: /components/knx/
+[light docs]: /components/light/
+[light.decora docs]: /components/light.decora/
+[light.hue docs]: /components/light.hue/
+[light.lifx docs]: /components/light.lifx/
+[light.tplink docs]: /components/light.tplink/
+[light.velbus docs]: /components/light.velbus/
+[light.wink docs]: /components/light.wink/
+[light.xiaomi docs]: /components/light.xiaomi/
+[light.zha docs]: /components/light.zha/
+[media_extractor docs]: /components/media_extractor/
+[media_player.cast docs]: /components/media_player.cast/
+[media_player.kodi docs]: /components/media_player.kodi/
+[mqtt docs]: /components/mqtt/
+[notify.html5 docs]: /components/notify.html5/
+[notify.twitter docs]: /components/notify.twitter/
+[python_script docs]: /components/python_script/
+[recorder docs]: /components/recorder/
+[remote.harmony docs]: /components/remote.harmony/
+[sensor.citybikes docs]: /components/sensor.citybikes/
+[sensor.dht docs]: /components/sensor.dht/
+[sensor.fitbit docs]: /components/sensor.fitbit/
+[sensor.google_wifi docs]: /components/sensor.google_wifi/
+[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
+[sensor.knx docs]: /components/sensor.knx/
+[sensor.lyft docs]: /components/sensor.lyft/
+[sensor.octoprint docs]: /components/sensor.octoprint/
+[sensor.pi_hole docs]: /components/sensor.pi_hole/
+[sensor.snmp docs]: /components/sensor.snmp/
+[sensor.uk_transport docs]: /components/sensor.uk_transport/
+[sensor.xiaomi docs]: /components/sensor.xiaomi/
+[shopping_list docs]: /components/shopping_list/
+[snips docs]: /components/snips/
+[statsd docs]: /components/statsd/
+[switch.fritzdect docs]: /components/switch.fritzdect/
+[switch.mqtt docs]: /components/switch.mqtt/
+[switch.wink docs]: /components/switch.wink/
+[switch.xiaomi docs]: /components/switch.xiaomi/
+[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
+[velbus docs]: /components/velbus/
+[weather.yweather docs]: /components/weather.yweather/
+[wink docs]: /components/wink/
+[xiaomi docs]: /components/xiaomi/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -418,7 +418,7 @@ conversation:
 [#8754]: https://github.com/home-assistant/home-assistant/pull/8754
 [#8755]: https://github.com/home-assistant/home-assistant/pull/8755
 [@n8henrie]: https://github.com/n8henrie
-[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[media_player.pioneer docs]: https://home-assistant.io/components/media_player.pioneer/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[zwave docs]: https://home-assistant.io/components/zwave/
+[light.tradfri docs]: /components/light.tradfri/
+[media_player.pioneer docs]: /components/media_player.pioneer/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[zwave docs]: /components/zwave/

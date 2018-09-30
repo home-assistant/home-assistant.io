@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Camera"
-description: "Instructions how to use an MQTT image message as a Camera within Home Assistant."
+description: "Instructions on how to use an MQTT image message as a Camera within Home Assistant."
 date: 2017-04-14 00:45
 sidebar: true
 comments: false
@@ -30,4 +30,5 @@ Configuration variables:
 
  - **topic** (*Required*): MQTT topic to subscribe to.
  - **name** (*Optional*): Name of the camera
+ - **unique_id** (*Optional*): An ID that uniquely identifies this camera. If two cameras have the same unique ID, Home Assistant will raise an exception.
 

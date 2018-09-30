@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT Birth and Last will"
-description: "Instructions how to setup MQTT birth and last will messages within Home Assistant."
+description: "Instructions on how to setup MQTT birth and last will messages within Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false

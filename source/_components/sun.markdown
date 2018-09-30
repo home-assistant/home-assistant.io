@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Sun"
-description: "Instructions how to track the sun within Home Assistant."
+description: "Instructions on how to track the sun within Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Weather
+ha_category: Environment
 ---
 
 The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].

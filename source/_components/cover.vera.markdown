@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera Cover"
-description: "Instructions how to integrate Vera covers into Home Assistant."
+description: "Instructions on how to integrate Vera covers into Home Assistant."
 date: 2016-09-19 21:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ecobee Thermostat"
-description: "Instructions how to setup the Ecobee thermostats within Home Assistant."
+description: "Instructions on how to setup the Ecobee thermostats within Home Assistant."
 date: 2016-08-26 18:00
 sidebar: true
 comments: false
@@ -240,12 +240,14 @@ For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
 It is not possible to set a vacation hold; such hold has to be 
 defined on the thermostat directly. However, a vacation hold can be
-cancelled.
+canceled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `hold_mode` | no | 'temp', 'home', 'away', 'sleep', etc., None
+| `hold_mode` | no | `temp`, `home`, `away`, `sleep`, `None`, `smart1`, `smart2`, etc.
+
+NOTE: If you create custom hold modes (also known as "Comfort Settings") on your ecobee.com dashboard, their hold_modes are `smart1`, `smart2`, `smart3`, etc. The number for each custom mode should match the mode's icon on your ecobee.com dashboard. Also note that the mode numbers/icons in the ecobee mobile app *may not match* the numbers/icons from the ecobee.com web dashboard. The ones on the website are the ones you shoud use to determine the correct `smartX` hold_mode IDs.
 
 ### {% linkable_title Service `set_temperature` %}
 

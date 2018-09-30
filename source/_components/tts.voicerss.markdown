@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "VoiceRSS"
-description: "Instructions how to setup VoiceRSS TTS with Home Assistant."
+description: "Instructions on how to setup VoiceRSS TTS with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -41,7 +41,7 @@ tts:
     api_key: 'XXXXX'
     language: 'de-de'
     codec: mp3
-    format: 8khz_8bit_mono
+    format: '8khz_8bit_mono'
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telldus Live Switch"
-description: "Instructions how to integrate Telldus Live switches into Home Assistant."
+description: "Instructions on how to integrate Telldus Live switches into Home Assistant."
 date: 2016-01-17 15:49
 sidebar: true
 comments: false

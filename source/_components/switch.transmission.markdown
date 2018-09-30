@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Transmission Switch"
-description: "Instructions how to integrate Transmission within Home Assistant."
+description: "Instructions on how to integrate Transmission within Home Assistant."
 date: 2015-06-02 09:00
 sidebar: true
 comments: false

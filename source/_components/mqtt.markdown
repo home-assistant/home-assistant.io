@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT"
-description: "Instructions how to setup MQTT within Home Assistant."
+description: "Instructions on how to setup MQTT within Home Assistant."
 date: 2015-08-07 18:00
 sidebar: true
 comments: false
@@ -11,19 +11,14 @@ logo: mqtt.png
 ha_category: Hub
 featured: true
 ha_release: pre 0.7
-ha_iot_class: depends
+ha_iot_class: local push
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 Your first step to get MQTT and Home Assistant working is to choose a [broker](/docs/mqtt/broker).
 
-To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file. Keep in mind that the minimal setup will run with [an embedded MQTT broker](/docs/mqtt/broker#embedded-broker):
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-```
+To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file. 
 
 To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 
@@ -32,6 +27,16 @@ To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 mqtt:
   broker: IP_ADDRESS_BROKER
 ```
+
+You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker). A separate broker is advised for more stability.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  password: hello
+```
+
+This allows you to connect to the MQTT broker with user `homeassistant` and password `hello`.
 
 ## {% linkable_title Additional features %}
 

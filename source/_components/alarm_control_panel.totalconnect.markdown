@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Honeywell TotalConnect Alarm Control Panel"
-description: "Instructions how to integrate TotalConnect alarms into Home Assistant."
+description: "Instructions on how to integrate TotalConnect alarms into Home Assistant."
 date: 2017-04-02 22:00
 sidebar: true
 comments: false
@@ -34,3 +34,27 @@ Configuration variables:
 - **username** (*Required*): Username used to sign into the TotalConnect app/web client.
 - **password** (*Required*): Password used to sign into the TotalConnect app/web client.
 
+Automation example:
+
+```yaml
+automation:
+  - alias: "Alarm: Disarmed Daytime"
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'disarmed'
+    condition:
+      condition: sun
+      before: sunset
+    action:
+      service: scene.turn_on
+      entity_id: scene.OnDisarmedDaytime
+  - alias: "Alarm: Armed Away"
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'armed_away'
+    action:
+      service: scene.turn_on
+      entity_id: scene.OnArmedAway 
+```

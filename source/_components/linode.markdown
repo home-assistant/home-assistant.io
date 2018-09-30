@@ -7,22 +7,32 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category: System Monitor
 logo: linode.png
 ha_release: 0.57
 ha_iot_class: "Cloud Polling"
 ---
 
-The `linode` component allows you to access the information about your [Linode](https://welcome.linode.com) systems from Home Assistant.
+The `linode` component allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
-Obtain your API key from Linode account.
+## {% linkable_title Setup %}
+
+Obtain your oAuth2 Access Token from Linode account.
+
+* <http://cloud.linode.com>
+* Log in
+* Select API Tokens
+* Create a Personal Access Token,
+* Assigned scope (Please choose the least possible access required.)
+
+## {% linkable_title Configuration %}
 
 To integrate Linode with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 linode:
-  access_token: YOUR_API_KEY
+  access_token: YOUR_ACCESS_TOKEN
 ```
 
 {% configuration %}
@@ -31,4 +41,3 @@ linode:
     required: true
     type: string
 {% endconfiguration %}
-

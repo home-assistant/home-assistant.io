@@ -39,7 +39,7 @@ The key improvements are:
 
 ### {% linkable_title Z-Wave Security 2 %}
 
-From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (September 2017) OpenZWave does not support the S2 framework.
+From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (March 2018) OpenZWave does not support the S2 framework.
 
 ## {% linkable_title Device power %}
 

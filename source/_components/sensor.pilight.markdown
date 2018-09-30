@@ -1,25 +1,27 @@
 ---
 layout: page
 title: "Pilight Sensor"
-description: "Instructions how to integrate pilight sensors within Home Assistant."
+description: "Instructions on how to integrate pilight sensors within Home Assistant."
 date: 2016-10-08 23:21
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.31
 ha_iot_class: depends
 ---
 
 
-This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g. _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
+This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
+
+## {% linkable_title Configuration %}
 
 To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/doku.php/protocols) and add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: pilight
     variable: temperature
@@ -40,7 +42,7 @@ This section shows a real life example how to use values of a weather station.
 
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: pilight
     name: 'Temperature'

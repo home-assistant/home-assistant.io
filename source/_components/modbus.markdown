@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Modbus"
-description: "Instructions how to integrate Modbus within Home Assistant."
+description: "Instructions on how to integrate Modbus within Home Assistant."
 date: 2015-04-25 9:16
 sidebar: true
 comments: false
@@ -15,6 +15,8 @@ ha_iot_class: "Local Push"
 
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+
+## {% linkable_title Configuration %}
 
 To add modbus to your installation, add the following to your `configuration.yaml` file:
 
@@ -30,7 +32,10 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modbus.
+- **type** (*Required*): Type of the connection to Modbus. Possible values are:
+  - *tcp*: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation, 
+  - *udp*: Modbus TCP form, but using UDP for transport (removes the overheads required for TCP),
+  - *rtuovertcp*: Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.
 - **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
 - **port** (*Required*): The port for the communication.
 - **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
@@ -51,7 +56,7 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modebus.
+- **type** (*Required*): Type of the connection to Modbus.
 - **method** (*Required*): Method of the connection to Modbus.
 - **port** (*Required*): The port where your Modbus device is connected to your Home Assistant host.
 - **baudrate** (*Required*): The speed for the serial connection.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Telldus Binary Sensor"
-description: "Instructions how to integrate Telldus Live binary sensors into Home Assistant."
+description: "Instructions on how to integrate Telldus Live binary sensors into Home Assistant."
 date: 2017-10-24 10:09
 sidebar: true
 comments: false

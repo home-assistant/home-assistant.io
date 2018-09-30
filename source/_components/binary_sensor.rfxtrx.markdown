@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFXtrx Binary Sensor"
-description: "Instructions how to integrate RFXtrx binary sensors into Home Assistant."
+description: "Instructions on how to integrate RFXtrx binary sensors into Home Assistant."
 date: 2017-03-26 12:45
 sidebar: true
 comments: false
@@ -38,7 +38,7 @@ binary_sensor:
       name: device_name
 ```
 
-Do not forget to tweak the configuration variables:
+Configuration variables:
 
 - **automatic_add** (*Optional*): To enable the automatic addition of new binary sensors.
 - **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
@@ -48,13 +48,17 @@ Do not forget to tweak the configuration variables:
 This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
 </p>
 
+<p class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes. 
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</p>
+
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
 - Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep. 
 - Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
 
 For those devices, use the *off_delay* parameter. It defines a delay after which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
-
 
 Example configuration:
 
@@ -83,7 +87,7 @@ Let's try to add a new PT-2262 sensor using the "automatic_add" option and have 
 
 Have your sensor trigger the "On" state for the first time. Some messages will appear:
 
-```
+```text
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 0913000022670e013970 (Device_id: 22670e Class: LightingDevice Sub: 0)
 ```
 
@@ -91,7 +95,7 @@ Here the sensor has the id *22670e*.
 
 Now have your sensor trigger the "Off" state and look for the following message in the Home Assistant log. You should see that your device has been detected as a *new* device when triggering its "Off" state:
 
-```
+```text
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
 ```
 
@@ -115,7 +119,7 @@ devices:
 
 The *automatic_add* option makes the rfxtrx binary sensor component calculate and display the configuration options for you in the Home Assistant logs:
 
-```
+```text
 INFO (Thread-6) [homeassistant.components.rfxtrx] rfxtrx: found possible device 226707 for 22670e with the following configuration:
 data_bits=4
 command_on=0xe

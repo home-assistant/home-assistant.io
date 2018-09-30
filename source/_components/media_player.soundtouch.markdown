@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Soundtouch"
-description: "Instructions how to integrate Bose Soundtouch devices into Home Assistant."
+description: "Instructions on how to integrate Bose Soundtouch devices into Home Assistant."
 date: 2016-11-06 13:00
 sidebar: true
 comments: false

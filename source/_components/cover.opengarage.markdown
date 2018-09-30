@@ -1,19 +1,20 @@
 ---
 layout: page
 title: "OpenGarage Cover"
-description: "Instructions how to integrate OpenGarage.io covers within Home Assistant."
+description: "Instructions on how to integrate OpenGarage.io covers within Home Assistant."
 date: 2017-04-07 14:25
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: opengarage.png
-ha_category: Cover
+ha_category: DIY
 ha_release: 0.44
 ---
 
+The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant. 
+## {% linkable_title Configuration %}
 
 To enable OpenGarage Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,12 +37,10 @@ Configuration variables:
 
 - **covers** array (*Required*): List of your doors.
   - **identifier**  (*Required*): Name of the cover as slug. Multiple entries are possible.
-      - **host** (*Required*): IP address of device.
-      - **port** (*Optional*): HTTP Port. Default is `80`.
-      - **device_key** (*Required*): Access key to control device. Default is `opendoor`.
-      - **name** (*Optional*): Name to use in the Frontend. If not provided, it will use name configured in device.
-
-
+    - **host** (*Required*): IP address of device.
+    - **port** (*Optional*): HTTP Port. Default is `80`.
+    - **device_key** (*Required*): Access key to control device. Default is `opendoor`.
+    - **name** (*Optional*): Name to use in the Frontend. If not provided, it will use name configured in device.
 
 **Example with more detail:**
 <p class='img'>
@@ -53,7 +52,7 @@ Configuration variables:
 cover:
   platform: opengarage
   covers:
-      garage:        
+      garage:
         host: 192.168.1.12
         device_key: opendoor
         name: honda
@@ -90,15 +89,15 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'{% endraw %}
+          {% endif %}'
 
 group:
-  garage:     
+  garage:
     name: Garage
     entities:
       - cover.honda
       - sensor.garage_status
-      - sensor.garage_car_present     
+      - sensor.garage_car_present
 
 customize:
   cover.honda:
@@ -107,3 +106,4 @@ customize:
   sensor.garage_car_present:
     icon: mdi:car
 ```
+{% endraw %}
