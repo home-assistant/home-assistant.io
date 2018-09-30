@@ -51,11 +51,11 @@ device_id:
 device_ids:
   description: Comma separated list of device ids.
   required: false
-  type: list
+  type: string
 device_names:
   description: Comma separated list of device names.
   required: false
-  type: list
+  type: string
 {% endconfiguration %}
 
 The notify service has two optional parameters: `icon` and `vibration`.
