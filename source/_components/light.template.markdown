@@ -93,7 +93,7 @@ result:
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this light.
+In this section you will find some real-life examples of how to use this light.
 
 ### {% linkable_title Theater Volume Control %}
 

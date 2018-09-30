@@ -126,7 +126,7 @@ when [`tilt_template`](#tilt_template) is not specified or when the
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this cover.
+In this section you will find some real-life examples of how to use this cover.
 
 ### {% linkable_title Garage Door %}
 

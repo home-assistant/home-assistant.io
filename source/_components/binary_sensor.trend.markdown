@@ -52,7 +52,7 @@ The current number of stored samples is displayed on the States page.
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 This example indicates `true` if the sun is still rising:
 
