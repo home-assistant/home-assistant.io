@@ -53,7 +53,6 @@ province:
     [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
   required: false
   type: string
-  default: None
 workdays:
   description: List of workdays.
   required: false
