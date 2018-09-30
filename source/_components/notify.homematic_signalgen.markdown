@@ -29,7 +29,7 @@ notify:
 
 {% configuration %}
 address:
-  description: The address of your homematic signal generator. The address is the serial number of the device shown in the CCU in the `devices` section in the column `serial number`.
+  description: The address of your Homematic signal generator. The address is the serial number of the device shown in the CCU in the `devices` section in the column `serial number`.
   required: true
   type: string
 value:
