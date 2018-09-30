@@ -89,14 +89,14 @@ effect_list:
   required: false
   type: string list
 hs_command_topic:
-  description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation)."
-  Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
-  Note: Brightness is sent separately in the `brightness_command_topic`.
+  description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
+  Range for Hue: 0° .. 360°, Range of Saturation: 0..100. 
+  Note: Brightness is sent separately in the `brightness_command_topic`."
   required: false
   type: string
 hs_state_topic:
-  description: The MQTT topic subscribed to receive color state updates in HS format.
-  Note: Brightness is received separately in the `brightness_state_topic`.
+  description: "The MQTT topic subscribed to receive color state updates in HS format.
+  Note: Brightness is received separately in the `brightness_state_topic`."
   required: false
   type: string
 hs_value_template:
