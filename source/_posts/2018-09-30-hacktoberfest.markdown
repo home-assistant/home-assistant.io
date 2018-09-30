@@ -53,7 +53,7 @@ Hacktoberfest will create a lot of work for us. In 2017 we processed 625 Pull Re
 
 - Get familiar with our [Style Guidelines](https://developers.home-assistant.io/docs/en/development_guidelines.html) and the existing code.
 - Go through the [Developer documentation](https://developers.home-assistant.io).
-- Don’t forget the documentation. Changes requires often an update of the documentation. Also, new integrations. You know how it works, but the users don’t.
+- Don’t forget the documentation. Changes often require an update of the documentation. Also, new integrations. You know how it works, but the users don’t.
 - [Architectural changes](https://github.com/home-assistant/architecture) need to be discussed before a change is proposed. Also, keep in mind that those kinds of Pull Request may not be reviewed during October.
 - If you update a dependency, then you need to make sure that it will work. This means, provide the configuration sample and other details (used devices, firmware version, etc.).
 
@@ -75,7 +75,7 @@ Talk to the owner or the maintainer of the code to make your contributions count
 
 It would also be a huge help if you review other Pull Requests. This means that there is a bigger chance that your Pull Request will be handled in a timely manner or that others are. We already have a backlog of Pull Requests in most repositories.
 
-If you think that you are not enough qualified to do it, don’t worry, there are people around who can and will assist you. It’s nothing wrong to go for the low hanging fruits first, comment on the most obvious issues and take a deep-dive after  Multiple eyes always see more than one pair.
+If you think that you are not enough qualified to do it, don’t worry, there are people around who can and will assist you. There is nothing wrong to go for the low hanging fruits first, comment on the most obvious issues and take a deep-dive after  Multiple eyes always see more than one pair.
 
 ## {% linkable_title Not a coder? Not a problem! %}
 
