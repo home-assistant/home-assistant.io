@@ -49,7 +49,7 @@ $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
-```
+```text
 dtoverlay=pi3-disable-bt
 ```
 
@@ -59,7 +59,24 @@ Then disable the Bluetooth modem service:
 $ sudo systemctl disable hciuart
 ```
 
-Finally, reboot to make those changes active. It's been reported that this is also required on the Pi2.
+Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
+
+```bash
+$ sudo systemctl mask serial-getty@ttyAMA0.service
+```
+
+so that your serial interface looks like:
+
+```text
+crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
+```
+at this point simply add your user (homeassistant) to the dialout group:
+
+```bash
+$ sudo usermod -a -G dialout homeassistant 
+```
+
+Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
 
 <p class='note'>
   If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.

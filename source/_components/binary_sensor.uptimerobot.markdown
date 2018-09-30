@@ -8,19 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: uptimerobot.png
-ha_category: Binary Sensor
+ha_category: System Monitor
 ha_release: "0.72"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `uptimerobot` binary_sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com)
+The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com).
 
-## Example for `configuration.yaml` :
+## {% linkable_title Configuration %}
+
+To enable the sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   - platform: uptimerobot
-    api_key: u432898-d2507e493b31217e6c64fd35
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}

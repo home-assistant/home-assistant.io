@@ -67,6 +67,11 @@ ssid_filter:
     type: list of strings
     required: false
     default: None
+monitored_conditions:
+    description: A list of extra attributes to pull from the Unifi controller.
+    type: list
+    required: false
+    default: None
 
 {% endconfiguration %}
 
@@ -78,7 +83,7 @@ The Unifi controller allows you to create multiple users on it besides the main 
 
 ### {% linkable_title Conflicts with MQTT %}
 
-The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
+The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
 
 It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
 
@@ -86,6 +91,58 @@ It is recommended that you run the Unifi controller in a dedicated virtual machi
 
 Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
 
-If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are syncronized. Failing to have syncronized clocks will lead to Home Assistant failing to mark a device as home.
+If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
+
+### {% linkable_title Monitored Conditions %}
+
+The Unifi controller returns a number of additional attributes that can be used for tracking devices, including signal strength, rx/tx rates, and which AP it is connected to. The list of possible options may vary depending on your Unifi controller version and if a device is wired or wireless.
+
+Unifi Controller version 5.6.29 has the following options:
+  - _id
+  - _is_guest_by_uap
+  - _last_seen_by_uap
+  - _uptime_by_uap
+  - ap_mac
+  - assoc_time
+  - authorized
+  - bssid
+  - bytes-r
+  - ccq
+  - channel
+  - essid
+  - first_seen
+  - hostname
+  - idletime
+  - ip
+  - is_11r
+  - is_guest
+  - is_wired
+  - last_seen
+  - latest_assoc_time
+  - mac
+  - name
+  - noise
+  - noted
+  - oui
+  - powersave_enabled
+  - qos_policy_applied
+  - radio
+  - radio_proto
+  - rssi
+  - rx_bytes
+  - rx_bytes-r
+  - rx_packets
+  - rx_rate
+  - signal
+  - site_id
+  - tx_bytes
+  - tx_bytes-r
+  - tx_packets
+  - tx_power
+  - tx_rate
+  - uptime
+  - user_id
+  - usergroup_id
+  - vlan

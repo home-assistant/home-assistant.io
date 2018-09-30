@@ -10,11 +10,11 @@ footer: true
 ha_release: 0.35
 ---
 
-Text-to-speech (TTS) enables Home Assistant to speak to you.
+Text-to-Speech (TTS) enables Home Assistant to speak to you.
 
 ## {% linkable_title Configuring a `tts` platform %}
 
-To get started, add the following lines to your `configuration.yaml` (example for google):
+To get started, add the following lines to your `configuration.yaml` (example for Google):
 
 ```yaml
 # Example configuration.yaml entry for google tts service
@@ -23,27 +23,65 @@ tts:
 ```
 
 <p class='note'>
-Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/).
+Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/) or in the parameters of this component.
 </p>
 
 The following optional parameters can be used with any platform. However, the TTS component will only look for global settings under the configuration of the first configured platform:
 
-| Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cache` | True    | Allow TTS to cache voice file to local storage. |
-| `cache_dir`  | tts      | Folder name or path to a folder for caching files. |
-| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours). |
+{% configuration %}
+cache:
+  description: Allow TTS to cache voice file to local storage.
+  required: false
+  type: boolean
+  default: True
+cache_dir:
+  description: Folder name or path to a folder for caching files.
+  required: false
+  type: string
+  default: tts
+time_memory:
+  description: Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours).
+  required: false
+  type: int
+  default: 300
+base_url:
+  description: A base URL to use *instead* of the one set in the [http component](/components/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
+  required: false
+  type: string
+  default: value of ``http.base_url``
+{% endconfiguration %}
 
 The extended example from above would look like the following sample:
 
 ```yaml
-# Example configuration.yaml entry for google tts service
+# Example configuration.yaml entry for Google TTS service
 tts:
   - platform: google
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
+    base_url: http://192.168.0.10:8123
 ```
+
+## {% linkable_title When do you need to set `base_url` here? %}
+
+The general answer is "whenever the global `base_url` set in [http component](/components/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
+
+The following sections describe some of the problems encountered with media devices.
+
+### {% linkable_title Self-signed certificates %}
+
+This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate.
+
+The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [http component](/components/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
+
+### {% linkable_title Google cast devices %}
+
+The Google cast devices (Google Home, Chromecast, etc.) present the following problems:
+
+* They [reject self-signed certificates](#self-signed-certificates).
+
+* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a `base_url` that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
 ## {% linkable_title Service say %}
 

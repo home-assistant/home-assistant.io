@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: opengarage.png
-ha_category: Cover
+ha_category: DIY
 ha_release: 0.44
 ---
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable OpenGarage Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -87,7 +89,7 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'{% endraw %}
+          {% endif %}'
 
 group:
   garage:
@@ -104,3 +106,4 @@ customize:
   sensor.garage_car_present:
     icon: mdi:car
 ```
+{% endraw %}

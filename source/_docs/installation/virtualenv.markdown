@@ -72,7 +72,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
 - It's recommended to run Home Assistant as a dedicated user.
 
 <p class='info'>
-Looking for more advanced guides? Check our [Rasbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
+Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
 </p>
 
 ### {% linkable_title After upgrading Python %}

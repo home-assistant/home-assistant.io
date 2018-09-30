@@ -18,6 +18,7 @@ Load and update configuration files for Home Assistant from a [Git](https://git-
   "git_branch": "master",
   "git_command": "pull",
   "git_remote": "origin",
+  "git_prune": "false",
   "repeat": {
     "active": false,
     "interval": 300
@@ -38,8 +39,9 @@ Load and update configuration files for Home Assistant from a [Git](https://git-
 ```
 
 - **repository** (*Required*): Git URL to your repository (make sure to use double quotes). You have to add `.git` to your GitHub repository URL (see example configuration)
-- **git_branch** (*Required*): Branch name of the Git repo, leave this as 'master' if you are unsure.
+- **git_branch** (*Required*): Branch name of the Git repo. If left empty, the currently checked out branch will be updated. Leave this as 'master' if you are unsure.
 - **git_remote** (*Required*): Name of the tracked repository. Leave this as `origin` if you are unsure.
+- **git_prune** (*Required*): If set to true, the add-on will cleanup branches that are deleted on the remote repository, but still have cached entries on the local machine. Leave this as `false` if you are unsure.
 - **git_command** (*Required*): Must be either `pull` or `reset`. Leave this as `pull` if you are unsure.
 
   * **pull**: Incorporates changes from a remote repository into the current branch. Will preserve any local changes to tracked files.

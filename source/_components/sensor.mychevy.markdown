@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "MyChevy Sensors"
+title: "MyChevy Sensor"
 description: "Instructions on how to integrate Chevy Bolt sensors car into Home Assistant."
 date: 2017-08-28 17:00
 sidebar: true
@@ -8,9 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: chevy.png
-ha_category: Sensor
+ha_category: Car
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-For configuration instructions, see [main component config](/components/mychevy/).
+
+The `mychevy` sensor platform allows you to monitor your Chevy Bolt car from within Home Assistant.
+
+The sensor platform will be automatically configured if the `mychevy` component is configured.
+
+For configuration instructions, see the [`mychevy` component](/components/mychevy/) documentation.
+

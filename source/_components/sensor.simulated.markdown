@@ -8,16 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.65
 ---
 
-The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal ```V(t)``` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
+The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
 
- ```
- V(t) = M + A sin((2 pi (t - t_0) / w) + P) + N(s)
- ```
+```text
+V(t) = M + A sin((2 pi (t - t_0) / w) + P) + N(s)
+```
 
 where:
 

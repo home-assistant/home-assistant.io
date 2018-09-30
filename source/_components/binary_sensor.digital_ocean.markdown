@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The `digital_ocean` binary sensor platform allows you to monitor your Digital Ocean droplets.
 
+### {% linkable_title Configuration %}
+
 To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/components/digital_ocean/) and then add the following to your `configuration.yaml` file:
 
 ```yaml

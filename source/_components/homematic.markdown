@@ -187,6 +187,7 @@ To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / 
 - *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
 - *homematic.set_variable_value*: Set the value of a system variable.
 - *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+- *homematic.put_paramset*: Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
 
 #### {% linkable_title Examples %}
 
@@ -255,6 +256,20 @@ action:
     channel: 4
     param: SET_TEMPERATURE
     value: 23.0
+```
+
+Set the week program of a wall thermostat:
+
+```yaml
+...
+action:
+  service: homematic.put_paramset
+  data:
+    interface: wireless
+    address: LEQ1234567
+    paramset_key: MASTER
+    paramset:
+      WEEK_PROGRAM_POINTER: 1
 ```
 
 Manually set lock on KeyMatic devices:

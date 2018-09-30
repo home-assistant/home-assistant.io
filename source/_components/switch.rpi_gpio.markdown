@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Switch
+ha_category: DIY
 ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
 
 The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+
+## {% linkable_title Configuration %}
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 

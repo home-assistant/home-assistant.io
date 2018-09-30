@@ -16,7 +16,9 @@ ha_iot_class: "Cloud Polling"
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information. 
 
 <p class='note warning'>
-Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for, at this time existing free keys will continue to work, but may be disabled in the future.
+Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for. At this time existing free keys will continue to work, but will be disabled Dec 31, 2018.  As of Sept 6, 2018 Weather Underground states they are declaring the [End of Service for the Weather Underground API](https://apicommunity.wunderground.com/weatherapi/topics/end-of-service-for-the-weather-underground-api). They say they will develop new plans for non-commercial users.  No timeline for this has been announced.
+
+Please consider this when using the following information.
 </p>
 
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:

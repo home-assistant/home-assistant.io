@@ -8,13 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: upnp.png
-ha_category: "Other"
+ha_category: Network
 ha_release: 0.18
 ---
 
 The `upnp` component enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the Internet Gateway Device (IGD) Protocol if enabled on your router.
 
-The IGD automatically creates port forwarding mappings on your router for Home Assistant, exposing your installation to the internet.  The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.
+The IGD automatically creates port forwarding mappings on your router for Home Assistant, exposing your installation to the internet. The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this component to work.
 

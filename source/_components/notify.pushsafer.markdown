@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.39
 ---
 
-
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows you to send messages to the user using Pushsafer.
 
 In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
@@ -90,6 +89,10 @@ Message to two devices and one device group with formatted text and local image.
     "url": "https://www.home-assistant.io/",
     "urltitle": "Open Home Assistant",
     "time2live": "10",
+    "priority": "2",
+    "retry": "60",
+    "expire": "600",
+    "answer": "1",
     "picture1": {
        "path":"C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
      }

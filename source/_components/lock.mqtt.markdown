@@ -101,8 +101,9 @@ In this section you will find some real life examples of how to use this lock.
 
 The example below shows a full configuration for a MQTT lock.
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 lock:
   - platform: mqtt
     name: Frontdoor
@@ -113,8 +114,9 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
 ```
+{% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
 
