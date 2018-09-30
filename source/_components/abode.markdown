@@ -72,14 +72,14 @@ polling:
   default: false
 exclude:
   description: >
-    "A list of devices to exclude from Home Assistant by their Abode `device_id`
-    or `automation_id`, found within the component attributes."
+    A list of devices to exclude from Home Assistant by their Abode `device_id`
+    or `automation_id`, found within the component attributes.
   required: false
   type: list
 lights:
   description: >
-    "A list of switch devices that Home Assistant should treat as lights by the
-    switches Abode `device_id`, found within the component attributes."
+    A list of switch devices that Home Assistant should treat as lights by the
+    switches Abode `device_id`, found within the component attributes.
   required: false
   type: list
 {% endconfiguration %}

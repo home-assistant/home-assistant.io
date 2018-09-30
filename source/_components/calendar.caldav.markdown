@@ -107,8 +107,8 @@ password:
 calendars:
   required: false
   description: >
-    "List of the calendars to filter.
-    Empty or absent means no filtering, i.e. all calendars will be added."
+    List of the calendars to filter.
+    Empty or absent means no filtering, i.e. all calendars will be added.
   type: list
 custom_calendars:
   required: false
@@ -126,8 +126,8 @@ custom_calendars:
     search:
       required: true
       description: >
-        "Regular expression for filtering the events based on
-        the content of their summary, description or location."
+        Regular expression for filtering the events based on
+        the content of their summary, description or location.
       type: string
 {% endconfiguration %}
 

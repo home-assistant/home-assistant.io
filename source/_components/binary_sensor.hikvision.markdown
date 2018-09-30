@@ -87,8 +87,8 @@ password:
   type: string
 name:
   description: >
-    "The name you would like to give the camera in Home Assistant,
-    defaults to name defined in the camera."
+    The name you would like to give the camera in Home Assistant,
+    defaults to name defined in the camera.
   required: false
   type: string
 port:
@@ -102,22 +102,22 @@ ssl:
   type: boolean
 customize:
   description: >
-    "This attribute contains sensor-specific override values.
-    Only sensor name needs defined:"
+    This attribute contains sensor-specific override values.
+    Only sensor name needs defined:
   required: false
   type: map
   keys:
     ignored:
       description: >
-        "Ignore this sensor completely. It won't be shown in
-        the Web Interface and no events are generated for it."
+        Ignore this sensor completely. It won't be shown in
+        the Web Interface and no events are generated for it.
       required: false
       type: boolean
     delay:
       description: >
-        "Specify the delay to wait after a sensor event ends before notifying
+        Specify the delay to wait after a sensor event ends before notifying
         Home Assistant in seconds. This is useful to catch multiple quick trips
-        in one window without the state toggling on and off."
+        in one window without the state toggling on and off.
       required: false
       type: int
       default: 5

@@ -43,14 +43,14 @@ name:
   default: Workday Sensor
 country:
   description: >
-    "Country code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation."
+    Country code according to
+    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
   required: true
   type: string
 province:
   description: >
-    "Province code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation."
+    Province code according to
+    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
   required: false
   type: string
   default: None

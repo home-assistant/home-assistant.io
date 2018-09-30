@@ -71,14 +71,14 @@ name:
   default: REST Binary Sensor
 device_class:
   description: >
-    "The [type/class](/components/binary_sensor/) of
-    the sensor to set the icon in the frontend."
+    The [type/class](/components/binary_sensor/) of
+    the sensor to set the icon in the frontend.
   required: false
   type: string
 value_template:
   description: >
-    "Defines a [template](/docs/configuration/templating/#processing-incoming-data)
-    to extract the value."
+    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    to extract the value.
   required: false
   type: template
 payload:

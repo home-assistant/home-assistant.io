@@ -69,10 +69,10 @@ payload_off:
   default: "OFF"
 availability_topic:
   description: >
-    "The MQTT topic subscribed to receive birth and LWT messages from the MQTT
+    The MQTT topic subscribed to receive birth and LWT messages from the MQTT
     device. If `availability_topic` is not defined, the binary sensor availability
     state will always be `available`. If `availability_topic` is defined,
-    the binary sensor availability state will be `unavailable` by default."
+    the binary sensor availability state will be `unavailable` by default.
   required: false
   type: string
 payload_available:
@@ -98,14 +98,14 @@ unique_id:
   type: string
 device_class:
   description: >
-    "The [type/class](/components/binary_sensor/) of
-    the sensor to set the icon in the frontend."
+    The [type/class](/components/binary_sensor/) of
+    the sensor to set the icon in the frontend.
   required: false
   type: string
 value_template:
   description: >
-    "Defines a [template](/docs/configuration/templating/#processing-incoming-data)
-    to extract a value from the payload."
+    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    to extract a value from the payload.
   required: false
   type: string
 force_update:

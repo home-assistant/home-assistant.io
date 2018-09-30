@@ -63,9 +63,9 @@ binary_sensors:
       type: string
     type:
       description: >
-        "The binary sensor type.
+        The binary sensor type.
         See [Home Assistant binary sensor](/components/binary_sensor/)
-        for available types."
+        for available types.
       required: false
       type: string
 {% endconfiguration %}

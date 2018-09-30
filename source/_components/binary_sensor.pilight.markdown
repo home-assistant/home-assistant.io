@@ -38,8 +38,8 @@ variable:
   type: string
 payload:
   description: >
-    "Message payload identifiers.
-    Only if all identifiers are matched the sensor value is set."
+    Message payload identifiers.
+    Only if all identifiers are matched the sensor value is set.
   required: true
   type: string
 name:
@@ -60,8 +60,8 @@ disarm_after_trigger:
   type: boolean
 reset_delay_sec:
   description: >
-    "Seconds before the sensor is disarmed if
-    `disarm_after_trigger` is set to true."
+    Seconds before the sensor is disarmed if
+    `disarm_after_trigger` is set to true.
   required: false
   type: int
   default: 30

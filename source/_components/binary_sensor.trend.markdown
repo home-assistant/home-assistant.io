@@ -45,14 +45,14 @@ sensors:
       type: string
     attribute:
       description: >
-        "The attribute of the entity that this sensor tracks.
-        If no attribute is specified then the sensor will track the state."
+        The attribute of the entity that this sensor tracks.
+        If no attribute is specified then the sensor will track the state.
       required: false
       type: string
     device_class:
       description: >
-        "The [type/class](/components/binary_sensor/) of
-        the sensor to set the icon in the frontend."
+        The [type/class](/components/binary_sensor/) of
+        the sensor to set the icon in the frontend.
       required: false
       type: string
     friendly_name:
@@ -61,8 +61,8 @@ sensors:
       type: string
     invert:
       description: >
-        "Invert the result. A `true` value would
-        mean descending rather than ascending."
+        Invert the result. A `true` value would
+        mean descending rather than ascending.
       required: false
       type: boolean
       default: false
@@ -73,16 +73,16 @@ sensors:
       default: 2
     min_gradient:
       description: >
-        "The minimum rate at which the observed value
+        The minimum rate at which the observed value
         must be changing for this sensor to switch on.
-        The gradient is measured in sensor units per second."
+        The gradient is measured in sensor units per second.
       required: false
       type: string
       default: 0.0
     sample_duration:
       description: >
-        "The duration **in seconds** to store samples for.
-        Samples older than this value will be discarded."
+        The duration **in seconds** to store samples for.
+        Samples older than this value will be discarded.
       required: false
       type: int
       default: 0

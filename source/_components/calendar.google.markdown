@@ -58,8 +58,8 @@ client_secret:
   type: string
 track_new_calendar:
   description: >
-    "Will automatically generate a binary sensor when a new calendar
-    is detected. The system scans for new calendars only on startup."
+    Will automatically generate a binary sensor when a new calendar
+    is detected. The system scans for new calendars only on startup.
   required: false
   type: boolean
   default: true
@@ -110,8 +110,8 @@ entities:
   keys:
     device_id:
       description: >
-        "The name that all your automations/scripts
-        will use to reference this device."
+        The name that all your automations/scripts
+        will use to reference this device.
       required: true
       type: string
     name:
@@ -128,8 +128,8 @@ entities:
       type: string
     offset:
       description: >
-        "A set of characters that precede a number in the event title
-        for designating a pre-trigger state change on the sensor."
+        A set of characters that precede a number in the event title
+        for designating a pre-trigger state change on the sensor.
       required: false
       type: string
       default: "!!"

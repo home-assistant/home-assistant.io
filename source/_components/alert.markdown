@@ -55,8 +55,8 @@ name:
   type: string
 done_message:
   description: >
-    "A message sent after an alert transitions from `on` to `off`. Is only sent
-    if an alert notification was sent for transitioning from `off` to `on`."
+    A message sent after an alert transitions from `on` to `off`. Is only sent
+    if an alert notification was sent for transitioning from `off` to `on`.
   required: false
   type: string
 entity_id:
@@ -70,8 +70,8 @@ state:
   default: on
 repeat:
   description: >
-    "Number of minutes before the notification should be repeated.
-    Can be either a number or a list of numbers."
+    Number of minutes before the notification should be repeated.
+    Can be either a number or a list of numbers.
   required: true
   type: [int, list]
 can_acknowledge:
@@ -81,8 +81,8 @@ can_acknowledge:
   default: true
 skip_first:
   description: >
-    "Controls whether the notification should be
-    sent immediately or after the first delay."
+    Controls whether the notification should be
+    sent immediately or after the first delay.
   required: false
   type: boolean
   default: false

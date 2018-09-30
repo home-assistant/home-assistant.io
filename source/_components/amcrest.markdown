@@ -46,8 +46,8 @@ amcrest:
 {% configuration %}
 host:
   description: >
-    "The IP address or hostname of your camera.
-    If using a hostname, make sure the DNS works as expected."
+    The IP address or hostname of your camera.
+    If using a hostname, make sure the DNS works as expected.
   required: true
   type: string
 username:
@@ -60,8 +60,8 @@ password:
   type: string
 name:
   description: >
-    "This parameter allows you to override the name of your camera. In the case of multi-camera setups,
-    this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated."
+    This parameter allows you to override the name of your camera. In the case of multi-camera setups,
+    this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated.
   required: false
   type: string
   default: Amcrest Camera
@@ -72,31 +72,31 @@ port:
   default: 80
 resolution:
   description: >
-    "This parameter allows you to specify the camera resolution.
+    This parameter allows you to specify the camera resolution.
     For a high resolution (1080/720p), specify the option `high`.
-    For VGA resolution (640x480p), specify the option `low`."
+    For VGA resolution (640x480p), specify the option `low`.
   required: false
   type: string
   default: high
 stream_source:
   description: >
-    "The data source for the live stream. `mjpeg` will use the camera's native
+    The data source for the live stream. `mjpeg` will use the camera's native
     MJPEG stream, whereas `snapshot` will use the camera's snapshot API to
     create a stream from still images. You can also set the `rtsp` option to
-    generate the streaming via RTSP protocol."
+    generate the streaming via RTSP protocol.
   required: false
   type: string
   default: snapshot
 ffmpeg_arguments:
   description: >
-    "Extra options to pass to ffmpeg, e.g.,
-    image quality or video filter options.""
+    Extra options to pass to ffmpeg, e.g.,
+    image quality or video filter options.
   required: false
   type: string
 authentication:
   description: >
-    "Defines which authentication method to use only when **stream_source**
-    is **mjpeg**. Currently, *aiohttp* only support *basic*."
+    Defines which authentication method to use only when **stream_source**
+    is **mjpeg**. Currently, *aiohttp* only support *basic*.
   required: false
   type: string
   default: basic
@@ -107,8 +107,8 @@ scan_interval:
   default: 10
 sensors:
   description: >
-    "Conditions to display in the frontend.
-    The following conditions can be monitored:"
+    Conditions to display in the frontend.
+    The following conditions can be monitored:
   required: false
   type: list
   default: None
@@ -123,8 +123,8 @@ sensors:
         configured for the given camera.
 switches:
   description: >
-    "Switches to display in the frontend.
-    The following switches can be monitored:"
+    Switches to display in the frontend.
+    The following switches can be monitored:
   required: false
   type: list
   default: None

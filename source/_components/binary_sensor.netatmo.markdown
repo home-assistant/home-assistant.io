@@ -54,8 +54,8 @@ home:
   type: string
 timeout:
   description: >
-    "The Welcome/Presence binary sensors will
-    stay on for X seconds after detection."
+    The Welcome/Presence binary sensors will
+    stay on for X seconds after detection.
   required: false
   type: int
   default: 90
@@ -65,14 +65,14 @@ cameras:
   type: list
 welcome_sensors:
   description: >
-    "List of monitored conditions. Possible values are
-    'Someone known', 'Someone unknown' and 'Motion'."
+    List of monitored conditions. Possible values are
+    'Someone known', 'Someone unknown' and 'Motion'.
   required: false
   type: list
 presence_sensors:
   description: >
-    "List of monitored conditions. Possible values are 'Outdoor motion',
-    'Outdoor human', 'Outdoor animal' and 'Outdoor vehicle'."
+    List of monitored conditions. Possible values are 'Outdoor motion',
+    'Outdoor human', 'Outdoor animal' and 'Outdoor vehicle'.
   required: false
   type: list
 {% endconfiguration %}
