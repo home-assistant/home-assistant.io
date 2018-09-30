@@ -13,8 +13,9 @@ ha_iot_class: "Local Polling"
 ha_release: 0.57
 ---
 
-
-The `random` binary sensor platform is creating random states (`True`, 1, `on` or `False`, 0, `off`). This can be useful if you want to test automation rules. It generates a new state every time it is polled.
+The `random` binary sensor platform is creating random states (`true`, 1, `on`
+or `false`, 0, `off`). This can be useful if you want to test automation rules.
+It generates a new state every time it is polled.
 
 ## {% linkable_title Configuration %}
 
@@ -33,5 +34,6 @@ name:
   type: string
 {% endconfiguration %}
 
-See the [entity component options](/docs/configuration/platform_options/) to control how often the main component polls the random binary sensor. The default is 30 seconds.
-
+See the [entity component options](/docs/configuration/platform_options/)
+to control how often the main component polls the random binary sensor.
+The default is 30 seconds.
