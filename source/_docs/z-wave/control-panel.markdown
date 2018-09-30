@@ -41,6 +41,36 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Test Node** sends no_op test messages to the node. This could in theory bring back a dead node.
 
+* **Node Information** this will display the Z-Wave entity card with information about the node:
+
+*  **averageRequestRTT** The average Round Trip Time (RTT) of requests sent to the node, in milliseconds. A value of 250, for example, is a quarter of a second.
+*  **averageResponseRTT** The average Round Trip Time of responses to requests
+*  **battery_level** *Battery powered devices only* - the battery level, which may be rounded to the nearest 10
+*  **capabilities** A comma separated list of the capabilities of the device
+*  **friendly_name** The name you specified to be displayed
+*  **is_awake** Whether the device is awake or not
+*  **is_failed** Whether the device has been marked as failed. The controller won't try to contact failed devices.
+*  **is_info_received** True once the controller has received the node information from the node.
+*  **is_ready** When you start the network (or Home Assistant) it will take a short while before all devices are ready, this shows which aren't yet ready.
+*  **is_zwave_plus** True for any Z-Wave Plus devices (note that controllers always report *false*, regardless of whether they are Plus devices or not)
+*  **lastRequestRTT** The Round Trip Time of the last request
+*  **lastResponseRTT** The Round Trip Time of the response to the last request
+*  **manufacturer_name** The name of the manufacturer, as supplied by OpenZWave
+*  **max_baud_rate** The maximum bandwidth the device supports, most modern devices will support 40,000 or higher
+*  **node_id** The unique node ID of this node
+*  **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
+*  **product_name** The product name of the device, as supplied by OpenZWave
+*  **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
+*  **receivedCnt** The number of messages received from the device
+*  **receivedDups** The number of duplicate messages received from the device
+*  **receivedTS** The date and time the last message was received from the devices
+*  **receivedUnsolicited** How many unsolicited messages were received
+*  **retries** How many retries have been made to send messages to this node
+*  **sentCnt** How many messages have been sent to the node
+*  **sentFailed** How many messages that were sent weren't acknowledged
+*  **sentTS** The date and time the last message was sent to the ndoe
+*  **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
+
 <p class='note'>
 Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 </p>
@@ -57,38 +87,6 @@ Here you can mark a device as requiring polling so the controller is aware of ch
 The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
-
-### {% linkable_title Node Information %}
-
-This will display the Z-Wave related information about the node:
-
-* **averageRequestRTT** The average Round Trip Time (RTT) of requests sent to the node, in milliseconds. A value of 250, for example, is a quarter of a second.
-* **averageResponseRTT** The average Round Trip Time of responses to requests
-* **battery_level** *Battery powered devices only* - the battery level, which may be rounded to the nearest 10
-* **capabilities** A comma separated list of the capabilities of the device
-* **friendly_name** The name you specified to be displayed
-* **is_awake** Whether the device is awake or not
-* **is_failed** Whether the device has been marked as failed. The controller won't try to contact failed devices.
-* **is_info_received** True once the controller has received the node information from the node.
-* **is_ready** When you start the network (or Home Assistant) it will take a short while before all devices are ready, this shows which aren't yet ready.
-* **is_zwave_plus** True for any Z-Wave Plus devices (note that controllers always report *false*, regardless of whether they are Plus devices or not)
-* **lastRequestRTT** The Round Trip Time of the last request
-* **lastResponseRTT** The Round Trip Time of the response to the last request
-* **manufacturer_name** The name of the manufacturer, as supplied by OpenZWave
-* **max_baud_rate** The maximum bandwidth the device supports, most modern devices will support 40,000 or higher
-* **node_id** The unique node ID of this node
-* **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
-* **product_name** The product name of the device, as supplied by OpenZWave
-* **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
-* **receivedCnt** The number of messages received from the device
-* **receivedDups** The number of duplicate messages received from the device
-* **receivedTS** The date and time the last message was received from the devices
-* **receivedUnsolicited** How many unsolicited messages were received
-* **retries** How many retries have been made to send messages to this node
-* **sentCnt** How many messages have been sent to the node
-* **sentFailed** How many messages that were sent weren't acknowledged
-* **sentTS** The date and time the last message was sent to the ndoe
-* **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
 
 ### {% linkable_title Node Values %}
 
@@ -164,4 +162,5 @@ for c in sys.argv[1]:
 ## {% linkable_title OZW Log %}
 
 If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
-Select **Refresh** to display the log if you need it to check activities.
+Select **Load** to open a new window with the static log.
+Select **Tail** to open a new window with a tailing log with the last specified lines of the log. This is a self updating window.
