@@ -44,7 +44,7 @@ When set, the `friendly_name` had been previously used for API calls and backend
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this switch.
+In this section you find some real-life examples of how to use this switch.
 
 ### {% linkable_title aREST device %}
 

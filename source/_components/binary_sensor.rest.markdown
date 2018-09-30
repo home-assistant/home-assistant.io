@@ -104,7 +104,7 @@ Make sure that the URL exactly matches your endpoint or resource.
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title aREST sensor %}
 

@@ -41,7 +41,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-Here are some real life examples of how to use the **turn_off** variable.
+Here are some real-life examples of how to use the **turn_off** variable.
 
 ### {% linkable_title Suspending Linux %}
 

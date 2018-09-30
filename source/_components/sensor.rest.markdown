@@ -109,7 +109,7 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
