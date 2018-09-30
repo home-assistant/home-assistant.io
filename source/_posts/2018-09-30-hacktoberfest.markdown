@@ -77,7 +77,7 @@ It would also be a huge help if you review other Pull Requests. This means that 
 
 If you think that you are not enough qualified to do it, don’t worry, there are people around who can and will assist you. It’s nothing wrong to go for the low hanging fruits first, comment on the most obvious issues and take a deep-dive after  Multiple eyes always see more than one pair.
 
-### {% linkable_title Not a coder? Not a problem! %}
+## {% linkable_title Not a coder? Not a problem! %}
 
 Also, feel free to [report bugs](https://github.com/home-assistant/home-assistant/issues/new/choose), give us feedback about your user experience, tell the community about your [super cool setup](https://community.home-assistant.io/c/projects), create a [super awesome frontend](https://community.home-assistant.io/c/projects/frontend) with [Lovelace](https://www.home-assistant.io/lovelace) or help other users in the [forum](https://community.home-assistant.io/).
 
