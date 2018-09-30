@@ -155,6 +155,10 @@ tilt_invert_state:
   required: false
   type: boolean
   default: false
+unique_id:
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
