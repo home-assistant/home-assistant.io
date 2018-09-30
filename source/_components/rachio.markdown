@@ -32,7 +32,17 @@ rachio:
   api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Follow the instructions on [Rachio Binary Sensor](/components/binary_sensor.rachio/) or [Rachio Switch](/components/switch.rachio/) to add Rachio platforms.
+Configuration variables:
+
+- **api_key** (*Required*): The API key for the Rachio account.
+- **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled. Defaults to 10 minutes.
+
+<p class='note'>
+**Water-saving suggestion:**<br>
+Set `manual_run_mins` to a high maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
+</p>
+
+Once configured, [Rachio Binary Sensor](/components/binary_sensor.rachio/) and [Rachio Switch](/components/switch.rachio/) platforms will be automatically loaded.
 
 ### {% linkable_title iFrame %}
 
