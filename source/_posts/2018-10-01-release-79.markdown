@@ -56,6 +56,30 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 - GeoJSON platform ([@exxamalte] - [#16610]) ([geo_location docs]) (new-platform)
 - Add linky sensor ([@tiste] - [#16468]) ([sensor.linky docs]) (new-platform)
 
+## {% linkable_title Release 0.79.1 - September 30 %}
+
+- Optimize Ring Sensors platform setup ([@awarecan] - [#16886]) ([binary_sensor.ring docs]) ([sensor.ring docs])
+- Fix exception during history_stats startup ([@amelchio] - [#16932]) ([sensor.history_stats docs])
+- Override unique_id of NestActivityZoneSensor ([@awarecan] - [#16961]) ([binary_sensor.nest docs])
+- Fix ISY blocking bug ([@OverloadUT] - [#16978]) ([light.isy994 docs])
+- Bump zm-py to 0.0.4 ([@rohankapoorcom] - [#16979]) ([zoneminder docs])
+
+[#16886]: https://github.com/home-assistant/home-assistant/pull/16886
+[#16932]: https://github.com/home-assistant/home-assistant/pull/16932
+[#16961]: https://github.com/home-assistant/home-assistant/pull/16961
+[#16978]: https://github.com/home-assistant/home-assistant/pull/16978
+[#16979]: https://github.com/home-assistant/home-assistant/pull/16979
+[@OverloadUT]: https://github.com/OverloadUT
+[@amelchio]: https://github.com/amelchio
+[@awarecan]: https://github.com/awarecan
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[binary_sensor.nest docs]: /components/binary_sensor.nest/
+[binary_sensor.ring docs]: /components/binary_sensor.ring/
+[light.isy994 docs]: /components/light.isy994/
+[sensor.history_stats docs]: /components/sensor.history_stats/
+[sensor.ring docs]: /components/sensor.ring/
+[zoneminder docs]: /components/zoneminder/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
