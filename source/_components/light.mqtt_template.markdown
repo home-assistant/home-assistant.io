@@ -137,7 +137,7 @@ payload_not_available:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this light.
+In this section you find some real-life examples of how to use this light.
 
 ### {% linkable_title Simple string payload %}
 
