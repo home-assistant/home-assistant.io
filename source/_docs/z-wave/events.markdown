@@ -22,7 +22,7 @@ Home Assistant will trigger an event when the Z-Wave network is complete, meanin
 
 ## {% linkable_title zwave.network_complete_some_dead %}
 
-Home Assistant will trigger an event when the Z-Wave network is complete, but some node are marked dead, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.
+Home Assistant will trigger an event when the Z-Wave network is complete, but some nodes are marked dead, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.
 
 ```yaml
  - alias: Z-Wave network is complete some dead
