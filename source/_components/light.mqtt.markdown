@@ -122,11 +122,11 @@ rgb_command_template:
   required: false
   type: string
 rgb_command_topic:
-  description: "The MQTT topic to publish commands to change the light's RGB state."
+  description: "The MQTT topic to publish commands to change the light's RGB state. Please note that the color value sent by Home Assistant is normalized to full brightness if `brightness_command_topic` is set. Brightness information is in this case sent separately in the `brightness_command_topic`. This will cause a light that expects an absolute color value (including brightness) to flicker."
   required: false
   type: string
 rgb_state_topic:
-  description: The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example `255,0,127`.
+  description: "The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example, `255,0,127`. Please note that the color value received by Home Assistant is normalized to full brightness. Brightness information is received separately in the `brightness_state_topic`."
   required: false
   type: string
 rgb_value_template:
@@ -205,7 +205,7 @@ payload_not_available:
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this sensor.
+In this section you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Brightness and RGB support %}
 

@@ -95,7 +95,7 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this lock.
+In this section you will find some real-life examples of how to use this lock.
 
 ### {% linkable_title Full configuration %}
 

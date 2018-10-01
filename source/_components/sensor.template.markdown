@@ -83,7 +83,7 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sun Angle %}
 
