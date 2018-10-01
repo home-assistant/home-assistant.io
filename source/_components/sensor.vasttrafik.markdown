@@ -49,7 +49,7 @@ departures:
       type: string
     from:
       description: "The start station."
-      required: false
+      required: true
       type: string
     heading:
       description: "Direction of the traveling."
