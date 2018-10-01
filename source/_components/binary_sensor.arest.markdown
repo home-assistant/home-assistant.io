@@ -32,12 +32,15 @@ binary_sensor:
 resource:
   description: IP address and schema of the device that is exposing an aREST API, e.g., http://192.168.1.10.
   required: true
+  type: string
 pin:
   description: Number of the pin to monitor.
   required: true
+  type: int
 name:
   description: Let you overwrite the name of the device. By default *name* from the device is used.
   required: false
+  type: string
 {% endconfiguration %}
 
 Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as `return_value`.
