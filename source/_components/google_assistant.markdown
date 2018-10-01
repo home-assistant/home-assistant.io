@@ -44,7 +44,9 @@ You need to create an API Key with the [Google Console](https://console.cloud.go
 3. Back on the overview page. Click `Simulator` under `TEST`. You don't have to actually test .
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
 5. Open the Google Assistant app and go into `Settings > Home Control`. Or on your Android phone or tablet, touch and hold the Home button or say "Ok Google.". At the top right, tap compass icon and then more icon and then `Settings > Home Control`.
-> If you have added the [Home Assistant "web app"](/docs/frontend/mobile/) to your phone's homescreen before, you need remove it before next step
+<p class='note' style='margin-top: 8px; margin-bottom: 16px'>
+If you have added the [Home Assistant "web app"](/docs/frontend/mobile/) to your phone's homescreen before, you need remove it before next step
+</p>
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you the screen where you can set rooms for your devices or nicknames for your devices.
 7. If you want to allow other household users to control the devices:  
 	a. Go to the settings for the project you created in point 1 in the developer console.  
