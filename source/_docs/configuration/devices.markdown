@@ -16,7 +16,7 @@ See the [components overview page](/components/) to find installation instructio
 
 Classification for the available integrations:
 
-- [IoT class(/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
+- [IoT class](/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
 - [Quality scale](/docs/quality_scale/): Representation of the integration's quality.
 
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
