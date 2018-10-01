@@ -11,6 +11,7 @@ ha_category: Utility
 logo: home-assistant.png
 ha_release: 0.28
 ha_iot_class: "Local Push"
+ha_qa_scale: internal
 ---
 
 The `trend` platform allows you to create sensors which show the trend of

@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.32
+ha_qa_scale: internal
 ---
 
 
@@ -48,6 +49,3 @@ unit_of_measurement:
   type: string
 {% endconfiguration %}
 
-See the [entity component options][entity-docs] to control how often the main component polls the random sensor. The default is 30 seconds.
-
-[entity-docs]: /docs/configuration/platform_options/

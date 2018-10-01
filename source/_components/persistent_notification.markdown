@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Other
 ha_release: 0.23
+ha_qa_scale: internal
 ---
 
 The `persistent_notification` can be used to show a message on the frontend that has to be dismissed by the user.

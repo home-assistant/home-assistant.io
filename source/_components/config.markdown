@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Front end
 ha_release: 0.39
+ha_qa_scale: internal
 ---
 
 The `config` component is designed to display panels in the frontend to configure and manage parts of Home Assistant.
