@@ -23,8 +23,8 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: vasttrafik
-    key: XXXXXXXXXXXXXXXXXXX
-    secret: YYYYYYYYYYYYYYYYY
+    key: YOUR_API_KEY
+    secret: YOUR_API_SECRET
     departures:
       - from: Musikvägen
 ```
@@ -74,8 +74,8 @@ A full configuration example could look like this:
 # Example configuration.yaml entry
 sensor:
   - platform: vasttrafik
-    key: XXXXXXXXXXXXXXXXXXX
-    secret: YYYYYYYYYYYYYYYYY
+    key: YOUR_API_KEY
+    secret: YOUR_API_SECRET
     departures:
       - name: Mot järntorget
         from: Musikvägen
