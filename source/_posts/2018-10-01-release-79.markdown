@@ -120,6 +120,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add unique_id to Nest Sensors ([@cgarwood] - [#16869]) ([binary_sensor.nest docs]) ([sensor.nest docs]) (beta fix)
 - Prevent discovered Tradfri while already configured ([@balloob] - [#16891]) ([tradfri docs]) (beta fix)
 - Handle exception handling websocket command ([@balloob] - [#16927]) ([websocket_api docs]) (beta fix)
+- The `zoneminder` switch platform now uses new names. ([@rohankapoorcom] - [#16527]) ([zoneminder docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 
