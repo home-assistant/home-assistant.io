@@ -39,7 +39,7 @@ monitored_conditions:
     humidity:
       description: "Humidity level in %."
     moisture:
-      description:" Water level/soil moisture in % (applicable for Water Tag only)."
+      description: "Water level/soil moisture in % (applicable for Water Tag only)."
     light:
       description: Brightness in lux (if supported by tag).
 {% endconfiguration %}
