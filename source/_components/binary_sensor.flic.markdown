@@ -38,17 +38,17 @@ host:
   description: The IP or hostname of the flic service server.
   required: false
   type: string
-  default: `localhost`
+  default: localhost
 port:
   description: The port of the flic service.
   required: false
   type: integer
-  default: `5551`
+  default: 5551
 discovery:
   description: If `true` then the component is configured to constantly scan for new buttons.
   required: false
   type: boolean
-  default: `true`
+  default: true
 ignored_click_types:
   description: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
   required: false
@@ -57,7 +57,7 @@ timeout:
   description: The maximum time in seconds an event can be queued locally on a button before discarding the event.
   required: false
   type: integer
-  default: `3`
+  default: 3
 {% endconfiguration %}
 
 #### {% linkable_title Discovery %}
