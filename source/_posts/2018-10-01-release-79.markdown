@@ -80,6 +80,18 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [sensor.ring docs]: /components/sensor.ring/
 [zoneminder docs]: /components/zoneminder/
 
+## {% linkable_title Release 0.79.2 - October 1 %}
+
+- Fix MQTT certificates ([@balloob] - [#16999]) ([mqtt docs])
+- Fix switch.zoneminder name ([@rohankapoorcom] - [#17026]) ([switch.zoneminder docs])
+
+[#16999]: https://github.com/home-assistant/home-assistant/pull/16999
+[#17026]: https://github.com/home-assistant/home-assistant/pull/17026
+[@balloob]: https://github.com/balloob
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[mqtt docs]: /components/mqtt/
+[switch.zoneminder docs]: /components/switch.zoneminder/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
