@@ -31,36 +31,35 @@ sensor:
 
 {% configuration %}
 key:
-  description: "The API key to access your Västtrafik account."
+  description: The API key to access your Västtrafik account.
   required: true
   type: string
 secret:
-  description: "The API secret to access your Västtrafik account."
-  required: true
+  description: The API secret to access your Västtrafik account.  required: true
   type: string
 departures:
-  description: "List of travel routes."
+  description: List of travel routes.
   required: true
   type: map
   keys:
     name:
-      description: "Name of the route."
+      description: Name of the route.
       required: false
       type: string
     from:
-      description: "The start station."
+      description: The start station.
       required: true
       type: string
     heading:
-      description: "Direction of the traveling."
+      description: Direction of the traveling.
       required: false
       type: string
     lines:
-      description: "Only consider these lines."
+      description: Only consider these lines.
       required: false
       type: string
     delay:
-      description: "Delay in minutes."
+      description: Delay in minutes.
       required: false
       type: string
       default: 0
