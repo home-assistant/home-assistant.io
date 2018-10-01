@@ -35,7 +35,8 @@ key:
   required: true
   type: string
 secret:
-  description: The API secret to access your Västtrafik account.  required: true
+  description: The API secret to access your Västtrafik account.
+  required: true
   type: string
 departures:
   description: List of travel routes.
