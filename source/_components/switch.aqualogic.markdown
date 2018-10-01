@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hayward.png
 ha_category: Switch
-ha_release: 0.79
+ha_release: "0.80"
 ha_iot_class: "Local Push"
 ---
 
@@ -28,16 +28,31 @@ switch:
       - filter
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored/controlled:
-  - **filter**: Controls the filter pump.
-  - **filter_low_speed**: Controls low speed mode on the filter pump (multi-speed pumps only).
-  - **lights**: Controls the Lights relay.
-  - **aux_1**: Controls the Aux 1 relay.
-  - **aux_2**: Controls ths Aux 2 relay.
-  - **aux_3**: Controls ths Aux 3 relay.
-  - **aux_4**: Controls ths Aux 4 relay.
-  - **aux_5**: Controls ths Aux 5 relay.
-  - **aux_6**: Controls ths Aux 6 relay.
-  - **aux_7**: Controls ths Aux 7 relay.
+{% configuration %}
+monitored_conditions:
+  description: List of items you want to monitor/control.
+  required: true
+  default: None
+  type: list
+  keys:
+    filter:
+      description: Controls the filter pump.
+    filter_low_speed:
+      description: Controls low speed mode on the filter pump (multi-speed pumps only).
+    lights:
+      description: Controls the Lights relay.
+    aux_1:
+      description: Controls the Aux 1 relay.
+    aux_2:
+      description: Controls the Aux 2 relay.
+    aux_3:
+      description: Controls the Aux 3 relay.
+    aux_4:
+      description: Controls the Aux 4 relay.
+    aux_5:
+      description: Controls the Aux 5 relay.
+    aux_6:
+      description: Controls the Aux 6 relay.
+    aux_7:
+      description: Controls the Aux 7 relay.
+{% endconfiguration %}

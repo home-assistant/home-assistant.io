@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hayward.png
 ha_category: Sensor
-ha_release: 0.79
+ha_release: "0.80"
 ha_iot_class: "Local Push"
 ---
 
@@ -27,15 +27,29 @@ sensor:
       - pool_temp
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **air_temp**: Returns the current air temperature.
-  - **pool_temp**: Returns the current pool temperature.
-  - **spa_temp**: Returns the spa temperature.
-  - **pool_chlorinator**: Returns the pool chlorinator setting..
-  - **spa_chlorinator**: Returns the spa chlorinator setting..
-  - **salt_level**: Returns the current salt level.
-  - **pump_speed**: Returns the current pump speed (Hayward VS pumps only).
-  - **pump_power**: Returns the current pump power usage (Hayward VS pumps only).
-  - **status**: Returns the current system status.
+{% configuration %}
+monitored_conditions:
+  description: List of items you want to monitor.
+  required: true
+  default: None
+  type: list
+  keys:
+    air_temp:
+      description: The air temperature.
+    pool_temp:
+      description: The pool temperature.
+    spa_temp:
+      description: The spa temperature.
+    pool_chlorinator: 
+      description: The pool chlorinator setting.
+    spa_chlorinator: 
+      description: The spa chlorinator setting.
+    salt_level:
+      description: The current salt level.
+    pump_speed:
+      description: The current pump speed (Hayward VS pumps only).
+    pump_power:
+      description: The current pump power usage (Hayward VS pumps only).
+    status:
+      description: The current system status.
+{% endconfiguration %}
