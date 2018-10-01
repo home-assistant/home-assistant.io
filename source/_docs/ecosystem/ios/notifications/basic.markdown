@@ -44,7 +44,7 @@ automation:
 ```
 
 #### Subtitle
-Starting with iOS 10 a subtitle is supported in addition to the title:
+Starting with iOS 10, a subtitle is supported in addition to the title:
 
 ```yaml
 automation
@@ -61,7 +61,7 @@ automation
 ```
 
 #### Thread-id (grouping notifications)
-Starting with iOS 12 grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without setting a thread-id all notifications from the app will be placed into a single group.
+Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
 
 ```yaml
 automation:
