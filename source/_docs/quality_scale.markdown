@@ -29,3 +29,7 @@ This is a solid integration that is able to survive poor conditions and can be c
 
 Best of the best. The integration is completely async, meaning it's super fast and gives you an excellent user experience.
 
+## {% linkable_title Internal 🏠 %}
+
+All integrations which are marked as **internal** are part of Home Assistant.
+
