@@ -24,7 +24,7 @@ binary_sensor:
     monitored_conditions:
       - presence
       - door
-      - low_battery
+      - battery
 ```
 
 {% configuration %}
@@ -45,4 +45,4 @@ The following conditions can be monitored:
 * (`wet`): On means too wet (humidity), Off means normal.
 * (`light`): On means light detected, Off means no light.
 * (`moisture`): On means moisture detected (wet), Off means no moisture (dry).
-* (`low_battery`): On means tag battery is low, Off means normal.
+* (`battery`): On means tag battery is low, Off means normal.
