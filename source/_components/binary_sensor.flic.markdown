@@ -39,24 +39,20 @@ host:
   required: false
   type: string
   default: `localhost`
-
 port:
   description: The port of the flic service.
   required: false
   type: integer
   default: `5551`
-  
 discovery:
   description: If `true` then the component is configured to constantly scan for new buttons.
   required: false
   type: boolean
   default: `true`
-  
 ignored_click_types:
   description: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
   required: false
-  type: list
-  
+  type: list  
 timeout:
   description: The maximum time in seconds an event can be queued locally on a button before discarding the event.
   required: false
@@ -112,7 +108,6 @@ automation:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
 ```
-
 
 ##### {% linkable_title Ignoring Click Types %}
 
