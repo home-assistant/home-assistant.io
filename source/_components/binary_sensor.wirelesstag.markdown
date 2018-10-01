@@ -33,7 +33,7 @@ binary_sensor:
 monitored_conditions:
   description: The conditions types to monitor.
   required: true
-  type: map
+  type: list
   keys:
     presence:
       description: On means in range, Off means out of range.

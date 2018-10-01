@@ -30,7 +30,7 @@ switch:
 monitored_conditions:
   description: The metrics types to control.
   required: true
-  type: map
+  type: list
   keys:
     temperature:
       description: Control arm/disarm temperature monitoring.

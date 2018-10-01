@@ -32,7 +32,7 @@ sensor:
 monitored_conditions:
   description: The metrics types to monitor.
   required: true
-  type: map
+  type: list
   keys:
     temperature:
       description: Value is in Celsius or Fahrenheit (according to your settings at Tag Manager).
