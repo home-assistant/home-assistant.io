@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Binary Sensor
-ha_release: 0.80
+ha_release: "0.80"
 ha_iot_class: "Local Polling"
 ---
 
