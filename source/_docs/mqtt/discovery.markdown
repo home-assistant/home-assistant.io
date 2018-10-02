@@ -51,8 +51,8 @@ The payload will be checked like an entry in your `configuration.yaml` file if a
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
-A topic prefix `~` may be defined in the payload to conserve memory when the same topic base is used multiple times.
-The value of configuration variables ending with `_topic` and where the value begins with `~` will be prefixed with the topic prefix.
+A base topic `~` may be defined in the payload to conserve memory when the same topic base is used multiple times.
+In the value of configuration variables ending with `_topic`, `~` will be replaced with the base topic, if the `~` occurs at the beginning of the value and immediately followed by a `/`, is surrounded by two `/` or occurs at the end of the value and is immediately prepended by a `/`.
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
