@@ -58,7 +58,7 @@ departures:
     lines:
       description: Only consider these lines.
       required: false
-      type: string
+      type: [list, string]
     delay:
       description: Delay in minutes.
       required: false
