@@ -23,11 +23,9 @@ Configure the integration:
 * If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
 <p class='note'>
-<ul>
-  <li>You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.</li>
-  <li>If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.</li>
-  <li>If you are sure your email and password are correct, but the component says the login is invalid, wait a few hours and try again. It might be that Google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.</li>
-</ul>
+- You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.
+- If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.
+- If you are sure your email and password are correct, but the component says the login is invalid, wait a few hours and try again. It might be that Google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.
 </p>
 
 The authentication token will be generated and stored internally.
