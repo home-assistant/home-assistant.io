@@ -13,9 +13,17 @@ ha_iot_class: "Local Push"
 ha_release: 0.35
 ---
 
-The `flic` platform allows you to connect with multiple [flic](https://flic.io) smart buttons.
+The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
 
-The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine. For setup instructions visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
+The platform does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine. 
+
+#### {% linkable_title Service setup %}
+
+If you are using Hass.io, you can run the service locally by [installing](https://www.home-assistant.io/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons). On a Hass.io installation that's not yet based on HassOS, you also need to install the [bluetooth add-on](/addons/bluetooth_bcm43xx/).
+
+For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
+
+#### {% linkable_title Configuration %}
 
 To use your flic buttons in your installation, add the following to your `configuration.yaml` file:
 
@@ -25,13 +33,32 @@ binary_sensor:
   - platform: flic
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP or hostname of the flic service server. Defaults to `localhost`.
-- **port** (*Optional*): The port of the flic service. Defaults to `5551`.
-- **discovery** (*Optional*): If `true` then the component is configured to constantly scan for new buttons. Defaults to  `true`.
-- **ignored_click_types**: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
-- **timeout** (*Optional*): Maximum time in seconds an event can be queued locally on a button before discarding the event. Defaults to 3.
+{% configuration %}
+host:
+  description: The IP or hostname of the flic service server.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port of the flic service.
+  required: false
+  type: integer
+  default: 5551
+discovery:
+  description: If `true` then the component is configured to constantly scan for new buttons.
+  required: false
+  type: boolean
+  default: true
+ignored_click_types:
+  description: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
+  required: false
+  type: list  
+timeout:
+  description: The maximum time in seconds an event can be queued locally on a button before discarding the event.
+  required: false
+  type: integer
+  default: 3
+{% endconfiguration %}
 
 #### {% linkable_title Discovery %}
 
@@ -47,7 +74,7 @@ The flic component fires `flic_click` events on the bus. You can capture the eve
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn on lights in living room if flic is pressed once
+  - alias: Turn on lights in the living room when flic is pressed once
     trigger:
       platform: event
       event_type: flic_click
@@ -55,7 +82,7 @@ automation:
         button_name: flic_81e4ac74b6d2
         click_type: single
     action:
-      service: homeassistant.turn_off
+      service: homeassistant.turn_on
       entity_id: group.lights_livingroom
 ```
 
@@ -65,6 +92,22 @@ Event data:
 - **button_address**: The Bluetooth address of the button, that triggered the event.
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
+
+To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/components/notify.html5/). Visit the [notification component page](/components/notify/) for more information on setting up notifications.
+
+```yaml
+automation:
+  - alias: FLIC Html5 notify on every click
+    hide_entity: false
+    trigger:
+      platform: event
+      event_type: flic_click
+    action:
+      - service_template: notify.html5
+        data_template: 
+          title: "flic click"
+          message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
+```
 
 ##### {% linkable_title Ignoring Click Types %}
 
