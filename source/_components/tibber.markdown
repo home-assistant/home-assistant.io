@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tibber.png
 ha_category: Energy
-ha_release: 0.55
+ha_release: 0.81
 ha_qa_scale: silver
 ha_iot_class: "Cloud Polling"
 ---
@@ -23,10 +23,8 @@ It also provides a notification service.
 To add Tibber to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: tibber
-    access_token: d1007ead2dc84a2b82f0de19451c5fb22112f7ae11d19bf2bedb224a003ff74a
+tibber:
+  access_token: d1007ead2dc84a2b82f0de19451c5fb22112f7ae11d19bf2bedb224a003ff74a
 ```
 
 {% configuration %}
