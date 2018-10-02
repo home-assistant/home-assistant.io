@@ -106,7 +106,7 @@ automation:
       - service_template: notify.html5
         data_template: 
           title: "flic click"
-          message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
+          message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
 ```
 
 ##### {% linkable_title Ignoring Click Types %}
