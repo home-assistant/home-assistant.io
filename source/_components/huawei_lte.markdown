@@ -50,10 +50,11 @@ password:
 
 ### {% linkable_title Tested routers %}
 
-The [libary](https://pypi.org/project/huawei-lte-api/) that this component uses has been tested with these routers:
+Routers we know to be working with this component are from the Libarys readme and some users in the Homeassistant discord:
 
 * Huawei B310s-22
 * Huawei B525s-23a
 * Huawei E5186s-22a
+* Huawei B618
 
 This is not a complete list and the component can probably connect to other Huawei LTE routers running simular firmware
