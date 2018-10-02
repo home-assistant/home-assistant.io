@@ -41,7 +41,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
   sensors:
     teleinfo_hhphc:
       value_template: '{{ state_attr('sensor.edf','HHPHC') }}'
-      unit_of_measurement: ''
 
 - platform: template
   sensors:
@@ -65,7 +64,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
   sensors:
     teleinfo_ptec:
       value_template: '{{ state_attr('sensor.edf','PTEC') }}'
-      unit_of_measurement: ''
 
 - platform: template
   sensors:
