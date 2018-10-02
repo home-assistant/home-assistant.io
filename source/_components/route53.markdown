@@ -10,7 +10,7 @@ footer: true
 logo: route53.png
 ha_category: Network
 featured: false
-ha_release: 0.80
+ha_release: "0.80"
 ---
 
 With the `route53` component can you keep your AWS Route53 DNS records up to date.
@@ -18,7 +18,6 @@ With the `route53` component can you keep your AWS Route53 DNS records up to dat
 The component will run every hour, but can also be started manually by using the service `route53.update_records` under services.
 
 Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
-
 
 ## {% linkable_title Setup %}
 
@@ -28,13 +27,13 @@ If you are familiar with this process, you can skip the next section and head di
 
 On the AWS side, you need to do the following;
 
-1. Create a suitable zone for a domain that you own and manage in Route53, in this example, I'm using the domain home.yourdomain.com as this example.
+1. Create a suitable zone for a domain that you own and manage in Route53, the domain `home.yourdomain.com` is used as an example.
 
-2. Once created, note down the Hosted Zone ID value for the domain we will need this for the plugin configuration and for IAM configuration
+2. Once created, write down the Hosted Zone ID value for the domain. This is needed for the plugin and IAM configuration.
 
 3. Create an IAM Policy that provides update and query access to this domain explicitly and has no other permissions to the AWS account.
 
-Here is an IAM Policy sample, dont' forget to update your Zone ID on the Resource line.
+Here is an IAM Policy sample, don't forget to update your Zone ID on the Resource line.
 
 ```
 {
@@ -60,9 +59,9 @@ Here is an IAM Policy sample, dont' forget to update your Zone ID on the Resourc
 }
 ```
 
-4. Once this has been done, create a new user called homeassistant and add the IAM policy to the user, allowing it to manage this DNS resource
+4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource.
 
-5. Under the security credentials tab for the homeassistant user, create a set of access keys for placement in the component definition YAML.
+5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the component definition YAML.
 
 
 ## {% linkable_title Configuration %}
@@ -84,19 +83,19 @@ route53:
 
 {% configuration route53 %}
 aws_access_key_id:
-  description: The AWS access key ID for the account that has IAM access to the domain
+  description: The AWS access key ID for the account that has IAM access to the domain.
   required: true
   type: string
 aws_secret_access_key:
-  description: The AWS secret access key for the account that has IAM access to the domain
+  description: The AWS secret access key for the account that has IAM access to the domain.
   required: true
   type: string
 zone:
-  description: The AWS zone ID for the domain in Route53
+  description: The AWS zone ID for the domain in Route53.
   required: true
   type: string
 domain:
-  description: The domain name for the domain in Route53
+  description: The domain name for the domain in Route53.
   required: true
   type: string
 records:
@@ -104,5 +103,3 @@ records:
   required: true
   type: list
 {% endconfiguration %}
-
-
