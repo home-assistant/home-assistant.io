@@ -63,7 +63,7 @@ reset_delay_sec:
     Seconds before the sensor is disarmed if
     `disarm_after_trigger` is set to true.
   required: false
-  type: int
+  type: integer
   default: 30
 {% endconfiguration %}
 

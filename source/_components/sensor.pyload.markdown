@@ -32,7 +32,7 @@ host:
 port:
   description: The port your pyLoad interface uses.
   required: false
-  type: int
+  type: integer
   default: 8000
 name:
   description: The name to use when displaying this pyLoad instance.

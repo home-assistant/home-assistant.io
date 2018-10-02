@@ -46,7 +46,7 @@ host:
 port:
   description: Port of the CUPS print server.
   required: false
-  type: int
+  type: integer
   default: 631
 {% endconfiguration %}
 

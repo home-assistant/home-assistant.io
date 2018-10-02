@@ -116,7 +116,7 @@ xiaomi_aqara:
   discovery_retry:
     description: Number of times that Home Assistant should try to reconnect to the gateway.
     required: false
-    type: int
+    type: integer
     default: 3
   interface:
     description: Which network interface to use.

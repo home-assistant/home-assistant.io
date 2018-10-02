@@ -46,7 +46,7 @@ host:
 port:
   description: "The port number of your router, e.g., `443`."
   required: false
-  type: int
+  type: integer
   default: 80/443 (automatically detected)
 ssl:
   description: "Whether to connect via `https`."

@@ -66,7 +66,7 @@ excludes:
 days_offset:
   description: Set days offset.
   required: false
-  type: int
+  type: integer
   default: 0
 {% endconfiguration %}
 

@@ -36,7 +36,7 @@ resource:
 pin:
   description: Number of the pin to monitor.
   required: true
-  type: int
+  type: integer
 name:
   description: Let you overwrite the name of the device. By default *name* from the device is used.
   required: false

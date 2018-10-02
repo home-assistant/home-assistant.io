@@ -55,7 +55,7 @@ lights:
     id:
       description: The IHC resource id.
       required: true
-      type: int
+      type: integer
     name:
       description: The name of the component
       required: false

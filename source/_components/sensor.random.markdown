@@ -41,7 +41,7 @@ minimum:
 maximum:
   description: Upper limit for the values.
   required: false
-  type: int
+  type: integer
   default: 20
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.

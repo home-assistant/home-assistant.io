@@ -55,7 +55,7 @@ time_offset:
   description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
   required: false
   default: The defaults is 0.
-  type: int
+  type: integer
 max_journeys:
   description: Specify the maximal number of journeys.
   required: false

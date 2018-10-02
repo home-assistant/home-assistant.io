@@ -39,11 +39,11 @@ sensor:
 train_id:
   description: The ID of the train.
   required: true
-  type: int
+  type: integer
 station_id:
   description: The ID of the starting station.
   required: true
-  type: int
+  type: integer
 train_name:
   description: The name of the sensor. Defaults to 'Train <train id> from <station id>'.
   required: false

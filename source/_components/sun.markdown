@@ -24,7 +24,7 @@ sun:
 elevation:
   description: "The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set."
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 <p class='img'>

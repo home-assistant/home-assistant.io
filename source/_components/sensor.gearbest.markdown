@@ -40,7 +40,7 @@ items:
     id:
       description: The ID of the product.
       required: false
-      type: int
+      type: integer
     url:
       description: The URL of the product.
       required: false

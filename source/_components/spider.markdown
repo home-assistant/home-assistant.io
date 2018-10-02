@@ -37,7 +37,7 @@ password:
 scan_interval:
   description: How frequently to query for new data. Defaults to 120 seconds.
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 <p class='note warning'>
