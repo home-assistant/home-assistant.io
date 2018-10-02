@@ -60,12 +60,3 @@ number_of_tools:
   required: false
   type: int
 {% endconfiguration %}
-
-Configuration variables:
-- **name** (*Required*): Name for this Octoprint. This will need to be used also for the sensors.
-- **host** (*Required*): IP address or hostname of Octoprint host.
-- **api_key** (*Required*): The retrieved api key.
-- **port** (*Optional*): Port of the Octoprint host
-- **ssl** (*Optional*): Use https instead of http when communicating to Octoprint host
-- **bed** (*Optional*): If the printer has a heated bed.
-- **number_of_tools** (*Optional*): Number of temperature adjustable tools. i.e. nozzle.

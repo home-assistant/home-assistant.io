@@ -45,17 +45,18 @@ monitored_conditions:
   description: Conditions to monitor.
   required: true
   type: list
+  keys:
+    Current State:
+      description: Text of current state.
+    Temperatures:
+      description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+    Job Percentage
+      description: Percentage of the job.
+    Time Elapsed:
+      description: Time elapsed on current print job, in seconds.
+    Time Remaining:
+      description: Time remaining on current print job, in seconds.
 {% endconfiguration %}
-
-Configuration variables:
-
-- **name** (*Required*): The name of the sensor. This needs to match a name under the Octoprint platform configuration.
-- **monitored_conditions** array (*Required*): States to monitor.
-  - **Current State**: Text of current state.
-  - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-  - **Job Percentage**: Percentage of the job.
-  - **Time Elapsed**: Time elapsed on current print job, in seconds.
-  - **Time Remaining**: Time remaining on current print job, in seconds.
 
 <p class='note'>
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.

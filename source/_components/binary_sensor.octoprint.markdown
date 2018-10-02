@@ -41,10 +41,9 @@ monitored_conditions:
   description: Conditions to monitor.
   required: true
   type: list
+  keys:
+    Printing:
+      description: State of the printer.
+    Printing Error:
+      description: Error while printing.
 {% endconfiguration %}
-
-Configuration variables:
-- **name** (*Required*): The name of the sensor. This needs to match a name under the Octoprint platform configuration.
-- **monitored_conditions** array (*Required*): States to monitor.
-  - **Printing**: State of the printer.
-  - **Printing Error**: Error while printing.
