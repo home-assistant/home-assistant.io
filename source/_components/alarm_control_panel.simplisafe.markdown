@@ -12,7 +12,7 @@ ha_release: 0.24
 ha_category: Alarm
 ---
 
-The `simplisafe` platform enables the ability to control a SimpliSafe control panel. [simplisafe.com](http://simplisafe.com/).
+The `simplisafe` platform enables the ability to control a [SimpliSafe](http://simplisafe.com/) control panel.
 
 To enable this, add the following lines to your `configuration.yaml`:
 
