@@ -74,6 +74,15 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 Configuration variables:
 
-- **device** (*Required*): The port where your device is connected to your Home Assistant host.
-- **name** (*Optional*): Name of your device
-
+{% configuration %}
+device:
+  description: The port where your device is connected to your Home Assistant host
+  required: true
+  type: string
+  default: /dev/ttyUSB0
+name:
+  description: Name of your device
+  required: false
+  type: string
+  default: teleinfo
+{% endconfiguraName of your devicetion %}
