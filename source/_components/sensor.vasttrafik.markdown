@@ -41,7 +41,7 @@ secret:
 departures:
   description: List of travel routes.
   required: true
-  type: map
+  type: list
   keys:
     name:
       description: Name of the route.
