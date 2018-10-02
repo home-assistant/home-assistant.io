@@ -28,49 +28,49 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 - platform: template
   sensors:
     teleinfo_hchc:
-      value_template: '{{ states.sensor.edf.attributes["HCHC"] }}'
+      value_template: '{{ state_attr('sensor.edf','HCHC') }}'
       unit_of_measurement: 'Wh'
 
 - platform: template
   sensors:
     teleinfo_hchp:
-      value_template: '{{ states.sensor.edf.attributes["HCHP"] }}'
+      value_template: '{{ state_attr('sensor.edf','HCHC') }}'
       unit_of_measurement: 'Wh'
 
 - platform: template
   sensors:
     teleinfo_hhphc:
-      value_template: '{{ states.sensor.edf.attributes["HHPHC"] }}'
+      value_template: '{{ state_attr('sensor.edf','HHPHC') }}'
       unit_of_measurement: ''
 
 - platform: template
   sensors:
     teleinfo_iinst:
-      value_template: '{{ states.sensor.edf.attributes["IINST"] }}'
+      value_template: '{{ state_attr('sensor.edf','IINST') }}'
       unit_of_measurement: 'A'
 
 - platform: template
   sensors:
     teleinfo_imax:
-      value_template: '{{ states.sensor.edf.attributes["IMAX"] }}'
+      value_template: '{{ state_attr('sensor.edf','IMAX') }}'
       unit_of_measurement: 'A'
 
 - platform: template
   sensors:
     teleinfo_papp:
-      value_template: '{{ states.sensor.edf.attributes["PAPP"] }}'
+      value_template: '{{ state_attr('sensor.edf','PAPP') }}'
       unit_of_measurement: 'vA'
 
 - platform: template
   sensors:
     teleinfo_ptec:
-      value_template: '{{ states.sensor.edf.attributes["PTEC"] }}'
+      value_template: '{{ state_attr('sensor.edf','PTEC') }}'
       unit_of_measurement: ''
 
 - platform: template
   sensors:
     teleinfo_isousc:
-      value_template: '{{ states.sensor.edf.attributes["ISOUSC"] }}'
+      value_template: '{{ state_attr('sensor.edf','ISOUSC') }}'
       unit_of_measurement: 'A'
 ```
 
