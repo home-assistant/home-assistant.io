@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Hub
 ha_release: 0.27
 ha_iot_class: "Local Push"
+ha_qa_scale: internal
 ---
 
 <p class='note warning'>
