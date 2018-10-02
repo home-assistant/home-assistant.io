@@ -10,7 +10,7 @@ footer: true
 logo: edf.png
 ha_category: Sensor
 ha_iot_class: "Energy"
-ha_release: "0.61"
+ha_release: "0.80"
 ---
 
 The `teleinfo` sensor will read data stream from french electric meters. (Description in french
