@@ -90,3 +90,7 @@ Send a command using [Vapix](https://www.axis.com/support/developer-support/vapi
 | `action`                  |      yes | What type of call. Default is `update`.  |
 
 Response to call can be subscribed to on event `vapix_call_response`
+
+## {% linkable_title Troubleshooting discovery %}
+
+If a `169.x.x.x` address is discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
