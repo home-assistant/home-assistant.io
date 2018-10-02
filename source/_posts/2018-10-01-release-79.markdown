@@ -92,6 +92,13 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [mqtt docs]: /components/mqtt/
 [switch.zoneminder docs]: /components/switch.zoneminder/
 
+## {% linkable_title Release 0.79.3 - October 2 %}
+
+- Use correct event loop on Windows, fixing SSL and Subprocess requests. ([#16737], [#17066] - [@awarecan], [@balloob])
+
+[#16737]: https://github.com/home-assistant/home-assistant/pull/16737
+[#17066]: https://github.com/home-assistant/home-assistant/pull/17066
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
