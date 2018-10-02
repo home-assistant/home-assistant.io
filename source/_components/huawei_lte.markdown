@@ -47,3 +47,13 @@ password:
     required: true
     type: string
 {% endconfiguration %}
+
+### {% linkable_title Tested routers %}
+
+The [libary](https://pypi.org/project/huawei-lte-api/) that this component uses has been tested with these routers:
+
+* Huawei B310s-22
+* Huawei B525s-23a
+* Huawei E5186s-22a
+
+This is not a complete list and the component can probably connect to other Huawei LTE routers running simular firmware
