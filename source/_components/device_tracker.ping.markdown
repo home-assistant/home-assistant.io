@@ -31,9 +31,15 @@ device_tracker:
       hostone: 192.168.2.10
 ```
 
-Configuration variables:
-
-- **hosts** array (*Required*): List of device names and their corresponding IP address or hostname.
-- **count** (*Optional*): Number of packet used for each device (avoid false detection).
+{% configuration %}
+hosts:
+  description: List of device names and their corresponding IP address or hostname.
+  required: true
+  type: array
+count:
+  description: Number of packet used for each device (avoid false detection).
+  required: false
+  type: int
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
