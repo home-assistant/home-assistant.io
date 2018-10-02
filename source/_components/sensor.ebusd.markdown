@@ -27,7 +27,7 @@ sensor:
     port: 8888
     name: 'ebusd'
     circuit: '700'
-    monitored_variables:
+    monitored_conditions:
       - 'MaxFlowTemperatureDesired'
       - 'MinFlowTemperatureDesired'
       - 'WaterPressure'
@@ -61,7 +61,7 @@ Configuration variables:
 - **port** (*Optional*): The port your ebus daemon uses, defaults to 8888.
 - **name** (*Optional*): The name to use when displaying this ebusd instance.
 - **circuit** (*Required*): The heating circuit name to monitor, eg. 700.
-- **monitored_variables** (*Optional*) array: List of variables to monitor.
+- **monitored_conditions** (*Optional*) array: List of condition to monitor.
   - 'MaxFlowTemperatureDesired'
   - 'MinFlowTemperatureDesired'
   - 'WaterPressure'
