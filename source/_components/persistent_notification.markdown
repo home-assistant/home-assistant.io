@@ -57,6 +57,7 @@ action:
 ```
 
 This automation example shows a notification when the Z-Wave network is starting and removes it when the network is ready.
+
 ```yaml
 - alias: 'Z-Wave network is starting'
   trigger:
@@ -78,7 +79,6 @@ This automation example shows a notification when the Z-Wave network is starting
       data:
         notification_id: zwave
 ```
-
 
 ### {% linkable_title Markdown support %}
 
