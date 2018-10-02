@@ -24,10 +24,21 @@ alarm_control_panel:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for the SimpliSafe account.
-- **password** (*Required*): Password for SimpliSafe account.
-- **name** (*Optional*): The name of the alarm. Default is the SimpliSafe alarm id.
-- **code** (*Optional*): Specifies a code to enable or disable the alarm in the frontend.
-
+{% configuration %}
+username:
+  description: Username for the SimpliSafe account.
+  required: true
+  type: string
+password:
+  description: Password for SimpliSafe account.
+  required: true
+  type: string
+name:
+  description: The name of the alarm. Default is the SimpliSafe alarm id.
+  required: false
+  type: string
+code:
+  description: Specifies a code to enable or disable the alarm in the frontend.
+  required: false
+  type: string
+{% endconfiguration %}
