@@ -50,11 +50,11 @@ password:
 
 ### {% linkable_title Tested routers %}
 
-Routers we know to be working with this component are from the Libarys readme and some users in the Homeassistant discord:
+Routers we know to be working with this component based on the documentation of used libraries and reports by users:
 
-* Huawei B310s-22
-* Huawei B525s-23a
-* Huawei E5186s-22a
-* Huawei B618
+- Huawei B310s-22
+- Huawei B525s-23a
+- Huawei E5186s-22a
+- Huawei B618
 
-This is not a complete list and the component can probably connect to other Huawei LTE routers running simular firmware
+This is not a complete list. The component can probably connect to other Huawei LTE routers running similar firmware.
