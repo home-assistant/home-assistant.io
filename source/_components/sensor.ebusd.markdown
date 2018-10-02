@@ -27,6 +27,7 @@ sensor:
     circuit: '700'
     monitored_variables:
       - 'MaxFlowTemperatureDesired'
+      - 'MinFlowTemperatureDesired'
       - 'WaterPressure'
       - 'PumpStatus'
       - 'HWTemperatureDesired'
