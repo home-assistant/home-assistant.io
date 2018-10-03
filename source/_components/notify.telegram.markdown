@@ -84,10 +84,16 @@ notify:
     chat_id: CHAT_ID_2
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **chat_id** (*Required*): The chat ID of your user.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  type: string
+chat_id:
+  description: The chat ID of your user.
+  required: true
+  type: string
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -106,12 +112,24 @@ action:
         - 'Task 3:/command3, Task 4:/command4'
 ```
 
-Configuration variables:
-
-- **message** (*Required*): Message text.
-- **title** (*Optional*): Will be composed as '%title\n%message'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+title:
+  description: Will be composed as '%title\n%message'.
+  required: false
+  type: string
+message:
+  description: Message text.
+  required: true
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Photo support %}
 
@@ -133,15 +151,36 @@ action:
           caption: I.e. for a Title
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to an image.
-- **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url or file:
+  description: For local or remote path to an image.
+  required: true
+  type: string
+caption:
+  description: The title of the image.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  required: false
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 <p class='note'>
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
@@ -176,15 +215,36 @@ action:
           caption: I.e. for a Title
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to a video.
-- **caption** (*Optional*): The title of the video.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url or file:
+  description: For local or remote path to an image.
+  required: true
+  type: string
+caption:
+  description: The title of the image.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  required: false
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Document support %}
 
@@ -204,15 +264,36 @@ action:
       - '/command3, /command4'
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to a document.
-- **caption** (*Optional*): The title of the document.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url or file:
+  description: For local or remote path to an image.
+  required: true
+  type: string
+caption:
+  description: The title of the image.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  required: false
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Location support %}
 
@@ -230,9 +311,21 @@ action:
         longitude: 117.22743
 ```
 
-Configuration variables:
-
-- **latitude** (*Required*): The latitude to send.
-- **longitude** (*Required*): The longitude to send.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+latitude:
+  description: The latitude to send.
+  required: true
+  type: [string, int]
+longitude:
+  description: The longitude to send.
+  required: true
+  type: [string, int]
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
