@@ -86,6 +86,10 @@ current_temperature_topic:
   description: The MQTT topic on which to listen for the current temperature.
   required: false
   type: string
+current_temperature_template:
+  description: A template with which the value received on `current_temperature_topic` will be rendered.
+  required: false
+  type: template
 power_command_topic:
   description: The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
   required: false
