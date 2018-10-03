@@ -42,9 +42,13 @@ Go to the folder you have placed `dropbox.py`.
 - Option B:
   Edit `dropbox.py`:
   Change the following line: 
-  `uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"`
+  ```
+  uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"
+  ```
   to where you placed your file: (for example):
-  `uploader = "/home/homeassistant/MyFolder/dropbox_uploader.sh"`
+  ```
+  uploader = "/home/homeassistant/MyFolder/dropbox_uploader.sh"
+  ```
 
 
 ```bash
