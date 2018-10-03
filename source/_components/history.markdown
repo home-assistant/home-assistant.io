@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: History
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The `history` component will track everything that is going on within Home

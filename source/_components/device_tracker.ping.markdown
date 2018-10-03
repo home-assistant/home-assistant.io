@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Network
 ha_release: 0.36
+ha_qa_scale: internal
 ---
 
 

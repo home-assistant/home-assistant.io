@@ -10,10 +10,11 @@ footer: true
 logo: home-assistant.png
 ha_category: Alarm
 ha_release: 0.7.6
+ha_qa_scale: internal
 ---
 
 
-This platform enables you to set manual alarms in Home Assistant.
+The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry

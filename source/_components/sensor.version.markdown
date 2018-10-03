@@ -11,6 +11,7 @@ ha_category: Utility
 ha_iot_class: "Local Pushing"
 logo: home-assistant.png
 ha_release: 0.52
+ha_qa_scale: internal
 ---
 
 The `version` sensor platform is displaying the current version of Home Assistant in the frontend.

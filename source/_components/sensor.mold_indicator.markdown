@@ -9,8 +9,9 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Environment
-ha_release: '0.20'
+ha_release: "0.20"
 ha_iot_class: "Local Polling"
+ha_qa_scale: internal
 ---
 
 The Mold Indicator sensor component consumes information of two temperature sensors and a humidity sensor to give an indication for possible mold growth in your home. In case of bad ventilation and insulation, the indoor humidity may lead to condensation on cold surfaces as the windows or even walls. Condensation or a high relative humidity near those cold surfaces leads to a higher risk for mold growth. This sensor component estimates the temperature at a pre-calibrated critical point in the room (the coldest surface) and calculates the relative humidity of the air at that point. If the sensor value rises above approximately 70 percent, mold growth might occur and the room should be ventilated. At 100%, the air humidity condensates at the critical point.
