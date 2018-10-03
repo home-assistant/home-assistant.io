@@ -29,8 +29,11 @@ Configuration variables:
 - **[alias]** (*Required*): Alias for the counter. Multiple entries are allowed.
   - **name** (*Optional*): Friendly name of the counter.
   - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
+  - **restore** (*Optional*): Restore last known value when Home Assistant restarts. Defaults to True.
   - **step** (*Optional*): Incremental/step value for the counter. Defaults to 1 (increments by 1).
   - **icon** (*Optional*): Icon for entry.
+
+If `restore` is set to `False` or no last known value is present, the counter will use the `initial` value upon start.
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
