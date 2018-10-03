@@ -70,7 +70,7 @@ model:
   required: true
   type: string
 password:
-  description:The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
+  description: The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
   required: true
   type: string
 path:
@@ -79,7 +79,7 @@ path:
   default: /media/mmcblk0p1/record
   type: string
 username:
-  description:The user that can access the FTP server.
+  description: The user that can access the FTP server.
   required: false
   default: root
   type: string
