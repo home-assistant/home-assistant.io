@@ -10,7 +10,7 @@ footer: true
 logo: ebusd.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.80
+ha_release: 0.79.4
 ---
 
 Integration between ebusd (https://github.com/john30/ebusd), daemon for communication with eBUS heating systems, and homeassistant using sensor component.
