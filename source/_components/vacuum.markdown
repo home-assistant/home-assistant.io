@@ -99,7 +99,7 @@ Tell the vacuum cleaner to do a spot clean-up.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.set_fanspeed` %}
+#### {% linkable_title Service `vacuum.set_fan_speed` %}
 
 Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
