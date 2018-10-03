@@ -24,12 +24,21 @@ device_tracker:
     host: YOUR_ROUTER_IP
     password: YOUR_ADMIN_PASSWORD
 ```
+{% configuration %}
+host:
+  description: The IP address of your router, eg. `192.168.0.1`.
+  required: true
+  type: string
+username:
+  description: The admin username.
+  required: false
+  default: `admin`
+  type: string
+password:
+  description: The password for the admin account.
+  required: true
+  type: string
+{% endconfiguration %}
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, eg. `192.168.0.1`.
-- **username** (*Optional*: The admin username. By default `admin`.
-- **password** (*Required*): The password for the admin account.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-
