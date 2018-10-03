@@ -66,7 +66,7 @@ sensors:
 
 Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
-**Note:** Each camera reports two different states, one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`.  The `moition_enabled` property reports if the `camera` is ready to detect motion *regardless if the system is actually armed**.  The `status` property is more descriptive, and can be one of the following states:
+**Note:** Each camera reports two different states, one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`.  The `motion_enabled` property reports if the `camera` is ready to detect motion *regardless if the system is actually armed**.  The `status` property is more descriptive, and can be one of the following states:
 
 - `disabled`: System is disabled.
 - `disarmed`: Camera and/or system are disarmed and not ready to detect motion.
