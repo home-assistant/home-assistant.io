@@ -23,7 +23,6 @@ foursquare:
   push_secret: "<foursquare push secret>"
 ```
 
-Configuration variables:
 {% configuration %}
 access_token:
   description: A Foursquare API access token.
