@@ -27,9 +27,16 @@ camera:
 ```
 
 Configuration variables:
-
- - **file_path** (*Required*): File to serve as the camera.
- - **name** (*Optional*): Name of the camera
+{% configuration %}
+file_path:
+  description: File to serve as the camera.
+  required: true
+  type: init
+name:
+  description: Name of the camera.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Service `camera.local_file_update_file_path` %}
 
