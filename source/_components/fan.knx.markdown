@@ -33,7 +33,18 @@ fan:
 
 Configuration variables:
 
-- **speed_address** (*Required*): KNX group address for seeting the fan speed.
-- **name** (*Optional*): A name for this device used within Home Assistant.
-- **speed_state_address** (*Optional*): separate KNX group address for retrieving the speed of the fan.
+{% configuration %}
+speed_address:
+  description: KNX group address for seeting the fan speed.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+speed_state_address:
+  description: separate KNX group address for retrieving the speed of the fan.
+  required: false
+  type: string
+{% endconfiguration %}
 
