@@ -79,9 +79,9 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 
 ##### {% linkable_title Example %}
 
-If in the 'harmony_REMOTENAME.conf' file you see for example:
+In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 
-```bash
+```text
 Activities
   22054907 - Watch TV
 ```
