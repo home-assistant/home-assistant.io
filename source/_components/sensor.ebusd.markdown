@@ -10,10 +10,10 @@ footer: true
 logo: ebusd.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.79
+ha_release: 0.80
 ---
 
-Integration between ebusd (https://github.com/john30/ebusd), a daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
+Integration between ebusd (https://github.com/john30/ebusd), daemon for communication with eBUS heating systems, and homeassistant using sensor component.
 
 ## {% linkable_title Configuration %}
 
@@ -55,36 +55,25 @@ sensor:
       - 'PowerEnergyConsumptionThisMonth'
 ```
 
-Configuration variables:
-
-- **host** (*Required*): This is the IP address of your ebus daemon, e.g., 127.0.0.1.
-- **port** (*Optional*): The port your ebus daemon uses, defaults to 8888.
-- **name** (*Optional*): The name to use when displaying this ebusd instance.
-- **circuit** (*Required*): The heating circuit name to monitor, e.g., 700.
-- **monitored_conditions** (*Optional*) array: List of condition to monitor.
-  - 'MaxFlowTemperatureDesired'
-  - 'MinFlowTemperatureDesired'
-  - 'WaterPressure'
-  - 'PumpStatus'
-  - 'HWTemperatureDesired'
-  - 'HWTimerMonday'
-  - 'HWTimerTuesday'
-  - 'HWTimerWednesday'
-  - 'HWTimerThursday'
-  - 'HWTimerFriday'
-  - 'HWTimerSaturday'
-  - 'HWTimerSunday'
-  - 'Zone1NightTemperature'
-  - 'Zone1DayTemperature'
-  - 'Zone1RoomTemperature'
-  - 'Zone1ActualRoomTemperatureDesired'
-  - 'Zone1TimerMonday'
-  - 'Zone1TimerTuesday'
-  - 'Zone1TimerWednesday'
-  - 'Zone1TimerThursday'
-  - 'Zone1TimerFriday'
-  - 'Zone1TimerSaturday'
-  - 'Zone1TimerSunday'
-  - 'Zone1OperativeMode'
-  - 'PowerEnergyConsumptionThisMonth'
-  
+{% configuration %}
+api_key:
+  description: The API key to access the service.
+- host:
+  description: This is the IP address of your ebus daemon, eg. 127.0.0.1.
+  required: true
+  type: string
+- circuit: 
+  description: The heating circuit name to monitor, eg. 700.
+  required: true
+  type: string
+- port:
+  description: The port your ebus daemon uses, defaults to 8888.
+  type: integer
+  default: 8888
+- name: 
+  description: The name to use when displaying this ebusd instance.
+  type: string
+- monitored_conditions:
+  description: array: List of condition to monitor.
+  type: list
+{% endconfiguration %}
