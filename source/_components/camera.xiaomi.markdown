@@ -13,7 +13,7 @@ ha_release: 0.72
 ha_iot_class: "Local Polling"
 ---
 
-The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant. 
+The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
@@ -53,18 +53,42 @@ camera:
     name: Camera
     host: '192.168.1.100'
     model: 'yi'
-    password: my_password_123
+    password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **name** (*Required*): A human-friendly name for the camera.
-- **host** (*Required*): The IP address or hostname of the camera.
-- **model** (*Required*): The model of Xiaomi Camera, currently supporting yi and xiaofang.
-- **password** (*Required*): The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
-- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/media/mmcblk0p1/record`.
-- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
-- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+{% configuration %}
+name:
+  description: A human-friendly name for the camera.
+  required: true
+  type: string
+host:
+  description: The IP address or hostname of the camera.
+  required: true
+  type: string
+model:
+  description: The model of Xiaomi Camera, currently supporting yi and xiaofang.
+  required: true
+  type: string
+password:
+  description: The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
+  required: true
+  type: string
+path:
+  description: The path to the raw MP4 files.
+  required: false
+  default: /media/mmcblk0p1/record
+  type: string
+username:
+  description: The user that can access the FTP server.
+  required: false
+  default: root
+  type: string
+ffmpeg_arguments:
+  description: >
+    Extra options to pass to `ffmpeg`
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
@@ -82,7 +106,7 @@ camera:
     name: My Camera
     host: '192.168.1.100'
     model: 'xiaofang'
-    password: my_password_123
+    password: YOUR_PASSWORD
     path: /home/camera/feed
     ffmpeg_arguments: '-vf scale=800:450'
 ```
