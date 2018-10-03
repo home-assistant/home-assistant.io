@@ -33,6 +33,7 @@ push_secret:
   required: true
   type string
 {% endconfiguration %}
+
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
