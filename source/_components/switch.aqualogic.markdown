@@ -31,8 +31,8 @@ switch:
 {% configuration %}
 monitored_conditions:
   description: List of items you want to monitor/control.
-  required: true
-  default: None
+  required: false
+  default: all
   type: list
   keys:
     filter:

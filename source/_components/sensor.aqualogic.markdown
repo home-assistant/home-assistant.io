@@ -30,8 +30,8 @@ sensor:
 {% configuration %}
 monitored_conditions:
   description: List of items you want to monitor.
-  required: true
-  default: None
+  required: false
+  default: all
   type: list
   keys:
     air_temp:
