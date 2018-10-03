@@ -75,26 +75,26 @@ media_player:
 
 {% configuration %}
 entity_namespace:
-  description: Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_
+  description: "Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_"
   required: false
   type: string
 include_non_clients:
-  description: Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's).
+  description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
   required: false
   default: false
   type: boolean
 scan_interval:
-  description: Amount in seconds in between polling for device’s current activity.
+  description: "Amount in seconds in between polling for device’s current activity."
   required: false
   default: 10
   type: int
 show_all_controls:
-  description: Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
+  description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
   required: false
   default: false
   type: boolean
 use_custom_entity_ids:
-  description: Name Entity ID's by client ID's instead of friendly names. HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn).
+  description: "Name Entity ID's by client ID's instead of friendly names. HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn)."
   required: false
   default: false
   type: boolean
