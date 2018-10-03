@@ -40,7 +40,7 @@ longitude:
   description: Longitude for time calculations of the sensor.
   default: Home Assistant location
   type: integer
-disapora:
+diaspora:
   required: false
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
   default: False
@@ -89,7 +89,7 @@ sensors:
 sensor:
   - platform: jewish_calendar
     language: english
-    disapora: True
+    diaspora: True
     sensors:
       - date
       - weekly_portion
