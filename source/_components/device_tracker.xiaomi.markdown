@@ -26,7 +26,7 @@ device_tracker:
 ```
 {% configuration %}
 host:
-  description: The IP address of your router, eg. `192.168.0.1`.
+  description: The IP address of your router, e.g., `192.168.0.1`.
   required: true
   type: string
 username:
