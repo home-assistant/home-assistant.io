@@ -89,7 +89,6 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-
 <p class='note'>
 The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
 </p>
