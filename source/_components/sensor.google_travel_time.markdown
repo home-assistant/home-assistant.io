@@ -92,7 +92,7 @@ sensor:
 
 ## {% linkable_title Updating sensors on-demand using Automation %}
 
-You can also use the `sensor.google_travel_sensor_update` service to update the sensor on demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use an automation like:.
+You can also use the `sensor.google_travel_sensor_update` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
 - id: update_morning_commute_sensor
