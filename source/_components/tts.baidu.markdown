@@ -41,22 +41,22 @@ secret_key:
 speed:
   description: Audio speed from 0 to 9.
   required: false
-  type: int
+  type: integer
   default: 5
 pitch:
   description: Audio pitch from 0 to 9.
   required: false
-  type: int
+  type: integer
   default: 5
 volume:
   description: Audio volume from 0 to 15.
   required: false
-  type: int
+  type: integer
   default: 5
 person:
   description: Voice type. You choose one from 0, 1, 3 or 4.
   required: false
-  type: int
+  type: integer
   default: 0
 {% endconfiguration %}
 

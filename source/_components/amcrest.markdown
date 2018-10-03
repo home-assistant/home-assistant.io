@@ -68,7 +68,7 @@ name:
 port:
   description: The port that the camera is running on.
   required: false
-  type: int
+  type: integer
   default: 80
 resolution:
   description: >
@@ -103,7 +103,7 @@ authentication:
 scan_interval:
   description: Defines the update interval of the sensor in seconds.
   required: false
-  type: int
+  type: integer
   default: 10
 sensors:
   description: >

@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: "0.34"
 ---
 
-
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](http://www.logitech.com/en-us/product/harmony-hub).
 
 Supported units:
@@ -76,6 +75,25 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 | `activity`             |      yes | Activity ID or Activity Name to start.
+
+##### {% linkable_title Example %}
+
+In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
+
+```text
+Activities
+  22054907 - Watch TV
+```
+
+Using the activity name 'Watch TV', you can call a service via automation to switch this activity on:
+
+```yaml
+action:
+  - service: remote.turn_on
+    entity_id: remote.bed_room_hub
+    data:
+       activity: "Watch TV"
+```
 
 ### {% linkable_title Service `remote.send_command` %}
 

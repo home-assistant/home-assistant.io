@@ -61,12 +61,12 @@ show_on_map:
 scan_interval:
   description: "The rate at which AirVisual should be polled for new data."
   required: optional
-  type: int
+  type: integer
   default: 600
 latitude:
   description: The latitude of the location to monitor.
   required: optional
-  type: str
+  type: string
   default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
 longitude:
   description: The longitude of the location to monitor.

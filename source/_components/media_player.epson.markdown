@@ -34,7 +34,7 @@ host:
 port:
   description: The HTTP port number.
   required: false
-  type: int
+  type: integer
   default: 80
 name:
   description: The name of the device used in the frontend.

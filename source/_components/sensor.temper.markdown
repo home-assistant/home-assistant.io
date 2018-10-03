@@ -28,12 +28,12 @@ sensor:
 offset:
   description: The offset to fix reported vales.
   required: false
-  type: int
+  type: integer
   default: o
 scale:
   description: The scale for the sensor.
   required: false
-  type: int
+  type: integer
   default: 1
 name:
   description: The name to use when displaying this switch.

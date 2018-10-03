@@ -94,7 +94,7 @@ name:
 port:
   description: The port to connect to the camera on.
   required: false
-  type: int
+  type: integer
   default: 80
 ssl:
   description: "`true` if you want to connect with https. Be sure to set the port also."
@@ -119,7 +119,7 @@ customize:
         Home Assistant in seconds. This is useful to catch multiple quick trips
         in one window without the state toggling on and off.
       required: false
-      type: int
+      type: integer
       default: 5
 {% endconfiguration %}
 

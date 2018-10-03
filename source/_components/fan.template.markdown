@@ -11,6 +11,7 @@ ha_category: Fan
 ha_release: 0.69
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform creates fans that combine components and provides the

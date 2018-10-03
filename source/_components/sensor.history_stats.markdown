@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.39
+ha_qa_scale: internal
 ---
 
 The `history_stats` sensor platform provides quick statistics about another component or platforms, using data from the [history](/components/history/).

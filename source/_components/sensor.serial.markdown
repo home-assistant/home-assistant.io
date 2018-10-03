@@ -43,7 +43,7 @@ baudrate:
   description: Baudrate of the serial port.
   required: false
   default: 9600 Bps
-  type: int
+  type: integer
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the serial line."
   required: false

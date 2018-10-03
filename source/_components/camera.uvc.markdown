@@ -44,7 +44,7 @@ nvr:
 port:
   description: The port number to use for accessing the NVR.
   required: false
-  type: int
+  type: integer
   default: 7080
 key:
   description: The API key available from the NVR web interface.

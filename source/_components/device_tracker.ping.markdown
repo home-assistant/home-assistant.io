@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Network
 ha_release: 0.36
+ha_qa_scale: internal
 ---
 
 
@@ -39,7 +40,7 @@ hosts:
 count:
   description: Number of packet used for each device (avoid false detection).
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

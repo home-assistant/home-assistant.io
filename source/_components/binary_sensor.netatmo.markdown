@@ -57,7 +57,7 @@ timeout:
     The Welcome/Presence binary sensors will
     stay on for X seconds after detection.
   required: false
-  type: int
+  type: integer
   default: 90
 cameras:
   description: List of cameras entity IDs to display.

@@ -40,7 +40,7 @@ name:
 qos:
   description: The maximum QoS level of the state topic.
   required: false
-  type: int
+  type: integer
   default: 0
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
@@ -53,7 +53,7 @@ icon:
 expire_after:
   description: Defines the number of seconds after the value expires if it's not updated.
   required: false
-  type: int
+  type: integer
   default: 0
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."

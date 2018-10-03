@@ -11,6 +11,7 @@ ha_category: Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.

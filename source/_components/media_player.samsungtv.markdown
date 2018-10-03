@@ -38,7 +38,7 @@ host:
 port:
   description: The port of the Samsung Smart TV. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).
   required: false
-  type: int
+  type: integer
   default: 55000
 name:
   description: The name you would like to give to the Samsung Smart TV.

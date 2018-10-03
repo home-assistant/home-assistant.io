@@ -31,22 +31,20 @@ You need to create an API Key with the [Google Console](https://console.cloud.go
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).  
   a. Add/Import project, give it a name    
-  b. Click on `Home Control` card, select the `Smart home` recommendation.
+  b. Click on `Home Control` card, select the `Smart home` recommendation.  
   c. Create an Action, under the build section. Add in your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.  
   d. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.  
-2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section
+2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section  
 	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next  
 	b. For the `Linking type` select `OAuth` and `Implicit`  
-	c. Client ID: The `client_id` from your Home Assistant configuration above  
+	c. Client ID: The `client_id` from your Home Assistant configuration (see below)  
 	d. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant/auth`.  
 	e. Configure your client. Add scopes for `email` and `name`.  
 	f. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 3. Back on the overview page. Click `Simulator` under `TEST`. You don't have to actually test .
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`. Or on your Android phone or tablet, touch and hold the Home button or say "Ok Google.". At the top right, tap compass icon and then more icon and then `Settings > Home Control`.
-<p class='note' style='margin-top: 8px; margin-bottom: 16px'>
+5. Open the Google Assistant app and go into `Settings > Home Control`. Or on your Android phone or tablet, touch and hold the Home button or say "Ok Google.". At the top right, tap compass icon and then more icon and then `Settings > Home Control`.  
 If you have added the [Home Assistant "web app"](/docs/frontend/mobile/) to your phone's homescreen before, you need remove it before next step
-</p>
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you the screen where you can set rooms for your devices or nicknames for your devices.
 7. If you want to allow other household users to control the devices:  
 	a. Go to the settings for the project you created in point 1 in the developer console.  
@@ -86,10 +84,7 @@ google_assistant:
       room: living room
 ```
 
-Configuration variables:
-
 {% configuration %}
-
 project_id:
   description: Project ID from the Google Developer console (looks like `words-2ab12`)
   required: true
