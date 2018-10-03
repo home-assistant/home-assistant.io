@@ -26,7 +26,6 @@ camera:
     file_path: /tmp/image.jpg
 ```
 
-Configuration variables:
 {% configuration %}
 file_path:
   description: File to serve as the camera.
