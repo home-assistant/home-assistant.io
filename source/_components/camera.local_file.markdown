@@ -31,7 +31,7 @@ Configuration variables:
 file_path:
   description: File to serve as the camera.
   required: true
-  type: init
+  type: string
 name:
   description: Name of the camera.
   required: false
