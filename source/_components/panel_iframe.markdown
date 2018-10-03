@@ -25,9 +25,11 @@ To enable Panel iFrames in your installation, add the following to your `configu
 panel_iframe:
   router:
     title: 'Router'
+    icon: 'mdi:router-wireless'
     url: 'http://192.168.1.1'
   fridge:
     title: 'Fridge'
+    icon: 'mdi:fridge-filled'
     url: 'http://192.168.1.5'
   otherapp:
     title: 'Other App'
