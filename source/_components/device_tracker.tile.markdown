@@ -27,6 +27,18 @@ device_tracker:
     password: MY_PASSWORD_123
 ```
 
+Multiple Tile accounts can be used by repeating the tile platform:
+```yaml
+device_tracker:
+  - platform: tile
+    username: email@address.com
+    password: MY_PASSWORD_123
+  - platform: tile
+    username: email2@address.com
+    password: MY_2NDPASSWORD_123
+```
+
+
 {% configuration %}
   username:
     description: the email address for the Tile account
