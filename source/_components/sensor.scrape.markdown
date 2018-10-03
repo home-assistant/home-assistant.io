@@ -36,6 +36,7 @@ Configuration variables:
 - **authentication** (*Optional*): Type of the HTTP authentication. Either `basic` or `digest`.
 - **username** (*Optional*): The username for accessing the website.
 - **password** (*Optional*): The password for accessing the website.
+- **headers** (*Optional*): Headers to use for the web request
 
 ## {% linkable_title Examples %}
 
@@ -128,5 +129,25 @@ sensor:
     select: ".elspot-content"
     value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "öre/kWh"
+```
+{% endraw %}
+
+### {% linkable_title BOM Weather %}
+
+The Australian Bureau of Meterology website returns an error if the User Agent header is not sent.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: scrape
+    resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
+    name: Melbourne Forecast Summary
+    select: ".main .forecast p"
+    value_template: '{{ value | truncate(255) }}'
+    # Request every hour
+    scan_interval: 3600
+    headers:
+      User-Agent: Mozilla/5.0
 ```
 {% endraw %}
