@@ -45,5 +45,5 @@ data:
 ```
 
 <p class='note'>
-The `user` specificed in the credentials should be the applicable user listed at `C:/Users`. This may differ from the username used to login to Windows. Depending on your settings and privlages within Windows, changes to the firewall, UAC (User Account Control) and registry settings may be required to allow this add-on to remotely shutdown your computer. There are many guides available online for how to adjust these settings.  
+The `user` specified in the credentials should be an applicable user listed in `C:/Users`. This may differ from the username used to login to Windows. Depending on your settings and privileges within Windows, changes to the firewall, UAC (User Account Control) and registry settings may be required to allow this add-on to remotely shut down your computer. There are many guides available online on how to adjust these settings.  
 </p>
