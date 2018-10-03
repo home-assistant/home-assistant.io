@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: "History"
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The `recorder` component is storing details in a database which then are handled by the [`history` component](/components/history/).

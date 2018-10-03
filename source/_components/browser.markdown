@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Utility
+ha_qa_scale: internal
 ---
 
 

@@ -11,6 +11,7 @@ ha_category: Cover
 ha_release: 0.48
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform can create covers that combine components and provides
