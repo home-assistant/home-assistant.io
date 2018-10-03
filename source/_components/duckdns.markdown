@@ -38,5 +38,5 @@ duckdns:
 {% endconfiguration %}
 
 <p class='note'>
-If you are running the Hass.io [DuckDNS] (https://www.home-assistant.io/addons/duckdns/) add-on this component is not required.  The add-on will keep your IP updated with DuckDNS.  
+If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this component is not required. The add-on will keep your IP updated with DuckDNS.  
 </p>
