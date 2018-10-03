@@ -31,7 +31,7 @@ access_token:
 push_secret:
   description: The push secret that Foursquare provides to you in the app dashboard.
   required: true
-  type string
+  type: string
 {% endconfiguration %}
 
 #### Getting the access token ####
