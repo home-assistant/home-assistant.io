@@ -81,12 +81,12 @@ filters:
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
       required: false
-      type: int
+      type: integer
       default: None
     time_constant: 
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
-      type: int
+      type: integer
       default: 10
     radius: 
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.

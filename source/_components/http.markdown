@@ -43,7 +43,7 @@ server_host:
 server_port:
   description: Let you set a port to use.
   required: false
-  type: int
+  type: integer
   default: 8123
 base_url:
   description: "The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app."
@@ -87,7 +87,7 @@ ip_ban_enabled:
 login_attempts_threshold:
   description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
   required: false
-  type: int
+  type: integer
   default: -1
 ssl_profile:
   description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.

@@ -39,7 +39,7 @@ hosts:
 count:
   description: Number of packet used for each device (avoid false detection).
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

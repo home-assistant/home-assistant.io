@@ -43,6 +43,6 @@ password:
 scan_interval:
   description: Update interval in seconds.
   required: false
-  type: int
+  type: integer
   default: 60
 {% endconfiguration %}

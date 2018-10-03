@@ -35,7 +35,7 @@ name:
 forecast:
   description: If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
   required: false
-  type: int
+  type: integer
 monitored_conditions:
   description: Conditions to display in the frontend.
   required: false

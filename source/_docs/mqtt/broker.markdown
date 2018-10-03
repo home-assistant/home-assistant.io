@@ -75,7 +75,7 @@ broker:
 port:
   required: false
   description: The network port to connect to. Default is 1883.
-  type: int
+  type: integer
 client_id:
   required: false
   description: The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
@@ -83,7 +83,7 @@ client_id:
 keepalive:
   required: false
   description: The time in seconds between sending keep alive messages for this client. Default is 60.
-  type: int
+  type: integer
 username:
   required: false
   description: The username to use with your MQTT broker.

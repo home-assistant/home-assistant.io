@@ -34,12 +34,12 @@ latitude:
   required: false
   description: Latitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
+  type: integer
 longitude:
   required: false
   description: Longitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
+  type: integer
 disapora:
   required: false
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.

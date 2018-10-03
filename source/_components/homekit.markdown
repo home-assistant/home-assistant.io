@@ -62,7 +62,7 @@ homekit:
       port:
         description: Port for the HomeKit extension.
         required: false
-        type: int
+        type: integer
         default: 51827
       name:
         description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.

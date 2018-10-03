@@ -54,7 +54,7 @@ sensor:
   server_id:
     description: Specify the speed test server to perform the test against.
     required: false
-    type: int
+    type: integer
   day:
     description: Specify the day(s) of the month to schedule the speed test. Use a list for multiple entries.
     required: false

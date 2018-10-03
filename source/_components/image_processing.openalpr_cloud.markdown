@@ -44,7 +44,7 @@ api_key:
 confidence:
   description: The minimum of confidence in percent to process with Home Assistant.
   required: false
-  type: int
+  type: integer
   default: 80
 source:
   description: List of image sources.

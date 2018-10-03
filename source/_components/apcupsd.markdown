@@ -32,7 +32,7 @@ host:
 port:
   description: The port on which the APCUPSd NIS is listening.
   required: false
-  type: int
+  type: integer
   default: 3551
 {% endconfiguration %}
 

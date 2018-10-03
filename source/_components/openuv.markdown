@@ -53,7 +53,7 @@ api_key:
 scan_interval:
   description: the frequency (in seconds) between data updates
   required: false
-  type: int
+  type: integer
   default: 1800
 binary_sensors:
   description: binary sensor-related configuration options

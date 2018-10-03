@@ -39,12 +39,12 @@ recorder:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
       default: 10
-      type: int
+      type: integer
     purge_interval:
       description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
       required: false
       default: 1
-      type: int
+      type: integer
     exclude:
       description: Configure which components should be excluded
       required: false

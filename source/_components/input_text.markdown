@@ -46,12 +46,12 @@ input_text:
       min:
         description: Minimum length for the text value.
         required: false
-        type: int
+        type: integer
         default: 0
       max:
         description: Maximum length for the text value.
         required: false
-        type: int
+        type: integer
         default: 100
       initial:
         description: Initial value when Home Assistant starts.

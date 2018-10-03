@@ -51,7 +51,7 @@ binary_sensors:
     id:
       description: The IHC resource id.
       required: true
-      type: int
+      type: integer
     inverting:
       description: If True the sensor will be inverted.
       required: false

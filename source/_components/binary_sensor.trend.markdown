@@ -70,7 +70,7 @@ sensors:
     max_samples:
       description: Limit the maximum number of stored samples.
       required: false
-      type: int
+      type: integer
       default: 2
     min_gradient:
       description: >
@@ -85,7 +85,7 @@ sensors:
         The duration **in seconds** to store samples for.
         Samples older than this value will be discarded.
       required: false
-      type: int
+      type: integer
       default: 0
 {% endconfiguration %}
 
