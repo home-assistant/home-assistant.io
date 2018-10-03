@@ -84,10 +84,7 @@ google_assistant:
       room: living room
 ```
 
-Configuration variables:
-
 {% configuration %}
-
 project_id:
   description: Project ID from the Google Developer console (looks like `words-2ab12`)
   required: true
