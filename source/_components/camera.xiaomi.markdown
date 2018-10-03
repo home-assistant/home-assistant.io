@@ -84,7 +84,8 @@ username:
   default: root
   type: string
 ffmpeg_arguments:
-  description: "Extra options to pass to `ffmpeg`"
+  description: >
+    Extra options to pass to `ffmpeg`
   required: false
   type: string
 {% endconfiguration %}
