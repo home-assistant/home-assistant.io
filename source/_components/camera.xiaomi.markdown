@@ -76,7 +76,7 @@ password:
 path:
   description: The path to the raw MP4 files.
   required: false
-  default: `/media/mmcblk0p1/record`
+  default: /media/mmcblk0p1/record
   type: string
 username:
   description:The user that can access the FTP server.
