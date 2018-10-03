@@ -19,7 +19,7 @@ The `google_travel_time` sensor provides travel time from the [Google Distance M
 
 You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
 
-[Google now require billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however a US$200 per month credit is applied (20,000 requests). By default, the sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate, more than 2 sensors will likely exceed the free credit amount. If you need to run more than 2 sensors, consider changing the [scan interval](/docs/configuration/platform_options/#scan-interval) to something longer than 5 minutes to stay within the free credit limit.
+[Google now requires billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however a US$200 per month credit is applied (20,000 requests). By default, the sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate, more than 2 sensors will likely exceed the free credit amount. If you need to run more than 2 sensors, consider changing the [scan interval](/docs/configuration/platform_options/#scan-interval) to something longer than 5 minutes to stay within the free credit limit or update the sensors on-demand using an automation (see example below).
 
 A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
 
@@ -68,7 +68,7 @@ sensor:
     api_key: XXXX_XXXXX_XXXXX
     origin: zone.home
     destination: Eddies House    # Friendly name of a zone
-    
+
   # Tracking entity in imperial unit
   - platform: google_travel_time
     api_key: XXXX_XXXXX_XXXXX
@@ -89,3 +89,31 @@ sensor:
   - If state is a zone or zone friendly name then will use the zone location
   - All other states will be passed directly into the google API
     - This includes all valid locations listed in the *Configuration Variables*
+
+## {% linkable_title Updating sensors on-demand using Automation %}
+
+You can also use the `sensor.google_travel_sensor_update` service to update the sensor on demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use an automation like:.
+
+```yaml
+- id: update_morning_commute_sensor
+  alias: "Commute - Update morning commute sensor"
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      minutes: '/2'
+      seconds: 00
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '11:00:00'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: sensor.google_travel_sensor_update
+      entity_id: sensor.morning_commute
+```
