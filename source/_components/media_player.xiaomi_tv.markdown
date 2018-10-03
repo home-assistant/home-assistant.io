@@ -31,7 +31,7 @@ When starting or restarting Home Assistant make sure your TV is off. This is a f
 
 {% configuration %}
 host:
-  description: The IP of the Xiaomi TV, e.g., `192.168.0.10`.
+  description: "The IP of the Xiaomi TV, e.g., `192.168.0.10`."
   required: false
   type: string
 name:
