@@ -77,6 +77,26 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
+##### {% linkable_title Example %}
+
+If in the 'harmony_REMOTENAME.conf' file you see for example:
+
+```bash
+Activities
+  22054907 - Watch TV
+```
+
+Using the activity name 'Watch TV', you can call a service via automation to switch this activity on:
+
+```yaml
+action:
+  - service: remote.turn_on
+    entity_id: remote.bed_room_hub
+    data:
+       activity: "Watch TV"
+```
+
+
 ### {% linkable_title Service `remote.send_command` %}
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
