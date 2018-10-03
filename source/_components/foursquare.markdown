@@ -24,10 +24,16 @@ foursquare:
 ```
 
 Configuration variables:
-
-- **access_token** (*Required*): A Foursquare API access token.
-- **push_secret** (*Required*): The push secret that Foursquare provides to you in the app dashboard.
-
+{% configuration %}
+access_token:
+  description: A Foursquare API access token.
+  required: true
+  type: string
+push_secret:
+  description: The push secret that Foursquare provides to you in the app dashboard.
+  required: true
+  type string
+{% endconfiguration %}
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
