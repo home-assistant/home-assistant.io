@@ -39,7 +39,7 @@ triggers:
 name:
   description: Allows you to specify the name for the Sensor, otherwise the host name, as stored in Zabbix, is used.  This is useful when you are specifying a list of hostids to monitor as a single count.
   required: false
-  type: strng
+  type: string
 hostids:
   description: This is a list of Zabbix hostids that we want to filter our count on.
   required: false
