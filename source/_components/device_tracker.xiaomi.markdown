@@ -33,7 +33,7 @@ host:
 username:
   description: The admin username.
   required: false
-  default: `admin`
+  default: admin
   type: string
 password:
   description: The password for the admin account.
