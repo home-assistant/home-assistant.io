@@ -81,7 +81,7 @@ path:
 username:
   description:The user that can access the FTP server.
   required: false
-  default: `root`
+  default: root
   type: string
 ffmpeg_arguments:
   description: "Extra options to pass to `ffmpeg`"
