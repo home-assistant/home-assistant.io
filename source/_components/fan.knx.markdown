@@ -31,8 +31,6 @@ fan:
     speed_state_address: '1/3/8'
 ```
 
-Configuration variables:
-
 {% configuration %}
 speed_address:
   description: KNX group address for seeting the fan speed.
