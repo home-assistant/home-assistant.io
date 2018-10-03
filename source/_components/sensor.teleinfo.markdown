@@ -85,4 +85,4 @@ name:
   required: false
   type: string
   default: teleinfo
-{% endconfiguraName of your devicetion %}
+{% endconfiguration %}
