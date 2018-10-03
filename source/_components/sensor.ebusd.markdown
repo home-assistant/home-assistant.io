@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ha_release: 0.79
 ---
 
-Integration between ebusd (https://github.com/john30/ebusd), daemon for communication with eBUS heating systems, and homeassistant using sensor component.
+Integration between ebusd (https://github.com/john30/ebusd), a daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
 
 ## {% linkable_title Configuration %}
 
@@ -57,10 +57,10 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Required*): This is the IP address of your ebus daemon, eg. 127.0.0.1.
+- **host** (*Required*): This is the IP address of your ebus daemon, e.g., 127.0.0.1.
 - **port** (*Optional*): The port your ebus daemon uses, defaults to 8888.
 - **name** (*Optional*): The name to use when displaying this ebusd instance.
-- **circuit** (*Required*): The heating circuit name to monitor, eg. 700.
+- **circuit** (*Required*): The heating circuit name to monitor, e.g., 700.
 - **monitored_conditions** (*Optional*) array: List of condition to monitor.
   - 'MaxFlowTemperatureDesired'
   - 'MinFlowTemperatureDesired'
@@ -87,3 +87,4 @@ Configuration variables:
   - 'Zone1TimerSunday'
   - 'Zone1OperativeMode'
   - 'PowerEnergyConsumptionThisMonth'
+  
