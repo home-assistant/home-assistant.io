@@ -18,9 +18,38 @@ The `teleinfo` sensor will read data stream from french electric meters. (Descri
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 
+- platform: teleinfo
+  name: "edf"
+  device: "/dev/ttyUSB0"
+```
+{% endraw %}
+
+
+Configuration variables:
+
+{% configuration %}
+device:
+  description: The port where your device is connected to your Home Assistant host
+  required: true
+  type: string
+  default: /dev/ttyUSB0
+name:
+  description: Name of your device
+  required: false
+  type: string
+  default: teleinfo
+{% endconfiguration %}
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+{% raw %}
+```yaml
 - platform: teleinfo
   name: "edf"
   device: "/dev/ttyUSB0"
@@ -71,18 +100,4 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
       value_template: {{ state_attr('sensor.edf','ISOUSC') }}
       unit_of_measurement: 'A'
 ```
-
-Configuration variables:
-
-{% configuration %}
-device:
-  description: The port where your device is connected to your Home Assistant host
-  required: true
-  type: string
-  default: /dev/ttyUSB0
-name:
-  description: Name of your device
-  required: false
-  type: string
-  default: teleinfo
-{% endconfiguration %}
+{% endraw %}
