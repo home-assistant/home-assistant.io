@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: "0.34"
 ---
 
-
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](http://www.logitech.com/en-us/product/harmony-hub).
 
 Supported units:
@@ -95,7 +94,6 @@ action:
     data:
        activity: "Watch TV"
 ```
-
 
 ### {% linkable_title Service `remote.send_command` %}
 
