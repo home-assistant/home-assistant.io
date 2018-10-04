@@ -22,9 +22,17 @@ To enable the configuration panel, add the following to your `configuration.yaml
 config:
 ```
 
+### {% linkable_title Integrations %}
+
+This section enables you to manage integrations for devices such as Philips Hue and Sonos from within Home Assistant.
+
+### {% linkable_title Users %}
+
+This section enables you to manage your Home Assistant users.
+
 ### {% linkable_title General %}
 
-This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, and automation, and the Home Assistant process itself. With a single mouse click.
+This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/server-management.png' />
