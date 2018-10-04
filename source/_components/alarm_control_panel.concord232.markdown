@@ -34,5 +34,5 @@ port:
   description: The port where the Alarm panel is listening.
   required: false
   default: 5007
-  type: int
+  type: integer
 {% endconfiguration %}
