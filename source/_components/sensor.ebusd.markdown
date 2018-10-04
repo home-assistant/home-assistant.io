@@ -67,13 +67,16 @@ circuit:
 port:
   description: The port your ebus daemon uses, defaults to 8888.
   type: integer
+  required: false
   default: 8888
 name: 
   description: The name to use when displaying this ebusd instance.
   type: string
+  required: false
 monitored_conditions:
   description: array: List of condition to monitor.
-  type: list
+  type: map
+  required: false
   keys:
     ActualFlowTemperatureDesired:
       description: Heating circuit flow temperature desired
