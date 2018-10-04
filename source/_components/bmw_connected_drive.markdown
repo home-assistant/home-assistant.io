@@ -12,7 +12,7 @@ ha_category: Car
 ha_release: 0.64
 ---
 
-The `bmw_connected_drive` component lets you retrieve data on your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
+The `bmw_connected_drive` component lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
 
@@ -47,7 +47,7 @@ bmw_connected_drive:
       required: true
       type: string
     region:
-      description: "The region of your Connected Drive account. Please use of these values: `north_america`, `china`, `rest_of_world`"
+      description: "The region of your Connected Drive account. Please use one of these values: `north_america`, `china`, `rest_of_world`"
       required: true
       type: string
     read_only:
@@ -77,15 +77,15 @@ The vehicle is identified via the parameter `vin`.
 
 ### {% linkable_title Sound the horn %}
 
-The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. Use this feature responsibly, as it might annoy your neighbors. The vehicle is identified via the parameter `vin`. 
+The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors. The vehicle is identified via the parameter `vin`. 
 
 ### {% linkable_title Flash the lights %}
 
-The service `bmw_connected_drive.light_flash' flashes the lights of the vehicle. The vehicle is identified via the parameter `vin`.
+The service `bmw_connected_drive.light_flash` flashes the lights of the vehicle. The vehicle is identified via the parameter `vin`.
 
 ### {% linkable_title Update the state %}
 
-The service `bmw_connected_drive.update_state`fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
+The service `bmw_connected_drive.update_state` fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
 
 This service does not require any attributes.
 
