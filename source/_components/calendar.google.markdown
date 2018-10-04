@@ -181,8 +181,10 @@ By using specific text in the event title, you can set conditions to initiate pa
 
 For example, the actions following this condition will only be executed for events named 'vacation':
 
+{% raw %}
 ```yaml
     condition:
         condition: template
         value_template: "{{states.calendar.calendar_name.attributes.message == 'vacation' }}"
 ```
+{% endraw %}
