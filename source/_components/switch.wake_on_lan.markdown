@@ -44,7 +44,7 @@ name:
 host:
   description: The IP address or hostname to check the state of the device (on/off).
   required: false
-  type: [string, int]
+  type: string
 turn_off:
   description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
   required: false
@@ -53,7 +53,7 @@ broadcast_address:
   description: The IP address of the host to send the magic packet to (default 255.255.255.255).
   required: false
   default: 255.255.255.255
-  type: [string, int]
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
