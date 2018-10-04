@@ -106,6 +106,11 @@ mode_state_template:
   description: A template to render the value received on the `mode_state_topic` with.
   required: false
   type: template
+modes:
+  description: A list of supported modes.
+  required: false
+  default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
+  type: list
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.
   required: false
@@ -130,6 +135,11 @@ fan_mode_state_template:
   description: A template to render the value received on the `fan_mode_state_topic` with.
   required: false
   type: template
+fan_modes:
+  description: A list of supported fan modes.
+  required: false
+  default: ['auto', 'low', 'medium', 'high']
+  type: list
 swing_mode_command_topic:
   description: The MQTT topic to publish commands to change the swing mode.
   required: false
@@ -142,6 +152,11 @@ swing_mode_state_template:
   description: A template to render the value received on the `swing_mode_state_topic` with.
   required: false
   type: template
+swing_modes:
+  description: A list of supported swing modes.
+  required: false
+  default: ['on', 'off']
+  type: list
 away_mode_command_topic:
   description: The MQTT topic to publish commands to change the away mode.
   required: false
