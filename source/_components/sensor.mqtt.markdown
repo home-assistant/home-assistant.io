@@ -47,9 +47,9 @@ unit_of_measurement:
   required: false
   type: string
 icon:
-  description: Icon for the sensor (e.g. `mdi:gauge`).
+  description: Icon for the sensor.
   required: false
-  type: string
+  type: icon
 expire_after:
   description: Defines the number of seconds after the value expires if it's not updated.
   required: false

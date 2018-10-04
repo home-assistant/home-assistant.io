@@ -54,7 +54,7 @@ input_select:
         type: Element of options
         default: First element of options
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}

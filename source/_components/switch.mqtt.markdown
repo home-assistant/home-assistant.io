@@ -39,9 +39,9 @@ name:
   type: string
   default: MQTT Switch
 icon:
-  description: Icon for the switch (e.g. `mdi:radiator`).
+  description: Icon for the switch.
   required: false
-  type: string
+  type: icon
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
