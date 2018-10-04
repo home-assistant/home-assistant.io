@@ -37,7 +37,7 @@ mac_address:
   required: true
   type: string
 name:
-  description: The name of the switch. Default is 'Wake on LAN'.
+  description: The name of the switch.
   required: false
   default: Wake on LAN
   type: string
