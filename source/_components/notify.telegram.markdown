@@ -92,7 +92,7 @@ name:
 chat_id:
   description: The chat ID of your user.
   required: true
-  type: string
+  type: integer
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -169,8 +169,9 @@ password:
   required: false
   type: string
 authentication:
-  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  description: Set to 'digest' to use HTTP digest authentication.
   required: false
+  default: basic
   type: string
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
@@ -233,8 +234,9 @@ password:
   required: false
   type: string
 authentication:
-  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  description: Set to 'digest' to use HTTP digest authentication.
   required: false
+  default: basic
   type: string
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
@@ -282,8 +284,9 @@ password:
   required: false
   type: string
 authentication:
-  description: Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
+  description: Set to 'digest' to use HTTP digest authentication.
   required: false
+  default: basic
   type: string
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
