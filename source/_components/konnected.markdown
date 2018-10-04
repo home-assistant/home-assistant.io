@@ -119,7 +119,7 @@ devices:
     host: 
       type: string
       required: false
-      description: Optionally specify the Konnected device's IP address or host name to set up without discovery.
+      description: Optionally specify the Konnected device's IP address or hostname to set up without discovery.
     port:
       type: integer
       required: false
@@ -127,7 +127,7 @@ devices:
     discovery:
       type: boolean
       required: false
-      description: Enable or disable discovery for this device. When true, the device will respond to discovery requests on your network. When false, the device will not respond to discovery requests so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
+      description: Enable or disable discovery for this device. When true, the device will respond to discovery requests on your network. When false, the device will not respond to discovery requests, so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
     blink:
       type: boolean
       required: false
