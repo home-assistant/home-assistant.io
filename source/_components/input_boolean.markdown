@@ -41,7 +41,7 @@ input_boolean:
         type: boolean
         default: false
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}

@@ -96,7 +96,7 @@ resources:
         icon:
           description: Icon to use for the sensor.
           required: false
-          type: string
+          type: icon
           default: "mdi:desktop-classic"
 {% endconfiguration %}
 

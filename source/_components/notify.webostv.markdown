@@ -47,7 +47,7 @@ filename:
 icon:
   description: The path to an image file to use as the icon in notifications.
   required: false
-  type: string
+  type: [string, icon]
 {% endconfiguration %}
 
 A possible automation could be:
