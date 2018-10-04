@@ -73,3 +73,36 @@ timer:
   hallway:
     duration: '00:10:00'
 ```
+
+You can also restrict lights from turning on based on time of day and implement transitions for fading lights on and off.
+
+```yaml
+- alias: Motion Sensor Lights On
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
+    to: 'on'
+  condition: 
+    condition: time
+    after: '07:30'
+    before: '23:30'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.office_lights
+    data: 
+      transition: 15
+
+
+- alias: Motion Sensor Lights Off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
+      to: 'off'
+      for:
+        minutes: 15
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.office_lights
+      data: 
+        transition: 160
+```
