@@ -163,3 +163,28 @@ Otherwise everything following the hash sign would be considered a YAML comment.
  - **location**: The event Location.
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
+
+## {% linkable_title Using calendar in automations %}
+
+A calendar can be used as an external scheduler for special events or reoccurring events instead of hardcoding them in automations.
+
+Trigger as soon as an event starts:
+
+```yaml
+    trigger:
+      platform: state
+      entity_id: calendar.calendar_name
+      to: 'on'
+```
+
+By using specific text in the event title, you can set conditions to initiate particular automation flows on designated events while other events will be ignored. 
+
+For example, the actions following this condition will only be executed for events named 'vacation':
+
+{% raw %}
+```yaml
+    condition:
+        condition: template
+        value_template: "{{states.calendar.calendar_name.attributes.message == 'vacation' }}"
+```
+{% endraw %}
