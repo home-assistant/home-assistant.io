@@ -101,7 +101,7 @@ sensor:
 
 [RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) cannot be added automatically. 
 
-The RFLink component does not know the difference between a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known it can be used to configure it as a switch type in HA, for example to add it to a different group, hide it or configure a nice name.
+The RFLink component does not know the difference between a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch type in HA, for example, to add it to a different group, hide it or configure a nice name.
 
 ### {% linkable_title Ignoring devices %}
 
