@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: "0.80"
 ---
 
-Integration between `ebusd` daemon for communication with eBUS heating systems, and homeassistant using sensor component.
+Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and homeassistant using sensor component.
 
 ## {% linkable_title Configuration %}
 
@@ -74,7 +74,7 @@ name:
   type: string
   required: false
 monitored_conditions:
-  description: array: List of condition to monitor.
+  description: List of condition to monitor.
   type: map
   required: false
   keys:
