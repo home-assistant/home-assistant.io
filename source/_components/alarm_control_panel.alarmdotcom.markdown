@@ -37,7 +37,7 @@ name:
   description: The name of the alarm.
   required: false
   default: Alarm.com
-  type:
+  type: string
 code:
   description: Specifies a code to enable or disable the alarm in the frontend.
   required: false
