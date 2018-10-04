@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tibber.png
 ha_category: Energy
-ha_release: 0.81
+ha_release: 0.80
 ha_qa_scale: silver
 ha_iot_class: "Cloud Polling"
 ---
