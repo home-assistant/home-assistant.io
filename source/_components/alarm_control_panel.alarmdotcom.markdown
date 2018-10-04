@@ -30,7 +30,7 @@ username:
   required: true
   type: string
 password:
-  description: Password for Alarm.com account.
+  description: Password for the Alarm.com account.
   required: true
   type: string
 name:
