@@ -153,8 +153,8 @@ action:
 ```
 
 {% configuration %}
-url or file:
-  description: For local or remote path to an image.
+url:
+  description: For local or remote path to an image (file).
   required: true
   type: string
 caption:
@@ -319,11 +319,11 @@ action:
 latitude:
   description: The latitude to send.
   required: true
-  type: [string, int]
+  type: float
 longitude:
   description: The longitude to send.
   required: true
-  type: [string, int]
+  type: float
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
   required: false
