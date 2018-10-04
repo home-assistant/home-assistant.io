@@ -25,8 +25,7 @@ This component requires that a headless-capable web browser is installed on your
 </p>
 
 <p class='note warning'>
-  Hass.io containers are based on Alpine Linux. PhanthomJS is not available for Alpine Linux.
-Therefore it is currently not possible to use this component on Hassio 
+  Hass.io containers are based on Alpine Linux. PhanthomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io. 
 </p>
 
 ### PhantomJS
