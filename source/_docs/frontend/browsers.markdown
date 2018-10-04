@@ -23,7 +23,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | Internet Explorer ([IE])  | 11             | Not supported | Does not support promises. |
 | Microsoft [Edge]          | deli. Win 10   | works | Streaming updates not working. |
 | [Chrome]                  | 61.0.3163.100  | works      |                          |
-| [Firefox]                 | 57.0           | works      |                          |
+| [Firefox]                 | 62.0.3         | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
@@ -37,9 +37,9 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 59.0           | works      |                          |
+| [Firefox]             | 62.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 63.0.3239.108  | works      |                          |
+| [Chromium]            | 69.0.3497.81   | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Tor Browser]         | 7.0.8          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |
@@ -50,6 +50,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
 | [Epiphany]            | 3.18.5         | works      |                          |
 | [surf]                | 0.7            | works      |                          |
+| [Chrome]              | 69.0.3497.100  | works      |                          |
 
 ## {% linkable_title Android %}
 
