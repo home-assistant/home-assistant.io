@@ -50,7 +50,7 @@ turn_off:
   required: false
   type: string
 broadcast_address:
-  description: The IP address of the host to send the magic packet to (default 255.255.255.255).
+  description: The IP address of the host to send the magic packet to.
   required: false
   default: 255.255.255.255
   type: string
