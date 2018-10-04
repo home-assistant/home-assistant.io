@@ -50,8 +50,6 @@ There are several authenticator apps on the market, we recommend either [Google 
 Please treat the secret key like a password, never expose it to others.
 </p>
 
-By default, one TOTP multi-factor named "Authenticator app" will be auto loaded if no `auth_mfa_modules` configuration section defined in the `configuration.yaml` file.
-
 By default one TOTP multi-factor auth module named "Authenticator app" will be auto loaded if no `auth_mfa_modules` config section defined in `configuration.yaml`.
 
 Example of configuration:
