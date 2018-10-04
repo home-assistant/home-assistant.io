@@ -37,7 +37,7 @@ api_key:
   required: true
   type: string
 parse_mode:
-  description: Default parser for messages if not explicit in message data: 'html' or 'markdown'.
+  description: "Default parser for messages if not explicit in message data: 'html' or 'markdown'."
   required: false
   default: markdown
   type: string
