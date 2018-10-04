@@ -46,3 +46,4 @@ Configuration variables:
 - **door_window** (*Optional*): Set to 1 to show door and window sensors, 0 to disable. Default 1.
 - **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
 - **giid** (*Optional*): The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'
+- **polling_rate** (*Optional*): Polling rate in minutes, Default 1
