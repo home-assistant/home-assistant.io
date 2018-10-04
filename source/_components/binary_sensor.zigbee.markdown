@@ -39,7 +39,7 @@ address:
   required: false
   type: string
 on_state:
-  description: Either `high` (default) or `low`, depicting whether the binary sensor is considered `on` when the pin is `high` or `low`.
+  description: Either `high` or `low`, depicting whether the binary sensor is considered `on` when the pin is `high` or `low`.
   required: false
   default: `high`
   type: string
