@@ -39,6 +39,7 @@ mac_address:
 name:
   description: The name of the switch. Default is 'Wake on LAN'.
   required: false
+  default: Wake on LAN
   type: string
 host:
   description: The IP address or hostname to check the state of the device (on/off).
