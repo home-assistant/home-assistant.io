@@ -154,11 +154,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an image.
+  description: A remote path to an image. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an image.
+  description: A local path to an image. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:
@@ -223,11 +223,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an video.
+  description: A remote path to an video. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an video.
+  description: A local path to an video. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:
@@ -277,11 +277,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an document.
+  description: A remote path to an document. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an document.
+  description: A local path to an document. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:
