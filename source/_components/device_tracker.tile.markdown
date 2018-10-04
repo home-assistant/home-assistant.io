@@ -46,4 +46,4 @@ device_tracker:
     type: boolean
 {% endconfiguration %}
 
-Multiple Tile accounts can be used by repeating the tile platform. Tracked devices in `known_devices.yaml` will be named `tile_<tile_identifier>`. You can find `<tile_identifier>` in the Tile app by clicking on a tile.
+Multiple Tile accounts can be used by repeating the `tile` platform. Tracked devices in `known_devices.yaml` will be named `tile_<tile_identifier>`. You can find `<tile_identifier>` in the Tile app by clicking on a tile.
