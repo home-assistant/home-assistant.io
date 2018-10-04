@@ -16,6 +16,13 @@ The `bmw_connected_drive` component lets you retrieve data of your BMW vehicle f
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
 
+This component provides the following platforms:
+
+ - Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
+ - Device tracker: The location of your car.
+ - Lock: Control the lock of your car.
+ - Sensors: Mileage, remaining range, remaining fuel, charging time remaing (electric cars), charging status (electric cars), remaing range electric (electric cars).
+
 To enable this component in your installation, add the following to your
 `configuration.yaml` file:
 
@@ -25,7 +32,7 @@ bmw_connected_drive:
   name:
     username: USERNAME_BMW_CONNECTED_DRIVE
     password: PASSWORD_BMW_CONNECTED_DRIVE
-    region: one of "north_america", "china" , "rest_of_world"
+    region: one of "north_america", "china", "rest_of_world"
 ```
 
 {% configuration %}
