@@ -310,4 +310,4 @@ filter:
     - light
 ```
 
-Restart Home-Assistant and re-attempt pairing - a persistent status should now correctly appear.
+Restart Home Assistant and re-attempt pairing - a persistent status should now correctly appear.

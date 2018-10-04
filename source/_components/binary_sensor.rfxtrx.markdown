@@ -33,7 +33,7 @@ binary_sensor:
   automatic_add: true
 ```
 
-Open your local home-assistant web UI and go to the "states" page.
+Open your Home Assistant frontend and go to the "states" page.
 Then make sure to trigger your sensor. You should see a new entity
 appear in the *Current entities* list, starting with "binary_sensor."
 and some hexadecimal digits. Those hexadecimal digits are your device id.
