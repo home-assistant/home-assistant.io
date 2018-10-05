@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.80: TO DO - UPDATE DATE
+title: "0.80: TO DO - UPDATE DATE"
 description: "TBD"
 date: 2018-10-05 00:01:00
 date_formatted: "October 12, 2018"
