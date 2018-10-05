@@ -942,7 +942,7 @@ time, interval, kwargs = self.info_timer(handle)
 All of the scheduler calls above support 2 additional optional arguments, `random_start` and `random_end`. Using these arguments it is possible to randomize the firing of callbacks to the degree desired by setting the appropriate number of seconds with the parameters.
 
 - `random_start` - start of range of the random time
-- `random_end` - end of range of the random time 
+- `random_end` - end of range of the random time
 
 `random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
@@ -1490,7 +1490,7 @@ service, kwargs = self.info_listen_event(handle)
 
 ### {% linkable_title fire_event() %}
 
-Fire an event on the HomeAssistant bus, for other components to hear.
+Fire an event on the Home Assistant bus, for other components to hear.
 
 #### {% linkable_title Synopsis %}
 
