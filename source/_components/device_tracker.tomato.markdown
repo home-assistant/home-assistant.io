@@ -41,7 +41,7 @@ device_tracker:
 {% configuration %}
 host:
   description: "The IP address or hostname of your router, e.g., `192.168.1.1` or `rt-ac68u`."
-  required: false
+  required: true
   type: string
 port:
   description: "The port number of your router, e.g., `443`."
