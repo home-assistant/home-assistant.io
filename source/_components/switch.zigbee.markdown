@@ -36,7 +36,7 @@ pin:
   required: true
   type: integer
 address:
-  description: The long 64-bit address of the remote ZigBee device whose pin you would like to sample. Do not include this variable if you want to sample the local ZigBee device's pins.
+  description: The long 64-bit address of the remote ZigBee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local ZigBee device's pins.
   required: false
   type: string
 on_state:
