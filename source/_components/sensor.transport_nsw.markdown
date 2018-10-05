@@ -31,7 +31,6 @@ sensor:
     apikey: 'YOUR API KEY'
 ```
 
-Configuration variables:
 {% configuration %}
 apikey:
   description: Your API key for Open Data Transport NSW
