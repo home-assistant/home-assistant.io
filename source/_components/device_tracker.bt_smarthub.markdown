@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bt.png
 ha_category: Presence Detection
+ha_release: "0.79.4"
 ---
 
 
