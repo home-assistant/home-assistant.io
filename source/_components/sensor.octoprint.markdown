@@ -26,7 +26,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: octoprint
-    name: OctoPrint
+    name: YOUR_OCTOPRINT_NAME
     monitored_conditions:
       - Current State
       - Temperatures
@@ -35,15 +35,28 @@ sensor:
       - Time Remaining
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
-- **monitored_conditions** array (*Required*): States to monitor.
-  - **Current State**: Text of current state.
-  - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-  - **Job Percentage**: Percentage of the job.
-  - **Time Elapsed**: Time elapsed on current print job, in seconds.
-  - **Time Remaining**: Time remaining on current print job, in seconds.
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: true
+  type: string
+  default: Octoprint
+monitored_conditions:
+  description: Conditions to monitor.
+  required: true
+  type: list
+  keys:
+    Current State:
+      description: Text of current state.
+    Temperatures:
+      description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+    Job Percentage
+      description: Percentage of the job.
+    Time Elapsed:
+      description: Time elapsed on current print job, in seconds.
+    Time Remaining:
+      description: Time remaining on current print job, in seconds.
+{% endconfiguration %}
 
 <p class='note'>
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
