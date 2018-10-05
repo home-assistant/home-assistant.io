@@ -13,26 +13,26 @@ The following will take you through the steps required to install Hass.io.
 
 1. Download the appropriate install option:
 
-  - As an image for your device:
+   - As an image for your device:
   
-    - [Raspberry Pi Zero][pi1]
-    - [Raspberry Pi Zero W][pi0-w]
-    - [Raspberry Pi 1 Model B][pi1]
-    - [Raspberry Pi 2 Model B][pi2]
-    - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
-    - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
-    - [Tinkerboard (Beta)][tinker]
-    - [Odroid-C2 (Beta)][odroid-c2]
+     - [Raspberry Pi Zero][pi1]
+     - [Raspberry Pi Zero W][pi0-w]
+     - [Raspberry Pi 1 Model B][pi1]
+     - [Raspberry Pi 2 Model B][pi2]
+     - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32]
+     - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64] (beta)
+     - [Tinkerboard (Beta)][tinker]
+     - [Odroid-C2 (Beta)][odroid-c2]
     
-  - As a virtual appliance: 
+   - As a virtual appliance: 
   
-    - [OVA][Virtual Appliance]
-    - [VMDK][vmdk]
+     - [OVA][Virtual Appliance]
+     - [VMDK][vmdk]
     
 2. Install Hass.io:
 
-  - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
-  - Load the appliance image into your virtual machine software.
+   - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
+   - Load the appliance image into your virtual machine software.
 
 3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 
@@ -53,6 +53,8 @@ If your router doesn't support mDNS, then you'll have to use the IP address of y
 <p class='note warning'>
 If you are using a Raspberry Pi please remember to ensure you're using an [appropriate power supply][pi-power] with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
 </p>
+
+Now you can [configure][configure] your install.
 
 ### {% linkable_title Migrating from a non-Hass.io install %}
 
@@ -104,3 +106,4 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
+[configuration]: /getting-started/configuration/
