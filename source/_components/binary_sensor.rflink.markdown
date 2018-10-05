@@ -11,7 +11,6 @@ logo: rflink.png
 ha_category: Binary Sensor
 ---
 
-
 The `rflink` cover platform supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [rflink hub](/components/rflink/).
@@ -20,9 +19,9 @@ The RFLink component does not know the difference between a `binary_sensor`, a `
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a binary sensor is known it can be used to configure it as a binary sensor type in HA, for example to hide it or configure a nice name.
+Once the ID of a binary sensor is known, it can be used to configure it as a binary sensor type in Home Assistant, for example, to hide it or configure a nice name.
 
-Configuring a device as motion detector type binary sensor with a nice name:
+Configuring a device as a motion detector type binary sensor with a nice name:
 
 ```yaml
 # Example configuration.yaml entry
@@ -49,7 +48,7 @@ Device configuration variables:
 
 ### {% linkable_title Sensor state %}
 
-Initially the state of a binary sensor is unknown. When a sensor update is received the state is known and will be shown in the frontend.
+Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
 ### {% linkable_title Device support %}
 
