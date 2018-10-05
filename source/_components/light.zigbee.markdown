@@ -40,6 +40,6 @@ address:
 on_state:
   description: Either `high` or `low`, depicting whether the digital output pin is pulled `high` or `low` when the light is turned on.
   required: false
-  default: `high`
+  default: high
   type: string
 {% endconfiguration %}
