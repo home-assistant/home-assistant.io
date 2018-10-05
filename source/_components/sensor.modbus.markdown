@@ -81,5 +81,5 @@ sensor:
       scale: 0.1
       offset: 0
       precision: 1
-      data_type: int
+      data_type: integer
 ```

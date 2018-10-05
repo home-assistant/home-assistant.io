@@ -34,3 +34,12 @@ Configuration variables:
 - **bed** (*Optional*): If the printer has a heated bed.
 - **number_of_tools** (*Optional*): Number of temperature adjustable tools. i.e. nozzle.
 
+If the OctoPrint host is equipped with a web camera it is possible to add this as well.
+
+```yaml
+camera:
+  - platform: mjpeg
+    name: OctoPrint
+    still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
+    mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
+```

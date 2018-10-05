@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
 
 The `command_line` sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.
+
+## {% linkable_title Configuration %}
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -37,7 +39,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Hard drive temperature %}
 

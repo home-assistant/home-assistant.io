@@ -12,7 +12,6 @@ ha_category: Presence Detection
 ha_release: 0.36
 ---
 
-
 The `xiaomi` platform offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
 
 To use an Xiaomi router in your installation, add the following to your `configuration.yaml` file:
@@ -25,11 +24,20 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, eg. `192.168.0.1`.
-- **username** (*Optional*: The admin username. By default `admin`.
-- **password** (*Required*): The password for the admin account.
+{% configuration %}
+host:
+  description: "The IP address of your router, e.g., `192.168.0.1`."
+  required: true
+  type: string
+username:
+  description: The admin username.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password for the admin account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-

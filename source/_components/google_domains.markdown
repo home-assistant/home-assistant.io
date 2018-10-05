@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: google_domains.png
-ha_category: Utility
+ha_category: Network
 ha_release: 0.57
 ---
 
 With the Google Domains component you can keep your Google Domains record up to date.
+
+## {% linkable_title Configuration %}
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 

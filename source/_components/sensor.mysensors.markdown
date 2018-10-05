@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Sensor
+ha_category: DIY
 featured: false
 ha_iot_class: "Local Push"
 ---

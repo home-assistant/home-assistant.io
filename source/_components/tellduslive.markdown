@@ -31,6 +31,6 @@ tellduslive:
 Configuration variables:
 
 - **host** (*Optional*): Host address to Tellstick Net or Tellstick ZNet for Local API, only useful when automatic discovery is not enabled.
-- **update_interval** (*Optional*): Interval (in seconds) for polling the Telldus Live server (or the local server).
+- **update_interval** (*Optional*): Interval (in seconds) for polling the Telldus Live server (or the local server). Defaults to 60 seconds.
 
 The component will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.

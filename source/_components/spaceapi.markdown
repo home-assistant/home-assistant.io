@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: spaceapi.png
-ha_category: Other
+ha_category: Social
 ha_release: "0.70"
 ---
 
@@ -115,7 +115,7 @@ sensors:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this component.
+In this section you find some real-life examples of how to use this component.
 
 ### {% linkable_title Eastermundigen %}
 

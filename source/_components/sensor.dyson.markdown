@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: dyson.png
-ha_category: Sensor
+ha_category: Environment
 ha_iot_class: "Cloud Polling"
 ha_release: 0.47
 ---

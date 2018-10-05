@@ -31,6 +31,10 @@ this tool is to help give you something to start playing with right away.
 The [Lovelace Config Generator][config-generator] by [@thomasloven] provides
 you with the ability to split your Lovelace configuration into multiple files.
 
+### {% linkable_title Lovelace Config Generator (Jinja2 Script) %}
+
+The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 script that you run in the template editor to generate lovelace configuration based on the entities that are already setup. 
+
 <p class='note'>
   Split configuration is currently possible directly in Lovelace, but it
   is expected to be removed in the near future due to fact that Home Assistant
@@ -54,10 +58,11 @@ mobile browser. (@Toast)
 
 [@dale3h]: https://github.com/dale3h
 [@thomasloven]: https://github.com/thomasloven
-
+[@skalavala]: https://github.com/skalavala
 [config-generator]: https://github.com/thomasloven/homeassistant-lovelace-gen
 [header-stacks]: https://gist.github.com/dale3h/37b34aebb0c336ffd5fb877c2651097a
 [horizontal-stack]: /lovelace/horizontal-stack/
 [migration-script]: https://github.com/dale3h/python-lovelace
 [picture-elements]: /lovelace/picture-elements/
 [vertical-stack]: /lovelace/vertical-stack/
+[lovelace-jinja]: https://sharethelove.io/tools/jinja-magic-scripts

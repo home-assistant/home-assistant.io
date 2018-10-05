@@ -24,7 +24,15 @@ alarm_control_panel:
   - platform: concord232
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The host where the concord232 server process is running. Defaults to localhost.
-- **port** (*Optional*): The port where the Alarm panel is listening. Defaults to 5007.
+{% configuration %}
+host:
+  description: The host where the concord232 server process is running.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: The port where the Alarm panel is listening.
+  required: false
+  default: 5007
+  type: integer
+{% endconfiguration %}

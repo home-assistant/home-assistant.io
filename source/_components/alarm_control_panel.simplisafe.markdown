@@ -12,7 +12,7 @@ ha_release: 0.24
 ha_category: Alarm
 ---
 
-The `simplisafe` platform enables the ability to control a SimpliSafe control panel. [simplisafe.com](http://simplisafe.com/).
+The `simplisafe` platform enables the ability to control a [SimpliSafe](http://simplisafe.com/) control panel.
 
 To enable this, add the following lines to your `configuration.yaml`:
 
@@ -24,10 +24,21 @@ alarm_control_panel:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for the SimpliSafe account.
-- **password** (*Required*): Password for SimpliSafe account.
-- **name** (*Optional*): The name of the alarm. Default is the SimpliSafe alarm id.
-- **code** (*Optional*): Specifies a code to enable or disable the alarm in the frontend.
-
+{% configuration %}
+username:
+  description: Username for the SimpliSafe account.
+  required: true
+  type: string
+password:
+  description: Password for SimpliSafe account.
+  required: true
+  type: string
+name:
+  description: The name of the alarm. Default is the SimpliSafe alarm id.
+  required: false
+  type: string
+code:
+  description: Specifies a code to enable or disable the alarm in the frontend.
+  required: false
+  type: string
+{% endconfiguration %}

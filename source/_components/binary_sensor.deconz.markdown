@@ -22,9 +22,9 @@ The following sensor types are supported:
  * Presence detection
  * Water leakage detection
 
-Entity ids will be binary_sensor.device_name, where device_name is defined in deCONZ.
+The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is defined in deCONZ.
 
-#### {% linkable_title Verified to be supported binary sensors %}
+#### {% linkable_title Verified supported binary sensors %}
 
 - Open/Close Detection
   - Xiaomi Smart Home Security Door & Window Contact Sensor

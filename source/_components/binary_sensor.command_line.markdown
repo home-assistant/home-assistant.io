@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
 
 The `command_line` binary sensor platform issues specific commands to get data.
+
+## {% linkable_title Configuration %}
 
 To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +40,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title SickRage %}
 
