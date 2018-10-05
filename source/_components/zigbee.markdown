@@ -35,12 +35,12 @@ zigbee:
 device:
   description: The serial port to which the local ZigBee device is connected.
   required: false
-  default: `/dev/ttyUSB0`
+  default: /dev/ttyUSB0
   type: string
 baud:
   description: The baud rate at which to communicate with the local ZigBee device.
   required: false
-  default: `9600`
+  default: 9600
   type: integer
 {% endconfiguration %}
 
