@@ -22,11 +22,17 @@ To use a BT Smart Hub router in your installation, add the following to your `co
 # Example configuration.yaml entry
 device_tracker:
   - platform: bt_smarthub
-    host: 192.168.1.254
+    
 ```
+{% configuration %}
+host:
+  description: The IP address of your router 
+  Default: 192.168.1.254
+  required: false
+  type: string
+  
 
-Configuration variables:
+{% endconfiguration %}
 
-- **host** (*Optional*): The IP address of your router, Default: 192.168.1.254.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
