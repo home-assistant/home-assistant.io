@@ -41,6 +41,6 @@ address:
 on_state:
   description: Either `high` or `low`, depicting whether the binary sensor is considered `on` when the pin is `high` or `low`.
   required: false
-  default: `high`
+  default: high
   type: string
 {% endconfiguration %}
