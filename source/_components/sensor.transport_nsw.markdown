@@ -2,14 +2,14 @@
 layout: page
 title: "Transport NSW"
 description: "Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant."
-date: 2018-08-18 00:00
+date: 2018-10-05 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.76
+ha_release: 0.80
 ---
 
 
@@ -27,16 +27,28 @@ Then add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    name: 'Bus E80'
     stopid: '200024'
-    route: 'E80'
     apikey: 'YOUR API KEY'
 ```
 
 Configuration variables:
-- **stopid** (*Required*): The ID of the bus stop to get the information for.
-- **apikey** (*Required*): Your API key for Open Data Transport NSW
-- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`.
-- **name** (*Optional*): A friendly name for this sensor.
+{% configuration %}
+apikey:
+  description: Your API key for Open Data Transport NSW
+  required: true
+  type: string
+stopid:
+  description: The ID of the stop to get the information for
+  required: true
+  type: string
+route:
+  description: Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`
+  required: false
+  type: string
+name:
+  description: A friendly name for this sensor.
+  required: false
+  type: string
+{% endconfiguration %}
 
-The public RTPI information is coming from [Transport NSW](https://opendata.transport.nsw.gov.au/).
+The public information is coming from [Transport NSW](https://opendata.transport.nsw.gov.au/).
