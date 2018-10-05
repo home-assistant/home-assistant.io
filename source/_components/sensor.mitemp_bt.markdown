@@ -70,6 +70,13 @@ monitored_conditions:
   required: false
   default: [temperature, humidity, battery]
   type: list
+  keys:
+    temperature:
+      description: Temperature in C at the sensor's location.
+    humidity:
+      description: Humidity level in % at the sensor's location.
+    battery:
+      description: Battery details (in %).
 name:
   description: The name displayed in the frontend.
   required: false
