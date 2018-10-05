@@ -35,7 +35,7 @@ You then have to (A) tell Home Assistant where the beacon is located and (B) tel
 
 #### {% linkable_title A. Tell Home Assistant where your beacon is located %}
 
-You tell HomeAssistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my drive way.
+You tell Home Assistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my drive way.
 
 **Example `configuration.yaml` entry**
 

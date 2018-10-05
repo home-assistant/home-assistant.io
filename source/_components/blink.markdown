@@ -13,9 +13,11 @@ ha_release: "0.40"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
+The `blink` component lets you view camera images and motion events
+from [Blink](http://blinkforhome.com) camera and security systems.
 
-You will need your Blink login information (username, usually you email address, and password) to use this module.
+You will need your Blink login information (username, which is
+usually your email address, and password) to use this module.
 
 ## {% linkable_title Configuration %}
 

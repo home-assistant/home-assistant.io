@@ -154,7 +154,7 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this fan.
+In this section you find some real-life examples of how to use this fan.
 
 ### {% linkable_title Full configuration %}
 

@@ -105,12 +105,12 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 feedback_sounds:
   description: Turn on feedbacks sounds for Snips.
   required: false
-  type: str
+  type: string
   default: false
 site_ids:
   description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites.
   required: false
-  type: str
+  type: string
 probability_threshold:
   description: Threshold for intent probability. Range is from 0.00 to 1.00, 1 being highest match. Intents under this level are discarded.
   require: false

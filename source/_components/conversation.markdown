@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Voice"
+ha_qa_scale: internal
 ---
 
 The conversation component allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.

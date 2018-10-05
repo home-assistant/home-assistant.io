@@ -59,9 +59,9 @@ The following conditions are available by device:
 ## {% linkable_title Security State %}
 
 <p class='note warning'>
-This feature is not designed to transfer your Home Assitant to a security system, neither Home Assistant nor Nest be liable to You for damages,
+This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,
 or consequential damages of any character arising as a result of use this feature.
-  
+
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,
 nor does it react to state changes in that system.
 </p>

@@ -50,8 +50,6 @@ There are several authenticator apps on the market, we recommend either [Google 
 Please treat the secret key like a password, never expose it to others.
 </p>
 
-By default, one TOTP multi-factor named "Authenticator app" will be auto loaded if no `auth_mfa_modules` configuration section defined in the `configuration.yaml` file.
-
 By default one TOTP multi-factor auth module named "Authenticator app" will be auto loaded if no `auth_mfa_modules` config section defined in `configuration.yaml`.
 
 Example of configuration:
@@ -68,7 +66,7 @@ Notify MFA module using [notify component](https://www.home-assistant.io/compone
 
 User need first set up the MFA module by select one of the aviliable notify service. A 6 digit one-time password will be sent by this notify service, user need to input it to verify the setup.
 
-During the login process, an 8 digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
+During the login process, an 6 digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
 
 <p class='note'>
 Notify MFA module would not verify the one-time password deliveried success, so that if user cannot received the message due any reason, he/she may not be login again. Edit or remove `[your_config_dir]/.storage/auth_module.notify` can disable nofiy MFA module to resolve the issue.

@@ -40,11 +40,20 @@ vacuum:
     token: YOUR_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of your robot.
-- **token** (*Required*): The API token of your robot.
-- **name** (*Optional*): The name of your robot.
+{% configuration %}
+  host:
+    description: The IP of your robot.
+    required: true
+    type: string
+  token:
+    description: The API token of your robot.
+    required: true
+    type: string
+  name:
+    description: The name of your robot. 
+    required: false
+    type: string
+{% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
 

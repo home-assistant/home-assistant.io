@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.55
 redirect_from: /components/input_slider/
+ha_qa_scale: internal
 ---
 
 <p class='note'>
@@ -77,7 +78,7 @@ input_number:
         required: false
         type: string
       icon:
-        description: Icon to display in front of the box/slider in the frontend. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display in front of the box/slider in the frontend.
         required: false
         type: icon
 {% endconfiguration %}

@@ -32,7 +32,7 @@ ads:
   port:
     required: true
     description: The port that runs the AMS server on the device, typically this would be 801 or 851.
-    type: int
+    type: integer
   ip_address:
     required: false
     description: The IP address of the ADS device, if not set the first 4 bytes of the device id will be used.

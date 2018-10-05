@@ -32,7 +32,7 @@ media_player:
   port:
     description: The port of the device to connect to.
     required: false
-    type: int
+    type: integer
   name:
     description: The name of the device used in the frontend.
     required: false

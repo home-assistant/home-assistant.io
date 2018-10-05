@@ -64,4 +64,4 @@ Troubleshooting:
 
 - install the newest version of [pygattlib](https://bitbucket.org/OscarAcena/pygattlib) from the repository, either because there is no binary package for your system or the pip version contains errors, with `pip install hg+https://bitbucket.org/OscarAcena/pygattlib --target $HOME/.homeassistant/deps`.
 (Dependencies of pygattlib: `sudo apt-get install pkg-config libboost-python-dev libboost-thread-dev libbluetooth-dev libglib2.0-dev python-dev`)
-Then invoke home-assistant with `hass --skip-pip`.
+Then invoke Home Assistant with `hass --skip-pip`.

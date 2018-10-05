@@ -59,7 +59,7 @@ host:
 port:
   description: The port where Glances is listening.
   required: false
-  type: int
+  type: integer
   default: 61208
 name:
   description: The prefix for the sensors.
@@ -69,7 +69,7 @@ name:
 version:
   description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
-  type: int
+  type: integer
   default: 2
 resources:
   description: Entries to monitor.

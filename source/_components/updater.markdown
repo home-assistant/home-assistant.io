@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_qa_scale: internal
 ---
 
 The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version is found. As [Hass.io](/hassio/) has its own schedule for release it doesn't make sense to use this component on Hass.io.

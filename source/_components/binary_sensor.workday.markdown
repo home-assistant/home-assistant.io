@@ -11,15 +11,22 @@ logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.41
+ha_qa_scale: internal
 ---
 
-The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
+The `workday` binary sensor indicates, whether the current day is a workday or
+not. It allows specifying, which days of the week counts as workdays and also
+uses the python module [holidays](https://pypi.python.org/pypi/holidays)
+to incorporate information about region-specific public holidays.
 
 ## {% linkable_title Configuration %}
 
-Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province. 
+Check the
+[country list](https://github.com/dr-prodigy/python-holidays#available-countries)
+for available province.
 
-To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
+To enable the `workday` sensor in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,20 +36,50 @@ binary_sensor:
     workdays: [mon, wed, fri]
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: A name for this sensor.
+  required: false
+  type: string
+  default: Workday Sensor
+country:
+  description: >
+    Country code according to
+    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+  required: true
+  type: string
+province:
+  description: >
+    Province code according to
+    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+  required: false
+  type: string
+workdays:
+  description: List of workdays.
+  required: false
+  type: list
+  default: "[mon, tue, wed, thu, fri]"
+excludes:
+  description: List of workday excludes.
+  required: false
+  type: list
+  default: "[sat, sun, holiday]"
+days_offset:
+  description: Set days offset.
+  required: false
+  type: integer
+  default: 0
+{% endconfiguration %}
 
-- **name** (*Optional*): A name for this sensor. Defaults to *Workday Sensor*
-- **country** (*Required*): Country code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
-- **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation. Defaults to None.
-- **workdays** (*Optional*): List of workdays. Defaults to `mon`, `tue`, `wed`, `thu`, `fri`.
-- **excludes** (*Optional*): List of workday excludes. Defaults to `sat`, `sun`, `holiday`.
-- **days_offset** (*Optional*): Set days offset. Defaults to `0`.
-
-Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`. The keyword `holiday` is used for public holidays identified by the holidays module.
+Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
+The keyword `holiday` is used for public
+holidays identified by the holidays module.
 
 <p class='note warning'>
-If you use the sensor for Norway (`NO`) you need to wrap `NO`in quotes or write the name in full. Otherwise the value is evaluated as `False`.
-If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes. Otherwise the value is evaluated as `True` (check the YAML documentation for further details) and the sensor will not work.
+If you use the sensor for Norway (`NO`) you need to wrap `NO` in quotes or write the name in full.
+Otherwise the value is evaluated as `false`.
+If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes.
+Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 
 Example usage for automation:

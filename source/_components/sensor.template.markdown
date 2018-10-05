@@ -11,6 +11,7 @@ ha_category: Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.
@@ -83,7 +84,7 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sun Angle %}
 

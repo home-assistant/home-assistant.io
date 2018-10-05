@@ -13,15 +13,32 @@ ha_release: 0.9
 ha_iot_class: "depends"
 ---
 
-The `mqtt` binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: `on` or `off`.
+The `mqtt` binary sensor platform uses an MQTT message payload
+to set the binary sensor to one of two states: `on` or `off`.
 
-The binary sensor state will be updated only after a new message is published on `state_topic` matching `payload_on` or `payload_off`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
+The binary sensor state will be updated only after a new message is published on
+`state_topic` matching `payload_on` or `payload_off`.
+If these messages are published with the `retain` flag set,
+the binary sensor will receive an instant state update after subscription and
+Home Assistant will display the correct state on startup.
+Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
 ## {% linkable_title Configuration %}
 
-The `mqtt` binary sensor platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT cover device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability_topic` is defined, Home Assistant will consider the MQTT device to be available.
+The `mqtt` binary sensor platform optionally supports an `availability_topic` to
+receive online and offline messages (birth and LWT messages) from the MQTT
+device. During normal operation, if the MQTT cover device goes offline
+(i.e., publishes `payload_not_available` to `availability_topic`), Home
+Assistant will display the binary sensor as `unavailable`. If these messages are
+published with the `retain` flag set, the binary sensor will receive an instant
+update after subscription and Home Assistant will display the correct
+availability state of the binary sensor when Home Assistant starts up.
+If the `retain` flag is not set, Home Assistant will display the binary sensor
+as `unavailable` when Home Assistant starts up. If no `availability_topic`
+is defined, Home Assistant will consider the MQTT device to be available.
 
-To use an MQTT binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use an MQTT binary sensor in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,7 +68,11 @@ payload_off:
   type: string
   default: "OFF"
 availability_topic:
-  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default."
+  description: >
+    The MQTT topic subscribed to receive birth and LWT messages from the MQTT
+    device. If `availability_topic` is not defined, the binary sensor availability
+    state will always be `available`. If `availability_topic` is defined,
+    the binary sensor availability state will be `unavailable` by default.
   required: false
   type: string
 payload_available:
@@ -70,24 +91,31 @@ qos:
   type: integer
   default: 0
 unique_id:
-  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
+  description: >
+    An ID that uniquely identifies this sensor. If two sensors have
+    the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 device_class:
-  description: "The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend."
+  description: >
+    The [type/class](/components/binary_sensor/) of
+    the sensor to set the icon in the frontend.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  description: >
+    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    to extract a value from the payload.
   required: false
   type: string
 force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  description: >
+    Sends update events even if the value has not changed.
+    Useful if you want to have meaningful value graphs in history.
   reqired: false
   type: boolean
-  default: False 
+  default: false
 {% endconfiguration %}
-
 
 ## {% linkable_title Examples %}
 
@@ -95,7 +123,9 @@ In this section, you will find some real-life examples of how to use this sensor
 
 ### {% linkable_title Full configuration %}
 
-To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. To set the state of the binary sensor manually:
+To test, you can use the command line tool `mosquitto_pub` shipped with
+`mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+To set the state of the binary sensor manually:
 
 ```bash
 $  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
@@ -123,7 +153,14 @@ binary_sensor:
 
 ### {% linkable_title Get the state of a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". Also, add a "Switch Input" in the "Devices" tap with the name "switch" and "button" as value.
+Assuming that you have flashed your ESP8266 unit with
+[ESPEasy](https://github.com/letscontrolit/ESPEasy).
+Under "Config" is a name ("Unit Name:") set for your device
+(here it's "bathroom"). A configuration for a "Controller" for MQTT with the
+protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and
+"Controller Publish:") are adjusted to match your needs.
+In this example, the topics are prefixed with "home". Also, add a "Switch Input"
+in the "Devices" tap with the name "switch" and "button" as value.
 
 As soon as the unit is online, you will get the state of the attached button.
 

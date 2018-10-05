@@ -23,7 +23,6 @@ weblink:
   entities:
     - name: Router
       url: http://192.168.1.1/
-      icon: mdi:router-wireless
     - name: Home Assistant
       url: https://www.home-assistant.io
     - name: Grafana
@@ -42,7 +41,7 @@ url:
 icon:
   description: Icon for entry.
   required: false
-  type: string
+  type: icon
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
