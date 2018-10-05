@@ -24,10 +24,16 @@ tado:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for my.tado.com.
-- **password** (*Required*): Password for my.tado.com.
+{% configuration %}
+username:
+  description: Username for my.tado.com.
+  required: true
+  type: string
+password:
+  description: Password for my.tado.com.
+  required: true
+  type: string
+{% endconfiguration %}
 
 The tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/webapp/#/account/sign-in), which is used by their website and now by this component.
 
