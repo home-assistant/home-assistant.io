@@ -41,7 +41,7 @@ precision:
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 floor_temperature:
-  description: Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`.
+  description: Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `true` to override Home Assistant and round to the lower value according to the configured `precision`.
   required: false
   type: boolean
 {% endconfiguration %}
@@ -61,5 +61,5 @@ climate:
     device: socket://otgw.example.org:2345
     name: Thermostat
     precision: 0.5
-    floor_temperature: True
+    floor_temperature: true
 ```
