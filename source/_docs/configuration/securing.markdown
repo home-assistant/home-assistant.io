@@ -16,8 +16,7 @@ One major advantage of Home Assistant is that it's not dependent on cloud servic
 
 Here's the summary of what you *must* do to secure your Home Assistant system:
 
-&#9744; Configured [secrets](/topics/secrets/)  
-&#9744; Set [a password](/getting-started/basic/#password-protecting-the-web-interface)  
+&#9744; Configure [secrets](/topics/secrets/) (but do remember to back them up)  
 &#9744; Regularly keep the system up to date  
 
 If you're only wanting to use components supported by [Home Assistant cloud](/cloud/) then you don't need to enable remote access. This is obviously the most secure option, but does mean that you're relying on a cloud service for that functionality.
@@ -25,20 +24,11 @@ If you're only wanting to use components supported by [Home Assistant cloud](/cl
 &#9744; For remote access to the UI, use a [VPN](http://www.pivpn.io/), [Tor](/docs/ecosystem/tor/), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/)  
 &#9744; For remote access for components, use a [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate  
 
-## {% linkable_title All installs %}
-
-Regardless of whether you plan on only accessing Home Assistant from inside your network or not, you **must**:
-
-- Keep your [secrets](/topics/secrets/) safe (but do remember to back them up)
-- Protect your web interface [with a password](/getting-started/basic/#password-protecting-the-web-interface)
-- If you're manually installing Home Assistant don't run Home Assistant as root – consider the Principle of Least Privilege
-- Keep your system regularly updated
-
 ### {% linkable_title You should %}
 
 As well as the above we advise that you consider the following to improve security:
 
-- For systems that use SSH set `PermitRootLogin no` in your sshd config (usually `/etc/ssh/sshd_config`) and to use SSH keys for authentication instead of passwords 
+- For systems that use SSH set `PermitRootLogin no` in your sshd config (usually `/etc/ssh/sshd_config`) and to use SSH keys for authentication instead of passwords. This is particularly important if you enable remote access to your SSH services.   
 - Lock down the host following good practice guidance, for example:
   * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html) (this also applies to Raspbian)
   * [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf)
