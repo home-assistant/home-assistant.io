@@ -101,7 +101,7 @@ device:
       required: false
       type: list, string
     connections:
-      description: 'A list of connections of the device to the outside world in the JSON format `{connection_type: connection_identifier}`. For example the MAC address of the network interface.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `[["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list, tuple
     manufacturer:
