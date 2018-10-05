@@ -50,7 +50,7 @@ address:
 max_volts:
   description: The maximum voltage which the input pin is able to read.
   required: false
-  default: `1.2`
+  default: 1.2
   type: float
 {% endconfiguration %}
 
