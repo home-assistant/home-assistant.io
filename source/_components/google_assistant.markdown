@@ -27,7 +27,7 @@ To use Google Assistant, your Home Assistant configuration has to be externally 
 
 ## {% linkable_title Migrate to release 0.80 and above %}
 
-Since release 0.80, the ``Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
+Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
 
 1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), looking for `Advanced Options` in the left bottom of side bar.
     - Change `Linking type` to `OAuth` and `Authorization Code`.
