@@ -106,4 +106,4 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
-[configuration]: /getting-started/configuration/
+[configure]: /getting-started/configuration/
