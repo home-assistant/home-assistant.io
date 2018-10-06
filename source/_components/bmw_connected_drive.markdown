@@ -33,6 +33,7 @@ bmw_connected_drive:
     username: USERNAME_BMW_CONNECTED_DRIVE
     password: PASSWORD_BMW_CONNECTED_DRIVE
     region: one of "north_america", "china", "rest_of_world"
+    unit_system: imperial
 ```
 
 {% configuration %}
@@ -62,6 +63,11 @@ bmw_connected_drive:
       required: false
       type: boolean
       default: false
+    unit_system:
+      description: One of `imperial` or `metric`.  If this is not configured the default Home Assistant unit_system is used.
+      required: false
+      type: string
+      
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
