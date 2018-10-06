@@ -24,6 +24,7 @@ Once the ID of a binary sensor is known, it can be used to configure it as a bin
 
 Configuring a device as a motion detector type binary sensor with a nice name:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -31,40 +32,40 @@ binary_sensor:
      devices:
        pt2262_00174754_0:
 ```
+{% endraw %}
 
-Configuration variables:
-{% configuration %}
+{% configuration binary_sensor.rflink %}
 devices:
-  description: A list of devices with their name to use in the frontend.
+  description: A list of binary sensors.
   required: false
-  type: list
-  
-{% endconfiguration %}
-
-Device configuration variables:
-
-{% configuration %}
-devices:
-  description: Name of the device, defaults to RFLink ID.
-  required: false
-  type: string
-aliases:
-  description: Alternative RFLink ID's this device is known by.
-  required: false
-  type: list
-device_class:
-  description: The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
-  required: false
-  type: string
-off_delay:
-  description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
-  required: false
-  type: int
-force_update:
-  description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
-  required: false
-  type: boolean
-  default: `false`
+  type: map
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name of the device, defaults to RFLink ID.
+          required: false
+          type: string
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: list
+        device_class:
+          description: The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
+          required: false
+          type: string
+        off_delay:
+          description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+          required: false
+          type: int
+        force_update:
+          description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
+          required: false
+          type: boolean
+          default: `false`
 {% endconfiguration %}
 
 ### {% linkable_title Sensor state %}
