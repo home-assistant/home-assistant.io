@@ -30,7 +30,7 @@ Configuring a device as a motion detector type binary sensor with a nice name:
 binary_sensor:
    - platform: rflink
      devices:
-       pt2262_00174754_0:
+       pt2262_00174754_0: {}
 ```
 {% endraw %}
 
