@@ -44,6 +44,9 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     7. Configure your client. Add scopes for `email` and `name`.
     8. Do NOT check `Google to transmit clientID and secret via HTTP basic auth header`
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+
+    <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
+
 3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need generate this draft version Test App.
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
 5. Open the Google Assistant app and go into `Settings > Home Control`
