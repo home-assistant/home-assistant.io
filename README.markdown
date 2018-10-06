@@ -18,3 +18,8 @@ In order to make the preview available on [http://127.0.0.1:1313](http://127.0.0
 ```bash
 hugo serve -w
 ```
+
+Or, using Docker,
+```
+docker build -t ha-hugo . && docker run --rm -it -v $(pwd):/src -p 1313:1313 ha-hugo
+```
