@@ -13,25 +13,11 @@ ha_iot_class: "Local Polling"
 ha_release: 0.12
 ---
 
-The `lifx` platform allows you to integrate your [LIFX](http://www.lifx.com) into Home Assistant.
+The `lifx` component allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
-_Please note, the `lifx` platform does not support Windows. The `lifx_legacy` platform (supporting basic functionality) can be used instead._
+_Please note, the `lifx` component does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: lifx
-```
-{% configuration %}
-broadcast:
-  description: The broadcast address for discovering lights. Only needed if using more than one network interface. Omit if you are unsure.
-  required: false
-  type: string
-server:
-  description: Your server address. Will listen on all interfaces if omitted. Omit if you are unsure.
-  required: false
-  type: string
-{% endconfiguration %}
+You can configure the LIFX component by going to the integrations page inside the config panel.
 
 ## {% linkable_title Set state %}
 
@@ -120,3 +106,27 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+
+
+## {% linkable_title Advanced configuration %}
+
+There are some manual configuration options available. These should only be needed if you have more than one network interface and automatic configuration does not find your LIFX devices.
+
+```yaml
+# Example configuration.yaml entry
+lifx:
+  light:
+    server: IP_ADDRESS
+    broadcast: IP_ADDRESS
+```
+
+{% configuration %}
+server:
+  description: Your server address. Will listen on all interfaces if omitted.
+  required: false
+  type: string
+broadcast:
+  description: The broadcast address for discovering lights.
+  required: false
+  type: string
+{% endconfiguration %}
