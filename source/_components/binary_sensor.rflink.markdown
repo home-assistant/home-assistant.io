@@ -77,7 +77,8 @@ Initially, the state of a binary sensor is unknown. When a sensor update is rece
 See [device support](/components/rflink/#device-support)
 
 ### Additional configuration examples
-Sensor with custom name and device class and set off_delay
+Multiple sensors with custom name and device class and set off_delay
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -87,4 +88,9 @@ binary_sensor:
          name: PIR Entrance
          device_class: motion
          off_delay: 5
+       pt2262_00174758_0:
+         name: PIR Living Room
+         device_class: motion
+         off_delay: 5
 ```
+{% endraw %}
