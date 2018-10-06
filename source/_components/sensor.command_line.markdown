@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 command:
-  description: The action to take to get the value..
+  description: The action to take to get the value.
   required: true
   type: string
 name: 
