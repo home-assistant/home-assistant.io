@@ -25,6 +25,25 @@ The Google Assistant component requires a bit more setup than most due to the wa
 To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
 
+## {% linkable_title Migrate to release 0.80 and above %}
+
+Since release 0.80, the ``Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
+
+1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), looking for `Advanced Options` in the left bottom of side bar.
+    - Change `Linking type` to `OAuth` and `Authorization Code`.
+    - In `Client information` section:
+        - Change `Client ID` to `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
+        - Input any string you like into `Client Secret`, Home Assistant don't need this field.
+        - Change `Authorization URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`  (replace with your actual URL).
+        - Change `Token URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`  (replace with your actual URL).
+    - In `Client information` section:
+        - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    - Click 'Save' at the top right corner, then click 'Test' to generate new draft version of Test App.
+2. Change your `configuration.yaml` file:
+    - Remove `client_id`, `access_token`, `agent_uer_id` config from `google_assistant:`. They are no longer needed.
+3. Restart Home Assistant, open your `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
+4. A browser will be open and ask you login Home Assistant instance, then redirect back to `Google Assistant` app.
+
 ## {% linkable_title Setup %}
 
 You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide it the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have setup this component you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
@@ -42,7 +61,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
     7. Configure your client. Add scopes for `email` and `name`.
-    8. Do NOT check `Google to transmit clientID and secret via HTTP basic auth header`
+    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
@@ -52,7 +71,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 5. Open the Google Assistant app and go into `Settings > Home Control`
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 7. If you want to allow other household users to control the devices:
-    1. Go to the settings for the project you created in the Actions on Google console.
+    1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
     2. Under the gear icon, click `Permissions`
     3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
     4. Have the new user go to [Actions on Google console](https://console.actions.google.com/) and repeat steps starting from point 3
