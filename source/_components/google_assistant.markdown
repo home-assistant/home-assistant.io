@@ -43,6 +43,9 @@ Since release 0.80, the ``Authorization Code` type of `OAuth` account linking is
     - Remove `client_id`, `access_token`, `agent_uer_id` config from `google_assistant:`. They are no longer needed.
 3. Restart Home Assistant, open your `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
 4. A browser will be open and ask you login Home Assistant instance, then redirect back to `Google Assistant` app.
+<p class='note'>
+If you added Home Assistant to home screen, you have to first remove it from home screen, otherwise this HTML5 app will show up instead of a browser, it would not be able to redirect back `Google Assistant` app
+</p>
 
 ## {% linkable_title Setup %}
 
@@ -70,6 +73,9 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
 5. Open the Google Assistant app and go into `Settings > Home Control`
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+<p class='note'>
+If you added Home Assistant to home screen, you have to first remove it from home screen, otherwise this HTML5 app will show up instead of a browser, it would not be able to redirect back `Google Assistant` app
+</p>
 7. If you want to allow other household users to control the devices:
     1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
     2. Click `Test -> Simulator`, then click `Share` icon in right top corner. Follow the on screen instruction:
