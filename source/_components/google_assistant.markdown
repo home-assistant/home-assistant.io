@@ -72,9 +72,11 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 7. If you want to allow other household users to control the devices:
     1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
-    2. Under the gear icon, click `Permissions`
-    3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
-    4. Have the new user go to [Actions on Google console](https://console.actions.google.com/) and repeat steps starting from point 3
+    2. Click `Test -> Simulator`, then click `Share` icon in right top corner. Follow the on screen instruction:
+        1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
+        2. Copy and share the link with new user.
+        3. New user click the link with their own google account, it will enable our draft test app under their account.
+    3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
     2. Select your project and click Enable Homegraph API
