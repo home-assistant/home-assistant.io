@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ebusd.png
-ha_category: Sensor
+ha_category: Ebus
 ha_iot_class: "Local Polling"
 ha_release: "0.80"
 ---
@@ -21,7 +21,7 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+ebus:
   - platform: ebusd
     host: 127.0.0.1
     port: 8888
