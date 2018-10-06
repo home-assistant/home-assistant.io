@@ -38,7 +38,6 @@ Update the `http:` entry in your `configuration.yaml` file and let it point to y
 
 ```yaml
 http:
-  api_password: YOUR_SECRET_PASSWORD
   ssl_certificate: /home/your_user/.homeassistant/certificate.pem
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
