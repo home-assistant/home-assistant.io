@@ -25,43 +25,74 @@ The Google Assistant component requires a bit more setup than most due to the wa
 To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
 </p>
 
+## {% linkable_title Migrate to release 0.80 and above %}
+
+Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
+
+1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
+    - Change `Linking type` to `OAuth` and `Authorization Code`.
+    - In the `Client information` section:
+        - Change `Client ID` to `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
+        - Input any string you like into `Client Secret`, Home Assistant doesn't need this field.
+        - Change `Authorization URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize` (replace with your actual URL).
+        - Change `Token URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token` (replace with your actual URL).
+    - In the `Client information` section:
+        - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
+2. Change your `configuration.yaml` file:
+    - Remove `client_id`, `access_token`, `agent_uer_id` config from `google_assistant:` since they are no longer needed.
+3. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
+4. A browser will be open and asking you to login to your Home Assistant instance, it will edirect back to `Google Assistant` app right afterward.
+
+<p class='note'>
+If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
+</p>
+
 ## {% linkable_title Setup %}
 
-You need to create an API Key with the [Google Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](/#troubleshooting-the-request_sync-service)). If you don't provide it the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have setup this component you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
+You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide one, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
-  a. Add/Import project, give it a name
-  b. Click on `Home Control` card, select the `Smart home` recommendation.
-  c. Create an Action, under the build section. Add in your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / ip address and the port under which your Home Assistant is reachable.
-  d. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
-2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section
-	a. Leave it at the default `No, I only want to allow account creation on my website` and select Next
-	b. For the `Linking type` select `OAuth` and `Authorization Code`
-	c. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important
-	d. Client Secret: Anything you like, Home Assistant don't need this field
-	e. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
-	f. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-	g. Configure your client. Add scopes for `email` and `name`.
-	h. Do NOT check `Google to transmit clientID and secret via HTTP basic auth header`
-	i. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
-3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test.
+    1. Add/Import a project and give it a name.
+    2. Click on the `Home Control` card, select the `Smart home` recommendation.
+    3. Create an Action, under the build section. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
+2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
+    1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
+    2. For the `Linking type` select `OAuth` and `Authorization Code`.
+    3. Client ID: `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.
+    4. Client Secret: Anything you like, Home Assistant doesn't need this field.
+    5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
+    6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
+    7. Configure your client. Add scopes for `email` and `name`.
+    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
+
+    <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
+
+3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
 4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`
+5. Open the Google Assistant app and go into `Settings > Home Control`.
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+<p class='note'>
+If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
+</p>
 7. If you want to allow other household users to control the devices:
-	a. Go to the settings for the project you created in point 1 in the developer console.
-	b. Under the gear icon, click `Permissions`
-	c. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
-	d. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 3
+    1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
+    2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
+        1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
+        2. Copy and share the link with the new user.
+        3. New user clicks the link with their own Google account, it will enable our draft test app under their account.
+    3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
-	a. Go to the [cloud console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview)
-	b. Select your project and click Enable Homegraph API
-	c. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials
-	d. Note down the generated API Key and use this in the configuration
+    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    2. Select your project and click Enable Homegraph API.
+    3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
+    4. Note down the generated API Key and use this in the configuration.
 
 ## {% linkable_title Configuration %}
 
-To enable this, add the following lines to your `configuration.yaml` file:
+Now add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +116,7 @@ google_assistant:
 
 {% configuration %}
 project_id:
-  description: Project ID from the Google Developer console (looks like `words-2ab12`)
+  description: Project ID from the Actions on Google console (looks like `words-2ab12`)
   required: true
   type: string
 api_key:
@@ -144,25 +175,17 @@ Currently, the following domains are available to be used with Google Assistant,
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
 
-It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
-
-```bash
-$ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' | cut -c -80
-```
-
-If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
-
 ### {% linkable_title Troubleshooting the request_sync service %}
 
-The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink.
+The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443) from Home Control and relink.
 
-The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [developer console](https://console.actions.google.com). Resolve this by:
+The request_sync service may fail with a 404 if the project_id of the Homegraph API differs from the project_id of the Actions SDK found in the preferences of your project on [Actions on Google console](https://console.actions.google.com). Resolve this by:
 
-  1. Removing your project from the [developer console](https://console.actions.google.com).
-  2. Add a new project to the [cloud console](https://console.cloud.google.com). Here you get a new `project_id`.
+  1. Removing your project from the [Actions on Google console](https://console.actions.google.com).
+  2. Add a new project to the [Google Cloud API Console](https://console.cloud.google.com). Here you get a new `project_id`.
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
-  5. Again, create a new project in the [developer console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
+  5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
 
 ### {% linkable_title Troubleshooting with NGINX %}
 
