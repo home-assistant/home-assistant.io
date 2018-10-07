@@ -8,14 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: elkproducts.png
-ha_release: '0.80'
+ha_release: 0.81
 ha_category: Alarm
 ha_iot_class: "Local Push"
 ---
 
 The `elkm1` platform allows you to control your [Elk-M1](https://www.elkproducts.com/m1_controls.html).
 
-A Elk-M1 area (also known as partition) is represented as an `alarm_control_panel`.
+An Elk-M1 area (also known as partition) is represented as an `alarm_control_panel`.
 
 <p class='note'>
 Full configuration details can be found on the main [Elk-M1 component](/components/elkm1/) page.

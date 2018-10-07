@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: elkproducts.png
-ha_release: '0.80'
+ha_release: 0.81
 ha_category: Hub
 ha_iot_class: "Local Push"
 ---
@@ -240,7 +240,7 @@ zone:
 Example configuration of the above:
 ```yaml
 elkm1:
-host: elks://IP_ADDRESS
+  host: elks://IP_ADDRESS
   username: USERNAME
   password: PASSWORD
   area:
