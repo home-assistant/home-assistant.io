@@ -10,7 +10,7 @@ footer: true
 logo: "monzobank.png"
 ha_category: Finance
 featured: false
-ha_release: "0.79"
+ha_release: "0.80"
 ha_iot_class: "Cloud Polling"
 ---
 
