@@ -41,6 +41,7 @@ apple_tv:
     start_off: START_OFF_2
     credentials: CREDENTIALS_2
 ```
+
 {% configuration %}
 host:
   description: The IP-address of the device.
