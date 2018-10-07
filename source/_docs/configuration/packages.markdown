@@ -91,8 +91,9 @@ This uses the concept splitting the configuration and will include all files in 
 See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful.
 
 ### {% linkable_title Customizing entities with packages %}
-It is possible to [customize entities](docs/configuration/customizing-devices/) within packages.
-Just create your customization entries under
+
+It is possible to [customize entities](docs/configuration/customizing-devices/) within packages. Just create your customization entries under:
+
 ```yaml
 homeassistant:
   customize:
