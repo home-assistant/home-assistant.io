@@ -89,7 +89,7 @@ switch: !include switches.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Note that there can only be one `!include:` for each component so chaining them isn't going to work. If that sounds like greek, don't worry about it.
+Note that there can only be one `!include:` for each component so chaining them isn't going to work. If that sounds like Greek, don't worry about it.
 
 Alright, so we've got the single components and the include statements in the base file, what goes in those extra files?
 

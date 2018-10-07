@@ -35,7 +35,7 @@ To start this add-on for the first time, you either need to include a key (enclo
 
 The username for login over SSH is `root`. The complete login command is `ssh root@hassio.local`.
 
-After logging in, you will find yourself in this add-ons container. The Home Assistant configuration directory is mounted on the path `/config`.
+After logging in, you will find yourself in this add-on's container. The Home Assistant configuration directory is mounted on the path `/config`.
 
 Configuration variables:
 

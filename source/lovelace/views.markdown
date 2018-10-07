@@ -82,7 +82,7 @@ Picture card config:
 
 ## {% linkable_title Icons %}
 
-If you define an icon the title will be used as a tooltip.
+If you define an icon the title will be used as a tool-tip.
 
 ### {% linkable_title Example %}
 

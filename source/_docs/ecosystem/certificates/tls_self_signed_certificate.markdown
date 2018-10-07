@@ -20,7 +20,7 @@ Change to your Home Assistant [configuration directory](/getting-started/configu
 
 The certificate **must** be `.pem` extension.
 
-If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the cetificate creation process, then:
+If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the certificate creation process, then:
 
 * Send **only** the `certificate.pem` file to the iOS device, using airdrop or other transfer method.
 * Open the `.pem` file on the iOS device, follow the prompts to trust and install it.

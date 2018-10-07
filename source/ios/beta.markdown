@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Join Home Assistant iOS beta"
-description: "Invititation to join the Home Assistant iOS beta."
+description: "Invitation to join the Home Assistant iOS beta."
 release_date: 2016-10-24 15:00:00 -0700
 sidebar: true
 comments: false
