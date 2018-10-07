@@ -39,9 +39,9 @@ name:
 timeout:
   description: Timeout for the connection in seconds.
   required: false
-  type: int
+  type: integer
 write_timeout:
   description: Write timeout in seconds.
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
