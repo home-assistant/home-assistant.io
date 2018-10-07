@@ -56,7 +56,7 @@ host:
 port:
   description: The port of the AlarmDecoder device on your home network, if using socket type. Default: `10000`
   required: false
-  type: int
+  type: integer
 path:
   description: The path of the AlarmDecoder device, if using socket type. Default: `/dev/ttyUSB0`
   required: false
