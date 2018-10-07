@@ -110,4 +110,4 @@ set_nest_eta:
 
 {% linkable_title Troubleshooting %}
 
-- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you maynot have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
+- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
