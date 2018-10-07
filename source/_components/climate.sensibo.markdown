@@ -17,12 +17,14 @@ Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home 
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
+{% configuration %}
 ```yaml
 # Example configuration.yaml entry
 climate:
   - platform: sensibo
     api_key: <your_key_here>
 ```
+{% endconfiguration %}
 
 Configuration variables:
 
@@ -46,3 +48,26 @@ climate:
       - id1
       - id2
 ```
+
+### {% linkable_title Adding a quick switch example %}
+
+If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
+
+{% raw %}
+```yaml
+switch:
+  - platform: template
+    switches:
+      ac:
+        friendly_name: "AC"
+        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
+        turn_on:
+          service: climate.turn_on
+          data:
+            entity_id: climate.ac
+        turn_off:
+          service: climate.turn_off
+          data:
+            entity_id: climate.ac
+```
+{% endraw %}
