@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/automation-trigger/
 ---
 
-Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
+Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule - when _any_ of the triggers becomes true then the automation will start. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
 
 ### {% linkable_title Event trigger %}
 
