@@ -39,28 +39,28 @@ zone:
 
 {% configuration %}
 name:
-  description: Friendly name of the zone.
+  description: The friendly name of the zone.
   required: false
   type: string
 latitude:
-  description: Latitude of the center point of the zone.
+  description: The latitude of the center point of the zone.
   required: true
   type: float
 longitude:
-  description: Longitude of the center point of the zone.
+  description: The longitude of the center point of the zone.
   required: true
   type: float
 radius:
-  description: Optional radius in meters.
+  description: The radius of the zone in meters.
   required: false
   default: 100
   type: integer
 icon:
-  description: Optional icon to show instead of name.
+  description: The icon to show instead of name.
   required: false
   type: string
 passive:
-  description: Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name.
+  description: To only use the zone for automation and hide it from the frontend and not use the zone for device tracker name.
   required: false
   default: false
   type: boolean
