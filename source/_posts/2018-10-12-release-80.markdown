@@ -11,6 +11,14 @@ categories: Release-Notes
 og_image: /images/blog/2018-10-release-0.80/components.png
 ---
 
+Hacktoberfest!!
+
+Allow setting up MQTT broker from Hass.io via a config entry
+
+IFTTT config entry and new webhook
+
+Tradfri Switches
+
 ## {% linkable_title New Platforms %}
 
 - Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs]) (new-platform)
