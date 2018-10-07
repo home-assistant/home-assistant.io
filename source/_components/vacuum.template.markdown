@@ -28,28 +28,8 @@ vacuum:
   - platform: template
     vacuums:
       living_room_vacuum:
-        friendly_name: "Living room vacuum"
-        value_template: "{{ states('input_select.vacuum_state') }}"
-        battery_level_template: "{{ states('input_number.vacuum_battery_level') | int }}"
-        fan_speed_template: "{{ states('input_select.vacuum_fan_speed') }}"
         start:
             service: script.vacuum_start
-        pause:
-            service: script.vacuum_pause
-        stop:
-            service: script.vacuum_stop
-        return_to_base:
-            service: script.vacuum_return_to_base
-        clean_spot:
-            service: script.vacuum_clean_spot
-        locate:
-            service: script.vacuum_locate_vacuum
-        set_fan_speed:
-            service: script.vacuum_set_fan_speed
-        fan_speeds:
-            - Low
-            - Medium
-            - High
 ```
 {% endraw %}
 
