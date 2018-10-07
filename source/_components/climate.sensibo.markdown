@@ -17,21 +17,23 @@ Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home 
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
-{% configuration %}
 ```yaml
 # Example configuration.yaml entry
 climate:
   - platform: sensibo
     api_key: <your_key_here>
 ```
+
+{% configuration %}
+api_key:
+  description: Your Sensibo API key (To get your API key visit <https://home.sensibo.com/me/api>).
+  required: true
+  type: string
+id:
+  description: A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
+  required: false
+  type: string
 {% endconfiguration %}
-
-Configuration variables:
-
-- **api_key** (*Required*): Your API key.
-- **id** (*Optional*): A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
-
-To get your API key visit <https://home.sensibo.com/me/api>
 
 <p class="note">
 If you create the API key using a dedicated user (and not your main user), 
