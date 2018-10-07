@@ -27,7 +27,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You have a basic understanding of the phrases I have used so far.
  * You are not currently running anything on port 80 on your network (you'd know if you were).
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
- * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
+ * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is inaccurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
  * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
 
 Steps we will take:
@@ -113,7 +113,7 @@ static routers=192.168.0.1      <---- Your router's IP address
 static domain_name_servers=192.168.0.1 <---- Your router's IP address
 ```
 
-It is important to note that the first three bytes of your static IP address and your router's IP address should be the same, eg:
+It is important to note that the first three bytes of your static IP address and your router's IP address should be the same, e.g.:
 
 ```text
 Router: 192.168.0.1
@@ -179,9 +179,9 @@ http://203.0.113.12:8123
 
 Can you see your Home Assistant instance? If not, your router may not support 'loopback' - try the next step anyway and if that works, and this one still doesn't, just remember that you cannot use loopback, so will have to use internal addresses when you're on your home network. More on this later on if it's relevant to you.
 
-Just to verify this isn't some kind of witchcraft that is actually using your internal network, pick up your phone, disconnect it from your wifi so that you are on your mobile data and not connected to the home network, put the same URL in the browser on your phone.
+Just to verify this isn't some kind of witchcraft that is actually using your internal network, pick up your phone, disconnect it from your WiFi so that you are on your mobile data and not connected to the home network, put the same URL in the browser on your phone.
 
-Can you see it now, from a device that is definitely not connected to your local network? Excellent! You now have a remotely accesible Home Assistant instance.
+Can you see it now, from a device that is definitely not connected to your local network? Excellent! You now have a remotely accessible Home Assistant instance.
 
 But what if your external IP changes?  Plus, remembering all those numbers is pretty hard, isn't it?  Read on to get yourself set up with a word-based URL at DuckDNS that will track any changes to your IP address so you don't have to stress anymore.
 
@@ -222,7 +222,7 @@ What now happens behind the scenes is this:
 
 Did it work? Super!
 
-You now have a remotely accesible Home Assistant instance that has a text-based URL and will not drop out if your service provider changes your IP. But, it is only as secure as the password you set, which can be snooped during your session by a malicious hacker with relative ease. So we need to set up some encryption with TLS/SSL, read on to find out how.
+You now have a remotely accessible Home Assistant instance that has a text-based URL and will not drop out if your service provider changes your IP. But, it is only as secure as the password you set, which can be snooped during your session by a malicious hacker with relative ease. So we need to set up some encryption with TLS/SSL, read on to find out how.
 
 ### {% linkable_title 4 - Obtain a TLS/SSL certificate from Let's Encrypt %}
 

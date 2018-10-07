@@ -73,7 +73,7 @@ crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
 at this point simply add your user (homeassistant) to the dialout group:
 
 ```bash
-$ sudo usermod -a -G dialout homeassistant 
+$ sudo usermod -a -G dialout homeassistant
 ```
 
 Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
