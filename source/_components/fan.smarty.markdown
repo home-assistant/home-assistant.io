@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: salda.png
 ha_category: Hub
-ha_release: "0.77"
+ha_release: "0.80"
 ---
 
 Please see the [main component](/components/smarty) for information how to set it up.

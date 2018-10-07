@@ -38,6 +38,7 @@ smarty:
 Configuration variables:
 
 {% configuration %}
-- **name** (*Optional*): The name of this device as you want to see it in Home Assistant.
-- **slave** (*Required*): The modbus slave id.
+smaery:
+  **name** (*Optional*): The name of this device as you want to see it in Home Assistant.
+  **slave** (*Required*): The modbus slave id.
 {% endconfiguration %}
