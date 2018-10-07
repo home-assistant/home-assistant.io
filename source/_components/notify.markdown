@@ -112,6 +112,6 @@ action:
     message: "Test plugin"
     data:
       location:
-        latitude: 7.3284,
+        latitude: 7.3284
         longitude: 46.38234
 ```
