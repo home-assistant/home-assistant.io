@@ -70,8 +70,7 @@ panel_display:
   required: false
   type: boolean
 zones:
-  description: Create a sensor called sensor.alarm_display to match the Alarm Keypad display. Default: `off`
-- **zones** (*Optional*): AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+  description: AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.* 
   required: false
   type: string
 rfid:
