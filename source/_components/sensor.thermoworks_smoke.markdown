@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: thermoworks.png
 ha_category: Sensor
-ha_release: 0.80.0
-ha_iot_class: "Remote Polling"
+ha_release: 0.81.0
+ha_iot_class: "Cloud Polling"
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
@@ -29,13 +29,6 @@ sensor:
   - platform: thermoworks_smoke
     email: "your email here"
     password: !secret thermoworks_pass
-    monitored_conditions:
-    - probe1
-    - probe2
-    - probe1_min
-    - probe1_max
-    - probe2_min
-    - probe2_max
 ```
 
 {% configuration %}
@@ -48,7 +41,7 @@ password:
   required: true
   type: string
 monitored_conditions:
-  description: The sensors to add. Default is `probe1` and `probe2`.
+  description: The sensors to add. Default is `probe1` and `probe2`. The full list is `probe1`, `probe2`, `probe1_min`, `probe1_max`, `probe2_min`, `probe2_max`.
   required: false
   type: list
 exclude:
