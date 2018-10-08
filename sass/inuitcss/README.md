@@ -276,7 +276,7 @@ Now, when you run `$ ./watch`, `style.scss` will be calling:
 
 Out of the box, inuit.css is very small, however it is **imperative** that you
 only ever deploy a minified version of your compiled stylesheet to your live
-environment. inuit.css compiles stright to minified output by default, but you
+environment. inuit.css compiles straight to minified output by default, but you
 can change this in `watch` if you have a build process in place.
 
 It is also **highly** recommended that you enable gzip compression on any text
