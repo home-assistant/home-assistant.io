@@ -15,11 +15,6 @@ The `http` component serves all files and data required for the Home Assistant
 frontend. You only need to add this to your configuration file if you want to
 change any of the default settings.
 
-<p class='note warning'>
-It is HIGHLY recommended that you set the `api_password`,
-especially if you are planning to expose your installation to the internet.
-</p>
-
 <p class='note'>
 Don't use option `server_host` on a Hass.io installation!
 </p>
@@ -32,7 +27,7 @@ http:
 
 {% configuration %}
 api_password:
-  description: Protect Home Assistant with a password.
+  description: Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where possible you should use a long lasting access token instead of this.
   required: false
   type: string
 server_host:
