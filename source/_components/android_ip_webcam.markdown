@@ -63,7 +63,7 @@ switches:
 motion_sensor:
   description: Activate motion sensor if auto_discovery is disabled.
   required: false
-  type: string
+  type: boolean
 {% endconfiguration %}
 
 <p class='note'>
