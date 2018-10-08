@@ -39,21 +39,22 @@ pins:
     pin_name:
       description: Port numbers and corresponding names.
       required: true
-      type: string
-    name:
-      description: Friendly name to use for the frontend.
-      required: false
-      type: string
-    initial:
-      description: Initial state of the pin.
-      required: false
-      default: false
-      type: boolean
-    invert_logic:
-      description: If `true`, inverts the input logic to ACTIVE LOW
-      required: false
-      default: false
-      type: boolean   
+      type: map
+      keys:
+        name:
+          description: Friendly name to use for the frontend.
+          required: false
+          type: string
+        initial:
+          description: Initial state of the pin.
+          required: false
+          default: false
+          type: boolean
+        invert_logic:
+          description: If `true`, inverts the input logic to ACTIVE LOW
+          required: false
+          default: false
+          type: boolean
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.

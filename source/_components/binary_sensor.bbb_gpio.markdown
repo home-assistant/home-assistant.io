@@ -39,26 +39,27 @@ pins:
     pin_name:
       description: Port numbers and corresponding names.
       required: true
-      type: string
-    name:
-      description: Friendly name to use for the frontend.
-      required: true
-      type: string
-    bouncetime:
-      description: Debounce time for reading input pin defined in milliseconds [ms].
-      required: false
-      default: 50
-      type: integer
-    invert_logic:
-      description: If `true`, inverts the input logic to ACTIVE LOW
-      required: false
-      default: false
-      type: boolean
-    pull_mode:
-      description: Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
-      required: false
-      default: UP
-      type: string      
+      type: map
+      keys:
+        name:
+          description: Friendly name to use for the frontend.
+          required: true
+          type: string
+        bouncetime:
+          description: Debounce time for reading input pin defined in milliseconds [ms].
+          required: false
+          default: 50
+          type: integer
+        invert_logic:
+          description: If `true`, inverts the input logic to ACTIVE LOW
+          required: false
+          default: false
+          type: boolean
+        pull_mode:
+          description: Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
+          required: false
+          default: UP
+          type: string      
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
