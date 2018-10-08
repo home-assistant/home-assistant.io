@@ -36,7 +36,7 @@ binary_sensor:
 coils:
   description: The array contains a list of coils to read from.
   required: true
-  type: map
+  type: [map, list]
   keys:
     name:
       description: Name of the sensor.
