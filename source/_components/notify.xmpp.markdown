@@ -35,7 +35,7 @@ Configuration variables:
 - **recipient** (*Required*): The Jabber ID (JID) that will receive the messages.
 - **tls** (*Optional*): Allow to disable TLS. Defaults to `true`.
 - **verify** (*Optional*): Allow disabling SSL certificate validity check (e.g., self-signed certificate). Defaults to `true`.
-- **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the sender.
+- **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the recipient.
 
 <p class='note'>
   sleekxmpp, as of version 1.3.2, does not support >TLS1. If you are running your own XMPP server (e.g. Prosody, ejabberd) make sure to allow using TLS1.
