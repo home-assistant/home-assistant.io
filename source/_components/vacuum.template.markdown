@@ -21,7 +21,6 @@ return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 To enable Template Vacuums in your installation, add the following to your
 `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -31,7 +30,6 @@ vacuum:
         start:
             service: script.vacuum_start
 ```
-{% endraw %}
 
 {% configuration %}
   vacuums:
@@ -88,3 +86,66 @@ vacuum:
         required: false
         type: string list
 {% endconfiguration %}
+
+## {% linkable_title Examples %}
+
+### {% linkable_title Control vacuum with Harmony Hub %}
+This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/components/remote.harmony/).
+
+```yaml
+vacuum:
+  - platform: template
+    vacuums:
+      living_room_vacuum:
+        start:
+          - service: remote.send_command
+            data:
+              entity_id: remote.harmony_hub
+              command: Clean
+              device: 52840686
+        return_to_base:
+          - service: remote.send_command
+            data:
+              entity_id: remote.harmony_hub
+              command: Home
+              device: 52840686
+        clean_spot:
+          - service: remote.send_command
+            data:
+              entity_id: remote.harmony_hub
+              command: SpotCleaning
+              device: 52840686
+```
+
+### {% linkable_title Vacuum with state %}
+This example shows how to use templates to specify the state of the vacuum.
+
+{% raw %}
+```yaml
+vacuum:
+  - platform: template
+    vacuums:
+      living_room_vacuum:
+        value_template: "{{ states('sensor.vacuum_state') }}"
+        battery_level_template: "{{ states('sensor.vacuum_battery_level')|int }}"
+        fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
+        start:
+            service: script.vacuum_start
+        pause:
+            service: script.vacuum_pause
+        stop:
+            service: script.vacuum_stop
+        return_to_base:
+            service: script.vacuum_return_to_base
+        clean_spot:
+            service: script.vacuum_clean_spot
+        locate:
+            service: script.vacuum_locate_vacuum
+        set_fan_speed:
+            service: script.vacuum_set_fan_speed
+        fan_speeds:
+            - Low
+            - Medium
+            - High
+```
+{% endraw %}
