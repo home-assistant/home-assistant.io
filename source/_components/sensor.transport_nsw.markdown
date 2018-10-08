@@ -27,16 +27,16 @@ Then add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    stopid: '200024'
-    apikey: 'YOUR API KEY'
+    stop_id: '200024'
+    api_key: 'YOUR API KEY'
 ```
 
 {% configuration %}
-apikey:
+api_key:
   description: Your API key for Open Data Transport NSW
   required: true
   type: string
-stopid:
+stop_id:
   description: The ID of the stop to get the information for
   required: true
   type: string
