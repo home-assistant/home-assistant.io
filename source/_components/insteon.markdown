@@ -244,13 +244,13 @@ events. The following events are available:
 
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without
-    dots (e.g. 1a2b3c)
+    dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote
     the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For
     a one-button remote this field is not used.
 - **insteon.button_of**
   - **address**: (required) The Insteon device address in lower case without
-    dots (e.g. 1a2b3c)
+    dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote
     the values are a to d. For an 8 button remote the values are `a` to `g`. For
     a one-button remote this field is not used.

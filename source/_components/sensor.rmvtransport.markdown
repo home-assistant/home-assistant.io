@@ -34,7 +34,7 @@ name:
   default: The default is the station name.
   type: string
 stationId:
-  description: ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
+  description: ID of the stop or station, e.g., 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
   required: true
   type: string
 destinations:

@@ -33,7 +33,7 @@ Once you have your own Starling bank account you will need to sign up for a Star
 Once you've signed up: 
 1. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account. 
 2. Click "Create Token".
-3. Give your token a name e.g. "Home Assistant".
+3. Give your token a name e.g., "Home Assistant".
 4. Tick the permissions "account:read" and "balance:read". The others you can leave un-ticked.
 5. Click "Create" and make a note of the newly created token, you will need this for your Home Assistant configuration.
 
