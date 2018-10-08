@@ -149,7 +149,7 @@ extends the layer below.
 
 We start in `inuit.css/generic/`, with our most generic, low-level styling,
 things like a clearfix, [normalize.css](http://necolas.github.com/normalize.css/),
-our reset and any shared styling like margins (for vertical rythmn).
+our reset and any shared styling like margins (for vertical rhythm).
 
 On top of that we lay our base styles, found in `inuit.css/base/`; these are
 things like unclassed headings, what our basic forms look like, how simple
