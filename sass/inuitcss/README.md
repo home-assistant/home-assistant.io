@@ -149,7 +149,7 @@ extends the layer below.
 
 We start in `inuit.css/generic/`, with our most generic, low-level styling,
 things like a clearfix, [normalize.css](http://necolas.github.com/normalize.css/),
-our reset and any shared styling like margins (for vertical rythmn).
+our reset and any shared styling like margins (for vertical rhythm).
 
 On top of that we lay our base styles, found in `inuit.css/base/`; these are
 things like unclassed headings, what our basic forms look like, how simple
@@ -175,9 +175,9 @@ case-by-case basis.
 inuit.css has a file called `_defaults.scss` which contains all the Sass
 variables required for the library to compile without failing. These variables
 are preset because Sass will error without them, however they are **not** set in
-stone, and you are encouranged to override and experiment with them.
+stone, and you are encouraged to override and experiment with them.
 
-It is tempting to modify their vaules in the inuit.css submodule but this is
+It is tempting to modify their values in the inuit.css submodule but this is
 **not** the correct method for modifying inuit.css, and in doing so you will
 prevent yourself from being able to update inuit.css’ core library. The correct
 procedure is to redefine that variable in `_vars.scss` found in the inuit.css
@@ -232,7 +232,7 @@ inuit.css, as covered in the next section.
 
 inuit.css is, by design, a very design-free framework. This means that the
 style and design of your site is left entirely up to you (as it should be).
-Because inuit.css gives you lots of customisable foundations, you need to add
+Because inuit.css gives you lots of customizable foundations, you need to add
 the final layer: UI.
 
 How you go about this step is largely left up to you, but it is common practice
@@ -276,7 +276,7 @@ Now, when you run `$ ./watch`, `style.scss` will be calling:
 
 Out of the box, inuit.css is very small, however it is **imperative** that you
 only ever deploy a minified version of your compiled stylesheet to your live
-environment. inuit.css compiles stright to minified output by default, but you
+environment. inuit.css compiles straight to minified output by default, but you
 can change this in `watch` if you have a build process in place.
 
 It is also **highly** recommended that you enable gzip compression on any text
