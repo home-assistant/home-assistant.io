@@ -55,11 +55,32 @@ scan_interval:
 sensors:
   description: Conditions to display sensor in the frontend. See the list of supported sensors.
   required: false
-  type: list
+  type: map
+  keys:
+    audio_connections:
+    battery_level:
+    battery_temp:
+    battery_voltage:
+    light:
+    motion:
+    pressure:
+    proximity:
+    sound:
+    video_connections:
 switches:
-  description: Conditions to display settings in the frontend. See the list of supported settings.
+  description: Conditions to display settings in the frontend. See the list of supported switches.
   required: false
-  type: list
+  type: map
+  keys:
+    exposure_lock:
+    ffc:
+    focus:
+    gps_active:
+    night_vision:
+    overlay:
+    torch:
+    whitebalance_lock:
+    video_recording:
 motion_sensor:
   description: Activate motion sensor if auto_discovery is disabled.
   required: false
@@ -69,33 +90,6 @@ motion_sensor:
 <p class='note'>
   You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
 </p>
-
-### {% linkable_title Supported features %}
-
-Sensors:
-
-- audio_connections
-- battery_level
-- battery_temp
-- battery_voltage
-- light
-- motion
-- pressure
-- proximity
-- sound
-- video_connections
-
-Settings (Switches):
-
-- exposure_lock
-- ffc
-- focus
-- gps_active
-- night_vision
-- overlay
-- torch
-- whitebalance_lock
-- video_recording
 
 ## {% linkable_title Full example %}
 
