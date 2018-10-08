@@ -19,14 +19,14 @@ ha_iot_class: "Cloud Push"
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
 
-To set it up, go to the integrations page in the configuration screen and find IFTTT. Click no configure. Follow the instructions on the screen to configure IFTTT.
+To set it up, go to the integrations page in the configuration screen and find IFTTT. Click on configure. Follow the instructions on the screen to configure IFTTT.
 
 Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in IFTTT will be available as the event data. You can use this event to trigger automations.
 
 For example, set the body of the IFTTT webhook to:
 
 ```json
-{ "service": "light.turn_on", "entity_id": "light.living_room" }
+{ "action": "call_service", "service": "light.turn_on", "entity_id": "light.living_room" }
 ```
 
 You can then consume that information with the following automation:
@@ -35,6 +35,8 @@ You can then consume that information with the following automation:
 automation:
   trigger:
     event: ifttt_webhook_received
+    event_data:
+      action: call_service
   action:
     service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
     data_template:
