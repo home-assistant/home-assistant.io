@@ -62,9 +62,10 @@ To get the station ID for any BOM station:
 
 {% configuration %}
 station:
-  description: The station ID string as identified from the BOM website.  If not given, defaults to the closest station based on location data in configuration.yaml.
+  description: The station ID string as identified from the BOM website.
   required: false
   type: string
+  default: If not given, defaults to the closest station based on location data in configuration.yaml.
 name:
   description: The name you would like to give to the weather station.
   required: false
