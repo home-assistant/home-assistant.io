@@ -32,7 +32,7 @@ modbus:
 
 {% configuration %}
 type:
-  description: Type of the connection to Modbus. Possible values are:
+  description: Type of the connection to Modbus. Possible values are `tcp`, `udp` and `rtuovertcp`.
   required: true
   type: map
   keys:
