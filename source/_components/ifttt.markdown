@@ -13,13 +13,13 @@ featured: true
 ha_iot_class: "Cloud Push"
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "Applets". With the IFTTT component you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## {% linkable_title Sending events from IFTTT to Home Assistant %}
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
 
-To set it up, go to integrations page in the configuration screen and find IFTTT. Click no configure. Follow the instructions on the screen to configure IFTTT.
+To set it up, go to the integrations page in the configuration screen and find IFTTT. Click no configure. Follow the instructions on the screen to configure IFTTT.
 
 Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in IFTTT will be available as the event data. You can use this event to trigger automations.
 
