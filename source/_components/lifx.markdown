@@ -10,7 +10,7 @@ footer: true
 logo: lifx.png
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: 0.80
+ha_release: 0.81
 ---
 
 The `lifx` component allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
