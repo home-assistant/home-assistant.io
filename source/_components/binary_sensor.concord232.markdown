@@ -24,7 +24,7 @@ binary_sensor:
 
 {% configuration %}
 host:
-  description: he host where the concord232 server process is running.
+  description: The host where the concord232 server process is running.
   required: false
   default: localhost
   type: string
