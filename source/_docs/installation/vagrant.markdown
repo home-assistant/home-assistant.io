@@ -110,5 +110,5 @@ On Windows, Vagrant is launched through an elevated `PowerShell`. Use the batch 
 It is possible to use Hyper-V instead of Virtualbox on Windows, with some limitations.
 
 Samba is used for the virtual machine to access files, for which the Windows credentials are needed when the machine is created.
-As Hyper-V does not allow for port forwarding, NAT is used by default for network. Through creating an external network switch in Hyper-V it is possible to access the machine on the network.
+As Hyper-V does not allow for port forwarding, NAT is used by default for the network. Through creating an external network switch in Hyper-V it is possible to access the machine on the network.
 The IP address is visible on creation, and through the Hyper-V manager.
