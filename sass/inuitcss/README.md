@@ -232,7 +232,7 @@ inuit.css, as covered in the next section.
 
 inuit.css is, by design, a very design-free framework. This means that the
 style and design of your site is left entirely up to you (as it should be).
-Because inuit.css gives you lots of customisable foundations, you need to add
+Because inuit.css gives you lots of customizable foundations, you need to add
 the final layer: UI.
 
 How you go about this step is largely left up to you, but it is common practice
