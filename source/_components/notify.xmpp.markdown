@@ -38,7 +38,8 @@ Configuration variables:
 - **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the recipient.
 
 <p class='note'>
-  sleekxmpp, as of version 1.3.2, does not support >TLS1. If you are running your own XMPP server (e.g. Prosody, ejabberd) make sure to allow using TLS1.
+  Pre Home-Assistant <RELEASE_VERSION> sleekxmpp was used to connect to XMPP-servers. Sleekxmpp as of version 1.3.2, does not support >TLS1. If you are running your own XMPP server (e.g. Prosody, ejabberd) make sure to allow using TLS1.
+  Home-Assistant after <RELEASE_VERSION> uses slixmpp, which supports TLSv1.1.
 </p>
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
