@@ -36,11 +36,11 @@ token:
 locations:
   description: A list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant.
   required: true
-  type: string, list
+  type: list
 stations:
   description: A list of station names to look for air quality data. Station should be within locations specified above.
   required: false
-  type: string, list
+  type: list
 {% endconfiguration %}
 
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
