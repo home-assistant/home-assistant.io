@@ -72,7 +72,7 @@ name:
 monitored_conditions:
   description: A list of the conditions to monitor.
   required: true
-  type: map
+  type: list
   keys:
     apparent_t:
       description: Feels like temperature in C.
