@@ -83,7 +83,7 @@ counter:
   required: false
   type: integer
 hook:
-  description: Indicates if the automation should be executed on what state of the binary sensor. Values: "on" or "off".
+  description: Indicates if the automation should be executed on what state of the binary sensor. Values are "on" or "off".
   required: false
   default: on
   type: string
