@@ -39,7 +39,7 @@ pins:
     pin_name:
       description: Port numbers and corresponding names.
       required: true
-      type: map
+      type: string
     name:
       description: Friendly name to use for the frontend.
       required: false
