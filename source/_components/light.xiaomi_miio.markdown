@@ -102,7 +102,7 @@ name:
   type: string
   default: Xiaomi Philips Light
 model:
-  description: The model of your miio light. Valid values are `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling`, `philips.light.zyceiling`, `philips.light.mono1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio light. Valid values are `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling`, `philips.light.zyceiling` and `philips.light.mono1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
