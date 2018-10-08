@@ -23,25 +23,25 @@ The Monzo Bank sensor platform allows you to monitor the balance and other infor
 Documentation of the Monzo API can be found [here](https://docs.monzo.com/) (This is slightly incomplete but you can see the capabilities on the Monzo [developers site](https://developers.monzo.com/)).
 
 <p class='note info'>
-The publicly available Monzo API does not allow transfering money out of your account except to your Pots. While you can't directly lose money through use of the API, it is possible to go into your overdraft if you make transactions after placing your full balance into Pots.
+The publicly available Monzo API does not allow transferring money out of your account except to your Pots. While you can't directly lose money through the use of the API, it is possible to go into your overdraft if you make transactions after placing your full balance into Pots.
 
 This sensor only reads information related to account and pot balances and does not perform transfers so this will not occur.
 </p>
 
 ## {% linkable_title OAuth Client Setup %}
 
-Once you have your own Monzo account you will need log in to the Monzo developer website. You won't need to do any development but you will need to create a client id and secret pair that will allow the integration to access your account balance.
+Once you have your own Monzo account, you will need to log in to the Monzo developer website. You won't need to do any development, but you will need to create a client id and secret pair that will allow the integration to access your account balance.
 
 Once you've signed up:
 1. Head to the [Clients Section](https://developers.monzo.com/apps/home) of the developer playground.
 2. Click "New OAuth Client".
-3. Give your client a name e.g. "Home Assistant".
+3. Give your client a name, e.g., "Home Assistant".
 4. Enter the "Redirect URL" as `http://[Home Assistant URL]/api/monzo/callback`
 5. Select "Confidential" from the Confidentiality dropdown box.
 6. Click "Submit" and make a note of the newly created client id and secret, you will need this for your Home Assistant configuration.
 
 <p class='note info'>
-It is important that you select your OAuth client type to be Confidential. Otherwise Home Assistant will be unable to renew the Monzo access token once it expires
+It is important that you select your OAuth client type to be Confidential. Otherwise Home Assistant will be unable to renew the Monzo access token once it expires.
 </p>
 
 ## {% linkable_title Configuration %}
