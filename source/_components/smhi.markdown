@@ -10,7 +10,7 @@ footer: true
 featured: true
 logo: smhi.png
 ha_category: Hub
-ha_release: 0.80
+ha_release: 0.81
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -29,7 +29,7 @@ You can only add locations through the integrations page, not in configuration f
 </p>
 
 <p class='note warning'>
-Only location close to sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
+Only location close to Sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
 </p>
 
 
