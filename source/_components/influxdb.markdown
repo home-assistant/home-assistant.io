@@ -109,6 +109,36 @@ tags_attributes:
   description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
   required: false
   default: 0
+component_config:
+  type: string
+  required: false
+  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_measurement:
+      type: boolean
+      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      required: false
+      default: false
+component_config_domain:
+  type: string
+  required: false
+  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_measurement:
+      type: boolean
+      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      required: false
+      default: false
+component_config_glob: 
+  type: string
+  required: false
+  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_measurement:
+      type: boolean
+      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      required: false
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Helper scripts %}
