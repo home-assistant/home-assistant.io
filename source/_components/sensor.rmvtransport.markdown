@@ -61,11 +61,6 @@ max_journeys:
   required: false
   default: The default is 5.
   type: integer
-timeout:
-  description: Specify the timeout for the API calls.
-  required: false
-  default: The default is 10.
-  type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -78,8 +73,6 @@ The example below shows a full configuration with three sensors that showcase th
 # Example configuration.yaml entry
 sensor:
   - platform: rmvtransport
-    scan_interval: 120
-    timeout: 10
     next_departure:
       - station: 3000010
         time_offset: 5
