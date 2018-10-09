@@ -32,7 +32,7 @@ host:
   required: false
   default: localhost
 port:
-  type: int
+  type: integer
   description: Port to use
   required: false
   default: 8086
@@ -48,7 +48,7 @@ database:
   type: string
   description: Name of the database to use. The database must already exist.
   required: false
-  default: will use the default database of your influxdb instance
+  default: home_assistant
 ssl:
   type: boolean
   description: Use https instead of http to connect.
@@ -60,7 +60,7 @@ verify_ssl:
   required: false
   default: true
 max_retries:
-  type: int
+  type: integer
   description: Set this to allow the component to retry if there was a network error when transmitting data.
   required: false
   default: 0
