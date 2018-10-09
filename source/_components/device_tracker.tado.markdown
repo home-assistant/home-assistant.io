@@ -27,11 +27,20 @@ device_tracker:
     home_id: YOUR_HOME_ID
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for your Tado account.
-- **password** (*Required*): The password for your Tado account.
-- **home_id** (*Optional*): The id of your home of which you want to track devices. If provided, the Tado device tracker will tack *all* devices known to Tado associated with this home. See below how to find it.
+{% configuration %}
+username:
+  description: The username for your Tado account.
+  required: true
+  type: string
+password:
+  description: The password for your Tado account.
+  required: true
+  type: string
+home_id:
+  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will tack *all* devices known to Tado associated with this home. See below how to find it.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 After configuration, your device has to be at home at least once before showing up as *home* or *away*.
 Polling Tado API for presence information will happen at most once every 30 seconds.

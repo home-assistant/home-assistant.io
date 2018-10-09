@@ -17,7 +17,7 @@ The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBo
 
 ## {% linkable_title Configuration %}
 
-To use yourBeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,13 +30,31 @@ switch:
         name: LED Green
 ```
 
-Configuration variables:
-
-- **pins** array (*Required*): Array of used ports.
-  - **pin_name** (*Required*): Port numbers and corresponding names.
-    - **name** (*Optional*): Friendly name to use for the frontend.
-    - **initial** (*Optional*): Initial state of the pin. Defaults to `False`.
-    - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is `false` (ACTIVE HIGH).
+{% configuration %}
+pins:
+  description: List of used pins.
+  required: true
+  type: map
+  keys:
+    pin_name:
+      description: Port numbers and corresponding names.
+      required: true
+      type: map
+      keys:
+        name:
+          description: Friendly name to use for the frontend.
+          required: false
+          type: string
+        initial:
+          description: Initial state of the pin.
+          required: false
+          default: false
+          type: boolean
+        invert_logic:
+          description: If `true`, inverts the input logic to ACTIVE LOW
+          required: false
+          default: false
+          type: boolean
+{% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
-

@@ -20,6 +20,8 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
+## {% linkable_title Recommended options %}
+
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/getting-started/'>
     <div class='img-container'>
@@ -27,35 +29,48 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>Hass.io<br>(Beginner friendly)</div>
   </a>
-  <a class='option-card' href='/docs/installation/virtualenv/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/python.svg' />
-    </div>
-    <div class='title'>On top of an existing Python 3.5+ installation</div>
-  </a>
   <a class='option-card' href='/docs/hassbian/installation/'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
     </div>
-    <div class='title'>Hassbian</div>
+    <div class='title'>Hassbian (for the Raspberry Pi)</div>
   </a>
+  <a class='option-card' href='/docs/installation/docker/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/docker.png' />
+    </div>
+    <div class='title'>Docker</div>
+  </a>
+</div>
+
+## {% linkable_title Alternative installs %}
+
+The following installs are only recommended for experienced users of those platforms.
+
+<div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/docs/installation/raspberry-pi/'>
     <div class='img-container'>
       <img src='/images/supported_brands/raspberry-pi.png' />
     </div>
-    <div class='title'>Raspbian</div>
+    <div class='title'>Raspbian (but applies to any Debian based Linux)</div>
   </a>
-  <a class='option-card' href='/docs/installation/archlinux/'>
+  <a class='option-card' href='/docs/installation/virtualenv/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/archlinux.png' />
+      <img src='/images/supported_brands/python.svg' />
     </div>
-    <div class='title'>ArchLinux</div>
+    <div class='title'>On top of an existing Python 3.5.3+ installation</div>
   </a>
   <a class='option-card' href='/docs/installation/armbian/'>
     <div class='img-container'>
       <img src='/images/supported_brands/armbian.png' />
     </div>
     <div class='title'>armbian</div>
+  </a>
+  <a class='option-card' href='/docs/installation/archlinux/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/archlinux.png' />
+    </div>
+    <div class='title'>ArchLinux</div>
   </a>
   <a class='option-card' href='/docs/installation/fedora/'>
     <div class='img-container'>
@@ -87,12 +102,6 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>Synology</div>
   </a>
-  <a class='option-card' href='/docs/installation/docker/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/docker.png' />
-    </div>
-    <div class='title'>Docker</div>
-  </a>
   <a class='option-card' href='/docs/installation/vagrant/'>
     <div class='img-container'>
       <img src='/images/supported_brands/vagrant.png' />
@@ -107,17 +116,18 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
   </a>
 </div>
 
+## {% linkable_title After installation %}
+
 Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
 
 ```bash
 $ hass
 ```
 
-The first start may take a minute or two because the needed packages will be downloaded and installed. The web interface will be served on [http://localhost:8123](http://localhost:8123).
+The first start may take up to 20 minutes because the needed packages will be downloaded and installed. The web interface will be served on [http://localhost:8123](http://localhost:8123).
 
 For more details about `hass`, please refer to the [tools section](/docs/tools/hass/).
 
 If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
 
 You may need to install additional libraries depending on the platforms/components you want to use.
-

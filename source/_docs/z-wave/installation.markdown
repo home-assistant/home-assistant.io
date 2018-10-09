@@ -104,7 +104,7 @@ device_config / device_config_domain / device_config_glob:
       type: integer
       default: 2
     invert_openclose_buttons:
-      description: Inverts function of the open and close buttons for the cover domain. This will not invert the positon and state reporting.
+      description: Inverts function of the open and close buttons for the cover domain. This will not invert the position and state reporting.
       required: false
       type: boolean
       default: False

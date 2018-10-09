@@ -40,7 +40,7 @@ The following extras are included on the image:
 
 ### {% linkable_title Wireless Network %}
 
-After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up Wifi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
+After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up WiFi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
 
 ```conf
 country=SE
@@ -55,7 +55,7 @@ network={
 
 You may need to adjust the country code depending upon where you are. A list of codes can be found [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
-If you are running in trouble with your Wifi connection (for [further details](https://www.raspberrypi.org/forums/viewtopic.php?t=207882)), check the output of the following command:
+If you are running in trouble with your WiFi connection (for [further details](https://www.raspberrypi.org/forums/viewtopic.php?t=207882)), check the output of the following command:
 
 ```bash
 $ sudo rfkill list

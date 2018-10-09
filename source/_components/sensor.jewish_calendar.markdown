@@ -89,7 +89,7 @@ sensors:
 sensor:
   - platform: jewish_calendar
     language: english
-    diaspora: True
+    diaspora: true
     sensors:
       - date
       - weekly_portion

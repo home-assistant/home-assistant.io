@@ -502,7 +502,7 @@ If duration is supplied as a parameter, the callback will not fire unless the st
     <do some useful work here>
 ```
 
-(Scheduler callbacks are documented in detail laer in this document)
+(Scheduler callbacks are documented in detail later in this document)
 
 ##### {% linkable_title \*\*kwargs %}
 
@@ -937,14 +937,14 @@ The handle returned when the scheduler call was made.
 time, interval, kwargs = self.info_timer(handle)
 ```
 
-### {% linkable_title Scheduler Ransomization %}
+### {% linkable_title Scheduler Randomization %}
 
 All of the scheduler calls above support 2 additional optional arguments, `random_start` and `random_end`. Using these arguments it is possible to randomize the firing of callbacks to the degree desired by setting the appropriate number of seconds with the parameters.
 
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the specified amount. If not specified, they will default to `0`.
 
 For example:
 
@@ -1164,7 +1164,7 @@ self.call_service("notify/notify", title = "Hello", message = "Hello World")
 ```
 ### {% linkable_title turn_on() %}
 
-This is a convenience function for the `homassistant.turn_on` function. It is able to turn on pretty much anything in Home Assistant that can be turned on or run:
+This is a convenience function for the `homeassistant.turn_on` function. It is able to turn on pretty much anything in Home Assistant that can be turned on or run:
 
 - Lights
 - Switches
@@ -1197,13 +1197,13 @@ A comma separated list of key value pairs to allow specification of parameters o
 
 ```python
 self.turn_on("switch.patio_lights")
-self.turn_on("scene.bedrrom_on")
+self.turn_on("scene.bedroom_on")
 self.turn_on("light.office_1", color_name = "green")
 ```
 
 ### {% linkable_title turn_off() %}
 
-This is a convenience function for the `homassistant.turn_off` function. Like `homeassistant.turn_on`, it is able to turn off pretty much anything in Home Assistant that can be turned off.
+This is a convenience function for the `homeassistant.turn_off` function. Like `homeassistant.turn_on`, it is able to turn off pretty much anything in Home Assistant that can be turned off.
 
 #### {% linkable_title Synopsis %}
 
@@ -1230,7 +1230,7 @@ self.turn_off("light.office_1")
 
 ### {% linkable_title toggle() %}
 
-This is a convenience function for the `homassistant.toggle` function. It is able to flip the state of pretty much anything in Home Assistant that can be turned on or off.
+This is a convenience function for the `homeassistant.toggle` function. It is able to flip the state of pretty much anything in Home Assistant that can be turned on or off.
 
 #### {% linkable_title Synopsis %}
 
@@ -1850,7 +1850,7 @@ if self.now_is_between("sunset - 00:45:00", "sunrise + 00:45:00"):
 
 ### {% linkable_title friendly_name() %}
 
-`frindly_name()` will return the Friendly Name of an entity if it has one.
+`friendly_name()` will return the Friendly Name of an entity if it has one.
 
 #### {% linkable_title Synopsis %}
 
@@ -2096,7 +2096,7 @@ $ appdaemon -e "2016-06-06 10:10:00"
 ...
 ```
 
-The `-e` flag is most useful when used in conjuntion with the -s flag and optionally the `-t` flag. For example, to run from just before sunset, for an hour, as fast as possible:
+The `-e` flag is most useful when used in conjunction with the -s flag and optionally the `-t` flag. For example, to run from just before sunset, for an hour, as fast as possible:
 
 ```bash
 $ appdaemon -s "2016-06-06 19:16:00" -s "2016-06-06 20:16:00" -t 0
