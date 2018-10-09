@@ -10,7 +10,9 @@ footer: true
 ha_category: History
 logo: home-assistant.png
 ha_release: "0.55"
+ha_qa_scale: internal
 ---
+
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
 </p>

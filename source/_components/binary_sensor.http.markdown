@@ -60,7 +60,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor. Beside `curl`.
+In this section you'll find some real-life examples of how to use this sensor, besides `curl`, which was shown earlier.
 
 ### {% linkable_title Using Python request module %}
 

@@ -34,7 +34,7 @@ name:
   default: The default is the station name.
   type: string
 stationId:
-  description: ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
+  description: ID of the stop or station, e.g., 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
   required: true
   type: string
 destinations:
@@ -55,7 +55,7 @@ time_offset:
   description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
   required: false
   default: The defaults is 0.
-  type: int
+  type: integer
 max_journeys:
   description: Specify the maximal number of journeys.
   required: false

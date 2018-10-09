@@ -76,11 +76,11 @@ tap_action:
   default: more-info
 navigation_path:
   required: false
-  description: Url path to navigate to (e.g. `/lovelace/1`)
+  description: Url path to navigate to (e.g., `/lovelace/1`)
   type: string
 service:
   required: false
-  description: "Service to call (e.g. `light.turn_on`)"
+  description: "Service to call (e.g., `light.turn_on`)"
   type: string
 service_data:
   required: false
@@ -119,11 +119,11 @@ tap_action:
   default: more-info
 navigation_path:
   required: false
-  description: Url path to navigate to (e.g. `/lovelace/1`)
+  description: Url path to navigate to (e.g., `/lovelace/1`)
   type: string
 service:
   required: false
-  description: "Service to call (e.g. `light.turn_on`)"
+  description: "Service to call (e.g., `light.turn_on`)"
   type: string
 service_data:
   required: false
@@ -171,7 +171,7 @@ type:
   type: string
 icon:
   required: true
-  description: Icon to display (e.g. `mdi:home`)
+  description: Icon to display (e.g., `mdi:home`)
   type: string
 title:
   required: false
@@ -188,11 +188,11 @@ tap_action:
   default: more-info
 navigation_path:
   required: false
-  description: Url path to navigate to (e.g. `/lovelace/1`)
+  description: Url path to navigate to (e.g., `/lovelace/1`)
   type: string
 service:
   required: false
-  description: "Service to call (e.g. `light.turn_on`)"
+  description: "Service to call (e.g., `light.turn_on`)"
   type: string
 service_data:
   required: false
@@ -223,11 +223,11 @@ tap_action:
   default: more-info
 navigation_path:
   required: false
-  description: Url path to navigate to (e.g. `/lovelace/1`)
+  description: Url path to navigate to (e.g., `/lovelace/1`)
   type: string
 service:
   required: false
-  description: "Service to call (e.g. `light.turn_on`)"
+  description: "Service to call (e.g., `light.turn_on`)"
   type: string
 service_data:
   required: false
@@ -265,7 +265,7 @@ style:
 {% configuration %}
 type:
   required: true
-  description: 'Card name with `custom:` prefix (e.g. `custom:my-custom-card`)'
+  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`)'
   type: string
 style:
   required: true

@@ -40,20 +40,20 @@ name:
 qos:
   description: The maximum QoS level of the state topic.
   required: false
-  type: int
+  type: integer
   default: 0
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
 icon:
-  description: Icon for the sensor (e.g. `mdi:gauge`).
+  description: Icon for the sensor.
   required: false
-  type: string
+  type: icon
 expire_after:
   description: Defines the number of seconds after the value expires if it's not updated.
   required: false
-  type: int
+  type: integer
   default: 0
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
@@ -95,7 +95,7 @@ device_class:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title JSON attributes configuration %}
 

@@ -33,7 +33,7 @@ sensor:
   port:
     description: The port of your Open Hardware Monitor API. Defaults to 8085.
     required: false
-    type: int
+    type: integer
 {% endconfiguration %}
 
 <p class='note'>

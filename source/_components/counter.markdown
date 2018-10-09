@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.53
+ha_qa_scale: internal
 ---
 
 The `counter` component allows one to count occurrences fired by automations.
@@ -44,7 +45,7 @@ Increments the counter with 1 or the given value for the steps.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 #### {% linkable_title Service `counter.decrement` %}
 
@@ -52,7 +53,7 @@ Decrements the counter with 1 or the given value for the steps.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 #### {% linkable_title Service `counter.reset` %}
 
@@ -60,7 +61,7 @@ With this service the counter is reset to its initial value.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 
 ### {% linkable_title Use the service %}
@@ -69,7 +70,7 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 
 ```json
 {
-  "entity_id": "counter.count0"
+  "entity_id": "counter.my_custom_counter"
 }
 ```
 

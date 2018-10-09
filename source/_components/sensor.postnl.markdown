@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: postnl.png
-ha_category: Sensor
+ha_category: Postal Service
 ha_release: 0.69
 ha_iot_class: "Cloud Polling"
 ---

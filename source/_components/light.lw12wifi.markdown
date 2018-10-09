@@ -34,7 +34,7 @@ host:
 port:
   description: Some firmware versions of the LW-12 controller listen on different ports.
   required: false
-  type: int
+  type: integer
   default: 5000
 name:
   description: Name to use in the frontend.

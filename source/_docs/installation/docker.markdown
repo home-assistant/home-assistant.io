@@ -21,11 +21,8 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 ### {% linkable_title Raspberry Pi 3 (Raspbian) %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant:0.XX.x
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
 ```
-
-The Docker container for Raspberry Pi 3 does not have a 'latest' tag so the version number must be specified explicitly, i.e. 0.68.0. This goes for both CLI and Docker Compose.
-
 
 ### {% linkable_title macOS %}
 
@@ -56,7 +53,7 @@ As Synology within DSM now supports Docker (with a neat UI), you can simply inst
 The steps would be:
 * Install "Docker" package on your Synology NAS
 * Launch Docker-app and move to "Registry"-section
-* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make verison updates easier later on.
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make version updates easier later on.
 * Wait for some time until your NAS has pulled the image
 * Move to the "Image"-section of the Docker-app
 * Click on "Launch"
@@ -188,7 +185,7 @@ $ docker-compose restart
 
 ### {% linkable_title Exposing Devices %}
 
-In order to use Z-Wave, ZigBbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+In order to use Z-Wave, ZigBee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config \

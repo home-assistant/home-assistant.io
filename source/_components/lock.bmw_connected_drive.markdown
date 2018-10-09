@@ -8,12 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: bmw.png
-ha_category: Lock
+ha_category: Car
 ha_release: 0.66
 ---
 
 
-The `bmw_connected_drive` platform allows you to import data on your BMW into Home Assistant.
+The `bmw_connected_drive` lock platform allows you to import data on your BMW into Home Assistant.
 
 The lock will be automatically configured if `bmw_connected_drive` component is configured.
 

@@ -39,9 +39,9 @@ name:
   type: string
   default: MQTT Switch
 icon:
-  description: Icon for the switch (e.g. `mdi:radiator`).
+  description: Icon for the switch.
   required: false
-  type: string
+  type: icon
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -111,7 +111,7 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this sensor.
+In this section you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 

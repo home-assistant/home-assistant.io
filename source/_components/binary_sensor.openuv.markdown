@@ -8,16 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: openuv.jpg
-ha_category: Binary Sensor
+ha_category: Health
 ha_release: 0.76
 ha_iot_class: "Cloud Polling"
 ---
 
-The `openuv` binary sensor platform allows you to view binary sensor data from
-[OpenUV](http://openuv.io).
+The `openuv` binary sensor platform allows you to view binary sensor data from [OpenUV](http://openuv.io).
 
-<p class='note'>
-You must have the [OpenUV component](/components/openuv/) configured to use
-this platform. After configuring that component, binary sensors will
-automatically appear.
-</p>
+You must have the [`openuv` component](/components/openuv/) configured to use this platform. After configuring that component, binary sensors will automatically appear.
+

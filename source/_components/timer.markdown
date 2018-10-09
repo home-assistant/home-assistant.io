@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.57
+ha_qa_scale: internal
 ---
 
 The `timer` component aims to simplify automations based on (dynamic) durations.

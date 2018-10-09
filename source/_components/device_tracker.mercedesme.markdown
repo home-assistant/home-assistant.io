@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Mercedes me"
+title: "Mercedes me Device Tracker"
 description: "Instructions on for how to integrate Mercedes me into Home Assistant."
 date: 2018-01-27 10:00
 sidebar: true
@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: mercedesme.png
-ha_category: Presence Detection
+ha_category: Car
 ha_release: 0.63
 ---
 
-The `Mercedes me` platform allows you to get data about the location of your [Mercedes me connected car](https://www.mercedes-benz.com/en/mercedes-me/) car within Home Assistant.
+The `mercedesme` platform allows you to get data about the location of your [Mercedes me connected car](https://www.mercedes-benz.com/en/mercedes-me/) car within Home Assistant.
 
 The device tracker platform will be automatically configured if Mercedes me component is configured.
 

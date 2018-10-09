@@ -8,12 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: mclimate.png
-ha_category: Sensor
+ha_category: Environment
 ha_iot_class: "Cloud Polling"
 ha_release: 0.63
 ---
 
-The `Melissa` platform allows you to get data from your [Melissa](http://seemelissa.com/) sensors from within Home Assistant.
+The `melissa` platform allows you to get data from your [Melissa](http://seemelissa.com/) sensors from within Home Assistant.
   
 The sensor platform will be automatically configured if Melissa component is configured.
 

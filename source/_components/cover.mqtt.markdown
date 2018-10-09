@@ -159,7 +159,7 @@ tilt_invert_state:
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this platform.
+In this section you will find some real-life examples of how to use this platform.
 
 ### {% linkable_title Full configuration without tilt %}
 

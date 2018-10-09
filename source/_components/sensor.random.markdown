@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.32
+ha_qa_scale: internal
 ---
 
 
@@ -18,7 +19,7 @@ The `random` sensor platform is creating random sensor values (integers) out of 
 
 ## {% linkable_title Configuration %}
 
-To enable the random sensor, add the following lines to your `configuration.yaml`:
+To enable the random sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,7 +41,7 @@ minimum:
 maximum:
   description: Upper limit for the values.
   required: false
-  type: int
+  type: integer
   default: 20
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
@@ -48,6 +49,3 @@ unit_of_measurement:
   type: string
 {% endconfiguration %}
 
-See the [entity component options][entity-docs] to control how often the main component polls the random sensor. The default is 30 seconds.
-
-[entity-docs]: /docs/configuration/platform_options/
