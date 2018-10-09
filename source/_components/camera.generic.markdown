@@ -60,11 +60,11 @@ content_type:
   default: image/jpeg
   type: string
 framerate:
-  description: The number of frames-per-second (FPS) of the stream (setting this too high may cause too much traffic on the network or be heavy on the camera).
+  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load  on the camera.
   required: false
   type: integer
 verify_ssl:
-  description: True/false value. Enable or disable SSL certificate verification.
+  description: Enable or disable SSL certificate verification.
   required: false
   default: true
   type: boolean
