@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.53
 ---
 
-The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips LED Ceiling Lamp and Xiaomi Philips Eyecare Lamp 2.
+The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2 and Philips Zhirui Desk Lamp.
 
 ## Features
 
@@ -62,6 +62,17 @@ The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philip
   - reminder
   - eyecare_mode
 
+### Philips Zhirui Desk Lamp
+
+* Power (on, off)
+* Brightness
+* Scene (1, 2, 3, 4)
+* Delayed turn off (Resolution in seconds)
+* Attributes
+  - model
+  - scene
+  - delayed_turn_off
+
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
@@ -91,7 +102,7 @@ name:
   type: string
   default: Xiaomi Philips Light
 model:
-  description: The model of your miio light. Valid values are `philips.light.bulb`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling` and `philips.light.zyceiling`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio light. Valid values are `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.sread1`, `philips.light.ceiling`, `philips.light.zyceiling` and `philips.light.mono1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
