@@ -23,6 +23,14 @@ The following devices are supported by the underlying `lupupy` python library an
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 
+```yaml
+# Example configuration.yaml entry
+lupusec:
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      ip_address: 192.168.178.35
+```
+
 {% configuration %}
 username:
   description: The login username of your lupusec alarm panel.
