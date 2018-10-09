@@ -111,7 +111,7 @@ device_config / device_config_domain / device_config_glob:
 {% endconfiguration %}
 
 <p class='note'>
-As of 0.81, the Z-Wave usb_path and network_key options are configured through the Integrations page in Home Assistant. Specifying a zwave: section in configuration.yaml is no longer required unless you need to customize other settings, such as device_config, polling_interval, etc.
+As of Home Assistant 0.81, the Z-Wave `usb_path` and `network_key` options are configured through the Integrations page in Home Assistant. Specifying a `zwave:` section in configuration.yaml is no longer required unless you need to customize other settings, such as `device_config`, `polling_interval`, etc.
 </p>
 
 
