@@ -61,11 +61,11 @@ insteon:
   hub_version: 1
 ```
 
-Addtional configuration items are available:
+Additional configuration items are available:
 
 ```yaml
 insteon:
-  <PLM or Hub configruation>
+  <PLM or Hub configuration>
   device_override:
      - address: ADDRESS
        cat: CATEGORY

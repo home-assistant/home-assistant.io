@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Iperf3 Sensor"
-description: "How to use Iperf3 within Home Assistant to measure your network bandwith."
+description: "How to use Iperf3 within Home Assistant to measure your network bandwidth."
 date: 2018-05-01 02:00
 sidebar: true
 comments: false

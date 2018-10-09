@@ -64,7 +64,7 @@ The path part of `filename` must be an entry in the `whitelist_external_dirs` in
 
 ### {% linkable_title Service `camera.logi_circle_set_config` %}
 
-Sets an configuration property for your camera.
+Sets a configuration property for your camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

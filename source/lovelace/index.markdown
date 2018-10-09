@@ -136,7 +136,7 @@ This is probably because your version of Firefox doesn't have custom components 
 
 ### {% linkable_title Custom cards don't load on my iOS device? %}
 
-Home Assistant comes with two versions of the frontend. A compatability mode for older devices and a modern mode. The custom cards need to target one mode and usually choose the modern mode. Before Home Assistant 0.76, we had an issue in the automation and script editor that prevented modern iOS and Mac devices running Safari from using the modern mode.
+Home Assistant comes with two versions of the frontend. A compatibility mode for older devices and a modern mode. The custom cards need to target one mode and usually choose the modern mode. Before Home Assistant 0.76, we had an issue in the automation and script editor that prevented modern iOS and Mac devices running Safari from using the modern mode.
 
 If you can, resolve this issue by upgrading to Home Assistant 0.76 or later. If you are on an older version and don't mind that the automation and script editor don't work on iOS devices, you can force the new version via the configuration:
 
