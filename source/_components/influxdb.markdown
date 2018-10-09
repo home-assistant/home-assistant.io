@@ -70,10 +70,9 @@ default_measurement:
   required: false
   default: uses the entity id of the entity
 override_measurement:
-  type: boolean
+  type: string
   description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
   required: false
-  default: false
 exclude:
   type: list
   description:  Configure which components should be excluded from recording to InfluxDB.
@@ -115,30 +114,27 @@ component_config:
   description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
-      type: boolean
-      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      type: string
+      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
-      default: false
 component_config_domain:
   type: string
   required: false
   description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
-      type: boolean
-      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      type: string
+      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
-      default: false
 component_config_glob: 
   type: string
   required: false
   description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
-      type: boolean
-      description: Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.
+      type: string
+      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
-      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Helper scripts %}
