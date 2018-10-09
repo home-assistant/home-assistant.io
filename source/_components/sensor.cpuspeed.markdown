@@ -24,6 +24,9 @@ sensor:
   - platform: cpuspeed
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name of the sensor.
+{% configuration %}
+name:
+  description: Name of the sensor.
+  required: false
+  type: string
+{% endconfiguration %}
