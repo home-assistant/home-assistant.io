@@ -31,17 +31,17 @@ max_gps_accuracy:
   required: false
   type: integer
 waypoints:
-  description: Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `true`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions.
+  description: "Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `true`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions."
   required: false
   default: true
   type: boolean
 waypoint_whitelist:
-  description: A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/**username**/iPhone)
+  description: "A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/**username**/iPhone)"
   required: false
   default: All users who are connected to Home Assistant via Owntracks.
   type: list
 secret:
-  description: [Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present.
+  description: "[Payload encryption key](http://owntracks.org/booklet/features/encrypt/). This is usable when communicating with a third-party untrusted server or a public server (where anybody can subscribe to any topic). By default the payload is assumed to be unencrypted (although the communication between Home Assistant and the server might still be encrypted). This feature requires the `libsodium` library to be present."
   required: false
   type: string
 mqtt_topic:
@@ -54,7 +54,7 @@ events_only:
   required: false
   type: boolean
 region_mapping:
-  description: Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`.
+  description: "Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`."
   required: false
   type: list
 {% endconfiguration %}

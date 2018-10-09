@@ -39,15 +39,15 @@ device_tracker:
 
 {% configuration %}
 client_id:
-  description: The OAuth client id (get from https://developer.automatic.com/).
+  description: "The OAuth client id (get from https://developer.automatic.com/)."
   required: true
   type: string
 secret:
-  description: The OAuth client secret (get from https://developer.automatic.com/).
+  description: "The OAuth client secret (get from https://developer.automatic.com/)."
   required: true
   type: string
 current_location:
-  description: Set to `true` if you have requested `scope:current_location` for your account. Home Assistant will then be able to receive periodic location updates during trips.
+  description: "Set to `true` if you have requested `scope:current_location` for your account. Home Assistant will then be able to receive periodic location updates during trips."
   required: false
   type: boolean
 devices:
