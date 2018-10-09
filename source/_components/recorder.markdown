@@ -131,17 +131,6 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
-### {% linkable_title Restore State %}
-
-If the `recorder` component is activated then some components support `restore_state`, which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
-
-* [`input_boolean`](/components/input_boolean/#restore-state)
-* [`input_number`](/components/input_number/#restore-state)
-* [`input_select`](/components/input_select/#restore-state)
-* [`input_datetime`](/components/input_datetime/#restore-state)
-* [`input_text`](/components/input_text/#restore-state)
-
-
 ## {% linkable_title Custom database engines %}
 
 | Database engine | `db_url`                                                 |
