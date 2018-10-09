@@ -13,20 +13,20 @@ footer: true
 
 You need to have a [supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) installed.
 
-| Device                  | Works on Linux | Works on Windows | Works on OSX |
-|-------------------------|----------------|------------------|--------------|
-| Aeotec Z-Stick          |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 5 |   &#10003;     |    &#10003;      |   &#10003;   |
-| Pine64 Z-Wave Module    |   &#10003;     |                  |              |
-| Razberry GPIO Module    |   &#10003;     |                  |              |
-| Seluxit ViaSens 100     |                |                  |              |
-| Sigma Designs UZB Stick |                |                  |              |
-| Tricklestar             |                |                  |              |
-| Vision USB Stick        |                |                  |              |
-| Zooz Z-Wave ZST10       |   &#10003;     |                  |              |
-| ZWave.me Razberry Board |   &#10003;     |                  |              |
-| ZWave.me UZB1           |   &#10003;     |                  |              |
+| Device                    | Works on Linux | Works on Windows | Works on OSX |
+|---------------------------|----------------|------------------|--------------|
+| Aeotec Z-Stick            |   &#10003;     |                  |              |
+| Aeotec Z-Stick Series 2   |   &#10003;     |                  |              |
+| Aeotec Z-Stick Series 5   |   &#10003;     |    &#10003;      |   &#10003;   |
+| Pine64 Z-Wave Module      |   &#10003;     |                  |              |
+| Razberry GPIO Module      |   &#10003;     |                  |              |
+| Seluxit ViaSens 100       |                |                  |              |
+| Sigma Designs UZB Stick   |                |                  |              |
+| Tricklestar               |                |                  |              |
+| Vision USB Stick          |                |                  |              |
+| Zooz Z-Wave Plus S2 ZST10 |   &#10003;     |                  |              |
+| ZWave.me Razberry Board   |   &#10003;     |                  |              |
+| ZWave.me UZB1             |   &#10003;     |                  |              |
 
 <p class='note'>
   If you're using Hass.io or running HASS in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
