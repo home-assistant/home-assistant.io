@@ -52,27 +52,27 @@ type:
 host:
   description: The IP address of the AlarmDecoder device on your home network, if using socket type. 
   required: false
-  default: `localhost`
+  default: "`localhost`"
   type: map
 port:
   description: The port of the AlarmDecoder device on your home network, if using socket type.
   required: false
-  default: `10000`
+  default: "`10000`"
   type: integer
 path:
   description: The path of the AlarmDecoder device, if using socket type.
   required: false
-  default: `/dev/ttyUSB0`
+  default: "`/dev/ttyUSB0`"
   type: string
 baudrate:
   description: The baud rate of the AlarmDecoder device, if using serial type.
   required: false
-  default: `115200`
+  default: "`115200`"
   type: string
 panel_display:
   description: Create a sensor called sensor.alarm_display to match the Alarm Keypad display.
   required: false
-  default: `off`
+  default: "`off`"
   type: boolean
 zones:
   description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
