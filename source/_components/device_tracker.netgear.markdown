@@ -38,6 +38,7 @@ host:
 port:
   description: The port your router communicates with.
   required: false
+  default: 5000
   type: integer
 username:
   description: The username of a user with administrative privileges.

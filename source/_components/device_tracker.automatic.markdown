@@ -49,6 +49,7 @@ secret:
 current_location:
   description: "Set to `true` if you have requested `scope:current_location` for your account. Home Assistant will then be able to receive periodic location updates during trips."
   required: false
+  default: false
   type: boolean
 devices:
   description: The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.
