@@ -92,6 +92,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `regex_search(string, find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
 - Filter `regex_replace(string, find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `regex_findall_index(string, find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
+- Filter `bitwise_and(value_one, value_two)` perform a bitwise and(&) operation with two values.
+- Filter `bitwise_or(value_one, value_two)` perform a bitwise or(\|) operation with two values.
 
 [strp-format]: https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior
 

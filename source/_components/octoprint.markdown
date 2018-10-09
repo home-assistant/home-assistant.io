@@ -110,3 +110,13 @@ octoprint:
     name: PRINTER_NAME_2
     number_of_tools: 1
 ```
+
+If the OctoPrint host is equipped with a web camera it is possible to add this as well.
+
+```yaml
+camera:
+  - platform: mjpeg
+    name: OctoPrint
+    still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
+    mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
+```

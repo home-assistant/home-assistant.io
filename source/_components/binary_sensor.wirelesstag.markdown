@@ -15,6 +15,8 @@ ha_release: 0.68
 
 To get your [wirelesstag.net](http://wirelesstag.net) binary sensors working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).
 
+## {% linkable_title Configuration %}
+
 To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -24,25 +26,34 @@ binary_sensor:
     monitored_conditions:
       - presence
       - door
-      - low_battery
+      - battery
 ```
 
 {% configuration %}
-  monitored_conditions:
-    description: The conditions types to monitor; valid values are specified below
-    required: true
-    type: list
+monitored_conditions:
+  description: The conditions types to monitor.
+  required: true
+  type: list
+  keys:
+    presence:
+      description: On means in range, Off means out of range.
+    motion:
+      description: On when a movement was detected, Off when clear.
+    door:
+      description: On when a door is open, Off when the door is closed.
+    cold:
+      description: On means temperature become too cold, Off means normal.
+    heat:
+      description: On means hot, Off means normal.
+    dry:
+      description: On means too dry (humidity), Off means normal.
+    wet:
+      description: On means too wet (humidity), Off means normal.
+    light:
+      description: On means light detected, Off means no light.
+    moisture:
+      description: On means moisture detected (wet), Off means no moisture (dry).
+    battery:
+      description: On means tag battery is low, Off means normal.
 {% endconfiguration %}
 
-The following conditions can be monitored:
-
-* (`presence`): On means in range, Off means out of range.
-* (`motion`): On when a movement was detected, Off when clear.
-* (`door`): On when a door is open, Off when the door is closed.
-* (`cold`): On means temperature become too cold, Off means normal.
-* (`heat`): On means hot, Off means normal.
-* (`dry`): On means too dry (humidity), Off means normal.
-* (`wet`): On means too wet (humidity), Off means normal.
-* (`light`): On means light detected, Off means no light.
-* (`moisture`): On means moisture detected (wet), Off means no moisture (dry).
-* (`low_battery`): On means tag battery is low, Off means normal.

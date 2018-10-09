@@ -23,6 +23,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | print_node             | Print all states of Z-Wave node.                                                                                                             |
 | refresh_entity         | Refresh the Z-Wave entity by refreshing dependent values.                                                                                    |
 | refresh_node           | Refresh the Z-Wave node.                                                                                                                     |
+| refresh_node_value     | Refresh the specified value of a Z-Wave node.                                                                                                |
 | remove_node            | Put the Z-Wave controller in exclusion mode. Allows you to remove a device from the Z-Wave network.                                          |
 | rename_node            | Sets a node's name. Requires a `node_id` and `name` field.                                                                                   |
 | rename_value           | Sets a value's name. Requires a `node_id`, `value_id`, and `name` field.                                                                     |
@@ -30,6 +31,7 @@ The `zwave` component exposes multiple services to help maintain the network. Al
 | replace_failed_node    | Replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail. |
 | reset_node_meters      | Reset a node's meter values. Only works if the node supports this.                                                                           |
 | set_config_parameter   | Lets the user set a config parameter to a node. NOTE: Use the parameter option's `label` string as the `value` for list parameters (e.g., `"value": "Off"`). For all other parameters use the relevant integer `value` (e.g., `"value": 1`). |
+| set_node_value         | Set the specified value of a Z-Wave node.                                                                                                    |
 | soft_reset             | Tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command. |
 | start_network          | Starts the Z-Wave network.                                                                                                                   |
 | stop_network           | Stops the Z-Wave network.                                                                                                                    |

@@ -36,3 +36,13 @@ Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 |---------------------------|----------|-------------------------------------------------------|
 | `mac`                     |       no | MAC address of the device to wake up.                 |
 | `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet. |
+
+
+Sample service data:
+
+```json
+{  
+   "mac":"00:40:13:ed:f1:32"
+}
+```
+

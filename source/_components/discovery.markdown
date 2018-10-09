@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_qa_scale: internal
 ---
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
@@ -99,7 +100,7 @@ Valid values for ignore are:
  * `tellstick`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
- * `yeelight`: Yeelight Sunflower bulb
+ * `yeelight`: Yeelight lamps and bulbs (not only Yeelight Sunflower bulb)
  * `xiaomi_gw`: Xiaomi Aqara gateway
 
 Valid values for enable are:

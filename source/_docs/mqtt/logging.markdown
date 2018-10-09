@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ---
 
-The [logger](/components/logger/) component allow the logging of received MQTT messages.
+The [logger](/components/logger/) component allows the logging of received MQTT messages.
 
 ```yaml
 # Example configuration.yaml entry

@@ -23,22 +23,48 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: vasttrafik
-    key: XXXXXXXXXXXXXXXXXXX
-    secret: YYYYYYYYYYYYYYYYY
+    key: YOUR_API_KEY
+    secret: YOUR_API_SECRET
     departures:
       - from: Musikvägen
 ```
 
-Configuration variables:
-
-- **key** (*Required*): The API key to access your Västtrafik account.
-- **secret** (*Required*): The API secret to access your Västtrafik account.
-- **departures** array (*Required*): List of travel routes.
-  - **name** (*Optional*): Name of the route.
-  - **from** (*Required*): The start station.
-  - **heading** (*Optional*): Direction of the traveling.
-  - **lines** (*Optional*): Only consider these lines.
-  - **delay** (*Optional*): Delay in minutes. Defaults to 0.
+{% configuration %}
+key:
+  description: The API key to access your Västtrafik account.
+  required: true
+  type: string
+secret:
+  description: The API secret to access your Västtrafik account.
+  required: true
+  type: string
+departures:
+  description: List of travel routes.
+  required: true
+  type: list
+  keys:
+    name:
+      description: Name of the route.
+      required: false
+      type: string
+    from:
+      description: The start station.
+      required: true
+      type: string
+    heading:
+      description: Direction of the traveling.
+      required: false
+      type: string
+    lines:
+      description: Only consider these lines.
+      required: false
+      type: [list, string]
+    delay:
+      description: Delay in minutes.
+      required: false
+      type: string
+      default: 0
+{% endconfiguration %}
 
 The data are coming from [Västtrafik](https://vasttrafik.se/).
 
@@ -48,8 +74,8 @@ A full configuration example could look like this:
 # Example configuration.yaml entry
 sensor:
   - platform: vasttrafik
-    key: XXXXXXXXXXXXXXXXXXX
-    secret: YYYYYYYYYYYYYYYYY
+    key: YOUR_API_KEY
+    secret: YOUR_API_SECRET
     departures:
       - name: Mot järntorget
         from: Musikvägen

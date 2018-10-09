@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+ha_qa_scale: internal
 ---
 
 The `input_boolean` component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
@@ -40,7 +41,7 @@ input_boolean:
         type: boolean
         default: false
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}
