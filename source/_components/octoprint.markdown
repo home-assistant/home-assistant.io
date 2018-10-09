@@ -43,7 +43,7 @@ name:
 port:
   description: The port of the Octoprint server.
   required: false
-  type: int
+  type: integer
   default: 80
 ssl:
   description: Enable or disable SSL
@@ -58,7 +58,7 @@ bed:
 number_of_tools:
   description: Number of temperature adjustable tools. i.e. nozzle.
   required: false
-  type: int
+  type: integer
   default: 1
 sensors:
   description: Configuration for the sensors
