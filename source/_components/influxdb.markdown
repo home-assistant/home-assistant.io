@@ -40,17 +40,15 @@ username:
   type: string
   description: The username of the database user. The user needs read/write privileges on the database
   required: false
-  default: home-assistant
 password:
   type: string
   description: The password for the database user account.
   required: false
-  default: password
 database:
   type: string
   description: Name of the database to use. The database must already exist.
   required: false
-  default: home_assistant
+  default: will use the default database of your influxdb instance
 ssl:
   type: boolean
   description: Use https instead of http to connect.
@@ -60,7 +58,7 @@ verify_ssl:
   type: boolean
   description: Verify SSL certificate for https request.
   required: false
-  default: false
+  default: true
 max_retries:
   type: int
   description: Set this to allow the component to retry if there was a network error when transmitting data.
