@@ -74,7 +74,7 @@ name:
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g. `mdi:home`)"
+  description: "Icon to display (e.g., `mdi:home`)"
   type: string
 action_name:
   required: true
@@ -103,7 +103,7 @@ name:
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g. `mdi:home`)"
+  description: "Icon to display (e.g., `mdi:home`)"
   type: string
 url:
   required: true
