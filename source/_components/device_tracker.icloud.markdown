@@ -13,7 +13,7 @@ ha_release: "0.10"
 ---
 
 
-The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices. 
+The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
 
 It does require that your device is registered with "Find My iPhone".
 
@@ -28,13 +28,30 @@ device_tracker:
     account_name: accountname
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for the iCloud account.
-- **password** (*Required*): The password for your given username.
-- **account_name** (*Optional*): The friendly name for the account_name. If this isn't given, it will use the account_name of the username (so the part before the `@` in the email address).
-- **max_interval** (*Optional*): Maximum interval in minutes between subsequent location upates. This tracker uses dynamic intervals for requesting location updates. When iphone is stationary, interval will eventually be set to `max_interval` to save battery. When iphone starts moving again interval will be dynamically updated to 1 min. Note that updating interval to 1 min might be delayed by maximum `max_interval` minutes. Default is 30 min. Minimum value is 1 min.
-- **gps_accuracy_threshold** (*Optional*): iCloud location updates come with some gps_accuracy varying from 10 to 5000 meters. This setting defines the accuracy threshold in meters for a location update. Less accurate updates will be discarded by this tracker. This allows more precise location monitoring and fewer false positive zone changes. Default is 1000 meters.
+{% configuration %}
+username:
+  description: The username for the iCloud account.
+  required: true
+  type: string
+password:
+  description: The password for your given username.
+  required: true
+  type: string
+account_name:
+  description: The friendly name for the account_name. If this isn't given, it will use the account_name of the username (so the part before the `@` in the email address).
+  required: false
+  type: string
+max_interval:
+  description: Maximum interval in minutes between subsequent location upates. This tracker uses dynamic intervals for requesting location updates. When iphone is stationary, interval will eventually be set to `max_interval` to save battery. When iphone starts moving again interval will be dynamically updated to 1 min. Note that updating interval to 1 min might be delayed by maximum `max_interval` minutes. Minimum value is 1 min.
+  required: false
+  default: 30
+  type: integer
+gps_accuracy_threshold:
+  description: iCloud location updates come with some gps_accuracy varying from 10 to 5000 meters. This setting defines the accuracy threshold in meters for a location update. Less accurate updates will be discarded by this tracker. This allows more precise location monitoring and fewer false positive zone changes.
+  required: false
+  default: 1000
+  type: integer
+{% endconfiguration %}
 
 <p class='note warning'>
 Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
