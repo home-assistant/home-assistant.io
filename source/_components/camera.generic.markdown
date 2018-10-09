@@ -27,17 +27,48 @@ camera:
     still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
-Configuration variables:
-
-- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template](/topics/templating/).
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **username** (*Optional*): The username for accessing your camera.
-- **password** (*Optional*): The password for accessing your camera.
-- **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
-- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
-- **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
-- **framerate** (*Optional*): The number of frames-per-second (FPS) of the stream (setting this too high may cause too much traffic on the network or be heavy on the camera).
-- **verify_ssl** (*Optional*): True/false value (default: true). Enable or disable SSL certificate verification.
+{% configuration %}
+still_image_url:
+  description: "The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
+  required: true
+  type: string
+name:
+  description: This parameter allows you to override the name of your camera.
+  required: false
+  type: string
+username:
+  description: The username for accessing your camera.
+  required: false
+  type: string
+password:
+  description: The password for accessing your camera.
+  required: false
+  type: string
+authentication:
+  description: "Type for authenticating the requests `basic` or `digest`."
+  required: false
+  default: basic
+  type: string
+limit_refetch_to_url_change:
+  description: True/false value. Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+  required: false
+  default: false
+  type: boolean
+content_type:
+  description: Set the content type for the IP camera if it is not a jpg file. Use `image/svg+xml` to add a dynamic svg file.
+  required: false
+  default: image/jpeg
+  type: string
+framerate:
+  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load  on the camera.
+  required: false
+  type: integer
+verify_ssl:
+  description: Enable or disable SSL certificate verification.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
