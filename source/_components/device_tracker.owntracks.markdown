@@ -47,7 +47,7 @@ secret:
 mqtt_topic:
   description: The topic to subscribe for Owntracks updates on your MQTT instance.
   required: false
-  default: `owntracks/#`
+  default: owntracks/#
   type: string
 events_only:
   description: Home Assistant will ignore all location updates and rely solely on geofence enter/leave events.

@@ -31,7 +31,7 @@ device_tracker:
 host:
   description: The IP address of your router.
   required: false
-  default: `192.168.1.1`
+  default: 192.168.1.1
   type: string
 {% endconfiguration %}
 

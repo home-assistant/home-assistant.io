@@ -79,7 +79,7 @@ password:
 dhcp_software:
   description: "The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`."
   required: false
-  default: `dnsmasq`
+  default: dnsmasq
   type: string
 {% endconfiguration %}
 
