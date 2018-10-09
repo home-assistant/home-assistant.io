@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: opentherm.png
 ha_category: Hub
-ha_release: "0.80"
+ha_release: 0.81
 ha_iot_class: "Local Push"
 ---
 
@@ -45,9 +45,10 @@ climate:
       type: float
       default: "`0.5` for Celsius and `1.0` for Fahrenheit."
     floor_temperature:
-      description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behaviour for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`."
+      description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Set this to `True` to override Home Assistant and round to the lower value according to the configured `precision`."
       required: false
       type: boolean
+      default: false
 {% endconfiguration %}
 
 <p class='note'>

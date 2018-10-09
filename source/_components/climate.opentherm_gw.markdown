@@ -2,7 +2,7 @@
 layout: page
 title: "OpenTherm Gateway Climate"
 description: "Control your OpenTherm Gateway from Home Assistant."
-date: 2018-10-09 11:23
+date: 2018-08-29 16:23
 sidebar: true
 comments: false
 sharing: true
