@@ -24,15 +24,38 @@ camera:
     host: 192.168.1.111
 ```
 
-Configuration variables:
-
-- **host** (*Required*): An IP or hostname of the camera.
-- **name** (*Optional*): Override the name of your camera.
-- **username** (*Optional*): The username for the camera.
-- **password** (*Optional*): The password for the camera.
-- **port** (*Optional*): The port for the camera. This defaults to 5000.
-- **profile** (*Optional*): Video profile that will be used to obtain the stream. This defaults to 0. More details below.
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+{% configuration %}
+host:
+  description: An IP or hostname of the camera.
+  required: true
+  type: string
+name:
+  description: Override the name of your camera.
+  required: false
+  type: string
+username:
+  description: The username for the camera.
+  required: false
+  type: string
+password:
+  description: The password for the camera.
+  required: false
+  type: string
+port:
+  description: The port for the camera.
+  required: false
+  default: 5000
+  type: integer
+profile:
+  description: Video profile that will be used to obtain the stream, more details below.
+  required: false
+  default: 0
+  type: integer
+extra_arguments:
+  description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg)."
+  required: false
+  type: string
+{% endconfiguration %}
 
 Most of the Onvif cameras support more than one audio/video Profile. Each profile provides different image quality. Usually, the first profile has the highest quality, and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time - especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in config `profile` variable.
 
