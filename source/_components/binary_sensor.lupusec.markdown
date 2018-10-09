@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: lupusec.jpg
-ha_release: 0.79
 ha_category: Binary Sensor
+ha_release: 0.81
 ha_iot_class: "Cloud Push"
 ---
 
