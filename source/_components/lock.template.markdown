@@ -75,11 +75,11 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this lock.
+In this section, you find some real-life examples of how to use this lock.
 
 ### {% linkable_title Lock from Switch %}
 
-This example shows a lock that copies data from switch.
+This example shows a lock that copies data from a switch.
 
 {% raw %}
 ```yaml
