@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Elk-M1 Switch"
+title: "Elk-M1 Scene"
 description: "Instructions on how to integrate Elk-M1 tasks (macros)."
 date: 2018-10-07 00:00
 sidebar: true
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: elkproducts.png
 ha_release: 0.81
-ha_category: Switch
+ha_category: Scene
 ha_iot_class: "Local Push"
 ---
 
