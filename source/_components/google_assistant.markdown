@@ -165,6 +165,8 @@ $ cat /dev/urandom | fold -w 120 | head -n 1 | base64 -w 0 | tr -dc '0-9A-Za-z' 
 
 If you're not using Linux, you can use sites such as [this one](https://www.browserling.com/tools/random-string) to generate a random string (containing mixed case letters and numbers) of up to 80 characters.
 
+## {% linkable_title Troubleshooting %}
+
 ### {% linkable_title Troubleshooting the request_sync service %}
 
 The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443?hl=en-GB) from Home Control and relink.
@@ -182,3 +184,7 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 
     proxy_pass http://localhost:8123;
+
+### {% linkable_title Unlink and relink %}
+
+If you're having trouble with *Account linking failed* after you unlinked your service, try clearing the browser history and cache.
