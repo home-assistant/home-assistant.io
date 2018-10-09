@@ -46,7 +46,7 @@ alarmdecoder:
 ```
 {% configuration %}
 type:
-  description: The type of AlarmDecoder device, optional values: `socket`, `serial` or `USB`
+  description: "The type of AlarmDecoder device, optional values: `socket`, `serial` or `USB`"
   required: true
   type: map
 host:
@@ -75,7 +75,7 @@ panel_display:
   default: `off`
   type: boolean
 zones:
-  description: AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.* 
+  description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: string
 rfid:
@@ -83,11 +83,11 @@ rfid:
   required: false
   type: string
 relayaddr:
-  description: Address of the relay expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. Alarmdecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed.
+  description: "Address of the relay expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. Alarmdecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed."
   required: inclusive
   type: string
 relaychan:
-  description: Channel of the relay expander board to associate with the zone. (ex: 1, 2, 3, or 4)
+  description: "Channel of the relay expander board to associate with the zone. (ex: 1, 2, 3, or 4)"
   required: inclusive
   type: string
 {% endconfiguration %}
