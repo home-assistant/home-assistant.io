@@ -13,11 +13,11 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `entur_public_transport` sensor gives realtime departure information for the next two departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway. 
+The `entur_public_transport` sensor gives real-time departure information for the next two departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway. 
 
-For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until nearest departure in the state, but also next departure in the attributes. Information about if the departure is monitored in realtime or is from scheduled times, and how many minues there is in delays, are included as well. 
+For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departure in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well. 
 
-Realtime data is fetched from [Entur](https://www.entur.org). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no). 
+Real-time data is fetched from [Entur](https://www.entur.org). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no). 
 
 ## {% linkable_title Configuration %}
 
@@ -56,7 +56,7 @@ sensor:
 
 [Entur's travel planer](https://en-tur.no) has a map of all stops used in Norway. Use the map to find the stops you're interested in. When you have found one of your stops, click on it. 
 
-Now the web browser should contain a url with the id in it. Such as this: 
+Now the web browser should contain an URL with the id in it. Such as this: 
 
 `https://en-tur.no/nearby-stop-place-detail?id=NSR:StopPlace:32376`
 
