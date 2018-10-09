@@ -62,6 +62,7 @@ Configuration variables:
 - **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text.  If it's not a view, then the icon shows when this group is used in another group.
 - **control** (*Optional*): Set value to `hidden`. If hidden then the group switch will be hidden.
 - **entities** (*Required*): array or comma delimited string, list of entities to group.
+- **all** (*Optional*) Set this to `true` if the group state should only turn _on_ if __all__ grouped entities are _on_.
 
 <p class='img'>
 <img src='/images/blog/2016-01-release-12/views.png'>
@@ -121,7 +122,7 @@ group:
 
 ## {% linkable_title Group behavior %}
 
-When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
+By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
 ## {% linkable_title Customize group order %}
 You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
