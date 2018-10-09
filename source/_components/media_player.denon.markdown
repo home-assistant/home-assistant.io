@@ -35,7 +35,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of the device. Example: 192.168.1.32
+  description: "IP address of the device. Example: 192.168.1.32"
   required: true
   type: string
 name:
