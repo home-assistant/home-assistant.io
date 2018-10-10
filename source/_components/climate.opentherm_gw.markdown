@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "OpenTherm Gateway"
+title: "OpenTherm Gateway Climate"
 description: "Control your OpenTherm Gateway from Home Assistant."
 date: 2018-08-29 16:23
 sidebar: true
@@ -18,6 +18,7 @@ The `opentherm_gw` climate platform is used to control the [OpenTherm Gateway](h
 
 # {% linkable_title Configuration %}
 
+<<<<<<< c70584531a06ff138e804e5488a2131d102125f2
 ```yaml
 # Example configuration.yaml entry
 climate:
@@ -45,10 +46,14 @@ floor_temperature:
   required: false
   type: boolean
 {% endconfiguration %}
+=======
+Configuration of this platform is achieved through the [OpenTherm Gateway Hub](/components/opentherm_gw/) configuration.
+>>>>>>> Update OpenTherm Gateway docs to reflect the rewrite to a component. (#6637)
 
 <p class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
 </p>
+<<<<<<< c70584531a06ff138e804e5488a2131d102125f2
 
 # {% linkable_title Example %}
 
@@ -63,3 +68,5 @@ climate:
     precision: 0.5
     floor_temperature: true
 ```
+=======
+>>>>>>> Update OpenTherm Gateway docs to reflect the rewrite to a component. (#6637)
