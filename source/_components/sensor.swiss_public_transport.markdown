@@ -39,7 +39,6 @@ to:
   description: The ID of the station of the end station.
   required: true
   type: string
-  default: 
 name:
   description: The name of the sensor. 
   required: false
