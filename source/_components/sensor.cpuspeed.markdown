@@ -33,14 +33,8 @@ sensor:
 
 {% configuration %}
 name:
-<<<<<<< HEAD
   description: Name to use in the frontend.
   required: false
   type: string
   default: CPU speed
-=======
-  description: Name of the sensor.
-  required: false
-  type: string
->>>>>>> Doc standart fixes
 {% endconfiguration %}
