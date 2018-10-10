@@ -35,7 +35,7 @@ name:
   description: The name of the sensor, eg. the city.
   required: false
   type: string
-  default: Defaults to 'Worldclock Sensor'.
+  default: Worldclock Sensor
 {% endconfiguration %}
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
