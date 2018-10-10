@@ -56,7 +56,7 @@ Initiation will show you two different values:
 Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair_finish --token={challenge_token} --pin={tv_pin}
+$ pyvizio --ip={ip} pair-finish --token={challenge_token} --pin={tv_pin}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
