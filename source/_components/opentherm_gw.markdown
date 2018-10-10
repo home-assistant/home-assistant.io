@@ -54,7 +54,7 @@ monitored_variables:
   required: false
   type: list
 {% endconfiguration %}
-A full list of supported values for the `monitored_variables` setting can be found in the [OpenTherm Gateway Sensor](/components/sensor.opentherm_gateway/) documentation.
+A full list of supported values for the `monitored_variables` setting can be found in the [OpenTherm Gateway Sensor](/components/sensor.opentherm_gw/) documentation.
 
 <p class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
