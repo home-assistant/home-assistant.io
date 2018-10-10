@@ -49,7 +49,12 @@ climate:
       required: false
       type: boolean
       default: false
+monitored_variables:
+  description: "A list of variables to expose as sensors."
+  required: false
+  type: list
 {% endconfiguration %}
+A full list of supported values for the `monitored_variables` setting can be found in the [OpenTherm Gateway Sensor](/components/sensor.opentherm_gateway/) documentation.
 
 <p class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -67,4 +72,8 @@ opentherm_gw:
     name: Thermostat
     precision: 0.5
     floor_temperature: True
+  monitored_variables:
+    - room_setpoint
+    - room_temp
+    - otgw_about
 ```
