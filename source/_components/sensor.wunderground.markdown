@@ -39,7 +39,7 @@ api_key:
   required: true
   type: string
 pws_id:
-  description: You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions.
+  description: "You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions."
   required: false
   type: string
 lang:
@@ -96,17 +96,17 @@ monitored_conditions:
     precip_today_string:
       description: Text summary of precipitation today
     precip_1d_mm:
-      description: [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in millimeters
+      description: "[<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in millimeters"
     precip_1d_in:
-      description: [<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in inches
+      description: "[<sup>[1d]</sup>](#1d): Forecasted precipitation intensity in inches"
     precip_1d:
-      description: [<sup>[1d]</sup>](#1d): Forecasted precipitation probability in %
+      description: "[<sup>[1d]</sup>](#1d): Forecasted precipitation probability in %"
     pressure_in:
       description: Atmospheric air pressure in inches
     pressure_mb:
       description: Atmospheric air pressure in millibars
     pressure_trend:
-      description: Atmospheric air pressure trend signal (+/-)
+      description: "Atmospheric air pressure trend signal `(+/-)`"
     relative_humidity:
       description: Relative humidity
     station_id:
@@ -136,13 +136,13 @@ monitored_conditions:
     temp_low_avg_f:
       description: Average low for today in Fahrenheit
     temp_high_1d_c:
-      description: <sup>[1d]</sup>](#1d): Forecasted high temperature in Celsius
+      description: "<sup>[1d]</sup>](#1d): Forecasted high temperature in Celsius"
     temp_high_1d_f:
-      description: <sup>[1d]</sup>](#1d): Forecasted high temperature in Fahrenheit
+      description: "<sup>[1d]</sup>](#1d): Forecasted high temperature in Fahrenheit"
     temp_low_1d_c:
-      description: <sup>[1d]</sup>](#1d): Forecasted low temperature in Celsius
+      description: "<sup>[1d]</sup>](#1d): Forecasted low temperature in Celsius"
     temp_low_1d_f:
-      description: <sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit
+      description: "<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
     UV:
       description: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
     visibility_km:
@@ -152,11 +152,11 @@ monitored_conditions:
     weather:
       description: A human-readable text summary with picture from Wunderground.
     weather_1d:
-      description: <sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units.
+      description: "<sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units."
     weather_1d_metric:
-      description: <sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units.
+      description: "<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units."
     weather_1h:
-      description: <sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)
+      description: "<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)"
     wind_degrees:
       description: Wind degrees
     wind_dir:
@@ -166,17 +166,17 @@ monitored_conditions:
     wind_gust_mph:
       description: Wind gusts speed in mph
     wind_gust_1d_kph:
-      description: <sup>[1d]</sup>](#1d): Max. forecasted Wind in kph
+      description: "<sup>[1d]</sup>](#1d): Max. forecasted Wind in kph"
     wind_gust_1d_mph:
-      description: <sup>[1d]</sup>](#1d): Max. forecasted Wind in mph
+      description: "<sup>[1d]</sup>](#1d): Max. forecasted Wind in mph"
     wind_kph:
       description: Current wind speed in kph
     wind_mph:
       description: Current wind speed in mph
     wind_1d_kph:
-      description: <sup>[1d]</sup>](#1d): Forecasted wind speed in kph
+      description: "<sup>[1d]</sup>](#1d): Forecasted wind speed in kph"
     wind_1d_mph:
-      description: <sup>[1d]</sup>](#1d): Forecasted wind speed in mph
+      description: "<sup>[1d]</sup>](#1d): Forecasted wind speed in mph"
     wind_string:
       description: Text summary of current wind conditions
 {% endconfiguration %}
