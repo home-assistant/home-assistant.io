@@ -41,11 +41,24 @@ device_tracker:
     password: ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router.
-- **username** (*Required*: The username of an user with administrative privileges.
-- **password** (*Required*): The password for your given admin account.
-- **port** (*Optional*): Mikrotik API port. Defaults to `8728`.
+{% configuration %}
+host:
+  description: The IP address of your router.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+port:
+  description: Mikrotik API port.
+  required: false
+  default: 8728
+  type: integer
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
