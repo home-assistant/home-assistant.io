@@ -36,15 +36,19 @@ Configuration variables:
 
 - **username** (*Required*): Dyson account username (email address).
 - **password** (*Required*): Dyson account password.
-- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. But others codes should work.
+- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported.
 - **devices** (*Optional*): List of devices.
-  - **device_id** (*Required*): Device ID. The Serial Number of the device. Found in the mobiles applications device settings page.
+  - **device_id** (*Required*): Device ID. The Serial Number of the device. Found in the smart phone app device settings page.
   - **device_ip** (*Required*): Device IP address.
 
-`devices` list is optional but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
-*If your are using a robot vacuum (Dyson 360 Eye), discovery is not yet supported so you have to provide `devices` list.*
 
-To find devices IP address, you can use your router or `nmap`:
+The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
+
+<p class='note warning'>
+Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For these devices, you will need to provide them in the `devices` list.
+</p>
+
+To find a devices IP address, you can use your router or `nmap`:
 
 ```bash
 $ nmap -p 1883 XXX.XXX.XXX.XXX/YY -- open
