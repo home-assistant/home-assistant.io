@@ -41,12 +41,6 @@ interval_seconds:
   default: 480
 {% endconfiguration %}
 
-Configuration variables:
-
-- **host** (*Required*): IP address or hostname of the device
-- **port** (*Optional*): UDP source port. If multiple devices are present, specify a different port per device
-- **interval_seconds** (*Optional*): Polling interval (default: 480 seconds = 8 minutes)
-
 ### {% linkable_title Supported operations %}
 
 Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
