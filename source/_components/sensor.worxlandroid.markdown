@@ -38,5 +38,5 @@ allow_unreachable:
   description: This will allow the mower to be outside of wifi range without raising an error.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
