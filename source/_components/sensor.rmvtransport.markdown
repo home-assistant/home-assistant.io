@@ -47,7 +47,7 @@ next_departure:
       description: "ID of the stop or station, e.g. `3000010`. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs."
       required: true
       type: string
-    destination:
+    destinations:
       description: "One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel."
       required: false
       type: [string]
