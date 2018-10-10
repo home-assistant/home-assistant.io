@@ -112,7 +112,7 @@ octoprint:
     sensors:
       monitored_conditions:
         - 'Current State'
-        - Job Percentage'
+        - 'Job Percentage'
   - host: YOUR_OCTOPRINT_HOST
     api_key: YOUR_API_KEY
     name: PRINTER_NAME_2
