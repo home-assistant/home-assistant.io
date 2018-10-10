@@ -50,7 +50,7 @@ position_address:
   description: KNX group address for moving the cover to the dedicated position.
   required: false
   type: string
-position_state_address
+position_state_address:
   description: Separate KNX group address for requesting the current position of the cover.
   required: false
   type: string
