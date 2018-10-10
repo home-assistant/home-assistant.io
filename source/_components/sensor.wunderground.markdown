@@ -106,7 +106,7 @@ monitored_conditions:
     pressure_mb:
       description: Atmospheric air pressure in millibars
     pressure_trend:
-      description: "Atmospheric air pressure trend signal"
+      description: "Atmospheric air pressure trend signal `(+/-)`"
     relative_humidity:
       description: Relative humidity
     station_id:
@@ -156,7 +156,7 @@ monitored_conditions:
     weather_1d_metric:
       description: "[<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units."
     weather_1h:
-      description: "[<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)"
+      description: "[<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., \"Thunderstorm\" etc.)"
     wind_degrees:
       description: Wind degrees
     wind_dir:
