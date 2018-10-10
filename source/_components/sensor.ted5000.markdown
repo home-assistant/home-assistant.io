@@ -39,7 +39,7 @@ name:
   description: Name of the ted gateway.
   required: false
   type: string
-  default: Default is ted.
+  default: ted
 {% endconfiguration %}
 
 For each plugged MTU, using an index starting at 1, the platform creates 2 sensors:
