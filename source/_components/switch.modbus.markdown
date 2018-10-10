@@ -94,7 +94,7 @@ register:
       default: same as register
       type: string
     register_type:
-      description: Modbus register type: holding or input.
+      description: Modbus register types are holding or input.
       required: false
       default: holding
       type: string
