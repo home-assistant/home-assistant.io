@@ -23,6 +23,8 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **illuminance**: The current light level in lx or lm.
 - **temperature**: Temperature in °C or °F.
 
+Setting the device class does not set the units.
+
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
 Example of various device class icons for sensors.
