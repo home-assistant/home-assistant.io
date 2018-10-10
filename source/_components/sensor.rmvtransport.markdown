@@ -45,7 +45,7 @@ lines:
   description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
   required: false
   default: The default is the station name.
-  type: [string, int]
+  type: [string, integer]
 products:
   description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
   required: false
@@ -60,7 +60,7 @@ max_journeys:
   description: Specify the maximal number of journeys.
   required: false
   default: The default is 5.
-  type: string
+  type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
