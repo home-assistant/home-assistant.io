@@ -44,7 +44,7 @@ name:
   description: The name of the sensor. 
   required: false
   type: string
-  default: Defaults to 'Next Departure'. 
+  default: Next Departure
 {% endconfiguration %} 
 
 The public timetables are coming from [Swiss public transport](http://transport.opendata.ch).
