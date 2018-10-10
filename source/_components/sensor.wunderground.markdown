@@ -106,7 +106,7 @@ monitored_conditions:
     pressure_mb:
       description: Atmospheric air pressure in millibars
     pressure_trend:
-      description: "Atmospheric air pressure trend signal `(+/-)`"
+      description: "Atmospheric air pressure trend signal"
     relative_humidity:
       description: Relative humidity
     station_id:
@@ -136,13 +136,13 @@ monitored_conditions:
     temp_low_avg_f:
       description: Average low for today in Fahrenheit
     temp_high_1d_c:
-      description: "<sup>[1d]</sup>](#1d): Forecasted high temperature in Celsius"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted high temperature in Celsius"
     temp_high_1d_f:
-      description: "<sup>[1d]</sup>](#1d): Forecasted high temperature in Fahrenheit"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted high temperature in Fahrenheit"
     temp_low_1d_c:
-      description: "<sup>[1d]</sup>](#1d): Forecasted low temperature in Celsius"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted low temperature in Celsius"
     temp_low_1d_f:
-      description: "<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
     UV:
       description: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
     visibility_km:
@@ -152,11 +152,11 @@ monitored_conditions:
     weather:
       description: A human-readable text summary with picture from Wunderground.
     weather_1d:
-      description: "<sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units."
+      description: "[<sup>[12h]</sup>](#12h): A human-readable weather forecast using imperial units."
     weather_1d_metric:
-      description: "<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units."
+      description: "[<sup>[12h]</sup>](#12h): A human-readable weather forecast using metric units."
     weather_1h:
-      description: "<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)"
+      description: "[<sup>[1h]</sup>](#1h): Weather conditions in 1 hour. (e.g., "Thunderstorm" etc.)"
     wind_degrees:
       description: Wind degrees
     wind_dir:
@@ -166,17 +166,17 @@ monitored_conditions:
     wind_gust_mph:
       description: Wind gusts speed in mph
     wind_gust_1d_kph:
-      description: "<sup>[1d]</sup>](#1d): Max. forecasted Wind in kph"
+      description: "[<sup>[1d]</sup>](#1d): Max. forecasted Wind in kph"
     wind_gust_1d_mph:
-      description: "<sup>[1d]</sup>](#1d): Max. forecasted Wind in mph"
+      description: "[<sup>[1d]</sup>](#1d): Max. forecasted Wind in mph"
     wind_kph:
       description: Current wind speed in kph
     wind_mph:
       description: Current wind speed in mph
     wind_1d_kph:
-      description: "<sup>[1d]</sup>](#1d): Forecasted wind speed in kph"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted wind speed in kph"
     wind_1d_mph:
-      description: "<sup>[1d]</sup>](#1d): Forecasted wind speed in mph"
+      description: "[<sup>[1d]</sup>](#1d): Forecasted wind speed in mph"
     wind_string:
       description: Text summary of current wind conditions
 {% endconfiguration %}
@@ -277,6 +277,8 @@ Note: While the platform is called “wunderground” the sensors will show up i
 
 Note that the Weather Underground sensor is added to the entity_registry, so second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number e.g.
 
+```yaml
 - sensor.pws_weather_1d_metric_2
+```
 
 Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
