@@ -1,0 +1,38 @@
+---
+layout: page
+title: "Mill heater"
+description: "Instructions on how to integrate Mill heater into Home Assistant."
+date: 2018-10-10 15:00 +0200
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_category: Climate
+ha_release: 0.81
+ha_iot_class: "Cloud Polling"
+---
+
+Integrates Mill heater into Home Assistant.
+
+The component requires the heater is sat as independent device in the Mill heater: 
+https://millheat.zendesk.com/hc/en-us/articles/115001123491-What-is-an-Independent-device-
+
+
+To enable this platform, add the following lines to your `configuration.yaml` file:
+
+```yaml
+climate:
+ - platform: mill
+   email: email@gmail.com
+   password:  pswd
+```
+{% configuration %}
+email:
+  description: Your Mill email
+  required: true
+  type: string
+password:
+  description: Your Mill password
+  required: true
+  type: string 
+{% endconfiguration %}
