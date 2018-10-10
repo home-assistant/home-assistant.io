@@ -77,6 +77,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address of your TV.
 - **access_token** (*Required*): Authentication token you received in the last step of the pairing process.
+- **suppress_warning** (*Optional*): Set to `true` to disable self-signed certificate warnings.
 
 ## Notes and limitations
 
@@ -91,13 +92,3 @@ Changing tracks works like channels switching. If you have source other than reg
 ### Sources
 
 Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
-
-<p class='note'>
-Vizio SmartCast service is accessible through HTTPS with self-signed certificate. If you have low LOGLEVEL in your Home Assistant configuration, you'll see a lot of warnings like this:
-`InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.`
-
-You can adjust the log level for `media_player` components with the [logger](/components/logger/) component, or if you need to keep a low log level for `media_player` you could proxy calls to your TV through an NGINX reverse proxy.
-
-If you want to only ignore only this specific [python urllib3 SSL warning](https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings), you will need to run Home Assistant with the python flag `-W` or the environment variable `PYTHONWARNINGS` set to:
-`ignore:Unverified HTTPS request is being made`
-</p>

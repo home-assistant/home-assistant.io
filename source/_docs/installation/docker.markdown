@@ -18,6 +18,12 @@ Installation with Docker is straightforward. Adjust the following command so tha
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
+### {% linkable_title Raspberry Pi 3 (Raspbian) %}
+
+```bash
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
+
 ### {% linkable_title macOS %}
 
 When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -47,14 +53,14 @@ As Synology within DSM now supports Docker (with a neat UI), you can simply inst
 The steps would be:
 * Install "Docker" package on your Synology NAS
 * Launch Docker-app and move to "Registry"-section
-* Find "homeassistant/home-assistant" with registry and click on "Download"
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make verison updates easier later on.
 * Wait for some time until your NAS has pulled the image
 * Move to the "Image"-section of the Docker-app
 * Click on "Launch"
 * Choose a container-name you want (e.g., "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
-* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
 * To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
@@ -62,9 +68,9 @@ The steps would be:
 * Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
-* Go to the Docker-app and move to "Image"-section
-* Download the "homeassistant/home-assistant" image - don't care, that it is already there
-* wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
+* Go to the Docker-app and move to "Registry"-section
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will overwrite your current image to the latest version.
+* Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 * Move to "Container"-section
 * Stop your container if it's running
 * Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your config-directory
@@ -169,6 +175,12 @@ Then start the container with:
 
 ```bash
 $ docker-compose up -d
+```
+
+To restart Home Assistant when you have changed configuration:
+
+```bash
+$ docker-compose restart
 ```
 
 ### {% linkable_title Exposing Devices %}

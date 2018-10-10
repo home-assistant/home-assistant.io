@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: ethernet.png
-ha_category: Switch
+ha_category: Network
 ha_release: 0.16
 ha_iot_class: "Local Polling"
 ---
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+
+## {% linkable_title Configuration %}
 
 <p class='note warning'>
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
@@ -23,26 +25,44 @@ See below for suggestions on how to do this.
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 switch:
   - platform: wake_on_lan
     mac_address: "00-01-02-03-04-05"
 ```
 
-Configuration variables:
-
-- **mac_address** (*Required*): MAC address to send the wake up command to.
-- **name** (*Optional*): The name of the switch. Default is 'Wake on LAN'.
-- **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
-- **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-- **broadcast_address** (*Optional*): The IP address of the host to send the magic packet to (default 255.255.255.255).
+{% configuration %}
+mac_address:
+  description: MAC address to send the wake up command to.
+  required: true
+  type: string
+name:
+  description: The name of the switch.
+  required: false
+  default: Wake on LAN
+  type: string
+host:
+  description: The IP address or hostname to check the state of the device (on/off).
+  required: false
+  type: string
+turn_off:
+  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+  required: false
+  type: string
+broadcast_address:
+  description: The IP address of the host to send the magic packet to.
+  required: false
+  default: 255.255.255.255
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-Here are some real life examples of how to use the **turn_off** variable.
+Here are some real-life examples of how to use the **turn_off** variable.
 
 ### {% linkable_title Suspending Linux %}
-Suggested recipe for letting the turn_off script suspend a Linux computer (the **target**)
+
+Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).
 
 1. On the **server**, log in as the user account Home Assistant is running under. (I'm using `hass` in this example)

@@ -36,7 +36,7 @@ Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 
 ```json
 {
-  "topic": "/location/paulus",
+  "topic": "location/paulus",
   "payload": "home"
 }
 ```

@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.7.4
 ---
 
-This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on iOS and Android phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
 
 This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
 

@@ -8,16 +8,17 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.65
+ha_qa_scale: internal
 ---
 
-This component provides a simulated sensor that generates a time-varying signal ```V(t)``` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
+The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
 
- ```
- V(t) = M + A sin((2 pi (t - t_0) / w) + P) + N(s)
- ```
+```text
+V(t) = M + A sin((2 pi (t - t_0) / w) + P) + N(s)
+```
 
 where:
 
@@ -29,14 +30,68 @@ where:
 - **P** = the [phase](https://en.wikipedia.org/wiki/Phase_(waves)) offset to add to the periodic contribution, in units of degrees
 - **N(s)** = the random [Gaussian noise](https://en.wikipedia.org/wiki/Gaussian_noise) with spread **s**
 
-A simulated sensor with default values can be added to home-assistant using the following config:
+The output will be limited to 3 decimals.
+
+## {% linkable_title Configuration %}
+
+To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 sensor:
   - platform: simulated
 ```
 
-To give an example of simulating real world data, a simulated relative humidity sensor (in %) can be added using the following config:
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  default: simulated
+  type: string
+unit:
+  description: The unit to apply.
+  required: false
+  default: value
+  type: string
+amplitude:
+  description: The amplitude of periodic contribution.
+  required: false
+  default: 1
+  type: float
+mean:
+  description: The mean level of the sensor.
+  required: false
+  default: 0
+  type: float
+period:
+  description: The time in seconds for one complete oscillation of the periodic contribution.
+  required: false
+  default: 0
+  type: seconds
+phase:
+  description: The phase offset (in degrees) to apply to the periodic component.
+  required: false
+  default: 0
+  type: float
+seed:
+  description: The [seed](https://docs.python.org/3.6/library/random.html#random.seed) value for the random noise component.
+  required: false
+  default: 999
+  type: integer
+spread:
+  description: The spread is the range of the randomly distributed values about their mean. This is sometimes referred to as the Full Width at Half Maximum ([FWHM](https://en.wikipedia.org/wiki/Full_width_at_half_maximum)) of the random distribution.
+  required: false
+  default: None
+  type: float
+relative_to_epoch:
+  description: Whether to simulate from epoch time (00:00:00, 1970-01-01), or relative to when the sensor was started.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
+
+## {% linkable_title Example %}
+
+To give an example of simulating real world data, a simulated relative humidity sensor (in %) can be added using the following configuration:
 
 ```yaml
 sensor:
@@ -47,48 +102,5 @@ sensor:
     mean: 50
     spread: 10
     seed: 999
+    relative_to_epoch: false
 ```
-
-Configuration variables:
-{% configuration %}
-name:
-  description: The name of the sensor
-  required: false
-  default: Defaults to 'simulated'
-  type: string
-unit:
-  description: The unit to apply
-  required: false
-  default: Defaults to 'value'
-  type: string
-amplitude:
-  description: The amplitude of periodic contribution
-  required: false
-  default: 1
-  type: float
-mean:
-  description: The mean level of the sensor
-  required: false
-  default: 0
-  type: float
-period:
-  description: The time in seconds for one complete oscillation of the periodic contribution
-  required: false
-  default: 0
-  type: seconds
-phase:
-  description: The phase offset (in degrees) to apply to the periodic component
-  required: false
-  default: 0
-  type: float
-seed:
-  description: The [seed](https://docs.python.org/3.6/library/random.html#random.seed) value for the random noise component
-  required: false
-  default: 999
-  type: int
-spread:
-  description: The spread is the range of the randomly distributed values about their mean. This is sometimes referred to as the Full Width at Half Maximum ([FWHM](https://en.wikipedia.org/wiki/Full_width_at_half_maximum)) of the random distribution
-  required: false
-  default: None
-  type: float
-{% endconfiguration %}

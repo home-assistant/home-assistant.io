@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: pre 0.7
 ---
 
-_This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus/)._
+_This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 
@@ -42,6 +42,7 @@ Configuration variables:
 - **host** (*Required*): The IP address of your router, e.g., `192.168.1.1`.
 - **username** (*Required*): The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
+- **ssl** (*Optional*): If your router enforces SSL connections, set to `true`. Defaults to `false`.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 

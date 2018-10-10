@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The `sht31` sensor platform allows you to get the current temperature and humidity from a Sensirion SHT31 device.
 
+## {% linkable_title Configuration %}
+
 To use your SHT31 sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -38,7 +40,7 @@ sensor:
     description: I2C address of the sensor.
     required: false
     default: "`0x44`"
-    type: int
+    type: integer
   monitored_conditions:
     description: Conditions to monitor.
     required: false

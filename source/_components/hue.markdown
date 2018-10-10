@@ -10,8 +10,10 @@ footer: true
 logo: philips_hue.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
+ha_qa_scale: platinum
 featured: true
 ha_release: "0.60"
+ha_qa_scale: platinum
 ---
 
 Philips Hue support is integrated into Home Assistant as a Hub that can drive the light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
@@ -20,7 +22,7 @@ Once discovered, if you have a custom default view, locate `configurator.philips
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
 
-Once registration is complete you should see the Hue lights listed as "light" entities; if you don't you may have to restart Home Assistant once more. Add these light entities to configuration.yaml and restart Home Assistant once more to complete the installation.
+Once registration is complete you should see the Hue lights listed as `light` entities. If you don't you may have to restart Home Assistant once more. Add these light entities to `configuration.yaml` file and restart Home Assistant once more to complete the installation.
 
 If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
@@ -31,12 +33,26 @@ hue:
     - host: DEVICE_IP_ADDRESS
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  required: true
+  type: string
+allow_unreachable:
+  description: This will allow unreachable bulbs to report their state correctly.
+  required: false
+  type: boolean
+filename:
+  description: Make this unique if specifying multiple Hue hubs.
+  required: false
+  type: string
+allow_hue_groups:
+  description: Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
-- **host**: IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
-- **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
-- **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
-- **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+## {% linkable_title Examples %}
 
 ```yaml
 # Example configuration.yaml entry specifying optional parameters
@@ -49,7 +65,7 @@ hue:
 
 ### {% linkable_title Migrating from older configuration %}
 
-In previous versions of the Hue component the configuration looked different:
+In previous versions of the `hue` component the configuration looked different:
 
 ```yaml
 # Example configuration.yaml entry

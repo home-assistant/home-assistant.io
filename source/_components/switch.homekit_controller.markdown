@@ -1,14 +1,14 @@
 ---
 layout: page
-title: "HomeKit Light"
-description: "Instructions how to setup HomeKit switches within Home Assistant."
+title: "HomeKit Switch"
+description: "Instructions on how to setup HomeKit switches within Home Assistant."
 date: 2017-03-19 21:08
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: apple-homekit.png
-ha_category: Light
+ha_category: Switch
 ha_iot_class: "Local Polling"
 ha_release: 0.68
 ---

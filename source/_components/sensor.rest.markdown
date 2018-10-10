@@ -109,7 +109,7 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
@@ -237,7 +237,7 @@ sensor:
     sensors:
       owm_weather:
         value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
-        icon_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"]+".png" }}'
+        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: 'Outside temp'

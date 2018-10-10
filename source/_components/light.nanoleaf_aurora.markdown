@@ -16,7 +16,11 @@ ha_release: 0.67
 
 ### {% linkable_title Configuration Sample %}
 
-To enable the Aurora lights, add the following lines to your `configuration.yaml` file:
+The `nanoleaf_aurora` platform allows you to control [Nanoleaf Aurora Light Panels](https://nanoleaf.me) from Home Assistant.
+
+The preferred way to set up this platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Aurora Panel while Home Assistant is starting.
+
+To configure the Aurora lights manually, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

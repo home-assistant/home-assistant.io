@@ -32,6 +32,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
 - **name** (*Optional*): Name to use in the frontend.
+- **mode** (*Optional*): Can specify `hourly` or `daily`. Select `hourly` for a three-hour forecast or `daily` for daily forecast. Defaults to `hourly`.
 - **latitude** (*Optional*): Latitude of the location to display the weather. Defaults to the latitude in your `configuration.yaml` file. 
 - **longitude** (*Optional*): Longitude of the location to display the weather. Defaults to the longitude in your `configuration.yaml` file.
 

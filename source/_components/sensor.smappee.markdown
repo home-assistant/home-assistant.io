@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: smappee.png
 ha_release: "0.64"
-ha_category: Sensor
+ha_category: Energy
 ---
 
 [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.

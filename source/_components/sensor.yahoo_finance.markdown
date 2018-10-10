@@ -20,6 +20,8 @@ ha_release: 0.29
 
 The `yahoo_finance` platform uses [Yahoo Finance](https://finance.yahoo.com/) to monitor the stock market.
 
+## {% linkable_title Configuration %}
+
 To enable the `yahoo_finance` platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -43,7 +45,7 @@ symbols:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Red Hat and Google %}
 

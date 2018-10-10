@@ -15,10 +15,12 @@ ha_iot_class: "Local Push"
 
 The `modbus` binary sensor allows you to gather data from [Modbus](http://www.modbus.org/) coils.
 
+## {% linkable_title Configuration %}
+
 To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: modbus
     coils:
@@ -39,7 +41,7 @@ Configuration variables:
   
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
-### {% linkable_title Full example %}
+## {% linkable_title Full example %}
 
 Example a sensor with a 10 seconds scan interval:
 

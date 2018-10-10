@@ -28,7 +28,7 @@ light:
         name: Living Room
         transition: 1000
         use_music_mode: True #(defaults to False)
-        save_on_change: False #(defaults to True)
+        save_on_change: True #(defaults to False)
       192.168.1.13:
         name: Front Door
 ```
@@ -39,11 +39,12 @@ Configuration variables:
 - **name** (*Optional*): A friendly name for the device.
 - **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
 - **use_music_mode** (*Optional*, default False): Enable music mode.
-- **save_on_change** (*Optional*, default True): Saves the bulb state when changed from Home Assistant.
+- **save_on_change** (*Optional*, default False): Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
 - **model** (*Optional*): Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range.
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
+**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant**.
 
 ### {% linkable_title Initial setup %}
 <p class='note'>
@@ -62,9 +63,10 @@ This component is tested to work with the following models. If you have a differ
 | Model ID   | Model number | Product name                                     |
 |------------|--------------|--------------------------------------------------|
 | `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
+| ?          | YLDP05YL     | LED Bulb (White) - 2nd generation                |
 | `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
-| `color2`   | YLDP05YL     | LED Bulb (Color) - 2nd generation                |
+| `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
@@ -78,7 +80,7 @@ This component is tested to work with the following models. If you have a differ
 
 ### {% linkable_title Service `light.yeelight_set_mode` %}
 
-Set a operation mode.
+Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

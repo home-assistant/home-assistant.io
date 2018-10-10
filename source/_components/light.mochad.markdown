@@ -11,13 +11,14 @@ ha_category: Light
 ha_release: 0.51
 ---
 
-The `mochad` light platform lets you control an X10 enabled dimmer/light
-device.
+The `mochad` light platform lets you control an X10 enabled dimmer/light device.
+
+
 
 To enable this sensor, you first have to set up the [mochad component](/components/mochad/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 light:
   - platform: mochad
     devices:

@@ -26,9 +26,22 @@ switch:
     on_state: low
 ```
 
-Configuration variables:
-
-- **name** (*Required*): The name you would like to give the switch in Home Assistant.
-- **pin** (*Required*): The number identifying which pin to use.
-- **address**: The long 6 4bit address of the remote ZigBee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local ZigBee device's pins.
-- **on_state**: Either `high` (default) or `low`, depicting whether the digital output pin is pulled `high` or `low` when the switch is turned on.
+{% configuration %}
+name:
+  description: The name you would like to give the switch in Home Assistant.
+  required: true
+  type: string
+pin:
+  description: The number identifying which pin to use.
+  required: true
+  type: integer
+address:
+  description: The long 64-bit address of the remote ZigBee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local ZigBee device's pins.
+  required: false
+  type: string
+on_state:
+  description: Either `high` or `low`, depicting whether the digital output pin is pulled `high` or `low` when the switch is turned on.
+  required: false
+  default: high
+  type: string
+{% endconfiguration %}

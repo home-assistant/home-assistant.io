@@ -13,11 +13,15 @@ ha_release: "0.40"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
+The `blink` component lets you view camera images and motion events
+from [Blink](http://blinkforhome.com) camera and security systems.
 
-You will need your Blink login information (username, usually you email address, and password) to use this module.
+You will need your Blink login information (username, which is
+usually your email address, and password) to use this module.
 
-To set it up, add the following information to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+To enable devices linked in your [Blink](https://blinkforhome.com) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,56 +30,99 @@ blink:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+    description: The username for accessing your Blink account.
+    required: true
+    type: string
+password:
+    description: The password for accessing your Blink account.
+    required: true
+    type: string
+scan_interval:
+    description: How frequently to query for new data. Defaults to 60 seconds.
+    required: false
+    type: integer
+binary_sensors:
+    description: Binary sensor configuration options.
+    required: false
+    type: map
+    keys:
+        monitored_conditions:
+            description: The conditions to create sensors from.
+            required: false
+            type: list
+            default: all (`motion_enabled`, `motion_detected`)
+sensors:
+    description: Sensor configuration options.
+    required: false
+    type: map
+    keys:
+        monitored_conditions:
+            description: The conditions to create sensors from.
+            required: false
+            type: list
+            default: all (`battery`, `temperature`, `status`, `wifi_strength`)
+{% endconfiguration %}
 
-- **username** (*Required*): Your username to login to Blink.
-- **password** (*Required*): Your password to login to Blink.
 
-Once loaded, your front end will have the following components:
+Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
-* A camera image for each camera in your system.
-* A binary_sensor per camera that indicates whether motion detection is enabled.
-* A binary_sensor for the system that indicates if the system is armed or disarmed.
-* A sensor per camera that reports temperature.
-* A sensor per camera that reports battery level.
-* A sensor per camera that reports unread notification (i.e., detected motion events).
+**Note:** Each camera reports two different states, one as `sensor.blink_<camera_name>_status` and the other as `binary_sensor.blink_<camera_name>_motion_enabled`.  The `motion_enabled` property reports if the `camera` is ready to detect motion *regardless if the system is actually armed**.  The `status` property is more descriptive, and can be one of the following states:
 
-Since the cameras are battery operated, the images are only updated in Home Assistant when the user manually forces a new photo. This image can be updated with the `snap_picture` service to force Home Assistant to request an update from Blink's servers. As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
+- `disabled`: System is disabled.
+- `disarmed`: Camera and/or system are disarmed and not ready to detect motion.
+- `armed`: System and camera are armed and detecting motion.
 
-Services:
+Below is an example showing every possible entry:
 
-This services are available for the `blink` component:
-
-- arm_system
-- arm_camera
-- snap_picture
-
-
-For `arm_system`, the value sent can be either `True` or `False` and will arm and disarm the whole Blink system. Arm system example:
-
-```json
-{
-    "device_armed": "True"
-}
+```yaml
+# Example configuration.yaml entry
+blink:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  scan_interval: 60
+  binary_sensors:
+    monitored_conditions:
+      - motion_enabled
+      - motion_detected
+  sensors:
+    monitored_conditions:
+      - battery
+      - temperature
+      - status
+      - wifi_strength
 ```
 
-Arm camera follows a similar structure, but each individual camera can have motion detection enabled or disabled. Because of this, you also need to supply a name. For example, if you have a camera named "Living Room" and you want to turn off motion detection on that camera, you would call the `arm_camera` service with the following payload:
 
-```json
-{
-    "friendly_name": "Living Room",
-    "device_armed": "False"
-}
+## {% linkable_title Services %}
+
+### {% linkable_title `blink.blink_update` %}
+
+Force a refresh of the Blink system.
+
+### {% linkable_title `blink.trigger_camera` %}
+
+Trigger a camera to take a new still image.
+
+| Service Data Attribute | Optional | Description                            |
+|------------------------|----------|----------------------------------------|
+| `name`                 |     no   | Name of camera to take new image with. |
+
+### {% linkable_title `blink.save_video` %}
+
+Save the last recorded video of a camera to a local file.  Note that in most cases, home-assistant will need to know that the directory is writable via the `whitelist_external_dirs` in your `configuration.yaml` file (see example below).
+
+| Service Data Attribute | Optional | Description                              |
+|------------------------|----------|------------------------------------------|
+| `name`                 |    no    | Name of camera containing video to save. |
+| `filename`             |    no    | Location of save file.                   |
+
+
+```yaml
+homeassistant:
+    ...
+    whitelist_external_dirs:
+        - '/tmp'
+        - '/path/to/whitelist'
 ```
-
-The `snap_picture` service takes the camera name as the payload and with take a new picture with your camera.
-
-```json
-{
-    "friendly_name": "Living Room"
-}
-```
-
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/blink_example_frontend.png' />
-</p>

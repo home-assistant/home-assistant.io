@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter then the target temperature, the air conditioning will be turned on and turned off when required temperature is reached.
+The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter then the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities. 
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +43,7 @@ Configuration variables:
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermstat` to avoid starting by setting Operation to 'off'. 
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermostat` to avoid starting by setting Operation to 'off'. 
 
 Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off. 
 

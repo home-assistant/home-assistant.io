@@ -14,10 +14,11 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' switch component integrates your Hive plugs into Home Assistant, enabling control of your devices.
+The `hive` switch platform integrates your Hive plugs into Home Assistant, enabling control of your devices.
 
-The Hive switch component supports the following Hive products:
-- **Hive Active Plug**
+The platform supports the following Hive products:
+
+- Hive Active Plug
 
 
 <p class='note'>

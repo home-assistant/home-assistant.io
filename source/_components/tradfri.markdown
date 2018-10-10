@@ -22,9 +22,7 @@ You will be prompted to configure the gateway through the Home Assistant interfa
 If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your Trådfri gateway.
 </p>
 
-<p class='note'>
-  The Python version 3.4.4 or greater is required for this component. The component will not initialize without this and will report a `Could not install all requirements` error in the logs.
-</p>
+## {% linkable_title Configuration %}
 
 You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/components/discovery/) component:
 
@@ -34,17 +32,30 @@ tradfri:
   host: IP_ADDRESS
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: "The IP address or hostname of your Trådfri gateway."
+  required: true
+  type: string
+allow_tradfri_groups:
+  description: "Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge."
+  required: false
+  type: boolean
+  default: true
+{% endconfiguration %}
 
- - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
- - **allow_tradfri_groups** (*Optional*): Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge. Defaults to `true`.
 
-<p class='note'>
-Do not use the `api_key` variable. The key is only needed once at initial setup.
-</p>
+## {% linkable_title Troubleshooting %}
 
-<p class='note'>
+### {% linkable_title Firmware updates %}
 
-Please make sure you have `autoconf` installed (`apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1h) on slow devices. You might have to use `sudo` when installing `autoconf`.
+After updating the firmware of your Trådfri gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
 
-</p>
+### {% linkable_title Compilation issues %}
+
+Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1 h) on slow devices.
+
+### {% linkable_title Setting the `api_key` %}
+
+Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
+

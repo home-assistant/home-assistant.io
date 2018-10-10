@@ -16,7 +16,23 @@ The camera component allows you to use IP cameras with Home Assistant. With a li
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
-Available services: `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
+Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
+
+#### {% linkable_title Service `turn_on` %}
+
+Turn on camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
+
+#### {% linkable_title Service `turn_off` %}
+
+Turn off camera. Not all camera models support this service, please consult individual camera page.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `enable_motion_detection` %}
 
@@ -24,7 +40,7 @@ Enable the motion detection in a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
+| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `disable_motion_detection` %}
 
@@ -32,7 +48,7 @@ Disable the motion detection in a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
+| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
 #### {% linkable_title Service `snapshot` %}
 

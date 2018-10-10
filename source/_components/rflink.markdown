@@ -94,13 +94,14 @@ When pressing the button on the physical remote, RFLink detects the signal and t
 light:
   - platform: rflink
     automatic_add: true
-switch:
-  - platform: rflink
-    automatic_add: true
 sensor:
   - platform: rflink
     automatic_add: true
 ```
+
+[RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) cannot be added automatically. 
+
+The RFLink component does not know the difference between a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch type in HA, for example, to add it to a different group, hide it or configure a nice name.
 
 ### {% linkable_title Ignoring devices %}
 
@@ -127,7 +128,7 @@ Wildcards only work at the end of the ID, not in the middle or front!
 
 ### {% linkable_title Device support %}
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
+Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
 
 ### {% linkable_title Device Incorrectly Identified %}
 

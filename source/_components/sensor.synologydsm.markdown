@@ -16,10 +16,12 @@ ha_iot_class: "Local Polling"
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
+## {% linkable_title Configuration %}
+
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: synologydsm
     host: IP_ADDRESS_OF_SYNOLOGY_NAS
@@ -33,10 +35,11 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of the Synology NAS to monitor
-- **port** (*Optional*): The port number on which the Synology NAS is reachable. Defaults to `5000`.
+- **host** (*Required*): The IP address of the Synology NAS to monitor.
+- **port** (*Optional*): The port number on which the Synology NAS is reachable. Defaults to `5001`.
 - **username** (*Required*): An user to connect to the Synology NAS (a separate account is advised, see the Separate User Configuration section below for details).
 - **password** (*Required*): The password of the user to connect to the Synology NAS.
+- **ssl** (*Optional*): Determine if HTTPS should be used. Defaults to `True` which by default runs on port `5001`.
 - **volumes** (*Optional*): Array of volumes to monitor. Defaults to all volumes.
 - **disks** (*Optional*): Array of disks to monitor. Defaults to all disks.
 - **monitored_conditions** (*Required*): Defines a [template](/topics/templating/) to extract a value from the payload.

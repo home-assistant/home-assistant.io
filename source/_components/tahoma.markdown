@@ -40,3 +40,5 @@ exclude:
   required: false
   type: list
 {% endconfiguration %}
+
+This also works with the Somfy Connexoon. Check [here](https://somfyhouse.freshdesk.com/nl/support/solutions/articles/14000058145-wat-is-het-verschil-tussen-de-tahoma-en-de-connexoon-) for the differences between the bridges.

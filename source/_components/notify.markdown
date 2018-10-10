@@ -21,7 +21,7 @@ notify:
     api_key: ABCDEFG
 ```
 
-The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
+The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied.
 
 ### {% linkable_title Service %}
 

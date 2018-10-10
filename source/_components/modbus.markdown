@@ -16,6 +16,8 @@ ha_iot_class: "Local Push"
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
 
+## {% linkable_title Configuration %}
+
 To add modbus to your installation, add the following to your `configuration.yaml` file:
 
 For a network connection:

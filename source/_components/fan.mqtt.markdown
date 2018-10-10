@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
 When a `state_topic` is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from `state_topic`).
@@ -24,7 +26,7 @@ Optimistic mode can be forced even if a `state_topic` is available. Try to enabl
 To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     command_topic: "bedroom_fan/on/set"
@@ -140,6 +142,39 @@ payload_not_available:
   required: false
   type: string
   default: offline
+unique_id:
+  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+device:
+  description: 'Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list, tuple
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -148,14 +183,14 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this fan.
+In this section you find some real-life examples of how to use this fan.
 
 ### {% linkable_title Full configuration %}
 
 The example below shows a full configuration for a MQTT fan.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 fan:
   - platform: mqtt
     name: "Bedroom Fan"

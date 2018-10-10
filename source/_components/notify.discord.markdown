@@ -35,7 +35,7 @@ Configuration variables:
 
 ### {% linkable_title Setting up the bot %}
 
-Bots can only send messages to servers. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
@@ -69,7 +69,12 @@ This channel ID has to be used as the target when calling the notification servi
   "target": [
     "1234567890",
     "0987654321"
-  ]
+  ],
+  "data": {
+    "images": [ 
+      "/tmp/garage_cam.jpg"
+    ]
+  }
 }
 ```
 

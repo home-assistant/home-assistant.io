@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: gpsd.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.26
 ha_iot_class: "Local Polling"
 ---
 
 The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
+
+## {% linkable_title Setup %}
 
 A requirement is that `gpsd` is installed (`$ sudo apt-get install gpsd` or `$ sudo dnf -y install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
 
@@ -40,6 +42,8 @@ Escape character is '^]'.
 {"class":"VERSION","release":"3.15","rev":"3.15-2.fc23","proto_major":3,"proto_minor":11}
 ```
 
+## {% linkable_title Configuration %}
+
 To setup a GPSD sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -48,8 +52,21 @@ sensor:
   - platform: gpsd
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The host where GPSD is running.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port which GPSD is using.
+  required: false
+  type: integer
+  default: 2947
+name:
+  description: Friendly name to use for the frontend.
+  required: false
+  type: string
+  default: GPS
+{% endconfiguration %}
 
-- **host** (*Optional*): The host where GPSD is running. Defaults to `localhost`.
-- **port** (*Optional*): The port which GPSD is using. Defaults to `2947`. 
-- **name** (*Optional*): Friendly name to use for the frontend. Default to GPS.

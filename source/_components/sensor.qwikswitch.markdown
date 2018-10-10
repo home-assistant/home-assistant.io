@@ -13,6 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: "0.67"
 ---
 
-The `qwikswitch` sensor platform allows you to control your [QwikSwitch](http://www.qwikswitch.co.za/) relays and dimmers as sensors from within Home Assistant.
+The `qwikswitch` sensor platform allows you to use your [QwikSwitch](http://www.qwikswitch.co.za/) sensors in Home Assistant.
 
 The platform is configured through the [QwikSwitch component](/components/qwikswitch/).

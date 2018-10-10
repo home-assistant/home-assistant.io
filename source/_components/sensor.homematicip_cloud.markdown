@@ -1,16 +1,16 @@
 ---
 layout: page
 title: "HomematicIP Cloud Sensor"
-description: "Instructions on how to integrate HomematIP sensors within Home Assistant."
+description: "Instructions on how to integrate HomematicIP sensors within Home Assistant."
 date: 2018-04-02 13:40
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: homematic.png
+logo: homematicip_cloud.png
 ha_category: Sensor
 ha_release: 0.66
-ha_iot_class: "Local Push"
+ha_iot_class: "Cloud Push"
 ---
 
 The `homematicip_cloud` sensor platform allows you to control

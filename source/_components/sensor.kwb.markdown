@@ -20,6 +20,7 @@ Direct connection via serial (RS485) or via telnet terminal server is supported.
 Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).
 
 Direct connection via serial port:
+
 ```yaml
 # Example configuration.yaml entry
 - platform: kwb
@@ -30,6 +31,7 @@ Direct connection via serial port:
 ```
 
 Telnet terminal server with a serial-ethernet converter:
+
 ```yaml
 # Example configuration.yaml entry
   - platform: kwb

@@ -20,6 +20,11 @@ First of all install the software collection repository as root. For example, on
 ```bash
 $ yum install centos-release-scl
 ```
+Install some dependencies you'll need later.
+
+```bash
+$ yum install gcc gcc-c++ systemd-devel
+```
 
 Then install the Python 3.6 package:
 

@@ -2,8 +2,8 @@
   <div class='section'>
     <h1 class="title delta">Entries</h1>
     <ul class='divided sidebar-menu'>
-{% assign faq = site.faq | sort: 'title' %}
-{% assign categories = faq | map: 'ha_category' | uniq | sort %}
+{% assign faq = site.faq | sort_natural: 'title' %}
+{% assign categories = faq | map: 'ha_category' | uniq | sort_natural %}
 
 {% for category in categories %}
       <li>

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mercedesme.png
-ha_category: Hub
+ha_category: Car
 ha_release: 0.63
 ha_iot_class: "Cloud Polling"
 ---

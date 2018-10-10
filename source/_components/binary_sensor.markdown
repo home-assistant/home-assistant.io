@@ -11,6 +11,8 @@ footer: true
 
 Binary sensors gather information about the state of devices which have a "digital" return value (either 1 or 0). These can be switches, contacts, pins, etc. These sensors only have two states: **0/off/low/closed/false** and **1/on/high/open/true**.  Knowing that there are only two states allows Home Assistant to represent these sensors in a better way in the frontend according to their functionality.
 
+### {% linkable_title Device Class %}
+
 The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.

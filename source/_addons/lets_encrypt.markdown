@@ -2,7 +2,7 @@
 layout: page
 title: "Let's Encrypt"
 description: "Automatically manage your SSL certificate using Let's Encrypt."
-date: 2017-04-30 13:28
+date: 2018-04-18 10:55
 sidebar: true
 comments: false
 sharing: true
@@ -40,5 +40,25 @@ http:
 ```
 
 If you use another port such as `8123` or an SSL proxy, change the port number.
+
+## {% linkable_title Enabling auto-renewals %}
+
+Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificte, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
+
+However, you can automate this process using Home Assistant.
+
+Use this in your `automations.yaml` to attempt certificate renewal each day at midnight:
+
+```yaml
+- id: letsencrypt-renewal
+  alias: "Let's Encrypt Renewal"
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+```
 
 [DuckDNS add-on]: /addons/duckdns/

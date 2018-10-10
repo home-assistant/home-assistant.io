@@ -13,7 +13,7 @@ ha_release: 0.58
 ---
 
 This component offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
-Router.
+or [Shaw Hitron CGNM](https://community.shaw.ca/docs/DOC-4066) Router.
 
 To use a Hitron router in your installation, add the following to your `configuration.yaml` file:
 
@@ -24,6 +24,7 @@ device_tracker:
     host: !secret router_ip
     username: !secret router_username
     password: !secret router_password
+    type: rogers
 ```
 
 {% configuration %}
@@ -38,6 +39,10 @@ username:
 password:
   description: The password for the specified username. Usually your WiFi password.
   required: true
+  type: string
+type:
+  description: The internet provider for the modem; "rogers" or "shaw". Defaults to "rogers".
+  required: false
   type: string
 {% endconfiguration %}
 

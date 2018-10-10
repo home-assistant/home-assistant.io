@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
 
+## {% linkable_title Configuration %}
+
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -42,7 +44,7 @@ name:
 timeout:
   description: Timeout for the request.
   required: false
-  type: int
+  type: integer
   default: 10
 body_on:
   description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
@@ -93,7 +95,7 @@ switch:
     resource: http://IP_ADDRESS/led_endpoint
     body_on: '{"active": "true"}'
     body_off: '{"active": "false"}'
-    is_on_template: '{{value_json.is_active}}'
+    is_on_template: '{{ value_json.is_active }}'
     headers:
       Content-Type: application/json
 ```

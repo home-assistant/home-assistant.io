@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Hub
+ha_category: DIY
 ha_release: 0.26
 ha_iot_class: "Local Push"
 ---
@@ -18,6 +18,8 @@ ha_iot_class: "Local Push"
 This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication. 
 
 The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g., automation). Additionally a send service is provided to send RF codes.
+
+## {% linkable_title Configuration %}
 
 To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
 

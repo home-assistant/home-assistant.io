@@ -8,12 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: bmw.png
-ha_category: Sensor
+ha_category: Car
 ha_release: 0.64
 ---
 
 
-The `bmw_connected_drive` platform allows you to import data on your BMW into Home Assistant.
+The `bmw_connected_drive` sensor platform allows you to import data on your BMW into Home Assistant.
 
 The sensors will be automatically configured if the `bmw_connected_drive` component is configured.
 

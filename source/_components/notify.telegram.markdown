@@ -25,7 +25,7 @@ To retrieve your `chat_id`, contact any of the Telegram bots created for this pu
 
 The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.org/botYOUR_API_TOKEN/getUpdates](https://api.telegram.org/botYOUR_API_TOKEN/getUpdates) or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates`. Replace `YOUR_API_TOKEN` with your actual token.
 
-The result set will include your chat ID as `id` in the `from` section:
+The result set will include your chat ID as `id` in the `chat` section:
 
 ```json
 {
@@ -84,10 +84,17 @@ notify:
     chat_id: CHAT_ID_2
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **chat_id** (*Required*): The chat ID of your user.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+chat_id:
+  description: The chat ID of your user.
+  required: true
+  type: integer
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -99,19 +106,31 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: '*Send a message*'
-    message: 'That's an example that _sends_ a *formatted* message with a custom inline keyboard.'
+    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
         - 'Task 1:/command1, Task 2:/command2'
         - 'Task 3:/command3, Task 4:/command4'
 ```
 
-Configuration variables:
-
-- **message** (*Required*): Message text.
-- **title** (*Optional*): Will be composed as '%title\n%message'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+title:
+  description: Will be composed as '%title\n%message'.
+  required: false
+  type: string
+message:
+  description: Message text.
+  required: true
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Photo support %}
 
@@ -121,7 +140,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send an images
-    message: That's an example that sends an image.
+    message: "That's an example that sends an image."
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -133,15 +152,41 @@ action:
           caption: I.e. for a Title
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to an image.
-- **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url:
+  description: A remote path to an image. Either this or the `file` configuration option is required.
+  required: true
+  type: string
+file:
+  description: A local path to an image. Either this or the `url` configuration option is required.
+  required: true
+  type: string
+caption:
+  description: The title of the image.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication.
+  required: false
+  default: basic
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 <p class='note'>
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
@@ -164,7 +209,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a video
-    message: That's an example that sends a video.
+    message: "That's an example that sends a video."
     data:
       video:
         - url: http://192.168.1.28/camera.mp4
@@ -176,15 +221,41 @@ action:
           caption: I.e. for a Title
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to a video.
-- **caption** (*Optional*): The title of the video.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url:
+  description: A remote path to an video. Either this or the `file` configuration option is required.
+  required: true
+  type: string
+file:
+  description: A local path to an video. Either this or the `url` configuration option is required.
+  required: true
+  type: string
+caption:
+  description: The title of the video.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication.
+  required: false
+  default: basic
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Document support %}
 
@@ -194,7 +265,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's an example that sends a document and a custom keyboard.
+    message: "That's an example that sends a document and a custom keyboard."
     data:
       document:
         file: /tmp/whatever.odf
@@ -204,15 +275,41 @@ action:
       - '/command3, /command4'
 ```
 
-Configuration variables:
-
-- **url** or **file** (*Required*): For local or remote path to a document.
-- **caption** (*Optional*): The title of the document.
-- **username** (*Optional*): Username for a URL which require HTTP authentication.
-- **password** (*Optional*): Username for a URL which require HTTP authentication.
-- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+url:
+  description: A remote path to an document. Either this or the `file` configuration option is required.
+  required: true
+  type: string
+file:
+  description: A local path to an document. Either this or the `url` configuration option is required.
+  required: true
+  type: string
+caption:
+  description: The title of the document.
+  required: false
+  type: string
+username:
+  description: Username for a URL which require HTTP authentication.
+  required: false
+  type: string
+password:
+  description: Password for a URL which require HTTP authentication.
+  required: false
+  type: string
+authentication:
+  description: Set to 'digest' to use HTTP digest authentication.
+  required: false
+  default: basic
+  type: string
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Location support %}
 
@@ -230,9 +327,21 @@ action:
         longitude: 117.22743
 ```
 
-Configuration variables:
-
-- **latitude** (*Required*): The latitude to send.
-- **longitude** (*Required*): The longitude to send.
-- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+{% configuration %}
+latitude:
+  description: The latitude to send.
+  required: true
+  type: float
+longitude:
+  description: The longitude to send.
+  required: true
+  type: float
+keyboard:
+  description: List of rows of commands, comma-separated, to make a custom keyboard.
+  required: false
+  type: list
+inline_keyboard:
+  description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
+  required: false
+  type: list
+{% endconfiguration %}

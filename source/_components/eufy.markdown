@@ -2,7 +2,7 @@
 layout: page
 title: "Eufy"
 description: "Instructions on how to integrate Eufy devices into Home Assistant."
-date: 2018-05-09 19:00
+date: 2018-04-09 19:00
 sidebar: true
 comments: false
 sharing: true
@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: 0.68
 ---
 
-The `eufy` component is the main component to integrate various [eufy](http://https://www.eufylife.com/) devices with Home Assistant.
+The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
 
 Supported devices will be discovered after the `eufy` component is configured:
 
@@ -38,17 +38,21 @@ eufy:
       name: Smart Switch
 ```
 
-access_token can be obtained by running:
+`access_token can be obtained by running:
 
-```
-curl -H "Content-Type: application/json" -d '{"client_id":"eufyhome-app", "client_Secret":"GQCpr9dSp3uQpsOMgJ4xQ", "email":"USERNAME", "password":"PASSWORD"}' https://home-api.eufylife.com/v1/user/email/login | jq
-```
-
-replacing USERNAME and PASSWORD with the Eufy username and password. This will give an access_token. Then run:
-
-```
-curl -H token:TOKEN -H category:Home https://home-api.eufylife.com/v1/device/list/devices-and-groups | jq
+```bash
+$ curl -H "Content-Type: application/json" \
+   -d '{"client_id":"eufyhome-app", "client_Secret":"GQCpr9dSp3uQpsOMgJ4xQ", "email":"USERNAME", "password":"PASSWORD"}' \
+   https://home-api.eufylife.com/v1/user/email/login \
+   | jq
 ```
 
-replacing TOKEN with the access_token from the previous command. This will provide the local_code for each device.
+replacing USERNAME and PASSWORD with the Eufy username and password. This will give an `access_token`. Then run:
+
+```bash
+$ curl -H token:TOKEN -H category:Home \
+   https://home-api.eufylife.com/v1/device/list/devices-and-groups | jq
+```
+
+replacing TOKEN with the `access_token` from the previous command. This will provide the local_code for each device.
 

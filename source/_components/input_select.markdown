@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.13
+ha_qa_scale: internal
 ---
 
 The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
@@ -53,7 +54,7 @@ input_select:
         type: Element of options
         default: First element of options
       icon:
-        description: Icon to display for the component. Refer to the [Customizing devices](/docs/configuration/customizing-devices/#possible-values) page for possible values.
+        description: Icon to display for the component.
         required: false
         type: icon
 {% endconfiguration %}
@@ -64,7 +65,7 @@ Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, a
 
 ### {% linkable_title Restore State %}
 
-This component supports the `restore_state` function which restores the state after Home Assistant has started to the value it has been before Home Assistant stopped. To use this feature please make sure that the [`recorder`](/components/recorder/) component is enabled and your entity does not have a value set for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
 ### {% linkable_title Services %}
 

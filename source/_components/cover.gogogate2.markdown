@@ -20,7 +20,7 @@ The `gogogate2` cover platform lets you control Gogogate2-Enabled garage doors t
 To use your Gogogate2 cover in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 cover:
   - platform: gogogate2
     username: email@email.com

@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: raspihats.png
-ha_category: Switch
+ha_category: DIY
 ha_release: 0.45
 ha_iot_class: "Local Push"
 ---
 
 
 The `raspihats` switch platform allows you to control the digital outputs of your [raspihats](http://www.raspihats.com/) boards.
+
+## {% linkable_title Configuration %}
 
 To use your raspihats boards in your installation, add the following to your `configuration.yaml` file:
 

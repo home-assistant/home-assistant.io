@@ -14,14 +14,16 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 
 Supported by MQTT discovery:
 
+- [Alarm control panels](/components/alarm_control_panel.mqtt/)
 - [Binary sensors](/components/binary_sensor.mqtt/)
 - [Cameras](/components/camera.mqtt/)
 - [Covers](/components/cover.mqtt/)
 - [Fans](/components/fan.mqtt/)
+- [HVACs](/components/climate.mqtt/)
 - [Lights](/components/light.mqtt/)
+- [Locks](/components/lock.mqtt/)
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
-
 
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
@@ -49,6 +51,8 @@ The discovery topic need to follow a specific format:
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
+An empty payload will cause a previously discovered device to be deleted.
+
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
 ### {% linkable_title Support by third-party tools %}
@@ -56,7 +60,7 @@ The `<node_id>` level can be used by clients to only subscribe to their own (com
 The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
-- [esphomelib](https://github.com/OttoWinter/esphomelib)
+- [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 
@@ -79,7 +83,13 @@ Update the state.
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ON
 ```
 
-Setting up a switch is similar but requires a `command_topic` as mentionend in the [MQTT switch documentation](/components/switch.mqtt/).
+Delete the sensor by sending an empty message.
+
+ ```bash
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ''
+```
+
+Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`

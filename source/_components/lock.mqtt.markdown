@@ -24,7 +24,7 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 lock:
   - platform: mqtt
     command_topic: "home/frontdoor/set"
@@ -95,14 +95,15 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this lock.
+In this section you will find some real-life examples of how to use this lock.
 
 ### {% linkable_title Full configuration %}
 
 The example below shows a full configuration for a MQTT lock.
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 lock:
   - platform: mqtt
     name: Frontdoor
@@ -113,8 +114,9 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
 ```
+{% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
 

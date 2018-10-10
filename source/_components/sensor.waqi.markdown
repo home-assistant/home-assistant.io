@@ -27,7 +27,7 @@ sensor:
     locations:
       - beijing
     stations:
-      - Beijing US Embassy
+      - Beijing US Embassy, Beijing
 ```
 
 Configuration variables:

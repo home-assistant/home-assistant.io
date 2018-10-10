@@ -23,10 +23,12 @@ This platform supports on/off, brightness, RGB colors, XY colors, color temperat
   "color_temp": 155,
   "color": {
     "r": 255,
-    "g": 255,
-    "b": 255,
-    "x": 0.123,
-    "y": 0.123
+    "g": 180,
+    "b": 200,
+    "x": 0.406,
+    "y": 0.301,
+    "h": 344.0,
+    "s": 29.412
   },
   "effect": "colorloop",
   "state": "ON",
@@ -54,6 +56,10 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
+unique_id:
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
@@ -126,6 +132,11 @@ xy:
   required: false
   type: boolean
   default: false
+hs:
+  description: Flag that defines if the light supports HS colors.
+  required: false
+  type: boolean
+  default: false
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -147,7 +158,7 @@ payload_not_available:
 </p>
 
 <p class='note warning'>
-  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+  RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 </p>
 
 ## {% linkable_title Comparison of light MQTT platforms %}
@@ -161,11 +172,12 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Brightness and RGB support %}
 
@@ -215,7 +227,32 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 ```json
 {
   "brightness": 4095,
+  "state": "ON"
+}
+```
+
+### {% linkable_title HS Color %}
+
+To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
+
+```yaml
+light:
+  - platform: mqtt_json
+    name: mqtt_json_hs_light
+    state_topic: "home/light"
+    command_topic: "home/light/set"
+    hs: True
+```
+
+Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:
+
+```json
+{
   "state": "ON",
+  "color": {
+    "h": 24.0,
+    "s": 100.0
+  }
 }
 ```
 
@@ -224,6 +261,8 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 - A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.
 
 - There is also another implementation forked from the above repo, it supports all the same features but is made for addressable LED strips using FastLED on a NodeMCU V3 it can be found [here](https://github.com/JammyDodger231/nodemcu-mqtt-rgb-led).
+
+- [McLighting](https://github.com/toblum/McLighting) is another ESP8266 firmware for WS2812 addressable LEDs.
 
 - [MQTT JSON Light](https://github.com/mertenats/Open-Home-Automation/tree/master/ha_mqtt_rgbw_light_with_discovery) is another implementation for ESP8266 including [MQTT discovery](/docs/mqtt/discovery/).
 
