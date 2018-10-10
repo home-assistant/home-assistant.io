@@ -30,7 +30,7 @@ volvooncall:
 Users registered with Volvo in North America or China will need to specify a region:
 
 ```yaml
-# North America 
+# North America
 volvooncall:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
@@ -62,13 +62,34 @@ volvooncall:
     - heater
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username associated with your Volvo On Call account.
-- **password** (*Required*): The password for your given Volvo On Call account.
-- **region** (*Optional*): The region where the Volvo is registered. Needs to be set for users in North America or China.
-- **service_url** (*Optional*): The service URL to use for Volvo On Call. Normally not necessary to specify.
-- **name** (*Optional*): Make it possible to provide a name for the vehicles.
-- **resources** (*Optional*): A list of resources to display (defaults to all available).
-- **scandinavian_miles** (*Optional*): If set to yes, Scandinavian miles ("mil") are used for distances and fuel range (defaults to no).
-
+{% configuration %}
+username:
+  description: The username associated with your Volvo On Call account.
+  required: true
+  type: string
+password:
+  description: The password for your given Volvo On Call account.
+  required: true
+  type: string
+region:
+  description: The region where the Volvo is registered. Needs to be set for users in North America or China.
+  required: false
+  type: string
+service_url:
+  description: The service URL to use for Volvo On Call. Normally not necessary to specify.
+  required: false
+  type: string
+name:
+  description: Make it possible to provide a name for the vehicles.
+  required: false
+  type: string
+resources:
+  description: A list of resources to display (defaults to all available).
+  required: false
+  type: list
+scandinavian_miles:
+  description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
+  required: false
+  defaults: false
+  type: boolean
+{% endconfiguration %}
