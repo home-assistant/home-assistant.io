@@ -31,7 +31,7 @@ sensor:
 timeout:
   description: Specify the timeout for the API calls.
   required: false
-  default: The default is 10.
+  default: 10
   type: integer
 next_departure:
   description: One or multiple departure sensors.
@@ -43,7 +43,7 @@ next_departure:
       required: false
       default: The default is the station name.
       type: string
-    stationId:
+    station:
       description: "ID of the stop or station, e.g. `3000010`. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs."
       required: true
       type: string
@@ -54,22 +54,22 @@ next_departure:
     lines:
       description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
       required: false
-      default: The default is the station name.
+      default: []
       type: [string, int]
     products:
       description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false
-      default: Defaults to all.
+      default: ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']
       type: [string]
     time_offset:
       description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
       required: false
-      default: The defaults is 0.
+      default: 0
       type: integer
     max_journeys:
       description: Specify the maximal number of journeys.
       required: false
-      default: The default is 5.
+      default: 5
       type: integer
 {% endconfiguration %}
 
