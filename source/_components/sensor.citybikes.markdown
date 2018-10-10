@@ -54,13 +54,8 @@ stations:
   required: false
   type: list
 {% endconfiguration %}
-<<<<<<< HEAD
-
 
 ## {% linkable_title Example %}
-=======
-
->>>>>>> Doc standart fixes
 
 Additional configuration samples:
 
