@@ -69,6 +69,18 @@ sensors:
         description: The sensors to activate
         type: list
         default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
+        keys:
+          "Current State":
+            description: Text of current state.
+          "Temperatures":
+            description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+          "Job Percentage":
+            description: Percentage of the job.
+          "Time Elapsed":
+            description: Time elapsed on current print job, in seconds.
+          "Time Remaining":
+            description: Time remaining on current print job, in seconds.
+
 binary_sensors:
   description: Configuration for the binary sensors
   required: false
@@ -78,20 +90,12 @@ binary_sensors:
         description: The sensors to activate
         type: list
         default: all (`Printing`, `Printing Error`)
+        keys:
+          "Printing":
+            description: State of the printer.
+          "Printing Error":
+            description: Error while printing.
 {% endconfiguration %}
-
-<p class='note'>
-Description of monitored conditions:
-
-  - **Current State**: Text of current state.
-  - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-  - **Job Percentage**: Percentage of the job.
-  - **Time Elapsed**: Time elapsed on current print job, in seconds.
-  - **Time Remaining**: Time remaining on current print job, in seconds.
-  - **Printing**: State of the printer.
-  - **Printing Error**: Error while printing.
-
-</p>
 
 <p class='note'>
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
@@ -105,6 +109,10 @@ octoprint:
     api_key: YOUR_API_KEY
     name: PRINTER_NAME_1
     number_of_tools: 2
+    sensors:
+      monitored_conditions:
+        - 'Current State'
+        - Job Percentage'
   - host: YOUR_OCTOPRINT_HOST
     api_key: YOUR_API_KEY
     name: PRINTER_NAME_2
