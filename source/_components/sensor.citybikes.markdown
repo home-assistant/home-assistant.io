@@ -55,6 +55,7 @@ stations:
   type: list
 {% endconfiguration %}
 
+
 ## {% linkable_title Example %}
 
 Additional configuration samples:
