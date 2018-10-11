@@ -24,15 +24,28 @@ media_player:
   - platform: yamaha_musiccast
     host: 192.168.xx.xx
 ```
-Configuration variables:
 
-- **host** (*Required*): IP address or hostname of the device
-- **port** (*Optional*): UDP source port. If multiple devices are present, specify a different port per device
-- **interval_seconds** (*Optional*): Polling interval (default: 480 seconds = 8 minutes)
+{% configuration %}
+host:
+  description: IP address or hostname of the device.
+  required: true
+  type: string
+port:
+  description: UDP source port. If multiple devices are present, specify a different port per device.
+  required: false
+  type: integer
+interval_seconds:
+  description: Polling interval in seconds.
+  required: false
+  type: integer
+  default: 480
+{% endconfiguration %}
 
-A few notes:
+### {% linkable_title Supported operations %}
 
-- Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+
+### {% linkable_title Example configuration %}
 
 A full configuration example will look like the sample below:
 ```yaml
