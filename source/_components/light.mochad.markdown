@@ -42,8 +42,7 @@ comm_type:
   default: pl
   type: string
 brightness_levels:
-  description: The number of brightness levels the X10 light device supports. This can either be 32, 64, or 256 (note that the max
-  value sent to the device will be n-1 because it starts at 0)
+  description: The number of brightness levels the X10 light device supports. This can either be 32, 64, or 256 (note that the max value sent to the device will be n-1 because it starts at 0).
   required: false
   default: 32
   type: integer
