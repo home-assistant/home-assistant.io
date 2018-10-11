@@ -12,7 +12,7 @@ ha_category: History
 ha_release: 0.9
 ---
 
-The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/). For instructions setting up InfluxDB with Docker, see the [setup section below](#setting-up-influxdb).
+The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.6/introduction/installation/) for how to setup an InfluxDB database, or if you're using hassio, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491).
 
 ## {% linkable_title Configuration %}
 
@@ -52,58 +52,6 @@ Configuration variables:
 
 - [Helper script `influxdb_import`](/docs/tools/influxdb_import/)
 - [Helper script `db_migrator`](/docs/tools/db_migrator/) (only used for [Home Assistant 0.36](/blog/2017/01/14/iss-usps-images-packages/#influxdb-export))
-
-
-## {% linkable_title Setting up InfluxDB %}
-
-These instructions require you to have docker installed.
-
-1. Create a persistent volume for influxdb to store its data:
-
-    `docker volume create influxdb-data`
-
-1. Run the following command to start the InfluxDB container:
-
-    ```
-    docker run -d \
-    --name="influxdb" \
-    --restart always \
-    -p 8086:8086 \
-    -v influxdb-data:/var/lib/influxdb \
-    influxdb
-    ```
-
-3. After the container has started, run the influx client:
-
-    `docker exec -it influxdb influx`
-
-4. Create a new database for Home Assistant:
-    
-    ```
-    CREATE DATABASE home_assistant
-    exit
-    ```
-
-5. Add InfluxDB to Home Assistant by putting the influxdb section into your configuration.yaml
-    
-    ```
-    influxdb:
-        host: YOUR_DOCKERHOST_IP
-    ```
-
-    By default, all entities and their states will get sent to influxdb. It may be in your best interest to limit which devices are sent. You can do this by whitelisting entities or domains with `include` or blacklisting entities or domains with `exclude`. 
-    
-    For example, you may want to only have your sensors values sent to influxdb:
-
-    ```
-    influxdb:
-        host: YOUR_DOCKERHOST_IP
-        include:
-            domains:
-                - sensor
-    ```
-
-6. Restart Home Assistant to have it try and connect to InfluxDB. Once it has restarted, if there were any problems with it connecting, there will be an error notification on your Home Assistant page.
 
 ## {% linkable_title Examples %}
 
