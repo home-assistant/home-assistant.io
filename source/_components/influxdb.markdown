@@ -111,7 +111,7 @@ tags_attributes:
 component_config:
   type: string
   required: false
-  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -120,7 +120,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -129,7 +129,7 @@ component_config_domain:
 component_config_glob: 
   type: string
   required: false
-  description: These attributes contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
