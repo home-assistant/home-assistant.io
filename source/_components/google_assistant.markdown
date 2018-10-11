@@ -36,7 +36,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
         - Input any string you like into `Client Secret`, Home Assistant doesn't need this field.
         - Change `Authorization URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize` (replace with your actual URL).
         - Change `Token URL` to `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token` (replace with your actual URL).
-    - In the `Client information` section:
+    - In the `Configure your client` section:
         - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
 2. Change your `configuration.yaml` file:
