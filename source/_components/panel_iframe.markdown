@@ -18,6 +18,8 @@ The `panel_iframe` support allows you to add additional panels to your Home Assi
 
 <p class='note warning'>If you are accessing Home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
 
+<p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>
+
 To enable Panel iFrames in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
