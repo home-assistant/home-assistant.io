@@ -26,9 +26,7 @@ To use your KNX light in your installation, add the following lines to your `con
 # Example configuration.yaml entry
 light:
   - platform: knx
-    name: Kitchen-Light-1
     address: '1/0/9'
-    brightness_address: '1/0/11'
 ```
 
 {% configuration %}

@@ -33,15 +33,15 @@ sensor:
 {% configuration %}
 address:
   description: KNX group address of the sensor.
-  requird: true
+  required: true
   type: string
 name:
   description: A name for this device used within Home Assistant.
-  requird: false
+  required: false
   type: string
 type:
   description: A type from the following table can be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
-  requird: false
+  required: false
   type: string
 {% endconfiguration %}
 
