@@ -56,6 +56,7 @@ name:
 monitored_conditions:
   required: true
   description: Conditions to display in the frontend.
+  type: list
   keys:
     weather:
       description: A human-readable text summary with picture from yahoo.

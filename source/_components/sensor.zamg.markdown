@@ -45,6 +45,7 @@ longitude:
 monitored_conditions:
   required: false
   description: Conditions to display in the frontend.
+  type: list
   keys:
     pressure:
       description: Pressure at station level
