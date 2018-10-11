@@ -27,12 +27,20 @@ weather:
   - platform: zamg
 ```
 
-Configuration variables:
-
-- **station_id** (*Optional*): The ID number for a supported ZAMG station.
-- **name** (*Optional*): A name for the weather platform.
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file.
-- **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file.
+{% configuration %}
+station_id:
+  required: false
+  description: The ID number for a supported ZAMG station.
+name:
+  required: false
+  description: A name for the weather platform.
+latitude:
+  required: false
+  description: "Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file."
+longitude:
+  required: false
+  description: "Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file."
+{% endconfiguration %}
 
 <p class='note'>
 This platform is an alternative to the [`zamg`](/components/sensor.zamg/) sensor. The weather platform is easier to configure but less customizable.
