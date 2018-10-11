@@ -59,8 +59,6 @@ discovery:
     - homekit
 ```
 
-{% linkable_title Configuration variables: %}
-
 {% configuration discovery %}
 ignore:
   description: A list of platforms that never will be automatically configured by `discovery`.
