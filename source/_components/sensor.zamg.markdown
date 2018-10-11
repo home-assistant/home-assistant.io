@@ -33,6 +33,7 @@ station_id:
 name:
   required: false
   description: Additional name for the sensors. Defaults to platform name.
+  default: zamg
   type: string
 latitude:
   required: false
@@ -46,6 +47,7 @@ monitored_conditions:
   required: false
   description: Conditions to display in the frontend.
   type: list
+  default: temperature
   keys:
     pressure:
       description: Pressure at station level
