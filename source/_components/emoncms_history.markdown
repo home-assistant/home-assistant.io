@@ -21,7 +21,7 @@ To use the `emoncms_history` component in your installation, add the following t
 ```yaml
 # Example configuration.yaml entry
 emoncms_history:
-  api_key: put your emoncms WRITE api key here
+  api_key: YOUR_EMONCMS_WRITE_API_KEY
   url: https://emoncms.org
   inputnode: 19
   whitelist:
@@ -29,10 +29,26 @@ emoncms_history:
     - sensor.owm_wind_speed
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your emoncms write api key
-- **url** (*Required*): The root URL of your Emoncms installation. (Use https://emoncms.org for the cloud based version)
-- **inputnode** (*Required*): Input node that will be used inside emoncms. Please make sure you use a dedicated, not used before, node for this component!
-- **whitelist** (*Required*): List of entity IDs you want to publish.
-- **scan_interval** (*Optional*): Defines, in seconds, how regularly the states of the whitelisted entities are being gathered and send to emoncms. Default is 30 seconds.
+{% configuration %}
+api_key:
+  description: Your Emoncms write api key
+  required: true
+  type: string
+url:
+  description: The root URL of your Emoncms installation. (Use https://emoncms.org for the cloud based version)
+  required: true
+  type: string
+inputnode:
+  description:  Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this component!
+  required: true
+  type: integer
+whitelist:
+  description: List of entity IDs you want to publish.
+  required: true
+  type: list
+scan_interval:
+  description:  Defines, in seconds, how regularly the states of the whitelisted entities are being gathered and send to Emoncms.
+  required: false
+  type: integer
+  default: 30
+{% endconfiguration %}
