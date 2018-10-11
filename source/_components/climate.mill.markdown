@@ -26,9 +26,10 @@ climate:
    email: email@gmail.com
    password:  pswd
 ```
+
 {% configuration %}
 email:
-  description: Your Mill email
+  description: Your registred Mill email
   required: true
   type: string
 password:
