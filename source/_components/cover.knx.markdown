@@ -37,6 +37,7 @@ cover:
 name:
   description: A name for this device used within Home Assistant.
   required: false
+  default: KNX Cover
   type: string
 move_long_address:
   description: KNX group address for moving the cover full up or down.
@@ -75,9 +76,11 @@ travelling_time_up:
 invert_position:
   description: Set this to true if your actuator report fully closed as 100%.
   required: false
+  default: false
   type: boolean
 invert_angle:
   description: Set this to true if your actuator reports tilt fully closed as 100%.
   required: false
+  default: false
   type: boolean
 {% endconfiguration %}

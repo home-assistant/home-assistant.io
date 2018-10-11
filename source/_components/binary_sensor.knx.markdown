@@ -81,11 +81,12 @@ name:
 counter:
   description: Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed.
   required: false
+  default: 1
   type: integer
 hook:
   description: Indicates if the automation should be executed on what state of the binary sensor. Values are "on" or "off".
   required: false
-  default: on
+  default: "on"
   type: string
 action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).

@@ -100,15 +100,16 @@ knx:
 {% configuration %}
 fire_event:
   description: If set to True, platform will write all received KNX messages to event bus
-  required: false
+  required: inclusive
   type: boolean
 fire_event_filter:
   description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
-  required: false
-  type: string
+  required: inclusive
+  type: [list, string]
 state_updater:
   description: The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
   required: false
+  default: true
   type: boolean
 {% endconfiguration %}
 
