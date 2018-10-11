@@ -36,12 +36,12 @@ password:
   required: true
   type: string
 gas:
-  description: With this option you can choose whether you want to measure gas consumption
+  description: With this option you can choose whether you want to measure gas consumption.
   required: false
   default: true
   type: boolean
 solar:
-  description: With this option you can choose whether you want to measure electricity production
+  description: With this option you can choose whether you want to measure electricity production.
   required: false
   default: false
   type: boolean
