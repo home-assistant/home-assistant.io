@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 
 Integrates Mill heater into Home Assistant.
 
-The component requires the heater is sat as independent device in the Mill heater: 
+The component requires the heater is sat as independent device in the Mill app: 
 https://millheat.zendesk.com/hc/en-us/articles/115001123491-What-is-an-Independent-device-
 
 
