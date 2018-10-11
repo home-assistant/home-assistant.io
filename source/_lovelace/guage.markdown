@@ -24,7 +24,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Numerical Entity to show"
+  description: "Entity id to show"
   type: string
 title:
   required: false
@@ -34,7 +34,7 @@ unit_of_measurement:
   required: false
   description: Unit of Measurement given to data
   type: string
-  default: "Unit Of Measurement given by Entity"
+  default: "Unit Of Measurement given by entity"
 min:
   required: false
   description: Minimum value for graph
@@ -77,7 +77,7 @@ Basic example:
 ```yaml
 - type: gauge
   title: CPU Usuage
-  unit_of_measurement: %
+  unit_of_measurement: '%'
   entity: sensor.cpu_usuage
 ```
 
@@ -92,7 +92,7 @@ Define severity object:
 - type: gauge
   title: With Severity
   title: CPU Usuage
-  unit_of_measurement: %
+  unit_of_measurement: '%'
   entity: sensor.cpu_usuage
   severity:
     green: 0
