@@ -29,9 +29,17 @@ scene:
     scene_number: 23
 ```
 
-Configuration variables:
-
-- **address** (*Required*): KNX group address of the binary sensor.
-- **scene_number** (*Required*): Zero-indexed KNX scene number to be activated.
-- **name** (*Optional*): A name for this device used within Home Assistant.
-
+{% configuration %}
+address:
+  description: KNX group address of the binary sensor.
+  required: true
+  type: string
+scene_number:
+  description: Zero-indexed KNX scene number to be activated.
+  required: true
+  type: integer
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+{% endconfiguration %}

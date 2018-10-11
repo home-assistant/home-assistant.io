@@ -13,7 +13,7 @@ ha_release: 0.29
 ha_iot_class: "Local Push"
 ---
 
-The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors. 
+The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors.
 
 The `knx` component must be configured correctly, see [KNX Component](/components/knx).
 
@@ -30,10 +30,21 @@ sensor:
 ```
 
 
+{% configuration %}
+address:
+  description: KNX group address of the sensor.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+type:
+  description: A type from the following table can be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **address** (*Required*): KNX group address of the sensor.
-- **name** (*Optional*): A name for this device used within Home Assistant.
-- **type** (*Optional*): A type from the following table can be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly. 
 
 | type               | unit | expected KNX DPT |
 |--------------------|------|------------------|
