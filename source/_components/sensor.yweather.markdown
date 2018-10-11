@@ -54,7 +54,7 @@ name:
   required: false
   description: "The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option."
   type: string
-  default: `Yweather`
+  default: "`Yweather`"
 monitored_conditions:
   required: true
   description: Conditions to display in the frontend.
