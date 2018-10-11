@@ -66,7 +66,8 @@ switch 1:
 
 switch 2:
   platform: tplink
-  host: IP_ADDRESS```
+  host: IP_ADDRESS
+```
 
 ## {% linkable_title Grouping devices %}
 
