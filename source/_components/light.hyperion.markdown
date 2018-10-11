@@ -61,3 +61,20 @@ light:
     type: list
     default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
 {% endconfiguration %}
+
+
+To start hyperion with a effect use the following automation:
+```yaml
+automation:
+- id: one
+  alias: Turn hyperion effect on when light goes on
+  trigger:
+    - platform: state
+      entity_id: light.hyperion
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: "Full color mood blobs"
+```
