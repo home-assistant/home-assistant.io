@@ -10,12 +10,17 @@ sharing: true
 footer: true
 ---
 
-Gauge card is a basic card that allows visually seeing sensor data
+Gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the gauge card'>
 Screenshot of the gauge card.
 </p>
+
+```yaml
+- type: gauge
+  entity: sensor.cpu_usuage
+```
 
 {% configuration %}
 type:
@@ -38,41 +43,35 @@ unit_of_measurement:
 min:
   required: false
   description: Minimum value for graph
-  type: number
+  type: integer
   default: 0
 max:
   required: false
   description: Maximum value for graph
-  type: number
+  type: integer
   default: 100
 severity:
   required: false
   description: Allows setting of colors for different numbers
-  type: object
-{% endconfiguration %}
-
-## {% linkable_title Severity Variables %}
-
-If you define the severity object, these are the required options:
-
-{% configuration %}
-green:
-  required: true
-  description: Value from which to start green color
-  type: number
-yellow:
-  required: true
-  description: Value from which to start yellow color
-  type: number
-red:
-  required: true
-  description: Value from which to start red color
-  type: number
+  type: map
+  keys:
+    green:
+      required: true
+      description: Value from which to start green color
+      type: integer
+    yellow:
+      required: true
+      description: Value from which to start yellow color
+      type: integer
+    red:
+      required: true
+      description: Value from which to start red color
+      type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-Basic example:
+Title and Unit of Measurement Example:
 
 ```yaml
 - type: gauge
@@ -86,7 +85,7 @@ Basic example:
 Screenshot of the gauge card with custom title and unit of measurement.
 </p>
 
-Define severity object:
+Define the severity map:
 
 ```yaml
 - type: gauge
