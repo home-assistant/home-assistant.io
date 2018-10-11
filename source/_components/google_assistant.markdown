@@ -40,9 +40,9 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
         - Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
 2. Change your `configuration.yaml` file:
-    - Remove `client_id`, `access_token`, `agent_uer_id` config from `google_assistant:` since they are no longer needed.
+    - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
 3. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
-4. A browser will be open and asking you to login to your Home Assistant instance, it will edirect back to `Google Assistant` app right afterward.
+4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
