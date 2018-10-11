@@ -34,7 +34,7 @@ address:
 name:
   description: The name of the light.
   required: false
-  default: x10_light_dev_*address*
+  default: x10_light_dev_address
   type: string
 comm_type:
   description: pl (powerline) or rf (radio frequency).
