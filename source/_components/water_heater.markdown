@@ -23,7 +23,7 @@ water_heater:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Water heater control services %}
-Available services: `climate.set_temperature`, `climate.set_away_mode`, `climate.set_operation_mode`
+Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
 <p class='note'>
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.

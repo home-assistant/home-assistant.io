@@ -11,6 +11,7 @@ logo: econet.png
 ha_category: Water heater
 ha_release: 0.61.0
 ha_iot_class: "Cloud Polling"
+redirect_from: /climate.econet/
 ---
 
 
@@ -61,4 +62,7 @@ You can use the service econet/delete_vacation to remove all vactions from an Ec
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The entity id of the water heater to remove the vaction from.
 
+<p class='note'>
+Econet water heaters use to live under the climate componet prior to release 0.81.0
+</p>
 
