@@ -35,6 +35,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: Name to display in the frontend.
+  required: false
+  default: Bbox
+  type: string
 monitored_variables:
   description: Sensors to display in the frontend.
   required: true
