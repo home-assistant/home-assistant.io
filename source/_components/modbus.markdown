@@ -32,18 +32,11 @@ modbus:
 
 {% configuration %}
 type:
-  description: Type of the connection to Modbus. Possible values are `tcp`, `udp` and `rtuovertcp`.
+  description: Type of the connection to Modbus. Possible values are `tcp` (Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation.), `udp`(Modbus TCP form, but using UDP for transport. It removes the overheads required for TCP.) and `rtuovertcp` (Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.).
   required: true
-  type: map
-  keys:
-    tcp:
-      description: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation.
-    udp:
-      description: Modbus TCP form, but using UDP for transport (removes the overheads required for TCP).
-    rtuovertcp:
-      description: Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.
+  type: string
 host:
-  description: The IP address of your Modbus device, eg. 192.168.1.1.
+  description: The IP address of your Modbus device, e.g., 192.168.1.1.
   required: true
   type: string
 port:
