@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: econet.png
-ha_category: Climate
+ha_category: Water heater
 ha_release: 0.61.0
 ha_iot_class: "Cloud Polling"
 ---
@@ -21,7 +21,7 @@ To enable the `econet` water heater platform add the following to your config.
 
 ```yaml
 # Example configuration.yaml entry
-climate:
+water_heater:
   - platform: econet
     username: YOUR_ECONET_EMAIL
     password: YOUR_ECONET_PASSWORD
