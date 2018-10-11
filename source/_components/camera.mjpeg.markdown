@@ -13,10 +13,11 @@ ha_release: pre 0.7
 ha_iot_class: "depends"
 ---
 
+The `mjpeg` camera platform allows you to integrate IP cameras which are capable
+to stream their video with MJPEG into Home Assistant.
 
-The `mjpeg` camera platform allows you to integrate IP cameras which are capable to stream their video with MJPEG into Home Assistant.
-
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,14 +26,33 @@ camera:
     mjpeg_url: http://192.168.1.92/mjpeg
 ```
 
-Configuration variables:
-
-- **mjpeg_url** (*Required*): The URL your camera serves the video on, eg. http://192.168.1.21:2112/
-- **still_image_url** (*Optional*): The URL for thumbnail picture if camera support that.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **username** (*Optional*): The username for accessing your camera.
-- **password** (*Optional*): The password for accessing your camera.
-- **authentication** (*Optional*): `basic` (default) or `digest` auth for requests.
+{% configuration %}
+mjpeg_url:
+  description: The URL your camera serves the video on, eg. http://192.168.1.21:2112/
+  required: true
+  type: string
+still_image_url:
+  description: The URL for thumbnail picture if camera support that.
+  required: false
+  type: string
+name:
+  description: This parameter allows you to override the name of your camera.
+  required: false
+  type: string
+username:
+  description: The username for accessing your camera.
+  required: false
+  type: string
+password:
+  description: The password for accessing your camera.
+  required: false
+  type: string
+authentication:
+  description: "`basic` or `digest` auth for requests."
+  required: false
+  type: string
+  default: basic
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

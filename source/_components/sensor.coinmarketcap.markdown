@@ -28,7 +28,7 @@ sensor:
 currency_id:
   description: The ID of the cryptocurrency to use, default is the ID of Bitcoin.
   required: false
-  type: int
+  type: integer
   default: 1
 display_currency:
   description: The currency to display.
@@ -38,7 +38,7 @@ display_currency:
 display_currency_decimals:
   description: The amount of decimals to round to.
   required: false
-  type: int
+  type: integer
   default: 2
 {% endconfiguration %}
 

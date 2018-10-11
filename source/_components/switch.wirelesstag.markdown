@@ -27,19 +27,22 @@ switch:
 ```
 
 {% configuration %}
-  monitored_conditions:
-    description: The metrics types to control; valid values are specified below
-    required: true
-    type: list
+monitored_conditions:
+  description: The metrics types to control.
+  required: true
+  type: list
+  keys:
+    temperature:
+      description: Control arm/disarm temperature monitoring.
+    humidity:
+      description: Control arm/disarm humidity monitoring.
+    motion:
+      description: Control arm/disarm motion and door open/close events monitoring.
+    light:
+      description: Control monitoring of light changes.
+    moisture:
+      description: Control monitoring of water level/soil moisture for water sensor.
 {% endconfiguration %}
-
-The following metrics can be controlled:
-
-* (`temperature`): Control arm/disarm temperature monitoring.
-* (`humidity`): Control arm/disarm humidity monitoring.
-* (`motion`): Control arm/disarm motion and door open/close events monitoring.
-* (`light`): Control monitoring of light changes.
-* (`moisture`): Control monitoring of water level/soil moisture for water sensor.
 
 Arm/Disarm of motion switch is required to receive motion and door binary sensors events.
 Others are only needed if you want to receive push notifications from tags on a specific range of changes in temperature, humidity, light or moisture.

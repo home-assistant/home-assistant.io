@@ -44,3 +44,19 @@ zoneminder:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
+
+### {% linkable_title Service %}
+
+Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
+
+| Service data attribute | Optional | Description                       |
+|:-----------------------|:---------|:----------------------------------|
+| `name`                 | no       | Name of the new run state to set. |
+
+For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
+ ```yaml
+action:
+  service: zoneminder.set_run_state
+  data:
+    name: Home
+```

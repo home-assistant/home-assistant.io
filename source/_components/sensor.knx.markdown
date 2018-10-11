@@ -33,7 +33,42 @@ sensor:
 
 - **address** (*Required*): KNX group address of the sensor.
 - **name** (*Optional*): A name for this device used within Home Assistant.
-- **type** (*Optional*): "percent", "temperature", "humidity", "illuminance", "brightness", "speed_ms", "current", "power", "electric_current", "electric_potential", "energy", "frequency", "heatflowrate", "phaseanglerad", "phaseangledeg", "powerfactor" or "speed".
+- **type** (*Optional*): A type from the following table can be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly. 
+
+| type               | unit | expected KNX DPT |
+|--------------------|------|------------------|
+| percent            | %    | 5.001            |
+| pulse              |      | 5.010            |
+| temperature        | °C   | 9.001            |
+| humidity           | %    | 9.007            |
+| illuminance        | lx   | 9.004            |
+| brightness         | lx   | 7.013            |
+| speed_ms           | m/s  | 9.005            |
+| current            | mA   | 7.012            |
+| voltage            | mV   | 9.020            |
+| power              | W    | 14.056           |
+| electric_current   | A    | 14.019           |
+| electric_potential | V    | 14.027           |
+| energy             | J    | 14.031           |
+| frequency          | Hz   | 14.033           |
+| heatflowrate       | W    | 14.036           |
+| phaseanglerad      | rad  | 14.054           |
+| phaseangledeg      | °    | 14.055           |
+| powerfactor        |      | 14.057           |
+| speed              | m/s  | 14.065           |
+| enthalpy           | H    | 9.*              |
+| ppm                | ppm  | 9.008            |
+| DPT-7              |      | 7.*              |
+| 2byte_unsigned     |      | 7.*              |
+| DPT-9              |      | 9.*              |
+| DPT-12             |      | 12.*             |
+| 4byte_unsigned     |      | 12.*             |
+| DPT-13             |      | 13.*             |
+| 4byte_signed       |      | 13.*             |
+| DPT-14             |      | 14.*             |
+| 4byte_float        |      | 14.*             |
+
+
 
 ## {% linkable_title Full example %}
 

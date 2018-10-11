@@ -39,7 +39,7 @@ Configuration options for the OpenSky Network sensor:
 - **opensky_entry**: Fired when a flight enters the region.
 - **opensky_exit**: Fired when a flight exits the region.
 
-Both events have two attributes:
+Both events have three attributes:
 
 - **sensor**: Name of `opensky` sensor that fired the event.
 - **callsign**: Callsign of the flight.

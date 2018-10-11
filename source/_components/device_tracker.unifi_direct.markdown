@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Presence Detection
+ha_iot_class: "Local Polling"
 ha_release: 0.59
 ---
 

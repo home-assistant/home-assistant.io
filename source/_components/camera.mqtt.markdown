@@ -26,9 +26,19 @@ camera:
     topic: zanzito/shared_locations/my-device
 ```
 
-Configuration variables:
-
- - **topic** (*Required*): MQTT topic to subscribe to.
- - **name** (*Optional*): Name of the camera
- - **unique_id** (*Optional*): An ID that uniquely identifies this camera. If two cameras have the same unique ID, Home Assistant will raise an exception.
-
+{% configuration %}
+  topic:
+    description: MQTT topic to subscribe to.
+    required: true
+    type: string
+  name:
+    description: Name of the camera.
+    required: false
+    type: string
+  unique_id:
+    description: >
+      An ID that uniquely identifies this camera. If two cameras have the same unique ID
+      Home Assistant will raise an exception.
+    required: false
+    type: string
+{% endconfiguration %}

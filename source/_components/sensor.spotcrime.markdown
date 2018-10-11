@@ -46,7 +46,7 @@ api_key:
 days:
   description: Number of days you'd like see to crime statistics for.
   required: false
-  type: int
+  type: integer
 include:
   description: Event types you want statistics for.
   required: false

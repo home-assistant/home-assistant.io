@@ -35,6 +35,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |
 | Cube | cube | MFKZQ01LM | off (always) | `cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
 
 ### {% linkable_title Automation examples %}
 
@@ -307,4 +308,33 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_off
     entity_id: light.gateway_light_34xxxxxxxx13
+```
+
+#### {% linkable_title Vibration Sensor %}
+
+This automation toggles the living room lamp on vibration/tilt.
+
+```yaml
+- alias: Turn on Living Room Lamp on vibration
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_xxxx000000
+      movement_type: vibrate
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
+- alias: Turn on Living Room Lamp on tilt
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_xxxx000000
+      movement_type: tilt
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.living_room_lamp
 ```

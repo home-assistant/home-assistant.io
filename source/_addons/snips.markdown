@@ -13,7 +13,7 @@ footer: true
 
 The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so make sure that is installed.
 
-HomeAssistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
+Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
 The Snips addon by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a shopping list if that component is enabled.
 
@@ -25,7 +25,7 @@ Open garage door
 What is on my shopping list
 ```
 
-To get started creating your own configuration, follow [their tutorial](https://snips.gitbook.io/documentation/console) to create an assistant and download the training data. You can also add the HomeAssistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
+To get started creating your own configuration, follow [their tutorial](https://snips.gitbook.io/documentation/console) to create an assistant and download the training data. You can also add the Home Assistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
 
 Now install and activate the [Samba](/addons/samba/) add-on so you can upload your training data. Connect to the "share" Samba share and copy your assistant over. Name the file `assistant.zip` or whatever you have configured in the configuration options.
 
@@ -114,4 +114,3 @@ searchWeatherForecast:
 Now just restart HassIO and ask it what the weather is like.
 
 [their tutorial]: https://github.com/snipsco/snips-platform-documentation/wiki/2.-Create-an-assistant-using-an-existing-bundle
-

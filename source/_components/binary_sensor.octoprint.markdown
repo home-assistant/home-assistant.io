@@ -13,26 +13,8 @@ ha_release: 0.19
 ha_iot_class: "Local Polling"
 ---
 
-
-The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
+The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
 
 <p class='note'>
-You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.
+You must have the [OctoPrint component](/components/octoprint/) configured to use this binary sensor. After configuring that component, binary sensors automatically appear.
 </p>
-
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-binary_sensor:
-  - platform: octoprint
-    monitored_conditions:
-      - Printing
-      - Printing Error
-```
-
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): States to monitor.
-  - **Printing**: State of the printer.
-  - **Printing Error**: Error while printing.
-- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.

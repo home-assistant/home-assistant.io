@@ -17,7 +17,7 @@ In case you missed it two weeks ago, check [our plans for the future](/blog/2018
 
 <a href='/components/#version/0.79'><img src='/images/blog/2018-09-release-0.79/components.png' style='border: 0;box-shadow: none;'></a>
 
-It's time for another great release and we're introducing a brand new feature: device registry. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
+It's time for another great release and we're introducing a brand new feature: device registry. Thanks to [@Kane610] for driving this effort. This allows integrations to tell Home Assistant not only about entities, but also which devices the entities represent. It also allows integrations to tell Home Assistant how a device is connected to Home Assistant. For example, a Hue light bulb is connected to Home Assistant via the Hue hub.
 
 <p class='img'>
 <img src='/images/blog/2018-09-release-0.79/integrations.png' alt='Screenshot showing several configured integrations'>
@@ -56,6 +56,49 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 - GeoJSON platform ([@exxamalte] - [#16610]) ([geo_location docs]) (new-platform)
 - Add linky sensor ([@tiste] - [#16468]) ([sensor.linky docs]) (new-platform)
 
+## {% linkable_title Release 0.79.1 - September 30 %}
+
+- Optimize Ring Sensors platform setup ([@awarecan] - [#16886]) ([binary_sensor.ring docs]) ([sensor.ring docs])
+- Fix exception during history_stats startup ([@amelchio] - [#16932]) ([sensor.history_stats docs])
+- Override unique_id of NestActivityZoneSensor ([@awarecan] - [#16961]) ([binary_sensor.nest docs])
+- Fix ISY blocking bug ([@OverloadUT] - [#16978]) ([light.isy994 docs])
+- Bump zm-py to 0.0.4 ([@rohankapoorcom] - [#16979]) ([zoneminder docs])
+
+[#16886]: https://github.com/home-assistant/home-assistant/pull/16886
+[#16932]: https://github.com/home-assistant/home-assistant/pull/16932
+[#16961]: https://github.com/home-assistant/home-assistant/pull/16961
+[#16978]: https://github.com/home-assistant/home-assistant/pull/16978
+[#16979]: https://github.com/home-assistant/home-assistant/pull/16979
+[@OverloadUT]: https://github.com/OverloadUT
+[@amelchio]: https://github.com/amelchio
+[@awarecan]: https://github.com/awarecan
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[binary_sensor.nest docs]: /components/binary_sensor.nest/
+[binary_sensor.ring docs]: /components/binary_sensor.ring/
+[light.isy994 docs]: /components/light.isy994/
+[sensor.history_stats docs]: /components/sensor.history_stats/
+[sensor.ring docs]: /components/sensor.ring/
+[zoneminder docs]: /components/zoneminder/
+
+## {% linkable_title Release 0.79.2 - October 1 %}
+
+- Fix MQTT certificates ([@balloob] - [#16999]) ([mqtt docs])
+- Fix switch.zoneminder name ([@rohankapoorcom] - [#17026]) ([switch.zoneminder docs])
+
+[#16999]: https://github.com/home-assistant/home-assistant/pull/16999
+[#17026]: https://github.com/home-assistant/home-assistant/pull/17026
+[@balloob]: https://github.com/balloob
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[mqtt docs]: /components/mqtt/
+[switch.zoneminder docs]: /components/switch.zoneminder/
+
+## {% linkable_title Release 0.79.3 - October 2 %}
+
+- Use correct event loop on Windows, fixing SSL and Subprocess requests. ([#16737], [#17066] - [@awarecan], [@balloob])
+
+[#16737]: https://github.com/home-assistant/home-assistant/pull/16737
+[#17066]: https://github.com/home-assistant/home-assistant/pull/17066
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -84,6 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add unique_id to Nest Sensors ([@cgarwood] - [#16869]) ([binary_sensor.nest docs]) ([sensor.nest docs]) (beta fix)
 - Prevent discovered Tradfri while already configured ([@balloob] - [#16891]) ([tradfri docs]) (beta fix)
 - Handle exception handling websocket command ([@balloob] - [#16927]) ([websocket_api docs]) (beta fix)
+- The `zoneminder` switch platform now uses new names. ([@rohankapoorcom] - [#16527]) ([zoneminder docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 

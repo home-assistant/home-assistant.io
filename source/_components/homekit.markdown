@@ -62,7 +62,7 @@ homekit:
       port:
         description: Port for the HomeKit extension.
         required: false
-        type: int
+        type: integer
         default: 51827
       name:
         description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
@@ -123,7 +123,7 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'
@@ -310,4 +310,4 @@ filter:
     - light
 ```
 
-Restart Home-Assistant and re-attempt pairing - a persistent status should now correctly appear.
+Restart Home Assistant and re-attempt pairing - a persistent status should now correctly appear.

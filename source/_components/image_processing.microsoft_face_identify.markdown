@@ -13,13 +13,18 @@ featured: false
 ha_release: 0.37
 ---
 
-The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do identify persons on camera and fire an event with attributes.
+The `microsoft_face_identify` image processing platform lets you use
+[Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/)
+API through Home Assistant. This platform allow you do identify persons on
+camera and fire an event with attributes.
 
-Please refer to the [component](/components/microsoft_face/) configuration on how to setup the API key.
+Please refer to the [component](/components/microsoft_face/) configuration on
+how to setup the API key.
 
-For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
+For using the result inside an automation rule,
+take a look at the [component](/components/image_processing/) page.
 
-### {% linkable_title Configuration Home Assistant %}
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,10 +35,27 @@ image_processing:
       - entity_id: camera.door
 ```
 
-Configuration variables:
-
-- **group** (*Required*): Micrsoft face group to detect person from it.
-- **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
-- **source** array (*Required*): List of image sources.
-  - **entity_id** (*Required*): A camera entity id to get picture from.
-  - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
+{% configuration %}
+group:
+  description: Micrsoft face group to detect person from it.
+  required: true
+  type: string
+confidence:
+  description: The minimum of confidence in percent to process with Home Assistant.
+  required: false
+  type: integer
+  default: 80
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your `image_processing` entity.
+      required: false
+      type: string
+{% endconfiguration %}

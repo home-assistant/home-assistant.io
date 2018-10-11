@@ -33,12 +33,12 @@ port:
   description: The port of your controller.
   required: false
   default: 9999
-  type: int
+  type: integer
 gateway_address:
   description: The gateway address for the gateway (Settings in the controller itself).
   required: false
   default: 1
-  type: int
+  type: integer
 
 {% endconfiguration %}
 

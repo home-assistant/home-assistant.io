@@ -22,8 +22,8 @@ To use the component in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 duckdns:
-  domain: mysubdomain
-  access_token: abcdefgh
+  domain: YOUR_SUBDOMAIN
+  access_token: YOUR_ACCSS_TOKEN
 ```
 
 {% configuration duckdns %}
@@ -36,3 +36,7 @@ duckdns:
     required: true
     type: string
 {% endconfiguration %}
+
+<p class='note'>
+If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this component is not required. The add-on will keep your IP updated with DuckDNS.  
+</p>

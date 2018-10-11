@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Utility
 ha_release: 0.33
 ha_iot_class: "Local Push"
+ha_qa_scale: internal
 ---
 
 The `api_stream` sensor platform shows how many clients are connected to the stream API 

@@ -40,7 +40,7 @@ canary:
   timeout:
     description: Timeout to wait for connections.
     required: false
-    type: int
+    type: integer
     default: 10
 {% endconfiguration %}
 

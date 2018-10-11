@@ -13,9 +13,12 @@ ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
-The `systemmonitor` sensor platform allows you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
+The `systemmonitor` sensor platform allows you to monitor disk usage,
+memory usage, CPU usage, and running processes. This platform has superseded the
+process component which is now considered deprecated.
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this platform to your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,13 +30,22 @@ sensor:
       - type: memory_free
 ```
 
-Configuration variables:
+{% configuration %}
+resources:
+  description: Contains all entries to display.
+  required: true
+  type: list
+  keys:
+    type:
+      description: The type of the information to display, please check the table below for details.
+      required: true
+    arg:
+      description: Argument to use, please check the table below for details.
+      required: false
+{% endconfiguration %}
 
-- **resources** array (*Required*): Contains all entries to display.
-  - **type** (*Required*): The type of the information to display, please check the table below for details.
-  - **arg** (*Optional*): Argument to use, please check the table below for details.
-
-The table contains types and their argument to use in your `configuration.yaml` file.
+The table contains types and their argument to use in your `configuration.yaml`
+file.
 
 | Type (`type:`)      | Argument (`arg:`)         |
 | :------------------ |:--------------------------|
@@ -62,7 +74,8 @@ The table contains types and their argument to use in your `configuration.yaml` 
 
 ## {% linkable_title Linux specific %}
 
-To retrieve all available network interfaces on a Linux System, execute the `ifconfig` command.
+To retrieve all available network interfaces on a Linux System, execute the
+`ifconfig` command.
 
 ```bash
 $ ifconfig -a | sed 's/[ \t].*//;/^$/d'
@@ -70,7 +83,9 @@ $ ifconfig -a | sed 's/[ \t].*//;/^$/d'
 
 ## {% linkable_title Windows specific %}
 
-When running this platform on Microsoft Windows, Typically, the default interface would be called `Local Area Connection`, so your configuration might look like:
+When running this platform on Microsoft Windows, Typically,
+the default interface would be called `Local Area Connection`,
+so your configuration might look like:
 
 ```yaml
 sensor:
@@ -89,4 +104,4 @@ Wireless LAN adapter Wireless Network Connection:
    Connection-specific DNS Suffix  . :
 ```
 
-Where the name is `Wireless Network Connection`
+Where the name is `Wireless Network Connection`.

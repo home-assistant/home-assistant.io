@@ -65,7 +65,7 @@ ssl:
 timeout:
   description: Number of seconds for API timeout.
   required: false
-  type: int
+  type: integer
   default: 5
 humidifier:
   description: Report humidity and expose humidifier setpoints.
