@@ -32,15 +32,33 @@ dyson:
       device_ip: DEVICE_IP_2
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Dyson account username (email address).
-- **password** (*Required*): Dyson account password.
-- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported.
-- **devices** (*Optional*): List of devices.
-  - **device_id** (*Required*): Device ID. The Serial Number of the device. Found in the smart phone app device settings page.
-  - **device_ip** (*Required*): Device IP address.
-
+{% configuration %}
+username:
+  description: Dyson account username (email address).
+  required: true
+  type: string
+password:
+  description: Dyson account password.
+  required: true
+  type: string
+language:
+  description: "Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
+  required: true
+  type: string
+devices:
+  description: List of devices.
+  required:  false
+  type: map
+  keys:
+    device_id:
+      description: Device ID. The Serial Number of the device. Found in the smart phone app device settings page.
+      required: true
+      type: string
+    device_ip:
+      description: Device IP address.
+      required: true
+      type: string
+{% endconfiguration %}
 
 The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 
