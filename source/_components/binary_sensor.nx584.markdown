@@ -41,7 +41,7 @@ exclude_zones:
   required: false
   type: [list, integer]
 zone_types:
-  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones belowe. 
+  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below. 
   required: false
   type: map
   keys:
