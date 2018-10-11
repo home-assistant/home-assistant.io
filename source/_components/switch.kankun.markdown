@@ -39,31 +39,32 @@ switches:
     identifier:
       description: Name of the Kankun switch as slug. Multiple entries are possible.
       required: true
-      type: string
-    host:
-      description: Hostname or IP address of the switch on the local network.
-      required: true
-      type: string
-    name:
-      description: Friendly name of the switch.
-      required: false
-      type: string
-    port:
-      description: HTTP connection port.
-      required: false
-      default: 80
-      type: integer
-    patch:
-      description: Path of CGI script.
-      required: false
-      default: "/cgi-bin/json.cgi"
-      type: string
-    username:
-      description: Username for basic authentication.
-      required: false
-      type: string
-    password:
-      description: Password for basic authentication.
-      required: false
-      type: string
+      type: map
+      keys:
+        host:
+          description: Hostname or IP address of the switch on the local network.
+          required: true
+          type: string
+        name:
+          description: Friendly name of the switch.
+          required: false
+          type: string
+        port:
+          description: HTTP connection port.
+          required: false
+          default: 80
+          type: integer
+        patch:
+          description: Path of CGI script.
+          required: false
+          default: "/cgi-bin/json.cgi"
+          type: string
+        username:
+          description: Username for basic authentication.
+          required: false
+          type: string
+        password:
+          description: Password for basic authentication.
+          required: false
+          type: string
 {% endconfiguration %}
