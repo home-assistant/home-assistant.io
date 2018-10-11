@@ -45,11 +45,11 @@ woeid:
   required: false
   description: See above.
   type: string
-  default: 0
 forecast:
   required: false
   description: Day of forecast. The default is the current day to display conditions.
   type: integer
+  default: 0
 name:
   required: false
   description: "The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option."
