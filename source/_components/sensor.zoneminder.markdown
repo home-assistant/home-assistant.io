@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events and the current state of the cameras.
+The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
 
 <p class='note'>
 You must have the [ZoneMinder component](/components/zoneminder/) configured to use this sensor.
