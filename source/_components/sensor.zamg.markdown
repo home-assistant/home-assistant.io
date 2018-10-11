@@ -29,15 +29,19 @@ sensor:
 station_id:
   required: false
   description: The ID number for a supported ZAMG station.
+  type: string
 name:
   required: false
   description: Additional name for the sensors. Defaults to platform name.
+  type: string
 latitude:
   required: false
   description: "Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file."
+  type: string
 longitude:
   required: false
   description: "Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file."
+  type: string
 monitored_conditions:
   required: false
   description: Conditions to display in the frontend.
