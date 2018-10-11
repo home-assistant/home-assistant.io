@@ -10,7 +10,7 @@ footer: true
 logo: transport_nsw.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: "0.80"
+ha_release: 0.81
 ---
 
 
