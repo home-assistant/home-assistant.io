@@ -41,9 +41,22 @@ exclude_zones:
   required: false
   type: [list, integer]
 zone_types:
-  description: "This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`."
+  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones belowe. 
   required: false
-  type: [string, integer]
+  type: map
+  keys:
+    opening:
+      description: Opening
+    motion:
+      description: Motion
+    gas:
+      description: Gas
+    smoke:
+      description: Smoke
+    moisture:
+      description: Moisture
+    safety:
+      description: Safety
 {% endconfiguration %}
 
 An extended configuration entry could look like this:
