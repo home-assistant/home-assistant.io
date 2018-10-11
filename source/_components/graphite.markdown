@@ -23,7 +23,7 @@ graphite:
 
 {% configuration %}
 host:
-  description: IP address of your graphite host, eg. http://192.168.1.10.
+  description: IP address of your graphite host, e.g., http://192.168.1.10.
   required: false
   type: string
   default: localhost
