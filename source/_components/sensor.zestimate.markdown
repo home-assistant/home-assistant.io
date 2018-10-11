@@ -36,11 +36,11 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: The API key to access the service. Obtain yours using the Zillow API 
+  description: The API key to access the service. Obtain yours using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm) 
   required: true
   type: string
 zpid:
-  description: Property IDs to track in the front end.
+  description: Property IDs to track in the front end. Can be found in it's Zillow URL as described above. Include only the numbers, do not include the "_zpid" 
   required: true
   type: list
 {% endconfiguration %}
