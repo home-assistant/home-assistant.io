@@ -25,12 +25,39 @@ binary_sensor:
   platform: nx584
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
-- **port** (*Optional*): The port where the server process is running. Defaults to `5007`. 
-- **exclude_zones** (*Optional*): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
-- **zone_types** (*Optional*): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`.
+{% configuration %}
+host:
+  description: This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: The port where the server process is running.
+  required: false
+  default: 5007
+  type: integer
+exclude_zones:
+  description: This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
+  required: false
+  type: [list, integer]
+zone_types:
+  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below. 
+  required: false
+  type: map
+  keys:
+    opening:
+      description: Opening
+    motion:
+      description: Motion
+    gas:
+      description: Gas
+    smoke:
+      description: Smoke
+    moisture:
+      description: Moisture
+    safety:
+      description: Safety
+{% endconfiguration %}
 
 An extended configuration entry could look like this:
 
