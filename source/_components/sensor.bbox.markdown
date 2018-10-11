@@ -40,12 +40,12 @@ monitored_variables:
   required: true
   type: list
   keys:
-  down_max_bandwidth:
-    description: Maximum bandwidth available for download.
-  up_max_bandwidth:
-    description: Maximum bandwidth available for upload.
-  current_down_bandwidth:
-    description: Instant measure of the current used bandwidth for download.
-  current_up_bandwidth:
-    description: Instant measure of the current used bandwidth for upload.
+    down_max_bandwidth:
+      description: Maximum bandwidth available for download.
+    up_max_bandwidth:
+      description: Maximum bandwidth available for upload.
+    current_down_bandwidth:
+      description: Instant measure of the current used bandwidth for download.
+    current_up_bandwidth:
+      description: Instant measure of the current used bandwidth for upload.
 {% endconfiguration %}
