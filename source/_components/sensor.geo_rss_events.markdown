@@ -54,6 +54,16 @@ name:
   required: false
   type: string
   default: Event Service
+latitude:
+  description: Latitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Latitude entered in homeassistant component
+longitude:
+  description: Longitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Longitude entered in homeassistant component
 radius:
   description: The distance in kilometers around the Home Assistant's coordinates in which events are considered.
   required: false
