@@ -42,7 +42,7 @@ password:
   required: true
   type: string
 language:
-  description: Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported.
+  description: "Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
   required: true
   type: string
 devices:
@@ -58,7 +58,6 @@ devices:
       description: Device IP address.
       required: true
       type: string
-
 {% endconfiguration %}
 
 The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
