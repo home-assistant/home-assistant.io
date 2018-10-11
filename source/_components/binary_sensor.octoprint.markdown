@@ -16,5 +16,5 @@ ha_iot_class: "Local Polling"
 The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
 
 <p class='note'>
-You must have the [OctoPrint component](/components/octoprint/) configured to use this binary sensor. After configuring that component, binary sensors automatically appears.
+You must have the [OctoPrint component](/components/octoprint/) configured to use this binary sensor. After configuring that component, binary sensors automatically appear.
 </p>

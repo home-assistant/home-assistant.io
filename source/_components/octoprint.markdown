@@ -27,74 +27,77 @@ octoprint:
 ```
 
 {% configuration %}
-host:
-  description: IP address or hostname of Octoprint host.
+octoprint:
+  type: list
   required: true
-  type: string
-api_key:
-  description: The retrieved api key.
-  required: true
-  type: string
-name:
-  description: The name for this printer, must be unique if multiple printers are defined.
-  required: false
-  type: string
-  default: 'OctoPrint'
-port:
-  description: The port of the Octoprint server.
-  required: false
-  type: integer
-  default: 80
-ssl:
-  description: Enable or disable SSL
-  required: false
-  type: boolean
-  default: false
-bed:
-  description: If the printer has a heated bed.
-  required: false
-  type: boolean
-  default: false
-number_of_tools:
-  description: Number of temperature adjustable tools. i.e. nozzle.
-  required: false
-  type: integer
-  default: 1
-sensors:
-  description: Configuration for the sensors
-  required: false
-  type: map
   keys:
-    monitored_conditions:
-        description: The sensors to activate
-        type: list
-        default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
-        keys:
-          "Current State":
-            description: Text of current state.
-          "Temperatures":
-            description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-          "Job Percentage":
-            description: Percentage of the job.
-          "Time Elapsed":
-            description: Time elapsed on current print job, in seconds.
-          "Time Remaining":
-            description: Time remaining on current print job, in seconds.
-
-binary_sensors:
-  description: Configuration for the binary sensors
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-        description: The sensors to activate
-        type: list
-        default: all (`Printing`, `Printing Error`)
-        keys:
-          "Printing":
-            description: State of the printer.
-          "Printing Error":
-            description: Error while printing.
+    host:
+      description: IP address or hostname of Octoprint host.
+      required: true
+      type: string
+    api_key:
+      description: The retrieved api key.
+      required: true
+      type: string
+    name:
+      description: The name for this printer, must be unique if multiple printers are defined.
+      required: false
+      type: string
+      default: 'OctoPrint'
+    port:
+      description: The port of the Octoprint server.
+      required: false
+      type: integer
+      default: 80
+    ssl:
+      description: Enable or disable SSL
+      required: false
+      type: boolean
+      default: false
+    bed:
+      description: If the printer has a heated bed.
+      required: false
+      type: boolean
+      default: false
+    number_of_tools:
+      description: Number of temperature adjustable tools. i.e. nozzle.
+      required: false
+      type: integer
+      default: 1
+    sensors:
+      description: Configuration for the sensors
+      required: false
+      type: map
+      keys:
+        monitored_conditions:
+          description: The sensors to activate
+          type: list
+          default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
+          keys:
+            "Current State":
+              description: Text of current state.
+            "Temperatures":
+              description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+            "Job Percentage":
+              description: Percentage of the job.
+            "Time Elapsed":
+              description: Time elapsed on current print job, in seconds.
+            "Time Remaining":
+              description: Time remaining on current print job, in seconds.
+    binary_sensors:
+      description: Configuration for the binary sensors
+      required: false
+      type: map
+      keys:
+        monitored_conditions:
+          description: The sensors to activate
+          type: list
+          default: all (`Printing`, `Printing Error`)
+          keys:
+            "Printing":
+              description: State of the printer.
+            "Printing Error":
+              description: Error while printing.
 {% endconfiguration %}
 
 <p class='note'>
