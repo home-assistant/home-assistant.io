@@ -40,12 +40,12 @@ latitude:
   required: false
   description: "Latitude coordinate to monitor weather of (required if **longitude** is specified)."
   default: "Defaults to coordinates defined in your `configuration.yaml` file."
-  type: string
+  type: float
 longitude:
   required: false
   description: "Longitude coordinate to monitor weather of (required if **latitude** is specified)."
   default: "Defaults to coordinates defined in your `configuration.yaml` file."
-  type: string
+  type: float
 {% endconfiguration %}
 
 <p class='note'>
