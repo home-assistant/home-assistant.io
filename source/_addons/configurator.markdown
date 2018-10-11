@@ -119,6 +119,14 @@ loglevel:
   description: You can change the logging level from the default value info if you want to. Valid values are debug, info, warning, error, critical.
   required: false
   type: string
+sesame:
+  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while allowed_networks is set to [] and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
+  required: false
+  type: string
+sesame_totp_secret:
+  description: Like the sesame option, but instead as Base32 encoded secret string must be provided. This string then can be added to a TOTP App like Google Authenticator. This way you get a 6-digit sesame that changes every 30 seconds.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='note warning'>
