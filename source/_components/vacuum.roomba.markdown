@@ -29,14 +29,35 @@ vacuum:
     password: PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): Hostname or IP address of the Roomba.
-- **username** (*Required*): The username (BLID) for your device.
-- **password** (*Required*): The password for your device.
-- **name** (*Optional*): The name of the vacuum.
-- **certificate** (*Optional*): Path to your certificate store. Defaults to `/etc/ssl/certs/ca-certificates.crt`.
-- **continuous** (*Optional*): Whether to operate in continuous mode. Defaults to `True`.
+{% configuration %}
+host:
+  description: Hostname or IP address of the Roomba.
+  required: true
+  type: string
+username:
+  description: The username (BLID) for your device.
+  required: true
+  type: string
+password:
+  description: The password for your device.
+  required: true
+  type: string
+name:
+  description: The name of the vacuum.
+  required: false
+  default: Roomba
+  type: string
+certificate:
+  description: Path to your certificate store.
+  required: false
+  default: /etc/ssl/certs/ca-certificates.crt
+  type: string
+continuous:
+  description: Whether to operate in continuous mode.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
 <p class='note'>
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
