@@ -15,18 +15,30 @@ ha_iot_class: "Cloud Polling"
 
 With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
 
+## {% linkable_title Setup %}
+
+Create a GitHub [access token](https://github.com/settings/tokens) with the following scopes:
+
+- **read:org**
+- **user:email**
+- **repo_deployment**
+- **repo:status**
+- **write:repo_hook**
+
+## {% linkable_title Configuration %}
+
 To enable this platform, please add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: travisci
-    api_key: 123456789
+    api_key: YOUR_ACCESS_TOKEN
 ```
 
 {% configuration %}
 api_key:
-  description: "GitHub [access token](https://github.com/settings/tokens) with the following scopes: *read:org*, *user:email*, *repo_deployment*, *repo:status*, *write:repo_hook*."
+  description: The acces token for GitHub.
   required: true
   type: string
 branch:
