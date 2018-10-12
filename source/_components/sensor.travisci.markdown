@@ -34,11 +34,6 @@ branch:
   required: false
   default: master
   type: string
-scan_interval:
-  description: How frequently to query for new data.
-  required: false
-  default: 30
-  type: integer
 monitored_conditions:
   description: Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.
   required: false
