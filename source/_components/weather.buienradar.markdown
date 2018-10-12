@@ -41,7 +41,7 @@ longitude:
   required: false
   type: float
 forecast:
-  description: 'True' to add a temperature forecast, 'False' to suppress it.
+  description: "'True' to add a temperature forecast, 'False' to suppress it."
   required: false
   default: true
   type: boolean
