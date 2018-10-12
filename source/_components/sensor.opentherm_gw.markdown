@@ -23,8 +23,8 @@ Configuration of this platform is achieved through the [OpenTherm Gateway Hub](/
 The following is a list of all supported variables, in alphabetical order, which can be exported as sensors. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` component and look for the status updates.
 
 Most variable names are self-explanatory if you keep in mind that `master` is your thermostat, `slave` is your boiler, `otgw` is your OpenTherm Gateway, `ch` stands for 'central heating' and `dhw` for 'domestic hot water'.
-* `ch_burner_hours`
-* `ch_burner_starts`
+* `burner_hours`
+* `burner_starts`
 * `ch_pump_hours`
 * `ch_pump_starts`
 * `ch_water_pressure`
