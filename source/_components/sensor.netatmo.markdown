@@ -40,11 +40,6 @@ sensor:
 ```
 
 {% configuration %}
-name:
-  description: Additional name for the sensors.
-  required: false
-  type: string
-  default: yr
 station:
   required: false
   description: The name of the weather station. Needed if several stations are associated with the account.
