@@ -60,22 +60,22 @@ Configuration variables:
 
 {% configuration %}
 host:
-  description: The host where `firetv-server` is running. Default is localhost
+  description: "The host where `firetv-server` is running"
   required: false
   type: string
   default: localhost
 port:
-  description: The port where `firetv-server` is running. Default is 5556
+  description: "The port where `firetv-server` is running"
   required: false
   type: integer
   default: 5556
 device:
-  description: The device ID. Defaults to `default`
+  description: "The device ID. Defaults to `default`"
   required: false
   type: string
   default: default
 name:
-  description: The friendly name of the device, default is "Amazon Fire TV"
+  description: The friendly name of the device
   required: false
   type: string
   default: Amazon Fire TV
