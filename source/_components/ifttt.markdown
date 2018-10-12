@@ -34,9 +34,10 @@ You can then consume that information with the following automation:
 ```yaml
 automation:
   trigger:
-    event: ifttt_webhook_received
+    platform: event
+    event_type: ifttt_webhook_received
     event_data:
-      action: call_service
+     action: call_service
   action:
     service_template: '{% raw %}{{ trigger.event.data.service }}{% endraw %}'
     data_template:
