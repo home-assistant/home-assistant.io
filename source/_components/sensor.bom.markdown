@@ -64,6 +64,7 @@ To get the station ID for any BOM station:
 - The URL will look like: http://www.bom.gov.au/products/IDx60801/[station].shtml
  - For Adelaide, the URL will look like `http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml`; the station ID is `IDS60801.94675`.
 
+
 To add the BOM weather forecast to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
