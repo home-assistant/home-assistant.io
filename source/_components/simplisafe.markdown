@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: simplisafe.png
-ha_release: 0.80
+ha_release: 0.81
 ha_category: Alarm
 ---
 
