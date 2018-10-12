@@ -46,12 +46,12 @@ mode:
 latitude:
   required: false
   description: Latitude of the location to display the weather.
-  default: "Defaults to the latitude in your `configuration.yaml` file."
+  default: "The latitude in your `configuration.yaml` file."
   type: float
 longitude:
   required: false
   description: Longitude of the location to display the weather.
-  default: "Defaults to the longitude in your `configuration.yaml` file."
+  default: "The longitude in your `configuration.yaml` file."
   type: float
 {% endconfiguration %}
 
