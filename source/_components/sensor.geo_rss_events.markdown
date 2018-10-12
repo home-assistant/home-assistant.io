@@ -58,12 +58,12 @@ latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false
   type: string
-  default: Latitude entered in homeassistant component
+  default: Latitude defined in your `configuration.yaml`
 longitude:
   description: Longitude of the coordinates around which events are considered.
   required: false
   type: string
-  default: Longitude entered in homeassistant component
+  default: Longitude defined in your `configuration.yaml`
 radius:
   description: The distance in kilometers around the Home Assistant's coordinates in which events are considered.
   required: false
