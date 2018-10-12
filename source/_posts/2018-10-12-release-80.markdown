@@ -1,17 +1,15 @@
 ---
 layout: post
-title: "0.80: TO DO - UPDATE DATE"
-description: "TBD"
-date: 2018-10-05 00:01:00
+title: "0.80: Lovelace updates, webhooks, TRÅDFRI switches"
+description: "Hacktoberfest is in full swing and we got a whole boat of new features."
+date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-10-release-80/components.png
+og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
-
-<a href='/components/#version/0.80'><img src='/images/blog/2018-10-release-80/components.png' style='border: 0;box-shadow: none;'></a>
 
 October 12, 2018. 12 days into Hacktoberfest and it's been busier than ever on the repositories. On the main repo, 43 open, 104 closed. How the documentation team is still alive, I don't know: 26 open, 234 closed. If you've opened a contribution that is pending a response, that's probably because we're busy elsewhere or are taking some well deserved rest.
 
@@ -29,13 +27,7 @@ Next up is a new way to get data into Home Assistant: webhooks. With the introdu
 Configuring IFTTT via th integrations panel.
 </p>
 
-On the devices side, we got basic support for the new IKEA TRADFRI switches.
-
-Allow setting up MQTT broker from Hass.io via a config entry
-
-IFTTT config entry and new webhook
-
-Tradfri Switches
+On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Honeywell evohome controllers (EU-based) and if you want to control your pool, you can now do that with the new AquaLogic integration.
 
 ## {% linkable_title New Platforms %}
 
@@ -67,19 +59,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## {% linkable_title Breaking Changes %}
 
 - Add additional Netatmo public data sensors ([@GP8x] - [#16671]) ([netatmo docs]) ([sensor.netatmo_public docs]) (breaking change)
-- Update cover tests ([@cdce8p] - [#16832]) ([cover docs]) (breaking change)
-- Remove service helper (3) ([@cdce8p] - [#16879]) ([duckdns docs]) ([google_assistant docs]) ([group docs]) ([homematic docs]) ([image_processing docs]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) (breaking change)
-- Use HA native OAuth2 flow for google assistant components ([@awarecan] - [#16848]) ([google_assistant docs]) (breaking change)
-- Remove service helper (2) ([@cdce8p] - [#16863]) ([alarm_control_panel docs]) ([automation docs]) ([camera docs]) ([climate docs]) ([counter docs]) ([fan docs]) (breaking change)
-- Remove service helper (4) ([@cdce8p] - [#16892]) ([lock docs]) ([media_player docs]) ([notify docs]) ([remote docs]) ([scene docs]) ([timer docs]) ([vacuum docs]) (breaking change)
-- Remove service helper (5) ([@cdce8p] - [#16917]) ([config docs]) ([device_sun_light_trigger docs]) ([light docs]) ([script docs]) ([switch docs]) ([switch.flux docs]) (breaking change)
-- Remove service helper (6) ([@cdce8p] - [#16920]) ([automation docs]) ([config docs]) ([device_tracker docs]) ([group docs]) (breaking change)
-- Rachio component modernization ([@OverloadUT] - [#16911]) ([rachio docs]) ([binary_sensor.rachio docs]) ([switch.rachio docs]) (breaking change)
-- Remove alert service helper ([@cdce8p] - [#17038]) ([alert docs]) (breaking change)
-- Remove service helper (8) ([@cdce8p] - [#17055]) ([config docs]) ([ffmpeg docs]) ([keyboard docs]) ([logger docs]) ([microsoft_face docs]) (breaking change)
+- Developers only: we have removed all service helpers (like turn_on method in light coponent), as they werent used. ([@cdce8p] - [#16832], [#16879], [#16863], [#16892], [#16920], [#17038], [#17055], [#16917])
+- Google Assistant: configuration has been simplified and relies on HA native OAuth2 flow ([@awarecan] - [#16848]) ([google_assistant docs]) (breaking change)
+- Rachio component has been modernized. The Rachio component no longer requires you to specify switch and binary_sensor platforms. These platforms will be initialized automatically by the Rachio component. ([@OverloadUT] - [#16911]) ([rachio docs]) ([binary_sensor.rachio docs]) ([switch.rachio docs]) (breaking change)<br><br>For the end user, this means:
+   - Remove switch and binary_sensor entries with platform: rachio
+   - If you configured manual_run_mins on the switch platform, move that parameter to the rachio: component configuration.
+
 - Overhaul of Blink platform ([@fronzbot] - [#16942]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs]) (breaking change) (new-platform)
-- Tibber component and notify ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
-- Remove discovery ([@balloob] - [#17070]) ([hue docs]) (breaking change)
+
+  - No more notification sensor, since the Blink API no longer supports it
+  - motion can now be detected either with the blink sensor
+        `binary_sensor.blink_nameofcamera_motion_detected` or through a camera's attributes with the `motion_detected` key.
+  - `blink.snap_picture` service has been renamed to `blink.trigger_camera`
+  - Camera names now prefaced with `blink`, ie. `camera.blink_nameofcamera`
+
+- Tibber has moved from sensor configuration to component configuration ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
+- A manually configured Hue component will no longer run a discovery. Set up via config entry if you want to rely on discovery.  ([@balloob] - [#17070]) ([hue docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
@@ -146,7 +141,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use HA native OAuth2 flow for google assistant components ([@awarecan] - [#16848]) ([google_assistant docs]) (breaking change)
 - Remove service helper (2) ([@cdce8p] - [#16863]) ([alarm_control_panel docs]) ([automation docs]) ([camera docs]) ([climate docs]) ([counter docs]) ([fan docs]) (breaking change)
 - Revert incorrect check ([@balloob] - [#16883]) ([media_player.soundtouch docs])
-- Added support for private storage. ([@nickovs] - [#16878]) ([onboarding docs])
+- Added support for private storage. ([@nickovs] - [#16878])
 - Fix example for long-lived access token WS API ([@awarecan] - [#16882]) ([auth docs])
 - Add bitwise operations as template helpers ([@blakeblackshear] - [#16833])
 - Telegram_bot polling support proxy_url and proxy_params (Fix #15746) ([@Anonym-tsk] - [#16740]) ([telegram_bot docs])
