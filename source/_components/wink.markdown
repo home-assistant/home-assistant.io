@@ -57,13 +57,29 @@ wink:
   client_secret: YOUR_WINK_CLIENT_SECRET
 ```
 
-Configuration variables:
-
-- **email** (*Required for legacy OAuth*): Your Wink login email.
-- **password** (*Required for legacy OAuth*): Your Wink login password.
-- **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
-- **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
-- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+{% configuration %}
+email:
+  description: Your Wink login email.
+  required: required for legacy OAuth
+  type: string
+password:
+  description: Your Wink login password.
+  required: required for legacy OAuth
+  type: string
+client_id:
+  description: Your provided Wink client_id.
+  required: required for legacy OAuth
+  type: string
+client_secret:
+  description: Your provided Wink client_secret.
+  required: required for legacy OAuth
+  type: string
+local_control:
+  description: If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 Local control:
 - Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
