@@ -8,10 +8,28 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-10-release-0.80/components.png
+og_image: /images/blog/2018-10-release-80/components.png
 ---
 
-Hacktoberfest!!
+<a href='/components/#version/0.80'><img src='/images/blog/2018-10-release-80/components.png' style='border: 0;box-shadow: none;'></a>
+
+October 12, 2018. 12 days into Hacktoberfest and it's been busier than ever on the repositories. On the main repo, 43 open, 104 closed. How the documentation team is still alive, I don't know: 26 open, 234 closed. If you've opened a contribution that is pending a response, that's probably because we're busy elsewhere or are taking some well deserved rest.
+
+Alright, new release, we got some cool stuff! Let's start with our [Lovelace UI](/lovelace). We have integrated into Lovelace UI some of the custom cards that our amazing community have built, making them easily accessible to all users. The cards are [Gauge][ll-gauge] and [Sensor][ll-sensor]:
+
+[ll-gauge]: /lovelace/gauge/
+[ll-sensor]: /lovelace/sensor/
+
+<img src='/images/blog/2018-10-release-80/lovelace-glance-sensor.png' alt='Screenshot of new Gauge and Sensor cards' style='border: 0;box-shadow: none;'>
+
+Next up is a new way to get data into Home Assistant: webhooks. With the introduction of auth and with the introduction of long-lived access tokens, we realized that it's still annoying to have to give full HA access to an app just to get a piece of information in Home Assistant. So with webhooks we can generate unique URLs that are inprobable to guess, and data delivered to the webhook will only go to the designated automation or component. This feature is available for component developers to integrate, or for users via the new automation [webhook trigger](/docs/automation/trigger/#webhook-trigger).
+
+<p class='img'>
+<img src='/images/blog/2018-10-release-80/config-ifttt.png' alt='Screenshot of configuring IFTTT'>
+Configuring IFTTT via th integrations panel.
+</p>
+
+On the devices side, we got basic support for the new IKEA TRADFRI switches.
 
 Allow setting up MQTT broker from Hass.io via a config entry
 
@@ -21,18 +39,16 @@ Tradfri Switches
 
 ## {% linkable_title New Platforms %}
 
-- Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs]) (new-platform)
 - GitLab-CI sensor integration addition. ([@DanielWinks] - [#16561]) ([sensor.gitlab_ci docs]) (new-platform)
 - Add support for Opple light ([@jedmeng] - [#16765]) ([light.opple docs]) (new-platform)
 - Add (EU-based) Honeywell evohome CH/DHW controller ([@zxdavb] - [#16427]) ([evohome docs]) ([climate.evohome docs]) ([climate.honeywell docs]) (new-platform)
 - Add webhook + IFTTT example ([@balloob] - [#16817]) ([ifttt docs]) ([webhook docs]) (new-platform)
 - Add basic support for Tradfri switches ([@ggravlingen] - [#17007]) ([tradfri docs]) ([switch.tradfri docs]) (new-platform)
-- Break up websocket component ([@balloob] - [#17003]) ([camera docs]) ([config docs]) ([media_player docs]) ([websocket_api docs]) (new-platform)
 - Add AquaLogic component ([@swilson] - [#16763]) ([aqualogic docs]) ([sensor.aqualogic docs]) ([switch.aqualogic docs]) (new-platform)
 - Overhaul of Blink platform ([@fronzbot] - [#16942]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs]) (breaking change) (new-platform)
-- Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs]) (new-platform)
 - Tibber component and notify ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
 - Add new component fritzbox binary_sensor ([@hthiery] - [#17057]) ([fritzbox docs]) ([binary_sensor.fritzbox docs]) (new-platform)
+- Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -65,10 +81,39 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber component and notify ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
 - Remove discovery ([@balloob] - [#17070]) ([hue docs]) (breaking change)
 
+## {% linkable_title Beta Fixes %}
+
+- Fix incorrect yaml in hangouts ([@balloob] - [#17169]) (beta fix)
+- Fix data used for logbook ([@balloob] - [#17172]) ([logbook docs]) (beta fix)
+- Fix device_tracker service call & cleanup ([@cdce8p] - [#17173]) ([alert docs]) ([device_sun_light_trigger docs]) ([device_tracker docs]) ([notify docs]) ([switch.flux docs]) (beta fix)
+- Bugfix switch flux - light service call ([@cdce8p] - [#17187]) ([switch.flux docs]) (beta fix)
+- Upgrade aiolifx_effects to 0.2.1 ([@amelchio] - [#17188]) ([light.lifx docs]) (beta fix)
+- Verisure standard config for scan interval ([@persandstrom] - [#17192]) ([verisure docs]) (beta fix)
+- Init sub-components using global var. ([@mbrrg] - [#17220]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (beta fix)
+- Prevent accidental device reg override ([@balloob] - [#17136]) (beta fix)
+- MyQ cover return unknown state if not available ([@schmittx] - [#17207]) ([cover.myq docs]) (beta fix)
+- Fix potential MQTT discovery race condition ([@OttoWinter] - [#17208]) ([mqtt docs]) (beta fix)
+- Fix SPC ([@balloob] - [#17236]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (beta fix)
+- Guard for bad device info ([@balloob] - [#17238]) (beta fix)
+- updated georss-client library to 0.3 ([@exxamalte] - [#17239]) ([sensor.geo_rss_events docs]) (beta fix)
+- Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
+- block external IP ([@balloob] - [#17248]) ([emulated_hue docs]) (beta fix)
+- Fix ambient light state of the Philips Eyecare Lamp (Closes: #16269) ([@syssi] - [#17259]) ([light.xiaomi_miio docs]) (beta fix)
+- Add defaults, fixing #17229 ([@StevenLooman] - [#17261]) ([upnp docs]) (beta fix)
+- Remove warning on script delay ([@amelchio] - [#17264]) (beta fix)
+- Hassio auth ([@pvizeli] - [#17274]) ([hassio docs]) (beta fix) (new-platform)
+- Fix hassio discovery ([@pvizeli] - [#17275]) ([hassio docs]) (beta fix)
+- fixed 'on_startup() takes 0 positional arguments but 1 was given' ([@PaulAnnekov] - [#17295]) ([sensor.miflora docs]) (beta fix)
+- Logbook: filter by entity and period ([@Anonym-tsk] - [#17095]) ([logbook docs]) (beta fix)
+- Fix samsung bug ([@arsaboo] - [#17285]) ([media_player.samsungtv docs]) (beta fix)
+- Allow tradfri groups for new imported entries ([@MartinHjelmare] - [#17310]) ([tradfri docs]) (beta fix)
+- Fix auth for hass.io ([@pvizeli] - [#17318]) ([hassio docs]) (beta fix)
+- Hass.io auth/sso part2 ([@pvizeli] - [#17324]) ([hassio docs]) (beta fix) (new-platform)
+
 ## {% linkable_title All changes %}
 
 - Add mode (daily/hourly) to darksky ([@randellhodges] - [#16719]) ([weather docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
-- Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs]) (new-platform)
+- Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs])
 - Remove discovered MQTT alarm_control_panel device when discovery topic is cleared ([@emontnemery] - [#16825]) ([alarm_control_panel.mqtt docs])
 - Remove discovered MQTT light device when discovery topic is cleared ([@emontnemery] - [#16824]) ([light.mqtt docs])
 - Add unique_id to homematic_cloud ([@sander76] - [#16828]) ([homematicip_cloud docs])
@@ -149,7 +194,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix MQTT discovery ([@OttoWinter] - [#17004]) ([mqtt docs])
 - Upgrade huawei-lte-api to 1.0.16 ([@scop] - [#16972]) ([huawei_lte docs])
 - Upgrade locationsharinglib to 3.0.3 ([@fabaff] - [#17010]) ([device_tracker docs])
-- Break up websocket component ([@balloob] - [#17003]) ([camera docs]) ([config docs]) ([media_player docs]) ([websocket_api docs]) (new-platform)
+- Break up websocket component ([@balloob] - [#17003]) ([camera docs]) ([config docs]) ([media_player docs]) ([websocket_api docs])
 - :hammer: update errors ([@timmo001] - [#17029]) ([switch.rest docs])
 - Add new device attributes to fritzbox climate ([@hthiery] - [#17027]) ([fritzbox docs]) ([climate.fritzbox docs])
 - Bump Enphase_Envoy dependency for older models ([@DavidDeSloovere] - [#17032]) ([sensor.enphase_envoy docs])
@@ -183,7 +228,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pyenvisalink ([@Cinntax] - [#17086]) ([envisalink docs])
 - Async response all the things ([@balloob] - [#17073]) ([config docs]) ([websocket_api docs])
 - Add optional headers configuration for scrape ([@dippysan] - [#17085]) ([sensor.scrape docs])
-- Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs]) (new-platform)
+- Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs])
 - Keep the repeat mode when setting Sonos shuffle mode ([@amelchio] - [#17083]) ([media_player.sonos docs])
 - Smaller steps for Sonos volume up/down ([@amelchio] - [#17080]) ([media_player.sonos docs])
 - Add weather condition code to OpenWeatherMap sensor ([@dbilay] - [#17093]) ([sensor.openweathermap docs])
@@ -220,6 +265,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix miflora connection errors during platform setup ([@PaulAnnekov] - [#16798]) ([sensor.miflora docs])
 - Discover Danfoss/devolo RS Room Sensor thermostat ([@prophit987] - [#17153]) ([zwave docs])
 - @danielhiversen as codeowner for Tibber ([@prophit987] - [#17154])
+- Fix incorrect yaml in hangouts ([@balloob] - [#17169]) (beta fix)
+- Fix data used for logbook ([@balloob] - [#17172]) ([logbook docs]) (beta fix)
+- Fix device_tracker service call & cleanup ([@cdce8p] - [#17173]) ([alert docs]) ([device_sun_light_trigger docs]) ([device_tracker docs]) ([notify docs]) ([switch.flux docs]) (beta fix)
+- Bugfix switch flux - light service call ([@cdce8p] - [#17187]) ([switch.flux docs]) (beta fix)
+- Upgrade aiolifx_effects to 0.2.1 ([@amelchio] - [#17188]) ([light.lifx docs]) (beta fix)
+- Verisure standard config for scan interval ([@persandstrom] - [#17192]) ([verisure docs]) (beta fix)
+- Init sub-components using global var. ([@mbrrg] - [#17220]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (beta fix)
+- Prevent accidental device reg override ([@balloob] - [#17136]) (beta fix)
+- MyQ cover return unknown state if not available ([@schmittx] - [#17207]) ([cover.myq docs]) (beta fix)
+- Fix potential MQTT discovery race condition ([@OttoWinter] - [#17208]) ([mqtt docs]) (beta fix)
+- Fix SPC ([@balloob] - [#17236]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (beta fix)
+- Guard for bad device info ([@balloob] - [#17238]) (beta fix)
+- updated georss-client library to 0.3 ([@exxamalte] - [#17239]) ([sensor.geo_rss_events docs]) (beta fix)
+- Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
+- block external IP ([@balloob] - [#17248]) ([emulated_hue docs]) (beta fix)
+- Fix ambient light state of the Philips Eyecare Lamp (Closes: #16269) ([@syssi] - [#17259]) ([light.xiaomi_miio docs]) (beta fix)
+- Add defaults, fixing #17229 ([@StevenLooman] - [#17261]) ([upnp docs]) (beta fix)
+- Remove warning on script delay ([@amelchio] - [#17264]) (beta fix)
+- Hassio auth ([@pvizeli] - [#17274]) ([hassio docs]) (beta fix) (new-platform)
+- Fix hassio discovery ([@pvizeli] - [#17275]) ([hassio docs]) (beta fix)
+- fixed 'on_startup() takes 0 positional arguments but 1 was given' ([@PaulAnnekov] - [#17295]) ([sensor.miflora docs]) (beta fix)
+- Logbook: filter by entity and period ([@Anonym-tsk] - [#17095]) ([logbook docs]) (beta fix)
+- Fix samsung bug ([@arsaboo] - [#17285]) ([media_player.samsungtv docs]) (beta fix)
+- Allow tradfri groups for new imported entries ([@MartinHjelmare] - [#17310]) ([tradfri docs]) (beta fix)
+- Fix auth for hass.io ([@pvizeli] - [#17318]) ([hassio docs]) (beta fix)
+- Hass.io auth/sso part2 ([@pvizeli] - [#17324]) ([hassio docs]) (beta fix) (new-platform)
 
 [#16427]: https://github.com/home-assistant/home-assistant/pull/16427
 [#16560]: https://github.com/home-assistant/home-assistant/pull/16560
@@ -351,6 +422,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17091]: https://github.com/home-assistant/home-assistant/pull/17091
 [#17092]: https://github.com/home-assistant/home-assistant/pull/17092
 [#17093]: https://github.com/home-assistant/home-assistant/pull/17093
+[#17095]: https://github.com/home-assistant/home-assistant/pull/17095
 [#17096]: https://github.com/home-assistant/home-assistant/pull/17096
 [#17098]: https://github.com/home-assistant/home-assistant/pull/17098
 [#17099]: https://github.com/home-assistant/home-assistant/pull/17099
@@ -366,6 +438,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17131]: https://github.com/home-assistant/home-assistant/pull/17131
 [#17132]: https://github.com/home-assistant/home-assistant/pull/17132
 [#17135]: https://github.com/home-assistant/home-assistant/pull/17135
+[#17136]: https://github.com/home-assistant/home-assistant/pull/17136
 [#17143]: https://github.com/home-assistant/home-assistant/pull/17143
 [#17144]: https://github.com/home-assistant/home-assistant/pull/17144
 [#17145]: https://github.com/home-assistant/home-assistant/pull/17145
@@ -374,6 +447,30 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17150]: https://github.com/home-assistant/home-assistant/pull/17150
 [#17153]: https://github.com/home-assistant/home-assistant/pull/17153
 [#17154]: https://github.com/home-assistant/home-assistant/pull/17154
+[#17169]: https://github.com/home-assistant/home-assistant/pull/17169
+[#17172]: https://github.com/home-assistant/home-assistant/pull/17172
+[#17173]: https://github.com/home-assistant/home-assistant/pull/17173
+[#17187]: https://github.com/home-assistant/home-assistant/pull/17187
+[#17188]: https://github.com/home-assistant/home-assistant/pull/17188
+[#17192]: https://github.com/home-assistant/home-assistant/pull/17192
+[#17207]: https://github.com/home-assistant/home-assistant/pull/17207
+[#17208]: https://github.com/home-assistant/home-assistant/pull/17208
+[#17220]: https://github.com/home-assistant/home-assistant/pull/17220
+[#17236]: https://github.com/home-assistant/home-assistant/pull/17236
+[#17238]: https://github.com/home-assistant/home-assistant/pull/17238
+[#17239]: https://github.com/home-assistant/home-assistant/pull/17239
+[#17246]: https://github.com/home-assistant/home-assistant/pull/17246
+[#17248]: https://github.com/home-assistant/home-assistant/pull/17248
+[#17259]: https://github.com/home-assistant/home-assistant/pull/17259
+[#17261]: https://github.com/home-assistant/home-assistant/pull/17261
+[#17264]: https://github.com/home-assistant/home-assistant/pull/17264
+[#17274]: https://github.com/home-assistant/home-assistant/pull/17274
+[#17275]: https://github.com/home-assistant/home-assistant/pull/17275
+[#17285]: https://github.com/home-assistant/home-assistant/pull/17285
+[#17295]: https://github.com/home-assistant/home-assistant/pull/17295
+[#17310]: https://github.com/home-assistant/home-assistant/pull/17310
+[#17318]: https://github.com/home-assistant/home-assistant/pull/17318
+[#17324]: https://github.com/home-assistant/home-assistant/pull/17324
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@Cinntax]: https://github.com/Cinntax
 [@DanielWinks]: https://github.com/DanielWinks
@@ -387,6 +484,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OverloadUT]: https://github.com/OverloadUT
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@SNoof85]: https://github.com/SNoof85
+[@StevenLooman]: https://github.com/StevenLooman
 [@amelchio]: https://github.com/amelchio
 [@anapaulagomes]: https://github.com/anapaulagomes
 [@andersonshatch]: https://github.com/andersonshatch
@@ -416,6 +514,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jeradM]: https://github.com/jeradM
 [@kirichkov]: https://github.com/kirichkov
 [@lwis]: https://github.com/lwis
+[@mbrrg]: https://github.com/mbrrg
 [@mvn23]: https://github.com/mvn23
 [@nickovs]: https://github.com/nickovs
 [@no2chem]: https://github.com/no2chem
@@ -426,9 +525,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@randellhodges]: https://github.com/randellhodges
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@sander76]: https://github.com/sander76
+[@schmittx]: https://github.com/schmittx
 [@scop]: https://github.com/scop
 [@siom79]: https://github.com/siom79
 [@swilson]: https://github.com/swilson
+[@syssi]: https://github.com/syssi
 [@thomasloven]: https://github.com/thomasloven
 [@timmo001]: https://github.com/timmo001
 [@tsvi]: https://github.com/tsvi
@@ -437,10 +538,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
 [alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
+[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
 [alert docs]: /components/alert/
 [aqualogic docs]: /components/aqualogic/
 [auth docs]: /components/auth/
 [automation docs]: /components/automation/
+[automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
 [binary_sensor.blink docs]: /components/binary_sensor.blink/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
 [binary_sensor.ffmpeg_motion docs]: /components/binary_sensor.ffmpeg_motion/
@@ -450,6 +553,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.openuv docs]: /components/binary_sensor.openuv/
 [binary_sensor.ping docs]: /components/binary_sensor.ping/
 [binary_sensor.rachio docs]: /components/binary_sensor.rachio/
+[binary_sensor.spc docs]: /components/binary_sensor.spc/
 [blink docs]: /components/blink/
 [bmw_connected_drive docs]: /components/bmw_connected_drive/
 [camera docs]: /components/camera/
@@ -466,10 +570,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [counter docs]: /components/counter/
 [cover docs]: /components/cover/
 [cover.mqtt docs]: /components/cover.mqtt/
+[cover.myq docs]: /components/cover.myq/
 [device_sun_light_trigger docs]: /components/device_sun_light_trigger/
 [device_tracker docs]: /components/device_tracker/
 [device_tracker.tile docs]: /components/device_tracker.tile/
 [duckdns docs]: /components/duckdns/
+[emulated_hue docs]: /components/emulated_hue/
 [envisalink docs]: /components/envisalink/
 [evohome docs]: /components/evohome/
 [fan docs]: /components/fan/
@@ -500,6 +606,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.mqtt docs]: /components/light.mqtt/
 [light.mqtt_json docs]: /components/light.mqtt_json/
 [light.opple docs]: /components/light.opple/
+[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
 [lock docs]: /components/lock/
 [lock.mqtt docs]: /components/lock.mqtt/
 [logbook docs]: /components/logbook/
@@ -538,6 +645,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.tibber docs]: /components/sensor.tibber/
 [sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
 [sonos docs]: /components/sonos/
+[spc docs]: /components/spc/
 [switch docs]: /components/switch/
 [switch.aqualogic docs]: /components/switch.aqualogic/
 [switch.flux docs]: /components/switch.flux/
