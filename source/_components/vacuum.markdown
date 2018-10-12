@@ -29,7 +29,7 @@ Before calling one of these services, make sure your vacuum platform supports it
 
 #### {% linkable_title Service `vacuum.turn_on` %}
 
-Start a new cleaning task. For the Xiaomi Vacuum and neato use `vacuum.start` instead.
+Start a new cleaning task. For the Xiaomi Vacuum and Neato use `vacuum.start` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -37,7 +37,7 @@ Start a new cleaning task. For the Xiaomi Vacuum and neato use `vacuum.start` in
 
 #### {% linkable_title Service `vacuum.turn_off` %}
 
-Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and neato use `vacuum.stop` instead.
+Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and Neato use `vacuum.stop` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
