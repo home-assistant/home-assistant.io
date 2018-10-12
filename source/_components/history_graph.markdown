@@ -30,8 +30,6 @@ history_graph:
   
 ```
 
-### {% linkable_title Configuration variables %}
-
 {% configuration %}
 entities:
   description: List of entities whose history to show as a graph.
