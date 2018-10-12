@@ -22,14 +22,40 @@ zoneminder:
   host: ZM_HOST
 ```
 
-Configuration variables:
-- **host** (*Required*): Your ZoneMinder server's host (and optional port), not including the scheme.
-- **path** (*Optional*): Path to your ZoneMinder install. Defaults to `/zm/`.
-- **path_zms** (*Optional*): Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings. Defaults to `/zm/cgi-bin/nph-zms`.
-- **ssl** (*Optional*): Set to `true` if your ZoneMinder installation is using SSL. Default to `false`.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `true`.
-- **username** (*Optional*): Your ZoneMinder username.
-- **password** (*Optional*): Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+{% configuration %}
+host:
+  description: Your ZoneMinder server's host (and optional port), not including the scheme.
+  required: true
+  type: string
+path:
+  description: Path to your ZoneMinder install.
+  required: false
+  default: "`/zm/`"
+  type: string
+path_zms:
+  description: Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings.
+  required: false
+  default: "`/zm/cgi-bin/nph-zms`"
+  type: string
+ssl:
+  description: Set to `true` if your ZoneMinder installation is using SSL.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  default: true
+  type: boolean
+username:
+  description: Your ZoneMinder username.
+  required: false
+  type: string
+password:
+  description: Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Full configuration %}
 
