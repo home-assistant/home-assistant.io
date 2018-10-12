@@ -48,7 +48,7 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: Verify the certification of the endpoint.
+  description: Your ZoneMinder username.
   required: false
   type: string
 password:
