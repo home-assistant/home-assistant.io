@@ -64,11 +64,45 @@ To get the station ID for any BOM station:
 - The URL will look like: http://www.bom.gov.au/products/IDx60801/[station].shtml
  - For Adelaide, the URL will look like `http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml`; the station ID is `IDS60801.94675`.
 
+
+To add the BOM weather forecast to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: bom
+    station: IDS60801.94675
+    name: Adelaide
+    monitored_conditions:
+      - apparent_t
+      - cloud
+      - cloud_base_m
+    product_id: IDV10450
+    forecast_days: 3
+    rest_of_today: True
+    monitored_conditions:
+      - 'max'
+      - 'min'
+      - 'chance_of_rain'
+      - 'possible_rainfall'
+      - 'summary'
+      - 'detailed_summary'
+      - 'icon'
+```
+
+To get the Product ID for any BOM city:
+- Go to [this](http://www.bom.gov.au/nsw/observations/map.shtml) website and search for "City Forecast", or "Town Forecast".
+- The Product ID for your city will be in the left most column, and will look like "IDV10450"
+
 Configuration variables:
 
 - **station** (*Optional*): The station ID string as identified from the BOM website.  If not given, defaults to the closest station.
 - **name** (*Optional*): The name you would like to give to the weather station.
 - **monitored_conditions** (*Required*): A list of the conditions to monitor.
+- **product_id** (*Optional*): The Product ID string as identified from the BOM website.  If not given, defaults to the closest city or town.
+- **forecast_days** (*Optional*): The number of days of forecast you would like, maximum is 6. If not given, defaults to 0.
+- **rest_of_today** (*Optional*): Would you like to create a sensor for the forecast for the rest of today. Defaults to false.
+- **forecast_conditions** (*Optional*): A list of the conditions to monitor.
 
 <p class='note'>
 This sensor is an alternative to the [`bom`](/components/weather.bom/) weather platform.
