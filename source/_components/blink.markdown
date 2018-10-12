@@ -65,6 +65,12 @@ sensors:
             default: all (`battery`, `temperature`, `status`, `wifi_strength`)
 {% endconfiguration %}
 
+Once home-assistant starts, the `blink` component will create the following components:
+
+- An `alarm_control_panel` to arm/disarm the whole blink system (note, `alarm_arm_home` is not implemented and will not actually do anything, despite it being an option in the GUI).
+- A `camera` for each camera linked to your Blink sync module.
+- A `sensor` per camera for every item listed in `monitored_conditions` (if no items specified in your `configuration.yaml`, all of them will be added by default).
+- A `binary_sensor` for each item listed in `monitored_conditions` (if no items specified in your `configuration.yaml`, all of them will be added by default).
 
 Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
@@ -126,3 +132,7 @@ homeassistant:
         - '/tmp'
         - '/path/to/whitelist'
 ```
+
+### {% linkable_title Other Services %}
+
+In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well.  The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system.  The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively. 
