@@ -31,6 +31,8 @@ Configuration variables:
 - **name** (*Optional*): The name you would like to give to the receiver.
 - **port** (*Optional*): The port on which the Pioneer device listens, e.g., `23` (default) or `8102`
 - **timeout** (*Optional*): Number of seconds (float) to wait for blocking operations like connect, write, and read.
+- **step_volume** (*Optional*): Use volume stepping instead of setting volume values. Required by some Pioneer devices.
+- **input_scan** (*Optional*): Disable scanning input sources and use a preset list of known inputs.
 
 Notes:
 
