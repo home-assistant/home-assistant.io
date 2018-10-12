@@ -35,7 +35,7 @@ api_key:
   required: true
   type: string
 secret_key:
-  description: The `client secret` form your Netatmo app.
+  description: The `client secret` from your Netatmo app.
   required: true
   type: integer
 username:
@@ -47,7 +47,7 @@ password:
   required: true
   type: string
 discovery:
-  description: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add 
+  description: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add.
   required: false
   type: string
   default: true
