@@ -29,11 +29,19 @@ camera:
   - platform: netatmo
 ```
 
-Configuration variables:
-
-- **home** (*Optional*): Will display the cameras of this home only.
-- **cameras** array (*Optional*): Cameras to use. Multiple entities allowed.
-    - **camera_name**: Name of the camera to display.
+{% configuration %}
+home:
+  description: Will display the cameras of this home only.
+  required: false
+  type: string
+cameras:
+  description: Cameras to use. Multiple entities allowed.
+  required: false
+  type: list
+  keys:
+    camera_name:
+      description: Name of the camera to display.
+{% endconfiguration %}
 
 If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.
 
