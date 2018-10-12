@@ -43,7 +43,7 @@ name:
 device_class:
   description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   required: false
-  type: string
+  type: device_class
 {% endconfiguration %}
 
 EnOcean binary sensors only generate 'button_pressed' events. The event data has following four fields:
