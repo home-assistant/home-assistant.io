@@ -30,24 +30,62 @@ axis:
       - camera
 ```
 
-## {% linkable_title Configuration variables %}
-
-- **device** (*Required*): Unique name 
-- **host** (*Required*): The IP address to your Axis device.
-- **username** (*Optional*): The username to your Axis device. Default 'root'.
-- **password** (*Optional*): The password to your Axis device. Default 'pass'.
-- **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
-- **port** (*Optional*): Configure port web server of device is accessible from. Default 80.
-- **location** (*Optional*): Physical location of your Axis device. Default not set.
-- **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
-  - **camera**: Stream MJPEG video to Home Assistant.
-  - **motion**: The built-in motion detection in Axis cameras.
-  - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection.
-  - **pir**: PIR sensor that can trigger on a motion.
-  - **sound**: Sound detector.
-  - **daynight**: Certain cameras have day/night mode if they have built-in IR lights.
-  - **tampering**: Signals when camera believes that it has been tampered with.
-  - **input**: Trigger on whatever you have connected to device input port.
+{% configuration %}
+device:
+  description: A unique name
+  required: true
+  type: string
+host:
+  description: The IP address to your Axis device.
+  required: true
+  type: string
+username:
+  description: The username to your Axis device.
+  required: false
+  default: root
+  type: string
+password:
+  description: The password to your Axis device.
+  required: false
+  default: pass
+  type: string
+trigger_time:
+  description: Minimum time (in seconds) a sensor should keep its positive value.
+  required: false
+  default: 0
+  type: integer
+port:
+  description: Configure port web server of device is accessible from.
+  required: false
+  default: 80
+  type: integer
+location:
+  description: Physical location of your Axis device.
+  required: false
+  default: not set
+  type: string
+include:
+  description: This cannot be empty else there would be no use adding the device at all.
+  required: true
+  type: map
+  keys:
+    camera:
+      description: Stream MJPEG video to Home Assistant.
+    motion:
+      description: The built-in motion detection in Axis cameras.
+    vmd3:
+      description: ACAP Motion Detection app which has better algorithms for motion detection.
+    pir:
+      description: PIR sensor that can trigger on a motion.
+    sound:
+      description: Sound detector.
+    daynight:
+      description: Certain cameras have day/night mode if they have built-in IR lights.
+    tampering:
+      description: Signals when camera believes that it has been tampered with.
+    input:
+      description: Trigger on whatever you have connected to device input port.
+{% endconfiguration %}
 
 A full configuration example could look like this:
 

@@ -31,15 +31,20 @@ weather:
   - platform: yweather
 ```
 
-Configuration variables:
-
-- **woeid** (*Optional*): See above.
-- **name** (*Optional*): The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option. Defaults to `Yweather`. 
-
+{% configuration %}
+woeid:
+  description: Your Where On Earth ID, see above for all the info.
+  required: false
+  type: integer
+name:
+  description: The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option.
+  required: false
+  default: yweather
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
-This platform is an alternative to the [`yweather`](/components/sensor.yweather/) sensor. 
+This platform is an alternative to the [`yweather`](/components/sensor.yweather/) sensor.
 </p>
 
 Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
-

@@ -69,12 +69,25 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
-- **username** (*Required*): The username of an user with administrative privileges, usually *root*.
-- **password** (*Required*): The password for your given account.
-- **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`. Defaults to `dnsmasq`.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges, usually `root`.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+dhcp_software:
+  description: "The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`."
+  required: false
+  default: dnsmasq
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 

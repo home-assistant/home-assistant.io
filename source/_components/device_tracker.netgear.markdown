@@ -26,16 +26,42 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **url** (*Optional*): The base URL, e.g., `http://routerlogin.com:5000` for example. If not provided `host` and `port` are used. If none provided autodetection of the URL will be used.
-- **host** (*Optional*): The IP address of your router, e.g., `192.168.1.1`.
-- **port** (*Optional*): The port your router communicates with.
-- **username** (*Optional*): The username of a user with administrative privileges. If not provided `admin` will be used.
-- **password** (*Required*): The password for your given admin account.
-- **devices** (*Optional*): If provided only specified devices will be reported. Can be MAC address or the device name as reported in the Netgear UI.
-- **exclude** (*Optional*): Devices to exclude from the scan.
-- **accesspoints** (*Optional*): Also track devices on the specified APs. Only supports MAC address.
+{% configuration %}
+url:
+  description: The base URL, e.g., `http://routerlogin.com:5000` for example. If not provided `host` and `port` are used. If none provided autodetection of the URL will be used.
+  required: false
+  type: string
+host:
+  description: The IP address of your router, e.g., `192.168.1.1`.
+  required: false
+  type: string
+port:
+  description: The port your router communicates with.
+  required: false
+  default: 5000
+  type: integer
+username:
+  description: The username of a user with administrative privileges.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+devices:
+  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the Netgear UI.
+  required: false
+  type: list
+exclude:
+  description: Devices to exclude from the scan.
+  required: false
+  type: list
+accesspoints:
+  description: Also track devices on the specified APs. Only supports MAC address.
+  required: false
+  type: list
+{% endconfiguration %}
 
 When `accesspoints` is specified an extra device will be reported for each device connected to the APs specified here, as `MY-LAPTOP on RBS40`. `Router` will be reported as AP name for the main AP. Only tested with Orbi.
 

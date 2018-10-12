@@ -13,7 +13,7 @@ ha_release: 0.49
 ha_iot_class: "Local Polling"
 ---
 
-[Velux](http://www.velux.com) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com)  devices like windows and blinds. The module allows you to start scenes configured within KLF 200. 
+[Velux](http://www.velux.com) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com)  devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
 
 A `velux` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -24,7 +24,13 @@ velux:
   password: "velux123"
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of the KLF 200 to use.
-- **password** (*Required*): The password of the KLF 200 interface. 
+{% configuration %}
+host:
+  description: The IP address or hostname of the KLF 200 to use.
+  required: true
+  type: string
+password:
+  description: The password of the KLF 200 interface.
+  required: true
+  type: string
+{% endconfiguration %}

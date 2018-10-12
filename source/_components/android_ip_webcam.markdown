@@ -25,48 +25,91 @@ android_ip_webcam:
   - host: 192.168.1.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP Address of the phone on the network.
-- **port** (*Optional*): Default is set 8080. The port the IP Webcam listens on.
-- **name** (*Optional*): Override the name of the phone.
-- **username** (*Optional*): The username to access the phone.
-- **password** (*Optional*): The password to access the phone.
-- **scan_interval** (*Optional*): Default is 10 seconds. Defines the update interval of the phone.
-- **sensors** array (*Optional*): Conditions to display sensor in the frontend. See the list of supported sensors.
-- **switches** array (*Optional*): Conditions to display settings in the frontend. See the list of supported settings.
-- **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
+{% configuration %}
+host:
+  description: The IP Address of the phone on the network.
+  required: true
+  type: string
+port:
+  description: The port the IP Webcam listens on.
+  required: false
+  default: 8080
+  type: integer
+name:
+  description: Override the name of the phone.
+  required: false
+  default: IP Webcam
+  type: string
+username:
+  description: The username to access the phone.
+  required: inclusive
+  type: string
+password:
+  description: The password to access the phone.
+  required: inclusive
+  type: string
+scan_interval:
+  description: Defines the update interval of the phone.
+  required: false
+  default: 10
+  type: integer
+sensors:
+  description: Conditions to display sensor in the frontend. See the list of supported sensors.
+  required: false
+  type: list
+  keys:
+    audio_connections:
+      description: Audio Connections
+    battery_level:
+      description: Battery Level
+    battery_temp:
+      description: Battery Temperature
+    battery_voltage:
+      description: Battery Voltage
+    light:
+      description: Light Level
+    motion:
+      description: Motion
+    pressure:
+      description: Pressure
+    proximity:
+      description: Proximity
+    sound:
+      description: Sound
+    video_connections:
+      description: Video Connections
+switches:
+  description: Conditions to display settings in the frontend. See the list of supported switches.
+  required: false
+  type: list
+  keys:
+    exposure_lock:
+      description: Exposure Lock
+    ffc:
+      description: Front-facing Camera
+    focus:
+      description: Focus
+    gps_active:
+      description: GPS Active
+    night_vision:
+      description: Night Vision
+    overlay:
+      description: Overlay
+    torch:
+      description: Torch
+    whitebalance_lock:
+      description: White Balance Lock
+    video_recording:
+      description: Video Recording
+motion_sensor:
+  description: Activate motion sensor if auto_discovery is disabled.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
 <p class='note'>
   You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
 </p>
-
-### {% linkable_title Supported features %}
-
-Sensors:
-
-- audio_connections
-- battery_level
-- battery_temp
-- battery_voltage
-- light
-- motion
-- pressure
-- proximity
-- sound
-- video_connections
-
-Settings (Switches):
-
-- exposure_lock
-- ffc
-- focus
-- gps_active
-- night_vision
-- overlay
-- torch
-- whitebalance_lock
-- video_recording
 
 ## {% linkable_title Full example %}
 

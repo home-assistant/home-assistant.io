@@ -294,7 +294,7 @@ action:
 
 When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
-- If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
+- If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor or light sensor) you could set up an automation like this:
 
   ```yaml
   automation:
@@ -309,7 +309,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         service: homematic.reconnect
   ```
 
-- If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 

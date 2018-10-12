@@ -60,3 +60,4 @@ panel_iframe:
             type: icon
 {% endconfiguration %}
 
+<p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>

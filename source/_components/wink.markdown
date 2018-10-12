@@ -141,7 +141,7 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
 
 - GoControl siren and strobe
 - Dome siren/chime/strobe
-- Quirky Nimbus (Legacy device) These can no longer be officialy added to your Wink account
+- Quirky Nimbus (Legacy device) These can no longer be officially added to your Wink account
 
 
 ### {% linkable_title Service `set_siren_auto_shutoff` %}
@@ -290,7 +290,7 @@ script:
 
 ### {% linkable_title Service `set_nimbus_dial_state` %}
 
-You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and it's labels
+You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and its labels
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

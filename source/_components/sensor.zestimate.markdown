@@ -19,7 +19,7 @@ The `zestimate` sensor allows one to track the Zestimate value of properties usi
 
 You will need to sign up for the Zillow API at the following link [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). You will also need the Zillow property ID for each property you'd like to track. This information is available from the URL of a property you are interested in. 
 
-For example, the White House zpid is 84074482 and can be found in it's Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
+For example, the White House zpid is 84074482 and can be found in its Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
 
 To enable this sensor, add the following lines to your `configuration.yaml`.
 

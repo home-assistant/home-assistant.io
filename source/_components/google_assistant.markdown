@@ -192,3 +192,7 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 
     proxy_pass http://localhost:8123;
+
+### {% linkable_title Unlink and relink %}
+
+If you're having trouble with *Account linking failed* after you unlinked your service, try clearing the browser history and cache.

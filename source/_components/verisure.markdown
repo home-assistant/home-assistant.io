@@ -33,17 +33,57 @@ verisure:
   password: PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username to Verisure mypages.
-- **password** (*Required*): The password to Verisure mypages.
-- **alarm** (*Optional*): Set to 1 to show alarm, 0 to disable. Default 1.
-- **hygrometers** (*Optional*): Set to 1 to show hygrometers, 0 to disable. Default 1.
-- **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
-- **locks** (*Optional*): Set to 1 to show locks, 0 to disable. Default 1.
-- **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
-- **mouse** (*Optional*): Set to 1 to show mouse detectors, 0 to disable. Default 1.
-- **door_window** (*Optional*): Set to 1 to show door and window sensors, 0 to disable. Default 1.
-- **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
-- **giid** (*Optional*): The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'
-- **scan_interval** (*Optional*): Scan interval in ```hh:mm:ss``` format. Default ```00:01:00```
+{% configuration %}
+username:
+  description: The username to Verisure mypages.
+  required: true
+  type: string
+password:
+  description: The password to Verisure mypages.
+  required: true
+  type: string
+alarm:
+  description: Set to true to show alarm, false to disable.
+  required: false
+  default: true
+  type: boolean
+hygrometers:
+  description: Set to true to show hygrometers, false to disable.
+  required: false
+  default: true
+  type: boolean
+smartplugs:
+  description: Set to true to show smartplugs, false to disable.
+  required: false
+  default: true
+  type: boolean
+locks:
+  description: Set to true to show locks, false to disable.
+  required: false
+  default: true
+  type: boolean
+thermometers:
+  description: Set to true to show thermometers, false to disable.
+  required: false
+  default: true
+  type: boolean
+mouse:
+  description: Set to true to show mouse detectors, false to disable.
+  required: false
+  default: true
+  type: boolean
+door_window:
+  description: Set to true to show mouse detectors, false to disable.
+  required: false
+  default: true
+  type: boolean
+code_digits:
+  description: Number of digits in PIN code.
+  required: false
+  default: 4
+  type: integer
+giid:
+  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
+  required: false
+  type: string
+{% endconfiguration %}

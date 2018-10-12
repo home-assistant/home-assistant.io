@@ -21,7 +21,7 @@ This component provides the following platforms:
  - Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
  - Device tracker: The location of your car.
  - Lock: Control the lock of your car.
- - Sensors: Mileage, remaining range, remaining fuel, charging time remaing (electric cars), charging status (electric cars), remaing range electric (electric cars).
+ - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
 
 To enable this component in your installation, add the following to your
 `configuration.yaml` file:

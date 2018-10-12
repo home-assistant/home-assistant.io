@@ -29,7 +29,7 @@ Configuration variables:
 
 - **name** (*Required*): The internal name of the product in Home Assistant.
 - **product_id** (*Required*): ID of the product. Get the ID from the Geizhals website of your chosen product by opening the *Price History* in a new browser tab (right-click on the price history > open in new tab).
-The URL of this site reveals the ID, e.g. `https://geizhals.de/?phist=1696985` with a `product_id` of `1696985`.
+The URL of this site reveals the ID, e.g., `https://geizhals.de/?phist=1696985` with a `product_id` of `1696985`.
 - **description** (*Optional*): The name of the product in the front end.
 - **locale** (*Optional*): Localisation which should be used for the request. Set this to `AT`, `EU`, `DE`, `UK` or `PL`. Defaults to `DE`.
 
