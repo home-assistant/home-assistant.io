@@ -21,7 +21,7 @@ This sensor is particularly useful if events occur unexpectedly in the vicinity 
   <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
 </p>
 
-The reference point for comparing the distance is defined by `latitude` and `longitude` in the basic configuration.
+The reference point for comparing the distance is by default defined by `latitude` and `longitude` in the basic configuration.
 
 Only entries of the feed are considered that define a location as `point` or `polygon` in *georss.org* format or as *WGS84 latitude/longitude*.
 
