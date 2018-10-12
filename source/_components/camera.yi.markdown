@@ -77,7 +77,7 @@ host:
   required: true
   type: string
 password:
-  description: The password to the FTP server on the camera (from above), can be any string as the current firmware doesn't allow setting ftp passwords.
+  description: The password for the FTP server running on the camera. Can be any string as the current firmware doesn't allow setting FTP passwords.
   required: true
   type: string
 path:
