@@ -13,7 +13,6 @@ ha_release: 0.31
 ha_iot_class: "Local Polling"
 ---
 
-
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 
 <p class='note'>
@@ -30,11 +29,16 @@ switch:
     command_off: Monitor
 ```
 
-Configuration variables:
-
-- **command_on** (*Required*): The function you want the camera to run when turned on.
-- **command_off** (*Required*): The function you want the camera to run when turned off.
-
+{% configuration %}
+command_on:
+  description: The function you want the camera to run when turned on.
+  required: true
+  type: string
+command_off:
+  description: The function you want the camera to run when turned off.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 The default functions installed by ZoneMinder are: None, Monitor, Modect, Record, Mocord, Nodect.
