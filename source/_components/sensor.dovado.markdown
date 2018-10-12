@@ -13,7 +13,7 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-The `dovado` platform let you monitor your router from [Dovado](http://www.dovado.com/)
+The `dovado` platform let you monitor your router from [Dovado](http://www.dovado.com/). If the router provides SMS functionality, a service for sending SMS will also be registered in Home Assistant.
 
 To add a Dovado sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -47,16 +47,18 @@ port:
   type: integer
   default: 6435
 sensors:
-  description: Conditions to display in the frontend.
+  description: Conditions to display in the frontend. Only accepts the values listed here.
   required: true
   type: list
+  keys:
+      network:
+        description: Creates a sensor for Network State (3G, 4G, etc.)
+      signal:
+        description: Creates a sensor for the signal strength (%).
+      download:
+        description: Creates a sensor for download speed.
+      upload:
+        description: Creates a sensor for download speed.
+      sms:
+        description: Creates a sensor for number of unread text messages.
 {% endconfiguration %}
-
-Allowed values under *sensors*:
-- **network**: Network state (3G, 4G, etc).
-- **signal**: The signal strength (%).
-- **download**: The download speed.
-- **upload**: The upload speed.
-- **sms**: Number of unread text messages
-
-If the router provides SMS functionality, a service for sending SMS will also be registered in Home Assistant.
