@@ -52,15 +52,15 @@ value_on:
     description: The value returned when the device is "on".
     type: string
 timeout:
-    required: true
+    required: false
     description: How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
     type: integer
 value_template:
-    required: true
+    required: false
     description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
     type: string
 buffer_size:
-    required: true
+    required: false
     description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
     type: integer
 {% endconfiguration %}
