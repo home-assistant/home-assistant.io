@@ -30,9 +30,9 @@ api_key:
   required: true
   type: string
 branch:
-  description: Determine which default branch should be used by the **state** condition.
+  description: "Determine which default branch should be used by the **state** condition."
   required: false
-  default: "*master*"
+  default: master
   type: string
 scan_interval:
   description: How frequently to query for new data.
@@ -53,9 +53,9 @@ monitored_conditions:
     last_build_started_at:
       description: Return the timestamp of when the last test job started.
     last_build_state:
-      description: Return the state from the latest test job/PR. The conditions can be: 'passed', 'failed' or 'started'.
+      description: "Return the state from the latest test job/PR. The conditions can be: 'passed', 'failed' or 'started'."
     state:
-      description: Return the build test from the branch specified at by **branch** parameter.
+      description: "Return the build test from the branch specified at by **branch** parameter."
 repository:
   description: Name from the GitHub repositories to be monitored. If not specified, all GitHub repositories linked to Travis-CI will be enabled by default.
   required: false
