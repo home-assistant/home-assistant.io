@@ -21,13 +21,19 @@ To use your EnOcean device, you first have to set up your [EnOcean hub](../enoce
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - name: Television
-    platform: enocean
+  - platform: enocean
+    name: Television
     id: [0x01,0x90,0x84,0x3C]
 ```
 
-Configuration variables:
-
-- **id** (*Required*): The ID of the device. This is a 4 bytes long number.
-- **platform** (*Required*): Set to `enocean`.
-- **name** (*Required*): An identifier for the switch
+{% configuration %}
+id:
+  description: The ID of the device. This is a 4 bytes long number.
+  required: true
+  type: list
+name:
+  description: An identifier for the switch
+  required: true
+  default: EnOcean sensor
+  type: string
+{% endconfiguration %}
