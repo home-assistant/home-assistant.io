@@ -30,14 +30,27 @@ history_graph:
   
 ```
 
-### {% linkable_title Configuration variables %}
-
-| Attribute                 | Optional | Default | Description                                 |
-|---------------------------|----------|-------------------------------------------------------|
-| `entities`                |   no     |         | List of entities whose history to show as a graph.  |
-| `name`                    |   yes    |  ID     | Name to display. |
-| `hours_to_show`           |   yes    |  24     | Number of hours to show. |
-| `refresh`                 |   yes    |   0     | Number of seconds between graph refreshes. 0 for no refreshes. |
+{% configuration %}
+entities:
+  description: List of entities whose history to show as a graph.
+  required: true
+  type: string
+name:
+  description: Name to display.
+  required: false
+  default: ID
+  type: string
+hours_to_show: 
+  description: Number of hours to show in the graph.
+  required: false
+  default: 24
+  type: integer
+refresh:
+  description: Number of seconds between graph refreshes. 0 to disable refreshing.
+  required: false
+  default: 0
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Full Example %}
 
