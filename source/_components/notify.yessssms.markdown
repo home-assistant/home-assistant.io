@@ -43,5 +43,7 @@ Configuration variables:
 - **recipient** (*Required*): This is the phone number you want to send the SMS notification to.
 
 <p class='note warning'>
-Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you blocked for one hour.
+Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you suspended for one hour.
+Home Assistant will not try to login after the account has been suspended.
+Re-check the credentials and restart Home Assistant.
 </p>

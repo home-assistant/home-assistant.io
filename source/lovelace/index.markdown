@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /components/lovelace/
 ---
 
 <p class='note'>
@@ -116,7 +117,7 @@ views:
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
 ## {% linkable_title Setting Lovelace as the Default UI %}
-Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it. 
+Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it.
 
 Note that this is a per-device setting and will need to be changed on each device you access the UI from.
 

@@ -123,7 +123,7 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'

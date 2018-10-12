@@ -54,10 +54,6 @@ authentication:
   default: basic
 {% endconfiguration %}
 
-<p class='note'>
-There is a <a href="https://github.com/shazow/urllib3/issues/800" target="_blank">known issue in urllib3</a> that you will get error messages in your logs like <code>[StartBoundaryNotFoundDefect(), MultipartInvariantViolationDefect()], unparsed data: ''</code> but the component still works fine. You can ignore the messages.
-</p>
-
 ## {% linkable_title Examples %}
 
 Example of using a DCS-930L Wireless N Network Camera from D-Link:

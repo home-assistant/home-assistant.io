@@ -38,10 +38,10 @@ host:
   required: true
   type: string
 allow_tradfri_groups:
-  description: "Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge."
+  description: "Set this to `true` to allow Home Assistant to import the groups defined on the Trådfri bridge."
   required: false
   type: boolean
-  default: true
+  default: false
 {% endconfiguration %}
 
 
