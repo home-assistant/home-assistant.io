@@ -76,11 +76,11 @@ ssl:
   required: true
   type: string
 certfile:
-  description: Set the path the your SSL certificate if the ssl-option is set to true.
+  description: Set the path the your SSL certificate if the ssl-option is set to `true`.
   required: true
   type: string
 keyfile:
-  description: Set the path the your SSL private key if the ssl-option is set to true.
+  description: Set the path the your SSL private key if the ssl-option is set to `true`.
   required: true
   type: string
 allowed_networks:
@@ -92,7 +92,7 @@ banned_ips:
   required: true
   type: string
 banlimit:
-  description: Ban access from IPs after banlimit failed login attempts. The default value 0 disables this feature. Restart the add-on to clear the list of banned IP addresses.
+  description: Ban access from IPs after `banlimit` failed login attempts. The default value 0 disables this feature. Restart the add-on to clear the list of banned IP addresses.
   required: true
   type: int
 ignore_pattern:
@@ -104,7 +104,7 @@ dirsfirst:
   required: true
   type: string
 enforce_basepath:
-  description: If set to true, access is limited to files within the /config directory.
+  description: If set to `true`, access is limited to files within the `/config` directory.
   required: true
   type: string
 notify_service:
@@ -116,15 +116,15 @@ ignore_ssl:
   required: true
   type: string
 loglevel:
-  description: You can change the logging level from the default value info if you want to. Valid values are debug, info, warning, error, critical.
+  description: You can change the logging level from the default value info if you want to. Valid values are `debug`, `info`, `warning`, `error`, `critical`.
   required: false
   type: string
 sesame:
-  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while allowed_networks is set to [] and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
+  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to [] and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
   required: false
   type: string
 sesame_totp_secret:
-  description: Like the sesame option, but instead as Base32 encoded secret string must be provided. This string then can be added to a TOTP App like Google Authenticator. This way you get a 6-digit sesame that changes every 30 seconds.
+  description: Like the `sesame` option, but instead as Base32 encoded secret string must be provided. This string then can be added to a TOTP App like Google Authenticator. This way you get a 6-digit `sesame` that changes every 30 seconds.
   required: false
   type: string
 {% endconfiguration %}
