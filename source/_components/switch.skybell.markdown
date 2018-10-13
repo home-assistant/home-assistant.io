@@ -30,7 +30,7 @@ switch:
 
 {% configuration %}
 monitored_conditions:
-  description: Conditions to display in the frontend. The following conditions can be monitored.
+  description: Conditions to display in the frontend.
   required: true
   type: list
   keys:
