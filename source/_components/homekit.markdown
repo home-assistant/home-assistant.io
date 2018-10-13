@@ -190,6 +190,8 @@ automation:
         event_type: zwave.network_ready
       - platform: event
         event_type: zwave.network_complete
+      - platform: event
+        event_type: zwave.network_complete_some_dead
     action:
       - service: homekit.start
 ```
