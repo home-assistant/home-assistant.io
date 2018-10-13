@@ -29,20 +29,20 @@ sensor:
 
 {% configuration %}
 username:
-  description: Your username.
+  description: Your Dovado username.
   required: true
   type: string
 password:
-  description: Your password.
+  description: Your Dovado password.
   required: true
   type: string
 host:
-  description: The IP address of your router, e.g., 192.168.1.1
+  description: The IP address of your router.
   required: false
   type: string
   default: Home Assistant's default gateway
 port:
-  description:  The port number of your router, e.g., 999
+  description:  The port number of your router.
   required: false
   type: integer
   default: 6435
@@ -51,14 +51,14 @@ sensors:
   required: true
   type: list
   keys:
-      network:
-        description: Creates a sensor for Network State (3G, 4G, etc.)
-      signal:
-        description: Creates a sensor for the signal strength (%).
-      download:
-        description: Creates a sensor for download speed.
-      upload:
-        description: Creates a sensor for download speed.
-      sms:
-        description: Creates a sensor for number of unread text messages.
+    network:
+      description: Creates a sensor for Network State (3G, 4G, etc.).
+    signal:
+      description: Creates a sensor for the signal strength.
+    download:
+      description: Creates a sensor for download speed.
+    upload:
+      description: Creates a sensor for download speed.
+    sms:
+      description: Creates a sensor for number of unread text messages.
 {% endconfiguration %}
