@@ -26,10 +26,16 @@ twilio:
   auth_token: AUTH_TOKEN_FROM_TWILIO
 ```
 
-Configuration variables:
-
-- **account_sid** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It starts with the letters `AC`.
-- **auth_token** (*Required*): Your Twilio AUTH TOKEN which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`.
+{% configuration %}
+account_sid:
+  description: "Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It starts with the letters `AC`."
+  required: true
+  type: string
+auth_token:
+  description: "Your Twilio AUTH TOKEN which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`."
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) components to utilize the notification functionality.
