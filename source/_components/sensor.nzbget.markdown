@@ -34,13 +34,13 @@ host:
   type: string
   description: IP address where your NZBGet installation is running.
 port:
-  required: integer
-  type: string
+  required: false
+  type: integer
   description: The port of your NZBGet installation.
   default: 6789
 ssl:
-  required: boolean
-  type: string
+  required: false
+  type: boolean
   description: Whether or not to use SSL to access NZBGet.
   default: false
 name:
