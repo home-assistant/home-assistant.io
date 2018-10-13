@@ -36,7 +36,7 @@ port:
   description: The port on which the Nuki bridge is listening on.
   required: false
   default: 8080
-  type: int
+  type: integer
 token:
   description: The token that was defined when setting up the bridge.
   required: true
