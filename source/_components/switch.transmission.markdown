@@ -29,7 +29,7 @@ switch:
 host:
   required: true
   type: string
-  description: This is the IP address of your Transmission daemon, eg., 192.168.1.32.
+  description: This is the IP address of your Transmission daemon, e.g., 192.168.1.32.
 port:
   required: false
   type: integer
