@@ -30,15 +30,18 @@ notify:
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **sender** (*Required*): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.
+- **sender** (*Required*): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, e.g. your_name@jabber.org.
+- **resource** (*Optional*): Resource part of JID. (e.g. your_name@jabber.org/`HA-cabin`, defaults to `home-assistant`)
 - **password** (*Required*): The password for your given Jabber account.
 - **recipient** (*Required*): The Jabber ID (JID) that will receive the messages.
-- **tls** (*Optional*): Allow to disable TLS. Defaults to `true`.
+- **tls** (*Optional*): Force TLS. Defaults to `true`.
 - **verify** (*Optional*): Allow disabling SSL certificate validity check (e.g., self-signed certificate). Defaults to `true`.
-- **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the sender.
+- **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the recipient.
 
 <p class='note'>
-  sleekxmpp, as of version 1.3.2, does not support >TLS1. If you are running your own XMPP server (e.g., Prosody, ejabberd) make sure to allow using TLS1.
+  Pre Home-Assistant 0.80 `sleekxmpp` was used to connect to XMPP-servers. Sleekxmpp as of version 1.3.2, does not support >TLS1. If you are running your own XMPP server (e.g. Prosody, ejabberd) make sure to allow using TLS1.
+
+  Home-Assistant after 0.80 uses `slixmpp`, which also supports TLSv1.1 and TLSv1.2.
 </p>
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
