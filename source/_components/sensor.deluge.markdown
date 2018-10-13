@@ -46,7 +46,7 @@ name:
   default: Deluge
   description: The name to use when displaying this Deluge instance.
 username:
-  required: false
+  required: true
   type: string
   description: Your Deluge daemon username.
 password:
