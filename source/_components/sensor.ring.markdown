@@ -27,7 +27,7 @@ sensor:
 
 {% configuration %}
 monitored_conditions:
-  type: array
+  type: list
   required: false
   description: Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
   battery:
