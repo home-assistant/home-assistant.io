@@ -74,4 +74,80 @@ room:
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+You can send text messages and images as well as other files through Jabber.
+
+Here are some examples on how to set up a script, that can be run from an automation.
+To send files and images, your jabber server must support HTTP upload ([XEP_0363](https://xmpp.org/extensions/xep-0363.html)).
+
+Number 1 shows a classical, text-only message. The Title is optional, although if omitted,
+`Home-Assistant` will be set. To keep it empty set it to `""`.
+
+```yaml
+# Example script.yaml entry
+1_send_jabber_message:
+  alias: "Text only Jabber message"
+  sequence:
+    - service: notify.jabber  # notify.NOTIFIER_NAME
+      data:
+        title: "Optional Title"
+        message: "My funny or witty message"
+```
+
+Number 2 sends only an image, retrieved from the URL.
+
+```yaml
+2_send_jabber_message_with_image_url:
+  alias: "Send Image via Jabber from website"
+  sequence:
+    - service: notify.jabber
+      data:
+        title: ""
+        message: ""
+        data:
+          url: "https://www.graz.at:8443/webcam_neu/getimg.php"
+```
+
+Number 3 sends an image from a local path.
+
+```yaml
+3_send_jabber_message_with_local_image_path:
+  alias: "Send Image via Jabber from local file"
+  sequence:
+    - service: notify.jabber
+      data:
+        title: ""
+        message: ""
+        data:
+          path: "/home/homeassistant/super_view.jpg"
+```
+
+Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files.
+
+```yaml      
+4_send_jabber_message_with_file:
+  alias: "Send text file via Jabber"
+  sequence:
+    - service: notify.jabber
+      data:
+        title: ""
+        message: ""
+        data:
+          url: "https://raw.githubusercontent.com/arsaboo/homeassistant-config/master/HASS%20Cheatsheet.md"
+          path: "Hass_Cheatsheet.txt"
+```
+
+Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
+
+```yaml
+5_send_jabber_message_with_image_and_text:
+  alias: "Send Image and Text via Jabber"
+  sequence:
+    - service: notify.jabber
+      data:
+        title: "The Time is now"
+        message: "{% raw %} {{ {% endraw %}now(){% raw %} }} {% endraw %}, templating works as well..."
+        data:
+          url: "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192.png"
+```
+
+To find out more about notifications, please see the [getting started with automation page](/getting-started/automation/).
