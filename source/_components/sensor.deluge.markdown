@@ -35,11 +35,12 @@ sensor:
 host:
   required: true
   type: string
-  description: This is the IP address of your Deluge daemon, eg. 192.168.1.32.
+  description: This is the IP address of your Deluge daemon, e.g., 192.168.1.32.
 port:
   required: false
   type: integer
-  description: The port your Deluge daemon uses. Defaults to 58846. Warning, this is not the port of the WebUI.
+  description: The port your Deluge daemon uses. Warning, this is not the port of the WebUI.
+  default: 58846
 name:
   required: false
   type: string
