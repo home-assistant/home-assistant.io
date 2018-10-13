@@ -90,7 +90,6 @@ Define the severity map:
 ```yaml
 - type: gauge
   title: With Severity
-  title: CPU Usuage
   unit_of_measurement: '%'
   entity: sensor.cpu_usuage
   severity:
