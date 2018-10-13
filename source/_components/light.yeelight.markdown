@@ -26,11 +26,6 @@ light:
     devices:
       192.168.1.25:
         name: Living Room
-        transition: 1000
-        use_music_mode: True #(defaults to False)
-        save_on_change: True #(defaults to False)
-      192.168.1.13:
-        name: Front Door
 ```
 
 {% configuration %}
@@ -104,3 +99,37 @@ Set an operation mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
+
+## {% linkable_title Examples %}
+
+In this section you find some real-life examples of how to use this light.
+
+### {% linkable_title Full configuration %}
+
+This example shows how you can use the optional configuration options.
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+        transition: 1000
+        use_music_mode: True
+        save_on_change: True
+```
+
+### {% linkable_title Multiple bulbs %}
+
+This example shows how you can add multiple bulbs in your configuration.
+
+```yaml
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+      192.168.1.13:
+        name: Front Door
+```
