@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: route53.png
 ha_category: Network
-featured: false
-ha_release: "0.80"
+ha_release: "0.81"
 ---
 
 With the `route53` component can you keep your AWS Route53 DNS records up to date.
@@ -62,7 +61,6 @@ Here is an IAM Policy sample, don't forget to update your Zone ID on the Resourc
 4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource.
 
 5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the component definition YAML.
-
 
 ## {% linkable_title Configuration %}
 
