@@ -38,13 +38,13 @@ monitored_conditions:
   type: list
   keys:
     weather_temperature:
-      description: Weather temperture
+      description: The current temperture
     weather_humidity:
-      description: Weather humidity
+      description: The current humidity
     weather_condition:
-      description: Weather conditions
+      description: The weather conditions
     wind_speed:
-      description: Wind speed
+      description: The wind speed
     wind_direction:
-      description: Wind direction
+      description: The wind direction
 {% endconfiguration %}
