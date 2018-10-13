@@ -56,8 +56,6 @@ media_player:
   - platform: firetv
 ```
 
-Configuration variables:
-
 {% configuration %}
 host:
   description: "The host where `firetv-server` is running."
