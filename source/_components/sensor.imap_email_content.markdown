@@ -40,6 +40,7 @@ server:
 port:
   description: The port where the server is accessible.
   required: false
+  default: 993
   type: integer
 name:
   description: Name of the IMAP sensor.
