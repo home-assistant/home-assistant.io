@@ -107,7 +107,7 @@ icon:
   type: string
 url:
   required: true
-  description: "Website URL."
+  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
   type: string
 {% endconfiguration %}
 
