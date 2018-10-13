@@ -27,9 +27,18 @@ tellstick:
   host: core-tellstick
   port: [50800, 50801]
 ```
-Configuration variables:
 
-- **signal_repetitions** (*Optional*): Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch and light to try to send each signal repeatedly.
-- **host** (*Optional*): If you run tellstick on another server or with a hass.io add-on.
-- **port** (*Optional*): If needed with host config option. Must be port pair, for example `[50800, 50801]`.
-
+{% configuration %}
+signal_repetitions:
+  description: Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch and light to try to send each signal repeatedly.
+  required: false
+  type: integer
+host:
+  description: If you run tellstick on another server or with a hass.io add-on.
+  required: inclusive
+  type: string
+port:
+  description: If needed with host config option. Must be port pair, for example `[50800, 50801]`.
+  required: inclusive
+  type: list
+{% endconfiguration %}
