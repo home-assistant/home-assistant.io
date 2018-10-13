@@ -38,6 +38,7 @@ server:
 port:
   description: The port where the server is accessible.
   required: false
+  default: 993
   type: integer
 name:
   description: Name of the IMAP sensor.
@@ -54,5 +55,6 @@ password:
 folder:
   description: The IMAP folder to watch.
   required: false
+  default: inbox
   type: string
 {% endconfiguration %}
