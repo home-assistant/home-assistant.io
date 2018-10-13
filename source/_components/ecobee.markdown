@@ -51,10 +51,17 @@ ecobee:
   api_key: asdfghjklqwertyuiopzxcvbnm 
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your ecobee API key. This is only needed for the initial setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the `.homeassistant` configuration path.
-- **hold_temp** (*Optional*): True/False whether or not to hold changes indefinitely (True) or until the next scheduled event. Defaults to `False`.
+{% configuration %}
+api_key:
+  description: Your ecobee API key. This is only needed for the initial setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the `.homeassistant` configuration path.
+  required: true
+  type: string
+hold_temp:
+  description: True/False whether or not to hold changes indefinitely (True) or until the next scheduled event.
+  required: false
+  default: "`false`"
+  type: boolean
+{% endconfiguration %}
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/ecobee-sensor-badges.png' />
