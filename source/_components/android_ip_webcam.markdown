@@ -1,4 +1,4 @@
-f---
+---
 layout: page
 title: "Android IP Webcam"
 description: "Connect Android devices as an IP webcam to Home Assistant"
