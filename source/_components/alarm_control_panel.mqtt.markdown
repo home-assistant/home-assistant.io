@@ -20,6 +20,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - 'disarmed'
 - 'armed_home'
 - 'armed_away'
+- 'armed_night'
 - 'pending'
 - 'triggered'
 
@@ -69,6 +70,11 @@ payload_arm_away:
   required: false
   type: string
   default: ARM_AWAY
+payload_arm_night:
+  description: The payload to set armed-night mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_NIGHT
 code:
   description: If defined, specifies a code to enable or disable the alarm in the frontend.
   required: false
