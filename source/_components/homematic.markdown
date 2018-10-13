@@ -50,7 +50,7 @@ local_ip:
 local_port:
   description: Port for connection with Home Assistant. By default it is randomly assigned.
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 Configuration variables (interface):
@@ -61,9 +61,9 @@ host:
   required: true
   type: string
 port:
-  description: Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
+  description: "Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292."
   required: false
-  type: int
+  type: integer
 callback_ip:
   description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
   required: false
@@ -71,23 +71,16 @@ callback_ip:
 callback_port:
   description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
   required: false
-  type: int
+  type: integer
 resolvenames:
   description: Try to fetch device names. Defaults to `false` if not specified.
   required: false
-  type: map
+  type: string
   default: false
-  keys:
-    metadata:
-      description: Homegear provides device-names through the metadata devices have internally. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
-    json:
-      description: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.
-    xml:
-      description: If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method.
 jsonport:
   description: Port of CCU JSON-RPC Server. The default is 80, but it may be different when running CCU virtually via Docker.
   required: false
-  type: int
+  type: integer
 username:
   description: When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
   required: false
@@ -157,9 +150,9 @@ homematic:
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
-1. `json`
-2. `xml`
-3. `metadata`
+1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.
+2. `xml`: If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method.
+3. `metadata`: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
 
