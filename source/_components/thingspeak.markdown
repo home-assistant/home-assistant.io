@@ -27,9 +27,17 @@ thingspeak:
   whitelist: sensor.yr_temperature
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your ThingSpeak Channel Write API key.
-- **id** (*Required*): The ID of your desired ThingSpeak channel.
-- **whitelist** (*Required*): The name of the entity whose states should be sent to the channel.
-
+{% configuration %}
+api_key:
+  description: Your ThingSpeak Channel Write API key.
+  required: true
+  type: string
+id:
+  description: The ID of your desired ThingSpeak channel.
+  required: true
+  type: integer
+whitelist:
+  description: The name of the entity whose states should be sent to the channel.
+  required: true
+  type: string
+{% endconfiguration %}

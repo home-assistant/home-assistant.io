@@ -95,7 +95,7 @@ homekit:
             required: false
             type: list
       entity_config:
-        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g. `alarm_control_panel.alarm`.
+        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `alarm_control_panel.alarm`.
         required: false
         type: map
         keys:

@@ -16,11 +16,11 @@ This is an advanced feature. If misconfigured, you will not be able to access Ho
 
 Besides the authentication providers, it's also possible to configure multi-factor authentication modules. These authentication modules will require the user to solve a second challenge besides just logging in. The idea is that you ask the user for something they know, their username/password, and something they have, like a time-based authentication token from their phone.
 
-The multi-factor authentication module can be used mixed-matched with authentication providers. After the normal authentication provider validation, the login flow will ask the user for additional challenge(s) if there are multi-factor authentication modules enabled for this user. If more than one mutli-factor authentication module is enabled, the user can select one of them during the login.
+The multi-factor authentication module can be used mixed-matched with authentication providers. After the normal authentication provider validation, the login flow will ask the user for additional challenge(s) if there are multi-factor authentication modules enabled for this user. If more than one multi-factor authentication module is enabled, the user can select one of them during the login.
 
 The multi-factor authentication module has to be enabled for the user before it can be used in the login process. The user can go to the profile page enable it by himself.
 
-## {% linkable_title Configuring mutli-factor authentication modules %}
+## {% linkable_title Configuring multi-factor authentication modules %}
 
 <p class='note warning'>
 By configuring your own instead of using the default configuration, you take full responsibility for the authentication of the system.
@@ -34,13 +34,13 @@ homeassistant:
     - type: totp
 ```
 
-## {% linkable_title Available mutli-factor authentication modules %}
+## {% linkable_title Available multi-factor authentication modules %}
 
 Below is a list of the currently available auth providers.
 
-### {% linkable_title Time-based One-Time Password mutli-factor authentication module %}
+### {% linkable_title Time-based One-Time Password multi-factor authentication module %}
 
-[Time-based One-Time Password](https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm) is widely adopted in modern authencation system, it combines a secret key with the current timestamp using a cryptographic hash function to generate a one-time password. Whoever possessed the secret key will get same one-time password in certain time period. By verifying that password, Home Assistant knows the user have the right secrt key.
+[Time-based One-Time Password](https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm) is widely adopted in modern authentication system, it combines a secret key with the current timestamp using a cryptographic hash function to generate a one-time password. Whoever possessed the secret key will get same one-time password in certain time period. By verifying that password, Home Assistant knows the user have the right secret key.
 
 When trying to set up TOTP module, a QR code will show up. The user can scan it by an authenticator app, or set it up manually using the code showed in the UI. After setup, the user needs to input a six digit number generated in the authenticator app to verify the setup is good. If the verification keeps failing, you need to check whether the clock on Home Assistant is accurate.
 
@@ -60,16 +60,16 @@ homeassistant:
     - type: totp
 ```
 
-### {% linkable_title Notify mutli-factor authentication module %}
+### {% linkable_title Notify multi-factor authentication module %}
 
 Notify MFA module using [notify component](https://www.home-assistant.io/components/notify/) to delivery a [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) to user configured target.
 
-User need first set up the MFA module by select one of the aviliable notify service. A 6 digit one-time password will be sent by this notify service, user need to input it to verify the setup.
+User need first set up the MFA module by select one of the available notify service. A 6 digit one-time password will be sent by this notify service, user need to input it to verify the setup.
 
-During the login process, an 6 digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
+During the login process, a 6 digit one-time password will be sent again, user need to input it to verify his/her identity. If the validation failed, a new one-time password will be sent again.
 
 <p class='note'>
-Notify MFA module would not verify the one-time password deliveried success, so that if user cannot received the message due any reason, he/she may not be login again. Edit or remove `[your_config_dir]/.storage/auth_module.notify` can disable nofiy MFA module to resolve the issue.
+Notify MFA module would not verify the one-time password delivery success, so that if user cannot received the message due any reason, he/she may not be login again. Edit or remove `[your_config_dir]/.storage/auth_module.notify` can disable notify MFA module to resolve the issue.
 </p>
 
 Example of configuration

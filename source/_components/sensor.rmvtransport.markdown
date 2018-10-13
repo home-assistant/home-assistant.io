@@ -28,39 +28,52 @@ sensor:
 ```
 
 {% configuration %}
-name:
-  description: Name to use in the frontend.
+timeout:
+  description: Specify the timeout for the API calls.
   required: false
-  default: The default is the station name.
-  type: string
-stationId:
-  description: ID of the stop or station, e.g. 3000010. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs.
-  required: true
-  type: string
-destinations:
-  description: "One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel."
-  required: false
-  type: [string]
-lines:
-  description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
-  required: false
-  default: The default is the station name.
-  type: [string, int]
-products:
-  description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
-  required: false
-  default: Defaults to all.
-  type: [string]
-time_offset:
-  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
-  required: false
-  default: The defaults is 0.
+  default: 10
   type: integer
-max_journeys:
-  description: Specify the maximal number of journeys.
-  required: false
-  default: The default is 5.
-  type: string
+next_departure:
+  description: One or multiple departure sensors.
+  required: true
+  type: list
+  keys:
+    name:
+      description: Name to use in the frontend.
+      required: false
+      default: The default is the station name.
+      type: string
+    station:
+      description: "ID of the stop or station, e.g. `3000010`. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs."
+      required: true
+      type: string
+    destinations:
+      description: "One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel."
+      required: false
+      type: [string]
+    direction:
+      description: "Name of a stop or station, e.g., 'Frankfurt (Main) Hauptbahnhof'. This can be used to only consider a particular direction of travel."
+      required: false
+      type: [string]
+    lines:
+      description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
+      required: false
+      type: [string, int]
+    products:
+      description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
+      required: false
+      default: ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']
+      type: [string]
+    time_offset:
+      description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+      required: false
+      default: 0
+      type: integer
+    max_journeys:
+      description: Specify the maximal number of journeys.
+      required: false
+      default: 5
+      type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -73,6 +86,8 @@ The example below shows a full configuration with three sensors that showcase th
 # Example configuration.yaml entry
 sensor:
   - platform: rmvtransport
+    scan_interval: 120
+    timeout: 10
     next_departure:
       - station: 3000010
         time_offset: 5

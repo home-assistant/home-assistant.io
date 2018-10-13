@@ -36,11 +36,20 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username of a user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
-- **password** (*Required*): The password for your given admin account.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 For Archer C9 models running firmware version 150811 or later please use the encrypted password you can retrieve like this:
 
@@ -54,6 +63,3 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.
-
-
-

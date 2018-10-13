@@ -10,7 +10,7 @@ footer: true
 ha_category: User Interface
 ---
 
-Using the [generic camera platform] you can present any image on the internet as a camera. Starting release 0.27 these urls can also be based on a template. This example uses this functionality to point a generic camera at the Google Maps static image API and pass in the location of a device.
+Using the [generic camera platform] you can present any image on the internet as a camera. Starting release 0.27 these URLs can also be based on a template. This example uses this functionality to point a generic camera at the Google Maps static image API and pass in the location of a device.
 
 As of June 2018, Google has changed the API limits for static maps. You now need to have a Google Maps API key. Instructions for registering a key can be found  [here](https://github.com/googlemaps/google-maps-services-python#api-keys). Replace `YOUR_API_KEY` with the key you registered.
 

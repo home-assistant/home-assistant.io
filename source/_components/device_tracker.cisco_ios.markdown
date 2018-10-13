@@ -18,7 +18,7 @@ This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devic
 This device tracker needs SSH to be enabled on the router.
 </p>
 
-Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout. 
+Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout.
 
 For example, the following commands will lower the timeout to 2 minutes on Vlan1:
 
@@ -43,7 +43,7 @@ copy running-config startup-config
 ```
 
 <p class='note warning'>
-If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more. 
+If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more.
 </p>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
@@ -57,12 +57,19 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username of an user with administrative privileges.
-- **password** (*Required*): The password for your given admin account.
-
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-

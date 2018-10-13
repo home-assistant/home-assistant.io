@@ -36,10 +36,18 @@ device_tracker:
   - platform: bluetooth_le_tracker
 ```
 
-Configuration variables:
-
-- **track_new_devices** (*Optional*): If new discovered devices are tracked by default. Defaults to `True`.
-- **interval_seconds** (*Optional*): Seconds between each scan for new devices. Defaults to `12` seconds.
+{% configuration %}
+track_new_devices:
+  description: If new discovered devices are tracked by default.
+  required: false
+  default: true
+  type: boolean
+interval_seconds:
+  description: Seconds between each scan for new devices.
+  required: false
+  default: 12
+  type: integer
+{% endconfiguration %}
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.

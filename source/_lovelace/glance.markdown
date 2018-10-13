@@ -75,7 +75,7 @@ tap_action:
   default: more-info
 service:
   required: false
-  description: "For `call-service`, e.g. `media_player.media_play_pause`"
+  description: "For `call-service`, e.g., `media_player.media_play_pause`"
   type: string
 service_data:
   required: false

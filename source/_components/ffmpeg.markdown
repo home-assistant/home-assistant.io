@@ -29,10 +29,18 @@ To set it up, add the following information to your `configuration.yaml` file:
 ffmpeg:
 ```
 
-Configuration variables:
-
-- **ffmpeg_bin** (*Optional*): Default `ffmpeg`. The name or path to the `ffmpeg` binary.
-- **run_test** (*Optional*): Default True. Check if `input` is usable by ffmpeg.
+{% configuration %}
+ffmpeg_bin:
+  description: The name or path to the `ffmpeg` binary.
+  required: false
+  default: ffmpeg
+  type: string
+run_test:
+  description: Check if `input` is usable by ffmpeg.
+  required: false
+  default: True
+  type: boolean
+{% endconfiguration %}
 
 ### {% linkable_title Raspbian Debian Jessie Lite Installations %}
 To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
@@ -100,4 +108,3 @@ Stream mapping:
 Press [q] to stop, [?] for help
 frame=  223 fps= 40 q=-1.0 Lsize=   16709kB time=00:00:07.40 bitrate=18497.5kbits/s dup=58 drop=0 speed=1.32x
 ```
-

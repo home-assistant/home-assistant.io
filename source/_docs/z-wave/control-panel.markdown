@@ -70,7 +70,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 *  **retries** How many retries have been made to send messages to this node
 *  **sentCnt** How many messages have been sent to the node
 *  **sentFailed** How many messages that were sent weren't acknowledged
-*  **sentTS** The date and time the last message was sent to the ndoe
+*  **sentTS** The date and time the last message was sent to the node
 *  **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
 
 <p class='note'>
@@ -82,7 +82,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
@@ -130,7 +130,7 @@ Set the new selection by pressing the **Set Protection** button.
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex ASCII code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1
@@ -144,7 +144,7 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 \x39 = 9
 ```
 Some non compliant device like tag readers, have implemented to use raw hex code.
-Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
+Please refer to a hex ASCII table to set your code. Example: http://www.asciitable.com/
 
 Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
 

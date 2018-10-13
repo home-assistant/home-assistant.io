@@ -55,7 +55,7 @@ station:
   required: true  
   type: string  
 monitored_conditions: 
-  description: Specify what measurement data to retreive from the weather station. 
+  description: Specify what measurement data to retrieve from the weather station.
   required: true  
   type: map  
   keys:
