@@ -38,12 +38,12 @@ port:
   default: 8080
   type: integer
 ssl:
-  description: Use https instead of http to connect.
+  description: Use HTTPS instead of HTTP to connect.
   required: false
   default: false
   type: boolean
 name:
-  description: This parameter allows you to specify a friendly to send to Splunk as the host, instead of using the name of the HEC.
+  description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
   required: false
   default: HASS
   type: string
