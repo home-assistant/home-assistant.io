@@ -27,14 +27,39 @@ camera:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **url** (*Required*): The URL to your synology, including port.
-- **username** (*Required*): The username for accessing surveillance station.
-- **password** (*Required*): The password for accessing surveillance station.
-- **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.
-- **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
-- **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
+{% configuration %}
+name:
+  description: A name for this synology camera component.
+  required: false
+  default: Synology Camera
+  type: string
+url:
+  description: The URL to your synology, including port.
+  required: true
+  type: string
+username:
+  description: The username for accessing surveillance station.
+  required: true
+  type: string
+password:
+  description: The password for accessing surveillance station.
+  required: true
+  type: string
+timeout:
+  description: The timeout in seconds used when connecting to the Surveillance Station.
+  required: false
+  default: 5
+  type: integer
+whitelist:
+  description: A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
+  required: false
+  type: list
+verify_ssl:
+  description: True to require a valid certificate, False to disable certificate checking.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
 A full sample configuration for the `synology` platform is shown below:
 
