@@ -30,7 +30,7 @@ binary_sensor:
 
 {% configuration %}
 monitored_conditions:
-  type: array
+  type: list
   required: true
   description: Conditions to display in the frontend. The following conditions can be monitored.
   keys:
