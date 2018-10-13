@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ha_qa_scale: internal
 ---
 
-The `api_stream` sensor platform shows how many clients are connected to the stream API 
+The `api_streams` sensor platform shows how many clients are connected to the stream API 
 
 ## {% linkable_title Configuration %}
 
