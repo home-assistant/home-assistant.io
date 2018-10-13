@@ -65,8 +65,6 @@ camera:
     password: my_password_123
 ```
 
-Configuration variables:
-
 {% configuration %}
 name:
   description: A human-friendly name for the camera.
