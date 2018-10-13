@@ -84,7 +84,7 @@ ssl:
   type: boolean
   description: Whether or not to use SSL for Sonarr.
   default: false
-{% configuration %}
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
