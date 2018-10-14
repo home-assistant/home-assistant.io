@@ -59,16 +59,16 @@ senders:
   required: true
   type: string
 value_template:
-  description: If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template:
+  description: If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template.
   required: false
   type: template
   keys:
     from:
-      description: The from address of the email
+      description: The from address of the email.
     body:
-      description: The body of the email
+      description: The body of the email.
     subject:
-      description: The subject of the email
+      description: The subject of the email.
     date:
-      description: The date and time the email was sent
+      description: The date and time the email was sent.
 {% endconfiguration %}
