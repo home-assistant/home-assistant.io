@@ -38,6 +38,12 @@ monitored_conditions:
   description: Defines the data to monitor as sensors. The names here are dot separated paths to information returned by the router. The data set varies by router model; to see what your router provides, set logging level to debug and watch `homeassistant.components.huawei_lte` debug entries. The following list of values contains a few example paths just to illustrate the syntax; these may not be available on all routers or their semantics may differ, and there are quite likely many more that are not listed here.
   type: list
   required: false
+  default:
+    - device_information.WanIPAddress
+    - device_signal.rsrq
+    - device_signal.rsrp
+    - device_signal.rssi
+    - device_signal.sinr
   keys:
     device_information.SoftwareVersion:
       description: Software version
