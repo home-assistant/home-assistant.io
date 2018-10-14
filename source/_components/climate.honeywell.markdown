@@ -33,12 +33,38 @@ climate:
 Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
 </p>
 
-Configuration variables:
-
-- **username** (*Required*): The username of an user with access.
-- **password** (*Required*): The password for your given admin account.
-- **region** (*Optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
-- **scan_interval**(*Optional*): Scan interval is expressed in seconds. Recommended value of 600 seconds. Default value is 120 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
-- **away_temperature** (*Optional*) (*only for eu region*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
-- **away_cool_temperature** (*Optional*) (*only for us region*): Cooling setpoint when away mode is on. If omitted it defaults to 30.0 deg C.
-- **away_heat_temperature** (*Optional*) (*only for us region*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
+{% configuration %}
+username:
+  description: The username of an user with access.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+region:
+  description: Region identifier (either 'eu' or 'us').
+  required: false
+  default: eu
+  type: string
+scan_interval:
+  description: Scan interval is expressed in seconds. Recommended value of 600 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
+  required: false
+  default: 120
+  type: integer
+away_temperature:
+  description: "(*only for eu region*) Heating setpoint when away mode is on, in deg C."
+  required: false
+  default: 16.0
+  type: float
+away_cool_temperature:
+  description: "(*only for us region*) Cooling setpoint when away mode is on, in deg C."
+  required: false
+  default: 30.0
+  type: float
+away_heat_temperature:
+  description: "(*only for us region*) Heating setpoint when away mode is on, in deg C."
+  required: false
+  default: 16.0
+  type: float
+{% endconfiguration %}
