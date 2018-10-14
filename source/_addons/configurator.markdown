@@ -92,9 +92,10 @@ banned_ips:
   required: true
   type: string
 banlimit:
-  description: Ban access from IPs after `banlimit` failed login attempts. The default value 0 disables this feature. Restart the add-on to clear the list of banned IP addresses.
+  description: Ban access from IPs after `banlimit` failed login attempts. This feature is disabled by default. Restart the add-on to clear the list of banned IP addresses.
   required: true
   type: int
+  default: 0
 ignore_pattern:
   description: Regex of files and folders to ignore in the UI
   required: true
