@@ -23,7 +23,7 @@ To use the component in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 duckdns:
   domain: YOUR_SUBDOMAIN
-  access_token: YOUR_ACCSS_TOKEN
+  access_token: YOUR_ACCESS_TOKEN
 ```
 
 {% configuration duckdns %}
