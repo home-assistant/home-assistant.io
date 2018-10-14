@@ -7,11 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: rtorrent.png
 ha_category: Downloading
 ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
-
 
 The `rtorrent` platform allows you to monitor your downloads with [rtorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automation based on the information.
 
@@ -27,7 +27,6 @@ sensor:
       - 'download_speed'
       - 'upload_speed'
 ```
-
 
 This sensor requires the rtorrent XMLRPC API exposed on HTTP (by default only SCGI).
 ([arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) provides that API under the URL `http://admin:rutorrent@127.0.0.1:9080/RPC2`)
