@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: mill.png
 ha_category: Climate
 ha_release: 0.81
 ha_iot_class: "Cloud Polling"
