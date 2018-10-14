@@ -10,7 +10,7 @@ footer: true
 logo: mitsubishi.png
 ha_category: Climate
 ha_release: 0.81
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `MelCloud` climate platform integrates Mitsubishi air conditioning systems into Home Assistant, enabling control of setting the following parameters:
@@ -30,12 +30,13 @@ To enable the platform, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 climate:
   - platform: melcloud
-    login: YOUR@EMAIL.COM
+    email: YOUR@EMAIL.COM
     password: YOUR_PASSWORD
+    lease_time: 60
 ```
 
 {% configuration %}
-login:
+email:
   description: Login used on https://app.melcloud.com/ website
   required: true
   type: string
@@ -43,5 +44,9 @@ password:
   description: Password used on https://app.melcloud.com/ website
   required: true
   type: string
+lease_time:
+  description: How long time the melcloud cache stay valid in seconds (Default: 60) 
+  required: false
+  type: integer
 {% endconfiguration %}
 
