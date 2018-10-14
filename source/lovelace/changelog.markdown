@@ -8,6 +8,9 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.80.0 %}
+- 📣 New card: `Gauge Card` that allows visually seeing sensor data
+- 📣 New card: `Sensor Card` a quick overview of your sensors state with an optional graph to visualize change over time
 ## {% linkable_title Changes in 0.77.0 %}
 - 📣 New notification drawer ❤️
 
