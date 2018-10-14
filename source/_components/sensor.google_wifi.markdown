@@ -16,7 +16,7 @@ ha_release: "0.50"
 
 The `google_wifi` sensor platform is displaying the exposed status of a [Google Wifi](https://madeby.google.com/wifi/) (or OnHub) router.
 
-The sensor is able to report network status, up-time, current IP address, and firmware versions.
+The sensor is able to report network status, up-time, current IP address and firmware versions.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -28,12 +28,12 @@ sensor:
 
 {% configuration %}
 host:
-  description: The address to retrieve status from the router. Defaults to `testwifi.here` (other options include `onhub.here` and your router's IP such as `192.168.86.1`).
+  description: The address to retrieve status from the router. Valid options are `testwifi.here`, in some cases `onhub.here` or the router's IP address such as 192.168.86.1.
   required: false
   default: testwifi.here
   type: string
 name:
-  description: Name to give the Google Wifi sensor. Defaults to `google_wifi`.
+  description: Name to give the Google Wifi sensor.
   required: false
   default: google_wifi
   type: string
@@ -45,8 +45,7 @@ monitored_conditions:
     current_version:
       description: Current firmware version of the router.
     new_version:
-      description: Latest available firmware version. If router is up-to-date, this value defaults to `Latest`.
-      default: Latest
+      description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
     uptime:
       description: Days since router has been turned on.
     last_restart:
