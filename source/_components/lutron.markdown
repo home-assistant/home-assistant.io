@@ -40,7 +40,6 @@ host:
 username:
   description: The login name of the user. The user `lutron` always exists, but other users can be added via RadioRA 2 software.
   required: true
-  default: The default name to use in the frontend.
   type: string
 password:
   description: The password for the user specified above. `integration` is the password for the always-present `lutron` user.
