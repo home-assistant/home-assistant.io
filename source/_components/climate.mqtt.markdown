@@ -206,6 +206,14 @@ temp_step:
   type: number
   required: false
   default: 1
+activity_state_topic:
+  description: The MQTT topic to subscribe for changes of the HVAC activity. When the device is not active, it has `idle` state, except `off` mode. Otherwise state is defined by operation mode. If this is not set, the HVAC is always active.
+  required: false
+  type: string
+activity_state_template:
+  description: A template to render the value received on the `activity_state_topic` with.
+  required: false
+  type: template
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}
@@ -261,4 +269,6 @@ climate:
     temperature_command_topic: "study/ac/temperature/set"
     fan_mode_command_topic: "study/ac/fan/set"
     swing_mode_command_topic: "study/ac/swing/set"
+    activity_state_topic: "study/ac/activity"
+
 ```
