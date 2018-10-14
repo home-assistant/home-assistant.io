@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: blink.png
-ha_category: Alarm Control Panel
+ha_category: Alarm
 ha_release: "0.80"
 ---
 
