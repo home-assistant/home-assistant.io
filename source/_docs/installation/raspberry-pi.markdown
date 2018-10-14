@@ -12,7 +12,7 @@ redirect_from: /getting-started/installation-raspberry-pi/
 
 This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
-You must have Python 3.5.3 or later installed, which is the case for Raspbian Stretch.
+You must have Python 3.5.3 or later installed (including the package `python3-dev`) which is the case for Raspbian Stretch.
 
 <p class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well.  This guide is also referred to as the "Advanced Guide" for a virtual environment install.
@@ -83,7 +83,7 @@ Once you have installed the required python package it is now time to install Ho
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation, create the `.homeassistant` configuration directory in the `/home/homeassistant` directory and install any basic dependencies.
+Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
 (homeassistant) $ hass
@@ -94,7 +94,7 @@ You can now reach your installation on your Raspberry Pi over the web interface 
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
 </p>
 
-If you want setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
+If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
 
 ### {% linkable_title Updating %}
 
@@ -114,4 +114,5 @@ When instructions tell you to activate the virtual environment, the following co
 
 ```bash
 $ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate```
+$ source /srv/homeassistant/bin/activate
+```

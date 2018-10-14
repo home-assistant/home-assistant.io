@@ -28,10 +28,29 @@ switch:
     host: 192.168.1.32
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your Hikvision camera, eg. `192.168.1.32`.
-- **port** (*Optional*): The port to connect to your Hikvision camera. Defaults to `80`.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **username** (*Optional*): The username for accessing your Hikvision camera. Defaults to `admin`.
-- **password** (*Optional*): The password to access your Hikvision camera. Defaults to `12345`.
+{% configuration %}
+host:
+  description: The IP address of your Hikvision camera, e.g., `192.168.1.32`.
+  required: true
+  type: string
+port:
+  description: The port to connect to your Hikvision camera.
+  required: false
+  default: 80
+  type: integer
+name:
+  description: This parameter allows you to override the name of your camera.
+  required: false
+  default: Hikvision Camera Motion Detection
+  type: string
+username:
+  description: The username for accessing your Hikvision camera.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password to access your Hikvision camera.
+  required: false
+  default: 12345
+  type: string
+{% endconfiguration %}

@@ -39,7 +39,7 @@ feedreader:
     description: The maximum number of entries to extract from each feed.
     required: false
     default: 20
-    type: int
+    type: integer
 {% endconfiguration %}
 
 The following configuration example shows how to configure update interval and maximum number of entries:

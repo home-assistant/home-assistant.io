@@ -7,14 +7,17 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Pushing"
 logo: home-assistant.png
 ha_release: 0.56
+ha_qa_scale: internal
 ---
 
 
 The `uptime` sensor platform displays the time since the last Home Assistant restart.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -24,10 +27,20 @@ sensor:
   - platform: uptime
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: Uptime
+unit_of_measurement:
+  description: "Units for uptime measurement in either `days`, `hours` or `minutes`."
+  required: false
+  type: string
+  default: days
+{% endconfiguration %}
 
-- **name** (*Optional*): Name of the sensor. Defaults to `Uptime`.
-- **unit_of_measurement** (*Optional*): Units for uptime measurement in either `days`, `hours`, or `minutes`.  Defaults to `days`.
+## {% linkable_title Example %}
 
 ```yaml
 # Example with configuration variables

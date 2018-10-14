@@ -14,18 +14,21 @@ ha_release: 0.53
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
 
+## {% linkable_title Configuration %}
+
+To use Mycroft in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 mycroft:
   host: 0.0.0.0
 ```
 
-`host` is your IP address of your mycroft instance.  Once you have added your host to your `configuration.yaml` file, restart your Home Assistant server. This will load up the Mycroft component and make a service available to notify on Mycroft and more eventually.
+{% configuration %}
+host:
+  description: The IP address of your Mycroft instance.
+  required: true
+  type: string
+{% endconfiguration %}
 
 
-The `mycroft` notification platform allows you to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
-
-To use this notification platform you simply need to input into the configuration that mycroft is your notification platform like seen above.
-
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).

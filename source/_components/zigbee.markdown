@@ -31,8 +31,18 @@ A `zigbee` section must be present in the `configuration.yaml` file and contain 
 zigbee:
 ```
 
-- **device** (*Optional*): The serial port to which the local ZigBee device is connected. Defaults to `/dev/ttyUSB0`
-- **baud** (*Optional*): The baud rate at which to communicate with the local ZigBee device. Defaults to `9600`
+{% configuration %}
+device:
+  description: The serial port to which the local ZigBee device is connected.
+  required: false
+  default: "/dev/ttyUSB0"
+  type: string
+baud:
+  description: The baud rate at which to communicate with the local ZigBee device.
+  required: false
+  default: 9600
+  type: integer
+{% endconfiguration %}
 
 To find the possible serial port names of your device, run:
 

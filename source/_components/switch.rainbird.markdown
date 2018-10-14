@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rainbird.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---

@@ -49,11 +49,29 @@ smappee:
   password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): Your Local Smappee unit IP.
-- **host_password** (*Optional*): Your Local Smappee password.
-- **client_id** (*Optional*): Your Smappee API client_id.
-- **client_secret** (*Optional*): Your Smappee API client_secret.
-- **username** (*Optional*): Your My Smappee username.
-- **password** (*Optional*): Your My Smappee password.
+{% configuration %}
+host:
+  description: Your Local Smappee unit IP.
+  required: false
+  type: string
+host_password:
+  description: Your Local Smappee password.
+  required: false
+  type: string
+client_id:
+  description: Your Smappee API client_id.
+  required: false
+  type: string
+client_secret:
+  description: Your Smappee API client_secret.
+  required: false
+  type: string
+username:
+  description: Your My Smappee username.
+  required: false
+  type: string
+password:
+  description: Your My Smappee password.
+  required: false
+  type: string
+{% endconfiguration %}

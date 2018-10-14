@@ -17,6 +17,8 @@ The `knx` notify platform allows you to send notifications to [KNX](http://www.k
 
 The `knx` component must be configured correctly, see [KNX Component](/components/knx).
 
+## {% linkable_title Configuration %}
+
 To use your KNX switch in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -26,5 +28,13 @@ notify:
     address: '5/1/10'
 ```
 
-* **name** (*Optional*): A name for this device used within Home Assistant.
-* **address**: KNX group address of the notification
+{% configuration %}
+address:
+  description: KNX group address of the notification.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+{% endconfiguration %}

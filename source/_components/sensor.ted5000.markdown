@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ted.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: "0.30"
 ha_iot_class: "Local Polling"
 ---
@@ -24,11 +24,23 @@ sensor:
     host: 192.168.1.100
 ```
 
-Configuration variables:
 
-- **host** (*Required*): The IP address of your ted gateway.
-- **port** (*Optional*): The port of your ted gateway. Defaults to 80.
-- **name** (*Optional*): Name of the ted gateway. Defaults to ted.
+{% configuration %}
+host:
+  description: The IP address of your ted gateway.
+  required: true
+  type: string
+port:
+  description: The port of your ted gateway.
+  required: false
+  type: integer
+  default: 80
+name:
+  description: Name of the ted gateway.
+  required: false
+  type: string
+  default: ted
+{% endconfiguration %}
 
 For each plugged MTU, using an index starting at 1, the platform creates 2 sensors:
 

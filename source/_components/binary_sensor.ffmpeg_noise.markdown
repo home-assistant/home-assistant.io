@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Binary Sensor
+ha_category: Image Processing
 ha_release: 0.27
 ---
 
@@ -19,7 +19,7 @@ The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](ht
 If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
 </p>
 
-### {% linkable_title Noise %}
+## {% linkable_title Configuration %}
 
 To add FFmpeg with noise detection to your installation, add the following to your `configuration.yaml` file:
 
@@ -30,16 +30,44 @@ binary_sensor:
     input: FFMPEG_SUPPORTED_INPUT
 ```
 
-Configuration variables:
-
-- **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
-- **name** (*Optional*): Override the name of your camera.
-- **initial_state** (*Optional*): Default true. Start ffmpeg with home-assistant.
-- **peak** (*Optional*): Default -30. The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
-- **duration** (*Optional*): Default 1 second. How long the noise needs to be over the peak to trigger the state.
-- **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new noise is over the peak.
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, like audio frequency filtering.
-- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
+{% configuration %}
+input:
+  description: An FFmpeg-compatible input file, stream, or feed.
+  required: true
+  type: string
+name:
+  description: Override the name of your camera.
+  required: false
+  type: string
+initial_state:
+  description: Start ffmpeg with home-assistant.
+  required: false
+  default: true
+  type: boolean
+peak:
+  description: The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
+  required: false
+  default: -30
+  type: integer
+duration:
+  description: How long the noise needs to be over the peak to trigger the state.
+  required: false
+  default: 1
+  type: integer
+reset:
+  description: The time to reset the state after no new noise is over the peak.
+  required: false
+  default: 20
+  type: integer
+extra_arguments:
+  description: Extra options to pass to `ffmpeg`, like audio frequency filtering.
+  required: false
+  type: string
+output:
+  description: Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
+  required: false
+  type: string
+{% endconfiguration %}
 
 To experiment with values:
 

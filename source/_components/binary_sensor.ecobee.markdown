@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ecobee.png
-ha_category: Binary Sensor
+ha_category: Environment
 ha_release: 0.9
 ha_iot_class: "Local Push"
 ---

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: pilight.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.31
 ha_iot_class: depends
 ---
@@ -42,7 +42,7 @@ This section shows a real life example how to use values of a weather station.
 
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: pilight
     name: 'Temperature'

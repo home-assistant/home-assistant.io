@@ -30,14 +30,41 @@ switch:
       host: hostname_or_ipaddr
 ```
 
-Configuration variables:
-
-- **switches** (*Required*): The array that contains all Kankun switches.
-  - **identifier** (*Required*): Name of the Kankun switch as slug. Multiple entries are possible.
-    - **host** (*Required*): Hostname or IP address of the switch on the local network.
-    - **name** (*Optional*): Friendly name of the switch.
-    - **port** (*Optional*): HTTP connection port, defaults to 80.
-    - **path** (*Optional*): Path of CGI script, defaults to `/cgi-bin/json.cgi`.
-    - **username** (*Optional*): Username for basic authentication.
-    - **password** (*Optional*): Password for basic authentication.
-
+{% configuration %}
+switches:
+  description: The array that contains all Kankun switches.
+  required: true
+  type: map
+  keys:
+    identifier:
+      description: Name of the Kankun switch as slug. Multiple entries are possible.
+      required: true
+      type: map
+      keys:
+        host:
+          description: Hostname or IP address of the switch on the local network.
+          required: true
+          type: string
+        name:
+          description: Friendly name of the switch.
+          required: false
+          type: string
+        port:
+          description: HTTP connection port.
+          required: false
+          default: 80
+          type: integer
+        patch:
+          description: Path of CGI script.
+          required: false
+          default: "/cgi-bin/json.cgi"
+          type: string
+        username:
+          description: Username for basic authentication.
+          required: false
+          type: string
+        password:
+          description: Password for basic authentication.
+          required: false
+          type: string
+{% endconfiguration %}

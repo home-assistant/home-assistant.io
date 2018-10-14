@@ -43,7 +43,7 @@ resource:
   type: string
   default: string
 method:
-  description: The method of the request.
+  description: The method of the request. Either `POST` or `GET`.
   required: false
   type: string
   default: GET
@@ -109,7 +109,7 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 

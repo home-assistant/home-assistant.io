@@ -187,6 +187,7 @@ To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / 
 - *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
 - *homematic.set_variable_value*: Set the value of a system variable.
 - *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+- *homematic.put_paramset*: Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
 
 #### {% linkable_title Examples %}
 
@@ -257,6 +258,20 @@ action:
     value: 23.0
 ```
 
+Set the week program of a wall thermostat:
+
+```yaml
+...
+action:
+  service: homematic.put_paramset
+  data:
+    interface: wireless
+    address: LEQ1234567
+    paramset_key: MASTER
+    paramset:
+      WEEK_PROGRAM_POINTER: 1
+```
+
 Manually set lock on KeyMatic devices:
 
 ```yaml
@@ -279,7 +294,7 @@ action:
 
 When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
-- If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
+- If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor or light sensor) you could set up an automation like this:
 
   ```yaml
   automation:
@@ -294,7 +309,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         service: homematic.reconnect
   ```
 
-- If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 

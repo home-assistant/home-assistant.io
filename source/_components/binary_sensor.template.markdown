@@ -11,6 +11,7 @@ ha_category: Binary Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform supports sensors which breaks out the `state` and
@@ -93,7 +94,7 @@ result:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sensor Threshold %}
 

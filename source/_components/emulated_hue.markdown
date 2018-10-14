@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Hub
 ha_release: 0.27
 ha_iot_class: "Local Push"
+ha_qa_scale: internal
 ---
 
 <p class='note warning'>
@@ -49,37 +50,54 @@ emulated_hue:
 emulated_hue:
 ```
 
-Configuration variables:
-
-- **type** (*Optional*): The type of assistant which we are emulating. Either `alexa` or `google_home`, defaults to `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
-- **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
-- **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
-
-- **advertise_ip** (*Optional*): If you need to override the IP address used for UPnP discovery. (For example, using network isolation in Docker)
-- **advertise_port** (*Optional*): If you need to specifically override the advertised UPnP port.
-
-- **upnp_bind_multicast** (*Optional*): Whether or not to bind the UPnP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
-
-- **off_maps_to_on_domains** (*Optional*): The domains that maps an "off" command to an "on" command.
-
-  For example, if `script` is included in the list, and you ask Alexa to "turn off the *water plants* script," the command will be handled as if you asked her to turn on the script.
-
-  If not specified, this defaults to the following list:
-
-  - `script`
-  - `scene`
-
-- **expose_by_default** (*Optional*): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the 'emulated_hue' customization below). If not specified, this defaults to true. Warning: If you have a lot of devices (more than 49 total across all exposed domains), you should be careful with this option. Exposing more devices than Alexa supports can result in it not seeing any of them.  If you are having trouble getting any devices to show up, try disabling this, and explicitly exposing just a few devices at a time to see if that fixes it.
-
-- **exposed_domains** (*Optional*): The domains that are exposed by default if `expose_by_default` is set to true. If not specified, this defaults to the following list:
-  - `switch`
-  - `light`
-  - `group`
-  - `input_boolean`
-  - `media_player`
-  - `fan`
-
-- **entities** (*Optional*): Customization for entities.
+{% configuration %}
+type:
+  description: The type of assistant which we are emulating. Either `alexa` or `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
+  required: false
+  type: string
+  default: google_home
+host_ip:
+  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
+  required: false
+  type: string
+listen_port:
+  description: The port the Hue bridge API web server will run on. This can be any free port on your system.
+  required: false
+  type: integer
+  default: 8300
+advertise_ip:
+  description: If you need to override the IP address used for UPnP discovery. (For example, using network isolation in Docker)
+  required: false
+  type: string
+advertise_port:
+  description: If you need to specifically override the advertised UPnP port.
+  required: false
+  type: integer
+upnp_bind_multicast:
+  description: Whether or not to bind the UPnP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
+  required: false
+  type: boolean
+  default: true
+off_maps_to_on_domains:
+  description: The domains that maps an "off" command to an "on" command. For example, if `script` is included in the list, and you ask Alexa to "turn off the *water plants* script," the command will be handled as if you asked her to turn on the script.
+  required: false
+  type: list
+  default: [script, scene]
+expose_by_default:
+  description: "Whether or not entities should be exposed via the bridge by default instead of explicitly (see the ‘emulated_hue’ customization below). Warning: If you have a lot of devices (more than 49 total across all exposed domains), you should be careful with this option. Exposing more devices than Alexa supports can result in it not seeing any of them. If you are having trouble getting any devices to show up, try disabling this, and explicitly exposing just a few devices at a time to see if that fixes it."
+  required: false
+  type: boolean
+  default: true
+exposed_domains:
+  description: The domains that are exposed by default if `expose_by_default` is set to true.
+  required: false
+  type: list
+  default: [switch, light, group, input_boolean, media_player, fan]
+entities:
+  description: Customization for entities.
+  required: false
+  type: list
+{% endconfiguration %}
 
 A full configuration sample looks like the one below.
 

@@ -8,9 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: rainmachine.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.69
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Local Polling"
 ---
 
 The `rainmachine` component is the main component to integrate all platforms
@@ -55,7 +55,7 @@ password:
 port:
   description: the TCP port used by your unit for the REST API
   required: false
-  type: int
+  type: integer
   default: 8080
 ssl:
   description: whether communication with the local device should occur over HTTPS
@@ -65,7 +65,7 @@ ssl:
 scan_interval:
   description: the frequency (in seconds) between data updates
   required: false
-  type: int
+  type: integer
   default: 60
 binary_sensors:
   description: binary sensor-related configuration options
@@ -95,7 +95,7 @@ switches:
     zone_run_time:
       description: the default number of seconds that a zone should run when turned on
       required: false
-      type: int
+      type: integer
       default: 600
 {% endconfiguration %}
 

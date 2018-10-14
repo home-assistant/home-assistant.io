@@ -25,11 +25,20 @@ camera:
     input: FFMPEG_SUPPORTED_INPUT
 ```
 
-Configuration variables:
-
-- **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
-- **name** (*Optional*): Override the name of your camera.
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
+{% configuration %}
+input:
+  description: An FFmpeg-compatible input file, stream, or feed.
+  required: true
+  type: string
+name:
+  description: Override the name of your camera.
+  required: false
+  type: string
+extra_arguments:
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Image quality %}
 

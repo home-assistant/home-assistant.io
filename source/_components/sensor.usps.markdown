@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: usps.png
-ha_category: Sensor
+ha_category: Postal Service
 ha_release: 0.36
 ha_iot_class: "Cloud Polling"
 ---

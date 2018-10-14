@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rachio.png
-ha_category: Hub
+ha_category: Irrigation
 ha_iot_class: "Cloud Push"
 ha_release: 0.73
 ---
@@ -22,6 +22,8 @@ The `rachio` platform allows you to control your [Rachio irrigation system](http
 1. Click "Get API Key"
 1. Copy the API key from the dialog that opens.
 
+## {% linkable_title Configuration %}
+
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -30,7 +32,17 @@ rachio:
   api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Follow the instructions on [Rachio Binary Sensor](/components/binary_sensor.rachio/) or [Rachio Switch](/components/switch.rachio/) to add Rachio platforms.
+Configuration variables:
+
+- **api_key** (*Required*): The API key for the Rachio account.
+- **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled. Defaults to 10 minutes.
+
+<p class='note'>
+**Water-saving suggestion:**<br>
+Set `manual_run_mins` to a high maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
+</p>
+
+Once configured, [Rachio Binary Sensor](/components/binary_sensor.rachio/) and [Rachio Switch](/components/switch.rachio/) platforms will be automatically loaded.
 
 ### {% linkable_title iFrame %}
 

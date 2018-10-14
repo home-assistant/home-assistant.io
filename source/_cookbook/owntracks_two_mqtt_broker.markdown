@@ -25,7 +25,7 @@ Two Docker instances for MQTT
  
 All Docker configuration files are on my NAS so the Docker containers can be destroyed without affecting my actual configuration files.
  
-#### Docker setup for the mosquitto internal instance. No authentication for use with the MQTT bridge.
+#### Docker setup for the Mosquitto internal instance. No authentication for use with the MQTT bridge.
 
 ```bash
 $ docker run -ti -p 1883:1883  \
@@ -56,7 +56,7 @@ persistence_file mosquitto.db
 try_private true
 address 10.0.0.20:1884
 start_type automatic
-sername test
+username test
 password test
 notifications true
 topic owntracks/# in

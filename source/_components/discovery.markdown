@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_qa_scale: internal
 ---
-
 
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
 
@@ -21,6 +21,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
  * [Denon network receivers](/components/media_player.denonavr/)
  * [DirecTV receivers](/components/media_player.directv/)
+ * [DLNA DMR enabled devices](/components/media_player.dlna_dmr/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
  * [HomeKit](/components/homekit_controller/)
@@ -43,7 +44,8 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
  * [Xiaomi Gateway (Aqara)](/components/xiaomi_aqara/)
 
-It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
+It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
+for Philips Hue it will require some configuration from the user.
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -57,17 +59,15 @@ discovery:
     - homekit
 ```
 
-{% linkable_title Configuration variables: %}
-
 {% configuration discovery %}
 ignore:
   description: A list of platforms that never will be automatically configured by `discovery`.
   required: false
-  type: string
+  type: list
 enable:
   description: A list of platforms not enabled by default that `discovery` should discover.
   required: false
-  type: string
+  type: list
 {% endconfiguration %}
 
 Valid values for ignore are:
@@ -98,11 +98,12 @@ Valid values for ignore are:
  * `tellstick`: Telldus Live
  * `wink`: Wink Hub
  * `yamaha`: Yamaha media player
- * `yeelight`: Yeelight Sunflower bulb
+ * `yeelight`: Yeelight lamps and bulbs (not only Yeelight Sunflower bulb)
  * `xiaomi_gw`: Xiaomi Aqara gateway
 
 Valid values for enable are:
 
+ * `dlna_dmr`: DLNA DMR enabled devices
  * `homekit`: HomeKit accessories
 
 ## {% linkable_title Troubleshooting %}

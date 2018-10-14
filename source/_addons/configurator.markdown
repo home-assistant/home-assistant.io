@@ -2,7 +2,7 @@
 layout: page
 title: "HASS Configurator"
 description: "Browser-based configuration file editor for Home Assistant."
-date: 2017-09-25 14:00
+date: 2018-07-16 14:00
 sidebar: true
 comments: false
 sharing: true
@@ -22,16 +22,17 @@ Screenshot of the HASS Configurator.
 
 ### {% linkable_title Feature list %}
 
-- Web-based editor to modify your files with syntax highlighting.
+- Web-based editor to modify your files with syntax highlighting and YAML linting.
 - Upload and download files.
-- Stage and commit changes in Git repositories, create and switch between branches, push to remotes.
-- Lists of available triggers, events, entities, conditions and services. The selected element gets inserted into the editor at the last cursor position.
+- Stage, stash and commit changes in Git repositories, create and switch between branches, push to remotes, view diffs.
+- Lists with available entities, triggers, events, conditions and services.
 - Restart Home Assistant directly with the click of a button. Reloading groups, automations, etc. can be done as well. An API password is required.
 - SSL/TLS support.
 - Optional authentication and IP filtering for added security.
 - Direct links to Home Assistant documentation and icons.
 - Execute shell commands within the add-on container.
 - Editor settings are saved in your browser.
+- And much more...
 
 ### {% linkable_title Add-on Configuration %}
 
@@ -39,27 +40,44 @@ Screenshot of the HASS Configurator.
 {
   "username": "admin",
   "password": "secret",
+  "ssl": false,
   "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
-  "ssl": false,
-  "allowed_networks": ["192.168.0.0/16"],
-  "banned_ips": ["8.8.8.8"],
+  "verify_hostname": false,
+  "allowed_networks": [
+    "192.168.0.0/16",
+    "172.30.0.0/16"
+  ],
+  "banned_ips": [
+    "8.8.8.8"
+  ],
   "banlimit": 0,
-  "ignore_pattern": ["__pycache__"],
+  "ignore_pattern": [
+    "__pycache__"
+  ],
   "dirsfirst": false,
-  "sesame": "somesecretnobodycanguess"
+  "enforce_basepath": false,
+  "notify_service": "persistent_notification.create",
+  "ignore_ssl": false
 }
 ```
 
 - **username** (*Required*): Set a username to access your configuration is protected.
 - **password** (*Required*): Set a password for access.
-- **ssl** (*Optional*): Enable or Disable SSL/TLS for the editor.
-- **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses/networks to the list.
-- **banned_ips** (*Optional*): List of statically banned IP addresses.
-- **banlimit** (*Optional*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
-- **ignore_pattern** (*Optional*): Files and folders to ignore in the UI.
-- **dirsfirst** (*Optional*): List directories before files in the file browser.
-- **sesame** (*Optional*): Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and boom! Open Sesame! You can use the _Network status_ menu to revoke IP addresses for which access has been granted.
+- **ssl** (*Required*): Enable or Disable SSL/TLS for the editor.
+- **certfile** (*Required*): Set the path the your SSL certificate if the ssl-option is set to `true`.
+- **keyfile** (*Required*): Set the path the your SSL private key if the ssl-option is set to `true`.
+- **allowed_networks** (*Required*): Limit access to the configurator by adding allowed IP addresses/networks to the list.
+- **banned_ips** (*Required*): List of statically banned IP addresses.
+- **banlimit** (*Required*): Ban access from IPs after `banlimit` failed login attempts. The default value `0` disables this feature. Restart the add-on to clear the list of banned IP addresses.
+- **ignore_pattern** (*Required*): Files and folders to ignore in the UI.
+- **dirsfirst** (*Required*): List directories before files in the file browser.
+- **enforce_basepath** (*Required*): If set to `true`, access is limited to files within the `/config` directory.
+- **notify_service** (*Required*): Specify a custom notify-service to be used to push notifications.
+- **ignore_ssl** (*Required*): Ignore SSL errors when accessing the Home Assistant API.
+- **sesame** (*Optional*): Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and your IP will get whitelisted. You can use the _Network status_ menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
+- **sesame_totp_secret** (*Optional*): Like the `sesame` option, but instead as Base32 encoded secret string must be provided. This string then can be added to a TOTP App like Google Authenticator. This way you get a 6-digit `sesame` that changes every 30 seconds.
+- **loglevel** (*Optional*): You can change the logging level from the default value `info` if you want to. Valid values are: `debug`, `info`, `warning`, `error`, `critical`.
 
 <p class='note warning'>
 Be careful when setting up port forwarding to the configurator while embedding into Home Assistant. If you don't restrict access by requiring authentication and/or blocking based on client IP addresses, your configuration will be exposed to the internet!

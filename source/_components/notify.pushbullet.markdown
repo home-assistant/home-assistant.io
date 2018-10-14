@@ -99,6 +99,18 @@ action:
 
 - **file_url** (*Required*): File to send with Pushbullet.
 
+### {% linkable_title Single target %}
+```yaml
+  action:
+    service: notify.NOTIFIER_NAME
+    data:
+      title: "Send to one device"
+      message: "This only goes to one specific device"
+      target: device/DEVICE_NAME
+```
+- **target**: Pushbullet device to recive the notification.
+
+
 <p class='note'>
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
 </p>

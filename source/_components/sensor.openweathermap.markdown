@@ -72,6 +72,8 @@ sensor:
         description: The rain volume.
       snow:
         description: The snow volume.
+      weather_code:
+        description: The current weather condition code.
 {% endconfiguration %}
 
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
