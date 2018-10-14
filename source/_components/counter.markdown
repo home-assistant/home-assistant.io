@@ -41,6 +41,16 @@ counter:
       required: false
       type: integer
       default: 0
+    minimum:
+      description: Minimum value the counter will have
+      required: false
+      type: integer
+      default: None
+    maximum:
+      description: Maximum value the counter will have
+      required: false
+      type: integer
+      default: None
     restore:
       description: Try to restore the last known value when Home Assistant starts.
       required: false
