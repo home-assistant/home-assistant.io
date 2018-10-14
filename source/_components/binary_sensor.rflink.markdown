@@ -14,7 +14,7 @@ ha_release: "0.80"
 
 The `rflink` cover platform supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
 The RFLink component does not know the difference between a `binary_sensor`, a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
@@ -65,7 +65,7 @@ devices:
           description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
           required: false
           type: boolean
-          default: `false`
+          default: "`false`"
 {% endconfiguration %}
 
 ### {% linkable_title Sensor state %}
