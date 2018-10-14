@@ -73,11 +73,21 @@ media_player:
     access_token: AUTH_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of your TV.
-- **access_token** (*Required*): Authentication token you received in the last step of the pairing process.
-- **suppress_warning** (*Optional*): Set to `true` to disable self-signed certificate warnings.
+{% configuration %}
+host:
+  description: IP address of your TV.
+  required: true
+  type: string
+access_token:
+  description: Authentication token you received in the last step of the pairing process.
+  required: true
+  type: string
+suppress_warning:
+  description: Set to `true` to disable self-signed certificate warnings.
+  required: false
+  default: false
+  type: string
+{% endconfiguration %}
 
 ## Notes and limitations
 
