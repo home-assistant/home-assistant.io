@@ -23,12 +23,12 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 ```yaml
 climate:
  - platform: mill
-   email: email@gmail.com
+   username: email@gmail.com
    password:  pswd
 ```
 
 {% configuration %}
-email:
+username:
   description: Your registred Mill email.
   required: true
   type: string
