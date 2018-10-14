@@ -14,7 +14,7 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform supports sensors which breaks out the `state` and
+The `template` platform supports sensors which break out the `state` and
 `state_attributes` from other entities. The state of a Template Binary Sensor
 can only be `on` or `off`.
 
