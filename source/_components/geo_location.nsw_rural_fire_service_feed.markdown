@@ -10,7 +10,7 @@ footer: true
 logo: nsw-rural-fire-service.png
 ha_category: Geo Location
 ha_iot_class: "Cloud Polling"
-ha_release: "0.80"
+ha_release: "0.81"
 ---
 
 The `nsw_rural_fire_service_feed` platform lets you integrate a GeoJSON feed provided by the [NSW Rural Fire Service](https://www.rfs.nsw.gov.au/fire-information/fires-near-me) with information about bush fires, grass fires, hazard reductions and more. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
@@ -43,7 +43,7 @@ geo_location:
 radius:
   description: The distance in kilometers around Home Assistant's coordinates in which incidents are included.
   required: false
-  type: string
+  type: float
   default: 20km
 categories:
   description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
