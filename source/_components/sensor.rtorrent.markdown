@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rtorrent.png
 ha_category: Downloading
-ha_release: 0.57
+ha_release: 0.80
 ha_iot_class: "Local Polling"
 ---
 
