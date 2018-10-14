@@ -13,7 +13,6 @@ ha_release: 0.81
 ha_iot_class: "Local Polling"
 ---
 
-
 The `MelCloud` climate platform integrates Mitsubishi air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
 - **mode** (cool, heat, dry, fan only or auto)
@@ -32,7 +31,7 @@ To enable the platform, add the following lines to your `configuration.yaml` fil
 climate:
   - platform: melcloud
     login: YOUR@EMAIL.COM
-	password: yourpassword
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
