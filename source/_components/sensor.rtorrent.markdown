@@ -28,14 +28,30 @@ sensor:
       - 'upload_speed'
 ```
 
-This sensor requires the rtorrent XMLRPC API exposed on HTTP (by default only SCGI).
-([arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) provides that API under the URL `http://admin:rutorrent@127.0.0.1:9080/RPC2`)
+This sensor requires the rtorrent XMLRPC API exposed on an HTTP interface.
+Note that for security reasons, simply using the SCGI interface (default `localhost:5000`) of rtorrent won't work.
+The [official reference](https://github.com/rakshasa/rtorrent/wiki/RPC-Setup-XMLRPC) describes how to set up that HTTP interface.
 
-Configuration variables:
+Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) container can be used with `url ` set to `http://admin:rutorrent@127.0.0.1:9080/RPC2`.
 
-- **url** (*Required*): The URL of the HTTP XMLRPC rtorrent endpoint.
-- **name** (*Optional*): The name to use when displaying this rtorrent instance.
-- **monitored_variables** array (*Required*): Conditions to display in the frontend.
-  - **current_status**: The status of your rtorrent daemon.
-  - **download_speed**: The current download speed.
-  - **upload_speed**: The current upload speed.
+{% configuration %}
+url:
+  required: true
+  type: string
+  description: The URL to the HTTP endpoint of the rtorrent XMLRPC API.
+name:
+  required: false
+  type: string
+  description: The name to user when displaying this rtorrent instace.
+monitored_variables:
+  required: true
+  type: list
+  description: Conditions to display in the frontend.
+  keys:
+    current_status:
+      description: The status of your rtorrent daemon.
+    download_speed:
+      description: The current download speed.
+    upload_speed:
+      description: The current upload speed.
+{% endconfiguration %}
