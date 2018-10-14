@@ -43,7 +43,7 @@ Configuration variables:
 
 ## Notes and Limitations
 
-- The tuner is currently unsupported as are the `media_player` play, pays, prev, and next controls.
+- The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
 - Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
 - Only Zone 1 is currently supported.
 
