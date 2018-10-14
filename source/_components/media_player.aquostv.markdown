@@ -33,17 +33,17 @@ host:
   required: true
   type: string
 port:
-  description: The port of the Sharp Aquos TV. Defaults to 10002.
+  description: The port of the Sharp Aquos TV.
   required: false
   default: 10002
   type: int
 username:
-  description: The username of the Sharp Aquos TV. Defaults to admin.
+  description: The username of the Sharp Aquos TV.
   required: false
   default: admin
   type: string
 password:
-  description: The password of the Sharp Aquos TV. Defaults to password.
+  description: The password of the Sharp Aquos TV.
   required: false
   default: password
   type: string
@@ -52,7 +52,7 @@ name:
   required: false
   type: string
 power_on_enabled:
-  description: If you want to be able to turn on your TV. Defaults to False.
+  description: If you want to be able to turn on your TV.
   required: false
   default: false
   type: string
