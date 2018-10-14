@@ -34,10 +34,16 @@ scene:
         source: HDMI 1
 ```
 
-Configuration variables:
-
-- **name** (*Required*): Friendly name of scene.
-- **entities** (*Required*): Entities to control.
+{% configuration %}
+name:
+  description: Friendly name of scene.
+  required: true
+  type: string
+entities:
+  description: Entities to control.
+  required: true
+  type: list
+{% endconfiguration %}
 
 As you can see, there are two ways to define the states of each `entity_id`:
 

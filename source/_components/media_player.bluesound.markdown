@@ -49,7 +49,7 @@ media_player:
 
 ### {% linkable_title Service `bluesound_join` %}
 
-Group players together under a single master speaker. That will make a new group or join to exists group.
+Group players together under a single master speaker. That will make a new group or join an existing group.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

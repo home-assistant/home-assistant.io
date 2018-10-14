@@ -28,22 +28,55 @@ sensor:
     - download_paused
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address where your NZBGet installation is running.
-- **port** (*Optional*): The port of your NZBGet installation. Defaults to 6789.
-- **ssl** (*Optional*): Whether or not to use SSL to access NZBGet. Defaults to false.
-- **name** (*Optional*): The prefix to use for your sensor. Defaults to NZBGet.
-- **username** (*Optional*): The username to access your NZBGet installation.
-- **password** (*Optional*): The password to access your NZBGet installation.
-- **monitored_variables** array (*Required*): List of monitored details.
-  - **article_cache**: Number of cached articles.
-  - **average_download_rate**: Average download rate
-  - **download_paused**: Paused downloads
-  - **download_rate**: Current download rate
-  - **download_size**: The size to download
-  - **free_disk_space**: Free disk space at the storage location of NZBGet
-  - **post_paused**: Paused posts
-  - **remaining_size**: Remaining size to download
-  - **uptime**: Uptime of NZBGet
-
+{% configuration %}
+host:
+  required: true
+  type: string
+  description: IP address where your NZBGet installation is running.
+port:
+  required: false
+  type: integer
+  description: The port of your NZBGet installation.
+  default: 6789
+ssl:
+  required: false
+  type: boolean
+  description: Whether or not to use SSL to access NZBGet.
+  default: false
+name:
+  required: false
+  type: string
+  description: The prefix to use for your sensor.
+  default: NZBGet
+username:
+  required: false
+  type: string
+  description: The username to access your NZBGet installation.
+password:
+  required: false
+  type: string
+  description: The password to access your NZBGet installation.
+monitored_variables:
+  required: true
+  type: list
+  description: List of monitored details.
+  keys:
+    article_cache:
+      description: Number of cached articles.
+    average_download_rate:
+      description: Average download rate
+    download_paused:
+      description: Paused downloads
+    download_rate:
+      description: Current download rate
+    download_size:
+      description: The size to download
+    free_disk_space:
+      description: Free disk space at the storage location of NZBGet
+    post_paused:
+      description: Paused posts
+    remaining_size:
+      description: Remaining size to download
+    uptime:
+      description: Uptime of NZBGet
+{% endconfiguration %}

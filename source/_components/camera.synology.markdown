@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 　
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable your Surveillance Station cameras in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -27,16 +29,43 @@ camera:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: A name for this Synology camera.
+  required: false
+  default: Synology Camera
+  type: string
+url:
+  description: The URL to your Synology, including port.
+  required: true
+  type: string
+username:
+  description: The username for accessing Surveillance Station.
+  required: true
+  type: string
+password:
+  description: The password for accessing Surveillance Station.
+  required: true
+  type: string
+timeout:
+  description: The timeout in seconds used when connecting to the Surveillance Station.
+  required: false
+  default: 5
+  type: integer
+whitelist:
+  description: A list of which cameras you want to add, the names must be the same as in Surveillance Station. If omitted all cameras are added.
+  required: false
+  type: list
+verify_ssl:
+  description: Verify SSL/TLS certificate for HTTPS request.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
-- **url** (*Required*): The URL to your synology, including port.
-- **username** (*Required*): The username for accessing surveillance station.
-- **password** (*Required*): The password for accessing surveillance station.
-- **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.
-- **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
-- **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
+## {% linkable_title Full example %}
 
-A full sample configuration for the `synology` platform is shown below:
+A full sample configuration for the `synology` camera platform is shown below:
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,5 +79,5 @@ camera:
 ```
 
 <p class='note'>
-Most users will need to set `verify_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
+Most users will need to set `verify_ssl` to false unless they have installed a valid SSL/TLS certificate in place of the built in self-signed certificate.
 </p>

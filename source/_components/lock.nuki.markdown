@@ -27,24 +27,21 @@ lock:
     token: fe2345ef
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP or hostname of the Nuki bridge.
-- **port** (*Optional*): The port on which the Nuki bridge is listening on. Defaults to `8080`.
-- **token** (*Required*): The token that was defined when setting up the bridge.
-
-## {% linkable_title Full configuration %}
-
-Here's a full configuration example for a Nuki bridge:
-
-```yaml
-# Example configuration.yaml entry
-lock:
-  - platform: nuki
-    host: 192.168.1.120
-    port: 8080
-    token: fe2345ef
-```
+{% configuration %}
+host:
+  description: The IP or hostname of the Nuki bridge.
+  required: true
+  type: string
+port:
+  description: The port on which the Nuki bridge is listening on.
+  required: false
+  default: 8080
+  type: integer
+token:
+  description: The token that was defined when setting up the bridge.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Services %}
 

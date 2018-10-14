@@ -28,8 +28,14 @@ binary_sensor:
       - motion
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **button**: Return a boolean value when the doorbell button was pressed.
-  - **motion**: Return a boolean value when movement was detected by the Skybell doorbell.
+{% configuration %}
+monitored_conditions:
+  type: list
+  required: true
+  description: Conditions to display in the frontend. The following conditions can be monitored.
+  keys:
+    button:
+      description: Returns whether the doorbell button was pressed.
+    motion:
+      description: Returns whether movement was detected by the Skybell doorbell.
+{% endconfiguration %}

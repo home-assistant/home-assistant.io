@@ -26,13 +26,30 @@ zabbix:
   host: 192.168.0.100
 ```
 
-Configuration variables:
-
-- **host** (*Required*): Your Zabbix server.
-- **path** (*Optional*): Path to your Zabbix install. Defaults to `/zabbix/`.
-- **ssl** (*Optional*): Set to `True` if your Zabbix installation is using SSL. Default to `False`.
-- **username** (*Optional*): Your Zabbix username.
-- **password** (*Optional*): Your Zabbix password.
+{% configuration %}
+host:
+  description: Your Zabbix server.
+  required: true
+  type: string
+path:
+  description: Path to your Zabbix install.
+  required: false
+  default: "`/zabbix/`"
+  type: string
+ssl:
+  description: Set to `True` if your Zabbix installation is using SSL.
+  required: false
+  default: false
+  type: boolean
+username:
+  description: Your Zabbix username.
+  required: false
+  type: string
+password:
+  description: Your Zabbix password.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Full configuration %}
 
