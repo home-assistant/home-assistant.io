@@ -36,7 +36,7 @@ device_tracker:
 hosts:
   description: List of device names and their corresponding IP address or hostname.
   required: true
-  type: array
+  type: list
 count:
   description: Number of packet used for each device (avoid false detection).
   required: false
