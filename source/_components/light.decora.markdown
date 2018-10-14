@@ -34,12 +34,12 @@ devices:
   required: true
   type: map
   keys:
-    [mac address]:
+    mac_address:
       required: true
       description: The bluetooth address of the switch.
       type: string
       name:
-        description: The custom name to use in the frontend.
+        description: The name to use in the frontend.
         required: false
         type: string
       api_key:
