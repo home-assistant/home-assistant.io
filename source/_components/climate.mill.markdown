@@ -25,7 +25,7 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 climate:
  - platform: mill
    username: email@gmail.com
-   password:  pswd
+   password: pswd
 ```
 
 {% configuration %}
