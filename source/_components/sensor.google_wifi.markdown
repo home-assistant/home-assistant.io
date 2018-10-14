@@ -26,15 +26,33 @@ sensor:
   - platform: google_wifi
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The address to retrieve status from the router. Defaults to `testwifi.here` (other options include `onhub.here` and your router's IP such as `192.168.86.1`).
-- **name** (*Optional*): Name to give the Google Wifi sensor. Defaults to `google_wifi`.
-- **monitored_conditions** array (*Optional*): Defines the data to monitor as sensors. Defaults to all of the listed options below.
-  - **current_version**: Current firmware version of the router.
-  - **new_version**: Latest available firmware version. If router is up-to-date, this value defaults to `Latest`.
-  - **uptime**: Days since router has been turned on.
-  - **last_restart**: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
-  - **local_ip**: Local public IP address.
-  - **status**: Reports whether the router is or is not connected to the internet.
-
+{% configuration %}
+host:
+  description: The address to retrieve status from the router. Defaults to `testwifi.here` (other options include `onhub.here` and your router's IP such as `192.168.86.1`).
+  required: false
+  default: testwifi.here
+  type: string
+name:
+  description: Name to give the Google Wifi sensor. Defaults to `google_wifi`.
+  required: false
+  default: google_wifi
+  type: string
+monitored_conditions:
+  description: Defines the data to monitor as sensors. Defaults to all of the listed options below.
+  required: false
+  type: map
+  keys:
+    current_version:
+      description: Current firmware version of the router.
+    new_version:
+      description: Latest available firmware version. If router is up-to-date, this value defaults to `Latest`.
+      default: Latest
+    uptime:
+      description: Days since router has been turned on.
+    last_restart:
+      description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
+    local_ip:
+      description: Local public IP address.
+    status:
+      description: Reports whether the router is or is not connected to the internet.
+{% endconfiguration %}
