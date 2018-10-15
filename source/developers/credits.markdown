@@ -2,7 +2,7 @@
 layout: page
 title: "Credits"
 description: "Credits for the developers who contributed to Home Assistant."
-date: 2018-10-15, 09:33:42 +0000
+date: 2018-10-15, 10:06:11 +0000
 sidebar: true
 comments: false
 sharing: true
@@ -32,13 +32,13 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to ui-schema
 3 commits to hassio-build
 3 commits to hassio-addons
-2 commits to lambda-home-assistant-github
-2 commits to home-assistant-iOS
 2 commits to hassio-addons-example
 2 commits to issue-bot
+2 commits to lambda-home-assistant-github
+2 commits to home-assistant-iOS
 1 commit to home-assistant-notebooks
-1 commit to warrant
 1 commit to architecture
+1 commit to warrant
 ")
 
 ### {% linkable_title Contributors %}
@@ -57,14 +57,15 @@ This page contains a list of people who have contributed in one way or another t
 - [9R (@9R)](https://github.com/9R "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
-- [ABOTlegacy (@ABOTlegacy)](https://github.com/ABOTlegacy "1 total commits to the home-assistant organization:
+- [\\\`\*\_\{\[\#\+\]\(\!das\.\)\-\}\`\`\`32d\`\`\`&lt;script&gt;alert\(&#x27;XD&#x27;\)&lt;/script&gt;&lt;/div&gt; (@WofWca)](https://github.com/WofWca "9 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+3 commits to developers.home-assistant
+")
+- [a1ex4 (@a1ex4)](https://github.com/a1ex4 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [ADeeds (@ADeeds)](https://github.com/ADeeds "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [AHS (@ahofelt)](https://github.com/ahofelt "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
+- [a\-andre (@a-andre)](https://github.com/a-andre "3 total commits to the home-assistant organization:
+3 commits to home-assistant
 ")
 - [Aaron Bach (@bachya)](https://github.com/bachya "90 total commits to the home-assistant organization:
 64 commits to home-assistant
@@ -87,8 +88,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Aaron Wolen (@aaronwolen)](https://github.com/aaronwolen "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [aaronpace (@aaronpace)](https://github.com/aaronpace "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Abhishek Anand (@aa755)](https://github.com/aa755 "2 total commits to the home-assistant organization:
 1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [abondoe (@abondoe)](https://github.com/abondoe "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [ABOTlegacy (@ABOTlegacy)](https://github.com/ABOTlegacy "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Abílio Costa (@abmantis)](https://github.com/abmantis "28 total commits to the home-assistant organization:
@@ -127,8 +137,8 @@ This page contains a list of people who have contributed in one way or another t
 96 commits to home-assistant-polymer
 60 commits to home-assistant.io
 3 commits to home-assistant-js
-1 commit to homebridge-homeassistant
 1 commit to developers.home-assistant
+1 commit to homebridge-homeassistant
 ")
 - [Adam Starbuck (@starbuck93)](https://github.com/starbuck93 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -136,11 +146,23 @@ This page contains a list of people who have contributed in one way or another t
 - [Adam Stone (@astone123)](https://github.com/astone123 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [adamomg (@adamomg)](https://github.com/adamomg "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [adamp237 (@adamp237)](https://github.com/adamp237 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Adde Lovein (@addelovein)](https://github.com/addelovein "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
 - [Addo Solutions (@AddoSolutions)](https://github.com/AddoSolutions "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [ADeeds (@ADeeds)](https://github.com/ADeeds "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [adipose (@adipose)](https://github.com/adipose "1 total commits to the home-assistant organization:
+1 commit to hassio-addons
 ")
 - [AdithyanI (@AdithyanI)](https://github.com/AdithyanI "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -174,6 +196,26 @@ This page contains a list of people who have contributed in one way or another t
 - [Adrián López (@adrianlzt)](https://github.com/adrianlzt "8 total commits to the home-assistant organization:
 6 commits to home-assistant.io
 2 commits to home-assistant
+")
+- [aetolus (@aetolus)](https://github.com/aetolus "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [ahobsonsayers (@ahobsonsayers)](https://github.com/ahobsonsayers "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [AHS (@ahofelt)](https://github.com/ahofelt "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+")
+- [aisbergde (@aisbergde)](https://github.com/aisbergde "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [ajobbins (@ajobbins)](https://github.com/ajobbins "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [akloeckner (@akloeckner)](https://github.com/akloeckner "5 total commits to the home-assistant organization:
+3 commits to home-assistant
+2 commits to home-assistant.io
 ")
 - [Alan Bowman (@alanbowman)](https://github.com/alanbowman "5 total commits to the home-assistant organization:
 4 commits to home-assistant
@@ -242,12 +284,12 @@ This page contains a list of people who have contributed in one way or another t
 11 commits to home-assistant.io
 4 commits to hassos
 ")
-- [Alex MF (@adsmf)](https://github.com/adsmf "1 total commits to the home-assistant organization:
-1 commit to hassio-addons
-")
 - [Alex Mekkering (@AlexMekkering)](https://github.com/AlexMekkering "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [Alex MF (@adsmf)](https://github.com/adsmf "1 total commits to the home-assistant organization:
+1 commit to hassio-addons
 ")
 - [Alex Osadchyy (@aosadchyy)](https://github.com/aosadchyy "2 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -259,9 +301,6 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant.io
 ")
 - [Alex1234 (@Alex1234)](https://github.com/Alex1234 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [AlexVPopov (@AlexVPopov)](https://github.com/AlexVPopov "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Alexander (@vtochq)](https://github.com/vtochq "1 total commits to the home-assistant organization:
@@ -299,6 +338,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Alexis Iglauer (@ax42)](https://github.com/ax42 "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
 ")
+- [AlexVPopov (@AlexVPopov)](https://github.com/AlexVPopov "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Alexxander0 (@Alexxander0)](https://github.com/Alexxander0 "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
@@ -325,10 +367,17 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to hassio-addons
 1 commit to pi-gen
 ")
+- [amigian74 (@amigian74)](https://github.com/amigian74 "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
 - [Amir Hanan (@Amir974)](https://github.com/Amir974 "9 total commits to the home-assistant organization:
 9 commits to home-assistant.io
 ")
 - [Amol Katdare (@amolkatdare)](https://github.com/amolkatdare "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [amorsillo (@AndrewMorsillo)](https://github.com/AndrewMorsillo "2 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
 1 commit to home-assistant.io
 ")
 - [Ana Paula Gomes (@anapaulagomes)](https://github.com/anapaulagomes "2 total commits to the home-assistant organization:
@@ -351,6 +400,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Anders Norås (@anoras)](https://github.com/anoras "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [andig (@andig)](https://github.com/andig "2 total commits to the home-assistant organization:
+2 commits to pi-gen
 ")
 - [Andrea (@BubiDevs)](https://github.com/BubiDevs "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -386,6 +438,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Andreas Wolter (@a-wolter)](https://github.com/a-wolter "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [andreasfelder (@andreasfelder)](https://github.com/andreasfelder "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Andreea\-Daniela Ene (@AndreeaEne)](https://github.com/AndreeaEne "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
@@ -449,6 +504,15 @@ This page contains a list of people who have contributed in one way or another t
 - [Andrew Williams (@nikdoof)](https://github.com/nikdoof "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [andrew\-curtis (@andrew-curtis)](https://github.com/andrew-curtis "7 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+")
+- [andrewdolphin (@andrewdolphin)](https://github.com/andrewdolphin "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [andrewfoster (@andrewfoster)](https://github.com/andrewfoster "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Andrey (@andrey-git)](https://github.com/andrey-git "324 total commits to the home-assistant organization:
 148 commits to home-assistant
 138 commits to home-assistant-polymer
@@ -486,12 +550,29 @@ This page contains a list of people who have contributed in one way or another t
 - [Andy9FromSpace (@Andy9FromSpace)](https://github.com/Andy9FromSpace "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [andyat (@andyat)](https://github.com/andyat "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [andylockran (@andylockran)](https://github.com/andylockran "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [angel12 (@angel12)](https://github.com/angel12 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [anotherthomas (@anotherthomas)](https://github.com/anotherthomas "1 total commits to the home-assistant organization:
+1 commit to hassio-addons
+")
 - [Anthony Arnaud (@aarnaud)](https://github.com/aarnaud "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
 - [Anthony Hughes (@tony2nite)](https://github.com/tony2nite "3 total commits to the home-assistant organization:
 1 commit to netdisco
 1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [antihate8 (@antihate8)](https://github.com/antihate8 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Antoine Bertin (@Diaoul)](https://github.com/Diaoul "5 total commits to the home-assistant organization:
@@ -536,6 +617,20 @@ This page contains a list of people who have contributed in one way or another t
 - [Anurag El Dorado (@aedorado)](https://github.com/aedorado "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [apastuszak (@apastuszak)](https://github.com/apastuszak "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [apo\-mak (@apo-mak)](https://github.com/apo-mak "2 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+1 commit to home-assistant.io
+")
+- [aquarium (@theaquarium)](https://github.com/theaquarium "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [arcsur (@arcsur)](https://github.com/arcsur "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
+")
 - [Ardetus (@Ardetus)](https://github.com/Ardetus "4 total commits to the home-assistant organization:
 2 commits to home-assistant
 2 commits to home-assistant.io
@@ -544,8 +639,18 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [arg0nik (@arg0nik)](https://github.com/arg0nik "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Ari Lotter (@arilotter)](https://github.com/arilotter "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [aribarreto (@aribarreto)](https://github.com/aribarreto "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [arjenfvellinga (@arjenfvellinga)](https://github.com/arjenfvellinga "6 total commits to the home-assistant organization:
+5 commits to home-assistant.io
 1 commit to home-assistant
 ")
 - [Arno (@aetjansen)](https://github.com/aetjansen "4 total commits to the home-assistant organization:
@@ -553,6 +658,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [ArnoGit (@ArnoGit)](https://github.com/ArnoGit "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [arraylabs (@arraylabs)](https://github.com/arraylabs "8 total commits to the home-assistant organization:
+6 commits to home-assistant
+2 commits to home-assistant.io
 ")
 - [Artem (@ArtHome12)](https://github.com/ArtHome12 "2 total commits to the home-assistant organization:
 2 commits to developers.home-assistant
@@ -566,12 +675,18 @@ This page contains a list of people who have contributed in one way or another t
 - [Arvind Prasanna (@aprasanna)](https://github.com/aprasanna "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [ashev (@ashev)](https://github.com/ashev "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Ashton Campbell (@AshtonCampbell)](https://github.com/AshtonCampbell "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
 ")
 - [Assaf Inbal (@shmuelzon)](https://github.com/shmuelzon "12 total commits to the home-assistant organization:
 9 commits to homebridge-homeassistant
 3 commits to home-assistant
+")
+- [atorralba (@atorralba)](https://github.com/atorralba "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Aubin Paul (@outlyer)](https://github.com/outlyer "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -584,28 +699,48 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [aufano (@aufano)](https://github.com/aufano "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
 - [Austin (@trainman419)](https://github.com/trainman419 "8 total commits to the home-assistant organization:
 8 commits to home-assistant
 ")
 - [Austin Drummond (@adrum)](https://github.com/adrum "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [austinlg96 (@austinlg96)](https://github.com/austinlg96 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [austinmroczek (@austinmroczek)](https://github.com/austinmroczek "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Avraham David Gelbfish (@adgelbfish)](https://github.com/adgelbfish "3 total commits to the home-assistant organization:
 1 commit to hadashboard
 1 commit to pi-gen
 1 commit to home-assistant.io
 ")
+- [awkwardDuck (@awkwardDuck)](https://github.com/awkwardDuck "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [azeroth12 (@azeroth12)](https://github.com/azeroth12 "2 total commits to the home-assistant organization:
+1 commit to appdaemon
+1 commit to home-assistant.io
+")
 - [Azimoth (@Azimoth)](https://github.com/Azimoth "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [b1g1an (@b1g1an)](https://github.com/b1g1an "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [B1ue\-W01f (@B1ue-W01f)](https://github.com/B1ue-W01f "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [BRUH Automation (@bruhautomation)](https://github.com/bruhautomation "4 total commits to the home-assistant organization:
-3 commits to hassbian-scripts
-1 commit to home-assistant.io
+- [b3nj1 (@b3nj1)](https://github.com/b3nj1 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
-- [BUUT\! (@buut-vrij)](https://github.com/buut-vrij "2 total commits to the home-assistant organization:
+- [badele (@badele)](https://github.com/badele "24 total commits to the home-assistant organization:
+22 commits to home-assistant
 2 commits to home-assistant.io
 ")
 - [Bakkoda (@Bakkoda)](https://github.com/Bakkoda "1 total commits to the home-assistant organization:
@@ -648,6 +783,21 @@ This page contains a list of people who have contributed in one way or another t
 - [Bas Stottelaar (@basilfx)](https://github.com/basilfx "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [basst22778 (@basst22778)](https://github.com/basst22778 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [bastshoes (@bastshoes)](https://github.com/bastshoes "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+1 commit to home-assistant-polymer
+1 commit to home-assistant.io
+")
+- [battistaar (@battistaar)](https://github.com/battistaar "1 total commits to the home-assistant organization:
+1 commit to homebridge-homeassistant
+")
+- [bcl1713 (@bcl1713)](https://github.com/bcl1713 "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [Beat (@bdurrer)](https://github.com/bdurrer "16 total commits to the home-assistant organization:
 11 commits to home-assistant.io
 4 commits to home-assistant
@@ -657,6 +807,12 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant.io
 ")
 - [Beau Simensen (@simensen)](https://github.com/simensen "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [beepmill (@beepmill)](https://github.com/beepmill "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [beestree (@beestree)](https://github.com/beestree "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Ben (@unixben)](https://github.com/unixben "2 total commits to the home-assistant organization:
@@ -718,12 +874,33 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [bergemalm (@bergemalm)](https://github.com/bergemalm "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
 - [Bertbert (@bertbert72)](https://github.com/bertbert72 "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [bestlibre (@bestlibre)](https://github.com/bestlibre "16 total commits to the home-assistant organization:
+8 commits to home-assistant
+5 commits to home-assistant.io
+1 commit to hassio-build
+1 commit to hassio
+1 commit to home-assistant-polymer
+")
+- [bigbadblunt (@bigbadblunt)](https://github.com/bigbadblunt "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [biggms (@biggms)](https://github.com/biggms "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [BigMoby (@bigmoby)](https://github.com/bigmoby "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [bigwoof (@bigwoof)](https://github.com/bigwoof "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Bike Dude (@hackacad)](https://github.com/hackacad "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -740,11 +917,29 @@ This page contains a list of people who have contributed in one way or another t
 5 commits to home-assistant
 3 commits to home-assistant-polymer
 ")
+- [bjohnson8949 (@bjohnson8949)](https://github.com/bjohnson8949 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Björn Orri (@bjornorri)](https://github.com/bjornorri "1 total commits to the home-assistant organization:
 1 commit to home-assistant-iOS
 ")
 - [Björn Ramberg (@bjorne)](https://github.com/bjorne "1 total commits to the home-assistant organization:
 1 commit to hassio-build
+")
+- [bkcberry (@bkcberry)](https://github.com/bkcberry "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [bl8rnr (@bl8rnr)](https://github.com/bl8rnr "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [blackdog70 (@blackdog70)](https://github.com/blackdog70 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [blackmesataiwan (@blackmesataiwan)](https://github.com/blackmesataiwan "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [blackwind (@blackwind)](https://github.com/blackwind "2 total commits to the home-assistant organization:
+2 commits to home-assistant
 ")
 - [Blake Blackshear (@blakeblackshear)](https://github.com/blakeblackshear "9 total commits to the home-assistant organization:
 7 commits to home-assistant.io
@@ -752,6 +947,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Blanyal D&#x27;Souza (@blanyal)](https://github.com/blanyal "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [bleader (@bleader)](https://github.com/bleader "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Blender3D (@Blender3D)](https://github.com/Blender3D "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -768,17 +966,41 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [bobnwk (@bobnwk)](https://github.com/bobnwk "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Boced66 (@boced66)](https://github.com/boced66 "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [boltgolt (@boltgolt)](https://github.com/boltgolt "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [bonanitech (@bonanitech)](https://github.com/bonanitech "9 total commits to the home-assistant organization:
+9 commits to home-assistant.io
+")
+- [bonterra (@bonterra)](https://github.com/bonterra "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [boojew (@boojew)](https://github.com/boojew "9 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+2 commits to home-assistant
 ")
 - [Boris K (@bokub)](https://github.com/bokub "12 total commits to the home-assistant organization:
 6 commits to home-assistant.io
 6 commits to home-assistant
 ")
+- [bottomquark (@bottomquark)](https://github.com/bottomquark "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [Boyi C (@fanthos)](https://github.com/fanthos "25 total commits to the home-assistant organization:
 17 commits to home-assistant-polymer
 6 commits to home-assistant
 2 commits to home-assistant.io
+")
+- [brad (@oakbrad)](https://github.com/oakbrad "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Brad Buran (@bburan)](https://github.com/bburan "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -792,6 +1014,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Brad Johnson (@bradsk88)](https://github.com/bradsk88 "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [braddparker (@braddparker)](https://github.com/braddparker "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [BradleyDHobbs (@BradleyDHobbs)](https://github.com/BradleyDHobbs "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -814,6 +1039,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Brant Knudson (@brantlk)](https://github.com/brantlk "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [brburns (@brburns)](https://github.com/brburns "2 total commits to the home-assistant organization:
+2 commits to netdisco
 ")
 - [Brenda Wallace (@Br3nda)](https://github.com/Br3nda "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
@@ -890,7 +1118,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Britton Clapp (@britton-clapp)](https://github.com/britton-clapp "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [brkr19 (@brkr19)](https://github.com/brkr19 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [brubaked (@brubaked)](https://github.com/brubaked "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Bruce (@trux66)](https://github.com/trux66 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [BRUH Automation (@bruhautomation)](https://github.com/bruhautomation "4 total commits to the home-assistant organization:
+3 commits to hassbian-scripts
 1 commit to home-assistant.io
 ")
 - [Bruno Binet (@bbinet)](https://github.com/bbinet "1 total commits to the home-assistant organization:
@@ -906,15 +1144,27 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant
 2 commits to home-assistant.io
 ")
-- [CHAPELLE Quentin (@quentinchap)](https://github.com/quentinchap "1 total commits to the home-assistant organization:
+- [BUUT\! (@buut-vrij)](https://github.com/buut-vrij "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [bvansambeek (@bvansambeek)](https://github.com/bvansambeek "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to hassio-build
+")
+- [byte\-bender (@byte-bender)](https://github.com/byte-bender "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [CTLS (@CTLS)](https://github.com/CTLS "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
+- [c727 (@c727)](https://github.com/c727 "243 total commits to the home-assistant organization:
+157 commits to home-assistant-polymer
+54 commits to home-assistant.io
+11 commits to ui-schema
+10 commits to developers.home-assistant
+9 commits to home-assistant
+2 commits to hassio
 ")
-- [CV (@dagobert)](https://github.com/dagobert "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
+- [c\-soft (@c-soft)](https://github.com/c-soft "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Caius Seiger (@caiuspb)](https://github.com/caiuspb "3 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -942,9 +1192,12 @@ This page contains a list of people who have contributed in one way or another t
 - [Carlo Costanzo (@CCOSTAN)](https://github.com/CCOSTAN "99 total commits to the home-assistant organization:
 91 commits to home-assistant.io
 5 commits to home-assistant
+1 commit to hassbian-scripts
 1 commit to fabric-home-assistant
 1 commit to homebridge-homeassistant
-1 commit to hassbian-scripts
+")
+- [carlosmgr (@carlosmgr)](https://github.com/carlosmgr "6 total commits to the home-assistant organization:
+6 commits to home-assistant
 ")
 - [Carter (@BluGeni)](https://github.com/BluGeni "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -952,6 +1205,22 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Casper Weiss Bang (@C0DK)](https://github.com/C0DK "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [caz0075 (@caz0075)](https://github.com/caz0075 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [cburgess (@cburgess)](https://github.com/cburgess "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [cby016 (@cby016)](https://github.com/cby016 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [cdce8p (@cdce8p)](https://github.com/cdce8p "178 total commits to the home-assistant organization:
+111 commits to home-assistant
+43 commits to home-assistant.io
+13 commits to home-assistant-polymer
+6 commits to developers.home-assistant
+5 commits to hass-release
 ")
 - [Cecron (@Cecron)](https://github.com/Cecron "1 total commits to the home-assistant organization:
 1 commit to appdaemon
@@ -961,6 +1230,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Cedric Van Goethem (@Zepheus)](https://github.com/Zepheus "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [celeroll (@celeroll)](https://github.com/celeroll "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Cenk Gündoğan (@cgundogan)](https://github.com/cgundogan "1 total commits to the home-assistant organization:
 1 commit to libcoap
@@ -975,13 +1247,19 @@ This page contains a list of people who have contributed in one way or another t
 - [ChadCurvin (@Curvin777)](https://github.com/Curvin777 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [chanders (@chanders)](https://github.com/chanders "2 total commits to the home-assistant organization:
+2 commits to hadashboard
+")
+- [CHAPELLE Quentin (@quentinchap)](https://github.com/quentinchap "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Charles Blonde (@CharlesBlonde)](https://github.com/CharlesBlonde "19 total commits to the home-assistant organization:
 12 commits to home-assistant
 7 commits to home-assistant.io
 ")
 - [Charles Garwood (@cgarwood)](https://github.com/cgarwood "45 total commits to the home-assistant organization:
-18 commits to home-assistant
 18 commits to home-assistant.io
+18 commits to home-assistant
 9 commits to home-assistant-polymer
 ")
 - [Charles Spirakis (@srcLurker)](https://github.com/srcLurker "8 total commits to the home-assistant organization:
@@ -1002,6 +1280,12 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Chia\-liang Kao (@clkao)](https://github.com/clkao "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [chknetsc (@chknetsc)](https://github.com/chknetsc "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [chocomega (@chocomega)](https://github.com/chocomega "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Chris (@chennin)](https://github.com/chennin "15 total commits to the home-assistant organization:
 11 commits to home-assistant.io
@@ -1112,6 +1396,9 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [christopheBfr (@christopheBfr)](https://github.com/christopheBfr "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Christopher Vella (@chrisvella)](https://github.com/chrisvella "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
@@ -1119,17 +1406,43 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant
 2 commits to home-assistant.io
 ")
+- [chrom3 (@chrom3)](https://github.com/chrom3 "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [chrysn (@chrysn)](https://github.com/chrysn "65 total commits to the home-assistant organization:
+65 commits to libcoap
+")
 - [Chun\-wei Kuo (@Domon)](https://github.com/Domon "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [chz^3 (@chzchzchz)](https://github.com/chzchzchz "1 total commits to the home-assistant organization:
+1 commit to pi-gen
+")
 - [Ciquattro (@CiquattroFPV)](https://github.com/CiquattroFPV "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [citruz (@citruz)](https://github.com/citruz "5 total commits to the home-assistant organization:
+4 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [clach04 (@clach04)](https://github.com/clach04 "6 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+2 commits to home-assistant
+1 commit to hassbian-scripts
+")
+- [clarkewd (@clarkewd)](https://github.com/clarkewd "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Claudiu Farcas (@farcasclaudiu)](https://github.com/farcasclaudiu "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Claus F\. Strasburger (@cfstras)](https://github.com/cfstras "5 total commits to the home-assistant organization:
 5 commits to pi-gen
+")
+- [clayton craft (@craftyguy)](https://github.com/craftyguy "2 total commits to the home-assistant organization:
+2 commits to home-assistant
 ")
 - [Clemens Wolff (@c-w)](https://github.com/c-w "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -1140,8 +1453,16 @@ This page contains a list of people who have contributed in one way or another t
 - [Cláudio Ribeiro (@DailyMatters)](https://github.com/DailyMatters "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [codeavenger07 (@codeavenger07)](https://github.com/codeavenger07 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Codepadawan (@Codepadawan)](https://github.com/Codepadawan "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [cogneato (@cogneato)](https://github.com/cogneato "21 total commits to the home-assistant organization:
+15 commits to home-assistant.io
+4 commits to developers.home-assistant
+2 commits to hassos
 ")
 - [Colby Rome (@cisasteelersfan)](https://github.com/cisasteelersfan "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -1193,6 +1514,16 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 2 commits to home-assistant
 ")
+- [corneyl (@corneyl)](https://github.com/corneyl "5 total commits to the home-assistant organization:
+4 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [cpgifford (@cpgifford)](https://github.com/cpgifford "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [cpw (@cpw)](https://github.com/cpw "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Craig Hills (@chills42)](https://github.com/chills42 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -1203,17 +1534,35 @@ This page contains a list of people who have contributed in one way or another t
 21 commits to home-assistant
 7 commits to home-assistant.io
 ")
+- [cswinford (@cswinford)](https://github.com/cswinford "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [CTLS (@CTLS)](https://github.com/CTLS "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
+")
 - [CupricReki (@CupricReki)](https://github.com/CupricReki "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [DK (@poldim)](https://github.com/poldim "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
+- [CV (@dagobert)](https://github.com/dagobert "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+")
+- [cxlwill (@cxlwill)](https://github.com/cxlwill "4 total commits to the home-assistant organization:
+2 commits to hassbian-scripts
+2 commits to home-assistant-polymer
+")
+- [dainok (@dainok)](https://github.com/dainok "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Dale Higgs (@dale3h)](https://github.com/dale3h "45 total commits to the home-assistant organization:
 32 commits to home-assistant.io
 11 commits to home-assistant
 1 commit to hassbot
 1 commit to homebridge-homeassistant
+")
+- [damarco (@damarco)](https://github.com/damarco "9 total commits to the home-assistant organization:
+9 commits to home-assistant
 ")
 - [Dan (@danieljkemp)](https://github.com/danieljkemp "23 total commits to the home-assistant organization:
 16 commits to home-assistant
@@ -1277,6 +1626,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Dane Peterson (@peterson-dane)](https://github.com/peterson-dane "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [dangyuluo (@dangyuluo)](https://github.com/dangyuluo "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Dani (@danichispa)](https://github.com/danichispa "9 total commits to the home-assistant organization:
 9 commits to home-assistant.io
@@ -1373,12 +1725,23 @@ This page contains a list of people who have contributed in one way or another t
 - [Daphne Lin (@daphotron)](https://github.com/daphotron "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [dapowers87 (@dapowers87)](https://github.com/dapowers87 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Dario Iacampo (@JackNova)](https://github.com/JackNova "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
 - [Darren Reynolds (@reynos)](https://github.com/reynos "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [dasos (@dasos)](https://github.com/dasos "11 total commits to the home-assistant organization:
+7 commits to home-assistant
+3 commits to home-assistant.io
+1 commit to netdisco
+")
+- [datafx (@datafx)](https://github.com/datafx "6 total commits to the home-assistant organization:
+6 commits to home-assistant.io
 ")
 - [Dav0815 (@Dav0815)](https://github.com/Dav0815 "5 total commits to the home-assistant organization:
 4 commits to home-assistant.io
@@ -1502,14 +1865,35 @@ This page contains a list of people who have contributed in one way or another t
 - [Davide Setti (@vad)](https://github.com/vad "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [davidedmundson (@davidedmundson)](https://github.com/davidedmundson "7 total commits to the home-assistant organization:
+4 commits to home-assistant
+3 commits to home-assistant.io
+")
+- [davidm84 (@davidm84)](https://github.com/davidm84 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Dawid Wróbel (@wrobelda)](https://github.com/wrobelda "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
+")
+- [dayofdoom (@dayofdoom)](https://github.com/dayofdoom "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [dbrowndan (@dbrowndan)](https://github.com/dbrowndan "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Dean (@FreekingDean)](https://github.com/FreekingDean "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
 - [Dean Camera (@abcminiuser)](https://github.com/abcminiuser "4 total commits to the home-assistant organization:
 2 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [definitio (@definitio)](https://github.com/definitio "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [deisi (@deisi)](https://github.com/deisi "12 total commits to the home-assistant organization:
+10 commits to home-assistant
 2 commits to home-assistant.io
 ")
 - [Dejan Dakić (@dejx)](https://github.com/dejx "1 total commits to the home-assistant organization:
@@ -1522,8 +1906,14 @@ This page contains a list of people who have contributed in one way or another t
 - [Delper (@Delper)](https://github.com/Delper "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [demonspork (@demonspork)](https://github.com/demonspork "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Denix (@denics)](https://github.com/denics "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [Dennis de Greef (@dennisdegreef)](https://github.com/dennisdegreef "2 total commits to the home-assistant organization:
+2 commits to home-assistant
 ")
 - [Dennis Karpienski (@TheRealLink)](https://github.com/TheRealLink "24 total commits to the home-assistant organization:
 15 commits to home-assistant-polymer
@@ -1534,8 +1924,8 @@ This page contains a list of people who have contributed in one way or another t
 - [Dennis Sutch (@sutch)](https://github.com/sutch "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
-- [Dennis de Greef (@dennisdegreef)](https://github.com/dennisdegreef "2 total commits to the home-assistant organization:
-2 commits to home-assistant
+- [dennisaion (@dennisaion)](https://github.com/dennisaion "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Department G33k (@department-g33k)](https://github.com/department-g33k "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -1551,14 +1941,42 @@ This page contains a list of people who have contributed in one way or another t
 30 commits to home-assistant
 9 commits to home-assistant.io
 ")
+- [dersger (@dersger)](https://github.com/dersger "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant-polymer
+")
 - [Destix (@Destix)](https://github.com/Destix "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
 - [DetroitEE (@DetroitEE)](https://github.com/DetroitEE "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 ")
+- [devdelay (@devdelay)](https://github.com/devdelay "16 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+5 commits to home-assistant
+4 commits to homebridge-homeassistant
+")
+- [devnill (@devnill)](https://github.com/devnill "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Devon Peet (@dpeet)](https://github.com/dpeet "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
+")
+- [dhaas (@dhaas)](https://github.com/dhaas "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [dickesW (@dickesW)](https://github.com/dickesW "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [digiblur (@digiblur)](https://github.com/digiblur "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [dimitripb (@dimitripb)](https://github.com/dimitripb "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [dinoaus (@dinoaus)](https://github.com/dinoaus "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Diogo Gomes (@dgomes)](https://github.com/dgomes "77 total commits to the home-assistant organization:
 51 commits to home-assistant
@@ -1568,6 +1986,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Diogo Soares (@diogos88)](https://github.com/diogos88 "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
+")
+- [diplix (@diplix)](https://github.com/diplix "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [djm300 (@djm300)](https://github.com/djm300 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [DK (@poldim)](https://github.com/poldim "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Dmitri Pribysh (@dmand)](https://github.com/dmand "1 total commits to the home-assistant organization:
 1 commit to hassos
@@ -1582,8 +2011,14 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [dmschlab (@dmschlab)](https://github.com/dmschlab "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Dmytro Kytsmen (@Kietzmann)](https://github.com/Kietzmann "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [dnaphreak (@dnaphreak)](https://github.com/dnaphreak "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [DoloresHA (@DoloresHA)](https://github.com/DoloresHA "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -1595,18 +2030,28 @@ This page contains a list of people who have contributed in one way or another t
 - [Domantas (@Dohxis)](https://github.com/Dohxis "1 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 ")
-- [DonHugo (@DonHugo)](https://github.com/DonHugo "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [dominikandreas (@dominikandreas)](https://github.com/dominikandreas "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Donal Phipps (@Phippsy)](https://github.com/Phippsy "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [DonHugo (@DonHugo)](https://github.com/DonHugo "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Dougal Matthews (@d0ugal)](https://github.com/d0ugal "5 total commits to the home-assistant organization:
 3 commits to home-assistant
 2 commits to home-assistant.io
 ")
-- [DrZzs (@Snipercaine)](https://github.com/Snipercaine "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [dpressle (@dpressle)](https://github.com/dpressle "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [dramamoose (@dramamoose)](https://github.com/dramamoose "7 total commits to the home-assistant organization:
+4 commits to home-assistant
+3 commits to home-assistant.io
+")
+- [dreizehnelf (@dreizehnelf)](https://github.com/dreizehnelf "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Drew Wells (@drewwells)](https://github.com/drewwells "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -1614,11 +2059,29 @@ This page contains a list of people who have contributed in one way or another t
 - [DrewSK (@dzsquared)](https://github.com/dzsquared "8 total commits to the home-assistant organization:
 8 commits to home-assistant.io
 ")
+- [drjared88 (@drjared88)](https://github.com/drjared88 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [drogfild (@drogfild)](https://github.com/drogfild "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [drop table USERS; \-\- (@hudashot)](https://github.com/hudashot "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [DrZzs (@Snipercaine)](https://github.com/Snipercaine "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [dtorner (@dtorner)](https://github.com/dtorner "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [DubhAd (@DubhAd)](https://github.com/DubhAd "489 total commits to the home-assistant organization:
 484 commits to home-assistant.io
-2 commits to developers.home-assistant
 2 commits to hassos
+2 commits to developers.home-assistant
 1 commit to home-assistant
+")
+- [dunstad (@dunstad)](https://github.com/dunstad "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Duoxilian (@Duoxilian)](https://github.com/Duoxilian "11 total commits to the home-assistant organization:
 6 commits to home-assistant.io
@@ -1633,11 +2096,27 @@ This page contains a list of people who have contributed in one way or another t
 - [Eamonn O&#x27;Connell (@halfbaked)](https://github.com/halfbaked "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [earaya (@earaya)](https://github.com/earaya "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ebpetway (@ebpetway)](https://github.com/ebpetway "55 total commits to the home-assistant organization:
+55 commits to warrant
+")
+- [ecksun (@ecksun)](https://github.com/ecksun "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [Ed Boal (@edwork)](https://github.com/edwork "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
 - [Ed Marshall (@logic)](https://github.com/logic "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [edgimar (@edgimar)](https://github.com/edgimar "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [edif30 (@edif30)](https://github.com/edif30 "2 total commits to the home-assistant organization:
+2 commits to home-assistant
 ")
 - [Eduard van Valkenburg (@eavanvalkenburg)](https://github.com/eavanvalkenburg "4 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -1653,9 +2132,18 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 2 commits to home-assistant.io
 ")
+- [efp1 (@efp1)](https://github.com/efp1 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Egor Tsinko (@etsinko)](https://github.com/etsinko "12 total commits to the home-assistant organization:
 9 commits to home-assistant
 3 commits to home-assistant.io
+")
+- [eiaro (@eiaro)](https://github.com/eiaro "4 total commits to the home-assistant organization:
+4 commits to home-assistant
+")
+- [eieste (@eieste)](https://github.com/eieste "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Eirik H (@eithe)](https://github.com/eithe "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -1664,6 +2152,9 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant
 2 commits to home-assistant.io
 1 commit to netdisco
+")
+- [eldanb (@eldanb)](https://github.com/eldanb "1 total commits to the home-assistant organization:
+1 commit to homebridge-homeassistant
 ")
 - [Eleftherios Chamakiotis (@lexam79)](https://github.com/lexam79 "4 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -1676,10 +2167,16 @@ This page contains a list of people who have contributed in one way or another t
 25 commits to home-assistant
 6 commits to home-assistant.io
 ")
+- [eltoro81 (@eltoro81)](https://github.com/eltoro81 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Elvis (@mu3)](https://github.com/mu3 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Emanuele Palombo (@elbowz)](https://github.com/elbowz "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [emartec\-ca (@emartec-ca)](https://github.com/emartec-ca "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Emeric (@Mryck)](https://github.com/Mryck "11 total commits to the home-assistant organization:
@@ -1699,10 +2196,22 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [emlt (@emlt)](https://github.com/emlt "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
 - [Emmanuel Mwangi (@cloudbring)](https://github.com/cloudbring "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [emontnemery (@emontnemery)](https://github.com/emontnemery "21 total commits to the home-assistant organization:
+15 commits to home-assistant
+6 commits to home-assistant.io
+")
 - [Emre Saglam (@emresaglam)](https://github.com/emresaglam "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [engrbm87 (@engrbm87)](https://github.com/engrbm87 "6 total commits to the home-assistant organization:
+3 commits to appdaemon
+2 commits to home-assistant
 1 commit to home-assistant.io
 ")
 - [Enrico Berndt (@treehoof)](https://github.com/treehoof "3 total commits to the home-assistant organization:
@@ -1713,6 +2222,9 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 ")
 - [Enu Rist (@enurist)](https://github.com/enurist "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [eresonance (@eresonance)](https://github.com/eresonance "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Eric Clymer (@ericwclymer)](https://github.com/ericwclymer "1 total commits to the home-assistant organization:
@@ -1745,6 +2257,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Eric Thompson (@er0ck)](https://github.com/er0ck "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [ericgingras (@ee1709)](https://github.com/ee1709 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Erik Eriksson (@molobrakos)](https://github.com/molobrakos "118 total commits to the home-assistant organization:
 102 commits to home-assistant
 13 commits to home-assistant.io
@@ -1754,17 +2269,28 @@ This page contains a list of people who have contributed in one way or another t
 13 commits to home-assistant.io
 1 commit to hassbian-scripts
 ")
+- [erizhang (@erizhang)](https://github.com/erizhang "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Ernst79 (@Ernst79)](https://github.com/Ernst79 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [ErnstEeldert (@ErnstEeldert)](https://github.com/ErnstEeldert "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [escoand (@escoand)](https://github.com/escoand "13 total commits to the home-assistant organization:
+8 commits to home-assistant
+3 commits to netdisco
+2 commits to home-assistant.io
+")
 - [EspenT (@EspenT)](https://github.com/EspenT "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Ettienne Gous (@ettiennegous)](https://github.com/ettiennegous "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [ettisan (@ettisan)](https://github.com/ettisan "8 total commits to the home-assistant organization:
+8 commits to home-assistant
 ")
 - [Eu (@covrig)](https://github.com/covrig "5 total commits to the home-assistant organization:
 2 commits to home-assistant-polymer
@@ -1781,6 +2307,10 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant-polymer
 ")
 - [Evan Bruhn (@evanjd)](https://github.com/evanjd "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [everix1992 (@everix1992)](https://github.com/everix1992 "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
@@ -1805,8 +2335,8 @@ This page contains a list of people who have contributed in one way or another t
 6 commits to hassio-addons
 3 commits to hass-release
 2 commits to home-assistant-iOS
-1 commit to home-assistant-js-websocket
 1 commit to ui-schema
+1 commit to home-assistant-js-websocket
 1 commit to example-custom-config
 ")
 - [Fabian Fischer (@nodomain)](https://github.com/nodomain "1 total commits to the home-assistant organization:
@@ -1824,8 +2354,15 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 2 commits to home-assistant
 ")
+- [fakezeta (@fakezeta)](https://github.com/fakezeta "8 total commits to the home-assistant organization:
+7 commits to home-assistant
+1 commit to home-assistant.io
+")
 - [Fares Rihani (@anchepiece)](https://github.com/anchepiece "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [farmous (@farmio)](https://github.com/farmio "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Farzad Noorian (@fnoorian)](https://github.com/fnoorian "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -1833,6 +2370,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Federico Zivolo (@FezVrasta)](https://github.com/FezVrasta "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [fedor1210 (@fedor1210)](https://github.com/fedor1210 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Felipe Cypriano (@fcy)](https://github.com/fcy "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -1852,6 +2392,12 @@ This page contains a list of people who have contributed in one way or another t
 - [Felix Krause (@KrauseFx)](https://github.com/KrauseFx "48 total commits to the home-assistant organization:
 48 commits to issue-bot
 ")
+- [fenner (@fenner)](https://github.com/fenner "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ferdydek (@ferdydek)](https://github.com/ferdydek "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Fermulator (@fermulator)](https://github.com/fermulator "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -1862,12 +2408,18 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to home-assistant.io
 2 commits to home-assistant
 ")
+- [fignew (@fignew)](https://github.com/fignew "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Filip Bednárik (@drndos)](https://github.com/drndos "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
 - [Finbarr Brady (@fbradyirl)](https://github.com/fbradyirl "9 total commits to the home-assistant organization:
 8 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [flashoftheblades (@TheSwert)](https://github.com/TheSwert "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Flavien Charlon (@Flavien)](https://github.com/Flavien "2 total commits to the home-assistant organization:
@@ -1910,11 +2462,30 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [florianj1 (@florianj1)](https://github.com/florianj1 "3 total commits to the home-assistant organization:
+1 commit to hassio
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [florincosta (@florincosta)](https://github.com/florincosta "6 total commits to the home-assistant organization:
+3 commits to home-assistant
+3 commits to home-assistant.io
+")
 - [Floyd Pink (@floydpink)](https://github.com/floydpink "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
 - [Fonta (@f0nt4)](https://github.com/f0nt4 "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
+")
+- [fortepc (@fortepc)](https://github.com/fortepc "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [fotoetienne (@fotoetienne)](https://github.com/fotoetienne "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [fran1987 (@fran1987)](https://github.com/fran1987 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Franck Nijhof (@frenck)](https://github.com/frenck "83 total commits to the home-assistant organization:
 39 commits to home-assistant.io
@@ -1951,6 +2522,9 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to home-assistant
 2 commits to home-assistant.io
 ")
+- [fredespi (@fredespi)](https://github.com/fredespi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Fredrik Baberg (@fredrikbaberg)](https://github.com/fredrikbaberg "7 total commits to the home-assistant organization:
 5 commits to home-assistant.io
 1 commit to developers.home-assistant
@@ -1972,17 +2546,19 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to home-assistant
 1 commit to home-assistant-polymer
 ")
-- [GMFalka (@GMFalka)](https://github.com/GMFalka "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
+- [freol35241 (@freol35241)](https://github.com/freol35241 "3 total commits to the home-assistant organization:
+3 commits to home-assistant
 ")
-- [GP8x (@GP8x)](https://github.com/GP8x "2 total commits to the home-assistant organization:
+- [frittes (@frittes)](https://github.com/frittes "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
-- [GTH (@gunnarhelgason)](https://github.com/gunnarhelgason "6 total commits to the home-assistant organization:
-2 commits to appdaemon
+- [froz (@froz)](https://github.com/froz "3 total commits to the home-assistant organization:
 2 commits to home-assistant
-2 commits to home-assistant.io
+1 commit to home-assistant.io
+")
+- [fuga2136 (@fuga2136)](https://github.com/fuga2136 "13 total commits to the home-assistant organization:
+13 commits to home-assistant.io
 ")
 - [Gabe (@gives1976)](https://github.com/gives1976 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -1993,8 +2569,8 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant.io
 ")
 - [Gabriel Oliveira (@gabrielboliveira)](https://github.com/gabrielboliveira "3 total commits to the home-assistant organization:
-1 commit to hassio-addons
 1 commit to hassos
+1 commit to hassio-addons
 1 commit to home-assistant.io
 ")
 - [GadgetReactor (@GadgetReactor)](https://github.com/GadgetReactor "2 total commits to the home-assistant organization:
@@ -2009,6 +2585,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Garret Heaton (@powdahound)](https://github.com/powdahound "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [garrettbeachy (@garrettbeachy)](https://github.com/garrettbeachy "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [GaryOkie (@GaryOkie)](https://github.com/GaryOkie "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -2017,6 +2596,15 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Gavin Mogan (@halkeye)](https://github.com/halkeye "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [geekman2 (@geekman2)](https://github.com/geekman2 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [geekofweek (@geekofweek)](https://github.com/geekofweek "3 total commits to the home-assistant organization:
+3 commits to home-assistant
+")
+- [geirra (@geirra)](https://github.com/geirra "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Geoff Norton (@kangaroo)](https://github.com/kangaroo "14 total commits to the home-assistant organization:
 14 commits to home-assistant
@@ -2072,6 +2660,10 @@ This page contains a list of people who have contributed in one way or another t
 - [Gert\-Jan van de Streek (@keerts)](https://github.com/keerts "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [giangvo (@giangvo)](https://github.com/giangvo "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Gianluca Barbaro (@MrMep)](https://github.com/MrMep "24 total commits to the home-assistant organization:
 16 commits to home-assistant
 8 commits to home-assistant.io
@@ -2090,11 +2682,21 @@ This page contains a list of people who have contributed in one way or another t
 - [Gilles Margerie (@Gilles95)](https://github.com/Gilles95 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [gillkyle (@gillkyle)](https://github.com/gillkyle "1 total commits to the home-assistant organization:
+1 commit to developers.home-assistant
+")
 - [Giorgos Logiotatidis (@glogiotatidis)](https://github.com/glogiotatidis "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [GitBook Bot (@gitbook-bot)](https://github.com/gitbook-bot "1 total commits to the home-assistant organization:
 1 commit to developers.home-assistant
+")
+- [githubbuh (@githubbuh)](https://github.com/githubbuh "5 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+")
+- [gitmopp (@gitmopp)](https://github.com/gitmopp "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Giuseppe (@glpatcern)](https://github.com/glpatcern "6 total commits to the home-assistant organization:
 5 commits to home-assistant
@@ -2109,18 +2711,37 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to developers.home-assistant
 1 commit to home-assistant-polymer
 ")
+- [glenn20 (@glenn20)](https://github.com/glenn20 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [Glyn Hudson (@glynhudson)](https://github.com/glynhudson "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [GoSpursGoNL (@GoSpursGoNL)](https://github.com/GoSpursGoNL "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [GMFalka (@GMFalka)](https://github.com/GMFalka "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Goir (@goir)](https://github.com/goir "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [goldminenine (@goldminenine)](https://github.com/goldminenine "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [Gopal Kildoliya (@gopalkildoliya)](https://github.com/gopalkildoliya "6 total commits to the home-assistant organization:
 4 commits to home-assistant
 2 commits to home-assistant.io
+")
+- [GoSpursGoNL (@GoSpursGoNL)](https://github.com/GoSpursGoNL "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [goto100 (@goto100)](https://github.com/goto100 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [GP8x (@GP8x)](https://github.com/GP8x "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Graeme Smith (@Instagraeme)](https://github.com/Instagraeme "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -2169,6 +2790,20 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [gregwis (@gregwis)](https://github.com/gregwis "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [groth\-its (@groth-its)](https://github.com/groth-its "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [gstorer (@gstorer)](https://github.com/gstorer "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [GTH (@gunnarhelgason)](https://github.com/gunnarhelgason "6 total commits to the home-assistant organization:
+2 commits to appdaemon
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Guillaume Rischard (@grischard)](https://github.com/grischard "3 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 1 commit to home-assistant
@@ -2176,6 +2811,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Guillaume SABBE (@gsabbe)](https://github.com/gsabbe "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [guillaume1410 (@guillaume1410)](https://github.com/guillaume1410 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Gummientchen (@Gummientchen)](https://github.com/Gummientchen "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -2190,7 +2829,14 @@ This page contains a list of people who have contributed in one way or another t
 - [Guy Parisi (@Guyanthalas)](https://github.com/Guyanthalas "7 total commits to the home-assistant organization:
 7 commits to home-assistant.io
 ")
-- [HBDK (@HBDK)](https://github.com/HBDK "2 total commits to the home-assistant organization:
+- [guygma (@guygma)](https://github.com/guygma "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [gwendalg (@gwendalg)](https://github.com/gwendalg "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [gwhiteCL (@gwhiteCL)](https://github.com/gwhiteCL "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
@@ -2203,6 +2849,18 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Hans Bakker (@hansmbakker)](https://github.com/hansmbakker "5 total commits to the home-assistant organization:
 5 commits to home-assistant
+")
+- [hanzoh (@hanzoh)](https://github.com/hanzoh "6 total commits to the home-assistant organization:
+5 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [hanzukun (@hanzukun)](https://github.com/hanzukun "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [happyleavesaoc (@happyleavesaoc)](https://github.com/happyleavesaoc "114 total commits to the home-assistant organization:
+90 commits to home-assistant
+23 commits to home-assistant.io
+1 commit to home-assistant-polymer
 ")
 - [Harald Nagel (@haraldnagel)](https://github.com/haraldnagel "8 total commits to the home-assistant organization:
 6 commits to home-assistant
@@ -2223,6 +2881,25 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Hate\-Usernames (@Hate-Usernames)](https://github.com/Hate-Usernames "3 total commits to the home-assistant organization:
 3 commits to home-assistant
+")
+- [hawk259 (@hawk259)](https://github.com/hawk259 "13 total commits to the home-assistant organization:
+7 commits to home-assistant
+5 commits to home-assistant.io
+1 commit to home-assistant-polymer
+")
+- [haXs (@haXs)](https://github.com/haXs "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [HBDK (@HBDK)](https://github.com/HBDK "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [hblaschka (@hblaschka)](https://github.com/hblaschka "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [hcooper (@hcooper)](https://github.com/hcooper "6 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Heath Paddock (@heathbar)](https://github.com/heathbar "6 total commits to the home-assistant organization:
 6 commits to home-assistant
@@ -2260,6 +2937,9 @@ This page contains a list of people who have contributed in one way or another t
 8 commits to home-assistant
 2 commits to home-assistant.io
 ")
+- [henryk (@henryk)](https://github.com/henryk "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Hermann Kraus (@herm)](https://github.com/herm "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
@@ -2267,20 +2947,47 @@ This page contains a list of people who have contributed in one way or another t
 - [Hernán (@hmronline)](https://github.com/hmronline "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
+- [heydonms (@heydonms)](https://github.com/heydonms "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [heytcass (@heytcass)](https://github.com/heytcass "6 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [Hillary Fraley (@hillaryfraley)](https://github.com/hillaryfraley "12 total commits to the home-assistant organization:
 12 commits to home-assistant.io
+")
+- [hitokiri8x (@hitokiri8x)](https://github.com/hitokiri8x "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Hmmbob (@hmmbob)](https://github.com/hmmbob "5 total commits to the home-assistant organization:
 2 commits to home-assistant
 2 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
+- [hokagegano (@hokagegano)](https://github.com/hokagegano "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [holelattanuttin (@holelattanuttin)](https://github.com/holelattanuttin "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [honcheng (@honcheng)](https://github.com/honcheng "3 total commits to the home-assistant organization:
+2 commits to homebridge-homeassistant
+1 commit to home-assistant.io
+")
 - [Hovo \(Luke\) (@lhovo)](https://github.com/lhovo "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [hSATAC (@hSATAC)](https://github.com/hSATAC "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Hu Hao (@howiehu)](https://github.com/howiehu "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [huangyupeng (@huangyupeng)](https://github.com/huangyupeng "15 total commits to the home-assistant organization:
+8 commits to home-assistant
+7 commits to home-assistant.io
 ")
 - [Hugo Dupras (@jabesq)](https://github.com/jabesq "29 total commits to the home-assistant organization:
 21 commits to home-assistant
@@ -2308,8 +3015,8 @@ This page contains a list of people who have contributed in one way or another t
 34 commits to home-assistant
 12 commits to home-assistant.io
 ")
-- [IIIdefconIII (@IIIdefconIII)](https://github.com/IIIdefconIII "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [i\-am\-shodan (@i-am-shodan)](https://github.com/i-am-shodan "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Iain Matchett (@matchett808)](https://github.com/matchett808 "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -2329,6 +3036,19 @@ This page contains a list of people who have contributed in one way or another t
 - [Ian Richardson (@iantrich)](https://github.com/iantrich "1 total commits to the home-assistant organization:
 1 commit to developers.home-assistant
 ")
+- [ianj001 (@ianj001)](https://github.com/ianj001 "7 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+")
+- [icovada (@icovada)](https://github.com/icovada "6 total commits to the home-assistant organization:
+3 commits to home-assistant
+3 commits to home-assistant.io
+")
+- [idfxken (@idfxken)](https://github.com/idfxken "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [iDVB (@iDVB)](https://github.com/iDVB "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Igor Bernstein (@igorbernstein2)](https://github.com/igorbernstein2 "3 total commits to the home-assistant organization:
 2 commits to home-assistant
 1 commit to home-assistant.io
@@ -2341,18 +3061,43 @@ This page contains a list of people who have contributed in one way or another t
 5 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
+- [IIIdefconIII (@IIIdefconIII)](https://github.com/IIIdefconIII "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ikifar2012 (@ikifar2012)](https://github.com/ikifar2012 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [ikonixx (@ikonixx)](https://github.com/ikonixx "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ikucuze (@ikucuze)](https://github.com/ikucuze "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [iliketoprogram14 (@iliketoprogram14)](https://github.com/iliketoprogram14 "3 total commits to the home-assistant organization:
+2 commits to home-assistant
+1 commit to home-assistant.io
+")
 - [Illia Grybkov (@igrybkov)](https://github.com/igrybkov "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Ing\. Jaroslav Šafka (@jedi7)](https://github.com/jedi7 "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
-- [IoTmessenger (@IoTmessenger)](https://github.com/IoTmessenger "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
+- [insajd (@insajd)](https://github.com/insajd "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Ioan Loosley (@ioangogo)](https://github.com/ioangogo "18 total commits to the home-assistant organization:
 15 commits to home-assistant.io
 3 commits to home-assistant
+")
+- [ionred (@ionred)](https://github.com/ionred "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [IoTmessenger (@IoTmessenger)](https://github.com/IoTmessenger "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [irvingwa (@irvingwa)](https://github.com/irvingwa "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Isabella Gross Alström (@isabellaalstrom)](https://github.com/isabellaalstrom "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
@@ -2360,27 +3105,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Issac Kelly (@issackelly)](https://github.com/issackelly "3 total commits to the home-assistant organization:
 3 commits to home-assistant
 ")
+- [itineric (@itineric)](https://github.com/itineric "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Ivo Wever (@Confusion)](https://github.com/Confusion "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [j james (@wakeuplaughing)](https://github.com/wakeuplaughing "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [J4nsen (@J4nsen)](https://github.com/J4nsen "1 total commits to the home-assistant organization:
 1 commit to home-assistant
-")
-- [JAYMAN\-ATX (@JAYMAN-ATX)](https://github.com/JAYMAN-ATX "2 total commits to the home-assistant organization:
-2 commits to homebridge-homeassistant
-")
-- [JC Connell (@jcconnell)](https://github.com/jcconnell "12 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-5 commits to home-assistant
-")
-- [JSprengard (@JSprengard)](https://github.com/JSprengard "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [JTimNolan (@JTimNolan)](https://github.com/JTimNolan "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [JTruj1ll0923 (@JTruj1ll0923)](https://github.com/JTruj1ll0923 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
 ")
 - [J\-CMartin (@J-CMartin)](https://github.com/J-CMartin "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -2391,11 +3126,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Jaak Laineste (@jaakla)](https://github.com/jaakla "1 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 ")
+- [jaburges (@jaburges)](https://github.com/jaburges "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Jacen (@jacen92)](https://github.com/jacen92 "2 total commits to the home-assistant organization:
 2 commits to pi-gen
 ")
 - [Jack (@jackjohnsonuk)](https://github.com/jackjohnsonuk "6 total commits to the home-assistant organization:
 6 commits to home-assistant.io
+")
+- [jack (@jackmakesthings)](https://github.com/jackmakesthings "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Jack (@iamjackg)](https://github.com/iamjackg "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -2432,6 +3173,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Jacques\-D\. Piguet (@jdpiguet)](https://github.com/jdpiguet "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [jagjordi (@jagjordi)](https://github.com/jagjordi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Jaimyn Mayer (@jabelone)](https://github.com/jabelone "1 total commits to the home-assistant organization:
 1 commit to hassbian-scripts
 ")
@@ -2443,6 +3187,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Jakub Bittner (@rexcze)](https://github.com/rexcze "2 total commits to the home-assistant organization:
 2 commits to home-assistant-polymer
+")
+- [jakubradziwon (@jakubradziwon)](https://github.com/jakubradziwon "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [James Cole (@jamespcole)](https://github.com/jamespcole "94 total commits to the home-assistant organization:
 93 commits to home-assistant
@@ -2460,6 +3207,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [James Ruan (@jamesruan)](https://github.com/jamesruan "2 total commits to the home-assistant organization:
 2 commits to pi-gen
+")
+- [james\-fry (@james-fry)](https://github.com/james-fry "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Jamie Shaw (@jamieshaw)](https://github.com/jamieshaw "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -2494,12 +3244,12 @@ This page contains a list of people who have contributed in one way or another t
 - [Jan Sepke (@jansepke)](https://github.com/jansepke "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [Jan Willhaus (@janw)](https://github.com/janw "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-")
 - [Jan van Helvoort (@janvanhelvoort)](https://github.com/janvanhelvoort "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [Jan Willhaus (@janw)](https://github.com/janw "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
 ")
 - [Jan\-Preben Mossin (@jpmossin)](https://github.com/jpmossin "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -2564,6 +3314,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Jason Woodward (@woodwardjd)](https://github.com/woodwardjd "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [javicalle (@javicalle)](https://github.com/javicalle "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Javier Gonel (@graffic)](https://github.com/graffic "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
@@ -2580,6 +3333,29 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 ")
 - [Jaydev Shiroya (@jaydev1997)](https://github.com/jaydev1997 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [JAYMAN\-ATX (@JAYMAN-ATX)](https://github.com/JAYMAN-ATX "2 total commits to the home-assistant organization:
+2 commits to homebridge-homeassistant
+")
+- [jazzaj (@jazzaj)](https://github.com/jazzaj "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [jbcodemonkey (@jbcodemonkey)](https://github.com/jbcodemonkey "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [JC Connell (@jcconnell)](https://github.com/jcconnell "12 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+5 commits to home-assistant
+")
+- [jchasey (@jchasey)](https://github.com/jchasey "1 total commits to the home-assistant organization:
+1 commit to developers.home-assistant
+")
+- [jcrowegitHu8 (@jcrowegitHu8)](https://github.com/jcrowegitHu8 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jdegraef (@jdegraef)](https://github.com/jdegraef "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Jean Regisser (@jeanregisser)](https://github.com/jeanregisser "2 total commits to the home-assistant organization:
@@ -2623,6 +3399,9 @@ This page contains a list of people who have contributed in one way or another t
 17 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [jeff tapia (@jtmoderate876)](https://github.com/jtmoderate876 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Jeff Wilson (@jawilson)](https://github.com/jawilson "25 total commits to the home-assistant organization:
 19 commits to home-assistant
 6 commits to home-assistant.io
@@ -2643,6 +3422,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Jens Østergaard Nielsen (@dingusdk)](https://github.com/dingusdk "8 total commits to the home-assistant organization:
 4 commits to home-assistant
 4 commits to home-assistant.io
+")
+- [jensjakob (@jensjakob)](https://github.com/jensjakob "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Jenya Y (@jenyayel)](https://github.com/jenyayel "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -2680,6 +3462,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Jeremy Williams (@jwillaz)](https://github.com/jwillaz "6 total commits to the home-assistant organization:
 5 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [jeremysv (@jeremysv)](https://github.com/jeremysv "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Jerod Santo (@jerodsanto)](https://github.com/jerodsanto "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -2726,13 +3511,52 @@ This page contains a list of people who have contributed in one way or another t
 8 commits to home-assistant
 8 commits to home-assistant.io
 ")
+- [jgrieger1 (@jgrieger1)](https://github.com/jgrieger1 "1 total commits to the home-assistant organization:
+1 commit to appdaemon
+")
+- [jgriff2 (@jgriff2)](https://github.com/jgriff2 "3 total commits to the home-assistant organization:
+2 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [jhemzal (@jhemzal)](https://github.com/jhemzal "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [jiafengwang (@jiafengwang)](https://github.com/jiafengwang "1 total commits to the home-assistant organization:
+1 commit to appdaemon
+")
 - [Jim Rollenhagen (@jimrollenhagen)](https://github.com/jimrollenhagen "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [jimbob1001 (@jimbob1001)](https://github.com/jimbob1001 "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
 ")
 - [Jimmy Tang (@jcftang)](https://github.com/jcftang "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [jma89 (@jma89)](https://github.com/jma89 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jmgarciamari (@jmgarciamari)](https://github.com/jmgarciamari "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jmtatsch (@jmtatsch)](https://github.com/jmtatsch "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [jmvermeulen (@jmvermeulen)](https://github.com/jmvermeulen "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [jnimmo (@jnimmo)](https://github.com/jnimmo "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [Jo Liss (@joliss)](https://github.com/joliss "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [Joakim af Sandeberg (@jotunacorn)](https://github.com/jotunacorn "2 total commits to the home-assistant organization:
+1 commit to home-assistant
 1 commit to home-assistant.io
 ")
 - [Joakim Nohlgård (@gebart)](https://github.com/gebart "2 total commits to the home-assistant organization:
@@ -2746,15 +3570,15 @@ This page contains a list of people who have contributed in one way or another t
 23 commits to home-assistant.io
 3 commits to home-assistant
 ")
-- [Joakim af Sandeberg (@jotunacorn)](https://github.com/jotunacorn "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
 - [Joaquín (@joaqtor)](https://github.com/joaqtor "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
 - [Jochen Martin Eppler (@jougs)](https://github.com/jougs "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [jodur (@jodur)](https://github.com/jodur "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Joe Francis (@lostapathy)](https://github.com/lostapathy "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -2775,6 +3599,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Joe Rocklin (@joerocklin)](https://github.com/joerocklin "2 total commits to the home-assistant organization:
 1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [joe248 (@joe248)](https://github.com/joe248 "4 total commits to the home-assistant organization:
+3 commits to home-assistant
 1 commit to home-assistant.io
 ")
 - [Joeboyc2 (@Joeboyc2)](https://github.com/Joeboyc2 "16 total commits to the home-assistant organization:
@@ -2871,6 +3699,9 @@ This page contains a list of people who have contributed in one way or another t
 - [John Williams (@Jaidan)](https://github.com/Jaidan "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [johnappletree (@johnappletree)](https://github.com/johnappletree "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Johnny Chadda (@joch)](https://github.com/joch "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant-polymer
@@ -2938,7 +3769,14 @@ This page contains a list of people who have contributed in one way or another t
 - [Jonathan Wukitsch (@insleep)](https://github.com/insleep "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [jonne013 (@jonne013)](https://github.com/jonne013 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [JonnyaiR (@jonnyair)](https://github.com/jonnyair "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [joopster (@joopert)](https://github.com/joopert "7 total commits to the home-assistant organization:
+6 commits to home-assistant
 1 commit to home-assistant.io
 ")
 - [Joost D (@jmjdamen)](https://github.com/jmjdamen "1 total commits to the home-assistant organization:
@@ -2963,6 +3801,9 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to hassio-cli
 1 commit to hassio
 1 commit to hassio-addons
+")
+- [jorisc90 (@jorisc90)](https://github.com/jorisc90 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Josa Gesell (@josa42)](https://github.com/josa42 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3019,6 +3860,34 @@ This page contains a list of people who have contributed in one way or another t
 - [Joshua Jack (@joshuaja)](https://github.com/joshuaja "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [joshua stein (@jcs)](https://github.com/jcs "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jowieweb (@jowieweb)](https://github.com/jowieweb "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jpcomtois (@jpcomtois)](https://github.com/jpcomtois "1 total commits to the home-assistant organization:
+1 commit to libcoap
+")
+- [jschwalbe (@jschwalbe)](https://github.com/jschwalbe "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jshore1296 (@jshore1296)](https://github.com/jshore1296 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [JSprengard (@JSprengard)](https://github.com/JSprengard "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [JTimNolan (@JTimNolan)](https://github.com/JTimNolan "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [JTruj1ll0923 (@JTruj1ll0923)](https://github.com/JTruj1ll0923 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [jtscott (@jtscott)](https://github.com/jtscott "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [JudgeDredd (@JudgeDreddKLC)](https://github.com/JudgeDreddKLC "13 total commits to the home-assistant organization:
 12 commits to home-assistant.io
 1 commit to home-assistant
@@ -3027,8 +3896,14 @@ This page contains a list of people who have contributed in one way or another t
 7 commits to home-assistant
 4 commits to home-assistant.io
 ")
+- [juggie (@juggie)](https://github.com/juggie "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Juha Niemi (@juhaniemi)](https://github.com/juhaniemi "3 total commits to the home-assistant organization:
 2 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [julesverhaeren (@julesverhaeren)](https://github.com/julesverhaeren "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Julian Kaffke (@jaykay)](https://github.com/jaykay "1 total commits to the home-assistant organization:
@@ -3051,8 +3926,15 @@ This page contains a list of people who have contributed in one way or another t
 26 commits to home-assistant
 7 commits to home-assistant.io
 ")
+- [jumpkick (@jumpkick)](https://github.com/jumpkick "15 total commits to the home-assistant organization:
+12 commits to home-assistant
+3 commits to home-assistant.io
+")
 - [Junian Triajianto (@junian)](https://github.com/junian "1 total commits to the home-assistant organization:
 1 commit to pi-gen
+")
+- [jurafxp (@jurafxp)](https://github.com/jurafxp "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Justin Bassett (@JBassett)](https://github.com/JBassett "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3079,21 +3961,21 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant-js
 1 commit to hassio
 ")
+- [justinedelson (@justinedelson)](https://github.com/justinedelson "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Justyn Shull (@justyns)](https://github.com/justyns "7 total commits to the home-assistant organization:
 6 commits to home-assistant
 1 commit to home-assistant.io
+")
+- [jvimont (@jvimont)](https://github.com/jvimont "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Jérémie Klein (@grm)](https://github.com/grm "1 total commits to the home-assistant organization:
 1 commit to appdaemon
 ")
 - [Jürgen W (@jurgenweber)](https://github.com/jurgenweber "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
-")
-- [KAMAL AWASTHI (@KamalAwasthi)](https://github.com/KamalAwasthi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [KD4SIR (@scotthibbs)](https://github.com/scotthibbs "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
 ")
 - [Kai (@luxus)](https://github.com/luxus "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -3102,11 +3984,21 @@ This page contains a list of people who have contributed in one way or another t
 - [KaiboshOz (@KaiboshOz)](https://github.com/KaiboshOz "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [kaiomatico (@kaiomatico)](https://github.com/kaiomatico "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Kalen Johnson (@kalenjohnson)](https://github.com/kalenjohnson "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [kalkih (@kalkih)](https://github.com/kalkih "2 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
 1 commit to home-assistant.io
 ")
 - [Kallum Burgin (@Kallb123)](https://github.com/Kallb123 "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [KAMAL AWASTHI (@KamalAwasthi)](https://github.com/KamalAwasthi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Kamil Warguła (@quamilek)](https://github.com/quamilek "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -3121,8 +4013,23 @@ This page contains a list of people who have contributed in one way or another t
 - [Karim Geiger (@KarimGeiger)](https://github.com/KarimGeiger "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [karlkar (@karlkar)](https://github.com/karlkar "15 total commits to the home-assistant organization:
+10 commits to home-assistant
+5 commits to home-assistant.io
+")
 - [Karsten Nerdinger (@Piratonym)](https://github.com/Piratonym "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [kaustubhphatak (@kaustubhphatak)](https://github.com/kaustubhphatak "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [kbickar (@kbickar)](https://github.com/kbickar "5 total commits to the home-assistant organization:
+4 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [KD4SIR (@scotthibbs)](https://github.com/scotthibbs "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Keaton Taylor (@keatontaylor)](https://github.com/keatontaylor "7 total commits to the home-assistant organization:
 4 commits to home-assistant
@@ -3152,6 +4059,10 @@ This page contains a list of people who have contributed in one way or another t
 13 commits to home-assistant.io
 2 commits to appdaemon
 ")
+- [kennedyshead (@kennedyshead)](https://github.com/kennedyshead "15 total commits to the home-assistant organization:
+13 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Kenny Millington (@kmdm)](https://github.com/kmdm "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
@@ -3160,6 +4071,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Kent Hua (@kenthua)](https://github.com/kenthua "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [kernehed (@kernehed)](https://github.com/kernehed "7 total commits to the home-assistant organization:
+7 commits to home-assistant.io
 ")
 - [Kerwin Bryant (@ileler)](https://github.com/ileler "3 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -3212,8 +4126,18 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [kevinpanaro (@kevinpanaro)](https://github.com/kevinpanaro "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [kevjs1982 (@kevjs1982)](https://github.com/kevjs1982 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Keyasha Brothern (@KMBrothern)](https://github.com/KMBrothern "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
+")
+- [kfcook (@kfcook)](https://github.com/kfcook "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
 ")
 - [Khalid (@GotoCode)](https://github.com/GotoCode "5 total commits to the home-assistant organization:
 4 commits to home-assistant
@@ -3225,6 +4149,12 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Kip (@kipwittchen)](https://github.com/kipwittchen "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [kireyeu (@kireyeu)](https://github.com/kireyeu "4 total commits to the home-assistant organization:
+4 commits to home-assistant-notebooks
+")
+- [kitcorey (@kitcorey)](https://github.com/kitcorey "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Kitti L (@Kiaaz)](https://github.com/Kiaaz "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3246,12 +4176,28 @@ This page contains a list of people who have contributed in one way or another t
 - [Klaus (@k-laus)](https://github.com/k-laus "1 total commits to the home-assistant organization:
 1 commit to appdaemon
 ")
+- [kloggy (@kloggy)](https://github.com/kloggy "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Koen Ekelschot (@peckham)](https://github.com/peckham "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [koen01 (@koen01)](https://github.com/koen01 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
 - [Konstantin Belyalov (@belyalov)](https://github.com/belyalov "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
+")
+- [koolsb (@koolsb)](https://github.com/koolsb "5 total commits to the home-assistant organization:
+3 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [kophinos (@kophinos)](https://github.com/kophinos "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [koreth (@koreth)](https://github.com/koreth "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Kory Prince (@korylprince)](https://github.com/korylprince "4 total commits to the home-assistant organization:
 4 commits to home-assistant-polymer
@@ -3272,8 +4218,14 @@ This page contains a list of people who have contributed in one way or another t
 - [Kristian (@krisnyse)](https://github.com/krisnyse "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [kroimon (@kroimon)](https://github.com/kroimon "1 total commits to the home-assistant organization:
+1 commit to netdisco
+")
 - [Kumar Gaurav Pandey (@gaurav1911)](https://github.com/gaurav1911 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [kunago (@kunago)](https://github.com/kunago "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Kyle Decot (@kyledecot)](https://github.com/kyledecot "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -3292,8 +4244,18 @@ This page contains a list of people who have contributed in one way or another t
 - [Kyle R (@qcryptic)](https://github.com/qcryptic "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [kylerw (@kylerw)](https://github.com/kylerw "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [lamiskin (@lamiskin)](https://github.com/lamiskin "6 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+2 commits to home-assistant
+")
 - [Lance Haynie (@lancehaynie)](https://github.com/lancehaynie "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [lance36 (@lance36)](https://github.com/lance36 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Laqoore (@Laqoore)](https://github.com/Laqoore "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -3313,14 +4275,32 @@ This page contains a list of people who have contributed in one way or another t
 - [LaurensBot (@LaurensBot)](https://github.com/LaurensBot "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [lbouriez (@lbouriez)](https://github.com/lbouriez "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [lcersly (@lcersly)](https://github.com/lcersly "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Leandro (@leofuscaldi)](https://github.com/leofuscaldi "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [led\-spb (@led-spb)](https://github.com/led-spb "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Ledernacken6 (@Ledernacken6)](https://github.com/Ledernacken6 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [lee\-js (@lee-js)](https://github.com/lee-js "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
+- [lekobob (@lekobob)](https://github.com/lekobob "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Lennart Bernhardt (@LennyPenny)](https://github.com/LennyPenny "1 total commits to the home-assistant organization:
 1 commit to hassio-build
+")
+- [lennartk (@lennart-k)](https://github.com/lennart-k "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Leon99 (@Leon99)](https://github.com/Leon99 "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -3334,6 +4314,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Leonardo Saraiva (@vyper)](https://github.com/vyper "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [leschekfm (@leschekfm)](https://github.com/leschekfm "3 total commits to the home-assistant organization:
+3 commits to hassbian-scripts
 ")
 - [Lev Aronsky (@aronsky)](https://github.com/aronsky "16 total commits to the home-assistant organization:
 13 commits to home-assistant
@@ -3350,6 +4333,10 @@ This page contains a list of people who have contributed in one way or another t
 - [Liang Sun (@leonsim)](https://github.com/leonsim "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [lich (@mu4yu3)](https://github.com/mu4yu3 "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [LightIsLife (@LightIsLife)](https://github.com/LightIsLife "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
@@ -3361,8 +4348,30 @@ This page contains a list of people who have contributed in one way or another t
 13 commits to home-assistant.io
 5 commits to home-assistant
 ")
+- [linuxlurak (@linuxlurak)](https://github.com/linuxlurak "5 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+2 commits to hadashboard
+")
+- [linvinus (@linvinus)](https://github.com/linvinus "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+")
+- [lizaoreo (@lizaoreo)](https://github.com/lizaoreo "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [lolouk44 (@lolouk44)](https://github.com/lolouk44 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [longman391 (@longman391)](https://github.com/longman391 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [lordneon (@lordneon)](https://github.com/lordneon "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Lorenz Schmid (@lorenzschmid)](https://github.com/lorenzschmid "2 total commits to the home-assistant organization:
 1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [lorenzofattori (@lorenzofattori)](https://github.com/lorenzofattori "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Louis Laureys (@louis-lau)](https://github.com/louis-lau "2 total commits to the home-assistant organization:
@@ -3375,8 +4384,8 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
-- [LuPa (@lupa18)](https://github.com/lupa18 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [lrmate (@lrmate)](https://github.com/lrmate "3 total commits to the home-assistant organization:
+3 commits to home-assistant
 ")
 - [Luar Roji (@cyberplant)](https://github.com/cyberplant "6 total commits to the home-assistant organization:
 4 commits to home-assistant.io
@@ -3389,6 +4398,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Luca Adrian Lindhorst (@lal12)](https://github.com/lal12 "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [luca\-angemi (@luca-angemi)](https://github.com/luca-angemi "2 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+1 commit to home-assistant
 ")
 - [LucaSoldi (@LucaSoldi)](https://github.com/LucaSoldi "7 total commits to the home-assistant organization:
 6 commits to home-assistant
@@ -3428,6 +4441,15 @@ This page contains a list of people who have contributed in one way or another t
 - [Luke Karrys (@lukekarrys)](https://github.com/lukekarrys "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [lukie80 (@lukie80)](https://github.com/lukie80 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [lunar\-consultancy (@lunar-consultancy)](https://github.com/lunar-consultancy "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [LuPa (@lupa18)](https://github.com/lupa18 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Lupin Demid (@lupin-de-mid)](https://github.com/lupin-de-mid "5 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 2 commits to home-assistant
@@ -3444,14 +4466,14 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
-- [MGWGIT (@MGWGIT)](https://github.com/MGWGIT "1 total commits to the home-assistant organization:
+- [lwad (@lwad)](https://github.com/lwad "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [m4dmin (@m4dmin)](https://github.com/m4dmin "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
-- [MORITA Hajime (@omo)](https://github.com/omo "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [MaKin211 (@MaKin211)](https://github.com/MaKin211 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [m4tek (@m4tek)](https://github.com/m4tek "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Maarten Groeneweg (@lazytesting)](https://github.com/lazytesting "1 total commits to the home-assistant organization:
 1 commit to hassio-addons
@@ -3494,6 +4516,9 @@ This page contains a list of people who have contributed in one way or another t
 - [MagnusKnutas (@MagnusKnutas)](https://github.com/MagnusKnutas "29 total commits to the home-assistant organization:
 29 commits to home-assistant
 ")
+- [magreen24 (@magreen24)](https://github.com/magreen24 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Mahasri Kalavala (@skalavala)](https://github.com/skalavala "33 total commits to the home-assistant organization:
 32 commits to home-assistant.io
 1 commit to home-assistant
@@ -3510,6 +4535,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Maikel Wever (@maikelwever)](https://github.com/maikelwever "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [MaKin211 (@MaKin211)](https://github.com/MaKin211 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Makrand Gupta (@makrandgupta)](https://github.com/makrandgupta "1 total commits to the home-assistant organization:
 1 commit to hassos
@@ -3550,9 +4578,6 @@ This page contains a list of people who have contributed in one way or another t
 - [Marc Plano\-Lesay (@Kernald)](https://github.com/Kernald "12 total commits to the home-assistant organization:
 10 commits to home-assistant.io
 2 commits to home-assistant
-")
-- [MarcSN311 (@MarcSN311)](https://github.com/MarcSN311 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
 ")
 - [Marcel (@MTRNord)](https://github.com/MTRNord "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3606,6 +4631,16 @@ This page contains a list of people who have contributed in one way or another t
 - [Marco Sousa (@marcomsousa)](https://github.com/marcomsousa "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [marcolertora (@marcolertora)](https://github.com/marcolertora "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [marconfus (@marconfus)](https://github.com/marconfus "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [MarcSN311 (@MarcSN311)](https://github.com/MarcSN311 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Marcus (@dgraye)](https://github.com/dgraye "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -3648,6 +4683,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Mariusz Łuciów (@mariuszluciow)](https://github.com/mariuszluciow "1 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 ")
+- [mariwing (@mariwing)](https://github.com/mariwing "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Mark (@scmmmh)](https://github.com/scmmmh "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -3685,6 +4723,16 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [mark9white (@mark9white)](https://github.com/mark9white "1 total commits to the home-assistant organization:
+1 commit to hassio
+")
+- [markcarline (@markcarline)](https://github.com/markcarline "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [markferry (@markferry)](https://github.com/markferry "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
+")
 - [Marko Korhonen (@ReekyMarko)](https://github.com/ReekyMarko "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -3709,6 +4757,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Markus Thiel (@mackelito)](https://github.com/mackelito "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [marthoc (@marthoc)](https://github.com/marthoc "12 total commits to the home-assistant organization:
+8 commits to home-assistant
+4 commits to home-assistant.io
 ")
 - [Martin Berg (@mbrrg)](https://github.com/mbrrg "10 total commits to the home-assistant organization:
 7 commits to home-assistant
@@ -3763,11 +4815,21 @@ This page contains a list of people who have contributed in one way or another t
 8 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
+- [martinfrancois (@martinfrancois)](https://github.com/martinfrancois "4 total commits to the home-assistant organization:
+2 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [MartinP (@mplinuxgeek)](https://github.com/mplinuxgeek "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Martokk (@martokk)](https://github.com/martokk "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [martst (@martst)](https://github.com/martst "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [marutanm (@marutanm)](https://github.com/marutanm "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Masahiro Kamata (@kamatari)](https://github.com/kamatari "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3778,6 +4840,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Mason Stewart (@masondesu)](https://github.com/masondesu "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [masukomi (@masukomi)](https://github.com/masukomi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Mateusz Drab (@mateuszdrab)](https://github.com/mateuszdrab "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
@@ -3786,10 +4851,10 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to homebridge-homeassistant
 1 commit to home-assistant
 ")
-- [Mathieu Maret (@mmaret-geny)](https://github.com/mmaret-geny "1 total commits to the home-assistant organization:
+- [Mathieu Maret (@mmaret)](https://github.com/mmaret "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [Mathieu Maret (@mmaret)](https://github.com/mmaret "1 total commits to the home-assistant organization:
+- [Mathieu Maret (@mmaret-geny)](https://github.com/mmaret-geny "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Mathieu Velten (@MatMaul)](https://github.com/MatMaul "4 total commits to the home-assistant organization:
@@ -3896,6 +4961,9 @@ This page contains a list of people who have contributed in one way or another t
 15 commits to home-assistant
 9 commits to home-assistant.io
 ")
+- [matthewcky2k (@matthewcky2k)](https://github.com/matthewcky2k "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Matthias Dötsch (@brainexe)](https://github.com/brainexe "2 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 1 commit to home-assistant
@@ -3916,6 +4984,16 @@ This page contains a list of people who have contributed in one way or another t
 14 commits to home-assistant
 9 commits to home-assistant.io
 1 commit to home-assistant-polymer
+")
+- [mattie47 (@mattie47)](https://github.com/mattie47 "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
+- [mattn (@mattn)](https://github.com/mattn "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [mattwing (@mattwing)](https://github.com/mattwing "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Mauricio Vidal (@MrMauro)](https://github.com/MrMauro "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3939,11 +5017,15 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
-- [Max Rumpf (@Maxr1998)](https://github.com/Maxr1998 "14 total commits to the home-assistant organization:
-14 commits to home-assistant.io
+- [Max Rumpf (@Maxr1998)](https://github.com/Maxr1998 "7 total commits to the home-assistant organization:
+7 commits to home-assistant.io
 ")
 - [Max von Webel (@343max)](https://github.com/343max "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [maxclaey (@maxclaey)](https://github.com/maxclaey "8 total commits to the home-assistant organization:
+5 commits to home-assistant
+3 commits to home-assistant.io
 ")
 - [Maxim Krušina (@maximkrusina)](https://github.com/maximkrusina "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3954,6 +5036,19 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Maximilien Cuony (@the-glu)](https://github.com/the-glu "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [mbo18 (@mbo18)](https://github.com/mbo18 "1 total commits to the home-assistant organization:
+1 commit to hassio
+")
+- [mboeru (@mboeru)](https://github.com/mboeru "1 total commits to the home-assistant organization:
+1 commit to home-assistant-iOS
+")
+- [mcfrojd (@mcfrojd)](https://github.com/mcfrojd "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
+- [mclem (@mclem)](https://github.com/mclem "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [MeIchthys (@meichthys)](https://github.com/meichthys "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -3967,6 +5062,15 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to netdisco
 ")
 - [Meow (@GrumpyMeow)](https://github.com/GrumpyMeow "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [mertenats (@mertenats)](https://github.com/mertenats "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+")
+- [MGWGIT (@MGWGIT)](https://github.com/MGWGIT "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [mh\-daedalus (@mh-daedalus)](https://github.com/mh-daedalus "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Micha LaQua (@milaq)](https://github.com/milaq "4 total commits to the home-assistant organization:
@@ -4053,6 +5157,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Michael Wheeler (@TheSkorm)](https://github.com/TheSkorm "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [michaeldavie (@michaeldavie)](https://github.com/michaeldavie "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [MichaelSprague (@MichaelSprague)](https://github.com/MichaelSprague "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -4069,9 +5176,16 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [micw (@micw)](https://github.com/micw "8 total commits to the home-assistant organization:
+5 commits to home-assistant
+3 commits to home-assistant.io
+")
 - [Miha Lunar (@SmilyOrg)](https://github.com/SmilyOrg "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [mihalski (@mihalski)](https://github.com/mihalski "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Mikael Svensson (@Nossnevs)](https://github.com/Nossnevs "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -4113,6 +5227,9 @@ This page contains a list of people who have contributed in one way or another t
 5 commits to home-assistant.io
 4 commits to home-assistant
 ")
+- [mikebarris (@mikebarris)](https://github.com/mikebarris "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Mikkel Høgh (@mikl)](https://github.com/mikl "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 ")
@@ -4131,6 +5248,13 @@ This page contains a list of people who have contributed in one way or another t
 - [MinchinWeb (@MinchinWeb)](https://github.com/MinchinWeb "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [miniconfig (@miniconfig)](https://github.com/miniconfig "27 total commits to the home-assistant organization:
+20 commits to home-assistant
+7 commits to home-assistant.io
+")
+- [minida28 (@minida28)](https://github.com/minida28 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Minims (@Minims)](https://github.com/Minims "3 total commits to the home-assistant organization:
 3 commits to homebridge-homeassistant
 ")
@@ -4143,6 +5267,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Mister Wil (@MisterWil)](https://github.com/MisterWil "21 total commits to the home-assistant organization:
 15 commits to home-assistant
 6 commits to home-assistant.io
+")
+- [misterbenj34 (@misterbenj34)](https://github.com/misterbenj34 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Mitchell Cash (@MitchellCash)](https://github.com/MitchellCash "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -4161,9 +5288,31 @@ This page contains a list of people who have contributed in one way or another t
 - [MizterB (@MizterB)](https://github.com/MizterB "3 total commits to the home-assistant organization:
 3 commits to home-assistant
 ")
+- [mje\-nz (@mje-nz)](https://github.com/mje-nz "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [mjj4791 (@mjj4791)](https://github.com/mjj4791 "23 total commits to the home-assistant organization:
+15 commits to home-assistant.io
+8 commits to home-assistant
+")
+- [mkfink (@mkfink)](https://github.com/mkfink "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [mmmmmtasty (@mmmmmtasty)](https://github.com/mmmmmtasty "8 total commits to the home-assistant organization:
+8 commits to appdaemon
+")
+- [mnestor (@mnestor)](https://github.com/mnestor "7 total commits to the home-assistant organization:
+5 commits to home-assistant
+1 commit to home-assistant-polymer
+1 commit to home-assistant.io
+")
 - [Mohamad Tarbin (@meauxt)](https://github.com/meauxt "4 total commits to the home-assistant organization:
 2 commits to home-assistant
 2 commits to home-assistant.io
+")
+- [mojotaker (@mojotaker)](https://github.com/mojotaker "1 total commits to the home-assistant organization:
+1 commit to developers.home-assistant
 ")
 - [Mokilok (@Jake-Mok-Nelson)](https://github.com/Jake-Mok-Nelson "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4180,15 +5329,65 @@ This page contains a list of people who have contributed in one way or another t
 - [Moos (@moos)](https://github.com/moos "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [MORITA Hajime (@omo)](https://github.com/omo "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
 - [Morten Lied Johansen (@mortenlj)](https://github.com/mortenlj "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [mortenmathiasen (@mortenmathiasen)](https://github.com/mortenmathiasen "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [moskovskiy82 (@moskovskiy82)](https://github.com/moskovskiy82 "6 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+")
+- [motir (@motir)](https://github.com/motir "1 total commits to the home-assistant organization:
+1 commit to appdaemon
+")
+- [mountainsandcode (@mountainsandcode)](https://github.com/mountainsandcode "9 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+3 commits to home-assistant
+")
+- [mrosseel (@mrosseel)](https://github.com/mrosseel "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [MrRemmers (@MrRemmers)](https://github.com/MrRemmers "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [mrtncls (@mrtncls)](https://github.com/mrtncls "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [mruss (@mruss)](https://github.com/mruss "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [mtl010957 (@mtl010957)](https://github.com/mtl010957 "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [mueslo (@mueslo)](https://github.com/mueslo "7 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+2 commits to home-assistant
+")
 - [Muhammad Sheraz Lodhi (@sherazlodhi)](https://github.com/sherazlodhi "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [mukundv (@mukundv)](https://github.com/mukundv "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
+- [mvillarejo (@mvillarejo)](https://github.com/mvillarejo "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [mvn23 (@mvn23)](https://github.com/mvn23 "11 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+5 commits to home-assistant
+")
+- [mweimerskirch (@mweimerskirch)](https://github.com/mweimerskirch "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [mwsluis (@mwsluis)](https://github.com/mwsluis "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Myles Eftos (@madpilot)](https://github.com/madpilot "2 total commits to the home-assistant organization:
 1 commit to appdaemon
@@ -4201,11 +5400,15 @@ This page contains a list of people who have contributed in one way or another t
 - [Mārtiņš Grunskis (@grunskis)](https://github.com/grunskis "1 total commits to the home-assistant organization:
 1 commit to netdisco
 ")
-- [NMA (@nma83)](https://github.com/nma83 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [NWiBGRsK (@NWiBGRsK)](https://github.com/NWiBGRsK "1 total commits to the home-assistant organization:
+- [n0dyjeff (@n0dyjeff)](https://github.com/n0dyjeff "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [nagimov (@nagimov-blog)](https://github.com/nagimov-blog "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [namadori (@namadori)](https://github.com/namadori "5 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Naren Salem (@naren8642)](https://github.com/naren8642 "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -4222,6 +5425,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Nate Clark (@heythisisnate)](https://github.com/heythisisnate "15 total commits to the home-assistant organization:
 10 commits to home-assistant
 5 commits to home-assistant.io
+")
+- [natemason (@natemason)](https://github.com/natemason "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Nathan Broadbent (@ndbroadbent)](https://github.com/ndbroadbent "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4249,28 +5455,34 @@ This page contains a list of people who have contributed in one way or another t
 - [Nathan W (@itsamenathan)](https://github.com/itsamenathan "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [NeLLyMerC (@NeLLyMerC)](https://github.com/NeLLyMerC "5 total commits to the home-assistant organization:
-5 commits to home-assistant.io
+- [nau\-mll (@nau-mll)](https://github.com/nau-mll "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Neil Crosby (@NeilCrosby)](https://github.com/NeilCrosby "1 total commits to the home-assistant organization:
 1 commit to developers.home-assistant
+")
+- [Neil du Toit (@NeilDuToit92)](https://github.com/NeilDuToit92 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Neil Lathwood (@laf)](https://github.com/laf "5 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 2 commits to home-assistant
 ")
-- [Neil du Toit (@NeilDuToit92)](https://github.com/NeilDuToit92 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
 - [Nelis Willers (@NelisW)](https://github.com/NelisW "2 total commits to the home-assistant organization:
 1 commit to fabric-home-assistant
 1 commit to home-assistant.io
+")
+- [NeLLyMerC (@NeLLyMerC)](https://github.com/NeLLyMerC "5 total commits to the home-assistant organization:
+5 commits to home-assistant.io
 ")
 - [Nelson Chen (@nelsonjchen)](https://github.com/nelsonjchen "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Nemanja Stefanovic (@nemik)](https://github.com/nemik "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [neonbunny (@neonbunny)](https://github.com/neonbunny "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [Ness (@Xx-Ness-xX)](https://github.com/Xx-Ness-xX "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
@@ -4350,8 +5562,16 @@ This page contains a list of people who have contributed in one way or another t
 - [Nicolas Quiénot (@niQo)](https://github.com/niQo "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [nicxvan (@nicxvan)](https://github.com/nicxvan "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Niels Keurentjes (@curry684)](https://github.com/curry684 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [nielstron (@nielstron)](https://github.com/nielstron "21 total commits to the home-assistant organization:
+16 commits to home-assistant
+3 commits to home-assistant.io
+2 commits to netdisco
 ")
 - [Nigel Rook (@NigelRook)](https://github.com/NigelRook "2 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
@@ -4401,6 +5621,16 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [nilzen (@nilzen)](https://github.com/nilzen "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [nkrauss (@nkrauss)](https://github.com/nkrauss "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [NMA (@nma83)](https://github.com/nma83 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Nolan Darilek (@ndarilek)](https://github.com/ndarilek "1 total commits to the home-assistant organization:
 1 commit to hassio
 ")
@@ -4408,8 +5638,18 @@ This page contains a list of people who have contributed in one way or another t
 95 commits to home-assistant
 28 commits to home-assistant.io
 ")
+- [nordeep (@nordeep)](https://github.com/nordeep "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [nordlead2005 (@nordlead2005)](https://github.com/nordlead2005 "7 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+3 commits to home-assistant
+")
 - [Norien (@Norien)](https://github.com/Norien "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [normakm (@normakm)](https://github.com/normakm "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [NotoriousBDG (@notoriousbdg)](https://github.com/notoriousbdg "6 total commits to the home-assistant organization:
 3 commits to hassio-addons
@@ -4422,18 +5662,53 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant-assets
 1 commit to home-assistant.io
 ")
+- [noxhirsch (@noxhirsch)](https://github.com/noxhirsch "6 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [nsimb (@nsimb)](https://github.com/nsimb "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ntalekt (@ntalekt)](https://github.com/ntalekt "6 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+")
 - [Nuno Sousa (@nunofgs)](https://github.com/nunofgs "7 total commits to the home-assistant organization:
 4 commits to home-assistant
 2 commits to home-assistant.io
 1 commit to homebridge-homeassistant
 ")
-- [OGINO Masanori (@omasanori)](https://github.com/omasanori "1 total commits to the home-assistant organization:
+- [nunojusto (@nunojusto)](https://github.com/nunojusto "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [NWiBGRsK (@NWiBGRsK)](https://github.com/NWiBGRsK "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [oa\- (@oa-)](https://github.com/oa- "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [obgm (@obgm)](https://github.com/obgm "480 total commits to the home-assistant organization:
+480 commits to libcoap
 ")
 - [Odianosen Ejale (@Odianosen25)](https://github.com/Odianosen25 "1 total commits to the home-assistant organization:
 1 commit to appdaemon
 ")
 - [Odin Ugedal (@odinuge)](https://github.com/odinuge "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [officiallybob (@officiallybob)](https://github.com/officiallybob "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [OGINO Masanori (@omasanori)](https://github.com/omasanori "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ohadbenita (@ohadbenita)](https://github.com/ohadbenita "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [ohm (@nohm)](https://github.com/nohm "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ohmer1 (@ohmer1)](https://github.com/ohmer1 "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
@@ -4470,11 +5745,17 @@ This page contains a list of people who have contributed in one way or another t
 9 commits to home-assistant.io
 1 commit to netdisco
 ")
+- [Oliver van Porten (@mcdeck)](https://github.com/mcdeck "10 total commits to the home-assistant organization:
+10 commits to home-assistant
+")
 - [Oliver Voelker (@magenbrot)](https://github.com/magenbrot "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [Oliver van Porten (@mcdeck)](https://github.com/mcdeck "10 total commits to the home-assistant organization:
-10 commits to home-assistant
+- [oliverhg1 (@oliverhg1)](https://github.com/oliverhg1 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [oliverscu (@oliverscu)](https://github.com/oliverscu "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Olivier DEBAUCHE (@Smartappli)](https://github.com/Smartappli "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4499,6 +5780,10 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [onsmam (@onsmam)](https://github.com/onsmam "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [Open Home Automation (@open-homeautomation)](https://github.com/open-homeautomation "41 total commits to the home-assistant organization:
 29 commits to home-assistant
 12 commits to home-assistant.io
@@ -4511,6 +5796,9 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
+- [ottersen (@ottersen)](https://github.com/ottersen "11 total commits to the home-assistant organization:
+11 commits to home-assistant.io
+")
 - [Otto Winter (@OttoWinter)](https://github.com/OttoWinter "106 total commits to the home-assistant organization:
 76 commits to home-assistant
 24 commits to home-assistant.io
@@ -4520,12 +5808,23 @@ This page contains a list of people who have contributed in one way or another t
 - [Otto\-G (@Otto-G)](https://github.com/Otto-G "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [overkill32 (@overkill32)](https://github.com/overkill32 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [oznu (@oznu)](https://github.com/oznu "1 total commits to the home-assistant organization:
+1 commit to homebridge-homeassistant
+")
 - [Paolo Bonzini (@bonzini)](https://github.com/bonzini "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
 - [Parker Moore (@parkr)](https://github.com/parkr "62 total commits to the home-assistant organization:
 62 commits to home-assistant.io
+")
+- [pascal (@passie)](https://github.com/passie "6 total commits to the home-assistant organization:
+3 commits to home-assistant
+2 commits to home-assistant.io
+1 commit to home-assistant-polymer
 ")
 - [Pascal (@p4sI)](https://github.com/p4sI "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4554,8 +5853,20 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant-js-websocket
 1 commit to netdisco
 ")
+- [pascalsaul (@pascalsaul)](https://github.com/pascalsaul "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [pat (@ptc)](https://github.com/ptc "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Pat Thoyts (@patthoyts)](https://github.com/patthoyts "2 total commits to the home-assistant organization:
 2 commits to netdisco
+")
+- [patkap (@patkap)](https://github.com/patkap "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [patock (@patock)](https://github.com/patock "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Patrick (@tradiuz)](https://github.com/tradiuz "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
@@ -4589,6 +5900,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Patryk Gałczyński (@evemorgen)](https://github.com/evemorgen "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [pattyland (@pattyland)](https://github.com/pattyland "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Paul Annekov (@PaulAnnekov)](https://github.com/PaulAnnekov "10 total commits to the home-assistant organization:
 7 commits to home-assistant
@@ -4639,6 +5953,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Paul Tarjan (@ptarjan)](https://github.com/ptarjan "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
+- [pavanagrawal123 (@pavanagrawal123)](https://github.com/pavanagrawal123 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Pavel Pletenev (@ASMfreaK)](https://github.com/ASMfreaK "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
@@ -4656,6 +5973,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Paxy (@Paxy)](https://github.com/Paxy "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [pdanilew (@pdanilew)](https://github.com/pdanilew "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Pedro Navarro (@pedronavf)](https://github.com/pedronavf "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 ")
@@ -4663,6 +5983,9 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 ")
 - [Penny Wood (@Swamp-Ig)](https://github.com/Swamp-Ig "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [pepeEL (@pepeEL)](https://github.com/pepeEL "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
 - [Per Osbäck (@perosb)](https://github.com/perosb "21 total commits to the home-assistant organization:
@@ -4673,6 +5996,12 @@ This page contains a list of people who have contributed in one way or another t
 101 commits to home-assistant
 18 commits to home-assistant.io
 12 commits to home-assistant-polymer
+")
+- [pereiraru (@pereiraru)](https://github.com/pereiraru "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [perfalk (@perfalk)](https://github.com/perfalk "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Petar Petrov (@MindFreeze)](https://github.com/MindFreeze "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -4709,12 +6038,28 @@ This page contains a list of people who have contributed in one way or another t
 - [Peter Zsak (@wroadd)](https://github.com/wroadd "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [petkov (@petkov)](https://github.com/petkov "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Petr Vraník (@konikvranik)](https://github.com/konikvranik "11 total commits to the home-assistant organization:
 6 commits to home-assistant
 5 commits to home-assistant.io
 ")
 - [Petro31 (@Petro31)](https://github.com/Petro31 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [pezinek (@pezinek)](https://github.com/pezinek "9 total commits to the home-assistant organization:
+8 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [pgenera (@pgenera)](https://github.com/pgenera "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [phardy (@phardy)](https://github.com/phardy "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [phfix (@phfix)](https://github.com/phfix "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Phi Dong (@pdong)](https://github.com/pdong "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
@@ -4754,6 +6099,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Phil Lavin (@phil-lavin)](https://github.com/phil-lavin "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [phileaton (@phileaton)](https://github.com/phileaton "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Phileep (@Phileep)](https://github.com/Phileep "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
@@ -4790,6 +6138,15 @@ This page contains a list of people who have contributed in one way or another t
 - [Phill Price (@phillprice)](https://github.com/phillprice "12 total commits to the home-assistant organization:
 12 commits to home-assistant.io
 ")
+- [phispi (@phispi)](https://github.com/phispi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [phithor (@phithor)](https://github.com/phithor "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [phlet (@phlet)](https://github.com/phlet "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [PhracturedBlue (@PhracturedBlue)](https://github.com/PhracturedBlue "42 total commits to the home-assistant organization:
 25 commits to home-assistant
 13 commits to home-assistant.io
@@ -4804,11 +6161,23 @@ This page contains a list of people who have contributed in one way or another t
 - [Pierre\-Jean Leger (@Caligone)](https://github.com/Caligone "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [pinksocks (@pinksocks)](https://github.com/pinksocks "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Piotr Miazga (@polishdeveloper)](https://github.com/polishdeveloper "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [pixelasticity (@pixelasticity)](https://github.com/pixelasticity "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [pkonnekermetametrics (@pkonnekermetametrics)](https://github.com/pkonnekermetametrics "5 total commits to the home-assistant organization:
+5 commits to warrant
+")
 - [PlanetJ (@PlanetJ)](https://github.com/PlanetJ "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [plyblu (@plyblu)](https://github.com/plyblu "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
 ")
 - [PollieKrismis (@PollieKrismis)](https://github.com/PollieKrismis "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4816,9 +6185,22 @@ This page contains a list of people who have contributed in one way or another t
 - [Pratyush Mohapatra (@Ativerc)](https://github.com/Ativerc "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [priiduonu (@priiduonu)](https://github.com/priiduonu "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [printzlau (@printzlau)](https://github.com/printzlau "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [prophit987 (@prophit987)](https://github.com/prophit987 "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
 - [Przemek Więch (@PeWu)](https://github.com/PeWu "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
+")
+- [psike (@psike)](https://github.com/psike "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Pteranodon (@Pteranodon)](https://github.com/Pteranodon "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4826,8 +6208,22 @@ This page contains a list of people who have contributed in one way or another t
 - [PuckStar (@PuckStar)](https://github.com/PuckStar "7 total commits to the home-assistant organization:
 7 commits to home-assistant.io
 ")
+- [qinghuangchan (@qinghuangchan)](https://github.com/qinghuangchan "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [qrionic labs (@qrioniclabs)](https://github.com/qrioniclabs "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [quaec (@quaec)](https://github.com/quaec "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Questler (@Questler)](https://github.com/Questler "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [quthla (@quthla)](https://github.com/quthla "13 total commits to the home-assistant organization:
+5 commits to home-assistant-polymer
+4 commits to home-assistant-iOS
+4 commits to home-assistant
 ")
 - [Qwertee (@Qwertee)](https://github.com/Qwertee "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -4839,8 +6235,20 @@ This page contains a list of people who have contributed in one way or another t
 - [R Huish (@genestealer)](https://github.com/genestealer "24 total commits to the home-assistant organization:
 24 commits to home-assistant.io
 ")
-- [RBHR (@rbhr)](https://github.com/rbhr "2 total commits to the home-assistant organization:
+- [r4nd0mbr1ck (@r4nd0mbr1ck)](https://github.com/r4nd0mbr1ck "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+1 commit to home-assistant
+")
+- [r\-jordan (@r-jordan)](https://github.com/r-jordan "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [radinsky (@radinsky)](https://github.com/radinsky "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [rafale77 (@rafale77)](https://github.com/rafale77 "5 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Raiford (@raiford)](https://github.com/raiford "2 total commits to the home-assistant organization:
 1 commit to hassio-addons
@@ -4852,6 +6260,11 @@ This page contains a list of people who have contributed in one way or another t
 - [Randall Mason (@ClashTheBunny)](https://github.com/ClashTheBunny "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [randellhodges (@randellhodges)](https://github.com/randellhodges "8 total commits to the home-assistant organization:
+3 commits to home-assistant-polymer
+3 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Raoul Teeuwen (@raoulteeuwen)](https://github.com/raoulteeuwen "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -4862,19 +6275,48 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [ratcash (@ratcashdev)](https://github.com/ratcashdev "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [Ravi K (@shreram)](https://github.com/shreram "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Ray Goat (@raygoat)](https://github.com/raygoat "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [ray0711 (@ray0711)](https://github.com/ray0711 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [raymccarthy (@raymccarthy)](https://github.com/raymccarthy "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [rbflurry (@rbflurry)](https://github.com/rbflurry "17 total commits to the home-assistant organization:
+14 commits to home-assistant.io
+3 commits to home-assistant
+")
+- [RBHR (@rbhr)](https://github.com/rbhr "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [rcmdnk (@rcmdnk)](https://github.com/rcmdnk "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [rctgamer3 (@rctgamer3)](https://github.com/rctgamer3 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Rebecca Cran (@bcran)](https://github.com/bcran "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [reductio (@reductio)](https://github.com/reductio "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Reed Riley (@reedriley)](https://github.com/reedriley "3 total commits to the home-assistant organization:
 3 commits to home-assistant
 ")
 - [Reinhard Tartler (@siretart)](https://github.com/siretart "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [remc0 (@remc0)](https://github.com/remc0 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Rendili (@Rendili)](https://github.com/Rendili "4 total commits to the home-assistant organization:
@@ -4900,6 +6342,11 @@ This page contains a list of people who have contributed in one way or another t
 - [Reza Moallemi (@moallemi)](https://github.com/moallemi "2 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 1 commit to home-assistant.io
+")
+- [rhooper (@rhooper)](https://github.com/rhooper "30 total commits to the home-assistant organization:
+25 commits to home-assistant
+3 commits to home-assistant.io
+2 commits to hadashboard
 ")
 - [Riccardo Canta (@commento)](https://github.com/commento "3 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -4935,6 +6382,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Richard Orr (@rorr73)](https://github.com/rorr73 "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [richo (@richo)](https://github.com/richo "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Rick (@rcuddy)](https://github.com/rcuddy "1 total commits to the home-assistant organization:
 1 commit to pi-gen
 ")
@@ -4946,6 +6396,18 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [RickyTaterSalad (@RickyTaterSalad)](https://github.com/RickyTaterSalad "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [ricmik (@ricmik)](https://github.com/ricmik "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [rkabadi (@rkabadi)](https://github.com/rkabadi "17 total commits to the home-assistant organization:
+17 commits to home-assistant
+")
+- [rmacklin (@rmacklin)](https://github.com/rmacklin "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [rnizametdinov (@rnizametdinov)](https://github.com/rnizametdinov "1 total commits to the home-assistant organization:
+1 commit to hassio-addons
 ")
 - [Rob Capellini (@capellini)](https://github.com/capellini "3 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -4977,18 +6439,18 @@ This page contains a list of people who have contributed in one way or another t
 8 commits to Analytics-Receiver
 6 commits to netdisco
 3 commits to home-assistant-js
-3 commits to hadashboard
-3 commits to home-assistant-js-websocket
-3 commits to hassbot
-3 commits to organization
 3 commits to scenegen
+3 commits to hassbot
+3 commits to home-assistant-js-websocket
 3 commits to appdaemon
-2 commits to LabelBot
+3 commits to organization
+3 commits to hadashboard
 2 commits to micropython-home-assistant
-2 commits to lambda-home-assistant-github
-2 commits to home-assistant-assets
 2 commits to fabric-home-assistant
 2 commits to home-assistant-notebooks
+2 commits to home-assistant-assets
+2 commits to LabelBot
+2 commits to lambda-home-assistant-github
 ")
 - [Robby Grossman (@freerobby)](https://github.com/freerobby "3 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -5026,6 +6488,9 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to netdisco
 1 commit to home-assistant-polymer
 ")
+- [robhuls (@robhuls)](https://github.com/robhuls "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Robin (@robmarkcole)](https://github.com/robmarkcole "57 total commits to the home-assistant organization:
 35 commits to home-assistant.io
 19 commits to home-assistant
@@ -5053,8 +6518,16 @@ This page contains a list of people who have contributed in one way or another t
 6 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [roiff (@roiff)](https://github.com/roiff "3 total commits to the home-assistant organization:
+2 commits to home-assistant
+1 commit to homebridge-homeassistant
+")
 - [Rolf Schäuble (@rschaeuble)](https://github.com/rschaeuble "1 total commits to the home-assistant organization:
 1 commit to appdaemon
+")
+- [rollbrettler (@rollbrettler)](https://github.com/rollbrettler "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Roman (@HerrHofrat)](https://github.com/HerrHofrat "5 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -5082,6 +6555,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Ronnie Garcia (@ronniegarcia)](https://github.com/ronniegarcia "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [roqeer (@roqeer)](https://github.com/roqeer "3 total commits to the home-assistant organization:
+3 commits to home-assistant
+")
 - [Ross Dargan (@rossdargan)](https://github.com/rossdargan "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
@@ -5090,6 +6566,15 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Roy (@twoez)](https://github.com/twoez "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [rpitera (@rpitera)](https://github.com/rpitera "6 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+")
+- [rpr69 (@rpr69)](https://github.com/rpr69 "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [rrubin0 (@rrubin0)](https://github.com/rrubin0 "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
 ")
 - [Ruben (@rubenvandeven)](https://github.com/rubenvandeven "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -5100,13 +6585,32 @@ This page contains a list of people who have contributed in one way or another t
 - [Rubens Panfili (@rpanfili)](https://github.com/rpanfili "1 total commits to the home-assistant organization:
 1 commit to hassio-addons
 ")
+- [rubenverhoef (@rubenverhoef)](https://github.com/rubenverhoef "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [rubund (@rubund)](https://github.com/rubund "6 total commits to the home-assistant organization:
+4 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Rubén Infante (@ruben0909)](https://github.com/ruben0909 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Rudi Middel (@mrBussy)](https://github.com/mrBussy "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [runningman84 (@runningman84)](https://github.com/runningman84 "5 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [RunOnGitHub (@RunOnGitHub)](https://github.com/RunOnGitHub "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [runraid (@runraid)](https://github.com/runraid "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ruohan\.chen (@crhan)](https://github.com/crhan "5 total commits to the home-assistant organization:
+3 commits to home-assistant
 2 commits to home-assistant.io
 ")
 - [Ruslan Sayfutdinov (@KapJI)](https://github.com/KapJI "2 total commits to the home-assistant organization:
@@ -5180,10 +6684,10 @@ This page contains a list of people who have contributed in one way or another t
 6 commits to home-assistant
 1 commit to home-assistant.io
 ")
-- [Róbert Nagy (@vrnagy)](https://github.com/vrnagy "1 total commits to the home-assistant organization:
-1 commit to home-assistant
+- [ryqiem (@ryqiem)](https://github.com/ryqiem "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
-- [SNoof85 (@SNoof85)](https://github.com/SNoof85 "1 total commits to the home-assistant organization:
+- [Róbert Nagy (@vrnagy)](https://github.com/vrnagy "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
 - [Sabesto (@Sabesto)](https://github.com/Sabesto "4 total commits to the home-assistant organization:
@@ -5192,6 +6696,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Sacha Telgenhof (@stelgenhof)](https://github.com/stelgenhof "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
+")
+- [sagilo (@sagilo)](https://github.com/sagilo "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Salman Shah (@salman-bhai)](https://github.com/salman-bhai "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -5213,6 +6720,10 @@ This page contains a list of people who have contributed in one way or another t
 - [Sam Whited (@SamWhited)](https://github.com/SamWhited "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [sam\-io (@sam-io)](https://github.com/sam-io "5 total commits to the home-assistant organization:
+3 commits to home-assistant
+2 commits to home-assistant.io
+")
 - [Samuel Bétrisey (@betrisey)](https://github.com/betrisey "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
@@ -5220,10 +6731,20 @@ This page contains a list of people who have contributed in one way or another t
 - [Samuel Maggs (@samuelmaggs)](https://github.com/samuelmaggs "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [samuelsson86 (@samuelsson86)](https://github.com/samuelsson86 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Sander de Leeuw (@sdeleeuw)](https://github.com/sdeleeuw "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [sander76 (@sander76)](https://github.com/sander76 "44 total commits to the home-assistant organization:
+40 commits to home-assistant
+4 commits to home-assistant.io
+")
 - [Sangwon Kim (@pueue)](https://github.com/pueue "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [sapph42 (@sapph42)](https://github.com/sapph42 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Saumya Balodi (@saumya1906)](https://github.com/saumya1906 "1 total commits to the home-assistant organization:
@@ -5232,11 +6753,29 @@ This page contains a list of people who have contributed in one way or another t
 - [Saurabh Sharma (@saurabhsharma001)](https://github.com/saurabhsharma001 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [sbYm (@GongT)](https://github.com/GongT "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+")
+- [scaarup (@scaarup)](https://github.com/scaarup "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [schferbe (@schferbe)](https://github.com/schferbe "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Schmackos (@Schmackos)](https://github.com/Schmackos "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [schneefux (@schneefux)](https://github.com/schneefux "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [schnoetz (@schnoetz)](https://github.com/schnoetz "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Scholli (@ScholliYT)](https://github.com/ScholliYT "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [schumpeter2 (@schumpeter2)](https://github.com/schumpeter2 "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
 ")
 - [SchumyHao (@SchumyHao)](https://github.com/SchumyHao "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -5280,6 +6819,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Scott Watermasysk (@scottwater)](https://github.com/scottwater "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [scottjones4k (@scottjones4k)](https://github.com/scottjones4k "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Sean (@mitchese)](https://github.com/mitchese "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -5303,19 +6845,22 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
+- [seanb\-uk (@seanb-uk)](https://github.com/seanb-uk "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Sebastiaan (@sebastiaandegeus)](https://github.com/sebastiaandegeus "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Sebastiaan (@sebastiaanwezenberg)](https://github.com/sebastiaanwezenberg "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [Sebastian (@sgso)](https://github.com/sgso "3 total commits to the home-assistant organization:
+3 commits to libcoap
+")
 - [Sebastian (@sebk-666)](https://github.com/sebk-666 "7 total commits to the home-assistant organization:
 5 commits to home-assistant.io
 1 commit to netdisco
 1 commit to home-assistant
-")
-- [Sebastian  (@sgso)](https://github.com/sgso "3 total commits to the home-assistant organization:
-3 commits to libcoap
 ")
 - [Sebastian Muszynski (@syssi)](https://github.com/syssi "146 total commits to the home-assistant organization:
 93 commits to home-assistant
@@ -5328,8 +6873,14 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [sekavatar (@sekavatar)](https://github.com/sekavatar "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Semir Patel (@analogue)](https://github.com/analogue "2 total commits to the home-assistant organization:
 2 commits to appdaemon
+")
+- [sentinel\-23 (@sentinel-23)](https://github.com/sentinel-23 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Sergey Isachenko (@zabuldon)](https://github.com/zabuldon "11 total commits to the home-assistant organization:
 9 commits to home-assistant
@@ -5348,14 +6899,36 @@ This page contains a list of people who have contributed in one way or another t
 - [Sev (@collse)](https://github.com/collse "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [sfam (@sfam)](https://github.com/sfam "65 total commits to the home-assistant organization:
+58 commits to home-assistant
+5 commits to home-assistant.io
+1 commit to netdisco
+1 commit to home-assistant-polymer
+")
 - [Shane Liesegang (@sjml)](https://github.com/sjml "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [sharukins (@sharukins)](https://github.com/sharukins "3 total commits to the home-assistant organization:
+3 commits to hassio-build
 ")
 - [Shaun McCloud (@smccloud)](https://github.com/smccloud "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Shawna (@cherrykoda)](https://github.com/cherrykoda "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [shker (@serhtt)](https://github.com/serhtt "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [shred86 (@shred86)](https://github.com/shred86 "3 total commits to the home-assistant organization:
+2 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [shuaiger (@shuaiger)](https://github.com/shuaiger "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [siebert (@siebert)](https://github.com/siebert "3 total commits to the home-assistant organization:
+3 commits to home-assistant
 ")
 - [Siim Talvik (@simpss)](https://github.com/simpss "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -5393,23 +6966,64 @@ This page contains a list of people who have contributed in one way or another t
 4 commits to home-assistant.io
 3 commits to home-assistant
 ")
-- [SimonThoustrup (@SimonThoustrup)](https://github.com/SimonThoustrup "1 total commits to the home-assistant organization:
+- [Simone (@simonewebdesign)](https://github.com/simonewebdesign "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [Simone (@simonewebdesign)](https://github.com/simonewebdesign "1 total commits to the home-assistant organization:
+- [SimonThoustrup (@SimonThoustrup)](https://github.com/SimonThoustrup "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Sindre Hansen (@sindrehan)](https://github.com/sindrehan "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [sjabby (@sjabby)](https://github.com/sjabby "31 total commits to the home-assistant organization:
+29 commits to home-assistant.io
+1 commit to hassbian-scripts
+1 commit to home-assistant
+")
 - [Sjors Spoorendonk (@sjorsjes)](https://github.com/sjorsjes "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
+")
+- [sjoshi10 (@sjoshi10)](https://github.com/sjoshi10 "1 total commits to the home-assistant organization:
+1 commit to warrant
+")
+- [skanab (@skanab)](https://github.com/skanab "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Slava (@vaceslav)](https://github.com/vaceslav "2 total commits to the home-assistant organization:
 2 commits to home-assistant
 ")
+- [slimatic (@slimatic)](https://github.com/slimatic "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [smaggard (@smaggard)](https://github.com/smaggard "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [smallship (@smallship)](https://github.com/smallship "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [smoldaner (@smoldaner)](https://github.com/smoldaner "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [sn0oz (@sn0oz)](https://github.com/sn0oz "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [snagytx (@snagytx)](https://github.com/snagytx "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [snizzleorg (@snizzleorg)](https://github.com/snizzleorg "5 total commits to the home-assistant organization:
+5 commits to hadashboard
+")
+- [SNoof85 (@SNoof85)](https://github.com/SNoof85 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [spacemanspiff2007 (@spacemanspiff2007)](https://github.com/spacemanspiff2007 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Spartan\-II\-117 (@Spartan-II-117)](https://github.com/Spartan-II-117 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [spektren (@spektren)](https://github.com/spektren "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Spencer Oberstadt (@soberstadt)](https://github.com/soberstadt "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -5417,13 +7031,36 @@ This page contains a list of people who have contributed in one way or another t
 - [Spencer Owen (@spuder)](https://github.com/spuder "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [spinside (@spinside)](https://github.com/spinside "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [squidwardy (@villanyibalint)](https://github.com/villanyibalint "3 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [squirtbrnr (@squirtbrnr)](https://github.com/squirtbrnr "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Sriram Vaidyanathan (@vaidyasr)](https://github.com/vaidyasr "6 total commits to the home-assistant organization:
 3 commits to home-assistant
 3 commits to home-assistant.io
 ")
+- [srirams (@srirams)](https://github.com/srirams "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [St\. John Johnson (@stjohnjohnson)](https://github.com/stjohnjohnson "9 total commits to the home-assistant organization:
 5 commits to home-assistant
 4 commits to home-assistant.io
+")
+- [stanvx (@stanvx)](https://github.com/stanvx "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [starkillerOG (@starkillerOG)](https://github.com/starkillerOG "12 total commits to the home-assistant organization:
+6 commits to home-assistant
+4 commits to home-assistant.io
+1 commit to developers.home-assistant
+1 commit to home-assistant-polymer
 ")
 - [Stavros Korokithakis (@skorokithakis)](https://github.com/skorokithakis "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -5448,6 +7085,10 @@ This page contains a list of people who have contributed in one way or another t
 - [Stephan Auerhahn (@palp)](https://github.com/palp "2 total commits to the home-assistant organization:
 1 commit to home-assistant
 1 commit to home-assistant.io
+")
+- [stephanerosi (@stephanerosi)](https://github.com/stephanerosi "11 total commits to the home-assistant organization:
+8 commits to home-assistant
+3 commits to home-assistant.io
 ")
 - [Stephen Edgar (@ntwb)](https://github.com/ntwb "2 total commits to the home-assistant organization:
 1 commit to fabric-home-assistant
@@ -5533,9 +7174,24 @@ This page contains a list of people who have contributed in one way or another t
 - [SupahNoob (@SupahNoob)](https://github.com/SupahNoob "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [superpuffin (@superpuffin)](https://github.com/superpuffin "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [sustah (@sustah)](https://github.com/sustah "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [sveip (@sveip)](https://github.com/sveip "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Sven\-Hendrik Haase (@svenstaro)](https://github.com/svenstaro "4 total commits to the home-assistant organization:
 3 commits to home-assistant.io
 1 commit to home-assistant
+")
+- [swanwila (@swanwila)](https://github.com/swanwila "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+")
+- [swhaat (@swhaat)](https://github.com/swhaat "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [System Tester (@systemtester)](https://github.com/systemtester "3 total commits to the home-assistant organization:
 3 commits to home-assistant.io
@@ -5545,6 +7201,9 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant
 1 commit to hassio-build
 1 commit to developers.home-assistant
+")
+- [szaroubi (@szaroubi)](https://github.com/szaroubi "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Sébastien RAMAGE (@doudz)](https://github.com/doudz "4 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -5557,16 +7216,30 @@ This page contains a list of people who have contributed in one way or another t
 - [Søren Dam Pedersen (@Pengman)](https://github.com/Pengman "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
-- [TJ Rana (@tjrana)](https://github.com/tjrana "1 total commits to the home-assistant organization:
-1 commit to pi-gen
+- [t0ny (@t0ny)](https://github.com/t0ny "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [t30 (@t30)](https://github.com/t30 "8 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Tabakhase (@tabakhase)](https://github.com/tabakhase "4 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant-polymer
 1 commit to home-assistant
 ")
+- [tadly (@tadly)](https://github.com/tadly "9 total commits to the home-assistant organization:
+8 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [tango\-foxtrot (@tango-foxtrot)](https://github.com/tango-foxtrot "1 total commits to the home-assistant organization:
+1 commit to netdisco
+")
 - [TangoAlpha (@TangoAlpha)](https://github.com/TangoAlpha "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [tantecky (@tantecky)](https://github.com/tantecky "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Taylor Peet (@RePeet13)](https://github.com/RePeet13 "10 total commits to the home-assistant organization:
 9 commits to home-assistant.io
@@ -5574,6 +7247,13 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Taylor Vierrether (@viertaxa)](https://github.com/viertaxa "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [tbergo (@tbergo)](https://github.com/tbergo "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [tchentchen (@tchentchen)](https://github.com/tchentchen "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Teagan Glenn (@Teagan42)](https://github.com/Teagan42 "59 total commits to the home-assistant organization:
 49 commits to home-assistant
@@ -5586,6 +7266,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Ted Kulp (@tedkulp)](https://github.com/tedkulp "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [tedstriker (@tedstriker)](https://github.com/tedstriker "4 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+1 commit to home-assistant
 ")
 - [Teemu Mikkonen (@T3m3z)](https://github.com/T3m3z "5 total commits to the home-assistant organization:
 3 commits to home-assistant
@@ -5615,8 +7299,17 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
-- [ThUnD3r\|Gr33n (@thundergreen)](https://github.com/thundergreen "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
+- [tfitts (@tfitts)](https://github.com/tfitts "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tflack (@tflack)](https://github.com/tflack "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [tfyoung (@tfyoung)](https://github.com/tfyoung "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tguerena (@tguerena)](https://github.com/tguerena "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [The Gitter Badger (@gitter-badger)](https://github.com/gitter-badger "1 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -5624,18 +7317,41 @@ This page contains a list of people who have contributed in one way or another t
 - [The Witty Coder (@wittycoder)](https://github.com/wittycoder "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [Theb\-1 (@Theb-1)](https://github.com/Theb-1 "5 total commits to the home-assistant organization:
+5 commits to home-assistant
+")
 - [TheCellMC (@TheCellMC)](https://github.com/TheCellMC "2 total commits to the home-assistant organization:
 1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [thecynic (@thecynic)](https://github.com/thecynic "5 total commits to the home-assistant organization:
+4 commits to home-assistant
 1 commit to home-assistant.io
 ")
 - [TheFrogDaddy (@TheFrogDaddy)](https://github.com/TheFrogDaddy "1 total commits to the home-assistant organization:
 1 commit to appdaemon
 ")
+- [thehookup (@thehookup)](https://github.com/thehookup "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [thejacko12354 (@thejacko12354)](https://github.com/thejacko12354 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [TheJulianJES (@TheJulianJES)](https://github.com/TheJulianJES "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
-- [Theb\-1 (@Theb-1)](https://github.com/Theb-1 "5 total commits to the home-assistant organization:
-5 commits to home-assistant
+- [thelittlefireman (@thelittlefireman)](https://github.com/thelittlefireman "3 total commits to the home-assistant organization:
+3 commits to home-assistant
+")
+- [themanieldaniel (@themanieldaniel)](https://github.com/themanieldaniel "14 total commits to the home-assistant organization:
+14 commits to home-assistant.io
+")
+- [theolind (@theolind)](https://github.com/theolind "27 total commits to the home-assistant organization:
+25 commits to home-assistant
+2 commits to home-assistant.io
+")
+- [thepotoo (@thepotoo)](https://github.com/thepotoo "1 total commits to the home-assistant organization:
+1 commit to home-assistant
 ")
 - [Thiago Oliveira (@chilicheech)](https://github.com/chilicheech "6 total commits to the home-assistant organization:
 4 commits to home-assistant
@@ -5705,7 +7421,30 @@ This page contains a list of people who have contributed in one way or another t
 - [Thomas Wilson (@novirium)](https://github.com/novirium "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [thomaslian (@thomaslian)](https://github.com/thomaslian "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [thrawnarn (@thrawnarn)](https://github.com/thrawnarn "10 total commits to the home-assistant organization:
+5 commits to home-assistant
+4 commits to home-assistant.io
+1 commit to netdisco
+")
+- [thrust15 (@thrust15)](https://github.com/thrust15 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [ThUnD3r\|Gr33n (@thundergreen)](https://github.com/thundergreen "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+")
+- [thunfischbrot (@thunfischbrot)](https://github.com/thunfischbrot "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tijuca (@tijuca)](https://github.com/tijuca "106 total commits to the home-assistant organization:
+106 commits to libcoap
+")
 - [Till Schulte\-Coerne (@tillsc)](https://github.com/tillsc "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tilphousia (@tilphousia)](https://github.com/tilphousia "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Tim (@tinglis1)](https://github.com/tinglis1 "4 total commits to the home-assistant organization:
@@ -5741,13 +7480,6 @@ This page contains a list of people who have contributed in one way or another t
 - [Tim Wilde (@twilde)](https://github.com/twilde "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
-- [TimV (@vroomfonde1)](https://github.com/vroomfonde1 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [TimVa (@TimVa)](https://github.com/TimVa "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
 - [Timm Schäuble (@tymm)](https://github.com/tymm "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -5764,6 +7496,29 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant.io
 ")
 - [Timothy Macdonald (@tsmacdonald)](https://github.com/tsmacdonald "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [timstanley1985 (@timstanley1985)](https://github.com/timstanley1985 "8 total commits to the home-assistant organization:
+6 commits to home-assistant.io
+2 commits to home-assistant
+")
+- [TimV (@vroomfonde1)](https://github.com/vroomfonde1 "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [TimVa (@TimVa)](https://github.com/TimVa "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [TJ Rana (@tjrana)](https://github.com/tjrana "1 total commits to the home-assistant organization:
+1 commit to pi-gen
+")
+- [tktino (@tktino)](https://github.com/tktino "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tleegaard (@tleegaard)](https://github.com/tleegaard "1 total commits to the home-assistant organization:
+1 commit to home-assistant-polymer
+")
+- [tmd224 (@tmd224)](https://github.com/tmd224 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Toast (@swetoast)](https://github.com/swetoast "2 total commits to the home-assistant organization:
@@ -5801,6 +7556,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Todd McNeal (@tmcneal)](https://github.com/tmcneal "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
+")
+- [toddeye (@toddeye)](https://github.com/toddeye "20 total commits to the home-assistant organization:
+20 commits to home-assistant
 ")
 - [Tom (@Qu3uk)](https://github.com/Qu3uk "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
@@ -5856,6 +7614,9 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [tomaszduda23 (@tomaszduda23)](https://github.com/tomaszduda23 "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Tomek985 (@Tomek985)](https://github.com/Tomek985 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -5866,8 +7627,17 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to home-assistant
 1 commit to home-assistant.io
 ")
+- [tomlut (@tomlut)](https://github.com/tomlut "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Tommy Jonsson (@quazzie)](https://github.com/quazzie "4 total commits to the home-assistant organization:
 3 commits to home-assistant
+1 commit to home-assistant.io
+")
+- [tonire1702 (@tonire1702)](https://github.com/tonire1702 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [tony chang (@idealisms)](https://github.com/idealisms "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Tony Roman (@ronytomen)](https://github.com/ronytomen "2 total commits to the home-assistant organization:
@@ -5886,6 +7656,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Torkild Retvedt (@torkildr)](https://github.com/torkildr "2 total commits to the home-assistant organization:
 2 commits to appdaemon
 ")
+- [tortfeaser (@tortfeaser)](https://github.com/tortfeaser "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Toshik (@Toshik)](https://github.com/Toshik "1 total commits to the home-assistant organization:
 1 commit to homebridge-homeassistant
 ")
@@ -5900,6 +7673,12 @@ This page contains a list of people who have contributed in one way or another t
 - [Travis Carr (@tmcarr)](https://github.com/tmcarr "5 total commits to the home-assistant organization:
 5 commits to home-assistant.io
 ")
+- [travislreno (@travislreno)](https://github.com/travislreno "3 total commits to the home-assistant organization:
+3 commits to home-assistant.io
+")
+- [trbs (@trbs)](https://github.com/trbs "1 total commits to the home-assistant organization:
+1 commit to netdisco
+")
 - [Trevor (@tboyce021)](https://github.com/tboyce021 "15 total commits to the home-assistant organization:
 10 commits to home-assistant
 5 commits to home-assistant.io
@@ -5913,9 +7692,16 @@ This page contains a list of people who have contributed in one way or another t
 - [Trey Richards (@treyrich)](https://github.com/treyrich "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [tringler (@tringler)](https://github.com/tringler "3 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+1 commit to home-assistant
+")
 - [Tristan Caulfield (@Bahnburner)](https://github.com/Bahnburner "3 total commits to the home-assistant organization:
 2 commits to home-assistant
 1 commit to home-assistant.io
+")
+- [trollkarlen (@trollkarlen)](https://github.com/trollkarlen "5 total commits to the home-assistant organization:
+5 commits to home-assistant
 ")
 - [Trung Lê (@joneslee85)](https://github.com/joneslee85 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -5923,6 +7709,21 @@ This page contains a list of people who have contributed in one way or another t
 - [Tsvi Mostovicz (@tsvi)](https://github.com/tsvi "16 total commits to the home-assistant organization:
 9 commits to home-assistant
 7 commits to home-assistant.io
+")
+- [tubalainen (@tubalainen)](https://github.com/tubalainen "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [tumik (@tumik)](https://github.com/tumik "2 total commits to the home-assistant organization:
+2 commits to home-assistant
+")
+- [tuxuser (@tuxuser)](https://github.com/tuxuser "1 total commits to the home-assistant organization:
+1 commit to netdisco
+")
+- [twendt (@twendt)](https://github.com/twendt "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [txNgineer (@txNgineer)](https://github.com/txNgineer "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
 ")
 - [Tyler Bigler (@tyler-8)](https://github.com/tyler-8 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -5941,6 +7742,17 @@ This page contains a list of people who have contributed in one way or another t
 - [Tõnis Tobre (@tobre6)](https://github.com/tobre6 "1 total commits to the home-assistant organization:
 1 commit to homebridge-homeassistant
 ")
+- [ubnt\-marc\-khouri (@ubnt-marc-khouri)](https://github.com/ubnt-marc-khouri "6 total commits to the home-assistant organization:
+2 commits to home-assistant-polymer
+1 commit to hassio-build
+1 commit to developers.home-assistant
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [uchagani (@uchagani)](https://github.com/uchagani "9 total commits to the home-assistant organization:
+8 commits to home-assistant
+1 commit to home-assistant-polymer
+")
 - [UiGuy (@jjanderson)](https://github.com/jjanderson "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -5950,6 +7762,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Ulrich Dobramysl (@ulido)](https://github.com/ulido "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [ultratoto14 (@ultratoto14)](https://github.com/ultratoto14 "1 total commits to the home-assistant organization:
+1 commit to netdisco
+")
 - [Umer Salman (@umer936)](https://github.com/umer936 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
@@ -5957,11 +7772,13 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant-polymer
 1 commit to home-assistant.io
 ")
+- [upsert (@upsert)](https://github.com/upsert "3 total commits to the home-assistant organization:
+1 commit to netdisco
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
 - [User5981 (@User5981)](https://github.com/User5981 "1 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
-")
-- [VDRainer (@VDRainer)](https://github.com/VDRainer "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
 ")
 - [Valentin Alexeev (@valentinalexeev)](https://github.com/valentinalexeev "11 total commits to the home-assistant organization:
 8 commits to home-assistant
@@ -5976,6 +7793,9 @@ This page contains a list of people who have contributed in one way or another t
 - [Valiceemo (@Valiceemo)](https://github.com/Valiceemo "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
+- [vanviegen (@vanviegen)](https://github.com/vanviegen "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Varga Tamas (@tamasv)](https://github.com/tamasv "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -5985,10 +7805,16 @@ This page contains a list of people who have contributed in one way or another t
 - [Vasiley (@Vasiley)](https://github.com/Vasiley "9 total commits to the home-assistant organization:
 9 commits to home-assistant.io
 ")
+- [vatir (@vatir)](https://github.com/vatir "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
 - [Vaz Allen (@vaz)](https://github.com/vaz "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [VdkaShaker (@VdkaShaker)](https://github.com/VdkaShaker "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [VDRainer (@VDRainer)](https://github.com/VDRainer "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Victor Cerutti (@victorcerutti)](https://github.com/victorcerutti "4 total commits to the home-assistant organization:
@@ -5999,6 +7825,9 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant.io
 ")
 - [Vidar Tyldum (@tyldum)](https://github.com/tyldum "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [viegelinsch (@viegelinsch)](https://github.com/viegelinsch "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
 - [Viet Dzung (@dzungpv)](https://github.com/dzungpv "1 total commits to the home-assistant organization:
@@ -6046,6 +7875,9 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to home-assistant
 1 commit to home-assistant.io
 ")
+- [viswa\-swami (@viswa-swami)](https://github.com/viswa-swami "9 total commits to the home-assistant organization:
+9 commits to home-assistant
+")
 - [Vittorio Monaco (@vittoriom)](https://github.com/vittoriom "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
@@ -6054,8 +7886,19 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to hassio-build
 ")
-- [WAStaggs (@StagasaurusRex)](https://github.com/StagasaurusRex "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
+- [vladonemo (@vladonemo)](https://github.com/vladonemo "1 total commits to the home-assistant organization:
+1 commit to home-assistant
+")
+- [vllungu (@vllungu)](https://github.com/vllungu "3 total commits to the home-assistant organization:
+3 commits to libcoap
+")
+- [vMeph (@vMeph)](https://github.com/vMeph "5 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+")
+- [vrs01 (@vrs01)](https://github.com/vrs01 "21 total commits to the home-assistant organization:
+14 commits to home-assistant.io
+6 commits to appdaemon
+1 commit to home-assistant
 ")
 - [Wade Dorrell (@waded)](https://github.com/waded "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -6074,8 +7917,21 @@ This page contains a list of people who have contributed in one way or another t
 - [Warren Konkel (@wkonkel)](https://github.com/wkonkel "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [WAStaggs (@StagasaurusRex)](https://github.com/StagasaurusRex "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [waxhell (@waxhell)](https://github.com/waxhell "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
+- [wbradmoore (@wbradmoore)](https://github.com/wbradmoore "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Wesley Young (@wesdyoung)](https://github.com/wesdyoung "1 total commits to the home-assistant organization:
 1 commit to warrant
+")
+- [whhsw (@whhsw)](https://github.com/whhsw "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Whytey (@Whytey)](https://github.com/Whytey "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -6086,6 +7942,9 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Wilco van Duinkerken (@Sparkboxx)](https://github.com/Sparkboxx "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
+")
+- [wildcomputations (@wildcomputations)](https://github.com/wildcomputations "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Will Boyce (@wrboyce)](https://github.com/wrboyce "2 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -6116,17 +7975,16 @@ This page contains a list of people who have contributed in one way or another t
 - [William Scanlon (@w1ll1am23)](https://github.com/w1ll1am23 "128 total commits to the home-assistant organization:
 85 commits to home-assistant
 38 commits to home-assistant.io
-2 commits to netdisco
 2 commits to developers.home-assistant
+2 commits to netdisco
+1 commit to home-assistant-polymer
+")
+- [williamlehman (@williamlehman)](https://github.com/williamlehman "1 total commits to the home-assistant organization:
 1 commit to home-assistant-polymer
 ")
 - [Wim Haanstra (@depl0y)](https://github.com/depl0y "6 total commits to the home-assistant organization:
 3 commits to home-assistant
 3 commits to home-assistant.io
-")
-- [WofWca (@WofWca)](https://github.com/WofWca "9 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-3 commits to developers.home-assistant
 ")
 - [Wojciech Bederski (@wuub)](https://github.com/wuub "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
@@ -6134,6 +7992,10 @@ This page contains a list of people who have contributed in one way or another t
 ")
 - [Wojtek (@wiuwiu)](https://github.com/wiuwiu "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [wokar (@wokar)](https://github.com/wokar "12 total commits to the home-assistant organization:
+8 commits to home-assistant
+4 commits to home-assistant.io
 ")
 - [Wolf\-Bastian Pöttner (@BastianPoe)](https://github.com/BastianPoe "7 total commits to the home-assistant organization:
 4 commits to home-assistant
@@ -6152,12 +8014,34 @@ This page contains a list of people who have contributed in one way or another t
 - [Wouter Wolkers (@wwolkers)](https://github.com/wwolkers "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [wyznerd (@wyznerd)](https://github.com/wyznerd "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [xander2 (@xander2)](https://github.com/xander2 "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [xdite (@xdite)](https://github.com/xdite "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [XECDesign (@XECDesign)](https://github.com/XECDesign "145 total commits to the home-assistant organization:
 145 commits to pi-gen
+")
+- [xelprep (@xelprep)](https://github.com/xelprep "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Xorso (@Xorso)](https://github.com/Xorso "22 total commits to the home-assistant organization:
 21 commits to home-assistant
 1 commit to hassio-addons
+")
+- [xPsIXx (@xPsIXx)](https://github.com/xPsIXx "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
+- [xTCx (@xTCx)](https://github.com/xTCx "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
+")
+- [yankees9920 (@wagnerbenh)](https://github.com/wagnerbenh "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
 ")
 - [Yannic\-HAW (@Yannic-HAW)](https://github.com/Yannic-HAW "2 total commits to the home-assistant organization:
 1 commit to home-assistant
@@ -6176,6 +8060,12 @@ This page contains a list of people who have contributed in one way or another t
 - [Yannik25 (@Yannik25)](https://github.com/Yannik25 "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
 ")
+- [yasinS (@yasinS)](https://github.com/yasinS "4 total commits to the home-assistant organization:
+4 commits to home-assistant.io
+")
+- [yeah (@yeah)](https://github.com/yeah "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [Yevgeniy (@sgttrs)](https://github.com/sgttrs "4 total commits to the home-assistant organization:
 2 commits to home-assistant
 1 commit to home-assistant-polymer
@@ -6184,9 +8074,15 @@ This page contains a list of people who have contributed in one way or another t
 - [Yien Xu (@yienxu)](https://github.com/yienxu "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [yingzong (@yingzong)](https://github.com/yingzong "1 total commits to the home-assistant organization:
+1 commit to warrant
+")
 - [Yonsm (@Yonsm)](https://github.com/Yonsm "3 total commits to the home-assistant organization:
 2 commits to home-assistant
 1 commit to home-assistant.io
+")
+- [yulongying (@yulongying)](https://github.com/yulongying "1 total commits to the home-assistant organization:
+1 commit to home-assistant-js-websocket
 ")
 - [Yum (@goofz)](https://github.com/goofz "2 total commits to the home-assistant organization:
 2 commits to home-assistant
@@ -6205,11 +8101,18 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant-polymer
 ")
+- [zajnic (@zajnic)](https://github.com/zajnic "1 total commits to the home-assistant organization:
+1 commit to home-assistant.io
+")
 - [Zeb Palmer (@zebpalmer)](https://github.com/zebpalmer "2 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 ")
 - [Zellux Wang (@zellux)](https://github.com/zellux "2 total commits to the home-assistant organization:
 2 commits to home-assistant
+")
+- [zeltom (@zeltom)](https://github.com/zeltom "2 total commits to the home-assistant organization:
+1 commit to home-assistant
+1 commit to home-assistant.io
 ")
 - [Zen Tormey (@xehn)](https://github.com/xehn "4 total commits to the home-assistant organization:
 4 commits to home-assistant.io
@@ -6223,1923 +8126,6 @@ This page contains a list of people who have contributed in one way or another t
 - [Zhong Jianxin (@azuwis)](https://github.com/azuwis "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
-- [Zio Tibia (@ziotibia81)](https://github.com/ziotibia81 "14 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-7 commits to home-assistant
-")
-- [Zippit (@zippit)](https://github.com/zippit "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [Zorks (@Zorks)](https://github.com/Zorks "5 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-")
-- [Zoé Bőle (@zoe1337)](https://github.com/zoe1337 "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [a1ex4 (@a1ex4)](https://github.com/a1ex4 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [a\-andre (@a-andre)](https://github.com/a-andre "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [aaronpace (@aaronpace)](https://github.com/aaronpace "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [abondoe (@abondoe)](https://github.com/abondoe "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [adamomg (@adamomg)](https://github.com/adamomg "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [adamp237 (@adamp237)](https://github.com/adamp237 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [adipose (@adipose)](https://github.com/adipose "1 total commits to the home-assistant organization:
-1 commit to hassio-addons
-")
-- [aetolus (@aetolus)](https://github.com/aetolus "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [ahobsonsayers (@ahobsonsayers)](https://github.com/ahobsonsayers "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [aisbergde (@aisbergde)](https://github.com/aisbergde "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [ajobbins (@ajobbins)](https://github.com/ajobbins "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [akloeckner (@akloeckner)](https://github.com/akloeckner "5 total commits to the home-assistant organization:
-3 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [amigian74 (@amigian74)](https://github.com/amigian74 "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [amorsillo (@AndrewMorsillo)](https://github.com/AndrewMorsillo "2 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-1 commit to home-assistant.io
-")
-- [andig (@andig)](https://github.com/andig "2 total commits to the home-assistant organization:
-2 commits to pi-gen
-")
-- [andreasfelder (@andreasfelder)](https://github.com/andreasfelder "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [andrew\-curtis (@andrew-curtis)](https://github.com/andrew-curtis "7 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-")
-- [andrewdolphin (@andrewdolphin)](https://github.com/andrewdolphin "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [andrewfoster (@andrewfoster)](https://github.com/andrewfoster "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [andyat (@andyat)](https://github.com/andyat "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [andylockran (@andylockran)](https://github.com/andylockran "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [angel12 (@angel12)](https://github.com/angel12 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [anotherthomas (@anotherthomas)](https://github.com/anotherthomas "1 total commits to the home-assistant organization:
-1 commit to hassio-addons
-")
-- [antihate8 (@antihate8)](https://github.com/antihate8 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [apastuszak (@apastuszak)](https://github.com/apastuszak "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [apo\-mak (@apo-mak)](https://github.com/apo-mak "2 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-1 commit to home-assistant.io
-")
-- [aquarium (@theaquarium)](https://github.com/theaquarium "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [arcsur (@arcsur)](https://github.com/arcsur "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [arg0nik (@arg0nik)](https://github.com/arg0nik "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [aribarreto (@aribarreto)](https://github.com/aribarreto "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [arjenfvellinga (@arjenfvellinga)](https://github.com/arjenfvellinga "6 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [arraylabs (@arraylabs)](https://github.com/arraylabs "8 total commits to the home-assistant organization:
-6 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [ashev (@ashev)](https://github.com/ashev "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [atorralba (@atorralba)](https://github.com/atorralba "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [aufano (@aufano)](https://github.com/aufano "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [austinlg96 (@austinlg96)](https://github.com/austinlg96 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [austinmroczek (@austinmroczek)](https://github.com/austinmroczek "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [awkwardDuck (@awkwardDuck)](https://github.com/awkwardDuck "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [azeroth12 (@azeroth12)](https://github.com/azeroth12 "2 total commits to the home-assistant organization:
-1 commit to appdaemon
-1 commit to home-assistant.io
-")
-- [b1g1an (@b1g1an)](https://github.com/b1g1an "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [b3nj1 (@b3nj1)](https://github.com/b3nj1 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [badele (@badele)](https://github.com/badele "24 total commits to the home-assistant organization:
-22 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [basst22778 (@basst22778)](https://github.com/basst22778 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bastshoes (@bastshoes)](https://github.com/bastshoes "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to home-assistant-polymer
-1 commit to home-assistant.io
-")
-- [battistaar (@battistaar)](https://github.com/battistaar "1 total commits to the home-assistant organization:
-1 commit to homebridge-homeassistant
-")
-- [bcl1713 (@bcl1713)](https://github.com/bcl1713 "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [beepmill (@beepmill)](https://github.com/beepmill "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [beestree (@beestree)](https://github.com/beestree "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bergemalm (@bergemalm)](https://github.com/bergemalm "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [bestlibre (@bestlibre)](https://github.com/bestlibre "16 total commits to the home-assistant organization:
-8 commits to home-assistant
-5 commits to home-assistant.io
-1 commit to hassio-build
-1 commit to hassio
-1 commit to home-assistant-polymer
-")
-- [bigbadblunt (@bigbadblunt)](https://github.com/bigbadblunt "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [biggms (@biggms)](https://github.com/biggms "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [bigwoof (@bigwoof)](https://github.com/bigwoof "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [bjohnson8949 (@bjohnson8949)](https://github.com/bjohnson8949 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bkcberry (@bkcberry)](https://github.com/bkcberry "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bl8rnr (@bl8rnr)](https://github.com/bl8rnr "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [blackdog70 (@blackdog70)](https://github.com/blackdog70 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [blackmesataiwan (@blackmesataiwan)](https://github.com/blackmesataiwan "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [blackwind (@blackwind)](https://github.com/blackwind "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [bleader (@bleader)](https://github.com/bleader "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bobnwk (@bobnwk)](https://github.com/bobnwk "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [boltgolt (@boltgolt)](https://github.com/boltgolt "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [bonanitech (@bonanitech)](https://github.com/bonanitech "9 total commits to the home-assistant organization:
-9 commits to home-assistant.io
-")
-- [bonterra (@bonterra)](https://github.com/bonterra "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [boojew (@boojew)](https://github.com/boojew "9 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-2 commits to home-assistant
-")
-- [bottomquark (@bottomquark)](https://github.com/bottomquark "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [brad (@oakbrad)](https://github.com/oakbrad "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [braddparker (@braddparker)](https://github.com/braddparker "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [brburns (@brburns)](https://github.com/brburns "2 total commits to the home-assistant organization:
-2 commits to netdisco
-")
-- [brkr19 (@brkr19)](https://github.com/brkr19 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [brubaked (@brubaked)](https://github.com/brubaked "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [bvansambeek (@bvansambeek)](https://github.com/bvansambeek "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to hassio-build
-")
-- [byte\-bender (@byte-bender)](https://github.com/byte-bender "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [c727 (@c727)](https://github.com/c727 "243 total commits to the home-assistant organization:
-157 commits to home-assistant-polymer
-54 commits to home-assistant.io
-11 commits to ui-schema
-10 commits to developers.home-assistant
-9 commits to home-assistant
-2 commits to hassio
-")
-- [c\-soft (@c-soft)](https://github.com/c-soft "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [carlosmgr (@carlosmgr)](https://github.com/carlosmgr "6 total commits to the home-assistant organization:
-6 commits to home-assistant
-")
-- [caz0075 (@caz0075)](https://github.com/caz0075 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [cburgess (@cburgess)](https://github.com/cburgess "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [cby016 (@cby016)](https://github.com/cby016 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [cdce8p (@cdce8p)](https://github.com/cdce8p "178 total commits to the home-assistant organization:
-111 commits to home-assistant
-43 commits to home-assistant.io
-13 commits to home-assistant-polymer
-6 commits to developers.home-assistant
-5 commits to hass-release
-")
-- [celeroll (@celeroll)](https://github.com/celeroll "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [chanders (@chanders)](https://github.com/chanders "2 total commits to the home-assistant organization:
-2 commits to hadashboard
-")
-- [chknetsc (@chknetsc)](https://github.com/chknetsc "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [chocomega (@chocomega)](https://github.com/chocomega "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [christopheBfr (@christopheBfr)](https://github.com/christopheBfr "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [chrom3 (@chrom3)](https://github.com/chrom3 "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [chrysn (@chrysn)](https://github.com/chrysn "65 total commits to the home-assistant organization:
-65 commits to libcoap
-")
-- [chz^3 (@chzchzchz)](https://github.com/chzchzchz "1 total commits to the home-assistant organization:
-1 commit to pi-gen
-")
-- [citruz (@citruz)](https://github.com/citruz "5 total commits to the home-assistant organization:
-4 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [clach04 (@clach04)](https://github.com/clach04 "6 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-2 commits to home-assistant
-1 commit to hassbian-scripts
-")
-- [clarkewd (@clarkewd)](https://github.com/clarkewd "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [clayton craft (@craftyguy)](https://github.com/craftyguy "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [codeavenger07 (@codeavenger07)](https://github.com/codeavenger07 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [cogneato (@cogneato)](https://github.com/cogneato "21 total commits to the home-assistant organization:
-15 commits to home-assistant.io
-4 commits to developers.home-assistant
-2 commits to hassos
-")
-- [corneyl (@corneyl)](https://github.com/corneyl "5 total commits to the home-assistant organization:
-4 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [cpgifford (@cpgifford)](https://github.com/cpgifford "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [cpw (@cpw)](https://github.com/cpw "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [cswinford (@cswinford)](https://github.com/cswinford "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [cxlwill (@cxlwill)](https://github.com/cxlwill "4 total commits to the home-assistant organization:
-2 commits to hassbian-scripts
-2 commits to home-assistant-polymer
-")
-- [dainok (@dainok)](https://github.com/dainok "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [damarco (@damarco)](https://github.com/damarco "9 total commits to the home-assistant organization:
-9 commits to home-assistant
-")
-- [dangyuluo (@dangyuluo)](https://github.com/dangyuluo "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [dapowers87 (@dapowers87)](https://github.com/dapowers87 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dasos (@dasos)](https://github.com/dasos "11 total commits to the home-assistant organization:
-7 commits to home-assistant
-3 commits to home-assistant.io
-1 commit to netdisco
-")
-- [datafx (@datafx)](https://github.com/datafx "6 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-")
-- [davidedmundson (@davidedmundson)](https://github.com/davidedmundson "7 total commits to the home-assistant organization:
-4 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [davidm84 (@davidm84)](https://github.com/davidm84 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dayofdoom (@dayofdoom)](https://github.com/dayofdoom "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dbrowndan (@dbrowndan)](https://github.com/dbrowndan "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [definitio (@definitio)](https://github.com/definitio "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [deisi (@deisi)](https://github.com/deisi "12 total commits to the home-assistant organization:
-10 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [demonspork (@demonspork)](https://github.com/demonspork "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [dennisaion (@dennisaion)](https://github.com/dennisaion "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dersger (@dersger)](https://github.com/dersger "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant-polymer
-")
-- [devdelay (@devdelay)](https://github.com/devdelay "16 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-5 commits to home-assistant
-4 commits to homebridge-homeassistant
-")
-- [devnill (@devnill)](https://github.com/devnill "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dhaas (@dhaas)](https://github.com/dhaas "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dickesW (@dickesW)](https://github.com/dickesW "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [digiblur (@digiblur)](https://github.com/digiblur "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [dimitripb (@dimitripb)](https://github.com/dimitripb "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dinoaus (@dinoaus)](https://github.com/dinoaus "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [diplix (@diplix)](https://github.com/diplix "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [djm300 (@djm300)](https://github.com/djm300 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [dmschlab (@dmschlab)](https://github.com/dmschlab "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [dnaphreak (@dnaphreak)](https://github.com/dnaphreak "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [dominikandreas (@dominikandreas)](https://github.com/dominikandreas "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [dpressle (@dpressle)](https://github.com/dpressle "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [dramamoose (@dramamoose)](https://github.com/dramamoose "7 total commits to the home-assistant organization:
-4 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [dreizehnelf (@dreizehnelf)](https://github.com/dreizehnelf "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [drjared88 (@drjared88)](https://github.com/drjared88 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [drogfild (@drogfild)](https://github.com/drogfild "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [drop table USERS; \-\- (@hudashot)](https://github.com/hudashot "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [dtorner (@dtorner)](https://github.com/dtorner "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [dunstad (@dunstad)](https://github.com/dunstad "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [earaya (@earaya)](https://github.com/earaya "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ebpetway (@ebpetway)](https://github.com/ebpetway "55 total commits to the home-assistant organization:
-55 commits to warrant
-")
-- [ecksun (@ecksun)](https://github.com/ecksun "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [edgimar (@edgimar)](https://github.com/edgimar "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [edif30 (@edif30)](https://github.com/edif30 "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [efp1 (@efp1)](https://github.com/efp1 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [eiaro (@eiaro)](https://github.com/eiaro "4 total commits to the home-assistant organization:
-4 commits to home-assistant
-")
-- [eieste (@eieste)](https://github.com/eieste "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [eldanb (@eldanb)](https://github.com/eldanb "1 total commits to the home-assistant organization:
-1 commit to homebridge-homeassistant
-")
-- [eltoro81 (@eltoro81)](https://github.com/eltoro81 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [emartec\-ca (@emartec-ca)](https://github.com/emartec-ca "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [emlt (@emlt)](https://github.com/emlt "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [emontnemery (@emontnemery)](https://github.com/emontnemery "21 total commits to the home-assistant organization:
-15 commits to home-assistant
-6 commits to home-assistant.io
-")
-- [engrbm87 (@engrbm87)](https://github.com/engrbm87 "6 total commits to the home-assistant organization:
-3 commits to appdaemon
-2 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [eresonance (@eresonance)](https://github.com/eresonance "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ericgingras (@ee1709)](https://github.com/ee1709 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [erizhang (@erizhang)](https://github.com/erizhang "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [escoand (@escoand)](https://github.com/escoand "13 total commits to the home-assistant organization:
-8 commits to home-assistant
-3 commits to netdisco
-2 commits to home-assistant.io
-")
-- [ettisan (@ettisan)](https://github.com/ettisan "8 total commits to the home-assistant organization:
-8 commits to home-assistant
-")
-- [everix1992 (@everix1992)](https://github.com/everix1992 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [fakezeta (@fakezeta)](https://github.com/fakezeta "8 total commits to the home-assistant organization:
-7 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [farmous (@farmio)](https://github.com/farmio "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [fedor1210 (@fedor1210)](https://github.com/fedor1210 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [fenner (@fenner)](https://github.com/fenner "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ferdydek (@ferdydek)](https://github.com/ferdydek "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [fignew (@fignew)](https://github.com/fignew "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [flashoftheblades (@TheSwert)](https://github.com/TheSwert "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [florianj1 (@florianj1)](https://github.com/florianj1 "3 total commits to the home-assistant organization:
-1 commit to hassio
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [florincosta (@florincosta)](https://github.com/florincosta "6 total commits to the home-assistant organization:
-3 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [fortepc (@fortepc)](https://github.com/fortepc "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [fotoetienne (@fotoetienne)](https://github.com/fotoetienne "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [fran1987 (@fran1987)](https://github.com/fran1987 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [fredespi (@fredespi)](https://github.com/fredespi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [freol35241 (@freol35241)](https://github.com/freol35241 "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [frittes (@frittes)](https://github.com/frittes "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [froz (@froz)](https://github.com/froz "3 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [fuga2136 (@fuga2136)](https://github.com/fuga2136 "13 total commits to the home-assistant organization:
-13 commits to home-assistant.io
-")
-- [garrettbeachy (@garrettbeachy)](https://github.com/garrettbeachy "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [geekman2 (@geekman2)](https://github.com/geekman2 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [geekofweek (@geekofweek)](https://github.com/geekofweek "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [geirra (@geirra)](https://github.com/geirra "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [giangvo (@giangvo)](https://github.com/giangvo "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [gillkyle (@gillkyle)](https://github.com/gillkyle "1 total commits to the home-assistant organization:
-1 commit to developers.home-assistant
-")
-- [githubbuh (@githubbuh)](https://github.com/githubbuh "5 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-")
-- [gitmopp (@gitmopp)](https://github.com/gitmopp "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [glenn20 (@glenn20)](https://github.com/glenn20 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [goldminenine (@goldminenine)](https://github.com/goldminenine "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [goto100 (@goto100)](https://github.com/goto100 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [gregwis (@gregwis)](https://github.com/gregwis "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [groth\-its (@groth-its)](https://github.com/groth-its "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [gstorer (@gstorer)](https://github.com/gstorer "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [guillaume1410 (@guillaume1410)](https://github.com/guillaume1410 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [guygma (@guygma)](https://github.com/guygma "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [gwendalg (@gwendalg)](https://github.com/gwendalg "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [gwhiteCL (@gwhiteCL)](https://github.com/gwhiteCL "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [hSATAC (@hSATAC)](https://github.com/hSATAC "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [haXs (@haXs)](https://github.com/haXs "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [hanzoh (@hanzoh)](https://github.com/hanzoh "6 total commits to the home-assistant organization:
-5 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [hanzukun (@hanzukun)](https://github.com/hanzukun "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [happyleavesaoc (@happyleavesaoc)](https://github.com/happyleavesaoc "114 total commits to the home-assistant organization:
-90 commits to home-assistant
-23 commits to home-assistant.io
-1 commit to home-assistant-polymer
-")
-- [hawk259 (@hawk259)](https://github.com/hawk259 "13 total commits to the home-assistant organization:
-7 commits to home-assistant
-5 commits to home-assistant.io
-1 commit to home-assistant-polymer
-")
-- [hblaschka (@hblaschka)](https://github.com/hblaschka "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [hcooper (@hcooper)](https://github.com/hcooper "6 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [henryk (@henryk)](https://github.com/henryk "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [heydonms (@heydonms)](https://github.com/heydonms "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [heytcass (@heytcass)](https://github.com/heytcass "6 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [hitokiri8x (@hitokiri8x)](https://github.com/hitokiri8x "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [hokagegano (@hokagegano)](https://github.com/hokagegano "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [holelattanuttin (@holelattanuttin)](https://github.com/holelattanuttin "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [honcheng (@honcheng)](https://github.com/honcheng "3 total commits to the home-assistant organization:
-2 commits to homebridge-homeassistant
-1 commit to home-assistant.io
-")
-- [huangyupeng (@huangyupeng)](https://github.com/huangyupeng "15 total commits to the home-assistant organization:
-8 commits to home-assistant
-7 commits to home-assistant.io
-")
-- [iDVB (@iDVB)](https://github.com/iDVB "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [i\-am\-shodan (@i-am-shodan)](https://github.com/i-am-shodan "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [ianj001 (@ianj001)](https://github.com/ianj001 "7 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-")
-- [icovada (@icovada)](https://github.com/icovada "6 total commits to the home-assistant organization:
-3 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [idfxken (@idfxken)](https://github.com/idfxken "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ikifar2012 (@ikifar2012)](https://github.com/ikifar2012 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [ikonixx (@ikonixx)](https://github.com/ikonixx "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ikucuze (@ikucuze)](https://github.com/ikucuze "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [iliketoprogram14 (@iliketoprogram14)](https://github.com/iliketoprogram14 "3 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [insajd (@insajd)](https://github.com/insajd "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ionred (@ionred)](https://github.com/ionred "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [irvingwa (@irvingwa)](https://github.com/irvingwa "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [itineric (@itineric)](https://github.com/itineric "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [j james (@wakeuplaughing)](https://github.com/wakeuplaughing "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jaburges (@jaburges)](https://github.com/jaburges "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jack (@jackmakesthings)](https://github.com/jackmakesthings "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [jagjordi (@jagjordi)](https://github.com/jagjordi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jakubradziwon (@jakubradziwon)](https://github.com/jakubradziwon "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [james\-fry (@james-fry)](https://github.com/james-fry "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [javicalle (@javicalle)](https://github.com/javicalle "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jazzaj (@jazzaj)](https://github.com/jazzaj "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [jbcodemonkey (@jbcodemonkey)](https://github.com/jbcodemonkey "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [jchasey (@jchasey)](https://github.com/jchasey "1 total commits to the home-assistant organization:
-1 commit to developers.home-assistant
-")
-- [jcrowegitHu8 (@jcrowegitHu8)](https://github.com/jcrowegitHu8 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jdegraef (@jdegraef)](https://github.com/jdegraef "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jeff tapia (@jtmoderate876)](https://github.com/jtmoderate876 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jensjakob (@jensjakob)](https://github.com/jensjakob "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jeremysv (@jeremysv)](https://github.com/jeremysv "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [jgrieger1 (@jgrieger1)](https://github.com/jgrieger1 "1 total commits to the home-assistant organization:
-1 commit to appdaemon
-")
-- [jgriff2 (@jgriff2)](https://github.com/jgriff2 "3 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [jhemzal (@jhemzal)](https://github.com/jhemzal "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [jiafengwang (@jiafengwang)](https://github.com/jiafengwang "1 total commits to the home-assistant organization:
-1 commit to appdaemon
-")
-- [jimbob1001 (@jimbob1001)](https://github.com/jimbob1001 "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-")
-- [jma89 (@jma89)](https://github.com/jma89 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jmgarciamari (@jmgarciamari)](https://github.com/jmgarciamari "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jmtatsch (@jmtatsch)](https://github.com/jmtatsch "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [jmvermeulen (@jmvermeulen)](https://github.com/jmvermeulen "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [jnimmo (@jnimmo)](https://github.com/jnimmo "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [jodur (@jodur)](https://github.com/jodur "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [joe248 (@joe248)](https://github.com/joe248 "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [johnappletree (@johnappletree)](https://github.com/johnappletree "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [jonne013 (@jonne013)](https://github.com/jonne013 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [joopster (@joopert)](https://github.com/joopert "7 total commits to the home-assistant organization:
-6 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [jorisc90 (@jorisc90)](https://github.com/jorisc90 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [joshua stein (@jcs)](https://github.com/jcs "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jowieweb (@jowieweb)](https://github.com/jowieweb "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jpcomtois (@jpcomtois)](https://github.com/jpcomtois "1 total commits to the home-assistant organization:
-1 commit to libcoap
-")
-- [jschwalbe (@jschwalbe)](https://github.com/jschwalbe "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jshore1296 (@jshore1296)](https://github.com/jshore1296 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [jtscott (@jtscott)](https://github.com/jtscott "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [juggie (@juggie)](https://github.com/juggie "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [julesverhaeren (@julesverhaeren)](https://github.com/julesverhaeren "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jumpkick (@jumpkick)](https://github.com/jumpkick "15 total commits to the home-assistant organization:
-12 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [jurafxp (@jurafxp)](https://github.com/jurafxp "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [justinedelson (@justinedelson)](https://github.com/justinedelson "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [jvimont (@jvimont)](https://github.com/jvimont "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [kaiomatico (@kaiomatico)](https://github.com/kaiomatico "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [kalkih (@kalkih)](https://github.com/kalkih "2 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-1 commit to home-assistant.io
-")
-- [karlkar (@karlkar)](https://github.com/karlkar "15 total commits to the home-assistant organization:
-10 commits to home-assistant
-5 commits to home-assistant.io
-")
-- [kaustubhphatak (@kaustubhphatak)](https://github.com/kaustubhphatak "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [kbickar (@kbickar)](https://github.com/kbickar "5 total commits to the home-assistant organization:
-4 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [kennedyshead (@kennedyshead)](https://github.com/kennedyshead "15 total commits to the home-assistant organization:
-13 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [kernehed (@kernehed)](https://github.com/kernehed "7 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-")
-- [kevinpanaro (@kevinpanaro)](https://github.com/kevinpanaro "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [kevjs1982 (@kevjs1982)](https://github.com/kevjs1982 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [kfcook (@kfcook)](https://github.com/kfcook "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [kireyeu (@kireyeu)](https://github.com/kireyeu "4 total commits to the home-assistant organization:
-4 commits to home-assistant-notebooks
-")
-- [kitcorey (@kitcorey)](https://github.com/kitcorey "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [kloggy (@kloggy)](https://github.com/kloggy "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [koen01 (@koen01)](https://github.com/koen01 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [koolsb (@koolsb)](https://github.com/koolsb "5 total commits to the home-assistant organization:
-3 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [kophinos (@kophinos)](https://github.com/kophinos "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [koreth (@koreth)](https://github.com/koreth "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [kroimon (@kroimon)](https://github.com/kroimon "1 total commits to the home-assistant organization:
-1 commit to netdisco
-")
-- [kunago (@kunago)](https://github.com/kunago "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [kylerw (@kylerw)](https://github.com/kylerw "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lamiskin (@lamiskin)](https://github.com/lamiskin "6 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-2 commits to home-assistant
-")
-- [lance36 (@lance36)](https://github.com/lance36 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [lbouriez (@lbouriez)](https://github.com/lbouriez "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lcersly (@lcersly)](https://github.com/lcersly "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [led\-spb (@led-spb)](https://github.com/led-spb "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [lee\-js (@lee-js)](https://github.com/lee-js "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [lekobob (@lekobob)](https://github.com/lekobob "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [lennartk (@lennart-k)](https://github.com/lennart-k "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [leschekfm (@leschekfm)](https://github.com/leschekfm "3 total commits to the home-assistant organization:
-3 commits to hassbian-scripts
-")
-- [lich (@mu4yu3)](https://github.com/mu4yu3 "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [linuxlurak (@linuxlurak)](https://github.com/linuxlurak "5 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-2 commits to hadashboard
-")
-- [linvinus (@linvinus)](https://github.com/linvinus "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [lizaoreo (@lizaoreo)](https://github.com/lizaoreo "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lolouk44 (@lolouk44)](https://github.com/lolouk44 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [longman391 (@longman391)](https://github.com/longman391 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lordneon (@lordneon)](https://github.com/lordneon "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lorenzofattori (@lorenzofattori)](https://github.com/lorenzofattori "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lrmate (@lrmate)](https://github.com/lrmate "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [luca\-angemi (@luca-angemi)](https://github.com/luca-angemi "2 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-1 commit to home-assistant
-")
-- [lukie80 (@lukie80)](https://github.com/lukie80 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [lunar\-consultancy (@lunar-consultancy)](https://github.com/lunar-consultancy "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [lwad (@lwad)](https://github.com/lwad "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [m4dmin (@m4dmin)](https://github.com/m4dmin "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [m4tek (@m4tek)](https://github.com/m4tek "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [magreen24 (@magreen24)](https://github.com/magreen24 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [marcolertora (@marcolertora)](https://github.com/marcolertora "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [marconfus (@marconfus)](https://github.com/marconfus "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [mariwing (@mariwing)](https://github.com/mariwing "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [mark9white (@mark9white)](https://github.com/mark9white "1 total commits to the home-assistant organization:
-1 commit to hassio
-")
-- [markcarline (@markcarline)](https://github.com/markcarline "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [markferry (@markferry)](https://github.com/markferry "4 total commits to the home-assistant organization:
-3 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [marthoc (@marthoc)](https://github.com/marthoc "12 total commits to the home-assistant organization:
-8 commits to home-assistant
-4 commits to home-assistant.io
-")
-- [martinfrancois (@martinfrancois)](https://github.com/martinfrancois "4 total commits to the home-assistant organization:
-2 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [martst (@martst)](https://github.com/martst "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [marutanm (@marutanm)](https://github.com/marutanm "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [masukomi (@masukomi)](https://github.com/masukomi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [matthewcky2k (@matthewcky2k)](https://github.com/matthewcky2k "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [mattie47 (@mattie47)](https://github.com/mattie47 "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [mattn (@mattn)](https://github.com/mattn "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [mattwing (@mattwing)](https://github.com/mattwing "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [maxclaey (@maxclaey)](https://github.com/maxclaey "8 total commits to the home-assistant organization:
-5 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [mbo18 (@mbo18)](https://github.com/mbo18 "1 total commits to the home-assistant organization:
-1 commit to hassio
-")
-- [mboeru (@mboeru)](https://github.com/mboeru "1 total commits to the home-assistant organization:
-1 commit to home-assistant-iOS
-")
-- [mcfrojd (@mcfrojd)](https://github.com/mcfrojd "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [mclem (@mclem)](https://github.com/mclem "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [mertenats (@mertenats)](https://github.com/mertenats "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-")
-- [mh\-daedalus (@mh-daedalus)](https://github.com/mh-daedalus "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [michaeldavie (@michaeldavie)](https://github.com/michaeldavie "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [micw (@micw)](https://github.com/micw "8 total commits to the home-assistant organization:
-5 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [mihalski (@mihalski)](https://github.com/mihalski "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [mikebarris (@mikebarris)](https://github.com/mikebarris "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [miniconfig (@miniconfig)](https://github.com/miniconfig "27 total commits to the home-assistant organization:
-20 commits to home-assistant
-7 commits to home-assistant.io
-")
-- [minida28 (@minida28)](https://github.com/minida28 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [misterbenj34 (@misterbenj34)](https://github.com/misterbenj34 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [mje\-nz (@mje-nz)](https://github.com/mje-nz "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [mjj4791 (@mjj4791)](https://github.com/mjj4791 "23 total commits to the home-assistant organization:
-15 commits to home-assistant.io
-8 commits to home-assistant
-")
-- [mkfink (@mkfink)](https://github.com/mkfink "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [mmmmmtasty (@mmmmmtasty)](https://github.com/mmmmmtasty "8 total commits to the home-assistant organization:
-8 commits to appdaemon
-")
-- [mnestor (@mnestor)](https://github.com/mnestor "7 total commits to the home-assistant organization:
-5 commits to home-assistant
-1 commit to home-assistant-polymer
-1 commit to home-assistant.io
-")
-- [mojotaker (@mojotaker)](https://github.com/mojotaker "1 total commits to the home-assistant organization:
-1 commit to developers.home-assistant
-")
-- [mortenmathiasen (@mortenmathiasen)](https://github.com/mortenmathiasen "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [moskovskiy82 (@moskovskiy82)](https://github.com/moskovskiy82 "6 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-")
-- [motir (@motir)](https://github.com/motir "1 total commits to the home-assistant organization:
-1 commit to appdaemon
-")
-- [mountainsandcode (@mountainsandcode)](https://github.com/mountainsandcode "9 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-3 commits to home-assistant
-")
-- [mrosseel (@mrosseel)](https://github.com/mrosseel "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [mrtncls (@mrtncls)](https://github.com/mrtncls "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [mruss (@mruss)](https://github.com/mruss "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [mtl010957 (@mtl010957)](https://github.com/mtl010957 "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [mueslo (@mueslo)](https://github.com/mueslo "7 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-2 commits to home-assistant
-")
-- [mukundv (@mukundv)](https://github.com/mukundv "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [mvillarejo (@mvillarejo)](https://github.com/mvillarejo "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [mvn23 (@mvn23)](https://github.com/mvn23 "11 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-5 commits to home-assistant
-")
-- [mweimerskirch (@mweimerskirch)](https://github.com/mweimerskirch "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [mwsluis (@mwsluis)](https://github.com/mwsluis "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [n0dyjeff (@n0dyjeff)](https://github.com/n0dyjeff "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [nagimov (@nagimov-blog)](https://github.com/nagimov-blog "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [namadori (@namadori)](https://github.com/namadori "5 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [natemason (@natemason)](https://github.com/natemason "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [nau\-mll (@nau-mll)](https://github.com/nau-mll "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [neonbunny (@neonbunny)](https://github.com/neonbunny "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [nicxvan (@nicxvan)](https://github.com/nicxvan "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [nielstron (@nielstron)](https://github.com/nielstron "21 total commits to the home-assistant organization:
-16 commits to home-assistant
-3 commits to home-assistant.io
-2 commits to netdisco
-")
-- [nilzen (@nilzen)](https://github.com/nilzen "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [nkrauss (@nkrauss)](https://github.com/nkrauss "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [nordeep (@nordeep)](https://github.com/nordeep "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [nordlead2005 (@nordlead2005)](https://github.com/nordlead2005 "7 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-3 commits to home-assistant
-")
-- [normakm (@normakm)](https://github.com/normakm "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [noxhirsch (@noxhirsch)](https://github.com/noxhirsch "6 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [nsimb (@nsimb)](https://github.com/nsimb "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ntalekt (@ntalekt)](https://github.com/ntalekt "6 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-")
-- [nunojusto (@nunojusto)](https://github.com/nunojusto "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [oa\- (@oa-)](https://github.com/oa- "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [obgm (@obgm)](https://github.com/obgm "480 total commits to the home-assistant organization:
-480 commits to libcoap
-")
-- [officiallybob (@officiallybob)](https://github.com/officiallybob "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ohadbenita (@ohadbenita)](https://github.com/ohadbenita "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [ohm (@nohm)](https://github.com/nohm "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ohmer1 (@ohmer1)](https://github.com/ohmer1 "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [oliverhg1 (@oliverhg1)](https://github.com/oliverhg1 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [oliverscu (@oliverscu)](https://github.com/oliverscu "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [onsmam (@onsmam)](https://github.com/onsmam "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [ottersen (@ottersen)](https://github.com/ottersen "11 total commits to the home-assistant organization:
-11 commits to home-assistant.io
-")
-- [overkill32 (@overkill32)](https://github.com/overkill32 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [oznu (@oznu)](https://github.com/oznu "1 total commits to the home-assistant organization:
-1 commit to homebridge-homeassistant
-")
-- [pascal (@passie)](https://github.com/passie "6 total commits to the home-assistant organization:
-3 commits to home-assistant
-2 commits to home-assistant.io
-1 commit to home-assistant-polymer
-")
-- [pascalsaul (@pascalsaul)](https://github.com/pascalsaul "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [pat (@ptc)](https://github.com/ptc "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [patkap (@patkap)](https://github.com/patkap "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [patock (@patock)](https://github.com/patock "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [pattyland (@pattyland)](https://github.com/pattyland "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [pavanagrawal123 (@pavanagrawal123)](https://github.com/pavanagrawal123 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [pdanilew (@pdanilew)](https://github.com/pdanilew "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [pepeEL (@pepeEL)](https://github.com/pepeEL "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [pereiraru (@pereiraru)](https://github.com/pereiraru "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [perfalk (@perfalk)](https://github.com/perfalk "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [petkov (@petkov)](https://github.com/petkov "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [pezinek (@pezinek)](https://github.com/pezinek "9 total commits to the home-assistant organization:
-8 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [pgenera (@pgenera)](https://github.com/pgenera "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [phardy (@phardy)](https://github.com/phardy "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [phfix (@phfix)](https://github.com/phfix "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [phileaton (@phileaton)](https://github.com/phileaton "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [phispi (@phispi)](https://github.com/phispi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [phithor (@phithor)](https://github.com/phithor "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [phlet (@phlet)](https://github.com/phlet "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [pinksocks (@pinksocks)](https://github.com/pinksocks "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [pixelasticity (@pixelasticity)](https://github.com/pixelasticity "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [pkonnekermetametrics (@pkonnekermetametrics)](https://github.com/pkonnekermetametrics "5 total commits to the home-assistant organization:
-5 commits to warrant
-")
-- [plyblu (@plyblu)](https://github.com/plyblu "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [priiduonu (@priiduonu)](https://github.com/priiduonu "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [printzlau (@printzlau)](https://github.com/printzlau "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [prophit987 (@prophit987)](https://github.com/prophit987 "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [psike (@psike)](https://github.com/psike "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [qinghuangchan (@qinghuangchan)](https://github.com/qinghuangchan "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [qrionic labs (@qrioniclabs)](https://github.com/qrioniclabs "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [quaec (@quaec)](https://github.com/quaec "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [quthla (@quthla)](https://github.com/quthla "13 total commits to the home-assistant organization:
-5 commits to home-assistant-polymer
-4 commits to home-assistant-iOS
-4 commits to home-assistant
-")
-- [r4nd0mbr1ck (@r4nd0mbr1ck)](https://github.com/r4nd0mbr1ck "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [r\-jordan (@r-jordan)](https://github.com/r-jordan "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [radinsky (@radinsky)](https://github.com/radinsky "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [rafale77 (@rafale77)](https://github.com/rafale77 "5 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [randellhodges (@randellhodges)](https://github.com/randellhodges "8 total commits to the home-assistant organization:
-3 commits to home-assistant-polymer
-3 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [ratcash (@ratcashdev)](https://github.com/ratcashdev "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [ray0711 (@ray0711)](https://github.com/ray0711 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [raymccarthy (@raymccarthy)](https://github.com/raymccarthy "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [rbflurry (@rbflurry)](https://github.com/rbflurry "17 total commits to the home-assistant organization:
-14 commits to home-assistant.io
-3 commits to home-assistant
-")
-- [rcmdnk (@rcmdnk)](https://github.com/rcmdnk "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [rctgamer3 (@rctgamer3)](https://github.com/rctgamer3 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [reductio (@reductio)](https://github.com/reductio "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [remc0 (@remc0)](https://github.com/remc0 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [rhooper (@rhooper)](https://github.com/rhooper "30 total commits to the home-assistant organization:
-25 commits to home-assistant
-3 commits to home-assistant.io
-2 commits to hadashboard
-")
-- [richo (@richo)](https://github.com/richo "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ricmik (@ricmik)](https://github.com/ricmik "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [rkabadi (@rkabadi)](https://github.com/rkabadi "17 total commits to the home-assistant organization:
-17 commits to home-assistant
-")
-- [rmacklin (@rmacklin)](https://github.com/rmacklin "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [rnizametdinov (@rnizametdinov)](https://github.com/rnizametdinov "1 total commits to the home-assistant organization:
-1 commit to hassio-addons
-")
-- [robhuls (@robhuls)](https://github.com/robhuls "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [roiff (@roiff)](https://github.com/roiff "3 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to homebridge-homeassistant
-")
-- [rollbrettler (@rollbrettler)](https://github.com/rollbrettler "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [roqeer (@roqeer)](https://github.com/roqeer "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [rpitera (@rpitera)](https://github.com/rpitera "6 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-")
-- [rpr69 (@rpr69)](https://github.com/rpr69 "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [rrubin0 (@rrubin0)](https://github.com/rrubin0 "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-")
-- [rubenverhoef (@rubenverhoef)](https://github.com/rubenverhoef "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [rubund (@rubund)](https://github.com/rubund "6 total commits to the home-assistant organization:
-4 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [runningman84 (@runningman84)](https://github.com/runningman84 "5 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [runraid (@runraid)](https://github.com/runraid "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ruohan\.chen (@crhan)](https://github.com/crhan "5 total commits to the home-assistant organization:
-3 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [ryqiem (@ryqiem)](https://github.com/ryqiem "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [sagilo (@sagilo)](https://github.com/sagilo "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [sam\-io (@sam-io)](https://github.com/sam-io "5 total commits to the home-assistant organization:
-3 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [samuelsson86 (@samuelsson86)](https://github.com/samuelsson86 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [sander76 (@sander76)](https://github.com/sander76 "44 total commits to the home-assistant organization:
-40 commits to home-assistant
-4 commits to home-assistant.io
-")
-- [sapph42 (@sapph42)](https://github.com/sapph42 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [sbYm (@GongT)](https://github.com/GongT "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [scaarup (@scaarup)](https://github.com/scaarup "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [schferbe (@schferbe)](https://github.com/schferbe "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [schneefux (@schneefux)](https://github.com/schneefux "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [schnoetz (@schnoetz)](https://github.com/schnoetz "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [schumpeter2 (@schumpeter2)](https://github.com/schumpeter2 "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [scottjones4k (@scottjones4k)](https://github.com/scottjones4k "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [seanb\-uk (@seanb-uk)](https://github.com/seanb-uk "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [sekavatar (@sekavatar)](https://github.com/sekavatar "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [sentinel\-23 (@sentinel-23)](https://github.com/sentinel-23 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [sfam (@sfam)](https://github.com/sfam "65 total commits to the home-assistant organization:
-58 commits to home-assistant
-5 commits to home-assistant.io
-1 commit to netdisco
-1 commit to home-assistant-polymer
-")
-- [sharukins (@sharukins)](https://github.com/sharukins "3 total commits to the home-assistant organization:
-3 commits to hassio-build
-")
-- [shker (@serhtt)](https://github.com/serhtt "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [shred86 (@shred86)](https://github.com/shred86 "3 total commits to the home-assistant organization:
-2 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [shuaiger (@shuaiger)](https://github.com/shuaiger "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [siebert (@siebert)](https://github.com/siebert "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [sjabby (@sjabby)](https://github.com/sjabby "31 total commits to the home-assistant organization:
-29 commits to home-assistant.io
-1 commit to hassbian-scripts
-1 commit to home-assistant
-")
-- [sjoshi10 (@sjoshi10)](https://github.com/sjoshi10 "1 total commits to the home-assistant organization:
-1 commit to warrant
-")
-- [skanab (@skanab)](https://github.com/skanab "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [slimatic (@slimatic)](https://github.com/slimatic "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [smaggard (@smaggard)](https://github.com/smaggard "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [smallship (@smallship)](https://github.com/smallship "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [smoldaner (@smoldaner)](https://github.com/smoldaner "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [sn0oz (@sn0oz)](https://github.com/sn0oz "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [snagytx (@snagytx)](https://github.com/snagytx "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [snizzleorg (@snizzleorg)](https://github.com/snizzleorg "5 total commits to the home-assistant organization:
-5 commits to hadashboard
-")
-- [spacemanspiff2007 (@spacemanspiff2007)](https://github.com/spacemanspiff2007 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [spektren (@spektren)](https://github.com/spektren "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [spinside (@spinside)](https://github.com/spinside "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [squidwardy (@villanyibalint)](https://github.com/villanyibalint "3 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [squirtbrnr (@squirtbrnr)](https://github.com/squirtbrnr "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [srirams (@srirams)](https://github.com/srirams "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [stanvx (@stanvx)](https://github.com/stanvx "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [starkillerOG (@starkillerOG)](https://github.com/starkillerOG "12 total commits to the home-assistant organization:
-6 commits to home-assistant
-4 commits to home-assistant.io
-1 commit to developers.home-assistant
-1 commit to home-assistant-polymer
-")
-- [stephanerosi (@stephanerosi)](https://github.com/stephanerosi "11 total commits to the home-assistant organization:
-8 commits to home-assistant
-3 commits to home-assistant.io
-")
-- [superpuffin (@superpuffin)](https://github.com/superpuffin "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [sustah (@sustah)](https://github.com/sustah "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [sveip (@sveip)](https://github.com/sveip "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [swanwila (@swanwila)](https://github.com/swanwila "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [swhaat (@swhaat)](https://github.com/swhaat "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [szaroubi (@szaroubi)](https://github.com/szaroubi "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [t0ny (@t0ny)](https://github.com/t0ny "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [t30 (@t30)](https://github.com/t30 "8 total commits to the home-assistant organization:
-7 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [tadly (@tadly)](https://github.com/tadly "9 total commits to the home-assistant organization:
-8 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [tango\-foxtrot (@tango-foxtrot)](https://github.com/tango-foxtrot "1 total commits to the home-assistant organization:
-1 commit to netdisco
-")
-- [tantecky (@tantecky)](https://github.com/tantecky "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [tbergo (@tbergo)](https://github.com/tbergo "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [tchentchen (@tchentchen)](https://github.com/tchentchen "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tedstriker (@tedstriker)](https://github.com/tedstriker "4 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [tfitts (@tfitts)](https://github.com/tfitts "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tflack (@tflack)](https://github.com/tflack "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [tfyoung (@tfyoung)](https://github.com/tfyoung "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tguerena (@tguerena)](https://github.com/tguerena "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [thecynic (@thecynic)](https://github.com/thecynic "5 total commits to the home-assistant organization:
-4 commits to home-assistant
-1 commit to home-assistant.io
-")
-- [thehookup (@thehookup)](https://github.com/thehookup "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [thejacko12354 (@thejacko12354)](https://github.com/thejacko12354 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [thelittlefireman (@thelittlefireman)](https://github.com/thelittlefireman "3 total commits to the home-assistant organization:
-3 commits to home-assistant
-")
-- [themanieldaniel (@themanieldaniel)](https://github.com/themanieldaniel "14 total commits to the home-assistant organization:
-14 commits to home-assistant.io
-")
-- [theolind (@theolind)](https://github.com/theolind "27 total commits to the home-assistant organization:
-25 commits to home-assistant
-2 commits to home-assistant.io
-")
-- [thepotoo (@thepotoo)](https://github.com/thepotoo "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [thomaslian (@thomaslian)](https://github.com/thomaslian "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [thrawnarn (@thrawnarn)](https://github.com/thrawnarn "10 total commits to the home-assistant organization:
-5 commits to home-assistant
-4 commits to home-assistant.io
-1 commit to netdisco
-")
-- [thrust15 (@thrust15)](https://github.com/thrust15 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [thunfischbrot (@thunfischbrot)](https://github.com/thunfischbrot "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tijuca (@tijuca)](https://github.com/tijuca "106 total commits to the home-assistant organization:
-106 commits to libcoap
-")
-- [tilphousia (@tilphousia)](https://github.com/tilphousia "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [timstanley1985 (@timstanley1985)](https://github.com/timstanley1985 "8 total commits to the home-assistant organization:
-6 commits to home-assistant.io
-2 commits to home-assistant
-")
-- [tktino (@tktino)](https://github.com/tktino "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tleegaard (@tleegaard)](https://github.com/tleegaard "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [tmd224 (@tmd224)](https://github.com/tmd224 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [toddeye (@toddeye)](https://github.com/toddeye "20 total commits to the home-assistant organization:
-20 commits to home-assistant
-")
-- [tomaszduda23 (@tomaszduda23)](https://github.com/tomaszduda23 "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [tomlut (@tomlut)](https://github.com/tomlut "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tonire1702 (@tonire1702)](https://github.com/tonire1702 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tony chang (@idealisms)](https://github.com/idealisms "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [tortfeaser (@tortfeaser)](https://github.com/tortfeaser "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [travislreno (@travislreno)](https://github.com/travislreno "3 total commits to the home-assistant organization:
-3 commits to home-assistant.io
-")
-- [trbs (@trbs)](https://github.com/trbs "1 total commits to the home-assistant organization:
-1 commit to netdisco
-")
-- [tringler (@tringler)](https://github.com/tringler "3 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-1 commit to home-assistant
-")
-- [trollkarlen (@trollkarlen)](https://github.com/trollkarlen "5 total commits to the home-assistant organization:
-5 commits to home-assistant
-")
-- [tubalainen (@tubalainen)](https://github.com/tubalainen "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [tumik (@tumik)](https://github.com/tumik "2 total commits to the home-assistant organization:
-2 commits to home-assistant
-")
-- [tuxuser (@tuxuser)](https://github.com/tuxuser "1 total commits to the home-assistant organization:
-1 commit to netdisco
-")
-- [twendt (@twendt)](https://github.com/twendt "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [txNgineer (@txNgineer)](https://github.com/txNgineer "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [ubnt\-marc\-khouri (@ubnt-marc-khouri)](https://github.com/ubnt-marc-khouri "6 total commits to the home-assistant organization:
-2 commits to home-assistant-polymer
-1 commit to hassio-build
-1 commit to developers.home-assistant
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [uchagani (@uchagani)](https://github.com/uchagani "9 total commits to the home-assistant organization:
-8 commits to home-assistant
-1 commit to home-assistant-polymer
-")
-- [ultratoto14 (@ultratoto14)](https://github.com/ultratoto14 "1 total commits to the home-assistant organization:
-1 commit to netdisco
-")
-- [upsert (@upsert)](https://github.com/upsert "3 total commits to the home-assistant organization:
-1 commit to netdisco
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [vMeph (@vMeph)](https://github.com/vMeph "5 total commits to the home-assistant organization:
-5 commits to home-assistant.io
-")
-- [vanviegen (@vanviegen)](https://github.com/vanviegen "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [vatir (@vatir)](https://github.com/vatir "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [viegelinsch (@viegelinsch)](https://github.com/viegelinsch "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [viswa\-swami (@viswa-swami)](https://github.com/viswa-swami "9 total commits to the home-assistant organization:
-9 commits to home-assistant
-")
-- [vladonemo (@vladonemo)](https://github.com/vladonemo "1 total commits to the home-assistant organization:
-1 commit to home-assistant
-")
-- [vllungu (@vllungu)](https://github.com/vllungu "3 total commits to the home-assistant organization:
-3 commits to libcoap
-")
-- [vrs01 (@vrs01)](https://github.com/vrs01 "21 total commits to the home-assistant organization:
-14 commits to home-assistant.io
-6 commits to appdaemon
-1 commit to home-assistant
-")
-- [waxhell (@waxhell)](https://github.com/waxhell "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [wbradmoore (@wbradmoore)](https://github.com/wbradmoore "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [whhsw (@whhsw)](https://github.com/whhsw "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [wildcomputations (@wildcomputations)](https://github.com/wildcomputations "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [williamlehman (@williamlehman)](https://github.com/williamlehman "1 total commits to the home-assistant organization:
-1 commit to home-assistant-polymer
-")
-- [wokar (@wokar)](https://github.com/wokar "12 total commits to the home-assistant organization:
-8 commits to home-assistant
-4 commits to home-assistant.io
-")
-- [wyznerd (@wyznerd)](https://github.com/wyznerd "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [xPsIXx (@xPsIXx)](https://github.com/xPsIXx "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [xTCx (@xTCx)](https://github.com/xTCx "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
-- [xander2 (@xander2)](https://github.com/xander2 "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [xdite (@xdite)](https://github.com/xdite "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [xelprep (@xelprep)](https://github.com/xelprep "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [yankees9920 (@wagnerbenh)](https://github.com/wagnerbenh "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [yasinS (@yasinS)](https://github.com/yasinS "4 total commits to the home-assistant organization:
-4 commits to home-assistant.io
-")
-- [yeah (@yeah)](https://github.com/yeah "2 total commits to the home-assistant organization:
-2 commits to home-assistant.io
-")
-- [yingzong (@yingzong)](https://github.com/yingzong "1 total commits to the home-assistant organization:
-1 commit to warrant
-")
-- [yulongying (@yulongying)](https://github.com/yulongying "1 total commits to the home-assistant organization:
-1 commit to home-assistant-js-websocket
-")
-- [zajnic (@zajnic)](https://github.com/zajnic "1 total commits to the home-assistant organization:
-1 commit to home-assistant.io
-")
-- [zeltom (@zeltom)](https://github.com/zeltom "2 total commits to the home-assistant organization:
-1 commit to home-assistant
-1 commit to home-assistant.io
-")
 - [zhujisheng (@zhujisheng)](https://github.com/zhujisheng "3 total commits to the home-assistant organization:
 2 commits to home-assistant.io
 1 commit to home-assistant
@@ -8147,8 +8133,22 @@ This page contains a list of people who have contributed in one way or another t
 - [zhumuht (@zhumuht)](https://github.com/zhumuht "1 total commits to the home-assistant organization:
 1 commit to home-assistant
 ")
+- [Zio Tibia (@ziotibia81)](https://github.com/ziotibia81 "14 total commits to the home-assistant organization:
+7 commits to home-assistant.io
+7 commits to home-assistant
+")
+- [Zippit (@zippit)](https://github.com/zippit "2 total commits to the home-assistant organization:
+2 commits to home-assistant.io
+")
 - [zmrowicki@hotmail\.com (@zmrow)](https://github.com/zmrow "1 total commits to the home-assistant organization:
 1 commit to home-assistant
+")
+- [Zorks (@Zorks)](https://github.com/Zorks "5 total commits to the home-assistant organization:
+5 commits to home-assistant.io
+")
+- [Zoé Bőle (@zoe1337)](https://github.com/zoe1337 "4 total commits to the home-assistant organization:
+3 commits to home-assistant
+1 commit to home-assistant.io
 ")
 - [zuccs (@zuccs)](https://github.com/zuccs "1 total commits to the home-assistant organization:
 1 commit to home-assistant.io
@@ -8168,4 +8168,4 @@ This page contains a list of people who have contributed in one way or another t
 
 This page is irregularly updated using the [`hass-release` tool](https://github.com/home-assistant/hass-release). If you think that you are missing, please let us know.
 
-<i>This page was last updated Monday, October 15 2018, 09:33:42 UTC.</i>
+<i>This page was last updated Monday, October 15 2018, 10:06:11 UTC.</i>
