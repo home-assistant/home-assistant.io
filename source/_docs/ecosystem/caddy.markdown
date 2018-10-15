@@ -47,4 +47,4 @@ http:
 ## More Info
 To learn more about Caddy Server go to the [Caddy Docs](https://caddyserver.com/docs)
 
-For more info on port forwarding visit: [portforward.com](https://portforward.com/router.htm) and select your router for to find a guide for your router
+For more info on port forwarding visit: [portforward.com](https://portforward.com/router.htm) and select your router to find a guide specific to your router
