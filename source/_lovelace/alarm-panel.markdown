@@ -42,10 +42,14 @@ states:
   type: list
   default: arm_home, arm_away
   keys:
-    - arm_home
-    - arm_away
-    - arm_night
-    - armed_custom_bypass
+    arm_home:
+      description: Arm Home
+    arm_away:
+      description: Arm Away
+    arm_night:
+      description: Arm Night
+    arm_custom_bypass:
+      description: Arm Custom Bypass
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
