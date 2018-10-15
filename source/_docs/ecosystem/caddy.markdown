@@ -31,7 +31,7 @@ caddy -agree=true -conf=/path/to/your/Caddyfile -email youremail@example.com
 If you encounter issues with Google TTS update your ``base_url`` to include ``https``:
 ```yaml
 http:
-  base_url: https://hass.yourdomain.org
+  base_url: https://hass.example.org
 ```
 ## More Info
 To learn more about Caddy Server go to the [Caddy Docs](https://caddyserver.com/docs)
