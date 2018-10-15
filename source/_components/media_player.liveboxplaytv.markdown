@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 
 The `liveboxplaytv` platform allows you to control [Orange Livebox Play TV appliances](https://boutique.orange.fr/internet/decodeur-tv-livebox).
 
+## {% linkable_title Configuration %}
+
 To add an Orange Livebox Play TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -27,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP or hostname of the Orange Livebox Play TV appliance.
+  description: The IP address or hostname of the Orange Livebox Play TV appliance.
   required: true
   type: string
 name:
