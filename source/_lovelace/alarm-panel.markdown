@@ -41,6 +41,11 @@ states:
   description: Controls which states to have available
   type: list
   default: arm_home, arm_away
+  keys:
+    - arm_home
+    - arm_away
+    - arm_night
+    - armed_custom_bypass
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -69,13 +74,4 @@ Define the State List:
     - arm_away
     - arm_night
     - armed_custom_bypass
-```
-
-{% linkable_title Valid Options for `states` %}
-
-```yaml
-- arm_home
-- arm_home
-- arm_night
-- armed_custom_bypass
 ```
