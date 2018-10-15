@@ -13,7 +13,7 @@ footer: true
 The Entity Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_card.gif' alt='Screenshot of the entity button card'>
+<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the entity button card'>
 Screenshot of the Entity Button card.
 </p>
 
@@ -73,6 +73,6 @@ Title and Script Service Example:
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_complex_card.gif' alt='Screenshot of the entity button card'>
+<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the entity button card'>
 Screenshot of the Entity Button card with Title and Script Service.
 </p>
