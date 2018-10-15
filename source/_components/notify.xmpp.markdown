@@ -101,7 +101,7 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
   Currently sending images to rooms is not supported.
 </p>
 
-Number 2 sends only an image, retrieved from the URL.
+Number 2 sends only an image, retrieved from the URL. The TLS connection to get the image is also not verified (use with caution).
 
 ```yaml
 # Example script.yaml entry
@@ -114,6 +114,7 @@ Number 2 sends only an image, retrieved from the URL.
         message: ""
         data:
           url: "https://www.graz.at:8443/webcam_neu/getimg.php"
+          verify: false
 ```
 
 Number 3 sends an image from a local path.
