@@ -16,7 +16,7 @@ For the one step installer type:
 curl https://getcaddy.com | bash -s personal
 ```
 Then create a file named ``Caddyfile``:
-```json
+```
 hass.yourdomain.org {
     proxy / yourhassinternalip:8123 {
         websocket
