@@ -11,10 +11,11 @@ logo: ubiuiti.png
 ha_category: Hub
 ha_release: "0.81"
 ha_iot_class: "Local Polling"
-ha_qa_scale: platinum
 ---
 
 [UniFi](https://unifi-sdn.ubnt.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+
+Currently this implementation only exposes POE control for networked devices. Device tracker implementation is not using the same code base.
 
 ## {% linkable_title Configuration %}
 
