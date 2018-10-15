@@ -55,7 +55,7 @@ power_on_enabled:
   description: If you want to be able to turn on your TV.
   required: false
   default: false
-  type: string
+  type: boolean
 {% endconfiguration %}
 
 
