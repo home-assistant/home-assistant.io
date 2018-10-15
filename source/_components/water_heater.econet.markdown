@@ -8,20 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: econet.png
-ha_category: Climate
+ha_category: Water heater
 ha_release: 0.61.0
 ha_iot_class: "Cloud Polling"
+redirect_from: /components/climate.econet/
 ---
 
 
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This component allows you to set the temperature, the operation mode, and enable vaction mode.
+The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vaction mode.
 
-To enable the `econet` water heater platform add the following to your config.
+## {% linkable_title Configuration %}
 
+To enable the `econet` water heater platform, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
+water_heater:
   - platform: econet
     username: YOUR_ECONET_EMAIL
     password: YOUR_ECONET_PASSWORD
@@ -38,10 +40,9 @@ password:
   type: string
 {% endconfiguration %}
 
+### {% linkable_title Service `econet.add_vacation` %}
 
-### {% linkable_title Service `econet_add_vacation` %}
-
-You can use the service econet/add_vacation to create a new vacation for your EcoNet water heaters.
+You can use the service `econet.add_vacation` to create a new vacation for your EcoNet water heaters.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -50,15 +51,17 @@ You can use the service econet/add_vacation to create a new vacation for your Ec
 | `end_date` | yes | this is a Unix timestamp for when the vaction should end.
 
 <p class='note'>
-The Unix timestamps can be obtained from the input_datetime component. This will allow you to graphically set the start and end date.
+The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
 </p>
 
-### {% linkable_title Service `econet_delete_vacation` %}
+### {% linkable_title Service `econet.delete_vacation` %}
 
-You can use the service econet/delete_vacation to remove all vactions from an EcoNet water heater.
+You can use the service `econet.delete_vacation` to remove all vactions from an EcoNet water heater.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The entity id of the water heater to remove the vaction from.
 
-
+<p class='note'>
+Econet water heaters use to live under the `climate` platform prior to release 0.81.
+</p>
