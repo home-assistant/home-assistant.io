@@ -48,7 +48,7 @@ zone.home:
     minor: 43814
 ```
 
-Restart Home Assistant and then the iOS app. It will begin then begin using iBeacons _instead of your location_ for enter and exit triggers around your zones. To add an iBeacon to `zone.home` add the above under your `customize`.
+Restart Home Assistant and then the iOS app. It will then begin using iBeacons _instead of your location_ for enter and exit triggers around your zones. To add an iBeacon to `zone.home` add the above under your `customize`.
 
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
