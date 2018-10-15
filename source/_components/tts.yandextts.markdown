@@ -23,14 +23,37 @@ tts:
     api_key: 'XXXXXXXX'
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): API Key for use this service. 
-- **language** (*Optional*): The language to use. Defaults to `en-US`. Supported `en-US`, `ru-RU`, `uk-UK`, `tr-TR`.
-- **codec** (*Optional*): Audio codec. Default is `mp3`. Supported us `mp3`, `wav`, `opus`.
-- **voice** (*Optional*): Speaker voice. Default is `zahar`. Supported female voices are `jane`, `oksana`, `alyss`, `omazh` and male voices are `zahar` and `ermil`.
-- **emotion** (*Optional*): Speaker emotional intonation. Default is `neutral`. Also supported are `good` (friendly) and `evil` (angry)
-- **speed** (*Optional*): Speech speed. Default value is `1`. Highest speed is `3` and lowest `0,1`
+{% configuration %}
+api_key:
+  description: API Key for use this service.
+  required: true
+  type: string
+language:
+  description: "The language to use. Supported `en-US`, `ru-RU`, `uk-UK`, `tr-TR`."
+  required: false
+  default: "`en-US`"
+  type: string
+codec:
+  description: "Audio codec. Supported us `mp3`, `wav`, `opus`."
+  required: false
+  default: "`mp3`"
+  type: string
+voice:
+  description: "Speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh` and male voices are `zahar` and `ermil`."
+  required: false
+  default: "`zahar`"
+  type: string
+emotion:
+  description: "Speaker emotional intonation. Also supported are `good` (friendly) and `evil` (angry)"
+  required: false
+  default: "`neutral`"
+  type: string
+speed:
+  description: Speech speed. Highest speed is `3` and lowest `0,1`
+  required: false
+  default: "`1`"
+  type: float
+{% endconfiguration %}
 
 Please check the [API documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. It seems that the English version of documentation is outdated. You could request an API key [by email](https://tech.yandex.com/speechkit/cloud/) or [online](https://developer.tech.yandex.ru/).
 
