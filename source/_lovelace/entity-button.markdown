@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-The Entity Button card allows you to add buttons to perform tasks
+The Entity Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_entity_button_card.gif' alt='Screenshot of the entity button card'>
