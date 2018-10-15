@@ -25,7 +25,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 |---|---|---|---|
 | Mikrotik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
 | Mikrotik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
-| Aruba | (untested) | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
+| Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | pfSense | 2.2.4  | `1.3.6.1.2.1.4.22.1.2` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
