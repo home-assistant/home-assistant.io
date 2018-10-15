@@ -13,7 +13,7 @@ Configure [Caddy Server](https://caddyserver.com/) for use as a reverse proxy to
 ## Install
 
  
-#### It is recomended that you read the script at [getcaddy.com](https://getcaddy.com/) before proceeding and understand the risks
+#### It is recommended that you read the script at [getcaddy.com](https://getcaddy.com/) before proceeding and understand the risks
 
 #### It can be potentially dangerous to send a command straight to bash please make sure you trust the source before running this command
 
