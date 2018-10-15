@@ -41,7 +41,7 @@ host:
   required: true
   type: string
 port:
-  description: The port number.
+  description: The port number of the device.
   required: false
   default: 14999
   type: integer
