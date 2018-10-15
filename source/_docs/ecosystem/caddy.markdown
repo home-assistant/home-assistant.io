@@ -12,10 +12,9 @@ footer: true
 Configure [Caddy Server](https://caddyserver.com/) for use as a reverse proxy to Home Assistant.
 ## Install
 
- 
-#### It is recommended that you read the script at [getcaddy.com](https://getcaddy.com/) before proceeding and understand the risks
-
-#### It can be potentially dangerous to send a command straight to bash please make sure you trust the source before running this command
+<p class='note warning'>
+It can potentially be dangerous to send a command straight to bash please make sure you trust the source before running that type of commands, to check what this command does head over to [getcaddy.com](https://getcaddy.com/)
+</p>
 
 Once you are ready to proceed with the installer type:
 ```
