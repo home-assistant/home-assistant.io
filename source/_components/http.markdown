@@ -89,6 +89,10 @@ ssl_profile:
   required: false
   type: string
   default: modern
+unix_socket:
+  description: Writeable path to create a UNIX socket.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -114,6 +118,7 @@ http:
     - fd00::/8
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  unix_socket: /run/homeassistant/homeassistant.socket
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
