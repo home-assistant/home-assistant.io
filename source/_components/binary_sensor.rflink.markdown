@@ -22,7 +22,7 @@ RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/cha
 
 Once the ID of a binary sensor is known, it can be used to configure it as a binary sensor type in Home Assistant, for example, to hide it or configure a nice name.
 
-Configuring a device as a motion detector type binary sensor with a nice name:
+Configuring a device as a binary sensor:
 
 {% raw %}
 ```yaml
