@@ -70,3 +70,12 @@ Define the State List:
     - arm_night
     - armed_custom_bypass
 ```
+
+{% linkable_title Valid Options for `states` %}
+
+```yaml
+- arm_home
+- arm_home
+- arm_night
+- armed_custom_bypass
+```
