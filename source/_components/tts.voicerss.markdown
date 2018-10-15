@@ -23,12 +23,27 @@ tts:
     api_key: 'XXXXXXXX'
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): API Key for use this service.
-- **language** (*Optional*): The language to use. Defaults to `en-us`.
-- **codec** (*Optional*): Audio codec. Default is 'mp3'.
-- **format** (*Optional*): Audio sample format. Default is '8khz_8bit_mono'
+{% configuration %}
+api_key:
+  description: API Key for use this service.
+  required: true
+  type: string
+language:
+  description: The language to use.
+  required: false
+  default: "`en-us`"
+  type: string
+codec:
+  description: Audio codec.
+  required: false
+  default: mp3
+  type: string
+format:
+  description: Audio sample format.
+  required: false
+  default: 8khz_8bit_mono
+  type: string
+{% endconfiguration %}
 
 See on api [documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
 
