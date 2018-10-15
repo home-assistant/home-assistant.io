@@ -44,6 +44,7 @@ alert:
     repeat: 30
     can_acknowledge: True
     skip_first: True
+    include_problem: True
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -84,6 +85,13 @@ skip_first:
   description: >
     Controls whether the notification should be
     sent immediately or after the first delay.
+  required: false
+  type: boolean
+  default: false
+include_problem:
+  description: >
+    Controls whether the notification should contain
+    the problem, if provided by the entity.
   required: false
   type: boolean
   default: false
