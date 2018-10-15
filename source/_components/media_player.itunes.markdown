@@ -14,9 +14,11 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The iTunes platform allows you to control [iTunes](http://apple.com/itunes/) from Home Assistant. It uses a 3rd party server that you run on your Mac called [itunes-api](https://github.com/maddox/itunes-api). Play, pause, or skip songs remotely on iTunes running on your Mac.
+The `itunes` media player platform allows you to control [iTunes](http://apple.com/itunes/) from Home Assistant. It uses a 3rd party server that you run on your Mac called [itunes-api](https://github.com/maddox/itunes-api). Play, pause or skip songs remotely on iTunes running on your Mac.
 
-In addition to controlling iTunes, your available AirPlay endpoints will be added as media players as well. You can then individually address them and turn them on, turn them off, or adjust their volume.
+In addition to controlling iTunes, your available AirPlay endpoints will be added as media players as well. You can then individually address them and turn them on, turn them off or adjust their volume.
+
+## {% linkable_title Configuration %}
 
 To add iTunes to your installation, add the following to your `configuration.yaml` file:
 
@@ -29,7 +31,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP of the itunes-api API, e.g., 192.168.1.50
+  description: The IP of the itunes-api API, e.g., 192.168.1.50.
   required: true
   type: string
 port:
