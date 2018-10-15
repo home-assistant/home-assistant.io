@@ -51,13 +51,13 @@ alert:
 
 {% configuration %}
 name:
-  description: The friendly name of the alert.
+  description: The friendly name of the alert. This can include a [template][template].
   required: true
   type: string
 done_message:
   description: >
     A message sent after an alert transitions from `on` to `off`. Is only sent
-    if an alert notification was sent for transitioning from `off` to `on`.
+    if an alert notification was sent for transitioning from `off` to `on`. This can include a [template][template].
   required: false
   type: string
 entity_id:
@@ -191,3 +191,5 @@ sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+
+[template]: /docs/configuration/templating/

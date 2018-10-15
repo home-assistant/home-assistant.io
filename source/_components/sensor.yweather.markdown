@@ -20,7 +20,7 @@ The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
 </p>
 
-The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID it generate it from Home Assistant's latitude and longitude.
+The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID it is generated from Home Assistant's latitude and longitude.
 
 To add Yahoo Weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -40,21 +40,46 @@ sensor:
       - temperature
 ```
 
-Configuration variables:
-
-- **woeid** (*Optional*): See above.
-- **forecast** (*Optional*): Day of forecast. The default is the current day to display conditions.
-- **name** (*Optional*): The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option. Defaults to `Yweather`. 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **weather**: A human-readable text summary with picture from yahoo.
-  - **weather_current**: A human-readable text summary with picture from yahoo from current condition.
-  - **temperature**: The current temperature.
-  - **temp_min**: The minimal temperature of this day.
-  - **temp_max**: The maximum temperature of this day.
-  - **wind_speed**: The wind speed.
-  - **humidity**: The relative humidity.
-  - **pressure**: The sea-level air pressure in millibars.
-  - **visibility**: The average visibility.
+{% configuration %}
+woeid:
+  required: false
+  description: See above.
+  type: string
+  default: "Defaults to a WOEID generated from coordinates defined in your `configuration.yaml` file."
+forecast:
+  required: false
+  description: Day of forecast. The default is the current day to display conditions.
+  type: integer
+  default: 0
+name:
+  required: false
+  description: "The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option."
+  type: string
+  default: "`Yweather`"
+monitored_conditions:
+  required: true
+  description: Conditions to display in the frontend.
+  type: list
+  keys:
+    weather:
+      description: A human-readable text summary with picture from yahoo.
+    weather_current:
+      description: A human-readable text summary with picture from yahoo from current condition.
+    temperature:
+      description: The current temperature.
+    temp_min:
+      description: The minimal temperature of this day.
+    temp_max:
+      description: The maximum temperature of this day.
+    wind_speed:
+      description: The wind speed.
+    humidity:
+      description: The relative humidity.
+    pressure:
+      description: The sea-level air pressure in millibars.
+    visibility:
+      description: The average visibility.
+{% endconfiguration %}
 
 Example of forecast using multiple days. In example, first sensor shows tomorrow's forecast, second sensor shows the next day and so on:
 
@@ -85,4 +110,3 @@ sensor:
 ```
 
 Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
-

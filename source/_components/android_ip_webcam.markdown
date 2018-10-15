@@ -17,7 +17,13 @@ The `android_ip_webcam` component turns an Android phone into a network camera w
 
 It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
 
-To set it up, download [the IP Webcam app][app], and add the following information to your `configuration.yaml` file:
+## {% linkable_title Setup %}
+
+Download [the IP Webcam app](https://play.google.com/store/apps/details?id=com.pas.webcam) and launch the app. You will be able to the IP address of the device.
+
+## {% linkable_title Configuration %}
+
+To set it up the component, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,48 +31,91 @@ android_ip_webcam:
   - host: 192.168.1.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP Address of the phone on the network.
-- **port** (*Optional*): Default is set 8080. The port the IP Webcam listens on.
-- **name** (*Optional*): Override the name of the phone.
-- **username** (*Optional*): The username to access the phone.
-- **password** (*Optional*): The password to access the phone.
-- **scan_interval** (*Optional*): Default is 10 seconds. Defines the update interval of the phone.
-- **sensors** array (*Optional*): Conditions to display sensor in the frontend. See the list of supported sensors.
-- **switches** array (*Optional*): Conditions to display settings in the frontend. See the list of supported settings.
-- **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
+{% configuration %}
+host:
+  description: The IP address of the phone on the network.
+  required: true
+  type: string
+port:
+  description: The port the IP Webcam listens on.
+  required: false
+  default: 8080
+  type: integer
+name:
+  description: Override the name of the phone.
+  required: false
+  default: IP Webcam
+  type: string
+username:
+  description: The username to access the phone.
+  required: inclusive
+  type: string
+password:
+  description: The password to access the phone.
+  required: inclusive
+  type: string
+scan_interval:
+  description: Defines the update interval of the phone.
+  required: false
+  default: 10
+  type: integer
+sensors:
+  description: Conditions to display sensor in the frontend. See the list of supported sensors.
+  required: false
+  type: list
+  keys:
+    audio_connections:
+      description: The audio connections
+    battery_level:
+      description: The battery level
+    battery_temp:
+      description: The battery temperature
+    battery_voltage:
+      description: The battery voltage
+    light:
+      description: The light level
+    motion:
+      description: Motion detection
+    pressure:
+      description: The current pressure
+    proximity:
+      description: The proximity
+    sound:
+      description: The sound detection
+    video_connections:
+      description: The video connections
+switches:
+  description: Conditions to display settings in the frontend. See the list of supported switches.
+  required: false
+  type: list
+  keys:
+    exposure_lock:
+      description: Control the exposure lock
+    ffc:
+      description: Control the front-facing camera.
+    focus:
+      description: Control the focus.
+    gps_active:
+      description: Control the GPS.
+    night_vision:
+      description: Control the night vision.
+    overlay:
+      description: Control the overlay.
+    torch:
+      description: Control the torch.
+    whitebalance_lock:
+      description: Control the white balance lock.
+    video_recording:
+      description: Control the video recording.
+motion_sensor:
+  description: Activate motion sensor if `auto_discovery` is disabled.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
 <p class='note'>
   You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
 </p>
-
-### {% linkable_title Supported features %}
-
-Sensors:
-
-- audio_connections
-- battery_level
-- battery_temp
-- battery_voltage
-- light
-- motion
-- pressure
-- proximity
-- sound
-- video_connections
-
-Settings (Switches):
-
-- exposure_lock
-- ffc
-- focus
-- gps_active
-- night_vision
-- overlay
-- torch
-- whitebalance_lock
-- video_recording
 
 ## {% linkable_title Full example %}
 
@@ -104,4 +153,3 @@ android_ip_webcam:
       - torch
 ```
 
-[app]: https://play.google.com/store/apps/details?id=com.pas.webcam

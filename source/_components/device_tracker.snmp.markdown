@@ -25,7 +25,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 |---|---|---|---|
 | Mikrotik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
 | Mikrotik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
-| Aruba | (untested) | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2` |
+| Aruba | (untested) | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | pfSense | 2.2.4  | `1.3.6.1.2.1.4.22.1.2` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
@@ -54,18 +54,33 @@ If you want to use encryption, you must enable SNMP version 3 by adding `authkey
 device_tracker:
   - platform: snmp
     host: 192.168.1.1
-    community: username
-    authkey: authpass
-    privkey: privpass
+    community: USERNAME
+    authkey: AUTHPASS
+    privkey: PRIVPASS
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the router, eg. 192.168.1.1.
-- **community** (*Required*): The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
-- **baseoid** (*Required*): The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
-- **authkey** (*Inclusive*): Authentication key for SNMPv3. Variable privkey must also be set.
-- **privkey** (*Inclusive*): Privacy key SNMPv3. Variable authkey must also be set.
+{% configuration %}
+host:
+  description: The IP address of the router, e.g., 192.168.1.1.
+  required: true
+  type: string
+community:
+  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  required: true
+  type: string
+baseoid:
+  description: The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
+  required: true
+  type: string
+authkey:
+  description: Authentication key for SNMPv3. Variable privkey must also be set.
+  required: inclusive
+  type: string
+privkey:
+  description: Privacy key SNMPv3. Variable authkey must also be set.
+  required: inclusive
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

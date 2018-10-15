@@ -30,14 +30,36 @@ binary_sensor:
         name: Window
 ```
 
-Configuration variables:
-
-- **pins** array (*Required*): Array of used pins.
-  - **pin_name** (*Required*): Pin numbers and corresponding names.
-    - **name** (*Required*): Friendly name to use for the frontend.
-    - **bouncetime** (*Optional*): Debounce time for reading input pin defined in milliseconds [ms]. Defaults to `50 ms`.
-    - **invert_logic** (*Optional*): If `true`, inverts the input logic to ACTIVE LOW. Default is `false` (ACTIVE HIGH).
-    - **pull_mode** (*Optional*): Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor. Defaults to `UP`.
+{% configuration %}
+pins:
+  description: List of used pins.
+  required: true
+  type: map
+  keys:
+    pin_name:
+      description: Port numbers and corresponding names.
+      required: true
+      type: map
+      keys:
+        name:
+          description: Friendly name to use for the frontend.
+          required: true
+          type: string
+        bouncetime:
+          description: Debounce time for reading input pin defined in milliseconds [ms].
+          required: false
+          default: 50
+          type: integer
+        invert_logic:
+          description: If `true`, inverts the input logic to ACTIVE LOW
+          required: false
+          default: false
+          type: boolean
+        pull_mode:
+          description: Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
+          required: false
+          default: UP
+          type: string      
+{% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
-

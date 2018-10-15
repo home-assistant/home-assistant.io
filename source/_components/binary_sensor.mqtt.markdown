@@ -109,12 +109,14 @@ value_template:
   required: false
   type: string
 force_update:
-  description: >
-    Sends update events even if the value has not changed.
-    Useful if you want to have meaningful value graphs in history.
-  reqired: false
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  required: false
   type: boolean
-  default: false
+  default: False
+off_delay:
+  description: For sensors that only sends ‘On’ state updates, this variable sets a delay in seconds after which the sensor state will be updated back to ‘Off’.
+  required: false
+  type: integer
 device:
   description: 'Information about the device this binary sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false

@@ -26,20 +26,43 @@ light:
     devices:
       192.168.1.25:
         name: Living Room
-        transition: 1000
-        use_music_mode: True #(defaults to False)
-        save_on_change: True #(defaults to False)
-      192.168.1.13:
-        name: Front Door
 ```
 
-Configuration variables:
-
-- **ip** (*Required*): IP(s) of your Wifi bulbs
-- **name** (*Optional*): A friendly name for the device.
-- **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
-- **use_music_mode** (*Optional*, default False): Enable music mode.
-- **save_on_change** (*Optional*, default False): Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
+{% configuration %}
+devices:
+  required: true
+  description: List of Yeelight devices.
+  type: map
+  keys:
+    ip:
+      description: IP address of the bulb.
+      required: true
+      type: map
+      keys:
+        name:
+          description: A friendly name for the device.
+          required: false
+          type: string
+        transition:
+          description: Smooth transitions over time (in ms).
+          required: false
+          type: integer
+          default: 350
+        use_music_mode:
+          description: Enable music mode.
+          required: false
+          type: boolean
+          default: False
+        save_on_change:
+          description: Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
+          required: false
+          type: boolean
+          default: False
+        model:
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
+          required: false
+          type: string
+{% endconfiguration %}
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
@@ -53,22 +76,27 @@ Determine your bulb IP (using router, software, ping ...).
 Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
 </p>
 
+### {% linkable_title Supported models %}
+
 <p class='note warning'>
 This component is tested to work with the following models. If you have a different model and it is working please let us know.
 </p>
 
-- **YLDP01YL**: LED Bulb (White)
-- **YLDP02YL**: LED Bulb (Color)
-- **YLDP03YL**: LED Bulb (Color) - E26
-- **YLDP05YL**: LED Bulb (White) II
-- **YLDP06YL**: LED Bulb (Color) II
-- **YLDD01YL**: Lightstrip (Color)
-- **YLDD02YL**: Lightstrip (Color)
-- **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
-- **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
-- **YLXD02YL**: Yeelight Ceiling Light 4 (Jiaoyue 650)
-- **YLXD01YL**: Yeelight Smart LED Ceiling Light - Youth Version
-
+| Model ID   | Model number | Product name                                     |
+|------------|--------------|--------------------------------------------------|
+| `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
+| ?          | YLDP05YL     | LED Bulb (White) - 2nd generation                |
+| `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
+| `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
+| `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
+| `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
+| `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
+| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
+| `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
+| `ceiling1` | ?            | Yeelight Ceiling Light                           |
+| `ceiling2` | YLXD01YL     | Yeelight Smart LED Ceiling Light - Youth Version |
+| `ceiling3` | ?            | Yeelight Ceiling Light                           |
+| `ceiling4` | YLXD02YL     | Yeelight Ceiling Light 4 (Jiaoyue 650)           |
 
 ## {% linkable_title Platform Services %}
 
@@ -80,3 +108,37 @@ Set an operation mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
+
+## {% linkable_title Examples %}
+
+In this section you find some real-life examples of how to use this light.
+
+### {% linkable_title Full configuration %}
+
+This example shows how you can use the optional configuration options.
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+        transition: 1000
+        use_music_mode: True
+        save_on_change: True
+```
+
+### {% linkable_title Multiple bulbs %}
+
+This example shows how you can add multiple bulbs in your configuration.
+
+```yaml
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+      192.168.1.13:
+        name: Front Door
+```

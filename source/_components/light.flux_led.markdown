@@ -40,17 +40,31 @@ light:
   - platform: flux_led
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): To enable the automatic addition of lights on startup.
-- **devices** (*Optional*): A list of devices with their ip address
-
-Configuration variables within devices list:
-
-- **name**  (*Optional*): A friendly name for the device.
-- **mode**  (*Optional*): The chosen brightness mode; options are 'rgbw' and 'rgb', defaults to rgbw.
-- **protocol**  (*Optional*): Set this to 'ledenet' if you are using a ledenet bulb.
-
+{% configuration %}
+automatic_add:
+  description: To enable the automatic addition of lights on startup.
+  required: false
+  default: false
+  type: boolean
+devices:
+  description: A list of devices with their ip address
+  required: false
+  type: list
+  keys:
+    name:
+      description: A friendly name for the device.
+      required: false
+      type: string
+    mode:
+      description: "The chosen brightness mode, options are: 'rgbw' and 'rgb'."
+      required: false
+      default: rgbw
+      type: string
+    protocol:
+      description: Set this to 'ledenet' if you are using a ledenet bulb.
+      required: false
+      type: string
+{% endconfiguration %}
 
 <p class='note'>
 Depending on your controller or bulb type, there are two ways to configure brightness. 

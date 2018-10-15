@@ -44,10 +44,9 @@ When using the configurator make sure the initial setup is performed on the same
 wink:
 ```
 
-### {% linkable_title Full oauth authentication (legacy). %}
+### {% linkable_title Full oauth authentication (legacy) %}
 
 This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
-
 
 ```yaml
 wink:
@@ -57,23 +56,38 @@ wink:
   client_secret: YOUR_WINK_CLIENT_SECRET
 ```
 
-Configuration variables:
+Please pay attention that the required entries are only needed for legacy OAuth access.
 
-- **email** (*Required for legacy OAuth*): Your Wink login email.
-- **password** (*Required for legacy OAuth*): Your Wink login password.
-- **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
-- **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
-- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
+{% configuration %}
+email:
+  description: Your Wink login email address.
+  required: true
+  type: string
+password:
+  description: Your Wink login password.
+  required: true
+  type: string
+client_id:
+  description: Your provided Wink `client_id`.
+  required: true
+  type: string
+client_secret:
+  description: Your provided Wink `client_secret`.
+  required: true
+  type: string
+local_control:
+  description: If set to `true` state changes for lights, locks and switches will be issued to the local hub.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 Local control:
-- Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
 
+- Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `false`.
 - Using local control doesn't appear to make commands any quicker, but does function in an internet/Wink outage.
-
 - Local control is also only available for the Wink hub v1 and v2, not the Wink relay.
-
 - Local control isn't used during start-up of Home Assistant; this means initial setup requires an active internet connection.
-
 - Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.
 
 <p class='note'>
@@ -141,7 +155,7 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
 
 - GoControl siren and strobe
 - Dome siren/chime/strobe
-- Quirky Nimbus (Legacy device) These can no longer be officialy added to your Wink account
+- Quirky Nimbus (Legacy device) These can no longer be officially added to your Wink account
 
 
 ### {% linkable_title Service `set_siren_auto_shutoff` %}
@@ -290,7 +304,7 @@ script:
 
 ### {% linkable_title Service `set_nimbus_dial_state` %}
 
-You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and it's labels
+You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and its labels
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

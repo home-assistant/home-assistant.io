@@ -21,18 +21,34 @@ To use a Keenetic router in your installation, add the following to your `config
 # Example configuration.yaml entry
 device_tracker:
   - platform: keenetic_ndms2
-    host: !secret router_ip
-    username: !secret router_username
-    password: !secret router_password
+    host: YOUR_HOST
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **port** (*Optional*): The Telnet port of your router. Default is 23.
-- **username** (*Required*): The username to login into the router (user should have read access to telnet interface of the router).
-- **password** (*Required*): The password for the specified username.
-- **interface** (*Optional*): Ihe internal name of the interface to get devices connected to. Default is 'Home'. For expert users only. 
-
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+port:
+  description: The Telnet port of your router.
+  required: false
+  default: 23
+  type: integer
+username:
+  description: The username to login into the router (user should have read access to telnet interface of the router).
+  required: true
+  type: string
+password:
+  description: The password for the specified username.
+  required: true
+  type: string
+interface:
+  description: Ihe internal name of the interface to get devices connected to. For expert users only.
+  required: false
+  default: Home
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

@@ -41,6 +41,9 @@ enocean:
   device: /dev/ttyUSB0
 ```
 
-Configuration variables:
-
-- **device** (*Required*): The port where your device is connected to your Home Assistant host.
+{% configuration %}
+device:
+  description: The port where your device is connected to your Home Assistant host.
+  required: true
+  type: string
+{% endconfiguration %}

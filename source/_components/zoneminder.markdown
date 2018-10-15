@@ -22,14 +22,40 @@ zoneminder:
   host: ZM_HOST
 ```
 
-Configuration variables:
-- **host** (*Required*): Your ZoneMinder server's host (and optional port), not including the scheme.
-- **path** (*Optional*): Path to your ZoneMinder install. Defaults to `/zm/`.
-- **path_zms** (*Optional*): Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings. Defaults to `/zm/cgi-bin/nph-zms`.
-- **ssl** (*Optional*): Set to `True` if your ZoneMinder installation is using SSL. Default to `False`.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
-- **username** (*Optional*): Your ZoneMinder username.
-- **password** (*Optional*): Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+{% configuration %}
+host:
+  description: Your ZoneMinder server's host (and optional port), not including the scheme.
+  required: true
+  type: string
+path:
+  description: Path to your ZoneMinder install.
+  required: false
+  default: "`/zm/`"
+  type: string
+path_zms:
+  description: Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings.
+  required: false
+  default: "`/zm/cgi-bin/nph-zms`"
+  type: string
+ssl:
+  description: Set to `true` if your ZoneMinder installation is using SSL.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  default: true
+  type: boolean
+username:
+  description: Your ZoneMinder username.
+  required: false
+  type: string
+password:
+  description: Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Full configuration %}
 
@@ -39,8 +65,24 @@ zoneminder:
   host: ZM_HOST
   path: ZM_PATH
   path_zms: ZM_PATH_ZMS
-  ssl: True
-  verify_ssl: True
+  ssl: true
+  verify_ssl: true
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+```
+
+### {% linkable_title Service %}
+
+Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
+
+| Service data attribute | Optional | Description                       |
+|:-----------------------|:---------|:----------------------------------|
+| `name`                 | no       | Name of the new run state to set. |
+
+For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
+ ```yaml
+action:
+  service: zoneminder.set_run_state
+  data:
+    name: Home
 ```

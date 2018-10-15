@@ -95,7 +95,7 @@ homekit:
             required: false
             type: list
       entity_config:
-        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g. `alarm_control_panel.alarm`.
+        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `alarm_control_panel.alarm`.
         required: false
         type: map
         keys:
@@ -190,6 +190,8 @@ automation:
         event_type: zwave.network_ready
       - platform: event
         event_type: zwave.network_complete
+      - platform: event
+        event_type: zwave.network_complete_some_dead
     action:
       - service: homekit.start
 ```

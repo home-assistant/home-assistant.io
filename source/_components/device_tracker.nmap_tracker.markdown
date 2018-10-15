@@ -19,7 +19,7 @@ As an alternative to the router-based device tracking, it is possible to directl
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
 </p>
 
-You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
+You might have to install the packages for `arp` and `nmap`. On Debian based hosts (for example Hassbian and Raspbian) do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
@@ -36,12 +36,25 @@ device_tracker:
     hosts: 192.168.1.0/24
 ```
 
-Configuration variables:
-
-- **hosts** (*Required*): The network address to scan (in any supported Nmap format). Mixing subnets and IPs is possible.
-- **home_interval** (*Optional*): The number of minutes Nmap will not scan this device, assuming it is home, in order to preserve the device battery.
-- **exclude** (*Optional*): Hosts not to include in Nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
-- **scan_options** (*Optional*): Configurable scan options for Nmap. Default to `-F --host-timeout 5s`
+{% configuration %}
+hosts:
+  description: The network address to scan (in any supported Nmap format). Mixing subnets and IPs is possible.
+  required: true
+  type: string
+home_interval:
+  description: The number of minutes Nmap will not scan this device, assuming it is home, in order to preserve the device battery.
+  required: false
+  type: integer
+exclude:
+  description: Hosts not to include in Nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
+  required: false
+  type: list
+scan_options:
+  description: Configurable scan options for Nmap.
+  required: false
+  default: -F --host-timeout 5s
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

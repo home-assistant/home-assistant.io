@@ -11,10 +11,10 @@ footer: true
 
 The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi. Hass.io is our own all in one solution that turns your Raspberry Pi or another device into the ultimate home automation hub.
 
-Follow this guide if you want to get started with Home Assistant easily, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/). The [FAQ](/faq/#home-assistant-vs-hassio) explains more about the differences.
+Follow this guide if you want to get started with Home Assistant easily, or if you have no or little Linux experience.
 
-<p class='note warning'>
-  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
+<p class='note'>
+For advanced users or if you have no Raspberry Pi at hand, check our [alternative installation methods](/docs/installation/). The [FAQ](/faq/#home-assistant-vs-hassio) explains more about the differences.
 </p>
 
 ### {% linkable_title Suggested hardware%}
@@ -44,13 +44,19 @@ We will need a few things to get started with installing Home Assistant. For bes
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.
 1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
-1. Home Assistant will be available at [http://hassio.local:8123][local]. Shortly after the download has started, a simple preparation status page will be available at this URL. Point your browser there. The page refreshes automatically, and Home Assistant will be shown when the download is complete.
+1. Home Assistant will be available at [http://hassio.local:8123][local]. Shortly after the download has started, a simple preparation status page will be available at this URL. Point your browser there. The page refreshes automatically, and Home Assistant will be shown when the download is complete (this typically takes around 20 minutes).
+1. Please remember to [secure your installation][secure] once you've finished with the installation process.
 
 [local]: http://hassio.local:8123
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+[secure]: /docs/configuration/securing/
 
 <p class='note'>
-When you're done, remember to set up regular backups of your configuration. These backups will protect you from hardware failure and mistakes. On Hass.io you have snapshots, but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_dropbox/) and many other ways. All that matters is that you set them up and test them regularly.
+If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
+</p>
+
+<p class='note'>
+When you're done, remember to set up regular backups of your configuration. These backups will protect you from hardware failure and mistakes. On Hass.io you have snapshots (which you should copy off to another system), but you can back up to [GitHub](/docs/ecosystem/backup/backup_github/), [DropBox](/docs/ecosystem/backup/backup_dropbox/) and many other ways. All that matters is that you set them up and test them regularly.
 </p>
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

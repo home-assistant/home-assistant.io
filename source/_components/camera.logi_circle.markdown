@@ -31,13 +31,17 @@ camera:
   - platform: logi_circle
 ```
 
-Configuration variables:
-
-- **scan_interval**: (*Optional*): How frequently to query for new camera stills. Defaults to 60 seconds.
+{% configuration %}
+scan_interval:
+  description: How frequently to query for new camera stills, value are in seconds.
+  required: false
+  default: 60
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Service `camera.logi_circle_livestream_record` %}
 
-Initiates a recording of the camera's live stream. 
+Initiates a recording of the camera's live stream.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -60,7 +64,7 @@ The path part of `filename` must be an entry in the `whitelist_external_dirs` in
 
 ### {% linkable_title Service `camera.logi_circle_set_config` %}
 
-Sets an configuration property for your camera.
+Sets a configuration property for your camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

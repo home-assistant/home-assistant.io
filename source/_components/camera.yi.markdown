@@ -65,14 +65,34 @@ camera:
     password: my_password_123
 ```
 
-Configuration variables:
-
-- **name** (*Required*): A human-friendly name for the camera.
-- **host** (*Required*): The IP address or hostname of the camera.
-- **password** (*Required*): The password to the FTP server on the camera (from above).
-- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
-- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
-- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+{% configuration %}
+name:
+  description: A human-friendly name for the camera.
+  required: true
+  type: string
+host:
+  description: The IP address or hostname of the camera.
+  required: true
+  type: string
+password:
+  description: The password for the FTP server running on the camera. Can be any string as the current firmware doesn't allow setting FTP passwords.
+  required: true
+  type: string
+path:
+  description: The path to the raw MP4 files.
+  required: false
+  default: /media/mmcblk0p1/record
+  type: string
+username:
+  description: The user that can access the FTP server.
+  required: false
+  default: root
+  type: string
+ffmpeg_arguments:
+  description: Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Image quality %}
 

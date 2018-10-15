@@ -31,7 +31,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
 | Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
-| Button (2nd gen) | sensor_switch.aq2 | WXKG11LM | off (always) | `click` | `click_type` | `single`, `double` |
+| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `click` | `click_type` | `single`, `double` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |
 | Cube | cube | MFKZQ01LM | off (always) | `cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |

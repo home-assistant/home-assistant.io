@@ -27,15 +27,38 @@ sensor:
     command: SENSOR_COMMAND
 ```
 
-Configuration variables:
-
-- **command** (*Required*): The action to take to get the value.
-- **name** (*Optional*): Name of the command sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
-- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
-- **json_attributes** (*Optional*): Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+{% configuration %}
+command:
+  description: The action to take to get the value.
+  required: true
+  type: string
+name: 
+  description: Name of the command sensor.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the unit of measurement of the sensor, if any.
+  required: false
+  type: string
+value_template: 
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.
+  required: false
+  type: integer
+  default: 60
+command_timeout:
+  description: Defines number of seconds for command timeout
+  required: false
+  type: integer
+  default: 15
+json_attributes:
+  description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  required: false
+  type: string, list
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

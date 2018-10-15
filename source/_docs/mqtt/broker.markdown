@@ -59,7 +59,7 @@ mqtt:
 
 ### {% linkable_title Run your own %}
 
-Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
+Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,7 +98,7 @@ protocol:
   type: string
 certificate:
   required: false
-  description: Path to the certificate file, eg. `/home/user/.homeassistant/server.crt`.
+  description: Path to the certificate file, e.g., `/home/user/.homeassistant/server.crt`.
   type: string
 tls_insecure:
   required: false
@@ -117,7 +117,7 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 </p>
 
 <p class='note'>
-If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g., sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
+If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
 ```
 [Unit]
 Description=Home Assistant

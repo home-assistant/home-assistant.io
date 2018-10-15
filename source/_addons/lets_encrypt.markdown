@@ -14,7 +14,7 @@ featured: false
 You should not use this if you are also using the [DuckDNS add-on]. The DuckDNS add-on has integrated Let's Encrypt support.
 </p>
 
-Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This addon will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration. This add-on uses port 80 to verify the certificate request. You will need to stop all other add-ons that also use this port.
+Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This add-on will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration. This add-on uses port 80 to verify the certificate request. You will need to stop all other add-ons that also use this port.
 
 ```json
 {
@@ -43,7 +43,7 @@ If you use another port such as `8123` or an SSL proxy, change the port number.
 
 ## {% linkable_title Enabling auto-renewals %}
 
-Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificte, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
+Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificate, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
 
 However, you can automate this process using Home Assistant.
 
