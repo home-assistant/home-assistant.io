@@ -87,6 +87,11 @@ skip_first:
   required: false
   type: boolean
   default: false
+message_template:
+  description: >
+    Defines a [template][template] for the message to be used for notification.
+  required: false
+  type: template
 notifiers:
   description: "List of `notification` components to use for alerts."
   required: true
@@ -191,3 +196,30 @@ sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+
+### {% linkable_title Message Templates %}
+
+It may be desirable to have the alert notifications include information
+about the state of the entity.
+The following will show for a plant how to include the problem `attribute`
+of the entity.
+
+```yaml
+# Example configuration.yaml entry
+  office_plant:
+    name: Plant in office needs help
+    done_message: Plant in office is fine
+    entity_id: plant.plant_office
+    state: 'problem'
+    repeat: 30
+    can_acknowledge: True
+    skip_first: True
+	message_template: "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})"
+    notifiers:
+      - ryans_phone
+      - kristens_phone
+```
+
+The resulting message could be `Plant Officeplant needs help (moisture low)`.
+
+[template]: /docs/configuration/templating/
