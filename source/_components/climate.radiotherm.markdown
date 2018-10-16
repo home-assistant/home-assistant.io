@@ -46,9 +46,9 @@ away_temperature_cool:
   default: 85
   type: float
 hold_temp:
-  description: Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`).
+  description: Boolean to control if Home Assistant temperature adjustments hold (`true`) or are temporary (`false`).
   required: false
-  default: "`False`"
+  default: false
   type: boolean
 {% endconfiguration %}
 
