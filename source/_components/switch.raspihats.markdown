@@ -57,22 +57,17 @@ i2c_hats:
           type: list
           keys:
             index:
-              description: Digital input channel index.
+              description: The digital input channel index.
               required: true
               type: integer
             name:
-              description: Friendly name to use for the frontend.
+              description: The friendly name to use for the frontend.
               required: true
               type: string
             invert_logic:
               description: Inverts the input logic.
               required: false
               default: false
-              type: boolean
-            initial_state:
-              description: "The initial state, can also be `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
-              required:
-              default: "None"
               type: boolean
 {% endconfiguration %}
 
