@@ -37,16 +37,16 @@ binary_sensor:
 
 {% configuration %}
 i2c_hats:
-  description: Array of used I2C-HATs.
+  description: An array of used I2C-HATs.
   required: false
   type: list
   keys:
     board:
-      description: The board name [Di16, Di6Rly6, DI16ac, DI6acDQ6rly].
+      description: The board name either Di16, Di6Rly6, DI16ac or DI6acDQ6rly.
       required: true
       type: string
     address:
-      description: The board I2C address, hex value.
+      description: The board I2C address as HEX value.
       required: true
       type: string
       keys:
@@ -66,12 +66,12 @@ i2c_hats:
             invert_logic:
               description: Inverts the input logic.
               required: false
-              default: "`false`"
+              default: false
               type: boolean
             device_class:
               description: See device classes in [binary_sensor component](/components/binary_sensor/).
               required: false
-              default: "`None`"
+              default: "None"
               type: string
 {% endconfiguration %}
 
