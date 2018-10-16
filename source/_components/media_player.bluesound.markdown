@@ -29,12 +29,12 @@ media_player:
 
 {% configuration %}
 hosts:
-  description: List with your bluesound devices.
+  description: List with your Bluesound devices.
   required: false
   type: list
   keys:
     host:
-      description: IP-address or hostname of the player.
+      description: The IP address or hostname of the player.
       required: true
       type: string
     name:
@@ -42,7 +42,7 @@ hosts:
       required: false
       type: string
     port:
-      description: Port of communication to the device.
+      description: The port to communicate with the device.
       required: false
       default: 11000
       type: integer
