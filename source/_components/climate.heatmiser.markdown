@@ -13,7 +13,6 @@ ha_release: "0.10"
 ha_iot_class: "Local Polling"
 ---
 
-
 The `heatmiser` climate platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser. The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
 
 Further work would be required to get this setup to connect over Wifi, but the HeatmiserV3 python module being used is a full implementation of the V3 protocol.
