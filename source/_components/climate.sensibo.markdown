@@ -45,7 +45,7 @@ done in the app and actions done by Home Assistant.
 ```yaml
 climate:
   - platform: sensibo
-    api_key: deadbeaf
+    api_key: paste_your_api_key_here
     id:
       - id1
       - id2
