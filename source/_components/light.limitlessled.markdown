@@ -61,7 +61,7 @@ Configuration variables:
 - **bridges** array (*Required*):
   - **host** (*Required*): IP address of the device, eg. `192.168.1.32`
   - **version** (*Optional*): Bridge version (default is `6`).
-  - **port** (*Optional*): Bridge port. Defaults to 5987. For older bridges than v6 choose `8899`.
+  - **port** (*Optional*): Bridge port. Defaults to `5987`. For older bridges than `v6` choose `8899`.
   - **groups** array (*Required*): The list of available groups.
     - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
     - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
