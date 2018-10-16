@@ -70,7 +70,7 @@ i2c_hats:
               default: false
               type: boolean
             initial_state:
-              description: Initial state, can also be `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated.
+              description: "The initial state, can also be `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
               required:
               default: "None"
               type: boolean
