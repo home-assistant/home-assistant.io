@@ -38,8 +38,8 @@ To enable Plum Lightpad support, add the following lines to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 plum_lightpad:
-  username: <bob@example.com>
-  password: "<CLOUD_PASSWORD_HERE>"
+  username: YOUR_CLOUD_USERNAME
+  password: YOUR_CLOUD_PASSWORD
 ```
 
 {% configuration %}
