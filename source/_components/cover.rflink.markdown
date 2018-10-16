@@ -75,7 +75,6 @@ cover:
 
 Configuration variables:
 
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to Home Assistant if detected (default: True).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **device_defaults**: (*Optional*)
   - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).

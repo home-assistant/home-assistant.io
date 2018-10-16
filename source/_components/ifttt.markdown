@@ -34,7 +34,8 @@ You can then consume that information with the following automation:
 ```yaml
 automation:
   trigger:
-    event: ifttt_webhook_received
+    platform: event
+    event_type: ifttt_webhook_received
     event_data:
       action: call_service
   action:
