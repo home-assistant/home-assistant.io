@@ -14,18 +14,20 @@ ha_release: 0.35
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.
 
+## {% linkable_title Configuration %}
+
 To enable text-to-speech with VoiceRSS, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 tts:
   - platform: voicerss
-    api_key: 'XXXXXXXX'
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
 api_key:
-  description: API Key for use this service.
+  description: The API Key for VoiceRSS.
   required: true
   type: string
 language:
@@ -34,20 +36,22 @@ language:
   default: "`en-us`"
   type: string
 codec:
-  description: Audio codec.
+  description: The audio codec.
   required: false
   default: mp3
   type: string
 format:
-  description: Audio sample format.
+  description: The audio sample format.
   required: false
   default: 8khz_8bit_mono
   type: string
 {% endconfiguration %}
 
-See on api [documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
+Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
 
-A full configuration sample:
+## {% linkable_title Full configuration example %}
+
+The configuration sample below show how a entry can look like:
 
 ```yaml
 # Example configuration.yaml entry
