@@ -29,7 +29,7 @@ notify:
 
 {% configuration %}
 name:
-  description: The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: The notifier will bind to the service `notify.NAME`.
   required: false
   type: string
   default: notify
