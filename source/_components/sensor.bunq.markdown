@@ -48,11 +48,6 @@ api_key:
   description: The API key created in the app.
   required: true
   type: string
-prefix:
-  description: Your accounts will be prefixed with this.
-  required: false
-  type: string
-  default: Bunq
 sandbox:
   description: For test purposes. Set to true if you are using an access token for a sandbox Bunq account.
   required: false
