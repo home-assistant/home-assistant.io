@@ -16,19 +16,21 @@ The `telnet` switch platform allows you to control devices with telnet commands.
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 switch:
   platform: telnet
   switches:
     projector:
-      resource: "host_or_ip"
+      resource: THE_IP_ADDRESS
       port: 4002
       command_on: "PWR ON"
       command_off: "PWR OFF"
       command_state: "PWR?"
-      value_template: '{% raw %}{{ value == "PWR=01" }}{% endraw %}'
+      value_template: '{{ value == "PWR=01" }}'
 ```
+{% endraw %}
 
 {% configuration %}
 switches:
@@ -42,7 +44,7 @@ switches:
       type: list
       keys:
         resource:
-          description: Host or IP of the device.
+          description: Host name or IP address of the device.
           required: true
           type: string
         port:
