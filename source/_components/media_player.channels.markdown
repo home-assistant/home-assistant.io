@@ -30,7 +30,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP of the device running Channels, e.g., 192.168.1.50
+  description: The IP address of the device running Channels, e.g., 192.168.1.50.
   required: true
   type: string
 port:
