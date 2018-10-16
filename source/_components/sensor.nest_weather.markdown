@@ -16,7 +16,6 @@ ha_iot_class: "Cloud Polling"
 **This platform is currently not available. It's possible that `nest_weather` will be removed in the future.**
 </p>
 
-
 The `nest` weather sensor platform let you monitor current weather conditions based on the location of your [Nest](https://nest.com) thermostat.
 
 <p class='note'>
@@ -32,12 +31,20 @@ sensor:
       - 'weather_temperature'
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): States to monitor.
-  - 'weather_temperature'
-  - 'weather_humidity'
-  - 'weather_condition'
-  - 'wind_speed'
-  - 'wind_direction'
-
+{% configuration %}
+monitored_conditions:
+  description: States to monitor.
+  required: true
+  type: list
+  keys:
+    weather_temperature:
+      description: The current temperture
+    weather_humidity:
+      description: The current humidity
+    weather_condition:
+      description: The weather conditions
+    wind_speed:
+      description: The wind speed
+    wind_direction:
+      description: The wind direction
+{% endconfiguration %}
