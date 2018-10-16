@@ -69,6 +69,11 @@ i2c_hats:
               required: false
               default: false
               type: boolean
+            initial_state:
+              description: "The initial state, can be either `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
+              required:
+              default: None
+              type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
