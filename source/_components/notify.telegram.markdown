@@ -65,6 +65,9 @@ $ python3
 123456789
 ```
 
+Note: 
+If you want to add new CHAT IDs, you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array in the json.
+
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -83,6 +86,7 @@ notify:
     platform: telegram
     chat_id: CHAT_ID_2
 ```
+
 
 {% configuration %}
 name:
