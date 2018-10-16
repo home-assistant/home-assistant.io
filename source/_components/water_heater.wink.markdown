@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink Water Heater"
-description: "Instructions on how to setup the Wink water heater devices within Home Assistant."
+description: "Instructions on how to setup the Wink water heaters within Home Assistant."
 date: 2016-11-01 22:36
 sidebar: true
 comments: false
@@ -18,7 +18,7 @@ The Wink water heater platform allows you to get data from your [Wink](http://ww
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### {% linkable_title Supported water heater devices %}
+### {% linkable_title Supported water heaters %}
 
 - Rheem Econet water heaters (No Wink hub required)
 
