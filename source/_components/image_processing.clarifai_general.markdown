@@ -10,11 +10,10 @@ footer: true
 logo: clarifai.png
 ha_category: Image Processing
 featured: false
-ha_release: 0.79
+ha_release: 0.81
 ---
 
-The `Clarifai general` image processing platform allows you to identify the contents of images using the [Clarifai](https://www.clarifai.com/) [general image recognition model](https://www.clarifai.com/models/general-image-recognition-model-aaa03c23b3724a16a56b629203edc62c). For each configured image source, a sensor is added where the state of the sensor is the most likely concept (objects or ideas) within the camera image. A sensor attribute lists all of the identified concepts in the image and their probability in percent (%). Optionally you can configure a list of special `concepts` for which an  `image_processing.model_prediction` event is fired when the concept is detected.
-
+The `Clarifai general` image processing platform allows you to identify the contents of images using the [Clarifai](https://www.clarifai.com/) [general image recognition model](https://www.clarifai.com/models/general-image-recognition-model-aaa03c23b3724a16a56b629203edc62c). For each configured image source, a sensor is added where the state of the sensor is the most likely concept (objects or ideas) within the camera image. A sensor attribute lists all of the identified concepts in the image and their probability in percent (%).
 
 This platform requires you to create a developer [account](https://www.clarifai.com/pricing) with Clarifai and configure an `api_key`. The Community developer account (no charge) allows 5000 classifications per month.
 
@@ -31,9 +30,6 @@ image_processing:
     source:
       - entity_id: camera.demo_camera
         name: my_custom_name
-    concepts:
-      - people
-      - vehicle
 ```
 
 {% configuration %}
@@ -58,10 +54,6 @@ source:
       description: This parameter allows you to override the name of your `image_processing` entity.
       required: false
       type: string
-concepts:
-  description: A list of special concepts which fire events.
-  required: false
-  type: string
 {% endconfiguration %}
 
 
