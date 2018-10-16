@@ -33,10 +33,26 @@ climate:
 
 A single interface can handle up to 32 connected devices.
 
-Configuration variables:
-
-- **ipaddress** (*Required*): The ip address of your interface.
-- **port** (*Required*): The port that the interface is listening on.
-- **tstats** (*Required*): A list of thermostats activated on the gateway.
-- **id** (*Required*): The id of the thermostat as configured on the device itself
-- **name** (*Required*): A friendly name for the thermostat
+{% configuration %}
+ipaddress:
+  description: The ip address of your interface.
+  required: true
+  type: string
+port:
+  description: The port that the interface is listening on.
+  required: true
+  type: integer
+tstats:
+  description: A list of thermostats activated on the gateway.
+  required: true
+  type: list
+  keys:
+    id:
+      description: The id of the thermostat as configured on the device itself.
+      required: true
+      type: string
+    name:
+      description: A friendly name for the thermostat.
+      required: true
+      type: string
+{% endconfiguration %}
