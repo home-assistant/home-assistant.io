@@ -38,7 +38,7 @@ switch:
 
 {% configuration %}
 i2c_hats:
-  description: Array of used I2C-HATs.
+  description: An array of used I2C-HATs.
   required: false
   type: list
   keys:
@@ -47,12 +47,12 @@ i2c_hats:
       required: true
       type: string
     address:
-      description: The board I2C address, hex value.
+      description: The board I2C address as HEX value.
       required: true
       type: string
       keys:
         channels:
-          description: Array of used digital input channels.
+          description: An array of used digital input channels.
           required: true
           type: list
           keys:
@@ -67,12 +67,12 @@ i2c_hats:
             invert_logic:
               description: Inverts the input logic.
               required: false
-              default: "`false`"
+              default: false
               type: boolean
             initial_state:
-              description: Initial state, can also be `True` or `False`. `None` means no state is forced on the corresponding digital output when this switch is instantiated.
+              description: Initial state, can also be `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated.
               required:
-              default: "`None`"
+              default: "None"
               type: boolean
 {% endconfiguration %}
 
