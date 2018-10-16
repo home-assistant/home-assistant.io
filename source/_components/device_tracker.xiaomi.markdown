@@ -41,3 +41,8 @@ password:
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+### {% linkable_title Compatibility test %}
+
+To ensure that your router is compatible, navigate to http://$router_IP/api/misystem/devicelist
+You should see a listing of the device currently connected to your router.
