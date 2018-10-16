@@ -13,11 +13,11 @@ ha_release: "0.55"
 ha_iot_class: "Cloud Polling"
 ---
 
-To get your [Melnor RainCloud](https://wifiaquatimer.com) binary sensors working within Home Assistant, please follow the instructions for the general [Raincloud component](/components/raincloud).
+To get your [Melnor RainCloud](https://wifiaquatimer.com) binary sensors working within Home Assistant, please follow the instructions for the general [Raincloud component](/components/raincloud/).
 
 ## {% linkable_title Configuration %}
 
-Once you have enabled the [Raincloud component](/components/raincloud), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud component](/components/raincloud/), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +32,7 @@ watering_minutes:
   default: 15
   type: integer
 monitored_conditions:
-  description: Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.
+  description: Conditions to display in the frontend. If not specified, all conditions below will be enabled by default.
   required: false
   type: list
   keys:
