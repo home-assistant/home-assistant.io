@@ -68,6 +68,11 @@ ssid_filter:
     type: list of strings
     required: false
     default: None
+monitor_all:
+    description: Pull all available extra attributes from the Unifi controller.
+    type: boolean
+    required: false
+    default: false
 monitored_conditions:
     description: A list of extra attributes to pull from the Unifi controller.
     type: list
