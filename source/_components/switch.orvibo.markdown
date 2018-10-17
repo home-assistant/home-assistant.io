@@ -46,11 +46,11 @@ switches:
   type: list
   keys:
     host:
-      description: "IP address of your socket, e.g., `192.168.1.10`."
+      description: "IP address of your socket, e.g., 192.168.1.10."
       required: true
       type: string
     mac:
-      description: "MAC address of the socket, e.g., "AA:BB:CC:DD:EE:FF". This is required if the socket is connected to a different subnet to the machine running Home Assistant."
+      description: "MAC address of the socket, e.g., `AA:BB:CC:DD:EE:FF`. This is required if the socket is connected to a different subnet to the machine running Home Assistant."
       required: false
       type: string
     name:
