@@ -25,7 +25,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: Use only if you don't want to scan for devices.
+  description: The IP address or the hostname of the device. Use only if you don't want to scan for devices.
   required: false
   type: string
 port:
