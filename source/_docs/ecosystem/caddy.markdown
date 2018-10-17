@@ -32,12 +32,18 @@ hass.example.org {
 }
 ```
 
-Make sure to forward ports: `80` and `443` on your router so that the SSL certificates can be generated
+
+
+
+Make sure to forward ports: `80` and `443` on your router so that you are able to use an SSL certificate. If you forward both port 80 and 443 Caddy will auto generate a Lets Encrypt SSL Certificate 
 
 To run your Caddy Server type:
 ```
 caddy -agree=true -conf=/path/to/your/Caddyfile -email youremail@example.com
 ```
+
+You do not need the ``--email`` if you are using your own SSL Certificate 
+
 If you encounter issues with Google TTS update your ``base_url`` to include ``https``:
 ```yaml
 http:
