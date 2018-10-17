@@ -59,6 +59,10 @@ service_data:
   description: The service data to use.
   type: object
   default: "entity_id: entity_id"
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
