@@ -55,11 +55,20 @@ nest:
     - Primary
 ```
 
-Configuration variables:
-
-- **client_id** (*Required*): Your Nest developer client ID.
-- **client_secret** (*Required*): Your Nest developer client secret.
-- **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
+{% configuration %}
+client_id:
+  description: Your Nest developer client ID.
+  required: true
+  type: string
+client_secret:
+  description: Your Nest developer client secret.
+  required: true
+  type: string
+structure:
+  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Services %}
 

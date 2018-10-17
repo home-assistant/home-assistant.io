@@ -35,11 +35,21 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or the IP address of the device.
-- **port** (*Optional*): The port number. Defaults to 14999.
-- **name** (*Optional*): The name of the device used in the frontend.
+{% configuration %}
+host:
+  description: The host name or the IP address of the device.
+  required: true
+  type: string
+port:
+  description: The port number of the device.
+  required: false
+  default: 14999
+  type: integer
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## Notes and Limitations
 

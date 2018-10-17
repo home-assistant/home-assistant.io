@@ -27,12 +27,26 @@ media_player:
       - host: 192.168.1.100
 ```
 
-Configuration variables:
-
-- **hosts** (*Optional*): List with your bluesound devices
-  - **host** (*Required*): IP-address or hostname of the player
-  - **name** (*Optional*): The name of the device used in the frontend
-  - **port** (*Optional*): Port of communication to the device (default: 11000)
+{% configuration %}
+hosts:
+  description: List with your Bluesound devices.
+  required: false
+  type: list
+  keys:
+    host:
+      description: The IP address or hostname of the player.
+      required: true
+      type: string
+    name:
+      description: The name of the device used in the frontend.
+      required: false
+      type: string
+    port:
+      description: The port to communicate with the device.
+      required: false
+      default: 11000
+      type: integer
+{% endconfiguration %}
   
 ## Advanced configuration example
 
@@ -68,7 +82,7 @@ Remove one or more speakers from a group of speakers. If no `entity_id` is provi
 
 Sets a timer that will turn off the speaker. For each time you call this it will increase the time by one step. The steps are (in minutes): 15, 30, 45, 60, 90, 0.
 If you increase an ongoing timer of for example 13 minutes, it will increase it to 15. If the timer is set to 90, it will remove the time (hence the 0).
- 
+
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers set.
@@ -76,7 +90,7 @@ If you increase an ongoing timer of for example 13 minutes, it will increase it 
 ### {% linkable_title Service `bluesound_clear_sleep_timer` %}
 
 Clear the sleep timer on a speaker, if one is set.
- 
+
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tibber"
+title: "Tibber Sensor"
 description: "Instructions on how to integrate Tibber within Home Assistant."
 date: 2017-10-03 17:00
 sidebar: true
@@ -17,8 +17,7 @@ ha_iot_class: "Cloud Polling"
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-The requirement is that you have setup [Tibber component](/components/tibber/).
-
+The requirement is that you have setup the [`tibber` component](/components/tibber/).
 
 ## {% linkable_title Examples %}
 

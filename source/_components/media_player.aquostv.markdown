@@ -27,14 +27,37 @@ media_player:
     host: 192.168.0.10
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
+  required: true
+  type: string
+port:
+  description: The port of the Sharp Aquos TV.
+  required: false
+  default: 10002
+  type: int
+username:
+  description: The username of the Sharp Aquos TV.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password of the Sharp Aquos TV.
+  required: false
+  default: password
+  type: string
+name:
+  description: The name you would like to give to the Sharp Aquos TV.
+  required: false
+  type: string
+power_on_enabled:
+  description: If you want to be able to turn on your TV.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
-- **host** (*Required*): The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
-- **port** (*Optional*): The port of the Sharp Aquos TV. Defaults to 10002.
-- **username** (*Optional*): The username of the Sharp Aquos TV. Defaults to admin.
-- **password** (*Optional*): The password of the Sharp Aquos TV. Defaults to password.
-- **name** (*Optional*): The name you would like to give to the Sharp Aquos TV.
-- **power_on_enabled** (*Optional*): If you want to be able to turn on your TV. Defaults to False.
 
 <p class='note warning'>
 When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.

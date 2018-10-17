@@ -30,8 +30,14 @@ binary_sensor:
       - Rain
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): The sensors that you wish to monitor on all of your devices. Select from these options:
-  - Night
-  - Rain
+{% configuration %}
+monitored_conditions:
+  description: "The sensors that you wish to monitor on all of your devices. Select from these options:"
+  required: true
+  type: list
+  keys:
+    night:
+      description: Night
+    rain:
+      description: Rain
+{% endconfiguration %}

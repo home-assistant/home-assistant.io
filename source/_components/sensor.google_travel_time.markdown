@@ -115,5 +115,6 @@ You can also use the `sensor.google_travel_sensor_update` service to update the 
         - fri
   action:
     - service: sensor.google_travel_sensor_update
-      entity_id: sensor.morning_commute
+      data:
+        entity_id: sensor.morning_commute
 ```

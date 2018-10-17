@@ -24,10 +24,13 @@ tts:
   - platform: picotts
 ```
 
-Configuration variables:
-
-- **language** (*Optional*): The language to use. Defaults to `en-US`. 
-Supported languages : 'en-US', 'en-GB', 'de-DE', 'es-ES', 'fr-FR', 'it-IT'
+{% configuration %}
+language:
+  description: "The language to use. Supported languages : 'en-US', 'en-GB', 'de-DE', 'es-ES', 'fr-FR', 'it-IT'"
+  required: false
+  default: "`en-US`"
+  type: string
+{% endconfiguration %}
 
 A full configuration sample:
 

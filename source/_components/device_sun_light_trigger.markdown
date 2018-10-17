@@ -27,12 +27,26 @@ To enable this component, add the following lines to your `configuration.yaml` f
 device_sun_light_trigger:
 ```
 
-Configuration variables:
-
-- **light_group** (*Optional*): Specify a specific light/group of lights that has to be turned on.
-- **light_profile** (*Optional*): Specify which light profile to use when turning lights on.
-- **device_group** (*Optional*): Specify which group of devices to track.
-- **disable_turn_off** (*Optional*): Disable lights being turned off when everybody leaves the house.
+{% configuration %}
+light_group:
+  description: Specify a specific light/group of lights that has to be turned on.
+  required: false
+  type: string
+light_profile:
+  description: Specify which light profile to use when turning lights on.
+  required: false
+  default: relax
+  type: string
+device_group:
+  description: Specify which group of devices to track.
+  required: false
+  type: string
+disable_turn_off:
+  description: Disable lights being turned off when everybody leaves the house.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 A full configuration example could look like this:
 

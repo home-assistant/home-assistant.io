@@ -25,7 +25,14 @@ gc100:
   port: 4998
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname/IP address of your GC100 device.
-- **port** (*Optional*): The port on which the GC100 is listening.
+{% configuration %}
+host:
+  description: The hostname or IP address of your GC100 device.
+  required: true
+  type: string
+port:
+  description: The port on which the GC100 is listening.
+  required: false
+  default: 4998
+  type: integer
+{% endconfiguration %}
