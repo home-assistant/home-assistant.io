@@ -60,6 +60,11 @@ done_message:
     if an alert notification was sent for transitioning from `off` to `on`. This can include a [template][template].
   required: false
   type: string
+title:
+  description: >
+    A title to be used for the notification if the notifier supports it.
+  required: false
+  type: string
 entity_id:
   description: The ID of the entity to watch.
   required: true
@@ -87,6 +92,16 @@ skip_first:
   required: false
   type: boolean
   default: false
+data:
+  description: >
+    Dictionary of extra parameters to send to the notifier.
+  required: false
+  type: dictionary
+data_template:
+  description: >
+    emplate dictionary of extra parameters to send to the notifier.
+  required: false
+  type: dictionary
 notifiers:
   description: "List of `notification` components to use for alerts."
   required: true
@@ -191,5 +206,37 @@ sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+
+
+### {% linkable_title Additional parameters for notifiers  %}
+
+Some notifiers support more parameters (e.g. to set text color or action
+  buttons). These can be supplied via the `data` (or `data_template` in case
+    it is a template) parameter:
+
+```yaml
+# Example configuration.yaml entry
+alert:
+  garage_door:
+    name: Garage is open
+    entity_id: input_boolean.garage_door
+    state: 'on'   # Optional, 'on' is the default value
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: True  # Optional, default is True
+    skip_first: True  # Optional, false is the default
+    data:
+      data:
+        inline_keyboard:
+          - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+    notifiers:
+      - frank_telegram
+```
+
+This particular example relies on the `inline_keyboard` functionality of
+Telegram, where the user is presented with buttons to execute certain actions.
+
 
 [template]: /docs/configuration/templating/
