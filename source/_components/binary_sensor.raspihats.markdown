@@ -49,30 +49,29 @@ i2c_hats:
       description: The board I2C address as HEX value.
       required: true
       type: string
+    channels:
+      description: Array of used digital input channels.
+      required: true
+      type: list
       keys:
-        channels:
-          description: Array of used digital input channels.
+        index:
+          description: Digital input channel index.
           required: true
-          type: list
-          keys:
-            index:
-              description: Digital input channel index.
-              required: true
-              type: integer
-            name:
-              description: Friendly name to use for the frontend.
-              required: true
-              type: string
-            invert_logic:
-              description: Inverts the input logic.
-              required: false
-              default: false
-              type: boolean
-            device_class:
-              description: See device classes in [binary_sensor component](/components/binary_sensor/).
-              required: false
-              default: "None"
-              type: string
+          type: integer
+        name:
+          description: Friendly name to use for the frontend.
+          required: true
+          type: string
+        invert_logic:
+          description: Inverts the input logic.
+          required: false
+          default: false
+          type: boolean
+        device_class:
+          description: See device classes in [binary_sensor component](/components/binary_sensor/).
+          required: false
+          default: "None"
+          type: string
 {% endconfiguration %}
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
