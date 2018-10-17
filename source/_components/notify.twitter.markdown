@@ -57,6 +57,5 @@ username:
   required: false
   type: string
 {% endconfiguration %}
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
