@@ -50,18 +50,19 @@ queries:
   description: At least one entry required.
   required: true
   type: list
-mode:
-  description: One of `bus` or `train`.
-  required: true
-  type: list
-origin:
-  description: Specify the three character long origin station code.
-  required: true
-  type: string
-destination:
-  description: Specify the three character long destination station code.
-  required: true
-  type: string
+  keys:
+    mode:
+      description: One of `bus` or `train`.
+      required: true
+      type: list
+    origin:
+      description: Specify the three character long origin station code.
+      required: true
+      type: string
+    destination:
+      description: Specify the three character long destination station code.
+      required: true
+      type: string
 {% endconfiguration %}
 
 A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains.
