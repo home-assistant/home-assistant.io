@@ -69,7 +69,7 @@ module Jekyll
         end
         markup << "</p>"
         if attr.key? 'default'
-          markup << "<p class='default'>Default value: #{attr['default']}</p>"
+          markup << "<p class='default'>Default value: `#{attr['default']}`</p>"
         end
         markup << "</dd>"
 
