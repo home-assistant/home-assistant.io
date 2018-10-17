@@ -36,7 +36,7 @@ domain:
   required: true
   type: string
 sandbox:
-  description: If a sandboxed domain is used, specify it in `domain`.
+  description: "(**Deprecated**) If a sandboxed domain is used, specify it in `domain`."
   required: false
   default: false
   type: boolean
@@ -51,7 +51,7 @@ recipient:
 sender:
   description: The sender's email address.
   required: false
-  default: "Defaults to `hass@DOMAIN`, where `DOMAIN` is the outgoing mail domain, as defined by the `domain` configuration entry."
+  default: "`hass@DOMAIN`, where `DOMAIN` is the outgoing mail domain, as defined by the `domain` configuration entry."
   type: string
 {% endconfiguration %}
 

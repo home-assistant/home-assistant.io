@@ -37,7 +37,7 @@ api_key:
   required: true
   type: string
 sandbox:
-  description: Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed.
+  description: "(**Deprecated**) Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed."
   required: false
   default: false
   type: boolean
