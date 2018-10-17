@@ -42,5 +42,6 @@ password:
 name:
   description: The name to use when displaying this switch.
   required: false
+  default: Edimax Smart Plug
   type: string
 {% endconfiguration %}
