@@ -15,11 +15,11 @@ ha_release: 0.77
 
 The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan thermal control. For controlling the fan functionality, see the [dyson fan](/components/fan.dyson/) component.
 
-You have first to set up the [Dyson component](/components/dyson/)
+You have first to set up the [Dyson component](/components/dyson/).
 
 ### {% linkable_title Component services %}
 
-This component support the following services (see [Climate](/components/climate/)):
+This component supports the following services (see [Climate](/components/climate/)):
 * [`turn_on`](/components/climate/#service-climateturn_on)
 * [`turn_off`](/components/climate/#service-climateturn_off)
 * [`set_temperature`](/components/climate/#service-climateset_temperature)
