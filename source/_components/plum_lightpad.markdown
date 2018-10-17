@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category: Switch
 ha_iot_class: "Local Push"
 featured: true
 ha_release: "0.80"
