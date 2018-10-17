@@ -10,7 +10,7 @@ footer: true
 logo: ebusd.png
 ha_category: Ebus
 ha_iot_class: "Local Polling"
-ha_release: "0.80"
+ha_release: "0.81"
 ---
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and homeassistant using sensor component.
@@ -24,35 +24,11 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 ebus:
   - platform: ebusd
     host: 127.0.0.1
-    port: 8888
-    name: 'ebusd'
     circuit: '700'
     monitored_conditions:
       - 'MaxFlowTemperatureDesired'
-      - 'MinFlowTemperatureDesired'
       - 'WaterPressure'
       - 'PumpStatus'
-      - 'HWTemperatureDesired'
-      - 'HWTimerMonday'
-      - 'HWTimerTuesday'
-      - 'HWTimerWednesday'
-      - 'HWTimerThursday'
-      - 'HWTimerFriday'
-      - 'HWTimerSaturday'
-      - 'HWTimerSunday'
-      - 'Zone1NightTemperature'
-      - 'Zone1DayTemperature'
-      - 'Zone1RoomTemperature'
-      - 'Zone1ActualRoomTemperatureDesired'
-      - 'Zone1TimerMonday'
-      - 'Zone1TimerTuesday'
-      - 'Zone1TimerWednesday'
-      - 'Zone1TimerThursday'
-      - 'Zone1TimerFriday'
-      - 'Zone1TimerSaturday'
-      - 'Zone1TimerSunday'
-      - 'Zone1OperativeMode'
-      - 'PowerEnergyConsumptionThisMonth'
 ```
 
 {% configuration %}
@@ -65,7 +41,7 @@ circuit:
   required: true
   type: string
 port:
-  description: The port your ebus daemon uses, defaults to 8888.
+  description: The port your ebus daemon uses.
   type: integer
   required: false
   default: 8888
@@ -73,6 +49,7 @@ name:
   description: The name to use when displaying this ebusd instance.
   type: string
   required: false
+  default: ebusd
 monitored_conditions:
   description: List of condition to monitor.
   type: map
