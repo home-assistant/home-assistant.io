@@ -38,7 +38,7 @@ name:
   default: DuneHD
   type: string
 sources:
-  description: A name-value dictionary of sources than be requested to play.
+  description: A name-value dictionary of sources than can be requested to play.
   required: false
   type: string
 {% endconfiguration %}
