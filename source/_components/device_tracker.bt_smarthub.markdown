@@ -12,7 +12,6 @@ ha_category: Presence Detection
 ha_release: "0.80"
 ---
 
-
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.
 This router is sometimes referred to as the BT Home Hub 6.
 
@@ -22,15 +21,14 @@ To use a BT Smart Hub router in your installation, add the following to your `co
 # Example configuration.yaml entry
 device_tracker:
   - platform: bt_smarthub
-    
 ```
+
 {% configuration %}
 host:
   description: The IP address of your router 
-  Default: 192.168.1.254
+  default: 192.168.1.254
   required: false
   type: string
 {% endconfiguration %}
-
 
 See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
