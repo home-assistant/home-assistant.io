@@ -17,7 +17,7 @@ The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip install lxml</code>; be patient this will take a while.
+If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip3 install lxml</code>; be patient this will take a while.
 </p>
 
 To use the Fritz!Box network monitor in your installation, add the following to your `configuration.yaml` file:
