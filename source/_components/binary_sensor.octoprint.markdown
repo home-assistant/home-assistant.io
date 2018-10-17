@@ -30,9 +30,19 @@ binary_sensor:
       - Printing Error
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): States to monitor.
-  - **Printing**: State of the printer.
-  - **Printing Error**: Error while printing.
-- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
+{% configuration %}
+monitored_conditions:
+  description: States to monitor.
+  required: true
+  type: list
+  keys:
+    printing:
+      description: State of the printer.
+    printing error:
+      description: Error while printing.
+name:
+  description:
+  required: The name of the sensor.
+  default: OctoPrint
+  type: string
+{% endconfiguration %}
