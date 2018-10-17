@@ -26,8 +26,19 @@ media_player:
   - platform: dunehd
     host: IP_ADDRESS
 ```
-Configuration variables:
 
-- **host** (*Required*): IP address or hostname of the device. Example: 192.168.1.32
-- **name** (*Optional*): Name of the device.
-- **sources** (*Optional*): A name-value dictionary of sources that HA component can request to play.
+{% configuration %}
+host:
+  description: IP or hostname of the device. Example: 192.168.1.32.
+  required: true
+  type: string
+name:
+  description: Name of the device.
+  required: false
+  default: DuneHD
+  type: string
+sources:
+  description: A name-value dictionary of sources that HA component can request to play.
+  required: false
+  type: string
+{% endconfiguration %}
