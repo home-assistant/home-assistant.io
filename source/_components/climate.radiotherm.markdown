@@ -30,12 +30,27 @@ climate:
   - platform: radiotherm
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
-- **away_temperature_heat** (*Optional*): Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '60'.
-- **away_temperature_cool** (*Optional*): Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '85'.
-- **hold_temp** (*Optional*): Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`). Defaults to `False`.
+{% configuration %}
+host:
+  description: List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
+  required: false
+  type: list
+away_temperature_heat:
+  description: Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 60
+  type: float
+away_temperature_cool:
+  description: Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 85
+  type: float
+hold_temp:
+  description: Boolean to control if Home Assistant temperature adjustments hold (`true`) or are temporary (`false`).
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 Set `hold_temp: True` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
 

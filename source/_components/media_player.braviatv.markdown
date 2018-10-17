@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](http://www.sony.com).
 
-Almost all [Sony Bravia TV 2013 and newer](http://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further below. 
+Almost all [Sony Bravia TV 2013 and newer](http://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further below.
 
 You will need to configure your TV to allow the Home Assistant for remote usage. To do that, ensure that your TV is turned on. Open the configuration popup on Home Assistant and enter a random PIN (for example 0000). After that, the TV will show you a PIN and Home Assistant will allow you to re-enter that PIN. Enter the PIN shown on your TV and Home Assistant will be able to control your Sony Bravia TV.
 
@@ -28,10 +28,17 @@ media_player:
     host: 192.168.0.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the Sony Bravia TV, eg. 192.168.0.10
-- **name** (*Optional*): The name to use on the frontend.
+{% configuration %}
+host:
+  description: The IP of the Sony Bravia TV, e.g., 192.168.0.10
+  required: true
+  type: string
+name:
+  description: The name to use on the frontend.
+  required: false
+  default: Sony Bravia TV
+  type: string
+{% endconfiguration %}
 
 You are also able to configure the TV manually by placing a `bravia.conf` file in your [configuration directory](/docs/configuration/) with the following information - please update the details to match your setup:
 
@@ -58,7 +65,7 @@ switch:
         value_template: {% raw %}'{{ value == "power status: on" }}{% endraw %}'
 ```
 
-Using `cec-client` is a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote. 
+Using `cec-client` is a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote.
 
 This is because only one process can control the CEC functionality within the Raspberry Pi at a time and running the above commands terminates the functionality inside libCEC within Kodi. Kodi must be restarted for TV remove functionality to work again.
 

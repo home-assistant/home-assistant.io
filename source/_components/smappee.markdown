@@ -59,11 +59,11 @@ host_password:
   required: false
   type: string
 client_id:
-  description: Your Smappee API client_id.
+  description: Your Smappee API client ID.
   required: false
   type: string
 client_secret:
-  description: Your Smappee API client_secret.
+  description: Your Smappee API client secret.
   required: false
   type: string
 username:

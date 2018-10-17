@@ -32,11 +32,20 @@ lutron:
   password: integration
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the Main Repeater.
-- **username** (*Required*): The login name of the user. The user `lutron` always exists, but other users can be added via RadioRA 2 software.
-- **password** (*Required*): The password for the user specified above. `integration` is the password for the always-present `lutron` user.
+{% configuration %}
+host:
+  description: The IP address of the Main Repeater.
+  required: true
+  type: string
+username:
+  description: The login name of the user. The user `lutron` always exists, but other users can be added via RadioRA 2 software.
+  required: true
+  type: string
+password:
+  description: The password for the user specified above. `integration` is the password for the always-present `lutron` user.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 It is recommended to assign a static IP address to your main repeater. This ensures that it won't change IP addresses, so you won't have to change the `host` if it reboots and comes up with a different IP address.

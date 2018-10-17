@@ -42,6 +42,27 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 - Add new component fritzbox binary_sensor ([@hthiery] - [#17057]) ([fritzbox docs]) ([binary_sensor.fritzbox docs]) (new-platform)
 - Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
 
+## {% linkable_title Release 0.80.1 - October 15 %}
+
+- Fix automation editor ([@armills])
+- Fix arm/disarm calls. ([@mbrrg] - [#17381]) ([alarm_control_panel.spc docs])
+- Fix hangout.send_message requiring data key ([@quazzie] - [#17393]) ([hangouts docs])
+- Bugfix eventstream with EOF on end ([@pvizeli] - [#17465]) ([api docs])
+- Fix websocket API ([@balloob] - [#17471]) ([websocket_api docs])
+
+[#17381]: https://github.com/home-assistant/home-assistant/pull/17381
+[#17393]: https://github.com/home-assistant/home-assistant/pull/17393
+[#17465]: https://github.com/home-assistant/home-assistant/pull/17465
+[#17471]: https://github.com/home-assistant/home-assistant/pull/17471
+[@balloob]: https://github.com/balloob
+[@mbrrg]: https://github.com/mbrrg
+[@pvizeli]: https://github.com/pvizeli
+[@quazzie]: https://github.com/quazzie
+[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
+[api docs]: /components/api/
+[hangouts docs]: /components/hangouts/
+[websocket_api docs]: /components/websocket_api/
+
 ## {% linkable_title New Features %}
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)

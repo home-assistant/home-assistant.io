@@ -26,6 +26,7 @@ cover:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     type: chamberlain
+    scan_interval: 300
 ```
 
 {% configuration %}
@@ -41,5 +42,10 @@ type:
   description: "Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`."
   required: true
   type: string
+scan_interval:
+  description: Interval in seconds to poll the Chamberlain API for status updates (open, closed, etc)
+  required: false
+  type: integer
+  default: 120
 {% endconfiguration %}
 

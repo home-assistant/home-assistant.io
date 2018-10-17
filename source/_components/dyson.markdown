@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.47
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan.dyson/) and [Robot vacuum](/components/vacuum.dyson/).
+The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan.dyson/) and [Robot vacuum cleaners](/components/vacuum.dyson/).
 
 ## {% linkable_title Configuration %}
 
@@ -24,7 +24,7 @@ To enable this component, add the following lines to your `configuration.yaml`:
 dyson:
   username: YOUR_DYSON_USERNAME
   password: YOUR_DYSON_PASSWORD
-  language: YOUR_DYSON_ACCOUNT_LANGUGAGE
+  language: YOUR_DYSON_ACCOUNT_LANGUAGE
   devices:
     - device_id: DEVICE_ID_1 # eg. Serial number: XXX-XX-XXXXXXXX
       device_ip: DEVICE_IP_1

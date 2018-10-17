@@ -21,7 +21,7 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 # Example configuration.yaml entry
 climate:
   - platform: sensibo
-    api_key: <your_key_here>
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
@@ -45,7 +45,7 @@ done in the app and actions done by Home Assistant.
 ```yaml
 climate:
   - platform: sensibo
-    api_key: deadbeaf
+    api_key: YOUR_API_KEY
     id:
       - id1
       - id2
