@@ -50,30 +50,29 @@ i2c_hats:
       description: The board I2C address as HEX value.
       required: true
       type: string
+    channels:
+      description: An array of used digital input channels.
+      required: true
+      type: list
       keys:
-        channels:
-          description: An array of used digital input channels.
+        index:
+          description: The digital input channel index.
           required: true
-          type: list
-          keys:
-            index:
-              description: The digital input channel index.
-              required: true
-              type: integer
-            name:
-              description: The friendly name to use for the frontend.
-              required: true
-              type: string
-            invert_logic:
-              description: Inverts the input logic.
-              required: false
-              default: false
-              type: boolean
-            initial_state:
-              description: "The initial state, can be either `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
-              required: false
-              default: None
-              type: boolean
+          type: integer
+        name:
+          description: The friendly name to use for the frontend.
+          required: true
+          type: string
+        invert_logic:
+          description: Inverts the input logic.
+          required: false
+          default: false
+          type: boolean
+        initial_state:
+          description: "The initial state, can be either `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
+          required: false
+          default: None
+          type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
