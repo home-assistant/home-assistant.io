@@ -40,12 +40,12 @@ plum_lightpad:
 ```
 
 {% configuration %}
-  username:
-    required: true
-    description: Your Plum Cloud username
-    type: string
-  password:
-    required: true
-    description: Your Plum Cloud password
-    type: string
+username:
+  required: true
+  description: Your Plum Cloud username
+  type: string
+password:
+  required: true
+  description: Your Plum Cloud password
+  type: string
 {% endconfiguration %}
