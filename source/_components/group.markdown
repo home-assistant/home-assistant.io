@@ -61,11 +61,11 @@ name:
   required: false
   type: string
 view:
-  description: If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views.
+  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views."
   required: false
   type: boolean
 icon:
-  description: If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text.  If it's not a view, then the icon shows when this group is used in another group.
+  description: If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text. If it's not a view, then the icon shows when this group is used in another group.
   required: false
   type: string
 control:
