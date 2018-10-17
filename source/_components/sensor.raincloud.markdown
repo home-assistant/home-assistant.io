@@ -25,10 +25,19 @@ sensor:
   - platform: raincloud
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.
-  - **battery**: Return the battery level the Melnor RainCloud faucet.
-  - **next_cycle**: Return the next schedulle watering cycle per zone.
-  - **rain_delay**: Return the number of days the automatic watering will be delayed due to raining per zone.
-  - **watering_time**: Return the watering remaining minutes per zone.
+{% configuration %}
+monitored_conditions:
+  description: Conditions to display in the frontend. The following conditions can be monitored.
+  required: false
+  default: If not specified, all conditions below will be enabled.
+  type: list
+  keys:
+    battery:
+      description: Return the battery level the Melnor RainCloud faucet.
+    next_cycle:
+      description: Return the next schedulle watering cycle per zone.
+    rain_delay:
+      description: Return the number of days the automatic watering will be delayed due to raining per zone.
+    watering_time:
+      description: Return the watering remaining minutes per zone.
+{% endconfiguration %}
