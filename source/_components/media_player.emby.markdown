@@ -28,16 +28,16 @@ media_player:
 
 {% configuration %}
 host:
-  description: The host name or address of the device that is running Emby.
+  description: The host name or IP address of the device that is running Emby.
   required: false
   default: localhost
   type: string
 api_key:
-  description: The api-key you would like home-assistant to use to authenticate.
+  description: The API key to use to authenticate.
   required: true
   type: string
 ssl:
-  description: True if you want to connect with https/wss. Your SSL certificate must be valid.
+  description: True if you want to connect with HTTPS/WSS. Your SSL certificate must be valid.
   required: false
   default: false
   type: boolean
