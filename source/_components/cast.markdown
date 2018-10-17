@@ -30,13 +30,13 @@ For example, Cast devices can only be discovered if they are on the same subnet 
 cast:
   media_player:
   - host: 192.168.1.10
-  - port: 8009
+    port: 8009
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): Use only if you don't want to scan for devices.
-- **port** (*Optional*): Specify chromecast port number - useful to define Chromecast Audio groups
+- **port** (*Optional*): Specify chromecast port number - useful to manually define Chromecast Audio groups. Default: **8009**.
 - **ignore_cec** (*Optional*) A list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
 
 ### {% linkable_title Chromecast Audio Groups and static configuration %}
