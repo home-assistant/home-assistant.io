@@ -155,3 +155,6 @@ patch_version_notes: "#release-0802---october-17"
 # disqus_end_date: 2018-01-26 0:00:00
 # Disqus is adding gross ads, move all comments to discourse.
 disqus_end_date: 2010-01-26 0:00:00
+
+# Support .well-known directory
+include: [".well-known"]
