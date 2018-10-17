@@ -42,6 +42,10 @@ param:
   description: An additional parameter for the Homematic device. 
   required: true
   type: string
+interface:
+  description: Set the name of the interface from the config.
+  required: false
+  type: string
 value:
   description: This is the value that is set on the device. Its device specific.
   required: true
