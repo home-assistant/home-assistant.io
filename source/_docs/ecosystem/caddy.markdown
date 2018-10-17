@@ -10,7 +10,7 @@ footer: true
 ---
 
 Configure [Caddy Server](https://caddyserver.com/) for use as a reverse proxy to Home Assistant.
-## Install
+### {% linkable_title Install %}
 
 <p class='note warning'>
 It can potentially be dangerous to send a command straight to bash please make sure you trust the source before running that type of commands, to check what this command does head over to [getcaddy.com](https://getcaddy.com/)
@@ -43,7 +43,7 @@ If you encounter issues with Google TTS update your ``base_url`` to include ``ht
 http:
   base_url: https://hass.example.org
 ```
-## More Info
+### {% linkable_title More Info %}
 To learn more about Caddy Server go to the [Caddy Docs](https://caddyserver.com/docs)
 
 For more info on port forwarding visit: [portforward.com](https://portforward.com/router.htm) and select your router to find a guide specific to your router
