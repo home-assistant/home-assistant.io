@@ -19,7 +19,7 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install python3-lxml</code>
-If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev; pip install lxml</code>; be patient this will take a while.</p>
+If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev; pip3 install lxml</code>; be patient this will take a while.</p>
 
 ## {% linkable_title Configuration %}
 
