@@ -42,7 +42,7 @@ bed:
   default: false
   type: boolean
 number_of_tools:
-  description: Number of temperature adjustable tools. i.e. nozzle
+  description: Number of temperature adjustable tools, i.e. nozzle.
   required: false
   default: 0
   type: integer
