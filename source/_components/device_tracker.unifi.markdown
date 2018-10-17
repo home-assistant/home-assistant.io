@@ -69,7 +69,7 @@ ssid_filter:
     required: false
     default: None
 monitor_all:
-    description: Pull all available extra attributes from the Unifi controller.
+    description: Pull all available extra attributes from the Unifi controller. This option will override the monitored_conditions list.
     type: boolean
     required: false
     default: false
