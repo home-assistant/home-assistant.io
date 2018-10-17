@@ -23,6 +23,9 @@ media_player:
   - platform: roku
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): Use only if you don't want to scan for devices.
+{% configuration %}
+host:
+  description: Use only if you don't want to scan for devices.
+  required: false
+  type: string
+{% endconfiguration %}
