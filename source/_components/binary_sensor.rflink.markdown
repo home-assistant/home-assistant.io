@@ -24,7 +24,6 @@ Once the ID of a binary sensor is known, it can be used to configure it as a bin
 
 Configuring a device as a binary sensor:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -32,7 +31,6 @@ binary_sensor:
      devices:
        pt2262_00174754_0: {}
 ```
-{% endraw %}
 
 {% configuration binary_sensor.rflink %}
 devices:
@@ -65,7 +63,7 @@ devices:
           description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
           required: false
           type: boolean
-          default: "`false`"
+          default: false
 {% endconfiguration %}
 
 ### {% linkable_title Sensor state %}
@@ -76,9 +74,10 @@ Initially, the state of a binary sensor is unknown. When a sensor update is rece
 
 See [device support](/components/rflink/#device-support)
 
-### Additional configuration examples
+### {% linkable_title Additional configuration examples %}
+
 Multiple sensors with custom name and device class and set off_delay
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -93,4 +92,3 @@ binary_sensor:
          device_class: motion
          off_delay: 5
 ```
-{% endraw %}
