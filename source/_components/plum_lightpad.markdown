@@ -12,10 +12,7 @@ ha_iot_class: "Local Push"
 featured: true
 ha_release: "0.80"
 ---
-
-Plum Lightpad 
-
-"The most advanced smart dimmer. Ever."  https://plumlife.com/
+"The most advanced smart dimmer. Ever."  - [https://plumlife.com/](https://plumlife.com/)
 
 Configurable/Dimmable Wifi Lightswitch
 - Cloud registered, Local API communication (both RESTful and TCP pushed events)
