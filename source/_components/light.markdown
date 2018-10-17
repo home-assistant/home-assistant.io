@@ -19,7 +19,7 @@ The light component supports multiple entries in <code>configuration.yaml</code>
 
 To set the default color and brightness values when the light is turned on, create a custom `light_profiles.csv` (as described below in the `profile` attribute of `light.turn_on`).
 
-The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g. for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
 
 ### {% linkable_title Service `light.turn_on` %}
 
@@ -29,7 +29,7 @@ Most lights do not support all attributes. You can check the platform documentat
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define an xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.

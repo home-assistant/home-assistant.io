@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+ha_qa_scale: internal
 ---
 
 Home Assistant has a built-in component called `device_sun_light_trigger` to help you automate your lights. The component will:

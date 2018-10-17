@@ -29,11 +29,29 @@ netatmo:
 
 Configuration variables:
 
-- **api_key** (*Required*): The `client id` form your Netatmo app.
-- **secret_key** (*Required*): The `client secret` form your Netatmo app.
-- **username** (*Required*): Username for the Netatmo account.
-- **password** (*Required*): Password for the Netatmo account.
-- **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
+{% configuration %}
+api_key:
+  description: The `client id` from your Netatmo app.
+  required: true
+  type: string
+secret_key:
+  description: The `client secret` from your Netatmo app.
+  required: true
+  type: integer
+username:
+  description: Username for the Netatmo account.
+  required: true
+  type: string
+password:
+  description: Password for the Netatmo account.
+  required: true
+  type: string
+discovery:
+  description: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add.
+  required: false
+  type: string
+  default: true
+{% endconfiguration %}
 
 ### {% linkable_title Get API and Secret Key %}
 

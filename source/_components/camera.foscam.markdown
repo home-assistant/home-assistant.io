@@ -28,18 +28,34 @@ camera:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **ip** (*Required*): The IP address your camera.
-- **port** (*Optional*): The port that the camera is running on. The default is 88. 
-- **username** (*Required*): The username for accessing your camera.
-- **password** (*Required*): The password for accessing your camera.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
+{% configuration %}
+ip:
+  description: The IP address your camera.
+  required: true
+  type: string
+port:
+  description: The port that the camera is running on.
+  required: false
+  default: 88
+  type: integer
+username:
+  description: The username for accessing your camera.
+  required: true
+  type: string
+password:
+  description: The password for accessing your camera.
+  required: true
+  type: string
+name:
+  description: This parameter allows you to override the name of your camera.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
 </p>
- 
+
 ### {% linkable_title Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away %}
 
  Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.

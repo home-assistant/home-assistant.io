@@ -40,20 +40,20 @@ name:
 qos:
   description: The maximum QoS level of the state topic.
   required: false
-  type: int
+  type: integer
   default: 0
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
 icon:
-  description: Icon for the sensor (e.g. `mdi:gauge`).
+  description: Icon for the sensor.
   required: false
-  type: string
+  type: icon
 expire_after:
   description: Defines the number of seconds after the value expires if it's not updated.
   required: false
-  type: int
+  type: integer
   default: 0
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
@@ -91,11 +91,40 @@ device_class:
   required: false
   type: device_class
   default: None
+device:
+  description: 'Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title JSON attributes configuration %}
 

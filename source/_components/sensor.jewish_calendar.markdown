@@ -7,10 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Calendar
-ha_iot_class: "Local Push"
-ha_release: "0.80"
+ha_iot_class: "Local Poll"
+ha_release: "0.79"
 ---
 
 The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.
@@ -35,13 +34,13 @@ latitude:
   required: false
   description: Latitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
+  type: integer
 longitude:
   required: false
   description: Longitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
-disapora:
+  type: integer
+diaspora:
   required: false
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
   default: False
@@ -90,7 +89,7 @@ sensors:
 sensor:
   - platform: jewish_calendar
     language: english
-    disapora: True
+    diaspora: true
     sensors:
       - date
       - weekly_portion

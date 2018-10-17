@@ -15,15 +15,20 @@ ha_iot_class: "Local Polling"
 redirect_from: /components/media_player.cast/
 ---
 
-
-Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/). If you don't have the discovery component enabled, you can enable the Cast component by going to the Integrations page inside the config panel.
+Google Cast devices like Android TVs and Chromecasts will be automatically
+discovered if you enable [the discovery component](/components/discovery/). If
+you don't have the discovery component enabled, you can enable the Cast
+component by going to the Integrations page inside the config panel.
 
 ## {% linkable_title Advanced use %}
 
-The Cast component has some extra configuration options available for advanced users. You will still need to create a config entry to initialize the Cast component.
+The Cast component has some extra configuration options available for advanced
+users. You will still need to create a config entry to initialize the Cast
+component.
 
-For example, Cast devices can only be discovered if they are on the same subnet as Home Assistant. If this is not the case, you want to configure the IP address of the Cast device directly:
-
+For example, Cast devices can only be discovered if they are on the same subnet
+as Home Assistant. If this is not the case,
+you want to configure the IP address of the Cast device directly:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,11 +38,38 @@ cast:
     port: 8009
 ```
 
-Configuration variables:
+{% configuration %}
+media_player:
+  description: A list that contains all Cast devices.
+  required: true
+  type: list
+  keys:
+    host:
+      description: Use only if you don't want to scan for devices.
+      required: false
+      type: string
+    port:
+      description: Specify chromecast port number - useful to manually define Chromecast Audio groups. Defaults to **8009** if unspecified.
+      required: false
+      type: int
+    ignore_cec:
+      description: >
+        A list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
+      required: false
+      type: list
+{% endconfiguration %}
 
-- **host** (*Optional*): Use only if you don't want to scan for devices.
-- **port** (*Optional*): Specify chromecast port number - useful to manually define Chromecast Audio groups. Defaults to **8009** if unspecified.
-- **ignore_cec** (*Optional*) A list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
+If you want to manually configure multiple Cast media players, you can define
+those as follows:
+
+```yaml
+# Example configuration.yaml entry for multiple devices
+cast:
+  media_player:
+  - host: IP_ADDRESS_DEVICE_1
+  - host: IP_ADDRESS_DEVICE_2
+```
 
 ### {% linkable_title Chromecast Audio Groups and static configuration %}
 Chromecasts and its Audio Groups are added automatically as long as [the discovery component]({{site_root}}/components/discovery/) is used to discover your Chromecast devices, Home Assistant is running in the same network as your Chromecast devices, and you don't have any Chromecast devices configured manually in your *configuration.yaml* file (the configuration includes only `cast:` and no static devices).

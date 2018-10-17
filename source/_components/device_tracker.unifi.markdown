@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Presence Detection
+ha_iot_class: "Local Polling"
 ha_release: 0.14
 ---
 
@@ -45,7 +46,7 @@ host:
 port:
     description: The port of your controller's web interface
     default: 8443
-    type: int
+    type: integer
     required: false
 site_id:
     description: For multisite installations, you can specify `site_id` to specify which is used
@@ -59,7 +60,7 @@ verify_ssl:
     default: true
 detection_time:
     description: How long since the last seen time before the device is marked away, specified in seconds.
-    type: int
+    type: integer
     required: false
     default: 300
 ssid_filter:

@@ -52,7 +52,7 @@ protocol:
 port:
   description: SSH port to use.
   required: false
-  type: int
+  type: integer
   default: 22
 mode:
   description: "The operating mode of the router (`router` or `ap`)."

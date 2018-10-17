@@ -21,7 +21,11 @@ In addition to having a USPS account, you will need to complete the "Opt-In" pro
 This component requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
 <p class='note warning'>
-  If you are using a Raspberry Pi, you must use PhantomJS.
+  If you are using a Raspberry Pi, you must use PhantomJS.  
+</p>
+
+<p class='note warning'>
+  Hass.io containers are based on Alpine Linux. PhanthomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io. 
 </p>
 
 ### PhantomJS

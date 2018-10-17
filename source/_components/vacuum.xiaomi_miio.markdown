@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`
@@ -29,7 +29,7 @@ Currently supported features are:
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
-## {% linkable_title Configuring the Platform %}
+## {% linkable_title Configuration %}
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
 
@@ -40,11 +40,20 @@ vacuum:
     token: YOUR_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of your robot.
-- **token** (*Required*): The API token of your robot.
-- **name** (*Optional*): The name of your robot.
+{% configuration %}
+  host:
+    description: The IP address of your robot.
+    required: true
+    type: string
+  token:
+    description: The API token of your robot.
+    required: true
+    type: string
+  name:
+    description: The name of your robot. 
+    required: false
+    type: string
+{% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
 
@@ -249,3 +258,10 @@ To fetch the token follow these instructions depending on your mobile phone plat
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
+
+#### {% linkable_title Bluestacks %}
+
+1. Configure the robot with the Mi-Home app.
+2. Install [BlueStacks](https://www.bluestacks.com).
+3. Set up the Mi-Home app in BlueStacks and login to synchronize devices.
+4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.

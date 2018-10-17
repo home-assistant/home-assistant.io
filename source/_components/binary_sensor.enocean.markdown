@@ -30,11 +30,21 @@ binary_sensor:
     id: [0x01,0x90,0x84,0x3C]
 ```
 
-Configuration variables:
-
-- **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
-- **name** (*Optional*): An identifier for the switch in the frontend.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer.
+  required: true
+  type: list
+name:
+  description: An identifier for the switch in the frontend.
+  required: false
+  default: EnOcean binary sensor
+  type: string
+device_class:
+  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+{% endconfiguration %}
 
 EnOcean binary sensors only generate 'button_pressed' events. The event data has following four fields:
 

@@ -29,10 +29,17 @@ media_player:
 When starting or restarting Home Assistant make sure your TV is off. This is a flaw in the TV itself.
 </p>
 
-Configuration variables:
-
-- **host** (*Optional*): The IP of the Xiaomi TV, eg. 192.168.0.10
-- **name** (*Optional*): The name to use on the frontend. Default is 'Xiaomi TV'.
+{% configuration %}
+host:
+  description: "The IP of the Xiaomi TV, e.g., `192.168.0.10`."
+  required: false
+  type: string
+name:
+  description: The name to use on the frontend.
+  required: false
+  default: Xiaomi TV
+  type: string
+{% endconfiguration %}
 
 If you do not set a host in the configuration file, local TVs will automatically be discovered.
 

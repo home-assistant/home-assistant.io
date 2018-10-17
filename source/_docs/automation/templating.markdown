@@ -126,6 +126,15 @@ The following tables show the available trigger data per platform.
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
+### {% linkable_title webhook %}
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `webhook`
+| `trigger.webhook_id` | The webhook ID that was triggered.
+| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.data` | The form data of the request (if it had a form data content type).
+
 ### {% linkable_title zone %}
 
 | Template variable | Data |

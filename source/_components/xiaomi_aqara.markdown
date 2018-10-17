@@ -40,6 +40,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Gateway (Light, Illumination Sensor, Ringtone play)
 - Intelligent Curtain
 - Water Leak Sensor
+- Vibration Sensor
 - Battery
 
 #### {% linkable_title Unsupported Devices %}
@@ -116,7 +117,7 @@ xiaomi_aqara:
   discovery_retry:
     description: Number of times that Home Assistant should try to reconnect to the gateway.
     required: false
-    type: int
+    type: integer
     default: 3
   interface:
     description: Which network interface to use.

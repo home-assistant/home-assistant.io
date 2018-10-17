@@ -46,7 +46,22 @@ default_conversations:
       type: string
 {% endconfiguration %}
 
-The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
+### {% linkable_title Finding the conversation ID %}
+
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like bellow 
+
+```
+0: {
+  "id": "<Hangout ID>",
+  "name": "A simple hangout",
+  "users": [
+    "Steve",
+    "Jo"
+  ]
+}
+```
+
+This may have more if the account is in multiple hangout conversations, for configuring the bot to be in a conversation you will need the ID that would be where `<Hangout ID>` is in that example. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

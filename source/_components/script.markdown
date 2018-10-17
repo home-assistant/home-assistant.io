@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+ha_qa_scale: internal
 ---
 
 The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.

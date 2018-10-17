@@ -41,11 +41,25 @@ zha:
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 ```
 
-Configuration variables:
-
- - **radio_type** (*Optional*): One of `ezsp` (default) or `xbee`
- - **usb_path** (*Required*): Path to the serial device for the radio.
- - **baudrate** (*Optional*): Baud rate of the serial device.
- - **database_path** (*Required*): _Full_ path to the database which will keep persistent network data.
+{% configuration %}
+radio_type:
+  description: One of `ezsp` or `xbee`.
+  required: false
+  default: ezsp
+  type: string
+usb_path:
+  description: Path to the serial device for the radio.
+  required: true
+  type: string
+baudrate:
+  description: Baud rate of the serial device.
+  required: false
+  default: 57600
+  type: integer
+database_path:
+  description: _Full_ path to the database which will keep persistent network data.
+  required: true
+  type: string
+{% endconfiguration %}
 
 To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)

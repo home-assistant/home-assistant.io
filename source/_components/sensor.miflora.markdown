@@ -46,7 +46,7 @@ $ bluetoothctl
 [NEW] C4:D3:8C:12:4C:57 Flower mate
 ```
 
-If you can't use `hcitool` or `bluetoothctl` but have access to an Android phone you can try `BLE Scanner` or similar scanner applications from the Play Store to easily find your sensor MAC address.
+If you can't use `hcitool` or `bluetoothctl` but have access to an Android phone you can try `BLE Scanner` or similar scanner applications from the Play Store to easily find your sensor MAC address. If you are using Windows 10, try the `Microsoft Bluetooth LE Explorer` app from the Windows Store.
 
 # Configure
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
@@ -60,17 +60,45 @@ sensor:
       - moisture
 ```
 
-- **mac** (*Required*): The MAC address of your sensor.
-- **monitored_conditions** array (*Optional*): The parameters that should be monitored (defaults to monitoring all parameters).
-  - **moisture**: Moisture in the soil.
-  - **light**: Brightness at the sensor's location.
-  - **temperature**: Temperature at the sensor's location.
-  - **conductivity**: Conductivity in the soil.
-  - **battery**: Battery details.
-- **name** (*Optional*): The name displayed in the frontend.
-- **force_update** (*Optional*): Sends update events even if the value hasn't changed.
-- **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine.
-- **adapter** (*Optional*): Define the Bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
+{% configuration %}
+mac:
+  description: The MAC address of your sensor.
+  required: true
+  type: string
+monitored_conditions:
+  description: The parameters that should be monitored.
+  required: false
+  default: [moisture, light, temperature, conductivity, battery]
+  type: list
+  keys:
+    moisture:
+      description: Moisture in the soil.
+    light:
+      description: Brightness at the sensor's location.
+    temperature:
+      description: Temperature at the sensor's location.
+    conductivity:
+      description: Conductivity in the soil.
+    battery:
+      description: Battery details.
+name:
+  description: The name displayed in the frontend.
+  required: false
+  type: string
+force_update:
+  description: Sends update events even if the value hasn't changed.
+  required: false
+  type: boolean
+median:
+  description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
+  required: false
+  type: integer
+adapter:
+  description: "Define the Bluetooth adapter to use. Run `hciconfig` to get a list of available adapters."
+  required: false
+  default: hci0
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.

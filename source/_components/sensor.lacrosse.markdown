@@ -51,7 +51,7 @@ sensor:
   baud:
     description: The serial baudrate.
     required: true
-    type: int
+    type: integer
     default: 57600
   led:
     description: Activate or deactivate the Jeelink LED.
@@ -60,19 +60,19 @@ sensor:
   frequency:
     description: Initial frequency in 5kHz steps.
     required: false
-    type: int
+    type: integer
   datarate:
     description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
     required: false
-    type: int
+    type: integer
   toggle_mask:
     description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
     required: false
-    type: int
+    type: integer
   toggle_interval:
     description: Enable the toggle mode and set the interval in seconds.
     required: false
-    type: int
+    type: integer
   sensors:
     description: A list of your sensors.
     required: true
@@ -89,7 +89,7 @@ sensor:
       id:
         description: The LaCrosse Id of the sensor.
         required: true
-        type: int
+        type: integer
 {% endconfiguration %}
 
 

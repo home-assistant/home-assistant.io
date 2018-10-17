@@ -94,7 +94,7 @@ alarm_control_panel:
 
 ## {% linkable_title Examples %}
 
-Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples) for some real life examples of how to use this panel.
+Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples) for some real-life examples of how to use this panel.
 
 ## {% linkable_title MQTT Control %}
 

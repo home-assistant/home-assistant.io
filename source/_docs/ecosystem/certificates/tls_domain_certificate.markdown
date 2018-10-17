@@ -12,7 +12,7 @@ redirect_from: /cookbook/tls_domain_certificate/
 
 If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. You can use [Self-sign certificate](/cookbook/tls_self_signed_certificate/) but your browser will present a warning and some https-only features might not work.
 
-### {% linkable_title Prerequirement for this guide %}
+### {% linkable_title Requirement for this guide %}
 
 * Your Home Assistant instance is not exposed to the internet. If it is - use [this guide]({{site_root}}/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 * You control a public domain name. The domain doesn't have to point to a site. A domain controlled by a *trusted* friend will do. (A friend you trust not to MITM you)
@@ -45,7 +45,7 @@ Once this is deployed,
 Press Enter to Continue
 ```
 
-* Deploy the value to TXT field using your domain registar.
+* Deploy the value to TXT field using your domain registrar.
 * Go to a site that queries domain record. For example [this one](https://mxtoolbox.com/TXTLookup.aspx) and look if it sees your brand new TXT field (Don't forget to enter the full domain: `_acme-challenge.mydomain.com`)
 * Press Enter at certbot prompt.
 

@@ -24,7 +24,8 @@ Supported devices:
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
-**Telnet platform**
+## {% linkable_title Telnet platform %}
+
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -32,10 +33,16 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of the device. Example: 192.168.1.32
-- **name** (*Optional*): Name of the device.
+{% configuration %}
+host:
+  description: "IP address of the device. Example: 192.168.1.32"
+  required: true
+  type: string
+name:
+  description: The name of the device
+  required: false
+  type: string
+{% endconfiguration %}
 
 A few notes for platform: denon
 

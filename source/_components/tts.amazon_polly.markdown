@@ -15,6 +15,12 @@ ha_release: 0.37
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
+## {% linkable_title Setup %}
+
+For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) to get the needed details. Also, check the [boto3 Documentation](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions.
+
+Available voices are listed in the [Amazon Documentation](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html).
+
 ## {% linkable_title Configuration %}
 
 To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
@@ -29,21 +35,22 @@ tts:
 
 {% configuration %}
 aws_access_key_id:
-  description: "Your AWS Access Key ID. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`."
+  description: "Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`."
   required: true
   type: string
 aws_secret_access_key:
-  description: "Your AWS Secret Access Key. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`."
+  description: "Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`."
   required: true
   type: string
 profile_name:
-  description: A credentials profile name. For more information, please see the [boto3 Documentation](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) for more information.
+  description: A credentials profile name.
   required: false
   type: string
 region_name:
-  description: "The region identifier to connect to. The default is `us-east-1`. See the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions."
+  description: The region identifier to connect to.
   required: false
   type: string or list
+  default: us-east-1
 name:
   description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
   required: false
@@ -54,18 +61,19 @@ text_type:
   type: string
   default: text
 voice:
-  description: "Voice name to be used. See the [Amazon Documentation](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) for available voices."
+  description: Voice name to be used.
   required: false
   type: string
 output_format:
-  description: "Override the default output format, e.g., `mp3`, `ogg_vorbis` or `pcm`."
+  description: "Override the default output format. Either `mp3`, `ogg_vorbis` or `pcm`."
   required: false
   type: string
   default: mp3
 sample_rate:
-  description: "Override the default sample rate, defaults to 22050 for MP3 and Ogg Vorbis, 16000 for pcm."
+  description: "Override the default sample rate."
   required: false
   type: string
+  default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 {% endconfiguration %}
 
  

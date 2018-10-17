@@ -38,7 +38,7 @@ password:
 scan_interval:
   description: How frequently to query for new data. Defaults to 60 seconds.
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.

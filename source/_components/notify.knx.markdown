@@ -28,8 +28,13 @@ notify:
     address: '5/1/10'
 ```
 
-Configuration variables:
-
-* **address** (*Required*): KNX group address of the notification.
-* **name** (*Optional*): A name for this device used within Home Assistant.
-
+{% configuration %}
+address:
+  description: KNX group address of the notification.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+{% endconfiguration %}
