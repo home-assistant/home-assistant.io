@@ -69,7 +69,11 @@ module Jekyll
         end
         markup << "</p>"
         if attr.key? 'default'
-          markup << "<p class='default'>Default value: `#{attr['default']}`</p>"
+          if #{attr['default']} | number_of_words == 1
+            markup << "<p class='default'>Default value: `#{attr['default']}`</p>"
+          else
+            markup << "<p class='default'>Default value: #{attr['default']}</p>"
+          end
         end
         markup << "</dd>"
 
