@@ -27,7 +27,7 @@ gc100:
 
 {% configuration %}
 host:
-  description: The hostname/IP address of your GC100 device.
+  description: The hostname or IP address of your GC100 device.
   required: true
   type: string
 port:
