@@ -32,7 +32,7 @@ binary_sensor:
        pt2262_00174754_0: {}
 ```
 
-{% configuration binary_sensor.rflink %}
+{% configuration %}
 devices:
   description: A list of binary sensors.
   required: false
