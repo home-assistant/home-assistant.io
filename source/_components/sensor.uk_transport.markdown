@@ -39,11 +39,11 @@ sensor:
 
 {% configuration %}
 app_id:
-  description: Your application ID
+  description: Your application ID.
   required: true
   type: string
 app_key:
-  description: Your application KEY
+  description: Your application Key.
   required: true
   type: string
 queries:
