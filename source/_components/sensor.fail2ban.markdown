@@ -22,16 +22,17 @@ Your system must have `fail2ban` installed and correctly configured for this sen
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: fail2ban
     jails:
-      - ssh
+      - sshd
       - hass-iptables
 ```
+Each jail will be presented as a sensor in the Home Assistant frontend. The value of the sensor is the number of currently banned IPs. The lists of currently banned IPs, all banned IPs, and the last IP to have been banned are all exposed attributes of the sensors. Only the last 1000 IPs are kept in the "total_bans" list.
 
 {% configuration %}
 jails:
@@ -48,6 +49,11 @@ file_path:
   required: false
   type: string
   default: /var/log/fail2ban.log
+scan_interval:
+  description: Interval of time (in seconds) between two parsing of the log file.
+  required: false
+  type: integer
+  default: 120
 {% endconfiguration %}
 
 ### {% linkable_title Set up Fail2Ban %}
