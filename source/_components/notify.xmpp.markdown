@@ -45,18 +45,18 @@ resource:
   type: string
   default: home-assistant
 password:
-  description: "The password for your given Jabber account."
+  description: The password for your given Jabber account.
   required: true
 recipient:
   description: The Jabber ID (JID) that will receive the messages.
   required: true
 tls:
-  description: "Force TLS."
+  description: Force TLS.
   required: false
   type: boolean
   default: true
 verify:
-  description: "Allow disabling SSL certificate validity check, e.g., self-signed certificate."
+  description: Allow disabling SSL certificate validity check, e.g., self-signed certificate.
   required: false
   type: boolean
   default: true
