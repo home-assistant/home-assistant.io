@@ -12,9 +12,7 @@ ha_iot_class: "Local Push"
 featured: true
 ha_release: "0.80"
 ---
-"The most advanced smart dimmer. Ever."  - [https://plumlife.com/](https://plumlife.com/)
-
-Configurable/Dimmable Wifi Lightswitch
+Configurable/Dimmable WiFi Lightswitch
 - Cloud registered, Local API communication (both RESTful and TCP pushed events)
 - Motion Sensor
 - Energy Meter
@@ -22,6 +20,7 @@ Configurable/Dimmable Wifi Lightswitch
 - Wifi & Bluetooth connectivity
 - Phone Apps for iOS & Android
 
+"The most advanced smart dimmer. Ever."  - [https://plumlife.com/](https://plumlife.com/)
 
 > The Lightpad’s elegant design compliments any decor and provides amazing control of your lights. The Lightpad allows you to control a single light, group of lights, or all of your lights in a natural and intuitive way. 
 
