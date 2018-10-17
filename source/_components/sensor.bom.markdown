@@ -116,7 +116,7 @@ monitored_conditions:
     swell_dir_worded: 
       description: Swell direction.
     swell_height: 
-      description: Swell hight in m.
+      description: Swell height in m.
     swell_period:
       description: Swell period.
     vis_km:
