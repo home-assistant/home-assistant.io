@@ -24,7 +24,7 @@ curl https://getcaddy.com | bash -s personal
  
 Then create a file named ``Caddyfile``:
 ```
-hass.yourdomain.org {
+hass.example.org {
     proxy / yourhassinternalip:8123 {
         websocket
         transparent
