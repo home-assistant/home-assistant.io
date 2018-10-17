@@ -52,7 +52,7 @@ name:
   default: ebusd
 monitored_conditions:
   description: List of condition to monitor.
-  type: map
+  type: list
   required: false
   keys:
     ActualFlowTemperatureDesired:
