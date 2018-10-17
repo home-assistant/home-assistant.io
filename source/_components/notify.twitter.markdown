@@ -30,13 +30,33 @@ notify:
     access_token_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-Configuration variables:
-
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "`notify`"
+  type: string
+consumer_key:
+  description: Your "Consumer Key" (API Key) for the application.
+  required: true
+  type: string
+consumer_secret:
+  description: Your "Consumer Secret" (API Secret) for the application.
+  required: true
+  type: string
+access_token:
+  description: Your "Access Token" for the application.
+  required: true
+  type: string
+access_token_secret:
+  description: Your "Access Token Secret" for the application.
+  required: true
+  type: string
+username:
+  description: Twitter handle without `@` or with `@` and quoting for direct messaging.
+  required: false
+  type: string
+{% endconfiguration %}
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **consumer_key** (*Required*): Your "Consumer Key" (API Key) for the application.
-- **consumer_secret** (*Required*): Your "Consumer Secret" (API Secret) for the application.
-- **access_token** (*Required*): Your "Access Token" for the application.
-- **access_token_secret** (*Required*): Your "Access Token Secret" for the application.
-- **username** (*Optional*): Twitter handle without `@` or with `@` and quoting for direct messaging.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
