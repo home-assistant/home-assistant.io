@@ -23,15 +23,21 @@ To use Discord notifications, add the following to your `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: discord
-    token: A1aB2b.C3cD4d-E5eF6f
+  - platform: discord
+    token: YOUR_DISCORD_BOT_TOKEN
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **token** (*Required*): Your bot's token.
+{% configuration %}
+name:
+  description: The notifier will bind to the service `notify.NAME`.
+  required: false
+  type: string
+  default: notify
+token:
+  description: Your bot's token.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Setting up the bot %}
 

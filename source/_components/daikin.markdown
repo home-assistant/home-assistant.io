@@ -43,7 +43,7 @@ hosts:
   description: List of IP addresses or hostnames.
   required: false
   default: All discovered hosts
-  type: array
+  type: list
 monitored_conditions:
   description: List of items you want to monitor for each device.
   required: false
