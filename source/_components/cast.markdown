@@ -36,7 +36,7 @@ cast:
 Configuration variables:
 
 - **host** (*Optional*): Use only if you don't want to scan for devices.
-- **port** (*Optional*): Specify chromecast port number - useful to manually define Chromecast Audio groups. Default: **8009**.
+- **port** (*Optional*): Specify chromecast port number - useful to manually define Chromecast Audio groups. Defaults to **8009** if unspecified.
 - **ignore_cec** (*Optional*) A list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
 
 ### {% linkable_title Chromecast Audio Groups and static configuration %}
