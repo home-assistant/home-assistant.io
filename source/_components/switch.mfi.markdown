@@ -47,12 +47,12 @@ password:
   required: true
   type: string
 ssl:
-  description: If `True`, use SSL/TLS to contact the mFi controller.
+  description: If `true`, use SSL/TLS to contact the mFi controller.
   required: false
   default: true
   type: boolean
 verify_ssl:
-  description: Set this to `False` if your mFi controller has a self-signed certificate.
+  description: Set this to `false` if your mFi controller has a self-signed certificate.
   required: false
   default: true
   type: boolean
