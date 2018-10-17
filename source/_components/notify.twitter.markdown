@@ -13,9 +13,13 @@ ha_release: 0.12
 ---
 
 
-The `twitter` platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
+The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
-Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details ("Consumer Key", "Consumer Secret", "Access Token" and "Access Token Secret" which needs to be generated).
+## {% linkable_title Setup %}
+
+Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated).
+
+## {% linkable_title Configuration %}
 
 To add Twitter to your installation, add the following to your `configuration.yaml` file:
 
@@ -37,23 +41,23 @@ name:
   default: "`notify`"
   type: string
 consumer_key:
-  description: Your "Consumer Key" (API Key) for the application.
+  description: Your Consumer Key (API Key) for the application.
   required: true
   type: string
 consumer_secret:
-  description: Your "Consumer Secret" (API Secret) for the application.
+  description: Your Consumer Secret (API Secret) for the application.
   required: true
   type: string
 access_token:
-  description: Your "Access Token" for the application.
+  description: Your Access Token for the application.
   required: true
   type: string
 access_token_secret:
-  description: Your "Access Token Secret" for the application.
+  description: Your Access Token Secret for the application.
   required: true
   type: string
 username:
-  description: Twitter handle without `@` or with `@` and quoting for direct messaging.
+  description: "Twitter handle without `@` or with `@` and quoting for direct messaging."
   required: false
   type: string
 {% endconfiguration %}
