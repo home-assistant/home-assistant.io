@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: salda.png
 ha_category: Hub
-ha_release: "0.80"
+ha_release: "0.81"
 ---
 
 The `smarty` component lets you control Salda [Smarty](http://www.salda.lt/en/products/category/compact-counter-flow-units) ventilation units from Home Assistant. You need a [MB-GATEWAY](http://www.salda.lt/en/products/item/5637227077) or something similar to connect to your local network.
@@ -35,13 +35,11 @@ smarty:
   slave: 1
 ```
 
-Configuration variables:
-
 {% configuration %}
 name:
   description: The name of this device as you want to see it in Home Assistant.
   required: false
-  default: smarty
+  default: Smarty
   type: string
 slave:
   description: The modbus slave id.
