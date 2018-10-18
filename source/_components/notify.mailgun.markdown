@@ -30,13 +30,30 @@ notify:
     recipient: me@example.com
 ```
 
-Configuration variables:
-
-- **domain** (*Required*): This is the domain name to be used when sending out mail.
-- **sandbox** (*Deprecated*): If a sandboxed domain is used, specify it in `domain`. Defaults to `False`.
-- **api_key** (*Required*): This is the API Key that has been generated in your Mailgun account.
-- **recipient** (*Required*): The email address of the recipient.
-- **sender** (*Optional*): The sender's email address. Defaults to `hass@DOMAIN`, where `DOMAIN` is the outgoing mail domain, as defined by the `domain` configuration entry.
+{% configuration %}
+domain:
+  description: This is the domain name to be used when sending out mail.
+  required: true
+  type: string
+sandbox:
+  description: "(**Deprecated**) If a sandboxed domain is used, specify it in `domain`."
+  required: false
+  default: false
+  type: boolean
+api_key:
+  description: This is the API Key that has been generated in your Mailgun account.
+  required: true
+  type: string
+recipient:
+  description: The email address of the recipient.
+  required: true
+  type: string
+sender:
+  description: The sender's email address.
+  required: false
+  default: "`hass@DOMAIN`, where `DOMAIN` is the outgoing mail domain, as defined by the `domain` configuration entry."
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Example automation %}
 
