@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Notifications
-ha_release: 0.80
+ha_release: 0.81
 ---
 
 The `homematic` notification platform enables invoking Homematic devices.
