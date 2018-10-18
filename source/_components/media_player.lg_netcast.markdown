@@ -27,7 +27,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20
+  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
   required: true
   type: string
 access_token:
