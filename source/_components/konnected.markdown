@@ -127,10 +127,12 @@ devices:
     discovery:
       type: boolean
       required: false
-      description: Enable or disable discovery for this device. When true, the device will respond to discovery requests on your network. When false, the device will not respond to discovery requests, so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
+      default: true
+      description: Enable or disable discovery for this device. When `true`, the device will respond to discovery requests on your network. When `false`, the device will not respond to discovery requests, so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
     blink:
       type: boolean
       required: false
+      default: true
       description: Blink the blue LED upon successful transmission of a state change.
       
 {% endconfiguration%}
