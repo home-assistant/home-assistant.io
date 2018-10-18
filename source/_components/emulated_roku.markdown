@@ -56,14 +56,14 @@ advertise_port:
   required: false
   type: integer
 upnp_bind_multicast:
-  description: Whether or not to bind the UPnP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
+  description: Whether or not to bind the UPnP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work in most situations. In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
   required: false
   type: boolean
   default: true
 {% endconfiguration %}
 
-After starting up, you can check if the Emulated Roku is reachable at the specified ports on your hass instance (eg.: `http://192.168.1.101:8060/`)  
-If you change your advertised IP or ports you will have to re-add your Roku in Harmony.
+After starting up, you can check if the Emulated Roku is reachable at the specified ports on your Home Assistant instance (eg.: `http://192.168.1.101:8060/`).
+If you change your advertised IP or ports, you will have to re-add your Roku in Harmony.
 
 ## {% linkable_title Events %}
 
