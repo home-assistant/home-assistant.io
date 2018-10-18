@@ -30,7 +30,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of the computer running GPMDP.
+  description: The IP address of the computer running GPMDP.
   required: true
   type: string
 name:
