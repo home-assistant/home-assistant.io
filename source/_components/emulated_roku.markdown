@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.80.0
+ha_release: 0.81.0
 ha_iot_class: "Local Push"
 ha_qa_scale: internal
 ---
@@ -18,7 +18,7 @@ This component integrates an emulated Roku API into Home Assistant,
 so remotes such as Harmony and Android apps can connect to it through WiFi as it were a Roku player.  
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.  
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.  
-When using multiple servers, you can filter the roku USN which is specified via the `name` attribute.
+When using multiple servers, you can filter the Roku USN which is specified via the `name` attribute.
 
 <p class='note'>  
 Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
@@ -26,26 +26,21 @@ Windows is not supported because Home Assistant uses `ProactorEventLoop` which d
 
 ## {% linkable_title Configuration %}
 
-configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 emulated_roku:
   servers:
     - name: hass roku
       listen_port: 8060
-      host_ip: 192.168.1.150
-      advertise_ip: 10.0.0.10
-      advertise_port: 8070
-      upnp_bind_multicast: True
 ```
 
 {% configuration %}
 name:
-  description: Name of the roku that will be displayed as USN in Harmony.
+  description: Name of the Roku that will be displayed as USN in Harmony.
   required: true
   type: string
 listen_port:
-  description: The port the roku API will run on. This can be any free port on your system.
+  description: The port the Roku API will run on. This can be any free port on your system.
   required: true
   type: integer
 host_ip:
@@ -57,7 +52,7 @@ advertise_ip:
   required: false
   type: string
 advertise_port:
-  description: If you need to specifically override the advertised UPnP port.
+  description: If you need to override the advertised UPnP port.
   required: false
   type: integer
 upnp_bind_multicast:
@@ -74,11 +69,11 @@ If you change your advertised IP or ports you will have to re-add your Roku in H
 
 ### {% linkable_title Event `roku_command` %}
 
-All roku commands are sent as `roku_command` events.
+All Roku commands are sent as `roku_command` events.
 
 Field | Description
 ----- | -----------
-`source_name` | Name of the that sent the event roku. Not required for when using one Emulated Roku instance.
+`source_name` | Name of the that sent the event Roku. Not required for when using one Emulated Roku instance.
 `type` | The type of the event that was called on the Roku API.
 `key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
 `app_id` | the id of the app that was launched when command `type` is `launch`.  
@@ -88,7 +83,7 @@ The available keys are listed here:
 
 ## {% linkable_title Automations %}
 
-automations.yaml
+The following is an example implementation of an automation:
 ```yaml
 # Example automation
 - id: amp_volume_up
@@ -108,7 +103,7 @@ automations.yaml
 ## {% linkable_title Troubleshooting %}
 
 Known limitations:
-* Some Android remotes send keyup / keydown events instead of keypress.
+* Some Android remotes send key up/down events instead of key presses.
 * Functionality other than key presses and app launches are not implemented yet.
 * Harmony cannot launch apps as it uses IR instead of the WiFi API
 * App ids are limited between 1-10. (The Emulated API reports 10 dummy apps)
