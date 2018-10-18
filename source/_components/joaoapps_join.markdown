@@ -28,15 +28,15 @@ To set it up, add the following information to your `configuration.yaml` file:
 # Example configuration.yaml entry
 notify:
   - platform: joaoapps_join
-    api_key: asd97823jb628a34fwsdfwefd5384345tf2d
-    device_id: d5asdfasdf54645h45h368761dfe5gt8a
-    device_ids: d5asdfasdf54645h45h368761dfe5gt8a, a4asdfasdf54645h45h368761dfe5gt3b
-    device_names: Pixel, iPhone
-    name: Phones
+    api_key: YOUR_API_KEY
+    device_id: DEVICE_ID
+    device_ids: DEVICE_ID_1, DEVICE_ID_2
+    device_names: DEVICE_1_NAME, DEVICE_2_NAME
+    name: NAME
 joaoapps_join:
-  - name: android
-    device_id: group.android
-    api_key: asd97823jb628a34fwsdfwefd5384345tf2d
+  - name: NAME_OF_GROUP
+    device_id: GROUP.GROUP_NAME
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
