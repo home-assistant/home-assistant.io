@@ -24,10 +24,17 @@ notify:
     page_access_token: FACEBOOK_PAGE_ACCESS_TOKEN
 ```
 
-Configuration variables:
-
-- **page_access_token** (*Required*): Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+{% configuration %}
+page_access_token:
+  description: "Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information."
+  required: true
+  type: string
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "`notify`"
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 
