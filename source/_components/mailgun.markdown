@@ -29,7 +29,7 @@ mailgun:
 
 {% configuration %}
 domain:
-  description: This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
+  description: This is the domain name to be used when sending out mail. Needs to be the first custom domain you have set up.
   required: true
   type: string
 api_key:
