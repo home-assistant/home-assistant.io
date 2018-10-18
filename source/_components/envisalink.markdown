@@ -91,7 +91,7 @@ keepalive_interval:
   default: 60
   type: integer
 zonedump_interval:
-  description: This is an interval (measured in seconds) where the evl will dump out all zone statuses. This is required for Honeywell systems, which do not properly send zone closure events. DSC boards do not technically need this.
+  description: This is an interval (measured in seconds) where Envisalink will dump out all zone statuses. This is required for Honeywell systems, which do not properly send zone closure events. DSC boards do not technically need this.
   required: false
   default: 30
   type: integer
