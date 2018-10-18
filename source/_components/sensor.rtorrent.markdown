@@ -36,17 +36,17 @@ Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn
 
 {% configuration %}
 url:
+  description: The URL to the HTTP endpoint of the rtorrent XMLRPC API.
   required: true
   type: string
-  description: The URL to the HTTP endpoint of the rtorrent XMLRPC API.
 name:
+  description: The name to user when displaying this rtorrent instance.
   required: false
   type: string
-  description: The name to user when displaying this rtorrent instace.
 monitored_variables:
+  description: Conditions to display in the frontend.
   required: true
   type: list
-  description: Conditions to display in the frontend.
   keys:
     current_status:
       description: The status of your rtorrent daemon.
