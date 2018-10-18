@@ -101,6 +101,17 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
+#### {% linkable_title Service `counter.setup` %}
+
+With this service the counters properties can be changed
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
+| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
+| `step`                 |     yes  | Set new value for step |
+
 
 ### {% linkable_title Use the service %}
 
