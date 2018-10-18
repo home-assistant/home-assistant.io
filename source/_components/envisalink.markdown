@@ -96,12 +96,12 @@ zonedump_interval:
   default: 30
   type: integer
 panic_type:
-  description: Both DSC and Honeywell boards support a "panic" alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are Police, Fire, Ambulance.
+  description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
   required: false
   default: Police
   type: string
 zones:
-  description: Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.envisalink/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.envisalink/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:
