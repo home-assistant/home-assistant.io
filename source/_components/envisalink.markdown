@@ -96,7 +96,7 @@ zonedump_interval:
   default: 30
   type: integer
 panic_type:
-  description: Both DSC and Honeywell boards support a "panic" alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance.
+  description: "Both DSC and Honeywell boards support a "panic" alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
   required: false
   default: Police
   type: string
