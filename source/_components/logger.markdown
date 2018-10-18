@@ -9,18 +9,22 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Utility"
+ha_qa_scale: internal
 ---
 
-The `logger` component lets you define the level of logging activities in Home Assistant.
+The `logger` component lets you define the level of logging activities in Home
+Assistant.
 
-To enable the `logger` component in your installation, add the following to your `configuration.yaml` file:
+To enable the `logger` component in your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 logger:
 ```
 
-To log all messages and ignore events lower than critical for specified components:
+To log all messages and ignore events lower than critical for specified
+components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,7 +35,8 @@ logger:
     homeassistant.components.camera: critical
 ```
 
-To ignore all messages lower than critical and log event for specified components:
+To ignore all messages lower than critical and log event for specified
+components:
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,9 +107,10 @@ data:
   homeassistant.components.media_player.yamaha: debug
 ```
 
-The log information are stored in the [configuration directory](/docs/configuration/)
-as `home-assistant.log` and you can read it with the command-line tool `cat` or
-follow it dynamically with `tail -f`.
+The log information are stored in the
+[configuration directory](/docs/configuration/) as `home-assistant.log`
+and you can read it with the command-line tool `cat` or follow it dynamically
+with `tail -f`.
 
 If you are a Hassbian user you can use the example below:
 

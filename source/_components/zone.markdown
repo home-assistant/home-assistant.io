@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Organization
+ha_qa_scale: internal
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
@@ -36,14 +37,34 @@ zone:
     icon: mdi:account-multiple
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Friendly name of the zone.
-- **latitude** (*Required*): Latitude of the center point of the zone.
-- **longitude** (*Required*): Longitude of the center point of the zone.
-- **radius** (*Optional*): Optional radius in meters. Defaults to 100 meters.
-- **icon** (*Optional*): Optional icon to show instead of name.
-- **passive** (*Optional*): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.
+{% configuration %}
+name:
+  description: The friendly name of the zone.
+  required: false
+  type: string
+latitude:
+  description: The latitude of the center point of the zone.
+  required: true
+  type: float
+longitude:
+  description: The longitude of the center point of the zone.
+  required: true
+  type: float
+radius:
+  description: The radius of the zone in meters.
+  required: false
+  default: 100
+  type: integer
+icon:
+  description: The icon to show instead of name.
+  required: false
+  type: string
+passive:
+  description: To only use the zone for automation and hide it from the frontend and not use the zone for device tracker name.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
 

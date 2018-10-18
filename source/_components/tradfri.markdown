@@ -38,10 +38,10 @@ host:
   required: true
   type: string
 allow_tradfri_groups:
-  description: "Set this to `false` to stop Home Assistant from importing the groups defined on the Trådfri bridge."
+  description: "Set this to `true` to allow Home Assistant to import the groups defined on the Trådfri bridge."
   required: false
   type: boolean
-  default: true
+  default: false
 {% endconfiguration %}
 
 
@@ -55,7 +55,7 @@ After updating the firmware of your Trådfri gateway it might be necessary to re
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1 h) on slow devices.
 
-### {% linkable_title Seeting the `api_key` %}
+### {% linkable_title Setting the `api_key` %}
 
 Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
 

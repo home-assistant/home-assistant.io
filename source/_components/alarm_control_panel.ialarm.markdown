@@ -46,3 +46,4 @@ alarm_control_panel:
     type: string
 {% endconfiguration %}
 
+This platform has also been confirmed to work with the alarm system brands Meian and Emooluxr.

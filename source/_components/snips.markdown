@@ -105,12 +105,12 @@ By default, Snips runs its own MQTT broker. But we can also tell Snips to use an
 feedback_sounds:
   description: Turn on feedbacks sounds for Snips.
   required: false
-  type: str
+  type: string
   default: false
 site_ids:
   description: A list of siteIds if using multiple Snips instances. Used to make sure feedback is toggled on or off for all sites.
   required: false
-  type: str
+  type: string
 probability_threshold:
   description: Threshold for intent probability. Range is from 0.00 to 1.00, 1 being highest match. Intents under this level are discarded.
   require: false
@@ -141,7 +141,7 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
-Note: If your Snips action is prefixed with a username (e.g. `john:playmusic` or `john__playmusic`), the Snips component in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips component is trying to match the non-username version of the intent (i.e., just `playmusic`).
+Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips component in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips component is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
 ```yaml

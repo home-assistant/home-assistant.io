@@ -34,11 +34,23 @@ sensor:
       - current_up_bandwidth
 ```
 
-Configuration variables:
-
-- **monitored_variables** array (*Required*): Sensors to display in the frontend.
-  - **down_max_bandwidth**: Maximum bandwidth available for download.
-  - **up_max_bandwidth**: Maximum bandwidth available for upload.
-  - **current_down_bandwidth**: Instant measure of the current used bandwidth for download.
-  - **current_up_bandwidth**: Instant measure of the current used bandwidth for upload.
-
+{% configuration %}
+name:
+  description: Name to display in the frontend.
+  required: false
+  default: Bbox
+  type: string
+monitored_variables:
+  description: Sensors to display in the frontend.
+  required: true
+  type: list
+  keys:
+    down_max_bandwidth:
+      description: Maximum bandwidth available for download.
+    up_max_bandwidth:
+      description: Maximum bandwidth available for upload.
+    current_down_bandwidth:
+      description: Instant measure of the current used bandwidth for download.
+    current_up_bandwidth:
+      description: Instant measure of the current used bandwidth for upload.
+{% endconfiguration %}

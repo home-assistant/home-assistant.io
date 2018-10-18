@@ -45,6 +45,10 @@ column_width:
   description: "Column width as CSS length like `100px` or `calc(100% / 7)`. This controls how many entities appear in a row - at the default 20% you have 5 entities in a row. Use `calc(100% / 7)` for 7 entities in a row, and so on."
   type: string
   default: 20%
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
@@ -71,7 +75,7 @@ tap_action:
   default: more-info
 service:
   required: false
-  description: "For `call-service`, e.g. `media_player.media_play_pause`"
+  description: "For `call-service`, e.g., `media_player.media_play_pause`"
   type: string
 service_data:
   required: false

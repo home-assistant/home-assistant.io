@@ -53,7 +53,7 @@ api_key:
 scan_interval:
   description: the frequency (in seconds) between data updates
   required: false
-  type: int
+  type: integer
   default: 1800
 binary_sensors:
   description: binary sensor-related configuration options
@@ -74,7 +74,7 @@ sensors:
       description: the conditions to create sensors from
       required: false
       type: list
-      default: all ( `current_ozone_index`, `current_uv_index`, `current_uv_level`, `max_uv_index`, `safe_exposure_time_type_1`, `safe_exposure_time_type_2`, `safe_exposure_time_type_3`, `safe_exposure_time_type_4`, `safe_exposure_time_type_5`, `safe_exposure_time_type_6` )
+      default: all ( `current_ozone_level`, `current_uv_index`, `current_uv_level`, `max_uv_index`, `safe_exposure_time_type_1`, `safe_exposure_time_type_2`, `safe_exposure_time_type_3`, `safe_exposure_time_type_4`, `safe_exposure_time_type_5`, `safe_exposure_time_type_6` )
 {% endconfiguration %}
 
 ## {% linkable_title Binary Sensor Types %}
@@ -114,5 +114,5 @@ These sensors display the approximate number of minutes a particular skin type c
 * Skin Type VI
 
 <p class='note warning'>
-The above guidelines constitude estimates and are intended to help informed decision making. They should not replace analysis, advice, or diagnosis from a trained medical professional.
+The above guidelines constitute estimates and are intended to help informed decision making. They should not replace analysis, advice, or diagnosis from a trained medical professional.
 </p>

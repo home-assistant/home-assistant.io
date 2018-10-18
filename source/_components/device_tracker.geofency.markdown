@@ -22,9 +22,12 @@ device_tracker:
   - platform: geofency
 ```
 
-Configuration variables:
-
-- **mobile_beacons** (*Optional*): List of beacon names that are to be treated as *mobile*. The name must match the name you configure in Geofency. By default, beacons will be treated as *stationary*.
+{% configuration %}
+mobile_beacons:
+  description: List of beacon names that are to be treated as *mobile*. The name must match the name you configure in Geofency. By default, beacons will be treated as *stationary*.
+  required: false
+  type: list
+{% endconfiguration %}
 
 A full sample configuration for the `geofency` platform is shown below:
 

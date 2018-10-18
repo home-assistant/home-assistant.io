@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: "0.30"
+ha_qa_scale: internal
 ---
 
 

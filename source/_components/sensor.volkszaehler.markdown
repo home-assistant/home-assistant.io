@@ -39,7 +39,7 @@ host:
 port:
   description: The port where Volkszaehler is listening.
   required: false
-  type: int
+  type: integer
   default: 80
 name:
   description: The prefix for the sensors.

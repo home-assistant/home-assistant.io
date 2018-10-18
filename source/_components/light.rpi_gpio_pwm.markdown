@@ -45,7 +45,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title RGB LED connected to PCA9685 controller %}
 

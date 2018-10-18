@@ -25,10 +25,17 @@ camera:
   - platform: ring
 ```
 
-Configuration variables:
-
-- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g., image quality or video filter options.
-- **scan_interval**: (*Optional*): How frequently to query for new video. Defaults to 90 seconds.
+{% configuration %}
+ffmpeg_arguments:
+  description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+  required: false
+  type: string
+scan_interval:
+  description: How frequently to query for new video in seconds.
+  required: false
+  default: 90
+  type: integer
+{% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
 

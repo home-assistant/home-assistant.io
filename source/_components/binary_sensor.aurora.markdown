@@ -28,10 +28,18 @@ binary_sensor:
   - platform: aurora
 ```
 
-Configuration variables:
-
-- **forecast_threshold** (*Optional*): Provide your own threshold number above which the sensor will trigger. Defaults to 75.
-- **name** (*Optional*): The name of the sensor. Default is 'Aurora Visibility'. 
+{% configuration %}
+forecast_threshold:
+  description: Provide your own threshold number above which the sensor will trigger.
+  required: false
+  default: 75
+  type: integer
+name:
+  description: The name of the sensor.
+  required: false
+  default: Aurora Visibility
+  type: string
+{% endconfiguration %}
 
 ```yaml
   binary_sensor:

@@ -30,12 +30,37 @@ binary_sensor:
 
 Configuration options for the a TCP Sensor:
 
-- **name** (*Required*): The name you'd like to give the sensor in Home Assistant.
-- **host** (*Required*): The hostname/IP address to connect to.
-- **port** (*Required*): The port to connect to the host on.
-- **payload** (*Required*): What to send to the host in order to get the response we're interested in.
-- **value_on** (*Required*): The value returned when the device is "on".
-- **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
-- **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
-
+{% configuration %}
+name:
+    required: true
+    description: The name you'd like to give the sensor in Home Assistant.
+    type: string
+host:
+    required: true
+    description: The hostname/IP address to connect to.
+    type: string
+port:
+    required: true
+    description: The port to connect to the host on.
+    type: integer
+payload:
+    required: true
+    description: What to send to the host in order to get the response we're interested in.
+    type: string
+value_on:
+    required: true
+    description: The value returned when the device is "on".
+    type: string
+timeout:
+    required: false
+    description: How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
+    type: integer
+value_template:
+    required: false
+    description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
+    type: string
+buffer_size:
+    required: false
+    description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
+    type: integer
+{% endconfiguration %}

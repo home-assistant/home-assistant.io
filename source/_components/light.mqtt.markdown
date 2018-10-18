@@ -88,6 +88,21 @@ effect_list:
   description: The list of effects the light supports.
   required: false
   type: string list
+hs_command_topic:
+  description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
+  Range for Hue: 0° .. 360°, Range of Saturation: 0..100. 
+  Note: Brightness is sent separately in the `brightness_command_topic`."
+  required: false
+  type: string
+hs_state_topic:
+  description: "The MQTT topic subscribed to receive color state updates in HS format.
+  Note: Brightness is received separately in the `brightness_state_topic`."
+  required: false
+  type: string
+hs_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the HS value."
+  required: false
+  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -122,11 +137,11 @@ rgb_command_template:
   required: false
   type: string
 rgb_command_topic:
-  description: "The MQTT topic to publish commands to change the light's RGB state."
+  description: "The MQTT topic to publish commands to change the light's RGB state. Please note that the color value sent by Home Assistant is normalized to full brightness if `brightness_command_topic` is set. Brightness information is in this case sent separately in the `brightness_command_topic`. This will cause a light that expects an absolute color value (including brightness) to flicker."
   required: false
   type: string
 rgb_state_topic:
-  description: The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example `255,0,127`.
+  description: "The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example, `255,0,127`. Please note that the color value received by Home Assistant is normalized to full brightness. Brightness information is received separately in the `brightness_state_topic`."
   required: false
   type: string
 rgb_value_template:
@@ -200,12 +215,12 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this sensor.
+In this section you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Brightness and RGB support %}
 
@@ -273,3 +288,4 @@ light:
 
 - A [basic example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light) using a nodeMCU board (ESP8266) to control its built-in LED (on/off).
 - Another [example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) to control a RGB LED (on/off, brightness, and colors).
+- [Integration guide](https://github.com/xoseperez/espurna/wiki/HomeAssistant) for the ESPUrna firmware (ESP8285/ESP8266).

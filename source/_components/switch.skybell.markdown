@@ -28,8 +28,14 @@ switch:
       - motion_sensor
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **do_not_disturb**: Control the state of your doorbells indoor chime.
-  - **motion_sensor**: Control the state of your doorbells motion sensor.
+{% configuration %}
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    do_not_disturb:
+      description: Control the state of your doorbells indoor chime.
+    motion_sensor:
+      description: Control the state of your doorbells motion sensor.
+{% endconfiguration %}

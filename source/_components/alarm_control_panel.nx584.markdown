@@ -22,8 +22,20 @@ alarm_control_panel:
   - platform: nx584
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The host where the nx584 server process is running. Defaults to `localhost`.
-- **port** (*Optional*): The port where the Alarm panel is listening. Defaults to `5007`.
-
+{% configuration %}
+host:
+  description: The host where the nx584 server process is running.
+  required: false
+  default: localhost
+  type: string
+name:
+  description: This parameter allows you to override the name.
+  required: false
+  default: NX584
+  type: string
+port:
+  description: The port where the Alarm panel is listening.
+  required: false
+  default: 5007
+  type: integer
+{% endconfiguration %}

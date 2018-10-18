@@ -62,7 +62,7 @@ homekit:
       port:
         description: Port for the HomeKit extension.
         required: false
-        type: int
+        type: integer
         default: 51827
       name:
         description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
@@ -95,7 +95,7 @@ homekit:
             required: false
             type: list
       entity_config:
-        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g. `alarm_control_panel.alarm`.
+        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `alarm_control_panel.alarm`.
         required: false
         type: map
         keys:
@@ -123,7 +123,7 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'
@@ -190,6 +190,8 @@ automation:
         event_type: zwave.network_ready
       - platform: event
         event_type: zwave.network_complete
+      - platform: event
+        event_type: zwave.network_complete_some_dead
     action:
       - service: homekit.start
 ```
@@ -272,6 +274,7 @@ The following components are currently supported:
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
+| sensor | CarbonMonoxideSensor | All sensors that have `co` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
@@ -309,4 +312,4 @@ filter:
     - light
 ```
 
-Restart Home-Assistant and re-attempt pairing - a persistent status should now correctly appear.
+Restart Home Assistant and re-attempt pairing - a persistent status should now correctly appear.
