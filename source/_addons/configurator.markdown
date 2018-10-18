@@ -57,8 +57,7 @@ Screenshot of the HASS Configurator.
   ],
   "dirsfirst": false,
   "enforce_basepath": false,
-  "notify_service": "persistent_notification.create",
-  "ignore_ssl": false
+  "notify_service": "persistent_notification.create"
 }
 ```
 
@@ -74,7 +73,8 @@ password:
 ssl:
   description: Enable or Disable SSL/TLS for the editor.
   required: true
-  type: string
+  type: boolean
+  default: false
 certfile:
   description: Set the path the your SSL certificate if the ssl-option is set to `true`.
   required: true
@@ -92,7 +92,7 @@ banned_ips:
   required: true
   type: string
 banlimit:
-  description: Ban access from IPs after `banlimit` failed login attempts. This feature is disabled by default. Restart the add-on to clear the list of banned IP addresses.
+  description: Ban access from IPs after `banlimit` failed login attempts, setting the value to 0 disables this feature. Restart the add-on to clear the list of banned IP addresses.
   required: true
   type: int
   default: 0
@@ -103,25 +103,24 @@ ignore_pattern:
 dirsfirst:
   description: List directories before files in the file browser.
   required: true
-  type: string
+  type: boolean
+  default: false
 enforce_basepath:
   description: If set to `true`, access is limited to files within the `/config` directory.
   required: true
-  type: string
+  type: boolean
+  default: false
 notify_service:
   description: Specify a custom notify-service to be used to push notifications.
   required: true
   type: string
-ignore_ssl:
-  description: Ignore SSL errors when accessing the Home Assistant API.
-  required: true
-  type: string
 loglevel:
-  description: You can change the logging level from the default value info if you want to. Valid values are `debug`, `info`, `warning`, `error`, `critical`.
+  description: The log level the configurator should run with. Valid values are `debug`, `info`, `warning`, `error`, `critical`.
   required: false
   type: string
+  default: info
 sesame:
-  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to [] and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
+  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
   required: false
   type: string
 sesame_totp_secret:
