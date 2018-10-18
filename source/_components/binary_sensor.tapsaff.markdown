@@ -26,7 +26,14 @@ binary_sensor:
     location: glasgow
 ```
 
-Configuration variables:
-
-- **location** (*Required*): The location for the Taps Aff. It must be configured with a UK postcode or city to work. 
-- **name** (*Optional*): The name to use when displaying this sensor.
+{% configuration %}
+location:
+  description: The location for the Taps Aff. It must be configured with a UK postcode or city to work.
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this sensor.
+  required: false
+  default: Taps Aff
+  type: string
+{% endconfiguration %}
