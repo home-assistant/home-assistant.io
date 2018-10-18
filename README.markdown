@@ -20,7 +20,7 @@ bundle exec rake preview
 ```
 
 ## Speeding up site generation
-
+## Speeding up site generation
 Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
 
 ```bash
