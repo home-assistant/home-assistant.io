@@ -14,7 +14,6 @@ ha_release: 0.47
 ha_iot_class: "Local Polling"
 ---
 
-
 The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](http://www.taps-aff.co.uk). 
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
