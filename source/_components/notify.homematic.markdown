@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Homematic Notifications"
-description: "Instructions on how notify Homematic devices."
+description: "Instructions on how to notify Homematic devices."
 date: 2018-10-03 11:44
 sidebar: true
 comments: false
