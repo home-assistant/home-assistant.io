@@ -40,6 +40,10 @@ As a user, you can setup multi-factor authentication with time-based one-time pa
 
 ## {% linkable_title Troubleshooting %}
 
+### {% linkable_title Authentication failures from `127.0.0.1` %}
+
+If you're seeting authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/device_tracker.nmap_tracker/#exclude) from being scanned.
+
 ### {% linkable_title Bearer token warnings %}
 
 Under the new authentication system you'll see the following warning logged when the [legacy API password](/docs/authentication/providers/#legacy-api-password) is supplied, but not configured in Home Assistant:
