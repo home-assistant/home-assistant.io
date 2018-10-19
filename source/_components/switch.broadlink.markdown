@@ -89,11 +89,9 @@ slots:
       description: Friendly names of slot 4
       required: false
       type: string
-
 {% endconfiguration %}
 
-Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
-
+Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
