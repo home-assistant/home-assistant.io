@@ -2,7 +2,7 @@
 layout: page
 title: "Systemair Savecair Climate"
 description: "Instructions on how to integrate Systemair Savecair into Home Assistant."
-date: 2018-19-10 05:00
+date: 2018-10-19 05:00
 sidebar: true
 comments: false
 sharing: true
