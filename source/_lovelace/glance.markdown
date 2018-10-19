@@ -19,36 +19,31 @@ Screenshot of the glance card.
 
 {% configuration %}
 type:
-  required: true
-  description: glance
-  type: string
+required: true
+description: glance
+type: string
 entities:
-  required: true
-  description: "A list of entity IDs or `entity` objects, see below."
-  type: list
+required: true
+description: "A list of entity IDs or `entity` objects, see below."
+type: list
 title:
-  required: false
-  description: Card title
-  type: string
+required: false
+description: Card title
+type: string
 show_name:
-  required: false
-  description: Show entity names.
-  type: boolean
-  default: "true"
+required: false
+description: Show entity names.
+type: boolean
+default: "true"
 show_state:
-  required: false
-  description: Show entity state-text.
-  type: boolean
-  default: "true"
-column_width:
-  required: false
-  description: "Column width as CSS length like `100px` or `calc(100% / 7)`. This controls how many entities appear in a row - at the default 20% you have 5 entities in a row. Use `calc(100% / 7)` for 7 entities in a row, and so on."
-  type: string
-  default: 20%
+required: false
+description: Show entity state-text.
+type: boolean
+default: "true"
 theme:
-  required: false
-  description: "Set to any theme within `themes.yaml`"
-  type: string
+required: false
+description: "Set to any theme within `themes.yaml`"
+type: string
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
@@ -57,31 +52,31 @@ If you define entities as objects instead of strings, you can add more customiza
 
 {% configuration %}
 entity:
-  required: true
-  description: Home Assistant entity ID.
-  type: string
+required: true
+description: Home Assistant entity ID.
+type: string
 name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
+required: false
+description: Overwrites friendly name.
+type: string
 icon:
-  required: false
-  description: Overwrites icon or entity picture.
-  type: string
+required: false
+description: Overwrites icon or entity picture.
+type: string
 tap_action:
-  required: false
-  description: "Set to `toggle` or `call-service` for direct actions."
-  type: string
-  default: more-info
+required: false
+description: "Set to `toggle` or `call-service` for direct actions."
+type: string
+default: more-info
 service:
-  required: false
-  description: "For `call-service`, e.g., `media_player.media_play_pause`"
-  type: string
+required: false
+description: "For `call-service`, e.g., `media_player.media_play_pause`"
+type: string
 service_data:
-  required: false
-  description: The service data to use.
-  type: object
-  default: "entity_id: entity_id"
+required: false
+description: The service data to use.
+type: object
+default: "entity_id: entity_id"
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
