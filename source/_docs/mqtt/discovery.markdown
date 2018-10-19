@@ -39,7 +39,7 @@ Configuration variables:
 - **discovery_prefix** (*Optional*): The prefix for the discovery topic. Defaults  to `homeassistant`.
 
 <p class='note'>
-The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the mqtt discovery messages after every Home Assistant restart for the devices to show up.
+The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
 </p>
 
 The discovery topic need to follow a specific format:
