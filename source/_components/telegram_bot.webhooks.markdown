@@ -27,7 +27,7 @@ http:
 
 telegram_bot:
   - platform: webhooks
-    api_key: telegram api key
+    api_key: YOUR_API_KEY
     parse_mode: html
     allowed_chat_ids:
       - 12345
@@ -78,7 +78,7 @@ http:
 
 telegram_bot:
   - platform: webhooks
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     trusted_networks:
       - 149.154.167.197/32
       - 149.154.167.198/31
