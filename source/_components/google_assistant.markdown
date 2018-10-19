@@ -29,7 +29,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 ## {% linkable_title Migrate to release 0.80 and above %}
 <p class='note'>
-If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the manual setup instructions below.
+If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [manual setup instructions](#first-time-setup) below.
 </p>
 
 Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your existing configuration from release 0.79 or below, you need:
