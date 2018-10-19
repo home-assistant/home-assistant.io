@@ -25,7 +25,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: llamalab_automate
     api_key: YOUR_API_KEY
-    to: EXAMPLE@EXAMPLE.COM
+    to: YOUR_EMAIL_ADDRESS
 ```
 
 Configuration variables:
