@@ -61,4 +61,4 @@ These attributes are available:
 
 Example screenshot 
 
-![image](home-assistant.github.io/source/images/components/zestimate/zestimateexample.png)
+<img src="/images/components/zestimate/zestimateexample.png" />
