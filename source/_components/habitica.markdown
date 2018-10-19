@@ -20,8 +20,8 @@ To use the component you should use this example configuration:
 ```yaml
 # Minimum viable configuration.yaml entry
 habitica:
-  - api_user: 'REPLACE_ME_WITH_YOUR_USER_ID'
-    api_key: 'REPLACE_ME_WITH_YOUR_API_KEY'
+  - api_user: YOUR_USER_ID
+    api_key: YOUR_API_KEY
 ```
 
 You can specify several users, providing `api_user` and `api_key` for each.
