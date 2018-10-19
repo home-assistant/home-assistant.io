@@ -310,7 +310,7 @@ You might have paired the `Home Assistant Bridge` already. If not, delete the `.
 For `Docker` users: make sure to set `network_mode: host`. Other reasons could be network related. Make sure to check your router configuration. For some it helped when the Home Assistant device was using WIFI, not LAN. Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
 
 **Pairing hangs - zeroconf error**<br>
-Paining eventually fails, you might see and an error message `NoneUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
+Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
 
 **Duplicate AID found when attempting to add accessory**<br>
 Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
