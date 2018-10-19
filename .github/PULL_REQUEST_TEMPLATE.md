@@ -9,3 +9,6 @@
 - [ ] The documentation follows the [standards][standards].
 
 [standards]: https://developers.home-assistant.io/docs/documentation_standards.html
+
+BE sur eto add this file as it increases the understsnf=ding of a user to understand and increase their chances for the win . 
+happy coding!!
