@@ -303,32 +303,32 @@ homekit:
       - demo.demo
 ```
 
-**PIN doesn't appear as persistent status**<br>
+#### {% linkable_title PIN doesn't appear as persistent status %}
 You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
 
-**`Home Assistant Bridge` doesn't appear in the Home App (for pairing)**<br>
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) %}
 For `Docker` users: make sure to set `network_mode: host`. Other reasons could be network related. Make sure to check your router configuration. For some it helped when the Home Assistant device was using WIFI, not LAN. Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
 
-**Pairing hangs - zeroconf error**<br>
+#### {% linkable_title Pairing hangs - zeroconf error %}
 Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
 
-**Duplicate AID found when attempting to add accessory**<br>
+#### {% linkable_title Duplicate AID found when attempting to add accessory %}
 Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
 
 
 ### {% linkable_title Issues during normal use %}
 
-**Pairing hangs - no error**<br>
+#### {% linkable_title Pairing hangs - no error %}
 Make sure that you don't try to add more then 100 accessories, see [device limit](#device-limit). In rare cases one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
 
-**Some of my devices don't show up - Z-Wave / Discovery**<br>
+#### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
 See [disable auto start](#disable-auto-start)
 
-**Accessory not responding - after restart or update**<br>
+#### {% linkable_title Accessory not responding - after restart or update %}
 See [device limit](#device-limit)
 
-**Accessory not responding - randomly**<br>
+#### {% linkable_title Accessory not responding - randomly %}
 Unfortunately that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually the accessory should get back to responding after a few minutes at most.
 
-**Accessories not responding / behaving unusual - Upgrade from `0.65.x`**<br>
+#### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
