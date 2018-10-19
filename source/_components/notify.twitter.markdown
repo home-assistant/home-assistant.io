@@ -28,10 +28,10 @@ To add Twitter to your installation, add the following to your `configuration.ya
 notify:
   - name: NOTIFIER_NAME
     platform: twitter
-    consumer_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    consumer_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
-    access_token: ABCDEFGHJKLMNOPQRSTUVXYZ
-    access_token_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
+    consumer_key: YOUR_API_KEY
+    consumer_secret: YOUR_API_SECRET
+    access_token: YOUR_ACCESS_TOKEN
+    access_token_secret: YOUR_ACCESS_SECRET
 ```
 
 {% configuration %}

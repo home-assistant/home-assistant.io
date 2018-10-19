@@ -79,7 +79,7 @@ To enable Telegram notifications in your installation, add the following to your
 # Example configuration.yaml entry for the Telegram Bot
 telegram_bot:
   - platform: polling
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     allowed_chat_ids:
       - CHAT_ID_1
       - CHAT_ID_2

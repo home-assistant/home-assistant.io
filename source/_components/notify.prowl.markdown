@@ -24,7 +24,7 @@ To add Prowl notifications to your installation, add the following to your `conf
 notify:
   - name: NOTIFIER_NAME
     platform: prowl
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
 ```
 
 Configuration variables:
