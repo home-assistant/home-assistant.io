@@ -2,14 +2,14 @@
 layout: page
 title: "Entur public transport"
 description: "Instructions for how to set up monitoring of public transport departures in Norway."
-date: 2018-09-01 17:15
+date: 2018-10-09 17:15
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: entur.svg
 ha_category: Transport
-ha_release: 0.80
+ha_release: 0.81
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -35,6 +35,16 @@ stop_ids:
   description: List of stop places or platforms to monitor departure times from.
   required: true
   type: list
+expand_platforms:
+  description: If additional sensors should be created for each platform under a stop place. 
+  required: false
+  type: boolean
+  default: true
+add_to_map:
+  description: If platform locations should be added to the sensor, and the map. 
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## {% linkable_title Example usage %}
@@ -43,6 +53,8 @@ stop_ids:
 # Example configuration.yaml entry
 sensor:
   - platform: entur_public_transport
+    expand_platforms: true
+    add_to_map: true
     stop_ids:
       - 'NSR:StopPlace:548'   # Bergen train station
       - 'NSR:StopPlace:737'   # Trondheim airport
