@@ -92,10 +92,20 @@ monitored_variables:
       description: Hot water 2 temperature.
     exhaust_temp:
       description: Boiler exhaust temperature.
+    master_ch2_enabled:
+      description: Thermostat requests central heating 2 on.
+    master_ch_enabled:
+      description: Thermostat requests central heating on.
+    master_cooling_enabled:
+      description: Thermostat requests cooling.
+    master_dhw_enabled:
+      description: Thermostat requests hot water to be heated.
     master_memberid:
       description: Thermostat member ID.
     master_ot_version:
       description: Thermostat OpenTherm protocol version.
+    master_otc_enabled:
+      description: Thermostat is using outside temperature correction.
     master_product_type:
       description: Thermostat product type.
     master_product_version:
@@ -114,8 +124,14 @@ monitored_variables:
       description: OpenTherm Gateway hot water override status.
     otgw_gpio_a:
       description: OpenTherm Gateway GPIO port A operating mode.
+    otgw_gpio_a_state:
+      description: OpenTherm Gateway GPIO A state.
     otgw_gpio_b:
       description: OpenTherm Gateway GPIO port B operating mode.
+    otgw_gpio_b_state:
+      description: OpenTherm Gateway GPIO B state.
+    otgw_ignore_transitions:
+      description: OpenTherm Gateway ignores ripples in the signal during high/low transitions.
     otgw_led_a:
       description: OpenTherm Gateway LED A operating mode.
     otgw_led_b:
@@ -130,6 +146,8 @@ monitored_variables:
       description: OpenTherm Gateway LED F operating mode.
     otgw_mode:
       description: OpenTherm Gateway operating mode.
+    otgw_ovrd_high_byte:
+      description: OpenTherm Gateway overrides high byte with message ID 100.
     otgw_setback_temp:
       description: OpenTherm Gateway setback temperature for `away mode`.
     otgw_setpoint_ovrd_mode:
@@ -144,6 +162,14 @@ monitored_variables:
       description: Outside temperature as reported in the OpenTherm protocol.
     relative_mod_level:
       description: Relative modulation level.
+    remote_rw_dhw:
+      description: Boiler supports writing hot water setpoint.
+    remote_rw_max_ch:
+      description: Boiler supports writing maximum central heating setpoint.
+    remote_transfer_dhw:
+      description: Boiler supports reading hot water setpoint.
+    remote_transfer_max_ch:
+      description: Boiler supports reading maximum central heating setpoint.
     return_water_temp:
       description: Boiler return water temperature.
     room_setpoint:
@@ -154,14 +180,50 @@ monitored_variables:
       description: Room target temperature override value.
     room_temp:
       description: Current room temperature.
+    rovrd_auto_prio:
+      description: Programmed room setpoint change takes priority over remote override setting.
+    rovrd_man_prio:
+      description: Manual room setpoint change takes priority over remote override setting.
+    slave_air_pressure_fault:
+      description: Boiler reports air pressure fault.
+    slave_ch2_active:
+      description: Boiler reports central heating 2 active.
+    slave_ch2_present:
+      description: Boiler has a central heating 2 circuit.
+    slave_ch_active:
+      description: Boiler reports central heating active.
     slave_ch_max_setp:
       description: Maximum boiler supported central heating water target temperature.
     slave_ch_min_setp:
       description: Minimum boiler supported central heating water target temperature.
+    slave_control_type:
+      description: Boiler control type ('off' is modulating, 'on' is on/off).
+    slave_cooling_active:
+      description: Boiler reports cooling active.
+    slave_cooling_supported:
+      description: Boiler supports cooling.
+    slave_dhw_active:
+      description: Boiler reports hot water active.
+    slave_dhw_config:
+      description: Boiler hot water mode ('off' is instantaneous or unspecified, 'on' is storage tank).
     slave_dhw_max_setp:
       description: Maximum boiler supported hot water target temperature.
     slave_dhw_min_setp:
       description: Minimum boiler supported hot water target temperature.
+    slave_dhw_present:
+      description: Boiler reports hot water present.
+    slave_diagnostic_indication:
+      description: Boiler diagnostic indication.
+    slave_fault_indication:
+      description: Boiler fault indication.
+    slave_flame_on:
+      description: Boiler reports flame on.
+    slave_gas_fault:
+      description: Boiler reports gas fault.
+    slave_low_water_pressure:
+      description: Boiler reports low water pressure.
+    slave_master_low_off_pump:
+      description: Boiler supports low-off and pump control commands (this sensor is inverted, 'on' is not supported, 'off' is supported)
     slave_max_capacity:
       description: Maximum boiler capacity.
     slave_max_relative_modulation:
@@ -178,6 +240,12 @@ monitored_variables:
       description: Boiler product type.
     slave_product_version:
       description: Boiler product version.
+    slave_remote_reset:
+      description: Boiler reports 'lockout-reset' supported.
+    slave_service_required:
+      description: Boiler reports service required.
+    slave_water_overtemp:
+      description: Boiler reports water overtemperature.
     solar_coll_temp:
       description: Solar collector temperature.
     solar_storage_temp:
