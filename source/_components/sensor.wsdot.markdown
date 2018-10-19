@@ -23,7 +23,7 @@ Once you have the code, create `wsdot` sensors by editing your `configuration.ya
 # Example configuration.yaml entry
 sensor:
   - platform: wsdot
-    api_key: XXXXXXXXXXXXXXXXXXXXXXX
+    api_key: YOUR_API_KEY
     travel_time:
      - id: 95
        name: I-90 Eastbound HOV
