@@ -49,7 +49,174 @@ climate:
       required: false
       type: boolean
       default: false
+monitored_variables:
+  description: "A list of variables to expose as sensors."
+  required: false
+  type: list
+  keys:
+    burner_hours:
+      description: Boiler flame on time.
+    burner_starts:
+      description: Number of burner starts.
+    ch_pump_hours:
+      description: Central heating pump running time.
+    ch_pump_starts:
+      description: Number of central heating pump starts.
+    ch_water_pressure:
+      description: Central heating water pressure.
+    ch_water_temp:
+      description: Central heating water temperature.
+    ch_water_temp_2:
+      description: Central heating 2 water temperature.
+    control_setpoint:
+      description: Central heating water target temperature.
+    control_setpoint_2:
+      description: Central heating 2 water target temperature.
+    cooling_control:
+      description: Cooling control signal value.
+    dhw_burner_hours:
+      description: Hot water flame on time.
+    dhw_burner_starts:
+      description: Number of hot water burner starts.
+    dhw_flow_rate:
+      description: Hot water flow rate.
+    dhw_pump_hours:
+      description: Hot water pump running time.
+    dhw_pump_starts:
+      description: Number of hot water pump starts.
+    dhw_setpoint:
+      description: Hot water target temperature.
+    dhw_temp:
+      description: Hot water temperature.
+    dhw_temp_2:
+      description: Hot water 2 temperature.
+    exhaust_temp:
+      description: Boiler exhaust temperature.
+    master_memberid:
+      description: Thermostat member ID.
+    master_ot_version:
+      description: Thermostat OpenTherm protocol version.
+    master_product_type:
+      description: Thermostat product type.
+    master_product_version:
+      description: Thermostat product version.
+    max_ch_setpoint:
+      description: Boiler maximum central heating water temperature.
+    oem_diag:
+      description: OEM diagnostic information.
+    otgw_about:
+      description: OpenTherm Gateway firmware version.
+    otgw_build:
+      description: OpenTherm Gateway firmware build date and time.
+    otgw_clockmhz:
+      description: OpenTherm Gateway firmware design clock speed.
+    otgw_dhw_ovrd:
+      description: OpenTherm Gateway hot water override status.
+    otgw_gpio_a:
+      description: OpenTherm Gateway GPIO port A operating mode.
+    otgw_gpio_b:
+      description: OpenTherm Gateway GPIO port B operating mode.
+    otgw_led_a:
+      description: OpenTherm Gateway LED A operating mode.
+    otgw_led_b:
+      description: OpenTherm Gateway LED B operating mode.
+    otgw_led_c:
+      description: OpenTherm Gateway LED C operating mode.
+    otgw_led_d:
+      description: OpenTherm Gateway LED D operating mode.
+    otgw_led_e:
+      description: OpenTherm Gateway LED E operating mode.
+    otgw_led_f:
+      description: OpenTherm Gateway LED F operating mode.
+    otgw_mode:
+      description: OpenTherm Gateway operating mode.
+    otgw_setback_temp:
+      description: OpenTherm Gateway setback temperature for `away mode`.
+    otgw_setpoint_ovrd_mode:
+      description: OpenTherm Gateway central heating setpoint override mode.
+    otgw_smart_pwr:
+      description: OpenTherm Gateway smart power operating mode.
+    otgw_thermostat_detect:
+      description: OpenTherm Gateway automatic thermostat detection status.
+    otgw_vref:
+      description: OpenTherm Gateway voltage reference setting.
+    outside_temp:
+      description: Outside temperature as reported in the OpenTherm protocol.
+    relative_mod_level:
+      description: Relative modulation level.
+    return_water_temp:
+      description: Boiler return water temperature.
+    room_setpoint:
+      description: Room target temperature.
+    room_setpoint_2:
+      description: Room 2 target temperature.
+    room_setpoint_ovrd:
+      description: Room target temperature override value.
+    room_temp:
+      description: Current room temperature.
+    slave_ch_max_setp:
+      description: Maximum boiler supported central heating water target temperature.
+    slave_ch_min_setp:
+      description: Minimum boiler supported central heating water target temperature.
+    slave_dhw_max_setp:
+      description: Maximum boiler supported hot water target temperature.
+    slave_dhw_min_setp:
+      description: Minimum boiler supported hot water target temperature.
+    slave_max_capacity:
+      description: Maximum boiler capacity.
+    slave_max_relative_modulation:
+      description: Maximum boiler supported relative modulation.
+    slave_memberid:
+      description: Boiler member ID.
+    slave_min_mod_level:
+      description: Minimum boiler supported modulation level.
+    slave_oem_fault:
+      description: Boiler OEM fault indication.
+    slave_ot_version:
+      description: Boiler OpenTherm protocol version.
+    slave_product_type:
+      description: Boiler product type.
+    slave_product_version:
+      description: Boiler product version.
+    solar_coll_temp:
+      description: Solar collector temperature.
+    solar_storage_temp:
+      description: Solar storage unit temperature.
 {% endconfiguration %}
+
+## {% linkable_title Supported Variables %}
+The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` component and look for the status updates.
+
+
+## {% linkable_title GPIO modes %}
+Possible modes and their meaning for the GPIO pins are listed here:
+{% comment %}
+    Bulletpoints and numbers to match the LED mode layout below.
+{% endcomment %}
+* 1\. No function, default for both ports on a freshly flashed chip.
+* 2\. Ground - A permanently low output (0V). Could be used for a power LED.
+* 3\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
+* 4\. LED E - An additional LED if you want to present more than 4 LED functions.
+* 5\. LED F - An additional LED if you want to present more than 5 LED functions.
+* 6\. Home - Set thermostat to setback temperature when pulled low.
+* 7\. Away - Set thermostat to setback temperature when pulled high.
+* 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
+
+
+## {% linkable_title LED modes %}
+Possible LED modes and their meaning are listed here:
+* R. Receiving an Opentherm message from the thermostat or boiler.
+* X. Transmitting an Opentherm message to the thermostat or boiler.
+* T. Transmitting or receiving a message on the thermostat interface.
+* B. Transmitting or receiving a message on the boiler interface.
+* O. Remote setpoint override is active.
+* F. Flame is on.
+* H. Central heating is on.
+* W. Hot water is on.
+* C. Comfort mode (Domestic Hot Water Enable) is on.
+* X. Transmission error has been detected.
+* M. Boiler requires maintenance.
+* P. Raised power mode active on thermostat interface.
 
 <p class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -67,4 +234,8 @@ opentherm_gw:
     name: Thermostat
     precision: 0.5
     floor_temperature: True
+  monitored_variables:
+    - room_setpoint
+    - room_temp
+    - otgw_about
 ```
