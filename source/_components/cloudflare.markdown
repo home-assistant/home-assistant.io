@@ -29,7 +29,7 @@ To use the component in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 cloudflare:
   email: USER@EXAMPLE.COM
-  api_key: YOUR_API_KEY
+  api_key: YOUR_GLOBAL_API_KEY
   zone: EXAMPLE.COM
   records:
     - bin
