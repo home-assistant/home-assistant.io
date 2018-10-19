@@ -29,8 +29,8 @@ add the following lines to your `configuration.yaml` file:
 notify:
   - platform: html5
     name: NOTIFIER_NAME
-    gcm_api_key: 'gcm-server-key'
-    gcm_sender_id: 'gcm-sender-id'
+    gcm_api_key: YOUR_API_KEY
+    gcm_sender_id: YOUR_SENDER_ID
 ```
 
 {% configuration %}
