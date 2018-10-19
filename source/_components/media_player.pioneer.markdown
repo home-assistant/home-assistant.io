@@ -36,12 +36,12 @@ name:
   default: Pioneer AVR
   type: string
 port:
-  description: The port on which the Pioneer device listens, e.g., `23` or `8102`
+  description: The port on which the Pioneer device listens, e.g., `23` or `8102`.
   required: false
   default: 23
   type: integer
 timeout:
-  description: Number of seconds (float) to wait for blocking operations like connect, write, and read.
+  description: Number of seconds (float) to wait for blocking operations like connect, write and read.
   required: false
   type: float
 {% endconfiguration %}
