@@ -27,9 +27,9 @@ If your lock does not update the status properly for all events, but the notific
 `use_notification_state` flag for your lock. For example, with an Entity ID for the lock of `lock.my_lock you would set the following in your
 `configuration.yaml`:
 
-{% configuration %}
+```yaml
 zwave:
   device_config:
     lock.my_lock:
       use_notification_state: true
-{% endconfiguration %}
+```
