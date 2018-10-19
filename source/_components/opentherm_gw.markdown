@@ -191,7 +191,7 @@ The list above contains all supported variables. Note that not all boilers and t
 ## {% linkable_title GPIO modes %}
 Possible modes and their meaning for the GPIO pins are listed here:
 {% comment %}
-    Bulletpoints and numers to match the LED mode layout below.
+    Bulletpoints and numbers to match the LED mode layout below.
 {% endcomment %}
 * 1\. No function, default for both ports on a freshly flashed chip.
 * 2\. Ground - A permanently low output (0V). Could be used for a power LED.
