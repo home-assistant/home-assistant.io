@@ -46,7 +46,7 @@ home_interval:
   required: false
   type: integer
 exclude:
-  description: Hosts not to include in Nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
+  description: Hosts not to include in Nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error and authentication failures), so excluding that host is a good idea.
   required: false
   type: list
 scan_options:
