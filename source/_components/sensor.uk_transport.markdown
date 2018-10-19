@@ -29,8 +29,8 @@ To add a single train departure sensor add the following to your `configuration.
 # Example configuration.yaml entry for a single sensor
 sensor:
   - platform: uk_transport
-    app_id: abc123
-    app_key: efg456
+    app_id: YOUR_APP_ID
+    app_key: YOUR_APP_KEY
     queries:
       - mode: train
         origin: MAL
@@ -116,8 +116,8 @@ The `destination` must be a valid location in the "direction" field returned by 
 # Example configuration.yaml entry for multiple sensors
 sensor:
   - platform: uk_transport
-    app_id: abc123
-    app_key: efg456
+    app_id: YOUR_APP_ID
+    app_key: YOUR_APP_KEY
     queries:
       - mode: bus
         origin: 340000368SHE
