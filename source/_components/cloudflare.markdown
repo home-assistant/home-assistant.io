@@ -28,7 +28,7 @@ To use the component in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 cloudflare:
-  email: USER@EXAMPLE.COM
+  email: YOUR_EMAIL_ADDRESS
   api_key: YOUR_GLOBAL_API_KEY
   zone: EXAMPLE.COM
   records:
