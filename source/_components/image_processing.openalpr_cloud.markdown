@@ -26,10 +26,10 @@ take a look at the [component](/components/image_processing/) page.
 # Example configuration.yaml entry
 image_processing:
  - platform: openalpr_cloud
-   api_key: 'sk_abcxyz123456'
+   api_key: YOUR_API_KEY
    region: eu
    source:
-    - entity_id: camera.garage
+    - entity_id: CAMERA.GARAGE
 ```
 
 {% configuration %}

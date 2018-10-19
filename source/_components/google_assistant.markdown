@@ -103,21 +103,21 @@ Now add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 google_assistant:
-  project_id: someproject-2d0b8
-  api_key: [a Homegraph API Key generated for the Google Actions project]
+  project_id: YOUR_PROJECT_ID
+  api_key: YOUR_API_KEY
   exposed_domains:
-    - switch
-    - light
-    - group
+    - SWITCH
+    - LIGHT
+    - GROUP
   entity_config:
     switch.kitchen:
-      name: Custom Name for Google Assistant
+      name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
       aliases:
-        - bright lights
-        - entry lights
+        - BRIGHT_LIGHTS
+        - ENTRY_LIGHTS
     light.living_room:
       expose: false
-      room: living room
+      room: LIVING_ROOM
 ```
 
 {% configuration %}

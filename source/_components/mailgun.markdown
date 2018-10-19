@@ -23,8 +23,8 @@ To send messages, use the [Mailgun notify platform][notify].
 ```yaml
 # Example configuration.yaml entry
 mailgun:
-  domain: mg.example.com
-  api_key: XXXXXXXXXXXXX
+  domain: EXAMPLE.COM
+  api_key: YOUR_API_KEY
 ```
 
 {% configuration %}

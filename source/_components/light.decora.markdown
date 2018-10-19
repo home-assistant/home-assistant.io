@@ -25,7 +25,7 @@ light:
   - platform: decora
     devices:
       00:21:4D:00:00:01:
-        api_key: 0x12345678
+        api_key: YOUR_API_KEY
 ```
 
 {% configuration %}

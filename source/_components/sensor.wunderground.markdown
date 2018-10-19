@@ -27,7 +27,7 @@ To add Wunderground to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 sensor:
   - platform: wunderground
-    api_key: your_api_key
+    api_key: YOUR_API_KEY
     monitored_conditions:
       - alerts
       - dewpoint_c
@@ -207,7 +207,7 @@ in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will
 ```yaml
 sensor:
   - platform: wunderground
-    api_key: your_api_key
+    api_key: YOUR_API_KEY
     monitored_conditions:
       - weather_1d_metric
       - weather_1n_metric
@@ -239,7 +239,7 @@ group:
 ```yaml
 sensor:
   - platform: wunderground
-    api_key: your_api_key
+    api_key: YOUR_API_KEY
     monitored_conditions:
       - temp_high_record_c
       - temp_high_1d_c

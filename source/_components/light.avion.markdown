@@ -43,8 +43,8 @@ light:
     devices:
       00:21:4D:00:00:01:
         name: Light 1
-        api_key: Gr35a/rt3RgaRenl9ag8Ba==
+        api_key: YOUR_API_KEY
       00:21:3D:20:00:a1:
         name: Light 2
-        api_key: Gr35a/rt3RgaRenl9ag8Ba==
+        api_key: YOUR_API_KEY
 ```

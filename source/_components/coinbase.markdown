@@ -25,8 +25,8 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 coinbase:
-  api_key: asdfghjklqwertyuiopzxcvbnm 
-  api_secret: nkjnewncfghjklqwertyuiopzxcvbnm 
+  api_key: YOUR_API_KEY 
+  api_secret: YOUR_API_SECRET 
   exchange_rate_currencies:
     - BTC
     - ETH

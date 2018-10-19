@@ -21,7 +21,7 @@ To enable text-to-speech with Microsoft, add the following lines to your `config
 # Example configuration.yaml entry
 tts:
   - platform: microsoft
-    api_key: [YourAPIKey]
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
@@ -71,7 +71,7 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: microsoft
-    api_key: XXXXXXXXX
+    api_key: YOUR_API_KEY
     language: en-gb
     gender: Male
     type: George, Apollo

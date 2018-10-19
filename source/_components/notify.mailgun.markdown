@@ -21,13 +21,13 @@ The Mailgun notification service allows you to send emails via Mailgun's REST AP
 ```yaml
 # Example configuration.yaml entry
 mailgun:
-  domain: mg.example.com
-  api_key: XXXXXXXXXXXXXX
+  domain: EXAMPLE.COM
+  api_key: YOUR_API_KEY
 
 notify:
   - name: mailgun
     platform: mailgun
-    recipient: me@example.com
+    recipient: CHANGE@EXAMPLE.COM
 ```
 
 {% configuration %}

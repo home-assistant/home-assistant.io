@@ -21,7 +21,7 @@ To integrate this into Home Assistant, add the following section to your `config
 
 telegram_bot:
   - platform: broadcast
-    api_key: <telegram api key>
+    api_key: YOUR_API_KEY
     allowed_chat_ids:
       - 12345
       - 67890
