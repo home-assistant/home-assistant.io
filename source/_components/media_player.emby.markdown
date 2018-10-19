@@ -22,7 +22,7 @@ To add Emby to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   - platform: emby
-    host: 192.168.0.0
+    host: YOUR_IP_ADDRESS
     api_key: YOUR_API_KEY
 ```
 
