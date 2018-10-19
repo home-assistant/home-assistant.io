@@ -13,7 +13,7 @@ ha_release: 0.35
 ha_iot_class: "Local Polling"
 ---
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/rm/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
