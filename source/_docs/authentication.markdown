@@ -42,7 +42,7 @@ As a user, you can setup multi-factor authentication with time-based one-time pa
 
 ### {% linkable_title Authentication failures from `127.0.0.1` %}
 
-If you're seeting authentication failures from `127.0.0.1` and you're using the nmap device tracker, you should [exclude the Home Assistant IP](https://www.home-assistant.io/components/device_tracker.nmap_tracker/#exclude) from being scanned.
+If you're seeting authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/device_tracker.nmap_tracker/#exclude) from being scanned.
 
 ### {% linkable_title Bearer token warnings %}
 
