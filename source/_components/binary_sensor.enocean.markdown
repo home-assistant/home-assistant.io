@@ -13,13 +13,15 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-This can typically be one of those batteryless wall switches. 
-Tested with: 
+This can typically be one of those batteryless wall switches.
+Tested with:
 
 - Eltako FT55 which uses the EnOcean PTM 215 module
 - [TRIO2SYS Wall switches](http://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
 
 All switches using theses modules are expected to work. Other devices will most likely not work without changing the Home Assistant code.
+
+## {% linkable_title Configuration %}
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
@@ -38,8 +40,8 @@ id:
 name:
   description: An identifier for the switch in the frontend.
   required: false
-  default: EnOcean binary sensor
   type: string
+  default: EnOcean binary sensor
 device_class:
   description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   required: false
@@ -52,6 +54,8 @@ EnOcean binary sensors only generate 'button_pressed' events. The event data has
  - **pushed**: `1` for a button press, `0` for a button release.
  - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
  - **onoff**: `0` or `1` for either side of the rocket.
+
+## {% linkable_title Automation example %}
 
 Sample automation to switch lights on and off:
 

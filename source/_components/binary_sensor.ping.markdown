@@ -13,7 +13,6 @@ ha_release: 0.43
 ha_qa_scale: internal
 ---
 
-
 The `ping` binary sensor platform allows you to using `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 
 ## {% linkable_title Configuration %}
@@ -26,6 +25,7 @@ binary_sensor:
   - platform: ping
     host: 192.168.0.1
 ```
+
 {% configuration %}
 host:
   description: The IP address or hostname of the system you want to track.
@@ -40,10 +40,10 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: "`Ping Binary sensor`"
+  default: Ping Binary sensor
 {% endconfiguration %}
 
-The sensor exposes the different round trip times values measured by `ping` as attributes: 
+The sensor exposes the different round trip times values measured by `ping` as attributes:
 
 - `round trip time mdev`
 - `round trip time avg`
@@ -64,4 +64,3 @@ binary_sensor:
 <p class='note'>
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
 </p>
-

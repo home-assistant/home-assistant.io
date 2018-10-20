@@ -16,4 +16,3 @@ ha_iot_class: "Cloud Polling"
 The `openuv` binary sensor platform allows you to view binary sensor data from [OpenUV](http://openuv.io).
 
 You must have the [`openuv` component](/components/openuv/) configured to use this platform. After configuring that component, binary sensors will automatically appear.
-
