@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: elkproducts.png
-ha_release: 0.82
+ha_release: 0.81
 ha_category: Sensor
 ha_iot_class: "Local Push"
 ---
