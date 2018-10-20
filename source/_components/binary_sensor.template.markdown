@@ -57,6 +57,7 @@ sensors:
           description: The type/class of the sensor to set the icon in the frontend.
           required: false
           type: device_class
+          default: None
         value_template:
           description: Defines a template to set the state of the sensor.
           required: true
