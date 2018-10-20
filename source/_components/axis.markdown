@@ -42,27 +42,26 @@ host:
 username:
   description: The username to your Axis device.
   required: false
-  default: root
   type: string
+  default: root
 password:
   description: The password to your Axis device.
   required: false
-  default: pass
   type: string
+  default: pass
 trigger_time:
   description: Minimum time (in seconds) a sensor should keep its positive value.
   required: false
-  default: 0
   type: integer
+  default: 0
 port:
   description: Configure port web server of device is accessible from.
   required: false
-  default: 80
   type: integer
+  default: 80
 location:
   description: Physical location of your Axis device.
   required: false
-  default: not set
   type: string
 include:
   description: This cannot be empty else there would be no use adding the device at all.
