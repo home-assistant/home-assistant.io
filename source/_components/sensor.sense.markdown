@@ -10,7 +10,7 @@ footer: true
 logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
-ha_release: 0.65
+ha_release: 0.80
 ---
 
 
@@ -31,6 +31,9 @@ sensor:
     - active_production
     - daily_usage
     - daily_production
+  devices:
+   - Dryer
+   - Samsung TV
 ```
 
 Two types of sensors can be monitored and will be created with the following names:
@@ -39,6 +42,8 @@ Two types of sensors can be monitored and will be created with the following nam
 - **Daily Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
 
 Weekly, Monthly and Yearly variants are also available.
+
+Additionally, each device detected by Sense can be used as a binary sensor.  The device name must match exactly what is shown in the Sense app and will by named as such as a binary sensor.
 
 {% configuration %}
 email:
@@ -51,7 +56,7 @@ password:
   type: string
 monitored_conditions:
   description: List of sensors to display in the front end.
-  required: true
+  required: false
   type: list
   keys:
     active_usage:
@@ -74,4 +79,8 @@ monitored_conditions:
       description: Total power used for current year in kWh.
     yearly_production:
       description: Total power produced for current year in kWh.
+devices:
+  description: List of devices to display in the front end.
+  required: false
+  type: list
 {% endconfiguration %}
