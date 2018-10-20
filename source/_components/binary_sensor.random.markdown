@@ -31,5 +31,5 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+  default: Random Binary Sensor
 {% endconfiguration %}
-

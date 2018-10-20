@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.45
 ---
 
-
 The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](https://mystrom.ch/wifi-button/) with Home Assistant. The myStrom Wifi Buttons support three and the myStrom WiFi Button + four different push pattern:
 
 - `single`: Short push (approx. 1/2 seconds)

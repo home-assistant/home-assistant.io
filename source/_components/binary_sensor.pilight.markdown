@@ -67,6 +67,8 @@ reset_delay_sec:
   default: 30
 {% endconfiguration %}
 
+## {% linkable_title Full example %}
+
 A full configuration example could look like this:
 
 ```yaml
