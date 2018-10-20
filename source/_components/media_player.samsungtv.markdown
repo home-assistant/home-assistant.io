@@ -93,11 +93,13 @@ Currently known supported models:
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - Q7F (port must be set to 8001, MAC must be specified for Power On)
 - UE40KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- NU7400 (port set to 8001 and `pip3 install websocket-client` executed)
 
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
+- J6300 - State is always "on" and unable to control (but port 8001 *is* open)
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)

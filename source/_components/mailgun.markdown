@@ -23,12 +23,22 @@ To send messages, use the [Mailgun notify platform][notify].
 ```yaml
 # Example configuration.yaml entry
 mailgun:
-  domain: mg.example.com
-  api_key: XXXXXXXXXXXXX
+  domain: EXAMPLE.COM
+  api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **domain** (*Required*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
-- **api_key** (*Required*): This is the API token that has been generated in your Mailgun account.
-- **sandbox** (*Deprecated*): Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed.  Defaults to `False`.
+{% configuration %}
+domain:
+  description: This is the domain name to be used when sending out mail. Needs to be the first custom domain you have set up.
+  required: true
+  type: string
+api_key:
+  description: This is the API token that has been generated in your Mailgun account.
+  required: true
+  type: string
+sandbox:
+  description: "(**Deprecated**) Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed."
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}

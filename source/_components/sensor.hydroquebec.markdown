@@ -34,26 +34,58 @@ sensor:
      - period_total_days
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username used to log into the Hydro-Québec site.
-- **password** (*Required*): Password used to log into the Hydro-Québec site.
-- **contract** (required since HA 4.0) Your contract number with Hydro-Québec
-- **monitored_variables** array (*Required*): Variables to monitor.
-  - **balance** : Current balance
-  - **period_total_bill** : Current period bill
-  - **period_length**: Current period length
-  - **period_total_days**: Total number of days in this period
-  - **period_mean_daily_bill**: Period daily average bill
-  - **period_mean_daily_consumption**: Period daily average consumption
-  - **period_total_consumption**: Total Consumption
-  - **period_lower_price_consumption**: Period Lower price consumption
-  - **period_higher_price_consumption**: Period Higher price consumption
-  - **period_average_temperature**: Period Average temperature
-  - **yesterday_total_consumption**: Yesterday total consumption
-  - **yesterday_lower_price_consumption**: Yesterday lower price consumption
-  - **yesterday_higher_price_consumption**: Yesterday higher price consumption
-  - **yesterday_average_temperature**: Yesterday Average temperature
+{% configuration %}
+username:
+  description: Username used to log into the Hydro-Québec site.
+  required: true
+  type: string
+password:
+  description: Password used to log into the Hydro-Québec site.
+  required: true
+  type: string
+contract:
+  description: Your contract number with Hydro-Québec.
+  required: true
+  type: string
+name:
+  description: A friendly name for this sensor.
+  required: false
+  default: HydroQuebec
+  type: string
+monitored_variables:
+  description: Variables to monitor.
+  required: true
+  type: list
+  keys:
+    balance:
+      description: Current balance
+    period_total_bill:
+      description: Current period bill
+    period_length:
+      description: Current period length
+    period_total_days:
+      description: Total number of days in this period
+    period_mean_daily_bill:
+      description: Period daily average bill
+    period_mean_daily_consumption:
+      description: Period daily average consumption
+    period_total_consumption:
+      description: Total consumption
+    period_lower_price_consumption:
+      description: Period lower price consumption
+    period_higher_price_consumption:
+      description: Period higher price consumption
+    period_average_temperature:
+      description: Period average temperature
+    yesterday_total_consumption:
+      description: Yesterday total consumption
+    yesterday_lower_price_consumption:
+      description: Yesterday lower price consumption
+    yesterday_higher_price_consumption:
+      description: Yesterday higher price consumption
+    yesterday_average_temperature:
+      description: Yesterday average temperature
+{% endconfiguration %}
 
 To find your contract id, go to the [Hydro-Québec website](https://www.hydroquebec.com/portail/)
 and connect to your account.

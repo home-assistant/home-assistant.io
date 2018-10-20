@@ -63,6 +63,27 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [hangouts docs]: /components/hangouts/
 [websocket_api docs]: /components/websocket_api/
 
+## {% linkable_title Release 0.80.2 - October 17 %}
+
+- Lovelace: Fix glance icon not updating
+- Fix: Connection pool of Request object is smaller than optimal value (8) ([@Anonym-tsk] - [#17483]) ([telegram_bot docs])
+- Blink update - fixes #17316 ([@fronzbot] - [#17538]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs])
+- Home Assistant Cloud: Add another 3 days leeway to give time for payment processing times ([@balloob] - [#17542]) ([cloud docs])
+
+[#17483]: https://github.com/home-assistant/home-assistant/pull/17483
+[#17538]: https://github.com/home-assistant/home-assistant/pull/17538
+[#17542]: https://github.com/home-assistant/home-assistant/pull/17542
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@balloob]: https://github.com/balloob
+[@fronzbot]: https://github.com/fronzbot
+[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
+[binary_sensor.blink docs]: /components/binary_sensor.blink/
+[blink docs]: /components/blink/
+[camera.blink docs]: /components/camera.blink/
+[cloud docs]: /components/cloud/
+[sensor.blink docs]: /components/sensor.blink/
+[telegram_bot docs]: /components/telegram_bot/
+
 ## {% linkable_title New Features %}
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)

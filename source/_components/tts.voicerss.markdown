@@ -57,7 +57,7 @@ The configuration sample below show how a entry can look like:
 # Example configuration.yaml entry
 tts:
   - platform: voicerss
-    api_key: 'XXXXX'
+    api_key: YOUR_API_KEY
     language: 'de-de'
     codec: mp3
     format: '8khz_8bit_mono'

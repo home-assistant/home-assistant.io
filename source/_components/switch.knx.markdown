@@ -29,11 +29,21 @@ switch:
     address: '1/1/6'
 ```
 
-Configuration variables:
-
-* **address** (*Required*): KNX group address for switching the switch on/off.
-* **name** (*Optional*): A name for this device used within Home Assistant.
-* **state_address** (*Optional*): separate KNX group address for retrieving the switch state.
+{% configuration %}
+address:
+  description: KNX group address for switching the switch on/off.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  default: KNX Switch
+  type: string
+state_address:
+  description: Separate KNX group address for retrieving the switch state.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.

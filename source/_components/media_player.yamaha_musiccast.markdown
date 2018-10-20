@@ -34,6 +34,7 @@ port:
   description: UDP source port. If multiple devices are present, specify a different port per device.
   required: false
   type: integer
+  default: 5005
 interval_seconds:
   description: Polling interval in seconds.
   required: false

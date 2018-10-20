@@ -20,4 +20,3 @@ If you have August Doorbell, once you have enabled the [August component](/compo
 * Doorbell ding sensor
 * Doorbell motion sensor
 * Doorbell online sensor
-

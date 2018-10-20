@@ -28,7 +28,7 @@ To integrate your Vultr subscriptions with Home Assistant, add the following sec
 ```yaml
 # Example configuration.yaml entry
 vultr:
-  api_key: ABCDEFG12345
+  api_key: YOUR_API_KEY
 ```
 
 {% configuration %}

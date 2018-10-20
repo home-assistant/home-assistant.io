@@ -38,8 +38,19 @@ media_player:
     host: http://192.168.0.123
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or address of the device that is running MPC-HC.
-- **port** (*Optional*): The port number. Defaults to 13579.
-- **name** (*Optional*): The name of the device used in the frontend.
+{% configuration %}
+host:
+  description: The host name or IP address of the device that is running MPC-HC.
+  required: true
+  type: string
+port:
+  description: The port number of the device.
+  required: false
+  default: 13579
+  type: integer
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  default: MPC-HC
+  type: string
+{% endconfiguration %}
