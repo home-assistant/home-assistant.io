@@ -107,10 +107,10 @@ The example sensor below shows a configuration example which uses JSON in the st
 sensor:
   - platform: mqtt
     name: "BS RSSI"
-    state_topic: "HUISHS/BunnyShed/NodeHealthJSON"
+    state_topic: "home/sensor1/infojson"
     unit_of_measurement: 'dBm'
     value_template: "{{ value_json.RSSI }}"
-    availability_topic: "HUISHS/BunnyShed/status"
+    availability_topic: "home/sensor1/status"
     payload_available: "online"
     payload_not_available: "offline"
     json_attributes:
