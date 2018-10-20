@@ -26,13 +26,11 @@ Windows is not supported because Home Assistant uses `ProactorEventLoop` which d
 
 ## {% linkable_title Configuration %}
 
-```yaml
-# Example configuration.yaml entry
-emulated_roku:
-  servers:
-    - name: hass roku
-      listen_port: 8060
-```
+The component is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
+
+<p class='note warning'>
+You can only configure the component through the integrations page, not in configuration files.
+</p>
 
 {% configuration %}
 name:
