@@ -12,15 +12,11 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
+The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, checkout the [troubleshooting](#troubleshooting) section.
 
 <p class="note warning">
   It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
-</p>
-
-<p class="note">
-  If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
 </p>
 
 ```yaml
@@ -129,9 +125,6 @@ homekit:
                 default: '`switch`'
 {% endconfiguration %}
 
-<p class='note'>
-  If you use Z-Wave, or `discovery:` you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this. You'll then need to start the HomeKit component once Z-Wave is ready, or an appropriate delay to allow your entities to be discovered.
-</p>
 
 ## {% linkable_title Setup %}
 
@@ -145,16 +138,16 @@ homekit:
 After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if they are [supported](#supported-components). To add them:
 1. Open the Home Assistant frontend. A new card will display the `pin code`.
 1. Open the `Home` app.
-2. Choose `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and enter the `pin code`.
-4. Confirm the you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
-5. Follow the setup be clicking on `Next` and lastly `Done` in the top right hand corner.
-6. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
+2. Click `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
+4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
+5. Enter the `PIN` code.
+6. Follow the setup be clicking on `Next` and lastly `Done` in the top right hand corner.
+7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
 After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
 
 
 ## {% linkable_title Considerations %}
-
 
 ### {% linkable_title Accessory ID %}
 
@@ -280,36 +273,62 @@ The following components are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 
 
-## {% linkable_title Error reporting %}
+## {% linkable_title Troubleshooting %}
 
-If you encounter any issues or bug and want to report them on `GitHub`, please follow these steps to make it easier for others to help and get your issue solved.
+### {% linkable_title Deleting the `.homekit.state` file %}
 
-1. Enable debugging mode:
+The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
+ 1. **Stop** Home Assistant
+ 2. Delete the `.homekit.state` file
+ 3. **Start** Home Assistant
+
+### {% linkable_title Errors during pairing %}
+
+If you encounter any issues during pairing, make sure to
+ 1. **Stop** Home Assistant
+ 2. Delete the `.homekit.state` file
+ 3. Edit your configuration (see below)
+ 4. **Start** Home Assistant
+
 ```yaml
 logger:
   default: warning
   logs:
-       homeassistant.components.homekit: debug
-       pyhap: debug
-```
-2. Reproduce the bug / problem you have encountered.
-3. Stop Home Assistant and copy the log from the log file. That is necessary since some errors only get logged, when Home Assistant is being shutdown.
-4. Follow this link: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit) and open a new issue.
-5. Fill out all fields and especially include the following information:
-   - The configuration entries for `homekit` and the `component` that is causing the issue.
-   - The log / traceback you have generated before.
-   - Screenshots of the failing entity in the `states` panel.
+    homeassistant.components.homekit: debug
+    pyhap: debug
 
-## {% linkable_title Troubleshooting PIN not appearing %}
-
-In some instances, the PIN will not appear as a persistent status or in the log files despite deleting `.homekit.state`, enabling logging, and reboot.  The log files will include the error ```Duplicate AID found when attempting to add accessory```.
-
-In such cases, modifying your configuration.yaml to add a filter limiting the included entities similar to the following:
-
-```yaml
-filter:
-  include_domains:
-    - light
+homekit:
+  filter:
+    include_entities:
+      - demo.demo
 ```
 
-Restart Home Assistant and re-attempt pairing - a persistent status should now correctly appear.
+#### {% linkable_title PIN doesn't appear as persistent status %}
+You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) %}
+For `Docker` users: make sure to set `network_mode: host`. Other reasons could be network related. Make sure to check your router configuration. For some it helped when the Home Assistant device was using WIFI, not LAN. Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
+
+#### {% linkable_title Pairing hangs - zeroconf error %}
+Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
+
+#### {% linkable_title Duplicate AID found when attempting to add accessory %}
+Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
+
+
+### {% linkable_title Issues during normal use %}
+
+#### {% linkable_title Pairing hangs - no error %}
+Make sure that you don't try to add more then 100 accessories, see [device limit](#device-limit). In rare cases one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
+
+#### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
+See [disable auto start](#disable-auto-start)
+
+#### {% linkable_title Accessory not responding - after restart or update %}
+See [device limit](#device-limit)
+
+#### {% linkable_title Accessory not responding - randomly %}
+Unfortunately that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually the accessory should get back to responding after a few minutes at most.
+
+#### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
+To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
