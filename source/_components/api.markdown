@@ -23,4 +23,4 @@ It is HIGHLY recommended that you set the `api_password`, especially if you are 
 api:
 ```
 
-For details to use the API, please refer to the [REST API](/developers/rest_api/) or the [Python REST API documentation](/developers/python_api/) in the "Developer" section. 
+For details to use the API, please refer to the [REST API](/developers/rest_api/) or the [Python REST API documentation](/developers/python_api/) in the "Developer" section.
