@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Switch
-ha_release: 0.76
+ha_release: 0.80
 ha_iot_class: "Local Polling"
 ---
 
