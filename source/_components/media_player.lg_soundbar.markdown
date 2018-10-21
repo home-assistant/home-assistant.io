@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: lg.png
 ha_category: Media Player
+ha_iot_class: "Local Polling"
 ha_release: 0.81
 ---
 
