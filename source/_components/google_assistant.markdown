@@ -184,7 +184,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
-- vacuum (dock)
+- vacuum (dock/start/stop/pause)
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 
