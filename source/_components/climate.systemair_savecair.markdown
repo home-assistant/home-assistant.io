@@ -12,7 +12,7 @@ ha_category: Climate
 ha_release: 0.81
 ha_iot_class: "Cloud Polling"
 ---
-The `systemair savecair` climate platform consumes data from the [Savecair web interface](https://savecair.systemair.com). This component enables you to view and configure the climate decive.
+The `systemair_savecair` climate platform consumes data from the [Savecair web interface](https://savecair.systemair.com). This component enables you to view and configure the climate device.
 
 To enable this platform, you need the Savecair module configured.
 
