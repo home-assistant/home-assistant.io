@@ -10,7 +10,7 @@ footer: true
 logo: microsoft_azure.png
 ha_category: Others
 featured: true
-ha_release: 0.77.1
+ha_release: 0.81
 ha_iot_class: "Hub"
 ---
 
@@ -49,7 +49,7 @@ subscription_id:
 {% endconfiguration %}
 
 
-You can create a Service Principal using the following command
+You can create a Service Principal using the following command:
 
 ```bash
 PS Azure:\> az ad sp create-for-rbac --name "hassio-principal" --password "SECRET-PASSWORD"
@@ -62,4 +62,3 @@ Retrying role assignment creation: 1/36
   "tenant": "7912XXXX-XXXX-XXXX-XXXX-XXXX69bbace1"
 }
 ```
-
