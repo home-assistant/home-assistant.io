@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Scene
-ha_release: 0.XX
+ha_release: 0.81
 ---
 
 The `somfy_mylink` scene platform lets you trigger scenes added to your compatible Somfy MyLink hub in Home Assistant.

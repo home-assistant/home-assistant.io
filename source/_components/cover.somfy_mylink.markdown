@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Cover
-ha_release: 0.XX
+ha_release: 0.81
 ---
 
 The `somfy_mylink` cover platform lets you control covers added to your compatible Somfy MyLink hub in Home Assistant.
