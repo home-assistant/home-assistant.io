@@ -76,16 +76,15 @@ password:
 path:
   description: The path to the raw MP4 files.
   required: false
-  default: /media/mmcblk0p1/record
   type: string
+  default: /media/mmcblk0p1/record
 username:
   description: The user that can access the FTP server.
   required: false
-  default: root
   type: string
+  default: root
 ffmpeg_arguments:
-  description: >
-    Extra options to pass to `ffmpeg`
+  description: Extra options to pass to `ffmpeg`.
   required: false
   type: string
 {% endconfiguration %}

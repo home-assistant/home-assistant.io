@@ -12,7 +12,6 @@ ha_category: Camera
 ha_iot_class: "Local Polling"
 ---
 
-
 The `foscam` platform allows you to watch the live stream of your [Foscam](http://www.foscam.com/) IP camera in Home Assistant.
 
 ## {% linkable_title Configuration %}

@@ -177,7 +177,7 @@ Trigger as soon as an event starts:
       to: 'on'
 ```
 
-By using specific text in the event title, you can set conditions to initiate particular automation flows on designated events while other events will be ignored. 
+By using specific text in the event title, you can set conditions to initiate particular automation flows on designated events while other events will be ignored.
 
 For example, the actions following this condition will only be executed for events named 'vacation':
 

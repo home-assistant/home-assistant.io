@@ -9,10 +9,9 @@ sharing: true
 footer: true
 ---
 
-
 The camera component allows you to use IP cameras with Home Assistant. With a little additional work you could use [USB cameras](/blog/2016/06/23/usb-webcams-and-home-assistant/) as well.
 
-### {% linkable_title Service %}
+### {% linkable_title Services %}
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
@@ -82,4 +81,3 @@ A simple way to test if you have set up your `camera` platform correctly, is to 
   "entity_id": "camera.living_room_camera"
 }
 ```
-
