@@ -10,12 +10,46 @@ footer: true
 ---
 
 Configure [Caddy Server](https://caddyserver.com/) for use as a reverse proxy to Home Assistant.
+### {% linkable_title Install %}
 
+<p class='note warning'>
+It can potentially be dangerous to send a command straight to bash please make sure you trust the source before running that type of commands, to check what this command does head over to [getcaddy.com](https://getcaddy.com/)
+</p>
+
+Once you are ready to proceed with the installer type:
+```
+curl https://getcaddy.com | bash -s personal
+```
+
+ 
+Then create a file named ``Caddyfile``:
 ```
 hass.example.org {
-    proxy / localhost:8123 {
+    proxy / yourhassinternalip:8123 {
         websocket
         transparent
     }
 }
 ```
+
+
+
+
+Make sure to forward ports: `80` and `443` on your router so that you are able to use an SSL certificate. If you forward both port 80 and 443 Caddy will auto generate a Lets Encrypt SSL Certificate 
+
+To run your Caddy Server type:
+```
+caddy -agree=true -conf=/path/to/your/Caddyfile -email youremail@example.com
+```
+
+You do not need the ``--email`` if you are using your own SSL Certificate 
+
+If you encounter issues with Google TTS update your ``base_url`` to include ``https``:
+```yaml
+http:
+  base_url: https://hass.example.org
+```
+### {% linkable_title More Info %}
+To learn more about Caddy Server go to the [Caddy Docs](https://caddyserver.com/docs)
+
+For more info on port forwarding visit: [portforward.com](https://portforward.com/router.htm) and select your router to find a guide specific to your router
