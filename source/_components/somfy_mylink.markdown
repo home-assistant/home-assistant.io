@@ -24,20 +24,6 @@ somfy_mylink:
   password: mylink_id
 ```
 
-```yaml
-# Example configuration.yaml entry setting specific options on a per-cover basis
-somfy_mylink:
-  host: 10.1.1.100
-  password: mylink_id
-  cover_options:
-    - name: "*"
-      reverse: true
-    - name: "Bedroom"
-      move_time: 20.5
-    - name: "Living Room"
-      move_time: 22
-```
-
 {% configuration %}
 host:
   description: The IP address of the Somfy MyLink hub device.
@@ -66,3 +52,16 @@ cover_options:
       type: boolean
 {% endconfiguration %}
 
+```yaml
+# Advanced configuration.yaml entry setting specific options on a per-cover basis
+somfy_mylink:
+  host: 10.1.1.100
+  password: mylink_id
+  cover_options:
+    - name: "*"
+      reverse: true
+    - name: "Bedroom"
+      move_time: 20.5
+    - name: "Living Room"
+      move_time: 22
+```
