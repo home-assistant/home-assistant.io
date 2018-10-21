@@ -84,6 +84,25 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [sensor.blink docs]: /components/sensor.blink/
 [telegram_bot docs]: /components/telegram_bot/
 
+## {% linkable_title Release 0.80.3 - October 18 %}
+
+- Update hangups to 0.4.6 and fix Issue #16593 hangouts reconnects. ([@hobbypunk90] - [#17518]) ([hangouts docs])
+- Update to async-upnp-client==0.12.5 ([@StevenLooman] - [#17401]) ([upnp docs]) ([media_player.dlna_dmr docs])
+- Upgrade async_upnp_client to 0.12.6 ([@StevenLooman] - [#17560]) ([upnp docs]) ([media_player.dlna_dmr docs])
+- Update snapcast to 2.0.9 ([@balloob] - [#17573]) ([media_player.snapcast docs])
+
+[#17401]: https://github.com/home-assistant/home-assistant/pull/17401
+[#17518]: https://github.com/home-assistant/home-assistant/pull/17518
+[#17560]: https://github.com/home-assistant/home-assistant/pull/17560
+[#17573]: https://github.com/home-assistant/home-assistant/pull/17573
+[@StevenLooman]: https://github.com/StevenLooman
+[@balloob]: https://github.com/balloob
+[@hobbypunk90]: https://github.com/hobbypunk90
+[hangouts docs]: https://www.home-assistant.io/components/hangouts/
+[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
+[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
+[upnp docs]: https://www.home-assistant.io/components/upnp/
+
 ## {% linkable_title New Features %}
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)

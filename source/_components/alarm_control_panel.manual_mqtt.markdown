@@ -67,7 +67,7 @@ code_template:
   required: exclusive
   type: string
 delay_time:
-  description: The time in seconds of the pending time before triggering the alarm.
+  description: The time in seconds of delay added to the triggered state's **pending_time** before triggering the alarm.
   required: false
   type: integer
   default: 0
@@ -148,9 +148,10 @@ payload_arm_night:
 
 In the configuration example below:
 
-- the disarmed state never triggers the alarm;
-- the armed_home state will leave no time to leave the building or disarm the alarm;
-- while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
+- The disarmed state never triggers the alarm;
+- The armed_home state will leave no time to leave the building or disarm the alarm;
+- While other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back;
+- Setting pending_time to 0 for triggered state allows the alarm to trigger after previous state's delay time only. If not set, the alarm will be pending for previous state's delay_time plus the default pending_time before triggering.
 
 ```yaml
 # Example configuration.yaml entry
@@ -166,6 +167,8 @@ alarm_control_panel:
     armed_home:
       pending_time: 0
       delay_time: 0
+    triggered:
+      pending_time: 0
 ```
 
 Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples) for more real-life examples on how to use this panel.
