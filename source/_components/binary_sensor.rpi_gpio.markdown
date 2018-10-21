@@ -54,7 +54,7 @@ pull_mode:
     Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
   required: false
   type: string
-  default: `UP`
+  default: "`UP`"
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
