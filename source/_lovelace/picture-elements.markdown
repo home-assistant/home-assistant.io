@@ -2,7 +2,7 @@
 layout: page
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
-description: "Picture elements card is one of the most versatile type of cards"
+description: "Picture elements card is one of the most versatile types of cards"
 date: 2018-07-01 10:28 +00:00
 sidebar: true
 comments: false
@@ -10,9 +10,9 @@ sharing: true
 footer: true
 ---
 
-Picture elements card is one of the most versatile type of cards.
+Picture elements card is one of the most versatile types of cards.
 
-The cards allows you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
+The cards allow you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
@@ -76,7 +76,7 @@ tap_action:
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held. more-info, toggle, navigate, call-service
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `navigate`, `call-service`).
   type: string
   default: none
 navigation_path:
@@ -129,7 +129,7 @@ tap_action:
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held. more-info, toggle, navigate, call-service
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `navigate`, `call-service`).
   type: string
   default: none
 navigation_path:
@@ -208,7 +208,7 @@ tap_action:
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held. more-info, toggle, navigate, call-service
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `navigate`, `call-service`).
   type: string
   default: none
 navigation_path:
@@ -253,7 +253,7 @@ tap_action:
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held. more-info, toggle, navigate, call-service
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `navigate`, `call-service`).
   type: string
   default: none
 navigation_path:
@@ -354,7 +354,7 @@ state_filter:
 ## {% linkable_title How to use click-and-hold %}
 
 If the option `hold_action` is specified, that action will be performed when the entity is clicked and held for a certain time (default 0.5 seconds).
-Please note that the `tap_action` and `hold_action` share variables for `navigation_path`, `service` and `service_data`. It is therefore not possible to e.g. call two different services when clicked and when held.
+Please note that the `tap_action` and `hold_action` share variables for `navigation_path`, `service` and `service_data`. It is therefore not possible to, e.g., call two different services when clicked and when held.
 
 ```yaml
 tap_action: toggle
