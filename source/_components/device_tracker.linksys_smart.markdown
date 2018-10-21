@@ -34,8 +34,11 @@ device_tracker:
     host: 192.168.1.1
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname or IP address of your router, eg. `192.168.1.1`.
+{% configuration %}
+host:
+  description: The hostname or IP address of your router, e.g., `192.168.1.1`.
+  required: true
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

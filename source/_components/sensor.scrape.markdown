@@ -40,7 +40,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor. There is also a [Jupyter notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/web-scraping.ipynb) available for this example to give you a bit more insight.
+In this section you find some real-life examples of how to use this sensor. There is also a [Jupyter notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/web-scraping.ipynb) available for this example to give you a bit more insight.
 
 ### {% linkable_title Home Assistant %}
 

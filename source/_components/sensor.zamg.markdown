@@ -25,24 +25,55 @@ sensor:
   - platform: zamg
 ```
 
-Configuration variables:
-
-- **station_id** (*Optional*): The ID number for a supported ZAMG station.
-- **name** (*Optional*): Additional name for the sensors. Defaults to platform name.
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file.
-- **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml` file.
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
-  - **pressure**: Pressure at station level
-  - **pressure_sealevel**: Pressure at sea Level
-  - **humidity**: Humidity
-  - **wind_speed**: Wind speed
-  - **wind_bearing**: Wind bearing
-  - **wind_max_speed**: Top wind speed
-  - **wind_max_bearing**: Top wind bearing
-  - **sun_last_hour**: Sun last hour percentage
-  - **temperature**: Temperature
-  - **precipitation**: Precipitation
-  - **dewpoint**: Dew point
+{% configuration %}
+station_id:
+  required: false
+  description: The ID number for a supported ZAMG station.
+  type: string
+name:
+  required: false
+  description: Additional name for the sensors. Defaults to platform name.
+  default: zamg
+  type: string
+latitude:
+  required: false
+  description: "Latitude coordinate to monitor weather of (required if **longitude** is specified)."
+  default: "Defaults to coordinates defined in your `configuration.yaml` file."
+  type: float
+longitude:
+  required: false
+  description: "Longitude coordinate to monitor weather of (required if **latitude** is specified)."
+  default: "Defaults to coordinates defined in your `configuration.yaml` file."
+  type: float
+monitored_conditions:
+  required: false
+  description: Conditions to display in the frontend.
+  type: list
+  default: temperature
+  keys:
+    pressure:
+      description: Pressure at station level
+    pressure_sealevel:
+      description: Pressure at sea Level
+    humidity:
+      description: Humidity
+    wind_speed:
+      description: Wind speed
+    wind_bearing:
+      description: Wind bearing
+    wind_max_speed:
+      description: Top wind speed
+    wind_max_bearing:
+      description: Top wind bearing
+    sun_last_hour:
+      description: Sun last hour percentage
+    temperature:
+      description: Temperature
+    precipitation:
+      description: Precipitation
+    dewpoint:
+      description: Dew point
+{% endconfiguration %}
 
 A full configuration example:
 

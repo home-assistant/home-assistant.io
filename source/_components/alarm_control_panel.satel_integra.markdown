@@ -13,8 +13,6 @@ ha_release: 0.54
 ha_iot_class: "Local Push"
 ---
 
-
 The `satel_integra` alarm control panel platform allows you to control your [SatelIntegra](http://www.satel.pl/en/) alarms.
 
 The requirement is that you have setup your [SatelIntegra hub](/components/satel_integra/).
-

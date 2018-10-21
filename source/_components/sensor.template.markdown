@@ -11,6 +11,7 @@ ha_category: Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.
@@ -57,6 +58,7 @@ sensor:
         description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualisation as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
         type: string
+        default: None
       value_template:
         description: Defines a template to get the state of the sensor.
         required: true
@@ -70,7 +72,7 @@ sensor:
         required: false
         type: template
       device_class:
-        description: The type/class of the sensor to set the icon in the frontend.
+        description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
         type: device_class
         default: None
@@ -83,7 +85,7 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sun Angle %}
 

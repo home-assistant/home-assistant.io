@@ -8,6 +8,10 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.80.0 %}
+- 📣 New card type: `sensor` ❤️
+- 📣 New card type: `gauge` ❤️
+
 ## {% linkable_title Changes in 0.77.0 %}
 - 📣 New notification drawer ❤️
 

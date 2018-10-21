@@ -31,39 +31,7 @@ Home Assistant will automatically discover deCONZ presence on your network, if `
 
 If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** -> **Gateway** -> **Advanced** -> **Authenticate app** in deCONZ and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a config entry.
 
-You can add the following to your `configuration.yaml` file if you are not using the `discovery:` component:
-
-```yaml
-# Example configuration.yaml entry
-deconz:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP address of your deCONZ web server.
-  required: false
-  type: string
-api_key:
-  description: The API key to access your deCONZ web server.
-  required: false
-  type: string
-port:
-  description: Configure port deCONZ web server is accessible from.
-  required: false
-  default: 80
-  type: int
-{% endconfiguration %}
-
-A full configuration could look like this:
-
-```yaml
-# Example configuration.yaml entry
-deconz:
-  host: 127.0.0.1
-  api_key: 0123456789
-  port: 80
-```
+You can manually add deCONZ by going to the integrations page.
 
 ## {% linkable_title Debugging component %}
 
@@ -107,7 +75,7 @@ Note: deCONZ automatically signals Home Assistant when new sensors are added, bu
 
 ## {% linkable_title Remote control devices %}
 
-Remote controls (ZHASwitch category) will be not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -120,7 +88,7 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
-For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.
+For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
 
 ## {% linkable_title Examples %}
 

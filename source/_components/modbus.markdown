@@ -14,13 +14,16 @@ ha_iot_class: "Local Push"
 ---
 
 
-[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
+It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
 
 ## {% linkable_title Configuration %}
 
-To add modbus to your installation, add the following to your `configuration.yaml` file:
+The configuration for adding modbus to your installation depends on the connection type, either a network or serial connection.
 
-For a network connection:
+### {% linkable_title Network connection %}
+
+For a network connection, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for a TCP connection
@@ -30,17 +33,29 @@ modbus:
   port: 2020
 ```
 
-Configuration variables:
+{% configuration %}
+type:
+  description: Type of the connection to Modbus. Possible values are `tcp` (Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation.), `udp`(Modbus TCP form, but using UDP for transport. It removes the overheads required for TCP.) and `rtuovertcp` (Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.).
+  required: true
+  type: string
+host:
+  description: The IP address of your Modbus device, e.g., 192.168.1.1.
+  required: true
+  type: string
+port:
+  description: The network port for the communication.
+  required: true
+  type: integer
+timeout:
+  description: Timeout for slave response in seconds.
+  required: false
+  default: 3
+  type: integer
+{% endconfiguration %}
 
-- **type** (*Required*): Type of the connection to Modbus. Possible values are:
-  - *tcp*: Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation, 
-  - *udp*: Modbus TCP form, but using UDP for transport (removes the overheads required for TCP),
-  - *rtuovertcp*: Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.
-- **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
-- **port** (*Required*): The port for the communication.
-- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
+### {% linkable_title Serial connection %}
 
-For a serial connection:
+For a serial connection, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for a serial connection
@@ -54,16 +69,41 @@ modbus:
   parity: N
 ```
 
-Configuration variables:
-
-- **type** (*Required*): Type of the connection to Modbus.
-- **method** (*Required*): Method of the connection to Modbus.
-- **port** (*Required*): The port where your Modbus device is connected to your Home Assistant host.
-- **baudrate** (*Required*): The speed for the serial connection.
-- **stopbits** (*Required*): The stopbits for the serial connection.
-- **bytesize** (*Required*): The bytesize for the serial connection.
-- **parity** (*Required*): The parity for the serial connection.
-- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
+{% configuration %}
+type:
+  description: "Type of the connection to Modbus, needs to be `serial` for this setup."
+  required: true
+  type: string
+method:
+  description: "Method of the connection to Modbus, either `rtu` or `ascii`."
+  required: true
+  type: string
+port:
+  description: The port where your Modbus device is connected to your Home Assistant host.
+  required: true
+  type: string
+baudrate:
+  description: The speed for the serial connection.
+  required: true
+  type: integer
+stopbits:
+  description: "The stopbits for the serial connection, either `1` or `2`."
+  required: true
+  type: integer
+bytesize:
+  description: "The bytesize for the serial connection; can be `5`, `6`, `7` or `8`."
+  required: true
+  type: integer
+parity:
+  description: "The parity for the serial connection; can be `E`, `O` or `N`."
+  required: true
+  type: string
+timeout:
+  description: Timeout for slave response in seconds.
+  required: false
+  default: 3
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Services %}
 

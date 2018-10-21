@@ -47,3 +47,14 @@ password:
     required: true
     type: string
 {% endconfiguration %}
+
+### {% linkable_title Tested routers %}
+
+Routers we know to be working with this component based on the documentation of used libraries and reports by users:
+
+- Huawei B310s-22
+- Huawei B525s-23a
+- Huawei E5186s-22a
+- Huawei B618
+
+This is not a complete list. The component can probably connect to other Huawei LTE routers running similar firmware.

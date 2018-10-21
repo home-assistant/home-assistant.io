@@ -24,4 +24,3 @@ If you have August Doorbell, once you have enabled the [August component](/compo
 If you have August Smart Lock with DoorSense, once you have enabled the [August component](/components/august/), you should see the following sensors:
 
 * Door sensor
-

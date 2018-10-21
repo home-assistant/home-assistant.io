@@ -23,9 +23,12 @@ vera:
   vera_controller_url: http://192.168.1.161:3480/
 ```
 
-Configuration variables:
-
-- **vera_controller_url** (*Required*): The URL for your Vera device.
+{% configuration %}
+vera_controller_url:
+  description: The URL for your Vera device.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.

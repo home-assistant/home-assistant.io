@@ -37,6 +37,20 @@ Follow the instructions you see on your screen.
 
 Go to the folder you have placed `dropbox.py`.
 
+- **Option A:**
+  Copy file `dropbox_uploader.sh` to : `.homeassistant/extraconfig/shell_code/` (so the full path would be similar to: `/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh`)
+- **Option B:**
+  Edit `dropbox.py`:
+  Change the following line: 
+  ```
+  uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"
+  ```
+  to where you placed your file: (for example):
+  ```
+  uploader = "/home/homeassistant/MyFolder/dropbox_uploader.sh"
+  ```
+
+
 ```bash
 $ python dropbox.py
 ```

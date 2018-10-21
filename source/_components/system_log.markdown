@@ -26,7 +26,7 @@ system_log:
 max_entries:
   description: Number of entries to store (older entries are discarded).
   required: false
-  type: int
+  type: integer
   default: 50
 fire_event:
   description: Whether events are fired (required when used for triggers).

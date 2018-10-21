@@ -33,8 +33,18 @@ tesla:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The email address associated with your Tesla account.
-- **password** (*Required*): The password for your given Tesla account.
-- **scan_interval** (*Optional*): API polling interval. Minimal value can't be less then 300. (Defaults 300)
+{% configuration %}
+username:
+  description: The email address associated with your Tesla account.
+  required: true
+  type: string
+password:
+  description: The password associated with your Tesla account.
+  required: true
+  type: string
+scan_interval:
+  description: API polling interval. Minimal value can't be less then 300.
+  required: false
+  default: 300
+  type: integer
+{% endconfiguration %}

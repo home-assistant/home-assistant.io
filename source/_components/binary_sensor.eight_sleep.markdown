@@ -13,7 +13,6 @@ ha_release: "0.44"
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `eight_sleep` binary sensor platform lets you observe the presence state of a [Eight Sleep](https://eightsleep.com/) cover/mattress through Home Assistant.
 
 Devices will be configured automatically. Please refer to the [`eight_sleep` component](/components/eight_sleep/) configuration on how to setup.

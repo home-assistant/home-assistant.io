@@ -29,9 +29,9 @@ To use this component in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 evohome:
-  - username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    location_idx: 0
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  location_idx: 0
 ```
 This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 3 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 

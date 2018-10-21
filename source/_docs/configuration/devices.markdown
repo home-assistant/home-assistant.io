@@ -16,7 +16,7 @@ See the [components overview page](/components/) to find installation instructio
 
 Classification for the available integrations:
 
-- [IoT class(/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
+- [IoT class](/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
 - [Quality scale](/docs/quality_scale/): Representation of the integration's quality.
 
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
@@ -33,9 +33,12 @@ sensor:
     name: "MQTT Sensor 2"
   - platform: rest
     resource: http://IP_ADDRESS/ENDPOINT
+    name: "Weather"
 
 switch:
   - platform: vera
+  - platform: tplink
+    host: IP_ADDRESS
 ```
 
 ## {% linkable_title Style 2: List each device separately %}
@@ -43,18 +46,27 @@ switch:
 You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.
 
 ```yaml
-media_player livingroom:
-  platform: mpd
-  server: IP_ADDRESS
+sensor bedroom:
+  platform: mqtt
+  state_topic: "home/bedroom/temperature"
+  name: "MQTT Sensor 1"
 
-media_player kitchen:
-  platform: plex
+sensor kitchen:
+  platform: mqtt
+  state_topic: "home/kitchen/temperature"
+  name: "MQTT Sensor 2"
 
-camera 1:
-  platform: generic
+sensor weather:
+  platform: rest
+  resource: http://IP_ADDRESS/ENDPOINT
+  name: "Weather"
 
-camera 2:
-  platform: mjpeg
+switch 1:
+  platform: vera
+
+switch 2:
+  platform: tplink
+  host: IP_ADDRESS
 ```
 
 ## {% linkable_title Grouping devices %}
@@ -74,4 +86,3 @@ group:
 ```
 
 For more details please check the [Group](/components/group/) page.
-

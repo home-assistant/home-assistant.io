@@ -13,4 +13,3 @@ featured: false
 ---
 
 Integrates Telldus Live binary sensors into Home Assistant. See the [main component](/components/tellduslive/) for configuration instructions.
-

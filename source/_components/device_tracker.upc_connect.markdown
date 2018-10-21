@@ -23,9 +23,13 @@ device_tracker:
   - platform: upc_connect
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router. Set it if you are not using `192.168.0.1`.
+{% configuration %}
+host:
+  description: The IP address of your router.
+  required: false
+  default: 192.168.0.1
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
@@ -33,4 +37,3 @@ Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0
  - Ziggo Connectbox NL
  - Unitymedia Connect Box (DE)
-

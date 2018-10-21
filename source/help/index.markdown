@@ -53,6 +53,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Build a wireless MQTT weather sensor for your Home Assistant](https://www.smartlab.at/build-a-wireless-mqtt-temperature-and-humidity-sensor-for-your-home-assistant/) - October 2018
 - [​Building a better thermostat with Home Assistant](https://opensource.com/article/18/8/build-thermostat-open-source-tools) - August 2018
 - [​Home Assistant lets you automate your smart home without giving up privacy](https://www.the-ambient.com/features/home-assistant-automation-privacy-582) - May 2018
 - [HackSpace magazine #6](https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/013/original/HS_6_Digital_Optimised.pdf?1524495009) - May 2018

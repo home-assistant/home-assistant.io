@@ -26,8 +26,11 @@ camera:
     ffmpeg_arguments: '-pred 1 -q:v 2'
 ```
 
-Configuration variables:
-
-- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+{% configuration %}
+ffmpeg_arguments:
+  description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+  required: false
+  type: string
+{% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.

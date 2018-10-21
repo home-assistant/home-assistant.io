@@ -107,6 +107,18 @@ If your template uses an `entity_id` that begins with a number (example: `states
 Rendering templates with time (`now()`) is dangerous as updates only trigger templates in sensors based on entity state changes.
 </p>
 
+## {% linkable_title Priority of operators %}
+
+The default priority of operators is that the filter (`|`) has priority over everything except brackets. This means that:
+
+{% raw %}
+```yaml
+{{ states('sensor.temperature') | float / 10 | round(2) }}
+```
+{% endraw %}
+
+Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by that.
+
 ## {% linkable_title Home Assistant template extensions %}
 
 In templates, besides the normal [state object methods and properties](/topics/state_object/), there are also some extra things available:
@@ -114,6 +126,8 @@ In templates, besides the normal [state object methods and properties](/topics/s
 - `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 ## {% linkable_title Examples %}
+
+To test a template, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your template in the _Template editor_ and check the results on the right.
 
 ### {% linkable_title States %}
 
@@ -133,7 +147,7 @@ Print an attribute if state is defined. Both will return the same thing but the 
 {% raw %}
 ```text
 {% if states.device_tracker.paulus %}
-  {{ states.device_tracker.paulus.attributes.battery }}
+  {{ state_attr('device_tracker.paulus', 'battery') }}
 {% else %}
   ??
 {% endif %}
@@ -170,9 +184,9 @@ Print out a list of all the sensor states.
   Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
 
-{{ states.sensor.temperature | float + 1 }}
+{{ states('sensor.temperature') | float + 1 }}
 
-{{ (states.sensor.temperature | float * 10) | round(2) }}
+{{ (states('sensor.temperature') | float * 10) | round(2) }}
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
@@ -280,7 +294,7 @@ Just use the "Square bracket notation" to get the value.
 
 {% raw %}
 ```yaml
-'{{ value_json["values"]["temp"] }}'
+'{{ value_json['values']['temp'] }}'
 ```
 {% endraw %}
 

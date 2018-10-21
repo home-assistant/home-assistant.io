@@ -20,7 +20,7 @@ For example, on Android, the app "Simple RSS Widget" can be used to display temp
 ```yaml
 # Example configuration.yaml entry
 rss_feed_template:
-  # Accessible on <home assistant url>/api/rss_template/garden
+  # Accessible on <Home Assistant url>/api/rss_template/garden
   # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: False

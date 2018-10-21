@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: "History"
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The `recorder` component is storing details in a database which then are handled by the [`history` component](/components/history/).
@@ -39,12 +40,12 @@ recorder:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
       default: 10
-      type: int
+      type: integer
     purge_interval:
       description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
       required: false
       default: 1
-      type: int
+      type: integer
     exclude:
       description: Configure which components should be excluded
       required: false
@@ -158,7 +159,7 @@ If the `recorder` component is activated then some components support `restore_s
 | MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
-If you use MariaDB 10 you need to add port 3307 to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+If you use MariaDB 10 you need to add port 3307 (or another port depending on which port is used by, for example: your hosting provider.) to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
 </p>
 
 <p class='note'>
@@ -166,6 +167,10 @@ Unix Socket connections always bring performance advantages over TCP, if the dat
 
 <p class='note warning'>
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
+
+<p class='note warning'>
+If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
+</p>
 
 ### {% linkable_title Database startup %}
 

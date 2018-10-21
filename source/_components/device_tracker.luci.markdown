@@ -37,16 +37,28 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., `192.168.1.1`.
-- **username** (*Required*): The username of an user with administrative privileges, usually `admin`.
-- **password** (*Required*): The password for your given admin account.
-- **ssl** (*Optional*): If your router enforces SSL connections, set to `true`. Defaults to `false`.
+{% configuration %}
+host:
+  description: The hostname or IP address of your router, e.g., `192.168.1.1`.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges, usually `admin`.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+ssl:
+  description: If your router enforces SSL connections, set to `true`.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 <p class='note warning'>
-Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
+Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail.
 </p>
-

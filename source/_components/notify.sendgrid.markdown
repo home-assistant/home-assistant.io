@@ -20,7 +20,7 @@ To enable notification emails via SendGrid in your installation, add the followi
 notify:
   - name: NOTIFIER_NAME
     platform: sendgrid
-    api_key: API_KEY
+    api_key: YOUR_API_KEY
     sender: SENDER_EMAIL_ADDRESS
     recipient: YOUR_RECIPIENT
 ```

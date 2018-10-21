@@ -22,13 +22,27 @@ To ensure that your DirecTV boxes are always found and configured, they should b
 media_player:
   - platform: directv
 ```
-Configuration variables:
 
-- **host** (*Optional*): Use only if you don't want to scan for devices.
-- **port** (*Optional*): The port your receiver is using. Defaults to `8080`.
-- **name** (*Optional*): Use to give a specific name to the device.
-- **device** (*Optional*): Use to specify a particular receiver in a Genie setup.
-
+{% configuration %}
+host:
+  description: The IP address or the hostname of the device. Use only if you don't want to scan for devices.
+  required: false
+  type: string
+port:
+  description: The port your receiver is using.
+  required: false
+  default: 8080
+  type: integer
+name:
+  description: Use to give a specific name to the device.
+  required: false
+  default: DirecTV Receiver
+  type: string
+device:
+  description: Use to specify a particular receiver in a Genie setup.
+  required: false
+  type: string
+{% endconfiguration %}
 
 To find valid device IDs, open `http://<IP Address of Genie Server>:8080/info/getLocations` in a web browser. For each Genie slave, you will find a variable `clientAddr` in the response, and this should be used for `device` in `configuration.yaml`
 

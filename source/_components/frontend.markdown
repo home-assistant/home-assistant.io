@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Other"
+ha_qa_scale: internal
 ---
 
 This offers the official frontend to control Home Assistant.

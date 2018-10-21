@@ -38,15 +38,15 @@ name:
 slave:
   description: The number of the slave (Optional for tcp and upd Modbus, use 1).
   required: true
-  type: int
+  type: integer
 target_temp_register:
   description: Register number for target temperature (Setpoint).
   required: true
-  type: int
+  type: integer
 current_temp_register:
   description: Register number for current temperature (Process value).
   required: true
-  type: int
+  type: integer
 data_type:
   description: Response representation (int, uint, float, custom). If float selected, value will converted to IEEE 754 floating point format.
   required: false
@@ -55,11 +55,11 @@ data_type:
 count:
   description: Number of registers to read.
   required: false
-  type: int
+  type: integer
 precision:
   description: Number of valid decimals.
   required: false
-  type: int
+  type: integer
   default: 0
 {% endconfiguration %}
 

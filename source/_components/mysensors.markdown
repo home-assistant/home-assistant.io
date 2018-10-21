@@ -39,7 +39,7 @@ mysensors:
       baud_rate:
         description: Specifies the baud rate of the connected serial gateway.
         required: false
-        type: int
+        type: integer
         default: 115200
       persistence_file:
         description: The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
@@ -49,7 +49,7 @@ mysensors:
       tcp_port:
         description: Specifies the port of the connected TCP Ethernet gateway.
         required: false
-        type: int
+        type: integer
         default: 5003
       topic_in_prefix:
         description: Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant.
@@ -73,7 +73,7 @@ mysensors:
   persistence:
     description: Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts.
     required: false
-    type: int
+    type: integer
     default: true
   version:
     description: Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.
@@ -83,12 +83,12 @@ mysensors:
   optimistic:
     description: Enable or disable optimistic mode for actuators (switch/light). Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
     required: false
-    type: int
+    type: integer
     default: false
   retain:
     description: Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway.
     required: false
-    type: int
+    type: integer
     default: true
 {% endconfiguration %}
 
