@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: rtorrent.png
 ha_category: Downloading
-ha_release: 0.80
+ha_release: 0.81
 ha_iot_class: "Local Polling"
 ---
 
-The `rtorrent` platform allows you to monitor your downloads with [rtorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automation based on the information.
+The `rtorrent` platform allows you to monitor your downloads with [rtorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -32,7 +32,7 @@ This sensor requires the rtorrent XMLRPC API exposed on an HTTP interface.
 Note that for security reasons, simply using the SCGI interface (default `localhost:5000`) of rtorrent won't work.
 The [official reference](https://github.com/rakshasa/rtorrent/wiki/RPC-Setup-XMLRPC) describes how to set up that HTTP interface.
 
-Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) container can be used with `url ` set to `http://admin:rutorrent@127.0.0.1:9080/RPC2`.
+Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) container can be used with `url` set to `http://admin:rutorrent@127.0.0.1:9080/RPC2`.
 
 {% configuration %}
 url:
@@ -40,11 +40,11 @@ url:
   required: true
   type: string
 name:
-  description: The name to user when displaying this rtorrent instance.
+  description: The name to use when displaying this rtorrent instance.
   required: false
   type: string
 monitored_variables:
-  description: Conditions to display in the frontend.
+  description: Conditions to be monitored.
   required: true
   type: list
   keys:
