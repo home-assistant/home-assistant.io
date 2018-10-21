@@ -23,6 +23,13 @@ To use your compatible `Somfy MyLink` devices in your installation, add the foll
 somfy_mylink:
   host: 10.1.1.100
   password: mylink_id
+```
+
+```yaml
+# Example configuration.yaml entry setting specific options on a per-cover basis
+somfy_mylink:
+  host: 10.1.1.100
+  password: mylink_id
   cover_options:
     - name: "*"
       reverse: true
