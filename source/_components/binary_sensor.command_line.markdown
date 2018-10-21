@@ -13,7 +13,6 @@ ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
-
 The `command_line` binary sensor platform issues specific commands to get data.
 
 ## {% linkable_title Configuration %}
@@ -33,10 +32,10 @@ command:
   required: true
   type: string
 name:
-  description: Let you overwrite the name of the device. By default *name* from the device is used.
+  description: Let you overwrite the name of the device.
   required: false
-  default: name
   type: string
+  default: "*name* from the device"
 device_class:
   description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   required: false
@@ -44,13 +43,13 @@ device_class:
 payload_on:
   description: The payload that represents enabled state.
   required: false
-  default: ON
   type: string
+  default: ON
 payload_off:
   description: The payload that represents disabled state.
   required: false
-  default: OFF
   type: string
+  default: OFF
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   required: false
@@ -58,13 +57,13 @@ value_template:
 scan_interval:
   description: Defines number of seconds for polling interval.
   required: false
-  default: 60
   type: integer
+  default: 60
 command_timeout:
   description: Defines number of seconds for command timeout.
   required: false
-  default: 15
   type: integer
+  default: 15
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

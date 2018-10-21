@@ -26,16 +26,16 @@ binary_sensor:
 ```
 
 {% configuration %}
-  adsvar:
-    required: true
-    description: The name of the variable which you want to access on the ADS device.
-    type: string
-  name: 
-    required: false
-    description: An identifier for the light in the frontend.
-    type: string
-  device_class:
-    required: false
-    description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-    type: string
+adsvar:
+  description: The name of the variable which you want to access on the ADS device.
+  required: true
+  type: string
+name:
+  description: An identifier for the light in the frontend.
+  required: false
+  type: string
+device_class:
+  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  required: false
+  type: string
 {% endconfiguration %}

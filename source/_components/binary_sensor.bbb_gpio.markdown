@@ -48,18 +48,18 @@ pins:
         bouncetime:
           description: Debounce time for reading input pin defined in milliseconds [ms].
           required: false
-          default: 50
           type: integer
+          default: 50
         invert_logic:
           description: If `true`, inverts the input logic to ACTIVE LOW
           required: false
-          default: false
           type: boolean
+          default: false
         pull_mode:
           description: Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
           required: false
-          default: UP
-          type: string      
+          type: string
+          default: UP  
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
