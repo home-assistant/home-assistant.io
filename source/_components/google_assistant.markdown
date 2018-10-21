@@ -164,6 +164,10 @@ entity_config:
           description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
+        type:
+          description: Allows changing the default type of device for a more specified one from [Supported Types](https://developers.google.com/actions/smarthome/guides/)
+          required: false
+          type: string
 {% endconfiguration %}
 
 ### {% linkable_title Available domains %}
@@ -180,6 +184,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
+- vacuum (on/off/dock)
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 
