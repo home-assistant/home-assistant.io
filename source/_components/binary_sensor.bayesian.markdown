@@ -69,7 +69,7 @@ observations:
       description: The probability of the observation occurring, given the event is `false` can be set as well.
       required: false
       type: float
-      default: `1 - prob_given_true` if `prob_given_false` is not set
+      default: "`1 - prob_given_true` if `prob_given_false` is not set"
     platform:
       description: >
         The only supported observation platforms are `state` and `numeric_state`,
