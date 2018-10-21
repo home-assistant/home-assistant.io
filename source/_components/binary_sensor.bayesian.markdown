@@ -85,6 +85,8 @@ observations:
 
 ## {% linkable_title Full examples %}
 
+The following is an example for the `state` observation platform.
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -112,6 +114,9 @@ binary_sensor:
       platform: 'state'
       to_state: 'below_horizon'
 ```
+
+Next up an example which targets the `numeric_state` observation platform,
+as seen in the configuration it requires `below` and/or `above` instead of `to_state`.
 
 ```yaml
 # Example configuration.yaml entry
