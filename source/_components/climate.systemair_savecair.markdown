@@ -20,8 +20,6 @@ To enable this platform, you need the Savecair module configured.
 # Example configuration.yaml entry
 climate:
   - platform: systemair_savecair
-    device: vtr_300
-    name: System AIR
     iam_id: IAM_XXXXXXXXXXX
     password: xxxxxxxxxx
 ```
@@ -43,3 +41,21 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: systemair_savecair
+    name: System AIR
+    device: vtr_300
+    iam_id: IAM_XXXXXXXXXXX
+    password: xxxxxxxxxx
+```
+
+### {% linkable_title Available Devices %}
+
+Available devices: `vtr_300`
+
+| attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device` | yes | Your System AIR model.
