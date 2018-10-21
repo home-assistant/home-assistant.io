@@ -35,7 +35,7 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: *name* from the device is used
+  default: "*name* from the device"
 device_class:
   description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   required: false
