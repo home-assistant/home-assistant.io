@@ -53,6 +53,10 @@ cover_options:
   required: false
   type: list
   keys:
+    name:
+      description: The name of the device to apply the specified options to. A 'star' symbol (`*`) can be used as a wildcard to apply for all devices.
+      required: true
+      type: string
     move_time:
       description: The time it takes for the cover to open or close in seconds. This value is used to emulate setting and reading the position of the cover. If this value is omitted the ability to set a specific position will be disabled.
       required: false
