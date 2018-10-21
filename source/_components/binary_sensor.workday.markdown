@@ -82,6 +82,8 @@ If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then 
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 
+## {% linkable_title Automation example %}
+
 Example usage for automation:
 
 ```yaml

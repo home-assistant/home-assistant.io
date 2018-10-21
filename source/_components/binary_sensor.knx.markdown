@@ -42,13 +42,15 @@ device_class:
 significant_bit:
   description: Specify which significant bit of the KNX value should be used.
   required: false
-  default: 1
   type: integer
+  default: 1
 reset_after:
   description: Reset back to OFF state after specified milliseconds.
   required: false
   type: integer
 {% endconfiguration %}
+
+### {% linkable_title Automation actions %}
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 
@@ -81,13 +83,13 @@ name:
 counter:
   description: Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed.
   required: false
-  default: 1
   type: integer
+  default: 1
 hook:
   description: Indicates if the automation should be executed on what state of the binary sensor. Values are "on" or "off".
   required: false
-  default: "on"
   type: string
+  default: "on"
 action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
   required: false
