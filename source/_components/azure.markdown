@@ -27,7 +27,6 @@ azure:
   client_secret: SECRET-PASSWORD
   tenant_id: 7912XXXX-XXXX-XXXX-XXXX-XXXX69bbace1
   subscription_id: f231XXXX-XXXX-XXXX-XXXX-XXXXa3299dea
-
 ```
 
 {% configuration %}
