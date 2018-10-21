@@ -133,7 +133,7 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
+As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) is confirmed as working for the following Android methods. Using older version than 5.0.30 is not recommended as it might lack support for some newer devices like the Roborock S50.
   
 The iPhone app still stores the token in the sqlite db as of v4.7.18 (July 17, 2018).
 
