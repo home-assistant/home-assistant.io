@@ -33,8 +33,8 @@ ffmpeg_arguments:
 scan_interval:
   description: How frequently to query for new video in seconds.
   required: false
-  default: 90
   type: integer
+  default: 90
 {% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.

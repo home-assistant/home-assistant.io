@@ -13,7 +13,6 @@ ha_release: 0.42
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 
 To add `neato` camera to your installation, follow instructions in [Neato component](/components/neato/).

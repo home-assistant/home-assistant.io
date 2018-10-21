@@ -13,9 +13,9 @@ ha_release: 0.22
 ha_iot_class: "Local Polling"
 ---
 
-### {% linkable_title Basic Configuration %}
-
 The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
+
+### {% linkable_title Basic configuration %}
 
 To enable the Netatmo camera, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your camera.
 
