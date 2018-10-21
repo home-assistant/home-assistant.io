@@ -47,7 +47,7 @@ invert_logic:
   description: If `true`, inverts the output logic to ACTIVE LOW.
   required: false
   type: boolean
-  default: `false` (ACTIVE HIGH)
+  default: "`false` (ACTIVE HIGH)"
 pull_mode:
   description: >
     Type of internal pull resistor to use.
