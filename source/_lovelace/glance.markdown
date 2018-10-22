@@ -44,6 +44,10 @@ theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
   type: string
+columns:
+  required: false
+  description: Number of columns to show. If not specified the number will be set automatically.
+  type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
