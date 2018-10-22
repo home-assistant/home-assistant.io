@@ -21,6 +21,8 @@ The status will contain attributes on the robots last clean session.
 If you notice the robot stops responding to commands check the status attribute to see if the robot is offline. If you see "Robot Offline" check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
 </p>
 
+## {% linkable_title Configuration %}
+
 To add `neato` vacuum to your installation, please follow instructions in [Neato component](/components/neato/).
 
 Currently supported services are:

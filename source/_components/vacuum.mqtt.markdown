@@ -14,6 +14,8 @@ ha_release: 0.54
 
 The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
 
+## {% linkable_title Configuration %}
+
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
