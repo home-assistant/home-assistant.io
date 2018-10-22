@@ -53,8 +53,8 @@ longitude:
 radius:
   description: The radius of the zone in meters.
   required: false
-  default: 100
   type: integer
+  default: 100
 icon:
   description: The icon to show instead of name.
   required: false
@@ -62,8 +62,8 @@ icon:
 passive:
   description: To only use the zone for automation and hide it from the frontend and not use the zone for device tracker name.
   required: false
-  default: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)

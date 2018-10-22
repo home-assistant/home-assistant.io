@@ -34,13 +34,13 @@ host:
 path:
   description: Path to your Zabbix install.
   required: false
-  default: "`/zabbix/`"
   type: string
+  default: "`/zabbix/`"
 ssl:
   description: Set to `True` if your Zabbix installation is using SSL.
   required: false
-  default: false
   type: boolean
+  default: false
 username:
   description: Your Zabbix username.
   required: false
