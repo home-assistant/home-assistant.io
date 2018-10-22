@@ -35,7 +35,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: Port numbers (BCM mode pin numbers) and corresponding names.
+      description: The port numbers (BCM mode pin numbers) and corresponding names.
       required: true
       type: string
 bouncetime:
