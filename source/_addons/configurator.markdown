@@ -97,7 +97,7 @@ banlimit:
   type: int
   default: 0
 ignore_pattern:
-  description: Regex of files and folders to ignore in the UI
+  description: Regex of files and folders to ignore in the UI.
   required: true
   type: string
 dirsfirst:
