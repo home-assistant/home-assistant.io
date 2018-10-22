@@ -231,4 +231,4 @@ MQTT payload:
 
 ### {% linkable_title Retrofitting a non-wifi vacuums %}
 - Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
-- In you own a non-wifi Neato, you can refer to [This repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.
+- In you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.
