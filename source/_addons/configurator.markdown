@@ -94,7 +94,7 @@ banned_ips:
 banlimit:
   description: Ban access from IPs after `banlimit` failed login attempts, setting the value to 0 disables this feature. Restart the add-on to clear the list of banned IP addresses.
   required: true
-  type: int
+  type: integer
   default: 0
 ignore_pattern:
   description: Regex of files and folders to ignore in the UI.
