@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: plex.png
-ha_category: Media Player
+ha_category: Sensor
 ha_release: 0.22
 ha_iot_class: "Local Polling"
 ---
