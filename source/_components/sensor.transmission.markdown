@@ -30,6 +30,8 @@ If everything is setup correctly, the details will show up in the frontend.
   <img src='{{site_root}}/images/components/transmission/transmission.png' />
 </p>
 
+The `transmission` platform is able to send events on the Home-Assistant bus when a torrent is started or completed, containing information about the name of such torrent. This is checked every time the sensor state is updated. This kind of event can be used to trigger automation, like a notification via Telegram when torrents get completed.
+
 ## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
@@ -46,6 +48,8 @@ sensor:
       - 'active_torrents'
       - 'paused_torrents'
       - 'total_torrents'
+      - 'completed_torrents'
+      - 'started_torrents'
 ```
 
 {% configuration %}
@@ -87,5 +91,9 @@ monitored_variables:
       description: The current number of paused torrents.
     total_torrents:
       description: The total number of torrents present in the client.
+    completed_torrents:
+      description: The total number of completed torrents present in the client. If this key is present in the configuration, events will be send for every completed torrent.
+    started_torrents:
+      description: The total number of started torrents present in the client. If this key is present in the configuration, events will be send for every started torrent.
 {% endconfiguration %}
 
