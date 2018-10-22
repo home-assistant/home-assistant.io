@@ -96,12 +96,12 @@ data:
   description: >
     Dictionary of extra parameters to send to the notifier.
   required: false
-  type: dictionary
+  type: list
 data_template:
   description: >
     emplate dictionary of extra parameters to send to the notifier.
   required: false
-  type: dictionary
+  type: list
 notifiers:
   description: "List of `notification` components to use for alerts."
   required: true
@@ -210,7 +210,7 @@ sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 
 ### {% linkable_title Additional parameters for notifiers  %}
 
-Some notifiers support more parameters (e.g. to set text color or action
+Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` (or `data_template` in case
     it is a template) parameter:
 
