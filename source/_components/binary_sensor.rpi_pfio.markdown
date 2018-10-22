@@ -39,12 +39,12 @@ ports:
   type: map
   keys:
     num:
-      description: Port number.
+      description: The port number.
       required: true
       type: map
       keys:
         name:
-          description: Port name.
+          description: The port name.
           required: true
           type: string
         settle_time:
