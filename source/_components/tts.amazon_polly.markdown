@@ -68,7 +68,6 @@ sample_rate:
   type: string
 {% endconfiguration %}
 
- 
 ## {% linkable_title Usage %}
 
 Say to all `media_player` device entities:

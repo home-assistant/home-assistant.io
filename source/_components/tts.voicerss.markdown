@@ -33,25 +33,25 @@ api_key:
 language:
   description: The language to use.
   required: false
-  default: "`en-us`"
   type: string
+  default: "`en-us`"
 codec:
   description: The audio codec.
   required: false
-  default: mp3
   type: string
+  default: mp3
 format:
   description: The audio sample format.
   required: false
-  default: 8khz_8bit_mono
   type: string
+  default: 8khz_8bit_mono
 {% endconfiguration %}
 
-Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
+Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allowed values.
 
 ## {% linkable_title Full configuration example %}
 
-The configuration sample below show how a entry can look like:
+The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry

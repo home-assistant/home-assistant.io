@@ -31,37 +31,37 @@ api_key:
   required: true
   type: string
 language:
-  description: "The language to use. Supported `en-US`, `ru-RU`, `uk-UK`, `tr-TR`."
+  description: "The language to use. Supported languages are `en-US`, `ru-RU`, `uk-UK` and `tr-TR`."
   required: false
+  type: string
   default: "`en-US`"
-  type: string
 codec:
-  description: "The audio codec. Supported us `mp3`, `wav`, `opus`."
+  description: "The audio codec. Supported codecs are `mp3`, `wav` and `opus`."
   required: false
-  default: "`mp3`"
   type: string
+  default: "`mp3`"
 voice:
   description: "The speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh` and male voices are `zahar` and `ermil`."
   required: false
+  type: string
   default: "`zahar`"
-  type: string
 emotion:
-  description: "The speaker emotional intonation. Also supported are `good` (friendly) and `evil` (angry)"
+  description: "The speaker emotional intonation. Supported emotions are `good` (friendly), `evil` (angry) and `neutral`"
   required: false
-  default: "`neutral`"
   type: string
+  default: "`neutral`"
 speed:
   description: The speech speed. Highest speed is `3` and lowest `0,1`
   required: false
-  default: "`1`"
   type: float
+  default: "`1`"
 {% endconfiguration %}
 
 Please check the [API documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. It seems that the English version of documentation is outdated. You could request an API key [by email](https://tech.yandex.com/speechkit/cloud/) or [online](https://developer.tech.yandex.ru/).
 
 ## {% linkable_title Full configuration example %}
 
-The configuration sample below show how a entry can look like:
+The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry
