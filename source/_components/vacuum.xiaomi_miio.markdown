@@ -185,6 +185,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 5. Click "Extract Token"
 6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
 7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
+8. If you don't get a token, close MiToolKit completely, delete the folder MiToolkit\apps\com.xiaomi.smarthome and relaunch MiToolKit to force recreate a new backup (sometimes the files would not be overwritten before deleting the old ones)
 
 #### {% linkable_title Linux and Android (not rooted) %}
 
