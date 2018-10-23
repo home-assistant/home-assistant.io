@@ -10,11 +10,12 @@ footer: true
 logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
-ha_release: 0.80
+ha_release: 0.65
 ---
 
-
 Integrate your [Sense](https://sense.com) meter information into Home Assistant. 
+
+You first have to setup the [Sense component](/components/sense/)
 
 ## {% linkable_title Configuration %}
 
@@ -24,16 +25,11 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   platform: sense
-  email: CLIENT_ID
-  password: CLIENT_SECRET
   monitored_conditions:
     - active_usage
     - active_production
     - daily_usage
     - daily_production
-  devices:
-   - Dryer
-   - Samsung TV
 ```
 
 Two types of sensors can be monitored and will be created with the following names:
@@ -43,20 +39,10 @@ Two types of sensors can be monitored and will be created with the following nam
 
 Weekly, Monthly and Yearly variants are also available.
 
-Additionally, each device detected by Sense can be used as a binary sensor.  The device name must match exactly what is shown in the Sense app and will by named as such as a binary sensor.
-
 {% configuration %}
-email:
-  description: The email associated with your Sense account/application.
-  required: true
-  type: string  
-password:
-  description: The password for your Sense account/application.
-  required: true
-  type: string
 monitored_conditions:
   description: List of sensors to display in the front end.
-  required: false
+  required: true
   type: list
   keys:
     active_usage:
@@ -79,8 +65,4 @@ monitored_conditions:
       description: Total power used for current year in kWh.
     yearly_production:
       description: Total power produced for current year in kWh.
-devices:
-  description: List of devices to display in the front end.
-  required: false
-  type: list
 {% endconfiguration %}
