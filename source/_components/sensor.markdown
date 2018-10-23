@@ -24,6 +24,8 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **temperature**: Temperature in °C or °F.
 - **pressure**: Pressure in hPa or mbar.
 
+Setting the device class does not set the units.
+
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
 Example of various device class icons for sensors.
