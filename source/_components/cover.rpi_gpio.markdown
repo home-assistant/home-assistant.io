@@ -42,7 +42,7 @@ relay_time:
   default: 0.2
   type: float
 invert_relay:
-  description: Invert the relay pin output so that it is active-high (True).  Default is False (active-low).
+  description: Invert the relay pin output so that it is active-high (True).
   required: false
   default: False
   type: boolean
@@ -70,12 +70,12 @@ covers:
       required: true
       type: integer
     name:
-      description: Name to use in the frontend.
+      description: The name to use in the frontend.
       required: false
       type: string
 {% endconfiguration %}
 
-Full example:
+## {% linkable_title Full example %}
 
 ```yaml
 # Example configuration.yaml entry
