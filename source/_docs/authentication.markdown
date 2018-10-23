@@ -10,33 +10,49 @@ sharing: true
 footer: true
 ---
 
-Access to Home Assistant is secured by our authentication system. Each member of your household will get their own user account to log in and access Home Assistant.
+Access to Home Assistant is secured by our authentication system. 
 
-Home Assistant contains two different user types: the owner user account and normal users. The owner user account is created when you start Home Assistant for the first time. This account has some special privileges compared to the other users of the system:
-
- - Manage users
- - Configure integrations and other settings (soon)
- - Configure Hass.io (soon)
-
-## {% linkable_title Authentication %}
-
-When a user wants to use Home Assistant, they have to log in. When navigating to the frontend without authentication, the user is asked for a login. The login page will always show you the website that you're logging in to.
+If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in. 
 
 <img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
+## {% linkable_title User accounts %}
 
-When logging in, make sure that the URL in the URL bar is showing the address of your Home Assistant instance.
+When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
 
-## {% linkable_title Profile %}
+ - Create and manage other user accounts. 
+ - Configure integrations and other settings (soon).
+ - Configure Hass.io (soon).
 
-Once you're logged in, you can access the profile page by clicking on the badge next to the Home Assistant title in the sidebar. Here you can change your preferred language or change your password. You can also log out.
+<p class='note'>
+For the moment, other user accounts will have the same access as the owner account. In future, non-owner accounts will be able to have restrictions applied.
+</p>
+
+### {% linkable_title Your Account Profile %}
+
+Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular badge next to the Home Assistant title in the sidebar. 
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
-## {% linkable_title Multi-factor authentication  %}
+You can:
 
-As a user, you can setup multi-factor authentication with time-based one-time passwords. This is an extra challenge that you have to solve after you finish your login. You will be able to set up these challenges from the profile page once you're logged in.
+* Change the language you prefer Home Assistant to use.
+* Change your password. 
+* Select the [theme](https://www.home-assistant.io/components/frontend/#defining-themes) for the interface of Home Assistant.
+* Enable or disable [multi-factor authentication](http://127.0.0.1:4000/docs/authentication/multi-factor-auth/).
+* Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
+* Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
+* Log out of Home Assistant. 
 
-<img src='/images/docs/authentication/mfa.png' alt='Screenshot of setting up multi-factor authentication' style='border: 0;box-shadow: none;'>
+### {% linkable_title Securing your login %}
+
+_Make sure to choose a secure password!_ At some time in the future you will probably want to use Home Assistant from outside your local network. This means that you are also exposed to random bad guys trying to do the same. Treat the password like the key to your house. 
+
+
+As an extra level of security, you can turn on [multi-factor authentication](http://127.0.0.1:4000/docs/authentication/multi-factor-auth/). 
+
+## {% linkable_title Other authentication techniques %}
+
+Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
 
 ## {% linkable_title Troubleshooting %}
 
@@ -92,7 +108,7 @@ It will allow you to open Home Assistant instance by access `http://hassbian.hom
 
 ### {% linkable_title Stuck on Loading data %}
 
-Some advert blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
+Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
 
 ### {% linkable_title Migrating from pre 0.77 %}
 
