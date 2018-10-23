@@ -45,6 +45,9 @@ To integrate a demo platform in Home Assistant, add the following section to you
   - platform: demo
 ```
 
-Configuration variables:
-
-- **[component]** (*Required*): The name of the component as stated in the listing above the configuration example.
+{% configuration %}
+"[component]":
+  description: The name of the component as stated in the listing above the configuration example.
+  required: true
+  type: string
+{% endconfiguration %}
