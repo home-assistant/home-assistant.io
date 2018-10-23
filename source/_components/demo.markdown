@@ -41,12 +41,12 @@ To integrate a demo platform in Home Assistant, add the following section to you
 
 ```yaml
 # Example configuration.yaml entry
-"[component]":
+[component]:
   - platform: demo
 ```
 
 {% configuration %}
-[component]:
+"[component]":
   description: The name of the component as stated in the listing above the configuration example.
   required: true
   type: string
