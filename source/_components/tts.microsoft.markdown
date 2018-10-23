@@ -13,7 +13,9 @@ ha_release: 0.57
 ---
 
 The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This component uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.
-You will need an API key, which is free. You can use your [Azure subscription](https://azure.microsoft.com) or get an API key on the [Cognitive Services site](https://azure.microsoft.com/en-us/try/cognitive-services/). 
+You will need an API key, which is free. You can use your [Azure subscription](https://azure.microsoft.com) or get an API key on the [Cognitive Services site](https://azure.microsoft.com/en-us/try/cognitive-services/).
+
+## {% linkable_title Configuration %}
 
 To enable text-to-speech with Microsoft, add the following lines to your `configuration.yaml`:
 
@@ -32,38 +34,41 @@ api_key:
 language:
   description: The language to use. Accepted values are listed in the documentation mentioned below. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well.
   required: false
-  default: "`en-us`"
   type: string
+  default: "`en-us`"
 gender:
   description: The gender you would like to use for the voice. Accepted values are `Female` and `Male`.
   required: false
-  default: "`Female`"
   type: string
+  default: "`Female`"
 type:
   description: "The voice type you want to use. Accepted values are listed as the service name mapping [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/Speech/api-reference-rest/bingvoiceoutput)."
   required: false
-  default: "`ZiraRUS`"
   type: string
+  default: "`ZiraRUS`"
 rate:
   description: "Change the rate of speaking in percentage. Example values: `25`, `50`."
   required: false
-  default: 0
   type: integer
+  default: 0
 volume:
   description: "Change the volume of the output in percentage. Example values: `-20`, `70`."
   required: false
-  default: 0
   type: integer
+  default: 0
 pitch:
   description: "Change the pitch of the output. Example values: `high`."
   required: false
-  default: "`default`"
   type: string
+  default: "`default`"
 contour:
   description: "Change the contour of the output in percentages. This overrides the pitch setting. See the [W3 SSML specification](http://www.w3.org/TR/speech-synthesis/#pitch_contour) for what it does. Example value: `(0,0) (100,100)`."
   required: false
   type: string
 {% endconfiguration %}
+
+
+## {% linkable_title Full configuration example %}
 
 A full configuration sample including optional variables:
 

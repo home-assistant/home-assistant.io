@@ -17,6 +17,8 @@ The `twilio` component enables the sending of notifications via SMS and the crea
 Free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs. Upgraded accounts have no limitation.
 
+## {% linkable_title Configuration %}
+
 To use this notification component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
