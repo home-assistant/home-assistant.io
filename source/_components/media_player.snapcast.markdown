@@ -33,5 +33,6 @@ host:
 port:
   description: The port number.
   required: false
+  default: 1705
   type: integer
 {% endconfiguration %}
