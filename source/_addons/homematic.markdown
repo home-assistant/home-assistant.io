@@ -72,3 +72,4 @@ With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partit
 ```text
 dtoverlay=pi3-miniuart-bt
 ```
+(In hassOS (non resin based version) you can edit the `config.txt` directly in `/mnt/boot`.)
