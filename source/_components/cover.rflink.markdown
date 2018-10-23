@@ -25,17 +25,18 @@ You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows o
 
 Press the Learn button on the original Somfy remote enter the following code within 3 seconds. Your blinds will go up and down shortly:
 
-````
+```text
 10;RTS;02FFFF;0412;3;PAIR;
-````
+```
 
 Your blinds will go up and down again. This means your Rflink is now paired with your RTS motor.
 To check this enter the following code again and see if there is a record.
 
-````
+```text
 10;RTSSHOW;
-````
-````
+```
+
+```text
 RTS Record: 0 Address: FFFFFF RC: FFFF
 RTS Record: 1 Address: FFFFFF RC: FFFF
 RTS Record: 2 Address: FFFFFF RC: FFFF
@@ -52,7 +53,7 @@ RTS Record: 12 Address: FFFFFF RC: FFFF
 RTS Record: 13 Address: FFFFFF RC: FFFF
 RTS Record: 14 Address: FFFFFF RC: FFFF
 RTS Record: 15 Address: FFFFFF RC: FFFF
-````
+```
 
 After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
@@ -86,7 +87,7 @@ devices:
     aliases:
       description: The alternative Rflink ID's this device is known by.
       required: false
-      default: []
+      default: "[]"
       type: string
     fire_event:
       description: Fire a `button_pressed` event if this device is turned on or off.
@@ -103,14 +104,14 @@ devices:
       default: True
       type: boolean
     group_aliases:
-      description: `aliases` which only respond to group commands.
+      description: The `aliases` which only respond to group commands.
       required: false
-      default: []
+      default: "[]"
       type: string
     no_group_aliases:
-      description: `aliases` which do not respond to group commands.
+      description: The `aliases` which do not respond to group commands.
       required: false
-      default: []
+      default: "[]"
       type: string
 device_defaults:
   description: The default values for a device.
@@ -118,12 +119,12 @@ device_defaults:
   type: list
   keys:
     fire_event:
-      description: The default `fire_event` for Rflink switch devices.
+      description: The default `fire_event` for Rflink cover devices.
       required: false
       default: False
       type: boolean
     signal_repetitions:
-      description: The default `signal_repetitions` for Rflink switch devices.
+      description: The default `signal_repetitions` for Rflink cover devices.
       required: false
       default: 1
       type: integer
@@ -131,5 +132,4 @@ device_defaults:
 
 ### {% linkable_title Device support %}
 
-See [device support](/components/rflink/#device-support)
-
+See [device support](/components/rflink/#device-support).
