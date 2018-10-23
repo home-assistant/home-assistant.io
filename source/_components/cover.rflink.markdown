@@ -73,23 +73,61 @@ cover:
         name: Sovrumsgardin
 ```
 
-Configuration variables:
-
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **device_defaults**: (*Optional*)
-  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
-  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
-
-Device configuration variables:
-
-- **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
-- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
-- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
-- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
-
+{% configuration %}
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: false
+  type: list
+  keys:
+    name:
+      description: The name for the device. Defaults to value for Rflink ID.
+      required: false
+      type: string
+    aliases:
+      description: The alternative Rflink ID's this device is known by.
+      required: false
+      default: []
+      type: string
+    fire_event:
+      description: Fire a `button_pressed` event if this device is turned on or off.
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: The number of times every Rflink command should repeat.
+      required: false
+      type: integer
+    group:
+      description: Allow light to respond to group commands (ALLON/ALLOFF).
+      required: false
+      default: True
+      type: boolean
+    group_aliases:
+      description: `aliases` which only respond to group commands.
+      required: false
+      default: []
+      type: string
+    no_group_aliases:
+      description: `aliases` which do not respond to group commands.
+      required: false
+      default: []
+      type: string
+device_defaults:
+  description: The default values for a device.
+  required: false
+  type: list
+  keys:
+    fire_event:
+      description: The default `fire_event` for Rflink switch devices.
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: The default `signal_repetitions` for Rflink switch devices.
+      required: false
+      default: 1
+      type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Device support %}
 
