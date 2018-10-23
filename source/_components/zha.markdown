@@ -31,6 +31,8 @@ Known working ZigBee radios:
 - [Elelabs ZigBee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
 - [Elelabs ZigBee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
 
+## {% linkable_title Configuration %}
+
 To configure the component, a `zha` section must be present in the `configuration.yaml`,
 and the path to the serial device for the radio and path to the database which will persist your network data is required.
 
@@ -45,8 +47,8 @@ zha:
 radio_type:
   description: One of `ezsp` or `xbee`.
   required: false
-  default: ezsp
   type: string
+  default: ezsp
 usb_path:
   description: Path to the serial device for the radio.
   required: true
@@ -54,8 +56,8 @@ usb_path:
 baudrate:
   description: Baud rate of the serial device.
   required: false
-  default: 57600
   type: integer
+  default: 57600
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
   required: true

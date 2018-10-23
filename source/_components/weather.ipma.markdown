@@ -22,23 +22,23 @@ To add the IPMA weather platform to your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 weather:
-  - platform: ipma 
+  - platform: ipma
 ```
 
 {% configuration %}
 name:
   description:  The name you would like to give to the weather station.
-  required: false 
-  default: The name of the used station
+  required: false
   type: string
+  default: The name of the used station
 latitude:
   description: Latitude of the location for which you want weather information.
-  required: false 
-  default: Home Assistant global latitude configuration 
+  required: false
   type: string
+  default: Home Assistant global latitude configuration
 longitude:
   description: Longitude of the location for which you want weather information.
-  required: false 
-  default: Home Assistant global longitude configuration 
+  required: false
   type: string
+  default: Home Assistant global longitude configuration
 {% endconfiguration %}

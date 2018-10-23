@@ -22,6 +22,8 @@ There is currently support for the following device types within Home Assistant:
 - [Light](../light.zigbee) (digital output pins)
 - [Switch](../switch.zigbee) (digital output pins)
 
+## {% linkable_title Configuration %}
+
 The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
 A `zigbee` section must be present in the `configuration.yaml` file and contain the following options as required:
@@ -35,13 +37,13 @@ zigbee:
 device:
   description: The serial port to which the local ZigBee device is connected.
   required: false
-  default: "/dev/ttyUSB0"
   type: string
+  default: "`/dev/ttyUSB0`"
 baud:
   description: The baud rate at which to communicate with the local ZigBee device.
   required: false
-  default: 9600
   type: integer
+  default: 9600
 {% endconfiguration %}
 
 To find the possible serial port names of your device, run:
