@@ -26,10 +26,10 @@ Currently supported services are:
 - `set_fan_speed`
 - remote control of your robot.
 
+## {% linkable_title Configuration %}
+
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
-
-## {% linkable_title Configuring the Platform %}
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
 
@@ -41,18 +41,19 @@ vacuum:
 ```
 
 {% configuration %}
-  host:
-    description: The IP of your robot.
-    required: true
-    type: string
-  token:
-    description: The API token of your robot.
-    required: true
-    type: string
-  name:
-    description: The name of your robot. 
-    required: false
-    type: string
+host:
+  description: The IP address of your robot.
+  required: true
+  type: string
+token:
+  description: The API token of your robot.
+  required: true
+  type: string
+name:
+  description: The name of your robot.
+  required: false
+  type: string
+  default: Xiaomi Vacuum cleaner
 {% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
