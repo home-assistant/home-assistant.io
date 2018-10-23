@@ -30,4 +30,8 @@ host:
   description: The IP of the device, eg. `192.168.0.10`.
   required: true
   type: string
+port:
+  description: The port number.
+  required: false
+  type: integer
 {% endconfiguration %}
