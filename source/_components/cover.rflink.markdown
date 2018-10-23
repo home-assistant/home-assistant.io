@@ -87,8 +87,7 @@ devices:
     aliases:
       description: The alternative Rflink ID's this device is known by.
       required: false
-      default: "[]"
-      type: string
+      type: list
     fire_event:
       description: Fire a `button_pressed` event if this device is turned on or off.
       required: false
@@ -106,13 +105,11 @@ devices:
     group_aliases:
       description: The `aliases` which only respond to group commands.
       required: false
-      default: "[]"
-      type: string
+      type: list
     no_group_aliases:
       description: The `aliases` which do not respond to group commands.
       required: false
-      default: "[]"
-      type: string
+      type: list
 device_defaults:
   description: The default values for a device.
   required: false
