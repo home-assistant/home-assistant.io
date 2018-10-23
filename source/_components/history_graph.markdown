@@ -73,5 +73,18 @@ history_graph:
     # refresh: 0
 
 ```
+NOTE: In order to ensure that the graphs appear in the UI, you have to add the graphs that have been created in a new group in groups.yaml, the example below illustrates:
 
+```
+# this should be placed in groups.yaml
+
+graphs: # this is a name of your choice
+name: Graphs
+view: yes # this depends on whether you want it in default view or its own tab
+icon: mdi:chart-line-variant
+entities:
+  - history_graph.lights_graph # use the assigned names in snake_case
+  - history_graph.temperature
+  
+ ```
 
