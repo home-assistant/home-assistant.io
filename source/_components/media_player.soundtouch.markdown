@@ -51,6 +51,7 @@ host:
 name:
   description: The name of the device used in the frontend.
   required: true
+  default: Bose Soundtouch
   type: string
 port:
   description: The port number. 
