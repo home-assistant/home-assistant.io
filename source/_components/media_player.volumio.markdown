@@ -30,13 +30,16 @@ media_player:
 name:
   description: The name of the device.
   required: false
+  default: Volumio
   type: string
 host:
   description: The IP address or hostname of the device.
   required: true
+  default: localhost
   type: string
 port:
   description: The Port number of Volumio service.
   required: true
+  default: 3000
   type: integer
 {% endconfiguration %}
