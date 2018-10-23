@@ -25,6 +25,9 @@ media_player:
     host: xxx.xxx.xxx.xxx
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the device, eg. `192.168.0.10`.
+{% configuration %}
+host:
+  description: The IP of the device, eg. `192.168.0.10`.
+  required: true
+  type: string
+{% endconfiguration %}
