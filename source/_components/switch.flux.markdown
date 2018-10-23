@@ -36,7 +36,7 @@ switch:
 
 {% configuration %}
 lights:
-  description: array: List of light entities.
+  description: array list of light entities.
   required: true
   type: list
 name:
