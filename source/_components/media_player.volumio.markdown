@@ -28,15 +28,15 @@ media_player:
 
 {% configuration %}
 name:
-  description: Name of the device
+  description: The name of the device.
   required: false
   type: string
 host:
-  description: IP address or hostname of the device
+  description: The IP address or hostname of the device.
   required: true
   type: string
 port:
-  description: Port number of Volumio service
+  description: The Port number of Volumio service.
   required: true
   type: integer
 {% endconfiguration %}
