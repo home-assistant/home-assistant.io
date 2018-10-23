@@ -78,8 +78,8 @@ client_secret:
 local_control:
   description: If set to `true` state changes for lights, locks and switches will be issued to the local hub.
   required: false
-  default: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 Local control:

@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.17
 ---
 
-
 The `rpi_camera` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
 ## {% linkable_title Configuration %}
@@ -30,49 +29,48 @@ camera:
 image_width:
   description: Set the image width.
   required: false
-  default: 640
   type: integer
+  default: 640
 name:
   description: Name of the camera.
   required: false
-  default: Raspberry Pi Camera
   type: string
+  default: Raspberry Pi Camera
 image_height:
   description: Set the image height.
   required: false
-  default: 480
   type: integer
+  default: 480
 image_quality:
   description: Set the image quality (from 0 to 100).
   required: false
-  default: 7
   type: integer
+  default: 7
 image_rotation:
   description: Set image rotation (0-359).
   required: false
-  default: 0
   type: integer
+  default: 0
 horizontal_flip:
   description: Set horizontal flip (0 to disable, 1 to enable).
   required: false
-  default: 0
   type: integer
+  default: 0
 vertical_flip:
   description: Set vertical flip (0 to disable, 1 to enable).
   required: false
-  default: 0
   type: integer
+  default: 0
 timelapse:
   description: Takes a picture every this many milliseconds (thousands of a second) - the default means one picture a second.
   required: false
-  default: 1000
   type: integer
+  default: 1000
 file_path:
   description: Save the picture in a custom file path.
   required: false
-  default: A temporary file is used.
   type: string
+  default: A temporary file is used.
 {% endconfiguration %}
- 
-The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/docs/configuration/basic/).
 
+The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/docs/configuration/basic/).

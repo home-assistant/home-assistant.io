@@ -43,7 +43,7 @@ proximity:
     ignored_zones:
       - twork
     devices:
-      - device_tracker.nwaring_nickmobile
+      - device_tracker.car1
     tolerance: 50
     unit_of_measurement: mi
 ```
@@ -63,20 +63,20 @@ To add multiple proximity components, simply use a list in your `configuration.y
 proximity:
   home:
     ignored_zones:
-      - twork
-      - elschool
+      - work
+      - school
     devices:
-      - device_tracker.nwaring_nickmobile
-      - device_tracker.eleanorsiphone
-      - device_tracker.tsiphone
+      - device_tracker.car1
+      - device_tracker.iphone1
+      - device_tracker.iphone2
     tolerance: 50
     unit_of_measurement: mi
   home3:
     devices:
-      - device_tracker.tsiphone
+      - device_tracker.iphone1
     tolerance: 50
   work:
     devices:
-      - device_tracker.elanorsiphone
+      - device_tracker.iphone2
     tolerance: 10
 ```

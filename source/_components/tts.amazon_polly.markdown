@@ -76,7 +76,6 @@ sample_rate:
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 {% endconfiguration %}
 
- 
 ## {% linkable_title Usage %}
 
 Say to all `media_player` device entities:

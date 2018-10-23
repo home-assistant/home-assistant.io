@@ -13,7 +13,6 @@ ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `volvooncall` component offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
 ## {% linkable_title Configuration %}
@@ -90,6 +89,6 @@ resources:
 scandinavian_miles:
   description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
   required: false
-  defaults: false
   type: boolean
+  default: false
 {% endconfiguration %}

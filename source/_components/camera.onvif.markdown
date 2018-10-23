@@ -12,8 +12,9 @@ ha_category: Camera
 ha_release: 0.47
 ---
 
-
 The `onvif` camera platform allows you to use an ONVIF camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
+
+## {% linkable_title Configuration %}
 
 To enable your ONVIF camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -44,13 +45,13 @@ password:
 port:
   description: The port for the camera.
   required: false
-  default: 5000
   type: integer
+  default: 5000
 profile:
   description: Video profile that will be used to obtain the stream, more details below.
   required: false
-  default: 0
   type: integer
+  default: 0
 extra_arguments:
   description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg)."
   required: false

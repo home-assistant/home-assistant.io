@@ -13,12 +13,13 @@ ha_release: 0.39
 ha_iot_class: "Local Polling"
 ---
 
-
 The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
 
 <p class='note'>
 You must have the [ZoneMinder component](/components/zoneminder/) configured to view the camera stream.
 </p>
+
+## {% linkable_title Configuration %}
 
 To set it up, add the following information to your `configuration.yaml` file:
 

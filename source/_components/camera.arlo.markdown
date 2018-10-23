@@ -17,6 +17,8 @@ To get your [Arlo](https://arlo.netgear.com/) cameras working within Home Assist
 
 This component is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml

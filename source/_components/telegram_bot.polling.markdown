@@ -16,11 +16,12 @@ Telegram chatbot polling implementation.
 
 One of two bot implementations supported by Telegram. Your Home Assistant does not have to be exposed to the internet.
 
+## {% linkable_title Configuration %}
+
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-
 telegram_bot:
   - platform: polling
     api_key: YOUR_API_KEY
@@ -31,7 +32,7 @@ telegram_bot:
 
 {% configuration %}
 allowed_chat_ids:
-  description: A list of user in the `user_id` Telegram format enabled to interact to webhook
+  description: A list of users in the `user_id` Telegram format that are authorized to interact with the webhook.
   required: true
   type: list
 api_key:
@@ -39,16 +40,16 @@ api_key:
   required: true
   type: string
 parse_mode:
-  description: "Default parser for messages if not explicit in message data: 'html' or 'markdown'."
+  description: Default parser for messages if not explicit in message data, either `html` or `markdown`.
   required: false
-  default: markdown
   type: string
+  default: "`markdown`"
 proxy_url:
-  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`)
+  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`).
   required: false
   type: string
 proxy_params:
-  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
+  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.).
   required: false
   type: string
 {% endconfiguration %}

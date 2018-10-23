@@ -92,38 +92,38 @@ xiaomi_aqara:
 ```
 
 {% configuration %}
-  gateways:
-    description: A list of gateways to set up.
-    required: true
-    type: map
-    keys:
-      mac:
-        description: The MAC address of your gateway. *Optional if only using one gateway.*
-        required: false
-        type: string
-      key:
-        description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
-        required: false
-        type: string
-      host:
-        description: The host/IP address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
-        required: false
-        type: string
-      disable:
-        description: Disable the gateway. This is only useful if you don't want to integrate a specific gateway.
-        required: false
-        type: boolean
-        default: false
-  discovery_retry:
-    description: Number of times that Home Assistant should try to reconnect to the gateway.
-    required: false
-    type: integer
-    default: 3
-  interface:
-    description: Which network interface to use.
-    required: false
-    type: string
-    default: any
+gateways:
+  description: A list of gateways to set up.
+  required: true
+  type: map
+  keys:
+    mac:
+      description: The MAC address of your gateway. *Optional if only using one gateway.*
+      required: false
+      type: string
+    key:
+      description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
+      required: false
+      type: string
+    host:
+      description: The host/IP address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
+      required: false
+      type: string
+    disable:
+      description: Disable the gateway. This is only useful if you don't want to integrate a specific gateway.
+      required: false
+      type: boolean
+      default: false
+discovery_retry:
+  description: Number of times that Home Assistant should try to reconnect to the gateway.
+  required: false
+  type: integer
+  default: 3
+interface:
+  description: Which network interface to use.
+  required: false
+  type: string
+  default: any
 {% endconfiguration %}
 
 ### {% linkable_title Services %}
@@ -274,4 +274,3 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
 - If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
-

@@ -21,6 +21,8 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 With the current implementation timers don't persist over restarts. After a restart they will be idle again, together with their initial configuration.
 </p>
 
+## {% linkable_title Configuration %}
+
 To add a timer to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -30,12 +32,26 @@ timer:
     duration: '00:01:00'
 ```
 
-Configuration variables:
-
-- **[alias]** (*Required*): Alias for the timer. Multiple entries are allowed.
-  - **name** (*Optional*): Friendly name of the timer.
-  - **duration** (*Optional*): Initial duration in seconds or `00:00:00` when Home Assistant starts. Defaults to 0.
-  - **icon** (*Optional*): Set a custom icon for the state card.
+{% configuration %}
+"[alias]":
+  description: Alias for the timer. Multiple entries are allowed.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Friendly name of the timer.
+      required: false
+      type: string
+    duration:
+      description: Initial duration in seconds or `00:00:00` when Home Assistant starts.
+      required: false
+      type: [integer, time]
+      default: 0
+    icon:
+      description: Set a custom icon for the state card.
+      required: false
+      type: icon
+{% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
@@ -82,7 +98,6 @@ Manually finish a running timer earlier than scheduled. If no `entity_id` is giv
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 
-
 ### {% linkable_title Use the service %}
 
 Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **timer** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
@@ -95,7 +110,7 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 
 ## {% linkable_title Examples %}
 
-Set a timer called `test` to a duration of 30 seconds. 
+Set a timer called `test` to a duration of 30 seconds.
 
 ```yaml
 # Example configuration.yaml entry
@@ -110,8 +125,8 @@ timer:
 # Example automations.yaml entry
 - alias: Timerswitch
   id: 'Timerstart'
-  # Timer is started when the switch pumprun is set to on. 
-  trigger: 
+  # Timer is started when the switch pumprun is set to on.
+  trigger:
   - platform: state
     entity_id: switch.pumprun
     to: 'on'
@@ -122,10 +137,10 @@ timer:
 # When timer is stopped, the time run out, another message is sent
 - alias: Timerstop
   id: 'Timerstop'
-  trigger: 
+  trigger:
   - platform: event
     event_type: timer.finished
-    event_data: 
+    event_data:
       entity_id: timer.test
   action:
   - service: notify.nma
@@ -160,4 +175,3 @@ script:
       - service: timer.finish
         entity_id: timer.test
 ```
-

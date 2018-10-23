@@ -23,6 +23,8 @@ This component provides the following platforms:
  - Lock: Control the lock of your car.
  - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
 
+ ## {% linkable_title Configuration %}
+
 To enable this component in your installation, add the following to your
 `configuration.yaml` file:
 
@@ -78,13 +80,13 @@ The vehicle can be locked and unlocked via the lock component that is created au
 
 The air condition of the vehicle can be activated with the service `bmw_connected_drive.activate_air_conditioning`.
 
-What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage). 
+What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
 The vehicle is identified via the parameter `vin`.
 
 ### {% linkable_title Sound the horn %}
 
-The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors. The vehicle is identified via the parameter `vin`. 
+The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors. The vehicle is identified via the parameter `vin`.
 
 ### {% linkable_title Flash the lights %}
 
@@ -92,10 +94,10 @@ The service `bmw_connected_drive.light_flash` flashes the lights of the vehicle.
 
 ### {% linkable_title Update the state %}
 
-The service `bmw_connected_drive.update_state` fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles. 
+The service `bmw_connected_drive.update_state` fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
 
 This service does not require any attributes.
 
 ## {% linkable_title Disclaimer %}
 
-This software is not affiliated with or endorsed by BMW Group. 
+This software is not affiliated with or endorsed by BMW Group.

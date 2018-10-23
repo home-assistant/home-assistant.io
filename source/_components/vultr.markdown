@@ -14,8 +14,9 @@ logo: vultr.png
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `vultr` component allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+
+## {% linkable_title Configuration %}
 
 Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#settingsapi).
 
@@ -37,4 +38,3 @@ api_key:
   required: true
   type: string
 {% endconfiguration %}
-
