@@ -20,9 +20,9 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 ## {% linkable_title ALPR %}
 
-Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
+ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.
 
-This event is trigger after OpenALPR found a new license plate.
+The `found_plate` event is triggered after OpenALPR has found a new license plate.
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -41,9 +41,9 @@ The following event attributes will be present (platform-dependent): `entity_id`
 
 ## {% linkable_title Face %}
 
-Face entities attribute have a face counter `total_faces` and all face data as `faces`.
+Face entities have a face counter attribute `total_faces` and all face data is stored in the `faces` attribute.
 
-This event is trigger after Microsoft Face found a faces.
+The `detect_face` event is triggered after a Face entity has found a face.
 
 ```yaml
 # Example configuration.yaml automation entry
