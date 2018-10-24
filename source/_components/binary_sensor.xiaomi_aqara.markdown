@@ -19,7 +19,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 
 ### {% linkable_title Type of sensors supported %}
 
-| Name | ZigBee entity | Model no. | States | Event | Event key | Event values |
+| Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
 | Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `motion` | | |
 | Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `motion` | | |
