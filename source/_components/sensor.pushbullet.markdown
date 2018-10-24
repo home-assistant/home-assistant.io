@@ -29,21 +29,37 @@ sensor:
       - body
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: "Enter the API key for Pushbullet. Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token."
+  required: true
+  type: string
+monitored_conditions:
+  description: Properties of the push to monitor.
+  required: false
+  default: "`body` and `title`"
+  type: list
+  keys:
+    application_name:
+      description: The application sending the push.
+    body:
+      description: Body of the message.
+    notification_id:
+      description: ID of the notification.
+    notification_tag:
+      description: Tag (if the application sending supports it).
+    package_name:
+      description: Name of the sender's package.
+    receiver_email:
+      description: The email of the push's target.
+    sender_email:
+      description: The sender of the push.
+    source_device_iden:
+      description: ID of the sender's device.
+    title:
+      description: Title of the push.
+    type:
+      description: Type of push.
+{% endconfiguration %}
 
-- **api_key** (*Required*): Enter the API key for Pushbullet. Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token.
-
-- **monitored_conditions** array (*Optional*): Properties of the push to monitor.  Defaults to `body` and `title`.
-  - **application_name**: The application sending the push.
-  - **body**: Body of the message.
-  - **notification_id**: ID of the notification.
-  - **notification_tag**: Tag (if the application sending supports it).
-  - **package_name**: Name of the sender's package.
-  - **receiver_email**: The email of the push's target.
-  - **sender_email**: The sender of the push.
-  - **source_device_iden**: ID of the sender's device.
-  - **title**: Title of the push.
-  - **type**: Type of push.
-  
- 
 All properties will be displayed as attributes. The properties array are just for logging the sensor readings for multiple properties.
