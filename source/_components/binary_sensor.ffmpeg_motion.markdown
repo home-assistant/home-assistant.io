@@ -72,6 +72,11 @@ extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., video denoise filtering.
   required: false
   type: string
+run_test:
+  description: Check if `input` is usable by ffmpeg.
+  required: false
+  default: True
+  type: boolean
 {% endconfiguration %}
 
 To experiment with values (changes/100 is the scene value in `ffmpeg`):

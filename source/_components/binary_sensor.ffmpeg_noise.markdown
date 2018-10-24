@@ -66,6 +66,11 @@ output:
   description: Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
   required: false
   type: string
+run_test:
+  description: Check if `input` is usable by ffmpeg.
+  required: false
+  default: True
+  type: boolean
 {% endconfiguration %}
 
 To experiment with values:

@@ -39,6 +39,11 @@ extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
   required: false
   type: string
+run_test:
+  description: Check if `input` is usable by ffmpeg.
+  required: false
+  default: True
+  type: boolean
 {% endconfiguration %}
 
 ### {% linkable_title Image quality %}
