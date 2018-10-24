@@ -16,7 +16,11 @@ ha_release: 0.16
 
 The `uber` sensor will give you time and price estimates for all available [Uber](https://uber.com) products at the given location. The `ATTRIBUTES` are used to provide extra information about products, such as estimated trip duration, distance and vehicle capacity. By default, 2 sensors will be created for each product at the given `start` location, one for pickup time and one for current price. The sensor is powered by the official Uber [API](https://developer.uber.com/).
 
-You must create an application [here](https://developer.uber.com/dashboard/create) to obtain a `server_token`.
+## {% linkable_title Setup %}
+
+You must [create an application](https://developer.uber.com/dashboard/create) in the [Uber developer Dashboard](https://developer.uber.com) to obtain a `server_token`.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -24,12 +28,12 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: uber
-    server_token: 'BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'
+    server_token: YOUR_UBER_SERVER_TOKEN
 ```
 
 {% configuration %}
 server_token:
-  description: "A server token obtained from [developer.uber.com](https://developer.uber.com) after [creating an app](https://developer.uber.com/dashboard/create)."
+  description: The Server API token.
   required: true
   type: string
 start_latitude:
