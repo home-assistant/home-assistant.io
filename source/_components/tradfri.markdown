@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IKEA Trådfri (Tradfri)"
-description: "Access and control your ZigBee-based IKEA Trådfri (Tradfri) devices."
+description: "Access and control your Zigbee-based IKEA Trådfri (Tradfri) devices."
 date: 2017-04-12 22.04
 sidebar: true
 featured: true
