@@ -59,6 +59,8 @@ Here is an example that will ignore everything but your YAML configuration.
 ```bash
 # Example .gitignore file for your config dir. Lines with ! will not be ignored.
 *
+.storage
+.cloud
 !*.yaml
 !.gitignore
 ip_bans.yaml
