@@ -158,8 +158,8 @@ image_processing:
     source:
       - entity_id: camera.local_file
     file_out:
-      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
-      - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
+      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     model:
       graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
       labels: /home/homeassistant/.homeassistant/tensorflow/object_detection/data/mscoco_label_map.pbtxt
