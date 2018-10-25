@@ -23,12 +23,33 @@ light:
   - platform: avion
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
+  required: false
+  type: string
+password:
+  description: The password used in the Avion app.
+  required: false
+  type: string
+devices:
+  description: An optional list of devices with their Bluetooth address. a custom name to use in the frontend and the API key.
+  required: false
+  type: list
+  keys:
+    name:
+      description: a custom name to use in the frontend.
+      required: false
+      type: string
+    api_key:
+      description: The API Key.
+      required: true
+      type: string
+{% endconfiguration %}
 
-- **username** (*Optional*): The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
-- **password** (*Optional*): The password used in the Avion app.
-- **devices** (*Optional*): An optional list of devices with their Bluetooth address, a custom name to use in the frontend and the API key. The API key can be obtained by executing the following command:
-```
+The API key can be obtained by executing the following command:
+
+```bash
 curl -X POST -H "Content-Type: application/json" -d '{"email": "fakename@example.com", "password": "password"}' https://admin.avi-on.com/api/sessions | jq
 ```
 
