@@ -69,7 +69,7 @@ output:
 run_test:
   description: Check if `input` is usable by ffmpeg.
   required: false
-  default: True
+  default: true
   type: boolean
 {% endconfiguration %}
 
