@@ -67,20 +67,20 @@ devices:
       default: Rflink ID
       type: string
     type:
-      description: Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below.
+      description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below."
       required: false
       default: switchable
       type: string
     aliases:
-      description: Alternative Rflink ID's this device is known by.
+      description: (deprecated) Alternative Rflink ID's this device is known by.
       required: false
       type: [list, string]
     group_aliases:
-      description: "`aliases` which only respond to group commands."
+      description: "(deprecated) `aliases` which only respond to group commands."
       required: false
       type: [list, string]
     no_group_aliases:
-      description: "`aliases` which do not respond to group commands."
+      description: "(deprecated) `aliases` which do not respond to group commands."
       required: false
       type: [list, string]
     fire_event:
