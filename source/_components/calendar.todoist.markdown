@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.54
 ---
 
-
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) and generate binary sensors. A different sensor will be created for each individual project, or you can specify "custom" projects which match against criteria you set (more on that below). These sensors will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
 
 ### {% linkable_title Prerequisites %}
@@ -28,18 +27,35 @@ To integrate Todoist in Home Assistant, add the following section to your `confi
 # Example configuration.yaml entry
 calendar:
   - platform: todoist
-    token: API_token_created_from_steps_above
+    token: YOUR_API_TOKEN
 ```
 
 Configuration variables:
-
-- **token** (*Required*): The API token used to authorize Home Assistant to access your projects.
-- **custom_projects** (*Optional*): Details on any "custom" binary sensor projects you want to create.
-  - **name** (*Required*): The name of your custom project. Only required if you specify that you want to create a custom project.
-  - **due_date_days** (*Optional*): Only include tasks due within this many days. If you don't have any tasks with a due date set, this returns nothing.
-  - **labels** (*Optional*): Only include tasks with at least one of these labels (i.e., this works as an `or` statement)..
-  - **include_projects** (*Optional*): Only include tasks in these projects. Tasks in all other projects will be ignored.
-
+token:
+  description: The API token used to authorize Home Assistant to access your projects. Above you have more info about it.
+  required: true
+  type: string
+custom_projects:
+  description: Details on any "custom" binary sensor projects you want to create.
+  required: false
+  type: list
+  keys:
+    name:
+      description: The name of your custom project. Only required if you specify that you want to create a custom project.
+      required: true
+      type: string
+    due_date_days:
+      description: Only include tasks due within this many days. If you don't have any tasks with a due date set, this returns nothing.
+      required: false
+      type: integer
+    include_projects:
+      description: Only include tasks in these projects. Tasks in all other projects will be ignored.
+      required: false
+      type: list
+    labels:
+      description: Only include tasks with at least one of these labels (i.e., this works as an `or` statement).
+      required: false
+      type: list
 
 ### {% linkable_title Custom Projects %}
 Creating custom projects is super-easy and quite powerful. All you need to run the basic Todoist projects is your API token, but if you wanted, you could go even deeper. Here's an example:
@@ -48,7 +64,7 @@ Creating custom projects is super-easy and quite powerful. All you need to run t
 # Example configuration.yaml entry
 calendar:
   - platform: todoist
-    token: !secret todoist_token
+    token: YOUR_API_TOKEN
     custom_projects:
       - name: 'All Projects'
       - name: 'Due Today'
