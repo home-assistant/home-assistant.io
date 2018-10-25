@@ -164,10 +164,6 @@ entity_config:
           description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
-        type:
-          description: Allows changing the default type of device for a more specified one from [Supported Types](https://developers.google.com/actions/smarthome/guides/)
-          required: false
-          type: string
 {% endconfiguration %}
 
 ### {% linkable_title Available domains %}
