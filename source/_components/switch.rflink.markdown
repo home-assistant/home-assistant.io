@@ -53,11 +53,6 @@ device_defaults:
       description: Set default `signal_repetitions` for Rflink switch devices (see below).
       required: false
       type: integer
-automatic_add:
-  description: Automatically add new/unconfigured devices to HA if detected.
-  required: false
-  default: true
-  type: boolean
 devices:
   description: A list of devices with their name to use in the frontend.
   required: false
@@ -67,11 +62,6 @@ devices:
       description: Name for the device.
       required: false
       default: Rflink ID
-      type: string
-    type:
-      description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below."
-      required: false
-      default: switchable
       type: string
     aliases:
       description: (deprecated) Alternative Rflink ID's this device is known by.
