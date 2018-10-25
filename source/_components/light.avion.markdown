@@ -23,6 +23,9 @@ light:
   - platform: avion
 ```
 
+There are two ways to configure this component: username & password, or list of devices. You must choose one.
+
+
 Configuration variables:
 
 - **username** (*Optional*): The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
@@ -44,7 +47,21 @@ light:
       00:21:4D:00:00:01:
         name: Light 1
         api_key: YOUR_API_KEY
-      00:21:3D:20:00:a1:
-        name: Light 2
+```
+
+For independent control of multiple devices, you must specify each device's ID (integer starting with 1). Each switch's ID can be guessed, or detected from the Avi-On API.
+
+```yaml
+# Manual device configuration.yaml entry
+light:
+  - platform: avion
+    devices:
+      00:21:4D:00:00:01:
+        name: Light 1
         api_key: YOUR_API_KEY
+        id: 1
+      00:21:4D:00:00:02:
+        name: Light 1
+        api_key: YOUR_API_KEY
+        id: 2
 ```
