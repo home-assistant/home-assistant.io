@@ -37,19 +37,61 @@ light:
         name: Living room
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **device_defaults**: (*Optional*)
-  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
-  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
+{% configuration %}
+device_defaults:
+  description: Device Defaults.
+  required: false
+  type: list
+  keys:
+    fire_event:
+      description: Set default `fire_event` for Rflink switch devices (see below)
+      required: false
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for Rflink switch devices (see below).
+      required: false
+      type: integer
+automatic_add:
+  description: Automatically add new/unconfigured devices to HA if detected.
+  required: false
+  default: true
+  type: boolean
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Name for the device.
+      required: false
+      default: Rflink ID
+      type: string
+    type:
+      description: Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below.
+      required: false
+      default: switchable
+      type: string
+    aliases:
+      description: Alternative Rflink ID's this device is known by.
+      required: false
+      type: [list, string]
+    group_aliases:
+      description: "`aliases` which only respond to group commands."
+      required: false
+      type: [list, string]
+    no_group_aliases:
+      description: "`aliases` which do not respond to group commands."
+      required: false
+      type: [list, string]
+    fire_event:
+      description: Fire a `button_pressed` event if this device is turned on or off.
+      required: false
+      type:
+{% endconfiguration %}
 
 Device configuration variables:
 
-- **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below. (default: Switchable)
-- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
+
 - **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
@@ -104,4 +146,3 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
-
