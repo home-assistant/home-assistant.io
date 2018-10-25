@@ -16,9 +16,10 @@ ha_release: 0.82
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `matches` attribute. The attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 ## {% linkable_title Setup %}
-TensorFlow is pre-configured in the [official home assistant docker image](https://hub.docker.com/r/homeassistant/home-assistant/).  If you are using this image, you can skip this section.
 
-TensorFlow is special in that it can run on the CPU, or an Nvidia GPU using CUDA.  Because of this, tensorflow is not listed in `REQUIREMENTS`.  In your instance, you will need to pre-install either `tensorflow` or `tensorflow-gpu` via pip:
+TensorFlow is pre-configured in the [official Home Assistant docker image](https://hub.docker.com/r/homeassistant/home-assistant/).  If you are using this image, you can skip this section.
+
+TensorFlow is special in that it can run on the CPU, or a Nvidia GPU using CUDA.  Because of this, tensorflow is not listed in `REQUIREMENTS`.  In your instance, you will need to pre-install either `tensorflow` or `tensorflow-gpu` via pip:
 
 ```bash
 # CPU
@@ -27,7 +28,7 @@ pip3 install tensorflow
 pip3 install tensorflow-gpu
 ```
 
-Object detection also requires some dependancies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  Since the repository is large, we will be cloning in `/tmp` and only moving the files this component needs.  The rest can safely be deleted.  Run the following, making sure to replace `/home/homeassistant/.homeassistant/` with the path to your config directory:
+Object detection also requires some dependencies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  Since the repository is large, we will be cloning in `/tmp` and only moving the files this component needs.  The rest can safely be deleted.  Run the following, making sure to replace `/home/homeassistant/.homeassistant/` with the path to your config directory:
 
 ```bash
 cd /tmp
@@ -55,13 +56,15 @@ mv object_detection/protos /home/homeassistant/.homeassistant/tensorflow/object_
 rm -rf /tmp/*
 ```
 
+## {% linkable_title Model Selection %}
+
 Finally, you are ready to pick a model.  Researchers have already built multiple TensorFlow object detection models using many open data sets like [COCO](http://cocodataset.org), [Kitti](http://www.cvlibs.net/datasets/kitti/), and [Open Images](https://github.com/openimages/dataset).
 
 This component can support all of them, and if you are feeling adventurous, you can even [roll your own](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/defining_your_own_model.md).
 
-For now, start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).  The trade-off here is accuracy vs speed.  The `mAP` is an indication of the model's accuracy while the `ms` is inference speed (on an Nvidia Titan X).  Most users won't see detection speeds close to what is listed.
+For now, start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).  The trade-off here is accuracy vs speed.  The `mAP` is an indication of the model's accuracy while the `ms` is inference speed (on a Nvidia Titan X).  Most users won't see detection speeds close to what is listed.
 
-It is recommended to start with the `faster_rcnn_inception_v2_coco` model for users with a dedicated server with a decent CPU.  If you are running on an ARM device like a Rasberry Pi, stick with a SSD MobileNet model like the `ssd_mobilenet_v2_coco` which was built for mobile devices.
+It is recommended to start with the `faster_rcnn_inception_v2_coco` model for users with a dedicated server with a decent CPU.  If you are running on an ARM device like a Rasberry Pi, stick with an SSD MobileNet model like the `ssd_mobilenet_v2_coco` which was built for mobile devices.
 
 Whichever model you choose, download it and place the `frozen_inference_graph.pb` file somewhere accessible by Home Assistant like your config directory.
 
@@ -107,44 +110,44 @@ model:
         graph:
             description: Full path to `frozen_inference_graph.pb`.
             required: true
-            type: file
+            type: string
         labels:
             description: Full path to a `*label_map.pbtext`.
             required: false
-            type: file
+            type: string
             default: /usr/src/app/tensorflow/object_detection/data/mscoco_label_map.pbtxt
         model_dir:
             description: Full path to tensorflow models directory.
             required: false
-            type: directory
+            type: string
             default: /usr/src/app/tensorflow
         area:
-            description: Custom detection area.  Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
+            description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
             required: false
             type: map
             keys:
                 top:
                     description: Top line defined as % from top of image.
                     required: false
-                    type: small_float
+                    type: float
                     default: 0
                 left:
                     description: Left line defined as % from left of image.
                     required: false
-                    type: small_float
+                    type: float
                     default: 0
                 bottom:
                     description: Bottom line defined as % from top of image.
                     required: false
-                    type: small_float
+                    type: float
                     default: 1
                 right:
                     description: Right line defined as % from left of image.
                     required: false
-                    type: small_float
+                    type: float
                     default: 1
         categories:
-            description: List of categories to include in object detection.  Can be seen in the file provided to `labels`.
+            description: List of categories to include in object detection. Can be seen in the file provided to `labels`.
             type: list
             required: false
 {% endconfiguration %}
