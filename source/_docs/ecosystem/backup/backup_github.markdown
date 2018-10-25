@@ -63,6 +63,7 @@ Here is an example that will ignore everything but your YAML configuration.
 !.gitignore
 *.conf
 *.txt
+*.log
 .storage
 .cloud
 .google.token
