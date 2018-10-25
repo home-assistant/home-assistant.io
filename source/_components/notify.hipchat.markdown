@@ -12,6 +12,11 @@ ha_category: Notifications
 ha_release: "0.52"
 ---
 
+<p class='note'>
+This component will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
+
+Hipchat will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
+</p>
 
 The `hipchat` platform allows you to send notifications from Home Assistant to [HipChat](https://hipchat.com/).
 
