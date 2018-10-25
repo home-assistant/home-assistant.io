@@ -86,19 +86,18 @@ devices:
     fire_event:
       description: Fire a `button_pressed` event if this device is turned on or off.
       required: false
-      type:
+      default: false
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      required: false
+      type: integer
+    group:
+      description: Allow light to respond to group commands (ALLON/ALLOFF).
+      required: false
+      default: true
+      type: boolean
 {% endconfiguration %}
-
-Device configuration variables:
-
-
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
-- **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
-- **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
-- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
-- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
-- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
 
 ### {% linkable_title Light state %}
 
