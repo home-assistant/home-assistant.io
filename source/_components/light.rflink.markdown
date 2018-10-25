@@ -89,8 +89,9 @@ devices:
       default: false
       type: boolean
     signal_repetitions:
-      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      description: Repeat every Rflink command this number of times.
       required: false
+      default: 1
       type: integer
     group:
       description: Allow light to respond to group commands (ALLON/ALLOFF).
