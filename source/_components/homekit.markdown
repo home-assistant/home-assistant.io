@@ -327,6 +327,9 @@ Make sure that you don't try to add more then 100 accessories, see [device limit
 #### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
 See [disable auto start](#disable-auto-start)
 
+#### {% linkable_title My entity doesn't show up %}
+Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
+
 #### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
 To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least on of them. [config/name](#name)
 
