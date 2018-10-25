@@ -335,7 +335,7 @@ See [disable auto start](#disable-auto-start)
 Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
 
 #### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
-To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least on of them. [config/name](#name)
+To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
 
 #### {% linkable_title Specific entity doesn't work %}
 Although we try our best, some entities don't work with the HomeKit component yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
