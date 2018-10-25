@@ -21,7 +21,6 @@ To add Météo-France to your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-
 sensor:
   sensor:
     - platform: meteo_france
