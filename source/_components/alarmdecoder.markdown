@@ -52,7 +52,7 @@ device:
   type: list
   keys:
     type:
-      description: The type of AlarmDecoder device: socket, serial or USB.
+      description: "The type of AlarmDecoder device: socket, serial or USB."
       required: true
       default: socket
       type: string
