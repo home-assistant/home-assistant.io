@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IKEA Trådfri Switch"
-description: "Access and control your ZigBee-based IKEA Trådfri (Tradfri) Switches."
+description: "Access and control your Zigbee-based IKEA Trådfri (Tradfri) Switches."
 date: 2018-09-30 19.22
 sidebar: true
 comments: false
