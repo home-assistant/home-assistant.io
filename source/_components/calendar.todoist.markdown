@@ -30,7 +30,7 @@ calendar:
     token: YOUR_API_TOKEN
 ```
 
-Configuration variables:
+{% configuration %}
 token:
   description: The API token used to authorize Home Assistant to access your projects. Above you have more info about it.
   required: true
@@ -56,6 +56,7 @@ custom_projects:
       description: Only include tasks with at least one of these labels (i.e., this works as an `or` statement).
       required: false
       type: list
+{% endconfiguration %}
 
 ### {% linkable_title Custom Projects %}
 Creating custom projects is super-easy and quite powerful. All you need to run the basic Todoist projects is your API token, but if you wanted, you could go even deeper. Here's an example:
