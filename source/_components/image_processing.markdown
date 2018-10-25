@@ -63,7 +63,11 @@ The following event attributes will be present (platform-dependent): `entity_id`
 Image processing components process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
 
 ```yaml
-# Example configuration.yaml automation entry
+# Example configuration.yaml
+sensor:
+- platform: _AN_IMAGE_PROCESSING_PLATFORM_
+  scan_interval: 10000
+...
 automation:
 - alias: Scan for faces when motion detected
   trigger:
@@ -74,4 +78,5 @@ automation:
     - service: image_processing.scan
       data:
         entity_id: image_processing.door
+...
 ```
