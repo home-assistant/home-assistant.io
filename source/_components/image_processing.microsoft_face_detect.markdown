@@ -18,11 +18,11 @@ The `microsoft_face_detect` image processing platform allows you to use the
 API through Home Assistant. This platform enables you do detect face on camera
 and fire an event with attributes.
 
-Please refer to the [component](/components/microsoft_face/) configuration on
+Please refer to the [Microsoft Face component](/components/microsoft_face/) configuration on
 how to setup the API key.
 
 For using the result inside an automation rule,
-take a look at the [component](/components/image_processing/) page.
+take a look at the [Image Processing component](/components/image_processing/) page.
 
 ### {% linkable_title Configuration %}
 
