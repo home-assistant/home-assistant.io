@@ -24,6 +24,10 @@ how to setup the API key.
 For using the result inside an automation rule,
 take a look at the [Image Processing component](/components/image_processing/) page.
 
+<p class='note'>
+The free version of the Microsoft Face identify API limits the number of requests possible per month. Therefore, it is strongly recommended that you limit the `scan_interval` when setting up an instance of this entity as detailed on the main [Image Processing component](/components/image_processing/) page.
+</p>
+
 ### {% linkable_title Configuration %}
 
 ```yaml
