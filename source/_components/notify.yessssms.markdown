@@ -36,11 +36,20 @@ notify:
     recipient: PHONE_NUMBER_TO_NOTIFY
 ```
 
-Configuration variables:
-
-- **username** (*Required*): This is your login name (usually your phone number). Veryfy that you can use your credentials on the Yesss.at website.
-- **password** (*Required*): This is the password you use to login to Yesss.at.
-- **recipient** (*Required*): This is the phone number you want to send the SMS notification to.
+{% configuration %}
+username:
+  description: This is your login name (usually your phone number). Veryfy that you can use your credentials on the Yesss.at website.
+  required: true
+  type: string
+password:
+  description: This is the password you use to login to Yesss.at.
+  required: true
+  type: string
+recipient:
+  description: This is the phone number you want to send the SMS notification to.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you suspended for one hour.
