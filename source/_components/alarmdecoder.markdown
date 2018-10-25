@@ -102,9 +102,9 @@ zones:
     relayaddr:
       description: "Address of the relay expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. Alarmdecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed."
       required: inclusive
-      type: byte
+      type: integer
     relaychan:
       description: "Channel of the relay expander board to associate with the zone. (ex: 1, 2, 3, or 4)"
       required: inclusive
-      type: byte
+      type: integer
 {% endconfiguration %}
