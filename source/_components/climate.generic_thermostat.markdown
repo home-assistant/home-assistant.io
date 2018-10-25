@@ -31,11 +31,11 @@ name:
   default: Generic Thermostat
   type: string
 heater:
-  description: `entity_id` for heater switch, must be a toggle device. Becomes air conditioning switch when `ac_mode` is set to `true`
+  description: "`entity_id` for heater switch, must be a toggle device. Becomes air conditioning switch when `ac_mode` is set to `true`."
   required: true
   type: string
 target_sensor:
-  description: `entity_id` for a temperature sensor, target_sensor.state must be temperature.
+  description: "`entity_id` for a temperature sensor, target_sensor.state must be temperature."
   required: true
   type: string
 min_temp:
@@ -86,9 +86,9 @@ away_temp:
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermostat` to avoid starting by setting Operation to 'off'. 
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermostat` to avoid starting by setting Operation to 'off'.
 
-Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off. 
+Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off.
 
 ```yaml
 # Full example configuration.yaml entry
