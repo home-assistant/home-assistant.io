@@ -68,15 +68,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Add config entry for LIFX ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
-- Daikin Climate - Better integration with Climate base component ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)
-- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (breaking change) (new-platform)
-- Template sensors to not track all state changes ([@balloob] - [#17276]) ([sensor.template docs]) (breaking change)
-- Made it possible to define multiple Octoprint printers ([@reefab] - [#16519]) ([octoprint docs]) ([binary_sensor.octoprint docs]) ([sensor.octoprint docs]) (breaking change)
-- Add config entry for SimpliSafe ([@bachya] - [#17148]) ([simplisafe docs]) ([alarm_control_panel.simplisafe docs]) (breaking change)
-- Moved econet from climate to water heater ([@w1ll1am23] - [#17322]) ([water_heater docs]) (breaking change)
-- Remove day as a conf option ([@kennedyshead] - [#17452]) ([sensor.speedtest docs]) (breaking change)
-- Moved Wink water heater from climate to water heater. ([@w1ll1am23] - [#17504]) ([climate docs]) ([water_heater docs]) ([wink docs]) ([climate.wink docs]) (breaking change) (new-platform)
+- LIFX can now be configured from the integrations page in the config panel and advanced configuration is available through the `lifx:` component configuration. Configuring LIFX via light platform config no longer works. ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
+- Daikin Climate now follows the official operating modes, making it compatible with Google Assistant, Alexa and HomeKit. ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)
+- Rewrite opentherm_gw to a component. This changes the config. ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (breaking change) (new-platform)
+- Template sensors for which we could not determine what states to track to re-render will now only be updated when manually refreshed using the new `homeassistant.update_entity` service. ([@balloob] - [#17276]) ([sensor.template docs]) (breaking change)
+- Changed config to make it possible to define multiple Octoprint printers ([@reefab] - [#16519]) ([octoprint docs]) ([binary_sensor.octoprint docs]) ([sensor.octoprint docs]) (breaking change)
+- SimpliSafe has a new configuration format ([docs][simplisafe docs]). And instead of defaulting each system's name to "SimpliSafe", the address of the system is used. ([@bachya] - [#17148]) ([simplisafe docs]) ([alarm_control_panel.simplisafe docs]) (breaking change)
+- Econet is now part of the new water heater component, changing entities from `climate.*` to `water_heater.*` ([@w1ll1am23] - [#17322]) ([water_heater docs]) (breaking change)
+- Remove day as a conf option as it's no longer supported ([@kennedyshead] - [#17452]) ([sensor.speedtest docs]) (breaking change)
+- Wink water heaters were moved to the new water heater implementation. All Wink water heaters will automatically be moved from climate.wate_heater to water_heater.water_heater Please update your configuration to use water_heater now. ([@w1ll1am23] - [#17504]) ([climate docs]) ([water_heater docs]) ([wink docs]) ([climate.wink docs]) (breaking change) (new-platform)
+- Toon "comfort" setting is now available as 'auto' instead of 'performance' ([@balloob] - [#17504]) (breaking change)
 - Removing ryobi gdo as API is no longer available. ([@guillaume1410] - [#17637]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
