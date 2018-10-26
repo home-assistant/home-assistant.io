@@ -13,7 +13,6 @@ ha_release: 0.31
 ha_iot_class: depends
 ---
 
-
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
 ## {% linkable_title Configuration %}
@@ -29,17 +28,29 @@ sensor:
       uuid: '0000-b8-27-eb-f447d3'
 ```
 
-Configuration variables:
-
-- **variable** (*Required*): The variable name in the data stream that defines the sensor value.
-- **payload** (*Required*): Message payload identifiers. Only if all identifiers are matched the sensor value is set.
-- **name** (*Optional*): Name of the sensor.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
+{% configuration %}
+variable:
+  description: The variable name in the data stream that defines the sensor value.
+  required: true
+  type: string
+payload:
+  description: Message payload identifiers. Only if all identifiers are matched the sensor value is set.
+  required: true
+  type: string
+name:
+  description: Name of the sensor.
+  required: false
+  default: Pilight Sensor
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Example: Weather station %}
 
 This section shows a real life example how to use values of a weather station.
-
 
 ```yaml
 # Example configuration.yaml entry

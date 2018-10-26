@@ -18,6 +18,8 @@ The `template` platform supports sensors which break out the `state` and
 `state_attributes` from other entities. The state of a Template Binary Sensor
 can only be `on` or `off`.
 
+## {% linkable_title Configuration %}
+
 To enable Template Binary Sensors in your installation, add the following to
 your `configuration.yaml` file:
 

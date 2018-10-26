@@ -18,6 +18,8 @@ Using Telegrams `setWebhook` method your bot's webhook URL should be set to `htt
 
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
+## {% linkable_title Configuration %}
+
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -43,33 +45,35 @@ api_key:
   description: The API token of your bot.
   required: true
   type: string
-trusted_networks:
-  description: Telegram server access ACL as list.
-  required: false
-  default: 149.154.167.197-233
-  type: string
 parse_mode:
-  description: "Default parser for messages if not explicit in message data: 'html' or 'markdown'."
+  description: Default parser for messages if not explicit in message data, either `html` or `markdown`.
   required: false
   default: markdown
   type: string
 proxy_url:
-  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`)
+  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`).
   required: false
   type: string
 proxy_params:
-  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
+  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.).
   required: false
   type: string
 url:
   description: Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
   required: false
   type: string
+trusted_networks:
+  description: Telegram server access ACL as list.
+  required: false
+  type: string
+  default: 149.154.167.197-233
 {% endconfiguration %}
 
 To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
 
-Full configuration sample:
+## {% linkable_title Full configuration example %}
+
+The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry

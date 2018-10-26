@@ -22,7 +22,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor sma:
+sensor:
   - platform: sma
     host: IP_ADDRESS_OF_DEVICE
     password: YOUR_SMA_PASSWORD
@@ -38,11 +38,12 @@ Configuration variables:
 - **password** (*Required*): The password of the SMA WebConnect module.
 - **group** (*Optional*): The user group, which can be either `user` (the default) or `installer`.
 - **sensors** (*Required*): A dictionary of sensors that will be added. The value of the dictionary can include sensor names that will be shown as attributes.
-- **custom** (*Optional*): A dictionary of custom sensor key values and units
+- **custom** (*Optional*): A dictionary of custom sensor key values and units.
 
 Sensors configuration:
 
 The sensors can be any one of the following:
+
 - current_power
 - current_consumption
 - total_power

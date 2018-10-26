@@ -14,7 +14,6 @@ ha_qa_scale: silver
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `tibber` component provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
@@ -34,8 +33,8 @@ tibber:
 ```
 
 {% configuration %}
-  access_token:
-    description: Your Tibber API token.
-    required: true
-    type: string
+access_token:
+  description: Your Tibber API token.
+  required: true
+  type: string
 {% endconfiguration %}

@@ -19,12 +19,12 @@ The `mitemp_bt` sensor platform allows one to monitor room temperature and humid
 
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
-- On [Hass.io](/hassio/installation/): mitemp_bt will work out of the box.
+- On [Hass.io](/hassio/installation/): `mitemp_bt` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
 - On a [generic Docker installation](https://www.home-assistant.io/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
     - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
-    - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
-- Windows and MacOS are currently not supported by the btlewrap library.
+    - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or `bluez-deprecated`.
+- Windows and MacOS are currently not supported by the `btlewrap` library.
 
 ## {% linkable_title Configuration %}
 
@@ -113,6 +113,8 @@ adapter:
 
 Note that by default the sensor is only polled once every 5 minutes. This means with the `median: 3` setting will take as least 15 minutes before the sensor will report a value after a Home Assistant restart. Even though the hardware is able to provide new values every second, room temperatures don't change that quickly.
 Reducing polling intervals will have a negative effect on the battery life.
+
+## {% linkable_title Full example %}
 
 A full configuration example could look like the one below:
 

@@ -14,6 +14,8 @@ ha_release: 0.54
 
 The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
 
+## {% linkable_title Configuration %}
+
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -229,6 +231,6 @@ MQTT payload:
 }
 ```
 
-### {% linkable_title Retrofitting a non-wifi Roomba with an ESP8266 %}
-
-- [This repo](https://github.com/johnboiles/esp-roomba-mqtt) has MQTT client firmware for retrofitting your old Roomba.
+### {% linkable_title Retrofitting a non-wifi vacuums %}
+- Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
+- In you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.

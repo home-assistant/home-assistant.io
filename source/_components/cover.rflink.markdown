@@ -25,17 +25,18 @@ You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows o
 
 Press the Learn button on the original Somfy remote enter the following code within 3 seconds. Your blinds will go up and down shortly:
 
-````
+```text
 10;RTS;02FFFF;0412;3;PAIR;
-````
+```
 
 Your blinds will go up and down again. This means your Rflink is now paired with your RTS motor.
 To check this enter the following code again and see if there is a record.
 
-````
+```text
 10;RTSSHOW;
-````
-````
+```
+
+```text
 RTS Record: 0 Address: FFFFFF RC: FFFF
 RTS Record: 1 Address: FFFFFF RC: FFFF
 RTS Record: 2 Address: FFFFFF RC: FFFF
@@ -52,7 +53,7 @@ RTS Record: 12 Address: FFFFFF RC: FFFF
 RTS Record: 13 Address: FFFFFF RC: FFFF
 RTS Record: 14 Address: FFFFFF RC: FFFF
 RTS Record: 15 Address: FFFFFF RC: FFFF
-````
+```
 
 After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
@@ -73,25 +74,59 @@ cover:
         name: Sovrumsgardin
 ```
 
-Configuration variables:
-
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **device_defaults**: (*Optional*)
-  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
-  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
-
-Device configuration variables:
-
-- **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
-- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
-- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
-- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
-
+{% configuration %}
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: false
+  type: list
+  keys:
+    name:
+      description: The name for the device. Defaults to value for Rflink ID.
+      required: false
+      type: string
+    aliases:
+      description: The alternative Rflink ID's this device is known by.
+      required: false
+      type: list
+    fire_event:
+      description: Fire a `button_pressed` event if this device is turned on or off.
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: The number of times every Rflink command should repeat.
+      required: false
+      type: integer
+    group:
+      description: Allow light to respond to group commands (ALLON/ALLOFF).
+      required: false
+      default: True
+      type: boolean
+    group_aliases:
+      description: The `aliases` which only respond to group commands.
+      required: false
+      type: list
+    no_group_aliases:
+      description: The `aliases` which do not respond to group commands.
+      required: false
+      type: list
+device_defaults:
+  description: The default values for a device.
+  required: false
+  type: list
+  keys:
+    fire_event:
+      description: The default `fire_event` for Rflink cover devices.
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: The default `signal_repetitions` for Rflink cover devices.
+      required: false
+      default: 1
+      type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Device support %}
 
-See [device support](/components/rflink/#device-support)
-
+See [device support](/components/rflink/#device-support).
