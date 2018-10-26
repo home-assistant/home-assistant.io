@@ -20,6 +20,11 @@ First release that has seen 100 contributors write backend code in the last 2 we
 - Z-Wave config entry support and device registry support. Also LIFX and SimpliSafe.
 - device registry support for MQTT
 
+<p class='img'>
+  <img src='/images/lovelace/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
+  Screenshot of the thermostat card.
+</p>
+
 ## {% linkable_title New Platforms %}
 
 - Add support for ElkM1 alarm/automation panel ([@gwww] - [#16952]) ([elkm1 docs]) ([alarm_control_panel.elkm1 docs]) (new-platform)
