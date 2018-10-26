@@ -29,14 +29,14 @@ sensor:
 
 {% configuration %}
 host:
-  description: IP address of your database host, eg. 192.168.1.10.
+  description: IP address of your database host, e.g. 192.168.1.10.
   required: false
-  default: `localhost`
+  default: localhost
   type: string
 port:
   description: Port to use. 
   required: false
-  default: 8086.
+  default: 8086
   type: string
 username:
   description: The username of the database user.
@@ -47,17 +47,17 @@ password:
   required: false
   type: string
 ssl:
-  description: Use `https` instead of `http` to connect. 
+  description: Use https instead of http to connect. 
   required: false
-  default: `false`.
+  default: false
   type: boolean
 verify_ssl:
-  description: Verify SSL certificate for `https` request. 
+  description: Verify SSL certificate for https request. 
   required: false
-  default: `false`.
+  default: false
   type: boolean
 queries:
-  description: List of queries
+  description: List of queries.
   required: true
   type: list
   keys:
@@ -70,7 +70,7 @@ queries:
       required: false
       type: string
     measurement:
-      description: Defines the measurement name in InfluxDB (the from clause of the query).
+      description: Defines the measurement name in InfluxDB (the FROM clause of the query).
       required: true
       type: string
     where:
@@ -84,12 +84,12 @@ queries:
     database:
       description: Name of the database to use.
       required: false
-      default: `home_assistant`
+      default: home_assistant
       type: string
     group_function:
       description: The group function to be used.
       required: false
-      default: `mean`
+      default: mean
       type: string
     field:
       description: The field name to select.
