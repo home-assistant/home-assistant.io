@@ -27,8 +27,17 @@ sensor:
     ip: 192.168.1.11
 ```
 
-Configuration variables:
-
-- **ip** (*Required*): The IP address of your bridge.
-- **name** (*Optional*): Name to use in the frontend.
-- **version** (*Optional*): Hardware version of the sensor. Defaults to 1.
+{% configuration %}
+ip:
+  description: The IP address of your bridge.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+version:
+  description: Hardware version of the sensor. Defaults to 1.
+  required: false
+  type: string
+{% endconfiguration %}
