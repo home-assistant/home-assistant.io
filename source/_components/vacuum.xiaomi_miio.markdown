@@ -31,8 +31,6 @@ Currently supported services are:
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
-## {% linkable_title Configuration %}
-
 To add a vacuum to your installation, add the following to `configuration.yaml`:
 
 ```yaml
@@ -137,7 +135,7 @@ The following table shows the units of measurement for each attribute:
 
 <p class='note'>
 As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) is confirmed as working for the following Android methods. Using older version than 5.0.30 is not recommended as it might lack support for some newer devices like the Roborock S50.
-  
+
 The iPhone app still stores the token in the sqlite db as of v4.7.18 (July 17, 2018).
 
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained

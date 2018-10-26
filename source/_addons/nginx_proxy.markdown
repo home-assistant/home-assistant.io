@@ -27,13 +27,29 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate` 
 }
 ```
 
-Configuration variables:
-
-- **domain** (*Required*): Domain they will proxy run with it.
-- **certfile** (*Required*): Certificate file to use in the /ssl dir.
-- **keyfile** (*Required*): Private key file to use in the /ssl dir.
-- **hsts** (*Optional*): Value for the [`Strict-Transport-Security`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) HTTP header to send. If empty or `null`, the header is not sent.
-- **customize** (*Optional*): If true, additional NGINX configuration files for the default server and additional servers are read from files in the /share dir specified by the `default` and `servers` variables.
+{% configuration %}
+domain:
+  description: The Domain to use for the proxy.
+  required: true
+  type: string
+certfile:
+  description: The certificate file to use in the `/ssl` directory.
+  required: true
+  type: string
+keyfile:
+  description: Private key file to use in the `/ssl` directory.
+  required: true
+  type: string
+hsts:
+  description: Value for the [`Strict-Transport-Security`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) HTTP header to send. If empty or `null`, the header is not sent.
+  required: false
+  type: string
+customize:
+  description: If true, additional NGINX configuration files for the default server and additional servers are read from files in the `/share` directory specified by the `default` and `servers` variables.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 <p class='note'>
 It is possible to deactivate port 80 if you need this for things like `emulate_hue`. Remove the host port from Network option of this add-on.
