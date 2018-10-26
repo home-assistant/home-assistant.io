@@ -43,7 +43,7 @@ resource:
   type: string
   default: string
 method:
-  description: The method of the request.
+  description: The method of the request. Either `POST` or `GET`.
   required: false
   type: string
   default: GET

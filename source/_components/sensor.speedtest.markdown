@@ -20,7 +20,7 @@ web service to measure network bandwidth performance.
 ## {% linkable_title Configuration %}
 
 By default, it will run every hour. The user can change the update frequency in
-the configuration by defining the minute, hour, and day for a speed test to run.
+the configuration by defining the minute and hour for a speed test to run.
 For the `server_id` check the list of
 [available servers](https://www.speedtest.net/speedtest-servers.php).
 
@@ -55,10 +55,6 @@ sensor:
     description: Specify the speed test server to perform the test against.
     required: false
     type: integer
-  day:
-    description: Specify the day(s) of the month to schedule the speed test. Use a list for multiple entries.
-    required: false
-    type: [int, list]
   hour:
     description: Specify the hour(s) of the day to schedule the speed test. Use a list for multiple entries.
     required: false

@@ -40,14 +40,9 @@ show_state:
   description: Show entity state-text.
   type: boolean
   default: "true"
-column_width:
+theme:
   required: false
-  description: "Column width as CSS length like `100px` or `calc(100% / 7)`. This controls how many entities appear in a row - at the default 20% you have 5 entities in a row. Use `calc(100% / 7)` for 7 entities in a row, and so on."
-  type: string
-  default: 20%
-theming:
-  required: false
-  description: "Set to `primary` to style the card with the background and text color of the header bar."
+  description: "Set to any theme within `themes.yaml`"
   type: string
 {% endconfiguration %}
 
