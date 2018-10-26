@@ -2,14 +2,16 @@
 layout: post
 title: "0.81: TBD UPDATE DATE"
 description: "TBD"
-date: 2018-10-22 00:01:00
-date_formatted: "October 29, 2018"
+date: 2018-10-26 00:01:00
+date_formatted: "October 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
+og_image: /images/blog/2018-10-release-81/social.png
 ---
+
+Almost at the end
 
 First release that has seen 100 contributors write backend code in the last 2 weeks. AMAZING.
 
