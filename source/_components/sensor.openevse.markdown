@@ -37,7 +37,7 @@ host:
 monitored_variables:
   description: Conditions to display on the frontend.
   required: true
-  type: map
+  type: list
     status:
       description: The status of the charger (i.e., "Connected", "Charging", etc.)
     charge_time:
