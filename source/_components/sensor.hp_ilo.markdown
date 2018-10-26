@@ -39,17 +39,47 @@ sensor:
         sensor_type: SENSOR TYPE
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname or IP address on which the ILO can be reached.
-- **port** (*Optional*): The port on which the ILO can be reached, defaults to port `443`.
-- **username** (*Required*): The username used to connect to the ILO.
-- **password** (*Required*): The password used to connect to the ILO.
-- **monitored_variables** array (*Optional*): Sensors created from the ILO data. Defaults to an empty list (no sensors are created).
-  - **name** (*Required*): The sensor name.
-  - **sensor_type** (*Required*): The sensor type, has to be one of the specified valid sensor types.
-  - **unit_of_measurement** (*Optional*): The sensors' unit of measurement.
-  - **value_template** (*Optional*): When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the `ilo_data` variable.
+{% configuration %}
+host:
+  description: The hostname or IP address on which the ILO can be reached.
+  required: true
+  type: string
+port:
+  description: The port on which the ILO can be reached.
+  required: false
+  default: 443
+  type: string
+username:
+  description: The username used to connect to the ILO.
+  required: true
+  type: string
+password:
+  description: The password used to connect to the ILO.
+  required: true
+  type: string
+monitored_variables:
+  description: Sensors created from the ILO data.
+  required: false
+  default: Defaults to an empty list (no sensors are created).
+  type: list
+  keys:
+    name:
+      description: The sensor name.
+      required: true
+      type: string
+    sensor_type:
+      description: The sensor type, has to be one of the valid sensor types specified below.
+      required: true
+      type: string
+    unit_of_measurement:
+      description: The sensors' unit of measurement.
+      required: false
+      type: string
+    value_template:
+      description: When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the `ilo_data` variable.
+      required: false
+      type: template
+{% endconfiguration %}
 
 Valid sensor_types:
 - **server_name**: Get the name of the server this iLO is managing.
