@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 ssl:
-  description:
+  description: Enables HTTPS if set to `true`, otherwise with `false` the platform run with HTTP.
   required: false
   default: false
   type: boolean
