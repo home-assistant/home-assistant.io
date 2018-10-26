@@ -15,12 +15,15 @@ ha_release: 0.79
 
 The `huawei_lte` sensor platform allows you to monitor Huawei LTE routers.
 
-This requires you to have set up the [Huawei LTE component](/components/huawei_lte/).
+## {% linkable_title Configuration %}
+
+This platform requires you to have set up the [Huawei LTE component](/components/huawei_lte/).
+
+The names for the item you want to monitor are dot separated paths to information returned by the router. The data set varies by router model. To see what your router provides, set logging level to debug and watch `homeassistant.components.huawei_lte` debug entries. The configuration variable description contains a few example paths just to illustrate the syntax. These may not be available on all routers or their semantics may differ, and there are quite likely many more that are not listed here.
 
 ## {% linkable_title Configuration %}
 
-To enable the sensor, add the following lines to your
-`configuration.yaml` file:
+To enable the sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +38,7 @@ sensor:
 
 {% configuration %}
 monitored_conditions:
-  description: Defines the data to monitor as sensors. Defaults to a few generally available data items expected to be available on most boxes. The names here are dot separated paths to information returned by the router. The data set varies by router model; to see what your router provides, set logging level to debug and watch homeassistant.components.huawei_lte debug entries. The following list contains a few example paths just to illustrate the syntax; these may not be available on all routers or their semantics may differ, and there are quite likely many more that are not listed here.
+  description: Defines the data to monitor as sensors. Defaults to a few generally available data items expected to be available on most boxes.
   required: false
   default: Below is indicated which conditions are the default.
   type: list
