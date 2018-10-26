@@ -52,7 +52,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address your Fire TV device.
+  description: The IP address for your Fire TV device.
   required: true
   type: string
 name:
