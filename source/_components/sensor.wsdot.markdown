@@ -32,8 +32,8 @@ sensor:
 {% configuration %}
 api_key:
   description: Your `api_key` from WSDOT.
-  required: string
-  type: true
+  required: true
+  type: string
 scane_interval:
   description: How frequently to query for new data, in minutes.
   required: false
