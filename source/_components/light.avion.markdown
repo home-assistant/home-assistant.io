@@ -25,7 +25,7 @@ light:
 
 {% configuration %}
 username:
-  description: The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
+  description: The username used in the Avion app. If username and password are both provided, all associated switches will automatically be added to your configuration.
   required: false
   type: string
 password:
@@ -33,7 +33,7 @@ password:
   required: false
   type: string
 devices:
-  description: An optional list of devices with their Bluetooth address. a custom name to use in the frontend and the API key.
+  description: An optional list of devices with their Bluetooth addresses. a custom name to use in the frontend and the API key.
   required: false
   type: list
   keys:
