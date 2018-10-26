@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.81: TBD UPDATE DATE"
-description: "TBD"
+title: "0.81: new Lovelace cards, LG soundbars, Dyson fans, Elk-M1"
+description: "Epic new release full of goodies build by over a hundred contributors."
 date: 2018-10-26 00:01:00
 date_formatted: "October 26, 2018"
 author: Tinkerer
@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-10-release-81/social.png
 ---
 
-This release is a major milestone - 100 contributors have contributed over the last two weeks. A great bit thank you to everybody who contributed, both those returning and those who've been involved for their first time.
+This release is a major milestone – 100 contributors have contributed over the last two weeks. A great bit thank you to everybody who contributed, both those returning and those who've been involved for their first time.
 
 To go with the configuration entry support, MQTT also now also integrates with the device registry. Not to be left out, LIFX, SimpliSafe, and Z-Wave have all gained both device registry support, and configuration entry support.
 
@@ -27,7 +27,7 @@ The glance card, and the button card can also be themed now, and the way the col
 Other things to be aware of:
 
 - We have a new service `home_assistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update. This means you can set a really long `scan_interval` in the [platform_options] and then update on demand, ideal for those services where you have low API limit.
-- Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries.
+- Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries or use the new `homeassistant.update_entity` service.
 - Water heaters get their own platform separate from `climate`, because you're not a fish living inside the hot water tank
 
 ## {% linkable_title New Platforms %}
@@ -45,8 +45,7 @@ Other things to be aware of:
 - notify.homematic ([@siom79] - [#16973]) ([notify docs]) (new-platform)
 - Add AWS Route53 Dynamic DNS support ([@keirans] - [#17072]) ([route53 docs]) (new-platform)
 - NSW Rural Fire Service platform ([@exxamalte] - [#16802]) ([geo_location docs]) (new-platform)
-- New climate device ([@Danielhiversen] - [#17313]) ([climate.mill docs]) (new-platform)
-- Moved Wink water heater from climate to water heater. ([@w1ll1am23] - [#17504]) ([climate docs]) ([water_heater docs]) ([wink docs]) ([climate.wink docs]) (breaking change) (new-platform)
+- Mill climate device ([@Danielhiversen] - [#17313]) ([climate.mill docs]) (new-platform)
 - Add support for LG soundbars ([@mjg59] - [#17570]) ([media_player.lg_soundbar docs]) (new-platform)
 - Add binary_sensor support to RFlink ([@emontnemery] - [#17146]) ([rflink docs]) ([binary_sensor.rflink docs]) ([sensor.rflink docs]) (new-platform)
 - Add sensor support to opentherm_gw ([@mvn23] - [#17314]) ([opentherm_gw docs]) ([sensor.opentherm_gw docs]) (new-platform)
@@ -309,10 +308,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
 - Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
 - The way columns are handled in the glance card has changed ([#1832]) (breaking change)
-- Alarm control panel card ([#1758]) 
-- Lovelace button card ([#1766]) 
-- Long press is supported in Lovelace ([#1848]) 
-- Lovelace has custom UI support ([#1824]) 
+- Alarm control panel card ([#1758])
+- Lovelace button card ([#1766])
+- Long press is supported in Lovelace ([#1848])
+- Lovelace has custom UI support ([#1824])
 
 
 [#1758]: https://github.com/home-assistant/home-assistant-polymer/pull/1758
