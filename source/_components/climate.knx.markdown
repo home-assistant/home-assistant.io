@@ -114,4 +114,4 @@ operation_mode_comfort_address:
   type: string
 {% endconfiguration %}
 
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` was specified.
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
