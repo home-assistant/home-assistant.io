@@ -41,12 +41,12 @@ switch:
 
 {% configuration %}
 device_defaults:
-  description: Device Defaults.
+  description: The defaults for all listed devices.
   required: false
   type: list
   keys:
     fire_event:
-      description: Set default `fire_event` for Rflink switch devices (see below)
+      description: Set default `fire_event` for Rflink switch devices (see below).
       required: false
       type: boolean
     signal_repetitions:
