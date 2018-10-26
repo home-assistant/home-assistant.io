@@ -31,7 +31,7 @@ Configuration variables:
 
 {% configuration %}
 name:
-  description: The name used to expose the service. E.g., in the above example, it would be `rest_command.name`.
+  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.name'.
   required: true 
   type: string
 url:
@@ -39,9 +39,9 @@ url:
   required: true
   type: [string, template]
 method:
-  description: HTTP method to use (`get`, `post`, `put`, or `delete`).
+  description: HTTP method to use (get, post, put, or delete).
   required: false
-  default: `get`
+  default: get
   type: string
 headers:
   description: The headers for the requests.
