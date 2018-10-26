@@ -29,15 +29,15 @@ In the `http` section of the `configuration.yaml` file remove `ssl_certificate` 
 
 {% configuration %}
 domain:
-  description: Domain they will proxy run with it.
+  description: The Domain to use for the proxy.
   required: true
   type: string
 certfile:
-  description: Certificate file to use in the /ssl dir.
+  description: The certificate file to use in the `/ssl` directory.
   required: true
   type: string
 keyfile:
-  description: Private key file to use in the /ssl dir.
+  description: Private key file to use in the `/ssl` directory.
   required: true
   type: string
 hsts:
@@ -45,7 +45,7 @@ hsts:
   required: false
   type: string
 customize:
-  description: If true, additional NGINX configuration files for the default server and additional servers are read from files in the /share dir specified by the `default` and `servers` variables.
+  description: If true, additional NGINX configuration files for the default server and additional servers are read from files in the `/share` directory specified by the `default` and `servers` variables.
   required: false
   type: boolean
   default: false
