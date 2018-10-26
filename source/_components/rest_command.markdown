@@ -29,15 +29,46 @@ rest_command:
 
 Configuration variables:
 
-- **[service_name]** (*Required*): The name used to expose the service. E.g., in the above example, it would be `rest_command.example_request`.
-  - **url** (*Required*): The URL (support template) for sending request.
-  - **method** (*Optional*): HTTP method to use (`get`, `post`, `put`, or `delete`). Defaults to `get`.
-  - **headers** (*Optional*): The headers for the requests.
-  - **payload** (*Optional*): A string/template to send with request.
-  - **username** (*Optional*): The username for HTTP authentication.
-  - **password** (*Optional*): The password for HTTP authentication.
-  - **timeout** (*Optional*): Timeout for requests. Defaults to 10 seconds.
-  - **content_type** (*Optional*): Content type for the request.
+{% configuration %}
+name:
+  description: The name used to expose the service. E.g., in the above example, it would be `rest_command.name`.
+  required: true 
+  type: string
+url:
+  description: The URL (supports template) for sending request.
+  required: true
+  type: [string, template]
+method:
+  description: HTTP method to use (`get`, `post`, `put`, or `delete`).
+  required: false
+  default: `get`
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: string
+payload:
+  description: A string/template to send with request.
+  required: false
+  type: [string, template]
+username:
+  description: The username for HTTP authentication.
+  required: false
+  type: string
+password:
+  description: The password for HTTP authentication.
+  required: false
+  type: string
+timeout:
+  description: Timeout for requests. 
+  required: false
+  type: string
+  defaut: 10 seconds.
+content_type:
+  description: Content type for the request.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
