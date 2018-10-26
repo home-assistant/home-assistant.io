@@ -11,21 +11,22 @@ categories: Release-Notes
 og_image: /images/blog/2018-10-release-81/social.png
 ---
 
-Almost at the end
+This release is a major milestone - 100 contributors have contributed over the last two weeks. A great bit thank you to everybody who contributed, both those returning and those who've been involved for their first time.
 
-First release that has seen 100 contributors write backend code in the last 2 weeks. AMAZING.
+To go with the configuration entry support, MQTT also now also integrates with the device registry. Not to be left out, LIFX, SimpliSafe, and Z-Wave have all gained both device registry support, and configuration entry support.
 
-- New service home_assistant.update_entity to force update an entity
-- Template sensors will no longer auto update if we can't find relevant entities in the template
-- Water heaters get their own home
-- Lovelace thermostat.
-- Z-Wave config entry support and device registry support. Also LIFX and SimpliSafe.
-- device registry support for MQTT
+Lovelace has yet another new card, the thermostat card:
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
+
+Other things to be aware of:
+
+- We have a new service `home_assistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update. This means you can set a really long `scan_interval` in the [platform_options] and then update on demand, ideal for those services where you have low API limit.
+- Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries.
+- Water heaters get their own platform separate from `climate`, because you're not a fish living inside the hot water tank
 
 ## {% linkable_title New Platforms %}
 
@@ -781,3 +782,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
 [zwave docs]: /components/zwave/
+[platform_options]: https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval
