@@ -15,12 +15,14 @@ This release is a major milestone - 100 contributors have contributed over the l
 
 To go with the configuration entry support, MQTT also now also integrates with the device registry. Not to be left out, LIFX, SimpliSafe, and Z-Wave have all gained both device registry support, and configuration entry support.
 
-Lovelace has yet another new card, the thermostat card:
+Lovelace has another three new cards, the alarm panel, the button card, and the thermostat card:
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
+
+The glance card, and the button card can also be themed now, and the way the columns in the glance card has changed. There's also long press support, custom UI support, and more (yes, Lovelace is feeling the love this release).
 
 Other things to be aware of:
 
@@ -82,6 +84,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Wink water heaters were moved to the new water heater implementation. All Wink water heaters will automatically be moved from climate.wate_heater to water_heater.water_heater Please update your configuration to use water_heater now. ([@w1ll1am23] - [#17504]) ([climate docs]) ([water_heater docs]) ([wink docs]) ([climate.wink docs]) (breaking change) (new-platform)
 - Toon "comfort" setting is now available as 'auto' instead of 'performance' ([@balloob] - [#17504]) (breaking change)
 - Removing ryobi gdo as API is no longer available. ([@guillaume1410] - [#17637]) (breaking change)
+- The way columns are handled in the glance card has changed ([#1832]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
@@ -305,7 +308,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update HAP-python to 2.3.0 ([@cdce8p] - [#17778]) ([homekit docs]) (beta fix)
 - SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
 - Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
+- The way columns are handled in the glance card has changed ([#1832]) (breaking change)
+- Alarm control panel card ([#1758]) 
+- Lovelace button card ([#1766]) 
+- Long press is supported in Lovelace ([#1848]) 
+- Lovelace has custom UI support ([#1824]) 
 
+
+[#1758]: https://github.com/home-assistant/home-assistant-polymer/pull/1758
+[#1766]: https://github.com/home-assistant/home-assistant-polymer/pull/1766
+[#1832]: https://github.com/home-assistant/home-assistant-polymer/pull/1832
+[#1824]: https://github.com/home-assistant/home-assistant-polymer/pull/1824
+[#1848]: https://github.com/home-assistant/home-assistant-polymer/pull/1848
 [#14598]: https://github.com/home-assistant/home-assistant/pull/14598
 [#15364]: https://github.com/home-assistant/home-assistant/pull/15364
 [#15764]: https://github.com/home-assistant/home-assistant/pull/15764
