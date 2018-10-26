@@ -60,7 +60,7 @@ sensors:
     current_consumption:
       description: Current consumption.
     total_power:
-      description Total power.
+      description: Total power.
     total_consumption:
       description: Total consumption.
 custom:
