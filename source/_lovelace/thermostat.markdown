@@ -26,6 +26,10 @@ entity:
   required: true
   description: Entity id of `climate` domain
   type: string
+title:
+  required: false
+  description: Title of Card
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
