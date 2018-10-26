@@ -11,8 +11,14 @@ categories: Release-Notes
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
 
+First release that has seen 100 contributors write backend code in the last 2 weeks. AMAZING.
+
 - New service home_assistant.update_entity to force update an entity
 - Template sensors will no longer auto update if we can't find relevant entities in the template
+- Water heaters get their own home
+- Lovelace thermostat.
+- Z-Wave config entry support and device registry support. Also LIFX and SimpliSafe.
+- device registry support for MQTT
 
 ## {% linkable_title New Platforms %}
 
@@ -21,7 +27,7 @@ og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 - Thermoworks Smoke Sensor ([@nhorvath] - [#16139]) ([sensor.thermoworks_smoke docs]) (new-platform)
 - Swedish weather institute weather component ([@helto4real] - [#16717]) ([smhi docs]) ([weather docs]) ([weather.demo docs]) ([weather.smhi docs]) (new-platform)
 - Added lumitek/ankuoo recswitch component ([@marcolertora] - [#15764]) ([recswitch docs]) ([switch.recswitch docs]) (new-platform)
-- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (new-platform)
+- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (breaking change) (new-platform)
 - Add Verizon Fios Quantum Gateway device_tracker platform ([@cisasteelersfan] - [#17023]) ([device_tracker docs]) (new-platform)
 - Add Elk-M1 switch and scene platforms ([@gwww] - [#17256]) ([elkm1 docs]) ([switch.elkm1 docs]) (new-platform)
 - Transport NSW ([@Dav0815] - [#17242]) ([sensor.transport_nsw docs]) (new-platform)
@@ -38,6 +44,7 @@ og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 - Add opentherm_gw binary sensor support ([@mvn23] - [#17625]) ([opentherm_gw docs]) ([binary_sensor.opentherm_gw docs]) (new-platform)
 - Add support for Dyson Hot+Cool Fan as a climate device ([@soraxas] - [#14598]) ([dyson docs]) ([climate.dyson docs]) (new-platform)
 - Add new rtorrent sensor ([@terorie] - [#17421]) ([sensor.rtorrent docs]) (new-platform)
+- Elk-M1 climate ([@gwww] - [#17679]) ([elkm1 docs]) ([climate.elkm1 docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -58,6 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Add config entry for LIFX ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
 - Daikin Climate - Better integration with Climate base component ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)
+- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (breaking change) (new-platform)
 - Template sensors to not track all state changes ([@balloob] - [#17276]) ([sensor.template docs]) (breaking change)
 - Made it possible to define multiple Octoprint printers ([@reefab] - [#16519]) ([octoprint docs]) ([binary_sensor.octoprint docs]) ([sensor.octoprint docs]) (breaking change)
 - Add config entry for SimpliSafe ([@bachya] - [#17148]) ([simplisafe docs]) ([alarm_control_panel.simplisafe docs]) (breaking change)
@@ -65,6 +73,23 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove day as a conf option ([@kennedyshead] - [#17452]) ([sensor.speedtest docs]) (breaking change)
 - Moved Wink water heater from climate to water heater. ([@w1ll1am23] - [#17504]) ([climate docs]) ([water_heater docs]) ([wink docs]) ([climate.wink docs]) (breaking change) (new-platform)
 - Removing ryobi gdo ([@guillaume1410] - [#17637]) ([cover.ryobi_gdo docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Geo location trigger added ([@exxamalte] - [#16967]) ([automation.zone docs]) (beta fix)
+- Add lovelace websocket get and set card ([@bramkragten] - [#17600]) ([lovelace docs]) (beta fix)
+- Fixed issue #16903 re exception with multiple simultanious writes ([@nickovs] - [#17636]) (beta fix)
+- Update flux library version ([@oblogic7] - [#17677]) ([light.flux_led docs]) (beta fix)
+- Update limitlessled to 1.1.3 ([@amelchio] - [#17703]) ([light.limitlessled docs]) (beta fix)
+- Bug fix for clicksend ([@JaxomCS] - [#17713]) ([notify docs]) (beta fix)
+- Elk-M1 climate ([@gwww] - [#17679]) ([elkm1 docs]) ([climate.elkm1 docs]) (beta fix) (new-platform)
+- Add cover to supported platforms ([@cgarwood] - [#17725]) ([zwave docs]) (beta fix)
+- Lovelace ws: add card ([@bramkragten] - [#17730]) ([lovelace docs]) (beta fix)
+- Remove day (fixes #17741) ([@fabaff] - [#17743]) ([sensor.fastdotcom docs]) (beta fix)
+- Fixed an incorrect reference in the entity registry ([@bachya] - [#17775]) (beta fix)
+- Update HAP-python to 2.3.0 ([@cdce8p] - [#17778]) ([homekit docs]) (beta fix)
+- SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
+- Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -112,7 +137,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Manual updates ([@balloob] - [#17278])
 - Bumped fints component to version 1.0.1 ([@mnigbur] - [#17280]) ([sensor.fints docs])
 - Fixed Temperature for HMIP-WeatherStation Plus/Basic ([@dickesW] - [#17216]) ([homematic docs])
-- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (new-platform)
+- Rewrite opentherm_gw to a component ([@mvn23] - [#17133]) ([opentherm_gw docs]) ([climate.opentherm_gw docs]) (breaking change) (new-platform)
 - Upgrade shodan to 1.10.4 ([@fabaff] - [#17292]) ([sensor.shodan docs])
 - Upgrade locationsharinglib to 3.0.6 ([@fabaff] - [#17294]) ([device_tracker docs])
 - Add valve level to HmIP thermostat attributes ([@hanzoh] - [#17297]) ([homematic docs])
@@ -257,6 +282,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update pynetgear to 0.5.0 ([@MatMaul] - [#17652]) ([device_tracker docs])
 - Bump pyarlo==0.2.2 ([@lukiffer] - [#17673]) ([arlo docs])
 - Add new rtorrent sensor ([@terorie] - [#17421]) ([sensor.rtorrent docs]) (new-platform)
+- Geo location trigger added ([@exxamalte] - [#16967]) ([automation.zone docs]) (beta fix)
+- Add lovelace websocket get and set card ([@bramkragten] - [#17600]) ([lovelace docs]) (beta fix)
+- Fixed issue #16903 re exception with multiple simultanious writes ([@nickovs] - [#17636]) (beta fix)
+- Update flux library version ([@oblogic7] - [#17677]) ([light.flux_led docs]) (beta fix)
+- Update limitlessled to 1.1.3 ([@amelchio] - [#17703]) ([light.limitlessled docs]) (beta fix)
+- Bug fix for clicksend ([@JaxomCS] - [#17713]) ([notify docs]) (beta fix)
+- Elk-M1 climate ([@gwww] - [#17679]) ([elkm1 docs]) ([climate.elkm1 docs]) (beta fix) (new-platform)
+- Add cover to supported platforms ([@cgarwood] - [#17725]) ([zwave docs]) (beta fix)
+- Lovelace ws: add card ([@bramkragten] - [#17730]) ([lovelace docs]) (beta fix)
+- Remove day (fixes #17741) ([@fabaff] - [#17743]) ([sensor.fastdotcom docs]) (beta fix)
+- Fixed an incorrect reference in the entity registry ([@bachya] - [#17775]) (beta fix)
+- Update HAP-python to 2.3.0 ([@cdce8p] - [#17778]) ([homekit docs]) (beta fix)
+- SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
+- Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
 
 [#14598]: https://github.com/home-assistant/home-assistant/pull/14598
 [#15364]: https://github.com/home-assistant/home-assistant/pull/15364
@@ -278,6 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#16943]: https://github.com/home-assistant/home-assistant/pull/16943
 [#16952]: https://github.com/home-assistant/home-assistant/pull/16952
 [#16958]: https://github.com/home-assistant/home-assistant/pull/16958
+[#16967]: https://github.com/home-assistant/home-assistant/pull/16967
 [#16973]: https://github.com/home-assistant/home-assistant/pull/16973
 [#16993]: https://github.com/home-assistant/home-assistant/pull/16993
 [#17011]: https://github.com/home-assistant/home-assistant/pull/17011
@@ -429,6 +469,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17581]: https://github.com/home-assistant/home-assistant/pull/17581
 [#17595]: https://github.com/home-assistant/home-assistant/pull/17595
 [#17598]: https://github.com/home-assistant/home-assistant/pull/17598
+[#17600]: https://github.com/home-assistant/home-assistant/pull/17600
 [#17601]: https://github.com/home-assistant/home-assistant/pull/17601
 [#17605]: https://github.com/home-assistant/home-assistant/pull/17605
 [#17609]: https://github.com/home-assistant/home-assistant/pull/17609
@@ -438,6 +479,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17627]: https://github.com/home-assistant/home-assistant/pull/17627
 [#17633]: https://github.com/home-assistant/home-assistant/pull/17633
 [#17634]: https://github.com/home-assistant/home-assistant/pull/17634
+[#17636]: https://github.com/home-assistant/home-assistant/pull/17636
 [#17637]: https://github.com/home-assistant/home-assistant/pull/17637
 [#17640]: https://github.com/home-assistant/home-assistant/pull/17640
 [#17647]: https://github.com/home-assistant/home-assistant/pull/17647
@@ -447,6 +489,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#17655]: https://github.com/home-assistant/home-assistant/pull/17655
 [#17656]: https://github.com/home-assistant/home-assistant/pull/17656
 [#17673]: https://github.com/home-assistant/home-assistant/pull/17673
+[#17677]: https://github.com/home-assistant/home-assistant/pull/17677
+[#17679]: https://github.com/home-assistant/home-assistant/pull/17679
+[#17703]: https://github.com/home-assistant/home-assistant/pull/17703
+[#17713]: https://github.com/home-assistant/home-assistant/pull/17713
+[#17725]: https://github.com/home-assistant/home-assistant/pull/17725
+[#17730]: https://github.com/home-assistant/home-assistant/pull/17730
+[#17743]: https://github.com/home-assistant/home-assistant/pull/17743
+[#17775]: https://github.com/home-assistant/home-assistant/pull/17775
+[#17778]: https://github.com/home-assistant/home-assistant/pull/17778
+[#17783]: https://github.com/home-assistant/home-assistant/pull/17783
+[#17786]: https://github.com/home-assistant/home-assistant/pull/17786
 [@333ryan18]: https://github.com/333ryan18
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -455,6 +508,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@GuyKh]: https://github.com/GuyKh
 [@J4nsen]: https://github.com/J4nsen
 [@JariInc]: https://github.com/JariInc
+[@JaxomCS]: https://github.com/JaxomCS
 [@Joshi425]: https://github.com/Joshi425
 [@Julius2342]: https://github.com/Julius2342
 [@Kane610]: https://github.com/Kane610
@@ -514,8 +568,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mnigbur]: https://github.com/mnigbur
 [@mvn23]: https://github.com/mvn23
 [@nhorvath]: https://github.com/nhorvath
+[@nickovs]: https://github.com/nickovs
 [@nielstron]: https://github.com/nielstron
 [@noxhirsch]: https://github.com/noxhirsch
+[@oblogic7]: https://github.com/oblogic7
 [@partofthething]: https://github.com/partofthething
 [@persandstrom]: https://github.com/persandstrom
 [@psyhomb]: https://github.com/psyhomb
@@ -547,6 +603,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arlo docs]: /components/arlo/
 [august docs]: /components/august/
 [automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
+[automation.zone docs]: /docs/automation/trigger/#zone-trigger
 [binary_sensor.august docs]: /components/binary_sensor.august/
 [binary_sensor.bloomsky docs]: /components/binary_sensor.bloomsky/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
@@ -569,6 +626,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate docs]: /components/climate/
 [climate.daikin docs]: /components/climate.daikin/
 [climate.dyson docs]: /components/climate.dyson/
+[climate.elkm1 docs]: /components/climate.elkm1/
 [climate.eq3btsmart docs]: /components/climate.eq3btsmart/
 [climate.knx docs]: /components/climate.knx/
 [climate.mill docs]: /components/climate.mill/
@@ -604,8 +662,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [konnected docs]: /components/konnected/
 [lifx docs]: /components/lifx/
 [light.abode docs]: /components/light.abode/
+[light.flux_led docs]: /components/light.flux_led/
 [light.knx docs]: /components/light.knx/
 [light.lifx docs]: /components/light.lifx/
+[light.limitlessled docs]: /components/light.limitlessled/
 [light.mqtt docs]: /components/light.mqtt/
 [light.opple docs]: /components/light.opple/
 [light.osramlightify docs]: /components/light.osramlightify/
@@ -645,6 +705,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.dnsip docs]: /components/sensor.dnsip/
 [sensor.dsmr docs]: /components/sensor.dsmr/
 [sensor.elkm1 docs]: /components/sensor.elkm1/
+[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
 [sensor.filter docs]: /components/sensor.filter/
 [sensor.fints docs]: /components/sensor.fints/
 [sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
