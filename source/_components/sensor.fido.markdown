@@ -49,7 +49,7 @@ number:
 monitored_variables:
   description: Variables to monitor.
   required: true 
-  type: map
+  type: list
   keys:
     fido_dollar:
       description: Your Fido dollar balance
