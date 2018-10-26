@@ -37,7 +37,8 @@ name:
   required: false
   type: string
 version:
-  description: Hardware version of the sensor. Defaults to 1.
+  description: Hardware version of the sensor.
   required: false
   type: string
+  default: 1
 {% endconfiguration %}
