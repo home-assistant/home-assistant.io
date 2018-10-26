@@ -50,6 +50,11 @@ tap_action:
   description: "Set to `toggle` or `call-service` for direct actions."
   type: string
   default: more-info
+hold_action:
+  required: false
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
+  type: string
+  default: none
 service:
   required: false
   description: "For `call-service`, e.g., `media_player.media_play_pause`"
