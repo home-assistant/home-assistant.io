@@ -31,7 +31,7 @@ sensor:
 
 {% configuration %}
 host: 
-  description: The IP address or hostname of your charger
+  description: The IP address or hostname of your charger.
   required: true
   type: string
 monitored_variables:
@@ -40,7 +40,7 @@ monitored_variables:
   type: list
   keys:
     status:
-      description: The status of the charger (i.e., "Connected", "Charging", etc.)
+      description: The status of the charger (i.e., "Connected", "Charging", etc.).
     charge_time:
       description: The number of minutes the charging has been charging, or 0 if it is not charging.
     rtc_temp:
