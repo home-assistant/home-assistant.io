@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor sma:
+sensor:
   - platform: sma
     host: IP_ADDRESS_OF_DEVICE
     password: YOUR_SMA_PASSWORD
@@ -83,7 +83,7 @@ custom:
       type: float
 {% endconfiguration %}
 
-You can create composite sensors, where the sub-sensors will be attributes of the main sensor, e.g.
+You can create composite sensors, where the sub-sensors will be attributes of the main sensor. E.g.,
 
 ```yaml
     sensors:
