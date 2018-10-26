@@ -50,18 +50,40 @@ media_player:
     get_sources: false
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address your Fire TV device.  
-- **name** (*Optional*): The friendly name of the device; the default is 'Amazon Fire TV'.
-- **port** (*Optional*): The port for your Fire TV device; the default is 5555.
-- **adbkey** (*Optional*): The path to your `adbkey` file.  Note that the file `adbkey.pub` must be in the same directory.  
-- **get_source** (*Optional*): Whether or not to retrieve the current app as the source; the default is `true`.
-- **get_sources** (*Optional*): Whether or not to retrieve the running apps as the list of sources; the default is `true`.
+{% configuration %}
+host:
+  description: The IP address your Fire TV device.
+  required: true
+  type: string
+name:
+  description: The friendly name of the device.
+  required: false
+  default: Amazon Fire TV
+  type: string
+port:
+  description: The port for your Fire TV device.
+  required: false
+  default: 5555
+  type: integer
+adbkey:
+  description: The path to your `adbkey` file.  Note that the file `adbkey.pub` must be in the same directory.
+  required: false
+  type: string
+get_source:
+  description: Whether or not to retrieve the current app as the source.
+  required: false
+  default: true
+  type: boolean
+get_sources:
+  description: Whether or not to retrieve the running apps as the list of sources.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
 ### {% linkable_title ADB Authentication (for Fire TV devices with recent software) %}
 
-If you get a "Device authentication required, no keys available" error when trying to setup Fire TV, then you'll need to create an adbkey and add its path to your configuration.  Follow the instructions on this page to connect to your Fire TV from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).  
+If you get a "Device authentication required, no keys available" error when trying to set up Fire TV, then you'll need to create an adbkey and add its path to your configuration.  Follow the instructions on this page to connect to your Fire TV from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).  
 
 **Important!**  In the dialog appearing on your Fire TV, you must check the box that says "always allow connections from this device."  ADB authentication in Home Assistant will only work using a trusted key.
 
@@ -74,7 +96,7 @@ Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add t
 
 #### ADB Troubleshooting
 
-If you receive the error message `Issue: Error while setting up platform firetv` in your log when trying to setup a Fire TV device with an ADB key, then there is probably an issue with your ADB key.  Here are some possible causes.
+If you receive the error message `Issue: Error while setting up platform firetv` in your log when trying to set up a Fire TV device with an ADB key, then there is probably an issue with your ADB key.  Here are some possible causes.
 
 1. ADB is not enabled on your Fire TV.  To remedy this, enable ADB by following the instructions above.  
 
