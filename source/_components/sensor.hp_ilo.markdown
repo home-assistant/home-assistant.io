@@ -62,6 +62,7 @@ monitored_variables:
   required: false
   default: Defaults to an empty list (no sensors are created).
   type: list
+  keys:
     name:
       description: The sensor name.
       required: true
