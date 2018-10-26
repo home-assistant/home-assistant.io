@@ -93,6 +93,7 @@ Configuration variables:
   - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
   - **dew_point**: The dew point.
   - **wind_speed**: The wind speed.
+  - **wind_gust**: The wind gust.
   - **wind_bearing**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **cloud_cover**: The percentage of sky occluded by clouds.
   - **humidity**: The relative humidity.

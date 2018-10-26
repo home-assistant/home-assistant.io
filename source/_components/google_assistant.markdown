@@ -35,7 +35,6 @@ If this is the first time setting up your Google Assistant integration, you can 
 Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your existing configuration from release 0.79 or below, you need:
 
 1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
-    - Under `Create an Action`, under the build section, modify `Add fulfillment URL` to `https://[YOUR HOME ASSISTANT         URL:PORT]/api/google_assistant`, where `[YOUR HOME ASSISTANT URL:PORT]` is the domain / IP address and the port under which your Home Assistant instance is reachable.
     - Change `Linking type` to `OAuth` and `Authorization Code`.
     - In the `Client information` section:
         - Change `Client ID` to `https://oauth-redirect.googleusercontent.com/`, the trailing slash is important.

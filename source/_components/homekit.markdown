@@ -14,6 +14,10 @@ logo: apple-homekit.png
 
 The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, checkout the [troubleshooting](#troubleshooting) section.
 
+<p class="note">
+  If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
+</p>
+
 <p class="note warning">
   It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
@@ -313,6 +317,9 @@ For `Docker` users: make sure to set `network_mode: host`. Other reasons could b
 #### {% linkable_title Pairing hangs - zeroconf error %}
 Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
 
+#### {% linkable_title Pairing hangs - only works with debug config %}
+Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
+
 #### {% linkable_title Duplicate AID found when attempting to add accessory %}
 Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
 
@@ -324,6 +331,18 @@ Make sure that you don't try to add more then 100 accessories, see [device limit
 
 #### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
 See [disable auto start](#disable-auto-start)
+
+#### {% linkable_title My entity doesn't show up %}
+Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
+
+#### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
+To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+
+#### {% linkable_title Specific entity doesn't work %}
+Although we try our best, some entities don't work with the HomeKit component yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+
+#### {% linkable_title Accessories are all listed as not responding %}
+See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### {% linkable_title Accessory not responding - after restart or update %}
 See [device limit](#device-limit)

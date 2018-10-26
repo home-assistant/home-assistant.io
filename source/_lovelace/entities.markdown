@@ -111,7 +111,7 @@ type:
   required: true
   description: section
   type: string
-Label:
+label:
   required: false
   description: Section label
   type: string

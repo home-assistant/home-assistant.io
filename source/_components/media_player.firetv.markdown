@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `firetv` platform allows you to control an [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
+The `firetv` platform allows you to control an [Amazon Fire TV/stick](https://www.amazon.com/b/?node=8521791011).
 
 Steps to configure your Amazon Fire TV stick with Home Assistant:
 
