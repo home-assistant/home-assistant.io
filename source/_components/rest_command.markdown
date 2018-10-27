@@ -45,7 +45,7 @@ service_name:
     headers:
       description: The headers for the requests.
       required: false
-      type: string
+      type: list
     payload:
       description: A string/template to send with request.
       required: false
