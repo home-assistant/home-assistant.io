@@ -59,6 +59,24 @@ port:
   required: false
   default: 8728
   type: integer
+ssl:
+  description: Use api_ssl service instead of api. Don't forget to change the port too (default is 8729).
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
+To use api_ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api_ssl service. Here is an example for a self signed certificate:
+
+```bash
+/certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
+/certificate sign "Self signed demo certificate for API"
+/ip service set api-ssl certificate="Self signed demo certificate for API"
+/ip service enable api-ssl
+```
+If everything is working you can disable the pure api service:
+
+```bash
+/ip service disable api
+```
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
