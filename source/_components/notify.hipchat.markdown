@@ -58,7 +58,7 @@ notify:
   default: false
   type: boolean
 format:
-  description: Setting format will override the default message format. Default is 'text'. Valid options are 'text' and 'html'.
+  description: Setting format will override the default message format. Valid options are 'text' and 'html'.
   required: false
   default: text
   type: string
