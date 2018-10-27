@@ -28,7 +28,7 @@ rest_command:
 ```
 
 {% configuration %}
-[service_name]:
+service_name:
   description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.service_name'.
   required: true 
   type: map
