@@ -23,8 +23,21 @@ light:
       C4:BE:84:51:54:8B:
         name: Living Room
 ```
-Configuration variables:
 
-- **devices** array (*Required*): List of your devices/bulbs.
-  - **MAC address** (*Required*): The MAC address of the bulb.
-    - **name** (*Optional*): Friendly name for the frontend.
+{% configuration %}
+devices:
+  description: List of your devices/bulbs.
+  required: true
+  type: list
+  keys:
+    mac_address:
+      description: The MAC address of the bulb.
+      required: true
+      type: list
+      keys:
+        name:
+          description: Friendly name for the frontend.
+          required: false
+          type: string
+
+{% endconfiguration %}
