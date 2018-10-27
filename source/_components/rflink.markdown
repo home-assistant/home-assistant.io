@@ -38,24 +38,24 @@ rflink:
 
 {% configuration %}
 port:
-  description: The path to RFLink USB/serial device or TCP port in TCP mode
+  description: The path to RFLink USB/serial device or TCP port in TCP mode.
   required: true
   type: string
 host:
-  description: Switches to TCP mode, connects to host instead of to USB/serial
+  description: Switches to TCP mode, connects to host instead of to USB/serial.
   required: false
   type: string
 wait_for_ack:
-  description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable)
+  description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable).
   required: false
   default: true
   type: boolean
 ignore_devices:
-  description: List of device id's to ignore. Supports wildcards (*) at the end
+  description: List of device id's to ignore. Supports wildcards (*) at the end.
   required: false
   type: [list, string]
 reconnect_interval:
-  description: Time in seconds between reconnect attempts
+  description: Time in seconds between reconnect attempts.
   required: false
   default: 10
   type: integer
