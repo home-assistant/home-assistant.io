@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
+        "paths": [
+          "/ios/*"
+        ]
+      }
+    ]
+  }
+}

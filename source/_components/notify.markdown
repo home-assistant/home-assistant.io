@@ -17,8 +17,8 @@ The `notify` component makes it possible to send notifications to a wide variety
 # Example configuration.yaml entry
 notify:
   - platform: pushbullet
-    name: paulus
-    api_key: ABCDEFG
+    name: NOTIFY_NAME
+    api_key: YOUR_API_KEY
 ```
 
 The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied.

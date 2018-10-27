@@ -15,6 +15,8 @@ ha_release: pre 0.7
 
 The `wemo` component is the main component to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
 
+## {% linkable_title Configuration %}
+
 Supported devices will be automatically discovered if the discovery component is enabled. Loading the `wemo` component will scan the local network for WeMo devices, even if you are not using the discovery component
 
 ```yaml

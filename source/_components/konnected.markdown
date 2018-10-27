@@ -116,6 +116,25 @@ devices:
         repeat:
           description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
           required: false
+    host: 
+      type: string
+      required: false
+      description: Optionally specify the Konnected device's IP address or hostname to set up without discovery.
+    port:
+      type: integer
+      required: false
+      description: Optionally specify the port number for the Konnected API on the device. Note that the port is different on every device. See help.konnected.io to learn how to determine the port number.
+    discovery:
+      type: boolean
+      required: false
+      default: true
+      description: Enable or disable discovery for this device. When `true`, the device will respond to discovery requests on your network. When `false`, the device will not respond to discovery requests, so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
+    blink:
+      type: boolean
+      required: false
+      default: true
+      description: Blink the blue LED upon successful transmission of a state change.
+      
 {% endconfiguration%}
 
 #### {% linkable_title Configuration Notes %}
@@ -187,6 +206,10 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT | D8 | 8 | GPIO15 |
 
 ### {% linkable_title Revision History %}
+
+#### 0.80
+* Added ability to specify `host` and `port` to set up devices without relying on discovery.
+* Added `discovery` and `blink` config options to enable/disable these features.
 
 #### 0.79
 * Added `inverse` configuration option for binary sensors.

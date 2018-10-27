@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.57
 ---
 
-
 The `irish_rail_transport` sensor will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.
 
 A station name is the full station name as specified on the Irish Rail search site, for example, `Tara Street` or `Dublin Connolly`.
@@ -28,13 +27,29 @@ sensor:
     name: "To Greystones"
 ```
 
-Configuration variables:
-
-- **station** (*Required*): The name of the station.
-- **direction** (*Optional*): The direction of the train. Typically either `Northbound` or `Southbound`.
-- **destination** (*Optional*): The name of the destination station to filter by.
-- **stops_at** (*Optional*): An optional filter based on the name of a station that the train stops at.
-- **name** (*Optional*): A friendly name for this sensor.
+{% configuration %}
+station:
+  description: The name of the station.
+  required: true
+  type: string
+direction:
+  description: The direction of the train. Typically either `Northbound` or `Southbound`.
+  required: false
+  type: string
+destination:
+  description: The name of the destination station to filter by.
+  required: false
+  type: string
+stops_at:
+  description: An optional filter based on the name of a station that the train stops at.
+  required: false
+  type: string
+name:
+  description: A friendly name for this sensor.
+  required: false
+  default: Next Train
+  type: string
+{% endconfiguration %}
 
 Using the `stops_at` option will cause an extra request per train found. Therefore, if you are looking at a busy station, it is recommended that you also use at least one other filter. For example:
 

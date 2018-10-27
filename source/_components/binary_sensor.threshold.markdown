@@ -14,7 +14,6 @@ ha_release: 0.34
 ha_qa_scale: internal
 ---
 
-
 The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed. It support also a range if `lower` and `upper` are given.
 
 If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not `lower` or `upper` with respect to the threshold.
@@ -61,6 +60,5 @@ name:
   description:  Name of the sensor to use in the frontend.
   required: false
   type: string
-  default: 
+  default: Threshold
 {% endconfiguration %}
-

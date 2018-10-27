@@ -16,6 +16,7 @@ The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` (duplicate of home) and `alarm_disarm`.
 Currently only one alarm is supported.
 
+## {% linkable_title Configuration %}
 
 To enable, add the following lines to your `configuration.yaml`:
 
@@ -27,14 +28,27 @@ alarm_control_panel:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name of device in Home Assistant.
+  required: false
+  type: string
+username:
+  description: Username used to sign into the Yale app/web client.
+  required: true
+  type: string
+password:
+  description: Password used to sign into the Yale app/web client.
+  required: true
+  type: string
+area_id:
+  description: Area ID of the device when talking to Yale's API if required.
+  required: false
+  type: int
+  default: 1
+{% endconfiguration %}
 
-- **name** (*Optional*): Name of device in Home Assistant.
-- **username** (*Required*): Username used to sign into the Yale app/web client.
-- **password** (*Required*): Password used to sign into the Yale app/web client.
-- **area_id** (*Optional*): Area ID of the device when talking to Yale's API if required ('1' by default).
-
-Automation example:
+## {% linkable_title Automation example %}
 
 ```yaml
 automation:
@@ -56,5 +70,5 @@ automation:
       to: 'armed_away'
     action:
       service: scene.turn_on
-      entity_id: scene.OnArmedAway 
+      entity_id: scene.OnArmedAway
 ```

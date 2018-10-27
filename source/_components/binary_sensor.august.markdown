@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: august.png
-ha_category: Doorbell
+ha_category: Binary Sensor
 ha_release: "0.64"
 ha_iot_class: "Cloud Polling"
 ---
@@ -21,3 +21,6 @@ If you have August Doorbell, once you have enabled the [August component](/compo
 * Doorbell motion sensor
 * Doorbell online sensor
 
+If you have August Smart Lock with DoorSense, once you have enabled the [August component](/components/august/), you should see the following sensors:
+
+* Door sensor

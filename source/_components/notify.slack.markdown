@@ -38,7 +38,7 @@ To enable the Slack notification in your installation, add the following to your
 notify:
   - name: NOTIFIER_NAME
     platform: slack
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     default_channel: '#general'
 ```
 

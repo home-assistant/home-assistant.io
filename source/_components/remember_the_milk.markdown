@@ -27,8 +27,8 @@ To be able to use this component, you need a Remember The Milk account and you n
 
 remember_the_milk:
   - name: your_rtm_account
-    api_key: <your secret api key goes here>
-    shared_secret: <your secret shared secret goes here>
+    api_key: YOUR_API_KEY
+    shared_secret: YOUR_SHARED_SECRET
 
 ```
 

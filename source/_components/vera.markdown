@@ -16,6 +16,8 @@ The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave d
 
 Switches, Lights (inc Dimmers), Locks, Sensors, Binary sensors, and Scenes are supported - and will be automatically added when HA connects to your Vera controller.
 
+## {% linkable_title Configuration %}
+
 To use Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:
 
 ```yaml
@@ -23,15 +25,18 @@ vera:
   vera_controller_url: http://192.168.1.161:3480/
 ```
 
-Configuration variables:
-
-- **vera_controller_url** (*Required*): The URL for your Vera device.
+{% configuration %}
+vera_controller_url:
+  description: The URL for your Vera device.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 </p>
 
-### {% linkable_title Configure devices %} 
+### {% linkable_title Configure devices %}
 
 By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
 
@@ -48,6 +53,6 @@ vera:
   lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
 ```
 
-### {% linkable_title Using Z-Wave devices in automation %} 
+### {% linkable_title Using Z-Wave devices in automation %}
 
 If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.

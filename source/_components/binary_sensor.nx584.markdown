@@ -17,6 +17,8 @@ The `nx584` platform provides integration with GE, Caddx, Interlogix (and other 
 
 Enabling this sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
+## {% linkable_title Configuration %}
+
 To enable this feature, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -29,19 +31,19 @@ binary_sensor:
 host:
   description: This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
   required: false
-  default: localhost
   type: string
+  default: localhost
 port:
   description: The port where the server process is running.
   required: false
-  default: 5007
   type: integer
+  default: 5007
 exclude_zones:
   description: This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
   required: false
   type: [list, integer]
 zone_types:
-  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below. 
+  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below.
   required: false
   type: map
   keys:
@@ -58,6 +60,8 @@ zone_types:
     safety:
       description: Safety
 {% endconfiguration %}
+
+## {% linkable_title Full example %}
 
 An extended configuration entry could look like this:
 

@@ -61,6 +61,8 @@ and has been confirmed to work with the following models:
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
 
+## {% linkable_title Configuration %}
+
 To enable this sensor,
 add the following lines are required in your `configuration.yaml` file:
 
@@ -123,6 +125,8 @@ customize:
       default: 5
 {% endconfiguration %}
 
+### {% linkable_title Supported types %}
+
 Supported sensor/event types are:
 
 - Motion
@@ -141,6 +145,8 @@ Supported sensor/event types are:
 - PIR Alarm
 - Face Detection
 - Scene Change Detection
+
+## {% linkable_title Examples %}
 
 Example of a configuration in your `configuration.yaml`
 that utilizes the customize options for a camera:

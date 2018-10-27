@@ -125,7 +125,7 @@ automation:
     offset: '-00:45:00'
 ```
 
-Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting.
 
 {% raw %}
 ```yaml
@@ -190,8 +190,19 @@ automation 3:
     seconds: 00
 ```
 <p class='note warning'>
-  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
+  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
 </p>
+
+### {% linkable_title Webhook trigger %}
+
+Webhook triggers are triggered by web requests made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`.
+
+```yaml
+automation:
+  trigger:
+    platform: webhook
+    webhook_id:
+```
 
 ### {% linkable_title Zone trigger %}
 

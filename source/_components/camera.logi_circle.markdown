@@ -35,8 +35,8 @@ camera:
 scan_interval:
   description: How frequently to query for new camera stills, value are in seconds.
   required: false
-  default: 60
   type: integer
+  default: 60
 {% endconfiguration %}
 
 ### {% linkable_title Service `camera.logi_circle_livestream_record` %}

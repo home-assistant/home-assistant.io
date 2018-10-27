@@ -20,8 +20,20 @@ light:
   - platform: osramlightify
     host: 192.168.0.50
 ```
-Configuration variables:
 
-- **host** (*Required*): IP address of the Osram Lightify bridge, eg. `192.168.1.50`.
-- **allow_lightify_nodes** (*Optional*): (true/false) Edit this to stop homeassistant from importing the lightify lights.
-- **allow_lightify_groups** (*Optional*): (true/false) Edit this to stop homeassistant from importing the lightify groups.
+{% configuration %}
+host:
+  description: "IP address of the Osram Lightify bridge, e.g., `192.168.1.50`."
+  required: true
+  type: string
+allow_lightify_nodes:
+  description: (true/false) Edit this to stop homeassistant from importing the lightify lights.
+  required: false
+  default: true
+  type: boolean
+allow_lightify_groups:
+  description: (true/false) Edit this to stop homeassistant from importing the lightify groups.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}

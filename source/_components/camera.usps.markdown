@@ -13,12 +13,13 @@ ha_release: 0.52
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `usps` camera component allows you to view the mail piece images made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS sensors](/components/sensor.usps).
 
 <p class='note'>
 You must have the [USPS component](/components/usps/) configured to use this camera. The camera will be setup if the `usps` component is configured and the required configuration is set.
 </p>
+
+## {% linkable_title Configuration %}
 
 To customize the interval that mail images are rotated in the mail camera you can edit your `configuration.yaml` file with the following settings:
 ```yaml

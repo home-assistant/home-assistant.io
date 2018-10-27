@@ -35,4 +35,3 @@ port:
   type: integer
   default: 3551
 {% endconfiguration %}
-

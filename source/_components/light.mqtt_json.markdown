@@ -256,6 +256,23 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 }
 ```
 
+### {% linkable_title Brightness and RGBW support %}
+
+To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt_json
+    name: mqtt_json_light_1
+    state_topic: "home/rgbw1"
+    command_topic: "home/rgbw1/set"
+    brightness: true
+    rgb: true
+    white_value: true
+```
+
+
 ### {% linkable_title Implementations %}
 
 - A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.

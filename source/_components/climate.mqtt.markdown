@@ -201,6 +201,11 @@ max_temp:
   description: Maximum set point available
   type: number
   required: false
+temp_step:
+  description: Step size for temperature set point
+  type: number
+  required: false
+  default: 1
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}

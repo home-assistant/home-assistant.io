@@ -21,26 +21,14 @@ This platform requires an AirVisual API key, which can be obtained [here](https:
 The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
 </p>
 
-## {% linkable_title Configuration via Latitude/Longitude %}
+## {% linkable_title Configuration %}
 
 To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 sensor:
   - platform: airvisual
-    api_key: abc123
-    monitored_conditions:
-      - us
-      - cn
-    show_on_map: false
-    scan_interval: 30
-    # Configure by latitude/longitude:
-    latitude: 42.81212
-    longitude: 108.12422
-    # Or configure by location:
-    city: Los Angeles
-    state: California
-    country: USA
+    api_key: YOUR_AIRVISUAL_API_KEY
 ```
 
 {% configuration %}
@@ -86,6 +74,37 @@ country:
   required: optional
   type: string
 {% endconfiguration %}
+
+## {% linkable_title Example Configurations %}
+
+Configuration using custom Latitude and Longitude:
+
+```yaml
+sensor:
+  - platform: airvisual
+    api_key: YOUR_AIRVISUAL_API_KEY
+    monitored_conditions:
+      - cn
+    show_on_map: false
+    scan_interval: 30
+    latitude: 42.81212
+    longitude: 108.12422
+```
+
+Configuration using city, state, and country:
+
+```yaml
+sensor:
+  - platform: airvisual
+    api_key: YOUR_AIRVISUAL_API_KEY
+    monitored_conditions:
+      - us
+    show_on_map: false
+    scan_interval: 30
+    city: Los Angeles
+    state: California
+    country: USA
+```
 
 ## {% linkable_title Determining the City/State/Country %}
 

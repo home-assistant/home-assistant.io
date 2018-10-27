@@ -29,23 +29,23 @@ weather:
 
 {% configuration %}
 station_id:
-  required: false
   description: The ID number for a supported ZAMG station.
+  required: false
   type: string
 name:
-  required: false
   description: A name for the weather platform.
+  required: false
   type: string
 latitude:
-  required: false
   description: "Latitude coordinate to monitor weather of (required if **longitude** is specified)."
-  default: "Defaults to coordinates defined in your `configuration.yaml` file."
-  type: float
-longitude:
   required: false
-  description: "Longitude coordinate to monitor weather of (required if **latitude** is specified)."
-  default: "Defaults to coordinates defined in your `configuration.yaml` file."
   type: float
+  default: "Defaults to coordinates defined in your `configuration.yaml` file."
+longitude:
+  description: "Longitude coordinate to monitor weather of (required if **latitude** is specified)."
+  required: false
+  type: float
+  default: "Defaults to coordinates defined in your `configuration.yaml` file."
 {% endconfiguration %}
 
 <p class='note'>

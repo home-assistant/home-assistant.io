@@ -13,8 +13,11 @@ ha_release: 0.7.6
 ha_qa_scale: internal
 ---
 
-
 The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.
+
+## {% linkable_title Configuration %}
+
+To enable this, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,19 +25,62 @@ alarm_control_panel:
   - platform: manual
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the alarm. Default is "HA Alarm".
-- **code** (*Optional*): If defined, specifies a code to enable or disable the alarm in the frontend.
-- **code_template** (*Optional*): If defined, returns a code to enable or disable the alarm in the frontend; an empty string disables checking the code.  Inside the template, the variables **from_state** and **to_state** identify the current and desired state.  Only one of **code** and **code_template** can be specified.
-- **delay_time** (*Optional*): The time in seconds of the pending time before triggering the alarm. Default is 0 seconds.
-- **pending_time** (*Optional*): The time in seconds of the pending time before effecting a state change. Default is 60 seconds.
-- **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
-- **disarm_after_trigger** (*Optional*): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
-- **armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered** (*Optional*): State specific settings
-  - **delay_time** (*Optional*): State specific setting for **delay_time** (all states except **triggered**)
-  - **pending_time** (*Optional*): State specific setting for **pending_time** (all states except **disarmed**)
-  - **trigger_time** (*Optional*): State specific setting for **trigger_time** (all states except **triggered**)
+{% configuration %}
+name:
+  description: The name of the alarm.
+  required: false
+  type: string
+  default: HA Alarm
+code:
+  description: >
+    If defined, specifies a code to enable or disable the alarm in the frontend.
+    Only one of **code** and **code_template** can be specified.
+  required: exclusive
+  type: string
+code_template:
+  description: >
+    If defined, returns a code to enable or disable the alarm in the frontend; an empty string disables checking the code.
+    Inside the template, the variables **from_state** and **to_state** identify the current and desired state.
+    Only one of **code** and **code_template** can be specified.
+  required: exclusive
+  type: string
+delay_time:
+  description: The time in seconds of the pending time before triggering the alarm.
+  required: false
+  type: integer
+  default: 0
+pending_time:
+  description: The time in seconds of the pending time before effecting a state change.
+  required: false
+  type: integer
+  default: 60
+trigger_time:
+  description: The time in seconds of the trigger time in which the alarm is firing.
+  required: false
+  type: integer
+  default: 120
+disarm_after_trigger:
+  description: If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
+  required: false
+  type: boolean
+armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
+  description: State specific settings
+  required: false
+  type: list
+  keys:
+    delay_time:
+      description: State specific setting for **delay_time** (all states except **triggered**)
+      required: false
+      type: integer
+    pending_time:
+      description: State specific setting for **pending_time** (all states except **disarmed**)
+      required: false
+      type: integer
+    trigger_time:
+      description: State specific setting for **trigger_time** (all states except **triggered**)
+      required: false
+      type: integer
+{% endconfiguration %}
 
 ## {% linkable_title State machine %}
 
@@ -75,12 +121,12 @@ garage door opens, but not for the "armed home" state.
 **trigger_time** is useful to disable the alarm when disarmed, but it can also
 be used for example to sound the siren for a shorter time during the night.
 
+## {% linkable_title Examples %}
+
 In the config example below:
 
 - the disarmed state never triggers the alarm;
-
 - the armed_home state will leave no time to leave the building or disarm the alarm;
-
 - while other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
 
 ```yaml
@@ -99,9 +145,7 @@ alarm_control_panel:
       delay_time: 0
 ```
 
-## {% linkable_title Examples %}
-
-In this section, you find some real-life examples of how to use this panel.
+In the rest of this section, you find some real-life examples on how to use this panel.
 
 ### {% linkable_title Sensors %}
 

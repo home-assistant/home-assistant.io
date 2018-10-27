@@ -33,7 +33,7 @@ state_topic:
   required: true
   type: string
 name:
-  description: Name of the MQTT sensor.
+  description: The name of the MQTT sensor.
   required: false
   type: string
   default: MQTT Sensor
@@ -47,7 +47,7 @@ unit_of_measurement:
   required: false
   type: string
 icon:
-  description: Icon for the sensor.
+  description: The icon for the sensor.
   required: false
   type: icon
 expire_after:
@@ -91,6 +91,35 @@ device_class:
   required: false
   type: device_class
   default: None
+device:
+  description: 'Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -99,18 +128,18 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title JSON attributes configuration %}
 
-The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the `availability` topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: mqtt
-    name: "BS RSSI"
-    state_topic: "HUISHS/BunnyShed/NodeHealthJSON"
+    name: "RSSI"
+    state_topic: "home/sensor1/infojson"
     unit_of_measurement: 'dBm'
     value_template: "{{ value_json.RSSI }}"
-    availability_topic: "HUISHS/BunnyShed/status"
+    availability_topic: "home/sensor1/status"
     payload_available: "online"
     payload_not_available: "offline"
     json_attributes:

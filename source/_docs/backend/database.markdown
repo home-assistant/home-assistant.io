@@ -118,7 +118,7 @@ If you don't want to keep certain entities, you can delete them permanently:
 sqlite> DELETE FROM states WHERE entity_id="sensor.cpu";
 ```
 
-The `VACUUM` command cleans the your database.
+The `VACUUM` command cleans your database.
 
 ```bash
 sqlite> VACUUM;

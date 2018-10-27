@@ -15,6 +15,8 @@ ha_release: 0.7.5
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
+## {% linkable_title Setup %}
+
 The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
@@ -65,13 +67,19 @@ $ python3
 123456789
 ```
 
+<p class='note'>
+If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
+</p>
+
+## {% linkable_title Configuration %}
+
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for the Telegram Bot
 telegram_bot:
   - platform: polling
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     allowed_chat_ids:
       - CHAT_ID_1
       - CHAT_ID_2

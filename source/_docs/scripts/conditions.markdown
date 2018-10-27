@@ -107,7 +107,7 @@ Tests if an entity is a specified state.
 condition:
   condition: state
   entity_id: device_tracker.paulus
-  state: not_home
+  state: 'not_home'
   # optional: trigger only if state was this for last X time.
   for:
     hours: 1

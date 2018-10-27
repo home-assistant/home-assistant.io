@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.
 
-This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication. 
+This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication.
 
 The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g., automation). Additionally a send service is provided to send RF codes.
 
@@ -28,12 +28,27 @@ To integrate pilight into Home Assistant, add the following section to your `con
 pilight:
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of the computer running the pilight-daemon, e.g., 192.168.1.32.
-- **port** (*Optional*): The network port to connect to. The usual port is [5001](https://manual.pilight.org/development/api.html).
-- **send_delay** (*Optional*): You can define a send delay as a fraction of seconds if you experience transmission problems when you try to switch multiple switches at once. This can happen when you use a [pilight USB Nano](https://github.com/pilight/pilight-usb-nano) as hardware and switches a whole group of multiple switches on or off. Tested values are between 0.3 and 0.8 seconds depending on the hardware.
-- **whitelist** (*Optional*): You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
+{% configuration %}
+host:
+  description: The IP address of the computer running the pilight-daemon, e.g., 192.168.1.32.
+  required: false
+  default: 127.0.0.1
+  type: string
+port:
+  description: "The network port to connect to, see also: (https://manual.pilight.org/development/api.html)."
+  required: false
+  default: 5001
+  type: integer
+send_delay:
+  description: You can define a send delay as a fraction of seconds if you experience transmission problems when you try to switch multiple switches at once. This can happen when you use a [pilight USB Nano](https://github.com/pilight/pilight-usb-nano) as hardware and switches a whole group of multiple switches on or off. Tested values are between 0.3 and 0.8 seconds depending on the hardware.
+  required: false
+  default: 0.0
+  type: float
+whitelist:
+  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
+  required: false
+  type: string
+{% endconfiguration %}
 
 In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://manual.pilight.org/development/api.html).
 

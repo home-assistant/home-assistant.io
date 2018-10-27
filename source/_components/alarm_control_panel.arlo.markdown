@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `arlo` alarm control panel allows you to control your [Arlo](https://arlo.netgear.com/) base stations. You can use it to switch modes and trigger alarms from Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To get your [Arlo](https://arlo.netgear.com/) base stations working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:

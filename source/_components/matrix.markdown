@@ -27,8 +27,6 @@ matrix:
       name: my_command
 ```
 
-Configuration variables:
-
 {% configuration %}
 username:
   description: "The matrix username that Home Assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g., '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."

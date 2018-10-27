@@ -27,24 +27,64 @@ sensor:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your Sonarr API key, found in Settings > General in the Sonarr Web UI.
-- **host** (*Optional*): The host Sonarr is running on. Defaults to `localhost`.
-- **port** (*Optional*): The port Sonarr is running on. Defaults to 8989.
-- **monitored_conditions** array (*Optional*): Conditions to display on the frontend. Defaults to `upcoming`.
-  - **series**: The number of series in Sonarr.
-  - **upcoming**: The number of upcoming episodes.
-  - **wanted**: The number of episodes still 'wanted'.
-  - **queue**: The number of episodes in the queue.
-  - **commands**: The number of commands being run.
-  - **diskspace**: Available disk space.
-
-- **urlbase** (*Optional*): The base URL Sonarr is running under. Defaults to `/`.
-- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
-- **include_paths** (*Optional*): Array of file paths to include when calculating diskspace. Leave blank to include all.
-- **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
-- **ssl**:  boolean (*Optional*): Whether or not to use SSL for Sonarr.
+{% configuration %}
+api_key:
+  required: true
+  type: string
+  description: "Your Sonarr API key, found in Settings > General in the Sonarr Web UI."
+host:
+  required: false
+  type: string
+  description: The host Sonarr is running on.
+  default: "`localhost`"
+port:
+  required: false
+  type: integer
+  description: The port Sonarr is running on.
+  default: 8989
+monitored_conditions:
+  type: list
+  required: false
+  description: Conditions to display on the frontend.
+  default: "`upcoming`"
+  keys:
+    series:
+      description: The number of series in Sonarr.
+    upcoming:
+      description: The number of upcoming episodes.
+    wanted:
+      description: The number of episodes still 'wanted'.
+    queue:
+      description: The number of episodes in the queue.
+    commands:
+      description: The number of commands being run.
+    diskspace:
+      description: Available disk space.
+urlbase:
+  required: false
+  type: string
+  description: The base URL Sonarr is running under.
+  default: "`/`"
+days:
+  required: false
+  type: integer
+  description: How many days to look ahead for the upcoming sensor, 1 means today only.
+  default: 1
+include_paths:
+  required: false
+  type: list
+  description: Array of file paths to include when calculating diskspace. Leave blank to include all.
+unit:
+  required: false
+  type: string
+  description: The unit to display disk space in.
+  default: GB
+ssl:
+  required: false
+  type: boolean
+  description: Whether or not to use SSL for Sonarr.
+  default: false
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

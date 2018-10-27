@@ -39,28 +39,56 @@ sensor:
         - battery_vp
 ```
 
-Configuration variables:
-
-- **station** (*Optional*): The name of the weather station. Needed if several stations are associated with the account.
-- **modules** (*Required*): Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
-  - **module_name** array (*Required*): Name of the module.
-    - **temperature**: Current temperature.
-    - **co2**: CO2 concentration in ppm.
-    - **pressure**: Pressure in mbar.
-    - **noise**: Noise level in dB.
-    - **humidity**: Humidity in %.
-    - **rain**: Estimated rainfall for today in mm.
-    - **sum_rain_1**: Rainfall in the last hour in mm.
-    - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
-    - **windangle**: Wind angle
-    - **windstrength**: Wind strength
-    - **gustangle**: Wind gust angle
-    - **guststrength**: Wind gust strength
-    - **min_temp**: Min temperature for today
-    - **max_temp**: Max temperature for today
-    - **rf_status**: Current radio status per module. (90=low, 60=highest)
-    - **wifi_status**: Wifi status per Base station
-    - **battery_vp**: Current battery status per module.
+{% configuration %}
+station:
+  required: false
+  description: The name of the weather station. Needed if several stations are associated with the account.
+  type: string
+modules:
+  required: true
+  description: Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
+  type: list
+  keys:
+    module_name:
+      type: list
+      required: true
+      description: Name of the module.
+      keys:
+        temperature:
+          description: Current temperature.
+        co2:
+          description: CO2 concentration in ppm.
+        pressure:
+          description: Pressure in mbar.
+        noise:
+          description: Noise level in dB.
+        humidity:
+          description: "Humidity in %."
+        rain:
+          description: Estimated rainfall for today in mm.
+        sum_rain_1:
+          description: Rainfall in the last hour in mm.
+        sum_rain_24:
+          description: "Rainfall in mm from 00:00am - 23:59pm."
+        windangle:
+          description: Wind angle
+        windstrength:
+          description: Wind strength
+        gustangle:
+          description: Wind gust angle
+        guststrength:
+          description: Wind gust strength
+        min_temp:
+          description: Min temperature for today
+        max_temp:
+          description: Max temperature for today
+        rf_status:
+          description: "Current radio status per module. (90=low, 60=highest)"
+        wifi_status:
+          description: Wifi status per Base station
+        battery_vp:
+          description: Current battery status per module.
+{% endconfiguration %}
 
 ### {% linkable_title Find your modules name %}
 

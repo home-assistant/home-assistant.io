@@ -12,7 +12,6 @@ ha_category: Weather
 ha_release: 0.47
 ---
 
-
 The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as a source for current meteorological data. This component will show you the condition and temperatures for max. 10 days.
 
 <p class='note warning'>
@@ -39,8 +38,8 @@ woeid:
 name:
   description: The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option.
   required: false
-  default: yweather
   type: string
+  default: yweather
 {% endconfiguration %}
 
 <p class='note'>
