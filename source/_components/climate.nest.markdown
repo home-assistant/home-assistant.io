@@ -23,3 +23,16 @@ You must have the [Nest component](/components/nest/) configured to use these se
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
 </p>
 
+### {% linkable_title Service `set_temperature_scale` %}
+
+You can use the service nest/set_temperature_scale to set the temperature scale (units) shown on the Nest thermostat display and the Nest website.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `temperature_unit` | no | Must be `°C` or `°F`, as a string.
+| `entity_id` | yes | String or list of strings that points at the `entity_id` of the device(s). Will default to all configured Nest thermostats if not specified.
+
+<p class='note'>
+This service does not affect the units shown within Home Assistant, you must use the Home Assistant configuration to specify the units shown in Home Assistant.
+</p>
+
