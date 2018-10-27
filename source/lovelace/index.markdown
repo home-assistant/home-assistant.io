@@ -28,7 +28,7 @@ The Lovelace UI is:
 </div>
 
 <p class='note warning'>
-If you're not using Chrome, please be sure to [read the FAQ](/lovelace/#faq) below.
+If you're not using Firefox 63+ or Chrome, please be sure to [read the FAQ](/lovelace/#faq) below.
 </p>
 
 ## {% linkable_title How it works %}
@@ -133,7 +133,7 @@ This is the very very early version aimed at gathering feedback. Discussion and 
 
 ### {% linkable_title I am running Firefox but, custom cards like gauge-card look bad or don't load at all. How do I fix this? %}
 
-This is probably because your version of Firefox doesn't have custom components supported or enabled. Please set to `true` in your `about:config` the following settings: `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled`
+This is probably because your version of Firefox doesn't have custom components supported or enabled. Please upgrade to version 63 or higher, otherwise set `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled` to `true` in `about:config`.
 
 ### {% linkable_title Custom cards don't load on my iOS device? %}
 
