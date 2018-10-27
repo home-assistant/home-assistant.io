@@ -36,7 +36,7 @@ views:
       type: list
     id:
       required: false
-      description: IDs are used in the URL, more info below.
+      description: IDs are used in the URL, more info below. If you don't specify an ID, it will be added automatically
       type: string
       default: view index
     icon:
@@ -61,6 +61,8 @@ views:
 ## {% linkable_title IDs %}
 
 You can link to one view from another view by its ID. For this use cards that support navigation (`navigation_path`). Do not use special characters in IDs.
+
+IDs are also used to identify a view for editing, we will add an ID to your view if you don't specify it. You can change this ID, as long as every view has an unique ID.
 
 ### {% linkable_title Example %}
 
