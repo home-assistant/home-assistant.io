@@ -64,9 +64,10 @@ monitored_users:
   required: false
   type: list
 monitored_variables:
-  description: A list of attributes to expose for each Tautulli user you monitor.
+  description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here][tautulliapi] can be used.
   required: false
   type: list
 {% endconfiguration %}
 
 [tautulli]: https://tautulli.com
+[tautulliapi]: https://github.com/Tautulli/Tautulli/blob/master/API.md#get_activity
