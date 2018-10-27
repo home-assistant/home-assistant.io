@@ -24,8 +24,13 @@ lock:
     id: fdsa
 ```
 
-Configuration variables:
-
-- **access_token** (*Required*): The usernThe security token provided by Lockitron to lock and unlock your lock.
-- **id** (*Required*): The lock id given by Lockitron (should be a GUID).
-
+{% configuration %}
+access_token:
+  description: The security token provided by Lockitron to lock and unlock your lock.
+  required: true
+  type: string
+id:
+  description: The lock id given by Lockitron (should be a GUID).
+  required: true
+  type: string
+{% endconfiguration %}
