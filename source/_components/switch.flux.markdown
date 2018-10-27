@@ -81,12 +81,12 @@ mode:
   default: xy
   type: string
 transition:
-  description: Transition time for the light changes (high values may not be supported by all light models).
+  description: Transition time in seconds for the light changes (high values may not be supported by all light models).
   required: false
   default: 30
   type: integer
 interval:
-  description: Frequency at which the lights should be updated.
+  description: Frequency in seconds at which the lights should be updated.
   required: false
   default: 30
   type: integer
