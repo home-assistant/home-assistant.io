@@ -288,7 +288,7 @@ sensor:
 
 ### {% linkable_title Working with dates %}
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sun.sun`.
 
 {% raw %}
 ```yaml
@@ -297,6 +297,7 @@ sensor:
   sensors:
     nonsmoker:
       value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      entity_id: sun.sun
       friendly_name: 'Not smoking'
       unit_of_measurement: "Days"
 ```
