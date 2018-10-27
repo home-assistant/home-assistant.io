@@ -55,7 +55,7 @@ port:
   default: 8181
   type: integer
 ssl:
-  description: Use HTTPS to connect to Plex server, *NOTE* host *can not* be an IP when this option is enabled.
+  description: Use HTTPS to connect to Tautulli server, *NOTE* host *can not* be an IP when this option is enabled.
   required: false
   default: false
   type: boolean
