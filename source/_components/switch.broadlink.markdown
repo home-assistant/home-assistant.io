@@ -64,6 +64,11 @@ switches:
           description: Base64 encoded packet from RM device to take for off.
           required: true
           type: string
+        device_class:
+          description: The type/class of the sensor.
+          required: false
+          type: device_class
+          default: None
         friendly_name:
           description: The name used to display the switch in the frontend.
           required: false

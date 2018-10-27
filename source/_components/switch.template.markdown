@@ -69,6 +69,11 @@ switch:
         description: Defines an action to run when the switch is turned off.
         required: true
         type: action
+      device_class:
+        description: The type/class of the sensor.
+        required: false
+        type: device_class
+        default: None
       icon_template:
         description: Defines a template for the icon of the switch.
         required: false

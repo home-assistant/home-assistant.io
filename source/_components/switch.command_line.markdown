@@ -57,6 +57,11 @@ switches:
           description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
           required: false
           type: string
+        device_class:
+          description: The type/class of the sensor.
+          required: false
+          type: device_class
+          default: None
         friendly_name:
           description: The name used to display the switch in the frontend.
           required: false

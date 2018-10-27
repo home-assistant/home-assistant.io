@@ -68,6 +68,11 @@ password:
   description: The password for accessing the REST endpoint.
   required: false
   type: string
+device_class:
+  description: The type/class of the sensor. 
+  required: false
+  type: device_class
+  default: None
 headers:
   description: The headers for the request.
   required: false

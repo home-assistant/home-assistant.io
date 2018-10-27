@@ -103,6 +103,11 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+device_class:
+  description: The type/class of the sensor.
+  required: false
+  type: device_class
+  default: None
 device:
   description: 'Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
