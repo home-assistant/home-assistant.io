@@ -59,6 +59,10 @@ port:
   required: false
   default: 8728
   type: integer
+method:
+  description: Override autodetection of device scanning method. Can be *wireless* to use local wireless registration, *capsman* for capsman wireless registration, or *ip* for DHCP leases.
+  required: false
+  type: string
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
