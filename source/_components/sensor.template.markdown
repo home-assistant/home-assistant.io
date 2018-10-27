@@ -51,7 +51,7 @@ sensor:
         required: false
         type: template
       entity_id:
-        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        description: The template engine will attempt to work out what entities should trigger an update of the sensor. If this fails to get the correct list (for example if your template loops over the contents of a group) then you can provide a list of entity IDs that will cause the sensor to update.
         required: false
         type: string, list
       unit_of_measurement:
