@@ -21,3 +21,4 @@ source/.jekyll-metadata
 /.vs/VSWorkspaceState.json
 .vscode
 *.suo
+.pyc
