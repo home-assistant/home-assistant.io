@@ -50,12 +50,12 @@ state_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 state_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: false
@@ -68,12 +68,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 payload_available:
   description: The payload that represents the available state.
   required: false
