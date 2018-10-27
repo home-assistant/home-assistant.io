@@ -26,12 +26,54 @@ intent_script:
       data_template:
         message: Hello from an intent!
 ```
-Configuration variables:
 
 Inside an intent we can define these variables:
 
-- **intent** (*Required*): Name of the intent. Multiple entries are possible.
-  - **speech** (*Optional*): Text or template to return.
-  - **action** (*Optional*): [Script syntax](/docs/scripts/).
-  - **async_action** (*Optional*): Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
-
+{% configuration %}
+intent:
+  description: Name of the intent. Multiple entries are possible.
+  required: true
+  type: list
+  keys:
+    action:
+      description: "[Script syntax](/docs/scripts/)."
+      required: false
+      type: list
+    async_action:
+      description: Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
+      required: false
+      default: false
+      type: boolean
+    card:
+      description: Card <- Need additional text>
+      required: false
+      type: list
+      keys:
+        type:
+          description: Type <- Need additional text>
+          required: false
+          default: simple
+          type: string
+        title:
+          description: Title <- Need additional text>
+          required: true
+          type: template
+        content:
+          description: Content <- Need additional text>
+          required: true
+          type: template
+    speech:
+      description: Text or template to return.
+      required: false
+      type: list
+      keys:
+        type:
+          description: Type <- Need additional text>
+          required: false
+          default: plain
+          type: string
+        text:
+          description: Text <- Need additional text>
+          required: true
+          type: template
+{% endconfiguration %}
