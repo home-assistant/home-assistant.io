@@ -37,7 +37,6 @@ rflink:
 ```
 
 {% configuration %}
-device_defaults:
 port:
   description: The path to RFLink USB/serial device or TCP port in TCP mode
   required: true
