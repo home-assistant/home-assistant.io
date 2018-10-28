@@ -103,6 +103,10 @@ When you exit a zone, Home Assistant will start using location updates to track 
 
 ### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
 
+<p class='note'>
+Owntracks v2.0.0 removes support for iBecons on android 
+</p>
+
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
 iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](http://owntracks.org/booklet/guide/beacons/).
@@ -114,9 +118,7 @@ When you exit an iBeacon region HA will switch back to using GPS to determine yo
 Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognize it as `home`, but you will have a more stable iBeacon connection.
 
 ### {% linkable_title Using Owntracks iBeacons to track devices %}
-<p class='note'>
-On android, Owntracks support for iBecons has been remove in the `v.2.0.0` release of owntracks
-</p>
+
 
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
