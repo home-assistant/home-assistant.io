@@ -47,7 +47,7 @@ devices:
         name:
           description: Name for the device.
           required: false
-          default: Rflink ID
+          default: RFLink ID
           type: string
         aliases:
           description: Alternative RFLink ID's this device is known by.

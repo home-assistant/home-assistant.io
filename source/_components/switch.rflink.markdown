@@ -12,15 +12,15 @@ ha_category: Switch
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
-The RFLink component does not know the difference between a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+The RFLink component does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
-RFLink switch/light ID's are composed of: protocol, id, switch. For example: `newkaku_0000c6c2_1`.
+RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a switch is known it can be used to configure it as a switch type in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group, hide it or configure a nice name.
 
 Configuring devices as switch :
 
@@ -40,12 +40,12 @@ device_defaults:
   type: map
   keys:
     fire_event:
-      description: Set default `fire_event` for Rflink switch devices (see below).
+      description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
       default: False
       type: boolean
     signal_repetitions:
-      description: Set default `signal_repetitions` for Rflink switch devices (see below).
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
       required: false
       default: 1
       type: integer
@@ -62,10 +62,10 @@ devices:
         name:
           description: Name for the device.
           required: false
-          default: Rflink ID
+          default: RFLink ID
           type: string
         aliases:
-          description: Alternative Rflink ID's this device is known by.
+          description: Alternative RFLink ID's this device is known by.
           required: false
           type: [list, string]
         group_aliases:
@@ -92,7 +92,7 @@ devices:
           default: true
           type: boolean
         aliases:
-          description: "(**deprecated**) Alternative Rflink ID's this device is known by."
+          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
           required: false
           type: [list, string]
         group_aliases:

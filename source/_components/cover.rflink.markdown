@@ -13,11 +13,11 @@ ha_release: 0.55
 ---
 
 
-The `rflink` cover platform supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
-After configuring the RFLink hub covers will be automatically discovered and added. Except the Somfy RTS devices.
+After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
 ### {% linkable_title Setting up a Somfy RTS device %}
 
@@ -29,7 +29,7 @@ Press the Learn button on the original Somfy remote enter the following code wit
 10;RTS;02FFFF;0412;3;PAIR;
 ```
 
-Your blinds will go up and down again. This means your Rflink is now paired with your RTS motor.
+Your blinds will go up and down again. This means your RFLink is now paired with your RTS motor.
 To check this enter the following code again and see if there is a record.
 
 ```text
@@ -79,12 +79,12 @@ device_defaults:
   type: map
   keys:
     fire_event:
-      description: Set default `fire_event` for Rflink cover devices.
+      description: Set default `fire_event` for RFLink cover devices.
       required: false
       default: False
       type: boolean
     signal_repetitions:
-      description: Set default `signal_repetitions` for Rflink cover devices.
+      description: Set default `signal_repetitions` for RFLink cover devices.
       required: false
       default: 1
       type: integer
@@ -101,10 +101,10 @@ devices:
         name:
           description: Name for the device.
           required: false
-          default: Rflink ID
+          default: RFLink ID
           type: string
         aliases:
-          description: Alternative Rflink ID's this device is known by.
+          description: Alternative RFLink ID's this device is known by.
           required: false
           type: [list, string]
         fire_event:
@@ -113,7 +113,7 @@ devices:
           default: False
           type: boolean
         signal_repetitions:
-          description: The number of times every Rflink command should repeat.
+          description: The number of times every RFLink command should repeat.
           required: false
           type: integer
         group:
