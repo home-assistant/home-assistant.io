@@ -116,9 +116,9 @@ sensor:
     automatic_add: true
 ```
 
-[RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) cannot be added automatically. 
+[RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) and [RFLink Binary Sensors](https://www.home-assistant.io/components/binary_sensor.rflink/) cannot be added automatically. 
 
-The RFLink component does not know the difference between a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch type in HA, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink component does not know the difference between a binary sensor, aswitch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
 
 ### {% linkable_title Ignoring devices %}
 
@@ -160,7 +160,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### {% linkable_title Debug Logging %}
 
-For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
+For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following config snippet:
 
 ```yaml
 logger:
