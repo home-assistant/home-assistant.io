@@ -16,7 +16,7 @@ ha_release: "0.24"
 
 The `tplink` switch platform allows you to control the state of your [TP-Link smart switch](http://www.tp-link.com/en/products/list-5258.html).
 
-Supported units
+Supported units:
 
 - HS100
 - HS105
