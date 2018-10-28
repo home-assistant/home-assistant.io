@@ -60,6 +60,24 @@ Other things to be aware of:
 - Add LogBook support to HomeKit ([@ehendrix23] - [#17180]) ([homekit docs]) ([logbook docs]) (new-feature)
 - Add water_heater support to HomeKit ([@cdce8p] - [#17614]) ([homekit docs]) (new-feature)
 
+## {% linkable_title Release 0.81.1 - October 27 %}
+
+- Switch to using Client from twilio.rest rather than the deleted TwilioRestClient ([@rohankapoorcom] - [#17885]) ([twilio docs])
+- Fixes an issue with OpenUV config import failing ([@bachya] - [#17831]) ([openuv docs]) (breaking change)
+- Allow a list ofr update entity ([@balloob] - [#17860])
+- Move migrate to separate WS command ([@balloob] - [#17890]) ([lovelace docs])
+
+[#17831]: https://github.com/home-assistant/home-assistant/pull/17831
+[#17860]: https://github.com/home-assistant/home-assistant/pull/17860
+[#17885]: https://github.com/home-assistant/home-assistant/pull/17885
+[#17890]: https://github.com/home-assistant/home-assistant/pull/17890
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[lovelace docs]: /components/lovelace/
+[openuv docs]: /components/openuv/
+[twilio docs]: /components/twilio/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
