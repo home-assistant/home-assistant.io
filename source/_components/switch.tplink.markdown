@@ -32,6 +32,19 @@ switch:
     host: IP_ADDRESS
 ```
 
+Adding multiple switches:
+
+You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: tplink
+    host: FIRST_IP_ADDRESS
+  - platform: tplink
+    host: SECOND_IP_ADDRESS
+```
+
 {% configuration %}
 name:
   description: The name to use when displaying this switch.
