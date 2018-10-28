@@ -26,7 +26,7 @@ The glance card, and the button card can also be themed now, and the way the col
 
 Other things to be aware of:
 
-- We have a new service `home_assistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update. This means you can set a really long `scan_interval` in the [platform_options] and then update on demand, ideal for those services where you have low API limit.
+- We have a new service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update. This means you can set a really long `scan_interval` in the [platform_options] and then update on demand, ideal for those services where you have low API limit.
 - Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries or use the new `homeassistant.update_entity` service.
 - Water heaters get their own platform separate from `climate`, because you're not a fish living inside the hot water tank
 
