@@ -27,7 +27,7 @@ sensor:
 {% configuration %}
 language:
   required: false
-  default: hebrew
+  default: english
   description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishri 5779).
   type: string
 latitude:
