@@ -85,7 +85,7 @@ service:
   description: "Service like `media_player.media_play_pause`"
   type: string
 service_data:
-  required: true
+  required: false
   description: The service data to use.
   type: object
 {% endconfiguration %}
