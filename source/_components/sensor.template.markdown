@@ -306,3 +306,38 @@ sensor:
       unit_of_measurement: "Days"
 ```
 {% endraw %}
+
+### {% linkable_title Template tracking %}
+
+This example shows how to add `entity_id` to a template to allow tracking of updates. Fixing an error caused in (81.0) 
+
+{% raw %}
+```yaml
+sensor:
+- platform: template
+  sensors:
+    nonsmoker:
+      entity_id: now.strptime
+      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      friendly_name: 'Not smoking'
+      unit_of_measurement: "Days"
+```
+{% endraw %}
+
+Note: If a template uses more than one sensor they can be listed
+
+
+The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
+
+{% raw %}
+```yaml
+automation:
+  - alias: 'nonsmoker_update'
+    trigger:
+      - platform: time
+        minutes: '/1'
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.nonsmoker
+```
+{% endraw %}
