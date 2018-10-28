@@ -32,6 +32,8 @@ switch:
     host: IP_ADDRESS
 ```
 
+{% end Supported units %}
+
 {% Adding multiple switches %}
 
 You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
@@ -44,6 +46,7 @@ switch:
   - platform: tplink
     host: SECOND_IP_ADDRESS
 ```
+{% end Adding multiple switches %}
 
 {% configuration %}
 name:
