@@ -2,7 +2,7 @@
 layout: page
 title: "TP-Link Switch"
 description: "Instructions on how to integrate TP-Link switches into Home Assistant."
-date: 201-07-13 08:00
+date: 2016-07-13 08:00
 sidebar: true
 comments: false
 sharing: true
