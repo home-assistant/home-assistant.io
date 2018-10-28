@@ -32,6 +32,19 @@ light:
     host: IP_ADDRESS
 ```
 
+Adding multiple lights:
+
+You may need to add [multiple lights](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple lights separately.
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: tplink
+    host: FIRST_IP_ADDRESS
+  - platform: tplink
+    host: SECOND_IP_ADDRESS
+```
+
 {% configuration %}
 name:
   description: The name to use when displaying this bulb.
