@@ -114,6 +114,9 @@ When you exit an iBeacon region HA will switch back to using GPS to determine yo
 Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognize it as `home`, but you will have a more stable iBeacon connection.
 
 ### {% linkable_title Using Owntracks iBeacons to track devices %}
+<p class='note'>
+On android, Owntracks support for iBecons has been remove in the `v.2.0.0` release of owntracks
+</p>
 
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
