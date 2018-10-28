@@ -16,7 +16,7 @@ ha_release: "0.24"
 
 The `tplink` switch platform allows you to control the state of your [TP-Link smart switch](http://www.tp-link.com/en/products/list-5258.html).
 
-{% Supported units %}
+Supported units
 
 - HS100
 - HS105
@@ -32,9 +32,7 @@ switch:
     host: IP_ADDRESS
 ```
 
-{% end Supported units %}
-
-{% Adding multiple switches %}
+Adding multiple switches:
 
 You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
 
@@ -46,7 +44,6 @@ switch:
   - platform: tplink
     host: SECOND_IP_ADDRESS
 ```
-{% end Adding multiple switches %}
 
 {% configuration %}
 name:
