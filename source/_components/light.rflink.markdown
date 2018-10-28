@@ -40,7 +40,7 @@ light:
 device_defaults:
   description: The defaults for the devices.
   required: false
-  type: list
+  type: map
   keys:
     fire_event:
       description: Set default `fire_event` for Rflink switch devices (see below).
@@ -73,7 +73,7 @@ devices:
           default: Rflink ID
           type: string
         type:
-          description: Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](components/light.rflink/#light-types) below.
+          description: Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/components/light.rflink/#light-types) below.
           required: false
           default: switchable
           type: string
