@@ -322,7 +322,7 @@ sensor:
 Note: If a template uses more than one sensor they can be listed
 
 
-The alternative to this is to create an `Automation`using the new (81.0) service `home_assistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
+The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
 
 {% raw %}
 ```yaml
