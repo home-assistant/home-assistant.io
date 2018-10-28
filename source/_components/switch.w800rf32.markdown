@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: w800rf32.png
 ha_category: Switch
+ha_release: 0.79
+ha_iot_class: "Local Push"
 ---
 
 The `w800rf32` platform supports X10 RF devices such as Palm Pad remotes, key chain remotes 
