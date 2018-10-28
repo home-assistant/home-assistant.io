@@ -16,6 +16,10 @@ ha_qa_scale: internal
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.
 
+<p class='note'>
+If you do not supply an `entity_id` in the configuration you will need to run the service `homeassistant.update_entity` to update the sensor.
+</p>
+
 ## {% linkable_title Configuration %}
 
 To enable Template Sensors in your installation, add the following to your `configuration.yaml` file:
