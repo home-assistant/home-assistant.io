@@ -21,7 +21,7 @@ After configuring the RFLink hub, sensors will be automatically discovered and a
 
 RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
 
-Once the ID of a sensor is known, it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group, hide it or configure a nice name.
 
 Configuring a device as a sensor:
 
