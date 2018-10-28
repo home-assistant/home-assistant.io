@@ -101,7 +101,7 @@ automation:
     entity_id: switch.heater
 ```
 
-<p class='note'
+<p class='note'>
 Please remember that [as explained here][devices] you can only have a single `automation:` entry. Add the automation to your existing automations.
 </p>
 
