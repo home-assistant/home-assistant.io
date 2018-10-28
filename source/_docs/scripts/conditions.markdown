@@ -173,6 +173,10 @@ condition:
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
 
+<p class='note tip'>
+A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
+</p>
+
 ### {% linkable_title Zone condition %}
 
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
