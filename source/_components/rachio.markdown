@@ -29,7 +29,7 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 rachio:
-  api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
