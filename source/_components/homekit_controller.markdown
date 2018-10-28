@@ -20,11 +20,20 @@ ha_iot_class: "Local Polling"
  `$ sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev`
 </p>
 
-There is currently support for the following device types within Home Assistant:
+Home Assistant currently supports these HomeKit services:
 
-- [Climate](/components/climate.homekit_controller/)
-- [Light](/components/light.homekit_controller/)
-- [Switch](/components/switch.homekit_controller/)
+- Lightbulb
+- Outlet
+- Switch
+- Thermostat
+- Koogeek outlet sensor
+
+Each HomeKit accessory provides multiple services. These are mapped to entity types in Home Assistant:
+
+- Thermostat to [Climate](/components/climate.homekit_controller/)
+- Lightbulb to [Light](/components/light.homekit_controller/)
+- Outlet and Switch to [Switch](/components/switch.homekit_controller/)
+- Koogeek outlet sensor to [Koogeek Sensor](/components/sensor.koogeek/)
 
 The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
 
