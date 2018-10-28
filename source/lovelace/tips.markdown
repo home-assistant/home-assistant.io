@@ -39,7 +39,7 @@ The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 
   Split configuration is no longer possible in Lovelace since version 0.81, due to fact that Home Assistant
   will be writing directly to the `ui-lovelace.yaml` file.
   
-  If you want to spit your configuration you can use one of the tools above, but edits done with the UI will
+  If you want to split your configuration you can use one of the tools above, but edits done with the UI will
   be overwritten. So you should not use both.
 </p>
 
