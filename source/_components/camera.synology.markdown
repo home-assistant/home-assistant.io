@@ -13,7 +13,6 @@ ha_release: 0.31
 ha_iot_class: "Local Polling"
 ---
 
-　
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
 
 ## {% linkable_title Configuration %}
@@ -33,8 +32,8 @@ camera:
 name:
   description: A name for this Synology camera.
   required: false
-  default: Synology Camera
   type: string
+  default: Synology Camera
 url:
   description: The URL to your Synology, including port.
   required: true
@@ -50,8 +49,8 @@ password:
 timeout:
   description: The timeout in seconds used when connecting to the Surveillance Station.
   required: false
-  default: 5
   type: integer
+  default: 5
 whitelist:
   description: A list of which cameras you want to add, the names must be the same as in Surveillance Station. If omitted all cameras are added.
   required: false
@@ -59,8 +58,8 @@ whitelist:
 verify_ssl:
   description: Verify SSL/TLS certificate for HTTPS request.
   required: false
-  default: true
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## {% linkable_title Full example %}

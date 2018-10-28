@@ -21,7 +21,7 @@ them may be recognized under the X10 protocol but most of them are recognized
 under the *Lighting4* protocol. The rfxtrx binary sensor component provides
 some special options for them, while other rfxtrx protocols should work too.
 
-# Setting up your devices
+## {% linkable_title Setting up your devices %}
 
 Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way
 to find your binary sensors is to add this to your `configuration.yaml`:
@@ -50,11 +50,47 @@ binary_sensor:
       name: device_name
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): To enable the automatic addition of new binary sensors.
-- **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
-- **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: false
+      type: string
+    device_class:
+      description: "The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend."
+      required: false
+      type: device_class
+    fire_event:
+      description: Fires an event even if the state is the same as before. Can be used for automations.
+      required: false
+      type: boolean
+      default: false
+    off_delay:
+      description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+      required: false
+      type: integer
+    data_bits:
+      description: Defines how many bits are used for commands inside the data packets sent by the device.
+      required: false
+      type: integer
+    command_on:
+      description: Defines the data bits value that is sent by the device upon an 'On' command.
+      required: false
+      type: string
+    command_off:
+      description: Defines the data bits value that is sent by the device upon an 'Off' command.
+      required: false
+      type: string
+automatic_add:
+  description: To enable the automatic addition of new binary sensors.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 <p class='note warning'>
 This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
@@ -95,7 +131,7 @@ binary_sensor:
       seconds: 5
 ```
 
-## Options for PT-2262 devices under the Lighting4 protocol
+### {% linkable_title Options for PT-2262 devices under the Lighting4 protocol %}
 
 When a data packet is transmitted by a PT-2262 device using the Lighting4
 protocol, there is no way to automatically extract the device identifier and the
@@ -104,9 +140,9 @@ and the fields lengths are not included in the data. One device that sends 2
 different commands will be seen as 2 devices on Home Assistant. For such cases,
 the following options are available in order to circumvent the problem:
 
-- **data_bits** (*Optional*): Defines how many bits are used for commands inside the data packets sent by the device.
-- **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.
-- **command_off** (*Optional*): Defines the data bits value that is sent by the device upon an 'Off' command.
+- **data_bits** (*Optional*)
+- **command_on** (*Optional*)
+- **command_off** (*Optional*)
 
 Let's try to add a new PT-2262 sensor using the "automatic_add"
 option and have a look at Home Assistant system log.
@@ -165,7 +201,7 @@ This automatic guess should work most of the time but there is
 no guarantee on that. You should activate it only when you
 want to configure your new devices and leave it off otherwise.
 
-## Known working devices
+### {% linkable_title Known working devices %}
 
 The following devices are known to work with the rfxtrx binary sensor component.
 There are too many other to list.

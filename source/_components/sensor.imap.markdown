@@ -30,11 +30,31 @@ sensor:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **server** (*Required*): The IP address or hostname of the IMAP server.
-- **port** (*Optional*): The port where the server is accessible.
-- **name** (*Optional*): Name of the IMAP sensor.
-- **username** (*Required*): Username for the IMAP server.
-- **password** (*Required*): Password for the IMAP server.
-- **folder** (*Optional*): The IMAP folder to watch.
+{% configuration %}
+server:
+  description: The IP address or hostname of the IMAP server.
+  required: true
+  type: string
+port:
+  description: The port where the server is accessible.
+  required: false
+  default: 993
+  type: integer
+name:
+  description: Name of the IMAP sensor.
+  required: false
+  type: string
+username:
+  description: Username for the IMAP server.
+  required: true
+  type: string
+password:
+  description: Password for the IMAP server.
+  required: true
+  type: string
+folder:
+  description: The IMAP folder to watch.
+  required: false
+  default: inbox
+  type: string
+{% endconfiguration %}

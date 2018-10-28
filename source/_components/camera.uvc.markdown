@@ -56,4 +56,3 @@ password:
   type: string
   default: ubnt
 {% endconfiguration %}
-

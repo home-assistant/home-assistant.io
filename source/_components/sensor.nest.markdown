@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Cloud Push"
 ---
 
-
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <p class='note'>
@@ -23,6 +22,7 @@ You must have the [Nest component](/components/nest/) configured to use these se
 ## {% linkable_title Configuration %}
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
+
 ```yaml
 # Example configuration.yaml entry
 nest:
@@ -34,9 +34,12 @@ nest:
 
 By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/components/nest/).
 
-Configuration variables:
-
-- **monitored_conditions** array (*Optional*): States to monitor.
+{% configuration %}
+monitored_conditions:
+  description: States to monitor.
+  required: false
+  type: list
+{% endconfiguration %}
 
 The following conditions are available by device:
 

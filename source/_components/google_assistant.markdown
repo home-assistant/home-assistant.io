@@ -13,21 +13,26 @@ featured: true
 ha_release: 0.56
 ---
 
-<p class='note'>
-  Use [Home Assistant Cloud](/cloud/) to integrate with Google Assistant without any effort.
-</p>
-
 The `google_assistant` component allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
+
+## {% linkable_title Automatic setup via Home Assistant Cloud %}
+
+With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+
+## {% linkable_title Manual setup %}
 
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
-<p class='note'>
-To use Google Assistant, your Home Assistant configuration has to be externally accessible with a hostname and SSL certificate. If you haven't already configured that, you should do so before continuing.
+<p class='note warning'>
+To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing.
 </p>
 
 ## {% linkable_title Migrate to release 0.80 and above %}
+<p class='note'>
+If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [manual setup instructions](#first-time-setup) below.
+</p>
 
-Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your configuration, you need:
+Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your existing configuration from release 0.79 or below, you need:
 
 1. Change your `Account linking` setting in [Actions on Google console](https://console.actions.google.com/), look for the `Advanced Options` in the bottom left of the sidebar.
     - Change `Linking type` to `OAuth` and `Authorization Code`.
@@ -48,7 +53,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
 </p>
 
-## {% linkable_title Setup %}
+## {% linkable_title First time setup %}
 
 You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide one, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
 
@@ -97,21 +102,21 @@ Now add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 google_assistant:
-  project_id: someproject-2d0b8
-  api_key: [a Homegraph API Key generated for the Google Actions project]
+  project_id: YOUR_PROJECT_ID
+  api_key: YOUR_API_KEY
   exposed_domains:
-    - switch
-    - light
-    - group
+    - SWITCH
+    - LIGHT
+    - GROUP
   entity_config:
     switch.kitchen:
-      name: Custom Name for Google Assistant
+      name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
       aliases:
-        - bright lights
-        - entry lights
+        - BRIGHT_LIGHTS
+        - ENTRY_LIGHTS
     light.living_room:
       expose: false
-      room: living room
+      room: LIVING_ROOM
 ```
 
 {% configuration %}

@@ -13,8 +13,6 @@ ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
 
-
 The `envisalink` alarm control panel platform allows you to control your [Envisalink](http://www.eyezon.com) alarms.
 
 The requirement is that you have setup your [Envisalink hub](/components/envisalink/).
-

@@ -13,8 +13,8 @@ ha_release: 0.44
 ha_iot_class: "Local Polling"
 ---
 
-[ZigBee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
-integration for Home Assistant allows you to connect many off-the-shelf ZigBee devices to Home Assistant, using a compatible ZigBee radio.
+[Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
+integration for Home Assistant allows you to connect many off-the-shelf Zigbee devices to Home Assistant, using a compatible Zigbee radio.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,12 +24,14 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](../switch.zha)
 - [Fan](../fan.zha)
 
-Known working ZigBee radios:
+Known working Zigbee radios:
 
 - Nortek/GoControl Z-Wave & Zigbee USB Adapter - Model HUSBZB-1
 - XBee Series 2C
-- [Elelabs ZigBee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
-- [Elelabs ZigBee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+- [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
+- [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+
+## {% linkable_title Configuration %}
 
 To configure the component, a `zha` section must be present in the `configuration.yaml`,
 and the path to the serial device for the radio and path to the database which will persist your network data is required.
@@ -45,8 +47,8 @@ zha:
 radio_type:
   description: One of `ezsp` or `xbee`.
   required: false
-  default: ezsp
   type: string
+  default: ezsp
 usb_path:
   description: Path to the serial device for the radio.
   required: true
@@ -54,8 +56,8 @@ usb_path:
 baudrate:
   description: Baud rate of the serial device.
   required: false
-  default: 57600
   type: integer
+  default: 57600
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
   required: true

@@ -13,8 +13,8 @@ ha_category: Binary Sensor
 ha_iot_class: "Local Push"
 ---
 
-The `envisalink` platform allows you to get data from your [Envisalink](http://www.eyezon.com/) binary sensors from within Home Assistant. 
+The `envisalink` platform allows you to get data from your [Envisalink](http://www.eyezon.com/) binary sensors from within Home Assistant.
 
 Check the [type/class](/components/binary_sensor/) list for a possible visualization of your zone.
-  
+
 The requirement is that you have setup your [Envisalink hub](/components/envisalink/).

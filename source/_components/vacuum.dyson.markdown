@@ -15,7 +15,9 @@ ha_release: 0.51
 
 The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuum.
 
-You have first to setup the [Dyson component](/components/dyson/)
+## {% linkable_title Configuration %}
+
+You have to set up the [Dyson component](/components/dyson/) first.
 
 ### {% linkable_title Component services %}
 

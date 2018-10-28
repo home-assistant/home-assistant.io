@@ -42,6 +42,67 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 - Add new component fritzbox binary_sensor ([@hthiery] - [#17057]) ([fritzbox docs]) ([binary_sensor.fritzbox docs]) (new-platform)
 - Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
 
+## {% linkable_title Release 0.80.1 - October 15 %}
+
+- Fix automation editor ([@armills])
+- Fix arm/disarm calls. ([@mbrrg] - [#17381]) ([alarm_control_panel.spc docs])
+- Fix hangout.send_message requiring data key ([@quazzie] - [#17393]) ([hangouts docs])
+- Bugfix eventstream with EOF on end ([@pvizeli] - [#17465]) ([api docs])
+- Fix websocket API ([@balloob] - [#17471]) ([websocket_api docs])
+
+[#17381]: https://github.com/home-assistant/home-assistant/pull/17381
+[#17393]: https://github.com/home-assistant/home-assistant/pull/17393
+[#17465]: https://github.com/home-assistant/home-assistant/pull/17465
+[#17471]: https://github.com/home-assistant/home-assistant/pull/17471
+[@balloob]: https://github.com/balloob
+[@mbrrg]: https://github.com/mbrrg
+[@pvizeli]: https://github.com/pvizeli
+[@quazzie]: https://github.com/quazzie
+[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
+[api docs]: /components/api/
+[hangouts docs]: /components/hangouts/
+[websocket_api docs]: /components/websocket_api/
+
+## {% linkable_title Release 0.80.2 - October 17 %}
+
+- Lovelace: Fix glance icon not updating
+- Fix: Connection pool of Request object is smaller than optimal value (8) ([@Anonym-tsk] - [#17483]) ([telegram_bot docs])
+- Blink update - fixes #17316 ([@fronzbot] - [#17538]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs])
+- Home Assistant Cloud: Add another 3 days leeway to give time for payment processing times ([@balloob] - [#17542]) ([cloud docs])
+
+[#17483]: https://github.com/home-assistant/home-assistant/pull/17483
+[#17538]: https://github.com/home-assistant/home-assistant/pull/17538
+[#17542]: https://github.com/home-assistant/home-assistant/pull/17542
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@balloob]: https://github.com/balloob
+[@fronzbot]: https://github.com/fronzbot
+[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
+[binary_sensor.blink docs]: /components/binary_sensor.blink/
+[blink docs]: /components/blink/
+[camera.blink docs]: /components/camera.blink/
+[cloud docs]: /components/cloud/
+[sensor.blink docs]: /components/sensor.blink/
+[telegram_bot docs]: /components/telegram_bot/
+
+## {% linkable_title Release 0.80.3 - October 18 %}
+
+- Update hangups to 0.4.6 and fix Issue #16593 hangouts reconnects. ([@hobbypunk90] - [#17518]) ([hangouts docs])
+- Update to async-upnp-client==0.12.5 ([@StevenLooman] - [#17401]) ([upnp docs]) ([media_player.dlna_dmr docs])
+- Upgrade async_upnp_client to 0.12.6 ([@StevenLooman] - [#17560]) ([upnp docs]) ([media_player.dlna_dmr docs])
+- Update snapcast to 2.0.9 ([@balloob] - [#17573]) ([media_player.snapcast docs])
+
+[#17401]: https://github.com/home-assistant/home-assistant/pull/17401
+[#17518]: https://github.com/home-assistant/home-assistant/pull/17518
+[#17560]: https://github.com/home-assistant/home-assistant/pull/17560
+[#17573]: https://github.com/home-assistant/home-assistant/pull/17573
+[@StevenLooman]: https://github.com/StevenLooman
+[@balloob]: https://github.com/balloob
+[@hobbypunk90]: https://github.com/hobbypunk90
+[hangouts docs]: https://www.home-assistant.io/components/hangouts/
+[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
+[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
+[upnp docs]: https://www.home-assistant.io/components/upnp/
+
 ## {% linkable_title New Features %}
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)

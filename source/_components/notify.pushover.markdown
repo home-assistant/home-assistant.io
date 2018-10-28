@@ -26,8 +26,8 @@ To use Pushover notifications, add the following to your `configuration.yaml` fi
 notify:
   - name: NOTIFIER_NAME
     platform: pushover
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
+    user_key: YOUR_USER_KEY
 ```
 
 Configuration variables:

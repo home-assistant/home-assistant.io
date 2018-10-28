@@ -17,6 +17,8 @@ The `canary` camera platform allows you to watch the live stream of your [Canary
 
 To add `canary` camera to your installation, follow instructions in [Canary component](/components/canary/). Once you have [Canary component](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
 
+## {% linkable_title Configuration %}
+
 You can add the following to your `configuration.yaml` file to configure `canary` camera with optional settings:
 
 ```yaml
@@ -25,8 +27,8 @@ camera:
 ```
 
 {% configuration %}
-  ffmpeg_arguments:
-    description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
-    required: false
-    type: string
+ffmpeg_arguments:
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+  required: false
+  type: string
 {% endconfiguration %}

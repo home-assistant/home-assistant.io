@@ -24,10 +24,10 @@ To add Instapush to your installation, add the following to your `configuration.
 notify:
   - name: NOTIFIER_NAME
     platform: instapush
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    app_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
-    event: ABCDEFGHJKLMNOPQRSTUVXYZ
-    tracker: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
+    app_secret: YOUR_APP_SECRET
+    event: PUSH_TO_EVENT
+    tracker: TRACKER_NAME
 ```
 
 Configuration variables:

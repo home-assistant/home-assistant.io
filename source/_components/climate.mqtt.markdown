@@ -24,8 +24,8 @@ It uses a sensor under the hood to obtain the current temperature.
 climate:
   - platform: mqtt
     name: Study
-    current_temperature_topic: /sensors/hvac_study/current_temp
-    temperature_command_topic: /sensors/hvac_study/target_temp
+    current_temperature_topic: sensors/hvac_study/current_temp
+    temperature_command_topic: sensors/hvac_study/target_temp
 ```
 
 {% configuration %}
@@ -58,12 +58,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -201,6 +201,11 @@ max_temp:
   description: Maximum set point available
   type: number
   required: false
+temp_step:
+  description: Step size for temperature set point
+  type: number
+  required: false
+  default: 1
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}
@@ -219,9 +224,9 @@ climate:
   - platform: mqtt
     name: Study
     modes:
-      - off
-      - on
-      - auto
+      - "off"
+      - "on"
+      - "auto"
     mode_command_topic: "study/ac/mode/set"
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
@@ -241,16 +246,16 @@ climate:
   - platform: mqtt
     name: Study
     modes:
-      - off
-      - cool
-      - fan_only
+      - "off"
+      - "cool"
+      - "fan_only"
     swing_modes:
-      - on
-      - off
+      - "on"
+      - "off"
     fan_modes:
-      - high
-      - medium
-      - low
+      - "high"
+      - "medium"
+      - "low"
     power_command_topic: "study/ac/power/set"
     mode_command_topic: "study/ac/mode/set"
     temperature_command_topic: "study/ac/temperature/set"

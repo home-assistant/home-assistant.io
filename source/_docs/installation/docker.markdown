@@ -185,7 +185,7 @@ $ docker-compose restart
 
 ### {% linkable_title Exposing Devices %}
 
-In order to use Z-Wave, ZigBee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+In order to use Z-Wave, Zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config \

@@ -107,7 +107,7 @@ Tests if an entity is a specified state.
 condition:
   condition: state
   entity_id: device_tracker.paulus
-  state: not_home
+  state: 'not_home'
   # optional: trigger only if state was this for last X time.
   for:
     hours: 1
@@ -138,23 +138,6 @@ condition:
       - condition: sun
         before: sunrise
 ```
-
-Here is a truth table to clarify the parameters with and without offset:
-
-| command                            |        night | at sunrise  | daytime | at sunset  |
-| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
-| `after: sunset`                    | True         |      ⇒      | False   |     ⇒      |
-| + `after_offset: "01:00:00"`       | True         |      ⇒      | False   |  **+1h**   |
-| + `after_offset: "-01:00:00"`      | True         |      ⇒      | False   |  **-1h**   |
-| `before: sunset`                   | False        |      ⇒      | True    |     ⇒      |
-| + `before_offset: "01:00:00"`      | False        |      ⇒      | True    |  **+1h**   |
-| + `before_offset: "-01:00:00"`     | False        |      ⇒      | True    |  **-1h**   |
-| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |
-| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |
-| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |
-| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |
-| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |
-| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |
 
 ### {% linkable_title Template condition %}
 

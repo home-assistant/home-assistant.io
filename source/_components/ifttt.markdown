@@ -34,7 +34,8 @@ You can then consume that information with the following automation:
 ```yaml
 automation:
   trigger:
-    event: ifttt_webhook_received
+    platform: event
+    event_type: ifttt_webhook_received
     event_data:
       action: call_service
   action:
@@ -48,7 +49,7 @@ automation:
 ```yaml
 # Example configuration.yaml entry
 ifttt:
-  key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  key: YOUR_API_KEY
 ```
 
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.

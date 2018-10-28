@@ -90,6 +90,33 @@ service_data:
   type: object
 {% endconfiguration %}
 
+### {% linkable_title Divider %}
+
+{% configuration %}
+type:
+  required: true
+  description: divider
+  type: string
+style:
+  required: false
+  description: Style the element using CSS.
+  type: object
+  default: "height: 1px, background-color: var(--secondary-text-color)"
+{% endconfiguration %}
+
+### {% linkable_title Section %}
+
+{% configuration %}
+type:
+  required: true
+  description: section
+  type: string
+label:
+  required: false
+  description: Section label
+  type: string
+{% endconfiguration %}
+
 ### {% linkable_title Weblink %}
 
 {% configuration %}
@@ -107,22 +134,8 @@ icon:
   type: string
 url:
   required: true
-  description: "Website URL."
+  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
   type: string
-{% endconfiguration %}
-
-### {% linkable_title Divider %}
-
-{% configuration %}
-type:
-  required: true
-  description: divider
-  type: string
-style:
-  required: false
-  description: Style the element using CSS.
-  type: object
-  default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

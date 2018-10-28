@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: camcorder.png
+logo: home-assistant.png
 ha_category: Camera
 ha_release: pre 0.7
 ha_iot_class: "depends"
@@ -15,6 +15,8 @@ ha_iot_class: "depends"
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
 to stream their video with MJPEG into Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable this camera in your installation,
 add the following to your `configuration.yaml` file:

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tibber"
+title: "Tibber Notification"
 description: "Instructions on how to integrate Tibber within Home Assistant."
 date: 2015-10-04 16:34
 sidebar: true
@@ -14,13 +14,11 @@ ha_qa_scale: silver
 ha_iot_class: "Cloud Polling"
 ---
 
-The requirement is that you have setup [Tibber component](/components/tibber/).
+The requirement is that you have setup the [`tibber` component](/components/tibber/).
 
+## {% linkable_title Usage %}
 
-### {% linkable_title Usage %}
-
-Tibber can send a notification by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the Tibber account. 
-
+Tibber can send a notification by calling the [`notify` service](/components/notify/). It will send a notification to all devices registered in the Tibber account. 
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

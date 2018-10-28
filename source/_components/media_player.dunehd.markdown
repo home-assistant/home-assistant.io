@@ -14,7 +14,7 @@ ha_release: 0.34
 ---
 
 
-The `dunehd` platform allows you to control a [Dune HD media player](http://dune-hd.com/eng/products/full_hd_media_players) from Home Assistant. Support is based on the official [IP protocol](http://dune-hd.com/support/ip_control/dune_ip_control_overview.txt) published by Dune.
+The `dunehd` media player platform allows you to control a [Dune HD media player](http://dune-hd.com/eng/products/full_hd_media_players) from Home Assistant. Support is based on the official [IP protocol](http://dune-hd.com/support/ip_control/dune_ip_control_overview.txt) published by Dune.
 
 Devices with firmware 110127_2105_beta or above are supported. Some functions may depend on the version of the protocol (volume / mute control is only available with version 2 onwards).
 
@@ -26,8 +26,19 @@ media_player:
   - platform: dunehd
     host: IP_ADDRESS
 ```
-Configuration variables:
 
-- **host** (*Required*): IP address or hostname of the device. Example: 192.168.1.32
-- **name** (*Optional*): Name of the device.
-- **sources** (*Optional*): A name-value dictionary of sources that HA component can request to play.
+{% configuration %}
+host:
+  description: IP address or hostname of the device, e.g., 192.168.1.32.
+  required: true
+  type: string
+name:
+  description: Name of the device.
+  required: false
+  default: DuneHD
+  type: string
+sources:
+  description: A name-value dictionary of sources than can be requested to play.
+  required: false
+  type: string
+{% endconfiguration %}
