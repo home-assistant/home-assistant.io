@@ -119,7 +119,6 @@ Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If y
 
 ### {% linkable_title Using Owntracks iBeacons to track devices %}
 
-
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
 When your phone sees a mobile iBeacon that it knows about, it will tell HA the location of that iBeacon. If your phone moves while you are connected to the iBeacon, HA will update the location of the iBeacon. But when your phone loses the connection, HA will stop updating the iBeacon location.
