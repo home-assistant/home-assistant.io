@@ -79,7 +79,6 @@ You can send text messages and images as well as other files through Jabber.
 ### {% linkable_title Jabber Text Message %}
 
 Here are some examples on how to set up a script, that can be run from an automation.
-To send files and images, your jabber server must support HTTP upload ([XEP_0363](https://xmpp.org/extensions/xep-0363.html)).
 
 Number 1 shows a classical, text-only message. The Title is optional, although if omitted,
 `Home-Assistant` will be set. To keep it empty set it to `""`.
@@ -97,8 +96,13 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
 
 ### {% linkable_title Jabber Image Message %}
 
+You can send images or files from locally stored files or remote web locations via Jabber's HTTP Upload feature.
+To send files and images, your jabber server must support [XEP_0363](https://xmpp.org/extensions/xep-0363.html).
+
 <p class='note'>
-  Currently sending images to rooms is not supported.
+Be aware that images are uploaded onto the Jabber server of your provider. They reside there un-encrypted and could be accessed by the server admins. Usually images are deleted after a few days.
+<br/>
+Home-Assistant supports TLS encryption to ensure transport encryption. TLS is enforced by default. You can disable it  with the [`tls`](#tls) flag -- which is not recommended.
 </p>
 
 Number 2 sends only an image, retrieved from the URL. The TLS connection to get the image is also not verified (use with caution).
@@ -134,7 +138,7 @@ Number 3 sends an image from a local path.
 
 ### {% linkable_title Jabber File Message %}
 
-Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files.
+Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
 
 ```yaml      
 # Example script.yaml entry
@@ -148,6 +152,7 @@ Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.t
         data:
           url: "https://raw.githubusercontent.com/arsaboo/homeassistant-config/master/HASS%20Cheatsheet.md"
           path: "Hass_Cheatsheet.txt"
+          timeout: 10
 ```
 
 ### {% linkable_title Jabber Text and Image Message %}
