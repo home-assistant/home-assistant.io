@@ -10,6 +10,7 @@ footer: true
 logo: w800rf32.png
 ha_category: Hub
 ha_release: 0.79
+ha_iot_class: "Local Push"
 ---
 
 The `w800rf32` component supports W800RF32 devices by [WGL Designs](http://www.wgldesigns.com/w800.html) which 
