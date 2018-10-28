@@ -61,4 +61,5 @@ round_digits:
   description: Round mean value to specified number of digits.
   required: false
   type: integer
+  default: 2
 {% endconfiguration %}
