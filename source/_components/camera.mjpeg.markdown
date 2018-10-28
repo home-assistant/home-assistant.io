@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: camcorder.png
+logo: home-assistant.png
 ha_category: Camera
 ha_release: pre 0.7
 ha_iot_class: "depends"
