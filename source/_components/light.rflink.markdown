@@ -40,7 +40,7 @@ light:
 device_defaults:
   description: The defaults for the devices.
   required: false
-  type: map
+  type: list
   keys:
     fire_event:
       description: Set default `fire_event` for Rflink switch devices (see below).
