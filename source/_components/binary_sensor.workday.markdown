@@ -45,13 +45,13 @@ name:
 country:
   description: >
     Country code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+    [holidays](https://pypi.org/project/holidays/) notation.
   required: true
   type: string
 province:
   description: >
     Province code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+    [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:
