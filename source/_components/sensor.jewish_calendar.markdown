@@ -53,7 +53,7 @@ sensors:
     date:
       description: Show the hebrew date for today.
     weekly_portion:
-      description: Show the weekly portion (parshat hashavu'a) - _At the moment only shows up on Saturday's_.
+      description: Show the weekly portion (parshat hashavu'a).
     holiday_name:
       description: If it is a holiday, show the name of the holiday.
     holyness:
