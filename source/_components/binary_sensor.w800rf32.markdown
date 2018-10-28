@@ -18,7 +18,7 @@ and the RSS18 four button wall mount keypad.
 
 # Setting up your devices
 
-Once you have set up your [w800rf32 hub](/components/w800rf32/), add your 
+Once you have set up your [w800rf32 hub](/components/w800rf32/), add the 
 binary sensors to your `configuration.yaml`:
 
 ```yaml
