@@ -49,12 +49,30 @@ proximity:
 ```
 
 Configuration variables:
+{% configuration %}
+  proximity:
+    zone:
+      description: The zone to which this component is measuring the distance to. Default is the home zone.
+      required: false
 
-- **zone** (*Optional*): The zone to which this component is measuring the distance to. Default is the home zone.
-- **ignored_zones** array (*Optional*): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
-- **devices** array (*Optional*): A list of devices to compare location against to check closeness to the configured zone.
-- **tolerance** (*Optional*): The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
-- **unit_of_measurement** (*Optional*): The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively]. The default value is kilometers.
+      ignored_zones:
+        description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
+        required: false
+        type: list
+      devices
+        description: A list of devices to compare location against to check closeness to the configured zone.
+        required: false
+        type: list
+      tolerance:
+        description: The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+        required: false
+        type: integer
+      unit_of_measurement:
+        description: The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively].
+        required: false
+        type: string
+        default: km (kilometers)
+{% endconfiguration %}
 
 To add multiple proximity components, simply use a list in your `configuration.yaml` file:
 
