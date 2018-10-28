@@ -70,11 +70,11 @@ Configuration example that uses the USB microphone and the built-in headset audi
 
 {% configuration %}
 mic:
-  description: This is the hardware address of your microphone. Look at the add-on output
+  description: This is the hardware address of your microphone. Look at the add-on output.
   required: true
   type: string
 speaker:
-  description: This is the hardware address of your speakers. Look at the add-on output
+  description: This is the hardware address of your speakers. Look at the add-on output.
   required: true
   type: string
 {% endconfiguration %}
