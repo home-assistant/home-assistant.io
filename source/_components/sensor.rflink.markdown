@@ -41,28 +41,39 @@ automatic_add:
   default: true
   type: boolean
 devices:
-  description: A list of devices with their name to use in the frontend.
+  description: A list of sensors.
   required: false
   type: list
   keys:
-    name:
-      description: Name for the device.
-      required: false
-      default: RFLink ID
-      type: string
-    sensor_type:
-      description: Override automatically detected type of sensor. For list of values see below.
+    rflink_ids:
+      description: RFLink ID of the device
       required: true
-      type: string
-    unit_of_measurement:
-      description: Override automatically detected unit of sensor.
-      required: false
-      type: string
-    aliases:
-      description: "(deprecated) Alternative RFLink ID's this device is known by."
-      required: false
-      type: [list, string]
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        sensor_type:
+          description: Override automatically detected type of sensor. For list of [values](components/sensor.rflink/#sensors-types) see below.
+          required: true
+          type: string
+        unit_of_measurement:
+          description: Override automatically detected unit of sensor.
+          required: false
+          type: string
+        aliases:
+          description: "Alternative RFLink ID's this device is known by."
+          required: false
+          type: [list, string]
+        aliasses:
+          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
+          required: false
+          type: [list, string]
 {% endconfiguration %}
+
+### {% linkable_title Sensors types%}
 
 Sensor type values:
 

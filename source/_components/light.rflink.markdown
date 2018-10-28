@@ -41,63 +41,82 @@ light:
 device_defaults:
   description: The defaults for the devices.
   required: false
-  type: list
+  type: map
   keys:
     fire_event:
       description: Set default `fire_event` for Rflink switch devices (see below).
       required: false
+      default: False
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for Rflink switch devices (see below).
       required: false
+      default: 1
       type: integer
 automatic_add:
-  description: Automatically add new/unconfigured devices to HA if detected.
+  description: Automatically add new/unconfigured devices to Home Assistant if detected.
   required: false
   default: true
   type: boolean
 devices:
-  description: A list of devices with their name to use in the frontend.
+  description: A list of lights.
   required: false
   type: list
   keys:
-    name:
-      description: Name for the device.
-      required: false
-      default: Rflink ID
-      type: string
-    type:
-      description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below."
-      required: false
-      default: switchable
-      type: string
-    aliases:
-      description: (deprecated) Alternative Rflink ID's this device is known by.
-      required: false
-      type: [list, string]
-    group_aliases:
-      description: "(deprecated) `aliases` which only respond to group commands."
-      required: false
-      type: [list, string]
-    no_group_aliases:
-      description: "(deprecated) `aliases` which do not respond to group commands."
-      required: false
-      type: [list, string]
-    fire_event:
-      description: Fire a `button_pressed` event if this device is turned on or off.
-      required: false
-      default: false
-      type: boolean
-    signal_repetitions:
-      description: Repeat every Rflink command this number of times.
-      required: false
-      default: 1
-      type: integer
-    group:
-      description: Allow light to respond to group commands (ALLON/ALLOFF).
-      required: false
-      default: true
-      type: boolean
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: Rflink ID
+          type: string
+        type:
+          description: Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](components/light.rflink/#light-types) below.
+          required: false
+          default: switchable
+          type: string
+        aliases:
+          description: Alternative Rflink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliases:
+          description: "`aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: "`aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+        fire_event:
+          description: Fire a `button_pressed` event if this device is turned on or off.
+          required: false
+          default: false
+          type: boolean
+        signal_repetitions:
+          description: Repeat every Rflink command this number of times.
+          required: false
+          default: 1
+          type: integer
+        group:
+          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          required: false
+          default: true
+          type: boolean
+        aliasses:
+          description: (**deprecated**) Alternative Rflink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliasses:
+          description: "(**deprecated**) `aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliasses:
+          description: "(**deprecated**) `aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
 {% endconfiguration %}
 
 ### {% linkable_title Light state %}

@@ -75,56 +75,62 @@ cover:
 ```
 
 {% configuration %}
-devices:
-  description: A list of devices with their name to use in the frontend.
-  required: false
-  type: list
-  keys:
-    name:
-      description: The name for the device. Defaults to value for Rflink ID.
-      required: false
-      type: string
-    aliases:
-      description: The alternative Rflink ID's this device is known by.
-      required: false
-      type: list
-    fire_event:
-      description: Fire a `button_pressed` event if this device is turned on or off.
-      required: false
-      default: False
-      type: boolean
-    signal_repetitions:
-      description: The number of times every Rflink command should repeat.
-      required: false
-      type: integer
-    group:
-      description: Allow light to respond to group commands (ALLON/ALLOFF).
-      required: false
-      default: True
-      type: boolean
-    group_aliases:
-      description: The `aliases` which only respond to group commands.
-      required: false
-      type: list
-    no_group_aliases:
-      description: The `aliases` which do not respond to group commands.
-      required: false
-      type: list
 device_defaults:
-  description: The default values for a device.
+  description: The defaults for the devices.
   required: false
-  type: list
+  type: map
   keys:
     fire_event:
-      description: The default `fire_event` for Rflink cover devices.
+      description: Set default `fire_event` for Rflink cover devices.
       required: false
       default: False
       type: boolean
     signal_repetitions:
-      description: The default `signal_repetitions` for Rflink cover devices.
+      description: Set default `signal_repetitions` for Rflink cover devices.
       required: false
       default: 1
       type: integer
+devices:
+  description: A list of covers.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: Rflink ID
+          type: string
+        aliases:
+          description: Alternative Rflink ID's this device is known by.
+          required: false
+          type: [list, string]
+        fire_event:
+          description: Fire a `button_pressed` event if this device is turned on or off.
+          required: false
+          default: False
+          type: boolean
+        signal_repetitions:
+          description: The number of times every Rflink command should repeat.
+          required: false
+          type: integer
+        group:
+          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          required: false
+          default: True
+          type: boolean
+        group_aliases:
+          description: The `aliases` which only respond to group commands.
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: The `aliases` which do not respond to group commands.
+          required: false
+          type: [list, string]
 {% endconfiguration %}
 
 ### {% linkable_title Device support %}
