@@ -15,7 +15,11 @@ ha_release: 0.37
 
 The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](http://wsdot.com/).
 
+## {% linkable_title Setup %}
+
 First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](http://wsdot.com/traffic/api/). Just enter your email address to instantly get the key.
+
+## {% linkable_title Configuration %}
 
 Once you have the code, create `wsdot` sensors by editing your `configuration.yaml` file as follows:
 
@@ -31,14 +35,9 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: Your `api_key` from WSDOT.
+  description: Your API key from WSDOT.
   required: true
   type: string
-scane_interval:
-  description: How frequently to query for new data, in minutes.
-  required: false
-  default: 3
-  type: integer
 travel_time:
   description: List of routes.
   required: true
