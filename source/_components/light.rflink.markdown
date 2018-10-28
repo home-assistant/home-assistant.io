@@ -23,18 +23,17 @@ RFLink switch/light ID's are composed of: protocol, id, switch. For example: `ne
 
 Once the ID of a light is known it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
 
-Configuring a device as light with a nice name:
+Configuring devices as a light:
 
 ```yaml
 # Example configuration.yaml entry
 light:
   - platform: rflink
-    device_defaults:
-      fire_event: true
-      signal_repetitions: 2
     devices:
-      newkaku_0000c6c2_1:
-        name: Living room
+      NewKaku_02a48800_0: {}
+      newkaku_0000c6c2_1: {}
+      Ansluta_ce30_0: {}
+      Maclean_0d82_01: {}
 ```
 
 {% configuration %}
@@ -131,14 +130,9 @@ light:
   - platform: rflink
     devices:
       newkaku_0000c6c2_1:
-        name: Living room
         aliases:
           - newkaku_000000001_2
           - kaku_000001_a
-      Ansluta_ce30_0:
-        name: Kitchen Under Counter Lights
-      Maclean_0d82_01:
-        name: Bedroom Lamp
 ```
 
 Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
@@ -165,3 +159,30 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
+
+### {% linkable_title Additional configuration examples %}
+
+Multiple lights with `signal_repetitions` and custom names
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    automatic_add: true
+    devices:
+      NewKaku_02a48800_0:
+        name: Kitchen
+        type: hybrid
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
+```

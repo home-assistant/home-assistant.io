@@ -22,21 +22,15 @@ RFLink switch/light ID's are composed of: protocol, id, switch. For example: `ne
 
 Once the ID of a switch is known it can be used to configure it as a switch type in HA, for example to add it to a different group, hide it or configure a nice name.
 
-Configuring a device as switch with a nice name:
+Configuring devices as switch :
 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rflink
-  device_defaults:
-    fire_event: true
-    signal_repetitions: 2
-  devices:
-    newkaku_0000c6c2_1:
-      name: Ceiling fan
-    conrad_00785c_0a:
-      name: Motion sensor kitchen
-
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1: {}
+      conrad_00785c_0a: {}
 ```
 
 {% configuration %}
@@ -120,13 +114,13 @@ Sometimes a switch is controlled by multiple wireless remotes, each remote has i
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rflink
-  devices:
-    newkaku_0000c6c2_1:
-      name: Ceiling fan
-      aliases:
-        - newkaku_000000001_2
-        - kaku_000001_a
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
 ```
 
 Any on/off command from any alias ID updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
@@ -134,3 +128,21 @@ Any on/off command from any alias ID updates the current state of the switch. Ho
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
+
+### {% linkable_title Additional configuration examples %}
+
+Multiple switches with signal repetitions and custom names
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+      conrad_00785c_0a:
+        name: Motion sensor kitchen
+```

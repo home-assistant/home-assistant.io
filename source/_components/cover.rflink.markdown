@@ -61,17 +61,15 @@ RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_
 
 Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group, hide it or set a nice name.
 
-Assigning a name to a cover:
+Configuring devices as a cover:
 
 ```yaml
 # Example configuration.yaml entry
 cover:
   - platform: rflink
     devices:
-      RTS_0100F2_0:
-        name: SunShade
-      bofumotor_455201_0f:
-        name: Sovrumsgardin
+      RTS_0100F2_0: {}
+      bofumotor_455201_0f: {}
 ```
 
 {% configuration %}
@@ -136,3 +134,32 @@ devices:
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support).
+
+### {% linkable_title Additional configuration examples %}
+
+Multiple covers with custom names and aliases
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: rflink
+    devices:
+      RTS_0A8720_0:
+        name: enanos
+        aliases:
+          - rts_31e53f_01
+          - rts_32e53f_01
+      RTS_30E542_0:
+        name: comedor
+        aliases:
+          - rts_33e53f_01
+          - rts_fa872e_01
+      RTS_33E542_0:
+        name: dormitorio
+        aliases:
+          - rts_30e53f_01
+          - rts_32e53f_01
+      RTS_32E542_0:
+        name: habitaciones
+        fire_event: true
+```
