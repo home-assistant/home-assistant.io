@@ -46,7 +46,7 @@ This component supports a service to set the temperature for the room connected 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `room_name` | yes | String with room name.
-| `away_temp` | no | Integer with temperature
-| `comfort_temp` | no | Integer with temperature
-| `sleep_temp` | no | Integer with temperature
+| `room_name` | no | String with room name.
+| `away_temp` | yes | Integer with temperature
+| `comfort_temp` | yes | Integer with temperature
+| `sleep_temp` | yes | Integer with temperature
