@@ -56,7 +56,7 @@ proximity:
     type: map
     keys:
       ignored_zones:
-      description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
+        description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
         required: false
         type: list
       devices:
