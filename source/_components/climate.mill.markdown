@@ -15,14 +15,15 @@ ha_iot_class: "Cloud Polling"
 
 Integrates Mill heater into Home Assistant.
 
+## {% linkable_title Configuration %}
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 climate:
   - platform: mill
-    username: email@gmail.com
-    password: pswd
+    username: YOUR_EMAIL_ADDRESS
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -36,12 +37,11 @@ password:
   type: string 
 {% endconfiguration %}
 
-{% linkable_title Component services %}
+## {% linkable_title Component services %}
 
-This component supports a service to set the temperature for the room connected to heater in the Mill app:
+This platform supports a service to set the temperature for the room connected to heater in the Mill app:
 
 `climate.mill_set_room_temperature`
-
 
 
 | Service data attribute | Optional | Description |
