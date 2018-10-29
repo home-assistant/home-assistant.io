@@ -19,7 +19,7 @@ To use the APNS service you will need an Apple developer account and you will ne
 
 ## {% linkable_title Configuration %}
 
-To enable the APNS notificationsr, add the following lines to your `configuration.yaml`:
+To enable APNS notifications, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
