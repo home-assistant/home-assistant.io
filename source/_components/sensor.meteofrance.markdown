@@ -10,31 +10,31 @@ footer: true
 logo: meteo-france.png
 ha_category: Sensor
 featured: true
-ha_release: 0.81
-#redirect_from: /components/sensor.meteofrance/
+ha_release: 0.82
 ha_iot_class: "Cloud Polling"
 ---
 
 The `meteo_france` platform uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `postal_code` configured in your `configuration.yaml` file.
+
+## {% linkable_title Configuration %}
 
 To add Météo-France to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  sensor:
-    - platform: meteo_france
-      postal_code: 76000
-      monitored_conditions:
-        - temperature
-        - weather
-        - wind_speed
-        - uv
-        - next_rain
-        - freeze_chance
-        - rain_chance
-        - snow_chance
-        - thunder_chance
+  - platform: meteo_france
+    postal_code: 76000
+    monitored_conditions:
+      - temperature
+      - weather
+      - wind_speed
+      - uv
+      - next_rain
+      - freeze_chance
+      - rain_chance
+      - snow_chance
+      - thunder_chance
 ```
 
 {% configuration %}
