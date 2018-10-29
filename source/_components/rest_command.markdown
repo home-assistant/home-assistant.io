@@ -59,10 +59,10 @@ service_name:
       required: false
       type: string
     timeout:
-      description: Timeout for requests. 
+      description: Timeout for requests in seconds. 
       required: false
       type: string
-      defaut: 10 seconds.
+      defaut: 10
     content_type:
       description: Content type for the request.
       required: false
