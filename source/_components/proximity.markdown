@@ -59,7 +59,7 @@ Configuration variables:
         description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
         required: false
         type: list
-      devices
+      devices:
         description: A list of devices to compare location against to check closeness to the configured zone.
         required: false
         type: list
