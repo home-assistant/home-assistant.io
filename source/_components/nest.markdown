@@ -72,14 +72,14 @@ structure:
 
 ### {% linkable_title Service `set_away_mode` %}
 
-You can use the service nest/set_away_mode to set the structure(s) to "Home" or "Away".
+You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `away_mode` | no | String, must be `away` or `home`.
 | `structure` | yes | String, will default to all configured Nest structures if not specified.
 
-Example:
+Examples:
 
 ```yaml
 # Example script to set away, no structure specified so will execute for all
@@ -105,7 +105,7 @@ script:
 
 ### {% linkable_title Service `set_eta` %}
 
-You can use the service nest/set_eta to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
+You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -114,7 +114,7 @@ You can use the service nest/set_eta to set or update the estimated time of arri
 | `trip_id` | yes | String, unique ID for the trip. Default is auto-generated using a timestamp. Using an existing `trip_id` will update that trip's ETA.
 | `structure` | yes | String, will default to all configured Nest structures if not specified.
 
-Example:
+Examples:
 
 ```yaml
 # Example script to set ETA, no structure specified so will execute for all
@@ -143,14 +143,14 @@ script:
 
 ### {% linkable_title Service `cancel_eta` %}
 
-You can use the service nest/cancel_eta to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
+You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `trip_id` | no | String, unique ID for the trip. Using an existing `trip_id` will update that trip's ETA.
 | `structure` | yes | String, will default to all configured Nest structures if not specified.
 
-Example:
+Examples:
 
 ```yaml
 # Example script to cancel ETA, no structure specified so will execute for all
