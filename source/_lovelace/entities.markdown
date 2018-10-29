@@ -72,18 +72,20 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: `mdi:remote`
+action_name:
+  required: false
+  description: Button label.
+  type: string
+  default: `Run`
 service_data:
   required: false
   description: The service data to use.
