@@ -139,6 +139,23 @@ condition:
         before: sunrise
 ```
 
+Here is a truth table to clarify the parameters with and without offset:
+
+| command                            |after midnight | at sunrise  | daytime | at sunset  | until midnight |
+| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|----------|
+| `after: sunset`                    | False        |      ⇒      | False   |     ⇒      |True     |
+| + `after_offset: "01:00:00"`       | False        |      ⇒      | False   |  **+1h**   |True     |
+| + `after_offset: "-01:00:00"`      | False        |      ⇒      | False   |  **-1h**   |True     |
+| `before: sunset`                   | True         |      ⇒      | True    |     ⇒      |False    |
+| + `before_offset: "01:00:00"`      | True         |      ⇒      | True    |  **+1h**   |False    |
+| + `before_offset: "-01:00:00"`     | True         |      ⇒      | True    |  **-1h**   |False    |
+| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |True    |
+| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |True    |
+| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |True    |
+| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |False   |
+| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |False   |
+| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |False   |
+
 ### {% linkable_title Template condition %}
 
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
