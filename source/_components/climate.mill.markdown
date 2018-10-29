@@ -35,3 +35,18 @@ password:
   required: true
   type: string 
 {% endconfiguration %}
+
+{% linkable_title Component services %}
+
+This component supports a service to set the temperature for the room connected to heater in the Mill app:
+
+`climate.mill_set_room_temperature`
+
+
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `room_name` | yes | String with room name.
+| `away_temp` | no | Integer with temperature
+| `comfort_temp` | no | Integer with temperature
+| `sleep_temp` | no | Integer with temperature
