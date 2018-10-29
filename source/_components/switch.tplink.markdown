@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: "0.24"
 ---
 
-
 The `tplink` switch platform allows you to control the state of your [TP-Link smart switch](http://www.tp-link.com/en/products/list-5258.html).
 
 Supported units:
@@ -32,19 +31,6 @@ switch:
     host: IP_ADDRESS
 ```
 
-Adding multiple switches:
-
-You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: tplink
-    host: FIRST_IP_ADDRESS
-  - platform: tplink
-    host: SECOND_IP_ADDRESS
-```
-
 {% configuration %}
 name:
   description: The name to use when displaying this switch.
@@ -61,3 +47,15 @@ enable_leds:
   type: boolean
 {% endconfiguration %}
 
+## {% linkable_title Adding multiple switches %}
+
+You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: tplink
+    host: FIRST_IP_ADDRESS
+  - platform: tplink
+    host: SECOND_IP_ADDRESS
+```
