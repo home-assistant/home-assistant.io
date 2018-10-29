@@ -118,7 +118,7 @@ sensor:
 
 [RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) and [RFLink Binary Sensors](https://www.home-assistant.io/components/binary_sensor.rflink/) cannot be added automatically. 
 
-The RFLink component does not know the difference between a binary sensor, aswitch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink component does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
 
 ### {% linkable_title Ignoring devices %}
 
