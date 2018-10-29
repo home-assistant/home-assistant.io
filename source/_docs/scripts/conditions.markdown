@@ -149,7 +149,7 @@ condition:
         before: sunrise
 ```
 
-Here is a truth table to clarify the parameters with and without offset:
+Here is a truth table to clarify the conditions with and without offset:
 
 | command                            |after midnight | at sunrise  | daytime | at sunset  | until midnight |
 | ---------------------------------- | ------------ |:-----------:| ------- |:----------:|----------|
