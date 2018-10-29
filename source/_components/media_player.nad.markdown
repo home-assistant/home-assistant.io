@@ -13,7 +13,6 @@ ha_release: 0.36
 ha_iot_class: "Local Polling"
 ---
 
-
 The `nad` platform allows you to control a [NAD receiver](http://nadelectronics.com) through RS232 from Home Assistant.
 
 To add an NAD receiver to your installation, add the following to your `configuration.yaml` file:
@@ -25,13 +24,32 @@ media_player:
     serial_port: /dev/ttyUSB0
 ```
 
-Configuration variables:
-
-- **serial_port** (*Required*): The serial port . Default is `/dev/ttyUSB0`
-- **name** (*Optional*): Name of the device. Default is NAD Receiver.
-- **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-92`
-- **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-20`
-- **sources** (*Optional*): A list of mappings from source to source name. Valid sources are `1 to 10`.
+{% configuration %}
+serial_port:
+  description: The serial port.
+  required: true
+  default: "/dev/ttyUSB0"
+  type: string
+name:
+  description: Name of the device.
+  required: false
+  default: NAD Receiver
+  type: string
+min_volume:
+  description: Minimum volume in dB to use with the slider.
+  required: false
+  default: -92
+  type: integer
+max_volume:
+  description: Maximum volume in dB to use with the slider.
+  required: false
+  default: -20
+  type: integer
+sources:
+  description: A list of mappings from source to source name. Valid sources are `1 to 10`.
+  required: false
+  type: [list, string]
+{% endconfiguration %}
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
