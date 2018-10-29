@@ -24,7 +24,7 @@ rfxtrx:
 
 {% configuration %}
 device:
-  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`."
+  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0` or `/dev/ttyUSB0`."
   required: true
   type: string
 debug:

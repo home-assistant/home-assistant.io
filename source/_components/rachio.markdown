@@ -29,13 +29,24 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 rachio:
-  api_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): The API key for the Rachio account.
-- **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled. Defaults to 10 minutes.
+{% configuration %}
+api_key:
+  description: The API key for the Rachio account.
+  required: true
+  type: string
+hass_url_override:
+  description: If your instance is unaware of its actual web location (`base_url`).
+  required: false
+  type: string
+manual_run_mins:
+  description: For how long, in minutes, to turn on a station when the switch is enabled.
+  required: false
+  default: 10
+  type: integer
+{% endconfiguration %}
 
 <p class='note'>
 **Water-saving suggestion:**<br>
