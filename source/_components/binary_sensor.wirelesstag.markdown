@@ -56,4 +56,3 @@ monitored_conditions:
     battery:
       description: On means tag battery is low, Off means normal.
 {% endconfiguration %}
-

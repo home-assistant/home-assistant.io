@@ -24,6 +24,8 @@ We support:
  * [Locks](/components/lock.verisure/)
  * [Door & Window](/components/binary_sensor.verisure/)
 
+ ## {% linkable_title Configuration %}
+
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -43,45 +45,45 @@ password:
   required: true
   type: string
 alarm:
-  description: Set to true to show alarm, false to disable.
+  description: Set to `true` to show alarm, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 hygrometers:
-  description: Set to true to show hygrometers, false to disable.
+  description: Set to `true` to show hygrometers, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 smartplugs:
-  description: Set to true to show smartplugs, false to disable.
+  description: Set to `true` to show smartplugs, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 locks:
-  description: Set to true to show locks, false to disable.
+  description: Set to `true` to show locks, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 thermometers:
-  description: Set to true to show thermometers, false to disable.
+  description: Set to `true` to show thermometers, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 mouse:
-  description: Set to true to show mouse detectors, false to disable.
+  description: Set to `true` to show mouse detectors, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 door_window:
-  description: Set to true to show mouse detectors, false to disable.
+  description: Set to `true` to show mouse detectors, `false` to disable.
   required: false
-  default: true
   type: boolean
+  default: true
 code_digits:
   description: Number of digits in PIN code.
   required: false
-  default: 4
   type: integer
+  default: 4
 giid:
   description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
   required: false

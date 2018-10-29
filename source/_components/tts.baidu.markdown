@@ -14,6 +14,8 @@ ha_release: 0.59
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
+## {% linkable_title Configuration %}
+
 To get started, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -54,9 +56,10 @@ volume:
   type: integer
   default: 5
 person:
-  description: Voice type. You choose one from 0, 1, 3 or 4.
+  description: The voice type. You choose one from 0, 1, 3 or 4.
   required: false
   type: integer
   default: 0
 {% endconfiguration %}
 
+At the moment, `zh` is the only supported language and therefore the default value.

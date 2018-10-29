@@ -15,7 +15,7 @@ ha_release: 0.35
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
 
-The platform does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine. 
+The platform does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
 #### {% linkable_title Service setup %}
 

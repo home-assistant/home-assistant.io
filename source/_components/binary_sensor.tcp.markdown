@@ -14,53 +14,57 @@ ha_release: 0.14
 
 The TCP Binary Sensor is a type of [TCP Sensor](/components/sensor.tcp/) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 
+## {% linkable_title Configuration %}
+
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-binary_sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: TCP Binary Sensor
-  host: IP_ADDRESS
-  port: PORT
-  payload: "r State\n"
-  value_on: 1
-  timeout: 5
+binary_sensor:
+  - platform: tcp
+    name: TCP Binary Sensor
+    host: IP_ADDRESS
+    port: PORT
+    payload: "r State\n"
+    value_on: 1
+    timeout: 5
 ```
-
-Configuration options for the a TCP Sensor:
 
 {% configuration %}
 name:
-    required: true
-    description: The name you'd like to give the sensor in Home Assistant.
-    type: string
+  description: The name you'd like to give the sensor in Home Assistant.
+  required: false
+  type: string
+  default: TCP Sensor
 host:
-    required: true
-    description: The hostname/IP address to connect to.
-    type: string
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
 port:
-    required: true
-    description: The port to connect to the host on.
-    type: integer
+  description: The port to connect to the host on.
+  required: true
+  type: integer
 payload:
-    required: true
-    description: What to send to the host in order to get the response we're interested in.
-    type: string
+  description: What to send to the host in order to get the response we're interested in.
+  required: true
+  type: string
 value_on:
-    required: true
-    description: The value returned when the device is "on".
-    type: string
-timeout:
-    required: false
-    description: How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
-    type: integer
+  description: The value returned when the device is "on".
+  required: true
+  type: string
 value_template:
-    required: false
-    description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
-    type: string
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
+  required: false
+  type: template
+  default: entire response is the value
 buffer_size:
-    required: false
-    description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
-    type: integer
+  description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default.
+  required: false
+  type: integer
+  default: 1024
+timeout:
+  description: How long in seconds to wait for a response from the service before giving up and disconnecting.
+  required: false
+  type: integer
+  default: 10
 {% endconfiguration %}

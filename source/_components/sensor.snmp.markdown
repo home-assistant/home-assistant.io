@@ -28,7 +28,7 @@ sensor:
 {% configuration %}
 host:
   description: The IP address of your host, eg. `192.168.1.32`.
-  required: true
+  required: false
   type: string
   default: 'localhost'
 baseoid:
@@ -37,7 +37,7 @@ baseoid:
   type: string
 port:
   description: The SNMP port of your host.
-  required: Option
+  required: false
   type: string
   default: '161'
 community:

@@ -35,9 +35,6 @@ evohome:
 ```
 This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 3 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
-
-### {% linkable_title Configuration variables %}
-
 {% configuration %}
 username:
   description: The username (email address) that has access to [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) web site.

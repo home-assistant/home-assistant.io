@@ -13,11 +13,13 @@ ha_release: 0.65
 ha_iot_class: "Cloud Polling"
 ---
 
-The `zestimate` sensor allows one to track the Zestimate value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm).
+The `zestimate` sensor allows one to track the Zestimate® value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). According to Zillow's website, a Zestimate® home valuation is Zillow's estimated market value. It is not an appraisal. Use it as a starting point to determine a home's value. The Zestimate® is provided by [Zillow](https://www.zillow.com), a website primarily for listing homes to buy/sell/rent in the United States. 
+
+This component adds one entity per zpid specified, named `sensor.zestimate` with numbers appended if you choose to track more than one Zestimate.
 
 ## {% linkable_title Configuration %}
 
-You will need to sign up for the Zillow API at the following link [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). You will also need the Zillow property ID for each property you'd like to track. This information is available from the URL of a property you are interested in. 
+You will need to sign up for the Zillow API at the following link [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). You will also need the Zillow property ID for each property you'd like to track. This information is available from the URL of a property you are interested in. If you're the owner of this property, it's recommended to claim the listing and update the property information to help the information be as accurate as possible. 
 
 For example, the White House zpid is 84074482 and can be found in its Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
 
@@ -34,11 +36,11 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: The API key to access the service.
+  description: The API key to access the service. Obtain yours using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm) 
   required: true
   type: string
 zpid:
-  description: Property IDs to track in the front end.
+  description: Property IDs to track in the front end. Can be found in it's Zillow URL as described above. Include only the numbers, do not include the "_zpid" 
   required: true
   type: list
 {% endconfiguration %}
@@ -56,3 +58,7 @@ These attributes are available:
 - Address
 - Currency
 - Amount
+
+Example screenshot 
+
+<img src="/images/components/zestimate/zestimateexample.png" />

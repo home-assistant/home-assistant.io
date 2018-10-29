@@ -40,6 +40,10 @@ On Raspberry Pi you will need to enable the serial interface in the `raspi-confi
 
 ## {% linkable_title Configuration %}
 
+<P class='note'>
+You can also use the Z-Wave *Integration* in the *Configuration* menu to set up the Z-Wave component.
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 zwave:
@@ -109,6 +113,11 @@ device_config / device_config_domain / device_config_glob:
       type: boolean
       default: False
 {% endconfiguration %}
+
+<p class='note'>
+As of Home Assistant 0.81, the Z-Wave `usb_path` and `network_key` options are configured through the Integrations page in Home Assistant. Specifying a `zwave:` section in configuration.yaml is no longer required unless you need to customize other settings, such as `device_config`, `polling_interval`, etc.
+</p>
+
 
 ### {% linkable_title Finding the controller path on Linux %}
 

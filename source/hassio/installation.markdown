@@ -92,14 +92,14 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_rpi0-w-1.11.img.gz
-[pi1]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_rpi-1.11.img.gz
-[pi2]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_rpi2-1.11.img.gz
-[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_rpi3-1.11.img.gz
-[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_rpi3-64-1.11.img.gz
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_rpi0-w-1.12.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_rpi-1.12.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_rpi2-1.12.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_rpi3-1.12.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_rpi3-64-1.12.img.gz
 [tinker]: https://github.com/home-assistant/hassos/releases/download/2.2/hassos_tinker-2.2.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.2/hassos_odroid-c2-2.2.img.gz
-[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.11/hassos_ova-1.11.vmdk
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/1.12/hassos_ova-1.12.vmdk
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

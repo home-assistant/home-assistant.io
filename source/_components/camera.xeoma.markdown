@@ -15,6 +15,8 @@ ha_release: 0.62
 
 The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](http://felenasoft.com/xeoma) video surveillance server.
 
+## {% linkable_title Configuration %}
+
 To enable Xeoma camera feeds, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -40,8 +42,8 @@ password:
 new_version:
   description: Set to false if the Xeoma server version is 17.5 or earlier.
   required: false
-  default: true
   type: boolean
+  default: true
 cameras:
   description: List of customizations for individual Xeoma cameras.
   required: false
@@ -54,16 +56,16 @@ cameras:
     name:
       description: The name to display in the frontend for this camera.
       required: false
-      default: The `image_name` for this camera.
       type: string
+      default: The `image_name` for this camera.
     hide:
       description: Don't show this camera in Home Assistant.
       required: false
-      default: false
       type: boolean
+      default: false
 {% endconfiguration %}
 
-## {% linkable_title Full examples %}
+## {% linkable_title Full example %}
 
 ```yaml
 # Example configuration.yaml entry

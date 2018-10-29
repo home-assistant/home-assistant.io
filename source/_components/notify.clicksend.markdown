@@ -62,7 +62,7 @@ sender:
   description: The name or number of the sender.
   required: false
   type: string
-  default: recipient
+  default: 'hass'
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

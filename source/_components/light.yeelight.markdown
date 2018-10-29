@@ -58,36 +58,46 @@ devices:
           required: false
           type: boolean
           default: False
+        model:
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
+          required: false
+          type: string
 {% endconfiguration %}
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
-**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant**.
+**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from HASS the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### {% linkable_title Initial setup %}
 <p class='note'>
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
 In the bulb property, you have to enable "LAN Mode" (previously called "Developer mode"). LAN mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
-Determine your bulb IP (using router, software, ping ...).
+Determine your bulb IP (using router, software, ping...).
 Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
 </p>
+
+### {% linkable_title Supported models %}
 
 <p class='note warning'>
 This component is tested to work with the following models. If you have a different model and it is working please let us know.
 </p>
 
-- **YLDP01YL**: LED Bulb (White)
-- **YLDP02YL**: LED Bulb (Color)
-- **YLDP03YL**: LED Bulb (Color) - E26
-- **YLDP05YL**: LED Bulb (White) II
-- **YLDP06YL**: LED Bulb (Color) II
-- **YLDD01YL**: Lightstrip (Color)
-- **YLDD02YL**: Lightstrip (Color)
-- **MJCTD01YL**: Xiaomi Mijia Bedside Lamp - WIFI Version!
-- **MJTD01YL**: Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM)
-- **YLXD02YL**: Yeelight Ceiling Light 4 (Jiaoyue 650)
-- **YLXD01YL**: Yeelight Smart LED Ceiling Light - Youth Version
-
+| Model ID   | Model number | Product name                                     |
+|------------|--------------|--------------------------------------------------|
+| `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
+| ?          | YLDP05YL     | LED Bulb (White) - 2nd generation                |
+| `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
+| `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
+| `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
+| `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
+| `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
+| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
+| `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
+| `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
+| `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
+| ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
+| `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
+| `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 
 ## {% linkable_title Platform Services %}
 

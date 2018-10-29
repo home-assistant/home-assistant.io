@@ -13,8 +13,9 @@ ha_release: "0.40"
 ha_iot_class: "Local Polling"
 ---
 
-
 The `android_ip_webcam` component adds a camera by default if you choose not to use the component but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
+
+## {% linkable_title Configuration %}
 
 To enable only the camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -24,4 +25,3 @@ camera:
   - platform: mjpeg
     mjpeg_url: http://IP_ADDRESS:8080/video
 ```
-

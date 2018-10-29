@@ -17,7 +17,13 @@ The `android_ip_webcam` component turns an Android phone into a network camera w
 
 It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
 
-To set it up, download [the IP Webcam app][app], and add the following information to your `configuration.yaml` file:
+## {% linkable_title Setup %}
+
+Download [the IP Webcam app](https://play.google.com/store/apps/details?id=com.pas.webcam) and launch the app. You will be able to the IP address of the device.
+
+## {% linkable_title Configuration %}
+
+To set it up the component, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +33,7 @@ android_ip_webcam:
 
 {% configuration %}
 host:
-  description: The IP Address of the phone on the network.
+  description: The IP address of the phone on the network.
   required: true
   type: string
 port:
@@ -59,50 +65,50 @@ sensors:
   type: list
   keys:
     audio_connections:
-      description: Audio Connections
+      description: The audio connections
     battery_level:
-      description: Battery Level
+      description: The battery level
     battery_temp:
-      description: Battery Temperature
+      description: The battery temperature
     battery_voltage:
-      description: Battery Voltage
+      description: The battery voltage
     light:
-      description: Light Level
+      description: The light level
     motion:
-      description: Motion
+      description: Motion detection
     pressure:
-      description: Pressure
+      description: The current pressure
     proximity:
-      description: Proximity
+      description: The proximity
     sound:
-      description: Sound
+      description: The sound detection
     video_connections:
-      description: Video Connections
+      description: The video connections
 switches:
   description: Conditions to display settings in the frontend. See the list of supported switches.
   required: false
   type: list
   keys:
     exposure_lock:
-      description: Exposure Lock
+      description: Control the exposure lock
     ffc:
-      description: Front-facing Camera
+      description: Control the front-facing camera.
     focus:
-      description: Focus
+      description: Control the focus.
     gps_active:
-      description: GPS Active
+      description: Control the GPS.
     night_vision:
-      description: Night Vision
+      description: Control the night vision.
     overlay:
-      description: Overlay
+      description: Control the overlay.
     torch:
-      description: Torch
+      description: Control the torch.
     whitebalance_lock:
-      description: White Balance Lock
+      description: Control the white balance lock.
     video_recording:
-      description: Video Recording
+      description: Control the video recording.
 motion_sensor:
-  description: Activate motion sensor if auto_discovery is disabled.
+  description: Activate motion sensor if `auto_discovery` is disabled.
   required: false
   type: boolean
 {% endconfiguration %}
@@ -147,4 +153,3 @@ android_ip_webcam:
       - torch
 ```
 
-[app]: https://play.google.com/store/apps/details?id=com.pas.webcam

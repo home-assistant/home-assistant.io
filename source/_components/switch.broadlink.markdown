@@ -13,7 +13,7 @@ ha_release: 0.35
 ha_iot_class: "Local Polling"
 ---
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/rm/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -25,26 +25,73 @@ switch:
     mac: 'MAC_ADDRESS'
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: Device MAC address.
+  required: true
+  type: string
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  type: integer
+friendly_name:
+  description: The name used to display the switch in the frontend.
+  required: false
+  type: string
+type:
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  required: true/false
+  type: string
+switches:
+  description: The array that contains all switches.
+  required: false
+  type: array
+  keys:
+    identifier:
+      description: Name of the command switch as slug. Multiple entries are possible.
+      required: true
+      type: string
+      keys:
+        command_on:
+          description: Base64 encoded packet from RM device to take for on.
+          required: true
+          type: string
+        command_off:
+          description: Base64 encoded packet from RM device to take for off.
+          required: true
+          type: string
+        friendly_name:
+          description: The name used to display the switch in the frontend.
+          required: false
+          type: string
+slots:
+  description: Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
+  required: false
+  type: array
+  keys:
+    slot_1:
+      description: Friendly names of slot 1
+      required: false
+      type: string
+    slot_2:
+      description: Friendly names of slot 2
+      required: false
+      type: string
+    slot_3:
+      description: Friendly names of slot 3
+      required: false
+      type: string
+    slot_4:
+      description: Friendly names of slot 4
+      required: false
+      type: string
+{% endconfiguration %}
 
-- **host** (*Required*): The hostname/IP address to connect to.
-- **mac** (*Required*):  Device MAC address.
-- **timeout** (*Optional*): Timeout in seconds for the connection to the device.
-- **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`.
-- **switches** (*Optional*): The array that contains all switches.
-  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
-    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-    - **command_on** (*Required*): Base64 encoded packet from RM device to take for on.
-    - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
-- **slots** (*Optional*): Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
-  - **slot_1** (*Optional*)
-  - **slot_2** (*Optional*)
-  - **slot_3** (*Optional*)
-  - **slot_4** (*Optional*)
-
-Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
-
+Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
@@ -192,3 +239,47 @@ Not every code works.
 
 8. Convert the HEX codes to base64
 Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+
+### {% linkable_title Using iOS and Windows to Obtain Codes %}
+
+1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
+
+2. Install Requirements
+
+- Download and install Python 2.7 on your windows PC.
+- Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+- Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
+- Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
+
+3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
+
+4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
+
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g. C:\Python27. Now run the command python getBroadlinkSharedData.py, you should see something like this:
+```C:\Python27>python getBroadlinkSharedData.py
+ID: 1 | Name: TV
+ID: 2 | Name: Upstairs
+ID: 3 | Name: Sort in order
+ID: 4 | Name: Soundbar
+ID: 5 | Name: TV
+ID: 6 | Name: Xbox One
+ID: 7 | Name: User-Defined Aircon
+ID: 8 | Name: Sort in order
+ID: 9 | Name: User-Defined Aircon
+ID: 10 | Name: Kids Fan
+ID: 11 | Name: Downstairs
+ID: 12 | Name: Ceiling Fan
+ID: 13 | Name: Samsung TV
+ID: 14 | Name: Xbox One
+ID: 15 | Name: SONY SoundBar
+ID: 16 | Name: Fire TV
+ID: 17 | Name: New RF Remote
+```
+
+6. Select the remote ID you would like to extract:
+```Select accessory ID: 5
+[+] You selected:  TV
+[+] Dumping codes to TV.txt
+```
+
+7. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).

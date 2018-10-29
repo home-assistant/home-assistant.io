@@ -25,12 +25,25 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or address of the Logitech Media Server, eg. 192.168.1.21.
-- **port** (*Optional*): Web interface port to Logitech Media Server. Defaults to 9000.
-- **username** (*Optional*): The username, if password protection is enabled.
-- **password** (*Optional*): The password, if password protection is enabled.
+{% configuration %}
+host:
+  description: The host name or address of the Logitech Media Server, eg. 192.168.1.21.
+  required: true
+  type: string
+port:
+  description: The web interface port to Logitech Media Server.
+  required: false
+  default: 9000
+  type: integer
+username:
+  description: The username, if password protection is enabled.
+  required: false
+  type: string
+password:
+  description: The password, if password protection is enabled.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>This platform now uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.</p>
 

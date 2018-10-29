@@ -15,6 +15,8 @@ ha_iot_class: "Local Push"
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](http://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.
 
+## {% linkable_title Configuration %}
+
 To enable ADS, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -25,18 +27,18 @@ ads:
 ```
 
 {% configuration %}
-  device:
-    required: true
-    description: The AMS NetId that identifies the device.
-    type: string
-  port:
-    required: true
-    description: The port that runs the AMS server on the device, typically this would be 801 or 851.
-    type: integer
-  ip_address:
-    required: false
-    description: The IP address of the ADS device, if not set the first 4 bytes of the device id will be used.
-    type: string
+device:
+  description: The AMS NetId that identifies the device.
+  required: true
+  type: string
+port:
+  description: The port that runs the AMS server on the device, typically this would be 801 or 851.  
+  required: true
+  type: integer
+ip_address:
+  description: The IP address of the ADS device, if not set the first 4 bytes of the device id will be used.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Service %}

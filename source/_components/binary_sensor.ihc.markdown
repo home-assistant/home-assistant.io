@@ -27,6 +27,8 @@ be found in the IHC project and setup as binary sensors:
 - Dataline gas detector
 - Dataline light sensor
 
+## {% linkable_title Manual configuration %}
+
 To manually configure IHC Binary Sensors
 insert this section in your configuration:
 

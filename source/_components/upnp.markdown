@@ -33,20 +33,25 @@ upnp:
 
 With the default settings only the sensors are added for statistics. If you wish to have port mapping done through IGD, add the option **port_mapping** and **ports**.
 
-{% configuration binary_sensor.template %}
-  ports:
-    description: Map of ports to map from internal to external. Pass 'hass' as internal port to use the port Home Assistant runs on. Note that you have to enable port_mapping if you wish to map ports.
-    required: false
-    type: map
-    default: open same port on external router as that HASS runs locally and forwards it.
-  port_mapping:
-    description: If the component should try to map ports.
-    required: false
-    type: boolean
-    default: false
-  local_ip:
-    description: The local IP address of the computer running Home Assistant.
-    required: false
-    type: string
-    default: Try to auto-detect IP of host.
+{% configuration %}
+port_mapping:
+  description: If the component should try to map ports.
+  required: false
+  type: boolean
+  default: false
+sensors:
+  description: If the component should enable the UPNP sensors.
+  required: false
+  type: boolean
+  default: true
+local_ip:
+  description: The local IP address of the computer running Home Assistant.
+  required: false
+  type: string
+  default: Try to auto-detect IP of host.
+ports:
+  description: Map of ports to map from internal to external. Pass 'hass' as internal port to use the port Home Assistant runs on. Note that you have to enable port_mapping if you wish to map ports.
+  required: false
+  type: map
+  default: Open same port on external router as that HASS runs locally and forwards it.
 {% endconfiguration %}

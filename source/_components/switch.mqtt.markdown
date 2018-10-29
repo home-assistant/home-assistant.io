@@ -50,12 +50,12 @@ state_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 state_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: false
@@ -68,12 +68,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -103,6 +103,35 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+device:
+  description: 'Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>

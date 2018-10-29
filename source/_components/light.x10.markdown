@@ -30,7 +30,18 @@ light:
         name: Bedroom Lamp
 ```
 
-Configuration variables:
-
-- **id** (*Required*): Device identifier. Composed of house code and unit id.
-- **name** (*Required*): A friendly name for the device.
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: true
+  type: list
+  keys:
+    id:
+      description: Device identifier. Composed of house code and unit id.
+      required: true
+      type: string
+    name:
+      description: A friendly name for the device.
+      required: true
+      type: string
+{% endconfiguration %}

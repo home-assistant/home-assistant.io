@@ -88,6 +88,21 @@ effect_list:
   description: The list of effects the light supports.
   required: false
   type: string list
+hs_command_topic:
+  description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
+  Range for Hue: 0° .. 360°, Range of Saturation: 0..100. 
+  Note: Brightness is sent separately in the `brightness_command_topic`."
+  required: false
+  type: string
+hs_state_topic:
+  description: "The MQTT topic subscribed to receive color state updates in HS format.
+  Note: Brightness is received separately in the `brightness_state_topic`."
+  required: false
+  type: string
+hs_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the HS value."
+  required: false
+  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -200,7 +215,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
