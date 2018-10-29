@@ -40,16 +40,38 @@ sensor:
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
 
-Configuration variables:
-
- - **entity_id** (*Required*): The entity you want to track
- - **state** (*Required*): The state you want to track
- - **name** (*Optional*): Name displayed on the frontend
- - **type** (*Optional*): The type of sensor: `time`, `ratio`, or `count`. Defaults to `time`
- - **start**: When to start the measure (timestamp or datetime).
- - **end**: When to stop the measure (timestamp or datetime)
- - **duration**: Duration of the measure
-
+{% configuration %}
+entity_id:
+  description: The entity you want to track.
+  required: true
+  type: string
+state:
+  description: The state you want to track.
+  required: true
+  type: string
+name:
+  description: Name displayed on the frontend.
+  required: false
+  default: unnamed statistics
+  type: string
+type:
+  description: The type of sensor: `time`, `ratio`, or `count`.
+  required: false
+  default: time
+  type: string
+start:
+  description: When to start the measure (timestamp or datetime).
+  required: false
+  type: template
+end:
+  description: When to stop the measure (timestamp or datetime).
+  required: false
+  type: template
+duration:
+  description: Duration of the measure.
+  required: false
+  type: time
+{% endconfiguration %}
 
 <p class='note'>
   You have to provide **exactly 2** of `start`, `end` and `duration`.
@@ -73,7 +95,6 @@ The `history_stats` component will execute a measure within a precise time perio
 - How long is the period (`duration` variable)
 
 As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
-
 
 ### {% linkable_title Duration %}
 
@@ -127,6 +148,7 @@ Here are some examples of periods you could work with, and what to write in your
 **Current week**: starts last Monday at 00:00, ends right now.
 
 Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
+
 ```yaml
     start: '{% raw %}{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
