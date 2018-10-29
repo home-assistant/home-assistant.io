@@ -10,11 +10,12 @@ sharing: true
 footer: true
 ---
 
-Access to Home Assistant is secured by our authentication system. 
+Our authentication system secures access to Home Assistant.
 
 If you are starting Home Assistant for the first time, or you have logged out, you will be asked for credentials before you can log in. 
 
 <img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
+
 ## {% linkable_title User accounts %}
 
 When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
@@ -24,7 +25,7 @@ When you start Home Assistant for the first time the _owner_ user account is cre
  - Configure Hass.io (coming soon).
 
 <p class='note'>
-For the moment, other user accounts will have the same access as the owner account. In future, non-owner accounts will be able to have restrictions applied.
+For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 </p>
 
 ### {% linkable_title Your Account Profile %}
@@ -45,7 +46,7 @@ You can:
 
 ### {% linkable_title Securing your login %}
 
-_Make sure to choose a secure password!_ At some time in the future you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
+_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
 
 
 As an extra level of security, you can turn on [multi-factor authentication](http://127.0.0.1:4000/docs/authentication/multi-factor-auth/). 
@@ -86,7 +87,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `auth_provider.homeassistant`
 * `onboarding`
 
-When you start Home Assistant next you'll be required to set up authentication again.
+When you start Home Assistant next, you'll be required to set up authentication again.
 
 ### {% linkable_title Error: invalid client id or redirect url%}
 
@@ -94,7 +95,7 @@ When you start Home Assistant next you'll be required to set up authentication a
 
 You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get **Error: invalid client id or redirect url** error on the login form. However, you can use the IP address to access Home Assistant in your home network.
 
-This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g. 192.168.0.1) or loopback address (e.g. 127.0.0.1).
+This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g., `192.168.0.1`) or loopback address (e.g., `127.0.0.1`).
 
 If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. On Windows, edit the `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, or on Linux the `/etc/hosts` file,  and add following entry:
 
@@ -112,4 +113,4 @@ Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuc
 
 ### {% linkable_title Migrating from pre 0.77 %}
 
-If you were using the authentication system before 0.77, you'll likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers).
+If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers).
