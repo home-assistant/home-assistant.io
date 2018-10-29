@@ -34,13 +34,31 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 Make sure you use logins and disable anonymous access if you want to secure the system.
 </p>
 
-Configuration variables:
-
-- **plain** (*Optional*): Listen on port 1883 without SSL/TLS. Defaults to `true`.
-- **ssl** (*Optional*): Listen on port 8883 with SSL/TLS. This requires certificates. Defaults to `false`.
-- **anonymous** (*Optional*): Allow anonymous connections. If *logins* is set, the anonymous user can only read data. Defaults to `true`.
-- **logins** (*Optional*): A list of users that will be created with *username* and *password*.
-- **customize** (*Optional*): If you enable it, it reads additional configuration files (`*.conf`) from `/share/mosquitto`.
+{% configuration %}
+plain:
+  description: Listen on port 1883 without SSL/TLS.
+  required: false
+  default: true
+  type: boolean
+ssl:
+  description: Listen on port 8883 with SSL/TLS. This requires certificates.
+  required: false
+  default: false
+  type: boolean
+anonymous:
+  description: Allow anonymous connections. If *logins* is set, the anonymous user can only read data.
+  required: false
+  default: true
+  type: boolean
+logins:
+  description: A list of users that will be created with *username* and *password*.
+  required: false
+  type: list
+customize:
+  description: If you enable it, it reads additional configuration files (`*.conf`) from `/share/mosquitto`.
+  required: false
+  type: [boolean, string]
+{% endconfiguration %}
 
 ### {% linkable_title Home Assistant configuration %}
 
