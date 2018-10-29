@@ -38,7 +38,7 @@ You may need to add [multiple lights](https://community.home-assistant.io/t/mult
 
 ```yaml
 # Example configuration.yaml entry
-switch:
+light:
   - platform: tplink
     host: FIRST_IP_ADDRESS
   - platform: tplink
