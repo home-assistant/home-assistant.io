@@ -60,7 +60,7 @@ port:
   default: 8728
   type: integer
 method:
-  description: Override autodetection of device scanning method. Can be *wireless* to use local wireless registration, *capsman* for capsman wireless registration, or *ip* for DHCP leases.
+  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `ip` for DHCP leases.
   required: false
   type: string
 {% endconfiguration %}
