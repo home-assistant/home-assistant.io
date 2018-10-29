@@ -13,7 +13,7 @@ ha_release: 0.82
 ha_iot_class: "Local Polling"
 ---
 
-The `Tautulli` sensor platform will monitor activity on a given [Tautulli Server][tautulli]. It will create a sensor that shows the number of currently active streams as the state. If you click the sensor for more details it will show you more statistics, the folowing stats are aviable by default:
+The `Tautulli` sensor platform will monitor activity on a given [Tautulli Server][tautulli]. It will create a sensor that shows the number of currently active streams as the state. If you click the sensor for more details it will show you more statistics, the following stats are available by default:
 
 - Lan bandwidth
 - Number of direct plays
