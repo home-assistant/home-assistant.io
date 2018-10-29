@@ -20,8 +20,8 @@ To add a NAD amplifier to your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: nadtcp
-  host: 192.168.0.112
+  - platform: nadtcp
+    host: 192.168.0.112
 ```
 
 {% configuration %}
