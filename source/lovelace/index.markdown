@@ -65,7 +65,7 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
-    # Optional unique id for direct access /lovelace/${id}. If you don't specify one, it is added automatically
+    # Unique id for direct access /lovelace/${id}. If you don't specify one, it is added automatically.
     id: example
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
@@ -74,7 +74,7 @@ views:
     # The cards to show on this view.
     cards:
         # The filter card will filter entities for their state
-      - id: peoplehome # Every card needs an ID, if you don't specify one, it is added automatically
+      - id: peoplehome # Every card needs an ID, if you don't specify one, it is added automatically.
         type: entity-filter
         entities:
           - device_tracker.paulus
@@ -158,6 +158,6 @@ Restart Home Assistant after creating the `www` directory. Otherwise, HA will no
 
 ### {% linkable_title My `ui-lovelace.yaml` file suddenly has ID's added to all cards and views! %}
 
-Since version 0.81 we started preparing for the ability to edit you Lovelace UI from the UI it self. To be able to do this every view and card should have an unique ID. If your cards or views do not have an ID, Home Assistant will add a random one. You can edit this ID, the only restriction is that it is unique.
+Since version 0.81 we started preparing for the ability to edit you Lovelace UI from the UI itself. To be able to do this every view and card should have a unique ID. If your cards or views do not have an ID, Home Assistant will add a random one. You can edit the ID, the only restriction is that it is unique.
 
-If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure all your views and cards have an ID, then we will not touch your file.
+If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure all your views and cards have an ID, then Home Assistant will not touch your file.
