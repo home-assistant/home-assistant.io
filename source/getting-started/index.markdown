@@ -29,7 +29,7 @@ We will need a few things to get started with installing Home Assistant. For bes
 
 ### {% linkable_title Software requirements %}
 
-- Download the Hass.io image for [your device](https://www.home-assistant.io/hassio/installation/)
+- Download the Hass.io image for [your device](/hassio/installation/)
 - Download [Etcher] to write the image to an SD card
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
