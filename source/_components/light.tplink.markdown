@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: "0.50"
 ---
 
-
 The `tplink` light platform allows you to control the state of your [TP-Link smart bulb](http://www.tp-link.com/en/products/list-5609.html).
 
 Supported units:
@@ -32,19 +31,6 @@ light:
     host: IP_ADDRESS
 ```
 
-Adding multiple lights:
-
-You may need to add [multiple lights](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple lights separately.
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: tplink
-    host: FIRST_IP_ADDRESS
-  - platform: tplink
-    host: SECOND_IP_ADDRESS
-```
-
 {% configuration %}
 name:
   description: The name to use when displaying this bulb.
@@ -57,3 +43,15 @@ host:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Adding multiple lights %}
+
+You may need to add [multiple lights](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple lights separately.
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: tplink
+    host: FIRST_IP_ADDRESS
+  - platform: tplink
+    host: SECOND_IP_ADDRESS
+```
