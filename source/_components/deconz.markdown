@@ -59,11 +59,13 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 | `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
-Field and entity are exclusive, i.e you can only use one in a request.
+Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 
 { "entity": "light.light1", "data": {"name": "light2"} }
+
+{ "entity": "light.light1", "field: "/state", "data": {"on": true} }
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
@@ -88,7 +90,7 @@ Typical values for switches, the event codes are 4 numbers where the first and l
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
-For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.
+For the IKEA Tradfri remote the first digit equals, 1 for the middle button, 2 for up, 3 for down, 4 for left, and 5 for right (e.g., "event: 1002" for middle button short release).
 
 ## {% linkable_title Examples %}
 

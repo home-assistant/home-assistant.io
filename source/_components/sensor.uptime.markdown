@@ -34,7 +34,7 @@ name:
   type: string
   default: Uptime
 unit_of_measurement:
-  description: "Units for uptime measurement in either `days`, `hours`, or `minutes`."
+  description: "Units for uptime measurement in either `days`, `hours` or `minutes`."
   required: false
   type: string
   default: days

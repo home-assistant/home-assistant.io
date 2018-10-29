@@ -13,7 +13,6 @@ ha_release: "0.20"
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
@@ -26,8 +25,6 @@ netatmo:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
-
-Configuration variables:
 
 {% configuration %}
 api_key:
@@ -61,7 +58,7 @@ Click on 'Create an App' at the top of the page.
 <p class='img'>
 <img src='/images/screenshots/netatmo_create.png' />
 </p>
-You have to fill the form, but only two fields are required : Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
+You have to fill the form, but only two fields are required: Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
 
 <p class='img'>
 <img src='/images/screenshots/netatmo_app.png' />
@@ -72,4 +69,3 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 <p class='img'>
 <img src='/images/screenshots/netatmo_api.png' />
 </p>
-

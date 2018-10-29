@@ -76,6 +76,10 @@ entities:
   description: Array or comma delimited string, list of entities to group.
   required: true
   type: list
+all:
+  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false 
+  type: boolean
 {% endconfiguration %}
 
 <p class='img'>
@@ -136,7 +140,7 @@ group:
 
 ## {% linkable_title Group behavior %}
 
-When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
+By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
 ## {% linkable_title Customize group order %}
 You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
