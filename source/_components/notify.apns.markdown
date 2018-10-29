@@ -13,7 +13,13 @@ ha_release: 0.31
 
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.
 
+## {% linkable_title Setup %}
+
 To use the APNS service you will need an Apple developer account and you will need to create an app to receive push notifications. For more information, see the Apple developer documentation.
+
+## {% linkable_title Configuration %}
+
+To enable the APNS notificationsr, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,11 +31,6 @@ notify:
 ```
 
 {% configuration %}
-platform:
-  description: Name of the platform.
-  required: true
-  default: apns
-  type: string
 name:
   description: he name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: true
@@ -51,13 +52,13 @@ sandbox:
 
 The APNS platform will register two services, `notify.NOTIFIER_NAME` and `notify.apns_NOTIFIER_NAME`.
 
-### notify.apns_NOTIFIER_NAME
+### {% linkable_title notify.apns_NOTIFIER_NAME %}
 
 This service will register device IDs with Home Assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in `[NOTIFIER_NAME]_apns.yaml`.
 
 See `didRegisterForRemoteNotificationsWithDeviceToken` in the [Apple developer documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didRegisterForRemoteNotificationsWithDeviceToken:) for more information about how to obtain a device ID.
 
-### notify.NOTIFIER_NAME
+### {% linkable_title notify.NOTIFIER_NAME %}
 
 This service will send messages to a registered device. The following parameters can be used:
 
