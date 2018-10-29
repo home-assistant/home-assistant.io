@@ -78,6 +78,22 @@ Other things to be aware of:
 [openuv docs]: /components/openuv/
 [twilio docs]: /components/twilio/
 
+## {% linkable_title Release 0.81.2 - October 29 %}
+
+- Fix controller not being stored when setup fails and sequentially fails the retry functionality ([@Kane610] - [#17927]) ([unifi docs])
+- Pass hass_config to load_platform ([@balloob] - [#17952])
+- Update requests to 2.20.0 ([@balloob] - [#17978])
+- Don't use keyset ([@balloob] - [#17984]) ([cloud docs])
+
+[#17927]: https://github.com/home-assistant/home-assistant/pull/17927
+[#17952]: https://github.com/home-assistant/home-assistant/pull/17952
+[#17978]: https://github.com/home-assistant/home-assistant/pull/17978
+[#17984]: https://github.com/home-assistant/home-assistant/pull/17984
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[cloud docs]: /components/cloud/
+[unifi docs]: /components/unifi/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
