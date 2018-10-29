@@ -24,7 +24,7 @@ The `Tautulli` sensor platform will monitor activity on a given [Tautulli Server
 - Top User
 - Total bandwidth
 - Transcode count
-- Wan bandwidth
+- WAN bandwidth
 
 More user statistics can be added with the `monitored_variables` configuration option, this will add one attribute pr. user in addition to a the users current `activity`.  
 
