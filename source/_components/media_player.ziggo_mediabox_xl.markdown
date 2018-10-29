@@ -35,7 +35,7 @@ media_player:
     description: The name of the device used in the frontend.
     required: false
     type: string
-  eco_mode_on
+  eco_mode_on:
     description: Flag to indicate if the eco modus of the device is turned on. Only enable this flag after the device is tested.
     required: false
     type: boolean
