@@ -15,12 +15,13 @@ ha_iot_class: "Local Polling"
 
 Koogeek sensor is based on HomeKit platform and is using HomeKit controller component.
 To get Koogeek sensor working with Home Assistant, follow the instructions for the general HomeKit controller component.
+
 Koogeek sensor is known to be working with these Koogeek devices:
 
 - [O1EU Outlet](https://www.koogeek.com/p-o1eu.html)
 
-Sensor is providing information about:
+The sensor is providing information about:
 
-- realtime energy consumption
-- current hour energy consumption data
-- running time
+- Real-time energy consumption
+- Current hour energy consumption data
+- Running time
