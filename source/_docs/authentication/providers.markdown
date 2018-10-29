@@ -63,7 +63,7 @@ The Trusted Networks auth provider defines a range of IP addresses for which no 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
 <p class='note info'>
-The [multi-factor authentication module](/authentication/multi-factor-auth/) will not participate in the login process if you using this auth provider.
+The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you using this auth provider.
 </p>
 
 Here is an example in `configuration.yaml` to set up Trusted Networks:
