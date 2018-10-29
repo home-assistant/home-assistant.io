@@ -55,7 +55,7 @@ name:
   default: unnamed statistics
   type: string
 type:
-  description: The type of sensor: `time`, `ratio`, or `count`.
+  description: "The type of sensor: `time`, `ratio`, or `count`."
   required: false
   default: time
   type: string
