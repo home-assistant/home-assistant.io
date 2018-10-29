@@ -13,7 +13,7 @@ footer: true
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
 <p class='note'>
-The authentication system has been changed recently. Previously there was a single "_API password_" to log in, but you can now choose from several auth providers.<br/> <br/> 
+The authentication system has been changed recently. Previously there was a single "_API password_" to log in, but you can now choose from several auth providers.<br/> <br/>
 
 To make the transition from API passwords easier, we've added a _Legacy API Password_ auth provider. This is enabled by default if you have an API password configured so you will still be able to log in.
 
@@ -23,7 +23,7 @@ However, this feature is deprecated and will be removed in a future release so y
 ## {% linkable_title Configuring auth providers %}
 
 <p class='note warning'>
-Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could  reduce your security or create difficulties logging in if it is not configured correctly.
+Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 </p>
 
 
@@ -58,7 +58,7 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 ### {% linkable_title Trusted Networks %}
 
-The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "whitelisting"). For example you can whitelist your local network so  you won't be prompted for a password if you access Home Assistant from inside your home. 
+The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "whitelisting"). For example, you can whitelist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
@@ -103,5 +103,5 @@ http:
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
 
 <p class='note warning'>
-[Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
+[Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
 </p>
