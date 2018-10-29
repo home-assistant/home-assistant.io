@@ -17,7 +17,7 @@ The `Tautulli` sensor platform will monitor activity on a given [Tautulli Server
 
 - Lan bandwidth
 - Number of direct plays
-- Number of direc streams
+- Number of direct streams
 - Stream count
 - Top Movie
 - Top TV Show
