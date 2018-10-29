@@ -39,7 +39,7 @@ You can:
 * Change the language you prefer Home Assistant to use.
 * Change your password. 
 * Select the [theme](https://www.home-assistant.io/components/frontend/#defining-themes) for the interface of Home Assistant.
-* Enable or disable [multi-factor authentication](http://127.0.0.1:4000/docs/authentication/multi-factor-auth/).
+* Enable or disable [multi-factor authentication](http://www.home-assistant.io/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
 * Log out of Home Assistant. 
