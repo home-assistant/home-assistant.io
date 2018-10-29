@@ -26,8 +26,8 @@ The following will take you through the steps required to install Hass.io.
     
    - As a virtual appliance: 
   
-     - [OVA][Virtual Appliance]
      - [VMDK][vmdk]
+     - [OVA (READ MORE: not available at this time)][Virtual Appliance]
     
 2. Install Hass.io:
 
