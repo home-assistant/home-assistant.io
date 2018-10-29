@@ -139,6 +139,16 @@ condition:
         before: sunrise
 ```
 
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+```
+
 Here is a truth table to clarify the parameters with and without offset:
 
 | command                            |after midnight | at sunrise  | daytime | at sunset  | until midnight |
