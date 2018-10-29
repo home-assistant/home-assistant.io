@@ -48,15 +48,15 @@ proximity:
     unit_of_measurement: mi
 ```
 
-Configuration variables:
 {% configuration %}
-  proximity:
-    zone:
-      description: The zone to which this component is measuring the distance to. Default is the home zone.
-      required: false
-
+proximity:
+  zone:
+    description: The zone to which this component is measuring the distance to. Default is the home zone.
+    required: false
+    type: map
+    keys:
       ignored_zones:
-        description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
+      description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
         required: false
         type: list
       devices:
@@ -71,7 +71,7 @@ Configuration variables:
         description: The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively].
         required: false
         type: string
-        default: km (kilometers)
+        default: km
 {% endconfiguration %}
 
 To add multiple proximity components, simply use a list in your `configuration.yaml` file:
