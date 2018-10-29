@@ -11,7 +11,6 @@ ha_category: Notifications
 ha_release: 0.31
 ---
 
-
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.
 
 To use the APNS service you will need an Apple developer account and you will need to create an app to receive push notifications. For more information, see the Apple developer documentation.
@@ -25,12 +24,30 @@ notify:
   topic: topic
 ```
 
-Configuration variables:
-
-- **name** (*Required*): The name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **cert_file** (*Required*): The certificate to use to authenticate with the APNS service.
-- **topic** (*Required*): The app bundle ID specified in the certificate.
-- **sandbox** (*Optional*): If true notifications will be sent to the sandbox (test) notification service. Default false.
+{% configuration %}
+platform:
+  description: Name of the platform.
+  required: true
+  default: apns
+  type: string
+name:
+  description: he name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: true
+  type: string
+cert_file:
+  description: The certificate to use to authenticate with the APNS service.
+  required: true
+  type: string
+topic:
+  description: The app bundle ID specified in the certificate.
+  required: true
+  type: string
+sandbox:
+  description: If true notifications will be sent to the sandbox (test) notification service.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 The APNS platform will register two services, `notify.NOTIFIER_NAME` and `notify.apns_NOTIFIER_NAME`.
 
