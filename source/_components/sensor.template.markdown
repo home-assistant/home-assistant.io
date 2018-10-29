@@ -307,22 +307,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Template tracking %}
-
-This example shows how to add `entity_id` to a template to allow tracking of updates. Fixing an error caused in (81.0) 
-
-{% raw %}
-```yaml
-sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      entity_id: now.strptime
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
-```
-{% endraw %}
+Useful sensor to use might be `sun.sun` or `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
 Note: If a template uses more than one sensor they can be listed
 
