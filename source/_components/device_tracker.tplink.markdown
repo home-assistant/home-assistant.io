@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "TP-Link"
+title: "TP-Link (Device Tracking)"
 description: "Instructions on how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
 sidebar: true
@@ -13,7 +13,12 @@ ha_release: pre 0.7
 ---
 
 
-The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device.
+The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) router.
+
+This is not for the TP-Link Smart devices:
+
+- For [lights/bulbs](https://www.home-assistant.io/components/light.tplink/) go here.
+- For [switches/sockets](https://www.home-assistant.io/components/switch.tplink/) go here.
 
 Currently supported devices includes the following:
 
