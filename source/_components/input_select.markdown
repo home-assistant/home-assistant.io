@@ -43,15 +43,15 @@ input_select:
       options:
         description: List of options to choose from.
         required: true
-        type: Array
+        type: list
       name:
         description: Friendly name of the input.
         required: false
-        type: String
+        type: string
       initial:
         description: Initial value when Home Assistant starts.
         required: false
-        type: Element of options
+        type: map
         default: First element of options
       icon:
         description: Icon to display for the component.
