@@ -137,7 +137,7 @@ icon:
   required: false
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
-  default: `mdi:link`
+  default: "`mdi:link`"
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
