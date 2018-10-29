@@ -38,8 +38,8 @@ You can:
 
 * Change the language you prefer Home Assistant to use.
 * Change your password. 
-* Select the [theme](https://www.home-assistant.io/components/frontend/#defining-themes) for the interface of Home Assistant.
-* Enable or disable [multi-factor authentication](http://www.home-assistant.io/docs/authentication/multi-factor-auth/).
+* Select the [theme](/components/frontend/#defining-themes) for the interface of Home Assistant.
+* Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
 * Log out of Home Assistant. 
@@ -49,7 +49,7 @@ You can:
 _Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
 
 
-As an extra level of security, you can turn on [multi-factor authentication](http://127.0.0.1:4000/docs/authentication/multi-factor-auth/). 
+As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/). 
 
 ## {% linkable_title Other authentication techniques %}
 
@@ -81,7 +81,7 @@ INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer 
 
 ### {% linkable_title Lost owner password %}
 
-While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](https://www.home-assistant.io/docs/configuration/):
+While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 
 * `auth`
 * `auth_provider.homeassistant`
@@ -113,4 +113,4 @@ Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuc
 
 ### {% linkable_title Migrating from pre 0.77 %}
 
-If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers).
+If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](/docs/authentication/providers/#configuring-auth-providers).
