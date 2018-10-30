@@ -138,6 +138,7 @@ Number 3 sends an image from a local path.
 
 ### {% linkable_title Jabber File Message %}
 
+
 Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
 
 ```yaml      
@@ -155,7 +156,7 @@ Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.t
           timeout: 10
 ```
 
-### {% linkable_title Jabber Text and Image Message %}
+### {% linkable_title Templating %}
 
 Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
 
@@ -171,5 +172,22 @@ Number 5 sends an image retrieved from a URL, and an additional text message wit
         data:
           url: "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192.png"
 ```
+
+Number 6 sends an image from a templated URL.
+
+```yaml
+# Example script.yaml entry
+6_send_jabber_message_with_image_from_url_template:
+  alias: "Send Image from template URL via Jabber"
+  sequence:
+    - service: notify.jabber
+      data:
+        title: ""
+        message: ""
+        data:
+          url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{% raw %}{{ now().year }}/{{ now().month }}/{{ now().day }}/{{ now().hour }}{{ (now().minute + 58) % 60 // 10}}{% endraw %}0_hd.jpg"
+```
+
+The possible source of a file is prioritized and only one will be picked up. `url_template` has the hightest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
 
 To find out more about notifications, please see the [getting started with automation page](/getting-started/automation/).
