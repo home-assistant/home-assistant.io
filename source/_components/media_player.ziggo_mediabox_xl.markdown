@@ -23,7 +23,7 @@ media_player:
   - platform: ziggo_mediabox_xl
     host: 192.168.0.123
     name: Ziggo Mediabox
-    eco_mode_on: false
+    eco_mode: false
 ```
 
 {% configuration %}
@@ -35,8 +35,8 @@ media_player:
     description: The name of the device used in the frontend.
     required: false
     type: string
-  eco_mode_on:
-    description: Flag to indicate if the eco modus of the device is turned on. Only enable this flag after the device is tested.
+  eco_mode:
+    description: Flag to indicate if the eco mode of the device is turned on. Only enable this flag after the device is tested.
     required: false
     type: boolean
     default: false
