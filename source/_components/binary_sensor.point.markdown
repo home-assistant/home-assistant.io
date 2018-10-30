@@ -1,0 +1,32 @@
+---
+layout: page
+title: "Minut Point Binary Sensor"
+description: "Access your Minut Point Events as binary senros."
+date: 2018-10-30
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: minut.svg
+ha_category: BinarySensor
+ha_iot_class: "Cloud Push"
+---
+
+Each Point exposes the following Sensors:
+
+- **battery**: `On` means low, `Off` means normal
+- **cold**: `On` means cold, `Off` means normal
+- **connectivity**: `On` means connected, `Off` means disconnected
+- **dry**: `On` means too dry, `Off` means normal
+- **heat**: `On` means hot, `Off` means normal
+- **light**: `On` means light detected, `Off` means no light
+- **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
+- **motion**: `On` means motion detected, `Off` means no motion (clear)
+- **sound**: `On` means sound detected, `Off` means no sound (clear)
+
+
+For installation instructions, see [the Point component](/components/point/).
+
+<p class='note'>
+The events sent from the Point is also sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](https://www.home-assistant.io/components/ifttt/) component on how to write automations for webhooks.
+</p>
