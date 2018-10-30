@@ -28,7 +28,7 @@ There are several attributes which can be used for automations and templates.
 | --------- | ----------- |
 | `current_humidity` | An integer that indicates the current relative humidty percentage of the room, as determined by the device's onboard humidity sensor.
 | `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
-| `fan_mode` | String that indicates the current fan speed setting (Off, Minimum, Low, Medium, High, or Maximum).
+| `fan_mode` | String that indicates the current fan speed setting (Off, Low, Medium, or High). The WeMo humidifier speeds of minimum and low both map to the Home Assistant speed of low, and the WeMo humidifier speeds of high and maximum both map to the Home Assistant speed of high (due to constraints on which speeds Home Assistant supports for fans)
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 | `filter_life` | The used life of the filter (as a percentage).
 | `filter_expired` | A boolean that indicates whether the filter has expired and needs to be replaced.
@@ -39,8 +39,8 @@ There are several services which can be used for automations and control of the 
 
 | Service | Description |
 | --------- | ----------- |
-| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: off, minimum, low, medium, high, maximum).
-| `wemo_set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_ids is an optional list of entities to set humidity on (omitting this list will set humidity on all WeMo Humidifiers), and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 50, or 100)).
+| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: off, low, medium, or high). When selecting low for the speed, this will map to the WeMo humidifier speed of minimum. When selecting high for the speed, this will map to the WeMo humidifier speed of maximum. The WeMo humidifier speeds of low and high are unused due to constraints on which fan speeds Home Assistant supports.
+| `wemo_set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is an optional list of entities to set humidity on (omitting this list will set humidity on all WeMo Humidifiers), and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 50, or 100 that are supported by the WeMo humidifier)).
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
 | `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
 | `toggle` | Calling this service will toggle the humidifier between on and off states.
