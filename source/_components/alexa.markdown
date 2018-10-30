@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: amazon-echo.png
+logo: https://d33wubrfki0l68.cloudfront.net/7f1eac8e805b2c04a76f485797baaa4fee3ad9d8/1e849/images/supported_brands/amazon-echo.png
 ha_category: Voice
 featured: true
 ha_release: '0.10'
