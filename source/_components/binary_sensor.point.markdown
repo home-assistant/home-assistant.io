@@ -12,7 +12,7 @@ ha_category: Binary Sensor
 ha_iot_class: "Cloud Push"
 ---
 
-Each Point exposes the following Sensors:
+Each Point exposes the following binary sensors:
 
 - **battery**: `On` means low, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal
