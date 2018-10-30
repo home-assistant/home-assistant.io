@@ -15,6 +15,7 @@ ha_iot_class: "Cloud Push"
 Each Point exposes the following binary sensors:
 
 - **battery**: `On` means low, `Off` means normal
+- **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal
 - **connectivity**: `On` means connected, `Off` means disconnected
 - **dry**: `On` means too dry, `Off` means normal
@@ -23,7 +24,7 @@ Each Point exposes the following binary sensors:
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
 - **motion**: `On` means motion detected, `Off` means no motion (clear)
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
-
+- **tamper**: `On` means the point was removed or attached
 
 For installation instructions, see [the Point component](/components/point/).
 
