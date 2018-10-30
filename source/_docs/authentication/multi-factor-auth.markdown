@@ -77,11 +77,20 @@ homeassistant:
     - type: notify
 ```
 
-Optional configuration variables:
-
-- **exclude** (*Optional*): The list of notifying services you do not want to include.
-- **include** (*Optional*): The list of notifying services you want to include.
-- **message** (*Optional*): The message template.
+{% configuration %}
+exclude:
+  description: The list of notifying services you want to exclude.
+  required: false
+  type: list
+include:
+  description: The list of notifying services you want to include.
+  required: false
+  type: list
+message:
+  description: The message template.
+  required: false
+  type: template
+{% endconfiguration %}
 
 ```yaml
 # Example configuration, with a message template.

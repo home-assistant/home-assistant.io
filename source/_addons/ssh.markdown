@@ -22,7 +22,7 @@ This add-on will not enable you to install packages or do anything as root. This
 
 To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other]. It is possible to set a password for login since version 2.0 but for high security use private/public keys. You can not run both variants at the same time.
 
-To start this add-on for the first time, you either need to include a key (enclosed in quotation marks, on a single line without line breaks) or set a password in the options section. 
+To start this add-on for the first time, you either need to include a key (enclosed in quotation marks, on a single line without line breaks) or set a password in the options section.
 
 ```json
 {
@@ -37,11 +37,16 @@ The username for login over SSH is `root`. The complete login command is `ssh ro
 
 After logging in, you will find yourself in this add-on's container. The Home Assistant configuration directory is mounted on the path `/config`.
 
-Configuration variables:
-
-- **authorized_keys** (*Optional*): Your public keys for the authorized key file. Every element will be a line inside that file.
-- **password** (*Optional*): Set a password for login. We do **NOT** recommend this variant.
-
+{% configuration %}
+authorized_keys:
+  description: Your public keys for the authorized key file. Every element will be a line inside that file.
+  required: false
+  type: string
+password:
+  description: Set a password for login. We do **NOT** recommend this variant.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L7PCPQYwspo" frameborder="0" allowfullscreen></iframe>
