@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "TP-Link (Device Tracking)"
+title: "TP-Link Router (Presence Detection)"
 description: "Instructions on how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
 sidebar: true
