@@ -27,6 +27,13 @@ $ sudo apt-get install libxml2-dev libxslt-dev \
   python3-setuptools zlib1g-dev build-essential
 ```
 
+If you installed Home Assistant in a virtualenv, also run the following command inside it. 
+Be patient this will take a while.
+```bash
+pip3 install lxml
+```
+
+
 ## {% linkable_title Setup%}
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
