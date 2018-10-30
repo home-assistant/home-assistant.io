@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: geofency.png
-ha_category: Hub
+ha_category: Presence Detection
 ha_release: 0.82
 ha_iot_class: "Cloud Push"
 ---
