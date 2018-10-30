@@ -23,4 +23,4 @@ The events sent from the Point is sent as a webhook back to Home Assistant with 
 ### {% linkable_title Configuration %}
 
 Integration to Point is configured via the Integrations setting found in the Configuration section on your Home Assitant page.
-Just follow the integration dialogs and make sure that your Home Assistant instance is accessable from the web (to be able to recieve webhooks).
+Just follow the integration dialogs and make sure that your Home Assistant instance is accessible from the web (to be able to receive webhooks).
