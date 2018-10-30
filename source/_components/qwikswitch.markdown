@@ -35,10 +35,11 @@ dimmer_adjust:
   required: false
   type: float
   default: 1
- button_events:
-   description: A comma-separated list of button types that will generate events. See [QwikSwitch Events] for detail.
-   required: false
-   default: TOGGLE,SCENE EXE,LEVEL
+button_events:
+  description: A comma-separated list of button types that will generate events. See [QwikSwitch Events] for detail.
+  required: false
+  default: TOGGLE,SCENE EXE,LEVEL
+  type: string
 switches:
   description: A list of device QS_id's that should be switches, and not lights (i.e. `['@0dev01', '@0dev02']`)
   required: false
@@ -62,18 +63,22 @@ sensors:
         - door (binary_sensor, single channel)
         - qwikcord (Channel 1 = CTavg, Channel 2 = CTsum)
       required: true
+      type: string
     channel: 
       description: The channel of interest. Refer to type above.
       required: false
       default: 1
+      type: int
     invert:
       description: Invert the open/close state. Only applicable to binary_sensors
       required: false
       default: false
+      type: string
     class:
       description: The [class](https://www.home-assistant.io/components/binary_sensor) or binary_sensor. Only applicable to binary_sensors.
       required: false
       default: door
+      type: string
 {% endconfiguration %}
 
 ### {% linkable_title QwikSwitch Events %}
