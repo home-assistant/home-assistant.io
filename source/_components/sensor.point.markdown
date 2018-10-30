@@ -23,5 +23,5 @@ Each Point exposes the following Sensors:
 For installation instructions, see [the Point component](/components/point/).
 
 <p class='note'>
-The Point is just active occasionaly so the sensors are only updated every hour or so.
+The Point is just active occasionally so the sensors are only updated every hour or so.
 </p>
