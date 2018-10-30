@@ -21,13 +21,13 @@ bundle exec rake preview
 
 ## Speeding up site generation
 
-Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
+Every release, we post long changelogs to the website. This slows down the generation of the website significantly! We have included a tool to temporarily exclude the blog posts that you're not working on in order to keep them out of the way. This can be used with the following command:
 
 ```bash
 bundle exec rake isolate[filename-of-blogpost]
 ```
 
-When you're done working on the site, run the following command to move the posts back again:
+When you're finished working on your site, use the following command to include those posts back in again:
 
 ```bash
 bundle exec rake integrate
