@@ -10,6 +10,7 @@ footer: true
 logo: belkin_wemo.png
 ha_category: Fan
 ha_iot_class: "Local Polling"
+ha_release: 0.82
 ---
 
 
@@ -25,8 +26,8 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `current_humidity` | An int that indicates the current relative humidty percentage of the room, as determined by the device's onboard humidity sensor.
-| `target_humidity` | An int that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
+| `current_humidity` | An integer that indicates the current relative humidty percentage of the room, as determined by the device's onboard humidity sensor.
+| `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
 | `fan_mode` | String that indicates the current fan speed setting (Off, Minimum, Low, Medium, High, or Maximum).
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 | `filter_life` | The used life of the filter (as a percentage).
