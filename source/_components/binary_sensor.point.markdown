@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: minut.svg
-ha_category: BinarySensor
+ha_category: Binary Sensor
 ha_iot_class: "Cloud Push"
 ---
 
