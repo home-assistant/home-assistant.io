@@ -2,14 +2,14 @@
 layout: page
 title: "Belkin WeMo (Holmes) Smart Humidifier"
 description: "Instructions how to integrate Belkin WeMo humidifiers into Home Assistant."
-date: 2017-12-10 23:53
+date: 2018-10-29 19:58
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: belkin_wemo.png
 ha_category: Fan
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Polling"
 ---
 
 
