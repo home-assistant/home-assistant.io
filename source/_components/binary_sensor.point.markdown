@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Minut Point Binary Sensor"
-description: "Access your Minut Point Events as binary senros."
+description: "Access your Minut Point Events as binary sensors."
 date: 2018-10-30
 sidebar: true
 comments: false
