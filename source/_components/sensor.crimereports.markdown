@@ -26,15 +26,32 @@ sensor:
     radius: <your radius>
 ```
 
-Configuration options for the Crime Reports Sensor:
-
-- **name** (*Required*): Name the sensor whatever you want.
-- **radius** (*Required*): Radius in meters.
-- **latitude** (*Optional*): Defaults to your home zone latitude.
-- **longitude** (*Optional*): Defaults to your home zone longitude.
-- **include** (*Optional*): List of incident types to include.
-- **exclude** (*Optional*): List of incident types to exclude.
-
+{% configuration %}
+name:
+  description: Custom name for the sensor.
+  required: true
+  type: string
+radius: 
+  description: Radius in meters
+  required: true
+  type: float
+latitude: 
+  description: Latitude for sensor.
+  required: false
+  default: Your home zone latitude defined in your configuration.
+longitude: 
+  description: Longitude for sensor.
+  required: false
+  default: Your home zone longitude defined in your configuration.
+include: 
+  description: List of incident types to include. See below for a list of valid incidents.
+  required: false
+  type: list
+exclude: 
+  description: List of incident types to exclude. See below for a list of valid incidents.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Notes %}
 
