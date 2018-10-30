@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The Point component is the main component to integrate the [Minut Point](https://minut.se/). To connect Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` using the `callback url` shown in the integration flow.
 
 <p class='note'>
-The Point is just active occasionaly so the sensors are only updated every hour or so.
+The Point is just active occasionally so the sensors are only updated every hour or so.
 The events sent from the Point is sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](https://www.home-assistant.io/components/ifttt/) component on how to write automations for webhooks.
 </p>
 
