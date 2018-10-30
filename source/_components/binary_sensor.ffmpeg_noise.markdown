@@ -67,7 +67,7 @@ output:
   required: false
   type: string
 run_test:
-  description: Check if `input` is usable by ffmpeg.
+  description: Check if `input` is usable by `ffmpeg`.
   required: false
   default: true
   type: boolean
