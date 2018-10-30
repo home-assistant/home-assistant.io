@@ -208,7 +208,7 @@ device:
 
 In this section you will find some real-life examples of how to use this platform.
 
-### {% linkable_title Full configuration without tilt %}
+### {% linkable_title Full configuration state topic without tilt %}
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
@@ -233,7 +233,7 @@ cover:
     value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
-### {% linkable_title Full configuration without tilt %}
+### {% linkable_title Full configuration position topic without tilt %}
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
