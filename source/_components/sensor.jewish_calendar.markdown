@@ -7,10 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Calendar
-ha_iot_class: "Local Push"
-ha_release: "0.80"
+ha_iot_class: "Local Poll"
+ha_release: "0.79"
 ---
 
 The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.
@@ -28,20 +27,20 @@ sensor:
 {% configuration %}
 language:
   required: false
-  default: hebrew
+  default: english
   description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishri 5779).
   type: string
 latitude:
   required: false
   description: Latitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
+  type: integer
 longitude:
   required: false
   description: Longitude for time calculations of the sensor.
   default: Home Assistant location
-  type: int
-disapora:
+  type: integer
+diaspora:
   required: false
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
   default: False
@@ -54,7 +53,7 @@ sensors:
     date:
       description: Show the hebrew date for today.
     weekly_portion:
-      description: Show the weekly portion (parshat hashavu'a) - _At the moment only shows up on Saturday's_.
+      description: Show the weekly portion (parshat hashavu'a).
     holiday_name:
       description: If it is a holiday, show the name of the holiday.
     holyness:
@@ -90,7 +89,7 @@ sensors:
 sensor:
   - platform: jewish_calendar
     language: english
-    disapora: True
+    diaspora: true
     sensors:
       - date
       - weekly_portion

@@ -25,11 +25,27 @@ switch:
   host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): This is the IP address of your Transmission daemon, eg. 192.168.1.32.
-- **port** (*Optional*): The port your Transmission daemon uses, defaults to 9091.
-- **name** (*Optional*): The name to use when displaying this Transmission instance.
-- **username** (*Optional*): Your Transmission username, if you use authentication.
-- **password** (*Optional*): Your Transmission password, if you use authentication.
-
+{% configuration %}
+host:
+  required: true
+  type: string
+  description: This is the IP address of your Transmission daemon, e.g., 192.168.1.32.
+port:
+  required: false
+  type: integer
+  default: 9091
+  description: The port your Transmission daemon uses.
+name:
+  required: false
+  type: string
+  default: Transmission Turtle Mode
+  description: The name to use when displaying this Transmission instance.
+username:
+  required: false
+  type: string
+  description: Your Transmission username, if you use authentication.
+password:
+  required: false
+  type: string
+  description: Your Transmission password, if you use authentication.
+{% endconfiguration %}

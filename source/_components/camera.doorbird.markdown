@@ -19,6 +19,8 @@ The `doorbird` implementation allows you to view the live video and previous ima
   You must have the [DoorBird component](/components/doorbird/) configured to use this camera.
 </p>
 
+## {% linkable_title Configuration %}
+
 To enable the camera, add the following to your `configuration.yaml` file:
 
 ```yaml

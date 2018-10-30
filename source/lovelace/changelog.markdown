@@ -8,6 +8,20 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.81.0 %}
+- 📣 New card type: `alarm-panel` ❤️
+- 📣 New card type: `thermostat` ❤️
+- 📣 New card type: `entity-button` ❤️
+- 📣 [glance card]: can be themed
+- 📣 [glance card]: define columns within
+- 📣 [entity button]: can be themed
+- Long press is now supported
+- Update to allow the use of Custom UI. If you run into issues please disable Custom UI and test before reporting them. If the issue goes away without Custom UI please report this to the Custom UI developer as this is not officially supported.
+
+## {% linkable_title Changes in 0.80.0 %}
+- 📣 New card type: `sensor` ❤️
+- 📣 New card type: `gauge` ❤️
+
 ## {% linkable_title Changes in 0.77.0 %}
 - 📣 New notification drawer ❤️
 

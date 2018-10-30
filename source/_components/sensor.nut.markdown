@@ -43,7 +43,7 @@ sensor:
     description: The port number.
     required: false
     default: 3493
-    type: int
+    type: integer
   alias:
     description: Name of the ups on the NUT server.
     required: false

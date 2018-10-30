@@ -44,6 +44,14 @@ In the event that a Home Assistant version doesn't play well with your hardware 
 $ pip3 install homeassistant==0.XX.X
 ```
 
+#### {% linkable_title Run the beta version %}
+
+If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+
+```bash
+$ pip3 install --pre --upgrade homeassistant
+```
+
 #### {% linkable_title Run the development version %}
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.

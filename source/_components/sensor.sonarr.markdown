@@ -27,33 +27,73 @@ sensor:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your Sonarr API key, found in Settings > General in the Sonarr Web UI.
-- **host** (*Optional*): The host Sonarr is running on. Defaults to `localhost`.
-- **port** (*Optional*): The port Sonarr is running on. Defaults to 8989.
-- **monitored_conditions** array (*Optional*): Conditions to display on the frontend. Defaults to `upcoming`.
-  - **series**: The number of series in Sonarr.
-  - **upcoming**: The number of upcoming episodes.
-  - **wanted**: The number of episodes still 'wanted'.
-  - **queue**: The number of episodes in the queue.
-  - **commands**: The number of commands being run.
-  - **diskspace**: Available disk space.
-
-- **urlbase** (*Optional*): The base URL Sonarr is running under. Defaults to `/`.
-- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
-- **include_paths** (*Optional*): Array of file paths to include when calculating diskspace. Leave blank to include all.
-- **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
-- **ssl**:  boolean (*Optional*): Whether or not to use SSL for Sonarr.
+{% configuration %}
+api_key:
+  required: true
+  type: string
+  description: "Your Sonarr API key, found in Settings > General in the Sonarr Web UI."
+host:
+  required: false
+  type: string
+  description: The host Sonarr is running on.
+  default: "`localhost`"
+port:
+  required: false
+  type: integer
+  description: The port Sonarr is running on.
+  default: 8989
+monitored_conditions:
+  type: list
+  required: false
+  description: Conditions to display on the frontend.
+  default: "`upcoming`"
+  keys:
+    series:
+      description: The number of series in Sonarr.
+    upcoming:
+      description: The number of upcoming episodes.
+    wanted:
+      description: The number of episodes still 'wanted'.
+    queue:
+      description: The number of episodes in the queue.
+    commands:
+      description: The number of commands being run.
+    diskspace:
+      description: Available disk space.
+urlbase:
+  required: false
+  type: string
+  description: The base URL Sonarr is running under.
+  default: "`/`"
+days:
+  required: false
+  type: integer
+  description: How many days to look ahead for the upcoming sensor, 1 means today only.
+  default: 1
+include_paths:
+  required: false
+  type: list
+  description: Array of file paths to include when calculating diskspace. Leave blank to include all.
+unit:
+  required: false
+  type: string
+  description: The unit to display disk space in.
+  default: GB
+ssl:
+  required: false
+  type: boolean
+  description: Whether or not to use SSL for Sonarr.
+  default: false
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Get Episodes airing in next 2 days %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -68,7 +108,7 @@ sensor:
 SSL may run on a different port than the default (8989). The SSL port can be bound to any port in Sonarr, so it should be set in the config here (unless it is changed to 8989). See the [Sonarr site](https://github.com/Sonarr/Sonarr/wiki/SSL) for details on SSL in Sonarr.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -83,7 +123,7 @@ sensor:
 ### {% linkable_title Get disk space for all storage locations %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -97,7 +137,7 @@ sensor:
 The storage locations Sonarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY
@@ -115,7 +155,7 @@ The Sonarr API returns available space in bytes, but this sensor will default to
 *This calculation is done using base 2 math, and may differ from systems calculating using base 10 math.*
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: sonarr
     api_key: YOUR_API_KEY

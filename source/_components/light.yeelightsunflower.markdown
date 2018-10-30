@@ -28,15 +28,17 @@ light:
     host: 192.168.1.59
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of your Yeelight Sunflower hub.
+{% configuration %}
+host:
+  description: IP address of your Yeelight Sunflower hub.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
-When the hub is loaded, your lights will appear as devices with their Zigbee IDs as part of the entity name. 
+When the hub is loaded, your lights will appear as devices with their Zigbee IDs as part of the entity name.
 </p>
 
 <p class='note warning'>
 The Yeelight Sunflower hub supports SSDP discovery, but that has not been built into the platform. Let the developer know if that would be helpful to you.
 </p>
-

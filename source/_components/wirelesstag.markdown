@@ -15,6 +15,8 @@ ha_release: 0.68
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](http://wirelesstag.net) sensors tags in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -25,14 +27,14 @@ wirelesstag:
 ```
 
 {% configuration %}
-  username:
-    description: Username for your [wirelesstag.net](http://wirelesstag.net) account.
-    required: true
-    type: string
-  password:
-    description: Password for your [wirelesstag.net](http://wirelesstag.net) account.
-    required: true
-    type: string
+username:
+  description: Username for your wirelesstag.net account.
+  required: true
+  type: string
+password:
+  description: Password for your wirelesstag.net account.
+  required: true
+  type: string
 {% endconfiguration %}
 
 Finish your configuration by visiting the [WirelessTag binary sensor](/components/binary_sensor.wirelesstag/), [WirelessTag sensor](/components/sensor.wirelesstag/), or [WirelessTag switch](/components/switch.wirelesstag/) documentation.

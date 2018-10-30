@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `firetv` platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
+The `firetv` platform allows you to control a [Amazon Fire TV/stick](https://www.amazon.com/b/?node=8521791011).
 
 The python-firetv Python 2.x module with its helper script that exposes an HTTP server to fetch state and perform actions is used.
 
@@ -56,13 +56,28 @@ media_player:
   - platform: firetv
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The host where `firetv-server` is running. Default is localhost.
-- **port** (*Optional*): The port where `firetv-server` is running. Default is 5556.
-- **device** (*Optional*): The device ID. Defaults to `default`.
-- **name** (*Optional*): The friendly name of the device, default is 'Amazon Fire TV'.
-
+{% configuration %}
+host:
+  description: "The host where `firetv-server` is running."
+  required: false
+  type: string
+  default: localhost
+port:
+  description: "The port where `firetv-server` is running."
+  required: false
+  type: integer
+  default: 5556
+device:
+  description: The device ID.
+  required: false
+  type: string
+  default: default
+name:
+  description: The friendly name of the device.
+  required: false
+  type: string
+  default: Amazon Fire TV
+{% endconfiguration %}
 
 <p class='note warning'>
 Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device ID in `device`. Run `firetv-server -h` and/or view the source for complete capabilities.

@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Downloading
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
@@ -22,9 +23,12 @@ downloader:
   download_dir: downloads
 ```
 
-Configuration variables:
-
-- **download_dir** (*Required*): If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`).
+{% configuration %}
+download_dir:
+  description: "If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`)."
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Use the service %}
 

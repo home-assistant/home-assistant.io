@@ -13,7 +13,6 @@ ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
-
 The `command_line` binary sensor platform issues specific commands to get data.
 
 ## {% linkable_title Configuration %}
@@ -27,20 +26,49 @@ binary_sensor:
     command: cat /proc/sys/net/ipv4/ip_forward
 ```
 
-Configuration variables:
-
-- **command** (*Required*): The action to take to get the value.
-- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
-- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
-- **command_timeout** (*Optional*): Defines number of seconds for command timeout (defaults to 15 seconds).
+{% configuration %}
+command:
+  description: The action to take to get the value.
+  required: true
+  type: string
+name:
+  description: Let you overwrite the name of the device.
+  required: false
+  type: string
+  default: "*name* from the device"
+device_class:
+  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  required: false
+  type: string
+payload_on:
+  description: The payload that represents enabled state.
+  required: false
+  type: string
+  default: ON
+payload_off:
+  description: The payload that represents disabled state.
+  required: false
+  type: string
+  default: OFF
+value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+  required: false
+  type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.
+  required: false
+  type: integer
+  default: 60
+command_timeout:
+  description: Defines number of seconds for command timeout.
+  required: false
+  type: integer
+  default: 15
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title SickRage %}
 

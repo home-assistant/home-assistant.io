@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.13
+ha_qa_scale: internal
 ---
 
 The `proximity` component allows you to monitor the proximity of devices to a particular [zone](/components/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
@@ -42,7 +43,7 @@ proximity:
     ignored_zones:
       - twork
     devices:
-      - device_tracker.nwaring_nickmobile
+      - device_tracker.car1
     tolerance: 50
     unit_of_measurement: mi
 ```
@@ -62,20 +63,20 @@ To add multiple proximity components, simply use a list in your `configuration.y
 proximity:
   home:
     ignored_zones:
-      - twork
-      - elschool
+      - work
+      - school
     devices:
-      - device_tracker.nwaring_nickmobile
-      - device_tracker.eleanorsiphone
-      - device_tracker.tsiphone
+      - device_tracker.car1
+      - device_tracker.iphone1
+      - device_tracker.iphone2
     tolerance: 50
     unit_of_measurement: mi
   home3:
     devices:
-      - device_tracker.tsiphone
+      - device_tracker.iphone1
     tolerance: 50
   work:
     devices:
-      - device_tracker.elanorsiphone
+      - device_tracker.iphone2
     tolerance: 10
 ```

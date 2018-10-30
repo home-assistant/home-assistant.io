@@ -35,7 +35,7 @@ These are some of the available suites:
 - [AppDaemon](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/appdaemon.md)
 - [Hassbian](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/hassbian.md)
 - [Home Assistant](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/homeassistant.md)
-- [hassbian-config (hassbian-sctipts)](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/hassbian_config.md)
+- [hassbian-config (hassbian-scripts)](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/hassbian_config.md)
 
 To upgrade any of them simply run `sudo hassbian-config upgrade SUITE`.
 

@@ -29,7 +29,7 @@ To use the `dweet` component in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 dweet:
-  name: HAExport
+  name: YOUR_UNIQUE_IDENTIFIER
   whitelist:
     - input_number.brightness
     - input_boolean.notify_home
@@ -37,8 +37,14 @@ dweet:
     - sensor.cpu
 ```
 
-Configuration variables:
-
-- **name** (*Required*): Choose must choose an unique name.
-- **whitelist** (*Required*): List of entity IDs you want to publish.
+{% configuration %}
+name:
+  description: A unique identifier for your Home Assistant instance.
+  required: true
+  type: string
+whitelist:
+  description: List of entity IDs you want to publish
+  required: true
+  type: list
+{% endconfiguration %}
 

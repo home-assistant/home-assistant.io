@@ -12,7 +12,6 @@ ha_category: Image Processing
 ha_release: 0.27
 ---
 
-
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 <p class='note'>
@@ -30,16 +29,44 @@ binary_sensor:
     input: FFMPEG_SUPPORTED_INPUT
 ```
 
-Configuration variables:
-
-- **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
-- **name** (*Optional*): Override the name of your camera.
-- **initial_state** (*Optional*): Default true. Start ffmpeg with home-assistant.
-- **peak** (*Optional*): Default -30. The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
-- **duration** (*Optional*): Default 1 second. How long the noise needs to be over the peak to trigger the state.
-- **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new noise is over the peak.
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, like audio frequency filtering.
-- **output** (*Optional*): Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
+{% configuration %}
+input:
+  description: An FFmpeg-compatible input file, stream, or feed.
+  required: true
+  type: string
+name:
+  description: Override the name of your camera.
+  required: false
+  type: string
+initial_state:
+  description: Start ffmpeg with home-assistant.
+  required: false
+  type: boolean
+  default: true
+peak:
+  description: The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
+  required: false
+  type: integer
+  default: -30
+duration:
+  description: How long the noise needs to be over the peak to trigger the state.
+  required: false
+  type: integer
+  default: 1
+reset:
+  description: The time to reset the state after no new noise is over the peak.
+  required: false
+  type: integer
+  default: 20
+extra_arguments:
+  description: Extra options to pass to `ffmpeg`, like audio frequency filtering.
+  required: false
+  type: string
+output:
+  description: Allows you to send the audio output of this sensor to an Icecast server or other FFmpeg-supported output, e.g., to stream with Sonos after a state is triggered.
+  required: false
+  type: string
+{% endconfiguration %}
 
 To experiment with values:
 

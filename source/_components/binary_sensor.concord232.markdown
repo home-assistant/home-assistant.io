@@ -14,6 +14,8 @@ ha_release: 0.31
 
 The `concord232` platform provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.
 
+## {% linkable_title Configuration %}
+
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -22,8 +24,15 @@ binary_sensor:
   - platform: concord232
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The host where the concord232 server process is running. Defaults to `localhost`.
-- **port** (*Optional*): The port where the Alarm panel is listening. Defaults to 5007.
-
+{% configuration %}
+host:
+  description: The host where the concord232 server process is running.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port where the Alarm panel is listening.
+  required: false
+  type: integer
+  default: 5007
+{% endconfiguration %}

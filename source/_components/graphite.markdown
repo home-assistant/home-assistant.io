@@ -21,9 +21,21 @@ To enable this component, add the following lines to your `configuration.yaml`:
 graphite:
 ```
 
-Configuration variables:
-
-- **host** (*Option*): IP address of your graphite host, eg. http://192.168.1.10. Defaults to `localhost`
-- **port** (*Optional*): Port to use. Defaults to 2003.
-- **prefix** (*Optional*):  Prefix is the metric prefix in graphite. Defaults to `ha`.
+{% configuration %}
+host:
+  description: IP address of your graphite host, e.g., http://192.168.1.10.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: This is a description of what this key is for.
+  required: false
+  type: integer
+  default: 2003
+prefix:
+  description: Prefix is the metric prefix in graphite.
+  required: false
+  type: string
+  default: ha
+{% endconfiguration %}
 

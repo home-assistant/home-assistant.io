@@ -13,7 +13,6 @@ ha_release: 0.7.3
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 
 The requirement is that you have setup your [Verisure hub](/components/verisure/).

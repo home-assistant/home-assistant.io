@@ -17,6 +17,8 @@ The `toon` component platform can be used to control your Toon thermostat. This 
 
 For the `toon` component to work, you'll need an active Toon subscription with Eneco. The component uses your Mijn Eneco credentials to control your thermostat through the [toonopafstand](https://toonopafstand.eneco.nl) domain.
 
+## {% linkable_title Configuration %}
+
 To use your Toon thermostat in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,10 +28,26 @@ toon:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for Mijn Eneco.
-- **password** (*Required*): Password for Mijn Eneco.
+{% configuration %}
+username:
+  description: Username for Mijn Eneco.
+  required: true
+  type: string
+password:
+  description: Password for Mijn Eneco.
+  required: true
+  type: string
+gas:
+  description: With this option you can choose whether you want to measure gas consumption.
+  required: false
+  type: boolean
+  default: true
+solar:
+  description: With this option you can choose whether you want to measure electricity production.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported devices like the wall plug and the smoke detector. This component uses the [toonlib library](https://github.com/costastf/toonlib) by Costas Tyfoxylos that connects to the unofficial API on [https://toonopafstand.eneco.nl](https://toonopafstand.eneco.nl).
 

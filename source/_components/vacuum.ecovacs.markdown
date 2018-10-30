@@ -15,7 +15,9 @@ ha_release: 0.77
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-You have first to setup the [Ecovacs component](/components/ecovacs/)
+## {% linkable_title Configuration %}
+
+You have to set up the [Ecovacs component](/components/ecovacs/) first.
 
 ### {% linkable_title Component Lifespans %}
 

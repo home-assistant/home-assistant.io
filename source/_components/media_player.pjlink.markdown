@@ -34,7 +34,7 @@ host:
 port:
   description: port on which the PJLink service runs on the device.
   required: false
-  type: int
+  type: integer
   default: 4352
 name:
   description: Name of the device.

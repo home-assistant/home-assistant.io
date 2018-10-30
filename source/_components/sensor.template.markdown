@@ -11,9 +11,14 @@ ha_category: Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform supports sensors which break out `state_attributes` from other entities.
+
+<p class='note'>
+If you do not supply an `entity_id` in the configuration you will need to run the service `homeassistant.update_entity` to update the sensor.
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -50,13 +55,14 @@ sensor:
         required: false
         type: template
       entity_id:
-        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        description: The template engine will attempt to work out what entities should trigger an update of the sensor. If this fails to get the correct list (for example if your template loops over the contents of a group) then you can provide a list of entity IDs that will cause the sensor to update.
         required: false
         type: string, list
       unit_of_measurement:
-        description: Defines the units of measurement of the sensor, if any.
+        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualisation as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
         type: string
+        default: None
       value_template:
         description: Defines a template to get the state of the sensor.
         required: true
@@ -70,7 +76,7 @@ sensor:
         required: false
         type: template
       device_class:
-        description: The type/class of the sensor to set the icon in the frontend.
+        description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
         required: false
         type: device_class
         default: None
@@ -83,7 +89,7 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sun Angle %}
 
@@ -286,7 +292,7 @@ sensor:
 
 ### {% linkable_title Working with dates %}
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sun.sun`.
 
 {% raw %}
 ```yaml
@@ -295,7 +301,43 @@ sensor:
   sensors:
     nonsmoker:
       value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      entity_id: sun.sun
       friendly_name: 'Not smoking'
       unit_of_measurement: "Days"
+```
+{% endraw %}
+
+### {% linkable_title Template tracking %}
+
+This example shows how to add `entity_id` to a template to allow tracking of updates. Fixing an error caused in (81.0) 
+
+{% raw %}
+```yaml
+sensor:
+- platform: template
+  sensors:
+    nonsmoker:
+      entity_id: now.strptime
+      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      friendly_name: 'Not smoking'
+      unit_of_measurement: "Days"
+```
+{% endraw %}
+
+Note: If a template uses more than one sensor they can be listed
+
+
+The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
+
+{% raw %}
+```yaml
+automation:
+  - alias: 'nonsmoker_update'
+    trigger:
+      - platform: time
+        minutes: '/1'
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.nonsmoker
 ```
 {% endraw %}

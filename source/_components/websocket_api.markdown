@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Other"
+ha_qa_scale: internal
 ---
 
 The `websocket_api` component set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This component depends on the [`http` component](/components/http/).
@@ -16,6 +17,8 @@ The `websocket_api` component set up a WebSocket API and allows one to interact 
 <p class='note warning'>
 It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
 </p>
+
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry

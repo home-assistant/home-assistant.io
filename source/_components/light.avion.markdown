@@ -15,6 +15,20 @@ ha_release: 0.37
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).
 
+## {% linkable_title Setup %}
+
+If you want to add your devices manually (like in the example below) then you need to get the API key. The API key can be obtained by executing the following command:
+
+```bash
+$ curl -X POST -H "Content-Type: application/json" \
+    -d '{"email": "fakename@example.com", "password": "password"}' \
+    https://admin.avi-on.com/api/sessions | jq
+```
+
+with the email and password fields replaced with those used when registering the device via the mobile app. The pass phrase field of the output should be used as the API key in the configuration.
+
+## {% linkable_title Configuration %}
+
 To enable these lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -23,16 +37,31 @@ light:
   - platform: avion
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: The username used in the Avion app. If username and password are both provided, all associated switches will automatically be added to your configuration.
+  required: false
+  type: string
+password:
+  description: The password used in the Avion app.
+  required: false
+  type: string
+devices:
+  description: An optional list of devices with their Bluetooth addresses.
+  required: false
+  type: list
+  keys:
+    name:
+      description: A custom name to use in the frontend.
+      required: false
+      type: string
+    api_key:
+      description: The API Key.
+      required: true
+      type: string
+{% endconfiguration %}
 
-- **username** (*Optional*): The username used in the Avion app. If username and password are both provided, any associated switches will automatically be added to your configuration.
-- **password** (*Optional*): The password used in the Avion app.
-- **devices** (*Optional*): An optional list of devices with their Bluetooth address, a custom name to use in the frontend and the API key. The API key can be obtained by executing the following command:
-```
-curl -X POST -H "Content-Type: application/json" -d '{"email": "fakename@example.com", "password": "password"}' https://admin.avi-on.com/api/sessions | jq
-```
-
-with the email and password fields replaced with those used when registering the device via the mobile app. The pass phrase field of the output should be used as the API key in the configuration.
+## {% linkable_title Full example %}
 
 If username and password are not supplied, devices must be configured manually like so:
 
@@ -43,8 +72,8 @@ light:
     devices:
       00:21:4D:00:00:01:
         name: Light 1
-        api_key: Gr35a/rt3RgaRenl9ag8Ba==
+        api_key: YOUR_API_KEY
       00:21:3D:20:00:a1:
         name: Light 2
-        api_key: Gr35a/rt3RgaRenl9ag8Ba==
+        api_key: YOUR_API_KEY
 ```

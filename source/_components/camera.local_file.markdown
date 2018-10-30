@@ -17,6 +17,8 @@ The `local_file` camera platform allows you to integrate an image file from disk
 
 The `local_file` camera can for example be used with various camera platforms that save a temporary images locally. It can also be used to display a graph that you render periodically and will then be displayed in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,10 +28,16 @@ camera:
     file_path: /tmp/image.jpg
 ```
 
-Configuration variables:
-
- - **file_path** (*Required*): File to serve as the camera.
- - **name** (*Optional*): Name of the camera
+{% configuration %}
+file_path:
+  description: File to serve as the camera.
+  required: true
+  type: string
+name:
+  description: Name of the camera.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Service `camera.local_file_update_file_path` %}
 

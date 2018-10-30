@@ -11,6 +11,8 @@ footer: true
 
 The `vacuum` component enables the ability to control home cleaning robots within Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi_miio/).
 
 ```yaml
@@ -29,7 +31,7 @@ Before calling one of these services, make sure your vacuum platform supports it
 
 #### {% linkable_title Service `vacuum.turn_on` %}
 
-Start a new cleaning task.
+Start a new cleaning task. For the Xiaomi Vacuum and Neato use `vacuum.start` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -37,7 +39,7 @@ Start a new cleaning task.
 
 #### {% linkable_title Service `vacuum.turn_off` %}
 
-Stop the current cleaning task and return to the dock.
+Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and Neato use `vacuum.stop` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -99,14 +101,14 @@ Tell the vacuum cleaner to do a spot clean-up.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.set_fanspeed` %}
+#### {% linkable_title Service `vacuum.set_fan_speed` %}
 
 Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
-| `fanspeed`                |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
+| `fan_speed`               |       no | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
 #### {% linkable_title Service `vacuum.send_command` %}
 

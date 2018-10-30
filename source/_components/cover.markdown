@@ -15,12 +15,22 @@ The display style of each entity can be modified in the [customize section](/get
  
 | Attribute | Default | Description |
 | --------- | ------- | ----------- |
-| `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
+| `device_class` | | see below
 | `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
+
+### {% linkable_title Device Class %}
+
+The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
+
+- **None**: Generic cover. This is the default and doesn't need to be set.
+- **damper**: Ventilation damper controller.
+- **garage**: Garage door controller.
+- **window**: Window controller.
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Cover control services %}
+
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`
 
 | Service data attribute | Optional | Description |

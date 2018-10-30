@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Calendar
 ha_iot_class: "Local Push"
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 
@@ -25,10 +26,17 @@ sensor:
     time_zone: America/New_York
 ```
 
-Configuration variables:
-
-- **time_zone** (*Required*): The resource or endpoint that contains the value.
-- **name** (*Optional*): The name of the sensor, eg. the city. Defaults to 'Worldclock Sensor'.
+{% configuration %}
+time_zone:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+name:
+  description: The name of the sensor, eg. the city.
+  required: false
+  type: string
+  default: Worldclock Sensor
+{% endconfiguration %}
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
 

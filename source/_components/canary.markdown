@@ -29,19 +29,19 @@ canary:
 ```
 
 {% configuration %}
-  username:
-    description: The username for accessing your Canary account.
-    required: true
-    type: string
-  password:
-    description: The password for accessing your Canary account.
-    required: true
-    type: string
-  timeout:
-    description: Timeout to wait for connections.
-    required: false
-    type: int
-    default: 10
+username:
+  description: The username for accessing your Canary account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Canary account.
+  required: true
+  type: string
+timeout:
+  description: Timeout to wait for connections.
+  required: false
+  type: integer
+  default: 10
 {% endconfiguration %}
 
 Once loaded, your front end will have the following components:

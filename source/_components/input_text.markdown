@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.53
+ha_qa_scale: internal
 ---
 
 The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
@@ -45,12 +46,12 @@ input_text:
       min:
         description: Minimum length for the text value.
         required: false
-        type: int
+        type: integer
         default: 0
       max:
         description: Maximum length for the text value.
         required: false
-        type: int
+        type: integer
         default: 100
       initial:
         description: Initial value when Home Assistant starts.

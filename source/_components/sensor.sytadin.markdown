@@ -25,12 +25,24 @@ sensor:
   - platform: sytadin
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. Defaults to `traffic_jam`.
-  - **traffic_jam**: Amount of kilometers in traffic jam (km).  
-  - **mean_velocity**: Mean velocity (km/h).
-  - **congestion**: Index of congestion (n/a).
+{% configuration %}
+name:
+  description: Additional name for the sensors.
+  required: false
+  default: Sytadin
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: false
+  default: traffic_jam
+  type: list
+  keys:
+    traffic_jam:
+      description: Amount of kilometers in traffic jam (km).
+    mean_velocity:
+      description: Mean velocity (km/h).
+    congestion:
+      description: Index of congestion (n/a).
+{% endconfiguration %}
 
 The data is coming from the [Direction des routes Île-de-France (DiRIF)](http://www.sytadin.fr).

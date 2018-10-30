@@ -34,11 +34,28 @@ switch:
         name: "My Socket"
 ```
 
-Configuration variables:
-
-- **discovery** (*Optional*): Whether to discover sockets. Defaults to `true`.
-- **switches** (*Optional*):
-  - **host** (*Required*): IP address of your socket, eg. `192.168.1.10`.
-  - **mac** (*Optional*): MAC address of the socket, eg "AA:BB:CC:DD:EE:FF". This is required if the socket is connected to a different subnet to the machine running Home Assistant.
-  - **name** (*Optional*): Your name for the socket.
-
+{% configuration %}
+discovery:
+  description: Whether to discover sockets.
+  required: false
+  default: true
+  type: boolean
+switches:
+  description: A list of Orvibo switches.
+  required: false
+  type: list
+  keys:
+    host:
+      description: "IP address of your socket, e.g., 192.168.1.10."
+      required: true
+      type: string
+    mac:
+      description: "MAC address of the socket, e.g., `AA:BB:CC:DD:EE:FF`. This is required if the socket is connected to a different subnet to the machine running Home Assistant."
+      required: false
+      type: string
+    name:
+      description: Your name for the socket.
+      required: false
+      default: Orvibo S20 Switch
+      type: string
+{% endconfiguration %}

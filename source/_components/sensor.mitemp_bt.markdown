@@ -19,12 +19,12 @@ The `mitemp_bt` sensor platform allows one to monitor room temperature and humid
 
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
-- On [Hass.io](/hassio/installation/): mitemp_bt will work out of the box.
+- On [Hass.io](/hassio/installation/): `mitemp_bt` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
 - On a [generic Docker installation](https://www.home-assistant.io/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
     - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
-    - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
-- Windows and MacOS are currently not supported by the btlewrap library.
+    - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or `bluez-deprecated`.
+- Windows and MacOS are currently not supported by the `btlewrap` library.
 
 ## {% linkable_title Configuration %}
 
@@ -60,21 +60,61 @@ sensor:
       - temperature
 ```
 
-- **mac** (*Required*): The MAC address of your sensor.
-- **monitored_conditions** array (*Optional*): The parameters that should be monitored (defaults to monitoring all parameters).
-  - **temperature**: Temperature in C at the sensor's location.
-  - **humidity**: Humidity level in % at the sensor's location.
-  - **battery**: Battery details (in %).
-- **name** (*Optional*): The name displayed in the frontend.
-- **force_update** (*Optional*): Sends update events even if the value hasn't changed.
-- **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine.
-- **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
-- **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
-- **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 300 if not defined)
-- **adapter** (*Optional*): Define the Bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
+{% configuration %}
+mac:
+  description: The MAC address of your sensor.
+  required: true
+  type: string
+monitored_conditions:
+  description: The parameters that should be monitored.
+  required: false
+  default: [temperature, humidity, battery]
+  type: list
+  keys:
+    temperature:
+      description: Temperature in C at the sensor's location.
+    humidity:
+      description: Humidity level in % at the sensor's location.
+    battery:
+      description: Battery details (in %).
+name:
+  description: The name displayed in the frontend.
+  required: false
+  type: string
+force_update:
+  description: Sends update events even if the value hasn't changed.
+  required: false
+  type: boolean
+median:
+  description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
+  required: false
+  type: integer
+timeout:
+  description: Define the timeout value in seconds when polling.
+  required: false
+  default: 10
+  type: integer
+retries:
+  description: Define the number of retries when polling.
+  required: false
+  default: 2
+  type: integer
+cache_value:
+  description: Define cache expiration value in seconds.
+  required: false
+  default: 300
+  type: integer
+adapter:
+  description: "Define the Bluetooth adapter to use. Run `hciconfig` to get a list of available adapters."
+  required: false
+  default: hci0
+  type: string
+{% endconfiguration %}
 
 Note that by default the sensor is only polled once every 5 minutes. This means with the `median: 3` setting will take as least 15 minutes before the sensor will report a value after a Home Assistant restart. Even though the hardware is able to provide new values every second, room temperatures don't change that quickly.
 Reducing polling intervals will have a negative effect on the battery life.
+
+## {% linkable_title Full example %}
 
 A full configuration example could look like the one below:
 
@@ -91,4 +131,3 @@ sensor:
       - humidity
       - battery
 ```
-

@@ -25,8 +25,6 @@ To add the BOM weather observation to your installation, add the following to yo
 # Example configuration.yaml entry
 sensor:
   - platform: bom
-    station: IDS60801.94675
-    name: Adelaide
     monitored_conditions:
       - apparent_t
       - cloud
@@ -39,6 +37,8 @@ sensor:
       - gust_kt
       - air_temp
       - dewpt
+      - local_date_time
+      - local_date_time_full
       - press
       - press_qnh
       - press_msl
@@ -62,11 +62,74 @@ To get the station ID for any BOM station:
 - The URL will look like: http://www.bom.gov.au/products/IDx60801/[station].shtml
  - For Adelaide, the URL will look like `http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml`; the station ID is `IDS60801.94675`.
 
-Configuration variables:
-
-- **station** (*Optional*): The station ID string as identified from the BOM website.  If not given, defaults to the closest station.
-- **name** (*Optional*): The name you would like to give to the weather station.
-- **monitored_conditions** (*Required*): A list of the conditions to monitor.
+{% configuration %}
+station:
+  description: The station ID string as identified from the BOM website.
+  required: false
+  type: string
+  default: If not given, defaults to the closest station based on location data in configuration.yaml.
+name:
+  description: The name you would like to give to the weather station.
+  required: false
+  type: string
+monitored_conditions:
+  description: A list of the conditions to monitor.
+  required: true
+  type: list
+  keys:
+    apparent_t:
+      description: Feels like temperature in C.
+    cloud:
+      description: Cloud cover.
+    cloud_base_m:
+      description: Cloud Base in m.
+    cloud_oktas:
+      description: Cloud Oktas.
+    cloud_type_id:
+      description: Cloud type ID.
+    cloud_type:
+      description: Cloud type description.
+    delta_t:
+      description: Delta temperature in C.
+    gust_kmh:
+      description: Wind gust in km/h.
+    gust_kt:
+      description: Wing gust in kt.
+    air_temp:
+      description: Air temperature in C.
+    dewpt:
+      description: Drew point in C.
+    press:
+      description: Pressure in mbar.
+    press_qnh:
+      description: Pressure in qnh.
+    press_msl:
+      description: Pressure in msl.
+    press_tend:
+      description: Pressure trend.
+    rain_trace:
+      description: Raing today in mm.
+    rel_hum:
+      description: Relative Humidity in %.
+    sea_state:
+      description: Sea state.
+    swell_dir_worded: 
+      description: Swell direction.
+    swell_height: 
+      description: Swell height in m.
+    swell_period:
+      description: Swell period.
+    vis_km:
+      description: Visibility in km.
+    weather:
+      description: Weather summary.
+    wind_dir:
+      description: Wind direction.
+    wind_spd_kmh:
+      description: Wind speed in km/h.
+    wind_spd_kt:
+      description: Wind speed in kt.
+{% endconfiguration %}
 
 <p class='note'>
 This sensor is an alternative to the [`bom`](/components/weather.bom/) weather platform.

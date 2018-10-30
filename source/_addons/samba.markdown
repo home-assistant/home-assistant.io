@@ -10,7 +10,7 @@ footer: true
 featured: true
 ---
 
-This addon allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
+This add-on allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
 
 ```json
 {

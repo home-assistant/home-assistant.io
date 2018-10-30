@@ -25,9 +25,9 @@ To enable this sensor, add the following lines to your `configuration.yaml`. You
 ```yaml
 sensor:
   - platform: spotcrime
-    name: <any name>
-    radius: <your radius>
-    api_key: <"your_api_key_here">
+    name: NAME
+    radius: SEARCH_RADIUS
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
@@ -46,7 +46,7 @@ api_key:
 days:
   description: Number of days you'd like see to crime statistics for.
   required: false
-  type: int
+  type: integer
 include:
   description: Event types you want statistics for.
   required: false

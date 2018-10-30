@@ -27,10 +27,21 @@ sensor:
     scan_interval: 120
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your API key. A read-only key is fine.
-- **system_id** (*Required*): The ID of your station.
+{% configuration %}
+api_key:
+  description: Your API key. A read-only key is fine.
+  required: true
+  type: string
+system_id:
+  description: The ID of your station.
+  required: true
+  type: string
+name:
+  description: Name of the sensor.
+  required: false
+  default: PVOutput
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.

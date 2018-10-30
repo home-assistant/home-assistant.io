@@ -18,6 +18,8 @@ Using Telegrams `setWebhook` method your bot's webhook URL should be set to `htt
 
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
+## {% linkable_title Configuration %}
+
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -27,26 +29,51 @@ http:
 
 telegram_bot:
   - platform: webhooks
-    api_key: telegram api key
+    api_key: YOUR_API_KEY
     parse_mode: html
     allowed_chat_ids:
       - 12345
       - 67890
 ```
 
-Configuration variables:
-
-- **allowed_chat_ids** (*Required*): A list of ids representing the users and group chats that are authorized to interact with the webhook.
-- **api_key** (*Required*): The API token of your bot.
-- **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
-- **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
-- **proxy_url** (*Optional*): Proxy url if working behind one (`socks5://proxy_ip:proxy_port`)
-- **proxy_params** (*Optional*): Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
-- **url** (*Optional*): Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
+{% configuration %}
+allowed_chat_ids:
+  description: A list of ids representing the users and group chats that are authorized to interact with the webhook.
+  required: true
+  type: list
+api_key:
+  description: The API token of your bot.
+  required: true
+  type: string
+parse_mode:
+  description: Default parser for messages if not explicit in message data, either `html` or `markdown`.
+  required: false
+  default: markdown
+  type: string
+proxy_url:
+  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`).
+  required: false
+  type: string
+proxy_params:
+  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.).
+  required: false
+  type: string
+url:
+  description: Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
+  required: false
+  type: string
+trusted_networks:
+  description: Telegram server access ACL as list.
+  required: false
+  type: string
+  default: 149.154.167.197-233
+{% endconfiguration %}
 
 To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
 
-Full configuration sample:
+## {% linkable_title Full configuration example %}
+
+The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,7 +82,7 @@ http:
 
 telegram_bot:
   - platform: webhooks
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     trusted_networks:
       - 149.154.167.197/32
       - 149.154.167.198/31

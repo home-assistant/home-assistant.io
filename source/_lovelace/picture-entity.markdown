@@ -61,6 +61,11 @@ tap_action:
   description: "Set to `toggle` for turning entity on/off."
   type: string
   default: more-info
+hold_action:
+  required: false
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`).
+  type: string
+  default: none
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

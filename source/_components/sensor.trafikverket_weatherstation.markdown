@@ -28,8 +28,8 @@ To enable this sensor, add the following lines to your `configuration.yaml`.
 ```yaml
 sensor:
   - platform: trafikverket_weatherstation
-    name: Trafikverket Road WeatherStation Kungälv
-    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    name: Trafikverket Kungälv
+    api_key: YOUR_API_KEY
     station: Kungälv
     monitored_conditions:
         - air_temp
@@ -55,7 +55,7 @@ station:
   required: true  
   type: string  
 monitored_conditions: 
-  description: Specify what measurement data to retreive from the weather station. 
+  description: Specify what measurement data to retrieve from the weather station.
   required: true  
   type: map  
   keys:
@@ -92,8 +92,8 @@ Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=pers
 ```yaml
 sensor:
   - platform: trafikverket_weatherstation
-    name: Trafikverket Road WeatherStation Kungälv
-    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    name: Trafikverket Kungälv
+    api_key: YOUR_API_KEY
     station: Kungälv
     monitored_conditions:
         - air_temp
@@ -104,22 +104,20 @@ sensor:
         - wind_direction_text
         - wind_speed
   - platform: trafikverket_weatherstation
-    name: Trafikverket Air WeatherStation Lanna
-    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    name: Trafikverket Lanna
+    api_key: YOUR_API_KEY
     station: Lanna
     monitored_conditions:
         - air_temp
         - road_temp
         - humidity
-    scan_interval: 600
   - platform: trafikverket_weatherstation
-    name: Trafikverket Precipitation WeatherStation Nöbbele
-    api_key: eXXcbXXXacXXXXc39XX3aXXX4aXX46XX
+    name: Trafikverket Nöbbele
+    api_key: YOUR_API_KEY
     station: Nöbbele
     monitored_conditions:
         - air_temp
         - road_temp
         - humidity
         - precipitation
-    scan_interval: 600
 ```

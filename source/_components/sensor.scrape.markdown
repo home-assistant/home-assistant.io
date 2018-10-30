@@ -26,20 +26,49 @@ sensor:
     select: ".current-version h1"
 ```
 
-Configuration variables:
-
-- **resource** (*Required*): The URL to the website that contains the value.
-- **select** (*Required*): Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details.
-- **attribute** (*optional*): Get value of an attribute on the selected tag.
-- **name** (*Optional*): Name of the sensor.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **authentication** (*Optional*): Type of the HTTP authentication. Either `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the website.
-- **password** (*Optional*): The password for accessing the website.
+{% configuration %}
+resource:
+  description: The URL to the website that contains the value.
+  required: true
+  type: string
+select:
+  description: "Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details."
+  required: true
+  type: string
+attribute:
+  description: Get value of an attribute on the selected tag.
+  required: false
+  type: string
+name:
+  description: Name of the sensor.
+  required: false
+  default: Web scrape
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+authentication:
+  description: Type of the HTTP authentication. Either `basic` or `digest`.
+  required: false
+  type: string
+username:
+  description: The username for accessing the website.
+  required: false
+  type: string
+password:
+  description: The password for accessing the website.
+  required: false
+  type: string
+headers:
+  description: Headers to use for the web request.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor. There is also a [Jupyter notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/web-scraping.ipynb) available for this example to give you a bit more insight.
+In this section you find some real-life examples of how to use this sensor. There is also a [Jupyter notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/web-scraping.ipynb) available for this example to give you a bit more insight.
 
 ### {% linkable_title Home Assistant %}
 
@@ -128,5 +157,25 @@ sensor:
     select: ".elspot-content"
     value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "öre/kWh"
+```
+{% endraw %}
+
+### {% linkable_title BOM Weather %}
+
+The Australian Bureau of Meterology website returns an error if the User Agent header is not sent.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: scrape
+    resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
+    name: Melbourne Forecast Summary
+    select: ".main .forecast p"
+    value_template: '{{ value | truncate(255) }}'
+    # Request every hour
+    scan_interval: 3600
+    headers:
+      User-Agent: Mozilla/5.0
 ```
 {% endraw %}

@@ -13,7 +13,7 @@ ha_release: 0.35
 ha_iot_class: "Local Polling"
 ---
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/rm/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -25,26 +25,73 @@ switch:
     mac: 'MAC_ADDRESS'
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: Device MAC address.
+  required: true
+  type: string
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  type: integer
+friendly_name:
+  description: The name used to display the switch in the frontend.
+  required: false
+  type: string
+type:
+  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  required: true/false
+  type: string
+switches:
+  description: The array that contains all switches.
+  required: false
+  type: array
+  keys:
+    identifier:
+      description: Name of the command switch as slug. Multiple entries are possible.
+      required: true
+      type: string
+      keys:
+        command_on:
+          description: Base64 encoded packet from RM device to take for on.
+          required: true
+          type: string
+        command_off:
+          description: Base64 encoded packet from RM device to take for off.
+          required: true
+          type: string
+        friendly_name:
+          description: The name used to display the switch in the frontend.
+          required: false
+          type: string
+slots:
+  description: Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
+  required: false
+  type: array
+  keys:
+    slot_1:
+      description: Friendly names of slot 1
+      required: false
+      type: string
+    slot_2:
+      description: Friendly names of slot 2
+      required: false
+      type: string
+    slot_3:
+      description: Friendly names of slot 3
+      required: false
+      type: string
+    slot_4:
+      description: Friendly names of slot 4
+      required: false
+      type: string
+{% endconfiguration %}
 
-- **host** (*Required*): The hostname/IP address to connect to.
-- **mac** (*Required*):  Device MAC address.
-- **timeout** (*Optional*): Timeout in seconds for the connection to the device.
-- **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **type** (*Required for some models*): Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`.
-- **switches** (*Optional*): The array that contains all switches.
-  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
-    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-    - **command_on** (*Required*): Base64 encoded packet from RM device to take for on.
-    - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
-- **slots** (*Optional*): Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
-  - **slot_1** (*Optional*)
-  - **slot_2** (*Optional*)
-  - **slot_3** (*Optional*)
-  - **slot_4** (*Optional*)
-
-Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation)
-
+Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 

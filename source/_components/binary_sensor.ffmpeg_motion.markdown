@@ -13,7 +13,6 @@ ha_release: 0.27
 redirect_from: /components/binary_sensor.ffmpeg/
 ---
 
-
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
 <p class='note'>
@@ -35,16 +34,45 @@ binary_sensor:
     input: FFMPEG_SUPPORTED_INPUT
 ```
 
-Configuration variables:
-
-- **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
-- **name** (*Optional*): Override the name of your camera for the frontend.
-- **initial_state** (*Optional*): Start `ffmpeg` with Home Assistant. Defaults to `true`.
-- **changes** (*Optional*): How much needs to change between two frames to detect it as motion (a lower value is more sensitive). Defaults to 10%.
-- **reset** (*Optional*): The time to reset the state after no new motion is detected. Defaults to 20 seconds.
-- **repeat** (*Optional*): How many events need to be detected in *repeat_time* in order to trigger a motion. Defaults to 0 repeats (deactivated).
-- **repeat_time** (*Optional*): The span of time *repeat* events need to occur in before triggering a motion. Defaults to 0 seconds (deactivated).
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g., video denoise filtering.
+{% configuration %}
+input:
+  description: An FFmpeg-compatible input file, stream, or feed.
+  required: true
+  type: string
+name:
+  description: Override the name of your camera for the frontend.
+  required: false
+  type: string
+initial_state:
+  description: Start `ffmpeg` with Home Assistant.
+  required: false
+  type: boolean
+  default: true
+changes:
+  description: How much needs to change between two frames to detect it as motion, value in percentage (a lower value is more sensitive).
+  required: false
+  type: integer
+  default: 10
+reset:
+  description: The time to reset the state after no new motion is detected.
+  required: false
+  type: integer
+  default: 20
+repeat:
+  description: How many events need to be detected in *repeat_time* in order to trigger a motion, 0 repeats means deactivated.
+  required: false
+  type: integer
+  default: 0
+repeat_time:
+  description: The span of time *repeat* events need to occur in before triggering a motion, 0 seconds means deactivated.
+  required: false
+  type: integer
+  default: 0
+extra_arguments:
+  description: Extra options to pass to `ffmpeg`, e.g., video denoise filtering.
+  required: false
+  type: string
+{% endconfiguration %}
 
 To experiment with values (changes/100 is the scene value in `ffmpeg`):
 

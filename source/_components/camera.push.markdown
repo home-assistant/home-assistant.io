@@ -19,7 +19,7 @@ Optionally the Push Camera can **buffer** a given number of images, creating an 
 
 Images are cleared on new events, and events are separated by a soft (configurable) **timeout**.
 
-## Integration with motionEye
+## {% linkable_title Integration with motionEye %}
 
 The `push` camera can as an example be used with [motionEye](https://github.com/ccrisan/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as shown in this example:
 
@@ -57,25 +57,25 @@ camera:
 name:
   description:  The name you would like to give to the camera.
   required: false
-  default: Push Camera
   type: string
+  default: Push Camera
 buffer:
   description: Number of images to buffer per event. Be conservative, large buffers will starve your system memory.
   required: false
-  default: 1
   type: string
+  default: 1
 timeout:
   description: Amount of time after which the event is considered to have finished.
   required: false
-  default: 5 seconds
   type: time
+  default: 5 seconds
 token:
   description: User provided token acting as access control, should be a large string (more then 8 chars). Required if you can't use HA new auth system (0.77).
-  required: false 
+  required: false
   type: string
 field:
   description: HTTP POST field containing the image file
   required: false
-  default: image
   type: string
+  default: image
 {% endconfiguration %}

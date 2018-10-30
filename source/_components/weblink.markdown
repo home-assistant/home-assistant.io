@@ -10,9 +10,12 @@ footer: true
 logo: home-assistant.png
 ha_category: Front end
 ha_release: 0.13
+ha_qa_scale: internal
 ---
 
 The `weblink` component allows you to display links in the Home Assistant frontend.
+
+## {% linkable_title Configuration %}
 
 To use this component in your installation, add something like the following to your `configuration.yaml` file:
 
@@ -22,7 +25,6 @@ weblink:
   entities:
     - name: Router
       url: http://192.168.1.1/
-      icon: mdi:router-wireless
     - name: Home Assistant
       url: https://www.home-assistant.io
     - name: Grafana
@@ -41,7 +43,7 @@ url:
 icon:
   description: Icon for entry.
   required: false
-  type: string
+  type: icon
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.

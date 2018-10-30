@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `tado` component platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website. It adds climate devices for every tado zone and sensors for some additional information of the zones.
 
+## {% linkable_title Configuration %}
+
 To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -24,10 +26,16 @@ tado:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for my.tado.com.
-- **password** (*Required*): Password for my.tado.com.
+{% configuration %}
+username:
+  description: Your username for my.tado.com.
+  required: true
+  type: string
+password:
+  description: Your password for my.tado.com.
+  required: true
+  type: string
+{% endconfiguration %}
 
 The tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/webapp/#/account/sign-in), which is used by their website and now by this component.
 
