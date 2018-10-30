@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_iot_class: "Cloud Polling"
 ---
 
-Each Point exposes the following Sensors:
+Each Point exposes the following sensors:
 
 - **temperature**: Temperature in °C.
 - **humidity**: Percentage of humidity in the air.
