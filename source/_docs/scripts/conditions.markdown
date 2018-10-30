@@ -139,6 +139,16 @@ condition:
         before: sunrise
 ```
 
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+```
+
 A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
 
 <img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
