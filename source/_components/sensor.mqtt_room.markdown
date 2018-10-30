@@ -51,7 +51,7 @@ timeout:
   default: 5
   type: integer
 away_timeout:
-  description: he time in seconds after which the state should be set to `not_home` if there were no updates. `0` disables the check.
+  description: The time in seconds after which the state should be set to `not_home` if there were no updates. `0` disables the check.
   required: false
   default: 0
   type: integer
