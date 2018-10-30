@@ -27,8 +27,12 @@ sensor:
       - rainsensor
 ```
 
-Configuration variables:
-
-- **monitored_conditions**: Currently only rainsensor is supported. Returns the sensor level.
+{% configuration %}
+monitored_conditions:
+  description: Conditions to be monitored. 
+  keys:
+    rainsensor:
+      description: Get information from the rain sensor.
+{% endconfiguration %}
 
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
