@@ -1,6 +1,12 @@
 require "rubygems"
 require "bundler/setup"
 require "stringex"
+#About rake file
+Rakefile Format (as of version 0.8.3)¶ ↑
+
+First of all, there is no special format for a Rakefile. A Rakefile contains executable Ruby code. Anything legal in a ruby script is allowed in a Rakefile.
+
+Now that we understand there is no special syntax in a Rakefile, there are some conventions that are used in a Rakefile that are a little unusual in a typical Ruby program. Since a Rakefile is tailored to specifying tasks and actions, the idioms used in a Rakefile are designed to support th
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
