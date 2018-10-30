@@ -63,7 +63,7 @@ payload_stop:
   type: string
   default: STOP
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages.
+  description: The MQTT topic subscribed to receive cover state messages. Use only if not using get_position_topic. State topic can only read open/close state. Cannot read position state.
   required: false
   type: string
 state_open:
@@ -76,6 +76,20 @@ state_closed:
   required: false
   type: string
   default: closed
+position_topic:
+  description: The MQTT topic subscribed to receive cover position messages. Always in favor if used together with state_topic.
+  required: false
+  type: integer
+position_open:
+  description: Number which represents open position.
+  required: false
+  type: integer
+  default: 100
+position_closed:
+  description: Number which represents closed position.
+  required: false
+  type: integer
+  default: 0
 availability_topic:
   description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If `availability_topic` is not defined, the cover availability state will always be `available`. If `availability_topic` is defined, the cover availability state will be `unavailable` by default."
   required: false
@@ -110,7 +124,7 @@ value_template:
   required: false
   type: string
 set_position_topic:
-  description: The MQTT topic to publish position commands to.
+  description: The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic.
   required: false
   type: string
 set_position_template:
@@ -196,7 +210,7 @@ In this section you will find some real-life examples of how to use this platfor
 
 ### {% linkable_title Full configuration without tilt %}
 
-The example below shows a full configuration for a cover without tilt.
+The example below shows a full configuration for a cover without tilt with state topic only.
 
 ```yaml
 # Example configuration.yaml entry
@@ -213,6 +227,32 @@ cover:
     payload_stop: "STOP"
     state_open: "open"
     state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"
+    optimistic: false
+    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+```
+
+### {% linkable_title Full configuration without tilt %}
+
+The example below shows a full configuration for a cover without tilt with position topic.
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    position_topic: "home-assistant/cover/position"
+    availability_topic: "home-assistant/cover/availability"
+    set_position_topic: "home-assistant/cover/set_position"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    position_open: 100
+    position_closed: 0
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
