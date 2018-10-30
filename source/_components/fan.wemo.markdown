@@ -39,7 +39,7 @@ There are several services which can be used for automations and control of the 
 | Service | Description |
 | --------- | ----------- |
 | `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: off, minimum, low, medium, high, maximum).
-| `set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id and target_humidity are required, and target_humidity is a float between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 50, or 100)).
+| `wemo_set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id and target_humidity are required, and target_humidity is a float between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 50, or 100)).
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
 | `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
 | `toggle` | Calling this service will toggle the humidifier between on and off states.
