@@ -50,7 +50,7 @@ name:
 api_key:
   description: The Slack API token to use for sending Slack messages.
   required: true
-  type: 
+  type: string
 default_channel:
   description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the json at the same level as "message"
   required: true
