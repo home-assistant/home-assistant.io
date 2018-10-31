@@ -129,11 +129,11 @@ value_template:
   required: false
   type: string
 set_position_topic:
-  description: The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic.
+  description: The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position.
   required: false
   type: string
 set_position_template:
-  description: " Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic."
+  description: " Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
   required: false
   type: string
 tilt_command_topic:
