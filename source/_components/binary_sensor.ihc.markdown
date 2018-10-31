@@ -41,6 +41,7 @@ binary_sensor:
         type: opening
         inverting: True
       - id: 12346
+        secondary: True   
            ...
 ```
 
