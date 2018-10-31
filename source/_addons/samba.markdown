@@ -40,13 +40,67 @@ Also be careful when setting up port forwarding for remote access. If you don't 
 }
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Set netbios name of Hass.io device. Default is `hassio`.
-- **workgroup** (*Optional*): Set network workgroup name. Default is `WORKGROUP`.
-- **guest** (*Optional*): Allow login without a username or password. Default is `true`.
-- **map** (*Optional*): Control which folders will be exposed. `config` shares the Home Assistant configuration folder. `addons` shares the local custom repository. `share` shares a folder that can be accessed by add-ons and Home Assistant. `backup` shares access to snapshot files. `ssl` shares certificate storage. Be careful with the `ssl` option! Defaults are all set to `true`, except for `ssl`.
-- **username** (*Optional*): Username for logging in if guest login is not used.
-- **password** (*Optional*): Password for `username`. An empty password is not supported.
-- **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection. If you are running on an Intel NUC this could also be `enp3s0` for ethernet or `wlp5s0` for wireless connection.
-- **allow_hosts** (*Optional*): The hosts that are allowed to connect to your Samba server. By default it is limited to people within the same local network.
+{% configuration %}
+name:
+  description: Set netbios name of Hass.io device.
+  required: false
+  default: "`hassio`"
+  type: string
+workgroup:
+  description: Set network workgroup name.
+  required: false
+  default: "`WORKGROUP`"
+  type: string
+guest:
+  description: Allow login without a username or password.
+  required: false
+  default: true
+  type: boolean
+map:
+  description: Control which folders will be exposed.
+  required: false
+  type: map
+  keys:
+    config:
+      description: The Home Assistant configuration folder
+      required: false
+      default: true
+      type: boolean
+    addons:
+      description: The local custom addons repository
+      required: false
+      default: true
+      type: boolean
+    share:
+      description: The folder that can be accessed by add-ons and Home Assistant
+      required: false
+      default: true
+      type: boolean
+    backup:
+      description: Access to snapshot files
+      required: false
+      default: true
+      type: boolean
+    ssl:
+      description: Certificate storage (Careful! Sharing is set to `false` by default)
+      required: false
+      default: false
+      type: boolean
+username:
+  description: Username for logging in if guest login is not used.
+  required: false
+  type: string
+password:
+  description: Password for `username`. An empty password is not supported.
+  required: false
+  type: string
+interface:
+  description: Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection. If you are running on an Intel NUC this could also be `enp3s0` for ethernet or `wlp5s0` for wireless connection.
+  required: false
+  type: string
+allow_hosts:
+  description: The hosts that are allowed to connect to your Samba server. By default it is limited to people within the same local network.
+  required: false
+  default: '`["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]`'
+  type: list
+{% endconfiguration %}
