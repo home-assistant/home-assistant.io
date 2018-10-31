@@ -17,7 +17,6 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
 - Join the [Facebook community][facebook]
-- Join the [Google+ community][google-plus]
 - Join the Reddit in [/r/homeassistant][reddit]
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
