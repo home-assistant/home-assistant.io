@@ -27,6 +27,13 @@ ihc:
    username: YOUR_USERNAME
    password: YOUR_PASSWORD
    info: true
+   
+   # For a setup with two controllers the secondary can be configured similary
+   secondary: 
+     url: 'http://192.168.1.4'
+     username: YOUR_USERNAME2
+     password: YOUR_PASSWORD2
+     info: true 
 ```
 
 {% configuration %}
@@ -51,6 +58,31 @@ username:
   description: The username for the IHC Controller.
   required: true
   type: string
+secondary:
+  description: If the IHC system consists of two controllers a secondary can be added under this node and configured similar to the primary.
+  required: false
+  auto_setup:
+     description: Automatic setup of IHC products linked to secondary controller.
+     required: false
+     type: boolean
+     default: true
+   info:
+     description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
+     required: false
+     type: boolean
+   password:
+     description: The password for the secondary IHC Controller.
+     required: true
+     type: string
+   url:
+     description: The URL of the secondary IHC Controller.
+     required: true
+     type: string
+   username:
+     description: The username for the secondary IHC Controller.
+     required: true
+     type: string
+  
 {% endconfiguration %}
 
 There is currently support for the following device types within Home Assistant:
