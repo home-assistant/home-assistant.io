@@ -70,6 +70,11 @@ binary_sensors:
         for available types.
       required: false
       type: string
+    secondary:
+      description: Set to True if the binary_sensor configured is on the secondary controller
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource. For more information
