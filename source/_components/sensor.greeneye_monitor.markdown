@@ -10,7 +10,7 @@ footer: true
 logo: brultech.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.75
+ha_release: 0.82
 ---
 
 The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM.

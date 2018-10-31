@@ -10,7 +10,7 @@ footer: true
 logo: brultech.png
 ha_category: Hub
 featured: false
-ha_release: 0.75
+ha_release: 0.82
 ha_iot_class: "Local Push"
 ---
 
@@ -56,7 +56,7 @@ monitors:
     serial_number:
       description: The last five digits (omitting leading zeroes) of your GEM serial number.
       required: true
-      type: positive_int
+      type: integer
     channels:
       description: The list of channels that should appear in Home Assistant for this monitor. Data from other channels will be ignored.
       required: false
@@ -65,7 +65,7 @@ monitors:
         number:
           description: The channel number as it appears in the GEM UI.
           required: true
-          type: positive_int
+          type: integer
         name:
           description: The name that should be used for this channel's sensor in Home Assistant.
           required: true
@@ -81,7 +81,7 @@ monitors:
       keys:
         temperature_unit:
           description: The unit of measure to use for the temperature (F or C)
-          type: temperature_unit
+          type: string
           required: true
         sensors:
           description: The list of temperature sensors that should appear in Home Assistant for this monitor. Data from other sensors will be ignored.
@@ -91,7 +91,7 @@ monitors:
             number:
               description: The sensor number as it appears in the GEM UI.
               required: true
-              type: positive_int
+              type: integer
             name:
               description: The name that should be used for this sensor in Home Assistant.
               required: true
@@ -104,13 +104,13 @@ monitors:
         number:
           description: The pulse counter's number as it appears in the GEM UI.
           required: true
-          type: positive_int
+          type: integer
         name:
           description: The name that should be used for this pulse counter in Home Assistant.
           required: true
           type: string
         counted_quantity:
-          description: The unit being counted by this pulse counter (e.g. gal, L)
+          description: The unit being counted by this pulse counter (e.g., gal, L)
           required: true
           type: string
         counted_quantity_per_pulse:
@@ -121,7 +121,7 @@ monitors:
         time_unit:
           description: The time unit to use when computing rates (s, min, or h)
           required: false
-          type: s, min, h
+          type: string
           default: s
 {% endconfiguration %}
 
