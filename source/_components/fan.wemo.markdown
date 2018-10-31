@@ -26,9 +26,9 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `current_humidity` | An integer that indicates the current relative humidty percentage of the room, as determined by the device's onboard humidity sensor.
+| `current_humidity` | An integer that indicates the current relative humidity percentage of the room, as determined by the device's onboard humidity sensor.
 | `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
-| `fan_mode` | String that indicates the current fan speed setting (Off, Low, Medium, or High). The WeMo humidifier speeds of minimum and low both map to the Home Assistant speed of low, and the WeMo humidifier speeds of high and maximum both map to the Home Assistant speed of high (due to constraints on which speeds Home Assistant supports for fans)
+| `fan_mode` | String that indicates the current fan speed setting (Off, Low, Medium, or High). The WeMo humidifier speeds of minimum and low both map to the Home Assistant speed of low, and the WeMo humidifier speeds of high and maximum both map to the Home Assistant speed of high (due to constraints on which speeds Home Assistant supports for fans).
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 | `filter_life` | The used life of the filter (as a percentage).
 | `filter_expired` | A boolean that indicates whether the filter has expired and needs to be replaced.
