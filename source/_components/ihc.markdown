@@ -23,7 +23,7 @@ the following options:
 ```yaml
 # Example configuration.yaml entry
 ihc:
-   url: http://192.168.1.3
+   url: 'http://192.168.1.3'
    username: YOUR_USERNAME
    password: YOUR_PASSWORD
    info: true
