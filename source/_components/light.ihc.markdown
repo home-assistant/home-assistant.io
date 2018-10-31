@@ -38,6 +38,10 @@ light:
         dimmable: True
       - id: 12346
         name: anotherlight
+        ...
+      - id: 23432
+        name: ihc2light
+        secondary: True        
       ...
 ```
 
@@ -60,6 +64,12 @@ lights:
       description: The name of the component
       required: false
       type: string
+    secondary:
+      description: Set to True if the light is on the secondary controller
+      required: false
+      type: boolean
+      default: false
+      
 {% endconfiguration %}
 
 In the example above 12345 is ihc resource id and "tablelight" is the name.
