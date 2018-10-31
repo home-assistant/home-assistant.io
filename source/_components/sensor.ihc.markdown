@@ -54,6 +54,12 @@ sensors:
       description: Defines the unit of measurement of the sensor, if any.
       required: false
       type: string
+    secondary:
+      description: Set to True if the sensor is on the secondary controller
+      required: false
+      type: boolean
+      default: false
+      
 {% endconfiguration %}
 
 The resource id should be a IHC float resource. For more information about IHC
