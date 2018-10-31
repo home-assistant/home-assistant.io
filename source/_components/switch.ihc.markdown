@@ -51,6 +51,12 @@ switches:
       description: The name of the component
       required: false
       type: string
+    secondary:
+      description: Set to True if the switch is connected to the secondary controller
+      required: false
+      type: boolean
+      default: false
+      
 {% endconfiguration %}
 
 The resource id should be a boolean resource (On/Off).
