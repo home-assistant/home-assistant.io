@@ -56,7 +56,6 @@ switches:
       required: false
       type: boolean
       default: false
-      
 {% endconfiguration %}
 
 The resource id should be a boolean resource (On/Off).
