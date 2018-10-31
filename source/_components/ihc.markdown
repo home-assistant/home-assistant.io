@@ -61,27 +61,7 @@ username:
 secondary:
   description: If the IHC system consists of two controllers a secondary can be added under this node and configured similar to the primary.
   required: false
-  auto_setup:
-     description: Automatic setup of IHC products linked to secondary controller.
-     required: false
-     type: boolean
-     default: true
-   info:
-     description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
-     required: false
-     type: boolean
-   password:
-     description: The password for the secondary IHC Controller.
-     required: true
-     type: string
-   url:
-     description: The URL of the secondary IHC Controller.
-     required: true
-     type: string
-   username:
-     description: The username for the secondary IHC Controller.
-     required: true
-     type: string
+  ...
   
 {% endconfiguration %}
 
