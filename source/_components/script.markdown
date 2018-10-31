@@ -116,6 +116,6 @@ script:
 
 ### {% linkable_title In the Overview %}
 
-Scripts in the Overview panel will be displayed with an **ACTIVATE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
+Scripts in the Overview panel will be displayed with an **EXECUTE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
 
 This is to enable you to stop a running script.
