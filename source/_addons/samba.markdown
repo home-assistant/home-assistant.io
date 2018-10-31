@@ -12,6 +12,11 @@ featured: true
 
 This add-on allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
 
+<p class='note warning'>
+It is <strong>strongly recommended to set a username and password</strong>. By using guest mode, you expose your configuration and secrets to every user in local network.<br />
+Also be careful when setting up port forwarding for remote access. If you don't restrict access by setting a username and password, your configuration could be exposed to the entire internet!
+</p>
+
 ```json
 {
   "name": "hassio",
@@ -45,7 +50,3 @@ Configuration variables:
 - **password** (*Optional*): Password for `username`. An empty password is not supported.
 - **interface** (*Optional*): Interface that will start the share. Normally this is `eth0` for ethernet wired connection and `wlan0` for wireless connection. If you are running on an Intel NUC this could also be `enp3s0` for ethernet or `wlp5s0` for wireless connection.
 - **allow_hosts** (*Optional*): The hosts that are allowed to connect to your Samba server. By default it is limited to people within the same local network.
-
-<p class='note warning'>
-Be careful when setting up port forwarding to the remote access. If you don't restrict access by requiring authentication and guest access is enabled, your configuration could be exposed to the internet!
-</p>
