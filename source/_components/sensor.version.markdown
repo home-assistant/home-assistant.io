@@ -74,7 +74,7 @@ sensor:
     command: "/home/homeassistant/bin/hass --version"
 ```
 
-It's also possible to ready a file called `.HA_VERSION` which is located in your
+It's also possible to read a file called `.HA_VERSION` which is located in your
 Home Assistant [configuration](/docs/configuration/) folder.
 
 ```yaml
