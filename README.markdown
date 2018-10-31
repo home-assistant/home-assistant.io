@@ -5,7 +5,7 @@
 
 # Home Assistant website
 
-This is the source for the [Home-Assistant.io website](https://home-assistant.io).
+This is the source for the [Home-Assistant.io website](https://home-assistant.io)...
 
 ## Setup
 
@@ -19,7 +19,7 @@ In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0
 bundle exec rake preview
 ```
 
-## Speeding up site generation
+## Speeding up site generation.
 
 Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
 
@@ -30,5 +30,5 @@ bundle exec rake isolate[filename-of-blogpost]
 When you're done working on the site, run the following command to move the posts back again:
 
 ```bash
-bundle exec rake integrate
+bundle exec rake integrate!
 ```
