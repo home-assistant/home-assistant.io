@@ -91,11 +91,6 @@ service_data:
   required: false
   description: The service data to use.
   type: object
-hold_time:
-  required: false
-  description: Time in ms for click-and-hold to register.
-  type: integer
-  default: 500
 style:
   required: true
   description: Position and style the element using CSS.
@@ -144,11 +139,6 @@ service_data:
   required: false
   description: The service data to use.
   type: object
-hold_time:
-  required: false
-  description: Time in ms for click-and-hold to register.
-  type: integer
-  default: 500
 style:
   required: true
   description: Position and style the element using CSS.
@@ -223,11 +213,6 @@ service_data:
   required: false
   description: The service data to use.
   type: object
-hold_time:
-  required: false
-  description: Time in ms for click-and-hold to register.
-  type: integer
-  default: 500
 style:
   required: true
   description: Position and style the element using CSS.
@@ -268,11 +253,6 @@ service_data:
   required: false
   description: The service data to use.
   type: object
-hold_time:
-  required: false
-  description: Time in ms for click-and-hold to register.
-  type: integer
-  default: 500
 image:
   required: false
   description: The image to display.
@@ -353,7 +333,7 @@ state_filter:
 
 ## {% linkable_title How to use click-and-hold %}
 
-If the option `hold_action` is specified, that action will be performed when the entity is clicked and held for a certain time (default 0.5 seconds).
+If the option `hold_action` is specified, that action will be performed when the entity is clicked and held for half a second or more.
 Please note that the `tap_action` and `hold_action` share variables for `navigation_path`, `service` and `service_data`. It is therefore not possible to, e.g., call two different services when clicked and when held.
 
 ```yaml
