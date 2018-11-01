@@ -34,15 +34,7 @@ light:
   - platform: ihc
     lights:
       - id: 12345
-        name: tablelight
-        dimmable: True
-      - id: 12346
-        name: anotherlight
-        ...
       - id: 23432
-        name: ihc2light
-        secondary: True        
-      ...
 ```
 
 {% configuration %}
@@ -52,7 +44,7 @@ lights:
   type: map
   keys:
     dimmable:
-      description: Set to True if the IHC resource is a light level
+      description: Set to True if the IHC resource is a light level.
       required: false
       type: boolean
       default: false
@@ -65,11 +57,10 @@ lights:
       required: false
       type: string
     secondary:
-      description: Set to True if the light is on the secondary controller
+      description: Set to True if the light is on the secondary controller.
       required: false
       type: boolean
       default: false
-      
 {% endconfiguration %}
 
 In the example above 12345 is ihc resource id and "tablelight" is the name.
