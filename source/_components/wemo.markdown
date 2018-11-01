@@ -22,7 +22,6 @@ The `wemo` component is the main component to integrate various [Belkin WeMo](ht
     description: One or more static IP adresses for WeMo to use
     required: false
     type: list
-    default: 1
   disable_discovery:
     description: Setting this value to true will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
     required: false
