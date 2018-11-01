@@ -33,20 +33,20 @@ sensor:
 {% configuration %}
 username:
   description: The email address associated with your 17track.net account.
-  required: required
+  required: true
   type: string
 password:
   description: The password associated with your 17track.net account.
-  required: required
+  required: true
   type: string
 show_archived:
   description: Whether sensors should be created for archived packages.
-  required: optional
+  required: false
   type: boolean
   default: false
 show_delivered:
   description: Whether sensors should be created for delivered packages.
-  required: optional
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}
