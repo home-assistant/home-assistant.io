@@ -10,7 +10,7 @@ footer: true
 logo: nilu_logo.png
 ha_category: Health
 ha_iot_class: "Cloud Polling"
-ha_release: 0.83
+ha_release: 0.82
 ---
 
 The `nilu_air_quality` platform will show the current air quality data from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) stations within Norway. The sensor will show the current pollution index as a state, and also contains all measured components from the station within the attributes, as the reason for current pollution index. 
