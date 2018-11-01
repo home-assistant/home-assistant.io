@@ -37,12 +37,7 @@ binary_sensor:
   - platform: ihc
     binary_sensors:
       - id: 12345
-        name: mysensor
-        type: opening
-        inverting: True
       - id: 12346
-        secondary: True   
-           ...
 ```
 
 {% configuration %}
@@ -61,7 +56,7 @@ binary_sensors:
       type: boolean
       default: false
     name:
-      description: The name of the component
+      description: The name of the sensor.
       required: false
       type: string
     type:
@@ -72,7 +67,7 @@ binary_sensors:
       required: false
       type: string
     secondary:
-      description: Set to True if the binary_sensor configured is on the secondary controller
+      description: Set to True if the binary sensor configured is on the secondary controller.
       required: false
       type: boolean
       default: false
