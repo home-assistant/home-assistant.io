@@ -33,7 +33,6 @@ Be patient this will take a while.
 pip3 install lxml
 ```
 
-
 ## {% linkable_title Setup%}
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
