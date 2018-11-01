@@ -172,7 +172,11 @@ A common situation might be if you decide to disable parts of the configuration 
 
 Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
 
-If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation:
+If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
+
+<p class='note'
+Please remember that [as explained here][devices] you can only have a single `automation:` entry. Add the automation to your existing automations, or use `automation homekit:`
+</p>
 
 {% raw %}
 ```yaml
@@ -352,3 +356,5 @@ Unfortunately that sometimes happens at the moment. It might help to close the `
 
 #### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
+
+[devices]: https://www.home-assistant.io/docs/configuration/devices/

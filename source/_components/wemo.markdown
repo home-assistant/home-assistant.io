@@ -24,6 +24,14 @@ Supported devices will be automatically discovered if the discovery component is
 wemo:
 ```
 
+{% configuration %}
+  static:
+    description: One or more static IP adresses for WeMo to use
+    required: false
+    type: list
+    default: 1
+{% endconfiguration %}
+
 Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. This is also useful if you wish to disable discovery for some WeMo's, even if they are local. Example static configuration:
 
 ```yaml

@@ -14,7 +14,8 @@ ha_release: "0.52"
 
 <p class='note'>
 This component will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
-
+<br>
+<br>
 Hipchat will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
 </p>
 
@@ -58,7 +59,7 @@ notify:
   default: false
   type: boolean
 format:
-  description: Setting format will override the default message format. Default is 'text'. Valid options are 'text' and 'html'.
+  description: Setting format will override the default message format. Valid options are 'text' and 'html'.
   required: false
   default: text
   type: string

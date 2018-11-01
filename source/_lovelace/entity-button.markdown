@@ -50,6 +50,11 @@ tap_action:
   description: "Set to `toggle` or `call-service` for direct actions."
   type: string
   default: more-info
+hold_action:
+  required: false
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
+  type: string
+  default: none
 service:
   required: false
   description: "For `call-service`, e.g., `media_player.media_play_pause`"
@@ -71,7 +76,7 @@ Title and Script Service Example:
 
 ```yaml
 - type: entity-button
-  title: Turn Off Lights
+  name: Turn Off Lights
   entity: script.turn_off_lights
   service: script.turn_on
 ```

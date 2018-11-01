@@ -16,6 +16,7 @@ The logic layer will be Home Assistant. There is no ReGa or other logic layer in
 Follow devices will be supported and tested:
 
 - [HM-MOD-RPI-PCB](https://www.elv.ch/homematic-funkmodul-fuer-raspberry-pi-bausatz.html)
+- [HmIP-RFUSB](https://www.elv.ch/elv-homematic-ip-rf-usb-stick-hmip-rfusb-fuer-alternative-steuerungsplattformen-arr-bausatz.html)
 
 ```json
 {
@@ -32,6 +33,13 @@ Follow devices will be supported and tested:
       "serial": "xy",
       "key": "abc",
       "ip": "192.168.0.0"
+    }
+  ],
+  "hmip_enable": false,
+  "hmip": [
+    {
+      "type": "HMIP_CCU2",
+      "device": "/dev/ttyUSB0"
     }
   ]
 }
@@ -52,6 +60,11 @@ For wired devices:
 - **serial** (*Required*): Serial number of the device.
 - **key** (*Required*): Encrypted key.
 - **ip** (*Required*): IP address of LAN gateway.
+
+For HmIP devices:
+
+- **type** (*Required*): Device type for RFD service. Look into the manual of your device.
+- **device** (*Required*): Device on the host.
 
 ## {% linkable_title Home Assistant configuration %}
 

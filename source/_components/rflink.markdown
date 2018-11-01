@@ -28,6 +28,8 @@ This component is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
+## {% linkable_title Configuration %}
+
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -51,7 +53,7 @@ wait_for_ack:
   default: true
   type: boolean
 ignore_devices:
-  description: List of device id's to ignore. Supports wildcards (*) at the end.
+  description: List of device id's to ignore. Supports wildcards (`*`) at the end.
   required: false
   type: [list, string]
 reconnect_interval:
@@ -61,8 +63,7 @@ reconnect_interval:
   type: integer
 {% endconfiguration %}
 
-Complete example:
-
+### {% linkable_title Full example %}
 ```yaml
 # Example configuration.yaml entry
 rflink:

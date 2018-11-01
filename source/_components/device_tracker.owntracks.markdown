@@ -101,7 +101,11 @@ Home Assistant will use the enter and leave messages to set your zone location. 
 
 When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
 
-### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
+### {% linkable_title Using Owntracks regions - forcing Owntracks to update using iBeacons %}
+
+<p class='note'>
+Owntracks v2.0.0 removes support for iBecons on Android.
+</p>
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
