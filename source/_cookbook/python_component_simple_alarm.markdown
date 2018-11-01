@@ -23,10 +23,16 @@ simple_alarm:
   unknown_light: group.living_room
 ```
 
-Configuration variables:
-
-- **known_light** (*Optional*): Which light/light group has to flash when a known device comes home.
-- **unknown_light** (*Optional*): Which light/light group has to flash red when light turns on while no one home.
+{% configuration %}
+known_light:
+  description: Which light/light group has to flash when a known device comes home.
+  required: false
+  type: string
+unknown_light:
+  description: Which light/light group has to flash red when light turns on while no one home.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Create the file `<config dir>/custom_components/simple_alarm.py` and copy paste the content below:
 

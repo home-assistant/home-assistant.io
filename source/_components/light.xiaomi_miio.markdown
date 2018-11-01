@@ -55,7 +55,7 @@ The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philip
 * Eye fatigue reminder / notification (on, off)
 * Eyecare mode (on, off)
 * Attributes
-  - model
+  - model (Warning: set this value to philips.light.sread1)
   - scene
   - delayed_turn_off
   - night_light_mode
