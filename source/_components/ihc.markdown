@@ -61,8 +61,6 @@ username:
 secondary:
   description: If the IHC system consists of two controllers a secondary can be added under this node and configured similar to the primary.
   required: false
-  ...
-  
 {% endconfiguration %}
 
 There is currently support for the following device types within Home Assistant:
