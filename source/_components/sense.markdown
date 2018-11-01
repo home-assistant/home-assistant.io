@@ -11,8 +11,8 @@ logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
 ha_release: 0.80
+redirect_from: /components/sensor.sense/
 ---
-
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant. 
 
@@ -26,6 +26,13 @@ sense:
   email: CLIENT_ID
   password: CLIENT_SECRET
 ```
+
+Sensors are added for both usage and production with the following names:
+
+- **Active Usage/Production**: Current active power usage/production in Watts. Updated every 60 seconds.
+- **Daily/Weekly/Monthly Usage/Production**: Daily/Weekly/Monthly power usage/production in kWh. Updated every 5 minutes.
+
+Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
 
 {% configuration %}
 email:
