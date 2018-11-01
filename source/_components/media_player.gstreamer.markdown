@@ -23,10 +23,16 @@ media_player:
   - platform: gstreamer
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name the player.
-- **pipeline** (*Optional*): `gst` pipeline description.
+{% configuration %}
+name:
+  description: Name of the media player.
+  required: false
+  type: string
+pipeline:
+  description: A `gst` pipeline description.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Only the `music` media type is supported.
 
@@ -56,7 +62,7 @@ If you're running Home Assistant in a virtual environment, you'll need to symlin
 
 ```bash
 ln -s /path/to/your/installation/of/gi /path/to/your/venv/lib/python3.4/site-packages
-``` 
+```
 
 On a Raspberry Pi, you may need to add the Home Assistant user to the `audio` group:
 
@@ -65,7 +71,7 @@ sudo usermod -a -G audio <ha_user>
 ```
 
 ## {% linkable_title Example Usage %}
- 
+
 ### {% linkable_title Using with TTS %}
 
 To play TTS on your local computer (for example, if you have speakers attached to your Raspberry Pi:

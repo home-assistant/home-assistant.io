@@ -43,6 +43,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: Whether Home Assistant should verify the SSL certificate from the inverter. Self-signed certificates may require `false` for this sensor to operate properly.
+  required: false
+  default: true
+  type: boolean
 password:
   description: The password of the SMA WebConnect module.
   required: true

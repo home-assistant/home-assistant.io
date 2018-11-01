@@ -129,7 +129,7 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
+  description: "Expose devices in all supported domains by default. If set to false, you need to add the expose configuration option to each entity in `entity_config` and set it to true. Setting `exposed_domains` values will _not_ expose those domains if `expose_by_default` is false."
   required: false
   default: True
   type: boolean
@@ -179,6 +179,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
+- vacuum (dock/start/stop/pause)
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 

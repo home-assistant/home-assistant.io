@@ -25,15 +25,45 @@ homeassistant:
     - /tmp
 ```
 
-Configuration variables:
-
-- **latitude** (*Optional*): Latitude of your location required to calculate the time the sun rises and sets.
-- **longitude** (*Optional*): Longitude of your location required to calculate the time the sun rises and sets.
-- **elevation** (*Optional*): Altitude above sea level in meters. Impacts weather/sunrise data. 
-- **unit_system** (*Optional*): `metric` for Metric, `imperial` for Imperial.
-- **time_zone** (*Optional*): Pick yours from here: [http://en.wikipedia.org/wiki/List_of_tz_database_time_zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- **name** (*Optional*): Name of the location where Home Assistant is running.
-- **customize** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities.
-- **customize_domain** (*Optional*): [Customize](/docs/configuration/customizing-devices/) all entities in a domain.
-- **customize_glob** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities matching a pattern.
-- **whitelist_external_dirs** (*Optional*): List of folders that can be used as sources for sending files.
+{% configuration %}
+latitude:
+  description: Latitude of your location required to calculate the time the sun rises and sets.
+  required: false
+  type: float
+longitude:
+  description: Longitude of your location required to calculate the time the sun rises and sets.
+  required: false
+  type: float
+elevation:
+  description: Altitude above sea level in meters. Impacts weather/sunrise data.
+  required: false
+  type: integer
+unit_system:
+  description: "`metric` for Metric, `imperial` for Imperial."
+  required: false
+  type: string
+time_zone:
+  description: "Pick yours from here: [http://en.wikipedia.org/wiki/List_of_tz_database_time_zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+  required: false
+  type: string
+name:
+  description: Name of the location where Home Assistant is running.
+  required: false
+  type: string
+customize:
+  description: "[Customize](/docs/configuration/customizing-devices/) entities."
+  required: false
+  type: string
+customize_domain:
+  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
+  required: false
+  type: string
+customize_glob:
+  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
+  required: false
+  type: string
+whitelist_external_dirs:
+  description: List of folders that can be used as sources for sending files.
+  required: false
+  type: list
+{% endconfiguration %}

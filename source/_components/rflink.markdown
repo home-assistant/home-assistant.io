@@ -28,6 +28,8 @@ This component is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
+## {% linkable_title Configuration %}
+
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -36,15 +38,31 @@ rflink:
   port: /dev/serial/by-id/usb-id01234
 ```
 
-Configuration variables:
+{% configuration %}
+port:
+  description: The path to RFLink USB/serial device or TCP port in TCP mode.
+  required: true
+  type: string
+host:
+  description: Switches to TCP mode, connects to host instead of to USB/serial.
+  required: false
+  type: string
+wait_for_ack:
+  description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable).
+  required: false
+  type: string
+  default: true
+ignore_devices:
+  description: List of device id's to ignore. Supports wildcards (`*`) at the end.
+  required: false
+  type: string
+reconnect_interval:
+  description: Time in seconds between reconnect attempts.
+  required: false
+  type: integer
+{% endconfiguration %}
 
-- **port** (*Required*): The path to RFLink USB/serial device or TCP port in TCP mode.
-- **host** (*Optional*): Switches to TCP mode, connects to host instead of to USB/serial.
-- **wait_for_ack** (*Optional*): Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
-- **ignore_devices** (*Optional*): List of device id's to ignore. Supports wildcards (*) at the end.
-- **reconnect_interval** (*Optional*): Time in seconds between reconnect attempts.
-
-Complete example:
+### {% linkable_title Full example %}
 
 ```yaml
 # Example configuration.yaml entry

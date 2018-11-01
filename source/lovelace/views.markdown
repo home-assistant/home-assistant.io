@@ -36,7 +36,7 @@ views:
       type: list
     id:
       required: false
-      description: IDs are used in the URL, more info below.
+      description: IDs are used in the URL, more info below. If you don't specify an ID, a random one will be added automatically.
       type: string
       default: view index
     icon:
@@ -61,6 +61,8 @@ views:
 ## {% linkable_title IDs %}
 
 You can link to one view from another view by its ID. For this use cards that support navigation (`navigation_path`). Do not use special characters in IDs.
+
+IDs are also used to identify a view for editing in the Home Assistant frontend (not yet released), we will add a randomly generated ID to your view if you don't specify one. You can change this ID, as long as every view has a unique ID.
 
 ### {% linkable_title Example %}
 

@@ -33,10 +33,19 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 ```
-Configuration variables:
 
-- **discovery** (*Optional*): If the MQTT discovery should be enabled or not. Defaults to `False`.
-- **discovery_prefix** (*Optional*): The prefix for the discovery topic. Defaults  to `homeassistant`.
+{% configuration %}
+discovery:
+  description: If the MQTT discovery should be enabled or not.
+  required: false
+  default: false
+  type: boolean
+discovery_prefix:
+  description: The prefix for the discovery topic.
+  required: false
+  default: homeassistant
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.

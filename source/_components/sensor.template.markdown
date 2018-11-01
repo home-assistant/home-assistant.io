@@ -292,7 +292,7 @@ sensor:
 
 ### {% linkable_title Working with dates %}
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sun.sun`.
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sensor.date`.
 
 {% raw %}
 ```yaml
@@ -301,28 +301,13 @@ sensor:
   sensors:
     nonsmoker:
       value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: sun.sun
+      entity_id: sensor.date
       friendly_name: 'Not smoking'
       unit_of_measurement: "Days"
 ```
 {% endraw %}
 
-### {% linkable_title Template tracking %}
-
-This example shows how to add `entity_id` to a template to allow tracking of updates. Fixing an error caused in (81.0) 
-
-{% raw %}
-```yaml
-sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      entity_id: now.strptime
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
-```
-{% endraw %}
+Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
 Note: If a template uses more than one sensor they can be listed
 

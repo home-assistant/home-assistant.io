@@ -139,6 +139,10 @@ condition:
         before: sunrise
 ```
 
+A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
+
+<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
+
 ### {% linkable_title Template condition %}
 
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
