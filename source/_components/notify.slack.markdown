@@ -52,14 +52,14 @@ api_key:
   required: true
   type: string
 default_channel:
-  description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the json at the same level as "message"
+  description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the JSON at the same level as "message".
   required: true
   type: string
 username:
   description: Home Assistant will post to Slack using the username specified.
   required: false
   type: string
-  default: The user account or botname that you generated the api_key as.
+  default: The user account or botname that you generated the API key as.
 icon:
   description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
   required: false
