@@ -22,15 +22,15 @@ Supported devices will be automatically discovered if the optional `disable_disc
 ```yaml
 # Example configuration.yaml entry with automatic discovery enabled
 wemo:
-  disable_disovery: false
+  disable_discovery: false
 ```
 
-Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. This is also useful if you wish to disable discovery for some WeMo's, even if they are local. Example static configuration:
+Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. Statically configured devices may be used with or without automatic discovery enabled. Example static configuration:
 
 ```yaml
-# Example configuration.yaml entry with automatic discovery disabled, and 2 static entries for WeMo devices to be discovered manually
+# Example configuration.yaml entry with automatic discovery disabled, and 2 statically configured devices
 wemo:
-  disable_disovery: true
+  disable_discovery: true
   static:
     - 192.168.1.23
     - 192.168.52.172
