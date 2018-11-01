@@ -10,7 +10,7 @@ footer: true
 redirect_from: /ecosystem/notebooks/installation/
 ---
 
-To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider to run Jupyter in a [virtualenv](/getting-started/installation-virtualenv/).
+To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/getting-started/installation-virtualenv/) in order to properly manage dependencies.
 
 ```bash
 $ pip3 install jupyter matplotlib

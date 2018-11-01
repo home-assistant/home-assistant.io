@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.9
 ---
 
-
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 ## {% linkable_title Configuration %}
@@ -62,5 +61,5 @@ binary_sensor:
 ```
 
 <p class='note'>
-This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle. 
+This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle.
 </p>

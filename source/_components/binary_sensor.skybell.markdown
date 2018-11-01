@@ -30,9 +30,9 @@ binary_sensor:
 
 {% configuration %}
 monitored_conditions:
-  type: list
-  required: true
   description: Conditions to display in the frontend. The following conditions can be monitored.
+  required: true
+  type: list
   keys:
     button:
       description: Returns whether the doorbell button was pressed.

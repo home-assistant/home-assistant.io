@@ -35,18 +35,47 @@ cover:
         state_pin: 11
 ```
 
-Configuration variables:
+{% configuration %}
+relay_time:
+  description: The time that the relay will be on for in seconds.
+  required: false
+  default: 0.2
+  type: float
+invert_relay:
+  description: Invert the relay pin output so that it is active-high (True).
+  required: false
+  default: False
+  type: boolean
+state_pull_mode:
+  description: The direction the State pin is pulling. It can be UP or DOWN.
+  required: false
+  default: UP
+  type: string
+invert_state:
+  description: Invert the value of the State pin so that 0 means closed.
+  required: false
+  default: False
+  type: boolean
+covers:
+  description: List of your doors.
+  required: true
+  type: list
+  keys:
+    relay_pin:
+      description: The pin of your Raspberry Pi where the relay is connected.
+      required: true
+      type: integer
+    state_pin:
+      description: The pin of your Raspberry Pi to retrieve the state.
+      required: true
+      type: integer
+    name:
+      description: The name to use in the frontend.
+      required: false
+      type: string
+{% endconfiguration %}
 
-- **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is 0.2 seconds.
-- **invert_relay** (*Optional*): Invert the relay pin output so that it is active-high.  Default is False (active-low).
-- **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
-- **invert_state** (*Optional*): Invert the value of the State pin so that 0 means closed. Default is False.
-- **covers** array (*Required*): List of your doors.
-  - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
-  - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
-  - **name** (*Optional*): Name to use in the frontend.
-
-Full example:
+## {% linkable_title Full example %}
 
 ```yaml
 # Example configuration.yaml entry

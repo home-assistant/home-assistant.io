@@ -50,6 +50,11 @@ tap_action:
   description: "Set to `toggle` or `call-service` for direct actions."
   type: string
   default: more-info
+hold_action:
+  required: false
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
+  type: string
+  default: none
 service:
   required: false
   description: "For `call-service`, e.g., `media_player.media_play_pause`"
@@ -59,6 +64,10 @@ service_data:
   description: The service data to use.
   type: object
   default: "entity_id: entity_id"
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -67,7 +76,7 @@ Title and Script Service Example:
 
 ```yaml
 - type: entity-button
-  title: Turn Off Lights
+  name: Turn Off Lights
   entity: script.turn_off_lights
   service: script.turn_on
 ```

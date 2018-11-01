@@ -12,7 +12,6 @@ ha_category: Image Processing
 ha_release: 0.27
 ---
 
-
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 <p class='note'>
@@ -42,23 +41,23 @@ name:
 initial_state:
   description: Start ffmpeg with home-assistant.
   required: false
-  default: true
   type: boolean
+  default: true
 peak:
   description: The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
   required: false
-  default: -30
   type: integer
+  default: -30
 duration:
   description: How long the noise needs to be over the peak to trigger the state.
   required: false
-  default: 1
   type: integer
+  default: 1
 reset:
   description: The time to reset the state after no new noise is over the peak.
   required: false
-  default: 20
   type: integer
+  default: 20
 extra_arguments:
   description: Extra options to pass to `ffmpeg`, like audio frequency filtering.
   required: false

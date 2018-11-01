@@ -36,17 +36,64 @@ sensor:
     destination: Paris, France
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your application's API key (get one by following the instructions above). This key identifies your application for purposes of quota management.
-- **origin** (*Required*): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a [Google place ID](https://developers.google.com/places/place-id). When specifying the location using a Google place ID, the ID must be prefixed with `place_id:`.
-- **destination** (*Required*): One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.
-- **name** (*Optional*): A name to display on the sensor. The default is "Google Travel Time - [Travel Mode]" where [Travel Mode] is the mode set in options for the sensor (see option "mode" below).
-- **options** (*Optional*): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found [here](https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters).
-  - **mode** (*Optional*): The travel mode used to calculate the directions/time. Can be `driving` (*Default*), `bicycling`, `transit` or `walking`.
-  - **departure_time** (*Optional*): Can be `now`, a Unix timestamp, or a 24 hour time string like `08:00:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment.
-  - **arrival_time** (*Optional*): See notes above for `departure_time`. `arrival_time` cannot be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
-  - **units** (*Optional*): Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`.
+{% configuration %}
+api_key:
+  description: Your application's API key (get one by following the instructions above). This key identifies your application for purposes of quota management.
+  required: true
+  type: string
+origin:
+  description: "The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a [Google place ID](https://developers.google.com/places/place-id). When specifying the location using a Google place ID, the ID must be prefixed with `place_id:`."
+  required: true
+  type: string
+destination:
+  description: One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.
+  required: true
+  type: string
+name:
+  description: A name to display on the sensor. The default is "Google Travel Time - [Travel Mode]" where [Travel Mode] is the mode set in options for the sensor (see option "mode" below).
+  required: false
+  type: string
+travel_mode:
+  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`."
+  required: false
+  type: string
+options:
+  description: "A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found [here](https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters)."
+  required: false
+  type: list
+  keys:
+    mode:
+      description: The travel mode used to calculate the directions/time. Can be `driving`, `bicycling`, `transit` or `walking`.
+      required: false
+      default: driving
+      type: string
+    language:
+      description: "You can choose from a lot of languages: `ar`, `bg`, `bn`, `ca`, `cs`, `da`, `de`, `el`, `en`, `es`, `eu`, `fa`, `fi`, `fr`, `gl`, `gu`, `hi`, `hr`, `hu`, `id`, `it`, `iw`, `ja`, `kn`, `ko`, `lt`, `lv`, `ml`, `mr`, `nl`, `no`, `pl`, `pt`, `pt-BR`, `pt-PT`, `ro`, `ru`, `sk`, `sl`, `sr`, `sv`, `ta`, `te`, `th`, `tl`, `tr`, `uk`, `vi`, `zh-CN` and `zh-TW`."
+      required: false
+      type: string
+    departure_time:
+      description: Can be `now`, a Unix timestamp, or a 24 hour time string like `08:00:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment.
+      required: exclusive
+      type: [time, string]
+    arrival_time:
+      description: See notes above for `departure_time`. `arrival_time` cannot be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
+      required: exclusive
+      type: [time, string]
+    avoid:
+      description: "Indicate what google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
+      required: false
+      type: string
+    transit_model:
+      description: "If you opted for `transit` at `travel_mode`, you can use this variable to specify which public transport you want to use: `bus`, `subway`, `train`, `tram` or `rail`."
+    transit_routing_preference:
+      description: "for the travel time calculation for public transport you can also specify the preference for: `less_walking` or `fewer_transfers`."
+      required: false
+      type: string
+    units:
+      description: "Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`."
+      required: false
+      type: string
+{% endconfiguration %}
 
 ## {% linkable_title Dynamic Configuration %}
 

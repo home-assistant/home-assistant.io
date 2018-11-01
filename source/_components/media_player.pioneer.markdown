@@ -25,12 +25,26 @@ media_player:
     host: 192.168.0.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the Pioneer device,  eg. `192.168.0.10`
-- **name** (*Optional*): The name you would like to give to the receiver.
-- **port** (*Optional*): The port on which the Pioneer device listens, e.g., `23` (default) or `8102`
-- **timeout** (*Optional*): Number of seconds (float) to wait for blocking operations like connect, write, and read.
+{% configuration %}
+host:
+  description: The IP of the Pioneer device, e.g., `192.168.0.10`.
+  required: true
+  type: string
+name:
+  description: The name you would like to give to the receiver.
+  required: false
+  default: Pioneer AVR
+  type: string
+port:
+  description: The port on which the Pioneer device listens, e.g., `23` or `8102`.
+  required: false
+  default: 23
+  type: integer
+timeout:
+  description: Number of seconds (float) to wait for blocking operations like connect, write and read.
+  required: false
+  type: float
+{% endconfiguration %}
 
 Notes:
 

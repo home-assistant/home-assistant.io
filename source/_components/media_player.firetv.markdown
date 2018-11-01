@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `firetv` platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
+The `firetv` platform allows you to control a [Amazon Fire TV/stick](https://www.amazon.com/b/?node=8521791011).
 
 The python-firetv Python 2.x module with its helper script that exposes an HTTP server to fetch state and perform actions is used.
 

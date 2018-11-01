@@ -18,4 +18,3 @@ control a SimpliSafe home alarm system.
 You must have the [`simplisafe` component](/components/simplisafe/) configured
 to use this platform. After configuring that component, any alarm control
 panels defined will automatically appear.
-

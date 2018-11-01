@@ -36,9 +36,11 @@ you with the ability to split your Lovelace configuration into multiple files.
 The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 script that you run in the template editor to generate lovelace configuration based on the entities that are already setup. 
 
 <p class='note'>
-  Split configuration is currently possible directly in Lovelace, but it
-  is expected to be removed in the near future due to fact that Home Assistant
+  Split configuration is no longer possible in Lovelace since version 0.81, due to the fact that Home Assistant
   will be writing directly to the `ui-lovelace.yaml` file.
+  
+  If you want to split your configuration you can use one of the tools listed above, but edits done with the UI will
+  be overwritten by those tools, so you should not use both.
 </p>
 
 ## {% linkable_title Tips and Tricks %}

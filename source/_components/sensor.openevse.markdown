@@ -29,14 +29,28 @@ sensor:
       - status
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of your charger
-- **monitored_variables** array (*Required*): Conditions to display on the frontend.
-  - **status**: The status of the charger (i.e., "Connected", "Charging", etc.)
-  - **charge_time**: The number of minutes the charging has been charging, or 0 if it is not charging.
-  - **rtc_temp**: The temperature reported by the real time clock sensor, or 0 if the sensor is not installed.
-  - **ir_temp**: The temperature reported by the IR remote sensor, or 0 if the sensor is not installed.
-  - **ambient_temp**: The temperature reported by the ambient sensor, or 0 if the sensor is not installed.
-  - **usage_session**: The energy usage for the current charging session.
-  - **usage_total**: The total energy usage for the device.
+{% configuration %}
+host: 
+  description: The IP address or hostname of your charger.
+  required: true
+  type: string
+monitored_variables:
+  description: Conditions to display on the frontend.
+  required: true
+  type: list
+  keys:
+    status:
+      description: The status of the charger (i.e., "Connected", "Charging", etc.).
+    charge_time:
+      description: The number of minutes the charging has been charging, or 0 if it is not charging.
+    rtc_temp:
+      description: The temperature reported by the real time clock sensor, or 0 if the sensor is not installed.
+    ir_temp:
+      description: The temperature reported by the IR remote sensor, or 0 if the sensor is not installed.
+    ambient_temp:
+      description: The temperature reported by the ambient sensor, or 0 if the sensor is not installed.
+    usage_session:
+      description: The energy usage for the current charging session.
+    usage_total:
+      description: The total energy usage for the device.
+{% endconfiguration %}

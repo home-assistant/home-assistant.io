@@ -50,12 +50,12 @@ payload_on:
   description: The payload that represents the running state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents the stop state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
   required: false

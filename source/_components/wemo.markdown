@@ -15,12 +15,22 @@ ha_release: pre 0.7
 
 The `wemo` component is the main component to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
 
+## {% linkable_title Configuration %}
+
 Supported devices will be automatically discovered if the discovery component is enabled. Loading the `wemo` component will scan the local network for WeMo devices, even if you are not using the discovery component
 
 ```yaml
 # Example configuration.yaml entry
 wemo:
 ```
+
+{% configuration %}
+  static:
+    description: One or more static IP adresses for WeMo to use
+    required: false
+    type: list
+    default: 1
+{% endconfiguration %}
 
 Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. This is also useful if you wish to disable discovery for some WeMo's, even if they are local. Example static configuration:
 

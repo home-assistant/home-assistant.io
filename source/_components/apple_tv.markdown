@@ -19,6 +19,8 @@ The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generatio
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
 </p>
 
+## {% linkable_title Configuration %}
+
 To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:
 
 ```shell

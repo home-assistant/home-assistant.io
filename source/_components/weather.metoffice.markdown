@@ -34,8 +34,8 @@ api_key:
 name:
   description: Additional name for the weather component in Home Assistant.
   required: false
-  default: Met Office
   type: string
+  default: Met Office
 latitude:
   description: "Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`."
   required: inclusive
@@ -50,4 +50,3 @@ longitude:
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customizable.
 </p>
-

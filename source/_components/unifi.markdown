@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ubiuiti.png
+logo: ubiquiti.png
 ha_category: Hub
 ha_release: "0.81"
 ha_iot_class: "Local Polling"

@@ -38,3 +38,13 @@ resource:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+A full example of a service call:
+
+```json
+{"message": "This is a test message", 
+ "data":{
+     "file_url":"https://example.com/wp-content/uploads/sites/14/2011/01/cat.jpg"
+     }
+ }
+```

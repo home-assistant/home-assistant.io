@@ -33,6 +33,8 @@ The JSON messages can contain different values like `1`, `"1"`,
 }
 ```
 
+## {% linkable_title Configuration %}
+
 To enable this sensor,
 add the following lines to your `configuration.yaml` file for a GET request:
 

@@ -12,11 +12,11 @@ ha_category: Binary Sensor
 ha_release: 0.31
 ---
 
-### {% linkable_title Basic Configuration %}
-
 The `netatmo` binary sensor platform is consuming the information provided by a
 [Netatmo](https://www.netatmo.com) camera.
 This component allows you to get the latest event seen by the camera.
+
+### {% linkable_title Basic Configuration %}
 
 To enable the Netatmo binary sensor, you have to set up
 [netatmo](/components/netatmo/),

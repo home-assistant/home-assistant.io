@@ -21,6 +21,8 @@ This means that ISS is 10° above the horizon of your home.
 You can check in the attributes of the sensor to see the timestamp for the next
 rise of the station, its current coordinates, and the number of people in space.
 
+## {% linkable_title Configuration %}
+
 To add ISS binary sensor to your installation,
 add the following to your `configuration.yaml` file:
 
@@ -31,11 +33,16 @@ binary_sensor:
 ```
 
 {% configuration %}
+name:
+  description: The name for this sensor in the frontend.
+  required: false
+  type: string
+  default: ISS
 show_on_map:
   description: Option to show the position of the ISS on the map.
   required: optional
+  type: boolean
   default: false
-  type: string
 {% endconfiguration %}
 
 <p class='note warning'>

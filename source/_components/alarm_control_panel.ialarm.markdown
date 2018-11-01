@@ -16,6 +16,8 @@ The `ialarm` platform provides connectivity with the [Antifurto365](https://www.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 
+## {% linkable_title Configuration %}
+
 To enable this, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -28,22 +30,22 @@ alarm_control_panel:
 ```
 
 {% configuration %}
-  host:
-    description: The IP address of the iAlarm device on your home network.
-    required: true
-    type: string
-  username:
-    description: Username used to sign into the iAlarm web client (should be admin by default).
-    required: true
-    type: string
-  password:
-    description: Password used to sign into the iAlarm web client. If it has a leading zero you need to put the password within quotes.
-    required: true
-    type: string
-  name:
-    description: Name of device in Home Assistant.
-    required: false
-    type: string
+host:
+  description: The IP address of the iAlarm device on your home network.
+  required: true
+  type: string
+username:
+  description: Username used to sign into the iAlarm web client (should be admin by default).
+  required: true
+  type: string
+password:
+  description: Password used to sign into the iAlarm web client. If it has a leading zero you need to put the password within quotes.
+  required: true
+  type: string
+name:
+  description: Name of device in Home Assistant.
+  required: false
+  type: string
 {% endconfiguration %}
 
 This platform has also been confirmed to work with the alarm system brands Meian and Emooluxr.

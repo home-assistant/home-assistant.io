@@ -14,5 +14,5 @@ ha_release: pre 0.7
 ---
 
 The `vera` platform allows you to get data from your [Vera](http://getvera.com/) binary sensors from within Home Assistant.
-  
+
 They will be automatically discovered if the vera component is loaded.

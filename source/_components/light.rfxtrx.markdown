@@ -54,12 +54,31 @@ light:
       name: Light_TV
 ```
 
-Configuration variables:
-
-- **devices** (*Required*): A list of devices with their name to use in the frontend.
-- **automatic_add** (*Optional*): To enable the automatic addition of new lights.
-- **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
-- **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: true
+      type: string
+    fire_event:
+      description: Fires an event even if the state is the same as before. Can be used for automations.
+      required: false
+      default: false
+      type: boolean
+automatic_add:
+  description: To enable the automatic addition of new lights.
+  required: false
+  default: false
+  type: boolean
+signal_repetitions:
+  description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 <p class='note warning'>
 If a device ID consists of only numbers, please make sure to surround it with quotes. 

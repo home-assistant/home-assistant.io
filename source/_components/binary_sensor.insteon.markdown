@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ha_version: 0.77
 ---
 
-The `insteon` binary sensor platform lets you control your sensors through 
+The `insteon` binary sensor platform lets you control your sensors through
 an INSTEON Modem (PLM and Hub) device connected directly to your system on a
 USB, serial port or TCPIP connection.  To add support, set up the primary
 [insteon] component.

@@ -13,7 +13,6 @@ ha_release: 0.27
 redirect_from: /components/binary_sensor.ffmpeg/
 ---
 
-
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
 <p class='note'>
@@ -47,28 +46,28 @@ name:
 initial_state:
   description: Start `ffmpeg` with Home Assistant.
   required: false
-  default: true
   type: boolean
+  default: true
 changes:
   description: How much needs to change between two frames to detect it as motion, value in percentage (a lower value is more sensitive).
   required: false
-  default: 10%
   type: integer
+  default: 10
 reset:
   description: The time to reset the state after no new motion is detected.
   required: false
-  default: 20
   type: integer
+  default: 20
 repeat:
   description: How many events need to be detected in *repeat_time* in order to trigger a motion, 0 repeats means deactivated.
   required: false
-  default: 0
   type: integer
+  default: 0
 repeat_time:
   description: The span of time *repeat* events need to occur in before triggering a motion, 0 seconds means deactivated.
   required: false
-  default: 0
   type: integer
+  default: 0
 extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., video denoise filtering.
   required: false

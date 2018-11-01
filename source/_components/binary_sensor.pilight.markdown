@@ -49,11 +49,11 @@ name:
 payload_on:
   description: "Variable `on` value. The component will recognize this as logical '1'."
   required: false
-  type: string
+  type: [string, float, integer]
 payload_off:
   description: "Variable `off` value. The component will recognize this as logical '0'."
   required: false
-  type: string
+  type: [string, float, integer]
 disarm_after_trigger:
   description: Configure sensor as trigger type.
   required: false
@@ -66,6 +66,8 @@ reset_delay_sec:
   type: integer
   default: 30
 {% endconfiguration %}
+
+## {% linkable_title Full example %}
 
 A full configuration example could look like this:
 
