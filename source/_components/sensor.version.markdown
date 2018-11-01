@@ -49,7 +49,8 @@ source:
   default: local
 {% endconfiguration %}
 
-### {% linkable_title Supported images for hassio %}
+### {% linkable_title Supported images for Hassio %}
+
 `default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
 
 ## {% linkable_title Alternatives for showing local version %}
