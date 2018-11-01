@@ -28,13 +28,11 @@ To manually configure IHC switches insert this section in your configuration:
 
 ```yaml
 switch:
-    - platform: ihc
+  - platform: ihc
     auto_setup: True
     switches:
         - id: 12345
-          name: myswitch
         - id: 12346
-        ....
 ```
 
 {% configuration %}
@@ -52,7 +50,7 @@ switches:
       required: false
       type: string
     secondary:
-      description: Set to True if the switch is connected to the secondary controller
+      description: Set to True if the switch is connected to the secondary controller.
       required: false
       type: boolean
       default: false
