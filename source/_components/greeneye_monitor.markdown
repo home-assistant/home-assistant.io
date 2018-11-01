@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: brultech.png
 ha_category: Hub
-featured: false
 ha_release: 0.82
 ha_iot_class: "Local Push"
 ---
