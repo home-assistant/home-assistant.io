@@ -51,14 +51,8 @@ alert:
 
 {% configuration %}
 name:
-  description: The friendly name of the alert. This can include a [template][template].
+  description: The friendly name of the alert.
   required: true
-  type: string
-done_message:
-  description: >
-    A message sent after an alert transitions from `on` to `off`. Is only sent
-    if an alert notification was sent for transitioning from `off` to `on`. This can include a [template][template].
-  required: false
   type: string
 entity_id:
   description: The ID of the entity to watch.
@@ -87,6 +81,19 @@ skip_first:
   required: false
   type: boolean
   default: false
+message:
+  description: >
+    A message to be sent after an alert transitions from `of` to `on`
+    with [template][template] support.
+  required: false
+  type: template
+done_message:
+  description: >
+    A message sent after an alert transitions from `on` to `off` with 
+    [template][template] support. Is only sent if an alert notification 
+    was sent for transitioning from `off` to `on`.
+  required: false
+  type: template
 notifiers:
   description: "List of `notification` components to use for alerts."
   required: true
@@ -191,5 +198,30 @@ sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+
+### {% linkable_title Message Templates %}
+
+It may be desirable to have the alert notifications include information
+about the state of the entity.
+The following will show for a plant how to include the problem `attribute`
+of the entity.
+
+```yaml
+# Example configuration.yaml entry
+  office_plant:
+    name: Plant in office needs help
+    entity_id: plant.plant_office
+    state: 'problem'
+    repeat: 30
+    can_acknowledge: True
+    skip_first: True
+    message: "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})"
+    done_message: Plant in office is fine
+    notifiers:
+      - ryans_phone
+      - kristens_phone
+```
+
+The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
 [template]: /docs/configuration/templating/
