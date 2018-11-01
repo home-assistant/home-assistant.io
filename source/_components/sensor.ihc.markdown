@@ -30,15 +30,12 @@ sensor:
   - platform: ihc
     sensors:
       - id: 12345
-        name: 'mysensor'
-        unit_of_measurement: '°C'
       - id: 12346
-        ...
 ```
 
 {% configuration %}
 sensors:
-  description: List of sensors to setup manually
+  description: List of sensors to setup manually.
   required: false
   type: map
   keys:
@@ -47,7 +44,7 @@ sensors:
       required: true
       type: integer
     name:
-      description: The name of the component
+      description: The name of the sensor.
       required: false
       type: string
     unit_of_measurement:
@@ -55,7 +52,7 @@ sensors:
       required: false
       type: string
     secondary:
-      description: Set to True if the sensor is on the secondary controller
+      description: Set to True if the sensor is on the secondary controller.
       required: false
       type: boolean
       default: false
