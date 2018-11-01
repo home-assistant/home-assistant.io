@@ -235,7 +235,7 @@ The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
 ### {% linkable_title Additional parameters for notifiers  %}
 
-Some notifiers support more parameters (e.g. to set text color or action
+Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` parameter:
 
 ```yaml
