@@ -69,7 +69,7 @@ encryption:
   type: string
   default: starttls
 sender_name:
-  description: Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>).
+  description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
   required: false
   type: string
 debug:  
