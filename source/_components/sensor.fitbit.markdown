@@ -32,11 +32,23 @@ Please be aware that Fitbit has very low rate limits, 150 per user per hour. The
 
 The unit system that the sensor will use is based on the country you set in your Fitbit profile.
 
-Configuration variables:
-
-- **monitored_resources** (*Optional*): Resource to monitor. Defaults to `activities/steps`.
-- **clock_format** (*Optional*): Format to use for `sleep/startTime` resource. Accepts `12H` or `24H`. Defaults to `24H`.
-- **unit_system** (*Optional*): Unit system to use for measurements. Accepts `default`, `metric`, `en_US` or `en_GB`. Defaults to `default`.
+{% configuration %}
+monitored_resources:
+  description: Resource to monitor.
+  required: false
+  default: "`activities/steps`"
+  type: list
+clock_format:
+  description: Format to use for `sleep/startTime` resource. Accepts `12H` or `24H`.
+  required: false
+  default: "`24H`"
+  type: string
+unit_system:
+  description: Unit system to use for measurements. Accepts `default`, `metric`, `en_US` or `en_GB`.
+  required: false
+  default: "`default`"
+  type: string
+{% endconfiguration %}
 
 Below is the list of resources that you can add to `monitored_resources`. One sensor is exposed for every resource.
 
