@@ -35,7 +35,7 @@ TensorFlow object detection requires some dependencies outside of the core tenso
     - `research/object_detection/utils`
     - `research/object_detection/protos`
 
-A sample script can be found at this gist: https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3
+A sample script can be found at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3).
 
 ## {% linkable_title Model Selection %}
 
@@ -60,7 +60,7 @@ image_processing:
     source:
       - entity_id: camera.local_file
     model:
-      graph: /home/homeassistant/.homeassistant/deps/frozen_inference_graph.pb
+      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
 ```
 
 {% configuration %}
@@ -94,12 +94,12 @@ model:
             description: Full path to a `*label_map.pbtext`.
             required: false
             type: string
-            default: deps/tensorflow/object_detection/data/mscoco_label_map.pbtxt
+            default: tensorflow/object_detection/data/mscoco_label_map.pbtxt
         model_dir:
             description: Full path to tensorflow models directory.
             required: false
             type: string
-            default: deps/tensorflow inside config
+            default: /tensorflow inside config
         area:
             description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
             required: false
@@ -143,7 +143,7 @@ image_processing:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     model:
-      graph: /home/homeassistant/.homeassistant/deps/frozen_inference_graph.pb
+      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
       categories:
         - category: person
           area:
