@@ -13,48 +13,29 @@ featured: false
 ha_release: 0.82
 ---
 
-The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `matches` attribute. The attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
+The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 ## {% linkable_title Setup %}
 
-TensorFlow is pre-configured in the [official Home Assistant docker image](https://hub.docker.com/r/homeassistant/home-assistant/).  If you are using this image, you can skip this section.
+TensorFlow object detection requires some dependencies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  A general outline of the installation process is as follows:
 
-TensorFlow is special in that it can run on the CPU, or a Nvidia GPU using CUDA.  Because of this, tensorflow is not listed in `REQUIREMENTS`.  In your instance, you will need to pre-install either `tensorflow` or `tensorflow-gpu` via pip:
-
-```bash
-# CPU
-pip3 install tensorflow
-# GPU
-pip3 install tensorflow-gpu
-```
-
-Object detection also requires some dependencies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  Since the repository is large, we will be cloning in `/tmp` and only moving the files this component needs.  The rest can safely be deleted.  Run the following, making sure to replace `/home/homeassistant/.homeassistant/` with the path to your config directory:
+- Clone [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection)
+- Compile protobuf models located in `research/object_detection/protos` with `protoc`
+- Create the following directory structure inside your config directory:
 
 ```bash
-cd /tmp
-
-# Clone the latest code from GitHub
-git clone --depth 1 https://github.com/tensorflow/models.git tensorflow-models
-
-# download protobuf 3.4
-curl -OL https://github.com/google/protobuf/releases/download/v3.4.0/protoc-3.4.0-linux-x86_64.zip
-unzip -a protoc-3.4.0-linux-x86_64.zip -d protobuf
-mv protobuf/bin /tmp/tensorflow-models/research
-
-# Build the protobuf models
-cd /tmp/tensorflow-models/research/
-./bin/protoc object_detection/protos/*.proto --python_out=.
-
-# Copy only necessary files
-mkdir -p /home/homeassistant/.homeassistant/tensorflow/object_detection
-touch /home/homeassistant/.homeassistant/tensorflow/object_detection/__init__.py
-mv object_detection/data /home/homeassistant/.homeassistant/tensorflow/object_detection
-mv object_detection/utils /home/homeassistant/.homeassistant/tensorflow/object_detection
-mv object_detection/protos /home/homeassistant/.homeassistant/tensorflow/object_detection
-
-# Cleanup
-rm -rf /tmp/*
+  |- deps
+    | - tensorflow
+      |- __init__.py
+      |- object_detection/
 ```
+
+- Copy required object_detection dependancies to the `object_detection` folder inside of the `tensorflow` folder:
+    - `research/object_detection/data`
+    - `research/object_detection/utils`
+    - `research/object_detection/protos`
+
+A sample script can be found at this gist: https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3
 
 ## {% linkable_title Model Selection %}
 
@@ -79,9 +60,7 @@ image_processing:
     source:
       - entity_id: camera.local_file
     model:
-      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
-      labels: /home/homeassistant/.homeassistant/tensorflow/object_detection/data/mscoco_label_map.pbtxt
-      model_dir: /home/homeassistant/.homeassistant/tensorflow
+      graph: /home/homeassistant/.homeassistant/deps/frozen_inference_graph.pb
 ```
 
 {% configuration %}
@@ -115,12 +94,12 @@ model:
             description: Full path to a `*label_map.pbtext`.
             required: false
             type: string
-            default: /usr/src/app/tensorflow/object_detection/data/mscoco_label_map.pbtxt
+            default: deps/tensorflow/object_detection/data/mscoco_label_map.pbtxt
         model_dir:
             description: Full path to tensorflow models directory.
             required: false
             type: string
-            default: /usr/src/app/tensorflow
+            default: deps/tensorflow inside config
         area:
             description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
             required: false
@@ -164,9 +143,7 @@ image_processing:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     model:
-      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
-      labels: /home/homeassistant/.homeassistant/tensorflow/object_detection/data/mscoco_label_map.pbtxt
-      model_dir: /home/homeassistant/.homeassistant/tensorflow
+      graph: /home/homeassistant/.homeassistant/deps/frozen_inference_graph.pb
       categories:
         - category: person
           area:
