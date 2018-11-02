@@ -94,7 +94,9 @@ Other things to be aware of:
 [cloud docs]: /components/cloud/
 [unifi docs]: /components/unifi/
 
-## {% linkable_title Release 0.81.3 - November 2 %}
+_0.81.3 was skipped because it broke LL._
+
+## {% linkable_title Release 0.81.4 - November 2 %}
 
 - fix naming bug ([@helto4real] - [#17976]) ([weather.smhi docs])
 - Konnected: Pass hass_config to load_platform ([@heythisisnate] - [#18027]) ([konnected docs])
