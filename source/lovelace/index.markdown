@@ -114,6 +114,22 @@ views:
         content: >
           Welcome to your **Lovelace UI**.
 ```
+As a super minimal example, here's the bare minimum you will need for this to work:
+
+```yaml
+title: My Awesome Home
+views:
+    # View tab title.
+  - title: Example
+    panel: true
+    # Makes the first card fill the view
+    cards:
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+```
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
