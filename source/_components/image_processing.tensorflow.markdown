@@ -24,7 +24,7 @@ TensorFlow object detection requires some dependencies outside of the core tenso
 - Create the following directory structure inside your config directory:
 
 ```bash
-  |- deps
+  |- {config_dir}
     | - tensorflow
       |- __init__.py
       |- object_detection/
