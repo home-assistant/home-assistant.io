@@ -7,9 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: synology.png
 ha_category: System Monitor
-ha_release: 0.32
+ha_release: 0.82
 ha_iot_class: "Local Polling"
 ---
 
@@ -44,11 +43,19 @@ monitored_conditions:
     pwr:
       description: Displays the current power consumption.
     net:
-      description: Displays the total energy usage.
+      description: Displays the total power usage.
     p1:
-      description: Displays the total energy usage during low hours.
+      description: Displays the total power usage during low hours.
     p2:
-      description: Displays the total energy usage during high hours.
+      description: Displays the total power usage during high hours.
+    n1:
+      description: Displays the total power delivery low.
+    n2:
+      description: Displays the total power delivery high.
+    cs0:
+      description: Displays the total power for extra power meter connected.
+    ps0:
+      description: Displays the current power usage for extra power meter connected.
     gas:
       description: Displays the total gas usage.
 {% endconfiguration %}
