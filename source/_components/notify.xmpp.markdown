@@ -185,7 +185,7 @@ Number 6 sends an image from a templated URL.
         title: ""
         message: ""
         data:
-          url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{% raw %}{{ now().year }}/{{ now().month }}/{{ now().day }}/{{ now().hour }}{{ (now().minute + 58) % 60 // 10}}{% endraw %}0_hd.jpg"
+          url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{% raw %}{{ now().year }}/{{ '%02d' % now().month }}/{{ '%02d' % now().day }}/{{ '%02d' % now().hour }}{{ (now().minute + 58) % 60 // 10}}{% endraw %}0_hd.jpg"
 ```
 
 The possible source of a file is prioritized and only one will be picked up. `url_template` has the hightest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
