@@ -56,13 +56,23 @@ light:
   description: List of light devices.
   required: false
   type: list
+  keys:
+    host:
+      description: Hostname or IP address of the device.
+      required: true
+      type: string
 switch:
   description: List of switch devices.
   required: false
   type: list
+  keys:
+    host:
+        description: Hostname or IP address of the device.
+        required: true
+        type: string
 {% endconfiguration %}
 
-## Configuration
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry with manually specified addresses
