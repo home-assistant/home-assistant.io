@@ -49,6 +49,7 @@ Configuration variables:
 - **password** (*Optional*): Fritz!Box user's user password. This is required to use the phone book lookup feature.
 - **phonebook** (*Optional*): Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
 - **prefixes** (*Optional*): In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
+- **tcp_keepalive** (*Optional*): Set this to `on`, if the sensor stops updating after some idle time. This might be caused by a router between Home Assistant and the FRITZ!Box, which is running a firewall with NAT. Such firewalls keep lists of established connections. But the lists are cleaned up after some time. This can be prevented by requesting TCP keepalive packages.
 
 ## {% linkable_title Examples %}
 
@@ -64,6 +65,7 @@ sensor:
     username: my_username
     password: my_password
     phonebook: 0
+    tcp_keepalive: on
     prefixes:
       - '+49'
       - '+4989'
