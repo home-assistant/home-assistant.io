@@ -100,4 +100,9 @@ records:
   description: A list of records you want to update.
   required: true
   type: list
+ttl:
+  description: The ttl value for the dns records
+  required: false
+  type: int
+  default: 300
 {% endconfiguration %}
