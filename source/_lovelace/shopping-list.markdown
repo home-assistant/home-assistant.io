@@ -2,15 +2,17 @@
 layout: page
 title: "Shopping List Card"
 sidebar_label: Shopping List
-description: "The Shopping List allows you to Arm and Disarm your Alarm Control Panel Components"
-date: 2018-10-15 10:28 +00:00
+description: "The Shopping List add, edit, complete, clear completed items from your shopping list"
+date: 2018-11-02 10:28 +00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-The Shopping List allows you to Arm and Disarm your Alarm Control Panel Components.
+The Shopping List add, edit, complete, clear completed items from your shopping list.
+
+Setup of the [Shopping List Intent](https://www.home-assistant.io/components/shopping_list/) is required
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_shopping_list_card.gif' alt='Screenshot of the shopping list card'>
