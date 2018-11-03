@@ -94,6 +94,34 @@ Other things to be aware of:
 [cloud docs]: /components/cloud/
 [unifi docs]: /components/unifi/
 
+_0.81.3 was skipped because it broke LL._
+
+## {% linkable_title Release 0.81.4 - November 2 %}
+
+- fix naming bug ([@helto4real] - [#17976]) ([weather.smhi docs])
+- Konnected: Pass hass_config to load_platform ([@heythisisnate] - [#18027]) ([konnected docs])
+- Change cv.string to [cv.string] ([@awarecan] - [#18050]) ([nest docs])
+- Revert HomeKit update to 2.2.2 ([@cdce8p] - [#18069]) ([homekit docs])
+- Fix time zone for flux switch ([@amelchio] - [#18102]) ([switch.flux docs])
+- Bunch of frontend fixes ([link](https://github.com/home-assistant/home-assistant-polymer/releases/tag/20181026.2))
+- Upgrade pyipma
+
+[#17976]: https://github.com/home-assistant/home-assistant/pull/17976
+[#18027]: https://github.com/home-assistant/home-assistant/pull/18027
+[#18050]: https://github.com/home-assistant/home-assistant/pull/18050
+[#18069]: https://github.com/home-assistant/home-assistant/pull/18069
+[#18102]: https://github.com/home-assistant/home-assistant/pull/18102
+[@amelchio]: https://github.com/amelchio
+[@awarecan]: https://github.com/awarecan
+[@cdce8p]: https://github.com/cdce8p
+[@helto4real]: https://github.com/helto4real
+[@heythisisnate]: https://github.com/heythisisnate
+[homekit docs]: /components/homekit/
+[konnected docs]: /components/konnected/
+[nest docs]: /components/nest/
+[switch.flux docs]: /components/switch.flux/
+[weather.smhi docs]: /components/weather.smhi/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

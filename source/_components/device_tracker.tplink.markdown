@@ -26,6 +26,9 @@ Currently supported devices includes the following:
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
 </p>
 
+## {% linkable_title Configuration %}
+
+To enable this device tracker, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

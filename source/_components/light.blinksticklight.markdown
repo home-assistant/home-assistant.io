@@ -16,9 +16,17 @@ ha_iot_class: "Local Polling"
 
 The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
 
+## {% linkable_title Setup %}
+
+To use your Blinkstick, you need to allow the access to the device for [non-root users](https://github.com/arvydas/blinkstick-python#permission-problems-in-linux-and-mac-os-x).
+
+```bash
+$ sudo blinkstick --add-udev-rule
+```
+
 ## {% linkable_title Configuration %}
 
-To add blinkstick to your installation, add the following to your `configuration.yaml` file:
+To add a Blinkstick to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
