@@ -61,7 +61,7 @@ devices:
       description: The API Key.
       required: true
       type: string
-     id:
+    id:
       description: The ID of the dimmer switch. Only needed for independent control of multiple devices.
       required: true
       type: string
