@@ -186,3 +186,39 @@ Sends a message to the given conversations.
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
 | data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
+
+### {% linkable_title Service `hangouts.reconnect` %}
+
+Reconnects the hangouts bot.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+|                        |          |                                                  |
+
+## {% linkable_title Advanced %}
+
+### {% linkable_title Automatic reconnect after ip change %}
+
+The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.ipify.org?format=json
+    name: External IP
+    value_template: '{{ value_json.ip }}'
+    scan_interval: 10
+    
+automation:
+  - alias: Reconnect Hangouts
+    trigger:
+      - entity_id: sensor.external_ip
+        platform: state
+    condition:
+      - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+      - condition: template
+      value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+    action:
+      - service: hangouts.reconnect
+```
