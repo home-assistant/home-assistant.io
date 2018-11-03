@@ -33,7 +33,7 @@ Each HomeKit accessory provides multiple services. These are mapped to entity ty
 - Thermostat to [Climate](/components/climate.homekit_controller/)
 - Lightbulb to [Light](/components/light.homekit_controller/)
 - Outlet and Switch to [Switch](/components/switch.homekit_controller/)
-- Koogeek outlet sensor to [Koogeek Sensor](/components/sensor.koogeek/)
+- Koogeek outlet sensor to [Sensor](/components/sensor.homekit_controller/)
 
 The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
 
