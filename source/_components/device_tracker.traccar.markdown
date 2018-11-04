@@ -30,7 +30,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The DNS name or IP Address of the server running the Traccar server.
+  description: The DNS name or IP Address of the server running Traccar.
   required: true
   type: string
 username:
