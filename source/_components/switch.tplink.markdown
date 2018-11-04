@@ -22,6 +22,8 @@ Supported units:
 - HS110
 - HS200
 
+## {% linkable_title Configuration %}
+
 To use your TP-Link switch or socket in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -62,7 +64,7 @@ switch:
 
 ## {% linkable_title Configure Energy Sensors %} ##
 
-In order to get the power consumption readings from the HS110, you'll have to create a [template sensor](https://www.home-assistant.io/components/switch.template/). In the example below, change all of the `my_tp_switch`'s to match your switch's entity ID.
+In order to get the power consumption readings from the HS110, you'll have to create a [template sensor](/components/switch.template/). In the example below, change all of the `my_tp_switch`'s to match your switch's entity ID.
 
 {% raw %}
 ```yaml
