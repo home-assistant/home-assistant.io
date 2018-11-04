@@ -67,7 +67,6 @@ In order to get the power consumption readings from the HS110, you'll have to cr
 {% raw %}
 ```yaml
 sensor:
-# TP-Link power readings
   - platform: template
     sensors:
       my_tp_switch_amps:
