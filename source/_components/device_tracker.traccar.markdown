@@ -59,5 +59,3 @@ verify_ssl:
   type: boolean
   default: true
 {% endconfiguration %}
-
-[googlehomeapi]: https://rithvikvibhu.github.io/GHLocalApi/
