@@ -55,6 +55,7 @@ longitude:
 * Number of reported cases of [Flu](https://www.cdc.gov/flu/) symptoms
 * Number of reported cases of [Flu-like](https://en.wikipedia.org/wiki/Influenza-like_illness) symptoms
 * Number of reported cases of [Leptospirosis](https://www.cdc.gov/leptospirosis/index.html) symptoms
+* Total number of reported cases with symptoms
 * Number of reported cases with no symptoms
 
 ### CDC Report
