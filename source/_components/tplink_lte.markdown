@@ -2,13 +2,13 @@
 layout: page
 title: "TP-Link LTE"
 description: "Instructions on how to integrate your TP-Link LTE routers within Home Assistant."
-date: 2018-08-03 21:30
+date: 2018-10-03 21:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: tp-link.png
-ha_release: "0.80"
+ha_release: "0.82"
 ha_category: Network
 ha_iot_class: "Local Polling"
 ---
@@ -26,6 +26,11 @@ To enable the component, add the following lines to your `configuration.yaml` fi
 tplink_lte:
   - host: IP_ADDRESS
     password: SECRET
+    notify:
+      - name: sms1
+        target: "+15105550123"
+      - name: sms2
+        target: "+55520525252"
 ```
 
 {% configuration %}
@@ -37,4 +42,18 @@ password:
     description: The password used for the router web interface.
     required: true
     type: string
+notify:
+    description: A list of notification services conneted to this specific host.
+    required: false
+    type: list
+    keys:
+        target:
+            description: The phone number of a default recipient or a list with multiple recipients.
+            required: true
+            type: string, list
+        name:
+            description: The name of the notification service.
+            required: false
+            default: notify
+            type: string
 {% endconfiguration %}
