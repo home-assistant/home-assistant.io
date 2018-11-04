@@ -59,3 +59,32 @@ switch:
   - platform: tplink
     host: SECOND_IP_ADDRESS
 ```
+
+## {% linkable_title Configure Energy Sensors %} ##
+
+In order to get the power consumption readings from the HS110, you'll have to create a [template sensor](https://www.home-assistant.io/components/switch.template/). In the example below, change all of the `my_tp_switch`'s to match your switch's entity ID.
+
+{% raw %}
+```yaml
+sensor:
+# TP-Link power readings
+  - platform: template
+    sensors:
+      my_tp_switch_amps:
+        friendly_name: Current
+        value_template: '{{ states.switch.my_tp_switch.attributes["Current"] | replace(" A", "") | float }}'
+        unit_of_measurement: 'A'
+      my_tp_switch_watts:
+        friendly_name: Current Consumption
+        value_template: '{{ states.switch.my_tp_switch.attributes["Current consumption"] | replace(" W", "") | float }}'
+        unit_of_measurement: 'W'
+      my_tp_switch_kw:
+        friendly_name: Total Consumption 
+        value_template: '{{ states.switch.my_tp_switch.attributes["Total consumption"] | replace(" kW", "") | float }}'
+        unit_of_measurement: 'kW'
+      my_tp_switch_volts:
+        friendly_name: Voltage
+        value_template: '{{ states.switch.my_tp_switch.attributes["Voltage"] | replace(" V", "") | float }}'
+        unit_of_measurement: 'V'
+```
+{% endraw %}
