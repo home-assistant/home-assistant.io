@@ -30,7 +30,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of the Google Home unit.
+  description: The DNS name or IP Address of the server running the Traccar server.
   required: true
   type: string
 username:
