@@ -15,6 +15,10 @@ ha_release: 0.82
 
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
+<p class='note warning'>
+  This package will not yet work on Hass.io installations, but should work on Hassbian.  [See here](https://www.tensorflow.org/install/pip) for system requirements.
+</p>
+
 ## {% linkable_title Setup %}
 
 TensorFlow object detection requires some dependencies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  A general outline of the installation process is as follows:
@@ -39,15 +43,11 @@ A sample script can be found at [this gist](https://gist.github.com/hunterjm/6f9
 
 ## {% linkable_title Model Selection %}
 
-Finally, you are ready to pick a model.  Researchers have already built multiple TensorFlow object detection models using many open data sets like [COCO](http://cocodataset.org), [Kitti](http://www.cvlibs.net/datasets/kitti/), and [Open Images](https://github.com/openimages/dataset).
+Lastly, it is time to pick a model.  It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
-This component can support all of them, and if you are feeling adventurous, you can even [roll your own](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/defining_your_own_model.md).
+The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model.  If you are running on an ARM device like a Rasberry Pi, start with the `ssd_mobilenet_v2_coco` model.
 
-For now, start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).  The trade-off here is accuracy vs speed.  The `mAP` is an indication of the model's accuracy while the `ms` is inference speed (on a Nvidia Titan X).  Most users won't see detection speeds close to what is listed.
-
-It is recommended to start with the `faster_rcnn_inception_v2_coco` model for users with a dedicated server with a decent CPU.  If you are running on an ARM device like a Rasberry Pi, stick with an SSD MobileNet model like the `ssd_mobilenet_v2_coco` which was built for mobile devices.
-
-Whichever model you choose, download it and place the `frozen_inference_graph.pb` file somewhere accessible by Home Assistant like your config directory.
+Whichever model you choose, download it and place the `frozen_inference_graph.pb` file somewhere in your config directory.
 
 ## {% linkable_title Configuration %}
 
@@ -138,7 +138,8 @@ model:
 image_processing:
   - platform: tensorflow
     source:
-      - entity_id: camera.local_file
+      - entity_id: camera.driveway
+      - entity_id: camera.backyard
     file_out:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
