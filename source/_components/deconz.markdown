@@ -33,6 +33,14 @@ If you don't have the API key, you can generate an API key for deCONZ by using t
 
 You can manually add deCONZ by going to the integrations page.
 
+If you are using another port than the default (port 80), you need to specify IP and port in the `configuration.yaml` like this:
+
+```yaml
+deconz:
+  host: 192.168.2.1
+  port: 8080
+```
+
 ## {% linkable_title Debugging component %}
 
 If you have problems with deCONZ or the component you can add debug prints to the log.
@@ -53,11 +61,11 @@ Available services: `configure` and `deconz.refresh_devices`.
 
 Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.github.io/deconz-rest-doc/rest/).
 
-| Service data attribute | Optional | Description |
-|-----------|----------|-------------|
-| `field` | No | String representing a specific device in deCONZ. |
-| `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
-| `data` | No | Data is a JSON object with what data you want to alter. |
+| Service data attribute | Optional | Description                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `field`                | No       | String representing a specific device in deCONZ.                            |
+| `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
+| `data`                 | No       | Data is a JSON object with what data you want to alter.                     |
 
 Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
@@ -81,12 +89,12 @@ Remote controls (ZHASwitch category) will not be exposed as regular entities, bu
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
-| Switch code | Description |
-|-------------|-------------|
-| 1XXX | Button #1 up to #8 |
-| XXX1 | Button hold |
-| XXX2 | Button short release |
-| XXX3 | Button long release |
+| Switch code | Description          |
+| ----------- | -------------------- |
+| 1XXX        | Button #1 up to #8   |
+| XXX1        | Button hold          |
+| XXX2        | Button short release |
+| XXX3        | Button long release  |
 
 Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.
 
@@ -255,7 +263,7 @@ class SonosRemote(hass.Hass):
 
             elif data['event'] == 4002:
                 self.log('Button previous')
-                self.call_service("media_player/media_previous_track", entity_id = self.sonos)                    
+                self.call_service("media_player/media_previous_track", entity_id = self.sonos)
 
             elif data['event'] == 5002:
                 self.log('Button next')
