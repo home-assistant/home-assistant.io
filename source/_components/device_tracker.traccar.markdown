@@ -24,6 +24,8 @@ To integrate Traccar GPS tracker in Home Assistant, add the following section to
 device_tracker:
   - platform: traccar
     host: IP_ADDRESS
+    username: USERNAME
+    password: PASSWORD
 ```
 
 {% configuration %}
