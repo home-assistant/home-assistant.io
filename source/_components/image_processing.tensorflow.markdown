@@ -17,12 +17,12 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
 
 <p class='note warning'>
   To work with Hassbian after following the setup and installing these packages:
-  `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
+  `$ sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 </p>
 
 ## {% linkable_title Setup %}
 
-You need install tensorflow python packages with: `pip3 install tensorflow`. The wheel are not available for all platforms, it could be that you need compile it from source. Hass.io have this allready preinstalled.
+You need install `tensorflow` Python packages with: `$ pip3 install tensorflow`. The wheel are not available for all platforms, it could be that you need compile it from source. Hass.io have this already preinstalled.
 
 This component requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
@@ -38,17 +38,18 @@ This component requires files to be downloaded, compiled on your computer, and a
 ```
 
 - Copy required object_detection dependancies to the `object_detection` folder inside of the `tensorflow` folder:
-    - `research/object_detection/data`
-    - `research/object_detection/utils`
-    - `research/object_detection/protos`
+
+  - `research/object_detection/data`
+  - `research/object_detection/utils`
+  - `research/object_detection/protos`
 
 ## {% linkable_title Model Selection %}
 
-Lastly, it is time to pick a model.  It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
+Lastly, it is time to pick a model. It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
 The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model.  If you are running on an ARM device like a Raspberry Pi, start with the `ssd_mobilenet_v2_coco` model.
 
-Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your config directory.
+Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your configuration directory.
 
 ## {% linkable_title Configuration %}
 
@@ -87,49 +88,49 @@ model:
     required: true
     type: map
     keys:
-        graph:
-            description: Full path to `frozen_inference_graph.pb`.
-            required: true
-            type: string
-        labels:
-            description: Full path to a `*label_map.pbtext`.
+      graph:
+        description: Full path to `frozen_inference_graph.pb`.
+        required: true
+        type: string
+      labels:
+       description: Full path to a `*label_map.pbtext`.
+       required: false
+       type: string
+       default: tensorflow/object_detection/data/mscoco_label_map.pbtxt
+      model_dir:
+        description: Full path to tensorflow models directory.
+        required: false
+        type: string
+        default: /tensorflow inside config
+      area:
+        description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
+        required: false
+        type: map
+        keys:
+          top:
+            description: Top line defined as % from top of image.
             required: false
-            type: string
-            default: tensorflow/object_detection/data/mscoco_label_map.pbtxt
-        model_dir:
-            description: Full path to tensorflow models directory.
+            type: float
+            default: 0
+          left:
+            description: Left line defined as % from left of image.
             required: false
-            type: string
-            default: /tensorflow inside config
-        area:
-            description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
+            type: float
+            default: 0
+          bottom:
+            description: Bottom line defined as % from top of image.
             required: false
-            type: map
-            keys:
-                top:
-                    description: Top line defined as % from top of image.
-                    required: false
-                    type: float
-                    default: 0
-                left:
-                    description: Left line defined as % from left of image.
-                    required: false
-                    type: float
-                    default: 0
-                bottom:
-                    description: Bottom line defined as % from top of image.
-                    required: false
-                    type: float
-                    default: 1
-                right:
-                    description: Right line defined as % from left of image.
-                    required: false
-                    type: float
-                    default: 1
-        categories:
-            description: List of categories to include in object detection. Can be seen in the file provided to `labels`.
-            type: list
+            type: float
+            default: 1
+          right:
+            description: Right line defined as % from left of image.
             required: false
+            type: float
+            default: 1
+      categories:
+        description: List of categories to include in object detection. Can be seen in the file provided to `labels`.
+        type: list
+        required: false
 {% endconfiguration %}
 
 `categories` can also be defined as dictionary providing an `area` for each category as seen in the advanced configuration below:
