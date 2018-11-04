@@ -45,7 +45,7 @@ This component requires files to be downloaded, compiled on your computer, and a
 
 Lastly, it is time to pick a model.  It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
-The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model.  If you are running on an ARM device like a Rasberry Pi, start with the `ssd_mobilenet_v2_coco` model.
+The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model.  If you are running on an ARM device like a Raspberry Pi, start with the `ssd_mobilenet_v2_coco` model.
 
 Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your config directory.
 
