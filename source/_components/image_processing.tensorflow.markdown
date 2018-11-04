@@ -16,12 +16,13 @@ ha_release: 0.82
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 <p class='note warning'>
-  This component will not yet work on Hass.io, but should work on Hassbian after following the setup and installing these packages:
-  
+  To work with Hassbian after following the setup and installing these packages:
   `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 </p>
 
 ## {% linkable_title Setup %}
+
+You need install tensorflow python packages with: `pip3 install tensorflow`. The wheel are not available for all platforms, it could be that you need compile it from source. Hass.io have this allready preinstalled.
 
 This component requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
