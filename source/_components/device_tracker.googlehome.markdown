@@ -17,7 +17,7 @@ The `googlehome` platform allows you to detect presence using the unofficial API
 
 ## {% linkable_title Configuration %}
 
-To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Google Home bluetooth tracker in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
