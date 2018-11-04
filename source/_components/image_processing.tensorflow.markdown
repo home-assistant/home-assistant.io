@@ -31,9 +31,9 @@ This component requires files to be downloaded, compiled on your computer, and a
 
 ```bash
   |- {config_dir}
-    | - tensorflow
-      |- __init__.py
+    | - tensorflow/
       |- object_detection/
+        |- __init__.py
 ```
 
 - Copy required object_detection dependancies to the `object_detection` folder inside of the `tensorflow` folder:
