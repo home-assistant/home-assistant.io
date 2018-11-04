@@ -77,17 +77,17 @@ sensor:
         friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current Consumption"
         value_template: '{{ states.switch.my_tp_switch.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
-      my_tp_switch_total_kw:
+      my_tp_switch_total_kwh:
         friendly_name_template: "{{ states.switch.my_tp_switch.name}} Total Consumption"
         value_template: '{{ states.switch.my_tp_switch.attributes["total_energy_kwh"] | float }}'
-        unit_of_measurement: 'kW'
+        unit_of_measurement: 'kWh'
       my_tp_switch_volts:
         friendly_name_template: "{{ states.switch.my_tp_switch.name}} Voltage"
         value_template: '{{ states.switch.my_tp_switch.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
-      my_tp_switch_todays_kw:
+      my_tp_switch_today_kwh:
         friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consuption"
         value_template: '{{ states.switch.my_tp_switch.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: 'kW'
+        unit_of_measurement: 'kWh'
 ```
 {% endraw %}
