@@ -23,7 +23,7 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
 
 ## {% linkable_title Setup %}
 
-TensorFlow object detection requires some dependencies outside of the core tensorflow package.  These live in the [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection) GitHub repository.  The one we are interested in for this use case lives in `research/object_detection`.  A general outline of the installation process is as follows:
+This component requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
 - Clone [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection)
 - Compile protobuf models located in `research/object_detection/protos` with `protoc`
@@ -41,15 +41,13 @@ TensorFlow object detection requires some dependencies outside of the core tenso
     - `research/object_detection/utils`
     - `research/object_detection/protos`
 
-A sample script can be found at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3).
-
 ## {% linkable_title Model Selection %}
 
 Lastly, it is time to pick a model.  It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
 The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model.  If you are running on an ARM device like a Rasberry Pi, start with the `ssd_mobilenet_v2_coco` model.
 
-Whichever model you choose, download it and place the `frozen_inference_graph.pb` file somewhere in your config directory.
+Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your config directory.
 
 ## {% linkable_title Configuration %}
 
@@ -62,7 +60,7 @@ image_processing:
     source:
       - entity_id: camera.local_file
     model:
-      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
+      graph: /home/homeassistant/.homeassistant/tensorflow/frozen_inference_graph.pb
 ```
 
 {% configuration %}
@@ -146,7 +144,7 @@ image_processing:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     model:
-      graph: /home/homeassistant/.homeassistant/frozen_inference_graph.pb
+      graph: /home/homeassistant/.homeassistant/tensorflow/frozen_inference_graph.pb
       categories:
         - category: person
           area:
