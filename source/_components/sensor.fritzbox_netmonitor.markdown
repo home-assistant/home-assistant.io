@@ -28,9 +28,18 @@ sensor:
   - platform: fritzbox_netmonitor
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  required: false
+  default: 169.254.1.1
+  type: string
+name:
+  description: Give the sensor a friendly name for in the front-end.
+  required: false
+  default: fritz_netmonitor
+  type: string
+{% endconfiguration %}
 
 The following statistics will be exposed as attributes.
 
