@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 The `opentherm_gw` component is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
-When enabled, this component will automatically add it's [`climate` entity](/components/climate.opentherm_gw) to Home Assistant.
+When enabled, this component will automatically add its [`climate` entity](/components/climate.opentherm_gw) to Home Assistant.
 
 # {% linkable_title Configuration %}
 
