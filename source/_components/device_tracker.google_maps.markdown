@@ -12,6 +12,10 @@ ha_release: 0.67
 ha_category: Presence Detection
 ha_iot_class: "Cloud Polling"
 ---
+<p class='note warning'>
+This component is currently broken (November 2018, v0.81.6) due to an upstream dependency bug, see here: https://github.com/costastf/locationsharinglib/issues/42 and here: https://github.com/home-assistant/home-assistant/issues/17410 
+</p>
+
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
