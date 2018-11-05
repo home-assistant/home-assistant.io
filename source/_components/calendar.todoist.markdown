@@ -94,7 +94,7 @@ As you can see, there are 4 custom projects here:
 
 You can mix-and-match these attributes to create all sorts of custom projects. You can even use [IFTTT](https://ifttt.com/todoist) to create a task with a certain label, then have Home Assistant do some kind of automation when a task with that label comes due.
 
-Home Assistant does its best to determine what task in each project is "most" important, and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
+Home Assistant does its best to [determine what task in each project is "most" important](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/calendar/todoist.py#L432), and it's that task which has its state reported. You can access the other tasks you have due soon via the `all_tasks` array (see below).
 
 ### {% linkable_title Sensor attributes %}
 
