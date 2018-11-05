@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Home Bluetooth tracker"
-description: "Instructions how to use Google Home Bluetooth tracker to track devices in Home Assistant."
+description: "Instructions on how to use Google Home to track devices in Home Assistant."
 date: 2018-11-04 00:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_category: Presence Detection
 ha_iot_class: "Local Polling"
 ---
 
-The `googlehome` platform allows you to detect presence using the unofficial API of [Google Home][googlehomeapi].
+The `googlehome` platform allows you to detect presence using an [unofficial Google Home API][googlehomeapi].
 
 ## {% linkable_title Configuration %}
 
