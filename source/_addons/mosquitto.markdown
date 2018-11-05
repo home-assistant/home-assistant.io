@@ -49,15 +49,15 @@ customize:
 
 ### {% linkable_title Home Assistant user management %}
 
-This Add-on is attached to Home Assistant user system. That means a user can log in with her credential. Currently, we support also local users they can add via config. For the internal Hass.io ecosystem we register `homeassistant` and `addons`, this user name will not work anymore inside configuration.
+This add-on is attached to the Home Assistant user system, so mqtt clients can make use of these credentials. Local users may also still be set independently within the configuration options for the add-on.  For the internal Hass.io ecosystem we register `homeassistant` and `addons`, so these may not be used as user names.
 
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. The `discovery:` component must be enabled for one-click integration.
 
 ### {% linkable_title Disable listening on insecure (1883) ports %}
 
-Remove the ports from network card if you not want to expose this external.
+Remove the ports from the add-on page network card (set them as blank) to disable them.
 
 ### {% linkable_title Access Control Lists (ACLs) %}
 
