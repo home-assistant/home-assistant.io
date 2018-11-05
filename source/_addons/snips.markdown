@@ -11,7 +11,9 @@ footer: true
 
 [Snips.ai](https://snips.ai/) is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.
 
+<p class='warning note'>
 The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so make sure that is installed.
+</p>
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
@@ -51,7 +53,6 @@ Now it's time to start Snips for the first time. You can configure the microphon
 
 Configuration variables:
 
-- **mqtt_bridge**: Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your the Mosquitto add-on.
 - **assistant**: The name of your custom assistant in `/share`. If no assistant is found then a default assistant will be used.
 - **language**: Language. This is used to select the default custom assistant, Currently `en`, `de` and `fr` are supported.
 - **custom_tts**: Whether to use a TTS provider from Home Assistant for a variety of voices.
