@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Notifications
-ha_release: "0.82"
+ha_release: "0.83"
+ha_iot_class: "Local Polling"
 ---
 
 The `tplink_lte` platform allows you to use a TP-Link LTE router for notifications from Home Assistant. The message will be sent as an SMS text message.
