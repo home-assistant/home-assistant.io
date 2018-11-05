@@ -76,6 +76,12 @@ homematic:
     rf:
       host: core-homematic
       port: 2001
+    wired:
+      host: core-homematic
+      port: 2000
+    hmip:
+      host: core-homematic
+      port: 2001
 ```
 
 ## {% linkable_title Raspberry Pi3 %}
@@ -85,3 +91,7 @@ With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partit
 ```text
 dtoverlay=pi3-miniuart-bt
 ```
+
+## {% linkable_title HmIP-RFUSB %}
+
+HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.
