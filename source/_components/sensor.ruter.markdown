@@ -41,7 +41,7 @@ destination:
 offset:
   description: An offset for the next departure time.
   required: false
-  default 0
+  default: 0
   type: integer
 name:
   description: Name of the sensor.
