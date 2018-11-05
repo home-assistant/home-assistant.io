@@ -49,5 +49,5 @@ name:
   type: string
 {% endconfiguration %}
 
-[ruter]: 
+[ruter]: https://ruter.no/reiseplanlegger/Stoppested
 [ruter-api]: http://reisapi.ruter.no/Help
