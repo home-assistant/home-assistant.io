@@ -30,9 +30,9 @@ switch:
   - platform: w800rf32
     devices:
       c1:
-        name: keypad_1_1
+        name: keypad_1
       c2:
-        name: keypad_1_2
+        name: wallpad_1
 ```
 
 W800rf32 switches have only two states - "on" and "off". Most if not all keypads
