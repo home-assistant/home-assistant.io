@@ -17,8 +17,8 @@ The `ruter` sensor will provide you departure information for the larger Oslo ar
 
 This platform is using the [Ruter reisapi API][ruter-api] to gather the information.
 
-To find the `stopid` you need to visit the [Ruter][ruter] site and search for your stop.
-In the URL after you have searched, there will be an ID right after the `Stoppested/` in a format like this `(2190400)`, the numbers there is what you need to put in the `stopid:` configuration option.
+To find the `stop_id` you need to visit the [Ruter][ruter] site and search for your stop.
+In the URL after you have searched, there will be an ID right after the `Stoppested/` in a format like this `(2190400)`, the numbers there is what you need to put in the `stop_id:` configuration option.
 
 Add the data to your `configuration.yaml` file as shown in the example:
 
@@ -26,11 +26,11 @@ Add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: ruter
-    stopid: STOPID
+    stop_id: STOPID
 ```
 
 {% configuration %}
-stopid:
+stop_id:
   description: The stop id for the stop you want to monitor.
   required: true
   type: string
