@@ -19,10 +19,11 @@ Entities can have associated geo location coordinates (latitude and longitude) s
 
 The [Geo Location trigger](/docs/automation/trigger/#geo-location-trigger) can be used in automations triggered by Geo Location entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
 
-| Platform                         | Source                        |
-|----------------------------------|-------------------------------|
-| GeoJSON Events                   | `geo_json_events`             |
-| NSW Rural Fire Service Incidents | `nsw_rural_fire_service_feed` |
+| Platform                                          | Source                                 |
+|---------------------------------------------------|----------------------------------------|
+| GeoJSON Events                                    | `geo_json_events`                      |
+| NSW Rural Fire Service Incidents                  | `nsw_rural_fire_service_feed`          |
+| U.S. Geological Survey Earthquake Hazards Program | `usgs_earthquake_hazards_program_feed` |
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
