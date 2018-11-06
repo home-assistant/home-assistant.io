@@ -15,15 +15,19 @@ ha_iot_class: "Cloud Polling"
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).
 
-To use Dweet.io in your installation, add the following to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
 
+To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
+
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: dweet
     device: THING_NAME
-    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
+    value_template: '{{ value_json.VARIABLE }}'
 ```
+{% endraw %}
 
 {% configuration %}
 device:
@@ -49,15 +53,17 @@ unit_of_measurement:
 
 A full configuration entry could look like the sample below.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: dweet
     name: Temperature
     device: THING_NAME
-    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
+    value_template: '{{ value_json.VARIABLE }}'
     unit_of_measurement: "°C"
 ```
+{% endraw %}
 
 ### {% linkable_title Interacting with Dweet.io %}
 
