@@ -252,9 +252,8 @@ alert:
     can_acknowledge: True  # Optional, default is True
     skip_first: True  # Optional, false is the default
     data:
-      data:
-        inline_keyboard:
-          - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+      inline_keyboard:
+        - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
     notifiers:
       - frank_telegram
 ```
