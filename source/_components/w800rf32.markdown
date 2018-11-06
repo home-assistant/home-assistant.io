@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: w800rf32.png
 ha_category: Hub
-ha_release: 0.79
+ha_release: 0.83
 ha_iot_class: "Local Push"
 ---
 
@@ -29,7 +29,7 @@ w800rf32:
 
 {% configuration %}
 device:
-  description: The path to USB/serial device, example: /dev/ttyUSB0.
+  description: "The path to USB/serial device, example: /dev/ttyUSB0."
   required: true
   type: string
 {% endconfiguration %}
