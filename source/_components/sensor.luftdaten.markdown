@@ -11,6 +11,7 @@ logo: luftdaten.png
 ha_category: Health
 ha_release: 0.57
 ha_iot_class: "Cloud Polling"
+ha_qa_scale: gold
 ---
 
 The `luftdaten` sensor platform will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
