@@ -44,7 +44,7 @@ password:
   required: true
   type: string
 scan_interval:
-  description: API polling interval. Minimal value can't be less then 300.
+  description: API polling interval in seconds. Minimum value can't be less than 300 (5 minutes). Very frequent polling can use battery.
   required: false
   type: integer
   default: 300
