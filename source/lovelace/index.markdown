@@ -120,6 +120,9 @@ Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you mak
 ## {% linkable_title IDs for cards and views %}
 If you want to edit your views and cards from the UI, every card and view needs an ID. This ID is used to save your config from the UI. 
 
+## {% linkable_title Configuration splitting %}
+`ui-lovelace.yaml` only supports basic configuration splitting. Only `!include` and `!secret` are supported, be aware that content that is included with `!include` and `!secret` can not be edited from the UI.
+
 ## {% linkable_title Setting Lovelace as the Default UI %}
 Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it.
 
