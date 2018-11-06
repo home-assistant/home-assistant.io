@@ -38,7 +38,7 @@ anonymous:
   default: false
   type: boolean
 logins:
-  description: A list of local users that will be created with *username* and *password*.
+  description: A list of local users that will be created with *username* and *password*. You don't need do this because you can use Home Assistant users too without any configuration.
   required: false
   type: list
 customize:
@@ -53,7 +53,7 @@ This add-on is attached to the Home Assistant user system, so mqtt clients can m
 
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. The `discovery:` component must be enabled for one-click integration.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old mqtt settings available, remove this old integration and restart Home Assistant to see the new one.
 
 ### {% linkable_title Disable listening on insecure (1883) ports %}
 
