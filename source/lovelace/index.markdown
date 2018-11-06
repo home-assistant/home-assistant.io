@@ -65,7 +65,7 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
-    # Unique id for direct access /lovelace/${id}. If you don't specify one, it is added automatically.
+    # Unique id for direct access /lovelace/${id} and editing it from the UI.
     id: example
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
@@ -74,7 +74,7 @@ views:
     # The cards to show on this view.
     cards:
         # The filter card will filter entities for their state
-      - id: peoplehome # Every card needs an ID, if you don't specify one, it is added automatically.
+      - id: peoplehome # Every card needs an ID, for it to be edited from the UI.
         type: entity-filter
         entities:
           - device_tracker.paulus
@@ -118,7 +118,7 @@ views:
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
 ## {% linkable_title IDs for cards and views %}
-Every card and view needs an ID, this is used to edit your config from the UI. If you don't specify an ID, Home Assistant will add one. If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure every view and card have an ID.
+If you want to edit your views and cards from the UI, every card and view needs an ID. This ID is used to save your config from the UI. 
 
 ## {% linkable_title Setting Lovelace as the Default UI %}
 Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it.
@@ -158,6 +158,4 @@ Restart Home Assistant after creating the `www` directory. Otherwise, HA will no
 
 ### {% linkable_title My `ui-lovelace.yaml` file suddenly has ID's added to all cards and views! %}
 
-Since version 0.81 we started preparing for the ability to edit you Lovelace UI from the UI itself. To be able to do this every view and card should have a unique ID. If your cards or views do not have an ID, Home Assistant will add a random one. You can edit the ID, the only restriction is that it is unique.
-
-If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure all your views and cards have an ID, then Home Assistant will not touch your file.
+In version 0.81.0 we started preparing for the ability to edit you Lovelace UI from the UI itself. To be able to do this every view and card should have a unique ID. If your cards or views didn't had an ID, Home Assistant would add a random one. This behaviour was changed in 0.81.1, Home Assistant will no longer change your configuration without asking first. You can edit the generated ID, the only restriction is that it is unique. You could even delete the IDs if you don't want to use the UI edit functionality.
