@@ -29,7 +29,7 @@ You can use the service nest/set_temperature_scale to set the temperature scale 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `temperature_unit` | no | Must be `°C` or `°F`, as a string.
+| `temperature_scale` | no | Must be `c` or `f`, as a string.
 | `entity_id` | yes | String or list of strings that points at the `entity_id` of the device(s). Will default to all configured Nest thermostats if not specified.
 
 <p class='note'>
