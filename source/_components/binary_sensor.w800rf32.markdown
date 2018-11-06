@@ -30,17 +30,30 @@ binary_sensor:
     devices:
       a1:
         name: motion_hall
-        off_delay: 5
-        device_class: Motion
       a2:
         name: motion_kitchen
-        device_class: Motion
 ```
 
-Configuration variables:
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: true
+  type: list
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: false
+      type: string
+    device_class:
+      description: "The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend."
+      required: false
+      type: device_class
+    off_delay:
+      description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+      required: false
+      type: integer
+{% endconfiguration %}
 
-- **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
-- **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
 
 Binary sensors have only two states - "on" and "off". Many door or window
 opening sensors will send a signal each time the door/window is open or closed.

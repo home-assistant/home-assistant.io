@@ -27,10 +27,12 @@ w800rf32:
   device: PATH_TO_DEVICE
 ```
 
-Configuration variables:
-
-- **device** (*Required*): The path to your device, e.g., `/dev/ttyUSB0`
-- **debug** (*Optional*): If you want to receive debug output.
+{% configuration %}
+device:
+  description: The path to USB/serial device, example: /dev/ttyUSB0.
+  required: true
+  type: string
+{% endconfiguration %}
 
 
 
