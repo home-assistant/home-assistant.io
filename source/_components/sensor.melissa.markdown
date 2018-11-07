@@ -1,5 +1,5 @@
 ---
-layout: **page**
+layout: page
 title: "Melissa Sensor"
 description: "Instructions on how to integrate Melissa sensors into Home Assistant."
 date: 2017-08-30 12:21
