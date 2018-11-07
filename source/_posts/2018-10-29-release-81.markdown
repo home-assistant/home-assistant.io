@@ -122,6 +122,15 @@ _0.81.3 was skipped because it broke LL._
 [switch.flux docs]: /components/switch.flux/
 [weather.smhi docs]: /components/weather.smhi/
 
+## {% linkable_title Release 0.81.5 - November 3 %}
+
+- Fix lovelace
+- Remove FFmpeg input tests (@jjlawren - #18131)
+
+## {% linkable_title Release 0.81.6 - November 4 %}
+
+- Bugfix discovery (delete/mqtt) call for Hass.io  #18159
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

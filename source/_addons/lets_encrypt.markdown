@@ -23,10 +23,16 @@ Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This a
 }
 ```
 
-Configuration variables:
-
-- **email** (*Required*): Your email address for registration on Let's Encrypt.
-- **domains** (*Required*): A list of domains to create/renew the certificate.
+{% configuration %}
+email:
+  description: Your email address for registration on Let's Encrypt.
+  required: true
+  type: string
+domains:
+  description: A list of domains to create/renew the certificate.
+  required: true
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Home Assistant configuration %}
 

@@ -153,6 +153,7 @@ automation:
 #### {% linkable_title Appdaemon event helper %}
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
+Put this in `apps.yaml`:
 {% raw %}
 ```yaml
 deconz_helper:
@@ -160,6 +161,7 @@ deconz_helper:
   class: DeconzHelper
 ```
 
+Put this in `deconz_helper.py`:
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
@@ -179,6 +181,7 @@ class DeconzHelper(hass.Hass):
 ```
 {% endraw %}
 
+Note: the event will not be visible before one event gets sent.
 
 #### {% linkable_title Appdaemon remote template %}
 

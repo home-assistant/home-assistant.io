@@ -14,13 +14,10 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 
 ```json
 {
-  "plain": true,
-  "ssl": false,
-  "anonymous": true,
   "logins": [
-    {"username": "testuser", "password": "mypw"},
-    {"username": "testuser2", "password": "mypw2"}
+    {"username": "local-user", "password": "mypw"}
   ],
+  "anonymous": false,
   "customize": {
     "active": false,
     "folder": "mosquitto"
@@ -35,23 +32,13 @@ Make sure you use logins and disable anonymous access if you want to secure the 
 </p>
 
 {% configuration %}
-plain:
-  description: Listen on port 1883 without SSL/TLS.
-  required: false
-  default: true
-  type: boolean
-ssl:
-  description: Listen on port 8883 with SSL/TLS. This requires certificates.
-  required: false
-  default: false
-  type: boolean
 anonymous:
   description: Allow anonymous connections. If *logins* is set, the anonymous user can only read data.
   required: false
-  default: true
+  default: false
   type: boolean
 logins:
-  description: A list of users that will be created with *username* and *password*.
+  description: A list of local users that will be created with *username* and *password*. You don't need do this because you can use Home Assistant users too without any configuration.
   required: false
   type: list
 customize:
@@ -60,41 +47,17 @@ customize:
   type: [boolean, string]
 {% endconfiguration %}
 
+### {% linkable_title Home Assistant user management %}
+
+This add-on is attached to the Home Assistant user system, so mqtt clients can make use of these credentials. Local users may also still be set independently within the configuration options for the add-on.  For the internal Hass.io ecosystem we register `homeassistant` and `addons`, so these may not be used as user names.
+
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), add the following entry to the `configuration.yaml` file.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old mqtt settings available, remove this old integration and restart Home Assistant to see the new one.
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  broker: core-mosquitto
-```
+### {% linkable_title Disable listening on insecure (1883) ports %}
 
-If username and password are set up in add-on, your `configuration.yaml` file should contain that data.
-
-```yaml
-mqtt:
-  broker: core-mosquitto
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-### {% linkable_title Listening simultaneously on SSL/TLS (8883) and insecure (1883) ports %}
-
-1. Configure SSL/TLS as normal.
-2. Set `customize` flag to `true` in your configuration.
-3. Create a file in `/share/mosquitto` named `insecure.conf` with the following contents:
-
-```text
-listener 1883
-protocol mqtt
-```
-
-4. Restart MQTT
-
-<p class='note warning'>
-It's recommended that you only open your firewall to the SSL/TLS port (8883) and only use the insecure port (1883) for local devices. Also, disable `anonymous:` and set `logins:`.
-</p>
+Remove the ports from the add-on page network card (set them as blank) to disable them.
 
 ### {% linkable_title Access Control Lists (ACLs) %}
 

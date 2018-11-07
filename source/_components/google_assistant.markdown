@@ -125,7 +125,7 @@ project_id:
   required: true
   type: string
 api_key:
-  description: Your API key.
+  description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
   type: string
 expose_by_default:
