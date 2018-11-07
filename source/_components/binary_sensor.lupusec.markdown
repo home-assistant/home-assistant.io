@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: lupusec.jpg
 ha_category: Binary Sensor
-ha_release: 0.81
-ha_iot_class: "Local Push"
+ha_release: 0.83
+ha_iot_class: "Local Polling"
 ---
 
 The `LUPUS-Electronics` security control panel platform allows you to control your [Lupusec](https://www.lupus-electronics.de) devices.
 
 This component will add `door contacts` and `window contacts` to your home-assistant setup
 
-For the switches to work you have to setup your [Lupusec component](/components/lupusec/).
+For the sensors to work you have to setup your [Lupusec component](/components/lupusec/).

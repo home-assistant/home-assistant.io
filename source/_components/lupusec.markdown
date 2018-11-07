@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: lupusec.jpg
 ha_category: Hub
-ha_release: 0.81
-ha_iot_class: "Local Push"
+ha_release: 0.83
+ha_iot_class: "Local Polling"
 ---
 
-The `Lupusec` component allow the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The `Lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
 The following devices are supported by the underlying `lupupy` python library and integrated into hass.
 
@@ -26,9 +26,9 @@ To use Lupusec devices in your installation, add the following `lupusec` section
 ```yaml
 # Example configuration.yaml entry
 lupusec:
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
-      ip_address: 192.168.178.35
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  ip_address: 192.168.178.35
 ```
 
 {% configuration %}
@@ -44,9 +44,8 @@ ip_address:
   description: The IP-address of your Lupusec alarm panel.
   required: true
   type: string
-scan_interval:
-  description: Scanning interval in seconds. Lower that value to get faster responses from your alarm panel. Default for sensors and the panel is two seconds. The rest is getting polled every five seconds.
+name:
+  description: Name for your Lupusec panel.
   required: false
-  type: integer
-  default: 5
+  type: string
 {% endconfiguration %}
