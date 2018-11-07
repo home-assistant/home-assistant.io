@@ -10,7 +10,7 @@ footer: true
 logo: sense.png
 ha_category: Energy
 ha_iot_class: "Cloud Polling"
-ha_release: 0.80
+ha_release: 0.82
 redirect_from: /components/sensor.sense/
 ---
 
