@@ -174,9 +174,3 @@ frontend:
 Given examples refer to `/local/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. An image kept in `HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
 
 Restart Home Assistant after creating the `www` directory. Otherwise, HA will not know that you created this directory.
-
-### {% linkable_title My `ui-lovelace.yaml` file suddenly has ID's added to all cards and views! %}
-
-Since version 0.81 we started preparing for the ability to edit you Lovelace UI from the UI itself. To be able to do this every view and card should have a unique ID. If your cards or views do not have an ID, Home Assistant will add a random one. You can edit the ID, the only restriction is that it is unique.
-
-If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure all your views and cards have an ID, then Home Assistant will not touch your file.
