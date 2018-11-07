@@ -2,7 +2,7 @@
 layout: page
 title: "Shopping List Card"
 sidebar_label: Shopping List
-description: "The Shopping List Card allows you to add, edit, complete, and clear completed items from your shopping list"
+description: "The Shopping List Card allows you to edit and check-off items from your shopping list"
 date: 2018-11-02 10:28 +00:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-The Shopping List allows you to add, edit, complete, and clear completed items from your shopping list.
+The Shopping List Card allows you to edit and check-off items from your shopping list.
 
 Setup of the [Shopping List Intent](https://www.home-assistant.io/components/shopping_list/) is required
 
