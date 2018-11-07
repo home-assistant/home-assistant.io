@@ -31,7 +31,7 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
-  default: `Current Version` in case of `source: local`, `Latest Version` otherwise
+  default: "`Current Version` in case of `source: local`, `Latest Version` otherwise"
 beta:
   description: Flag to indicate that it will check for beta versions, only supported for the sources `pypi`, `hassio` and `docker`.
   required: false
