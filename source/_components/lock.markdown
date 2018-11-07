@@ -12,7 +12,7 @@ footer: true
 Keeps track which locks are in your environment, their state and allows you to control them.
 
  * Maintains a state per lock and a combined state `all_locks`.
- * Registers services `lock.lock` and `lock.unlock` to control locks.
+ * Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
 
 ### {% linkable_title Services %}
 
@@ -54,7 +54,7 @@ action:
 
 ### {% linkable_title Use the services %}
 
-Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock.lock` or `lock.unlock` from the list of available services (**Services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available services (**Services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {"entity_id":"lock.front_door"}
