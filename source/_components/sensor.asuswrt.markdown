@@ -8,7 +8,6 @@ comments: false
 sharing: true
 footer: true
 logo: asus.png
-ha_category: Environment
 ha_iot_class: "Local Polling"
 ha_release: 0.83
 ---
