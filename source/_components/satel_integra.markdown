@@ -72,7 +72,7 @@ arm_home_mode:
   default: 1
   type: integer
 zones:
-  description: This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+  description: "This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones are specified, Home Assistant will not load any binary_sensor components."
   required: false
   type: [integer, list]
   keys:
@@ -102,7 +102,6 @@ For example:
       service: input_boolean.turn_on
       data:
         entity_id: input_boolean.movement_detected
-
 ```
 
 Enjoy!
