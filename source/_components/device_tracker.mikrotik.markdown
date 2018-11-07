@@ -30,7 +30,7 @@ Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
-To use an Mikrotik router in your installation, add the following to your `configuration.yaml` file:
+To use a Mikrotik router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,7 +66,7 @@ ssl:
   type: boolean
 {% endconfiguration %}
 
-To use api_ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api_ssl service. Here is an example for a self signed certificate:
+To use api_ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
