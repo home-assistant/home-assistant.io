@@ -57,10 +57,10 @@ password:
 port:
   description: Mikrotik API port.
   required: false
-  default: 8728
+  default: 8728 (or 8729 if ssl is true)
   type: integer
 ssl:
-  description: Use api_ssl service instead of api. Don't forget to change the port too (default is 8729).
+  description: Use api_ssl service instead of api.
   required: false
   default: false
   type: boolean
