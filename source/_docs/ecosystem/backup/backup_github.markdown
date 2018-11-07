@@ -58,11 +58,11 @@ Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
 # Example .gitignore file for your config dir. Lines with ! will not be ignored.
-*
-.storage
-.cloud
 !*.yaml
 !.gitignore
+.storage
+.cloud
+.google.token
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
