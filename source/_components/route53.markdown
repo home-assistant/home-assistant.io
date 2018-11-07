@@ -101,7 +101,7 @@ records:
   required: true
   type: list
 ttl:
-  description: The ttl value for the dns records
+  description: The TTL value for the DNS records.
   required: false
   type: int
   default: 300
