@@ -50,13 +50,42 @@ satel_integra:
 
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the Satel Integra ETHM module on your home network, if using socket type. Default: `localhost`
-- **port** (*Optional*): The port on which the ETHM module listens for clients using integration protocol. Default: `7094`
-- **partition** (*Optional*): The partition to operate on. Integra can support multiple partitions, this platform only supports one. Default: `1`
-- **arm_home_mode** (*Optional*): The mode in which arm Satel Integra when 'arm home' is used. Possible options are `1`,`2` or `3`, default being `1`. For more information on what are the differences between them, please refer to Satel Integra manual.
-- **zones** (*Optional*): This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
+{% configuration %}
+host:
+  description: The IP address of the Satel Integra ETHM module on your home network, if using socket type.
+  required: true
+  default: localhost
+  type: string
+port:
+  description: The port on which the ETHM module listens for clients using integration protocol.
+  required: false
+  default: 7094
+  type: integer
+partition:
+  description: The partition to operate on. Integra can support multiple partitions, this platform only supports one.
+  required: false
+  default: 1
+  type: integer
+arm_home_mode:
+  description: The mode in which arm Satel Integra when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what are the differences between them, please refer to Satel Integra manual.
+  required: false
+  default: 1
+  type: integer
+zones:
+  description: "This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones are specified, Home Assistant will not load any binary_sensor components."
+  required: false
+  type: [integer, list]
+  keys:
+    name:
+      description: Name of the zone.
+      required: true
+      type: string
+    type:
+      description: The zone type.
+      required: false
+      default: motion
+      type: string
+{% endconfiguration %}
 
 List of all zone IDs can be taken from DloadX program.
 
@@ -73,7 +102,6 @@ For example:
       service: input_boolean.turn_on
       data:
         entity_id: input_boolean.movement_detected
-
 ```
 
 Enjoy!
