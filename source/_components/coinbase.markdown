@@ -49,3 +49,21 @@ exchange_rate_currencies:
 {% endconfiguration %}
 
 Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g. BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
+
+## {% linkable_title Full configuration example %}
+
+A full configuration sample including optional variables:
+
+```yaml
+# Example configuration.yaml entry
+coinbase:
+  api_key: YOUR_API_KEY
+  api_secret: YOUR_API_SECRET
+  account_balance_currencies:
+    - EUR
+    - BTC
+  exchange_rate_currencies:
+    - BTC
+    - ETH
+    - LTC
+```
