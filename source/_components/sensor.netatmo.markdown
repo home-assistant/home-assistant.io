@@ -14,7 +14,8 @@ ha_iot_class: "Cloud Polling"
 
 ### {% linkable_title Basic Configuration %}
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a 
+[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) devices.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
 
