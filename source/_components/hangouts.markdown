@@ -105,6 +105,7 @@ The intent `HangoutsHelp` is part of the component and return a list of all sent
 
 ## {% linkable_title Adding sentences %}
 
+{% raw %}
 ```yaml
 # The Hangouts component
 hangouts:
@@ -123,11 +124,13 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
+      text: I know {{ states.hangouts.conversations.state }} conversations
 
 ```
+{% endraw %}
 
 This configuration will:
+
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
@@ -144,6 +147,7 @@ The following configuration can handle the following sentences:
  - Change the lights to the color green
  - Change the lights to the color blue
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 hangouts:
@@ -151,7 +155,7 @@ hangouts:
     ColorLight:
       sentences:
         - Change the lights to [the color] {color}
-{% raw %}
+
 intent_script:
   ColorLight:
     speech:
@@ -163,8 +167,8 @@ intent_script:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+{% endraw %}
 
 ## {% linkable_title Services %}
 
@@ -201,6 +205,7 @@ Reconnects the hangouts bot.
 
 The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
 
+{% raw %}
 ```yaml
 sensor:
   - platform: rest
@@ -222,3 +227,4 @@ automation:
     action:
       - service: hangouts.reconnect
 ```
+{% endraw %}
