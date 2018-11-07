@@ -58,14 +58,22 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: "Set to `toggle` for turning entity on/off."
+  description: `more-info`, `toggle`, `call-service`
   type: string
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`).
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
   type: string
   default: none
+service:
+  required: false
+  description: "Service to call (e.g., `light.turn_on`)"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
