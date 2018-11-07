@@ -22,32 +22,22 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
-**IMPORTANT:** The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DLOADX program. 
+## {% linkable_title Setup %}
 
-A `satel_integra` section must be present in the `configuration.yaml` file and contain the following options as required:
+The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program. 
+
+A list of all zone IDs can be taken from DloadX program.
+
+For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones are specified, Home Assistant will not load any binary_sensor components."
+
+## {% linkable_title Configuration %}
+
+A `satel_integra` section must be present in the `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 satel_integra:
-  host: 192.168.1.100
-  port: 7094
-  partition: 1
-  arm_home_mode: 1
-
-  zones:
-    01:
-      name: 'Bedroom'
-      type: 'motion'
-    02:
-      name: 'Hall'
-      type: 'motion'
-    30:
-      name: 'Kitchen - smoke'
-      type: 'smoke'
-    113:
-      name: 'Entry door'
-      type: 'opening'
-
+  host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -72,7 +62,7 @@ arm_home_mode:
   default: 1
   type: integer
 zones:
-  description: "This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones are specified, Home Assistant will not load any binary_sensor components."
+  description: "This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the configuration. For each zone, a proper ID must be given as well as its name (does not need to match the one specified in Satel Integra alarm)."
   required: false
   type: [integer, list]
   keys:
@@ -87,7 +77,31 @@ zones:
       type: string
 {% endconfiguration %}
 
-List of all zone IDs can be taken from DloadX program.
+
+## {% linkable_title Full examples %}
+
+
+```yaml
+# Example configuration.yaml entry
+satel_integra:
+  host: 192.168.1.100
+  port: 7094
+  partition: 1
+  arm_home_mode: 1
+  zones:
+    01:
+      name: 'Bedroom'
+      type: 'motion'
+    02:
+      name: 'Hall'
+      type: 'motion'
+    30:
+      name: 'Kitchen - smoke'
+      type: 'smoke'
+    113:
+      name: 'Entry door'
+      type: 'opening'
+```
 
 Having configured the zones, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -104,4 +118,3 @@ For example:
         entity_id: input_boolean.movement_detected
 ```
 
-Enjoy!
