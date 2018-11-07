@@ -57,7 +57,6 @@ minute:
 hour:
   description: Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries.
   required: false
-  de
   type: list
 manual:
   description: True or False to turn manual mode on or off. Manual mode will disable scheduled speedtests.
