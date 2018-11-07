@@ -48,6 +48,25 @@ Visual comparison of old configuration versus new configuration
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
+As a super minimal example, here's the bare minimum you will need for this to work:
+
+```yaml
+title: My Awesome Home
+views:
+    # View tab title.
+  - title: Example
+    panel: true
+    # Makes the first card fill the view
+    cards:
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+```
+
+A slightly more advanced example shows additional elements which can be used to customize your frontend.
+
 ```yaml
 title: My Awesome Home
 # Include external resources
