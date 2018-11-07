@@ -129,6 +129,7 @@ intent_script:
 {% endraw %}
 
 This configuration will:
+
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
