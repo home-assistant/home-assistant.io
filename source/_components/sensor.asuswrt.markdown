@@ -10,10 +10,10 @@ footer: true
 logo: asus.png
 ha_category: Environment
 ha_iot_class: "Local Polling"
-ha_release: 0.82
+ha_release: 0.83
 ---
 
-The `melissa` platform allows you to get data from your [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) sensors from within Home Assistant.
+The `asuswrt` platform allows you to get data from your [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) sensors from within Home Assistant.
   
 The sensor platform will be automatically configured if Asuswrt component is configured.
 

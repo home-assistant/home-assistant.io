@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: asus.png
 ha_category: Hub
-featured: false
-ha_release: 0.82
+ha_release: 0.83
 ha_iot_class: "Local Polling"
 ---
 
@@ -33,7 +32,7 @@ host:
   required: true
   type: string
 username:
-  description: "The username of an user with administrative privileges, usually `admin`."
+  description: "The username of a user with administrative privileges, usually `admin`."
   required: true
   type: string
 password:
