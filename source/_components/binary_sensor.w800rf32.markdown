@@ -38,7 +38,7 @@ binary_sensor:
 devices:
   description: A list of devices.
   required: true
-  type: list
+  type: map
   keys:
     name:
       description: Override the name to use in the frontend.
