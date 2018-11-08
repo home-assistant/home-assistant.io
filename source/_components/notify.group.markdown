@@ -40,11 +40,11 @@ services:
   type: list
   keys:
     service:
-      description: The service part of an entity ID, i.e. if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
+      description: The service part of an entity ID, e.g. if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
       required: true
       type: string
     data:
-      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target`, `title`.
+      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`.
       required: false
       type: string
 {% endconfiguration %}
