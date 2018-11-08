@@ -18,8 +18,8 @@ The `Lupusec` component allows the user to integrate their Lupusec alarm control
 The following devices are supported by the underlying `lupupy` python library and integrated into hass.
 
 - [Alarm Control Panel](/components/alarm_control_panel.lupusec/): Displays the alarm status and controls arming, disarming and home modus.
-- [Binary Sensor](/components/binary_sensor.lupusec/): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- [Switch](/components/switch.lupusec/): Reports on `Camera` devices and will download and show the latest captured still image.
+- [Binary Sensor](/components/binary_sensor.lupusec/): Displays the status of binary sensors. Currently only Door and window sensors are supported.
+- [Switch](/components/switch.lupusec/): Turn off and on your Lupus power switches.
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 
