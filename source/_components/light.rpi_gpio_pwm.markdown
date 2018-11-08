@@ -48,7 +48,7 @@ leds:
       required: true
       type: string
     pins:
-      description: The pins connected to the LED as a list.. The order of pins is determined by the specified type.
+      description: The pins connected to the LED as a list. The order of pins is determined by the specified type.
       required: true
       type: [list, integer]
     type:
