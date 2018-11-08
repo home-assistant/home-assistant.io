@@ -68,10 +68,14 @@ Configuration example that uses the USB microphone and the built-in headset audi
 }
 ```
 
-Configuration variables:
-
-- **mic**: This is the hardware address of your microphone. Look at the add-on output
-- **speaker**: This is the hardware address of your speakers. Look at the add-on output
+{% configuration %}
+mic:
+  description: This is the hardware address of your microphone. Look at the add-on output.
+  type: float
+speaker:
+  description: This is the hardware address of your speakers. Look at the add-on output.
+  type: float
+{% endconfiguration %}
 
 ### {% linkable_title Home Assistant configuration %}
 
