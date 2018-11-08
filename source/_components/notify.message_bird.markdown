@@ -14,6 +14,12 @@ ha_release: 0.16
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
 
+## {% linkable_title Setup %}
+
+Go to https://www.messagebird.com/ to retrieve your API key.
+
+## {% linkable_title Configuration %}
+
 To enable MessageBird notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,7 +32,7 @@ notify:
 
 {% configuration %}
 api_key:
-  description: "Enter the API key for MessageBird. Go to https://www.messagebird.com/ to retrieve your API key."
+  description: Your MessageBird API key.
   required: true
   type: string
 name:
