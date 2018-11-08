@@ -20,11 +20,7 @@ Starting with DSM 6.2.1+, you can create "custom headers" in the Application Por
 * Select "Websocket". This will automaticly add the required headers for websocket to this reverse proxy.
 * Click "OK". Home Assistant should work now with the reverse proxy.
 
----
-**NOTE**
-
 It's not necessary anymore to change the template anymore since Version DSM 6.2.1. Changing the `Portal.mustache` is not recommended! You should use the following part only if you're using a Version before DSM 6.2.1. on your Synology.
----
 
 ### {% linkable_title Template change %}
 
