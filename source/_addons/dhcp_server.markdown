@@ -59,11 +59,11 @@ networks:
       required: true
       type: string
     range_start:
-      description: Start address for dhcp leases.
+      description: Start address for DHCP leases.
       required: true
       type: string
     range_end:
-      description: End address for dhcp leases.
+      description: End address for DHCP leases.
       required: true
       type: string
     broadcast:
