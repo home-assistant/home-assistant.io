@@ -15,6 +15,8 @@ ha_release: "0.83"
 
 The `launch` sensor will provide you with information about the next planed space launch.
 
+## {% linkable_title Configuration %}
+
 Add the data to your `configuration.yaml` file as shown in the example:
 
 ```yaml
@@ -30,6 +32,6 @@ name:
   type: string
 {% endconfiguration %}
 
-_The data this platform are presenting are coming from [launchlibrary.net][launchlibrary]._
+The data this platform are presenting are coming from [launchlibrary.net][launchlibrary].
 
 [launchlibrary]: http://launchlibrary.net/
