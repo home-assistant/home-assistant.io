@@ -13,16 +13,14 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.83"
 ---
 
-The `launch` sensor will provide you with information about the next planed space launch.
-
-## {% linkable_title Configuration %}
+The `launch_library` sensor will provide you with information about the next planed space launch.
 
 Add the data to your `configuration.yaml` file as shown in the example:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: launch
+  - platform: launch_library
 ```
 
 {% configuration %}
@@ -32,6 +30,6 @@ name:
   type: string
 {% endconfiguration %}
 
-The data this platform are presenting are coming from [launchlibrary.net][launchlibrary].
+_The data this platform are presenting are coming from [launchlibrary.net][launchlibrary]._
 
 [launchlibrary]: http://launchlibrary.net/
