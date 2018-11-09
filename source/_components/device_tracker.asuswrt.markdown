@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ASUSWRT"
+title: "Asuswrt Device Tracker"
 description: "Instructions on how to integrate Asuswrt device tracker into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
