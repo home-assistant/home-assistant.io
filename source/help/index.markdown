@@ -53,6 +53,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [DINAcon begeistert 200 Teilnehmende und die Award-Gewinner 2018](https://dinacon.ch/wp-content/uploads/sites/4/2018/10/2018-10-19_DINAcon2018_Medienmitteilung.pdf) - October 2018
 - [Build a wireless MQTT weather sensor for your Home Assistant](https://www.smartlab.at/build-a-wireless-mqtt-temperature-and-humidity-sensor-for-your-home-assistant/) - October 2018
 - [Nominations for the DINACon award 2018](https://www.netzwoche.ch/news/2018-09-04/das-sind-die-nominierten-fuer-die-dinacon-awards-2018) - September 2018
 - [​Building a better thermostat with Home Assistant](https://opensource.com/article/18/8/build-thermostat-open-source-tools) - August 2018
