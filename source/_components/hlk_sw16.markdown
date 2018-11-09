@@ -20,61 +20,98 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 hlk_sw16:
-  host: 10.225.225.53
-  port: 8080
-  switches:
-    0:
-      name: relay0
-    1:
-      name: relay1
-    2:
-      name: relay2
-    3:
-      name: relay3
-    4:
-      name: relay4
-    5:
-      name: relay5
-    6:
-      name: relay6
-    7:
-      name: relay7
-    8:
-      name: relay8
-    9:
-      name: relay9
-    a:
-      name: relaya
-    b:
-      name: relayb
-    c:
-      name: relayc
-    d:
-      name: relayd
-    e:
-      name: relaye
-    f:
-      name: relayf
+  relay1:
+    host: 10.225.225.53
+    switches:
+      0:
+        name: relay1-0
+      1:
+        name: relay1-1
+      2:
+        name: relay1-2
+      3:
+        name: relay1-3
+      4:
+        name: relay1-4
+      5:
+        name: relay1-5
+      6:
+        name: relay1-6
+      7:
+        name: relay1-7
+      8:
+        name: relay1-8
+      9:
+        name: relay1-9
+      a:
+        name: relay1-a
+      b:
+        name: relay1-b
+      c:
+        name: relay1-c
+      d:
+        name: relay1-d
+      e:
+        name: relay1-e
+      f:
+        name: relay1-f
+
+  relay2:
+    host: 10.225.225.55
+    switches:
+      0:
+        name: relay2-0
+      1:
+        name: relay2-1
+      2:
+        name: relay2-2
+      3:
+        name: relay2-3
+      4:
+        name: relay2-4
+      5:
+        name: relay2-5
+      6:
+        name: relay2-6
+      7:
+        name: relay2-7
+      8:
+        name: relay2-8
+      9:
+        name: relay2-9
+      a:
+        name: relay2-a
+      b:
+        name: relay2-b
+      c:
+        name: relay2-c
+      d:
+        name: relay2-d
+      e:
+        name: relay2-e
+      f:
+        name: relay2-f
 ```
 
 {% configuration %}
-host:
-  description: The IP address or hostname of the HLK-SW16.
-  required: true
-  type: string
-port:
-  description: The control port for the relays.
-  required: false
-  type: integer
-  default: 8080
-switches:
-  description: The array that contains the relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
-  required: true
-  type: map
-  keys:
-    name:
-      description: The name used to display the switch in the frontend.
-      required: false
-      type: string
-      default: switch id
+relayname:
+  host:
+    description: The IP address or hostname of the HLK-SW16.
+    required: true
+    type: string
+  port:
+    description: The control port for the relays.
+    required: false
+    type: integer
+    default: 8080
+  switches:
+    description: The array that contains the relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
+    required: true
+    type: map
+    keys:
+      name:
+        description: The name used to display the switch in the frontend.
+        required: false
+        type: string
+        default: switch id
 {% endconfiguration %}
