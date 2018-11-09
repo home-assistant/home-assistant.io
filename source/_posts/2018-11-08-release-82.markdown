@@ -15,6 +15,10 @@ It's time for another great release. As this includes the tail-end of HacktoberF
 
 First cool new feature is that you can now use TensorFlow, a machine learning framework, to detect objects on your cameras thanks to the hard work by [@hunterjm].
 
+Next up is that [@rohankapoorcom] has been working hard on converting more integrations to the Webhook format. This allows for easy setting up via the UI and generates difficult to guess urls. This release includes Mailgun, Twilio and DialogFlow.
+
+The frontend team has been [BUSY](https://github.com/home-assistant/home-assistant-polymer/pull/1974). We're prepping Lovelace for general release and slowly all pieces are coming together. This release introduces an experimental alpha ultra-raw UI editor for Lovelace cards. It requires that your card has an ID but then, it just works. Including a live preview of the config you're editing.
+
 
 more webhooks
 
