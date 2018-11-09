@@ -1,15 +1,24 @@
 ---
 layout: post
-title: "0.82: TBD - update date"
+title: "0.82: TensorFlow, Z-Wave Barrier Class, "
 description: "TBD"
-date: 2018-11-03 00:01:00
-date_formatted: "November 8, 2018"
+date: 2018-11-09 00:01:00
+date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-11-release-82/components.png
 ---
+
+It's time for another great release. As this includes the tail-end of HacktoberFest, it's packed again with stuff. Hope you like stuff.
+
+First cool new feature is that you can now use TensorFlow, a machine learning framework, to detect objects on your cameras thanks to the hard work by [@hunterjm].
+
+
+more webhooks
+
+
 
 ???
 
