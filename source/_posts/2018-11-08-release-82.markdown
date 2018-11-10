@@ -1,38 +1,34 @@
 ---
 layout: post
-title: "0.82: TensorFlow, Z-Wave Barrier Class, "
-description: "TBD"
+title: "0.82: TensorFlow, Lovelace UI edit, Z-Wave Barrier Class"
+description: "We are glad to inform you that yet another epic release has landed."
 date: 2018-11-09 00:01:00
 date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-11-release-82/components.png
+og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 ---
 
 It's time for another great release. As this includes the tail-end of HacktoberFest, it's packed again with stuff. Hope you like stuff.
 
-First cool new feature is that you can now use TensorFlow, a machine learning framework, to detect objects on your cameras thanks to the hard work by [@hunterjm].
+I want to do a shout out to all the people who help with the documentation. Since the beginning of HacktoberFest, we've seen [953 PRs](https://github.com/home-assistant/home-assistant.io/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+closed%3A%3E2018-10-01) get merged, 953! Especially thanks to [@klaasnicolaas] who has converted 240 pages to the new configuration format. DAAAAANG.
+
+We also got some cool new features. The first one being that you can now use TensorFlow, a machine learning framework, to detect objects on your cameras thanks to the hard work by [@hunterjm]. Check out [the docs][image_processing.tensorflow docs] for more info.
 
 Next up is that [@rohankapoorcom] has been working hard on converting more integrations to the Webhook format. This allows for easy setting up via the UI and generates difficult to guess urls. This release includes Mailgun, Twilio and DialogFlow.
 
-The frontend team has been [BUSY](https://github.com/home-assistant/home-assistant-polymer/pull/1974). We're prepping Lovelace for general release and slowly all pieces are coming together. This release introduces an experimental alpha ultra-raw UI editor for Lovelace cards. It requires that your card has an ID but then, it just works. Including a live preview of the config you're editing.
+The frontend team has been [BUSY](https://github.com/home-assistant/home-assistant-polymer/pull/1974). We're prepping Lovelace for general release and slowly all pieces are coming together. This release introduces an experimental, alpha, ultra-raw, (enough warnings already?) UI editor for Lovelace cards. It requires that your card has an ID but then, it just works. Including a live preview of the config you're editing.
 
+<p class='img'>
+  <img src='/images/blog/2018-11-release-82/lovelace-edit.png' alt='Screenshot of editing a Lovelace card'>
+  Screenshot of editing a Lovelace card.
+</p>
 
-more webhooks
+Also frontend related, in version 0.81 we removed all config splitting functions for ui-lovelace.yaml, we are happy to report that we managed to add back support for `!secret` and `!include`. The rest of the config splitting commands you are used to in `configuration.yaml` will not be available for Lovelace. Mind that you can not edit content in `!include` from the UI, and `!secret` cannot be used in the UI or preview at the moment.
 
-
-
-???
-
-Alpha edit mode for Lovelace.
-
-Soft-fork of OZW to add Barrier.
-
-Frontend release notes are here: https://github.com/home-assistant/home-assistant-polymer/pull/1974
-
-Tensorflow.
+And we have one more thing… we have soft-forked Open Z-Wave and have added support for the barrier command class! This means that now you will be able to control your garage doors from Z-Wave without compiling Open Z-Wave yourself. We'll continue to monitor what other features we can add to our fork while remaining close to the OZW project.
 
 ## {% linkable_title New Platforms %}
 
@@ -444,6 +440,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#18318]: https://github.com/home-assistant/home-assistant/pull/18318
 [#18319]: https://github.com/home-assistant/home-assistant/pull/18319
 [#18329]: https://github.com/home-assistant/home-assistant/pull/18329
+[@klaasnicolaas]: https://github.com/klaasnicolaas
 [@Arkkimaagi]: https://github.com/Arkkimaagi
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Danielhiversen]: https://github.com/Danielhiversen
