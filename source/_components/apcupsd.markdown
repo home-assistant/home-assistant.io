@@ -35,3 +35,7 @@ port:
   type: integer
   default: 3551
 {% endconfiguration %}
+
+ <p class='note'>
+ Note: If you get "ConnectionRefusedError: Connection refused" errors in the Home assistant logs, ensure the [APCUPSd](http://www.apcupsd.org/) configuration directives used by it's Network Information Server (/etc/apcupsd/apcupsd.conf) is set to permit connections from all addresses. ([NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server)), else non-local addesses will not connect, including HASS.IO running in Docker, even when hosted on the same machine or VM.
+ </p>
