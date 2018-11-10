@@ -53,7 +53,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device.
+      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on doorbird.
       required: true
       type: string
     password:
