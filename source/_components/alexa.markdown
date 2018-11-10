@@ -358,6 +358,9 @@ the integration work easier. Example configuration:
 ```yaml
 alexa:
   smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
     filter:
       include_entities:
         - light.kitchen
@@ -373,7 +376,7 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
-
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if  you want to enable Alexa's proactive mode.
 This exposes an HTTP POST endpoint at `http://your_hass_ip/api/alexa/smart_home`
 which accepts and returns messages conforming to the
 [Smart Home v3 payload](https://developer.amazon.com/docs/smarthome/smart-home-skill-api-message-reference.html).
