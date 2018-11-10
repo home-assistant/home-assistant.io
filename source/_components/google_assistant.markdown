@@ -124,6 +124,11 @@ project_id:
   description: Project ID from the Actions on Google console (looks like `words-2ab12`)
   required: true
   type: string
+allow_unlock:
+  description: "When True, allows Google Assistant to unlock locks."
+  required: false
+  type: boolean
+  default: False
 api_key:
   description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
@@ -176,6 +181,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off)
 - light (on/off/brightness/rgb color/color temp)
+- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
