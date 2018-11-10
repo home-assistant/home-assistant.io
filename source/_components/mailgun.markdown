@@ -12,7 +12,27 @@ ha_category: Notifications
 ha_release: 0.38
 ---
 
-The component supports push messages and generates events based on inbound data. To generate inbound events, add a Route set to Store and Notify with a URL of the following form: `https://<home-assistant-domain>/api/mailgun?api_password=<password>`
+To be able to receive events from Mailgun, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
+
+To set it up, go to the integrations page in the configuration screen and find Mailgun. Click on configure. Follow the instructions on the screen to configure Mailgun.
+
+You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, add a Route set to Store and Notify with that url.
+
+Events coming in from Mailgun will be available as events in Home Assistant and are fired as `mailgun_message_received`. The [data specified by Mailgun](https://www.mailgun.com/blog/a-guide-to-using-mailguns-webhooks) will be available as the event data. You can use this event to trigger automations.
+
+You can then consume that information with the following automation:
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type: mailgun_message_received
+    event_data:
+      action: call_service
+  action:
+    service: light.turn_on
+    entity_id: light.office
+```
 
 To send messages, use the [Mailgun notify platform][notify].
 

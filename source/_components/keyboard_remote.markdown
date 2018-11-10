@@ -102,10 +102,13 @@ automation:
           entity_id: media_player.speaker
           media_content_id: keyboard_connected.wav
           media_content_type: music
-  - alias: Keyboard Disconnected
+
+  - alias: Bluetooth Keyboard Disconnected
     trigger:
       platform: event
       event_type: keyboard_remote_disconnected
+      event_data:
+        device_name: "00:58:56:4C:C0:91"
     action:
       - service: media_player.play_media
         data:

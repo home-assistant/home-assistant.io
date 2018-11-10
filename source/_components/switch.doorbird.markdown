@@ -13,7 +13,7 @@ ha_release: "0.54"
 ha_iot_class: "Local Push"
 ---
 
-The `doorbird` switch platform allows you to power relays in your [DoorBird](http://www.doorbird.com/) video doorbell device.
+The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
 
 <p class='note'>
 	You must have the [DoorBird component](/components/doorbird/) configured to use this switch.
@@ -25,19 +25,4 @@ To enable this switch, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 switch:
   - platform: doorbird
-    switches:
-      - light_on
-      - open_door
 ```
-
-{% configuration %}
-switches:
-  description: A list of switches to include. Possible entries are `light_on` for control of the IR array and `open_door` for control of an electronic door strike or alarm.
-  required: false
-  type: list
-  keys:
-    light_on:
-      description: Enable the IR light for 3 minutes.
-    open_door:
-      description: Activate DoorBird door relay
-{% endconfiguration %}

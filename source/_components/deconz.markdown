@@ -59,11 +59,13 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 | `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
-Field and entity are exclusive, i.e you can only use one in a request.
+Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 
 { "entity": "light.light1", "data": {"name": "light2"} }
+
+{ "entity": "light.light1", "field: "/state", "data": {"on": true} }
 
 { "field": "/config", "data": {"permitjoin": 60} }
 

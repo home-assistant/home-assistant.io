@@ -6,6 +6,7 @@ date: 2018-03-27 21:30
 sidebar: true
 comments: false
 sharing: true
+logo: afraid_freedns.png
 footer: true
 ha_category: Network
 ha_release: 0.67

@@ -49,11 +49,11 @@ name:
 payload_on:
   description: "Variable `on` value. The component will recognize this as logical '1'."
   required: false
-  type: string
+  type: [string, float, integer]
 payload_off:
   description: "Variable `off` value. The component will recognize this as logical '0'."
   required: false
-  type: string
+  type: [string, float, integer]
 disarm_after_trigger:
   description: Configure sensor as trigger type.
   required: false
