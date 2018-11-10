@@ -41,7 +41,7 @@ This allows you to connect to the MQTT broker with user `homeassistant` and pass
 #### Using Mosquitto with Hass.io
 Install the [Mosquitto add-on](https://www.home-assistant.io/addons/mosquitto/) with the default configuration via 'Hass.io > ADD-ON STORE'. (Don't forget to start the add-on & verify that 'Start on boot' is enabled!)
 
-Next, create a new user for MQTT via the `Configuration > Users (manage users)`. Restart your HA. 
+Next, create a new user for MQTT via the `Configuration > Users (manage users)`. Restart your HA. (Note: This name cannot be "homeassistant" or "addon")
 
 Once back on-line, return to `Configuration > Intgegartions` and select configure next to `MQTT`.
 
