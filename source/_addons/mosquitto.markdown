@@ -53,7 +53,7 @@ This add-on is attached to the Home Assistant user system, so mqtt clients can m
 
 ### {% linkable_title Home Assistant configuration %}
 
-To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old mqtt settings available, remove this old integration and restart Home Assistant to see the new one.
+To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old MQTT settings available, remove this old integration and restart Home Assistant to see the new one.
 
 ### {% linkable_title Disable listening on insecure (1883) ports %}
 
