@@ -15,6 +15,10 @@ ha_iot_class: "Local Push"
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
 
+## {% linkable_title Setup %}
+
+The user, which you are going to use with Home Assistant, needs the "API-Operator" permission enabled.
+
 ## {% linkable_title Configuration %}
 
 To connect your device, add the following to your `configuration.yaml` file:
@@ -22,20 +26,11 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
-  token: RANDOM_STRING
+  token: YOUR_DOORBIRD_TOKEN
   devices:
     - host: DOORBIRD_IP_OR_HOSTNAME
       username: YOUR_USERNAME
       password: YOUR_PASSWORD
-      hass_url_override: HASS_URL
-      name: Front Door
-    - host: DOORBIRD_IP_OR_HOSTNAME
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
-      name: Driveway Gate
-      monitored_conditions:
-        - doorbell
-        - motion
 ```
 
 {% configuration %}
@@ -53,7 +48,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on doorbird.
+      description: The username of a non-administrator user account on the device.
       required: true
       type: string
     password:
@@ -76,13 +71,35 @@ devices:
         doorbell:
           description: Monitor doorbell events
         motion:
-          description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app)
-
+          description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app).
 {% endconfiguration %}
 
-The configuration above is also used by the following components:
-- [Camera](../camera.doorbird) - View live and historical event based images
-- [Switch](../switch.doorbird) - Enable control of relays and camera night vision
+The configuration above is also used by the following platforms:
+
+- [Camera](/components/camera.doorbird): View live and historical event based images.
+- [Switch](/components/switch.doorbird): Enable control of relays and camera night vision.
+
+
+## {% linkable_title Full example %}
+
+
+```yaml
+doorbird:
+  token: YOUR_DOORBIRD_TOKEN
+  devices:
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      hass_url_override: HASS_URL
+      name: Front Door
+    - host: DOORBIRD_IP_OR_HOSTNAME
+      username: YOUR_USERNAME
+      password: YOUR_PASSWORD
+      name: Driveway Gate
+      monitored_conditions:
+        - doorbell
+        - motion
+```
 
 ## {% linkable_title Motion and Doorbell Events %}
 
@@ -104,6 +121,7 @@ The URLs on the event will be based on the configuration used to connect to your
 </p>
 
 ### {% linkable_title Automation Example %}
+
 ```yaml
 - alias: Doorbird Ring
   trigger:
