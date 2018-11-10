@@ -39,7 +39,7 @@ Tensorflow.
 - Add device tracking for the BT Smart Hub router ([@jxwolstenholme] - [#17158]) ([device_tracker docs]) (new-platform)
 - Météo-france sensor : current weather and 1 hour rain forecast ([@victorcerutti] - [#17773]) ([sensor.meteo_france docs]) (new-platform)
 - Support for WeMo Humidifier ([@sqldiablo] - [#17996]) ([wemo docs]) ([fan.wemo docs]) (new-platform)
-- Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) ([sensor.greeneye_monitor_current docs]) ([sensor.greeneye_monitor_pulse docs]) ([sensor.greeneye_monitor_temperature docs]) (new-platform)
+- Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) (new-platform)
 - TensorFlow image_processing component ([@hunterjm] - [#17795]) ([image_processing.tensorflow docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
@@ -78,7 +78,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix log error message ([@pvizeli] - [#18305]) ([hassio docs]) (beta fix)
 - Bump pyhaversion to 2.0.2 ([@ludeeus] - [#18318]) ([sensor.version docs]) (beta fix)
 - Fix xiaomi binary_sensor warning ([@Danielhiversen] - [#18280]) ([binary_sensor.xiaomi_aqara docs]) (beta fix)
-- Remove Velbus climate platform ([@balloob] - [#18319]) ([velbus docs]) ([climate.velbus docs]) (beta fix)
+- Remove Velbus climate platform ([@balloob] - [#18319]) ([velbus docs]) (beta fix)
 - fix last device ignored ([@abmantis] - [#18329]) ([device_tracker docs]) (beta fix)
 
 ## {% linkable_title All changes %}
@@ -125,7 +125,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add contact sensors to alexa smart home ([@abmantis] - [#17704]) ([alexa docs])
 - Upgrade flake8 to 3.6.0 ([@scop] - [#17770])
 - Install face_recognition on Docker build ([@lights0123] - [#17502])
-- Delete sensor.yahoo_finance ([@rohankapoorcom] - [#17805]) ([sensor.yahoo_finance docs])
+- Delete sensor.yahoo_finance ([@rohankapoorcom] - [#17805])
 - deCONZ: configure service can now use 'field' as a subpath together with 'entity' ([@lbschenkel] - [#17722]) ([deconz docs])
 - Bumped NDMS2 client to 0.0.5 to fix unicode characters support ([@foxel] - [#17803]) ([device_tracker docs])
 - Upgrade numpy to 1.15.3 ([@fabaff] - [#17796]) ([binary_sensor.trend docs]) ([image_processing.opencv docs])
@@ -161,7 +161,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade pytest to 3.9.3 ([@scop] - [#17921])
 - Extract entity ids from all templates ([@amelchio] - [#17902]) ([binary_sensor.template docs])
 - Make light.yeelight stop doing IO when accessing properties ([@rohankapoorcom] - [#17917]) ([light.yeelight docs])
-- Fixes for upnp-component/#17753 and missing hass-data when only setup from config entry ([@StevenLooman] - [#17868]) ([upnp docs]) ([media_player.dlna_dmr docs]) ([sensor.igd docs])
+- Fixes for upnp-component/#17753 and missing hass-data when only setup from config entry ([@StevenLooman] - [#17868]) ([upnp docs]) ([media_player.dlna_dmr docs])
 - Fix for verify_ssl in the pi_hole sensor. ([@ludeeus] - [#17910]) ([sensor.pi_hole docs])
 - Permissions improv ([@balloob] - [#17811])
 - Fix incorrect chevy discovery ([@balloob] - [#17942]) ([mychevy docs])
@@ -208,7 +208,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added identifier and name to connect/disconnect events ([@jaredquinn] - [#18078]) ([keyboard_remote docs])
 - Fix in Daikin.py for set swing_mode and speed ([@MatteGary] - [#18013]) ([climate.daikin docs])
 - Allow different types to match in pilight ([@akloeckner] - [#17922]) ([binary_sensor.pilight docs])
-- Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) ([sensor.greeneye_monitor_current docs]) ([sensor.greeneye_monitor_pulse docs]) ([sensor.greeneye_monitor_temperature docs]) (new-platform)
+- Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) (new-platform)
 - HomematicIP_Cloud fix test ([@mxworm] - [#17376]) ([homematicip_cloud docs])
 - Upgrade locationsharinglib to 3.0.7 ([@fabaff] - [#18083]) ([device_tracker docs])
 - Upgrade sqlalchemy to 1.2.13 ([@fabaff] - [#18084]) ([sensor.sql docs])
@@ -235,7 +235,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added service select_video_output and video_out attribute ([@leothlon] - [#18081]) ([media_player.onkyo docs])
 - Darksky: Round all temperatures to 1 decimal place ([@leppa] - [#18119]) ([sensor.darksky docs])
 - Convert nsw rural fire tests to async ([@armills] - [#18112])
-- Adding climate.velbus support ([@Cereal2nd] - [#18100]) ([velbus docs]) ([climate.velbus docs])
+- Adding climate.velbus support ([@Cereal2nd] - [#18100]) ([velbus docs])
 - Changed from pifacecommon 4.1.2 to 4.2.2 to make the piface digital i/o boards work on rpi like 3 ([@vacumet] - [#18101]) ([rpi_pfio docs])
 - Update Pollen.com to use numpy for trend analysis ([@bachya] - [#18107]) ([sensor.pollen docs]) (breaking change)
 - Exposes initial attribute on the entity. ([@ludeeus] - [#18123]) ([input_number docs])
@@ -261,7 +261,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix log error message ([@pvizeli] - [#18305]) ([hassio docs]) (beta fix)
 - Bump pyhaversion to 2.0.2 ([@ludeeus] - [#18318]) ([sensor.version docs]) (beta fix)
 - Fix xiaomi binary_sensor warning ([@Danielhiversen] - [#18280]) ([binary_sensor.xiaomi_aqara docs]) (beta fix)
-- Remove Velbus climate platform ([@balloob] - [#18319]) ([velbus docs]) ([climate.velbus docs]) (beta fix)
+- Remove Velbus climate platform ([@balloob] - [#18319]) ([velbus docs]) (beta fix)
 - fix last device ignored ([@abmantis] - [#18329]) ([device_tracker docs]) (beta fix)
 
 [#14933]: https://github.com/home-assistant/home-assistant/pull/14933
