@@ -66,6 +66,10 @@ state_topic:
   description: The MQTT topic subscribed to receive cover state messages.
   required: false
   type: string
+position_topic:
+  description: The MQTT topic subscribed to receive cover position messages.
+  required: false
+  type: string
 state_open:
   description: The payload that represents the open state.
   required: false
