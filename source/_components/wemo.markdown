@@ -22,19 +22,22 @@ The `wemo` component is the main component to integrate various [Belkin WeMo](ht
     description: One or more static IP adresses for WeMo to use
     required: false
     type: list
-  disable_discovery:
-    description: Setting this value to true will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
+  discovery:
+    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
     required: false
     type: boolean
-    default: false
+    default: true
 {% endconfiguration %}
 
-Supported devices will be automatically discovered if the optional `disable_discovery` configuration item is omitted or set to false or if the `discovery` component is enabled. If the `disable_discovery` configuration item is set to true, then automatic discovery of WeMo devices is disabled both for the `wemo` component and for the `discovery` component. Loading the `wemo` component with the `disable_discovery` configuration item omitted or set to false will scan the local network for WeMo devices, even if you are not using the `discovery` component.
+Supported devices will be automatically discovered if the optional `discovery` configuration item is omitted or set to true or if the `discovery` component is enabled. If the `discovery` configuration item is set to false, then automatic discovery of WeMo devices is disabled both for the `wemo` component and for the `discovery` component. Loading the `wemo` component with the `discovery` configuration item omitted or set to true will scan the local network for WeMo devices, even if you are not using the `discovery` component.
 
 ```yaml
-# Example configuration.yaml entry with automatic discovery enabled
+# Example configuration.yaml entry with automatic discovery enabled (by omitting the discovery configuration item)
 wemo:
-  disable_discovery: false
+
+# Example configuration.yaml entry with automatic discovery enabled (by explicitly setting the discovery configuration item)
+wemo:
+  discovery: true
 ```
 
 Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. Statically configured devices may be used with or without automatic discovery enabled. Example static configuration:
@@ -42,7 +45,7 @@ Alternately, WeMo devices that are not discoverable can be statically configured
 ```yaml
 # Example configuration.yaml entry with automatic discovery disabled, and 2 statically configured devices
 wemo:
-  disable_discovery: true
+  discovery: false
   static:
     - 192.168.1.23
     - 192.168.52.172
