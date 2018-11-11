@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: flunearyou.jpg
 ha_category: Health
-ha_release: 0.82
+ha_release: 0.83
 ha_iot_class: "Cloud Polling"
 ---
 
