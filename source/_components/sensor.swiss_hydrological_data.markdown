@@ -2,7 +2,7 @@
 layout: page
 title: "Swiss Hydrological Data"
 description: "Instructions on how to integrate hydrological data of Swiss waters within Home Assistant."
-2016-06-17 17:00
+date: 2016-06-17 17:00
 sidebar: true
 comments: false
 sharing: true
