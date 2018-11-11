@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: meteo-france.png
 ha_category: Sensor
-featured: true
 ha_release: 0.82
 ha_iot_class: "Cloud Polling"
 ---
