@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: tp-link.png
-ha_release: "0.83"
+ha_release: 0.83
 ha_category: Network
 ha_iot_class: "Local Polling"
 ---
@@ -43,7 +43,7 @@ password:
     required: true
     type: string
 notify:
-    description: A list of notification services conneted to this specific host.
+    description: A list of notification services connected to this specific host.
     required: false
     type: list
     keys:
