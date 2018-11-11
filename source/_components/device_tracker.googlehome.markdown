@@ -17,7 +17,7 @@ The `googlehome` platform allows you to detect presence using an [unofficial Goo
 
 ## {% linkable_title Configuration %}
 
-To integrate Google Home bluetooth tracker in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Google Home Bluetooth tracker in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +32,7 @@ host:
   required: true
   type: string
 rssi_threshold:
-  description: The threshold for the rssi signal of the device.
+  description: The threshold for the RSSI signal of the device.
   required: false
   default: -70
   type: integer
