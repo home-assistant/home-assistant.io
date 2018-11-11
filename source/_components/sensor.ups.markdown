@@ -50,5 +50,5 @@ The UPS sensor logs into the UPS My Choice website to scrape package data. It do
 </p>
 
 <p class='note info'>
-If the UPS sensor is throwing an error about not being able to login to the UPS My Choice website it's likely because there is a new UPS Technology Agreement (UTA) preventing the scraper from accessing the package data.  Login to UPS My Choice manually and accept the UTA to resolve this.
+If the UPS sensor is throwing an error about not being able to login to the UPS My Choice website, it's likely because there is a new UPS Technology Agreement (UTA) preventing the scraper from accessing the package data. Login to UPS My Choice manually and accept the UTA to resolve this.
 </p>
