@@ -109,8 +109,6 @@ Assuming the previous test completed successfully and your browser was registere
 The `html5` platform accepts a standard notify payload. However, there are also
 some special features built in which you can control in the payload.
 
-Any JSON examples below can be [converted to YAML](https://www.json2yaml.com/)
-for automations.
 
 #### {% linkable_title Actions %}
 
@@ -118,23 +116,15 @@ Chrome supports notification actions,
 which are configurable buttons that arrive with the notification and can cause
 actions on Home Assistant to happen when pressed. You can send up to 2 actions.
 
-```json
-{
-  "message": "Anne has arrived home",
-  "data": {
-    "actions": [
-      {
-        "action": "open",
-        "icon": "/static/icons/favicon-192x192.png",
-        "title": "Open Home Assistant"
-      },
-      {
-        "action": "open_door",
-        "title": "Open door"
-      }
-    ]
-  }
-}
+```yaml
+message: Anne has arrived home
+data:
+  actions:
+  - action: open
+    icon: "/static/icons/favicon-192x192.png"
+    title: Open Home Assistant
+  - action: open_door
+    title: Open door
 ```
 
 #### {% linkable_title Data %}
@@ -144,14 +134,11 @@ the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`,
 `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be
 sent back to you in the [callback events](#automating-notification-events).
 
-```json
-{
-  "title": "Front door",
-  "message": "The front door is open",
-  "data": {
-    "my-custom-parameter": "front-door-open"
-  }
-}
+```yaml
+title: Front door
+message: The front door is open
+data:
+  my-custom-parameter: front-door-open
 ```
 
 #### {% linkable_title Tag %}
@@ -162,14 +149,12 @@ a specific target. If you pass your own tag in the notify payload you can
 replace the notification by sending another notification with the same tag.
 You can provide a `tag` like so:
 
-```json
-{
-  "title": "Front door",
-  "message": "The front door is open",
-  "data": {
-    "tag": "front-door-notification"
-  }
-}
+```yaml
+title: Front door
+message: The front door is open
+data:
+  tag: front-door-notification
+
 ```
 
 Example of adding a tag to your notification. This won't create new notification
@@ -195,22 +180,20 @@ If you do not provide a `target` parameter in the notify payload a notification
 will be sent to all registered targets as listed in
 `html5_push_registrations.conf`. You can provide a `target` parameter like so:
 
-```json
-{
-  "title": "Front door",
-  "message": "The front door is open",
-  "target": "unnamed device"
-}
+```yaml
+title: Front door
+message: The front door is open
+target: unnamed device
 ```
 
 `target` can also be a string array of targets like so:
 
-```json
-{
-  "title": "Front door",
-  "message": "The front door is open",
-  "target": ["unnamed device", "unnamed device 2"]
-}
+```yaml
+title: Front door
+message: The front door is open
+target:
+ - unnamed device
+ - unnamed device 2
 ```
 
 #### {% linkable_title Overrides %}
@@ -226,14 +209,11 @@ maximum icon size for an action button is 128px by 128px.
 You can provide a URL to open when the notification is clicked by putting `url`
 in the data dictionary like so:
 
-```json
-{
-  "title": "Front door",
-  "message": "The front door is open",
-  "data": {
-    "url": "https://google.com"
-  }
-}
+```yaml
+title: Front door
+message: The front door is open
+data:
+  url: https://google.com
 ```
 
 If no URL or actions are provided, interacting with a notification will open
