@@ -80,12 +80,12 @@ icon:
   required: false
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
-  default: `mdi:remote`
+  default: "`mdi:remote`"
 action_name:
   required: false
   description: Button label.
   type: string
-  default: `Run`
+  default: "`Run`"
 service_data:
   required: false
   description: The service data to use.
