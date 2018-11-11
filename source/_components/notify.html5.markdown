@@ -120,11 +120,11 @@ actions on Home Assistant to happen when pressed. You can send up to 2 actions.
 message: Anne has arrived home
 data:
   actions:
-  - action: open
-    icon: "/static/icons/favicon-192x192.png"
-    title: Open Home Assistant
-  - action: open_door
-    title: Open door
+    - action: open
+      icon: "/static/icons/favicon-192x192.png"
+      title: Open Home Assistant
+    - action: open_door
+      title: Open door
 ```
 
 #### {% linkable_title Data %}
@@ -192,8 +192,8 @@ target: unnamed device
 title: Front door
 message: The front door is open
 target:
- - unnamed device
- - unnamed device 2
+  - unnamed device
+  - unnamed device 2
 ```
 
 #### {% linkable_title Overrides %}
