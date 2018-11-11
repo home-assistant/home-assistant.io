@@ -12,15 +12,15 @@ ha_category: Hub
 ha_release: 0.38
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
 RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
- <p class='note'>
- Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
- </p>
+<p class='note'> 
+Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
+</p>
 
 A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
@@ -117,7 +117,7 @@ sensor:
     automatic_add: true
 ```
 
-[RFLink Switches](https://www.home-assistant.io/components/switch.rflink/) and [RFLink Binary Sensors](https://www.home-assistant.io/components/binary_sensor.rflink/) cannot be added automatically. 
+[RFLink Switches](/components/switch.rflink/) and [RFLink Binary Sensors](/components/binary_sensor.rflink/) cannot be added automatically. 
 
 The RFLink component does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
 
