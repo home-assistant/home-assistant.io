@@ -30,6 +30,15 @@ host:
   description: The DNS name or IP Address of the HA Dockermon instance.
   required: true
   type: string
+port:
+  description: The port of the HA Dockermon instance.
+  required: false
+  default: 8126
+  type: integer
+containers:
+  description: A list of containers you want to controll, by default it shows all.
+  required: false
+  type: list
 username:
   description: The username for the HA Dockermon instance.
   required: true
@@ -38,11 +47,6 @@ password:
   description: The password for your given account on the HA Dockermon instance.
   required: true
   type: string
-port:
-  description: The port of the HA Dockermon instance.
-  required: false
-  default: 8126
-  type: integer
 ssl:
   description: Use HTTPS to connect the HA Dockermon instance. *NOTE* A host *cannot* be an IP address when this option is enabled.
   required: false
