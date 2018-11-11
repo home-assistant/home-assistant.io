@@ -37,7 +37,7 @@ api_key:
   required: true
   type: string
 ssl:
-  description: True if you want to connect with HTTPS/WSS. Your SSL certificate must be valid.
+  description: "`true` if you want to connect with HTTPS/WSS. Your SSL certificate must be valid."
   required: false
   default: false
   type: boolean
@@ -47,7 +47,7 @@ port:
   default: 8096 (No SSL),  8920 (SSL)
   type: integer
 auto_hide:
-  description: True if you want to automatically hide devices that are unavailable from the Home Assistant Interface.
+  description: "`true` if you want to automatically hide devices that are unavailable from the Home Assistant Interface."
   required: false
   default: false
   type: boolean

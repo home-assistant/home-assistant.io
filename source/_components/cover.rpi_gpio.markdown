@@ -44,7 +44,7 @@ relay_time:
 invert_relay:
   description: Invert the relay pin output so that it is active-high (True).
   required: false
-  default: False
+  default: false
   type: boolean
 state_pull_mode:
   description: The direction the State pin is pulling. It can be UP or DOWN.
@@ -54,7 +54,7 @@ state_pull_mode:
 invert_state:
   description: Invert the value of the State pin so that 0 means closed.
   required: false
-  default: False
+  default: false
   type: boolean
 covers:
   description: List of your doors.
@@ -82,9 +82,9 @@ covers:
 cover:
   - platform: rpi_gpio
     relay_time: 0.2
-    invert_relay: False
+    invert_relay: false
     state_pull_mode: 'UP'
-    invert_state: True
+    invert_state: true
     covers:
       - relay_pin: 10
         state_pin: 11

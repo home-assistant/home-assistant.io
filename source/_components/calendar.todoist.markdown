@@ -100,7 +100,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
  - **offset_reached**: Not used.
 
- - **all_day**: `True` if the reported task doesn't have a due date. `False` if there is a due date set.
+ - **all_day**: `true` if the reported task doesn't have a due date. `false` if there is a due date set.
 
  - **message**: The title of the "most important" task coming up in this project.
 

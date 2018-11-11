@@ -22,7 +22,7 @@ The easiest way to find your lights is to add this to your `configuration.yaml`:
 ```yaml
 light:
   - platform: rfxtrx
-    automatic_add: True
+    automatic_add: true
 ```
 
 Launch your Home Assistant and go the website. Push your remote and your device should be added:

@@ -30,7 +30,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### {% linkable_title Hide automation rules %}
 
-Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: True`.
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: true`.
 
 ### {% linkable_title All changes %}
 

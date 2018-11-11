@@ -131,7 +131,7 @@ api_key:
 expose_by_default:
   description: "Expose devices in all supported domains by default. If set to false, you need to add the expose configuration option to each entity in `entity_config` and set it to true. Setting `exposed_domains` values will _not_ expose those domains if `expose_by_default` is false."
   required: false
-  default: True
+  default: true
   type: boolean
 exposed_domains:
   description: List of entity domains to expose to Google Assistant.

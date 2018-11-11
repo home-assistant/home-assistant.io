@@ -93,13 +93,13 @@ ios:
           - identifier: 'OPEN_COVER'
             title: 'Open Cover'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: no
+            authenticationRequired: true
+            destructive: false
           - identifier: 'CLOSE_COVER'
             title: 'Close Cover'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: yes
+            authenticationRequired: true
+            destructive: true
 ```
 
 # Troubleshooting

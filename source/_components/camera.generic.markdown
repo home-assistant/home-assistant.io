@@ -51,7 +51,7 @@ authentication:
   default: basic
   type: string
 limit_refetch_to_url_change:
-  description: True/false value. Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+  description: "`true`/`false` value. Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image."
   required: false
   default: false
   type: boolean

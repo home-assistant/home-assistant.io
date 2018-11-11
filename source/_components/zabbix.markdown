@@ -37,7 +37,7 @@ path:
   type: string
   default: "`/zabbix/`"
 ssl:
-  description: Set to `True` if your Zabbix installation is using SSL.
+  description: Set to `true` if your Zabbix installation is using SSL.
   required: false
   type: boolean
   default: false
@@ -58,7 +58,7 @@ password:
 zabbix:
   host: ZABBIX_HOST
   path: ZABBIX_PATH
-  ssl: False
+  ssl: false
   username: USERNAME
   password: PASSWORD
 ```

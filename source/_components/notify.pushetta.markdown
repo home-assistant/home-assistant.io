@@ -33,7 +33,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): Your API key for Pushetta.
 - **channel_name** (*Required*): The name of your channel.
-- **send_test_msg** (*Optional*): Disable/enable the test message send on Home Assistant's startup to test the API key and the existence of the channel. Default to `False`.
+- **send_test_msg** (*Optional*): Disable/enable the test message send on Home Assistant's startup to test the API key and the existence of the channel. Default to `false`.
 
 It's easy to test your Pushetta setup outside of Home Assistant. Assuming you have a channel *home-assistant*, just fire a request and check the channel page in the dashboard for a new message.
 

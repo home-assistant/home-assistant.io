@@ -59,7 +59,7 @@ hour:
   required: false
   type: list
 manual:
-  description: True or False to turn manual mode on or off. Manual mode will disable scheduled speedtests.
+  description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speedtests."
   required: false
   default: false
   type: boolean

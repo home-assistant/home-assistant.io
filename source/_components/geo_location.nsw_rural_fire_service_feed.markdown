@@ -67,7 +67,7 @@ The following state attributes are available for each entity in addition to the 
 | council_area       | Council area in which this incident takes place. |
 | status             | One of 'Under Control', 'Being Controlled', 'Out of Control'. |
 | type               | Incident type, for example 'Bush Fire', 'Grass Fire' or 'Hazard Reduction'. |
-| fire               | `True` if this incident is a fire, `False` otherwise. |
+| fire               | `true` if this incident is a fire, `false` otherwise. |
 | size               | Size in hectare |
 | responsible_agency | Agency responsible for this incident. |
 

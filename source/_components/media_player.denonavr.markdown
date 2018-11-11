@@ -46,7 +46,7 @@ media_player:
   - platform: denonavr
     host: IP_ADDRESS
     name: NAME
-    show_all_sources: True / False
+    show_all_sources: true
     timeout: POSITIVE INTEGER
     zones:
       - zone: Zone2 / Zone3

@@ -52,7 +52,7 @@ hold_temp:
   type: boolean
 {% endconfiguration %}
 
-Set `hold_temp: True` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
+Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
 
 The away mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.
 

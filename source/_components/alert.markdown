@@ -42,8 +42,8 @@ alert:
     entity_id: input_boolean.garage_door
     state: 'on'
     repeat: 30
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -103,7 +103,7 @@ notifiers:
 In this example, the garage door status (`input_boolean.garage_door`) is watched
 and this alert will be triggered when its status is equal to `on`.
 This indicates that the door has been opened. Because the `skip_first` option
-was set to `True`, the first notification will not be delivered immediately.
+was set to `true`, the first notification will not be delivered immediately.
 However, every 30 minutes, a notification will be delivered until either
 `input_boolean.garage_door` no longer has a state of `on` or until the alert is
 acknowledged using the Home Assistant frontend.
@@ -186,8 +186,8 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: true  # Optional, default is True
+    skip_first: true  # Optional, false is the default
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -213,8 +213,8 @@ of the entity.
     entity_id: plant.plant_office
     state: 'problem'
     repeat: 30
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     message: "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})"
     done_message: Plant in office is fine
     notifiers:

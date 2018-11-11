@@ -58,7 +58,7 @@ When sending a notification:
 - **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
 - **activationMode** (*Optional*): The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.
-- **authenticationRequired** (*Optional*): If a truthy value (`true`, `True`, `yes`, etc.) the user must unlock the device before the action is performed.
+- **authenticationRequired** (*Optional*): If `true` the user must unlock the device before the action is performed.
 - **destructive** (*Optional*): When the value of this property is a truthy value, the system displays the corresponding button differently to indicate that the action is destructive (text color is red).
 - **behavior** (*Optional*): When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`.
 - **textInputButtonTitle** (*Optional*): The button label. *Required* if `behavior` is `textInput`.
@@ -76,13 +76,13 @@ ios:
           - identifier: 'SOUND_ALARM'
             title: 'Sound Alarm'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: yes
+            authenticationRequired: true
+            destructive: true
             behavior: 'default'
           - identifier: 'SILENCE_ALARM'
             title: 'Silence Alarm'
             activationMode: 'background'
-            authenticationRequired: yes
+            authenticationRequired: true
             destructive: no
             behavior: 'textInput'
             textInputButtonTitle: 'Silencio!'

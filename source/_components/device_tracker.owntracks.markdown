@@ -89,8 +89,8 @@ USERNAME_DEVICE_ID:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
-  track: yes
-  hide_if_away: no
+  track: true
+  hide_if_away: false
 ```
 
 ### {% linkable_title Using Owntracks regions %}

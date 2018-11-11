@@ -80,6 +80,6 @@ binary_sensor:
     payload:
       unitcode: 371399
     payload_on: 'closed'
-    disarm_after_trigger: True
+    disarm_after_trigger: true
     reset_delay_sec: 30
 ```

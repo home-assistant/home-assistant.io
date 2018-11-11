@@ -125,7 +125,7 @@ lutron:
 mailgun:
   domain: !secret mailgun_domain
   api_key: !secret mailgun_api_key
-  sandbox: False
+  sandbox: false
 
 notify:
   - name: mailgun

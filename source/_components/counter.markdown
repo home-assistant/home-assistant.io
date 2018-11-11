@@ -45,7 +45,7 @@ counter:
       description: Try to restore the last known value when Home Assistant starts.
       required: false
       type: boolean
-      default: True
+      default: true
     step:
       description: Incremental/step value for the counter.
       required: false
@@ -61,9 +61,9 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ### {% linkable_title Restore State %}
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity has `restore` set to `True` which is the default. To disable this feature, set `restore` to `False`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you have the `recorder` component enabled and your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`. Additional information can be found in the [Restore state](/components/recorder/#restore-state) section of the [`recorder`](/components/recorder/) component documentation.
 
-If `restore` is set to `False`, the `initial` value will only be used when no previous state is found or when the counter is reset.
+If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
 ## {% linkable_title Services %}
 

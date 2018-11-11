@@ -80,7 +80,7 @@ Will automatically search and add all lights on start up:
 # Example configuration.yaml entry
 light:
   - platform: flux_led
-    automatic_add: True
+    automatic_add: true
 ```
 
 Will add two lights with given name and create an automation rule to randomly set color each 45 seconds:

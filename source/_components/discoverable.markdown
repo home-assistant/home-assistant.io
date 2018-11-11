@@ -25,7 +25,7 @@ To enable `discovery` in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 discoverable:
-  expose_password: yes
+  expose_password: false
 ```
 
 

@@ -86,7 +86,7 @@ register:
     verify_state:
       description: Define if is possible to readback the status of the switch.
       required: false
-      default: True
+      default: true
       type: boolean
     verify_register:
       description: Register to readback.

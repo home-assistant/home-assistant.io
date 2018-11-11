@@ -112,7 +112,7 @@ force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false
   type: boolean
-  default: False
+  default: false
 off_delay:
   description: For sensors that only sends ‘On’ state updates, this variable sets a delay in seconds after which the sensor state will be updated back to ‘Off’.
   required: false

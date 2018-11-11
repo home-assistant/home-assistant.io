@@ -35,7 +35,7 @@ light:
     lights:
       - id: 12345
         name: tablelight
-        dimmable: True
+        dimmable: true
       - id: 12346
         name: anotherlight
       ...

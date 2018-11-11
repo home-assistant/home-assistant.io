@@ -54,7 +54,7 @@ You have to set an initial state in your automations in order for Home Assistant
 ```text
 automation:
 - alias: Automation Name
-  initial_state: True
+  initial_state: true
   trigger:
   ...
 ```

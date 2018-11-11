@@ -28,7 +28,7 @@ sensor:
   required: false
   type: string
 only_named:
-  description: Only show the named sensors. Set to `True` to hide sensors.
+  description: Only show the named sensors. Set to `true` to hide sensors.
   required: false
   default: false
   type: boolean
@@ -56,7 +56,7 @@ sensor:
   - platform: tellstick
     135: Outside
     21: Inside
-    only_named: True
+    only_named: true
     temperature_scale: "°C"
     datatype_mask: 1
 ```

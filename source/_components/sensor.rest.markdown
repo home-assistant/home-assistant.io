@@ -64,7 +64,7 @@ verify_ssl:
   description: Verify the certification of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
@@ -93,7 +93,7 @@ force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
   type: boolean
-  default: False
+  default: false
 {% endconfiguration %}
 
 <p class='note warning'>

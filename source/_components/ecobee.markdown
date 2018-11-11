@@ -57,7 +57,7 @@ api_key:
   required: true
   type: string
 hold_temp:
-  description: True/False whether or not to hold changes indefinitely (True) or until the next scheduled event.
+  description: "`true`/`false` whether or not to hold changes indefinitely (True) or until the next scheduled event."
   required: false
   default: "`false`"
   type: boolean

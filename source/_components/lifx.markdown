@@ -35,7 +35,7 @@ Change the light to a new state.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
-| `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
+| `power` | Turn the light on (`true`) or off (`false`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.
 
 ## {% linkable_title Light effects %}

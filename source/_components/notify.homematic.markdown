@@ -102,7 +102,7 @@ alert:
     name: Temperature too high
     done_message: Temperature OK
     entity_id: binary_sensor.temperature_too_high
-    can_acknowledge: True
+    can_acknowledge: true
     notifiers:
       - group_hm
 ```

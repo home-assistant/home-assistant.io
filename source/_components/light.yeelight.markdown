@@ -52,12 +52,12 @@ devices:
           description: Enable music mode.
           required: false
           type: boolean
-          default: False
+          default: false
         save_on_change:
           description: Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
           required: false
           type: boolean
-          default: False
+          default: false
         model:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
@@ -126,8 +126,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True
-        save_on_change: True
+        use_music_mode: true
+        save_on_change: true
 ```
 
 ### {% linkable_title Multiple bulbs %}

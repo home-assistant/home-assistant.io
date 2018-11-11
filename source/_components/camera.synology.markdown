@@ -74,7 +74,7 @@ camera:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     timeout: 15
-    verify_ssl: False
+    verify_ssl: false
 ```
 
 <p class='note'>

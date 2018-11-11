@@ -93,13 +93,13 @@ local_ip:
 
 ```yaml
 knx:
-  fire_event: True
+  fire_event: true
   fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 
 {% configuration %}
 fire_event:
-  description: If set to True, platform will write all received KNX messages to event bus
+  description: "If set to `true`, platform will write all received KNX messages to event bus."
   required: inclusive
   type: boolean
 fire_event_filter:

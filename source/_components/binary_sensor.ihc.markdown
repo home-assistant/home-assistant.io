@@ -39,7 +39,7 @@ binary_sensor:
       - id: 12345
         name: mysensor
         type: opening
-        inverting: True
+        inverting: true
       - id: 12346
            ...
 ```

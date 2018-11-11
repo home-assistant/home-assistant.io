@@ -61,7 +61,7 @@ name:
   required: false
   type: string
 view:
-  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views."
+  description: "If `true` then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views."
   required: false
   type: boolean
 icon:

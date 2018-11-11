@@ -105,7 +105,7 @@ Error sending local control request. Sending request online
 
 The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
-You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `True` states will be pulled from the devices controlling hub, not the online API.
+You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `true` states will be pulled from the devices controlling hub, not the online API.
 
 ### {% linkable_title Service `pull_newly_added_devices_from_wink` %}
 
@@ -268,7 +268,7 @@ You can use the service wink/set_siren_strobe_enabled to enable or disable the s
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean. True or False.
+| `enabled` | no | Boolean. `true` or `false`.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
 
 Example:
@@ -279,7 +279,7 @@ script:
     sequence:
       - service: wink.set_siren_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```
 
 ### {% linkable_title Service `set_chime_strobe_enabled` %}
@@ -288,7 +288,7 @@ You can use the service wink/set_chime_strobe_enabled to enable or disable the s
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean. True or False.
+| `enabled` | no | Boolean. `true` or `false`.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of chime/chime.
 
 Example:
@@ -299,7 +299,7 @@ script:
     sequence:
       - service: wink.set_chime_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```
 
 ### {% linkable_title Service `set_nimbus_dial_state` %}

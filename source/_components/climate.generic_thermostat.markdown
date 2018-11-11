@@ -99,7 +99,7 @@ climate:
     target_sensor: sensor.study_temperature
     min_temp: 15
     max_temp: 21
-    ac_mode: False
+    ac_mode: false
     target_temp: 17
     cold_tolerance: 0.3
     hot_tolerance: 0
