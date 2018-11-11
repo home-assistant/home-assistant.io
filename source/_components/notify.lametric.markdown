@@ -59,7 +59,7 @@ Check out the list of all icons at [https://developer.lametric.com/icons](https:
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
+  name: lametric
   platform: lametric
   lifetime: 20
   icon: a7956
