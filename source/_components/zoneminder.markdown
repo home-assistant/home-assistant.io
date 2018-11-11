@@ -16,6 +16,8 @@ ha_iot_class: "Local Polling"
 
 The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance so that [cameras](/components/camera.zoneminder/), [sensors](/components/sensor.zoneminder/), and [switches](/components/switch.zoneminder) can use it.
 
+## {% linkable_title Configuration %}
+
 ```yaml
 # Example configuration.yaml entry
 zoneminder:
@@ -30,23 +32,23 @@ host:
 path:
   description: Path to your ZoneMinder install.
   required: false
-  default: "`/zm/`"
   type: string
+  default: "`/zm/`"
 path_zms:
   description: Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings.
   required: false
-  default: "`/zm/cgi-bin/nph-zms`"
   type: string
+  default: "`/zm/cgi-bin/nph-zms`"
 ssl:
   description: Set to `true` if your ZoneMinder installation is using SSL.
   required: false
-  default: false
   type: boolean
+  default: false
 verify_ssl:
   description: Verify the certification of the endpoint.
   required: false
-  default: true
   type: boolean
+  default: true
 username:
   description: Your ZoneMinder username.
   required: false

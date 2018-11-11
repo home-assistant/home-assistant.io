@@ -59,50 +59,54 @@ Currently known supported models:
 
 - C7700
 - D5500
+- D6300SF
 - D6500
+- D6505
 - D7000
 - D8000
-- ES5500
-- ES6800
-- F6300
-- F6500
 - EH5300
 - EH5600
-- F6400AF
+- ES5500
+- ES6800
+- F4580
+- F6300
 - F6400
+- F6400AF
+- F6500
 - F8000BF
-- D6505
-- D6300SF
-- U6000 (port must be set to 8001)
-- U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K5579 (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
+- K5600AK (partially supported, turn on works but state is not updated)
 - K6500AF (port must be set to 8001)
 - KS7005 (port must be set to 8001, and `pip3 install websocket-client` must be executed, MAC address must be provided, On/Off, Volume are OK, no channel change)
+- KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - KS8000 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6020 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6100 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6290 (port must be set to 8001)
 - KU7000 (port must be set to 8001)
-- NU8000
-- MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
-- K5600AK (partially supported, turn on works but state is not updated)
 - M5620 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
-- UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
+- MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- NU7400 (port set to 8001 and `pip3 install websocket-client` executed)
+- NU8000
 - Q7F (port must be set to 8001, MAC must be specified for Power On)
+- U6000 (port must be set to 8001)
+- U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - UE40KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- UE46D7000
+- UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
+- UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
-- JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
-- JU7500 - Unable to see state and unable to control
+- J6300 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
+- JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
+- JU7500 - Unable to see state and unable to control
 - MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
 
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work,

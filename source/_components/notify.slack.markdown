@@ -38,17 +38,32 @@ To enable the Slack notification in your installation, add the following to your
 notify:
   - name: NOTIFIER_NAME
     platform: slack
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     default_channel: '#general'
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): The Slack API token to use for sending Slack messages.
-- **default_channel** (*Required*): The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the json at the same level as "message"
-- **username** (*Optional*): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.
-- **icon** (*Optional*): Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+{% configuration %}
+name: 
+  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "notify"
+api_key:
+  description: The Slack API token to use for sending Slack messages.
+  required: true
+  type: string
+default_channel:
+  description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the JSON at the same level as "message".
+  required: true
+  type: string
+username:
+  description: Home Assistant will post to Slack using the username specified.
+  required: false
+  type: string
+  default: The user account or botname that you generated the API key as.
+icon:
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  required: false
+{% endconfiguration %}
 
 ### {% linkable_title Slack service data %}
 

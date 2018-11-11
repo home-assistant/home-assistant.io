@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 [OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors.
 
-## {% linkable_title Base Configuration %}
+## {% linkable_title Configuration %}
 
 To get started with the OctoPrint API, please follow the directions on their [site](http://docs.octoprint.org/en/master/api/general.html). Once OctoPrint is configured you will need to add your API key and host to your `configuration.yaml`.
 
@@ -36,21 +36,21 @@ octoprint:
       required: true
       type: string
     api_key:
-      description: The retrieved api key.
+      description: The retrieved API key.
       required: true
       type: string
     name:
       description: The name for this printer, must be unique if multiple printers are defined.
       required: false
       type: string
-      default: 'OctoPrint'
+      default: OctoPrint
     port:
       description: The port of the Octoprint server.
       required: false
       type: integer
       default: 80
     ssl:
-      description: Enable or disable SSL
+      description: Enable or disable SSL/TLS.
       required: false
       type: boolean
       default: false
@@ -60,17 +60,17 @@ octoprint:
       type: boolean
       default: false
     number_of_tools:
-      description: Number of temperature adjustable tools. i.e. nozzle.
+      description: Number of temperature adjustable tools, e.g., nozzle.
       required: false
       type: integer
       default: 1
     sensors:
-      description: Configuration for the sensors
+      description: Configuration for the sensors.
       required: false
       type: map
       keys:
         monitored_conditions:
-          description: The sensors to activate
+          description: The sensors to activate.
           type: list
           default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
           keys:
@@ -85,12 +85,12 @@ octoprint:
             "Time Remaining":
               description: Time remaining on current print job, in seconds.
     binary_sensors:
-      description: Configuration for the binary sensors
+      description: Configuration for the binary sensors.
       required: false
       type: map
       keys:
         monitored_conditions:
-          description: The sensors to activate
+          description: The sensors to activate.
           type: list
           default: all (`Printing`, `Printing Error`)
           keys:

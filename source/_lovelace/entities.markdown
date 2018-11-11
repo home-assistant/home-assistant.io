@@ -72,20 +72,22 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:remote`"
+action_name:
+  required: false
+  description: Button label.
+  type: string
+  default: "`Run`"
 service_data:
-  required: true
+  required: false
   description: The service data to use.
   type: object
 {% endconfiguration %}
@@ -111,7 +113,7 @@ type:
   required: true
   description: section
   type: string
-Label:
+label:
   required: false
   description: Section label
   type: string
@@ -124,18 +126,20 @@ type:
   required: true
   description: weblink
   type: string
-name:
-  required: true
-  description: Link label.
-  type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
 url:
   required: true
   description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
   type: string
+name:
+  required: false
+  description: Link label
+  type: string
+  default: url path
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:link`"
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

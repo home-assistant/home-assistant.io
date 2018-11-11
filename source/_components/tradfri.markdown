@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IKEA Trådfri (Tradfri)"
-description: "Access and control your ZigBee-based IKEA Trådfri (Tradfri) devices."
+description: "Access and control your Zigbee-based IKEA Trådfri (Tradfri) devices."
 date: 2017-04-12 22.04
 sidebar: true
 featured: true
@@ -44,7 +44,6 @@ allow_tradfri_groups:
   default: false
 {% endconfiguration %}
 
-
 ## {% linkable_title Troubleshooting %}
 
 ### {% linkable_title Firmware updates %}
@@ -58,4 +57,3 @@ Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf
 ### {% linkable_title Setting the `api_key` %}
 
 Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
-

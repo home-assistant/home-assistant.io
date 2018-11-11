@@ -13,15 +13,13 @@ ha_release: "0.50"
 ha_iot_class: "Local Push"
 ---
 
-
 The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
 
 The requirement is that you have setup the [`xiaomi aqara` component](/components/xiaomi_aqara/).
 
-
 ### {% linkable_title Type of sensors supported %}
 
-| Name | ZigBee entity | Model no. | States | Event | Event key | Event values |
+| Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
 | Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `motion` | | |
 | Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `motion` | | |

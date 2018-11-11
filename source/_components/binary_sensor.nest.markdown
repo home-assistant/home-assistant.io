@@ -13,12 +13,13 @@ ha_release: pre 0.7
 ha_iot_class: "Cloud Push"
 ---
 
-
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` component is configured and the required configuration for the `nest binary sensor` is set.
 </p>
+
+## {% linkable_title Configuration %}
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 

@@ -48,7 +48,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 ecobee:
-  api_key: asdfghjklqwertyuiopzxcvbnm 
+  api_key: YOUR_API_KEY 
 ```
 
 {% configuration %}

@@ -19,17 +19,17 @@ You can create scenes that capture the states you want certain entities to be. F
 scene:
   - name: Romantic
     entities:
-      light.tv_back_light: on
+      light.tv_back_light: true
       light.ceiling:
-        state: on
+        state: true
         xy_color: [0.33, 0.66]
         brightness: 200
   - name: Movies
     entities:
       light.tv_back_light:
-        state: on
+        state: true
         brightness: 100
-      light.ceiling: off
+      light.ceiling: false
       media_player.sony_bravia_tv:
         source: HDMI 1
 ```

@@ -45,13 +45,13 @@ name:
 country:
   description: >
     Country code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+    [holidays](https://pypi.org/project/holidays/) notation.
   required: true
   type: string
 province:
   description: >
     Province code according to
-    [holidays](https://pypi.python.org/pypi/holidays/0.9.4) notation.
+    [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:
@@ -82,6 +82,8 @@ If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then 
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 
+## {% linkable_title Automation example %}
+
 Example usage for automation:
 
 ```yaml
@@ -98,3 +100,9 @@ automation:
     service: switch.turn_on
     entity_id: switch.heater
 ```
+
+<p class='note'>
+Please remember that [as explained here][devices] you can only have a single `automation:` entry. Add the automation to your existing automations.
+</p>
+
+[devices]: https://www.home-assistant.io/docs/configuration/devices/

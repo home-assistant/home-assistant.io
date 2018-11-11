@@ -46,10 +46,25 @@ media_player:
       - name: Sky+
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the TCP gateway
-- **port** (*Required*): The port of the TCP gateway
-- **name** (*Required*): The name of the device
-- **zones** (*Required*): This is the list of zones available
-- **sources** (*Required*): The list of sources available, these must be in order as they are connected to the device
+{% configuration %}
+host:
+  description: The IP of the TCP gateway.
+  required: true
+  type: string
+port:
+  description: The port of the TCP gateway.
+  required: true
+  type: integer
+name:
+  description: The name of the device.
+  required: true
+  type: string
+zones:
+  description: This is the list of zones available.
+  required: true
+  type: integer
+sources:
+  description: The list of sources available, these must be in order as they are connected to the device.
+  required: true
+  type: list
+{% endconfiguration %}

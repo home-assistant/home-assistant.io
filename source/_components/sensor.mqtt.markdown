@@ -33,7 +33,7 @@ state_topic:
   required: true
   type: string
 name:
-  description: Name of the MQTT sensor.
+  description: The name of the MQTT sensor.
   required: false
   type: string
   default: MQTT Sensor
@@ -47,7 +47,7 @@ unit_of_measurement:
   required: false
   type: string
 icon:
-  description: Icon for the sensor.
+  description: The icon for the sensor.
   required: false
   type: icon
 expire_after:
@@ -128,18 +128,18 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title JSON attributes configuration %}
 
-The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the availability topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
+The example sensor below shows a configuration example which uses JSON in the state topic to add extra attributes. It also makes use of the `availability` topic. Attributes can then be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: mqtt
-    name: "BS RSSI"
-    state_topic: "HUISHS/BunnyShed/NodeHealthJSON"
+    name: "RSSI"
+    state_topic: "home/sensor1/infojson"
     unit_of_measurement: 'dBm'
     value_template: "{{ value_json.RSSI }}"
-    availability_topic: "HUISHS/BunnyShed/status"
+    availability_topic: "home/sensor1/status"
     payload_available: "online"
     payload_not_available: "offline"
     json_attributes:

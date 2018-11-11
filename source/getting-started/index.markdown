@@ -29,7 +29,7 @@ We will need a few things to get started with installing Home Assistant. For bes
 
 ### {% linkable_title Software requirements %}
 
-- Download the Hass.io image for [your device](https://www.home-assistant.io/hassio/installation/)
+- Download the Hass.io image for [your device](/hassio/installation/)
 - Download [Etcher] to write the image to an SD card
 - Text Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -39,7 +39,7 @@ We will need a few things to get started with installing Home Assistant. For bes
 
 1. Put the SD card in your SD card reader.
 1. Open Etcher, select the Hass.io image and flash it to the SD card.
-1. WiFi setup only: Format a USB-Stick with name `CONFIG` and copy one of [the examples] to the file `network/hassos-wifi`.
+1. WiFi and Static IP setup only: Format a USB-Stick with name `CONFIG`, create a folder named `network` and within that folder a file named `my-network`. Copy one of [the examples] to the `my-network` file.
 1. Unmount the SD card and remove it from your SD card reader.
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.

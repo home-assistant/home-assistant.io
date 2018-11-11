@@ -18,6 +18,8 @@ The `roomba` component allows you to control your [iRobot Roomba](http://www.iro
 This platform has only been tested with an iRobot Roomba 980 but should work find with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
 </p>
 
+## {% linkable_title Configuration %}
+
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -31,7 +33,7 @@ vacuum:
 
 {% configuration %}
 host:
-  description: Hostname or IP address of the Roomba.
+  description: The hostname or IP address of the Roomba.
   required: true
   type: string
 username:
@@ -45,18 +47,18 @@ password:
 name:
   description: The name of the vacuum.
   required: false
-  default: Roomba
   type: string
+  default: Roomba
 certificate:
   description: Path to your certificate store.
   required: false
-  default: /etc/ssl/certs/ca-certificates.crt
   type: string
+  default: /etc/ssl/certs/ca-certificates.crt
 continuous:
   description: Whether to operate in continuous mode.
   required: false
-  default: true
   type: boolean
+  default: true
 {% endconfiguration %}
 
 <p class='note'>

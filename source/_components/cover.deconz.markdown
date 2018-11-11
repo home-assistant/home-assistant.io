@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 See the [deCONZ main component](/components/deconz/) for configuration instructions.
 
-Covers are devices like ventilation dampers.
+Covers are devices like ventilation dampers or smart window covers.
 
 Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers.
 
@@ -24,3 +24,4 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 #### {% linkable_title Verified supported covers %}
 
 - Keen vents
+- Xiaomi Aqara Curtain controller

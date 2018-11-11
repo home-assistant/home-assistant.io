@@ -18,6 +18,8 @@ The `websocket_api` component set up a WebSocket API and allows one to interact 
 It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
 </p>
 
+## {% linkable_title Configuration %}
+
 ```yaml
 # Example configuration.yaml entry
 websocket_api:

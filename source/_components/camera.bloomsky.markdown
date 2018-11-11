@@ -13,7 +13,6 @@ ha_release: 0.13
 ha_iot_class: "Local Polling"
 ---
 
-
 The `bloomsky` camera component allows you to view the current photo created by the camera in the [BloomSky](https://www.bloomsky.com) weather station. This can work in concert with [BloomSky sensors](/components/sensor.bloomsky).
 
 ## {% linkable_title Configuration %}

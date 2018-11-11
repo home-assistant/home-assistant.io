@@ -52,7 +52,7 @@ sensors:
       type: string
     device_class:
       description: >
-        The [type/class](/components/binary_sensor/) of
+        The [type/class](/components/binary_sensor/#device-class) of
         the sensor to set the icon in the frontend.
       required: false
       type: string

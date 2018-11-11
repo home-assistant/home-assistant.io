@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: wink.png
-ha_category: water heater
+ha_category: Water heater
 ha_release: 0.32
 ha_iot_class: "Cloud Polling"
 ---

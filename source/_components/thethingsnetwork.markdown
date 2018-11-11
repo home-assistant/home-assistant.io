@@ -23,7 +23,7 @@ The Things network support various integrations to make the data available:
 | [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](/components/sensor.thethingsnetwork/) |
 | [HTTP](https://www.thethingsnetwork.org/docs/applications/http/) | |
 
-### {% linkable_title Setup %}
+## {% linkable_title Setup %}
 
 Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
 
@@ -41,6 +41,8 @@ You need an access key to be able to read the data from your application.
 Access keys
 </p>
 
+## {% linkable_title Configuration %}
+
 To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -51,13 +53,12 @@ thethingsnetwork:
 ```
 
 {% configuration %}
-  app_id:
-    description: The Application ID.
-    required: true
-    type: string
-  access_key:
-    description: The access key. 
-    required: true
-    type: string
+app_id:
+  description: The Application ID.
+  required: true
+  type: string
+access_key:
+  description: The access key.
+  required: true
+  type: string
 {% endconfiguration %}
-

@@ -12,6 +12,9 @@ ha_category: Weather
 ha_release: 0.47
 ---
 
+<p class='note warning'>
+The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`darksky` weather](/components/weather.darksky/).
+</p>
 
 The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as a source for current meteorological data. This component will show you the condition and temperatures for max. 10 days.
 
@@ -39,8 +42,8 @@ woeid:
 name:
   description: The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option.
   required: false
-  default: yweather
   type: string
+  default: yweather
 {% endconfiguration %}
 
 <p class='note'>

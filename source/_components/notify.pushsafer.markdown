@@ -23,7 +23,7 @@ To use Pushsafer notifications, add the following to your `configuration.yaml` f
 notify:
   - name: NOTIFIER_NAME
     platform: pushsafer
-    private_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    private_key: YOUR_KEY
 ```
 
 **Configuration variables:**

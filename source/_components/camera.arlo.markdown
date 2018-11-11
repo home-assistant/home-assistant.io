@@ -17,6 +17,8 @@ To get your [Arlo](https://arlo.netgear.com/) cameras working within Home Assist
 
 This component is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,8 +28,11 @@ camera:
     ffmpeg_arguments: '-pred 1 -q:v 2'
 ```
 
-Configuration variables:
-
-- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+{% configuration %}
+ffmpeg_arguments:
+  description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+  required: false
+  type: string
+{% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.

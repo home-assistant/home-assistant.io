@@ -30,29 +30,29 @@ weather:
 
 {% configuration %}
 api_key:
-  required: true
   description: Your API key for [OpenWeatherMap](http://openweathermap.org/).
+  required: true
   type: string
 name:
-  required: false
   description: Name to use in the frontend.
+  required: false
+  type: string
   default: OpenWeatherMap
-  type: string
 mode:
-  required: false
   description: "Can specify `hourly` or `daily`. Select `hourly` for a three-hour forecast or `daily` for daily forecast."
-  default: "`hourly`"
+  required: false
   type: string
+  default: "`hourly`"
 latitude:
-  required: false
   description: Latitude of the location to display the weather.
-  default: "The latitude in your `configuration.yaml` file."
-  type: float
-longitude:
   required: false
-  description: Longitude of the location to display the weather.
-  default: "The longitude in your `configuration.yaml` file."
   type: float
+  default: "The latitude in your `configuration.yaml` file."
+longitude:
+  description: Longitude of the location to display the weather.
+  required: false
+  type: float
+  default: "The longitude in your `configuration.yaml` file."
 {% endconfiguration %}
 
 <p class='note'>

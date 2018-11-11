@@ -38,13 +38,31 @@ sensor:
       minutes: 30
 ```
 
-Configuration variables:
-
-- **entity_id** (*Required*): The entity to monitor. Only [sensors](/components/sensor/) and [binary sensor](/components/binary_sensor/).
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Stats`.
-- **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to `20`.
-- **max_age** (*Optional*): Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
-- **precision** (*Optional*): Defines the precision of the calculated values, through the argument of round(). Defaults to `2`.
+{% configuration %}
+entity_id:
+  description: The entity to monitor. Only [sensors](/components/sensor/) and [binary sensor](/components/binary_sensor/).
+  required: true
+  type: string
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  default: Stats
+  type: string
+sampling_size:
+  description: Size of the sampling. If the limit is reached then the values are rotated.
+  required: false
+  default: 20
+  type: integer
+max_age:
+  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
+  required: false
+  type: time
+precision:
+  description: Defines the precision of the calculated values, through the argument of round().
+  required: false
+  default: 2
+  type: integer
+{% endconfiguration %}
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/stats-sensor.png' />

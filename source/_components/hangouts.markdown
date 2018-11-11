@@ -105,6 +105,7 @@ The intent `HangoutsHelp` is part of the component and return a list of all sent
 
 ## {% linkable_title Adding sentences %}
 
+{% raw %}
 ```yaml
 # The Hangouts component
 hangouts:
@@ -123,11 +124,12 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
-
+      text: I know {{ states.hangouts.conversations.state }} conversations
 ```
+{% endraw %}
 
 This configuration will:
+
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
@@ -144,6 +146,7 @@ The following configuration can handle the following sentences:
  - Change the lights to the color green
  - Change the lights to the color blue
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 hangouts:
@@ -151,7 +154,7 @@ hangouts:
     ColorLight:
       sentences:
         - Change the lights to [the color] {color}
-{% raw %}
+
 intent_script:
   ColorLight:
     speech:
@@ -163,8 +166,8 @@ intent_script:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+{% endraw %}
 
 ## {% linkable_title Services %}
 
@@ -186,3 +189,41 @@ Sends a message to the given conversations.
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
 | data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
+
+### {% linkable_title Service `hangouts.reconnect` %}
+
+Reconnects the hangouts bot.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+|                        |          |                                                  |
+
+## {% linkable_title Advanced %}
+
+### {% linkable_title Automatic reconnect after ip change %}
+
+The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.ipify.org?format=json
+    name: External IP
+    value_template: '{{ value_json.ip }}'
+    scan_interval: 10
+    
+automation:
+  - alias: Reconnect Hangouts
+    trigger:
+      - entity_id: sensor.external_ip
+        platform: state
+    condition:
+      - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+      - condition: template
+      value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+    action:
+      - service: hangouts.reconnect
+```
+{% endraw %}

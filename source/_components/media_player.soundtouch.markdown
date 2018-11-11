@@ -43,11 +43,22 @@ media_player:
     name: Soundtouch kitchen
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or address of the Soundtouch device.
-- **name** (*Required*): The name of the device used in the frontend.
-- **port** (*Optional*): The port number. Defaults to 8090.
+{% configuration %}
+host:
+  description: The host name or address of the Soundtouch device.
+  required: true
+  type: string
+name:
+  description: The name of the device used in the frontend.
+  required: true
+  default: Bose Soundtouch
+  type: string
+port:
+  description: The port number. 
+  required: false
+  default: 8090
+  type: integer
+{% endconfiguration %}
 
 You can switch between one of your 6 pre-configured presets using ```media_player.play_media```
 

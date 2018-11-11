@@ -13,7 +13,6 @@ ha_release: 0.53
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `Tesla` component offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
 This component provides the following platforms:
@@ -23,6 +22,8 @@ This component provides the following platforms:
  - Lock - Door lock. Enables you to control Tesla's door lock
  - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
  - Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
+
+ ## {% linkable_title Configuration %}
 
 To use Tesla in your installation, add the following to your `configuration.yaml` file:
 
@@ -43,8 +44,8 @@ password:
   required: true
   type: string
 scan_interval:
-  description: API polling interval. Minimal value can't be less then 300.
+  description: API polling interval in seconds. Minimum value can't be less than 300 (5 minutes). Very frequent polling can use battery.
   required: false
-  default: 300
   type: integer
+  default: 300
 {% endconfiguration %}
