@@ -46,7 +46,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
     - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
 2. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
-3. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
+3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
 4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
 
 <p class='note'>
@@ -76,9 +76,9 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`.
-6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+4. Add the `google_assistant` component configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+5. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
+6. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
 </p>

@@ -26,14 +26,27 @@ cover:
         scs_id: XXXXX
 ```
 
-Configuration variables:
-
-- **devices** array (*Required*): A list of devices.
-  - **[slug]** (*Required*): Slug of the device.
-    - **name** (*Required*): Name to use in the frontend.
-    - **scs_id** (*Required*): The ID of your SCSGate device.
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: true
+  type: list
+  keys:
+    slug:
+      description: Slug of the device.
+      required: true
+      type: list
+      keys:
+        name:
+          description: Name to use in the frontend.
+          required: true
+          type: string
+        scs_id:
+          description: The ID of your SCSGate device.
+          required: true
+          type: string
+{% endconfiguration %}
 
 <p class='note'>
 **Known limitation:** It is not possible to know the current state of the cover.
 </p>
-

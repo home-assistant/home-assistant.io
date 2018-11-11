@@ -48,6 +48,25 @@ Visual comparison of old configuration versus new configuration
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
+As a super minimal example, here's the bare minimum you will need for this to work:
+
+```yaml
+title: My Awesome Home
+views:
+    # View tab title.
+  - title: Example
+    panel: true
+    # Makes the first card fill the view
+    cards:
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+```
+
+A slightly more advanced example shows additional elements which can be used to customize your frontend.
+
 ```yaml
 title: My Awesome Home
 # Include external resources
@@ -155,9 +174,3 @@ frontend:
 Given examples refer to `/local/example_image.jpg`. That means you should have `www` directory next to your HA `configuration.yaml`. An image kept in `HA_configuration_dir/www/example_image.jpg` will be shown after refreshing Lovelace page.
 
 Restart Home Assistant after creating the `www` directory. Otherwise, HA will not know that you created this directory.
-
-### {% linkable_title My `ui-lovelace.yaml` file suddenly has ID's added to all cards and views! %}
-
-Since version 0.81 we started preparing for the ability to edit you Lovelace UI from the UI itself. To be able to do this every view and card should have a unique ID. If your cards or views do not have an ID, Home Assistant will add a random one. You can edit the ID, the only restriction is that it is unique.
-
-If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure all your views and cards have an ID, then Home Assistant will not touch your file.

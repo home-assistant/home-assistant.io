@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.36
 ---
 
-
 The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](http://www.keybounce.com/lannouncer/). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
 To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
@@ -25,11 +24,22 @@ notify:
     host: HOSTNAME_OR_IP
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **host** (*Required*): The hostname or IP-address of the Android device that is running Lannouncer.
-- **port** (*Optional*): The port on which Lannouncer is running. By default this is `1035`.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+host:
+  description: The hostname or IP-address of the Android device that is running Lannouncer.
+  required: true
+  type: string
+port:
+  description: The port on which Lannouncer is running.
+  required: false
+  default: 1035
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Installation %}
 

@@ -14,6 +14,12 @@ ha_release: 0.16
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
 
+## {% linkable_title Setup %}
+
+Go to https://www.messagebird.com/ to retrieve your API key.
+
+## {% linkable_title Configuration %}
+
 To enable MessageBird notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -24,11 +30,22 @@ notify:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Enter the API key for MessageBird. Go to https://www.messagebird.com/ to retrieve your API key.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **sender** (*Optional*): Setting the optional parameter `sender`. This will be the sender of the SMS. It may be either a telephone number (e.g., `+4915112345678`) or a text with a maximum length of 11 characters. Defaults to `HA`.
+{% configuration %}
+api_key:
+  description: Your MessageBird API key.
+  required: true
+  type: string
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+sender:
+  description: Setting the optional parameter `sender`. This will be the sender of the SMS. It may be either a telephone number (e.g., `+4915112345678`) or a text with a maximum length of 11 characters.
+  required: false
+  default: HA
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 
