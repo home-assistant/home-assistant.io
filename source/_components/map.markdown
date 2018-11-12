@@ -18,6 +18,10 @@ This offers a map on the frontend to display the location of tracked devices. To
 # Example configuration.yaml entry
 map:
 ```
+
+Make a `device_tracker` Entity always visible on the Map by setting a `show_always` attribute with the value `true` using *Configuration* > *Customization*.
+
+
 <p class='note'>
 Devices that are currently at home won't show on the map.
 </p>
