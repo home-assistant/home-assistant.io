@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Météo-France Sensor"
-description: "Show 1hr rain forecast from Météo-France."
+description: "Instructions on how to integrate Météo-France within Home Assistant."
 date: 2018-10-18 08:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: meteo-france.png
-ha_category: Sensor
+ha_category: Weather
 ha_release: 0.82
 ha_iot_class: "Cloud Polling"
 ---
