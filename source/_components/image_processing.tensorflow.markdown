@@ -16,7 +16,7 @@ ha_release: 0.82
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 <p class='note warning'>
-  The following packages must be installed on Hassbian after following the setup for the component to work:
+  The following packages must be installed on Hassbian/Raspbian before following the setup for the component to work:
   `$ sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 </p>
 
