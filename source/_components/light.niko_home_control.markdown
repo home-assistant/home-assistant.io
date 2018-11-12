@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Niko Home Control"
-description: "Instructions on how to integrate Niko Home Control into Home Assistant."
+title: "Niko Home Control Light"
+description: "Instructions on how to integrate Niko Home Control lights into Home Assistant."
 date: 2018-04-08 08:00
 sidebar: true
 comments: false
@@ -9,18 +9,25 @@ sharing: true
 footer: true
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: 0.36
+ha_release: 0.82
 ---
 
 The `niko_home_control` platform allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.
+
+## {% linkable_title Configuration %}
+
+To enable this lights, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 light:
   - platform: niko_home_control
-    host: 192.168.1.123
+    host: IP_ADDRESS
 ```
 
-Configuration variables:
-
- - **host** (*Required*): The ip address your Niko Home is on,
+{% configuration %}
+host:
+  description: The IP address of the Niko Home light.
+  required: false
+  type: string
+{% endconfiguration %}
