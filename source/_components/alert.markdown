@@ -186,7 +186,7 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: true  # Optional, default is True
+    can_acknowledge: true  # Optional, default is true
     skip_first: true  # Optional, false is the default
     notifiers:
       - ryans_phone
