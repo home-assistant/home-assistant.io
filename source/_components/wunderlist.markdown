@@ -12,7 +12,7 @@ ha_category: Calendar
 ha_release: 
 ---
 
-The `Wunderlist` component allows you to create tasks in [Wunderlist](https://www.wunderlist.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that 
+The `wunderlist` component allows you to create tasks in [Wunderlist](https://www.wunderlist.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that 
 you should not forget, e.g., Congratulate Dani.
 
 ## {% linkable_title Setup %}
@@ -36,10 +36,23 @@ wunderlist:
 
 ```
 
-## {% linkable_title Creating tasks with service ```create_task```%}
 
-This component offers a new service domain ```wunderlist``` with the service ```create_task```. 
-You can call this service with the argument  ```list_name``` the argument ```name``` and the optional parameter ```starred``` to create a new task. 
+{% configuration %}
+client_id:
+  description: The ID of your Wunderlist application (OAuth2).
+  required: true
+  type: string
+  
+access_token:
+  description: A token for your Wunderlist personal account (For the ``client_id`` application).
+  required: true
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Creating tasks with service `create_task`%}
+
+This component offers a new service domain `wunderlist` with the service `create_task`. 
+You can call this service with the argument  `list_name` the argument `name` and the optional parameter `starred` to create a new task. 
 
 
 |Service data attribute	| Optional | Description | Example |
