@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `meteo_france` platform uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `postal_code` configured in your `configuration.yaml` file.
 
+It displays the current weather along with a 4 days forecast.
+
 ## {% linkable_title Configuration %}
 
 To add Météo-France to your installation, add the following to your `configuration.yaml` file:
