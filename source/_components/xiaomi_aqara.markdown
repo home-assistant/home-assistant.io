@@ -98,7 +98,7 @@ gateways:
   type: map
   keys:
     mac:
-      description: The MAC address of your gateway. *Optional if only using one gateway.*
+      description: The MAC address of your gateway. Needs to be formatted without ":". *Optional if only using one gateway.*
       required: false
       type: string
     key:
