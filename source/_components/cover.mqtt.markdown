@@ -68,7 +68,7 @@ payload_stop:
   type: string
   default: STOP
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using get_position_topic. State topic can only read open/close state. Cannot read position state.
+  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
   required: false
   type: string
 state_open:
@@ -82,7 +82,7 @@ state_closed:
   type: string
   default: closed
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. Always in favor if used together with state_topic.
+  description: The MQTT topic subscribed to receive cover position messages. If position_topic is set state_topic is ignored.
   required: false
   type: integer
 position_open:
