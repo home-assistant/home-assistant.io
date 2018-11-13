@@ -64,6 +64,10 @@ ssl:
   required: false
   default: false
   type: boolean
+method:
+  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `ip` for DHCP leases.
+  required: false
+  type: string
 {% endconfiguration %}
 
 To use api_ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
