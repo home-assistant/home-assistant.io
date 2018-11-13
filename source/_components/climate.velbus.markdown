@@ -11,7 +11,6 @@ logo: velbus.png
 ha_category: Climate
 ha_iot_class: "Local Push"
 ha_release: 0.82
-published: false
 ---
 
 The `velbus` climate devices allow you to control [Velbus](http://www.velbus.eu) connected thermostats.
