@@ -43,25 +43,25 @@ sensors:
   type: list
   keys:
     moisture:
-	  description: Moisture of the plant. Measured in %. Can have a min and max value set optionally.
-	  required: false
-	  type: string
-	battery:
-	  description: Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.
-	  required: false
-	  type: string
-	temperature:
-	  description: Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.
-	  required: false
-	  type: string
+      description: Moisture of the plant. Measured in %. Can have a min and max value set optionally.
+      required: false
+      type: string
+    battery:
+      description: Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.
+      required: false
+      type: string
+    temperature:
+      description: Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.
+      required: false
+      type: string
     conductivity:
-	  description: Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
-	  required: false
-	  type: string	
+      description: Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
+      required: false
+      type: string	
     brightness:
-	  description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
-	  required: false
-	  type: string
+      description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
+      required: false
+      type: string
 min_moisture:
   description: Minimum moisture level before triggering a problem. Typical value: 20
   required: false
