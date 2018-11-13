@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: systemair.png
 ha_category: Climate
-ha_release: 0.81
+ha_release: 0.82
 ha_iot_class: "Cloud Polling"
 ---
 The `systemair savecair` climate platform consumes data from the [Savecair web interface](https://savecair.systemair.com). This component enables you to view and configure the climate decive.
@@ -24,10 +24,6 @@ climate:
     password: xxxxxxxxxx
 ```
 {% configuration %}
-device:
-  description: The climate device id. Currently, only vtr_300 is supported.
-  required: true
-  type: string
 name:
   description: Name of the component.
   required: false
@@ -41,21 +37,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: systemair_savecair
-    name: System AIR
-    device: vtr_300
-    iam_id: IAM_XXXXXXXXXXX
-    password: xxxxxxxxxx
-```
-
-### {% linkable_title Available Devices %}
-
-Available devices: `vtr_300`
-
-| attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `device` | yes | Your System AIR model.
