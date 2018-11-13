@@ -139,22 +139,19 @@ condition:
         before: sunrise
 ```
 
-Here is a truth table to clarify the parameters with and without offset:
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise
+    conditions:
+      - condition: sun
+        before: sunset
+      - condition: sun
+        after: sunrise
+```
 
-| command                            |        night | at sunrise  | daytime | at sunset  |
-| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
-| `after: sunset`                    | True         |      ⇒      | False   |     ⇒      |
-| + `after_offset: "01:00:00"`       | True         |      ⇒      | False   |  **+1h**   |
-| + `after_offset: "-01:00:00"`      | True         |      ⇒      | False   |  **-1h**   |
-| `before: sunset`                   | False        |      ⇒      | True    |     ⇒      |
-| + `before_offset: "01:00:00"`      | False        |      ⇒      | True    |  **+1h**   |
-| + `before_offset: "-01:00:00"`     | False        |      ⇒      | True    |  **-1h**   |
-| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |
-| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |
-| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |
-| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |
-| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |
-| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |
+A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
+
+<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
 ### {% linkable_title Template condition %}
 
@@ -189,6 +186,10 @@ condition:
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
+
+<p class='note tip'>
+A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
+</p>
 
 ### {% linkable_title Zone condition %}
 

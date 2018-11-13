@@ -25,11 +25,20 @@ keyboard_remote:
   type: 'key_up'
 ```
 
-Configuration variables:
-
-- **type** (*Required*): Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
-- **device_descriptor** (*Optional*): Path to the local event input device file that corresponds to the keyboard.
-- **device_name** (*Optional*): Name of the keyboard device.
+{% configuration %}
+type:
+  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
+  required: true
+  type: string
+device_description:
+  description: Path to the local event input device file that corresponds to the keyboard.
+  required: false
+  type: string
+device_name:
+  description: Name of the keyboard device.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Either `device_name` or `device_descriptor` must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
 In case of presence of multiple devices of the same model, `device_descriptor` must be used.
@@ -93,10 +102,13 @@ automation:
           entity_id: media_player.speaker
           media_content_id: keyboard_connected.wav
           media_content_type: music
-  - alias: Keyboard Disconnected
+
+  - alias: Bluetooth Keyboard Disconnected
     trigger:
       platform: event
       event_type: keyboard_remote_disconnected
+      event_data:
+        device_name: "00:58:56:4C:C0:91"
     action:
       - service: media_player.play_media
         data:

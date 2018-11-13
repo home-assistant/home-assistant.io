@@ -13,13 +13,13 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `recorder` component is storing details in a database which then are handled by the [`history` component](/components/history/).
+The `recorder` component is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
 
-Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relational Mapper (ORM). This means that you can now use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
+Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
-To change the defaults for `recorder` component in your installation, add the following to your `configuration.yaml` file:
+To change the defaults for the `recorder` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,7 +33,7 @@ recorder:
   type: map
   keys:
     db_url:
-      description: The URL which points to your database.
+      description: The URL that points to your database.
       required: false
       type: URL
     purge_keep_days:
@@ -47,7 +47,7 @@ recorder:
       default: 1
       type: integer
     exclude:
-      description: Configure which components should be excluded
+      description: Configure which components should be excluded from recordings.
       required: false
       type: map
       keys:
@@ -74,7 +74,7 @@ recorder:
           type: List
 {% endconfiguration %}
 
-Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
+Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -92,7 +92,7 @@ recorder:
       - sensor.date
 ```
 
-Define domains and entities to record by using the `include` configuration (aka. whitelist). If you have a lot of entities in your system and your `exclude` lists possibly get very large, it might be better just to define the entities or domains to record.
+define domains and entities to record by using the `include` configuration (aka. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -104,7 +104,7 @@ recorder:
       - media_player
 ```
 
-Use the `include` list to define the domains/entities to record, and exclude some of them within the `exclude` list. This makes sense if you, for instance, include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.
+You can also use the `include` list to define the domains/entities to record, and exclude some of those within the `exclude` list. This makes sense if you, for instance, include the `sensor` domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the `include` `entities` list just include the `sensor` domain and exclude the sensor entities you are not interested in.
 
 ```yaml
 # Example configuration.yaml entry with include and exclude
@@ -120,7 +120,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from e.g., your history, take a look at the [`history` component](/components/history/). Same goes for the logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that way they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your history, take a look at the [`history` component](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` component. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### {% linkable_title Service `purge` %}
 
@@ -133,7 +133,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 
 ### {% linkable_title Restore State %}
 
-If the `recorder` component is activated then some components support `restore_state` which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
+If the `recorder` component is activated then some components support `restore_state`, which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
 
 * [`input_boolean`](/components/input_boolean/#restore-state)
 * [`input_number`](/components/input_number/#restore-state)
@@ -144,7 +144,7 @@ If the `recorder` component is activated then some components support `restore_s
 
 ## {% linkable_title Custom database engines %}
 
-| Database engine | `db_url`                                                 | 
+| Database engine | `db_url`                                                 |
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
 | MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
@@ -163,7 +163,7 @@ If you use MariaDB 10 you need to add port 3307 (or another port depending on wh
 </p>
 
 <p class='note'>
-Unix Socket connections always bring performance advantages over TCP, if the database on the same host as the `recorder` instance (i.e. `localhost`).</p>
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).</p>
 
 <p class='note warning'>
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
@@ -196,7 +196,7 @@ $ sudo systemctl daemon-reload
 
 ## {% linkable_title Installation notes %}
 
-Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
+Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details that should help you to get it working.
 
 ### {% linkable_title MariaDB and MySQL %}
 
@@ -208,7 +208,7 @@ homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
-For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, libmariadbclient-dev was renamed to libmariadb-dev, please install the correct package based on your MariaDB version.
+For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`; please install the correct package based on your MariaDB version.
 
 On the Python side we use the `mysqlclient`:
 
@@ -224,7 +224,7 @@ $ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
 
-After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 
+After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
 
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
@@ -246,7 +246,7 @@ Where `DB_NAME` is the name of your database and `USER_NAME` is the name of the 
 Reload the PostgreSQL configuration after that:
 ```bash
 $ sudo -i -u postgres psql -c "SELECT pg_reload_conf();"
- pg_reload_conf 
+ pg_reload_conf
 ----------------
  t
 (1 row)

@@ -14,15 +14,19 @@ ha_release: 0.81
 ---
 
 
-The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop (bus, train or ferry).
+The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
 
-Get your free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/).
+## {% linkable_title Setup %}
 
-In order to find the stop id, just go to Google maps and click on the bus/train/ferry stop. It will give you there the stop ID.
+Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/).
 
-You can define a bus line, but if you don’t do it, the sensor will pick up the next stop event from any line servicing this stop.
+In order to find your stop id, go to Google maps and click on any bus/train/ferry stop. The pop up window shows the stop ID underneath the station name. For train stations the easist way to get a stop id for a platform is through [Transport NSW Info](https://transportnsw.info/).
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+As a default the sensor picks up the next mode of transport leaving from a stop id.
+
+## {% linkable_title Configuration %}
+
+To enable the sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,15 +38,19 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: Your API key for Open Data Transport NSW
+  description: Your API key for Open Data Transport NSW.
   required: true
   type: string
 stop_id:
-  description: The ID of the stop to get the information for
+  description: The ID of the stop to get the information for.
   required: true
   type: string
 route:
-  description: Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`
+  description: Filter on bus route at the stop. This is the same as the bus number, e.g., `83`.
+  required: false
+  type: string
+destination:
+  description: Useful for ferry or train stops to filter the destination of the sensor, e.g. `Circular Quay`.
   required: false
   type: string
 name:
@@ -51,4 +59,46 @@ name:
   type: string
 {% endconfiguration %}
 
-The public information is coming from [Transport NSW](https://opendata.transport.nsw.gov.au/).
+The public information is provided from [Transport NSW](https://opendata.transport.nsw.gov.au/).
+
+## {% linkable_title Examples %}
+
+More example configurations for bus or ferry. 
+
+```yaml
+# Example bus route configuration.yaml entry
+sensor:
+  - platform: transport_nsw
+    name: 'Bus'
+    stop_id: '209516'
+    route:  '199'
+    api_key: 'YOUR API KEY'
+```
+
+```yaml
+# Example ferry configuration.yaml entry
+sensor:
+  - platform: transport_nsw
+    name: 'Ferry'
+    stop_id: '10102008'
+    destination: 'Circular Quay'
+    api_key: 'YOUR API KEY'
+```
+
+The sensor returns n/a if no stop event is found within the next 24h. A `template` sensor can help building a more meaninful string.
+
+{% raw %}
+```yaml
+# Sample template sensor
+- platform: template
+  sensors:
+    busmonitor:
+      friendly_name: "Bus Mon 199"
+      value_template: >-
+        {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
+          No schedule found
+        {% else %}
+          {{ states.sensor.bus.attributes.route }} in {{ states.sensor.bus.attributes.due }}m ({{ states.sensor.bus.attributes.delay }})
+        {% endif %}
+```
+{% endraw %}

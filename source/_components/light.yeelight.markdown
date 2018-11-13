@@ -93,10 +93,11 @@ This component is tested to work with the following models. If you have a differ
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
-| `ceiling1` | ?            | Yeelight Ceiling Light                           |
-| `ceiling2` | YLXD01YL     | Yeelight Smart LED Ceiling Light - Youth Version |
-| `ceiling3` | ?            | Yeelight Ceiling Light                           |
-| `ceiling4` | YLXD02YL     | Yeelight Ceiling Light 4 (Jiaoyue 650)           |
+| `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
+| `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
+| ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
+| `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
+| `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 
 ## {% linkable_title Platform Services %}
 

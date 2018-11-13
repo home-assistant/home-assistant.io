@@ -15,6 +15,8 @@ ha_release: 0.36
 
 The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](http://www.sma-america.com/) solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.
 
+This sensor uses the web interface and in order to use it you have to be able to connect to the solar inverter from your favorite web browser.
+
 ## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
@@ -41,6 +43,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: Whether Home Assistant should verify the SSL certificate from the inverter. Self-signed certificates may require `false` for this sensor to operate properly.
+  required: false
+  default: true
+  type: boolean
 password:
   description: The password of the SMA WebConnect module.
   required: true
@@ -51,22 +58,36 @@ group:
   default: user
   type: string
 sensors:
-  description: A dictionary of sensors that will be added. The value of the dictionary can include sensor names that will be shown as attributes.
+  description: A dictionary of sensors that will be added. The value of the dictionary can include a list of sensor names that will be used as attributes.
   required: true
-  type: list
+  type: map
   keys:
     current_power:
-      description: Current power.
+      description: Current power (W).
     current_consumption:
-      description: Current consumption.
-    total_power:
-      description: Total power.
+      description: Power that you are currently drawing, depending on your installation it can be a combination of the inverter and the grid (W).
+    total_yield:
+      description: Total power yield from solar installation (kWh).
     total_consumption:
-      description: Total consumption.
+      description: Total power consumption (kWh).
+    grid_voltage:
+      description: The grid voltage (V)
+    pv_power:
+      description: PV Power (W)
+    daily_yield:
+      description: daily_yield (Wh)
+    power_supplied:
+      description: Power supplied (W)
+    power_absorbed:
+      description: Power absorbed (W)
+    status:
+      description: Status of the solar plant.      
+    your-custom-sensor:
+      description: Any sensor name defined in the `custom:` section
 custom:
   description: A dictionary of custom sensor key values and units.
   required: false
-  type: list
+  type: map
   keys:
     key:
       description: The SMA sensor key.
@@ -102,4 +123,4 @@ Example:
          factor: 1000
 ```
 
-Over time more sensors will be added as standard sensors to the [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L18). Feel free to submit additional sensors on that repository.
+Over time more sensors will be added as standard sensors to the [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L59). Feel free to submit additional sensors on that repository.

@@ -16,6 +16,7 @@ The logic layer will be Home Assistant. There is no ReGa or other logic layer in
 Follow devices will be supported and tested:
 
 - [HM-MOD-RPI-PCB](https://www.elv.ch/homematic-funkmodul-fuer-raspberry-pi-bausatz.html)
+- [HmIP-RFUSB](https://www.elv.ch/elv-homematic-ip-rf-usb-stick-hmip-rfusb-fuer-alternative-steuerungsplattformen-arr-bausatz.html)
 
 ```json
 {
@@ -32,6 +33,13 @@ Follow devices will be supported and tested:
       "serial": "xy",
       "key": "abc",
       "ip": "192.168.0.0"
+    }
+  ],
+  "hmip_enable": false,
+  "hmip": [
+    {
+      "type": "HMIP_CCU2",
+      "device": "/dev/ttyUSB0"
     }
   ]
 }
@@ -53,6 +61,11 @@ For wired devices:
 - **key** (*Required*): Encrypted key.
 - **ip** (*Required*): IP address of LAN gateway.
 
+For HmIP devices:
+
+- **type** (*Required*): Device type for RFD service. Look into the manual of your device.
+- **device** (*Required*): Device on the host.
+
 ## {% linkable_title Home Assistant configuration %}
 
 Use the following configuration in Home Assistant to use it:
@@ -61,6 +74,12 @@ Use the following configuration in Home Assistant to use it:
 homematic:
   interfaces:
     rf:
+      host: core-homematic
+      port: 2001
+    wired:
+      host: core-homematic
+      port: 2000
+    hmip:
       host: core-homematic
       port: 2001
 ```
@@ -72,3 +91,7 @@ With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partit
 ```text
 dtoverlay=pi3-miniuart-bt
 ```
+
+## {% linkable_title HmIP-RFUSB %}
+
+HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.

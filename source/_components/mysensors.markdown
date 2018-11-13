@@ -13,11 +13,11 @@ featured: true
 ha_iot_class: "Local Push"
 ---
 
-The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done.
+The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
 ### {% linkable_title Configuration %}
 
-Integrate your Serial, Ethernet or MQTT Client MySensors Gateway by adding the following to your `configuration.yaml` file:
+Integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,7 +62,7 @@ mysensors:
         type: string
         default: ''
       nodes:
-        description: A mapping of node ids to node settings, eg custom name.
+        description: A mapping of node ids to node settings, e.g. custom name.
         required: false
         type: map
         keys:
@@ -93,7 +93,7 @@ mysensors:
 {% endconfiguration %}
 
 <p class='note'>
-Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
+Not all features of MySensors 2.0 are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
 </p>
 
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
@@ -102,7 +102,7 @@ If you are using an original Arduino as a serial gateway, the port will be named
 $ ls /dev/ttyACM*
 ```
 
-If using the MQTT gateway, you also need to have the [MQTT component](/components/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
+If you are using the MQTT gateway, you also need to have the [MQTT component](/components/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
 
 ```yaml
 mqtt:
@@ -152,8 +152,8 @@ Present a MySensors sensor or actuator, by following these steps:
 3. Start Home Assistant.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
     - Send sketch name.
-    - Present the sensor's S_TYPE.
-    - Send at least one initial value per V_TYPE. In version 2.0 of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
+    - Present the sensor's `S_TYPE`.
+    - Send at least one initial value per `V_TYPE`. In version 2.0 of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
 5. Start the sensor.
 
 ```cpp
@@ -254,11 +254,11 @@ logger:
     homeassistant.components.mysensors: debug
     mysensors: debug
 ```
-The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. Eg. the S_BARO child type supports both V_PRESSURE and V_FORECAST value types. If you only send a V_PRESSURE value, an S_BARO entity with V_PRESSURE value will be set up for the sensor platform. However, the log will inform of a sensor platform that failed validation due to missing V_FORECAST value type for the S_BARO child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
+The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. Eg. the `S_BARO` child type supports both `V_PRESSURE` and `V_FORECAST` value types. If you only send a `V_PRESSURE` value, an `S_BARO` entity with `V_PRESSURE` value will be set up for the sensor platform. However, the log will inform of a sensor platform that failed validation due to missing `V_FORECAST` value type for the `S_BARO` child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
 
 Message validation was introduced in version 0.52 of Home Assistant.
 
 
-Visit the [library api][MySensors library api] of MySensors for more information.
+Visit the [library API][MySensors library api] of MySensors for more information.
 
-[MySensors library api]: http://www.mysensors.org/download
+[MySensors library API]: http://www.mysensors.org/download

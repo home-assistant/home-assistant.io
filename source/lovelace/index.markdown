@@ -28,7 +28,7 @@ The Lovelace UI is:
 </div>
 
 <p class='note warning'>
-If you're not using Chrome, please be sure to [read the FAQ](/lovelace/#faq) below.
+If you're not using Firefox 63+ or Chrome, please be sure to [read the FAQ](/lovelace/#faq) below.
 </p>
 
 ## {% linkable_title How it works %}
@@ -48,6 +48,25 @@ Visual comparison of old configuration versus new configuration
 
 Create a new file `<config>/ui-lovelace.yaml` and add the following content. Adjust the entity names to entities that exist in your Home Assistant installation.
 
+As a super minimal example, here's the bare minimum you will need for this to work:
+
+```yaml
+title: My Awesome Home
+views:
+    # View tab title.
+  - title: Example
+    panel: true
+    # Makes the first card fill the view
+    cards:
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+```
+
+A slightly more advanced example shows additional elements which can be used to customize your frontend.
+
 ```yaml
 title: My Awesome Home
 # Include external resources
@@ -65,7 +84,7 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
-    # Optional unique id for direct access /lovelace/${id}
+    # Unique id for direct access /lovelace/${id}. If you don't specify one, it is added automatically.
     id: example
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
@@ -74,7 +93,8 @@ views:
     # The cards to show on this view.
     cards:
         # The filter card will filter entities for their state
-      - type: entity-filter
+      - id: peoplehome # Every card needs an ID, if you don't specify one, it is added automatically.
+        type: entity-filter
         entities:
           - device_tracker.paulus
           - device_tracker.anne_there
@@ -116,6 +136,9 @@ views:
 
 Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
 
+## {% linkable_title IDs for cards and views %}
+Every card and view needs an ID, this is used to edit your config from the UI. If you don't specify an ID, Home Assistant will add one. If you don't want Home Assistant to write to your `ui-lovelace.yaml` file, make sure every view and card have an ID.
+
 ## {% linkable_title Setting Lovelace as the Default UI %}
 Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it.
 
@@ -133,7 +156,7 @@ This is the very very early version aimed at gathering feedback. Discussion and 
 
 ### {% linkable_title I am running Firefox but, custom cards like gauge-card look bad or don't load at all. How do I fix this? %}
 
-This is probably because your version of Firefox doesn't have custom components supported or enabled. Please set to `true` in your `about:config` the following settings: `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled`
+This is probably because your version of Firefox doesn't have custom components supported or enabled. Please upgrade to version 63 or higher, otherwise set `dom.webcomponents.customelements.enabled` and `dom.webcomponents.shadowdom.enabled` to `true` in `about:config`.
 
 ### {% linkable_title Custom cards don't load on my iOS device? %}
 

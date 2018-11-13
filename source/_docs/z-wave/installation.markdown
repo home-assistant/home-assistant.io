@@ -40,6 +40,10 @@ On Raspberry Pi you will need to enable the serial interface in the `raspi-confi
 
 ## {% linkable_title Configuration %}
 
+<P class='note'>
+You can also use the Z-Wave *Integration* in the *Configuration* menu to set up the Z-Wave component.
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 zwave:

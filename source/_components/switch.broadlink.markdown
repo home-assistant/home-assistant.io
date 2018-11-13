@@ -239,3 +239,47 @@ Not every code works.
 
 8. Convert the HEX codes to base64
 Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+
+### {% linkable_title Using iOS and Windows to Obtain Codes %}
+
+1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
+
+2. Install Requirements
+
+- Download and install Python 2.7 on your windows PC.
+- Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+- Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
+- Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
+
+3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
+
+4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
+
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g. C:\Python27. Now run the command python getBroadlinkSharedData.py, you should see something like this:
+```C:\Python27>python getBroadlinkSharedData.py
+ID: 1 | Name: TV
+ID: 2 | Name: Upstairs
+ID: 3 | Name: Sort in order
+ID: 4 | Name: Soundbar
+ID: 5 | Name: TV
+ID: 6 | Name: Xbox One
+ID: 7 | Name: User-Defined Aircon
+ID: 8 | Name: Sort in order
+ID: 9 | Name: User-Defined Aircon
+ID: 10 | Name: Kids Fan
+ID: 11 | Name: Downstairs
+ID: 12 | Name: Ceiling Fan
+ID: 13 | Name: Samsung TV
+ID: 14 | Name: Xbox One
+ID: 15 | Name: SONY SoundBar
+ID: 16 | Name: Fire TV
+ID: 17 | Name: New RF Remote
+```
+
+6. Select the remote ID you would like to extract:
+```Select accessory ID: 5
+[+] You selected:  TV
+[+] Dumping codes to TV.txt
+```
+
+7. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).

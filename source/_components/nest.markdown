@@ -70,53 +70,110 @@ structure:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### {% linkable_title Service `set_away_mode` %}
 
-Currently there is a single `nest.set_mode` service available to switch between
-"away" and "home" modes. This service requires a `home_mode` param and has an
-optional `structure` param. While setting "away" mode, an estimated arrival time
-can also be set with `eta`, `eta_window`, and `trip_id` parameters.
+You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
 
-- **home_mode** (*Required*): `home` or `away`
-- **structure** (*Optional*): Structure(s). Default apply to all structures connected with Home Assistant.
-- **eta** (*Optional*): Estimated Time of Arrival from now.
-- **eta_window** (*Optional*): ETA window (default is 1 minute).
-- **trip_id** (*Optional*): Unique ID for the trip. Using an existing trip ID will update that trip's ETA.
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `away_mode` | no | String, must be `away` or `home`.
+| `structure` | yes | String, will default to all configured Nest structures if not specified.
 
+Examples:
 
 ```yaml
 # Example script to set away, no structure specified so will execute for all
-set_nest_away:
-  sequence:
-    - service: nest.set_mode
-      data:
-        home_mode: away
+script:
+  nest_set_away:
+    sequence:
+      - service: nest.set_away_mode
+        data:
+          away_mode: away
 ```
 
 ```yaml
 # Example script to set home, structure specified
-set_nest_home:
-  sequence:
-    - service: nest.set_mode
-      data:
-        home_mode: home
-        structure:
-          - Building
+script:
+  nest_set_home:
+    sequence:
+      - service: nest.set_away_mode
+        data:
+          away_mode: home
+          structure:
+            - Apartment
+```
+
+### {% linkable_title Service `set_eta` %}
+
+You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `eta` | no | Time period, estimated time of arrival from now.
+| `eta_window` | yes | Time period, estimated time of arrival window. Default is 1 minute.
+| `trip_id` | yes | String, unique ID for the trip. Default is auto-generated using a timestamp. Using an existing `trip_id` will update that trip's ETA.
+| `structure` | yes | String, will default to all configured Nest structures if not specified.
+
+Examples:
+
+```yaml
+# Example script to set ETA, no structure specified so will execute for all
+script:
+  nest_set_eta:
+    sequence:
+      - service: nest.set_eta
+        data:
+          eta: 00:10:30
+          trip_id: Leave Work
 ```
 
 ```yaml
-# Example script to set eta, structure specified
-set_nest_eta:
-  sequence:
-    - service: nest.set_mode
-      data:
-        home_mode: away
-        structure:
-          - Building
-        eta: 00:10:30
-        eta_window: 00:05
+# Example script to update ETA and specify window, structure specified
+script:
+  nest_update_eta:
+    sequence:
+      - service: nest.set_eta
+        data:
+          eta: 00:11:00
+          eta_window: 00:05
+          trip_id: Leave Work
+          structure:
+            - Apartment
 ```
 
-{% linkable_title Troubleshooting %}
+### {% linkable_title Service `cancel_eta` %}
+
+You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `trip_id` | no | String, unique ID for the trip. Using an existing `trip_id` will update that trip's ETA.
+| `structure` | yes | String, will default to all configured Nest structures if not specified.
+
+Examples:
+
+```yaml
+# Example script to cancel ETA, no structure specified so will execute for all
+script:
+  nest_cancel_eta:
+    sequence:
+      - service: nest.cancel_eta
+        data:
+          trip_id: Leave Work
+```
+
+```yaml
+# Example script to cancel ETA, structure specified
+script:
+  nest_cancel_eta:
+    sequence:
+      - service: nest.cancel_eta
+        data:
+          trip_id: Leave Work
+          structure:
+            - Apartment
+```
+
+### {% linkable_title Troubleshooting %}
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.

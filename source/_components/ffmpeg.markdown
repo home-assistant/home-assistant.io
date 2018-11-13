@@ -35,11 +35,6 @@ ffmpeg_bin:
   required: false
   default: ffmpeg
   type: string
-run_test:
-  description: Check if `input` is usable by ffmpeg.
-  required: false
-  default: True
-  type: boolean
 {% endconfiguration %}
 
 ### {% linkable_title Raspbian Debian Jessie Lite Installations %}

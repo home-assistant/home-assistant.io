@@ -13,7 +13,6 @@ ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
-
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
 ## {% linkable_title Configuration %}
@@ -32,9 +31,8 @@ sensor:
      - data_used
 ```
 
-Configuration variables:
 {% configuration %}
-username: 
+username:
   description: Your Fido username (your Fido phone number or your email).
   required: true
   type: string
@@ -48,7 +46,7 @@ number:
   type: string
 monitored_variables:
   description: Variables to monitor.
-  required: true 
+  required: true
   type: list
   keys:
     fido_dollar:
