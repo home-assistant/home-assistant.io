@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: entur.svg
 ha_category: Transport
-ha_release: 0.81
+ha_release: 0.83
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -78,4 +78,4 @@ Now the web browser should contain an URL with the id in it. Such as this:
 
 `https://en-tur.no/nearby-stop-place-detail?id=NSR:StopPlace:32376`
 
-The stop id is the content after id= parameter in the url. Copy paste this into the configuration. 
+The stop id is the content after `id=` parameter in the url. Copy paste this into the configuration. 
