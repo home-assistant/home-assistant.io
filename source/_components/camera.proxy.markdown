@@ -49,7 +49,7 @@ max_image_width:
   required: false
   type: integer
 max_image_height:
-  description: The maximum height of single images taken from the camera, used for crop operations. If not provided, the original height is assumed by default.
+  description: The maximum height of single images taken from the camera, only used for crop operations. If not provided, the original height is assumed by default.
   required: false
   type: integer
 max_stream_width:
@@ -57,17 +57,19 @@ max_stream_width:
   required: false
   type: integer
 max_stream_height:
-  description: The maximum height of the MJPEG stream from the camera, used for crop operations. If not provided, the original height is assumed by default.
+  description: The maximum height of the MJPEG stream from the camera, only used for crop operations. If not provided, the original height is assumed by default.
   required: false
   type: integer
 image_top:
-  description: The top (y) coordinate to be used as starting point for crop operations. Defaults to 0.
+  description: The top (y) coordinate to be used as starting point for crop operations.
   required: false
   type: integer
+  default: 0
 image_left:
-  description: The left (x) coordinate to be used as starting point for crop operations. Defaults to 0.
+  description: The left (x) coordinate to be used as starting point for crop operations.
   required: false
   type: integer
+  default: 0
 image_quality:
   description: The quality level used for resulting JPEG for snapshots.
   required: false
@@ -94,7 +96,7 @@ cache_images:
 
 ## {% linkable_title Examples %}
 
-Example of using a Camera proxy along with a Foscam camera:
+Example of using two Camera proxies along with a Foscam camera:
 
 ```yaml
 camera:
@@ -110,6 +112,7 @@ camera:
     image_refresh_rate: 5.0
   - platform: proxy
     entity_id: camera.mycamera
+    name: My cropped camera
     mode: crop
     max_image_width: 480
     max_image_height: 320
