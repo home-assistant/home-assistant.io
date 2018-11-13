@@ -35,12 +35,17 @@ stop_ids:
   description: List of stop places or platforms to monitor departure times from.
   required: true
   type: list
+name:
+  description: Override parts of the sensor name. 
+  required: false
+  type: string
+  default: Entur
 expand_platforms:
   description: If additional sensors should be created for each platform under a stop place. 
   required: false
   type: boolean
   default: true
-add_to_map:
+show_on_map:
   description: If platform locations should be added to the sensor, and the map. 
   required: false
   type: boolean
@@ -53,8 +58,9 @@ add_to_map:
 # Example configuration.yaml entry
 sensor:
   - platform: entur_public_transport
+    name: Transport
     expand_platforms: true
-    add_to_map: true
+    show_on_map: true
     stop_ids:
       - 'NSR:StopPlace:548'   # Bergen train station
       - 'NSR:StopPlace:737'   # Trondheim airport
