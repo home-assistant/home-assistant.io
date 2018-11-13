@@ -13,13 +13,11 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `evohome` platform is the main component to set up and integrate all supported evohome devices.
+The `evohome` platform is the main component to set up and integrate all supported evohome Climate devices.
 
 It uses the [evohomeclient](https://pypi.org/project/evohomeclient/) client library and so will let you control (only) _EU-based_ [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) systems.
 
-Currently, only Controllers are supported; support for Heating zones and DHW controllers will be added at a later time.
-
-It is related to the [honeywell](/components/climate.honeywell/) climate component, which allows limited integration with evohome Heating zones.  These two components should be usuable side-by-side, but YMMV.
+Currently, only Controllers and Zones are supported; support for DHW controllers will be added at a later time. More information is available [evohome climate component](/components/climate.honeywell/) page.
 
 
 ## {% linkable_title Configuration %}
@@ -31,9 +29,9 @@ To use this component in your installation, add the following to your `configura
 evohome:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  location_idx: 0
+# location_idx: 0
 ```
-This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 3 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 5 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
 {% configuration %}
 username:
