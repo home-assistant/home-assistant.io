@@ -34,6 +34,15 @@ If you don't have the API key, you can generate an API key for deCONZ by using t
 
 You can manually add deCONZ by going to the integrations page.
 
+You can also generate the API key manually and then add the deconz entry manually to the configuration.yaml. Generating the API key manually is described in the [Deconz REST Wiki](http://dresden-elektronik.github.io/deconz-rest-doc/getting_started/).
+The IP address is usually the same as your raspberry pi's and the default port is 80. In the configuration.yaml add the deconz component, after that you should see the deconz in the frontend and all the devices added in deconz should appear automatically in Home-Assistant:
+```yaml
+deconz:
+  api_key: [yourAPIkey]
+  host: [yourDeconzIP]
+  port: 80
+```
+
 ## {% linkable_title Debugging component %}
 
 If you have problems with deCONZ or the component you can add debug prints to the log.
