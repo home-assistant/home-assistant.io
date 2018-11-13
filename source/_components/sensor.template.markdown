@@ -309,7 +309,7 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
-Note: If a template uses more than one sensor they can be listed
+Note: [Time & Date Sensors](https://www.home-assistant.io/components/sensor.time_date/) used as an update trigger must be configured. If a template uses more than one sensor they can be listed.
 
 
 The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
