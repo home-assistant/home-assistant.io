@@ -57,7 +57,7 @@ sensors:
     conductivity:
       description: Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
       required: false
-      type: string	
+      type: string
     brightness:
       description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
       required: false
@@ -97,7 +97,7 @@ min_brightness:
 max_brightness:
   description: Maximum brightness before triggering a problem.
   required: false
-  type: integer  
+  type: integer
 check_days:
   description: Time interval (in days) used when checking min_brightness.
   required: false
