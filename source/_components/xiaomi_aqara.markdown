@@ -51,6 +51,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Aqara Intelligent Air Conditioner Controller Hub (lumi.acpartner.v1)
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
+- Aqara HomeKit Gateway version(v3), as it is not supported by the Mi Home App, only the Aqara Home App.
 
 ## {% linkable_title Setup %}
 
