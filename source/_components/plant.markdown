@@ -32,26 +32,79 @@ plant:
     min_moisture: 20
 ```
 
-Configuration variables:
-
-- **entity_id** (*Required*): Set by you and is used by the component as the `entity_id`.
-  - **sensors** (*Required*): 
-    - **moisture** (*Optional*): Moisture of the plant. Measured in %. Can have a min and max value set optionally.
-    - **battery** (*Optional*): Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.
-    - **temperature:** (*Optional*): Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.
-    - **conductivity:** (*Optional*): Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
-    - **brightness:** (*Optional*): Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
-  - **min_moisture** (*Optional*): Minimum moisture level before triggering a problem. Typical value: 20
-  - **max_moisture** (*Optional*): Maximum moisture level before triggering a problem. Typical value: 60
-  - **min_battery** (*Optional*): Minimum battery level before triggering a problem. Typical value: 20
-  - **min_conductivity** (*Optional*): Minimum conductivity level before triggering a problem. Typical value: 500
-  - **max_conductivity** (*Optional*): Maximum conductivity level before triggering a problem. Typical value: 3000
-  - **min_temperature** (*Optional*): Minimum temperature before triggering a problem.
-  - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
-  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
-  - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
-  - **check_days** (*Optional*): time interval (in days) used when checking **min_brightness**, if not set, the default value is 3
-
+{% configuration %}
+entity_id:
+  description: Set by you and is used by the component as the `entity_id`.
+  required: true
+  type: string
+sensors:
+  description: List of sensor types.
+  required: true
+  type: list
+  keys:
+    moisture:
+	  description: Moisture of the plant. Measured in %. Can have a min and max value set optionally.
+	  required: false
+	  type: string
+	battery:
+	  description: Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.
+	  required: false
+	  type: string
+	temperature:
+	  description: Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.
+	  required: false
+	  type: string
+    conductivity:
+	  description: Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.
+	  required: false
+	  type: string	
+    brightness:
+	  description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
+	  required: false
+	  type: string
+min_moisture:
+  description: Minimum moisture level before triggering a problem. Typical value: 20
+  required: false
+  type: integer
+max_moisture:
+  description: Maximum moisture level before triggering a problem. Typical value: 60
+  required: false
+  type: integer
+min_battery:
+  description: Minimum battery level before triggering a problem. Typical value: 20
+  required: false
+  type: integer
+min_conductivity:
+  description: Minimum conductivity level before triggering a problem. Typical value: 500
+  required: false
+  type: integer
+max_conductivity:
+  description: Maximum conductivity level before triggering a problem. Typical value: 3000
+  required: false
+  type: integer
+min_temperature:
+  description: Minimum temperature before triggering a problem.
+  required: false
+  type: integer
+max_temperature:
+  description: Maximum temperature before triggering a problem.
+  required: false
+  type: integer
+min_brightness:
+  description: Minimum brightness before triggering a problem. In contrast to the other values, this check is not looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
+  required: false
+  type: integer
+max_brightness:
+  description: Maximum brightness before triggering a problem.
+  required: false
+  type: integer  
+check_days:
+  description: Time interval (in days) used when checking min_brightness.
+  required: false
+  type: integer
+  default: 3
+{% endconfiguration %}
+  
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
