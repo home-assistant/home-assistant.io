@@ -25,6 +25,13 @@ The sensors provided include:
  - Current Humidity Setpoint
  - Total system power (in Watts)
  - Furnace Mode
+ - Compressor Power
+ - Fan Power
+ - Aux Power
+ - Loop Pump Power
+ - Compressor Speed
+ - Fan Speed
+
 
 ## {% linkable_title Configuration %}
 
