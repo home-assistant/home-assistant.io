@@ -175,3 +175,4 @@ Plays a song, playlist, TV episode, or video on a connected client.
   ```
 
   If this occurs, check the setting `Server`>`Network`>`Secure connections` in your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+* Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
