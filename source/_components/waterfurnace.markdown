@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: waterfurnace.png
-ha_category: Irrigation
+ha_category: Sensor
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
@@ -25,6 +25,12 @@ The sensors provided include:
  - Current Humidity Setpoint
  - Total system power (in Watts)
  - Furnace Mode
+ - Compressor Power
+ - Fan Power
+ - Aux Power
+ - Loop Pump Power
+ - Compressor Speed
+ - Fan Speed
 
 ## {% linkable_title Configuration %}
 
