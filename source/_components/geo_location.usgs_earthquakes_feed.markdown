@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "USGS Earthquake Hazards Program"
+title: "USGS Earthquakes"
 description: "Instructions on how to integrate the U.S. Geological Survey Earthquake Hazards Program Feed feed into Home Assistant."
 date: 2018-11-05 08:00
 sidebar: true
@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.83"
 ---
 
-The `usgs_earthquake_hazards_program_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
+The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
@@ -34,7 +34,7 @@ To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the
 ```yaml
 # Example configuration.yaml entry
 geo_location:
-  - platform: usgs_earthquake_hazards_program_feed
+  - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
 ```
 
@@ -99,7 +99,7 @@ The following state attributes are available for each entity in addition to the 
 |--------------------|-------------|
 | latitude           | Latitude of the earthquake. |
 | longitude          | Longitude of the earthquake. |
-| source             | `usgs_earthquake_hazards_program_feed` to be used in conjunction with `geo_location` automation trigger. |
+| source             | `usgs_earthquakes_feed` to be used in conjunction with `geo_location` automation trigger. |
 | external_id        | The external ID used in the feed to identify the earthquake in the feed. |
 | place              | Textual description of named geographic region near to the event. |
 | magnitude          | Reported magnitude of the earthquake. |
