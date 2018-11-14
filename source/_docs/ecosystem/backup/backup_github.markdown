@@ -61,6 +61,7 @@ Here is an example that will ignore everything but your YAML configuration.
 *
 !*.yaml
 !.gitignore
+!*.md
 *.conf
 *.txt
 *.log
