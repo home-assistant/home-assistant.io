@@ -151,6 +151,13 @@ After Home Assistant has started, the entities specified by the filter are expos
 After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
 
 
+## {% linkable_title Move Home Assistant install %}
+
+If you like to retain your HomeKit pairing though a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
+
+Before you copy it, make sure to fully stop the old and new Home Assistant instances first, otherwise it won't work.
+
+
 ## {% linkable_title Considerations %}
 
 ### {% linkable_title Accessory ID %}
@@ -174,8 +181,8 @@ Depending on your individual setup, it might be necessary to disable `Auto Start
 
 If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
 
-<p class='note'
-Please remember that [as explained here][devices] you can only have a single `automation:` entry. Add the automation to your existing automations, or use `automation homekit:`
+<p class='note'>
+Please remember that you can only have a single `automation` entry. Add the automation to your existing automations.
 </p>
 
 {% raw %}
@@ -316,7 +323,18 @@ homekit:
 You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
 
 #### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) %}
-For `Docker` users: make sure to set `network_mode: host`. Other reasons could be network related. Make sure to check your router configuration. For some it helped when the Home Assistant device was using WIFI, not LAN. Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
+This is often setup and network related. Make sure to check the other issues below as well, but things that might work include:
+- Check your router configuration
+- Try with WIFI **and** LAN
+- Change the default [port](#port)
+
+Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker %}
+Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox %}
+Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
 #### {% linkable_title Pairing hangs - zeroconf error %}
 Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
@@ -324,14 +342,14 @@ Paining eventually fails, you might see and an error message `NonUniqueNameExcep
 #### {% linkable_title Pairing hangs - only works with debug config %}
 Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
 
+#### {% linkable_title Pairing hangs - no error %}
+Make sure that you don't try to add more then 100 accessories, see [device limit](#device-limit). In rare cases one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
+
 #### {% linkable_title Duplicate AID found when attempting to add accessory %}
 Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
 
 
 ### {% linkable_title Issues during normal use %}
-
-#### {% linkable_title Pairing hangs - no error %}
-Make sure that you don't try to add more then 100 accessories, see [device limit](#device-limit). In rare cases one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
 
 #### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
 See [disable auto start](#disable-auto-start)
@@ -356,5 +374,3 @@ Unfortunately that sometimes happens at the moment. It might help to close the `
 
 #### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
-
-[devices]: https://www.home-assistant.io/docs/configuration/devices/
