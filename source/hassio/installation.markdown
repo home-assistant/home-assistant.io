@@ -76,6 +76,7 @@ This is the list of packages you need to have available on your system that will
  - network-manager
  - socat
  - software-properties-common
+ - docker.io
 
 To perform the Hass.io installation, run the following command as root:
 
