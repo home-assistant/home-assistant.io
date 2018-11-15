@@ -53,3 +53,9 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
+
+### {% linkable_title Supported routers %}
+
+Only the routers with Freebox OS are supported :
+* Freebox V6 aka Freebox Revolution
+* Freebox mini 4k
