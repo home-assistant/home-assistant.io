@@ -19,7 +19,6 @@ It uses the [evohomeclient](https://pypi.org/project/evohomeclient/) client libr
 
 Currently, only Controllers and Zones are supported; support for DHW controllers will be added at a later time. More information is available [evohome climate component](/components/climate.honeywell/) page.
 
-
 ## {% linkable_title Configuration %}
 
 To use this component in your installation, add the following to your `configuration.yaml` file:
@@ -30,7 +29,8 @@ evohome:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
-This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 5 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+
+This is an IoT cloud-polling device, and the `scan_interval` is currently fixed at 5 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
 {% configuration %}
 username:
