@@ -12,6 +12,10 @@ redirect_from: /getting-started/securing/
 
 One major advantage of Home Assistant is that it's not dependent on cloud services. Even if you're only using Home Assistant on a local network, you should take steps to secure your instance.
 
+<p class='note'>
+In order to follow these steps you should have ssh access to your Home Assistant instance. When you have installed [Hass.io](/hassio/) via the [Getting Started](/getting-started/) guide you need to activate the [SSH server add-on](/addons/ssh/) (or alternatives) to get ssh access.
+</p>
+
 ## {% linkable_title Checklist %}
 
 Here's the summary of what you *must* do to secure your Home Assistant system:
