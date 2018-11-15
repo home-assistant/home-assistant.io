@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: waterfurnace.png
-ha_category: Irrigation
+ha_category: Sensor
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
