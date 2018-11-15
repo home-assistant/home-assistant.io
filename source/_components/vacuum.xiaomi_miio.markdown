@@ -13,7 +13,7 @@ ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
 Currently supported services are:
 
@@ -135,9 +135,9 @@ The following table shows the units of measurement for each attribute:
 
 <p class='note'>
 As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) is confirmed as working for the following Android methods. Using older version than 5.0.30 is not recommended as it might lack support for some newer devices like the Roborock S50.
-
-The iPhone app still stores the token in the sqlite db as of v4.7.18 (July 17, 2018).
-
+<br/> <br/>
+The iPhone app still stores the token in the sqlite db as of v4.9.1 (Nov 7, 2018).
+<br/> <br/>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
@@ -248,12 +248,12 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
-3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
+3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
 6. Search for a file that looks like this: `123456789_mihome.sqlite` – note that `_mihome.sqlite` is *not* the correct file.
 7. Save this file to your filesystem.
-8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
+8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
 11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"`
