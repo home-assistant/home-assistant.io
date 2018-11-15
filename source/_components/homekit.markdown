@@ -73,6 +73,11 @@ homekit:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
         type: string
+      safe_mode:
+        description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
+        required: false
+        type: boolean
+        default: false
       filter:
         description: Filters for entities to be included / excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
@@ -253,6 +258,24 @@ Filters are applied as follows:
       - if entity include and exclude, the entity exclude is ignored
 
 
+## {% linkable_title Safe Mode %}
+
+The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Paring hangs - zeroconf error](#pairing-hangs---zeroconf-error))
+
+To use `safe_mode`, add the option to your `homekit` config:
+```yaml
+homekit:
+  safe_mode: True
+```
+
+Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
+
+<p class="note warning">
+To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
+</p>
+
+
+
 ## {% linkable_title Supported Components %}
 
 The following components are currently supported:
@@ -319,7 +342,7 @@ You might have paired the `Home Assistant Bridge` already. If not, delete the `.
 For `Docker` users: make sure to set `network_mode: host`. Other reasons could be network related. Make sure to check your router configuration. For some it helped when the Home Assistant device was using WIFI, not LAN. Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
 
 #### {% linkable_title Pairing hangs - zeroconf error %}
-Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your config. See [safe_mode](#safe-mode)
 
 #### {% linkable_title Pairing hangs - only works with debug config %}
 Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
