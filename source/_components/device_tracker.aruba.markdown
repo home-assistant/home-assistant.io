@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Aruba"
-description: "Instructions on how to integrate Aruba routers into Home Assistant."
+description: "Instructions on how to integrate Aruba access points into Home Assistant."
 date: 2015-08-31 08:45
 sidebar: true
 comments: false
@@ -13,17 +13,18 @@ ha_release: 0.7
 ---
 
 
-This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device.
+This platform allows you to detect presence by looking at connected devices on Aruba wireless access points and controllers
 
 Supported devices (tested):
 
-- ARUBA AP-105
+- ARUBA IAP-105
+- Aruba 3400 Mobility Controller With AP-105s
 
 <p class='note warning'>
-This device tracker needs telnet to be enabled on the router.
+This device tracker needs SSH & telnet to be enabled on the router.
 </p>
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation for IAP's, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,6 +33,18 @@ device_tracker:
     host: YOUR_ROUTER_IP
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
+```
+
+To use this device tracker in your installation for Aruba Controllers, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: aruba
+    host: YOUR_ROUTER_IP
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
+    type: AP
 ```
 
 {% configuration %}
@@ -47,6 +60,10 @@ password:
   description: The password for your given admin account.
   required: true
   type: string
+type:
+  description: type of device that you want to connect to.
+  required: false
+  type: string  
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
