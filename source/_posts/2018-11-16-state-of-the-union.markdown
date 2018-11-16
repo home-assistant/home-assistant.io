@@ -27,7 +27,7 @@ Special thanks to:
  - Erik-Jan Riemers for co-organizing and making it this big
  - ING for hosting the event
  - Franck Nijhof for providing the Hass.io demos
- - Nicolaas Schoute for providing the TensorFlow demos
+ - Klaas Schoute for providing the TensorFlow demos
  - Frank Kuiper for editing the presentation video
 
 More photos after the click.
