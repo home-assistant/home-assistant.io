@@ -105,9 +105,9 @@ google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
   exposed_domains:
-    - SWITCH
-    - LIGHT
-    - GROUP
+    - switch
+    - light
+    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
