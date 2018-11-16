@@ -40,7 +40,6 @@ alarmdecoder:
       name: 'Smoke Detector'
       type: 'smoke'
       rfid: '0123456'
-      loop: 1
     02:
       name: 'Front Door'
       type: 'opening'
