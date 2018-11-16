@@ -38,4 +38,8 @@ name:
   required: false
   default: GPM Desktop Player
   type: string
+host_entity_id:
+  description: entity_id representing the device on which Google Play Music Desktop Player is running on
+  required: false
+  type: string
 {% endconfiguration %}
