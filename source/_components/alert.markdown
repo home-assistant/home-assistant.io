@@ -215,7 +215,7 @@ of the entity.
     repeat: 30
     can_acknowledge: True
     skip_first: True
-    message: "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})"
+    message: {% raw %} "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})" {% endraw %}
     done_message: Plant in office is fine
     notifiers:
       - ryans_phone
