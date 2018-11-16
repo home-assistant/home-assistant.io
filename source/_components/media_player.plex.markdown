@@ -43,7 +43,7 @@ media_player:
   - platform: plex
 ```
 
-In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
+In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `/config/plex.conf` manually.
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
