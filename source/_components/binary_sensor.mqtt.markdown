@@ -58,14 +58,16 @@ state_topic:
   required: true
   type: string
 payload_on:
-  description: The payload that represents the on state. If the value matches
-  payload_off, then the sensor will act as a toggle.
+  description: >
+    The payload that represents the on state. If the value matches
+    payload_off, then the sensor will act as a toggle.
   required: false
   type: string
   default: "ON"
 payload_off:
-  description: The payload that represents the off state. If the value matches
-  payload_on, then the sensor will act as a toggle.
+  description: >
+    The payload that represents the off state. If the value matches
+    payload_on, then the sensor will act as a toggle.
   required: false
   type: string
   default: "OFF"
