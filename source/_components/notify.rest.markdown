@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.13
 ---
 
-
 The `rest` notification platform allows you to deliver [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) notifications from Home Assistant to another party.
 
 To enable the REST notification in your installation, add the following to your `configuration.yaml` file:
@@ -25,17 +24,46 @@ notify:
     resource: http://IP_ADDRESS/ENDPOINT
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **resource** (*Required*): The resource or endpoint that will receive the value.
-- **method** (*Optional*): The method of the request. Default is `GET`. Other valid options are `POST` or `POST_JSON`.
-- **headers** (*Optional*): The headers for the request.
-- **message_param_name** (*Optional*): Parameter name for the message. Defaults to `message`.
-- **title_param_name** (*Optional*): Parameter name for the title. Defaults to none.
-- **target_param_name** (*Optional*): Parameter name for the target. Defaults to none.
-- **data** (*Optional*): Dictionary of extra parameters to send to the resource.
-- **data_template** (*Optional*): Template dictionary of extra parameters to send to the resource.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+resource:
+  description: The resource or endpoint that will receive the value.
+  required: true
+  type: string
+method:
+  description: The method of the request. Valid options are `GET`, `POST` or `POST_JSON`.
+  required: false
+  default: GET
+  type: string
+headers:
+  description: The headers for the request.
+  required: false
+  type: string
+message_param_name:
+  description: Parameter name for the message.
+  required: false
+  default: message
+  type: string
+title_param_name:
+  description: Parameter name for the title.
+  required: false
+  type: string
+target_param_name:
+  description: Parameter name for the target.
+  required: false
+  type: string
+data:
+  description: Dictionary of extra parameters to send to the resource.
+  required: false
+  type: string
+data_template:
+  description: Template dictionary of extra parameters to send to the resource.
+  required: false
+  type: template
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
