@@ -14,31 +14,25 @@ ha_release: 0.65
 ---
 
 
-Integrate your [Sense](https://sense.com) meter information into Home Assistant. 
+Integrate your [Sense](https://sense.com) electricity meter information into Home Assistant. 
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: sense
+sense:
   email: CLIENT_ID
   password: CLIENT_SECRET
-  monitored_conditions:
-    - active_usage
-    - active_production
-    - daily_usage
-    - daily_production
 ```
 
-Two types of sensors can be monitored and will be created with the following names:
+In addidition to binary sensors for individual devices, two types of sensors will be created with the following names:
 
-- **Active Usage/Production**: Current active power usage/production in Watts. Updated every 30 seconds.
-- **Daily Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
+- **Active Usage/Production**: Current active power usage/production in Watts. Updated every 1 minute.
+- **Daily/Weekly/Monthly/Yearly Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
 
-Weekly, Monthly and Yearly variants are also available.
+
 
 {% configuration %}
 email:
@@ -49,29 +43,19 @@ password:
   description: The password for your Sense account/application.
   required: true
   type: string
-monitored_conditions:
-  description: List of sensors to display in the front end.
-  required: true
-  type: list
-  keys:
-    active_usage:
-      description: The current power usage in W.
-    active_production:
-      description: The current solar production in W.
-    daily_usage:
-      description: Total power used for current day in kWh.
-    daily_production:
-      description: Total power produced for current day in kWh.
-    weekly_usage:
-      description: Total power used for current week in kWh.
-    weekly_production:
-      description: Total power produced for current week in kWh.
-    monthly_usage:
-      description: Total power used for current month in kWh.
-    monthly_production:
-      description: Total power produced for current month in kWh.
-    yearly_usage:
-      description: Total power used for current year in kWh.
-    yearly_production:
-      description: Total power produced for current year in kWh.
+timeout:
+  description: Timeout for the connection in seconds.
+  required: false
+  default: 5
+  type: integar
 {% endconfiguration %}
+
+Full example:
+
+```yaml
+# Example configuration.yaml entry
+sense:
+  email: CLIENT_ID
+  password: CLIENT_SECRET
+  timeout: 5
+```
