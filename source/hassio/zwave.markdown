@@ -18,7 +18,7 @@ zwave:
 
 ### {% linkable_title RAZBERRY BOARD %}
 
-If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly; simply plug it into your PC and edit it there. The 'config.txt' is not accessible from Ubuntu, you may need to open the SD Card in windows.):
+If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Linux system, you may need to open the SD card on a Windows system.):
 
 ```
 dtoverlay=pi3-miniuart-bt
@@ -44,7 +44,7 @@ zha:
 
 ### {% linkable_title Finding the path %}
 
-If the above defaults don't work, you can check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
+If the above defaults don't work, you can check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
 
 ```bash
 $ hassio hardware info
