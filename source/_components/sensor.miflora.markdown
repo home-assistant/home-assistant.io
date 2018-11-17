@@ -15,19 +15,21 @@ ha_iot_class: "Local Polling"
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
 
-Note: there are "Chinese" and "International" versions available and some user [reported](https://community.home-assistant.io/t/miflora-showing-data-unknown/19550/8) that only the International worked for him.
+There are "Chinese" and "International" versions available and there is a [report](https://community.home-assistant.io/t/miflora-showing-data-unknown/19550/8) that only the "International" works.
 
-# Install Bluetooth Backend
+## {% linkable_title Install a Bluetooth Backend %}
+
 Before configuring Home Assistant you need a Bluetooth backend and the MAC address of your sensor. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
 - On [Hass.io](/hassio/installation/): Miflora will work out of the box.
 - On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
-    - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
-    - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
+  - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
+  - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
 - On Windows and MacOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
 
-# Scan for MAC address
+## {% linkable_title Scan for devices %}
+
 Start a scan to determine the MAC addresses of the sensor (you can identify your sensor by looking for `Flower care` or `Flower mate` entries) using this command:
 
 ```bash
@@ -50,7 +52,8 @@ $ bluetoothctl
 
 If you can't use `hcitool` or `bluetoothctl` but have access to an Android phone you can try `BLE Scanner` or similar scanner applications from the Play Store to easily find your sensor MAC address. If you are using Windows 10, try the `Microsoft Bluetooth LE Explorer` app from the Windows Store.
 
-# Configure
+## {% linkable_title Configuration %}
+
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -105,6 +108,8 @@ adapter:
 <p class='note warning'>
 By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
 </p>
+
+## {% linkable_title Full example %}
 
 A full configuration example could look like the one below:
 
