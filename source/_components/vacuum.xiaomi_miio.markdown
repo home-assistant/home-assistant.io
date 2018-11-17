@@ -267,3 +267,28 @@ To fetch the token follow these instructions depending on your mobile phone plat
 2. Install [BlueStacks](https://www.bluestacks.com).
 3. Set up the Mi-Home app in BlueStacks and login to synchronize devices.
 4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
+
+#### {% linkable_title Selecting token manually (Windows and Android)%}
+
+The following instruction explained an alternativ way, if MiToolKit didn't work.
+  Software Required:
+- Android ADB is contained in [Android SDK](https://developer.android.com/studio/releases/platform-tools)
+- [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
+- [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
+- [SQLite Browser](https://sqlitebrowser.org/)
+1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device
+2. Open MiHome, log-in and add your devices
+3. Enable USB-Debugging on your Android
+4. Create a backup from your MiHome App, by using adb
+	```bash
+	adb backup com.xiaomi.smarthome
+	```
+	Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
+5. Extract the backup-file with android-backup-extractor
+	```bash
+	java -jar abe.jar unpack backup.ab backup.tar
+	```
+	After that, you kann open the file with WinRaR or what ever you like.
+6. Go to \apps\com.xiaomi.smarthome\db
+7. Open miio2.db with SQLite Browser
+8. You can find your device tokens in "devicerecord" table
