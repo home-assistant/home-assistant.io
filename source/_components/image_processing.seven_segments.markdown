@@ -44,21 +44,65 @@ image_processing:
       - entity_id: camera.seven_segments
 ```
 
-Configuration variables:
-
-- **ssocr_bin** (*Optional*): The command line tool `ssocr`. Set it if you use a different name for the executable. Defaults to `ssocr`.
-- **x_position** (*Optional*): X coordinate of the upper left corner of the area to crop. Defaults to `0`.
-- **y_position** (*Optional*):  Y coordinate of the upper left corner of the area to crop. Defaults to `0`.
-- **height** (*Optional*): Height of the area to crop. Defaults to `0`.
-- **width** (*Optional*): Width of the area to crop. Defaults to `0`.
-- **rotate** (*Optional*): Rotation of the image. Defaults to `0`.
-- **threshold** (*Optional*): Threshold for the difference between the digits and the background. Defaults to `0`.
-- **digits** (*Optional*): Number of digits in the display. Defaults to `-1`.
-- **extra_arguments** (*Optional*): Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
-- **source** array (*Required*): List of image sources.
-  - **entity_id** (*Required*): A camera entity id to get picture from.
-  - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
-
+{% configuration %}
+ssocr_bin:
+  description: The command line tool `ssocr`. Set it if you use a different name for the executable.
+  required: false
+  default: ssocr
+  type: string
+x_position:
+  description: X coordinate of the upper left corner of the area to crop.
+  required: false
+  default: 0
+  type: integer
+y_position:
+  description: Y coordinate of the upper left corner of the area to crop.
+  required: false
+  default: 0
+  type: integer
+height:
+  description: Height of the area to crop.
+  required: false
+  default: 0
+  type: integer
+width:
+  description: Width of the area to crop.
+  required: false
+  default: 0
+  type: integer
+rotate:
+  description: Rotation of the image.
+  required: false
+  default: 0
+  type: integer
+threshold:
+  description: Threshold for the difference between the digits and the background.
+  required: false
+  default: 0
+  type: integer
+digits:
+  description: Number of digits in the display.
+  required: false
+  default: -1
+  type: integer
+extra_arguments:
+  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
+  required: false
+  type: string
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your `image_processing` entity.
+      required: false
+      type: string
+{% endconfiguration %}
 
 ### {% linkable_title Setup process %}
 
@@ -94,6 +138,7 @@ image_processing:
 With the help of a [template sensor](/components/sensor.template/), the value can be shown as badge.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -103,4 +148,5 @@ sensor:
         friendly_name: 'Ampere'
         unit_of_measurement: 'A'
 ```
+
 {% endraw %}
