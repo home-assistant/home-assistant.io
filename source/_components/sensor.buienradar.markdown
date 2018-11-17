@@ -69,23 +69,23 @@ monitored_conditions:
     humidity:
       description: The relative humidity (%).
     temperature:
-      description: The current temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
+      description: "The current temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     groundtemperature:
-      description: The current ground temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
+      description: "The current ground temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     windspeed:
-      description: The wind speed in [m/s](https://en.wikipedia.org/wiki/M/s).
+      description: "The wind speed in [m/s](https://en.wikipedia.org/wiki/M/s)."
     windforce:
-      description: The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale).
+      description: "The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)."
     winddirection:
-      description: Where the wind is coming from: N (North),Z (south), NO (North-East), etc.
+      description: "Where the wind is coming from: N (North),Z (south), NO (North-East), etc."
     windazimuth:
       description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
     pressure:
-      description: The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal).
+      description: "The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal)."
     visibility:
-      description: Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre)).
+      description: "Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre))."
     windgust:
-      description: The wind speed of wind gusts ([m/s](https://en.wikipedia.org/wiki/M/s)).
+      description: "The wind speed of wind gusts ([m/s](https://en.wikipedia.org/wiki/M/s))."
     precipitation:
       description: The amount of precipitation/rain in mm/h.
     precipitation_forecast_average:
@@ -93,21 +93,21 @@ monitored_conditions:
     precipitation_forecast_total:
       description: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
     irradiance:
-      description: Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2)).
+      description: "Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))."
     temperature_1d:
-      description: The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
+      description: "The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     mintemp_1d:
-      description: The forecasted minimum temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
+      description: "The forecasted minimum temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     rainchance_1d:
       description: The forecasted chance for rain (%).
     sunchance_1d:
       description: The forecasted chance for sun (%).
     rain_1d:
-      description: The forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre).
+      description: "The forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimetre)."
     snow_1d:
-      description: The forecasted amount of snow in [cm](https://en.wikipedia.org/wiki/Centimetre).
+      description: "The forecasted amount of snow in [cm](https://en.wikipedia.org/wiki/Centimetre)."
     windforce_1d:
-      description: The expected windforce in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale).
+      description: "The expected windforce in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)."
     conditioncode_1d:
       description: Symbol and condition code of the expected condition.
     condition_1d:
