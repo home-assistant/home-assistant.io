@@ -53,9 +53,12 @@ You may also manually load the `ios` component by adding the following to your c
 ios:
 ```
 
-Configuration variables:
-
-- **push** (*Optional*): Actionable push notifications configuration. See the [actionable notifications documentation][actionable-notifications] for more information.
+{% configuration %}
+push:
+  description: Actionable push notifications configuration. See the [actionable notifications documentation][actionable-notifications] for more information.
+  required: false
+  type: list
+{% endconfiguration %}
 
 [discovery]: /components/discovery
 [device-tracker]: /components/device_tracker
