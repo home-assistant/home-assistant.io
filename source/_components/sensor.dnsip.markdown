@@ -34,7 +34,7 @@ sensor:
 hostname:
   description: The hostname for which to perform the DNS query.
   required: false
-  default: "`myip.opendns.com`" (special hostname that resolves to your public IP)
+  default: "`myip.opendns.com` (special hostname that resolves to your public IP)"
   type: string
 name:
   description: Name of the sensor.
