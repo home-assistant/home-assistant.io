@@ -13,6 +13,12 @@ ha_category: Notifications
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
+## {% linkable_title Setup %}
+
+You need an [API key](https://app.sendgrid.com/settings/api_keys) from SendGrid.
+
+## {% linkable_title Configuration %}
+
 To enable notification emails via SendGrid in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -32,15 +38,15 @@ name:
   default: notify
   type: string
 api_key:
-  description: SendGrid API key - https://app.sendgrid.com/settings/api_keys
+  description: Your SendGrid API key.
   required: true
   type: string
 sender:
-  description: E-mail address of the sender.
+  description: The e-mail address of the sender.
   required: true
   type: string
 recipient:
-  description: Recipient of the notification.
+  description: The recipient of the notification.
   required: true
   type: string
 {% endconfiguration %}
