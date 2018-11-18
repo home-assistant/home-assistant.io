@@ -15,7 +15,7 @@ ha_qa_scale: internal
 ---
 
 The light switch platform lets you control an existing switch, allowing you
-to use a switch a likes a light in Home Assistant.
+to use a switch like a light in Home Assistant.
 
 In Home Assistant's world, a wall plug is a switch. This platform allows you
 to expose this switch as a light source, allowing you to add, e.g., the wall
