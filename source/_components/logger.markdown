@@ -67,7 +67,7 @@ logger:
 
 ### {% linkable_title Log Levels %}
 
-Possible log severity levels are:
+Possible log severity levels. listed in order from most severe to least severe, are:
 
 - critical
 - fatal
