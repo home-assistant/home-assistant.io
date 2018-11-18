@@ -25,11 +25,24 @@ notify:
     recipient: YOUR_RECIPIENT
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): SendGrid API key - https://app.sendgrid.com/settings/api_keys
-- **sender** (*Required*): E-mail address of the sender.
-- **recipient** (*Required*): Recipient of the notification.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+api_key:
+  description: SendGrid API key - https://app.sendgrid.com/settings/api_keys
+  required: true
+  type: string
+sender:
+  description: E-mail address of the sender.
+  required: true
+  type: string
+recipient:
+  description: Recipient of the notification.
+  required: true
+  type: string
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
