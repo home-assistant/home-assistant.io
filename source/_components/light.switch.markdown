@@ -28,8 +28,7 @@ To enable this platform in your installation, add the following to your
 light:
   - platform: switch
     name: Christmas Tree Lights
-    entities:
-      - switch.christmas_tree_lights
+    entity_id: switch.christmas_tree_lights
 ```
 
 {% configuration %}
