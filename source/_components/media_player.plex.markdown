@@ -43,7 +43,7 @@ media_player:
   - platform: plex
 ```
 
-In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `/config/plex.conf` manually.
+In case [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can create the   `plex.conf` manually and placed it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io.
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
