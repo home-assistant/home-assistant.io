@@ -31,7 +31,7 @@ ihc:
     username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
     info: true 
-    sensor:
+    sensors:
       - id: 12345
         name: Temperatur_living_room
         unit_of_measurement: '°C'
