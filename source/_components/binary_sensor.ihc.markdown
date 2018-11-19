@@ -34,7 +34,6 @@ insert this section in your IHC configuration :
 
 
 ```yaml
-```yaml
 # Example configuration.yaml entry
 ihc:
   - url: 'http://192.168.1.3'
@@ -78,16 +77,17 @@ binary_sensors:
         for available types.
       required: false
       type: string
-    note:
-      description: Note about the sensor
+   note:
+      description: Descriptive note
       required: false
       type: string
       default: false
     position
-      description: Position of the sensor
+      description: Where is it placed 
       required: false
       type: string
-      default: false
+      default: false      
+
     
 {% endconfiguration %}
 
