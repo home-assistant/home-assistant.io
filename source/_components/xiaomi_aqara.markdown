@@ -207,7 +207,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Let a dog bark on long press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
@@ -221,7 +221,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Stop barking immediately on single click
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
@@ -239,7 +239,7 @@ This example toggles the living room lamp on a double click of the button.
 - alias: Double Click to toggle living room lamp
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
