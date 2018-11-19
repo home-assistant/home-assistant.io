@@ -37,6 +37,31 @@ automation 2:
       notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
       message: '{{ trigger.payload }}'
+      
+automation 3:
+  trigger:
+    # Multiple Entities for which you want to perform the same action.
+    - platform: state
+      entity_id:
+        - light.bedroom_closet
+      to: 'on'
+      # Trigger when someone leaves the closet light on for 10 minutes.
+      for: '00:10:00'
+    - platform: state
+      entity_id:
+        - light.kiddos_closet
+      to: 'on'
+      for: '00:10:00'
+    - platform: state
+      entity_id:
+        - light.linen_closet
+      to: 'on'
+      for: '00:10:00'
+  action:
+    - service: light.turn_off
+      data_template:
+        # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
+        entity_id: "{{ trigger.entity_id }}"
 ```
 {% endraw %}
 
