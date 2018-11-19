@@ -2,13 +2,14 @@
 layout: page
 title: "Minut Point Binary Sensor"
 description: "Access your Minut Point Events as binary sensors."
-date: 2018-10-30
+date: 2018-11-19
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: minut.svg
 ha_category: Binary Sensor
+ha_release: 0.83
 ha_iot_class: "Cloud Push"
 ---
 
