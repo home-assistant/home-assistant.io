@@ -34,7 +34,7 @@ The following will take you through the steps required to install Hass.io.
    - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
    - Load the appliance image into your virtual machine software.
 
-3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+3. Optional - set up the WiFi or static IP: On a USB stick, create the `CONFIG/network/my-network` file and follow the [HassOS howto][hassos-network].
 
 4. For image based installs insert the SD card (and optional USB stick) into the device.
 
