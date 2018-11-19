@@ -38,6 +38,7 @@ ihc:
     info: true 
     lights:
       - id: 12345
+        name: tablelight
       - id: 23432
 ```
 
