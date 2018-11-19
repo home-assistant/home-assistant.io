@@ -61,6 +61,16 @@ lights:
       required: false
       type: boolean
       default: false
+    note:
+      description: Descriptive note
+      required: false
+      type: string
+      default: false
+    position
+      description: Where is it placed 
+      required: false
+      type: string
+      default: false      
 {% endconfiguration %}
 
 In the example above 12345 is ihc resource id and "tablelight" is the name.
