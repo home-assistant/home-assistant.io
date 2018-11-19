@@ -30,10 +30,12 @@ To add Dark Sky to your installation, add the following to your `configuration.y
 sensor:
   - platform: darksky
     api_key: YOUR_API_KEY
+    forecast:
+      - 0
     monitored_conditions:
       - summary
       - icon
-      - nearest_storm_distance
+      - temperature
 ```
 
 {% configuration %}
@@ -47,7 +49,7 @@ name:
   default: Dark Sky
   type: string
 forecast:
-  description: List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
+  description: List of days in the 7 day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>`.
   required: false
   type: list
 language:
@@ -71,27 +73,29 @@ monitored_conditions:
   type: list
   keys:
     summary:
-      description: A human-readable text summary of the current conditions.
+      description: A human-readable text summary.
+    icon:
+      description: A machine-readable text summary, suitable for selecting an icon for display. See [Dark Sky API documentation][] for the list of possible values.
     precip_type:
-      description: The type of precipitation occurring.
+      description: The type of precipitation occurring at the given time. If `precip_intensity` is zero, then this property will be `unknown`. See [Dark Sky API documentation][] for the list of possible values.
     precip_intensity:
-      description: The average expected intensity of precipitation occurring.
+      description: The intensity of precipitation occurring at the given time. This value is conditional on probability (that is, assuming any precipitation occurs at all).
     precip_probability:
-      description: A value between 0 and 1 which is representing the probability of precipitation.
+      description: The probability of precipitation occuring, in percents.
     precip_accumulation:
-      description: Daily snow accumulation. Returns unknown if no snow accumulation available.
+      description: The amount of snowfall accumulation expected to occur. If no snowfall is expected, this property will be `undefined`.
     temperature:
-      description: The current temperature.
+      description: The air temperature.
     apparent_temperature:
-      description: A numerical value representing the apparent (or "feels like") temperature.
+      description: The apparent (or "feels like") temperature.
     dew_point:
       description: The dew point.
     wind_speed:
       description: The wind speed.
     wind_gust:
-      description: The wind gust.
+      description: The wind gust speed.
     wind_bearing:
-      description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
+      description: The direction that the wind is coming **from** in degrees, with true north at 0° and progressing clockwise. If `wind_speed` is 0, then this value is `unknown`.
     cloud_cover:
       description: The percentage of sky occluded by clouds.
     humidity:
@@ -101,29 +105,33 @@ monitored_conditions:
     visibility:
       description: The average visibility.
     ozone:
-      description: The columnar density of total atmospheric ozone in Dobson.
+      description: The columnar density of total atmospheric ozone at the given time in Dobson units.
     minutely_summary:
       description: A human-readable text summary for the next hour.
     hourly_summary:
-      description: A human-readable text summary for the next 24 hours.
+      description: A human-readable text summary for the next two days.
     daily_summary:
-      description: A human-readable text summary for the next 7 days.
+      description: A human-readable text summary for the next week.
     temperature_high:
-      description: Today's daytime expected high temperature.
+      description: The daytime high temperature.
     temperature_low:
-      description: Today's overnight expected low temperature.
+      description: The overnight low temperature.
     apparent_temperature_high:
-      description: Today's daytime expected apparent high temperature.
+      description: The daytime high apparent temperature.
     apparent_temperature_low:
-      description: Today's overnight expected apparent low temperature.
+      description: The overnight low apparent temperature.
     precip_intensity_max:
-      description: Today's expected maximum intensity of precipitation.
+      description: The maximum value of `precip_intensity` during a given day.
     uv_index:
-      description: The current UV index.
+      description: The UV index.
     moon_phase:
-      description: The fractional part of the lunation number during the given day.
+      description: "The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon."
+    nearest_storm_distance:
+      description: The approximate distance to the nearest storm in miles.
+    nearest_storm_bearing:
+      description: The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
 units:
-  description: Specify the unit system. Valid options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`. `auto` will let Dark Sky decide the unit system based on location.
+  description: Specify the unit system. Valid options are `auto`, `us`, `si`, `ca` and `uk2`. `auto` will let Dark Sky decide the unit system based on location.
   required: false
   default: "`si` or `us`, based on the temperature preference in Home Assistant."
   type: string
@@ -196,4 +204,6 @@ All language options are described in this table that you can use for the dark s
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
 </p>
 
-Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).
+More details about the API are available in the [Dark Sky API documentation][].
+
+[Dark Sky API documentation]: https://darksky.net/dev/docs
