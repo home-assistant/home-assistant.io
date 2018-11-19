@@ -179,7 +179,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off)
+- fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
