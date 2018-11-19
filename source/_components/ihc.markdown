@@ -23,14 +23,11 @@ the following options:
 ```yaml
 # Example configuration.yaml entry
 ihc:
-  url: 'http://192.168.1.3'
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  info: true
-   
-  # For a setup with two controllers the secondary can be configured similary
-  secondary: 
-    url: 'http://192.168.1.4'
+  - url: 'http://192.168.1.3'
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    info: true 
+  - url: 'http://192.168.1.4'
     username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
     info: true 
@@ -58,9 +55,6 @@ username:
   description: The username for the IHC Controller.
   required: true
   type: string
-secondary:
-  description: If the IHC system consists of two controllers a secondary can be added under this node and configured similar to the primary.
-  required: false
 {% endconfiguration %}
 
 There is currently support for the following device types within Home Assistant:
