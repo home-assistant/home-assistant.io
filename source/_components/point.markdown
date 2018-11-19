@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 
 The Point component is the main component to integrate the [Minut Point](https://minut.se/). To connect Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` using the `callback url`  as `base_url` + `/api/minut` eg. `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below. 
 
-Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link when you follow the link and have clicked on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configures and you can go back to the original dialog and press **Submit**.
+Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link when you follow the link and have clicked on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
 ### {% linkable_title Configuration %}
 
