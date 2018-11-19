@@ -46,17 +46,28 @@ sensor:
       - air_quality
 ```
 
-
-Configuration variables:
-
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored.
-  - **captured_today**: Return the number of videos captured on the current day.
-  - **last_capture**: Return the timestamp from the last video captured by your Arlo camera.
-  - **total_cameras**: Return the number of recognized and active cameras linked on your Arlo account.
-  - **battery_level**: Return the battery level of your Arlo camera.
-  - **signal_strength**: Return the wireless signal strength of your Arlo camera.
-  - **temperature**: Return the ambient temperature detected by your Arlo Baby camera.
-  - **humidity**: Return the ambient relative humidity detected by your Arlo Baby camera.
-  - **air_quality**: Return the ambient air quality (a reading of volatile organic compounds (VOCs) in parts per million) detected by your Arlo Baby camera.
+{% configuration %}
+monitored_conditions:
+  description: Conditions to display in the frontend. The following conditions can be monitored.
+  required: false
+  type: list
+  keys:
+    captured_today:
+      description: Return the number of videos captured on the current day.
+    last_capture:
+      description: Return the timestamp from the last video captured by your Arlo camera.
+    total_cameras:
+      description: Return the number of recognized and active cameras linked on your Arlo account.
+    battery_level:
+      description: Return the battery level of your Arlo camera.
+    signal_strength:
+      description: Return the wireless signal strength of your Arlo camera.
+    temperature:
+      description: Return the ambient temperature detected by your Arlo Baby camera.
+    humidity:
+      description: Return the ambient relative humidity detected by your Arlo Baby camera.
+    air_quality:
+      description: Return the ambient air quality (a reading of volatile organic compounds (VOCs) in parts per million) detected by your Arlo Baby camera.
+{% endconfiguration %}
 
 If no **monitored_conditions** are specified, all of above will be enabled by default.

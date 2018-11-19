@@ -38,6 +38,48 @@ And we have one more thing… we have soft-forked Open Z-Wave and have added sup
 - Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) (new-platform)
 - TensorFlow image_processing component ([@hunterjm] - [#17795]) ([image_processing.tensorflow docs]) (new-platform)
 
+## {% linkable_title Release 0.82.1 - November 15 %}
+
+- catch key error when saving image ([@hunterjm] - [#18365]) ([image_processing.tensorflow docs])
+- Fix hangouts notify ([@MartinHjelmare] - [#18372]) ([notify docs])
+- Fix including from sub dir ([@bramkragten] - [#18378])
+- Fix default value for optional Sense configuration parameter ([@claytonjn] - [#18379]) ([sense docs])
+- cancel off_delay action ([@dgomes] - [#18389]) ([binary_sensor.mqtt docs])
+- Changed checking of cover state closed from 0 to closed_position variable. ([@pszafer] - [#18407]) ([cover.mqtt docs])
+- updated pydaikin version ([@fredrike] - [#18413]) ([daikin docs]) ([climate.daikin docs])
+- edp_redy: increase UPDATE_INTERVAL ([@abmantis] - [#18429]) ([edp_redy docs])
+- Update pyozw to 0.1.1 ([@pvizeli] - [#18436]) ([zwave docs])
+- Fix AsusWRT ([@kennedyshead] - [#18400])
+
+[#18365]: https://github.com/home-assistant/home-assistant/pull/18365
+[#18372]: https://github.com/home-assistant/home-assistant/pull/18372
+[#18378]: https://github.com/home-assistant/home-assistant/pull/18378
+[#18379]: https://github.com/home-assistant/home-assistant/pull/18379
+[#18389]: https://github.com/home-assistant/home-assistant/pull/18389
+[#18407]: https://github.com/home-assistant/home-assistant/pull/18407
+[#18413]: https://github.com/home-assistant/home-assistant/pull/18413
+[#18429]: https://github.com/home-assistant/home-assistant/pull/18429
+[#18436]: https://github.com/home-assistant/home-assistant/pull/18436
+[#18400]: https://github.com/home-assistant/home-assistant/pull/18400
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@abmantis]: https://github.com/abmantis
+[@bramkragten]: https://github.com/bramkragten
+[@claytonjn]: https://github.com/claytonjn
+[@dgomes]: https://github.com/dgomes
+[@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
+[@pszafer]: https://github.com/pszafer
+[@pvizeli]: https://github.com/pvizeli
+[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
+[climate.daikin docs]: /components/climate.daikin/
+[cover.mqtt docs]: /components/cover.mqtt/
+[daikin docs]: /components/daikin/
+[edp_redy docs]: /components/edp_redy/
+[image_processing.tensorflow docs]: /components/image_processing.tensorflow/
+[notify docs]: /components/notify/
+[sense docs]: /components/sense/
+[zwave docs]: /components/zwave/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

@@ -244,3 +244,41 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
 - Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
+
+Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
+
+- Configuration topic: `homeassistant/climate/livingroom/config`
+- Configuration payload:
+
+```yaml
+{
+  "name":"Livingroom",
+  "dev_cla":"climate",
+  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
+  "mode_stat_t":"homeassistant/climate/livingroom/state",
+  "mode_stat_tpl":"{{value_json.mode}}",
+  "avty_t":"homeassistant/climate/livingroom/available",
+  "pl_avail":"online",
+  "pl_not_avail":"offline",
+  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
+  "temp_stat_t":"homeassistant/climate/livingroom/state",
+  "temp_stat_tpl":"{{value_json.target_temp}}",
+  "curr_temp_t":"homeassistant/climate/livingroom/state",
+  "current_temperature_template":"{{value_json.current_temp}}",
+  "min_temp":"15",
+  "max_temp":"25",
+  "temp_step":"0.5",
+  "modes":["off", "heat"]
+}
+```
+
+- State topic: `homeassistant/climate/livingroom/state`
+- State payload:
+
+```yaml
+{
+  "mode":"off",
+  "target_temp":"21.50",
+  "current_temp":"23.60",
+}
+```

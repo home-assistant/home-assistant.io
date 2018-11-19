@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: pre 0.7
 ---
 
-
 The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.
 
 To enable syslog notifications in your installation, add the following to your `configuration.yaml` file:
@@ -24,12 +23,28 @@ notify:
     platform: syslog
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **facility** (*Optional*): Facility according to RFC 3164 (http://tools.ietf.org/html/rfc3164). Default is 'syslog' if no value is given. Check the table below for entries.
-- **option** (*Optional*): Log option. Default is 'pid' if no value is given. Check the table below for entries.
-- **priority** (*Optional*): Priority of the messages. Default is 'info' if no value is given. Check the table below for entries.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+facility:
+  description: Facility according to RFC 3164 (http://tools.ietf.org/html/rfc3164). Check the table below for entries.
+  required: false
+  default: syslog
+  type: string
+option:
+  description: Log option. Check the table below for entries.
+  required: false
+  default: pid
+  type: string
+priority:
+  description: Priority of the messages. Check the table below for entries.
+  required: false
+  default: info
+  type: string
+{% endconfiguration %}
 
 The table contains values to use in your `configuration.yaml` file.
 

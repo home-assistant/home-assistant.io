@@ -25,11 +25,13 @@ To enable `discovery` in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 discoverable:
-  expose_password: yes
+  expose_password: true
 ```
 
-
-Configuration variables:
-
-- **expose_password** (*Optional*): It is up to the user to expose the password in the discovery response (Default: off). If password not exposed, uHA instances will have to provide it (`get_instance('my password')`).
-
+{% configuration %}
+expose_password:
+  description: It is up to the user to expose the password in the discovery response. If password not exposed, uHA instances will have to provide it (`get_instance('my password')`).
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
