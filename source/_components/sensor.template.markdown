@@ -14,15 +14,11 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform supports sensors which break out `state_attributes` from other entities.
-
-<p class='note'>
-If you do not supply an `entity_id` in the configuration you will need to run the service `homeassistant.update_entity` to update the sensor.
-</p>
+The `template` platform supports sensors which get their values from other entities.
 
 ## {% linkable_title Configuration %}
 
-To enable Template Sensors in your installation, add the following to your `configuration.yaml` file:
+The configuration of Template Sensors depends on what you want them to be. Adding the following to your `configuration.yaml` file will create two sensors, one for the current sun angle and one for the time of the next sunrise:
 
 {% raw %}
 ```yaml
@@ -55,7 +51,7 @@ sensor:
         required: false
         type: template
       entity_id:
-        description: The template engine will attempt to work out what entities should trigger an update of the sensor. If this fails to get the correct list (for example if your template loops over the contents of a group) then you can provide a list of entity IDs that will cause the sensor to update.
+        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: string, list
       unit_of_measurement:
@@ -84,8 +80,14 @@ sensor:
 
 ## {% linkable_title Considerations %}
 
+### Startup
+
 If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
+### Entity IDs
+
+The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example if your template loops over the contents of a group. In this case you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
 
 ## {% linkable_title Examples %}
 
@@ -128,26 +130,6 @@ sensor:
 ```
 {% endraw %}
 
-Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
-
-{% raw %}
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      glances:
-        friendly_name: "Glances"
-        value_template: >-
-          {% if is_state('sensor.process_glances', 'on') %}
-            running
-          {% else %}
-            not running
-          {% endif %}
-```
-{% endraw %}
-
-The [Template Binary Sensor](/components/binary_sensor.template/) is the one in similar cases if you prefer to see an icon instead of text.
-
 ### {% linkable_title Multiline Example With an `if` Test %}
 
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
@@ -169,9 +151,6 @@ sensor:
           {% else %}
             failed
           {% endif %}
-
-      next_sensor:
-        ...
 ```
 {% endraw %}
 
@@ -250,27 +229,6 @@ sensor:
 
 ### {% linkable_title Change the Friendly Name Used in the Frontend %}
 
-This example shows how to change the `friendly_name` based on a date.
-Explanation: We add a multiple of 86400 seconds (= 1 day) to the current unix timestamp to get a future date.
-
-{% raw %}
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      forecast_1_day_ahead:
-        friendly_name_template: >-
-          {%- set date = as_timestamp(now()) + (1 * 86400 ) -%}
-          {{ date|timestamp_custom("Tomorrow (%-m/%-d)") }}
-        value_template: "{{ sensor.darksky_weather_forecast_1 }}"
-      forecast_2_days_ahead:
-        friendly_name_template: >-
-          {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
-          {{ date|timestamp_custom("%A (%-m/%-d)") }}
-        value_template: "{{ sensor.darksky_weather_forecast_2 }}"
-```
-{% endraw %}
-
 This example shows how to change the `friendly_name` based on a state.
 
 {% raw %}
@@ -290,9 +248,11 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Working with dates %}
+### {% linkable_title Working without entities %}
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sensor.date`.
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
+
+This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) to get a daily update:
 
 {% raw %}
 ```yaml
@@ -309,17 +269,25 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
-Note: [Time & Date Sensors](https://www.home-assistant.io/components/sensor.time_date/) used as an update trigger, must be configured. If a template uses more than one sensor they can be listed.
-
-The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
+An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}
 ```yaml
+sensor:
+- platform: template
+  sensors:
+    nonsmoker:
+      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+      entity_id: []
+      friendly_name: 'Not smoking'
+      unit_of_measurement: "Days"
+
 automation:
   - alias: 'nonsmoker_update'
     trigger:
       - platform: time
-        minutes: '/1'
+        minutes: '/5'
+        seconds: 0
     action:
       - service: homeassistant.update_entity
         entity_id: sensor.nonsmoker
