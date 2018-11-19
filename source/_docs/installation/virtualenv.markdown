@@ -65,6 +65,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     $ python3 -m pip install --upgrade homeassistant
     ```
  5. Start Home Assistant
+ 6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
 
 ### {% linkable_title Notes %}
 
