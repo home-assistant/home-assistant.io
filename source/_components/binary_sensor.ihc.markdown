@@ -30,7 +30,7 @@ be found in the IHC project and setup as binary sensors:
 ## {% linkable_title Manual configuration %}
 
 To manually configure IHC Binary Sensors
-insert this section in your IHC configuration :
+insert the "binary_sensors" section in your IHC configuration:
 
 
 ```yaml
@@ -40,7 +40,7 @@ ihc:
     username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
     info: true 
-    binary_sensor:
+    binary_sensors:
       12345: 
         name: switch_front_door
         inverting: false
