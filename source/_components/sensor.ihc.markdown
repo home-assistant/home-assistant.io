@@ -23,7 +23,8 @@ project and setup as sensors:
 - Dataline Humidity - Will insert 1 humidity and 2 temperature sensors (calculated dewpoint)
 - Dataline Lux - will insert 1 light and 1 temperature sensor
 
-To manually configure IHC sensors insert this section in your IHC configuration :
+To manually configure IHC sensors insert the "sensors"
+section in your IHC configuration:
 
 ```yaml
 ihc:
