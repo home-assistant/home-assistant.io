@@ -23,7 +23,7 @@ To add Météo-France to your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: meteo_france
-    postal_code: 76000
+    postal_code: '76000'
     monitored_conditions:
       - temperature
       - weather

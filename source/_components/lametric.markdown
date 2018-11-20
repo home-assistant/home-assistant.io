@@ -26,3 +26,20 @@ lametric:
   client_id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
   client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
+
+## {% linkable_title Setup Steps %}
+
+LaMetric needs an OAuth2 `client_id` and `client_secret` from the LaMetric developer portal to use it with Home Assistant.
+These are the steps to take:
+
+1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
+2. Hit the Create button and choose [Notification](https://developer.lametric.com/applications/createsource).
+3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
+  * App Name: Home Assistant 
+  * Description: Home Assistant
+  * Privacy Policy: http://localhost/
+  * Check all permission boxes
+  * Hit Save
+4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources), click on "Home Assistant", copy your client ID and client Secret and paste into the Home Assistant configuration block in the previous section.
+5. Set up some notifications in Home Assistant by following the instructions on the [Lametric Notify](/components/notify.lametric) page.
+6. Save all configuration files and restart Home Assistant.

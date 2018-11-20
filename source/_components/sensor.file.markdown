@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.45
 ---
 
-
 The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
 ## {% linkable_title Configuration %}
@@ -27,12 +26,25 @@ sensor:
     file_path: /home/user/.homeassistant/sensor-data.txt
 ```
 
-Configuration variables:
-
-- **file_path** (*Required*): path to file that stores the sensor data.
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `File`.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+{% configuration %}
+file_path:
+  description: Path to file that stores the sensor data.
+  required: true
+  type: string
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  default: file name
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+  required: false
+  type: template
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -59,4 +71,3 @@ sensor:
     value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
     unit_of_measurement: '°C'
 ```
-

@@ -13,7 +13,6 @@ ha_release: 0.35
 ha_iot_class: "Local Push"
 ---
 
-
 The `sensehat` sensor platform allows you to display information collected by a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) add-on board for Raspberry Pi.
 
 ## {% linkable_title Configuration %}
@@ -30,21 +29,37 @@ sensor:
       - pressure
 ```
 
-Configuration variables:
+{% configuration %}
+display_options:
+  description: List of details to monitor.
+  required: true
+  default: "`memory_free`"
+  type: list
+  keys:
+    temperature:
+      description: Temperature
+    humidity:
+      description: Humidity
+    pressure:
+      description: Pressure
+name:
+  description: Change the name of te sensor, for in the frontend.
+  required: false
+  type: string
+is_hat_attached:
+  description: Declaring that the SenseHAT _is_ physically on the Raspberry Pi.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
-- **display_options** (*Requires*) array: List of details to monitor. Defaults is `memory_free`.
-  - 'temperature'
-  - 'humidity'
-  - 'pressure'
-  is_hat_attached (Optional): True|False boolean; Default value is True declaring that the SenseHAT _is_ physically on the Raspberry Pi
-
-
-#### Customizing the Sense HAT data
+#### {% linkable_title Customizing the Sense HAT data %}
 
 **Format the sensor values**
 Add the following to your `sensor`:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -66,6 +81,7 @@ sensor:
         value_template: '{{ states.sensor.humidity.state | round(1) }}'
         unit_of_measurement: '%'
 ```
+
 {% endraw %}
 
 **Give the values friendly names & icons**
@@ -98,7 +114,9 @@ group:
       - sensor.sensehat_humidity
       - sensor.sensehat_pressure
 ```
-Add the _sense_hat group_ a group (_Kitchen for example_)
+
+Add the sense_hat group (_Kitchen for example_)
+
 ```yaml
 # Example configuration.yaml entry
 group:
@@ -106,12 +124,11 @@ group:
     - group.sense_hat
 ```
 
-
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
+### {% linkable_title Directions for installing on Raspberry Pi All-In-One installer and HASSbian: %}
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
-#### Install SenseHAT package to _homeassistant_venv_
+#### {% linkable_title Install SenseHAT package to _homeassistant_venv_ %}
 
 ```bash
 # switch to the homeassistant_venv environment
@@ -123,13 +140,13 @@ pip3 install sense-hat
 # be patient, this will take a long while
 ```
 
-#### Return to `pi`
+#### {% linkable_title Return to `pi` %}
 
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
 As all of the following steps should be under the `pi` user environment.
 
-###### Install _RTIMU_
+#### {% linkable_title Install _RTIMU_ %}
 
 ```bash
 # pi user environment: Install RTIMU

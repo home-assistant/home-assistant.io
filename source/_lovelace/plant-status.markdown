@@ -20,7 +20,7 @@ Screenshot of the plant status card.
 {% configuration %}
 type:
   required: true
-  description: picture-status
+  description: plant-status
   type: string
 entity:
   required: true

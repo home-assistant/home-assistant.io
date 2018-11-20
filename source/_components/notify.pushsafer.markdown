@@ -26,15 +26,21 @@ notify:
     private_key: YOUR_KEY
 ```
 
-**Configuration variables:**
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **private_key** (*Required*): Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+private_key:
+  description: Your private or alias key. Private key = send the notification to all devices with standard params, alias key send the notification to the devices stored in the alias with predefined params.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Examples %}
 
 Message to two devices with formatted text.
-
 
 ```yaml
 action:
