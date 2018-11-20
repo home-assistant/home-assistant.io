@@ -10,9 +10,9 @@ footer: true
 logo: fibaro.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.82
+ha_release: 0.83
 ---
 
 The `fibaro` platform allows you to get data from your [Fibaro](http://fibaro.com/) binary sensors connected to your Fibaro HCL or HC2 from within Home Assistant.
 
-They will be automatically discovered if the fibaro component is loaded.
+They will be automatically discovered if the `fibaro` component is loaded.
