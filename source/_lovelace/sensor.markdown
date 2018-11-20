@@ -56,11 +56,11 @@ line_color:
   required: false
   description: Color of the line stroke
   type: string
-accuracy:
+detail:
   required: false
-  description: Amount of data points on the graph
+  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
   type: integer
-  default: 10
+  default: 1
 hours_to_show:
   required: false
   description: Hours to show in graph
