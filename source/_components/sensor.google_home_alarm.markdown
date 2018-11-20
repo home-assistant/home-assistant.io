@@ -2,7 +2,7 @@
 layout: page
 title: "Google Home Alarm"
 description: "Instructions on how to integrate a BH1750 light sensor into Home Assistant."
-date: 2018-19-11 00:00
+date: 2018-11-19 00:00
 sidebar: true
 comments: false
 sharing: true
