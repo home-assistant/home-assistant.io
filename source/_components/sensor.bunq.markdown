@@ -10,7 +10,7 @@ footer: true
 logo: bunq.jpg
 ha_category: Finance
 featured: false
-ha_release: "0.81"
+ha_release: "0.83"
 ha_iot_class: "Cloud Polling"
 ---
 
