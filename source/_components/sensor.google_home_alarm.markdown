@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Home Alarm"
-description: "Instructions on how to integrate a BH1750 light sensor into Home Assistant."
+description: "Instructions on how to integrate a Google Home alarm sensor into Home Assistant."
 date: 2018-11-19 00:00
 sidebar: true
 comments: false
@@ -25,7 +25,6 @@ sensor:
     monitored_conditions:
       - 'alarm'
       - 'timer'
-    display_options: 'time_date'
     host: 192.168.0.xxx
 ```
 
@@ -43,21 +42,5 @@ monitored_conditions:
       description: The next alarm.
     timer:
       description: The next timer.
-display_options:
-  description: The display mode of the reported state.
-  required: false
-  type: string
-  default: 'time'
 
 {% endconfiguration %}
-
-Please note that ```display_options``` can only accept:
-
-```
-'time'
-'date'
-'date_time'
-'time_date'
-'time_utc'
-'beat'
-```
