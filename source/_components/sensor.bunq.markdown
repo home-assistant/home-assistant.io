@@ -23,11 +23,11 @@ You can find more information about Bunq Bank at [their website](https://www.bun
 
 ## {% linkable_title API Key %}
 
-Once you have your own Bunq bank account you will need to create an API key, there are restriction on that for specific types of Bunq accounts, at least for Premium and Pack users this is available. 
+Once you have your Bunq bank account you will need to create an API key, there are restriction on that for specific types of Bunq accounts, at least for Premium and Pack users this is available. 
 1. Go to your Profile in the app
 2. Go to Security & Settings
 3. Go to Developers
-4. Click Api Keys
+4. Click API Keys
 5. Add API Key
 6. Read and agree to the API Terms & Conditions
 7. Click on the newly created Unassigned API Key
