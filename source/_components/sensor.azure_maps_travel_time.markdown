@@ -2,7 +2,7 @@
 layout: page
 title: "Azure Maps Travel Time"
 description: "Instructions on how to add Azure Maps travel time to Home Assistant."
-date: 2016-03-28 10:19
+date: 2018-11-20 18:10
 sidebar: true
 comments: false
 sharing: true
