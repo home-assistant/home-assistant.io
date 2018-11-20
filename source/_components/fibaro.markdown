@@ -9,12 +9,13 @@ sharing: true
 footer: true
 logo: fibaro.png
 ha_category: Hub
-ha_release: 0.82
+ha_release: 0.83
+ha_iot_class: "Local Push"
 ---
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Switches, Lights (inc Dimmers), Locks, Sensors, Binary sensors, Coverss are supported - and will be automatically added when HA connects to your Fibaro controller.
+Switches, Lights (including Dimmers), Locks, Sensors, Binary sensors and Covers are supported - and will be automatically added when HA connects to your Fibaro controller.
 
 ## {% linkable_title Configuration %}
 
@@ -25,21 +26,31 @@ fibaro:
   url: http://192.168.1.161/api/
   username: your_username
   password: your_password
+  plugins: true or false (default false)
 ```
 
 {% configuration %}
 url:
-  description: The URL for your Fibaro device.
+  description: The URL for your Fibaro HomeCenter device.
+  required: true
+  type: url
+username:
+  description: The username for your Fibaro account.
   required: true
   type: string
+password:
+  description: The password for your Fibaro account.
+  required: true
+  type: string
+plugins:
+  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc. Default is false.
+  required: false
+  type: bool
 {% endconfiguration %}
 
 <p class='note'>
-  It is recommended to assign a static IP address to your Fibaro Controller. This ensures that it won't change IP addresses, so you won't have to change the `url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
+  It is recommended to assign a static IP address to your Fibaro Controller. This ensures that it won't change IP addresses, so you won't have to change the 'url' if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
 </p>
-
-### {% linkable_title Configure devices %}
-
 
 ### {% linkable_title Using Z-Wave devices in automation %}
 
