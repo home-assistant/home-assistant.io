@@ -58,12 +58,12 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: `more-info`, `toggle`, `call-service`
+  description: Action to perform when clicked (`more-info`, `toggle`, `call-service`)
   type: string
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
+  description: Action to perform when clicked-and-held (`more-info`, `toggle`, `call-service`).
   type: string
   default: none
 service:
