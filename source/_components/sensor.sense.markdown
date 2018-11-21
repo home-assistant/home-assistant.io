@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.65
 ---
 
-
 Integrate your [Sense](https://sense.com) electricity meter information into Home Assistant. 
 
 ## {% linkable_title Configuration %}
@@ -27,12 +26,10 @@ sense:
   password: CLIENT_SECRET
 ```
 
-In addidition to binary sensors for individual devices, two types of sensors will be created with the following names:
+In addition to binary sensors for individual devices, two types of sensors will be created with the following names:
 
 - **Active Usage/Production**: Current active power usage/production in Watts. Updated every 1 minute.
 - **Daily/Weekly/Monthly/Yearly Usage/Production**: Daily power usage/production in kWh. Updated every 5 minutes.
-
-
 
 {% configuration %}
 email:
@@ -47,7 +44,7 @@ timeout:
   description: Timeout for the connection in seconds.
   required: false
   default: 5
-  type: integar
+  type: integer
 {% endconfiguration %}
 
 Full example:
