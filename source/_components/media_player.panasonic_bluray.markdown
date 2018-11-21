@@ -26,7 +26,6 @@ Currently known supported models:
 
 If your model is not on the list, then give it a try, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/current/source/_components/media_player.panasonic_bluray.markdown).
 
-
 Example configuration:
 
 ```yaml
