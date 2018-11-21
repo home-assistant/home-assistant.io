@@ -10,6 +10,7 @@ footer: true
 logo: panasonic.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
+ha_release: 0.83
 ---
 
 The `panasonic_bluray` platform allows you to control a Panasonic Blu-Ray player. Note that the device must be on the same subnet as Home Assistant; connections from a different subnet will return an error.
@@ -23,7 +24,16 @@ Currently known supported models:
 - DMP-BDT500
 - DMP-BBT01
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_bluray.markdown).
+If your model is not on the list, then give it a try, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/current/source/_components/media_player.panasonic_bluray.markdown).
+
+
+Example configuration:
+
+```yaml
+media_player:
+  - platform: panasonic_bluray
+    host: 192.168.0.10
+```
 
 {% configuration %}
 host:
