@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: qbittorrent.png
 ha_category: Downloading
 ha_release: 0.83
 ha_iot_class: "Local Polling"
@@ -21,12 +22,12 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 sensor:
   - platform: qbittorrent
     url: 'http://<hostname>:<port>'
-    username: "<your username>"
-    password: "<your password>"
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 This sensor requires the qBittorrent Web UI enabled.
-The [official reference](https://github.com/qbittorrent/qBittorrent/wiki#webui-related) describes how to set up the Web UI
+The [official reference](https://github.com/qbittorrent/qBittorrent/wiki#webui-related) describes how to set up the Web UI.
 
 {% configuration %}
 url:
