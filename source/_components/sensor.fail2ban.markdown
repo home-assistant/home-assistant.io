@@ -28,6 +28,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: fail2ban
+    scan_interval: 60
     jails:
       - ssh
       - hass-iptables
@@ -38,6 +39,10 @@ jails:
   description: List of configured jails you want to display.
   required: true
   type: list
+scan_interval:
+  description: Fail2ban query interval.
+  required: true
+  type: int
 name:
   description: Name of the sensor.
   required: false
