@@ -26,7 +26,6 @@ fibaro:
   url: http://192.168.1.161/api/
   username: your_username
   password: your_password
-  plugins: true or false (default false)
 ```
 
 {% configuration %}
